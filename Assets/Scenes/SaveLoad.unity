@@ -992,7 +992,7 @@ RectTransform:
   m_GameObject: {fileID: 239931695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0666643, y: 1.0666643, z: 1.0666643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405897794}
   m_RootOrder: 0
@@ -4947,8 +4947,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ExitYes
+      - m_Target: {fileID: 1417182470}
+        m_MethodName: TapButtonYes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6504,8 +6504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ExitNo
+      - m_Target: {fileID: 1417182470}
+        m_MethodName: TapButtonNo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -254,6 +254,10 @@ public class SaveLoad : MotherBase
         return;
       }
     }
+    else
+    {
+      if ((this.txtSender).text == String.Empty) { return; }
+    }
 
     this.back_SystemMessage.SetActive(true);
     StartCoroutine(WaitOnly());
@@ -292,6 +296,8 @@ public class SaveLoad : MotherBase
           break;
         }
       }
+
+      this.Filter.SetActive(true);
       ExecSave(this.txtSender, targetFileName, this.forceSave);
       this.forceSave = false;
     }
@@ -314,6 +320,26 @@ public class SaveLoad : MotherBase
       ExecLoad(this.txtSender, targetFileName, false); // 後編移動
     }
     this.currentPhase = CurrentPhase.Complete;
+  }
+
+  public void TapButtonYes()
+  {
+    groupYesnoSystemMessage.SetActive(false);
+    HideAllChild();
+    this.systemMessage.text = MESSAGE_NOWLOADING;
+    this.pbSandglass.sprite = this.imageSandglass;
+    this.back_SystemMessage.SetActive(true);
+    this.Filter.SetActive(true);
+
+    this.forceSave = true;
+    StartCoroutine(WaitOnly());
+  }
+
+  public void TapButtonNo()
+  {
+    HideAllChild();
+    this.currentSaveText = null;
+    this.currentTargetFileName = string.Empty;
   }
 
   public void ExitYes()
@@ -500,6 +526,31 @@ public class SaveLoad : MotherBase
     finally
     {
       xmlWriter.Close();
+
+      if ((Text)sender != null) // if 後編追加
+      {
+        ((Text)sender).text = DateTime.Now.ToString() + "\r\n経過日数：" + One.TF.GameDay.ToString("D3") + "日 ";
+        // todo
+        ((Text)sender).text += archiveAreaString + "1" + archiveAreaString2;
+
+        if (!((Text)sender).Equals(buttonText[0])) back_button[0].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[1])) back_button[1].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[2])) back_button[2].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[3])) back_button[3].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[4])) back_button[4].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[5])) back_button[5].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[6])) back_button[6].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[7])) back_button[7].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[8])) back_button[8].GetComponent<Image>().sprite = null;
+        if (!((Text)sender).Equals(buttonText[9])) back_button[9].GetComponent<Image>().sprite = null;
+        for (int ii = 0; ii < buttonText.Length; ii++)
+        {
+          if (sender.Equals(buttonText[ii]))
+          {
+            back_button[ii].GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.SAVELOAD_NEW);
+          }
+        }
+      }
     }
 
     // セーブデータをサーバーへ転送する。
@@ -1138,6 +1189,7 @@ public class SaveLoad : MotherBase
       this.back_SystemMessage.SetActive(true);
       this.autoKillTimer = 0;
       this.nowAutoKill = true;
+      this.Filter.SetActive(true);
     }
     Debug.Log("ExecLoad end");
   }
@@ -1150,6 +1202,11 @@ public class SaveLoad : MotherBase
     this.Filter.SetActive(false);
     this.currentPhase = CurrentPhase.None;
     this.systemMessage.text = "";
+
+    if (this.nowAutoKill)
+    {
+      tapExit();
+    }
   }
 
   public void tapExit()
