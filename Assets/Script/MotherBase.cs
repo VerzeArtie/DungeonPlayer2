@@ -19,7 +19,7 @@ public class MotherBase : MonoBehaviour
   {
     // 何もなし
   }
-  
+
   public virtual void SceneBack()
   {
     if (this.Filter != null)

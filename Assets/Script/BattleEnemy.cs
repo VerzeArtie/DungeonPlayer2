@@ -131,28 +131,50 @@ public partial class BattleEnemy : MotherBase
     // キャラクターを生成する。
     int counter = 0;
     List<Character> playerList = new List<Character>();
-    if (One.TF.AvailableEinWolence) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableLanaAmiria) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableEoneFulnea) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableMagiZelkis) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableSelmoiRo) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableKartinMai) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableJedaArus) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableSinikiaVeilhanz) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableAdelBrigandy) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableLeneColtos) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailablePermaWaramy) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableKiltJorju) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableBillyRaki) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableAnnaHamilton) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableCalmansOhn) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableSunYu) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableShuvaltzFlore) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableRvelZelkis) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableVanHehgustel) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableOhryuGenma) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableLadaMystorus) { playerList.Add(One.Characters[counter]); } counter++;
-    if (One.TF.AvailableSinOscurete) { playerList.Add(One.Characters[counter]); } counter++;
+    if (One.TF.AvailableEinWolence) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableLanaAmiria) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableEoneFulnea) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableMagiZelkis) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableSelmoiRo) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableKartinMai) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableJedaArus) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableSinikiaVeilhanz) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableAdelBrigandy) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableLeneColtos) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailablePermaWaramy) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableKiltJorju) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableBillyRaki) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableAnnaHamilton) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableCalmansOhn) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableSunYu) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableShuvaltzFlore) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableRvelZelkis) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableVanHehgustel) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableOhryuGenma) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableLadaMystorus) { playerList.Add(One.Characters[counter]); }
+    counter++;
+    if (One.TF.AvailableSinOscurete) { playerList.Add(One.Characters[counter]); }
+    counter++;
 
     for (int ii = 0; ii < playerList.Count; ii++)
     {

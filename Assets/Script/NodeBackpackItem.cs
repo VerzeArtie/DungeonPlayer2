@@ -8,9 +8,9 @@ using UnityEngine.UI;
 
 public class NodeBackpackItem : MonoBehaviour
 {
-    public Image imgIcon;
-    public Text txtName;
-    public Image background;
+  public Image imgIcon;
+  public Text txtName;
+  public Image background;
 
   public void Construct(GameObject content, string item_name, int num)
   {

@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class NodeShopItem : MonoBehaviour
 {
-    public Image imgbackground;
-    public Text txtName;
-    public Image imgItem;
-    public Image imgSelect;
+  public Image imgbackground;
+  public Text txtName;
+  public Image imgItem;
+  public Image imgSelect;
 }

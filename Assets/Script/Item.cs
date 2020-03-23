@@ -450,7 +450,7 @@ public partial class Item
       if (this._itemType == ItemTypes.Light_Armor) { return "軽装"; }
       if (this._itemType == ItemTypes.Accessory) { return "アクセサリ"; }
       if (this._itemType == ItemTypes.Artifact) { return "アーティファクト"; }
-      if (this._itemType == ItemTypes.Potion) {return "ポーション"; }
+      if (this._itemType == ItemTypes.Potion) { return "ポーション"; }
       if (this._itemType == ItemTypes.EventItem) { return "貴重品"; }
 
       return "売却専用品";

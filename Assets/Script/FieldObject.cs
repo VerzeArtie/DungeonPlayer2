@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class FieldObject : MonoBehaviour
 {
-    public enum Content
-    {
-        None = 0,
-        Treasure,
-        Boss,
-    }
+  public enum Content
+  {
+    None = 0,
+    Treasure,
+    Boss,
+  }
 
-    public Content content = Content.None;
+  public Content content = Content.None;
 }

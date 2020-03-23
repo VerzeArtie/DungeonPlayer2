@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class NodeActionPanel : MonoBehaviour
 {
-    public Text txtCurrentPlayerName;
-    public Image imgBackGauge;
-    public Image imgCurrentPlayerActionButton;
+  public Text txtCurrentPlayerName;
+  public Image imgBackGauge;
+  public Image imgCurrentPlayerActionButton;
 }

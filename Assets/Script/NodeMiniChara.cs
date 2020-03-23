@@ -8,5 +8,5 @@ using UnityEngine.UI;
 
 public class NodeMiniChara : MonoBehaviour
 {
-    public Text txtName;
+  public Text txtName;
 }

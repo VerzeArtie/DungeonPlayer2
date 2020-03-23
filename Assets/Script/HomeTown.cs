@@ -426,7 +426,7 @@ public partial class HomeTown : MotherBase
     GroupCharacterDetail.CurrentPlayer = this.CurrentPlayer;
     GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
   }
-    
+
   public void TapACAttributeButton(Text sender)
   {
     Debug.Log("sender: " + sender.text);
@@ -700,7 +700,7 @@ public partial class HomeTown : MotherBase
   /// </summary>
   private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int num)
   {
-    Instantiate(node).Construct(content,item_name, num);
+    Instantiate(node).Construct(content, item_name, num);
   }
 
   private void CreateACAttribute(GameObject content, NodeACAttribute node, int num)
@@ -1023,7 +1023,7 @@ public partial class HomeTown : MotherBase
   {
     this.CurrentSelectBackpack = new Item(txt_item.text);
   }
-    
+
   public void TapBackpackUse()
   {
   }
@@ -1202,5 +1202,3 @@ public partial class HomeTown : MotherBase
 
   }
 }
-
-

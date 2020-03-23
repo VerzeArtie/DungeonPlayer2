@@ -585,28 +585,50 @@ public static class One
     // debug-end
 
     int playerCounter = 0;
-    if (One.TF.AvailableEinWolence) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableLanaAmiria) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableEoneFulnea) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableMagiZelkis) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableSelmoiRo) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableKartinMai) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableJedaArus) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableSinikiaVeilhanz) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableAdelBrigandy) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableLeneColtos) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailablePermaWaramy) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableKiltJorju) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableBillyRaki) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableAnnaHamilton) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableCalmansOhn) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableSunYu) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableShuvaltzFlore) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableRvelZelkis) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableVanHehgustel) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableOhryuGenma) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableLadaMystorus) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
-    if (One.TF.AvailableSinOscurete) { PlayerList.Add(One._characters[playerCounter]); } playerCounter++;
+    if (One.TF.AvailableEinWolence) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableLanaAmiria) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableEoneFulnea) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableMagiZelkis) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableSelmoiRo) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableKartinMai) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableJedaArus) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableSinikiaVeilhanz) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableAdelBrigandy) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableLeneColtos) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailablePermaWaramy) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableKiltJorju) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableBillyRaki) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableAnnaHamilton) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableCalmansOhn) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableSunYu) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableShuvaltzFlore) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableRvelZelkis) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableVanHehgustel) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableOhryuGenma) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableLadaMystorus) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
+    if (One.TF.AvailableSinOscurete) { PlayerList.Add(One._characters[playerCounter]); }
+    playerCounter++;
 
     for (int ii = 0; ii < _characters.Count; ii++)
     {

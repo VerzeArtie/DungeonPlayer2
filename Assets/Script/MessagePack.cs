@@ -338,11 +338,11 @@ public static class MessagePack
 
     //Message(ref m_list, ref e_list, "アイン：オーケー！じゃあ、ショップに寄ってから出発とするか！", ActionEvent.None);
 
-  //  Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
-  //}
+    //  Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
+    //}
 
-  //public static void Message100040(ref List<string> m_list, ref List<ActionEvent> e_list)
-  //{
+    //public static void Message100040(ref List<string> m_list, ref List<ActionEvent> e_list)
+    //{
     //Message(ref m_list, ref e_list, "アイン：じゃあ、いざ出発！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：あら、ちょって待ってアイン。そこの出入り口に誰かいるみたいよ。", ActionEvent.None);

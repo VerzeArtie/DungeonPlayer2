@@ -14,7 +14,7 @@ public static class PrimaryLogic
     Max,
     Random,
   }
-  
+
   /// <summary>
   /// コア・ダメージの算出
   /// </summary>
@@ -136,7 +136,7 @@ public static class PrimaryLogic
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
-  
+
   /// <summary>
   /// 魔法攻撃の算出
   /// </summary>
