@@ -15,6 +15,9 @@ public static class PrimaryLogic
     Random,
   }
   
+  /// <summary>
+  /// コア・ダメージの算出
+  /// </summary>
   private static double CoreDamage(Character player, ValueType type, double min, double max)
   {
     double result = 0.0;
@@ -50,6 +53,9 @@ public static class PrimaryLogic
     return result;
   }
 
+  /// <summary>
+  /// 物理攻撃の算出
+  /// </summary>
   public static double PhysicalAttack(Character player, ValueType value_type)
   {
     double min = 1 + player.TotalStrength * Potential(player) * 1.00f;
@@ -104,7 +110,9 @@ public static class PrimaryLogic
     return result;
   }
 
-
+  /// <summary>
+  /// 物理防御の算出
+  /// </summary>
   public static double PhysicalDefense(Character player)
   {
     double result = 1 + player.TotalStrength * Potential(player) * 0.20f;
@@ -128,7 +136,10 @@ public static class PrimaryLogic
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
-
+  
+  /// <summary>
+  /// 魔法攻撃の算出
+  /// </summary>
   public static double MagicAttack(Character player, ValueType value_type)
   {
     double min = 1 + player.TotalIntelligence * Potential(player) * 1.00f;
@@ -154,6 +165,9 @@ public static class PrimaryLogic
     return result;
   }
 
+  /// <summary>
+  /// 魔法防御の算出
+  /// </summary>
   public static double MagicDefense(Character player)
   {
     double result = 1 + player.TotalIntelligence * Potential(player) * 0.20f;
@@ -177,6 +191,9 @@ public static class PrimaryLogic
     return result;
   }
 
+  /// <summary>
+  /// 戦闘命中率の算出
+  /// </summary>
   public static double BattleAccuracy(Character player)
   {
     double result = 1.00 + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
@@ -189,6 +206,9 @@ public static class PrimaryLogic
 
   }
 
+  /// <summary>
+  /// 戦闘速度の算出
+  /// </summary>
   public static double BattleSpeed(Character player)
   {
     double result = 1.00 + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
@@ -208,6 +228,9 @@ public static class PrimaryLogic
     return result;
   }
 
+  /// <summary>
+  /// 戦闘反応の算出
+  /// </summary>
   public static double BattleResponse(Character player)
   {
     double result = 1.00f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 4.0f;
@@ -222,6 +245,9 @@ public static class PrimaryLogic
     return result;
   }
 
+  /// <summary>
+  /// 潜在能力の算出
+  /// </summary>
   public static double Potential(Character player)
   {
     double result = 1 + player.TotalMind * 0.01f;
