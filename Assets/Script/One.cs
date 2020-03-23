@@ -842,6 +842,11 @@ public static class One
             xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(TF, null))).ToString());
             xmlWriter.WriteWhitespace("\r\n");
           }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
           else if (pi.PropertyType == typeof(System.String))
           {
             xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(TF, null)));

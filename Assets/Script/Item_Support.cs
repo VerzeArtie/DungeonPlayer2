@@ -99,7 +99,7 @@ public partial class Item
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 95;
         this._physicalAttack = 4;
-        this._physicalAttackMax = 100;
+        this._physicalAttackMax = 7;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;

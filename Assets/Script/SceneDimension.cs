@@ -8,9 +8,6 @@ public static class SceneDimension
 {
   public static void JumpToTruthHomeTown()
   {
-    One.TF.Field_X = 0;
-    One.TF.Field_Y = 0;
-    One.TF.Field_Z = 0;
     One.StopDungeonMusic();
     SceneManager.LoadSceneAsync(Fix.TruthHomeTown);
     One.Parent.Clear();

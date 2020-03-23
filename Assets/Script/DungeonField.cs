@@ -1337,7 +1337,8 @@ public class DungeonField : MotherBase
     XmlReaderSettings settings = new XmlReaderSettings();
     settings.IgnoreWhitespace = true;
     settings.IgnoreComments = true;
-    using (XmlReader reader = XmlReader.Create(map_data, settings))
+
+    using (XmlReader reader = XmlReader.Create(Application.dataPath + Fix.BaseMapFolder + map_data, settings))
     {
       int counter = 0;
       List<Vector3> list = new List<Vector3>();

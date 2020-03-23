@@ -282,6 +282,7 @@ public static partial class Fix
   public const string BATTLE_DIVINE = "Divine";
 
   #region "Environment"
+  public static string BaseMapFolder = @"\Map\";
   public static string BaseSoundFolder = @"Sounds/";
   public static string BaseSaveFolder = Environment.CurrentDirectory + @"\Save\";
   public static string BaseMusicFolder = @"BGM\";

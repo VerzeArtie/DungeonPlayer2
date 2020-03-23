@@ -442,6 +442,11 @@ public class SaveLoad : MotherBase
             xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.TF, null))).ToString());
             xmlWriter.WriteWhitespace("\r\n");
           }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
           else if (pi.PropertyType == typeof(System.String))
           {
             xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(One.TF, null)));
@@ -673,6 +678,21 @@ public class SaveLoad : MotherBase
             if (listTFName[jj] == pi.Name)
             {
               pi.SetValue(One.TF, Convert.ToInt32(listTFValue[jj]), null);
+              break;
+            }
+          }
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          for (int jj = 0; jj < listTFName.Count; jj++)
+          {
+            if (listTFName[jj] == pi.Name)
+            {
+              pi.SetValue(One.TF, Convert.ToSingle(listTFValue[jj]), null);
               break;
             }
           }
