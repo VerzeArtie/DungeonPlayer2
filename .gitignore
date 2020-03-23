@@ -1,4 +1,6 @@
+/[Ll]ibrary/
 /[Tt]emp/
-Temp/UnityLockfile
-Library/SourceAssetDB
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
 .vs/
