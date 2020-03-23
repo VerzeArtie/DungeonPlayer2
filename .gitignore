@@ -5,3 +5,16 @@
 /[Bb]uilds/
 /[Ss]ave/
 .vs/
+
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
