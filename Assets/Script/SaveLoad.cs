@@ -34,6 +34,7 @@ public class SaveLoad : MotherBase
 
   private bool nowAutoKill = false;
   private int autoKillTimer = 0;
+  private bool nowAutoKillEnd = false;
 
   private Text currentSaveText = null;
   private string currentTargetFileName = string.Empty;
@@ -142,11 +143,12 @@ public class SaveLoad : MotherBase
       this.pbSandglass.gameObject.SetActive(false);
     }
 
-    if (this.nowAutoKill)
+    if (this.nowAutoKill && this.nowAutoKillEnd == false)
     {
       this.autoKillTimer++;
-      if (this.autoKillTimer == 200)
+      if (this.autoKillTimer >= 200)
       {
+        this.nowAutoKillEnd = true;
         tapExit();
       }
     }
@@ -1223,9 +1225,9 @@ public class SaveLoad : MotherBase
     this.currentPhase = CurrentPhase.None;
     this.systemMessage.text = "";
 
-    if (this.nowAutoKill)
+    if (this.nowAutoKill && this.nowAutoKillEnd == false)
     {
-      tapExit();
+      this.autoKillTimer = (200 - 1);
     }
   }
 

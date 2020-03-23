@@ -30,8 +30,9 @@ public class MotherBase : MonoBehaviour
 
   public void NextScene()
   {
-    Application.UnloadLevel(Fix.Title);
-    Application.UnloadLevel(Fix.SaveLoad);
+    Resources.UnloadUnusedAssets();
+    //Application.UnloadLevel(Fix.Title);
+    //Application.UnloadLevel(Fix.SaveLoad);
     if (One.TF.SaveByDungeon)
     {
       SceneDimension.JumpToTruthDungeon();
