@@ -240,8 +240,8 @@ public static class One
     //SQL = objSQL.AddComponent<ControlSQL>();
     //SQL.SetupSql();
 
-    //TF.AvailableEinWolence = true;
-    //TF.AvailableLanaAmiria = true;
+    TF.AvailableEinWolence = true;
+    TF.AvailableLanaAmiria = true;
 
     // debug
     //TF.AvailableThird = true;

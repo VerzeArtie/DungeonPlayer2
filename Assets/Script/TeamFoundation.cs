@@ -68,7 +68,7 @@ public class TeamFoundation : MonoBehaviour
     get { return _field_Z; }
   }
 
-  [SerializeField] protected bool _availableEinWolence = true; // 一人目の主人公は必ず存在する。
+  [SerializeField] protected bool _availableEinWolence = false;
   [SerializeField] protected bool _availableLanaAmiria = false;
   [SerializeField] protected bool _availableEoneFulnea = false;
   [SerializeField] protected bool _availableMagiZelkis = false;
@@ -202,7 +202,7 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableSinOscurete; }
   }
 
-  [SerializeField] protected bool _availableFirstCommand = false;
+  [SerializeField] protected bool _availableFirstCommand = true;
   public bool AvailableFirstCommand
   {
     set { _availableFirstCommand = value; }

@@ -264,6 +264,11 @@ public partial class HomeTown : MotherBase
     SceneDimension.CallSaveLoad(this, true, false);
   }
 
+  public void TapLoad()
+  {
+    SceneDimension.CallSaveLoad(this, false, false);
+  }
+
   public void TapDungeonPlayer()
   {
     if (One.TF.Event_Message100020 == false)
