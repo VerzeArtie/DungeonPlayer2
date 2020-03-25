@@ -58,6 +58,21 @@ public partial class Character : MonoBehaviour
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         break;
+
+      case Fix.NAME_EONE_FULNEA:
+        this.Level = 1;
+        this.Strength = 6;
+        this.Agility = 6;
+        this.Intelligence = 9;
+        this.Stamina = 4;
+        this.Mind = 3;
+        this.Job = Fix.JobClass.Magician;
+        this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
+        this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
+        break;
     }
 
     MaxGain();
