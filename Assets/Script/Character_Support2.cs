@@ -73,6 +73,266 @@ public partial class Character : MonoBehaviour
         this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
         this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
         break;
+
+      case Fix.NAME_MAGI_ZELKIS:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_SELMOI_RO:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_KARTIN_MAI:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_JEDA_ARUS:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_SINIKIA_VEILHANZ:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_ADEL_BRIGANDY:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_LENE_COLTOS:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_PERMA_WARAMY:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_KILT_JORJU:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_BILLY_RAKI:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_ANNA_HAMILTON:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_CALMANS_OHN:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_SUN_YU:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_SHUVALTZ_FLORE:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_RVEL_ZELKIS:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_VAN_HEHGUSTEL:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_OHRYU_GENMA:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_LADA_MYSTORUS:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_SIN_OSCURETE:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
+      case Fix.NAME_DELVA_TRECKINO:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
     }
 
     MaxGain();

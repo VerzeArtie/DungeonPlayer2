@@ -297,7 +297,7 @@ public static partial class Fix
   #endregion
 
   #region "Player Name"
-  public const int CHARACTER_LIST_NUM = 22;
+  public const int CHARACTER_LIST_NUM = 23;
   public const string NAME_EIN_WOLENCE = @"アイン ウォーレンス";
   public const string NAME_LANA_AMIRIA = @"ラナ アミリア";
   public const string NAME_EONE_FULNEA = @"エオネ フルネア";
@@ -320,6 +320,7 @@ public static partial class Fix
   public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
   public const string NAME_LADA_MYSTORUS = @"ラダ ミストゥルス";
   public const string NAME_SIN_OSCURETE = @"シン オスキュレーテ";
+  public const string NAME_DELVA_TRECKINO = @"デルバ・トレッキーノ";
   #endregion
 
   #region "Enemy Name"

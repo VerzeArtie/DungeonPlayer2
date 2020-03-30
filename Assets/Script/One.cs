@@ -252,28 +252,29 @@ public static class One
 
     int num = 0;
 
-    _characters[num].CharacterCreation(Fix.NAME_EIN_WOLENCE); num++;
-    _characters[num].CharacterCreation(Fix.NAME_LANA_AMIRIA); num++;
-    _characters[num].CharacterCreation(Fix.NAME_EONE_FULNEA); num++;
-    _characters[num].CharacterCreation(Fix.NAME_MAGI_ZELKIS); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SELMOI_RO); num++;
-    _characters[num].CharacterCreation(Fix.NAME_KARTIN_MAI); num++;
-    _characters[num].CharacterCreation(Fix.NAME_JEDA_ARUS); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SINIKIA_VEILHANZ); num++;
-    _characters[num].CharacterCreation(Fix.NAME_ADEL_BRIGANDY); num++;
-    _characters[num].CharacterCreation(Fix.NAME_LENE_COLTOS); num++;
-    _characters[num].CharacterCreation(Fix.NAME_PERMA_WARAMY); num++;
-    _characters[num].CharacterCreation(Fix.NAME_KILT_JORJU); num++;
-    _characters[num].CharacterCreation(Fix.NAME_BILLY_RAKI); num++;
-    _characters[num].CharacterCreation(Fix.NAME_ANNA_HAMILTON); num++;
-    _characters[num].CharacterCreation(Fix.NAME_CALMANS_OHN); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SUN_YU); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SHUVALTZ_FLORE); num++;
-    _characters[num].CharacterCreation(Fix.NAME_RVEL_ZELKIS); num++;
-    _characters[num].CharacterCreation(Fix.NAME_VAN_HEHGUSTEL); num++;
-    _characters[num].CharacterCreation(Fix.NAME_OHRYU_GENMA); num++;
-    _characters[num].CharacterCreation(Fix.NAME_LADA_MYSTORUS); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SIN_OSCURETE); num++;
+    _characters[num].CharacterCreation(Fix.NAME_EIN_WOLENCE); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_LANA_AMIRIA); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_EONE_FULNEA); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_MAGI_ZELKIS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SELMOI_RO); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_KARTIN_MAI); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_JEDA_ARUS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SINIKIA_VEILHANZ); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_ADEL_BRIGANDY); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_LENE_COLTOS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_PERMA_WARAMY); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_KILT_JORJU); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_BILLY_RAKI); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_ANNA_HAMILTON); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_CALMANS_OHN); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SUN_YU); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SHUVALTZ_FLORE); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_RVEL_ZELKIS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_VAN_HEHGUSTEL); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_OHRYU_GENMA); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_LADA_MYSTORUS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SIN_OSCURETE); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_DELVA_TRECKINO); PlayerList.Add(_characters[num]); num++;
     //_characters[num].FullName = Fix.NAME_EIN_WOLENCE;
     //_characters[num].Level = 1;
     //_characters[num].Strength = 5;
@@ -584,52 +585,6 @@ public static class One
     //DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
     // debug-end
 
-    int playerCounter = 0;
-    if (One.TF.AvailableEinWolence) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLanaAmiria) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableEoneFulnea) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableMagiZelkis) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSelmoiRo) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableKartinMai) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableJedaArus) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSinikiaVeilhanz) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableAdelBrigandy) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLeneColtos) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailablePermaWaramy) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableKiltJorju) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableBillyRaki) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableAnnaHamilton) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableCalmansOhn) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSunYu) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableShuvaltzFlore) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableRvelZelkis) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableVanHehgustel) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableOhryuGenma) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLadaMystorus) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSinOscurete) { PlayerList.Add(One._characters[playerCounter]); }
-    playerCounter++;
-
     for (int ii = 0; ii < _characters.Count; ii++)
     {
       UnityEngine.Object.DontDestroyOnLoad(_characters[ii]);
@@ -647,6 +602,60 @@ public static class One
     UnityEngine.Object.DontDestroyOnLoad(bgmSource[0]);
     //UnityEngine.Object.DontDestroyOnLoad(SQL);
     return true;
+  }
+
+  public static List<Character> AvailableCharacters()
+  {
+    List<Character> list = new List<Character>();
+    int playerCounter = 0;
+    if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableLanaAmiria) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableEoneFulnea) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableSelmoiRo) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableKartinMai) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableJedaArus) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableSinikiaVeilhanz) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailablePermaWaramy) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableKiltJorju) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableSunYu) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableRvelZelkis) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableVanHehgustel) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableLadaMystorus) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableSinOscurete) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+    if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
+    playerCounter++;
+
+    return list;
   }
 
   #region "BGM再生と効果音関連"

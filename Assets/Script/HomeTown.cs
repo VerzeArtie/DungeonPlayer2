@@ -1118,11 +1118,12 @@ public partial class HomeTown : MotherBase
         CharaViewList[ii] = null;
       }
     }
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    List<Character> currentList = One.AvailableCharacters();
+    for (int ii = 0; ii < currentList.Count; ii++)
     {
       NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
       CharaViewList.Add(charaView);
-      CreateCharaView(contentCharacter, charaView, One.PlayerList[ii], ii);
+      CreateCharaView(contentCharacter, charaView, currentList[ii], ii);
     }
 
     // チームのリソース(GoldやObsidianStone)を画面へ反映

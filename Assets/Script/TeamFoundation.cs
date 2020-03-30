@@ -90,6 +90,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _availableOhryuGenma = false;
   [SerializeField] protected bool _availableLadaMystorus = false;
   [SerializeField] protected bool _availableSinOscurete = false;
+  [SerializeField] protected bool _availableDelvaTreckino = false;
 
   public bool AvailableEinWolence
   {
@@ -200,6 +201,11 @@ public class TeamFoundation : MonoBehaviour
   {
     set { _availableSinOscurete = value; }
     get { return _availableSinOscurete; }
+  }
+  public bool AvailableDelvaTreckino
+  {
+    set { _availableDelvaTreckino = value; }
+    get { return _availableDelvaTreckino; }
   }
 
   [SerializeField] protected bool _availableFirstCommand = true;
