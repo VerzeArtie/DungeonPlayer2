@@ -1285,18 +1285,6 @@ public static class MessagePack
   #region "ファージル宮殿"
   public static void Message700010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：ファージル宮殿到着っと！", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "ビリー：やっぱデケーよな、この宮殿は。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "ラナ：ねえ、エルミ国王に会う前にちょっと寄りたい所があるんだけど、良いかしら？", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：ああ、別に良いぜ。どこに行くんだ？", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "ラナ：", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "", ActionEvent.None);
-
   }
   #endregion
 

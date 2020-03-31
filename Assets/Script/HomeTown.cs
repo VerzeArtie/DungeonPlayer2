@@ -368,15 +368,28 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    if (One.TF.AlreadyDungeon)
-    {
-      txtMessage.text = "アイン：今、外から入ったばかリだ。少しは休まないとな。";
-      return;
-    }
+    //if (One.TF.AlreadyDungeon)
+    //{
+    //  txtMessage.text = "アイン：今、外から入ったばかリだ。少しは休まないとな。";
+    //  return;
+    //}
 
     One.TF.AlreadyDungeon = true;
     One.TF.RestInn = false;
     groupNowLoading.SetActive(true);
+
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    {
+      One.TF.Field_X = -44.0f;
+      One.TF.Field_Y = 2.0f;
+      One.TF.Field_Z = 4.0f;
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    {
+      One.TF.Field_X = -49.0f;
+      One.TF.Field_Y = 5.0f;
+      One.TF.Field_Z = 17.0f;
+    }
     SceneDimension.JumpToDungeonField();
   }
   public void TapInn()

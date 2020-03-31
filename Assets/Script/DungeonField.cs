@@ -807,7 +807,15 @@ public class DungeonField : MotherBase
     if ((tile != null && tile.field == TileInformation.Field.Town_1) ||
         (tile != null && tile.field == TileInformation.Field.Castle_1))
     {
-      if (tile.transform.position.x == 25 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
+      if (tile.transform.position.x == -44 && tile.transform.position.y == 1 && tile.transform.position.z == 4)
+      {
+        this.HomeTownCall = Fix.TOWN_ANSHET;
+      }
+      else if (tile.transform.position.x == -49 && tile.transform.position.y == 4 && tile.transform.position.z == 17)
+      {
+        this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+      }
+      else if (tile.transform.position.x == 25 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
       {
         this.HomeTownCall = Fix.TOWN_QVELTA_TOWN;
       }
@@ -846,10 +854,6 @@ public class DungeonField : MotherBase
       else if (tile.transform.position.x == 24 && tile.transform.position.y == 13 && tile.transform.position.z == 53)
       {
         this.HomeTownCall = Fix.TOWER_FRAN;
-      }
-      else if (tile.transform.position.x == -49 && tile.transform.position.y == 3.5 && tile.transform.position.z == 17)
-      {
-        this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
       }
       else if (tile.transform.position.x == -100 && tile.transform.position.y == 2 && tile.transform.position.z == 77)
       {
@@ -1266,7 +1270,7 @@ public class DungeonField : MotherBase
   /// <param name="map_data"></param>
   private void SaveTileMapping(string map_data)
   {
-    XmlTextWriter xmlWriter = new XmlTextWriter(map_data, Encoding.UTF8);
+    XmlTextWriter xmlWriter = new XmlTextWriter(Application.dataPath + Fix.BaseMapFolder + map_data, Encoding.UTF8);
     try
     {
       xmlWriter.WriteStartDocument();
