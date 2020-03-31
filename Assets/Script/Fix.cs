@@ -121,6 +121,9 @@ public static partial class Fix
   public const string SingleHomeTown = @"SingleHomeTown";
   public const string SingleDungeon = @"SingleDungeon";
   public const string SingleBattleEnemy = @"SingleBattleEnemy";
+
+  public const string SCENE_DUNGEON_FIELD = @"DungeonField";
+  public const string SCENE_HOME_TOWN = @"HomeTown";
   #endregion
 
   #region "効果音データファイル名"
@@ -320,7 +323,7 @@ public static partial class Fix
   public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
   public const string NAME_LADA_MYSTORUS = @"ラダ ミストゥルス";
   public const string NAME_SIN_OSCURETE = @"シン オスキュレーテ";
-  public const string NAME_DELVA_TRECKINO = @"デルバ・トレッキーノ";
+  public const string NAME_DELVA_TRECKINO = @"デルバ トレッキーノ";
   #endregion
 
   #region "Enemy Name"

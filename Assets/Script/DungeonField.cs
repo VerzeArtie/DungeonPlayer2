@@ -69,10 +69,16 @@ public class DungeonField : MotherBase
   // GUI
   public Camera MainCamera;
   public Light PlayerLight;
-  public List<GameObject> GroupPlayerPanelList;
-  public List<Text> PlayerNameList;
-  public List<Text> PlayerLifeTextList;
-  public List<Image> PlayerLifeGaugeList;
+
+  // System
+  public GameObject GroupSystem;
+
+  //public List<GameObject> GroupPlayerPanelList;
+  //public List<Text> PlayerNameList;
+  //public List<Text> PlayerLifeTextList;
+  //public List<Image> PlayerLifeGaugeList;
+  public GameObject GroupCharacterList;
+  public NodeMiniChara nodeCharaPanel;
 
   // Quest Message
   public GameObject GroupQuestMessage;
@@ -86,6 +92,7 @@ public class DungeonField : MotherBase
   private List<TileInformation> TileList = new List<TileInformation>();
   private List<FieldObject> FieldObjList = new List<FieldObject>();
   private List<Character> PlayerList = new List<Character>();
+  private List<NodeMiniChara> MiniCharaList = new List<NodeMiniChara>();
 
   private string HomeTownCall = string.Empty;
   private bool HomeTownComplete = false;
@@ -121,6 +128,8 @@ public class DungeonField : MotherBase
     //One.TF.Field_Y = 1;
     //One.TF.Field_Z = 2;
     // debug
+
+    One.TF.SaveByDungeon = true;
 
     // プレハブの設定
     PrefabList.Add("Plain");
@@ -210,51 +219,16 @@ public class DungeonField : MotherBase
     counter++;
 
     // プレイヤーリスト
-    int playerCounter = 0;
-    if (One.TF.AvailableEinWolence) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLanaAmiria) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableEoneFulnea) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableMagiZelkis) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSelmoiRo) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableKartinMai) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableJedaArus) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSinikiaVeilhanz) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableAdelBrigandy) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLeneColtos) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailablePermaWaramy) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableKiltJorju) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableBillyRaki) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableAnnaHamilton) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableCalmansOhn) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSunYu) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableShuvaltzFlore) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableRvelZelkis) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableVanHehgustel) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableOhryuGenma) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableLadaMystorus) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
-    if (One.TF.AvailableSinOscurete) { PlayerList.Add(One.Characters[playerCounter]); }
-    playerCounter++;
+    List<Character> list = One.AvailableCharacters();
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+      current.Refresh(list[ii]);
+      current.transform.SetParent(GroupCharacterList.transform);
+      MiniCharaList.Add(current);
+
+      PlayerList.Add(list[ii]);
+    }
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -798,6 +772,26 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapSystem()
+  {
+    GroupSystem.SetActive(true);
+  }
+
+  public void TapSystemCancel()
+  {
+    GroupSystem.SetActive(false);
+  }
+
+  public void TapSave()
+  {
+    SceneDimension.CallSaveLoad(this, true, false);
+  }
+
+  public void TapLoad()
+  {
+    SceneDimension.CallSaveLoad(this, false, false);
+  }
+
   private void DetectEvent(TileInformation tile)
   {
     // 回復の泉
@@ -1145,27 +1139,27 @@ public class DungeonField : MotherBase
   {
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
-      if (PlayerNameList[ii] != null)
+      if (MiniCharaList[ii] != null)
       {
-        PlayerNameList[ii].text = PlayerList[ii].FullName;
+        MiniCharaList[ii].Refresh(PlayerList[ii]);
       }
-      if (PlayerLifeTextList[ii] != null)
-      {
-        PlayerLifeTextList[ii].text = PlayerList[ii].CurrentLife.ToString() + " / " + PlayerList[ii].MaxLife.ToString();
-      }
-      float dx = (float)PlayerList[ii].CurrentLife / (float)PlayerList[ii].MaxLife;
-      if (PlayerLifeGaugeList[ii] != null)
-      {
-        PlayerLifeGaugeList[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
-      }
-      GroupPlayerPanelList[ii].GetComponent<Image>().color = new Color(PlayerList[ii].BattleBackColor.r, PlayerList[ii].BattleBackColor.g, PlayerList[ii].BattleBackColor.b, 0.7f);
+      //if (PlayerLifeTextList[ii] != null)
+      //{
+      //  PlayerLifeTextList[ii].text = PlayerList[ii].CurrentLife.ToString() + " / " + PlayerList[ii].MaxLife.ToString();
+      //}
+      //float dx = (float)PlayerList[ii].CurrentLife / (float)PlayerList[ii].MaxLife;
+      //if (PlayerLifeGaugeList[ii] != null)
+      //{
+      //  PlayerLifeGaugeList[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
+      //}
+      //GroupPlayerPanelList[ii].GetComponent<Image>().color = new Color(PlayerList[ii].BattleBackColor.r, PlayerList[ii].BattleBackColor.g, PlayerList[ii].BattleBackColor.b, 0.7f);
     }
 
     // 登場しないキャラクターは非表示にする。
-    for (int ii = PlayerList.Count; ii < GroupPlayerPanelList.Count; ii++)
-    {
-      GroupPlayerPanelList[ii].SetActive(false);
-    }
+    //for (int ii = PlayerList.Count; ii < GroupPlayerPanelList.Count; ii++)
+    //{
+    //  GroupPlayerPanelList[ii].SetActive(false);
+    //}
   }
 
   /// <summary>

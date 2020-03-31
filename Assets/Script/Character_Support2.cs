@@ -26,6 +26,9 @@ public partial class Character : MonoBehaviour
     this.ActionCommandList = actionList;
     this.CurrentActionCommand = String.Empty;
 
+    this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
+    this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
+
     switch (character_name)
     {
       case Fix.NAME_EIN_WOLENCE:

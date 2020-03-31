@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 
 public static class SceneDimension
 {
-  public static void JumpToTruthHomeTown()
+  public static void JumpToHomeTown()
   {
     One.StopDungeonMusic();
-    SceneManager.LoadSceneAsync(Fix.TruthHomeTown);
+    SceneManager.LoadSceneAsync(Fix.SCENE_HOME_TOWN);
     One.Parent.Clear();
   }
 
-  public static void JumpToTruthDungeon()
+  public static void JumpToDungeonField()
   {
     One.StopDungeonMusic();
-    SceneManager.LoadSceneAsync(Fix.TruthDungeon);
+    SceneManager.LoadSceneAsync(Fix.SCENE_DUNGEON_FIELD);
     One.Parent.Clear();
   }
 

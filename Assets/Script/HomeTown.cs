@@ -224,6 +224,8 @@ public partial class HomeTown : MotherBase
   {
     base.Start();
 
+    One.TF.SaveByDungeon = false;
+
     // 初期画面設定
     RefreshAllView();
 
@@ -375,7 +377,7 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyDungeon = true;
     One.TF.RestInn = false;
     groupNowLoading.SetActive(true);
-    SceneManager.LoadSceneAsync("DungeonField");
+    SceneDimension.JumpToDungeonField();
   }
   public void TapInn()
   {
@@ -642,11 +644,19 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
           {
             One.TF.AvailableEoneFulnea = true;
+            List<Character> current = One.AvailableCharacters();
+            for (int jj = 0; jj < current.Count; jj++)
+            {
+              if (current[jj].FullName == currentMessage)
+              {
+                NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
+                CharaViewList.Add(charaView);
+                CreateCharaView(contentCharacter, charaView, current[jj], CharaViewList.Count - 1);
+                break;
+              }
+            }
+
             // todo [2]はありえない。
-            One.PlayerList.Add(One.Characters[2]);
-            NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
-            CharaViewList.Add(charaView);
-            CreateCharaView(contentCharacter, charaView, One.PlayerList[2], 2);
           }
           // todo やり直し
           //One.TF.AvailableThird = true; // todo 常にThirdではないはず。人数ナンバー指定でできるようにすること。
@@ -891,7 +901,7 @@ public partial class HomeTown : MotherBase
     rect.sizeDelta = new Vector2(0, 0);
     rect.localPosition = new Vector3(0, -5 - num * NODE_HEIGHT, 0);
 
-    charaView.name = "CharaView_" + num.ToString();
+    charaView.name = "CharaView_" + player.FullName;
     charaView.txtName.text = player.FullName;
     charaView.txtLevel.text = player.Level.ToString();
     charaView.txtExp.text = player.Exp.ToString();
