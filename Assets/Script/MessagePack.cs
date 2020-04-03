@@ -137,7 +137,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ウソだろ？そんな期限なんてあったか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：国内外遠征許可証の推薦状にはちゃんと目を通したわけ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：当然じゃない。国内外遠征許可証の推薦状にはちゃんと目を通したわけ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ああ、もちろんだ。", ActionEvent.None);
 
@@ -147,11 +147,15 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのファイナリティ・ブローがアインに炸裂）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：わ、分かった分かった・・・すまねえ。今から取ってくるからさ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：わ、分かった分かった・・・すまねえ。今から取りに行くからさ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：本当に行くんでしょうね？今日中に出発したいんだから、頼むわよホント。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：本当に行くんでしょうね？今日中に行かないと本当にもらえなくなるわよ、頼むわよホント。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ああ、任せとけ！ッハッハッハ！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ところで、ファージル宮殿に行けば良いんだよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうよ。このアンシェット町から川沿いに北へ向かえば、すぐ到着するわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行くとしますか！ッハッハッハ！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
   }
