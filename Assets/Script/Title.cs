@@ -43,6 +43,7 @@ public class Title : MotherBase
     //    Debug.Log("One.TF.Event_Message100010: " + One.TF.Event_Message100010.ToString());
     //}
 
+    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
     SceneManager.LoadSceneAsync("HomeTown");
   }
 

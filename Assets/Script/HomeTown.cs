@@ -273,14 +273,6 @@ public partial class HomeTown : MotherBase
 
   public void TapDungeonPlayer()
   {
-    if (One.TF.Event_Message100020 == false)
-    {
-      One.TF.Event_Message100020 = true;
-      MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
-      TapOK();
-      return;
-    }
-
     GroupDungeonPlayer.SetActive(true);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
@@ -341,13 +333,13 @@ public partial class HomeTown : MotherBase
 
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      if (One.TF.Event_Message100020 == false)
-      {
-        One.TF.Event_Message100020 = true;
-        MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
+      //if (One.TF.Event_Message100020 == false)
+      //{
+      //  One.TF.Event_Message100020 = true;
+      //  MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
+      //  TapOK();
+      //  return;
+      //}
     }
     if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
