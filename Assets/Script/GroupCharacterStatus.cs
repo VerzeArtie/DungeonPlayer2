@@ -228,7 +228,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.MainWeapon, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -261,7 +261,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.SubWeapon, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -294,7 +294,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.Armor, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -327,7 +327,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.Accessory1, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -360,7 +360,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.Accessory2, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -393,7 +393,7 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       if (CurrentPlayer.Equipable(Fix.EquipType.Artifact, One.TF.BackpackList[ii]))
       {
-        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, counter);
+        CreateBackpack(ContentChangeEquip, nodeChangeEquip, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, counter);
         counter++;
       }
     }
@@ -452,9 +452,9 @@ public class GroupCharacterStatus : MonoBehaviour
   /// <summary>
   /// バックパックアイテムを生成します。
   /// </summary>
-  private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int num)
+  private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int item_num, int num)
   {
-    Instantiate(node).Construct(content, item_name, num);
+    Instantiate(node).Construct(content, item_name, item_num, num);
   }
 
   /// <summary>

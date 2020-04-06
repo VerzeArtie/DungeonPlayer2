@@ -660,12 +660,14 @@ public partial class HomeTown : MotherBase
                 break;
               }
             }
-
-            // todo [2]はありえない。
           }
-          // todo やり直し
-          //One.TF.AvailableThird = true; // todo 常にThirdではないはず。人数ナンバー指定でできるようにすること。
-          //UpdateCharacterList(ref this.PlayerList, ref this.panelCharacterList);
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.GetItem)
+        {
+          Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
+          One.TF.BackpackList.Add(new Item(currentMessage));
+          ConstructBackpackView();
           continue; // 継続
         }
         // 自動セーブを行う。
@@ -718,9 +720,9 @@ public partial class HomeTown : MotherBase
   /// <summary>
   /// バックパックアイテムを生成します。
   /// </summary>
-  private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int num)
+  private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int item_num, int num)
   {
-    Instantiate(node).Construct(content, item_name, num);
+    Instantiate(node).Construct(content, item_name, item_num, num);
   }
 
   private void CreateACAttribute(GameObject content, NodeACAttribute node, int num)
@@ -965,7 +967,7 @@ public partial class HomeTown : MotherBase
     ContentBackpack.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
     for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
     {
-      CreateBackpack(ContentBackpack, nodeBackpackItem, One.TF.BackpackList[ii].ItemName, ii);
+      CreateBackpack(ContentBackpack, nodeBackpackItem, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii);
     }
   }
 
@@ -1046,6 +1048,11 @@ public partial class HomeTown : MotherBase
 
   public void TapBackpackUse()
   {
+    string current = (CurrentSelectBackpack?.ItemName ?? String.Empty);
+    if (current == Fix.SMALL_RED_POTION)
+    {
+      Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
+    }
   }
 
   public void TapBackpackDetail()

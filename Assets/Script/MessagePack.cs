@@ -10,6 +10,7 @@ public static class MessagePack
   public enum ActionEvent
   {
     None,
+    GetItem,
     ObjectiveAdd,
     ObjectiveRemove,
     ObjectiveRefreshCheck,
@@ -116,6 +117,10 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_ANSHET + "にて ～", ActionEvent.HomeTownMessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：旅に出るんだ。荷物はこれぐらい軽くしておいたほうが良いだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
 
     Message(ref m_list, ref e_list, "ラナ：旅に出るわけじゃなくて、正式な調査依頼を受けて、任務遂行しに行くのよ。ちゃんと準備してよね、ホント。", ActionEvent.None);
 

@@ -470,9 +470,9 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
       {
-        xmlWriter.WriteElementString("BackPack" + ii.ToString(), One.TF.BackpackList[ii].ItemName);
+        xmlWriter.WriteElementString("Item_" + ii.ToString("D8"), One.TF.BackpackList[ii].ItemName);
         xmlWriter.WriteWhitespace("\r\n");
-        xmlWriter.WriteElementString("BackPackStack" + ii.ToString(), One.TF.BackpackList[ii].StackValue.ToString());
+        xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_Stack", One.TF.BackpackList[ii].StackValue.ToString());
         xmlWriter.WriteWhitespace("\r\n");
       }
       xmlWriter.WriteEndElement();
@@ -730,6 +730,35 @@ public class SaveLoad : MotherBase
           }
         }
         catch { }
+      }
+    }
+
+    // Backpack
+    List<string> listItemName = new List<string>();
+    List<string> listItemValue = new List<string>();
+    List<string> listItemStack = new List<string>();
+    XmlNodeList parentBackpack = xml.GetElementsByTagName("Backpack");
+    for (int ii = 0; ii < parentBackpack.Count; ii++)
+    {
+      XmlNodeList current = parentBackpack[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].Name.Contains("Stack") == false)
+        {
+          listItemName.Add(current[jj].Name);
+          listItemValue.Add(current[jj].InnerText);
+          XmlNodeList temp2 = xml.GetElementsByTagName(current[jj].Name + "_Stack");
+          listItemStack.Add(temp2[0]?.InnerText ?? String.Empty);
+        }
+      }
+    }
+
+    for (int ii = 0; ii < listItemValue.Count; ii++)
+    {
+      Debug.Log("listItemStack: " + listItemStack[ii]);
+      for (int jj = 0; jj < Convert.ToInt32(listItemStack[ii]); jj++)
+      {
+        One.TF.BackpackList.Add(new Item(listItemValue[ii]));
       }
     }
 

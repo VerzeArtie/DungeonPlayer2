@@ -793,7 +793,7 @@ public static partial class Fix
   public const string MASTER_SWORD = "マスター・ソード";
   public const string MASTER_SHIELD = "マスター・シールド";
   public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";
-  public const string SMALL_RED_POTION = "小さい赤ポーション";
+  //public const string SMALL_RED_POTION = "小さい赤ポーション";
   #endregion
 
   #region "Area"

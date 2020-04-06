@@ -1,13 +1,15 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public static partial class Fix
 {
+  public const string PRACTICE_CLAW = "練習用の爪";
   public const string FINE_CLAW = "ファイン・クロー";
   public const string SURVIVAL_CLAW = "サバイバル・クロー";
   public const string RISING_FORCE_CLAW = "ライジング・フォース・クロー";
   public const string LIGHTNING_CLAW = "電光の爪";
+  public const string PRACTICE_SWORD = "練習用の剣";
   public const string FINE_SWORD = "ファイン・ソード";
   public const string BRONZE_SWORD = "ブロンズ・ソード";
   public const string SWORD_OF_LIFE = "ソード・オブ・ライフ";
@@ -40,7 +42,9 @@ public static partial class Fix
   public const string FINE_SHIELD = "ファイン・シールド";
   public const string KITE_SHIELD = "カイト・シールド";
   public const string SUPERIOR_FLAME_SHIELD = "スペリオル・フレイム・シールド";
+  public const string BEGINNER_ARMOR = "初心者の鎧";
   public const string FINE_ARMOR = "ファイン・アーマー";
+  public const string BEGINNER_CROSS = "初心者の舞踏衣";
   public const string FINE_CROSS = "ファイン・クロス";
   public const string FINE_ROBE = "ファイン・ローブ";
   public const string FLAT_SHOES = "フラット・シューズ";
@@ -54,5 +58,6 @@ public static partial class Fix
   public const string YELLOW_PENDANT = "イエロー・ペンダント";
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
+  public const string SMALL_RED_POTION = "小さい赤ポーション";
   public const string ZETANIUM_STONE = "ゼタニウム鉱石";
 }

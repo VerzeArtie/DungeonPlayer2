@@ -9,6 +9,29 @@ public partial class Item
     this._stackValue = 1; // 必ず１つ存在する。
     switch (item_name)
     {
+      case Fix.PRACTICE_CLAW:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 1;
+        this._physicalAttackMax = 3;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 180;
+        this._importantType = Important.None;
+        this._description = "";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
       case Fix.FINE_CLAW:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Claw;
@@ -20,6 +43,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "";
@@ -41,6 +66,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 860;
         this._importantType = Important.None;
         this._description = "";
@@ -62,6 +89,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2000;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした後、自分自身の物理攻撃を＋３する。";
@@ -83,9 +112,34 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2200;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした時、20%の確率で雷による追加ダメージを与える。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.PRACTICE_SWORD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 2;
+        this._physicalAttackMax = 4;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 200;
+        this._importantType = Important.None;
+        this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -104,6 +158,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 650;
         this._importantType = Important.None;
         this._description = "";
@@ -125,6 +181,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 900;
         this._importantType = Important.None;
         this._description = "";
@@ -146,6 +204,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2100;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、自分自身のライフを回復する。";
@@ -167,6 +227,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2300;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした時、20%の確率で風による追加ダメージを与える。";
@@ -188,6 +250,8 @@ public partial class Item
         this._magicAttackMax = 34;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
         this._description = "";
@@ -209,6 +273,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 720;
         this._importantType = Important.None;
         this._description = "";
@@ -230,6 +296,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1100;
         this._importantType = Important.None;
         this._description = "";
@@ -251,6 +319,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2200;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、自分自身の負のBUFFを一つ解除する。";
@@ -272,6 +342,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2400;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした時、20%の確率で氷による追加ダメージを与える。";
@@ -293,6 +365,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 800;
         this._importantType = Important.None;
         this._description = "";
@@ -314,6 +388,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1150;
         this._importantType = Important.None;
         this._description = "";
@@ -335,6 +411,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした時、20%の確率で土による追加ダメージを与える。";
@@ -356,6 +434,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2800;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした後、対象の物理防御を－２する。";
@@ -377,6 +457,8 @@ public partial class Item
         this._magicAttackMax = 5;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "";
@@ -398,6 +480,8 @@ public partial class Item
         this._magicAttackMax = 7;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 860;
         this._importantType = Important.None;
         this._description = "";
@@ -419,6 +503,8 @@ public partial class Item
         this._magicAttackMax = 14;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2000;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、自分自身のライフを回復する。";
@@ -440,6 +526,8 @@ public partial class Item
         this._magicAttackMax = 16;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2200;
         this._importantType = Important.None;
         this._description = "魔法攻撃がヒットした時、20%の確率で炎による追加ダメージを与える。";
@@ -461,6 +549,8 @@ public partial class Item
         this._magicAttackMax = 7;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 650;
         this._importantType = Important.None;
         this._description = "";
@@ -482,6 +572,8 @@ public partial class Item
         this._magicAttackMax = 10;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 900;
         this._importantType = Important.None;
         this._description = "";
@@ -503,6 +595,8 @@ public partial class Item
         this._magicAttackMax = 19;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2100;
         this._importantType = Important.None;
         this._description = "魔法攻撃がヒットした時、20%の確率で対象に【暗闇】のBUFFを付与する。";
@@ -524,6 +618,8 @@ public partial class Item
         this._magicAttackMax = 21;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2300;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、自分自身に【闇】属性からの魔法ダメージを増強するBUFFを付与する。";
@@ -545,6 +641,8 @@ public partial class Item
         this._magicAttackMax = 9;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 720;
         this._importantType = Important.None;
         this._description = "";
@@ -566,6 +664,8 @@ public partial class Item
         this._magicAttackMax = 12;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1100;
         this._importantType = Important.None;
         this._description = "";
@@ -587,6 +687,8 @@ public partial class Item
         this._magicAttackMax = 23;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2200;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、自分自身に【聖】属性からの魔法ダメージを増強するBUFFを付与する。";
@@ -608,6 +710,8 @@ public partial class Item
         this._magicAttackMax = 26;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2400;
         this._importantType = Important.None;
         this._description = "魔法攻撃がヒットした後、自分自身の物理攻撃を＋５する。";
@@ -629,6 +733,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "";
@@ -650,6 +756,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1500;
         this._importantType = Important.None;
         this._description = "";
@@ -671,6 +779,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 3000;
         this._importantType = Important.None;
         this._description = "物理攻撃がヒットした時、20%の確率で対象に【鈍化】のBUFFを付与する。";
@@ -692,6 +802,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 3300;
         this._importantType = Important.None;
         this._description = "アクションコマンドで使用した場合、物理攻撃に関するコマンドの命中率が100%になるBUFFを付与する。";
@@ -713,6 +825,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 3;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 450;
         this._importantType = Important.None;
         this._description = "";
@@ -734,6 +848,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 5;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1020;
         this._importantType = Important.None;
         this._description = "";
@@ -755,9 +871,34 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 8;
         this._magicDefense = 4;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
         this._description = "魔法攻撃を防御姿勢で受けた時、その魔法属性が「炎」の場合はダメージを半分に軽減する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.BEGINNER_ARMOR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 3;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 500;
+        this._importantType = Important.None;
+        this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -776,6 +917,31 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 6;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 500;
+        this._importantType = Important.None;
+        this._description = "";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.BEGINNER_CROSS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 2;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 500;
         this._importantType = Important.None;
         this._description = "";
@@ -797,6 +963,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 4;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 400;
         this._importantType = Important.None;
         this._description = "";
@@ -818,6 +986,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 1;
         this._magicDefense = 3;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 700;
         this._importantType = Important.None;
         this._description = "";
@@ -839,6 +1009,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "軽快なシューズ。これを履いた瞬間から、身体全体が軽くなった様な感覚を得ることができる。";
@@ -860,6 +1032,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "控え目なサイズのイヤリング。身に着けているとほのかに安定感が生まれてくる。";
@@ -881,6 +1055,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "力が湧いてくるバンダナ。しっかりとした結び目がやる気を引き立たせてくれる。";
@@ -902,6 +1078,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
         this._description = "紺碧色の可愛らしいチョーカー。装着している者の精神を向上させてくれる。";
@@ -923,6 +1101,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "赤色のペンダント。僅かな【力】を感じ取る事が出来る。";
@@ -944,6 +1124,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "青色のペンダント。僅かな【技】を感じ取る事が出来る。";
@@ -965,6 +1147,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "紫色のペンダント。僅かな【知】を感じ取る事が出来る。";
@@ -986,6 +1170,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "緑色のペンダント。僅かな【体】を感じ取る事が出来る。";
@@ -1007,6 +1193,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
         this._description = "黄色のペンダント。僅かな【心】を感じ取る事が出来る。";
@@ -1028,6 +1216,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
         this._description = "高貴なる青の帽子は魔法使いの力の源でもある。【氷】属性からの魔法ダメージを軽減し、かつ、【氷】属性による魔法ダメージを増強する。";
@@ -1049,11 +1239,36 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 2500;
         this._importantType = Important.None;
         this._description = "装着者の周囲に炎のオーラが出現する。【炎】属性からの魔法ダメージを軽減し、かつ、【炎】属性による魔法ダメージを増強する。";
         this._strength = 5;
         this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.SMALL_RED_POTION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 120;
+        this._itemValue2 = 180;
+        this._gold = 400;
+        this._importantType = Important.None;
+        this._description = "";
+        this._strength = 0;
+        this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -1070,6 +1285,8 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
         this._description = "アーサリウム工場跡地で採取した鉱石。薄汚れた色をしているが、中身の強度は失われておらず、再利用することが出来そうだ。";

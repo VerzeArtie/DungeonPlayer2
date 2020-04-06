@@ -10,19 +10,23 @@ public class NodeBackpackItem : MonoBehaviour
 {
   public Image imgIcon;
   public Text txtName;
+  public Text txtItemNum;
   public Image background;
 
-  public void Construct(GameObject content, string item_name, int num)
+  public void Construct(GameObject content, string item_name, int item_num, int num)
   {
     this.transform.SetParent(content.transform);
 
     this.name = item_name;
-    this.txtName.text = item_name;
+    if (this.txtName != null) { this.txtName.text = item_name; }
+    if (this.txtItemNum != null) { this.txtItemNum.text = "x " + item_num.ToString(); }
     Item current = new Item(item_name);
     this.background.color = current.GetRareColor;
 
-    this.imgIcon.sprite = Resources.Load<Sprite>("Icon_" + current?.ItemType.ToString() ?? "");
-
+    if (this.imgIcon != null)
+    {
+      this.imgIcon.sprite = Resources.Load<Sprite>("Icon_" + current?.ItemType.ToString() ?? "");
+    }
 
     Text[] txtList = this.GetComponentsInChildren<Text>();
     for (int ii = 0; ii < txtList.Length; ii++)

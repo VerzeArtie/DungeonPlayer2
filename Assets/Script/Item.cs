@@ -367,8 +367,22 @@ public partial class Item
     get { return _potential; }
   }
 
-  protected int _lifeGain = 0;
-  public int LifeGain
+  protected int _itemValue1 = 0;
+  public int ItemValue1
+  {
+    set 
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _itemValue1 = value; 
+    }
+    get { return _itemValue1; }
+  }
+
+  protected int _itemValue2 = 0;
+  public int ItemValue2
   {
     set
     {
@@ -376,10 +390,24 @@ public partial class Item
       {
         value = 0;
       }
-      _lifeGain = value;
+      _itemValue2 = value;
     }
-    get { return _lifeGain; }
+    get { return _itemValue2; }
   }
+
+  //protected int _lifeGain = 0;
+  //public int LifeGain
+  //{
+  //  set
+  //  {
+  //    if (value <= 0)
+  //    {
+  //      value = 0;
+  //    }
+  //    _lifeGain = value;
+  //  }
+  //  get { return _lifeGain; }
+  //}
 
 
   public void SetupItemView(Text txtName, Image img)

@@ -44,7 +44,8 @@ public partial class Character : MonoBehaviour
         this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
-        //this.MainWeapon = new Item(Fix.FINE_SWORD);
+        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
+        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -60,6 +61,8 @@ public partial class Character : MonoBehaviour
         this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
+        this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
+        this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         break;
 
       case Fix.NAME_EONE_FULNEA:
