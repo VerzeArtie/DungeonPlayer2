@@ -758,7 +758,7 @@ public class SaveLoad : MotherBase
       Debug.Log("listItemStack: " + listItemStack[ii]);
       for (int jj = 0; jj < Convert.ToInt32(listItemStack[ii]); jj++)
       {
-        One.TF.BackpackList.Add(new Item(listItemValue[ii]));
+        One.TF.AddBackPack(new Item(listItemValue[ii]));
       }
     }
 

@@ -597,7 +597,7 @@ public partial class HomeTown : MotherBase
     // todo
     Item current = new Item(imgBuy.name);
 
-    One.TF.BackpackList.Add(current);
+    One.TF.AddBackPack(current);
     One.TF.Gold -= current.Gold;
     txtGold.text = One.TF.Gold.ToString();
 
@@ -666,7 +666,7 @@ public partial class HomeTown : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
-          One.TF.BackpackList.Add(new Item(currentMessage));
+          One.TF.AddBackPack(new Item(currentMessage));
           ConstructBackpackView();
           continue; // 継続
         }

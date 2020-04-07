@@ -232,7 +232,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
   {
-    set { _backpackList = value; }
+  //  set { _backpackList = value; }
     get { return _backpackList; }
   }
 
@@ -565,13 +565,127 @@ public class TeamFoundation : MonoBehaviour
 
   public void RemoveItem(Item item)
   {
-    for (int ii = 0; ii < this.BackpackList.Count; ii++)
+    for (int ii = 0; ii < this._backpackList.Count; ii++)
     {
-      if (item.ItemName == this.BackpackList[ii].ItemName)
+      if (item.ItemName == this._backpackList[ii].ItemName)
       {
-        this.BackpackList.RemoveAt(ii);
+        this._backpackList.RemoveAt(ii);
         break;
       }
     }
+  }
+
+  /// <summary>
+  /// バックパックにアイテムを追加します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns>TRUE:追加完了、FALSE:満杯のため追加できない</returns>
+  public bool AddBackPack(Item item)
+  {
+    return AddBackPack(item, 1);
+  }
+  public bool AddBackPack(Item item, int addValue)
+  {
+    int dummyValue = 0;
+    return AddBackPack(item, addValue, ref dummyValue);
+  }
+  public bool AddBackPack(Item item, int addValue, ref int addedNumber)
+  {
+    for (int ii = 0; ii < Fix.MAX_BACKPACK_SIZE; ii++)
+    {
+      Debug.Log("AddBackPack: " + ii.ToString());
+
+      // １つもアイテムを保持していない場合、１つ目として生成する。
+      if (this._backpackList.Count <= 0)
+      {
+        item.StackValue = addValue;
+        this._backpackList.Add(item);
+        addedNumber = 0;
+        return true;
+      }
+
+      // 対象がnullの場合でも次の検索は行うので分岐する。
+      if (this._backpackList[ii] == null)
+      {
+        // 次を探索すると同名アイテムを持っているかもしれないので、まず検索する。
+        for (int jj = ii + 1; jj < Fix.MAX_BACKPACK_SIZE; jj++)
+        {
+          if (CheckBackPackExist(item, jj) > 0)
+          {
+            // スタック上限以上の場合、別のアイテムとして追加する。
+            if (this._backpackList[jj].StackValue >= item.LimitValue)
+            {
+              // 次のアイテムリストへスルー
+              break;
+            }
+            else
+            {
+              // スタック上限を超えていなくても、多数追加で上限を超えてしまう場合
+              if (this._backpackList[jj].StackValue + addValue > item.LimitValue)
+              {
+                // 次のアイテムリストへスルー
+                break;
+              }
+              else
+              {
+                this._backpackList[jj].StackValue += addValue;
+                addedNumber = jj;
+                return true;
+              }
+            }
+          }
+        }
+
+        // やはり探索しても無かったので、そのまま追加する。
+        this._backpackList[ii] = item;
+        this._backpackList[ii].StackValue = addValue;
+        addedNumber = ii;
+        return true;
+      }
+      else
+      {
+        // 既に持っている場合、スタック量を増やす。
+        if (this._backpackList[ii].ItemName == item.ItemName)
+        {
+          // スタック上限以上の場合、別のアイテムとして追加する。
+          if (this._backpackList[ii].StackValue >= item.LimitValue)
+          {
+            // 次のアイテムリストへスルー
+          }
+          else
+          {
+            // スタック上限を超えていなくても、多数追加で上限を超えてしまう場合
+            if (this._backpackList[ii].StackValue + addValue > item.LimitValue)
+            {
+              // 次のアイテムリストへスルー
+            }
+            else
+            {
+              this._backpackList[ii].StackValue += addValue;
+              addedNumber = ii;
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  /// <summary>
+  /// バックパックに対象のアイテムが含まれている数を示します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <returns></returns>
+  public int CheckBackPackExist(Item item, int ii)
+  {
+    if (this._backpackList[ii] != null)
+    {
+      if (this._backpackList[ii].ItemName == item.ItemName)
+      {
+        return this._backpackList[ii].StackValue;
+      }
+    }
+    return 0;
   }
 }

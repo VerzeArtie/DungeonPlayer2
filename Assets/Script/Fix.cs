@@ -865,4 +865,9 @@ public static partial class Fix
   public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
   #endregion
+
+  #region "Limit"
+  public static int MAX_BACKPACK_SIZE = 9999;
+  public static int MAX_ITEM_STACK_SIZE = 10;
+  #endregion
 }

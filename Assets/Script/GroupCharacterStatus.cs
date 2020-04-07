@@ -527,7 +527,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.MainWeapon);
+        One.TF.AddBackPack(CurrentPlayer.MainWeapon);
       }
       CurrentPlayer.MainWeapon = new Item(ShadowPlayer.MainWeapon.ItemName);
       One.TF.RemoveItem(ShadowPlayer.MainWeapon);
@@ -537,7 +537,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.SubWeapon);
+        One.TF.AddBackPack(CurrentPlayer.SubWeapon);
       }
       CurrentPlayer.SubWeapon = new Item(ShadowPlayer.SubWeapon.ItemName);
       One.TF.RemoveItem(ShadowPlayer.SubWeapon);
@@ -547,7 +547,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.MainArmor);
+        One.TF.AddBackPack(CurrentPlayer.MainArmor);
       }
       CurrentPlayer.MainArmor = new Item(ShadowPlayer.MainArmor.ItemName);
       One.TF.RemoveItem(ShadowPlayer.MainArmor);
@@ -557,7 +557,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Accessory1);
+        One.TF.AddBackPack(CurrentPlayer.Accessory1);
       }
       CurrentPlayer.Accessory1 = new Item(ShadowPlayer.Accessory1.ItemName);
       One.TF.RemoveItem(ShadowPlayer.Accessory1);
@@ -567,7 +567,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Accessory2);
+        One.TF.AddBackPack(CurrentPlayer.Accessory2);
       }
       CurrentPlayer.Accessory2 = new Item(ShadowPlayer.Accessory2.ItemName);
       One.TF.RemoveItem(ShadowPlayer.Accessory2);
@@ -577,7 +577,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Artifact);
+        One.TF.AddBackPack(CurrentPlayer.Artifact);
       }
       CurrentPlayer.Artifact = new Item(ShadowPlayer.Artifact.ItemName);
       One.TF.RemoveItem(ShadowPlayer.Artifact);
@@ -605,7 +605,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.MainWeapon);
+        One.TF.AddBackPack(CurrentPlayer.MainWeapon);
       }
       CurrentPlayer.MainWeapon = null;
     }
@@ -614,7 +614,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.SubWeapon);
+        One.TF.AddBackPack(CurrentPlayer.SubWeapon);
       }
       CurrentPlayer.SubWeapon = null;
     }
@@ -623,7 +623,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.MainArmor);
+        One.TF.AddBackPack(CurrentPlayer.MainArmor);
       }
       CurrentPlayer.MainArmor = null;
     }
@@ -632,7 +632,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Accessory1);
+        One.TF.AddBackPack(CurrentPlayer.Accessory1);
       }
       CurrentPlayer.Accessory1 = null;
     }
@@ -641,7 +641,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Accessory2);
+        One.TF.AddBackPack(CurrentPlayer.Accessory2);
       }
       CurrentPlayer.Accessory2 = null;
     }
@@ -650,7 +650,7 @@ public class GroupCharacterStatus : MonoBehaviour
       Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
       {
-        One.TF.BackpackList.Add(CurrentPlayer.Artifact);
+        One.TF.AddBackPack(CurrentPlayer.Artifact);
       }
       CurrentPlayer.Artifact = null;
     }

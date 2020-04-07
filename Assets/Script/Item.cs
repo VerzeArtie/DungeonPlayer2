@@ -395,6 +395,20 @@ public partial class Item
     get { return _itemValue2; }
   }
 
+  protected int _limitValue = Fix.MAX_ITEM_STACK_SIZE; // オブジェクトがスタックできる最大数
+  public int LimitValue
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _limitValue = value; 
+    }
+    get { return _limitValue; }
+  }
+
   //protected int _lifeGain = 0;
   //public int LifeGain
   //{
