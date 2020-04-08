@@ -11,6 +11,7 @@ public static class MessagePack
   {
     None,
     GetItem,
+    GetGold,
     ObjectiveAdd,
     ObjectiveRemove,
     ObjectiveRefreshCheck,
@@ -180,15 +181,15 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ああ、わかった。了解了解！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：って、おわぁ！！　なんで横に居るんだよ！？", ActionEvent.None);
+    //Message(ref m_list, ref e_list, "アイン：って、おわぁ！！　なんで横に居るんだよ！？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：バカアインが迷子になるのは目に見えてるからよ。しょーがないから来てあげたんじゃない。", ActionEvent.None);
+    //Message(ref m_list, ref e_list, "ラナ：バカアインが迷子になるのは目に見えてるからよ。しょーがないから来てあげたんじゃない。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ま・・・まあ、正直なところ宮殿はほぼ歩いた事がねえ・・・助かるけどな。", ActionEvent.None);
+    //Message(ref m_list, ref e_list, "アイン：ま・・・まあ、正直なところ宮殿はほぼ歩いた事がねえ・・・助かるけどな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：ホラ、そこの受付に早く行って頂戴。", ActionEvent.None);
+    //Message(ref m_list, ref e_list, "ラナ：ホラ、そこの受付に早く行って頂戴。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ああ、わかった。", ActionEvent.None);
+    //Message(ref m_list, ref e_list, "アイン：ああ、わかった。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、受付口にて ～", ActionEvent.HomeTownMessageDisplay);
 
@@ -215,6 +216,10 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "　　【受付嬢：こちらがアイン・ウォーレンス様の国内外遠征許可証となります。】", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　【受付嬢：どうぞ、お受け取りください。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【 " + Fix.FIELD_RESEARCH_LICENSE + " 】を獲得しました！", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, Fix.FIELD_RESEARCH_LICENSE, ActionEvent.GetItem);
 
     Message(ref m_list, ref e_list, "アイン：サンキュー！助かるぜ！", ActionEvent.None);
 
@@ -323,11 +328,23 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：分かりました。じゃあ、まずは" + Fix.TOWN_COTUHSYE + "へ行ってみます。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：港町までは少し距離がある。途中にある" + Fix.TOWN_QVELTA_TOWN + "に立ち寄るのも良いだろう。よろしく頼んだよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金を用意しておいた。この軍資金は好きに使ってもらって構わないから。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：えっと・・・到着したら何かやる事はありますか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.HomeTownMessageDisplay);
 
-    Message(ref m_list, ref e_list, "エルミ：いや、特に何かっていうのは気にしなくて良いよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！僭越ながら、拝受つかまつります！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アッハハハ、丁寧にどうもありがとう。固苦しい言葉は本当に気にしなくていいからね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：さて、港町までは少し距離がある。途中にある" + Fix.TOWN_QVELTA_TOWN + "に立ち寄ってみるのも良いだろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：それでは、よろしく頼んだよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：えっと・・・すみませんが、到着したら何かやる事はありますか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：いや、特に「何か」っていうのは気にしなくて良いよ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：天の導きがあれば、自然と道は拓かれる。", ActionEvent.None);
 

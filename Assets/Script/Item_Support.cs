@@ -446,6 +446,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.PRACTICE_ORB:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 1;
+        this._magicAttackMax = 3;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 180;
+        this._importantType = Important.None;
+        this._description = "";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
       case Fix.FINE_ORB:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Orb;
@@ -896,7 +919,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 500;
+        this._gold = 250;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -942,7 +965,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 500;
+        this._gold = 200;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -975,7 +998,7 @@ public partial class Item
         this._mind = 0;
         break;
 
-      case Fix.FINE_ROBE:
+      case Fix.BEGINNER_ROBE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Light_Armor;
         this._gripType = GripTypes.None;
@@ -985,7 +1008,30 @@ public partial class Item
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 1;
-        this._magicDefense = 3;
+        this._magicDefense = 2;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 350;
+        this._importantType = Important.None;
+        this._description = "";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.FINE_ROBE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 2;
+        this._magicDefense = 4;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 700;
@@ -1290,6 +1336,29 @@ public partial class Item
         this._gold = 0;
         this._importantType = Important.Precious;
         this._description = "アーサリウム工場跡地で採取した鉱石。薄汚れた色をしているが、中身の強度は失われておらず、再利用することが出来そうだ。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.FIELD_RESEARCH_LICENSE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "各地への遠征を可能とする公式の許可証。この許可証を持っていれば、各区域に対して自由に行き来する事ができる様になる。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

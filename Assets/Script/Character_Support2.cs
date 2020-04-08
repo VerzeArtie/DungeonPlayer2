@@ -76,8 +76,8 @@ public partial class Character : MonoBehaviour
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
-        this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
-        this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
+        this.MainWeapon = new Item(Fix.PRACTICE_ORB);
+        this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         break;
 
       case Fix.NAME_MAGI_ZELKIS:

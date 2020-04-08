@@ -591,18 +591,18 @@ public class TeamFoundation : MonoBehaviour
   }
   public bool AddBackPack(Item item, int addValue, ref int addedNumber)
   {
-    for (int ii = 0; ii < Fix.MAX_BACKPACK_SIZE; ii++)
+    // １つもアイテムを保持していない場合、１つ目として生成する。
+    if (this._backpackList.Count <= 0)
+    {
+      item.StackValue = addValue;
+      this._backpackList.Add(item);
+      addedNumber = 0;
+      return true;
+    }
+
+    for (int ii = 0; ii < this._backpackList.Count; ii++)
     {
       Debug.Log("AddBackPack: " + ii.ToString());
-
-      // １つもアイテムを保持していない場合、１つ目として生成する。
-      if (this._backpackList.Count <= 0)
-      {
-        item.StackValue = addValue;
-        this._backpackList.Add(item);
-        addedNumber = 0;
-        return true;
-      }
 
       // 対象がnullの場合でも次の検索は行うので分岐する。
       if (this._backpackList[ii] == null)
@@ -669,7 +669,17 @@ public class TeamFoundation : MonoBehaviour
         }
       }
     }
-    return false;
+
+    if (this._backpackList.Count > Fix.MAX_BACKPACK_SIZE)
+    {
+      Debug.Log("AddBackpack: maximum_backpack_size detect, then no add.");
+      return false;
+    }
+
+    addedNumber = this._backpackList.Count;
+    item.StackValue = addValue;
+    this._backpackList.Add(item);
+    return true;
   }
 
   /// <summary>

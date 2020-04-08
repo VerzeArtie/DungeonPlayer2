@@ -468,7 +468,42 @@ public partial class Item
       }
     }
   }
+  public Color GetRareTextColor
+  {
+    get
+    {
 
+      if (this._rarity == Item.Rarity.Normal)
+      {
+        return Color.black;
+      }
+      else if (this._rarity == Item.Rarity.Common)
+      {
+        return Color.black;
+      }
+      else if (this._rarity == Item.Rarity.Uncommon)
+      {
+        return Color.black;
+      }
+      else if (this._rarity == Item.Rarity.Rare)
+      {
+        return Color.white;
+      }
+      else if (this._rarity == Item.Rarity.Epic)
+      {
+        return Color.white;
+      }
+      else if (this._rarity == Item.Rarity.Legendary)
+      {
+        return Color.white;
+      }
+      else
+      {
+        // 指定以外の場合、Normalと同じ扱いで良い。
+        return new Color(155.0f / 255.0f, 0, 255.0f / 255.0f);
+      }
+    }
+  }
   public string ItemType_JP
   {
     get

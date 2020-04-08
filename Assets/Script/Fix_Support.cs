@@ -23,6 +23,7 @@ public static partial class Fix
   public const string VIKING_AXE = "バイキング・アックス";
   public const string EARTH_POWER_AXE = "土力の斧";
   public const string WARWOLF_AXE = "ワーウルフ・アックス";
+  public const string PRACTICE_ORB = "練習用のオーブ";
   public const string FINE_ORB = "ファイン・オーブ";
   public const string ENERGY_ORB = "エナジー・オーブ";
   public const string LIVING_GROWTH_ORB = "リビング・グロース・オーブ";
@@ -46,6 +47,7 @@ public static partial class Fix
   public const string FINE_ARMOR = "ファイン・アーマー";
   public const string BEGINNER_CROSS = "初心者の舞踏衣";
   public const string FINE_CROSS = "ファイン・クロス";
+  public const string BEGINNER_ROBE = "初心者のローブ";
   public const string FINE_ROBE = "ファイン・ローブ";
   public const string FLAT_SHOES = "フラット・シューズ";
   public const string COMPACT_EARRING = "コンパクト・イヤリング";
@@ -60,4 +62,5 @@ public static partial class Fix
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
   public const string SMALL_RED_POTION = "小さい赤ポーション";
   public const string ZETANIUM_STONE = "ゼタニウム鉱石";
+  public const string FIELD_RESEARCH_LICENSE = "国内外遠征許可証";
 }

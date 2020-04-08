@@ -240,6 +240,15 @@ public partial class HomeTown : MotherBase
       objBlackOut.SetActive(true);
       GroupQuestMessage.SetActive(true);
     }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    {
+      if (One.TF.Event_Message100020 == false)
+      {
+        One.TF.Event_Message100020 = true;
+        MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+      }
+    }
     else
     {
       txtMessage.text = "アイン：さて、何すっかな。";
@@ -668,6 +677,13 @@ public partial class HomeTown : MotherBase
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           One.TF.AddBackPack(new Item(currentMessage));
           ConstructBackpackView();
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.GetGold)
+        {
+          Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
+          One.TF.Gold += Convert.ToInt32(currentMessage);
+          txtGold.text = One.TF.Gold.ToString();
           continue; // 継続
         }
         // 自動セーブを行う。

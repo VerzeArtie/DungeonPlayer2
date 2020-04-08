@@ -17,10 +17,19 @@ public class NodeBackpackItem : MonoBehaviour
   {
     this.transform.SetParent(content.transform);
 
-    this.name = item_name;
-    if (this.txtName != null) { this.txtName.text = item_name; }
-    if (this.txtItemNum != null) { this.txtItemNum.text = "x " + item_num.ToString(); }
     Item current = new Item(item_name);
+
+    this.name = item_name;
+    if (this.txtName != null)
+    {
+      this.txtName.text = item_name;
+      this.txtName.color = current.GetRareTextColor;
+    }
+    if (this.txtItemNum != null)
+    {
+      this.txtItemNum.text = "x " + item_num.ToString();
+      this.txtItemNum.color = current.GetRareTextColor;
+    }
     this.background.color = current.GetRareColor;
 
     if (this.imgIcon != null)
