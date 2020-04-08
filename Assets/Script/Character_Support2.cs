@@ -39,13 +39,15 @@ public partial class Character : MonoBehaviour
         this.Stamina = 7;
         this.Mind = 3;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Armorer;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
+        this.AvailableArmorer = true;
+        this.ShieldBash = 1;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -63,6 +65,8 @@ public partial class Character : MonoBehaviour
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
+        this.AvailableSwordman = true;
+        this.StraightSmash = 1;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -78,6 +82,8 @@ public partial class Character : MonoBehaviour
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
+        this.AvailableHolyLight = true;
+        this.FreshHeal = 1;
         break;
 
       case Fix.NAME_MAGI_ZELKIS:

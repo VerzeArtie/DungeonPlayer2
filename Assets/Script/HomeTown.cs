@@ -216,6 +216,7 @@ public partial class HomeTown : MotherBase
   protected List<MessagePack.ActionEvent> QuestEventList = new List<MessagePack.ActionEvent>();
 
   List<NodeShopItem> ShopItemList = new List<NodeShopItem>();
+  List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
 
   protected Item CurrentSelectBackpack;
 
@@ -669,7 +670,8 @@ public partial class HomeTown : MotherBase
                 break;
               }
             }
-          }
+            RefreshAllView();
+           }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
@@ -738,7 +740,6 @@ public partial class HomeTown : MotherBase
   /// </summary>
   private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int item_num, int num)
   {
-    Instantiate(node).Construct(content, item_name, item_num, num);
   }
 
   private void CreateACAttribute(GameObject content, NodeACAttribute node, int num)
@@ -826,6 +827,7 @@ public partial class HomeTown : MotherBase
     List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
     if (One.TF.AvailableFirstCommand)
     {
+      Debug.Log("Detect AvailableFirstCommand");
       NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
       current.CommandAttribute = player.FirstCommandAttribute;
       CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
@@ -833,6 +835,7 @@ public partial class HomeTown : MotherBase
     }
     if (One.TF.AvailableSecondCommand)
     {
+      Debug.Log("Detect AvailableSecondCommand");
       NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
       current.CommandAttribute = player.SecondCommandAttribute;
       CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
@@ -840,6 +843,7 @@ public partial class HomeTown : MotherBase
     }
     if (One.TF.AvailableThirdCommand)
     {
+      Debug.Log("Detect AvailableThirdCommand");
       NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
       current.CommandAttribute = player.ThirdCommandAttribute;
       CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
@@ -861,6 +865,7 @@ public partial class HomeTown : MotherBase
       // トータル１以上であれば表示。それ以外はLOCKED表示とする。
       if (totalValue > 0)
       {
+        Debug.Log("Detect totalValue: " + totalValue.ToString());
         attributeList[ii].lockPanel.SetActive(false);
         attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
         attributeList[ii].txtTotal.text = "Lv" + totalValue;
@@ -887,6 +892,7 @@ public partial class HomeTown : MotherBase
       }
       else
       {
+        Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
         attributeList[ii].lockPanel.SetActive(true);
         attributeList[ii].txtName.text = String.Empty;
         attributeList[ii].txtTotal.text = String.Empty;
@@ -981,9 +987,12 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     ContentBackpack.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+    BackpackList.Clear();
     for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
     {
-      CreateBackpack(ContentBackpack, nodeBackpackItem, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii);
+      NodeBackpackItem current = Instantiate(nodeBackpackItem) as NodeBackpackItem;
+      current.Construct(ContentBackpack, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii);
+      BackpackList.Add(current);
     }
   }
 
@@ -1057,9 +1066,17 @@ public partial class HomeTown : MotherBase
     }
   }
 
-  public void TapBackpackSelect(Text txt_item)
+  public void TapBackpackSelect(NodeBackpackItem backpack)
   {
-    this.CurrentSelectBackpack = new Item(txt_item.text);
+    Debug.Log("TapBackpackSelect(S)");
+    this.CurrentSelectBackpack = new Item(backpack.txtName.text);
+
+    for (int ii = 0; ii < BackpackList.Count; ii++)
+    {
+      Debug.Log("BackpackList: " + BackpackList[ii].txtName.text);
+      BackpackList[ii].imgSelect.gameObject.SetActive(false);
+    }
+    backpack.imgSelect.gameObject.SetActive(true);
   }
 
   public void TapBackpackUse()
@@ -1179,9 +1196,10 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    List<Character> available = One.AvailableCharacters();
+    for (int ii = 0; ii < available.Count; ii++)
     {
-      CreateMiniCharaIcon(One.PlayerList[ii]);
+      CreateMiniCharaIcon(available[ii]);
     }
     UpdateActionCommandSetting(this.CurrentPlayer);
 

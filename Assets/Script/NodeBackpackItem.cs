@@ -12,6 +12,7 @@ public class NodeBackpackItem : MonoBehaviour
   public Text txtName;
   public Text txtItemNum;
   public Image background;
+  public Image imgSelect;
 
   public void Construct(GameObject content, string item_name, int item_num, int num)
   {
@@ -47,7 +48,7 @@ public class NodeBackpackItem : MonoBehaviour
     }
     this.gameObject.SetActive(true);
 
-    const int HEIGHT = 80;
+    const int HEIGHT = 76;
     RectTransform rect = this.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     rect.sizeDelta = new Vector2(0, 0);
