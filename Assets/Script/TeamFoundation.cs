@@ -556,11 +556,30 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message500020 = value; }
   }
 
+  [SerializeField] protected bool _questmain_00001 = false;
+  [SerializeField] protected bool _questmain_00002 = false;
   [SerializeField] protected bool _questmain_complete_00001 = false;
+  [SerializeField] protected bool _questmain_complete_00002 = false;
+  public bool QuestMain_00001
+  {
+    get { return _questmain_00001; }
+    set { _questmain_00001 = value; }
+  }
+
+  public bool QuestMain_00002
+  {
+    get { return _questmain_00002; }
+    set { _questmain_00002 = value; }
+  }
   public bool QuestMain_Complete_00001
   {
     get { return _questmain_complete_00001; }
     set { _questmain_complete_00001 = value; }
+  }
+  public bool QuestMain_Complete_00002
+  {
+    get { return _questmain_complete_00002; }
+    set { _questmain_complete_00002 = value; }
   }
 
   public void RemoveItem(Item item)

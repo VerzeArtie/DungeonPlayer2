@@ -653,6 +653,30 @@ public partial class HomeTown : MotherBase
           this.panelSystemMessage.SetActive(true);
           return;
         }
+        // 画面にクエスト開始メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
+          // todo
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_00002 = true; }
+          RefreshQuestList();
+          return;
+        }
+        // 画面にクエスト完了メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
+          // todo
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_Complete_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_Complete_00002 = true; }
+          RefreshQuestList();
+          return;
+        }
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)
         {
@@ -1147,8 +1171,7 @@ public partial class HomeTown : MotherBase
     txtArea.text = One.TF.CurrentAreaName;
 
     // DungeonPlayerのクエストリストを設定
-    int counter = 0;
-    if (One.TF.QuestMain_Complete_00001 == false) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], counter); counter++; }
+    RefreshQuestList();
 
     // debug
     //for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
@@ -1240,12 +1263,30 @@ public partial class HomeTown : MotherBase
     SelectShopItem(ShopItemList[0]);
   }
 
-  private void AddQuestEvent(string quest_name, int counter)
+  private void RefreshQuestList()
+  {
+    foreach (Transform n in contentDungeonPlayer.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    int counter = 0;
+    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], One.TF.QuestMain_Complete_00001, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[1], One.TF.QuestMain_Complete_00002, counter); counter++; }
+
+
+
+  }
+
+  private void AddQuestEvent(string quest_name, bool complete, int counter)
   {
     NodeButton button = Instantiate(nodeButton) as NodeButton;
     button.gameObject.transform.SetParent(contentDungeonPlayer.transform);
     button.txtName.text = quest_name;
     button.gameObject.SetActive(true);
+    if (complete)
+    {
+      button.imgFilter.gameObject.SetActive(true);
+    }
     contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
 
     txtEventTitle.text = quest_name;

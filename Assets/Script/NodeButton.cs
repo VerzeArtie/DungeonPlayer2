@@ -6,4 +6,5 @@ using UnityEngine.UI;
 public class NodeButton : MonoBehaviour
 {
   public Text txtName;
+  public Image imgFilter;
 }

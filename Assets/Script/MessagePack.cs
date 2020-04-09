@@ -12,6 +12,8 @@ public static class MessagePack
     None,
     GetItem,
     GetGold,
+    GetNewQuest,
+    QuestComplete,
     ObjectiveAdd,
     ObjectiveRemove,
     ObjectiveRefreshCheck,
@@ -162,6 +164,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：そうよ。このアンシェット町から川沿いに北へ向かえば、すぐ到着するわ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行くとしますか！ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[0] + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
   }
@@ -354,6 +358,8 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：はい、分かりました！", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[1] + " 】が開始されました！", ActionEvent.GetNewQuest);
+
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.HomeTownMessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：じゃあ、まずは" + Fix.TOWN_COTUHSYE + "へ向かえば良いみたいね。", ActionEvent.None);
@@ -430,6 +436,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, " 【エオネ・フルネア】が仲間になりました！", ActionEvent.HomeTownMessageDisplay);
 
     Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
+
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[0] + " 】を達成しました！", ActionEvent.QuestComplete);
   }
   // フィールド
   public static void Message101000(ref List<string> m_list, ref List<ActionEvent> e_list)
