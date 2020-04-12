@@ -556,31 +556,48 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message500020 = value; }
   }
 
+  // todo
   [SerializeField] protected bool _questmain_00001 = false;
   [SerializeField] protected bool _questmain_00002 = false;
+  [SerializeField] protected bool _questmain_00003 = false;
+  [SerializeField] protected bool _questmain_00004 = false;
+  [SerializeField] protected bool _questmain_00005 = false;
+  [SerializeField] protected bool _questmain_00006 = false;
+  [SerializeField] protected bool _questmain_00007 = false;
+  [SerializeField] protected bool _questmain_00008 = false;
+  [SerializeField] protected bool _questmain_00009 = false;
+  [SerializeField] protected bool _questmain_00010 = false;
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
-  public bool QuestMain_00001
-  {
-    get { return _questmain_00001; }
-    set { _questmain_00001 = value; }
-  }
+  [SerializeField] protected bool _questmain_complete_00003 = false;
+  [SerializeField] protected bool _questmain_complete_00004 = false;
+  [SerializeField] protected bool _questmain_complete_00005 = false;
+  [SerializeField] protected bool _questmain_complete_00006 = false;
+  [SerializeField] protected bool _questmain_complete_00007 = false;
+  [SerializeField] protected bool _questmain_complete_00008 = false;
+  [SerializeField] protected bool _questmain_complete_00009 = false;
+  [SerializeField] protected bool _questmain_complete_00010 = false;
+  public bool QuestMain_00001 { get { return _questmain_00001; } set { _questmain_00001 = value; } }
+  public bool QuestMain_00002 { get { return _questmain_00002; } set { _questmain_00002 = value; } }
+  public bool QuestMain_00003 { get { return _questmain_00003; } set { _questmain_00003 = value; } }
+  public bool QuestMain_00004 { get { return _questmain_00004; } set { _questmain_00004 = value; } }
+  public bool QuestMain_00005 { get { return _questmain_00005; } set { _questmain_00005 = value; } }
+  public bool QuestMain_00006 { get { return _questmain_00006; } set { _questmain_00006 = value; } }
+  public bool QuestMain_00007 { get { return _questmain_00007; } set { _questmain_00007 = value; } }
+  public bool QuestMain_00008 { get { return _questmain_00008; } set { _questmain_00008 = value; } }
+  public bool QuestMain_00009 { get { return _questmain_00009; } set { _questmain_00009 = value; } }
+  public bool QuestMain_00010 { get { return _questmain_00010; } set { _questmain_00010 = value; } }
 
-  public bool QuestMain_00002
-  {
-    get { return _questmain_00002; }
-    set { _questmain_00002 = value; }
-  }
-  public bool QuestMain_Complete_00001
-  {
-    get { return _questmain_complete_00001; }
-    set { _questmain_complete_00001 = value; }
-  }
-  public bool QuestMain_Complete_00002
-  {
-    get { return _questmain_complete_00002; }
-    set { _questmain_complete_00002 = value; }
-  }
+  public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
+  public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }
+  public bool QuestMain_Complete_00003 { get { return _questmain_complete_00003; } set { _questmain_complete_00003 = value; } }
+  public bool QuestMain_Complete_00004 { get { return _questmain_complete_00004; } set { _questmain_complete_00004 = value; } }
+  public bool QuestMain_Complete_00005 { get { return _questmain_complete_00005; } set { _questmain_complete_00005 = value; } }
+  public bool QuestMain_Complete_00006 { get { return _questmain_complete_00006; } set { _questmain_complete_00006 = value; } }
+  public bool QuestMain_Complete_00007 { get { return _questmain_complete_00007; } set { _questmain_complete_00007 = value; } }
+  public bool QuestMain_Complete_00008 { get { return _questmain_complete_00008; } set { _questmain_complete_00008 = value; } }
+  public bool QuestMain_Complete_00009 { get { return _questmain_complete_00009; } set { _questmain_complete_00009 = value; } }
+  public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
 
   public void RemoveItem(Item item)
   {
@@ -716,5 +733,22 @@ public class TeamFoundation : MonoBehaviour
       }
     }
     return 0;
+  }
+
+  /// <summary>
+  /// バックパックに対象のアイテムが含まれているかどうかをチェックします。
+  /// </summary>
+  /// <param name="itemName">検索対象となるアイテム名</param>
+  /// <returns>true: 存在する,  false: 存在しない</returns>
+  public bool FindBackPackItem(string itemName)
+  {
+    for (int ii = 0; ii < this.BackpackList.Count; ii++)
+    {
+      if (BackpackList[ii] != null && BackpackList[ii].ItemName == itemName)
+      {
+        return true;
+      }
+    }
+    return false;
   }
 }

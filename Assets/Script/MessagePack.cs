@@ -241,11 +241,6 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
 
-    //}
-    //public static void Message100030(ref List<string> m_list, ref List<ActionEvent> e_list)
-    //{
-    //    One.TF.Event_Message100030 = true;
-
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、謁見の間にて ～", ActionEvent.HomeTownMessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：よし、謁見の間は確かここだったな。", ActionEvent.None);
@@ -448,6 +443,88 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "パーティは全回復しました。", ActionEvent.HomeTownMessageDisplay);
   }
+
+  public static void Message101001(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FindBackPackItem(Fix.FIELD_RESEARCH_LICENSE) == false)
+    {
+      Message(ref m_list, ref e_list, "衛兵：通行許可証を拝見させていただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なに！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ほら、だから言ってるじゃない。先に許可証が必要だって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.MoveLeft);
+      return;
+    }
+
+    if (One.TF.Event_Message100030 == false)
+    {
+      One.TF.Event_Message100030 = true;
+
+      Message(ref m_list, ref e_list, "衛兵：通行許可証を拝見させていただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なに！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：なにって、さっきもらった許可証の事じゃない。早く出しなさいよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。そうだったな。衛兵さん、これで良いかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "衛兵：うむ、確かに通行許可証を確認した！道中気をつけて行くがよい！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、サンキューな。", ActionEvent.None);
+    }
+  }
+  public static void Message101002(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FindBackPackItem(Fix.FIELD_RESEARCH_LICENSE) == false)
+    {
+      Message(ref m_list, ref e_list, "衛兵：通行許可証を拝見させていただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なに！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ほら、だから言ってるじゃない。先に許可証が必要だって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。今から港町コチューシェの方へ向かうんでしょ？そっちじゃないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+  }
+  public static void Message101003(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FindBackPackItem(Fix.FIELD_RESEARCH_LICENSE) == false)
+    {
+      Message(ref m_list, ref e_list, "衛兵：通行許可証を拝見させていただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なに！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ほら、だから言ってるじゃない。先に許可証が必要だって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。今から港町コチューシェの方へ向かうんでしょ？そっちじゃないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+  }
   #endregion
 
   #region "クヴェルタ街"
@@ -562,7 +639,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【ゼタニウム鉱石入手】の依頼を受けました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[3] + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "ヴァスタ：あそこはモンスターも出てくるという噂を聞いておる。準備は万全にな。", ActionEvent.None);
 

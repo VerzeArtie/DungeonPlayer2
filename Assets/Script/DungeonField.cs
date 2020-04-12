@@ -408,6 +408,10 @@ public class DungeonField : MotherBase
     {
       return;
     }
+    if (this.GroupQuestMessage.activeInHierarchy)
+    {
+      return;
+    }
     if (this.HomeTownCall != string.Empty && this.HomeTownComplete == false)
     {
       this.HomeTownComplete = true;
@@ -650,34 +654,62 @@ public class DungeonField : MotherBase
       // メッセージが在る場合は、メッセージを進行する。
       if (QuestMessageList.Count > 0)
       {
+        MessagePack.ActionEvent currentEvent = QuestEventList[0];
+        string currentMessage = QuestMessageList[0];
+        RemoveOneSentence();
+        GroupQuestMessage.SetActive(true);
+
         // ブラックアウトしている画面から元に戻す。
-        if (QuestEventList[0] == MessagePack.ActionEvent.ReturnToNormal)
+        if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
         {
           this.objBlackOut.SetActive(false);
-          RemoveOneSentence();
           continue; // 継続
         }
-        else if (QuestEventList[0] == MessagePack.ActionEvent.Fountain)
+        else if (currentEvent == MessagePack.ActionEvent.Fountain)
         {
           EventFountain();
-          RemoveOneSentence();
           continue; // 継続
         }
         // 画面にシステムメッセージを表示する。
-        else if (QuestEventList[0] == MessagePack.ActionEvent.HomeTownMessageDisplay)
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownMessageDisplay)
         {
-          this.txtSystemMessage.text = QuestMessageList[0];
+          this.txtSystemMessage.text = currentMessage;
           this.panelSystemMessage.SetActive(true);
-          RemoveOneSentence();
           return;
         }
-
+        else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Left);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveRight)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Right);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveTop)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Top);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveBottom)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+        }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
-        else if (QuestEventList[0] == MessagePack.ActionEvent.None)
+        else if (currentEvent == MessagePack.ActionEvent.None)
         {
           this.panelSystemMessage.SetActive(false);
-          this.txtQuestMessage.text = QuestMessageList[0];
-          RemoveOneSentence();
+          this.txtQuestMessage.text = currentMessage;
           return;
         }
       }
@@ -688,6 +720,7 @@ public class DungeonField : MotherBase
     {
       this.GroupQuestMessage.SetActive(false);
       this.QuestMessageList.Clear();
+      Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }
   }
 
@@ -800,6 +833,27 @@ public class DungeonField : MotherBase
       MessagePack.Message101000(ref QuestMessageList, ref QuestEventList);
       TapOK();
       GroupQuestMessage.SetActive(true);
+      return;
+    }
+
+    // todo town , castle, field, dungeonの属性分けが誤っている。
+    // field
+    if (tile.transform.position.x == -47 && tile.transform.position.y == 3.5 && tile.transform.position.z == 17)
+    {
+      MessagePack.Message101001(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+    if (tile.transform.position.x == -49 && tile.transform.position.y == 3.5 && tile.transform.position.z == 19)
+    {
+      MessagePack.Message101002(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+    if (tile.transform.position.x == -51 && tile.transform.position.y == 3.5 && tile.transform.position.z == 17)
+    {
+      MessagePack.Message101003(ref QuestMessageList, ref QuestEventList);
+      TapOK();
       return;
     }
 
@@ -926,7 +980,12 @@ public class DungeonField : MotherBase
     CumulativeBattleCounter++;
 
     // 最初の歩きはじめはエンカウント対象外
-    if (CumulativeBattleCounter <= 8)
+    if (CumulativeBattleCounter <= 4)
+    {
+      encount = false;
+    }
+    // エンカウントしない場合は対象外
+    else if (this.BattleEncount <= -1)
     {
       encount = false;
     }

@@ -233,7 +233,6 @@ public partial class HomeTown : MotherBase
     // イベント進行
     if (One.TF.Event_Message100010 == false)
     {
-      Debug.Log("Event_Message100010 detect");
       One.TF.Event_Message100010 = true;
       MessagePack.Message100010(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -248,6 +247,16 @@ public partial class HomeTown : MotherBase
         One.TF.Event_Message100020 = true;
         MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
         TapOK();
+      }
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
+    {
+      if (One.TF.Event_Message200010 == false)
+      {
+        One.TF.Event_Message200010 = true;
+        MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return;
       }
     }
     else
@@ -340,27 +349,6 @@ public partial class HomeTown : MotherBase
   public void TapDungeon()
   {
     Debug.Log(MethodBase.GetCurrentMethod().Name);
-
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
-    {
-      //if (One.TF.Event_Message100020 == false)
-      //{
-      //  One.TF.Event_Message100020 = true;
-      //  MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
-      //  TapOK();
-      //  return;
-      //}
-    }
-    if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
-    {
-      if (One.TF.Event_Message200010 == false)
-      {
-        One.TF.Event_Message200010 = true;
-        MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
-        TapOK();
-        return;
-      }
-    }
 
     if (QuestMessageList.Count > 0)
     {
@@ -662,6 +650,14 @@ public partial class HomeTown : MotherBase
           // todo
           if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_00001 = true; }
           if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_00010 = true; }
           RefreshQuestList();
           return;
         }
@@ -674,6 +670,14 @@ public partial class HomeTown : MotherBase
           // todo
           if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_Complete_00001 = true; }
           if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_Complete_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_Complete_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_Complete_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_Complete_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_Complete_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_Complete_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_Complete_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_Complete_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_Complete_00010 = true; }
           RefreshQuestList();
           return;
         }
@@ -1228,39 +1232,50 @@ public partial class HomeTown : MotherBase
 
     // ショップアイテムを設定
     List<Item> shopList = new List<Item>();
-    shopList.Add(new Item(Fix.FINE_SWORD));
-    shopList.Add(new Item(Fix.FINE_LANCE));
-    shopList.Add(new Item(Fix.FINE_AXE));
-    shopList.Add(new Item(Fix.FINE_CLAW));
-    shopList.Add(new Item(Fix.FINE_BOW));
-    shopList.Add(new Item(Fix.FINE_ROD));
-    shopList.Add(new Item(Fix.FINE_ORB));
-    shopList.Add(new Item(Fix.FINE_BOOK));
-    shopList.Add(new Item(Fix.FINE_SHIELD));
-    //shopList.Add(new Item(Fix.BASTARD_SWORD));
-    shopList.Add(new Item(Fix.FINE_ARMOR));
-    shopList.Add(new Item(Fix.FINE_CROSS));
-    shopList.Add(new Item(Fix.FINE_ROBE));
-    shopList.Add(new Item(Fix.RED_PENDANT));
-    shopList.Add(new Item(Fix.BLUE_PENDANT));
-    shopList.Add(new Item(Fix.PURPLE_PENDANT));
-    shopList.Add(new Item(Fix.GREEN_PENDANT));
-    shopList.Add(new Item(Fix.YELLOW_PENDANT));
-    shopList.Add(new Item(Fix.AERO_BLADE));
-    shopList.Add(new Item(Fix.GEAR_GENSEI));
-    shopList.Add(new Item(Fix.MASTER_SWORD));
-    shopList.Add(new Item(Fix.MASTER_SHIELD));
-    shopList.Add(new Item(Fix.EDIL_BLACK_BLADE));
-    shopList.Add(new Item(Fix.SMALL_RED_POTION));
-    shopList.Add(new Item(Fix.WHITE_PARGE_LANCE));
-    shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    {
+      shopList.Add(new Item(Fix.FINE_SWORD));
+      shopList.Add(new Item(Fix.FINE_CLAW));
+      shopList.Add(new Item(Fix.FINE_ORB));
+      shopList.Add(new Item(Fix.FINE_ARMOR));
+      shopList.Add(new Item(Fix.FINE_CROSS));
+      shopList.Add(new Item(Fix.FINE_ROBE));
+      shopList.Add(new Item(Fix.FINE_SHIELD));
+      shopList.Add(new Item(Fix.RED_PENDANT));
+      shopList.Add(new Item(Fix.BLUE_PENDANT));
+      shopList.Add(new Item(Fix.PURPLE_PENDANT));
+      shopList.Add(new Item(Fix.GREEN_PENDANT));
+      shopList.Add(new Item(Fix.YELLOW_PENDANT));
+      shopList.Add(new Item(Fix.SMALL_RED_POTION));
+
+      // todo
+      if (false)
+      {
+        shopList.Add(new Item(Fix.FINE_LANCE));
+        shopList.Add(new Item(Fix.FINE_AXE));
+        shopList.Add(new Item(Fix.FINE_BOW));
+        shopList.Add(new Item(Fix.FINE_ROD));
+        shopList.Add(new Item(Fix.FINE_BOOK));
+        //shopList.Add(new Item(Fix.BASTARD_SWORD));
+        shopList.Add(new Item(Fix.AERO_BLADE));
+        shopList.Add(new Item(Fix.GEAR_GENSEI));
+        shopList.Add(new Item(Fix.MASTER_SWORD));
+        shopList.Add(new Item(Fix.MASTER_SHIELD));
+        shopList.Add(new Item(Fix.EDIL_BLACK_BLADE));
+        shopList.Add(new Item(Fix.WHITE_PARGE_LANCE));
+        shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
+      }
+    }
     ShopItemList.Clear();
     for (int ii = 0; ii < shopList.Count; ii++)
     {
       ShopItemList.Add(CreateShopItem(contentShopItem, shopList[ii], ii));
     }
     contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentShopItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
-    SelectShopItem(ShopItemList[0]);
+    if (ShopItemList.Count > 0)
+    {
+      SelectShopItem(ShopItemList[0]);
+    }
   }
 
   private void RefreshQuestList()
@@ -1270,11 +1285,18 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     int counter = 0;
+
+    // todo
     if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], One.TF.QuestMain_Complete_00001, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[1], One.TF.QuestMain_Complete_00002, counter); counter++; }
-
-
-
+    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[2], One.TF.QuestMain_Complete_00003, counter); counter++; }
+    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[3], One.TF.QuestMain_Complete_00004, counter); counter++; }
+    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[4], One.TF.QuestMain_Complete_00005, counter); counter++; }
+    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[5], One.TF.QuestMain_Complete_00006, counter); counter++; }
+    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[6], One.TF.QuestMain_Complete_00007, counter); counter++; }
+    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[7], One.TF.QuestMain_Complete_00008, counter); counter++; }
+    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[8], One.TF.QuestMain_Complete_00009, counter); counter++; }
+    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[9], One.TF.QuestMain_Complete_00010, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
