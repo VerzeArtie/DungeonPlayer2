@@ -255,6 +255,12 @@ public class TeamFoundation : MonoBehaviour
     set { _currentAreaName = value; }
     get { return _currentAreaName; }
   }
+  [SerializeField] protected string _currentDungeonField = String.Empty;
+  public string CurrentDungeonField
+  {
+    set { _currentDungeonField = value; }
+    get { return _currentDungeonField; }
+  }
 
   [SerializeField] protected bool _availableAnshet = false;
   public bool AvailableAnshet

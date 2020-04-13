@@ -29,6 +29,7 @@ public class DungeonField : MotherBase
   public Text txtSelectName;
   public Text txtEditMode;
   public Text txtCurrentCursor;
+  public Text txtCurrentCursor2;
 
   // prefab
   public TileInformation prefab_FieldNormal;
@@ -50,6 +51,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Artharium_Bridge1;
   public TileInformation prefab_Artharium_Bridge2;
   public TileInformation prefab_Artharium_Wall;
+  public TileInformation prefab_Upstair;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
 
@@ -97,6 +99,7 @@ public class DungeonField : MotherBase
   private string HomeTownCall = string.Empty;
   private bool HomeTownComplete = false;
   private string DungeonCall = string.Empty;
+  private string DungeonMap = string.Empty;
   private bool DungeonCallComplete = false;
 
   protected List<string> QuestMessageList = new List<string>();
@@ -151,6 +154,7 @@ public class DungeonField : MotherBase
     PrefabList.Add("Artharium_Debris");
     PrefabList.Add("Artharium_Bridge1");
     PrefabList.Add("Artharium_Bridge2");
+    PrefabList.Add("Upstair");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -234,7 +238,7 @@ public class DungeonField : MotherBase
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
 
     // タイルを設置
-    LoadTileMapping(One.DungeonFieldName);
+    LoadTileMapping(One.TF.CurrentDungeonField);
 
     // プレイヤー位置を設定
     JumpToLocation(new Vector3(One.TF.Field_X, One.TF.Field_Y, One.TF.Field_Z));
@@ -404,6 +408,7 @@ public class DungeonField : MotherBase
     }
 
     // 通常モード
+    txtCurrentCursor2.text = this.Player.transform.position.ToString();
     if (this.HomeTownComplete || this.DungeonCallComplete)
     {
       return;
@@ -416,14 +421,15 @@ public class DungeonField : MotherBase
     {
       this.HomeTownComplete = true;
       One.TF.CurrentAreaName = this.HomeTownCall;
-      SceneManager.LoadSceneAsync("HomeTown");
+      SceneDimension.JumpToHomeTown();
       return;
     }
-    if (this.DungeonCall != string.Empty && this.DungeonCallComplete == false)
+    if (this.DungeonCall != string.Empty && this.DungeonMap != string.Empty && this.DungeonCallComplete == false)
     {
       this.DungeonCallComplete = true;
       // todo
-      Debug.Log("DungeonCallComplete: " + this.DungeonCall);
+      Debug.Log("DungeonCallComplete: " + this.DungeonCall + " " + this.DungeonMap);
+      SceneDimension.JumpToDungeonField(this.DungeonMap);
       return;
     }
 
@@ -556,14 +562,14 @@ public class DungeonField : MotherBase
   public void TapMapReload(Text txtMap)
   {
     ClearAllMapTile();
-    One.DungeonFieldName = "MapData_" + txtMap.text + ".txt";
+    One.TF.CurrentDungeonField = "MapData_" + txtMap.text + ".txt";
     // タイルを設置
-    LoadTileMapping(One.DungeonFieldName);
+    LoadTileMapping(One.TF.CurrentDungeonField);
   }
 
   public void TapFastTravel()
   {
-    if (One.DungeonFieldName == Fix.MAPFILE_BASE_FIELD)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       GroupMapSelect.SetActive(true);
     }
@@ -738,7 +744,7 @@ public class DungeonField : MotherBase
 
   public void TapMapData()
   {
-    SaveTileMapping(One.DungeonFieldName);
+    SaveTileMapping(One.TF.CurrentDungeonField);
   }
 
   public void TapNoBattle(Text txt)
@@ -857,6 +863,18 @@ public class DungeonField : MotherBase
       return;
     }
 
+    if (tile != null && tile.field == TileInformation.Field.Upstair)
+    {
+      if (One.TF.CurrentDungeonField == Fix.DUNGEON_ARTHARIUM_FACTORY)
+      {
+        this.DungeonMap = Fix.MAPFILE_BASE_FIELD;
+        this.DungeonCall = Fix.MAPFILE_BASE_FIELD;
+        One.TF.Field_X = 25;
+        One.TF.Field_Y = 3;
+        One.TF.Field_Z = 32;
+      }
+    }
+
     // Town , Castle
     if ((tile != null && tile.field == TileInformation.Field.Town_1) ||
         (tile != null && tile.field == TileInformation.Field.Castle_1))
@@ -927,8 +945,19 @@ public class DungeonField : MotherBase
     // Dungeon
     if (tile != null && tile.field == TileInformation.Field.Dungeon_1)
     {
+      Debug.Log("Detect Dungeon_1: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
+      if (tile.transform.position.x == 25 && tile.transform.position.y == 2 && tile.transform.position.z == 33)
+      {
+        Debug.Log("Detect Artharium");
+        this.DungeonMap = Fix.MAPFILE_ARTHARIUM;
+        this.DungeonCall = Fix.DUNGEON_ARTHARIUM_FACTORY;
+        One.TF.Field_X = 1;
+        One.TF.Field_Y = 1;
+        One.TF.Field_Z = 1;
+      }
       if (tile.transform.position.x == -27 && tile.transform.position.y == 0 && tile.transform.position.z == -7)
       {
+        this.DungeonMap = Fix.MAPFILE_GORATRUM;
         this.DungeonCall = Fix.DUNGEON_GORATRUM_CAVE;
       }
       else if (tile.transform.position.x == -69 && tile.transform.position.y == 0 && tile.transform.position.z == 33)
@@ -1004,7 +1033,7 @@ public class DungeonField : MotherBase
     {
       // ランダムで敵軍隊を生成する。
       One.EnemyList.Clear();
-      if (One.DungeonFieldName == Fix.MAPFILE_BASE_FIELD)
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
       {
         for (int ii = 0; ii < 4; ii++)
         {
@@ -1036,7 +1065,7 @@ public class DungeonField : MotherBase
           One.EnemyList.Add(character);
         }
       }
-      else if (One.DungeonFieldName == Fix.MAPFILE_ARTHARIUM)
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         string enemyName = string.Empty;
 
@@ -1298,6 +1327,10 @@ public class DungeonField : MotherBase
     else if (tile_name == "Artharium_Poison")
     {
       current = Instantiate(prefab_Artharium_Poison, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Upstair")
+    {
+      current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
     }
 
     if (current != null)

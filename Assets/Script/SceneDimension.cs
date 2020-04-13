@@ -13,9 +13,11 @@ public static class SceneDimension
     One.Parent.Clear();
   }
 
-  public static void JumpToDungeonField()
+  public static void JumpToDungeonField(string dungeon_field)
   {
     One.StopDungeonMusic();
+    One.TF.CurrentDungeonField = dungeon_field;
+    Resources.UnloadUnusedAssets();
     SceneManager.LoadSceneAsync(Fix.SCENE_DUNGEON_FIELD);
     One.Parent.Clear();
   }

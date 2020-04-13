@@ -380,7 +380,7 @@ public partial class HomeTown : MotherBase
       One.TF.Field_Y = 5.0f;
       One.TF.Field_Z = 17.0f;
     }
-    SceneDimension.JumpToDungeonField();
+    SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
   }
   public void TapInn()
   {
@@ -727,6 +727,7 @@ public partial class HomeTown : MotherBase
         {
           this.panelSystemMessage.SetActive(false);
           this.txtQuestMessage.text = currentMessage;
+          Debug.Log("ActionEvent.None: " + currentMessage);
           return;
         }
         else

@@ -31,6 +31,7 @@ public class TileInformation : MonoBehaviour
     SnowWall = 20,
     Waste = 21,
     WasteWall = 22,
+    Upstair = 23,
     // アーサリウム工場跡地
     Artharium_Normal = 1001,
     Artharium_Wall = 1002,
@@ -66,6 +67,7 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Wall) { return 999; }
       if (field == Field.SnowWall) { return 999; }
       if (field == Field.WasteWall) { return 999; }
+      if (field == Field.Upstair) { return 1; }
 
       // アーサリウム工場跡地
       if (field == Field.Artharium_Normal) { return 1; }

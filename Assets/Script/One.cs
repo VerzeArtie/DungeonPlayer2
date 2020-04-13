@@ -92,7 +92,7 @@ public static class One
   public static string CurrentLoadFileName = String.Empty; // 現在ロード対象となっているファイル名
 
   // DungeonField
-  public static string DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
+  //public static string DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
   #endregion
 
   public static void ReInitializeGroundOne(bool FromGameLoad)
