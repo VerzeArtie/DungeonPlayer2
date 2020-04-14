@@ -525,6 +525,26 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
   }
+
+  public static void Message101004(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message200010 == false)
+    {
+      Message(ref m_list, ref e_list, "エオネ：あ、あの・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、そこのバカアイン。依頼人を無視してどこに行くつもりなのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あっ、悪かった！！本当、クヴェルタ街に行く約束だったな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：す・・・すみませんが、お願い致します。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、今から行くぜ！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.MoveLeft);
+    }
+  }
   #endregion
 
   #region "クヴェルタ街"

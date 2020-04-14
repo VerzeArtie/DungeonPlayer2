@@ -368,6 +368,7 @@ public partial class HomeTown : MotherBase
     One.TF.RestInn = false;
     groupNowLoading.SetActive(true);
 
+    // todo
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
       One.TF.Field_X = -44.0f;
@@ -379,6 +380,12 @@ public partial class HomeTown : MotherBase
       One.TF.Field_X = -49.0f;
       One.TF.Field_Y = 5.0f;
       One.TF.Field_Z = 17.0f;
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
+    {
+      One.TF.Field_X = 24.0f;
+      One.TF.Field_Y = 1.0f;
+      One.TF.Field_Z = 3.0f;
     }
     SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
   }

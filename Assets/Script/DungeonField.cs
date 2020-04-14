@@ -89,6 +89,10 @@ public class DungeonField : MotherBase
   public Text txtSystemMessage;
   public GameObject objBlackOut;
 
+  // GameOver
+  public GameObject panelGameOver;
+  public Text txtGameOver;
+
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -113,6 +117,8 @@ public class DungeonField : MotherBase
   private int CumulativeBattleCounter = 0;
 
   private string CurrentMapSelectName = String.Empty;
+
+  private bool GameOver = false;
 
   // Start is called before the first frame update
   public override void Start()
@@ -417,6 +423,11 @@ public class DungeonField : MotherBase
     {
       return;
     }
+    if (this.GameOver)
+    {
+      return;
+    }
+
     if (this.HomeTownCall != string.Empty && this.HomeTownComplete == false)
     {
       this.HomeTownComplete = true;
@@ -556,6 +567,19 @@ public class DungeonField : MotherBase
       One.TF.Field_Z = this.Player.transform.position.z;
 
       DetectEvent(tile);
+
+      DetectDamage(tile);
+
+      bool result = JudgePartyDead();
+      if (result)
+      {
+        this.GameOver = true;
+        txtGameOver.text = "ダンジョン攻略に失敗しました・・・最後に出たホームタウンへ帰還します。";
+        panelGameOver.SetActive(true);
+        return;
+      }
+
+      DetectEncount();
     }
   }
 
@@ -831,8 +855,16 @@ public class DungeonField : MotherBase
     SceneDimension.CallSaveLoad(this, false, false);
   }
 
+  public void TapBacktoTown()
+  {
+    Debug.Log("TapBacktoTown(S)");
+    this.HomeTownComplete = true;
+    SceneDimension.JumpToHomeTown();
+  }
+
   private void DetectEvent(TileInformation tile)
   {
+    Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
     // 回復の泉
     if (tile != null && tile.field == TileInformation.Field.Fountain_1)
     {
@@ -846,19 +878,29 @@ public class DungeonField : MotherBase
     // field
     if (tile.transform.position.x == -47 && tile.transform.position.y == 3.5 && tile.transform.position.z == 17)
     {
+      Debug.Log("Detect Message101001");
       MessagePack.Message101001(ref QuestMessageList, ref QuestEventList);
       TapOK();
       return;
     }
     if (tile.transform.position.x == -49 && tile.transform.position.y == 3.5 && tile.transform.position.z == 19)
     {
+      Debug.Log("Detect Message101002");
       MessagePack.Message101002(ref QuestMessageList, ref QuestEventList);
       TapOK();
       return;
     }
     if (tile.transform.position.x == -51 && tile.transform.position.y == 3.5 && tile.transform.position.z == 17)
     {
+      Debug.Log("Detect Message101003");
       MessagePack.Message101003(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+    if (tile.transform.position.x == 26 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
+    {
+      Debug.Log("Detect Message101004");
+      MessagePack.Message101004(ref QuestMessageList, ref QuestEventList);
       TapOK();
       return;
     }
@@ -887,7 +929,7 @@ public class DungeonField : MotherBase
       {
         this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
       }
-      else if (tile.transform.position.x == 25 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
+      else if (tile.transform.position.x == 24 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
       {
         this.HomeTownCall = Fix.TOWN_QVELTA_TOWN;
       }
@@ -1004,7 +1046,34 @@ public class DungeonField : MotherBase
 
       return;
     }
+  }
 
+  private void DetectDamage(TileInformation tile)
+  {
+    if (tile.field == TileInformation.Field.Artharium_Poison)
+    {
+      for (int ii = 0; ii < this.PlayerList.Count; ii++)
+      {
+        PlayerList[ii].CurrentLife -= 10;
+      }
+      UpdateCharacterStatus();
+    }
+  }
+
+  private bool JudgePartyDead()
+  {
+    for (int ii = 0; ii < PlayerList.Count; ii++)
+    {
+      if (PlayerList[ii].CurrentLife > 0)
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private void DetectEncount()
+  {
     bool encount = false;
     CumulativeBattleCounter++;
 
