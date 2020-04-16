@@ -390,7 +390,7 @@ public partial class HomeTown : MotherBase
     //}
 
     One.TF.AlreadyDungeon = true;
-    One.TF.RestInn = false;
+    One.TF.AlreadyRestInn = false;
     groupNowLoading.SetActive(true);
 
     // todo
@@ -648,12 +648,24 @@ public partial class HomeTown : MotherBase
 
   public void TapRestInn()
   {
+    if (One.TF.AlreadyRestInn)
+    {
+      MessagePack.MessageX00002(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
     for (int ii = 0; ii < One.PlayerList.Count; ii++)
     {
       One.PlayerList[ii].MaxGain();
     }
+    One.TF.AlreadyRestInn = true;
+    One.TF.AlreadyDungeon = false;
     RefreshAllView();
     this.GroupInn.SetActive(false);
+
+    MessagePack.MessageX00001(ref QuestMessageList, ref QuestEventList);
+    TapOK();
   }
 
   public void TapOK()
@@ -674,6 +686,13 @@ public partial class HomeTown : MotherBase
         if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
         {
           this.objBlackOut.SetActive(false);
+          continue; // 継続
+        }
+        // 画面の情報をクリアする。
+        else if (currentEvent == MessagePack.ActionEvent.MessageClear)
+        {
+          this.txtSystemMessage.text = string.Empty;
+          this.txtQuestMessage.text = string.Empty;
           continue; // 継続
         }
         // 画面にシステムメッセージを表示する。
@@ -741,7 +760,7 @@ public partial class HomeTown : MotherBase
               }
             }
             RefreshAllView();
-           }
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)

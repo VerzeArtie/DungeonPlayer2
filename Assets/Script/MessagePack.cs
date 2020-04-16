@@ -10,6 +10,7 @@ public static class MessagePack
   public enum ActionEvent
   {
     None,
+    MessageClear,
     GetItem,
     GetGold,
     GetNewQuest,
@@ -107,6 +108,18 @@ public static class MessagePack
     Ending,
   }
   #endregion
+
+  public static void MessageX00001(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {    
+    Message(ref m_list, ref e_list, "", ActionEvent.MessageClear);
+
+    Message(ref m_list, ref e_list, "～ 休息を取りました ～", ActionEvent.HomeTownMessageDisplay);
+  }
+
+  public static void MessageX00002(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：今、休息を取ったばかりだ。他に何かやらねえとな。", ActionEvent.None);
+  }
 
   #region "アンシェットの街"
   public static void Message100010(ref List<string> m_list, ref List<ActionEvent> e_list)

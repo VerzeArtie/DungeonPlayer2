@@ -236,11 +236,11 @@ public class TeamFoundation : MonoBehaviour
     get { return _backpackList; }
   }
 
-  [SerializeField] protected bool _restInn = false;
-  public bool RestInn
+  [SerializeField] protected bool _alreadyRestInn = false;
+  public bool AlreadyRestInn
   {
-    set { _restInn = value; }
-    get { return _restInn; }
+    set { _alreadyRestInn = value; }
+    get { return _alreadyRestInn; }
   }
 
   [SerializeField] protected bool _alreadyDungeon = false;
