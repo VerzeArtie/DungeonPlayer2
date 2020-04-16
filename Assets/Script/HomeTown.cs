@@ -171,6 +171,9 @@ public partial class HomeTown : MotherBase
   public Button btnBuyCancel;
   public Button btnBuyOK;
 
+  // Inn
+  public GameObject GroupInn;
+
   // Quest Message
   public GameObject GroupQuestMessage;
   public Text txtQuestMessage;
@@ -297,6 +300,7 @@ public partial class HomeTown : MotherBase
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(false);
   }
 
   public void TapCharacter()
@@ -306,6 +310,7 @@ public partial class HomeTown : MotherBase
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(false);
   }
   public void TapBackpack()
   {
@@ -314,6 +319,7 @@ public partial class HomeTown : MotherBase
     GroupBackpack.SetActive(true);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(false);
   }
   public void TapShop()
   {
@@ -329,6 +335,7 @@ public partial class HomeTown : MotherBase
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(true);
     GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(false);
   }
   public void TapActionCommandSetting()
   {
@@ -344,6 +351,24 @@ public partial class HomeTown : MotherBase
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(true);
+    GroupInn.SetActive(false);
+  }
+
+  public void TapInn()
+  {
+    if (One.TF.Event_Message100020 == false)
+    {
+      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    GroupDungeonPlayer.SetActive(false);
+    GroupCharacter.SetActive(false);
+    GroupBackpack.SetActive(false);
+    GroupShopItem.SetActive(false);
+    GroupActionCommandSetting.SetActive(false);
+    GroupInn.SetActive(true);
   }
 
   public void TapDungeon()
@@ -389,36 +414,36 @@ public partial class HomeTown : MotherBase
     }
     SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
   }
-  public void TapInn()
-  {
-    Debug.Log(MethodBase.GetCurrentMethod().Name);
+  //public void TapInn()
+  //{
+  //  Debug.Log(MethodBase.GetCurrentMethod().Name);
 
-    if (One.TF.Event_Message100020 == false)
-    {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
-      TapOK();
-      return;
-    }
+  //  if (One.TF.Event_Message100020 == false)
+  //  {
+  //    MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+  //    TapOK();
+  //    return;
+  //  }
 
-    if (One.TF.AlreadyDungeon == false)
-    {
-      txtMessage.text = "ハンナ：まだどこにも行ってないみたいだね。早く出かけておいで。";
-      return;
-    }
-    if (One.TF.RestInn)
-    {
-      txtMessage.text = "ハンナ：さっき、休んだばかりだよ。早く出かけておいで。";
-      return;
-    }
+  //  if (One.TF.AlreadyDungeon == false)
+  //  {
+  //    txtMessage.text = "ハンナ：まだどこにも行ってないみたいだね。早く出かけておいで。";
+  //    return;
+  //  }
+  //  if (One.TF.RestInn)
+  //  {
+  //    txtMessage.text = "ハンナ：さっき、休んだばかりだよ。早く出かけておいで。";
+  //    return;
+  //  }
 
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
-    {
-      One.PlayerList[ii].MaxGain();
-    }
-    One.TF.AlreadyDungeon = false;
-    One.TF.RestInn = true;
-    txtMessage.text = "ハンナ：休憩だね。全回復しておいたよ。";
-  }
+  //  for (int ii = 0; ii < One.PlayerList.Count; ii++)
+  //  {
+  //    One.PlayerList[ii].MaxGain();
+  //  }
+  //  One.TF.AlreadyDungeon = false;
+  //  One.TF.RestInn = true;
+  //  txtMessage.text = "ハンナ：休憩だね。全回復しておいたよ。";
+  //}
 
   public void TapCharacterPanel(Text txtName)
   {
@@ -621,6 +646,16 @@ public partial class HomeTown : MotherBase
     txtBuyMessage.text = string.Empty;
   }
 
+  public void TapRestInn()
+  {
+    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    {
+      One.PlayerList[ii].MaxGain();
+    }
+    RefreshAllView();
+    this.GroupInn.SetActive(false);
+  }
+
   public void TapOK()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -798,32 +833,34 @@ public partial class HomeTown : MotherBase
   /// <summary>
   /// キャラクターデータ（基本）を画面に反映します。
   /// </summary>
-  private void UpdatePlayerListView(Character player, NodeCharaView charaView)
-  {
-    charaView.txtName.text = player.FullName;
-    charaView.txtLevel.text = player.Level.ToString();
-    charaView.txtExp.text = player.Exp.ToString();
-    float dx = (float)((float)player.Exp / (float)player.GetNextExp());
-    charaView.imgExpGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
-    charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 71.0f / 255.0f);
-    if (dx >= 1.0f)
-    {
-      charaView.txtExp.text = "Level Up!";
-      charaView.imgExpGauge.color = new Color(255.0f / 255.0f, 201.0f / 255.0f, 177.0f / 255.0f);
-    }
-    charaView.imgJobClass.sprite = Resources.Load<Sprite>("Unit_" + player?.Job.ToString() ?? "");
+  //private void UpdatePlayerListView(Character player, NodeCharaView charaView)
+  //{
+  //  charaView.txtName.text = player.FullName;
+  //  charaView.txtLevel.text = player.Level.ToString();
+  //  charaView.txtExp.text = player.Exp.ToString();
+  //  float dx = (float)((float)player.Exp / (float)player.GetNextExp());
+  //  charaView.imgExpGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
+  //  charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 71.0f / 255.0f);
+  //  if (dx >= 1.0f)
+  //  {
+  //    charaView.txtExp.text = "Level Up!";
+  //    charaView.imgExpGauge.color = new Color(255.0f / 255.0f, 201.0f / 255.0f, 177.0f / 255.0f);
+  //  }
+  //  charaView.imgJobClass.sprite = Resources.Load<Sprite>("Unit_" + player?.Job.ToString() ?? "");
 
-    charaView.txtLife.text = player.MaxLife.ToString();
-    charaView.txtStrength.text = player.TotalStrength.ToString();
-    charaView.txtAgility.text = player.TotalAgility.ToString();
-    charaView.txtIntelligence.text = player.TotalIntelligence.ToString();
-    charaView.txtStamina.text = player.TotalStamina.ToString();
-    charaView.txtMind.text = player.TotalMind.ToString();
-    charaView.txtMainWeapon.text = player.MainWeapon?.ItemName ?? "( 装備なし )";
-    Item temp = new Item(player.MainWeapon?.ItemName);
-    charaView.imgMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
-    charaView.gameObject.SetActive(true);
-  }
+  //  charaView.txtLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
+  //  float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
+  //  charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
+  //  charaView.txtStrength.text = player.TotalStrength.ToString();
+  //  charaView.txtAgility.text = player.TotalAgility.ToString();
+  //  charaView.txtIntelligence.text = player.TotalIntelligence.ToString();
+  //  charaView.txtStamina.text = player.TotalStamina.ToString();
+  //  charaView.txtMind.text = player.TotalMind.ToString();
+  //  charaView.txtMainWeapon.text = player.MainWeapon?.ItemName ?? "( 装備なし )";
+  //  Item temp = new Item(player.MainWeapon?.ItemName);
+  //  charaView.imgMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
+  //  charaView.gameObject.SetActive(true);
+  //}
 
   private void MoveTransform(GameObject obj, Transform dst)
   {
@@ -972,7 +1009,7 @@ public partial class HomeTown : MotherBase
     charaView.txtExp.text = player.Exp.ToString();
     float dx = (float)((float)player.Exp / (float)player.GetNextExp());
     charaView.imgExpGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
-    charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 71.0f / 255.0f);
+    charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 255.0f / 255.0f);
     if (dx >= 1.0f)
     {
       charaView.txtExp.text = "Level Up!";
@@ -980,7 +1017,9 @@ public partial class HomeTown : MotherBase
     }
     charaView.imgJobClass.sprite = Resources.Load<Sprite>("Unit_" + player?.Job.ToString() ?? "");
 
-    charaView.txtLife.text = player.MaxLife.ToString();
+    charaView.txtLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
+    float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
+    charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
     charaView.txtStrength.text = player.TotalStrength.ToString();
     charaView.txtAgility.text = player.TotalAgility.ToString();
     charaView.txtIntelligence.text = player.TotalIntelligence.ToString();
