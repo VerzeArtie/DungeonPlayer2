@@ -921,6 +921,58 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "", ActionEvent.None);
   }
 
+  public static void Message300030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：あれ、何かデカい岩で塞がれているな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと手で移動させるのは難しそうね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マトックみたいなのが、あれば良いんだがな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、いえ・・・特に意見というわけでは・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ひょっとしてマトックの在処に心当たりでも？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、そうなんです！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：実はこのエリアは昔、立ち寄った事があるので、どこかで見かけた事はあるんです。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、そうなのか！じゃちょうど良かった。マトックまで案内してくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、でも・・・どこにあったかまでは、自信が持てないので・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、そこ。エオネさんに変に押し付けないでよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：え・・・っと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：良いのよ。マトックがどこかにあるって事よね。それだけで十分よ♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あとはそこのバカが駆けずり回って探す手筈になってるから♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おい、マジかよ。今のじゃほとんど手掛かりねえじゃねえか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あんたのいつものテキトー直観で見つけるんでしょ。頼んだわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジか・・・まあ・・・何とか探してみるか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ、任せておけ！ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+  }
+
+  public static void Message300031(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+  }
+
   public static int GetZetaniumCount()
   {
     int counter = 0;
