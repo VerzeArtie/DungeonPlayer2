@@ -93,6 +93,14 @@ public class DungeonField : MotherBase
   public GameObject panelGameOver;
   public Text txtGameOver;
 
+  // Quest ( same HomeTown )
+  public GameObject GroupDungeonPlayer;
+  public GameObject contentDungeonPlayer;
+  public NodeButton nodeButton;
+  public Image imgEventIcon;
+  public Text txtEventTitle;
+  public Text txtEventDescription;
+
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -599,6 +607,22 @@ public class DungeonField : MotherBase
       int cost = One.TF.Gold / 4;
       txtDecisionMessage.text = "ダンジョン内から直接帰還した場合、" + cost.ToString() + " ゴールド消費する事となります。";
       GroupDecision.SetActive(true);
+    }
+  }
+
+  public void TapDungeonPlayer()
+  {
+    if (GroupDungeonPlayer.activeInHierarchy)
+    {
+      GroupDungeonPlayer.SetActive(false);
+    }
+    else
+    {
+      RefreshQuestList();
+      GroupDungeonPlayer.SetActive(true);
+      groupCharacterStatus.gameObject.SetActive(false);
+      GroupSystem.SetActive(false);
+      GroupMapSelect.SetActive(false);
     }
   }
 
@@ -1658,51 +1682,63 @@ public class DungeonField : MotherBase
   private void RefreshQuestList()
   {
     // todo ダンジョンフィールドでもクエスト状況を確認すること。
-    //foreach (Transform n in contentDungeonPlayer.transform)
-    //{
-    //  GameObject.Destroy(n.gameObject);
-    //}
-    //int counter = 0;
+    foreach (Transform n in contentDungeonPlayer.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    int counter = 0;
 
-    //// todo
-    //if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], One.TF.QuestMain_Complete_00001, counter); counter++; }
-    //if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[1], One.TF.QuestMain_Complete_00002, counter); counter++; }
-    //if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[2], One.TF.QuestMain_Complete_00003, counter); counter++; }
-    //if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[3], One.TF.QuestMain_Complete_00004, counter); counter++; }
-    //if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[4], One.TF.QuestMain_Complete_00005, counter); counter++; }
-    //if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[5], One.TF.QuestMain_Complete_00006, counter); counter++; }
-    //if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[6], One.TF.QuestMain_Complete_00007, counter); counter++; }
-    //if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[7], One.TF.QuestMain_Complete_00008, counter); counter++; }
-    //if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[8], One.TF.QuestMain_Complete_00009, counter); counter++; }
-    //if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[9], One.TF.QuestMain_Complete_00010, counter); counter++; }
+    // todo
+    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], One.TF.QuestMain_Complete_00001, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[1], One.TF.QuestMain_Complete_00002, counter); counter++; }
+    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[2], One.TF.QuestMain_Complete_00003, counter); counter++; }
+    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[3], One.TF.QuestMain_Complete_00004, counter); counter++; }
+    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[4], One.TF.QuestMain_Complete_00005, counter); counter++; }
+    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[5], One.TF.QuestMain_Complete_00006, counter); counter++; }
+    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[6], One.TF.QuestMain_Complete_00007, counter); counter++; }
+    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[7], One.TF.QuestMain_Complete_00008, counter); counter++; }
+    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[8], One.TF.QuestMain_Complete_00009, counter); counter++; }
+    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[9], One.TF.QuestMain_Complete_00010, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
   {
     // todo ダンジョンフィールドでもクエスト状況を確認すること。
-    //NodeButton button = Instantiate(nodeButton) as NodeButton;
-    //button.gameObject.transform.SetParent(contentDungeonPlayer.transform);
-    //button.txtName.text = quest_name;
-    //button.gameObject.SetActive(true);
-    //if (complete)
-    //{
-    //  button.imgFilter.gameObject.SetActive(true);
-    //}
-    //contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
+    NodeButton button = Instantiate(nodeButton) as NodeButton;
+    button.gameObject.transform.SetParent(contentDungeonPlayer.transform);
+    button.txtName.text = quest_name;
+    button.gameObject.SetActive(true);
+    if (complete)
+    {
+      button.imgFilter.gameObject.SetActive(true);
+    }
+    contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
 
-    //txtEventTitle.text = quest_name;
-    //for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
-    //{
-    //  if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
-    //  {
-    //    txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
-    //    break;
-    //  }
-    //}
+    txtEventTitle.text = quest_name;
+    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
+    {
+      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
+      {
+        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
+        break;
+      }
+    }
 
-    //RectTransform rect = button.GetComponent<RectTransform>();
-    //rect.anchoredPosition = new Vector2(0, 0);
-    //rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
+    RectTransform rect = button.GetComponent<RectTransform>();
+    rect.anchoredPosition = new Vector2(0, 0);
+    rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
+  }
 
+  public void TapQuestButton(Text txt)
+  {
+    txtEventTitle.text = txt.text;
+    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
+    {
+      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
+      {
+        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
+        break;
+      }
+    }
   }
 }
