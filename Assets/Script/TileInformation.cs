@@ -39,6 +39,7 @@ public class TileInformation : MonoBehaviour
     Artharium_Poison = 1004,
     Artharium_Bridge1 = 1005,
     Artharium_Bridge2 = 1006,
+    Artharium_Gate = 1007,
   }
   public Field field = Field.Plain;
 
@@ -75,6 +76,7 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Artharium_Poison) { return 1; }
       if (field == Field.Artharium_Bridge1) { return 1; }
       if (field == Field.Artharium_Bridge2) { return 1; }
+      if (field == Field.Artharium_Gate) { return 999; }
       if (field == Field.Artharium_Wall) { return 999; }
 
       return 999;

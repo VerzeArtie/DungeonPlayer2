@@ -973,6 +973,37 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
   }
 
+  public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、ある事には間違いないんだろうが・・・どこら辺だろうな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[5] + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+  }
+  public static void Message300041(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：この工場跡地向けの鍵を探さないと、ここを開く事は出来ないな。鍵を見つけよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+  }
+
   public static int GetZetaniumCount()
   {
     int counter = 0;

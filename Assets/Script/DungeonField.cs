@@ -51,6 +51,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Artharium_Bridge1;
   public TileInformation prefab_Artharium_Bridge2;
   public TileInformation prefab_Artharium_Wall;
+  public TileInformation prefab_Artharium_Gate;
   public TileInformation prefab_Upstair;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -168,6 +169,7 @@ public class DungeonField : MotherBase
     PrefabList.Add("Artharium_Debris");
     PrefabList.Add("Artharium_Bridge1");
     PrefabList.Add("Artharium_Bridge2");
+    PrefabList.Add("Artharium_Gate");
     PrefabList.Add("Upstair");
 
     // マップセレクトを設定
@@ -570,10 +572,12 @@ public class DungeonField : MotherBase
 
       One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
 
-      DetectEvent(tile);
+      // 各種イベント発生チェック。イベント発生時は下記の敵遭遇エンカウントには到達させない。
+      bool detectEvent = DetectEvent(tile);
+      if (detectEvent) { return; }
 
+      // フィールドダメージ
       DetectDamage(tile);
-
       bool result = JudgePartyDead();
       if (result)
       {
@@ -583,6 +587,7 @@ public class DungeonField : MotherBase
         return;
       }
 
+      // 敵遭遇エンカウント
       DetectEncount();
     }
   }
@@ -926,7 +931,7 @@ public class DungeonField : MotherBase
     SceneDimension.JumpToHomeTown();
   }
 
-  private void DetectEvent(TileInformation tile)
+  private bool DetectEvent(TileInformation tile)
   {
     Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
     // 回復の泉
@@ -935,7 +940,7 @@ public class DungeonField : MotherBase
       MessagePack.Message101000(ref QuestMessageList, ref QuestEventList);
       TapOK();
       GroupQuestMessage.SetActive(true);
-      return;
+      return true;
     }
 
     // todo town , castle, field, dungeonの属性分けが誤っている。
@@ -947,28 +952,28 @@ public class DungeonField : MotherBase
         Debug.Log("Detect Message101001");
         MessagePack.Message101001(ref QuestMessageList, ref QuestEventList);
         TapOK();
-        return;
+        return true;
       }
       if (LocationDetect(tile, -49, 3.5f, 19))
       {
         Debug.Log("Detect Message101002");
         MessagePack.Message101002(ref QuestMessageList, ref QuestEventList);
         TapOK();
-        return;
+        return true;
       }
       if (LocationDetect(tile, -51, 3.5f, 17))
       {
         Debug.Log("Detect Message101003");
         MessagePack.Message101003(ref QuestMessageList, ref QuestEventList);
         TapOK();
-        return;
+        return true;
       }
       if (LocationDetect(tile, 26, 0, 4))
       {
         Debug.Log("Detect Message101004");
         MessagePack.Message101004(ref QuestMessageList, ref QuestEventList);
         TapOK();
-        return;
+        return true;
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
@@ -981,13 +986,32 @@ public class DungeonField : MotherBase
           One.TF.Event_Message300030 = true;
           MessagePack.Message300030(ref QuestMessageList, ref QuestEventList);
           TapOK();
-          return;
+          return true;
         }
         else
         {
+          Debug.Log("Detect Message300031");
           MessagePack.Message300031(ref QuestMessageList, ref QuestEventList);
           TapOK();
-          return;
+          return true;
+        }
+      }
+      else if (LocationDetect(tile, -1, 0, 32) || LocationDetect(tile, 0, 0, 32))
+      {
+        if (One.TF.Event_Message300040 == false)
+        {
+          Debug.Log("Detect Message300040");
+          One.TF.Event_Message300040 = true;
+          MessagePack.Message300040(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return true;
+        }
+        else
+        {
+          Debug.Log("Detect Message300041");
+          MessagePack.Message300041(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return true;
         }
       }
     }
@@ -1001,6 +1025,7 @@ public class DungeonField : MotherBase
         One.TF.Field_X = 25;
         One.TF.Field_Y = 3;
         One.TF.Field_Z = 32;
+        return true;
       }
     }
 
@@ -1011,65 +1036,78 @@ public class DungeonField : MotherBase
       if (tile.transform.position.x == -44 && tile.transform.position.y == 1 && tile.transform.position.z == 4)
       {
         this.HomeTownCall = Fix.TOWN_ANSHET;
+        return true;
       }
       else if (tile.transform.position.x == -49 && tile.transform.position.y == 4 && tile.transform.position.z == 17)
       {
         this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+        return true;
       }
       else if (tile.transform.position.x == 24 && tile.transform.position.y == 0 && tile.transform.position.z == 4)
       {
         this.HomeTownCall = Fix.TOWN_QVELTA_TOWN;
+        return true;
       }
       else if (tile.transform.position.x == 65 && tile.transform.position.y == 0 && tile.transform.position.z == -6)
       {
         this.HomeTownCall = Fix.TOWN_COTUHSYE;
+        return true;
       }
       else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 43)
       {
         this.HomeTownCall = Fix.TOWN_ZHALMAN;
+        return true;
       }
       else if (tile.transform.position.x == -99 && tile.transform.position.y == 0 && tile.transform.position.z == 2)
       {
         this.HomeTownCall = Fix.TOWN_WOSM;
+        return true;
       }
       else if (tile.transform.position.x == -85 && tile.transform.position.y == 0.5 && tile.transform.position.z == 49)
       {
         this.HomeTownCall = Fix.TOWN_ARCANEDINE;
+        return true;
       }
       else if (tile.transform.position.x == -32 && tile.transform.position.y == 0.5 && tile.transform.position.z == 67)
       {
         this.HomeTownCall = Fix.TOWN_DALE;
+        return true;
       }
       else if (tile.transform.position.x == -4 && tile.transform.position.y == 9 && tile.transform.position.z == 34)
       {
         this.HomeTownCall = Fix.TOWER_OHRAN;
+        return true;
       }
       else if (tile.transform.position.x == 59 && tile.transform.position.y == 0.5 && tile.transform.position.z == 92)
       {
         this.HomeTownCall = Fix.TOWN_LATA_HOSE;
+        return true;
       }
       else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 49)
       {
         this.HomeTownCall = Fix.TOWN_ZELMAN;
+        return true;
       }
       else if (tile.transform.position.x == 24 && tile.transform.position.y == 13 && tile.transform.position.z == 53)
       {
         this.HomeTownCall = Fix.TOWER_FRAN;
+        return true;
       }
       else if (tile.transform.position.x == -100 && tile.transform.position.y == 2 && tile.transform.position.z == 77)
       {
         this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+        return true;
       }
       else if (tile.transform.position.x == 19 && tile.transform.position.y == 8 && tile.transform.position.z == 77)
       {
         this.HomeTownCall = Fix.TOWN_EDELGARZEN_CASTLE;
+        return true;
       }
       else
       {
         // 何も設定しない
         Debug.Log("Not detect tile event(town): " + tile.transform.position.ToString());
       }
-      return;
     }
     // Dungeon
     if (tile != null && tile.field == TileInformation.Field.Dungeon_1)
@@ -1083,56 +1121,66 @@ public class DungeonField : MotherBase
         One.TF.Field_X = 1;
         One.TF.Field_Y = 1;
         One.TF.Field_Z = 1;
+        return true;
       }
       if (tile.transform.position.x == -27 && tile.transform.position.y == 0 && tile.transform.position.z == -7)
       {
         this.DungeonMap = Fix.MAPFILE_GORATRUM;
         this.DungeonCall = Fix.DUNGEON_GORATRUM_CAVE;
+        return true;
       }
       else if (tile.transform.position.x == -69 && tile.transform.position.y == 0 && tile.transform.position.z == 33)
       {
         this.DungeonCall = Fix.DUNGEON_VELGUS_SEA_TEMPLE;
+        return true;
       }
       else if (tile.transform.position.x == -109 && tile.transform.position.y == 0.5 && tile.transform.position.z == 34)
       {
         this.DungeonCall = Fix.DUNGEON_RUINS_OF_SARITAN;
+        return true;
       }
       else if (tile.transform.position.x == -112 && tile.transform.position.y == 7 && tile.transform.position.z == 95)
       {
         this.DungeonCall = Fix.DUNGEON_SNOWTREE_LATA;
+        return true;
       }
       else if (tile.transform.position.x == -24 && tile.transform.position.y == -3.5 && tile.transform.position.z == 36)
       {
         this.DungeonCall = Fix.DUNGEON_DISKEL_BATTLE_FIELD;
+        return true;
       }
       else if (tile.transform.position.x == 50 && tile.transform.position.y == 0.5 && tile.transform.position.z == 72)
       {
         this.DungeonCall = Fix.DUNGEON_SITH_GRAVEYARD;
+        return true;
       }
       else if (tile.transform.position.x == -2 && tile.transform.position.y == 5 && tile.transform.position.z == 70)
       {
         this.DungeonCall = Fix.DUNGEON_GANRO_FORTRESS;
+        return true;
       }
       else if (tile.transform.position.x == 17 && tile.transform.position.y == 0 && tile.transform.position.z == 93)
       {
         this.DungeonCall = Fix.DUNGEON_LOSLON_CAVE;
+        return true;
       }
       else if (tile.transform.position.x == 25 && tile.transform.position.y == 2 && tile.transform.position.z == 33)
       {
         this.DungeonCall = Fix.DUNGEON_ARTHARIUM_FACTORY;
+        return true;
       }
       else if (tile.transform.position.x == 2 && tile.transform.position.y == 30 && tile.transform.position.z == 48)
       {
         this.DungeonCall = Fix.DUNGEON_HEAVENS_GENESIS_GATE;
+        return true;
       }
       else
       {
         // 何も設定しない
         Debug.Log("Not detect tile event(dungeon): " + tile.transform.position.ToString());
       }
-
-      return;
     }
+    return false;
   }
 
   private bool LocationDetect(TileInformation tile, float x, float y, float z)
@@ -1495,6 +1543,10 @@ public class DungeonField : MotherBase
     else if (tile_name == "Artharium_Poison")
     {
       current = Instantiate(prefab_Artharium_Poison, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Artharium_Gate")
+    {
+      current = Instantiate(prefab_Artharium_Gate, position, Quaternion.identity) as TileInformation;
     }
     else if (tile_name == "Upstair")
     {
