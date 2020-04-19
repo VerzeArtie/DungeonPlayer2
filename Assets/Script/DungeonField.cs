@@ -129,6 +129,10 @@ public class DungeonField : MotherBase
 
   private bool GameOver = false;
 
+  private bool NextTapOk = false; // 画面再描画が必要案ものについて、一旦メソッドを抜け次のフレーム更新(Update)で即時TapOKを自動処理する。
+  private float NextTapOkSleep = 0.0f;
+  private float NextTapOkCounter = 0.0f;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -425,6 +429,21 @@ public class DungeonField : MotherBase
 
     // 通常モード
     txtCurrentCursor2.text = this.Player.transform.position.ToString();
+
+    // 次のTapOKを即時反映する。
+    if (this.NextTapOk)
+    {
+      this.NextTapOkCounter += Time.deltaTime;
+
+      if (this.NextTapOkCounter > this.NextTapOkSleep)
+      {
+        this.NextTapOkSleep = 0.0f;
+        this.NextTapOkCounter = 0.0f;
+        this.NextTapOk = false;
+        TapOK();
+      }
+      return;
+    }
     if (this.HomeTownComplete || this.DungeonCallComplete)
     {
       return;
@@ -779,6 +798,9 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
         }
         // マップ上を自動移動（右）
         else if (currentEvent == MessagePack.ActionEvent.MoveRight)
@@ -787,6 +809,9 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
         }
         // マップ上を自動移動（上）
         else if (currentEvent == MessagePack.ActionEvent.MoveTop)
@@ -795,6 +820,9 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
         }
         // マップ上を自動移動（下）
         else if (currentEvent == MessagePack.ActionEvent.MoveBottom)
@@ -803,6 +831,9 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
@@ -1006,10 +1037,14 @@ public class DungeonField : MotherBase
           TapOK();
           return true;
         }
-        else
+      }
+      else if (LocationDetect(tile, 20, -1.5f, 25) || LocationDetect(tile, 19, -1.5f, 25))
+      {
+        if (One.TF.Event_Message300050 == false)
         {
-          Debug.Log("Detect Message300041");
-          MessagePack.Message300041(ref QuestMessageList, ref QuestEventList);
+          Debug.Log("Detect Message300050");
+          One.TF.Event_Message300050 = true;
+          MessagePack.Message300050(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return true;
         }

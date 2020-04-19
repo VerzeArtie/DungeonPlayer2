@@ -469,7 +469,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.MoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
       return;
     }
 
@@ -502,7 +502,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
       return;
     }
 
@@ -512,7 +512,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
   }
   public static void Message101003(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -526,7 +526,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "衛兵：通行許可証はここファージル宮殿の国王より配布されます。直ちにお戻りください。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
       return;
     }
 
@@ -536,7 +536,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
   }
 
   public static void Message101004(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -555,7 +555,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、今から行くぜ！ッハッハッハ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.MoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
     }
   }
   #endregion
@@ -963,14 +963,14 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】が開始されました！", ActionEvent.GetNewQuest);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
   }
 
   public static void Message300031(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveRight);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
   }
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -995,13 +995,61 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[5] + " 】が開始されました！", ActionEvent.GetNewQuest);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+
   }
   public static void Message300041(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：この工場跡地向けの鍵を探さないと、ここを開く事は出来ないな。鍵を見つけよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.MoveBottom);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+  }
+
+  public static void Message300050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：へえ・・・結構広い空間だな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：なんだか雑多な場所ね。色々な物が散乱してるみたいだけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・きっとココは昔、誰かが使ってたんだろうな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：えっ、そうなの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何となくだけどな。散かり具合が微妙に不規則だしな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：その不規則なのが、どう関係あるのよ。そういう説明は昔からあい変わらずよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それにしても・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+    Message(ref m_list, ref e_list, "アイン：雰囲気あるよな・・・・・この場所。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネ、何か知ってるか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、知らないなら知らないで良いんだが。何となく知ってるんじゃないかと思ってな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっと・・・すみません・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：エオネさん、そこの意図不明な会話に付き合わなくて良いからね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっ・・・ええ。はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：良いから。バカはバカ言ってないで、とっとと周辺探索するわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ああ、まあそうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おし、じゃあひとまず探索と行きますか！", ActionEvent.None);
   }
 
   public static int GetZetaniumCount()
