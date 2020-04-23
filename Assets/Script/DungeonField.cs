@@ -55,6 +55,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Upstair;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
+  public FieldObject prefab_TreasureOpen;
 
   public GameObject GroupDecision;
   public Text txtDecisionTitle;
@@ -260,6 +261,9 @@ public class DungeonField : MotherBase
     // タイルを設置
     LoadTileMapping(One.TF.CurrentDungeonField);
 
+    // フィールドオブジェクトの状態更新
+    UpdateFieldObject(One.TF.CurrentDungeonField);
+
     // プレイヤー位置を設定
     JumpToLocation(new Vector3(One.TF.Field_X, One.TF.Field_Y, One.TF.Field_Z));
 
@@ -317,6 +321,52 @@ public class DungeonField : MotherBase
 
         Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
         AddTile(txtSelectName.text, SelectField.transform.position);
+        Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
+        return;
+      }
+
+      if (Input.GetMouseButtonDown(1))
+      {
+        Debug.Log("GetMouseButton 1");
+        PointerEventData pointer = new PointerEventData(EventSystem.current);
+        pointer.position = Input.mousePosition;
+        List<RaycastResult> raycast = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointer, raycast);
+
+        for (int ii = 0; ii < raycast.Count; ii++)
+        {
+          //Debug.Log("current: " + raycast[ii].ToString());
+
+          // ボタン押下時はヒット判定対象外とする。
+          if (raycast[ii].ToString().Contains("btn"))
+          {
+            return;
+          }
+        }
+
+        FieldObject currentObj = GetObjectInfo(SelectField.transform.position.x,
+                                             SelectField.transform.position.y - 0.5f,
+                                             SelectField.transform.position.z);
+        if (currentObj != null)
+        {
+          FieldObjList.Remove(currentObj);
+          Destroy(currentObj.gameObject);
+          return;
+        }
+
+        Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
+
+        FieldObject current = null;
+        Vector3 position = new Vector3(SelectField.transform.position.x, SelectField.transform.position.y, SelectField.transform.position.z);
+        current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
+        if (current != null)
+        {
+          current.transform.SetParent(this.transform);
+          current.transform.rotation = prefab_Treasure.transform.rotation;
+          current.transform.position = new Vector3(SelectField.transform.position.x, SelectField.transform.position.y - 0.5f, SelectField.transform.position.z);
+          FieldObjList.Add(current);
+        }
+
         Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
         return;
       }
@@ -475,9 +525,11 @@ public class DungeonField : MotherBase
 
     bool detectKey = false;
     TileInformation tile = null;
+    FieldObject fieldObj = null;
     if (Input.GetKeyDown(KeyCode.RightArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Right);
+      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Right);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -488,6 +540,7 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.LeftArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Left);
+      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Left);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -498,6 +551,7 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.UpArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Top);
+      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Top);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -508,6 +562,7 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.DownArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
+      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Bottom);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -585,11 +640,42 @@ public class DungeonField : MotherBase
 
     if (detectKey)
     {
+      // まず移動する。
       JumpToLocation(new Vector3(tile.transform.position.x,
                                  tile.transform.position.y + 1.0f,
                                  tile.transform.position.z));
 
       One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
+
+      // 移動直後、フィールドオブジェクトの検出および対応。
+      if (fieldObj != null && fieldObj.content == FieldObject.Content.Treasure)
+      {
+        Vector3 location = fieldObj.transform.position;
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
+        {
+          Debug.Log("Detect fieldObj: " + location);
+          if (One.TF.Treasure_Artharium_00001 == false && location.x == 26 && location.y == -0.5f && location.z == 18)
+          {
+            for (int ii = 0; ii < FieldObjList.Count; ii++)
+            {
+              if (fieldObj.transform.position == FieldObjList[ii].transform.position)
+              {
+                Destroy(fieldObj.gameObject);
+                FieldObjList.RemoveAt(ii);
+                break;
+              }
+            }
+
+            FieldObject newCurrent = Instantiate(prefab_TreasureOpen, fieldObj.transform.position, Quaternion.identity) as FieldObject;
+            newCurrent.transform.SetParent(this.transform);
+            newCurrent.transform.rotation = prefab_TreasureOpen.transform.rotation;
+            FieldObjList.Add(newCurrent);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_SWORD);
+            TapOK();
+            return;
+          }
+        }
+      }
 
       // 各種イベント発生チェック。イベント発生時は下記の敵遭遇エンカウントには到達させない。
       bool detectEvent = DetectEvent(tile);
@@ -835,6 +921,15 @@ public class DungeonField : MotherBase
           this.NextTapOk = true;
           return; // 画面即時反映
         }
+        else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
+        {
+          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
+          this.panelSystemMessage.SetActive(true);
+
+          One.TF.AddBackPack(new Item(currentMessage));
+          One.TF.Treasure_Artharium_00001 = true;
+          return;
+        }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
         {
@@ -1053,7 +1148,7 @@ public class DungeonField : MotherBase
 
     if (tile != null && tile.field == TileInformation.Field.Upstair)
     {
-      if (One.TF.CurrentDungeonField == Fix.DUNGEON_ARTHARIUM_FACTORY)
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         this.DungeonMap = Fix.MAPFILE_BASE_FIELD;
         this.DungeonCall = Fix.MAPFILE_BASE_FIELD;
@@ -1378,6 +1473,68 @@ public class DungeonField : MotherBase
     return true;
   }
 
+  private FieldObject SearchNextObject(Vector3 player, Direction direction)
+  {
+    FieldObject next = null;
+    if (direction == Direction.Right)
+    {
+      // タイル一つ上から下に向けて順序よく探索する。(3が3つ上、2が2つ上、1が一つ上、0が平行、-1が一つ下）
+      // それ以外のケースも考えられるが、基本をまず記述する。
+      for (int ii = 3; ii >= -1; ii--)
+      {
+        next = GetObjectInfo(player.x + 1, player.y - 1.0f + ii * 0.5f, player.z);
+        if (next != null)
+        {
+          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
+          else { return next; }
+        }
+      }
+    }
+    if (direction == Direction.Left)
+    {
+      // タイル一つ上から下に向けて順序よく探索する。
+      // それ以外のケースも考えられるが、基本をまず記述する。
+      for (int ii = 3; ii >= -1; ii--)
+      {
+        next = GetObjectInfo(player.x - 1, player.y - 1.0f + ii * 0.5f, player.z);
+        if (next != null)
+        {
+          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
+          else { return next; }
+        }
+      }
+    }
+    if (direction == Direction.Top)
+    {
+      // タイル一つ上から下に向けて順序よく探索する。(1が一つ上、0が平行、-1が一つ下）
+      // それ以外のケースも考えられるが、基本をまず記述する。
+      for (int ii = 3; ii >= -1; ii--)
+      {
+        next = GetObjectInfo(player.x, player.y - 1.0f + ii * 0.5f, player.z + 1);
+        if (next != null)
+        {
+          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
+          else { return next; }
+        }
+      }
+    }
+    if (direction == Direction.Bottom)
+    {
+      // タイル一つ上から下に向けて順序よく探索する。(1が一つ上、0が平行、-1が一つ下）
+      // それ以外のケースも考えられるが、基本をまず記述する。
+      for (int ii = 3; ii >= -1; ii--)
+      {
+        next = GetObjectInfo(player.x, player.y - 1.0f + ii * 0.5f, player.z - 1);
+        if (next != null)
+        {
+          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
+          else { return next; }
+        }
+      }
+    }
+    return null;
+  }
+
   private TileInformation SearchNextTile(Vector3 player, Direction direction)
   {
     TileInformation next = null;
@@ -1440,6 +1597,23 @@ public class DungeonField : MotherBase
     return null;
   }
 
+  private FieldObject GetObjectInfo(float x, float y, float z)
+  {
+    //Debug.Log("GetObjectInfo: " + x.ToString() + " " + y.ToString() + " " + z.ToString());
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (x == FieldObjList[ii].transform.position.x &&
+          y == FieldObjList[ii].transform.position.y &&
+          z == FieldObjList[ii].transform.position.z)
+      {
+        return FieldObjList[ii];
+      }
+    }
+
+    //Debug.Log("Cannot get object...then NULL");
+    return null;
+  }
+  
   /// <summary>
   /// 対象位置のタイル情報を取得する。
   /// </summary>
@@ -1599,17 +1773,15 @@ public class DungeonField : MotherBase
   private void AddFieldObj(string obj_name, Vector3 position)
   {
     FieldObject current = null;
-    if (obj_name == "Treasure")
-    {
-      current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
-    }
+    current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
+    current.transform.SetParent(this.transform);
+    current.transform.rotation = prefab_Treasure.transform.rotation;
+
     if (current != null)
     {
-      //current.gameObject.SetActive(false);
       FieldObjList.Add(current);
     }
   }
-
 
   /// <summary>
   /// タイルマップデータを保存します。
@@ -1675,6 +1847,21 @@ public class DungeonField : MotherBase
   private void LoadTileMapping(string map_data)
   {
     Debug.Log("LoadTileMapping-1 " + DateTime.Now.ToString() + " " + map_data);
+
+    for (int ii = 0; ii < TileList.Count; ii++)
+    {
+      Destroy(TileList[ii].gameObject);
+      TileList[ii] = null;
+    }
+    TileList.Clear();
+
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      Destroy(FieldObjList[ii].gameObject);
+      FieldObjList[ii] = null;
+    }
+    FieldObjList.Clear();
+
     XmlDocument xml = new XmlDocument();
     DateTime now = DateTime.Now;
     //xml.Load(map_data);
@@ -1688,6 +1875,8 @@ public class DungeonField : MotherBase
       int counter = 0;
       List<Vector3> list = new List<Vector3>();
       List<string> strList = new List<string>();
+      List<Vector3> objList = new List<Vector3>();
+      List<string> strObjList = new List<string>();
       for (; reader.Read();)
       {
         if (reader.Name.Contains("Tile_"))
@@ -1700,8 +1889,16 @@ public class DungeonField : MotherBase
           list.Add(new Vector3(x, y, z));
           strList.Add(tile);
         }
+        if (reader.Name.Contains("Field_"))
+        {
+          string obj = reader.GetAttribute("C");
+          float x = Convert.ToSingle(reader.GetAttribute("X"));
+          float y = Convert.ToSingle(reader.GetAttribute("Y"));
+          float z = Convert.ToSingle(reader.GetAttribute("Z"));
+          objList.Add(new Vector3(x, y, z));
+          strObjList.Add(obj);
+        }
         counter++;
-        //break;
       }
       Debug.Log("counter : " + counter.ToString());
 
@@ -1709,43 +1906,29 @@ public class DungeonField : MotherBase
       {
         AddTile(strList[ii], list[ii]);
       }
+
+      for (int ii = 0; ii < objList.Count; ii++)
+      {
+        AddFieldObj(strObjList[ii], objList[ii]);
+      }
     }
 
-
-    //for (int ii = 0; ii < 999999; ii++)
-    //{
-    //    XmlNodeList innerObjectList = xml.GetElementsByTagName("Field_" + ii.ToString());
-    //    if (innerObjectList != null)
-    //    {
-    //        if (innerObjectList.Count > 0)
-    //        {
-    //            //Debug.Log("Obj_ " + ii.ToString() + " " + innerObjectList[0].InnerText);
-    //            XmlElement element = (XmlElement)innerObjectList.Item(0);
-    //            float x = Convert.ToSingle(element.GetAttribute("X"));
-    //            float y = Convert.ToSingle(element.GetAttribute("Y"));
-    //            float z = Convert.ToSingle(element.GetAttribute("Z"));
-    //            string content = element.GetAttribute("C");
-    //            AddFieldObj(content, new Vector3(x, y, z));
-    //        }
-    //        else
-    //        {
-    //            break;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        break;
-    //    }
-    //}
-
-    //try
-    //{
-    //}
-    //catch (Exception ex)
-    //{
-    //    Debug.Log(ex.ToString());
-    //}
     Debug.Log("LoadTileMapping-2 " + DateTime.Now.ToString());
+  }
+
+  private void UpdateFieldObject(string map_data)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    if (map_data == Fix.MAPFILE_ARTHARIUM)
+    {
+      Debug.Log("update " + map_data + " field");
+      if (One.TF.Treasure_Artharium_00001)
+      {
+        for (int ii = 0; ii < FieldObjList.Count; ii++)
+        {
+        }
+      }
+    }
   }
 
   private void ClearAllMapTile()

@@ -620,6 +620,9 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00009 { get { return _questmain_complete_00009; } set { _questmain_complete_00009 = value; } }
   public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
 
+  [SerializeField] protected bool _treasure_artharium_00001 = false;
+  public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
+
   public void RemoveItem(Item item)
   {
     for (int ii = 0; ii < this._backpackList.Count; ii++)

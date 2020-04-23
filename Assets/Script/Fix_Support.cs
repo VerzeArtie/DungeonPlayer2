@@ -63,4 +63,5 @@ public static partial class Fix
   public const string SMALL_RED_POTION = "小さい赤ポーション";
   public const string ZETANIUM_STONE = "ゼタニウム鉱石";
   public const string FIELD_RESEARCH_LICENSE = "国内外遠征許可証";
+  public const string ITEM_MATOCK = "マトック";
 }
