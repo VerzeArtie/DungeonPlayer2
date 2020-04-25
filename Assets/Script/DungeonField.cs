@@ -1127,21 +1127,14 @@ public class DungeonField : MotherBase
       // 扉の鍵が必要（中央通路、センター区画の間の小部屋の右）
       else if (LocationDetect(tile, -1, 0, 32) || LocationDetect(tile, 0, 0, 32))
       {
-        if (One.TF.Event_Message300040 == false)
-        {
-          One.TF.Event_Message300040 = true;
-          MessagePack.Message300040(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
+        MessagePack.Message300040(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
       }
+      // センター区画に到着イベント
       else if (LocationDetect(tile, 20, -1.5f, 25) || LocationDetect(tile, 19, -1.5f, 25))
       {
-        if (One.TF.Event_Message300050 == false)
-        {
-          One.TF.Event_Message300050 = true;
-          MessagePack.Message300050(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
+        MessagePack.Message300050(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
       }
     }
 

@@ -1044,6 +1044,13 @@ public static class MessagePack
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message300040)
+    {
+      return;
+    }
+
+    One.TF.Event_Message300040 = true;
+
     Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
@@ -1076,6 +1083,13 @@ public static class MessagePack
 
   public static void Message300050(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message300050)
+    {
+      return;
+    }
+
+    One.TF.Event_Message300050 = true;
+
     Message(ref m_list, ref e_list, "アイン：へえ・・・結構広い空間だな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：なんだか雑多な場所ね。色々な物が散乱してるみたいだけど。", ActionEvent.None);
