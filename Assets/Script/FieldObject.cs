@@ -12,5 +12,6 @@ public class FieldObject : MonoBehaviour
     Boss,
   }
 
+  public string ObjectName { get; set; }
   public Content content = Content.None;
 }

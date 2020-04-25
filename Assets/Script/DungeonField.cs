@@ -660,16 +660,11 @@ public class DungeonField : MotherBase
             {
               if (fieldObj.transform.position == FieldObjList[ii].transform.position)
               {
-                Destroy(fieldObj.gameObject);
-                FieldObjList.RemoveAt(ii);
+                ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
                 break;
               }
             }
 
-            FieldObject newCurrent = Instantiate(prefab_TreasureOpen, fieldObj.transform.position, Quaternion.identity) as FieldObject;
-            newCurrent.transform.SetParent(this.transform);
-            newCurrent.transform.rotation = prefab_TreasureOpen.transform.rotation;
-            FieldObjList.Add(newCurrent);
             MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_SWORD);
             TapOK();
             return;
@@ -1104,24 +1099,42 @@ public class DungeonField : MotherBase
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
     {
+      // マトックが必要（１　中央通路の左）
       if (LocationDetect(tile, -4, 0, 19))
       {
-        if (One.TF.Event_Message300030 == false)
-        {
-          Debug.Log("Detect Message300030");
-          One.TF.Event_Message300030 = true;
-          MessagePack.Message300030(ref QuestMessageList, ref QuestEventList);
-          TapOK();
-          return true;
-        }
-        else
-        {
-          Debug.Log("Detect Message300031");
-          MessagePack.Message300031(ref QuestMessageList, ref QuestEventList);
-          TapOK();
-          return true;
-        }
+        MessagePack.Message300030(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return true;
       }
+      // マトックが必要（センター区画入り口前の右）
+      else if (LocationDetect(tile, 21, -1.5f, 19))
+      {
+        MessagePack.Message300031(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return true;
+      }
+      // マトックが必要（センター区画入り口前の右）
+      else if (LocationDetect(tile, 10, 0, 9))
+      {
+        MessagePack.Message300032(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return true;
+      }
+      // マトックが必要（センター区画、右通路）
+      else if (LocationDetect(tile, 25, -1.5f, 30))
+      {
+        MessagePack.Message300033(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return true;
+      }
+      // マトックが必要（センター区画、左通路）
+      else if (LocationDetect(tile, 14, -1.5f, 30))
+      {
+        MessagePack.Message300034(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return true;
+      }
+      // 扉の鍵が必要（中央通路、センター区画の間の小部屋の右）
       else if (LocationDetect(tile, -1, 0, 32) || LocationDetect(tile, 0, 0, 32))
       {
         if (One.TF.Event_Message300040 == false)
@@ -1926,9 +1939,36 @@ public class DungeonField : MotherBase
       {
         for (int ii = 0; ii < FieldObjList.Count; ii++)
         {
+          if (FieldObjList[ii].transform.position == new Vector3(Fix.MAPOBJ_ARTHARIUM_0001_X, Fix.MAPOBJ_ARTHARIUM_0001_Y, Fix.MAPOBJ_ARTHARIUM_0001_Z))
+          {
+            Debug.Log("detect FieldObjList[ii] " + ii.ToString());
+            ExchangeFieldObject(FieldObjList,  prefab_TreasureOpen, ii);
+          }
         }
       }
     }
+  }
+
+  private void ExchangeFieldObject(List<FieldObject> list,  FieldObject new_prefab, int num)
+  {
+    //for (int ii = 0; ii < FieldObjList.Count; ii++)
+    //{
+    //  Debug.Log("obj " + ii.ToString() + " " + FieldObjList[ii].ObjectName + " " + FieldObjList[ii].transform.position.ToString());
+    //}
+
+    Vector3 current = list[num].transform.position;
+    Destroy(list[num].gameObject);
+    list.RemoveAt(num);
+
+    FieldObject newCurrent = Instantiate(new_prefab, current, Quaternion.identity) as FieldObject;
+    newCurrent.transform.SetParent(this.transform);
+    newCurrent.transform.rotation = new_prefab.transform.rotation;
+    list.Insert(num, newCurrent);
+
+    //for (int ii = 0; ii < FieldObjList.Count; ii++)
+    //{
+    //  Debug.Log("obj " + ii.ToString() + " " + FieldObjList[ii].ObjectName + " " + FieldObjList[ii].transform.position.ToString());
+    //}
   }
 
   private void ClearAllMapTile()

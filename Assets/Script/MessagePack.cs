@@ -756,7 +756,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：何だそれ・・・聞いたことねえな・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "フルネア：・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：・・・", ActionEvent.None);
 
@@ -774,11 +774,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：マジか・・・。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "フルネア：・・・ッ・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：・・・ッ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ん？どうした？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "フルネア：いえ、なんでも！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：いえ、なんでも！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：まあ、いいか。詳しくはまた今度教えてくれ。", ActionEvent.None);
 
@@ -931,7 +931,77 @@ public static class MessagePack
 
   public static void Message300030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：あれ、何かデカい岩で塞がれているな。", ActionEvent.None);
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+  }
+
+  public static void Message300031(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+  }
+
+  public static void Message300032(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+  }
+
+  public static void Message300033(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+  }
+
+  public static void Message300034(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
+    }
+
+    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+  }
+
+  private static void SearchMatockQuest(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：あれ、こっちの方に通路があるように見えるが、デカい岩で塞がれているな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：ちょっと手で移動させるのは難しそうね。", ActionEvent.None);
 
@@ -970,15 +1040,6 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：っしゃ、任せておけ！ッハッハッハ！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】が開始されました！", ActionEvent.GetNewQuest);
-
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
-  }
-
-  public static void Message300031(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
   }
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
