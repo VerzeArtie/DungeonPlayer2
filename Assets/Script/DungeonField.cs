@@ -1058,8 +1058,7 @@ public class DungeonField : MotherBase
     // 回復の泉
     if (tile != null && tile.field == TileInformation.Field.Fountain_1)
     {
-      MessagePack.Message101000(ref QuestMessageList, ref QuestEventList);
-      TapOK();
+      MessagePack.Message101000(ref QuestMessageList, ref QuestEventList); TapOK();
       GroupQuestMessage.SetActive(true);
       return true;
     }
@@ -1071,29 +1070,25 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, -47, 3.5f, 17))
       {
         Debug.Log("Detect Message101001");
-        MessagePack.Message101001(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message101001(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       if (LocationDetect(tile, -49, 3.5f, 19))
       {
         Debug.Log("Detect Message101002");
-        MessagePack.Message101002(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message101002(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       if (LocationDetect(tile, -51, 3.5f, 17))
       {
         Debug.Log("Detect Message101003");
-        MessagePack.Message101003(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message101003(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       if (LocationDetect(tile, 26, 0, 4))
       {
         Debug.Log("Detect Message101004");
-        MessagePack.Message101004(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message101004(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -1102,36 +1097,31 @@ public class DungeonField : MotherBase
       // マトックが必要（１　中央通路の左）
       if (LocationDetect(tile, -4, 0, 19))
       {
-        MessagePack.Message300030(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message300030(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       // マトックが必要（センター区画入り口前の右）
       else if (LocationDetect(tile, 21, -1.5f, 19))
       {
-        MessagePack.Message300031(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message300031(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       // マトックが必要（センター区画入り口前の右）
       else if (LocationDetect(tile, 10, 0, 9))
       {
-        MessagePack.Message300032(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message300032(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       // マトックが必要（センター区画、右通路）
       else if (LocationDetect(tile, 25, -1.5f, 30))
       {
-        MessagePack.Message300033(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message300033(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       // マトックが必要（センター区画、左通路）
       else if (LocationDetect(tile, 14, -1.5f, 30))
       {
-        MessagePack.Message300034(ref QuestMessageList, ref QuestEventList);
-        TapOK();
+        MessagePack.Message300034(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
       // 扉の鍵が必要（中央通路、センター区画の間の小部屋の右）
@@ -1139,10 +1129,8 @@ public class DungeonField : MotherBase
       {
         if (One.TF.Event_Message300040 == false)
         {
-          Debug.Log("Detect Message300040");
           One.TF.Event_Message300040 = true;
-          MessagePack.Message300040(ref QuestMessageList, ref QuestEventList);
-          TapOK();
+          MessagePack.Message300040(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
@@ -1150,10 +1138,8 @@ public class DungeonField : MotherBase
       {
         if (One.TF.Event_Message300050 == false)
         {
-          Debug.Log("Detect Message300050");
           One.TF.Event_Message300050 = true;
-          MessagePack.Message300050(ref QuestMessageList, ref QuestEventList);
-          TapOK();
+          MessagePack.Message300050(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
