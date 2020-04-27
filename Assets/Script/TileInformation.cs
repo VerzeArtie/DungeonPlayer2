@@ -83,6 +83,8 @@ public class TileInformation : MonoBehaviour
     }
   }
 
+  public string ObjectId = String.Empty;
+
   public List<TileInformation> connectNode = new List<TileInformation>();
 
   public int cost = -1; //探索に要したコスト。-1の時はそのノードを未探索としています。

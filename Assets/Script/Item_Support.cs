@@ -1381,7 +1381,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "アーサリウム工場内で発見したマトック。だいぶ色が剥げているがまだまだ強度はあり、十分に使える。岩壁の近くで使えば、岩を崩す事がようになる。";
+        this._description = "アーサリウム工場内で発見したマトック。だいぶ色が剥げているがまだまだ強度はあり、十分に使える。岩壁の近くで使えば、岩を崩す事ができるようになる。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

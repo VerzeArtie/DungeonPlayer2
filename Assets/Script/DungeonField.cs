@@ -27,9 +27,11 @@ public class DungeonField : MotherBase
   // developer-mode
   public TileInformation SelectField;
   public Text txtSelectName;
+  public Text txtSelectObjectName;
   public Text txtEditMode;
   public Text txtCurrentCursor;
   public Text txtCurrentCursor2;
+  public Text txtEditId;
 
   // prefab
   public TileInformation prefab_FieldNormal;
@@ -56,6 +58,7 @@ public class DungeonField : MotherBase
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
   public FieldObject prefab_TreasureOpen;
+  public FieldObject prefab_Rock;
 
   public GameObject GroupDecision;
   public Text txtDecisionTitle;
@@ -122,6 +125,7 @@ public class DungeonField : MotherBase
   private bool EditMode = false;
 
   List<string> PrefabList = new List<string>();
+  List<string> ObjectList = new List<string>();
 
   private int BattleEncount = 10;
   private int CumulativeBattleCounter = 0;
@@ -176,6 +180,10 @@ public class DungeonField : MotherBase
     PrefabList.Add("Artharium_Bridge2");
     PrefabList.Add("Artharium_Gate");
     PrefabList.Add("Upstair");
+
+    // オブジェクトリストの設定
+    ObjectList.Add("Treasure");
+    ObjectList.Add("Rock");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -282,7 +290,7 @@ public class DungeonField : MotherBase
     if (EditMode)
     {
       txtCurrentCursor.text = SelectField.transform.position.ToString();
-
+      
       if (Input.GetMouseButtonDown(0))
       {
         Debug.Log("time-1: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
@@ -320,7 +328,8 @@ public class DungeonField : MotherBase
         }
 
         Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
-        AddTile(txtSelectName.text, SelectField.transform.position);
+        // todo 第三引数のIDをどう入力させるか。
+        AddTile(txtSelectName.text, SelectField.transform.position, String.Empty);
         Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
         return;
       }
@@ -335,13 +344,8 @@ public class DungeonField : MotherBase
 
         for (int ii = 0; ii < raycast.Count; ii++)
         {
-          //Debug.Log("current: " + raycast[ii].ToString());
-
           // ボタン押下時はヒット判定対象外とする。
-          if (raycast[ii].ToString().Contains("btn"))
-          {
-            return;
-          }
+          if (raycast[ii].ToString().Contains("btn")) { return; }
         }
 
         FieldObject currentObj = GetObjectInfo(SelectField.transform.position.x,
@@ -354,21 +358,37 @@ public class DungeonField : MotherBase
           return;
         }
 
-        Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
+        // todo 第三引数のIDをどう入力させるか。
+        AddFieldObj(txtSelectObjectName.text, SelectField.transform.position, String.Empty);
+        return;
+      }
 
-        FieldObject current = null;
-        Vector3 position = new Vector3(SelectField.transform.position.x, SelectField.transform.position.y, SelectField.transform.position.z);
-        current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
-        if (current != null)
+      if (Input.GetMouseButtonDown(2))
+      {
+        Debug.Log("GetMouseButtonDown(2)");
+        PointerEventData pointer = new PointerEventData(EventSystem.current);
+        pointer.position = Input.mousePosition;
+        List<RaycastResult> raycast = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointer, raycast);
+        for (int ii = 0; ii < raycast.Count; ii++)
         {
-          current.transform.SetParent(this.transform);
-          current.transform.rotation = prefab_Treasure.transform.rotation;
-          current.transform.position = new Vector3(SelectField.transform.position.x, SelectField.transform.position.y - 0.5f, SelectField.transform.position.z);
-          FieldObjList.Add(current);
+          // ボタン押下時はヒット判定対象外とする。
+          if (raycast[ii].ToString().Contains("btn")) { return; }
         }
 
-        Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
-        return;
+        FieldObject currentObj = GetObjectInfo(SelectField.transform.position.x,
+                                           SelectField.transform.position.y - 0.5f,
+                                           SelectField.transform.position.z);
+        if (currentObj != null)
+        {
+          Debug.Log("currentObj is hit");
+          txtEditId.text = currentObj.ObjectId;
+          return;
+        }
+        else
+        {
+          Debug.Log("currentObj is null...");
+        }
       }
 
       if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -654,6 +674,7 @@ public class DungeonField : MotherBase
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
         {
           Debug.Log("Detect fieldObj: " + location);
+          // 宝箱１
           if (One.TF.Treasure_Artharium_00001 == false && location.x == 26 && location.y == -0.5f && location.z == 18)
           {
             for (int ii = 0; ii < FieldObjList.Count; ii++)
@@ -916,14 +937,50 @@ public class DungeonField : MotherBase
           this.NextTapOk = true;
           return; // 画面即時反映
         }
+        else if (currentEvent == MessagePack.ActionEvent.GetItem)
+        {
+          One.TF.AddBackPack(new Item(currentMessage));
+          continue; // 継続
+        }
         else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
         {
           this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
           this.panelSystemMessage.SetActive(true);
 
+          // 宝箱１
           One.TF.AddBackPack(new Item(currentMessage));
           One.TF.Treasure_Artharium_00001 = true;
           return;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
+        {
+          // 岩壁１
+          if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_1_X, Fix.ARTHARIUM_Rock_1_Y, Fix.ARTHARIUM_Rock_1_Z));
+          }
+          // 岩壁２
+          if (currentMessage == Fix.ARTHARIUM_Rock_2_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_2_X, Fix.ARTHARIUM_Rock_2_Y, Fix.ARTHARIUM_Rock_2_Z));
+          }
+          // 岩壁３
+          if (currentMessage == Fix.ARTHARIUM_Rock_3_O)
+          {
+            Debug.Log("Remove Fix.ARTHARIUM_Rock_3_O");
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_3_X, Fix.ARTHARIUM_Rock_3_Y, Fix.ARTHARIUM_Rock_3_Z));
+          }
+          // 岩壁４
+          if (currentMessage == Fix.ARTHARIUM_Rock_4_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_4_X, Fix.ARTHARIUM_Rock_4_Y, Fix.ARTHARIUM_Rock_4_Z));
+          }
+          // 岩壁５
+          if (currentMessage == Fix.ARTHARIUM_Rock_5_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_5_X, Fix.ARTHARIUM_Rock_5_Y, Fix.ARTHARIUM_Rock_5_Z));
+          }
+          continue; // 継続
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
@@ -1012,6 +1069,46 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapSelectObjectName()
+  {
+    Debug.Log("TapSelectObjectName(S)");
+    for (int ii = 0; ii < ObjectList.Count; ii++)
+    {
+      if (txtSelectObjectName.text == ObjectList[ii])
+      {
+        if (ii >= ObjectList.Count - 1)
+        {
+          txtSelectObjectName.text = ObjectList[0];
+        }
+        else
+        {
+          txtSelectObjectName.text = ObjectList[ii + 1];
+        }
+        return;
+      }
+    }
+  }
+  public void TapSelectObjectNameBack()
+  {
+    Debug.Log("TapSelectObjectNameBack(S)");
+    for (int ii = ObjectList.Count - 1; ii >= 0; ii--)
+    {
+      if (txtSelectObjectName.text == ObjectList[ii])
+      {
+        if (ii <= 0)
+        {
+          txtSelectObjectName.text = ObjectList[ObjectList.Count - 1];
+        }
+        else
+        {
+          txtSelectObjectName.text = ObjectList[ii - 1];
+        }
+        return;
+      }
+    }
+  }
+
+
   public void TapEditMode()
   {
     this.EditMode = !this.EditMode;
@@ -1094,31 +1191,31 @@ public class DungeonField : MotherBase
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
     {
-      // マトックが必要（１　中央通路の左）
+      // 岩壁１、マトックが必要（中央通路の左）
       if (LocationDetect(tile, -4, 0, 19))
       {
         MessagePack.Message300030(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      // マトックが必要（センター区画入り口前の右）
-      else if (LocationDetect(tile, 21, -1.5f, 19))
+      // 岩壁２、マトックが必要（センター区画入り口前の右）
+      else if (LocationDetect(tile, 10, 0, 9))
       {
         MessagePack.Message300031(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      // マトックが必要（センター区画入り口前の右）
-      else if (LocationDetect(tile, 10, 0, 9))
+      // 岩壁３、マトックが必要（センター区画入り口前の右）
+      else if (LocationDetect(tile, 21, -1.5f, 19))
       {
         MessagePack.Message300032(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      // マトックが必要（センター区画、右通路）
+      // 岩壁４、マトックが必要（センター区画、右通路）
       else if (LocationDetect(tile, 25, -1.5f, 30))
       {
         MessagePack.Message300033(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      // マトックが必要（センター区画、左通路）
+      // 岩壁５、マトックが必要（センター区画、左通路）
       else if (LocationDetect(tile, 14, -1.5f, 30))
       {
         MessagePack.Message300034(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1134,6 +1231,12 @@ public class DungeonField : MotherBase
       else if (LocationDetect(tile, 20, -1.5f, 25) || LocationDetect(tile, 19, -1.5f, 25))
       {
         MessagePack.Message300050(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // マトック入手
+      else if (LocationDetect(tile, 23, -1.5f, 36))
+      {
+        MessagePack.Message300060(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -1674,7 +1777,7 @@ public class DungeonField : MotherBase
   /// <summary>
   /// タイルを追加します。
   /// </summary>
-  private void AddTile(string tile_name, Vector3 position)
+  private void AddTile(string tile_name, Vector3 position, string id)
   {
     TileInformation current = null;
     if (tile_name == "Plain")
@@ -1756,18 +1859,33 @@ public class DungeonField : MotherBase
 
     if (current != null)
     {
+      current.ObjectId = id;
       current.transform.SetParent(this.transform);
       //current.gameObject.SetActive(false);
       TileList.Add(current);
     }
   }
 
-  private void AddFieldObj(string obj_name, Vector3 position)
+  private void AddFieldObj(string obj_name, Vector3 position, string id)
   {
     FieldObject current = null;
-    current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
-    current.transform.SetParent(this.transform);
-    current.transform.rotation = prefab_Treasure.transform.rotation;
+
+    if (obj_name == "Treasure")
+    {
+      current = Instantiate(prefab_Treasure, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Treasure;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = prefab_Treasure.transform.rotation;
+    }
+    else if (obj_name == "Rock")
+    {
+      current = Instantiate(prefab_Rock, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Rock;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = prefab_Rock.transform.rotation;
+    }
 
     if (current != null)
     {
@@ -1798,6 +1916,7 @@ public class DungeonField : MotherBase
       {
         xmlWriter.WriteStartElement("Tile_" + ii.ToString());
         xmlWriter.WriteAttributeString("T", TileList[ii].field.ToString());
+        xmlWriter.WriteAttributeString("O", TileList[ii].ObjectId);
         xmlWriter.WriteAttributeString("X", TileList[ii].transform.position.x.ToString());
         xmlWriter.WriteAttributeString("Y", TileList[ii].transform.position.y.ToString());
         xmlWriter.WriteAttributeString("Z", TileList[ii].transform.position.z.ToString());
@@ -1814,6 +1933,7 @@ public class DungeonField : MotherBase
       {
         xmlWriter.WriteStartElement("Field_" + ii.ToString());
         xmlWriter.WriteAttributeString("C", FieldObjList[ii].content.ToString());
+        xmlWriter.WriteAttributeString("O", FieldObjList[ii].ObjectId);
         xmlWriter.WriteAttributeString("X", FieldObjList[ii].transform.position.x.ToString());
         xmlWriter.WriteAttributeString("Y", FieldObjList[ii].transform.position.y.ToString());
         xmlWriter.WriteAttributeString("Z", FieldObjList[ii].transform.position.z.ToString());
@@ -1867,28 +1987,36 @@ public class DungeonField : MotherBase
       int counter = 0;
       List<Vector3> list = new List<Vector3>();
       List<string> strList = new List<string>();
+      List<string> strIdList = new List<string>();
+
       List<Vector3> objList = new List<Vector3>();
       List<string> strObjList = new List<string>();
+      List<string> strObjIdList = new List<string>();
+
       for (; reader.Read();)
       {
         if (reader.Name.Contains("Tile_"))
         {
           string tile = reader.GetAttribute("T");
+          string id = reader.GetAttribute("O");
           float x = Convert.ToSingle(reader.GetAttribute("X"));
           float y = Convert.ToSingle(reader.GetAttribute("Y"));
           float z = Convert.ToSingle(reader.GetAttribute("Z"));
           //Debug.Log(reader.GetAttribute("T") + " " + reader.GetAttribute("X") + " " + reader.GetAttribute("Y") + " " + reader.GetAttribute("Z"));
           list.Add(new Vector3(x, y, z));
           strList.Add(tile);
+          strIdList.Add(id);
         }
         if (reader.Name.Contains("Field_"))
         {
           string obj = reader.GetAttribute("C");
+          string id = reader.GetAttribute("O");
           float x = Convert.ToSingle(reader.GetAttribute("X"));
           float y = Convert.ToSingle(reader.GetAttribute("Y"));
           float z = Convert.ToSingle(reader.GetAttribute("Z"));
           objList.Add(new Vector3(x, y, z));
           strObjList.Add(obj);
+          strObjIdList.Add(id);
         }
         counter++;
       }
@@ -1896,12 +2024,12 @@ public class DungeonField : MotherBase
 
       for (int ii = 0; ii < list.Count; ii++)
       {
-        AddTile(strList[ii], list[ii]);
+        AddTile(strList[ii], list[ii], strIdList[ii]);
       }
 
       for (int ii = 0; ii < objList.Count; ii++)
       {
-        AddFieldObj(strObjList[ii], objList[ii]);
+        AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii]);
       }
     }
 
@@ -1914,6 +2042,7 @@ public class DungeonField : MotherBase
     if (map_data == Fix.MAPFILE_ARTHARIUM)
     {
       Debug.Log("update " + map_data + " field");
+      // 宝箱１
       if (One.TF.Treasure_Artharium_00001)
       {
         for (int ii = 0; ii < FieldObjList.Count; ii++)
@@ -1924,6 +2053,47 @@ public class DungeonField : MotherBase
             ExchangeFieldObject(FieldObjList,  prefab_TreasureOpen, ii);
           }
         }
+      }
+
+      // 岩壁１
+      if (One.TF.FieldObject_Artharium_00001)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_1_X, Fix.ARTHARIUM_Rock_1_Y, Fix.ARTHARIUM_Rock_1_Z));
+      }
+      // 岩壁２
+      if (One.TF.FieldObject_Artharium_00002)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_2_X, Fix.ARTHARIUM_Rock_2_Y, Fix.ARTHARIUM_Rock_2_Z));
+      }
+      // 岩壁３
+      if (One.TF.FieldObject_Artharium_00003)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_3_X, Fix.ARTHARIUM_Rock_3_Y, Fix.ARTHARIUM_Rock_3_Z));
+      }
+      // 岩壁４
+      if (One.TF.FieldObject_Artharium_00004)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_4_X, Fix.ARTHARIUM_Rock_4_Y, Fix.ARTHARIUM_Rock_4_Z));
+      }
+      // 岩壁５
+      if (One.TF.FieldObject_Artharium_00005)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_5_X, Fix.ARTHARIUM_Rock_5_Y, Fix.ARTHARIUM_Rock_5_Z));
+      }
+    }
+  }
+
+  private void RemoveFieldObject(List<FieldObject> list, Vector3 position)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (FieldObjList[ii].transform.position == position)
+      {
+        FieldObject current = FieldObjList[ii];
+        Debug.Log("RemoveFieldObject[ii] " + ii.ToString());
+        list.Remove(current);
+        Destroy(current.gameObject);
+        break;
       }
     }
   }

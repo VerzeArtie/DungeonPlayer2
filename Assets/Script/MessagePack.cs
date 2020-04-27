@@ -16,6 +16,8 @@ public static class MessagePack
     GetNewQuest,
     QuestComplete,
     GetTreasure,
+    RemoveFieldObject,
+
     ObjectiveAdd,
     ObjectiveRemove,
     ObjectiveRefreshCheck,
@@ -938,9 +940,20 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00001 == false)
+    {
+      One.TF.FieldObject_Artharium_00001 = true;
+
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_1_O);
+    }
   }
 
   public static void Message300031(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -952,13 +965,25 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00002 == false)
+    {
+      One.TF.FieldObject_Artharium_00002 = true;
+
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_2_O);
+    }
   }
 
   public static void Message300032(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Debug.Log("Message300032(S)");
     if (One.TF.QuestMain_00005 == false)
     {
       SearchMatockQuest(ref m_list, ref e_list);
@@ -966,9 +991,21 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00003 == false)
+    {
+      One.TF.FieldObject_Artharium_00003 = true;
+
+      Debug.Log("UseMatockForRock (ARTHARIUM_Rock_3_O)");
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_3_O);
+    }
   }
 
   public static void Message300033(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -980,9 +1017,20 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00004 == false)
+    {
+      One.TF.FieldObject_Artharium_00004 = true;
+
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_4_O);
+    }
   }
 
   public static void Message300034(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -994,9 +1042,20 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00005 == false)
+    {
+      One.TF.FieldObject_Artharium_00005 = true;
+
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_5_O);
+    }
   }
 
   private static void SearchMatockQuest(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -1040,6 +1099,23 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：っしゃ、任せておけ！ッハッハッハ！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】が開始されました！", ActionEvent.GetNewQuest);
+  }
+
+  private static void UseMatockForRock(ref List<string> m_list, ref List<ActionEvent> e_list, string identity)
+  {
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、頼んだわよ。アイン。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、任せておけ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あらよっと！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：上手くいったみたいね♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ進もうぜ！", ActionEvent.None);
   }
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -1133,6 +1209,78 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：あ、ああ、まあそうだな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：おし、じゃあひとまず探索と行きますか！", ActionEvent.None);
+  }
+
+  public static void Message300060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_Complete_00005 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：おっ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ほら、こっち来てみろよ。これひょっとしてマトックじゃねえか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：確かにそうみたいね。でも・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：本当。よく見つけたわね、こんな所に置いてあるのに。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こんな所って、そりゃこんな所にあるものだろ。マトックだしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：意味わかんない解説は置いといて・・・ひとまずは、助かるわ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあこれで岩壁があっても、片っ端から掘れば進められるな！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あっ・・・あの、すみません！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうした。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・その、マトックなんですけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：じ・・・じつは・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ひょっとして、何回か使うと壊れるって話か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：「えっ？」　　エオネ：「っ！？」", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、これだけ色が変色してるんだ。元の素材が頑丈とは言え、無限に使えるわけじゃないだろう,", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：使うべき場所は良く選んでからつかうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうな、エオネ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いっ・・・　いえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：でも、すみません。違うんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そのマトック、手元の所にこのエリアの毒が付着してるから、取った方が良いと思っただけなんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッゲ、マジかよ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは毒のダメージを食らった！！　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：なんでもかんでも早とちりして、考えもせずにアイテムを拾わない事ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：わ、分かったって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あの・・・あとマトックの持ち方がそれだと壊れやすいので・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：こうやって・・・・こんな風に持ってください。そうるすと壊れないですから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おー、オーケーオーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか、これなら回数制限とかも無さそうだな。サンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それじゃ、使うポイントに来たらアインが振るってよね。そのマトックの扱いについては任せるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 " + Fix.ITEM_MATOCK + " 】を手に入れました！", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetItem);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】を達成しました！", ActionEvent.QuestComplete);
+    }
   }
 
   public static int GetZetaniumCount()

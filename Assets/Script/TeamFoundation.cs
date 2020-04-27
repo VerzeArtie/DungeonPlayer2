@@ -534,6 +534,13 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message300024 = value; }
   }
 
+  [SerializeField] protected bool _event_message300030 = false;
+  public bool Event_Message300030
+  {
+    get { return _event_message300030; }
+    set { _event_message300030 = value; }
+  }
+
   [SerializeField] protected bool _event_message300040 = false;
   public bool Event_Message300040
   {
@@ -616,6 +623,17 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
+
+  [SerializeField] protected bool _fieldobject_artharium_00001 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00002 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00003 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00004 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00005 = false;
+  public bool FieldObject_Artharium_00001 { get { return _fieldobject_artharium_00001; } set { _fieldobject_artharium_00001 = value; } }
+  public bool FieldObject_Artharium_00002 { get { return _fieldobject_artharium_00002; } set { _fieldobject_artharium_00002 = value; } }
+  public bool FieldObject_Artharium_00003 { get { return _fieldobject_artharium_00003; } set { _fieldobject_artharium_00003 = value; } }
+  public bool FieldObject_Artharium_00004 { get { return _fieldobject_artharium_00004; } set { _fieldobject_artharium_00004 = value; } }
+  public bool FieldObject_Artharium_00005 { get { return _fieldobject_artharium_00005; } set { _fieldobject_artharium_00005 = value; } }
 
   public void RemoveItem(Item item)
   {

@@ -9,9 +9,11 @@ public class FieldObject : MonoBehaviour
   {
     None = 0,
     Treasure,
+    Rock,
     Boss,
   }
 
-  public string ObjectName { get; set; }
   public Content content = Content.None;
+
+  public string ObjectId = String.Empty;
 }
