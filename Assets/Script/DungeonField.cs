@@ -32,6 +32,8 @@ public class DungeonField : MotherBase
   public Text txtCurrentCursor;
   public Text txtCurrentCursor2;
   public Text txtEditId;
+  public GameObject ContentFieldObj;
+  public NodeEditFieldObj NodeFieldObjView;
 
   // prefab
   public TileInformation prefab_FieldNormal;
@@ -1149,6 +1151,18 @@ public class DungeonField : MotherBase
     SceneDimension.JumpToHomeTown();
   }
 
+  public void TapJumpView(NodeEditFieldObj node_edit_obj)
+  {
+    MainCamera.transform.position = new Vector3(node_edit_obj.x - 0.0f,
+                                       node_edit_obj.y + 7.0f,
+                                       node_edit_obj.z - 5.0f);
+
+    SelectField.transform.position = new Vector3(node_edit_obj.x,
+                                             node_edit_obj.y,
+                                             node_edit_obj.z);
+
+  }
+
   private bool DetectEvent(TileInformation tile)
   {
     Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
@@ -2030,6 +2044,25 @@ public class DungeonField : MotherBase
       for (int ii = 0; ii < objList.Count; ii++)
       {
         AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii]);
+
+        // debug
+        NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
+        objView.transform.SetParent(ContentFieldObj.transform);
+        objView.txtType.text = strObjList[ii];
+        objView.txtLocation.text = objList[ii].ToString();
+        objView.txtObjectId.text = strObjIdList[ii];
+        objView.x = objList[ii].x;
+        objView.y = objList[ii].y;
+        objView.z = objList[ii].z;
+        objView.gameObject.SetActive(true);
+        RectTransform rect = objView.GetComponent<RectTransform>();
+        int NODE_HEIGHT = 90;
+        rect.anchoredPosition = new Vector2(0, 0);
+        //rect.sizeDelta = new Vector2(0, 0);
+        rect.localPosition = new Vector3(0, -5 - ii * NODE_HEIGHT, 0);
+        const int HEIGHT = 110;
+        ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
+        // debug
       }
     }
 
