@@ -622,7 +622,11 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
 
   [SerializeField] protected bool _treasure_artharium_00001 = false;
+  [SerializeField] protected bool _treasure_artharium_00002 = false;
+  [SerializeField] protected bool _treasure_artharium_00003 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
+  public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
+  public bool Treasure_Artharium_00003 { get { return _treasure_artharium_00003; } set { _treasure_artharium_00003 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;
