@@ -635,6 +635,9 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_Artharium_00004 { get { return _fieldobject_artharium_00004; } set { _fieldobject_artharium_00004 = value; } }
   public bool FieldObject_Artharium_00005 { get { return _fieldobject_artharium_00005; } set { _fieldobject_artharium_00005 = value; } }
 
+  [SerializeField] protected bool _location_player2 = false;
+  public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
+
   public void RemoveItem(Item item)
   {
     for (int ii = 0; ii < this._backpackList.Count; ii++)

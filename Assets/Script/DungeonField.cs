@@ -20,8 +20,8 @@ public class DungeonField : MotherBase
     Left,
     Right,
     Bottom,
-    Upper,
-    Under,
+    Rise,
+    Fall,
   }
 
   // developer-mode
@@ -61,10 +61,16 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Treasure;
   public FieldObject prefab_TreasureOpen;
   public FieldObject prefab_Rock;
+  public FieldObject prefab_Player2;
 
+
+  // Decision
   public GameObject GroupDecision;
   public Text txtDecisionTitle;
   public Text txtDecisionMessage;
+  public Text txtDecisionA;
+  public Text txtDecisionB;
+  public Text txtDecisionC;
 
   // MapSelect
   public GameObject GroupMapSelect;
@@ -107,7 +113,7 @@ public class DungeonField : MotherBase
   public Image imgEventIcon;
   public Text txtEventTitle;
   public Text txtEventDescription;
-
+   
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -139,6 +145,8 @@ public class DungeonField : MotherBase
   private bool NextTapOk = false; // 画面再描画が必要案ものについて、一旦メソッドを抜け次のフレーム更新(Update)で即時TapOKを自動処理する。
   private float NextTapOkSleep = 0.0f;
   private float NextTapOkCounter = 0.0f;
+
+  private string currentDecision = String.Empty;
 
   // Start is called before the first frame update
   public override void Start()
@@ -268,18 +276,37 @@ public class DungeonField : MotherBase
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
 
-    // タイルを設置
-    LoadTileMapping(One.TF.CurrentDungeonField);
-
-    // フィールドオブジェクトの状態更新
-    UpdateFieldObject(One.TF.CurrentDungeonField);
-
     // プレイヤー位置を設定
     JumpToLocation(new Vector3(One.TF.Field_X, One.TF.Field_Y, One.TF.Field_Z));
 
-    // トレジャーなどのフィールドオブジェクトを設置
-    //FieldObject obj = Instantiate(prefab_Treasure, new Vector3(3, 1, 3), Quaternion.identity) as FieldObject;
-    // FieldObjList.Add(obj);
+    // タイルおよびフィールドオブジェクトの設置
+    LoadTileMapping(One.TF.CurrentDungeonField);
+
+    // イベント進行に応じたオブジェクトの設置
+    LoadObjectFromEvent();
+
+    // debug
+    NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
+    objView.transform.SetParent(ContentFieldObj.transform);
+    objView.txtType.text = "Player";
+    objView.txtLocation.text = this.Player.transform.position.ToString();
+    objView.txtObjectId.text = "";
+    objView.x = this.Player.transform.position.x;
+    objView.y = this.Player.transform.position.y;
+    objView.z = this.Player.transform.position.z;
+    objView.gameObject.SetActive(true);
+    RectTransform rect = objView.GetComponent<RectTransform>();
+    int NODE_HEIGHT = 90;
+    rect.anchoredPosition = new Vector2(0, 0);
+    //rect.sizeDelta = new Vector2(0, 0);
+    Debug.Log("debug this.FieldObjList.Count: " + this.FieldObjList.Count.ToString());
+    rect.localPosition = new Vector3(0, -5 - this.FieldObjList.Count * NODE_HEIGHT, 0);
+    const int HEIGHT = 110;
+    ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
+    // debug
+
+    // フィールドオブジェクトの状態更新
+    UpdateFieldObject(One.TF.CurrentDungeonField);
 
     // キャラクター情報を画面へ反映
     UpdateCharacterStatus();
@@ -715,6 +742,19 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapQuestButton(Text txt)
+  {
+    txtEventTitle.text = txt.text;
+    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
+    {
+      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
+      {
+        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
+        break;
+      }
+    }
+  }
+
   public void TapMapReload(Text txtMap)
   {
     ClearAllMapTile();
@@ -731,9 +771,13 @@ public class DungeonField : MotherBase
     }
     else
     {
+      this.currentDecision = Fix.DECISION_BACKTO_HOMETOWN;
       txtDecisionTitle.text = "ホームタウンへ帰還しますか？";
       int cost = One.TF.Gold / 4;
       txtDecisionMessage.text = "ダンジョン内から直接帰還した場合、" + cost.ToString() + " ゴールド消費する事となります。";
+      txtDecisionA.text = "Accept";
+      txtDecisionB.text = "Cancel";
+      txtDecisionC.text = "";
       GroupDecision.SetActive(true);
     }
   }
@@ -756,15 +800,47 @@ public class DungeonField : MotherBase
 
   public void TapDecisionAccept()
   {
-    One.TF.Gold -= One.TF.Gold / 4;
-    One.TF.CurrentAreaName = this.CurrentMapSelectName;
-    SceneManager.LoadSceneAsync("HomeTown");
+    if (this.currentDecision == Fix.DECISION_BACKTO_HOMETOWN)
+    {
+      One.TF.Gold -= One.TF.Gold / 4;
+      One.TF.CurrentAreaName = this.CurrentMapSelectName;
+      SceneManager.LoadSceneAsync("HomeTown");
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CLIFF)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300071(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CLIFF_END)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300081(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   public void TapDecisionCancel()
   {
-    this.CurrentMapSelectName = String.Empty;
-    GroupDecision.SetActive(false);
+    if (this.currentDecision == Fix.DECISION_BACKTO_HOMETOWN)
+    {
+      this.CurrentMapSelectName = String.Empty;
+      GroupDecision.SetActive(false);
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CLIFF)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300072(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CLIFF_END)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300082(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   public void TapMapSelectBack()
@@ -822,199 +898,7 @@ public class DungeonField : MotherBase
   public void TapBattleConfig()
   {
   }
-
-  public void TapOK()
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-
-    for (int ii = 0; ii < Fix.INFINITY; ii++)
-    {
-      // メッセージが在る場合は、メッセージを進行する。
-      if (QuestMessageList.Count > 0)
-      {
-        MessagePack.ActionEvent currentEvent = QuestEventList[0];
-        string currentMessage = QuestMessageList[0];
-        RemoveOneSentence();
-        GroupQuestMessage.SetActive(true);
-
-        // ブラックアウトしている画面から元に戻す。
-        if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
-        {
-          this.objBlackOut.SetActive(false);
-          continue; // 継続
-        }
-        else if (currentEvent == MessagePack.ActionEvent.Fountain)
-        {
-          EventFountain();
-          continue; // 継続
-        }
-        // 画面にシステムメッセージを表示する。
-        else if (currentEvent == MessagePack.ActionEvent.HomeTownMessageDisplay)
-        {
-          this.txtSystemMessage.text = currentMessage;
-          this.panelSystemMessage.SetActive(true);
-          return;
-        }
-        // 画面にクエスト開始メッセージを表示する。
-        else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
-        {
-          this.txtSystemMessage.text = currentMessage;
-          this.panelSystemMessage.SetActive(true);
-
-          // todo
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_00010 = true; }
-          RefreshQuestList();
-          return;
-        }
-        // 画面にクエスト完了メッセージを表示する。
-        else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
-        {
-          this.txtSystemMessage.text = currentMessage;
-          this.panelSystemMessage.SetActive(true);
-
-          // todo
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_Complete_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_Complete_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_Complete_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_Complete_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_Complete_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_Complete_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_Complete_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_Complete_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_Complete_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_Complete_00010 = true; }
-          RefreshQuestList();
-          return;
-        }
-        // マップ上を自動移動（左）
-        else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
-        {
-          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Left);
-          JumpToLocation(new Vector3(tile.transform.position.x,
-                                     tile.transform.position.y + 1.0f,
-                                     tile.transform.position.z));
-          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
-          this.NextTapOk = true;
-          return; // 画面即時反映
-        }
-        // マップ上を自動移動（右）
-        else if (currentEvent == MessagePack.ActionEvent.MoveRight)
-        {
-          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Right);
-          JumpToLocation(new Vector3(tile.transform.position.x,
-                                     tile.transform.position.y + 1.0f,
-                                     tile.transform.position.z));
-          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
-          this.NextTapOk = true;
-          return; // 画面即時反映
-        }
-        // マップ上を自動移動（上）
-        else if (currentEvent == MessagePack.ActionEvent.MoveTop)
-        {
-          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Top);
-          JumpToLocation(new Vector3(tile.transform.position.x,
-                                     tile.transform.position.y + 1.0f,
-                                     tile.transform.position.z));
-          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
-          this.NextTapOk = true;
-          return; // 画面即時反映
-        }
-        // マップ上を自動移動（下）
-        else if (currentEvent == MessagePack.ActionEvent.MoveBottom)
-        {
-          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
-          JumpToLocation(new Vector3(tile.transform.position.x,
-                                     tile.transform.position.y + 1.0f,
-                                     tile.transform.position.z));
-          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
-          this.NextTapOk = true;
-          return; // 画面即時反映
-        }
-        else if (currentEvent == MessagePack.ActionEvent.GetItem)
-        {
-          One.TF.AddBackPack(new Item(currentMessage));
-          continue; // 継続
-        }
-        else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
-        {
-          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
-          this.panelSystemMessage.SetActive(true);
-
-          // 宝箱１
-          One.TF.AddBackPack(new Item(currentMessage));
-          One.TF.Treasure_Artharium_00001 = true;
-          return;
-        }
-        else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
-        {
-          // 岩壁１
-          if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
-          {
-            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_1_X, Fix.ARTHARIUM_Rock_1_Y, Fix.ARTHARIUM_Rock_1_Z));
-          }
-          // 岩壁２
-          if (currentMessage == Fix.ARTHARIUM_Rock_2_O)
-          {
-            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_2_X, Fix.ARTHARIUM_Rock_2_Y, Fix.ARTHARIUM_Rock_2_Z));
-          }
-          // 岩壁３
-          if (currentMessage == Fix.ARTHARIUM_Rock_3_O)
-          {
-            Debug.Log("Remove Fix.ARTHARIUM_Rock_3_O");
-            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_3_X, Fix.ARTHARIUM_Rock_3_Y, Fix.ARTHARIUM_Rock_3_Z));
-          }
-          // 岩壁４
-          if (currentMessage == Fix.ARTHARIUM_Rock_4_O)
-          {
-            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_4_X, Fix.ARTHARIUM_Rock_4_Y, Fix.ARTHARIUM_Rock_4_Z));
-          }
-          // 岩壁５
-          if (currentMessage == Fix.ARTHARIUM_Rock_5_O)
-          {
-            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_5_X, Fix.ARTHARIUM_Rock_5_Y, Fix.ARTHARIUM_Rock_5_Z));
-          }
-          continue; // 継続
-        }
-        // 通常メッセージ表示（システムメッセージが出ている場合は消す）
-        else if (currentEvent == MessagePack.ActionEvent.None)
-        {
-          this.panelSystemMessage.SetActive(false);
-          this.txtQuestMessage.text = currentMessage;
-          return;
-        }
-      }
-    }
-
-    // メッセージが無くなったら、元の画面に戻す。
-    if (this.QuestMessageList.Count <= 0)
-    {
-      this.GroupQuestMessage.SetActive(false);
-      this.QuestMessageList.Clear();
-      Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
-    }
-  }
-
-  private void RemoveOneSentence()
-  {
-    if (this.QuestMessageList.Count > 0)
-    {
-      this.QuestMessageList.RemoveAt(0);
-    }
-    if (this.QuestEventList.Count > 0)
-    {
-      this.QuestEventList.RemoveAt(0);
-    }
-  }
-
+  
   public void TapMapData()
   {
     SaveTileMapping(One.TF.CurrentDungeonField);
@@ -1163,6 +1047,290 @@ public class DungeonField : MotherBase
 
   }
 
+  public void TapOK()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    for (int ii = 0; ii < Fix.INFINITY; ii++)
+    {
+      // メッセージが在る場合は、メッセージを進行する。
+      if (QuestMessageList.Count > 0)
+      {
+        MessagePack.ActionEvent currentEvent = QuestEventList[0];
+        string currentMessage = QuestMessageList[0];
+        RemoveOneSentence();
+        GroupQuestMessage.SetActive(true);
+
+        Debug.Log(currentEvent.ToString() + " " + currentMessage);
+
+        // ブラックアウトしている画面から元に戻す。
+        if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
+        {
+          this.objBlackOut.SetActive(false);
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.Fountain)
+        {
+          EventFountain();
+          continue; // 継続
+        }
+        // 画面にシステムメッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownMessageDisplay)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+          return;
+        }
+        // 画面にクエスト開始メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
+          // todo
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_00010 = true; }
+          RefreshQuestList();
+          return;
+        }
+        // 画面にクエスト完了メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
+          // todo
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_Complete_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_Complete_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_Complete_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_Complete_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_Complete_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_Complete_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_Complete_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_Complete_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_Complete_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_Complete_00010 = true; }
+          RefreshQuestList();
+          return;
+        }
+        // マップ上を自動移動（左）
+        else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Left);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（右）
+        else if (currentEvent == MessagePack.ActionEvent.MoveRight)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Right);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（上）
+        else if (currentEvent == MessagePack.ActionEvent.MoveTop)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Top);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（下）
+        else if (currentEvent == MessagePack.ActionEvent.MoveBottom)
+        {
+          TileInformation tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
+          JumpToLocation(new Vector3(tile.transform.position.x,
+                                     tile.transform.position.y + 1.0f,
+                                     tile.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：右）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveRight)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x + 1.0f,
+                                     this.Player.transform.position.y,
+                                     this.Player.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：左）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveLeft)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x - 1.0f,
+                                     this.Player.transform.position.y,
+                                     this.Player.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：上）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveTop)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x,
+                                     this.Player.transform.position.y,
+                                     this.Player.transform.position.z + 1.0f));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：下）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveBottom)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x,
+                                     this.Player.transform.position.y,
+                                     this.Player.transform.position.z - 1.0f));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：上昇）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveRise)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x,
+                                     this.Player.transform.position.y + 1.0f,
+                                     this.Player.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        // マップ上を自動移動（強制移動：下降）
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveFall)
+        {
+          JumpToLocation(new Vector3(this.Player.transform.position.x,
+                                     this.Player.transform.position.y - 1.0f,
+                                     this.Player.transform.position.z));
+          this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+          this.NextTapOk = true;
+          return; // 画面即時反映
+        }
+        else if (currentEvent == MessagePack.ActionEvent.GetItem)
+        {
+          One.TF.AddBackPack(new Item(currentMessage));
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
+        {
+          this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
+          this.panelSystemMessage.SetActive(true);
+
+          // 宝箱１
+          One.TF.AddBackPack(new Item(currentMessage));
+          One.TF.Treasure_Artharium_00001 = true;
+          return;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
+        {
+          // 岩壁１
+          if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_1_X, Fix.ARTHARIUM_Rock_1_Y, Fix.ARTHARIUM_Rock_1_Z));
+          }
+          // 岩壁２
+          if (currentMessage == Fix.ARTHARIUM_Rock_2_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_2_X, Fix.ARTHARIUM_Rock_2_Y, Fix.ARTHARIUM_Rock_2_Z));
+          }
+          // 岩壁３
+          if (currentMessage == Fix.ARTHARIUM_Rock_3_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_3_X, Fix.ARTHARIUM_Rock_3_Y, Fix.ARTHARIUM_Rock_3_Z));
+          }
+          // 岩壁４
+          if (currentMessage == Fix.ARTHARIUM_Rock_4_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_4_X, Fix.ARTHARIUM_Rock_4_Y, Fix.ARTHARIUM_Rock_4_Z));
+          }
+          // 岩壁５
+          if (currentMessage == Fix.ARTHARIUM_Rock_5_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_5_X, Fix.ARTHARIUM_Rock_5_Y, Fix.ARTHARIUM_Rock_5_Z));
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.CallDecision)
+        {
+          if (currentMessage == Fix.DECISION_ARTHARIUM_CLIFF)
+          {
+            this.currentDecision = currentMessage;
+            txtDecisionTitle.text = "DECISION TIME";
+            txtDecisionMessage.text = "崖を降りるかどうかを決めてください。";
+            txtDecisionA.text = "崖を降りる";
+            txtDecisionB.text = "引き返す";
+            txtDecisionC.text = "";
+            GroupDecision.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.DECISION_ARTHARIUM_CLIFF_END)
+          {
+            this.currentDecision = currentMessage;
+            txtDecisionTitle.text = "DECISION TIME";
+            txtDecisionMessage.text = "崖を降りて元の通路へ戻るかどうかを決めてください。";
+            txtDecisionA.text = "崖を降りて元の通路へ戻る。";
+            txtDecisionB.text = "引き返して他の場所を探す";
+            txtDecisionC.text = "";
+            GroupDecision.SetActive(true);
+            return;
+          }
+        }
+        else if (currentEvent == MessagePack.ActionEvent.InstantiateObject)
+        {
+          Debug.Log("Detect InstantiateObject");
+          One.TF.LocationPlayer2 = true;
+          LoadObjectFromEvent();
+          continue; // 継続
+        }
+        // 通常メッセージ表示（システムメッセージが出ている場合は消す）
+        else if (currentEvent == MessagePack.ActionEvent.None)
+        {
+          this.panelSystemMessage.SetActive(false);
+          this.txtQuestMessage.text = currentMessage;
+          return;
+        }
+      }
+    }
+
+    // メッセージが無くなったら、元の画面に戻す。
+    if (this.QuestMessageList.Count <= 0)
+    {
+      this.GroupQuestMessage.SetActive(false);
+      this.QuestMessageList.Clear();
+      Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
+    }
+  }
+
+  private void RemoveOneSentence()
+  {
+    if (this.QuestMessageList.Count > 0)
+    {
+      this.QuestMessageList.RemoveAt(0);
+    }
+    if (this.QuestEventList.Count > 0)
+    {
+      this.QuestEventList.RemoveAt(0);
+    }
+  }
   private bool DetectEvent(TileInformation tile)
   {
     Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
@@ -1251,6 +1419,21 @@ public class DungeonField : MotherBase
       else if (LocationDetect(tile, 23, -1.5f, 36))
       {
         MessagePack.Message300060(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // センター区画左側通路先、崖落ち
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_1_X, Fix.MAPEVENT_ARTHARIUM_1_Y, Fix.MAPEVENT_ARTHARIUM_1_Z))
+      {
+        MessagePack.Message300070(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+
+
+      // 崖落ちマップから通常通路へと帰還
+      else if (LocationDetect(tile, 8, -1, 49))
+      {
+        MessagePack.Message300080(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -1703,6 +1886,7 @@ public class DungeonField : MotherBase
         }
       }
     }
+
     return null;
   }
 
@@ -2062,11 +2246,48 @@ public class DungeonField : MotherBase
         rect.localPosition = new Vector3(0, -5 - ii * NODE_HEIGHT, 0);
         const int HEIGHT = 110;
         ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
+        Debug.Log("debug count: " + ii.ToString());
         // debug
       }
     }
 
     Debug.Log("LoadTileMapping-2 " + DateTime.Now.ToString());
+  }
+
+  private void LoadObjectFromEvent()
+  {
+    if (One.TF.LocationPlayer2)
+    {
+      Debug.Log("Detect One.TF.LocationPlayer2");
+
+      // イベント発生するタイルの一つ上に設置
+      Vector3 position = new Vector3(Fix.MAPEVENT_ARTHARIUM_1_X, Fix.MAPEVENT_ARTHARIUM_1_Y + 1, Fix.MAPEVENT_ARTHARIUM_1_Z);
+      FieldObject current = Instantiate(prefab_Player2, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Character;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = prefab_Player2.transform.rotation;
+
+      // debug
+      NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
+      objView.transform.SetParent(ContentFieldObj.transform);
+      objView.txtType.text = current.content.ToString();
+      objView.txtLocation.text = current.transform.position.ToString();
+      objView.txtObjectId.text = current.ObjectId.ToString();
+      objView.x = current.transform.position.x;
+      objView.y = current.transform.position.y;
+      objView.z = current.transform.position.z;
+      objView.gameObject.SetActive(true);
+      RectTransform rect = objView.GetComponent<RectTransform>();
+      int NODE_HEIGHT = 90;
+      rect.anchoredPosition = new Vector2(0, 0);
+      //rect.sizeDelta = new Vector2(0, 0);
+      rect.localPosition = new Vector3(0, -5 - this.FieldObjList.Count * NODE_HEIGHT, 0);
+      const int HEIGHT = 110;
+      ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
+      // debug
+
+      this.FieldObjList.Add(current);
+    }
   }
 
   private void UpdateFieldObject(string map_data)
@@ -2221,16 +2442,4 @@ public class DungeonField : MotherBase
     rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
   }
 
-  public void TapQuestButton(Text txt)
-  {
-    txtEventTitle.text = txt.text;
-    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
-    {
-      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
-      {
-        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
-        break;
-      }
-    }
-  }
 }

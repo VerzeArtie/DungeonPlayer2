@@ -17,6 +17,18 @@ public static class MessagePack
     QuestComplete,
     GetTreasure,
     RemoveFieldObject,
+    CallDecision,
+    MoveTop,
+    MoveLeft,
+    MoveRight,
+    MoveBottom,
+    ForceMoveRight,
+    ForceMoveLeft,
+    ForceMoveTop,
+    ForceMoveBottom,
+    ForceMoveRise,
+    ForceMoveFall,
+    InstantiateObject,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -29,10 +41,6 @@ public static class MessagePack
     TurnToBlack,
     TurnToWhite,
     ReturnToNormal,
-    MoveTop,
-    MoveLeft,
-    MoveRight,
-    MoveBottom,
     BlueOpenTop,
     BlueOpenLeft,
     BlueOpenRight,
@@ -1283,6 +1291,172 @@ public static class MessagePack
     }
   }
 
+  public static void Message300070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：おっと・・・崖のようだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうやら行き止まりみたいね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・いや、別に行き止まりってわけじゃねえ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：一応下には地面が見えている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、まさか・・・, この高さからジャンプして飛び降りるって考えてないでしょうね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺はバカだからな。そのまさかだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっ・・・ちょ、ちょっと待ってください。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：大丈夫だって、その気になりゃ多少滑る感じで下れば行ける。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ・・・いえ・・・そ、そうではなくて・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん？一体どうしたんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、わからないわけ？ほんと、そういう所は鈍感よね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・　・・・　ッ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：待て、分かった！とにかく、止めておいた方が良いみたいだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：と、すると・・・どうしたものか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何となく、手筋がある気がするんだけどな・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　さて、どうすっかな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CLIFF, ActionEvent.CallDecision);
+  }
+
+  public static void Message300071(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：ちょっと考えてみたんだが・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：崖の下には俺１人で行ってみるからさ。ここで待っててくれないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：えっ！？単身で突っ込むわけ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：大丈夫だ。ちゃんと戻ってくるからさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：戻ってくるって、だから崖降りた後、どうやって戻るつもりなのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：大丈夫だろ、何とかなるって。ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、エオネからも何か言ってやって。こいつは本当に脳なしだから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：え・・・えぇ・・・あの・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：お気をつけて・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ウソ、まじか・・・意外とそういう反応なんだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まあ・・・一人でどうしても行くって言うなら、しょうがないわね。じゃあこれを持って行きなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、これひょっとして・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おー、やっぱりそうだ！" + Fix.ITEM_TOOMI_AOSUISYOU + "じゃねえか！よく持ってたな、こんな代物！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：万が一のためよ。用意は万全にしておかないとね♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジかよ。これがあるとスゲー助かるぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
+
+    Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：でも、こんなのどこから仕入れたんだ？少なくともアンシェット街では売ってる訳がないよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それはえととと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：な、内緒なのよ！！いちいち聞かないでちょーだい！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：わ、分かったって。いちいち大きな声出さなくてもいいだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃまあ、これ持ってちょっと奥の方を探索してくるとするぜ、しばらく待機しててくれ。良いな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ行くぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.InstantiateObject);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+
+    Message(ref m_list, ref e_list, "0.4", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "アイン：っとぉ、着地！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケーオーケー！ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おーい、そっちは大丈夫かー？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　アインは崖の下から上を眺めた　】", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：あっ！ちょっと、何見ようとしてんのよ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　ラナはデカい岩のつぶてを崖の下へとぶん投げた　】", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：イデっ！！ッゴワ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おまえ、何しやがる。さすがにイテェだろうが。ったく・・・つつ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：良いから。とっとと行きなさいよ。ホラ、行った行った！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ったくもう。分かった分かった。じゃ、行ってくるからな。", ActionEvent.None);
+
+  }
+
+  public static void Message300072(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：ここは一旦、引き返すとするか、他の道を探してみよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+  }
+
+  public static void Message300080(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（ おっ、見覚えのある通路に出たな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ここを下へジャンプして降りれば、戻れそうだな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ さて、どうすっかな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CLIFF_END, ActionEvent.CallDecision);
+
+  }
+
+  public static void Message300081(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ行くぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveBottom);
+
+    Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveFall);
+
+    Message(ref m_list, ref e_list, "アイン：（ よし、着地っと！ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ さて、もとに戻った事だし、ラナ達と合流しておこう ）", ActionEvent.None);
+
+  }
+
+  public static void Message300082(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（ 少し気になる所がある。もう少し調べてみるか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveTop);
+  }
   public static int GetZetaniumCount()
   {
     int counter = 0;

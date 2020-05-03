@@ -10,6 +10,7 @@ public class FieldObject : MonoBehaviour
     None = 0,
     Treasure,
     Rock,
+    Character,
     Boss,
   }
 

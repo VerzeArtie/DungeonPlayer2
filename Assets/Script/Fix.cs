@@ -607,6 +607,10 @@ public static partial class Fix
     "【理】が示すは無限回廊にまつわる現在そのもの。天上界ジェネシスゲートの第三層を探索し、現世の渦に関する事象を見定めよう。そして、最終層へと通じている【無因の門】へと赴き、本階層をクリアしよう。",
     "【理】は【すべて】を【選択】によって終わらせようとしている。【すべて】とは何か。そして選ぶべき【選択】とは何か。【理】が示した【究極の選択】と相対し【解】を提示しよう。",
   };
+
+  public const string DECISION_BACKTO_HOMETOWN = "ホームタウンへの帰還";
+  public const string DECISION_ARTHARIUM_CLIFF = "アーサリウム工場跡地：崖の下へ";
+  public const string DECISION_ARTHARIUM_CLIFF_END = "アーサリウム工場跡地：元の通路へ";
   #endregion
 
   #region "Action Command"
