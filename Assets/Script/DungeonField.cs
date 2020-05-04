@@ -378,7 +378,7 @@ public class DungeonField : MotherBase
         }
 
         FieldObject currentObj = GetObjectInfo(SelectField.transform.position.x,
-                                             SelectField.transform.position.y - 0.5f,
+                                             SelectField.transform.position.y,
                                              SelectField.transform.position.z);
         if (currentObj != null)
         {
@@ -387,8 +387,18 @@ public class DungeonField : MotherBase
           return;
         }
 
-        // todo 第三引数のIDをどう入力させるか。
-        AddFieldObj(txtSelectObjectName.text, SelectField.transform.position, String.Empty);
+        int counter = 0;
+        for (int ii = 0; ii < FieldObjList.Count; ii++)
+        {
+          Debug.Log("FieldObjList ID: " + FieldObjList[ii].ObjectId);
+          if (FieldObjList[ii].content == FieldObject.Content.Treasure)
+          {
+            counter++;
+          }
+        }
+        counter++; // 追加するのでもう１カウント
+        String objectId = counter.ToString();
+        AddFieldObj(txtSelectObjectName.text, SelectField.transform.position, objectId);
         return;
       }
 
@@ -406,7 +416,7 @@ public class DungeonField : MotherBase
         }
 
         FieldObject currentObj = GetObjectInfo(SelectField.transform.position.x,
-                                           SelectField.transform.position.y - 0.5f,
+                                           SelectField.transform.position.y,
                                            SelectField.transform.position.z);
         if (currentObj != null)
         {
@@ -703,49 +713,65 @@ public class DungeonField : MotherBase
           // 宝箱１
           if (One.TF.Treasure_Artharium_00001 == false && location.x == Fix.ARTHARIUM_Treasure_2_X && location.y == Fix.ARTHARIUM_Treasure_2_Y && location.z == Fix.ARTHARIUM_Treasure_2_Z)
           {
-            for (int ii = 0; ii < FieldObjList.Count; ii++)
-            {
-              if (fieldObj.transform.position == FieldObjList[ii].transform.position)
-              {
-                ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
-                break;
-              }
-            }
-
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_SWORD);
-            TapOK();
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_SWORD); TapOK();
             return;
           }
           // 宝箱２
           if (One.TF.Treasure_Artharium_00002 == false && location.x == Fix.ARTHARIUM_Treasure_8_X && location.y == Fix.ARTHARIUM_Treasure_8_Y && location.z == Fix.ARTHARIUM_Treasure_8_Z)
           {
-            for (int ii = 0; ii < FieldObjList.Count; ii++)
-            {
-              if (fieldObj.transform.position == FieldObjList[ii].transform.position)
-              {
-                ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
-                break;
-              }
-            }
-
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_LANCE);
-            TapOK();
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_LANCE); TapOK();
             return;
           }
           // 宝箱３
           if (One.TF.Treasure_Artharium_00003 == false && location.x == Fix.ARTHARIUM_Treasure_9_X && location.y == Fix.ARTHARIUM_Treasure_9_Y && location.z == Fix.ARTHARIUM_Treasure_9_Z)
           {
-            for (int ii = 0; ii < FieldObjList.Count; ii++)
-            {
-              if (fieldObj.transform.position == FieldObjList[ii].transform.position)
-              {
-                ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
-                break;
-              }
-            }
-
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_ARMOR);
-            TapOK();
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_ARMOR); TapOK();
+            return;
+          }
+          // 宝箱４
+          if (One.TF.Treasure_Artharium_00004 == false && location.x == Fix.ARTHARIUM_Treasure_10_X && location.y == Fix.ARTHARIUM_Treasure_10_Y && location.z == Fix.ARTHARIUM_Treasure_10_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_CLAW); TapOK();
+            return;
+          }
+          // 宝箱５
+          if (One.TF.Treasure_Artharium_00005 == false && location.x == Fix.ARTHARIUM_Treasure_11_X && location.y == Fix.ARTHARIUM_Treasure_11_Y && location.z == Fix.ARTHARIUM_Treasure_11_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.BLUE_PENDANT); TapOK();
+            return;
+          }
+          // 宝箱６
+          if (One.TF.Treasure_Artharium_00006 == false && location.x == Fix.ARTHARIUM_Treasure_12_X && location.y == Fix.ARTHARIUM_Treasure_12_Y && location.z == Fix.ARTHARIUM_Treasure_12_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.YELLOW_PENDANT); TapOK();
+            return;
+          }
+          // 宝箱７
+          if (One.TF.Treasure_Artharium_00007 == false && location.x == Fix.ARTHARIUM_Treasure_13_X && location.y == Fix.ARTHARIUM_Treasure_13_Y && location.z == Fix.ARTHARIUM_Treasure_13_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.GREEN_PENDANT); TapOK();
+            return;
+          }
+          // 宝箱８
+          if (One.TF.Treasure_Artharium_00008 == false && location.x == Fix.ARTHARIUM_Treasure_14_X && location.y == Fix.ARTHARIUM_Treasure_14_Y && location.z == Fix.ARTHARIUM_Treasure_14_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.PURPLE_PENDANT); TapOK();
             return;
           }
         }
@@ -1285,6 +1311,41 @@ public class DungeonField : MotherBase
             {
               One.TF.AddBackPack(new Item(currentMessage));
               One.TF.Treasure_Artharium_00003 = true;
+              return; // 通常
+            }
+            // 宝箱４
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_10_X, Fix.ARTHARIUM_Treasure_10_Y, Fix.ARTHARIUM_Treasure_10_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00004 = true;
+              return; // 通常
+            }
+            // 宝箱５
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_11_X, Fix.ARTHARIUM_Treasure_11_Y, Fix.ARTHARIUM_Treasure_11_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00005 = true;
+              return; // 通常
+            }
+            // 宝箱６
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_12_X, Fix.ARTHARIUM_Treasure_12_Y, Fix.ARTHARIUM_Treasure_12_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00006 = true;
+              return; // 通常
+            }
+            // 宝箱７
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_13_X, Fix.ARTHARIUM_Treasure_13_Y, Fix.ARTHARIUM_Treasure_13_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00007 = true;
+              return; // 通常
+            }
+            // 宝箱８
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_14_X, Fix.ARTHARIUM_Treasure_14_Y, Fix.ARTHARIUM_Treasure_14_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00008 = true;
               return; // 通常
             }
 
@@ -2229,6 +2290,7 @@ public class DungeonField : MotherBase
         objView.transform.SetParent(ContentFieldObj.transform);
         objView.txtType.text = strObjList[ii];
         objView.txtLocation.text = objList[ii].ToString();
+        Debug.Log("currentObjView ID: " + strObjIdList[ii]);
         objView.txtObjectId.text = strObjIdList[ii];
         objView.x = objList[ii].x;
         objView.y = objList[ii].y;
@@ -2294,35 +2356,50 @@ public class DungeonField : MotherBase
       // 宝箱１
       if (One.TF.Treasure_Artharium_00001)
       {
-        for (int ii = 0; ii < FieldObjList.Count; ii++)
-        {
-          if (FieldObjList[ii].transform.position == new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y, Fix.ARTHARIUM_Treasure_2_Z))
-          {
-            ExchangeFieldObject(FieldObjList,  prefab_TreasureOpen, ii);
-          }
-        }
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y, Fix.ARTHARIUM_Treasure_2_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
       // 宝箱２
       if (One.TF.Treasure_Artharium_00002)
       {
-        for (int ii = 0; ii < FieldObjList.Count; ii++)
-        {
-          if (FieldObjList[ii].transform.position == new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y, Fix.ARTHARIUM_Treasure_8_Z))
-          {
-            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
-          }
-        }
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y, Fix.ARTHARIUM_Treasure_8_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
       // 宝箱３
       if (One.TF.Treasure_Artharium_00003)
       {
-        for (int ii = 0; ii < FieldObjList.Count; ii++)
-        {
-          if (FieldObjList[ii].transform.position == new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y, Fix.ARTHARIUM_Treasure_9_Z))
-          {
-            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, ii);
-          }
-        }
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y, Fix.ARTHARIUM_Treasure_9_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱４
+      if (One.TF.Treasure_Artharium_00004)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_10_X, Fix.ARTHARIUM_Treasure_10_Y, Fix.ARTHARIUM_Treasure_10_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱５
+      if (One.TF.Treasure_Artharium_00005)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_11_X, Fix.ARTHARIUM_Treasure_11_Y, Fix.ARTHARIUM_Treasure_11_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱６
+      if (One.TF.Treasure_Artharium_00006)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_12_X, Fix.ARTHARIUM_Treasure_12_Y, Fix.ARTHARIUM_Treasure_12_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱７
+      if (One.TF.Treasure_Artharium_00007)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_13_X, Fix.ARTHARIUM_Treasure_13_Y, Fix.ARTHARIUM_Treasure_13_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱８
+      if (One.TF.Treasure_Artharium_00008)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_14_X, Fix.ARTHARIUM_Treasure_14_Y, Fix.ARTHARIUM_Treasure_14_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
 
       // 岩壁１
@@ -2370,16 +2447,21 @@ public class DungeonField : MotherBase
 
   private void ExchangeFieldObject(List<FieldObject> list,  FieldObject new_prefab, int num)
   {
+    if (num <= -1) { Debug.Log("ExchangeFieldObject(S) num less than -1, then no action..."); return; }
+
     //for (int ii = 0; ii < FieldObjList.Count; ii++)
     //{
     //  Debug.Log("obj " + ii.ToString() + " " + FieldObjList[ii].ObjectName + " " + FieldObjList[ii].transform.position.ToString());
     //}
+
+    string objectId = list[num].ObjectId;
 
     Vector3 current = list[num].transform.position;
     Destroy(list[num].gameObject);
     list.RemoveAt(num);
 
     FieldObject newCurrent = Instantiate(new_prefab, current, Quaternion.identity) as FieldObject;
+    newCurrent.ObjectId = objectId;
     newCurrent.transform.SetParent(this.transform);
     newCurrent.transform.rotation = new_prefab.transform.rotation;
     list.Insert(num, newCurrent);
@@ -2456,6 +2538,19 @@ public class DungeonField : MotherBase
     RectTransform rect = button.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
+  }
+
+  private int FindFieldObjectIndex(List<FieldObject> field_obj_list, Vector3 position)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (position == FieldObjList[ii].transform.position)
+      {
+        return ii;
+      }
+    }
+
+    return -1;
   }
 
 }

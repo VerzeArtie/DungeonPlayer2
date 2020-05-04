@@ -624,9 +624,19 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   [SerializeField] protected bool _treasure_artharium_00002 = false;
   [SerializeField] protected bool _treasure_artharium_00003 = false;
+  [SerializeField] protected bool _treasure_artharium_00004 = false;
+  [SerializeField] protected bool _treasure_artharium_00005 = false;
+  [SerializeField] protected bool _treasure_artharium_00006 = false;
+  [SerializeField] protected bool _treasure_artharium_00007 = false;
+  [SerializeField] protected bool _treasure_artharium_00008 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
   public bool Treasure_Artharium_00003 { get { return _treasure_artharium_00003; } set { _treasure_artharium_00003 = value; } }
+  public bool Treasure_Artharium_00004 { get { return _treasure_artharium_00004; } set { _treasure_artharium_00004 = value; } }
+  public bool Treasure_Artharium_00005 { get { return _treasure_artharium_00005; } set { _treasure_artharium_00005 = value; } }
+  public bool Treasure_Artharium_00006 { get { return _treasure_artharium_00006; } set { _treasure_artharium_00006 = value; } }
+  public bool Treasure_Artharium_00007 { get { return _treasure_artharium_00007; } set { _treasure_artharium_00007 = value; } }
+  public bool Treasure_Artharium_00008 { get { return _treasure_artharium_00008; } set { _treasure_artharium_00008 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;

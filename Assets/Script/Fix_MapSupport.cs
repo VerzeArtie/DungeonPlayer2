@@ -87,4 +87,34 @@ public partial class Fix
   public const float ARTHARIUM_Treasure_9_Y = -6f;
   public const float ARTHARIUM_Treasure_9_Z = 43f;
 
+  public const string ARTHARIUM_Treasure_10_C = "Treasure";
+  public const string ARTHARIUM_Treasure_10_O = "10";
+  public const float ARTHARIUM_Treasure_10_X = 55f;
+  public const float ARTHARIUM_Treasure_10_Y = -5f;
+  public const float ARTHARIUM_Treasure_10_Z = 60f;
+
+  public const string ARTHARIUM_Treasure_11_C = "Treasure";
+  public const string ARTHARIUM_Treasure_11_O = "11";
+  public const float ARTHARIUM_Treasure_11_X = 63f;
+  public const float ARTHARIUM_Treasure_11_Y = -4f;
+  public const float ARTHARIUM_Treasure_11_Z = 49f;
+
+  public const string ARTHARIUM_Treasure_12_C = "Treasure";
+  public const string ARTHARIUM_Treasure_12_O = "12";
+  public const float ARTHARIUM_Treasure_12_X = 38f;
+  public const float ARTHARIUM_Treasure_12_Y = -4.5f;
+  public const float ARTHARIUM_Treasure_12_Z = 64f;
+
+  public const string ARTHARIUM_Treasure_13_C = "Treasure";
+  public const string ARTHARIUM_Treasure_13_O = "13";
+  public const float ARTHARIUM_Treasure_13_X = 48f;
+  public const float ARTHARIUM_Treasure_13_Y = -4.5f;
+  public const float ARTHARIUM_Treasure_13_Z = 74f;
+
+  public const string ARTHARIUM_Treasure_14_C = "Treasure";
+  public const string ARTHARIUM_Treasure_14_O = "14";
+  public const float ARTHARIUM_Treasure_14_X = 15f;
+  public const float ARTHARIUM_Treasure_14_Y = -0.5f;
+  public const float ARTHARIUM_Treasure_14_Z = 74f;
+
 }
