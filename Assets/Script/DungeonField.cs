@@ -574,11 +574,9 @@ public class DungeonField : MotherBase
 
     bool detectKey = false;
     TileInformation tile = null;
-    FieldObject fieldObj = null;
     if (Input.GetKeyDown(KeyCode.RightArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Right);
-      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Right);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -589,7 +587,6 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.LeftArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Left);
-      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Left);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -600,7 +597,6 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.UpArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Top);
-      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Top);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -611,7 +607,6 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.DownArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
-      fieldObj = SearchNextObject(this.Player.transform.position, Direction.Bottom);
       if (BlockCheck(Player, tile) == false)
       {
         return;
@@ -697,6 +692,8 @@ public class DungeonField : MotherBase
       One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
 
       // 移動直後、フィールドオブジェクトの検出および対応。
+      FieldObject fieldObj = SearchObject(this.Player.transform.position);
+
       if (fieldObj != null && fieldObj.content == FieldObject.Content.Treasure)
       {
         Vector3 location = fieldObj.transform.position;
@@ -704,7 +701,7 @@ public class DungeonField : MotherBase
         {
           Debug.Log("Detect fieldObj: " + location);
           // 宝箱１
-          if (One.TF.Treasure_Artharium_00001 == false && location.x == 26 && location.y == -0.5f && location.z == 18)
+          if (One.TF.Treasure_Artharium_00001 == false && location.x == Fix.ARTHARIUM_Treasure_2_X && location.y == Fix.ARTHARIUM_Treasure_2_Y && location.z == Fix.ARTHARIUM_Treasure_2_Z)
           {
             for (int ii = 0; ii < FieldObjList.Count; ii++)
             {
@@ -1270,21 +1267,21 @@ public class DungeonField : MotherBase
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
           {
             // 宝箱１
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y + 0.5f, Fix.ARTHARIUM_Treasure_2_Z))
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_2_X, Fix.ARTHARIUM_Treasure_2_Y, Fix.ARTHARIUM_Treasure_2_Z))
             {
               One.TF.AddBackPack(new Item(currentMessage));
               One.TF.Treasure_Artharium_00001 = true;
               return; // 通常
             }
             // 宝箱２
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y + 0.5f, Fix.ARTHARIUM_Treasure_8_Z))
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_8_X, Fix.ARTHARIUM_Treasure_8_Y, Fix.ARTHARIUM_Treasure_8_Z))
             {
               One.TF.AddBackPack(new Item(currentMessage));
               One.TF.Treasure_Artharium_00002 = true;
               return; // 通常
             }
             // 宝箱３
-            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y + 0.5f, Fix.ARTHARIUM_Treasure_9_Z))
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_9_X, Fix.ARTHARIUM_Treasure_9_Y, Fix.ARTHARIUM_Treasure_9_Z))
             {
               One.TF.AddBackPack(new Item(currentMessage));
               One.TF.Treasure_Artharium_00003 = true;
@@ -1818,66 +1815,11 @@ public class DungeonField : MotherBase
     return true;
   }
 
-  private FieldObject SearchNextObject(Vector3 player, Direction direction)
+  private FieldObject SearchObject(Vector3 player)
   {
-    FieldObject next = null;
-    if (direction == Direction.Right)
-    {
-      // タイル一つ上から下に向けて順序よく探索する。(3が3つ上、2が2つ上、1が一つ上、0が平行、-1が一つ下）
-      // それ以外のケースも考えられるが、基本をまず記述する。
-      for (int ii = 3; ii >= -1; ii--)
-      {
-        next = GetObjectInfo(player.x + 1, player.y - 1.0f + ii * 0.5f, player.z);
-        if (next != null)
-        {
-          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
-          else { return next; }
-        }
-      }
-    }
-    if (direction == Direction.Left)
-    {
-      // タイル一つ上から下に向けて順序よく探索する。
-      // それ以外のケースも考えられるが、基本をまず記述する。
-      for (int ii = 3; ii >= -1; ii--)
-      {
-        next = GetObjectInfo(player.x - 1, player.y - 1.0f + ii * 0.5f, player.z);
-        if (next != null)
-        {
-          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
-          else { return next; }
-        }
-      }
-    }
-    if (direction == Direction.Top)
-    {
-      // タイル一つ上から下に向けて順序よく探索する。(1が一つ上、0が平行、-1が一つ下）
-      // それ以外のケースも考えられるが、基本をまず記述する。
-      for (int ii = 3; ii >= -1; ii--)
-      {
-        next = GetObjectInfo(player.x, player.y - 1.0f + ii * 0.5f, player.z + 1);
-        if (next != null)
-        {
-          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
-          else { return next; }
-        }
-      }
-    }
-    if (direction == Direction.Bottom)
-    {
-      // タイル一つ上から下に向けて順序よく探索する。(1が一つ上、0が平行、-1が一つ下）
-      // それ以外のケースも考えられるが、基本をまず記述する。
-      for (int ii = 3; ii >= -1; ii--)
-      {
-        next = GetObjectInfo(player.x, player.y - 1.0f + ii * 0.5f, player.z - 1);
-        if (next != null)
-        {
-          if (ii == 3 || ii == 2) { return null; } // 上壁がある場合は通過不可能とする。
-          else { return next; }
-        }
-      }
-    }
-    return null;
+    FieldObject obj = null;
+    obj = GetObjectInfo(player.x, player.y, player.z);
+    return obj;
   }
 
   private TileInformation SearchNextTile(Vector3 player, Direction direction)
