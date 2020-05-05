@@ -548,7 +548,11 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message300040 = value; }
   }
   [SerializeField] protected bool _event_message300050 = false;
+  [SerializeField] protected bool _event_message300070 = false;
+  [SerializeField] protected bool _event_message300090 = false;
   public bool Event_Message300050 { get { return _event_message300050; } set { _event_message300050 = value; } }
+  public bool Event_Message300070 { get { return _event_message300070; } set { _event_message300070 = value; } }
+  public bool Event_Message300090 { get { return _event_message300090; } set { _event_message300090 = value; } }
 
   [SerializeField] protected bool _event_message400010 = false;
   public bool Event_Message400010

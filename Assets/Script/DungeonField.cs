@@ -1087,6 +1087,7 @@ public class DungeonField : MotherBase
   {
     Debug.Log("TapBacktoTown(S)");
     this.HomeTownComplete = true;
+    One.TF.LocationPlayer2 = false;
     SceneDimension.JumpToHomeTown();
   }
 
@@ -1378,6 +1379,11 @@ public class DungeonField : MotherBase
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_5_X, Fix.ARTHARIUM_Rock_5_Y, Fix.ARTHARIUM_Rock_5_Z));
           }
+          // プレイヤー２（ラナ待機オブジェクト）
+          if (currentMessage == Fix.MAPEVENT_ARTHARIUM_3_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.MAPEVENT_ARTHARIUM_1_X, Fix.MAPEVENT_ARTHARIUM_1_Y + 1.0f, Fix.MAPEVENT_ARTHARIUM_1_Z));
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.CallDecision)
@@ -1408,6 +1414,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.InstantiateObject)
         {
           Debug.Log("Detect InstantiateObject");
+          // todo 他の生成シーンもケースごとに対応する。
           One.TF.LocationPlayer2 = true;
           LoadObjectFromEvent();
           continue; // 継続
@@ -1539,12 +1546,18 @@ public class DungeonField : MotherBase
         return true;
       }
 
-
+      // todo 他のイベントを埋める必要がある。
 
       // 崖落ちマップから通常通路へと帰還
-      else if (LocationDetect(tile, 8, -1, 49))
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_2_X, Fix.MAPEVENT_ARTHARIUM_2_Y, Fix.MAPEVENT_ARTHARIUM_2_Z))
       {
         MessagePack.Message300080(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // 通常通路に戻り、ラナと合流
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_3_X, Fix.MAPEVENT_ARTHARIUM_3_Y, Fix.MAPEVENT_ARTHARIUM_3_Z))
+      {
+        MessagePack.Message300090(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -2313,7 +2326,7 @@ public class DungeonField : MotherBase
 
   private void LoadObjectFromEvent()
   {
-    if (One.TF.LocationPlayer2)
+    if (One.TF.LocationPlayer2 && One.TF.Event_Message300090 == false)
     {
       Debug.Log("Detect One.TF.LocationPlayer2");
 
@@ -2440,9 +2453,11 @@ public class DungeonField : MotherBase
         Debug.Log("RemoveFieldObject[ii] " + ii.ToString());
         list.Remove(current);
         Destroy(current.gameObject);
-        break;
+        return;
       }
     }
+
+    Debug.Log("RemoveFieldObject not found...");
   }
 
   private void ExchangeFieldObject(List<FieldObject> list,  FieldObject new_prefab, int num)

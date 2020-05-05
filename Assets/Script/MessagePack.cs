@@ -1293,41 +1293,54 @@ public static class MessagePack
 
   public static void Message300070(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：おっと・・・崖のようだな。", ActionEvent.None);
+    if (One.TF.Event_Message300070 == false)
+    {
+      One.TF.Event_Message300070 = true;
 
-    Message(ref m_list, ref e_list, "ラナ：どうやら行き止まりみたいね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっと・・・崖のようだな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・いや、別に行き止まりってわけじゃねえ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：どうやら行き止まりみたいね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：一応下には地面が見えている。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・いや、別に行き止まりってわけじゃねえ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：え、まさか・・・, この高さからジャンプして飛び降りるって考えてないでしょうね？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：一応下には地面が見えている。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：俺はバカだからな。そのまさかだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：え、まさか・・・, この高さからジャンプして飛び降りるって考えてないでしょうね？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：えっ・・・ちょ、ちょっと待ってください。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：俺はバカだからな。そのまさかだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：大丈夫だって、その気になりゃ多少滑る感じで下れば行ける。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：えっ・・・ちょ、ちょっと待ってください。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：あ・・・いえ・・・そ、そうではなくて・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：大丈夫だって、その気になりゃ多少滑る感じで下れば行ける。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ん？一体どうしたんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あ・・・いえ・・・そ、そうではなくて・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：ちょっと、わからないわけ？ほんと、そういう所は鈍感よね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ん？一体どうしたんだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：・・・　・・・　ッ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、わからないわけ？ほんと、そういう所は鈍感よね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：待て、分かった！とにかく、止めておいた方が良いみたいだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　ッ・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：と、すると・・・どうしたものか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：待て、分かった！とにかく、止めておいた方が良いみたいだな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：と、すると・・・どうしたものか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（　何となく、手筋がある気がするんだけどな・・・　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（　さて、どうすっかな　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　何となく、筋がある気がするんだけどな・・・　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CLIFF, ActionEvent.CallDecision);
+      Message(ref m_list, ref e_list, "アイン：（　さて、どうすっかな　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CLIFF, ActionEvent.CallDecision);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：（　何となく、筋がある気がするんだけどな・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　さて、どうすっかな　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CLIFF, ActionEvent.CallDecision);
+    }
   }
 
   public static void Message300071(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -1373,6 +1386,16 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：な、内緒なのよ！！いちいち聞かないでちょーだい！！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：わ、分かったって。いちいち大きな声出さなくてもいいだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：と、とにかくそれを使えば、アーサリウム工場跡地から外に出られるから、厳しくなったら使うことね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ちょっと待てよ。そうなると、俺は外に出られるけど、ラナとエオネはどうなるんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：その点は大丈夫よ。最初にここに入った時に青水晶が自動的に記憶しているから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アインがそれを使えば、私とエオネも一緒に帰還する事になるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、そんなものか。なら心配しなくてもオッケーだな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：じゃまあ、これ持ってちょっと奥の方を探索してくるとするぜ、しばらく待機しててくれ。良いな？", ActionEvent.None);
 
@@ -1457,6 +1480,38 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "0", ActionEvent.MoveTop);
   }
+
+  public static void Message300090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300090 == false && One.TF.LocationPlayer2)
+    {
+      One.TF.Event_Message300090 = true;
+      One.TF.LocationPlayer2 = false;
+
+      Message(ref m_list, ref e_list, "アイン：よっ、今戻ったぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+
+      Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_3_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ラナ：あら、意外な方向から戻ってきたわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあな。適当に進んでいたら元の通路に戻れるポイントがあって、そこから戻ってきたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ、無事でなによりね。何か良いお宝はゲットできたわけ？", ActionEvent.None);
+
+      // todo　宝箱（シークレット）に応じて会話分岐
+
+      Message(ref m_list, ref e_list, "アイン：うん、まあまあって所だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ふーん、意外な反応ね。アインが突っ込むぐらいだから、何かあるかと思ってたんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：別にいつもそういうアンテナを張ってるワケじゃえねえさ。今回はこんなもんだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ他の場所も探索しようぜ！", ActionEvent.None);
+    }
+  }
+
   public static int GetZetaniumCount()
   {
     int counter = 0;
