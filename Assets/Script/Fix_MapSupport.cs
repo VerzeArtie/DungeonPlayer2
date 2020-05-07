@@ -117,4 +117,16 @@ public partial class Fix
   public const float ARTHARIUM_Treasure_14_Y = -0.5f;
   public const float ARTHARIUM_Treasure_14_Z = 74f;
 
+  public const string ARTHARIUM_Fountain_1_C = "Fountain";
+  public const string ARTHARIUM_Fountain_1_O = "1";
+  public const float ARTHARIUM_Fountain_1_X = 33f;
+  public const float ARTHARIUM_Fountain_1_Y = -0.5f;
+  public const float ARTHARIUM_Fountain_1_Z = 30f;
+
+  public const string ARTHARIUM_MessageBoard_1_C = "MessageBoard";
+  public const string ARTHARIUM_MessageBoard_1_O = "1";
+  public const float ARTHARIUM_MessageBoard_1_X = 37f;
+  public const float ARTHARIUM_MessageBoard_1_Y = -1f;
+  public const float ARTHARIUM_MessageBoard_1_Z = 21f;
+
 }

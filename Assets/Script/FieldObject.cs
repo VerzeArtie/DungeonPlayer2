@@ -11,6 +11,8 @@ public class FieldObject : MonoBehaviour
     Treasure,
     Rock,
     Character,
+    Fountain,
+    MessageBoard,
     Boss,
   }
 

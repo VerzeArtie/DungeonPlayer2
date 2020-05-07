@@ -62,7 +62,11 @@ public class DungeonField : MotherBase
   public FieldObject prefab_TreasureOpen;
   public FieldObject prefab_Rock;
   public FieldObject prefab_Player2;
+  public FieldObject prefab_Fountain;
+  public FieldObject prefab_MessageBoard;
 
+  // BackpackView
+  public NodeBackpackView ParentBackpackView;
 
   // Decision
   public GameObject GroupDecision;
@@ -194,6 +198,8 @@ public class DungeonField : MotherBase
     // オブジェクトリストの設定
     ObjectList.Add("Treasure");
     ObjectList.Add("Rock");
+    ObjectList.Add("Fountain");
+    ObjectList.Add("MessageBoard");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -278,6 +284,9 @@ public class DungeonField : MotherBase
 
     // プレイヤー位置を設定
     JumpToLocation(new Vector3(One.TF.Field_X, One.TF.Field_Y, One.TF.Field_Z));
+
+    // バックパック情報を画面へ反映
+    ParentBackpackView.ConstructBackpackView();
 
     // タイルおよびフィールドオブジェクトの設置
     LoadTileMapping(One.TF.CurrentDungeonField);
@@ -391,7 +400,8 @@ public class DungeonField : MotherBase
         for (int ii = 0; ii < FieldObjList.Count; ii++)
         {
           Debug.Log("FieldObjList ID: " + FieldObjList[ii].ObjectId);
-          if (FieldObjList[ii].content == FieldObject.Content.Treasure)
+          FieldObject.Content currentContent = (FieldObject.Content)(Enum.Parse(typeof(FieldObject.Content), txtSelectObjectName.text));
+          if (FieldObjList[ii].content == currentContent)
           {
             counter++;
           }
@@ -694,6 +704,22 @@ public class DungeonField : MotherBase
 
     if (detectKey)
     {
+      // 移動直前、フィールドオブジェクトの検出および対応。
+      FieldObject fieldObjBefore = SearchObject(new Vector3(tile.transform.position.x,
+                                                            tile.transform.position.y + 1.0f,
+                                                            tile.transform.position.z));
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
+      {
+        MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
+      {
+        MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
+
       // まず移動する。
       JumpToLocation(new Vector3(tile.transform.position.x,
                                  tile.transform.position.y + 1.0f,
@@ -774,6 +800,15 @@ public class DungeonField : MotherBase
             MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.PURPLE_PENDANT); TapOK();
             return;
           }
+          // 宝箱９
+          if (One.TF.Treasure_Artharium_00009 == false && location.x == Fix.ARTHARIUM_Treasure_3_X && location.y == Fix.ARTHARIUM_Treasure_3_Y && location.z == Fix.ARTHARIUM_Treasure_3_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_BOW); TapOK();
+            return;
+          }
+
         }
       }
 
@@ -851,6 +886,18 @@ public class DungeonField : MotherBase
       GroupSystem.SetActive(false);
       GroupMapSelect.SetActive(false);
     }
+  }
+
+  public void TapBackpack()
+  {
+    if (ParentBackpackView.gameObject.activeInHierarchy)
+    {
+      ParentBackpackView.gameObject.SetActive(false);
+      return;
+    }
+
+    ParentBackpackView.ConstructBackpackView();
+    ParentBackpackView.gameObject.SetActive(true);
   }
 
   public void TapDecisionAccept()
@@ -1286,6 +1333,11 @@ public class DungeonField : MotherBase
           One.TF.AddBackPack(new Item(currentMessage));
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.Fountain)
+        {
+          EventFountain();
+          continue; // 継続
+        }
         else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
         {
           this.txtSystemMessage.text = "【 " + currentMessage + " 】を手に入れました！";
@@ -1349,7 +1401,13 @@ public class DungeonField : MotherBase
               One.TF.Treasure_Artharium_00008 = true;
               return; // 通常
             }
-
+            // 宝箱８
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00009 = true;
+              return; // 通常
+            }
           }
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
@@ -2153,6 +2211,22 @@ public class DungeonField : MotherBase
       current.transform.SetParent(this.transform);
       current.transform.rotation = prefab_Rock.transform.rotation;
     }
+    else if (obj_name == "Fountain")
+    {
+      current = Instantiate(prefab_Fountain, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Fountain;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = prefab_Fountain1.transform.rotation;
+    }
+    else if (obj_name == "MessageBoard")
+    {
+      current = Instantiate(prefab_MessageBoard, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.MessageBoard;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = prefab_MessageBoard.transform.rotation;
+    }
 
     if (current != null)
     {
@@ -2414,6 +2488,12 @@ public class DungeonField : MotherBase
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_14_X, Fix.ARTHARIUM_Treasure_14_Y, Fix.ARTHARIUM_Treasure_14_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
+      // 宝箱９
+      if (One.TF.Treasure_Artharium_00009)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
 
       // 岩壁１
       if (One.TF.FieldObject_Artharium_00001)
@@ -2567,5 +2647,8 @@ public class DungeonField : MotherBase
 
     return -1;
   }
+
+  // todo バックパック実装（ホームタウンと統合できないか）
+
 
 }
