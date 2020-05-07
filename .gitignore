@@ -5,6 +5,7 @@
 /[Bb]uilds/
 /[Ss]ave/
 /[Aa]ssets/AssetImport/*
+/[Aa]ssets/Plugins/*
 .vs/
 
 *.csproj
