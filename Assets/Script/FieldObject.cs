@@ -13,6 +13,9 @@ public class FieldObject : MonoBehaviour
     Character,
     Fountain,
     MessageBoard,
+    Door_Copper,
+    Door_Silver,
+    Door_Gold,
     Boss,
   }
 

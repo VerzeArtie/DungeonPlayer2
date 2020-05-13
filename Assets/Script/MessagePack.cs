@@ -1545,6 +1545,60 @@ public static class MessagePack
     }
   }
 
+  public static void Message300110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300110 == false)
+    {
+      One.TF.Event_Message300110 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉みたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも何かこの扉って鍵もかかってないわね。ヤワな板で封鎖しているだけって感じね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この程度なら、多少強引に蹴破って進められそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さて、どうすっかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CRASH_DOOR, ActionEvent.CallDecision);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：この程度なら、多少強引に蹴破って進められそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さて、どうすっかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CRASH_DOOR, ActionEvent.CallDecision);
+    }
+  }
+
+  public static void Message300111(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300111 == false)
+    {
+      One.TF.Event_Message300111 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインのストレートキックが扉に炸裂した！ 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_4_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー！開いたぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：蹴破ったけど、特に警報とかもなさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっしゃ、このまま進めるとするか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message300112(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：いや、もう少し他を探してみるとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveTop);
+  }
 
   public static int GetZetaniumCount()
   {

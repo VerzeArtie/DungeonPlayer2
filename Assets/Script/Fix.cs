@@ -611,6 +611,7 @@ public static partial class Fix
   public const string DECISION_BACKTO_HOMETOWN = "ホームタウンへの帰還";
   public const string DECISION_ARTHARIUM_CLIFF = "アーサリウム工場跡地：崖の下へ";
   public const string DECISION_ARTHARIUM_CLIFF_END = "アーサリウム工場跡地：元の通路へ";
+  public const string DECISION_ARTHARIUM_CRASH_DOOR = "アーサリウム工場跡地：扉を蹴破れ！";
   #endregion
 
   #region "Action Command"

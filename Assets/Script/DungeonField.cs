@@ -64,6 +64,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Player2;
   public FieldObject prefab_Fountain;
   public FieldObject prefab_MessageBoard;
+  public FieldObject prefab_DoorCopper;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -200,6 +201,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Rock");
     ObjectList.Add("Fountain");
     ObjectList.Add("MessageBoard");
+    ObjectList.Add("Door_Copper");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -408,7 +410,7 @@ public class DungeonField : MotherBase
         }
         counter++; // 追加するのでもう１カウント
         String objectId = counter.ToString();
-        AddFieldObj(txtSelectObjectName.text, SelectField.transform.position, objectId);
+        AddFieldObj(txtSelectObjectName.text, SelectField.transform.position, objectId, new Quaternion(0, 0, 0, 0));
         return;
       }
 
@@ -432,6 +434,8 @@ public class DungeonField : MotherBase
         {
           Debug.Log("currentObj is hit");
           txtEditId.text = currentObj.ObjectId;
+          Quaternion q = Quaternion.Euler(0, 90.0f, 0);
+          currentObj.transform.rotation = q * currentObj.transform.rotation;
           return;
         }
         else
@@ -713,9 +717,18 @@ public class DungeonField : MotherBase
         MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
       if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
       {
         MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
+      // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Door_Copper)
+      {
+        MessagePack.Message300110(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -808,7 +821,46 @@ public class DungeonField : MotherBase
             MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.FINE_BOW); TapOK();
             return;
           }
-
+          // 宝箱１０
+          if (One.TF.Treasure_Artharium_00010 == false && location.x == Fix.ARTHARIUM_Treasure_15_X && location.y == Fix.ARTHARIUM_Treasure_15_Y && location.z == Fix.ARTHARIUM_Treasure_15_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.SURVIVAL_CLAW); TapOK();
+            return;
+          }
+          // 宝箱１１
+          if (One.TF.Treasure_Artharium_00011 == false && location.x == Fix.ARTHARIUM_Treasure_16_X && location.y == Fix.ARTHARIUM_Treasure_16_Y && location.z == Fix.ARTHARIUM_Treasure_16_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.BRONZE_SWORD); TapOK();
+            return;
+          }
+          // 宝箱１２
+          if (One.TF.Treasure_Artharium_00012 == false && location.x == Fix.ARTHARIUM_Treasure_17_X && location.y == Fix.ARTHARIUM_Treasure_17_Y && location.z == Fix.ARTHARIUM_Treasure_17_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.SHARP_LANCE); TapOK();
+            return;
+          }
+          // 宝箱１３
+          if (One.TF.Treasure_Artharium_00013 == false && location.x == Fix.ARTHARIUM_Treasure_18_X && location.y == Fix.ARTHARIUM_Treasure_18_Y && location.z == Fix.ARTHARIUM_Treasure_18_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.VIKING_AXE); TapOK();
+            return;
+          }
+          // 宝箱１４
+          if (One.TF.Treasure_Artharium_00014 == false && location.x == Fix.ARTHARIUM_Treasure_19_X && location.y == Fix.ARTHARIUM_Treasure_19_Y && location.z == Fix.ARTHARIUM_Treasure_19_Z)
+          {
+            int num = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+            ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, Fix.ENERGY_ORB); TapOK();
+            return;
+          }
         }
       }
 
@@ -921,6 +973,12 @@ public class DungeonField : MotherBase
       MessagePack.Message300081(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CRASH_DOOR)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300111(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   public void TapDecisionCancel()
@@ -941,6 +999,12 @@ public class DungeonField : MotherBase
     {
       GroupDecision.SetActive(false);
       MessagePack.Message300082(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_ARTHARIUM_CRASH_DOOR)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message300112(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
   }
@@ -1401,11 +1465,46 @@ public class DungeonField : MotherBase
               One.TF.Treasure_Artharium_00008 = true;
               return; // 通常
             }
-            // 宝箱８
+            // 宝箱９
             if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z))
             {
               One.TF.AddBackPack(new Item(currentMessage));
               One.TF.Treasure_Artharium_00009 = true;
+              return; // 通常
+            }
+            // 宝箱１０
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_15_X, Fix.ARTHARIUM_Treasure_15_Y, Fix.ARTHARIUM_Treasure_15_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00010 = true;
+              return; // 通常
+            }
+            // 宝箱１１
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_16_X, Fix.ARTHARIUM_Treasure_16_Y, Fix.ARTHARIUM_Treasure_16_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00011 = true;
+              return; // 通常
+            }
+            // 宝箱１２
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_17_X, Fix.ARTHARIUM_Treasure_17_Y, Fix.ARTHARIUM_Treasure_17_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00012 = true;
+              return; // 通常
+            }
+            // 宝箱１３
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_18_X, Fix.ARTHARIUM_Treasure_18_Y, Fix.ARTHARIUM_Treasure_18_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00013 = true;
+              return; // 通常
+            }
+            // 宝箱１４
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_19_X, Fix.ARTHARIUM_Treasure_19_Y, Fix.ARTHARIUM_Treasure_19_Z))
+            {
+              One.TF.AddBackPack(new Item(currentMessage));
+              One.TF.Treasure_Artharium_00014 = true;
               return; // 通常
             }
           }
@@ -1442,6 +1541,11 @@ public class DungeonField : MotherBase
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.MAPEVENT_ARTHARIUM_1_X, Fix.MAPEVENT_ARTHARIUM_1_Y + 1.0f, Fix.MAPEVENT_ARTHARIUM_1_Z));
           }
+          // 扉１（右下、強敵モンスター入口）
+          if (currentMessage == Fix.MAPEVENT_ARTHARIUM_4_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_1_X, Fix.ARTHARIUM_Door_Copper_1_Y, Fix.ARTHARIUM_Door_Copper_1_Z));
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.CallDecision)
@@ -1464,6 +1568,17 @@ public class DungeonField : MotherBase
             txtDecisionMessage.text = "崖を降りて元の通路へ戻るかどうかを決めてください。";
             txtDecisionA.text = "崖を降りて元の通路へ戻る。";
             txtDecisionB.text = "引き返して他の場所を探す";
+            txtDecisionC.text = "";
+            GroupDecision.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.DECISION_ARTHARIUM_CRASH_DOOR)
+          {
+            this.currentDecision = currentMessage;
+            txtDecisionTitle.text = "DECISION TIME";
+            txtDecisionMessage.text = "扉を蹴破って進むかどうかを決めてください。";
+            txtDecisionA.text = "扉を蹴破る";
+            txtDecisionB.text = "引き返す";
             txtDecisionC.text = "";
             GroupDecision.SetActive(true);
             return;
@@ -1507,6 +1622,7 @@ public class DungeonField : MotherBase
       this.QuestEventList.RemoveAt(0);
     }
   }
+
   private bool DetectEvent(TileInformation tile)
   {
     Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
@@ -2191,7 +2307,7 @@ public class DungeonField : MotherBase
     }
   }
 
-  private void AddFieldObj(string obj_name, Vector3 position, string id)
+  private void AddFieldObj(string obj_name, Vector3 position, string id, Quaternion q)
   {
     FieldObject current = null;
 
@@ -2201,7 +2317,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Treasure;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = prefab_Treasure.transform.rotation;
+      current.transform.rotation = q * current.transform.rotation;
     }
     else if (obj_name == "Rock")
     {
@@ -2209,7 +2325,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Rock;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = prefab_Rock.transform.rotation;
+      current.transform.rotation = q * current.transform.rotation;
     }
     else if (obj_name == "Fountain")
     {
@@ -2217,7 +2333,7 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.Fountain;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = prefab_Fountain1.transform.rotation;
+      current.transform.rotation = q * current.transform.rotation;
     }
     else if (obj_name == "MessageBoard")
     {
@@ -2225,7 +2341,19 @@ public class DungeonField : MotherBase
       current.content = FieldObject.Content.MessageBoard;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
-      current.transform.rotation = prefab_MessageBoard.transform.rotation;
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Door_Copper")
+    {
+      current = Instantiate(prefab_DoorCopper, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Door_Copper;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else
+    {
+      Debug.Log("AddFieldObj not found... " + obj_name);
     }
 
     if (current != null)
@@ -2278,6 +2406,10 @@ public class DungeonField : MotherBase
         xmlWriter.WriteAttributeString("X", FieldObjList[ii].transform.position.x.ToString());
         xmlWriter.WriteAttributeString("Y", FieldObjList[ii].transform.position.y.ToString());
         xmlWriter.WriteAttributeString("Z", FieldObjList[ii].transform.position.z.ToString());
+        xmlWriter.WriteAttributeString("QX", FieldObjList[ii].transform.rotation.x.ToString());
+        xmlWriter.WriteAttributeString("QY", FieldObjList[ii].transform.rotation.y.ToString());
+        xmlWriter.WriteAttributeString("QZ", FieldObjList[ii].transform.rotation.z.ToString());
+        xmlWriter.WriteAttributeString("QW", FieldObjList[ii].transform.rotation.w.ToString());
         xmlWriter.WriteEndElement();
       }
       xmlWriter.WriteWhitespace("\r\n");
@@ -2333,6 +2465,7 @@ public class DungeonField : MotherBase
       List<Vector3> objList = new List<Vector3>();
       List<string> strObjList = new List<string>();
       List<string> strObjIdList = new List<string>();
+      List<Quaternion> ObjQuaternionList = new List<Quaternion>();
 
       for (; reader.Read();)
       {
@@ -2355,9 +2488,14 @@ public class DungeonField : MotherBase
           float x = Convert.ToSingle(reader.GetAttribute("X"));
           float y = Convert.ToSingle(reader.GetAttribute("Y"));
           float z = Convert.ToSingle(reader.GetAttribute("Z"));
+          float qx = Convert.ToSingle(reader.GetAttribute("QX"));
+          float qy = Convert.ToSingle(reader.GetAttribute("QY"));
+          float qz = Convert.ToSingle(reader.GetAttribute("QZ"));
+          float qw = Convert.ToSingle(reader.GetAttribute("QW"));
           objList.Add(new Vector3(x, y, z));
           strObjList.Add(obj);
           strObjIdList.Add(id);
+          ObjQuaternionList.Add(new Quaternion(qx, qy, qz, qw));
         }
         counter++;
       }
@@ -2370,7 +2508,7 @@ public class DungeonField : MotherBase
 
       for (int ii = 0; ii < objList.Count; ii++)
       {
-        AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii]);
+        AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii], ObjQuaternionList[ii]);
 
         // debug
         NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
@@ -2492,6 +2630,36 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Artharium_00009)
       {
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_3_X, Fix.ARTHARIUM_Treasure_3_Y, Fix.ARTHARIUM_Treasure_3_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１０
+      if (One.TF.Treasure_Artharium_00010)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_15_X, Fix.ARTHARIUM_Treasure_15_Y, Fix.ARTHARIUM_Treasure_15_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１１
+      if (One.TF.Treasure_Artharium_00011)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_16_X, Fix.ARTHARIUM_Treasure_16_Y, Fix.ARTHARIUM_Treasure_16_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１２
+      if (One.TF.Treasure_Artharium_00012)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_17_X, Fix.ARTHARIUM_Treasure_17_Y, Fix.ARTHARIUM_Treasure_17_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１３
+      if (One.TF.Treasure_Artharium_00013)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_18_X, Fix.ARTHARIUM_Treasure_18_Y, Fix.ARTHARIUM_Treasure_18_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１４
+      if (One.TF.Treasure_Artharium_00014)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_19_X, Fix.ARTHARIUM_Treasure_19_Y, Fix.ARTHARIUM_Treasure_19_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
 

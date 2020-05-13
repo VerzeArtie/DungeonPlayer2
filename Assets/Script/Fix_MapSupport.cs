@@ -129,4 +129,52 @@ public partial class Fix
   public const float ARTHARIUM_MessageBoard_1_Y = -1f;
   public const float ARTHARIUM_MessageBoard_1_Z = 21f;
 
+  public const string ARTHARIUM_Door_Copper_1_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_1_O = "1";
+  public const float ARTHARIUM_Door_Copper_1_X = 38f;
+  public const float ARTHARIUM_Door_Copper_1_Y = -1f;
+  public const float ARTHARIUM_Door_Copper_1_Z = 18f;
+
+  public const string ARTHARIUM_Treasure_15_C = "Treasure";
+  public const string ARTHARIUM_Treasure_15_O = "15";
+  public const float ARTHARIUM_Treasure_15_X = 40f;
+  public const float ARTHARIUM_Treasure_15_Y = -1f;
+  public const float ARTHARIUM_Treasure_15_Z = 9f;
+
+  public const string ARTHARIUM_Treasure_16_C = "Treasure";
+  public const string ARTHARIUM_Treasure_16_O = "16";
+  public const float ARTHARIUM_Treasure_16_X = 49f;
+  public const float ARTHARIUM_Treasure_16_Y = -1f;
+  public const float ARTHARIUM_Treasure_16_Z = 5f;
+
+  public const string ARTHARIUM_Treasure_17_C = "Treasure";
+  public const string ARTHARIUM_Treasure_17_O = "17";
+  public const float ARTHARIUM_Treasure_17_X = 60f;
+  public const float ARTHARIUM_Treasure_17_Y = -1f;
+  public const float ARTHARIUM_Treasure_17_Z = 16f;
+
+  public const string ARTHARIUM_Treasure_18_C = "Treasure";
+  public const string ARTHARIUM_Treasure_18_O = "18";
+  public const float ARTHARIUM_Treasure_18_X = 55f;
+  public const float ARTHARIUM_Treasure_18_Y = -1f;
+  public const float ARTHARIUM_Treasure_18_Z = 11f;
+
+  public const string ARTHARIUM_Fountain_2_C = "Fountain";
+  public const string ARTHARIUM_Fountain_2_O = "2";
+  public const float ARTHARIUM_Fountain_2_X = 66f;
+  public const float ARTHARIUM_Fountain_2_Y = -1f;
+  public const float ARTHARIUM_Fountain_2_Z = 18f;
+
+  public const string ARTHARIUM_Treasure_19_C = "Treasure";
+  public const string ARTHARIUM_Treasure_19_O = "19";
+  public const float ARTHARIUM_Treasure_19_X = 78f;
+  public const float ARTHARIUM_Treasure_19_Y = -1f;
+  public const float ARTHARIUM_Treasure_19_Z = 19f;
+
+  public const string ARTHARIUM_Door_Copper_2_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_2_O = "2";
+  public const float ARTHARIUM_Door_Copper_2_X = 77f;
+  public const float ARTHARIUM_Door_Copper_2_Y = -1f;
+  public const float ARTHARIUM_Door_Copper_2_Z = 16f;
+
 }

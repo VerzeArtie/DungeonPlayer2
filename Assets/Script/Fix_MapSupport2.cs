@@ -14,8 +14,10 @@ public partial class Fix
   public const float MAPEVENT_ARTHARIUM_2_Z = 49;
 
   public const string MAPEVENT_ARTHARIUM_3_C = "MapEvent";
-  public const string MAPEVENT_ARTHARIUM_3_O = "MAPEVENT_ARTHARIUM_2";
+  public const string MAPEVENT_ARTHARIUM_3_O = "MAPEVENT_ARTHARIUM_3";
   public const float MAPEVENT_ARTHARIUM_3_X = 27;
   public const float MAPEVENT_ARTHARIUM_3_Y = -4;
   public const float MAPEVENT_ARTHARIUM_3_Z = 48;
+
+  public const string MAPEVENT_ARTHARIUM_4_O = "MAPEVENT_ARTHARIUM_4";
 }
