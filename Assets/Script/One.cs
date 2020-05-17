@@ -93,6 +93,9 @@ public static class One
 
   // DungeonField
   //public static string DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
+
+  // BattleEnemy
+  public static bool CannotRunAway = false;
   #endregion
 
   public static void ReInitializeGroundOne(bool FromGameLoad)

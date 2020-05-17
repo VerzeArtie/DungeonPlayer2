@@ -55,6 +55,8 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupStackInTheCommand;
   public GameObject GroupAnimation;
 
+  public bool CannotRunAway = false;
+
   // Inner Value
   private Sprite[] imageSandglass;
   private float speedDown = 1;
@@ -102,6 +104,8 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     base.Start();
+
+    this.CannotRunAway = One.CannotRunAway;
 
     // 砂時計を生成する。
     Texture2D textureSandGlass = Resources.Load<Texture2D>("SandGlassIcon");
@@ -400,6 +404,12 @@ public partial class BattleEnemy : MotherBase
 
         txtGameEndMessage.text = "敵を倒した。\r\n" + gainExp + "経験値を獲得。\r\n" + gainGold + "ゴールドを獲得";
         panelGameEnd.SetActive(true);
+
+        // todo ここでイベントフラグを制御してよいか、再考の余地はある。
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ENEMY_HELL_KERBEROS)
+        {
+          One.TF.DefeatHellKerberos = true;
+        }
       }
       return;
     }
@@ -1419,7 +1429,13 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.RUNAWAY_BUTTON:
-        Debug.Log("RUNAWAY_BUTTON USE_RED_POTION");
+        Debug.Log("RUNAWAY_BUTTON");
+        if (this.CannotRunAway)
+        {
+          Debug.Log("CannotRunAway is true, then prohibit RunAway.");
+          return;
+        }
+
         this.BattleEnd = GameEndType.RunAway;
         if (panelGameEnd.activeInHierarchy == false)
         {

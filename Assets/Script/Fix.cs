@@ -528,6 +528,9 @@ public static partial class Fix
   public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
 
+  public const string ENEMY_HELL_KERBEROS = "Hell Kerberos";
+  public const string ENEMY_HELL_KERBEROS_JP = "地獄のケルベロス";
+
   public const string _ = "";
   public const string _JP = "";
   #endregion
@@ -540,6 +543,7 @@ public static partial class Fix
     "ゼタニウム鉱石を採取",
     "工場跡地でマトックを探せ",
     "工場跡地で扉の鍵を探せ",
+    "工場跡地で猛獣を撃破せよ",
     "港町コチューシェへ",
     "ObsidianStoneの使い方",
     "試練の道 【茨】",
@@ -612,6 +616,7 @@ public static partial class Fix
   public const string DECISION_ARTHARIUM_CLIFF = "アーサリウム工場跡地：崖の下へ";
   public const string DECISION_ARTHARIUM_CLIFF_END = "アーサリウム工場跡地：元の通路へ";
   public const string DECISION_ARTHARIUM_CRASH_DOOR = "アーサリウム工場跡地：扉を蹴破れ！";
+  public const string DECISION_ARTHARIUM_CRASH_DOOR2 = "アーサリウム工場跡地：扉を蹴破れ！（２）";
   #endregion
 
   #region "Action Command"
@@ -859,6 +864,11 @@ public static partial class Fix
   public const string FIELD_KILCOOD_MOUNTAIN_AREA = "キルクード山岳地帯";
   public const string FIELD_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
   #endregion
+
+  public const string GUARDIAN_ANGEL_RED = "炎授天使";
+  public const string GUARDIAN_ANGEL_BLUE = "蒼授天使";
+  public const string GUARDIAN_ANGEL_BLACK = "断罪天使";
+  public const string GUARDIAN_ANGEL_WHITE = "珀流天使";
 
   #region "DungeonMapFile"
   public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";

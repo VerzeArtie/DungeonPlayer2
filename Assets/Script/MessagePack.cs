@@ -29,6 +29,7 @@ public static class MessagePack
     ForceMoveRise,
     ForceMoveFall,
     InstantiateObject,
+    GainSoulFragment,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -1576,6 +1577,7 @@ public static class MessagePack
     if (One.TF.Event_Message300111 == false)
     {
       One.TF.Event_Message300111 = true;
+      One.TF.FieldObject_Artharium_00006 = true;
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぜ！", ActionEvent.None);
 
@@ -1598,6 +1600,199 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：いや、もう少し他を探してみるとするか。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "0", ActionEvent.MoveTop);
+  }
+
+  public static void Message300120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300120 == false)
+    {
+      One.TF.Event_Message300120 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、扉みたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これも蹴破って行けそうだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、ちょっとな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：今、扉を調べてはみたけど、特に鍵はかかってないみたいよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、基本は蹴破って進んでも良いんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さて、どうすっかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CRASH_DOOR2, ActionEvent.CallDecision);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：ここの扉か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さて、どうすっかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_ARTHARIUM_CRASH_DOOR2, ActionEvent.CallDecision);
+    }
+  }
+
+  public static void Message300121(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300121 == false)
+    {
+      One.TF.Event_Message300121 = true;
+      One.TF.FieldObject_Artharium_00007 = true;
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ！じゃあ行くぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインのストレートキックが扉に炸裂した！ 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_5_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+
+      Message(ref m_list, ref e_list, "アイン：よおし、問題なく進めたな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン！今すぐこっちに来て！早く！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：敵襲よ！背後から！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.ENEMY_HELL_KERBEROS, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message300122(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：何となく引っかかるな、少し慎重に動こう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+  }
+
+  public static void Message300123(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.QuestMain_Complete_00006 = true;
+
+    Message(ref m_list, ref e_list, "アイン：や・・・やっつけたか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：大丈夫です、もうピクリとも動かない様です。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ホント危なかったわね。まさか背後から襲ってくるなんて思わなかったわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかし、蹴破る時は気配をまるで感じなかったけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どっから湧いてきたんだろうな、この生物・・・", ActionEvent.None);
+    
+    Message(ref m_list, ref e_list, "ラナ：単なる工場跡地にしては、ちょっとおかしいわよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ま、考えてもしょうがねえか！ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何よもう。まったく、考えたフリしないでよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ま、いいさいいさ。なあエオネ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・ぇ・・・ええ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：そ・・・それよりも、この生物の足元、見てください。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：何か挟まっている様に見えませんか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジかよ。どれどれ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ！こいつはレア物じゃねえか！！", ActionEvent.None);
+    
+    Message(ref m_list, ref e_list, Fix.PURE_CLEAN_WATER, ActionEvent.GetItem);
+
+    Message(ref m_list, ref e_list, "【 " + Fix.PURE_CLEAN_WATER + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：あら、良い物手に入れたわね♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いやあ、こいつは助かるぜ。何といってもほぼ毎日使える代物だしな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：「ほぼ」じゃなくて「確実に毎日」使えるわよ。一日につき１回しか使えないのが条件だけどね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、確かそうだったな。いやホント助かるぜ、これは。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、そういや見つけてくれたのはエオネだったな。サンキュー！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：い・・・いえ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし。じゃあ先へ進めるとするか！", ActionEvent.None);
+  }
+
+  public static void Message300130(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.SoulFragment_00001 == false)
+    {
+      One.TF.SoulFragment_00001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、何だこれは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、それちょっとよく見せて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。頼んだぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　ラナは注意深く物体を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：どうだ、何か分かりそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらくだけど、これは「" + Fix.GUARDIAN_ANGEL_BLUE + "」を祭るための神具「蒼流石」ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：へえ・・・そういう物があるんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こうした炭鉱では事故やトラブルが絶えないから、よくこうして神様にお祈りをしていたんでしょうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そういった所なんだろうな。さっきみたいな化け物も出てるのも事実だしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アインも少しだけお祈りを捧げてみたら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺か？　神様頼みは、あんまりしない主義なんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・すみません、私からもお願いします。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：マジか。じゃあせっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
+
+      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となくだけど悪くないもんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、一旦戻りましょうか。ここはもう通路がないみたいだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。他を探索するとしよう！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：せっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くとするか。", ActionEvent.None);
+    }
   }
 
   public static int GetZetaniumCount()

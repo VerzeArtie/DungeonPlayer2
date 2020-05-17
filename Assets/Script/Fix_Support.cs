@@ -65,4 +65,5 @@ public static partial class Fix
   public const string FIELD_RESEARCH_LICENSE = "国内外遠征許可証";
   public const string ITEM_MATOCK = "マトック";
   public const string ITEM_TOOMI_AOSUISYOU = "遠見の青水晶";
+  public const string PURE_CLEAN_WATER = "清透水";
 }

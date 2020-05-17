@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class TeamFoundation : MonoBehaviour
 {
+  #region "General"
   [SerializeField] protected int _gold = 0;
   public int Gold
   {
@@ -67,7 +68,63 @@ public class TeamFoundation : MonoBehaviour
     set { _field_Z = value; }
     get { return _field_Z; }
   }
+  
+  [SerializeField] protected bool _availableFirstCommand = true;
+  public bool AvailableFirstCommand
+  {
+    set { _availableFirstCommand = value; }
+    get { return _availableFirstCommand; }
+  }
 
+  [SerializeField] protected bool _availableSecondCommand = false;
+  public bool AvailableSecondCommand
+  {
+    set { _availableSecondCommand = value; }
+    get { return _availableSecondCommand; }
+  }
+
+  [SerializeField] protected bool _availableThirdCommand = false;
+  public bool AvailableThirdCommand
+  {
+    set { _availableThirdCommand = value; }
+    get { return _availableThirdCommand; }
+  }
+
+  [SerializeField] protected List<Item> _backpackList = new List<Item>();
+  public List<Item> BackpackList
+  {
+    //  set { _backpackList = value; }
+    get { return _backpackList; }
+  }
+
+  [SerializeField] protected bool _alreadyRestInn = false;
+  public bool AlreadyRestInn
+  {
+    set { _alreadyRestInn = value; }
+    get { return _alreadyRestInn; }
+  }
+
+  [SerializeField] protected bool _alreadyDungeon = false;
+  public bool AlreadyDungeon
+  {
+    set { _alreadyDungeon = value; }
+    get { return _alreadyDungeon; }
+  }
+  [SerializeField] protected string _currentAreaName = String.Empty;
+  public string CurrentAreaName
+  {
+    set { _currentAreaName = value; }
+    get { return _currentAreaName; }
+  }
+  [SerializeField] protected string _currentDungeonField = String.Empty;
+  public string CurrentDungeonField
+  {
+    set { _currentDungeonField = value; }
+    get { return _currentDungeonField; }
+  }
+  #endregion
+
+  #region "Characters"
   [SerializeField] protected bool _availableEinWolence = false;
   [SerializeField] protected bool _availableLanaAmiria = false;
   [SerializeField] protected bool _availableEoneFulnea = false;
@@ -207,61 +264,9 @@ public class TeamFoundation : MonoBehaviour
     set { _availableDelvaTreckino = value; }
     get { return _availableDelvaTreckino; }
   }
+  #endregion
 
-  [SerializeField] protected bool _availableFirstCommand = true;
-  public bool AvailableFirstCommand
-  {
-    set { _availableFirstCommand = value; }
-    get { return _availableFirstCommand; }
-  }
-
-  [SerializeField] protected bool _availableSecondCommand = false;
-  public bool AvailableSecondCommand
-  {
-    set { _availableSecondCommand = value; }
-    get { return _availableSecondCommand; }
-  }
-
-  [SerializeField] protected bool _availableThirdCommand = false;
-  public bool AvailableThirdCommand
-  {
-    set { _availableThirdCommand = value; }
-    get { return _availableThirdCommand; }
-  }
-
-  [SerializeField] protected List<Item> _backpackList = new List<Item>();
-  public List<Item> BackpackList
-  {
-  //  set { _backpackList = value; }
-    get { return _backpackList; }
-  }
-
-  [SerializeField] protected bool _alreadyRestInn = false;
-  public bool AlreadyRestInn
-  {
-    set { _alreadyRestInn = value; }
-    get { return _alreadyRestInn; }
-  }
-
-  [SerializeField] protected bool _alreadyDungeon = false;
-  public bool AlreadyDungeon
-  {
-    set { _alreadyDungeon = value; }
-    get { return _alreadyDungeon; }
-  }
-  [SerializeField] protected string _currentAreaName = String.Empty;
-  public string CurrentAreaName
-  {
-    set { _currentAreaName = value; }
-    get { return _currentAreaName; }
-  }
-  [SerializeField] protected string _currentDungeonField = String.Empty;
-  public string CurrentDungeonField
-  {
-    set { _currentDungeonField = value; }
-    get { return _currentDungeonField; }
-  }
-
+  #region "Map Available"
   [SerializeField] protected bool _availableAnshet = false;
   public bool AvailableAnshet
   {
@@ -436,7 +441,9 @@ public class TeamFoundation : MonoBehaviour
     set { _availableHeavenGenesisGate = value; }
     get { return _availableHeavenGenesisGate; }
   }
+  #endregion
 
+  #region "Event"
   [SerializeField] public bool Zetanium_001 { get; set; }
   [SerializeField] public bool Zetanium_002 { get; set; }
   [SerializeField] public bool Zetanium_003 { get; set; }
@@ -553,12 +560,16 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message300100 = false;
   [SerializeField] protected bool _event_message300110 = false;
   [SerializeField] protected bool _event_message300111 = false;
+  [SerializeField] protected bool _event_message300120 = false;
+  [SerializeField] protected bool _event_message300121 = false;
   public bool Event_Message300050 { get { return _event_message300050; } set { _event_message300050 = value; } }
   public bool Event_Message300070 { get { return _event_message300070; } set { _event_message300070 = value; } }
   public bool Event_Message300090 { get { return _event_message300090; } set { _event_message300090 = value; } }
   public bool Event_Message300100 { get { return _event_message300100; } set { _event_message300100 = value; } }
   public bool Event_Message300110 { get { return _event_message300110; } set { _event_message300110 = value; } }
   public bool Event_Message300111 { get { return _event_message300111; } set { _event_message300111 = value; } }
+  public bool Event_Message300120 { get { return _event_message300120; } set { _event_message300120 = value; } }
+  public bool Event_Message300121 { get { return _event_message300121; } set { _event_message300121 = value; } }
 
   [SerializeField] protected bool _event_message400010 = false;
   public bool Event_Message400010
@@ -587,8 +598,9 @@ public class TeamFoundation : MonoBehaviour
     get { return _event_message500020; }
     set { _event_message500020 = value; }
   }
+  #endregion
 
-  // todo
+  #region "Quest"
   [SerializeField] protected bool _questmain_00001 = false;
   [SerializeField] protected bool _questmain_00002 = false;
   [SerializeField] protected bool _questmain_00003 = false;
@@ -630,7 +642,9 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00008 { get { return _questmain_complete_00008; } set { _questmain_complete_00008 = value; } }
   public bool QuestMain_Complete_00009 { get { return _questmain_complete_00009; } set { _questmain_complete_00009 = value; } }
   public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
+  #endregion
 
+  #region "Treasure"
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   [SerializeField] protected bool _treasure_artharium_00002 = false;
   [SerializeField] protected bool _treasure_artharium_00003 = false;
@@ -645,6 +659,13 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_artharium_00012 = false;
   [SerializeField] protected bool _treasure_artharium_00013 = false;
   [SerializeField] protected bool _treasure_artharium_00014 = false;
+  [SerializeField] protected bool _treasure_artharium_00015 = false;
+  [SerializeField] protected bool _treasure_artharium_00016 = false;
+  [SerializeField] protected bool _treasure_artharium_00017 = false;
+  [SerializeField] protected bool _treasure_artharium_00018 = false;
+  [SerializeField] protected bool _treasure_artharium_00019 = false;
+  [SerializeField] protected bool _treasure_artharium_00020 = false;
+  [SerializeField] protected bool _treasure_artharium_00021 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
   public bool Treasure_Artharium_00003 { get { return _treasure_artharium_00003; } set { _treasure_artharium_00003 = value; } }
@@ -659,21 +680,44 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_Artharium_00012 { get { return _treasure_artharium_00012; } set { _treasure_artharium_00012 = value; } }
   public bool Treasure_Artharium_00013 { get { return _treasure_artharium_00013; } set { _treasure_artharium_00013 = value; } }
   public bool Treasure_Artharium_00014 { get { return _treasure_artharium_00014; } set { _treasure_artharium_00014 = value; } }
+  public bool Treasure_Artharium_00015 { get { return _treasure_artharium_00015; } set { _treasure_artharium_00015 = value; } }
+  public bool Treasure_Artharium_00016 { get { return _treasure_artharium_00016; } set { _treasure_artharium_00016 = value; } }
+  public bool Treasure_Artharium_00017 { get { return _treasure_artharium_00017; } set { _treasure_artharium_00017 = value; } }
+  public bool Treasure_Artharium_00018 { get { return _treasure_artharium_00018; } set { _treasure_artharium_00018 = value; } }
+  public bool Treasure_Artharium_00019 { get { return _treasure_artharium_00019; } set { _treasure_artharium_00019 = value; } }
+  public bool Treasure_Artharium_00020 { get { return _treasure_artharium_00020; } set { _treasure_artharium_00020 = value; } }
+  public bool Treasure_Artharium_00021 { get { return _treasure_artharium_00021; } set { _treasure_artharium_00021 = value; } }
+  #endregion
 
+  #region "etc"
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;
   [SerializeField] protected bool _fieldobject_artharium_00003 = false;
   [SerializeField] protected bool _fieldobject_artharium_00004 = false;
   [SerializeField] protected bool _fieldobject_artharium_00005 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00006 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00007 = false;
   public bool FieldObject_Artharium_00001 { get { return _fieldobject_artharium_00001; } set { _fieldobject_artharium_00001 = value; } }
   public bool FieldObject_Artharium_00002 { get { return _fieldobject_artharium_00002; } set { _fieldobject_artharium_00002 = value; } }
   public bool FieldObject_Artharium_00003 { get { return _fieldobject_artharium_00003; } set { _fieldobject_artharium_00003 = value; } }
   public bool FieldObject_Artharium_00004 { get { return _fieldobject_artharium_00004; } set { _fieldobject_artharium_00004 = value; } }
   public bool FieldObject_Artharium_00005 { get { return _fieldobject_artharium_00005; } set { _fieldobject_artharium_00005 = value; } }
+  public bool FieldObject_Artharium_00006 { get { return _fieldobject_artharium_00006; } set { _fieldobject_artharium_00006 = value; } }
+  public bool FieldObject_Artharium_00007 { get { return _fieldobject_artharium_00007; } set { _fieldobject_artharium_00007 = value; } }
+
+  protected bool _defeat_hell_kerberos = false;
+  public bool DefeatHellKerberos { get { return _defeat_hell_kerberos; } set { _defeat_hell_kerberos = value; } }
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
 
+  [SerializeField] protected bool _soul_fragment_00001 = false;
+  public bool SoulFragment_00001 { get { return _soul_fragment_00001; } set { _soul_fragment_00001 = value; } }
+
+
+  #endregion
+
+  #region "Backpack Control"
   public void RemoveItem(Item item)
   {
     for (int ii = 0; ii < this._backpackList.Count; ii++)
@@ -826,4 +870,5 @@ public class TeamFoundation : MonoBehaviour
     }
     return false;
   }
+  #endregion
 }

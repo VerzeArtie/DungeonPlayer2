@@ -127,6 +127,14 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.ENEMY_HELL_KERBEROS:
+      case Fix.ENEMY_HELL_KERBEROS_JP:
+        //SetupParameter(85, 50, 15, 300, 10, 10000, 3000, 2000);
+        SetupParameter(1, 50, 15, 1, 10, 0, 3000, 2000);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
     }
 
     this.MaxGain();
