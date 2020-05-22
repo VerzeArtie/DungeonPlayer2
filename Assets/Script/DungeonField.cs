@@ -154,6 +154,8 @@ public class DungeonField : MotherBase
 
   private string currentDecision = String.Empty;
 
+  private float FieldDamage  = 1.0f;
+
   private bool FirstAction = false;
 
   // Start is called before the first frame update
@@ -335,7 +337,7 @@ public class DungeonField : MotherBase
       this.FirstAction = true;
 
       // 画面表示時のイベント進行
-      if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00006 == false)
+      if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
       {
         MessagePack.Message300123(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -918,15 +920,10 @@ public class DungeonField : MotherBase
 
   public void TapQuestButton(Text txt)
   {
-    txtEventTitle.text = txt.text;
-    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
-    {
-      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
-      {
-        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
-        break;
-      }
-    }
+    // same DungeonField, HomeTown
+    if (txt == null) { Debug.Log("TapQuestButton txt is null..."); return; }
+
+    ViewQuestEvent(txt.text);
   }
 
   public void TapMapReload(Text txtMap)
@@ -1128,6 +1125,20 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapNoFieldDamage(Text txt)
+  {
+    if (txt.text == "Field Damage")
+    {
+      this.FieldDamage = 0.0f;
+      txt.text = "No Damage";
+    }
+    else
+    {
+      this.FieldDamage = 1.0f;
+      txt.text = "Field Damage";
+    }
+  }
+
   public void TapSelectNameBack()
   {
     for (int ii = PrefabList.Count - 1; ii >= 0; ii--)
@@ -1299,16 +1310,14 @@ public class DungeonField : MotherBase
           this.panelSystemMessage.SetActive(true);
 
           // todo
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_00010 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
           RefreshQuestList();
           return;
         }
@@ -1319,16 +1328,14 @@ public class DungeonField : MotherBase
           this.panelSystemMessage.SetActive(true);
 
           // todo
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[0])) { One.TF.QuestMain_Complete_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[1])) { One.TF.QuestMain_Complete_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[2])) { One.TF.QuestMain_Complete_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[3])) { One.TF.QuestMain_Complete_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[4])) { One.TF.QuestMain_Complete_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[5])) { One.TF.QuestMain_Complete_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[6])) { One.TF.QuestMain_Complete_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[7])) { One.TF.QuestMain_Complete_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[8])) { One.TF.QuestMain_Complete_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_EVENT_TITLE[9])) { One.TF.QuestMain_Complete_00010 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_Complete_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Complete_00002 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_Complete_00003 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_Complete_00004 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_Complete_00005 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_Complete_00006 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_Complete_00007 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_Complete_00008 = true; }
           RefreshQuestList();
           return;
         }
@@ -1824,6 +1831,19 @@ public class DungeonField : MotherBase
         MessagePack.Message300090(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+      // 全域毒エリア、入口にて防護服が必要
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_6_X, Fix.MAPEVENT_ARTHARIUM_6_Y, Fix.MAPEVENT_ARTHARIUM_6_Z) ||
+               LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_6_2_X, Fix.MAPEVENT_ARTHARIUM_6_2_Y, Fix.MAPEVENT_ARTHARIUM_6_2_Z))
+      {
+        MessagePack.Message300140(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // センター区画、防護服の入手
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_7_X, Fix.MAPEVENT_ARTHARIUM_7_Y, Fix.MAPEVENT_ARTHARIUM_7_Z))
+      {
+        MessagePack.Message300150(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
 
     if (tile != null && tile.field == TileInformation.Field.Upstair)
@@ -2017,7 +2037,12 @@ public class DungeonField : MotherBase
     {
       for (int ii = 0; ii < this.PlayerList.Count; ii++)
       {
-        PlayerList[ii].CurrentLife -= 10;
+        float damage = 10.0f * this.FieldDamage;
+        if (One.TF.FindBackPackItem(Fix.RESIST_POISON_SUIT))
+        {
+          damage = damage / 10.0f;
+        }
+        PlayerList[ii].CurrentLife -= (int)(damage);
       }
       UpdateCharacterStatus();
     }
@@ -2906,7 +2931,7 @@ public class DungeonField : MotherBase
   
   private void RefreshQuestList()
   {
-    // todo ダンジョンフィールドでもクエスト状況を確認すること。
+    // same DungeonField, HomeTown
     foreach (Transform n in contentDungeonPlayer.transform)
     {
       GameObject.Destroy(n.gameObject);
@@ -2914,21 +2939,19 @@ public class DungeonField : MotherBase
     int counter = 0;
 
     // todo
-    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[0], One.TF.QuestMain_Complete_00001, counter); counter++; }
-    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[1], One.TF.QuestMain_Complete_00002, counter); counter++; }
-    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[2], One.TF.QuestMain_Complete_00003, counter); counter++; }
-    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[3], One.TF.QuestMain_Complete_00004, counter); counter++; }
-    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[4], One.TF.QuestMain_Complete_00005, counter); counter++; }
-    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[5], One.TF.QuestMain_Complete_00006, counter); counter++; }
-    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[6], One.TF.QuestMain_Complete_00007, counter); counter++; }
-    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[7], One.TF.QuestMain_Complete_00008, counter); counter++; }
-    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[8], One.TF.QuestMain_Complete_00009, counter); counter++; }
-    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_EVENT_TITLE[9], One.TF.QuestMain_Complete_00010, counter); counter++; }
+    if (One.TF.QuestMain_00001) { AddQuestEvent(Fix.QUEST_TITLE_1, One.TF.QuestMain_Complete_00001, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddQuestEvent(Fix.QUEST_TITLE_2, One.TF.QuestMain_Complete_00002, counter); counter++; }
+    if (One.TF.QuestMain_00003) { AddQuestEvent(Fix.QUEST_TITLE_3, One.TF.QuestMain_Complete_00003, counter); counter++; }
+    if (One.TF.QuestMain_00004) { AddQuestEvent(Fix.QUEST_TITLE_4, One.TF.QuestMain_Complete_00004, counter); counter++; }
+    if (One.TF.QuestMain_00005) { AddQuestEvent(Fix.QUEST_TITLE_5, One.TF.QuestMain_Complete_00005, counter); counter++; }
+    if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_TITLE_6, One.TF.QuestMain_Complete_00006, counter); counter++; }
+    if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_TITLE_7, One.TF.QuestMain_Complete_00007, counter); counter++; }
+    if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_TITLE_8, One.TF.QuestMain_Complete_00008, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
   {
-    // todo ダンジョンフィールドでもクエスト状況を確認すること。
+    // same DungeonField, HomeTown
     NodeButton button = Instantiate(nodeButton) as NodeButton;
     button.gameObject.transform.SetParent(contentDungeonPlayer.transform);
     button.txtName.text = quest_name;
@@ -2939,19 +2962,25 @@ public class DungeonField : MotherBase
     }
     contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
 
-    txtEventTitle.text = quest_name;
-    for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
-    {
-      if (txtEventTitle.text == Fix.QUEST_EVENT_TITLE[ii])
-      {
-        txtEventDescription.text = Fix.QUEST_EVENT_MESSAGE[ii];
-        break;
-      }
-    }
+    ViewQuestEvent(quest_name);
 
     RectTransform rect = button.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
+  }
+
+  private void ViewQuestEvent(string quest_name)
+  {
+    // same DungeonField, HomeTown
+    txtEventTitle.text = quest_name;
+    for (int ii = 0; ii < Fix.QUEST_TITLE_LIST.Count; ii++)
+    {
+      if (txtEventTitle.text == Fix.QUEST_TITLE_LIST[ii])
+      {
+        txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
+        break;
+      }
+    }
   }
 
   private int FindFieldObjectIndex(List<FieldObject> field_obj_list, Vector3 position)

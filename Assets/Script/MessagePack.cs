@@ -206,7 +206,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行くとしますか！ッハッハッハ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[0] + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
   }
@@ -394,7 +394,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：はい、分かりました！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[1] + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.HomeTownMessageDisplay);
 
@@ -473,7 +473,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[0] + " 】を達成しました！", ActionEvent.QuestComplete);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】を達成しました！", ActionEvent.QuestComplete);
   }
   // フィールド
   public static void Message101000(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -700,7 +700,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[3] + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_4 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "ヴァスタ：あそこはモンスターも出てくるという噂を聞いておる。準備は万全にな。", ActionEvent.None);
 
@@ -1112,11 +1112,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：あんたのいつものテキトー直観で見つけるんでしょ。頼んだわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：マジか・・・まあ・・・何とか探してみるか。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：マジか・・・まあ、何とか探してみるか。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：っしゃ、任せておけ！ッハッハッハ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_5 + " 】が開始されました！", ActionEvent.GetNewQuest);
   }
 
   private static void UseMatockForRock(ref List<string> m_list, ref List<ActionEvent> e_list, string identity)
@@ -1163,7 +1163,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[5] + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
 
@@ -1297,7 +1297,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetItem);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_EVENT_TITLE[4] + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_5 + " 】を達成しました！", ActionEvent.QuestComplete);
     }
   }
 
@@ -1676,7 +1676,7 @@ public static class MessagePack
 
   public static void Message300123(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.TF.QuestMain_Complete_00006 = true;
+    One.TF.QuestMain_Complete_00007 = true;
 
     Message(ref m_list, ref e_list, "アイン：や・・・やっつけたか？", ActionEvent.None);
 
@@ -1792,6 +1792,130 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くとするか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message300140(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300140 == false)
+    {
+      One.TF.Event_Message300140 = true;
+
+      Message(ref m_list, ref e_list, "アイン：うわ、なんだここは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：酷い状況ね。辺り一面が毒だらけだわ。。。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：多少なら何とかなるが、こんな状況じゃ進んでも絶対に途中でダメになるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうする？さすがに引き返すしかないわよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうしたもんかな・・・今引き下がるにしても打開策がねえとな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・そ・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうかしたのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：毒って・・・このエリアにある毒の事ですよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ確かにそうだが。何か知ってるのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ。ここの毒素については比重が重たいので、空気中に蔓延しているわけではありません。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：なので、ある程度防衛できる物を身に着けていれば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか、それなら無傷で通り抜けられるって事か！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：無傷ってわけにはいかないでしょ。ある程度軽減されるって話よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：確かに無傷ってのは難しいか・・・だがまあ、何とかなりそうではあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあその防護できるアイテムを探すとするか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・あと、すみません。もう１件だけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、何でも言ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：防護服なら、おそらくマトックが見つかった部屋の近辺にあると思います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、分かった。じゃあ、ここは一旦引き下がって、その部屋をくまなく探すとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    }
+    else if (One.TF.QuestMain_Complete_00008 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：まだ、防護服が見つかってないな。ここは一旦引き下がろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+    }
+    else if (One.TF.Event_Message300141 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：ここだな・・・じゃあ進んでみるぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン達は意を決して、毒エリアへ果敢に進んでいった！！　】", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、行けるなこれは！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、ほんの少しだけどダメージを受けている感じはするわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、でもほんの僅かだしな。これなら結構気にせず進められるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：でも、気をつけてくださいね・・・奥がどうなってるか分かりませんから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
+    }
+  }
+
+  public static void Message300150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_Complete_00008 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：おっ、ひょっとして防護服ってこれの事か！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ。それで合ってると思います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、どうやら見つかったみたいだな。これでようやくあの毒エリアを進むことが出来そうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、何かやたらと薄っぺらいんだな。もっとゴツいのを想像してたんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：必要以上に重くしたら、本来の作業に支障が出るからじゃないかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そんな所だろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、何か引っかかるんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何がよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：防護服ってのはそもそも毒が噴出してから用意するもんじゃないのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうかもしれないけど、それがどうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この区画って明らかに毒が届いてないエリアなんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だったら、あえてここに防護服を設置した理由って何だろうなって思ったのさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そんなの、作業員の皆が集まりやすかっただけじゃないかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん、しかしだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ホラホラ、変な所考えてないで、目的の物は見つかったんでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。そうだったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあこの防護服を装着して、例の毒エリアに行ってみるとするか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.RESIST_POISON_SUIT, ActionEvent.GetItem);
+
+      Message(ref m_list, ref e_list, "【 " + Fix.RESIST_POISON_SUIT + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
     }
   }
 

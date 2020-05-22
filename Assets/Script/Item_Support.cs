@@ -1435,6 +1435,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.RESIST_POISON_SUIT:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "フィールドに流れ出している毒から身を守る事が出来る防護服。薄い透明の素材で出来ており、見た目はほぼ変わらず、動きに支障をきたす事もない。これを着ている事により、毒のフィールドから受けるダメージを軽減する事が出来る。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
     }
   }
 }
