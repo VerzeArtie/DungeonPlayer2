@@ -249,4 +249,10 @@ public partial class Fix
   public const float ARTHARIUM_Fountain_5_Y = -2f;
   public const float ARTHARIUM_Fountain_5_Z = 12f;
 
+  public const string ARTHARIUM_Crystal_2_C = "Crystal";
+  public const string ARTHARIUM_Crystal_2_O = "2";
+  public const float ARTHARIUM_Crystal_2_X = -69f;
+  public const float ARTHARIUM_Crystal_2_Y = -4f;
+  public const float ARTHARIUM_Crystal_2_Z = 24f;
+
 }

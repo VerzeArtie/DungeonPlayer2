@@ -766,14 +766,14 @@ public class DungeonField : MotherBase
           return;
         }
       }
-      //if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
-      //{
-      //  if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_2_X, Fix.ARTHARIUM_Crystal_2_Y, Fix.ARTHARIUM_Crystal_2_Z))
-      //  {
-      //    MessagePack.Message300160(ref QuestMessageList, ref QuestEventList); TapOK();
-      //    return;
-      //  }
-      //}
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_2_X, Fix.ARTHARIUM_Crystal_2_Y, Fix.ARTHARIUM_Crystal_2_Z))
+        {
+          MessagePack.Message300160(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
 
       // まず移動する。
       JumpToLocation(new Vector3(tile.transform.position.x,
@@ -885,13 +885,13 @@ public class DungeonField : MotherBase
           {
             treasureName = Fix.KITE_SHIELD;
           }
-          // 宝箱２０
-          if (One.TF.Treasure_Artharium_00020 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
+          // 宝箱１９
+          if (One.TF.Treasure_Artharium_00019 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
           {
             treasureName = Fix.COMPACT_EARRING;
           }
-          // 宝箱２１
-          if (One.TF.Treasure_Artharium_00021 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
+          // 宝箱２０
+          if (One.TF.Treasure_Artharium_00020 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
           {
             treasureName = Fix.POWER_BANDANA;
           }
@@ -1562,15 +1562,15 @@ public class DungeonField : MotherBase
             {
               One.TF.Treasure_Artharium_00018 = true;
             }
-            // 宝箱２０
+            // 宝箱１９
             if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
             {
-              One.TF.Treasure_Artharium_00020 = true;
+              One.TF.Treasure_Artharium_00019 = true;
             }
-            // 宝箱２１
+            // 宝箱２０
             if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
             {
-              One.TF.Treasure_Artharium_00021 = true;
+              One.TF.Treasure_Artharium_00020 = true;
             }
           }
           return; // 通常
@@ -2808,14 +2808,14 @@ public class DungeonField : MotherBase
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_23_X, Fix.ARTHARIUM_Treasure_23_Y, Fix.ARTHARIUM_Treasure_23_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
-      // 宝箱２０
-      if (One.TF.Treasure_Artharium_00020)
+      // 宝箱１９
+      if (One.TF.Treasure_Artharium_00019)
       {
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
-      // 宝箱２１
-      if (One.TF.Treasure_Artharium_00021)
+      // 宝箱２０
+      if (One.TF.Treasure_Artharium_00020)
       {
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
