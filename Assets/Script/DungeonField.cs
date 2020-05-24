@@ -748,13 +748,17 @@ public class DungeonField : MotherBase
       // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
       if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Door_Copper)
       {
-        if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_5_X, Fix.MAPEVENT_ARTHARIUM_5_Y, Fix.MAPEVENT_ARTHARIUM_5_Z))
+        if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_4_0_X, Fix.MAPEVENT_ARTHARIUM_4_0_Y, Fix.MAPEVENT_ARTHARIUM_4_0_Z))
+        {
+          MessagePack.Message300110(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_5_X, Fix.MAPEVENT_ARTHARIUM_5_Y, Fix.MAPEVENT_ARTHARIUM_5_Z))
         {
           MessagePack.Message300120(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        else
+        else if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Door_Copper_3_X, Fix.ARTHARIUM_Door_Copper_3_Y, Fix.ARTHARIUM_Door_Copper_3_Z))
         {
-          MessagePack.Message300110(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message300170(ref QuestMessageList, ref QuestEventList); TapOK();
         }
         return;
       }
@@ -893,10 +897,27 @@ public class DungeonField : MotherBase
           // 宝箱２０
           if (One.TF.Treasure_Artharium_00020 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
           {
-            treasureName = Fix.POWER_BANDANA;
+            treasureName = Fix.BLUE_WIZARD_HAT;
+          }
+          // 宝箱２１
+          if (One.TF.Treasure_Artharium_00021 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
+          {
+            treasureName = Fix.CHERRY_CHOKER;
+          }
+          // 宝箱２２
+          if (One.TF.Treasure_Artharium_00022 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
+          {
+            treasureName = Fix.ARTHARIUM_KEY;
           }
 
-          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          if (treasureName == String.Empty)
+          {
+            // 何もしない
+          }
+          else
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          }
           return;
         }
       }
@@ -1572,6 +1593,16 @@ public class DungeonField : MotherBase
             {
               One.TF.Treasure_Artharium_00020 = true;
             }
+            // 宝箱２１
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
+            {
+              One.TF.Treasure_Artharium_00021 = true;
+            }
+            // 宝箱２２
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
+            {
+              One.TF.Treasure_Artharium_00022 = true;
+            }
           }
           return; // 通常
         }
@@ -1616,6 +1647,16 @@ public class DungeonField : MotherBase
           if (currentMessage == Fix.MAPEVENT_ARTHARIUM_5_O)
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_2_X, Fix.ARTHARIUM_Door_Copper_2_Y, Fix.ARTHARIUM_Door_Copper_2_Z));
+          }
+          // 扉３（左下出口近辺の宝箱）
+          if (currentMessage == Fix.MAPEVENT_ARTHARIUM_8_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_3_X, Fix.ARTHARIUM_Door_Copper_3_Y, Fix.ARTHARIUM_Door_Copper_3_Z));
+          }
+          // 岩壁６
+          if (currentMessage == Fix.ARTHARIUM_Rock_6_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y, Fix.ARTHARIUM_Rock_6_Z));
           }
           continue; // 継続
         }
@@ -1840,6 +1881,12 @@ public class DungeonField : MotherBase
       else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_7_X, Fix.MAPEVENT_ARTHARIUM_7_Y, Fix.MAPEVENT_ARTHARIUM_7_Z))
       {
         MessagePack.Message300150(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // 岩壁６
+      else if (LocationDetect(tile, Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y - 1.0f, Fix.ARTHARIUM_Rock_6_Z - 1.0f))
+      {
+        MessagePack.Message300180(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -2820,6 +2867,18 @@ public class DungeonField : MotherBase
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
+      // 宝箱２１
+      if (One.TF.Treasure_Artharium_00021)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２２
+      if (One.TF.Treasure_Artharium_00022)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
 
       // 岩壁１
       if (One.TF.FieldObject_Artharium_00001)
@@ -2855,6 +2914,16 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_Artharium_00007)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_2_X, Fix.ARTHARIUM_Door_Copper_2_Y, Fix.ARTHARIUM_Door_Copper_2_Z));
+      }
+      // 扉３
+      if (One.TF.FieldObject_Artharium_00008)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_3_X, Fix.ARTHARIUM_Door_Copper_3_Y, Fix.ARTHARIUM_Door_Copper_3_Z));
+      }
+      // 岩壁６
+      if (One.TF.FieldObject_Artharium_00009)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y, Fix.ARTHARIUM_Rock_6_Z));
       }
     }
   }

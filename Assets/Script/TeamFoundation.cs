@@ -574,6 +574,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message300140 { get { return _event_message300140; } set { _event_message300140 = value; } }
   [SerializeField] protected bool _event_message300141 = false;
   public bool Event_Message300141 { get { return _event_message300141; } set { _event_message300141 = value; } }
+  [SerializeField] protected bool _event_message300170 = false;
+  public bool Event_Message300170 { get { return _event_message300170; } set { _event_message300170 = value; } }
 
 
   [SerializeField] protected bool _event_message400010 = false;
@@ -671,6 +673,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_artharium_00019 = false;
   [SerializeField] protected bool _treasure_artharium_00020 = false;
   [SerializeField] protected bool _treasure_artharium_00021 = false;
+  [SerializeField] protected bool _treasure_artharium_00022 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
   public bool Treasure_Artharium_00003 { get { return _treasure_artharium_00003; } set { _treasure_artharium_00003 = value; } }
@@ -692,6 +695,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_Artharium_00019 { get { return _treasure_artharium_00019; } set { _treasure_artharium_00019 = value; } }
   public bool Treasure_Artharium_00020 { get { return _treasure_artharium_00020; } set { _treasure_artharium_00020 = value; } }
   public bool Treasure_Artharium_00021 { get { return _treasure_artharium_00021; } set { _treasure_artharium_00021 = value; } }
+  public bool Treasure_Artharium_00022 { get { return _treasure_artharium_00022; } set { _treasure_artharium_00022 = value; } }
   #endregion
 
   #region "etc"
@@ -702,6 +706,8 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _fieldobject_artharium_00005 = false;
   [SerializeField] protected bool _fieldobject_artharium_00006 = false;
   [SerializeField] protected bool _fieldobject_artharium_00007 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00008 = false;
+  [SerializeField] protected bool _fieldobject_artharium_00009 = false;
   public bool FieldObject_Artharium_00001 { get { return _fieldobject_artharium_00001; } set { _fieldobject_artharium_00001 = value; } }
   public bool FieldObject_Artharium_00002 { get { return _fieldobject_artharium_00002; } set { _fieldobject_artharium_00002 = value; } }
   public bool FieldObject_Artharium_00003 { get { return _fieldobject_artharium_00003; } set { _fieldobject_artharium_00003 = value; } }
@@ -709,6 +715,8 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_Artharium_00005 { get { return _fieldobject_artharium_00005; } set { _fieldobject_artharium_00005 = value; } }
   public bool FieldObject_Artharium_00006 { get { return _fieldobject_artharium_00006; } set { _fieldobject_artharium_00006 = value; } }
   public bool FieldObject_Artharium_00007 { get { return _fieldobject_artharium_00007; } set { _fieldobject_artharium_00007 = value; } }
+  public bool FieldObject_Artharium_00008 { get { return _fieldobject_artharium_00008; } set { _fieldobject_artharium_00008 = value; } }
+  public bool FieldObject_Artharium_00009 { get { return _fieldobject_artharium_00009; } set { _fieldobject_artharium_00009 = value; } }
 
   protected bool _defeat_hell_kerberos = false;
   public bool DefeatHellKerberos { get { return _defeat_hell_kerberos; } set { _defeat_hell_kerberos = value; } }

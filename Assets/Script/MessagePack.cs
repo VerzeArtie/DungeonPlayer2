@@ -1138,35 +1138,72 @@ public static class MessagePack
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message300040)
+    if (One.TF.Event_Message300040 == false)
     {
-      return;
+      One.TF.Event_Message300040 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、ある事には間違いないんだろうが・・・どこら辺だろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
     }
+    else
+    {
+      if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY) == false)
+      {
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    One.TF.Event_Message300040 = true;
+        Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：まあ、ある事には間違いないんだろうが・・・どこら辺だろうな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：よし、ここは例の鍵だな！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ラナ、開錠については頼んだぜ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：別に、鍵なしで開けるわけじゃないんだから、誰でも出来るんだけど。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：いやいや、ここはひとつ頼んだぜ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：まあ、良いけど。じゃあソコどいて。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
+        Message(ref m_list, ref e_list, "ラナ：えーと・・・多分これね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+        Message(ref m_list, ref e_list, "ラナ：うん、この鍵で大丈夫みたいよ。", ActionEvent.None);
 
+        Message(ref m_list, ref e_list, "ラナ：じゃ、開けるわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
+
+      }
+    }
   }
   public static void Message300041(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -1901,6 +1938,110 @@ public static class MessagePack
     }
   }
 
+  public static void Message300170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message300170 == false)
+    {
+      One.TF.Event_Message300170 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉か・・・少し蹴ってみるか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインのストレートキックが扉に炸裂した！ 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、全然びくともしないな。結構やるじゃないか、この扉。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：っちょ、何勝手に蹴ってるのよ。危ないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪い悪い。何となく良いかなと思って。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まったくもう・・・ちょっとどいて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+
+      if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY))
+      {
+        One.TF.FieldObject_Artharium_00008 = true;
+        Message(ref m_list, ref e_list, "ラナ：あっ、多分これね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：アイン、ちょっと鍵貸して。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：おお、これの事か。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ありがと。ええと、じゃあ開けるわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_8_O, ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "ラナ：やったわ、開いたわよ♪", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：サンキュー！　よし、この先に行ってみるとするか！", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：この扉、鍵がかかってるみたいよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：鍵を探してこないと駄目ってわけか・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：しょうがない。鍵をまず先に見つけてこよう。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY))
+      {
+        One.TF.FieldObject_Artharium_00008 = true;
+
+        Message(ref m_list, ref e_list, "ラナ：アイン、ちょっと鍵貸して。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：おお、これの事か。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ありがと。ええと、じゃあ開けるわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "ラナ：やったわ、開いたわよ♪", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：サンキュー！　よし、この先に行ってみるとするか！", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：この扉、鍵がかかってるみたいよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：鍵を探してこないと駄目ってわけか・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：しょうがない。鍵をまず先に見つけてこよう。", ActionEvent.None);
+      }
+    }
+  }
+
+  public static void Message300180(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.QuestMain_00005 == false)
+    {
+      SearchMatockQuest(ref m_list, ref e_list);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      return;
+    }
+
+    if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：マトックが無いと、ここは通れないな。探してこよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      return;
+    }
+
+    if (One.TF.FieldObject_Artharium_00009 == false)
+    {
+      One.TF.FieldObject_Artharium_00009 = true;
+
+      UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_6_O);
+    }
+  }
+
   public static void GetSoulFragmentMessage(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.FirstSoulFragment == false)
@@ -1977,7 +2118,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：じゃあ、行きましょうか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
     }
   }
 

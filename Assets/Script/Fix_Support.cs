@@ -67,4 +67,5 @@ public static partial class Fix
   public const string ITEM_TOOMI_AOSUISYOU = "遠見の青水晶";
   public const string PURE_CLEAN_WATER = "清透水";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
+  public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
 }
