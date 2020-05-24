@@ -576,8 +576,6 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message300141 { get { return _event_message300141; } set { _event_message300141 = value; } }
 
 
-
-
   [SerializeField] protected bool _event_message400010 = false;
   public bool Event_Message400010
   {
@@ -717,10 +715,16 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
+  [SerializeField] protected bool _first_soulfragment = false;
+  public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }
 
+  #region ソウル・フラグメント"
   [SerializeField] protected bool _soul_fragment_00001 = false;
   public bool SoulFragment_00001 { get { return _soul_fragment_00001; } set { _soul_fragment_00001 = value; } }
 
+  [SerializeField] protected bool _soul_fragment_00002 = false;
+  public bool SoulFragment_00002 { get { return _soul_fragment_00002; } set { _soul_fragment_00002 = value; } }
+  #endregion
 
   #endregion
 

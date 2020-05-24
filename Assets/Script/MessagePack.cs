@@ -1733,51 +1733,7 @@ public static class MessagePack
     {
       One.TF.SoulFragment_00001 = true;
 
-      Message(ref m_list, ref e_list, "アイン：おっ、何だこれは。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：アイン、それちょっとよく見せて。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ああ。頼んだぜ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　～　ラナは注意深く物体を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：どうだ、何か分かりそうか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：おそらくだけど、これは「" + Fix.GUARDIAN_ANGEL_BLUE + "」を祭るための神具「蒼流石」ね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：へえ・・・そういう物があるんだな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：こうした炭鉱では事故やトラブルが絶えないから、よくこうして神様にお祈りをしていたんでしょうね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：まあ、そういった所なんだろうな。さっきみたいな化け物も出てるのも事実だしな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：アインも少しだけお祈りを捧げてみたら？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：俺か？　神様頼みは、あんまりしない主義なんだけどな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：あ・・・すみません、私からもお願いします。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：マジか。じゃあせっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
-
-      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：何となくだけど悪くないもんだな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：じゃあ、一旦戻りましょうか。ここはもう通路がないみたいだし。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。他を探索するとしよう！", ActionEvent.None);
+      GetSoulFragmentMessage(ref m_list, ref e_list);
     }
     else
     {
@@ -1849,6 +1805,8 @@ public static class MessagePack
     }
     else if (One.TF.Event_Message300141 == false)
     {
+      One.TF.Event_Message300141 = true;
+
       Message(ref m_list, ref e_list, "アイン：ここだな・・・じゃあ進んでみるぞ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "【　アイン達は意を決して、毒エリアへ果敢に進んでいった！！　】", ActionEvent.HomeTownMessageDisplay);
@@ -1916,6 +1874,110 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "【 " + Fix.RESIST_POISON_SUIT + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
+    }
+  }
+
+  public static void Message300160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.SoulFragment_00002 == false)
+    {
+      One.TF.SoulFragment_00002 = true;
+
+      GetSoulFragmentMessage(ref m_list, ref e_list);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：せっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くとするか。", ActionEvent.None);
+    }
+  }
+
+  public static void GetSoulFragmentMessage(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FirstSoulFragment == false)
+    {
+      One.TF.FirstSoulFragment = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、何だこれは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、それちょっとよく見せて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。頼んだぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　ラナは注意深く物体を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：どうだ、何か分かりそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらくだけど、これは「" + Fix.GUARDIAN_ANGEL_BLUE + "」を祭るための神具「蒼流石」ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：へえ・・・そういう物があるんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こうした炭鉱では事故やトラブルが絶えないから、よくこうして神様にお祈りをしていたんでしょうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そういった所なんだろうな。さっきみたいな化け物も出てるのも事実だしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アインも少しだけお祈りを捧げてみたら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺か？　神様頼みは、あんまりしない主義なんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・すみません、私からもお願いします。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：マジか。じゃあせっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
+
+      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となくだけど悪くないもんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、行きましょうか。ここはもう通路がないみたいだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。他を探索するとしよう！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：おっ、「蒼流石」だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、お祈りを捧げておいたら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。じゃあ、少しだけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
+
+      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、行きましょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
     }
   }
 
