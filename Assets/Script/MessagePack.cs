@@ -1138,37 +1138,19 @@ public static class MessagePack
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message300040 == false)
+    if (One.TF.QuestMain_Complete_00006 == false)
     {
-      One.TF.Event_Message300040 = true;
-
-      Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：まあ、ある事には間違いないんだろうが・・・どこら辺だろうな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
-
-      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
-    }
-    else
-    {
-      if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY) == false)
+      if (One.TF.Event_Message300040 == false)
       {
-        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        One.TF.Event_Message300040 = true;
+
+        Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかってるな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：他を探してみましょう。きっとどこかに鍵があるはずよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあ、ある事には間違いないんだろうが・・・どこら辺だろうな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
 
@@ -1178,30 +1160,104 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ああ、探索開始だ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+        Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
       }
       else
       {
-        Message(ref m_list, ref e_list, "アイン：よし、ここは例の鍵だな！", ActionEvent.None);
+        if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY) == false)
+        {
+          Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：ラナ、開錠については頼んだぜ！", ActionEvent.None);
+          Message(ref m_list, ref e_list, "エオネ：えっと・・・どうかされたんですか？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：別に、鍵なしで開けるわけじゃないんだから、誰でも出来るんだけど。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "アイン：・・・ッハ！　あ、いやいやいや！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：いやいや、ここはひとつ頼んだぜ！", ActionEvent.None);
+          Message(ref m_list, ref e_list, "ラナ：また何かくだらないこと考えてたんでしょ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：まあ、良いけど。じゃあソコどいて。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "ラナ：考えてないでとにかく探してみましょ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+          Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+        }
+        else
+        {
+          One.TF.FieldObject_Artharium_00010 = true;
 
-        Message(ref m_list, ref e_list, "ラナ：えーと・・・多分これね。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "アイン：よし、ここは例の鍵だな！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：うん、この鍵で大丈夫みたいよ。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "アイン：ラナ、開錠については頼んだぜ！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：じゃ、開けるわね。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "ラナ：別に、鍵なしで開けるわけじゃないんだから、誰でも出来るんだけど。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
+          Message(ref m_list, ref e_list, "アイン：いやいや、ここはひとつ頼んだぜ！", ActionEvent.None);
 
+          Message(ref m_list, ref e_list, "ラナ：まあ、良いけど。じゃあソコどいて。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+
+          Message(ref m_list, ref e_list, "ラナ：えーと・・・多分これね。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：うん、この鍵で大丈夫みたいよ。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：じゃ、開けるわね。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_9_O, ActionEvent.RemoveFieldObject);
+
+          Message(ref m_list, ref e_list, "ラナ：やったわ、開いたわよ♪", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：よし！いよいよここの通路の解禁ってわけだな！！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：じゃあ、早速・・・", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "エオネ：　・・・　あの、ちょっと待ってください！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：おお。どうかしたのか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "エオネ：本当に、この先に進むのでしょうか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ああ、進むぜ。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：心配するな、大丈夫だ。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "エオネ：・・・　・・・っえ？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：まあ、そこのバカアインがそう言ってるんだし、任せてみれば良いんじゃない？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "エオネ：・・・わ、分かりました。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "エオネ：じゃあ、アインさん！進軍、お願いします！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：お・・・おお！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：任せておけ！ッハッハッハ！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：ちょっと。進むのは良いけど、策は考えてあるのかしら？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ない！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：アーッハッハッハ！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのメギド・ストライクがアインに炸裂）", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：グフォ・・・！！おまえ、本気で打ち込むなよな。いっつつつ・・・", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ま、まあ策というほどの事じゃねえが、考えはある。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：頼んだわよ。この先何かある事ぐらいはエオネも私も分かってるんだから。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ああ、了解だ！任せておけ！", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_6 + " 】を達成しました！", ActionEvent.QuestComplete);
+        }
       }
     }
   }
@@ -1700,7 +1756,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：敵襲よ！背後から！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.ENEMY_HELL_KERBEROS, ActionEvent.EncountBoss);
+      Message(ref m_list, ref e_list, Fix.HELL_KERBEROS, ActionEvent.EncountBoss);
     }
   }
 
@@ -2000,7 +2056,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "　ギッ、　ギギィ　・・・　", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "", ActionEvent.RemoveFieldObject);
+        Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_8_O, ActionEvent.RemoveFieldObject);
 
         Message(ref m_list, ref e_list, "ラナ：やったわ、開いたわよ♪", ActionEvent.None);
 
@@ -2039,6 +2095,108 @@ public static class MessagePack
       One.TF.FieldObject_Artharium_00009 = true;
 
       UseMatockForRock(ref m_list, ref e_list, Fix.ARTHARIUM_Rock_6_O);
+    }
+  }
+
+  public static void Message300190(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatGalvadazer == false && One.TF.QuestMain_Complete_00009 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：おっと、デカいやつのお出ましみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：だ・・・大丈夫なんでしょうか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：見た感じでは、パワー系って所かしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アインはどう思う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、パワーはありそうってのは確かだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、それだけじゃない。こういうタイプは「計略」を１つぐらいは持ってるもんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：戦闘関連のトラップが仕掛けられていると考えておいた方が良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：陣形についてだが、デカいやつが一人だ。後方には向かわせないように俺が何とかする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと、ダメージが大体当たってきたら要注意だろうな。もう一つ奥の手を持っている感じはする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大体分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあなんにせよ、気を引き締めていこう。エオネ、ラナ、準備は良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私はいつでも良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ戦闘開始だ、行くぞ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.THE_GALVADAZER, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message300200(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
+    {
+      Message(ref m_list, ref e_list, "ガルヴァ：ゴッ・・・ゴガガガガガガ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うお！　こいつまだ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ガルヴァ：ゴガア・・・ガ・・・ガアァァァ・・・ガ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ガルヴァ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうやら、今のが最後の断末魔みたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうやら、そのようだな。ふう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし！制覇制覇！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、どうしたエオネ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：すごいですね、その・・・何というか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：倒せるものなんでしょうか。こういった大型級のモンスターを。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今実際にこうして俺たち全員で倒したんだ。実感湧かないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：え・・・ええっと・・・はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：無理ないかもね。あまりこうしたモンスターを倒す所まで、一般冒険者は踏み入らないみたいだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：えっ、そうなのか？普通ならこの辺りまでは踏み込むもんだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アンタは考えゼロで突っ込みすぎなのよ。ヒヤヒヤさせられるこっちの身にもなってよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだったのか。まあ、次からは少し考えてみるさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：でも、ほ・・・本当にありがとうございました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいや、お礼を言われる側じゃない。同じパーティだしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こちらこそ、ありがとうな。助かったぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：は、はい！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナもいつもサンキューな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ッフフ、どうって事ないわよ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと残るは、この奥にある通路だな。絶対にお宝に違いない！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ、変なトラップはもう無いと思うけど、気をつけて進んでよね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よっしゃ、任せておけ！待ってろよ、お宝！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_9 + " 】を達成しました！", ActionEvent.QuestComplete);
     }
   }
 

@@ -66,6 +66,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_MessageBoard;
   public FieldObject prefab_DoorCopper;
   public FieldObject prefab_Crystal;
+  public FieldObject prefab_ObsidianStone;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -208,6 +209,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("MessageBoard");
     ObjectList.Add("Door_Copper");
     ObjectList.Add("Crystal");
+    ObjectList.Add("ObsidianStone");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -340,6 +342,11 @@ public class DungeonField : MotherBase
       if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
       {
         MessagePack.Message300123(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
+      {
+        MessagePack.Message300200(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -909,6 +916,21 @@ public class DungeonField : MotherBase
           {
             treasureName = Fix.ARTHARIUM_KEY;
           }
+          // 宝箱２３
+          if (One.TF.Treasure_Artharium_00023 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
+          {
+            treasureName = Fix.PURPLE_PENDANT;
+          }
+          // 宝箱２４
+          if (One.TF.Treasure_Artharium_00024 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
+          {
+            treasureName = Fix.YELLOW_PENDANT;
+          }
+          // 宝箱２５
+          if (One.TF.Treasure_Artharium_00025 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
+          {
+            treasureName = Fix.FLAME_HAND_KEEPER;
+          }
 
           if (treasureName == String.Empty)
           {
@@ -1342,6 +1364,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_00006 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
           RefreshQuestList();
           return;
         }
@@ -1360,6 +1383,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_Complete_00006 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_Complete_00007 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_Complete_00008 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
           RefreshQuestList();
           return;
         }
@@ -1603,6 +1627,21 @@ public class DungeonField : MotherBase
             {
               One.TF.Treasure_Artharium_00022 = true;
             }
+            // 宝箱２３
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
+            {
+              One.TF.Treasure_Artharium_00023 = true;
+            }
+            // 宝箱２４
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
+            {
+              One.TF.Treasure_Artharium_00024 = true;
+            }
+            // 宝箱２５
+            if (this.Player.transform.position == new Vector3(Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
+            {
+              One.TF.Treasure_Artharium_00025 = true;
+            }
           }
           return; // 通常
         }
@@ -1657,6 +1696,12 @@ public class DungeonField : MotherBase
           if (currentMessage == Fix.ARTHARIUM_Rock_6_O)
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y, Fix.ARTHARIUM_Rock_6_Z));
+          }
+          // 扉４と５（中央通路のメインゲート）
+          if (currentMessage == Fix.MAPEVENT_ARTHARIUM_9_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_4_X, Fix.ARTHARIUM_Door_Copper_4_Y, Fix.ARTHARIUM_Door_Copper_4_Z));
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_5_X, Fix.ARTHARIUM_Door_Copper_5_Y, Fix.ARTHARIUM_Door_Copper_5_Z));
           }
           continue; // 継続
         }
@@ -1883,10 +1928,19 @@ public class DungeonField : MotherBase
         MessagePack.Message300150(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      // 岩壁６
+      // 岩壁６ // todo 岩壁は動いた先が岩壁の場合にイベント発生するほうが望ましい。下記のコードはY-1,Z-1が入っていて制御できていない。
       else if (LocationDetect(tile, Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y - 1.0f, Fix.ARTHARIUM_Rock_6_Z - 1.0f))
       {
         MessagePack.Message300180(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      // ボス戦
+      else if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_10_1_X, Fix.MAPEVENT_ARTHARIUM_10_1_Y, Fix.MAPEVENT_ARTHARIUM_10_1_Z) ||
+               LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_10_2_X, Fix.MAPEVENT_ARTHARIUM_10_2_Y, Fix.MAPEVENT_ARTHARIUM_10_2_Z) ||
+               LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_10_3_X, Fix.MAPEVENT_ARTHARIUM_10_3_Y, Fix.MAPEVENT_ARTHARIUM_10_3_Z)
+               )
+      {
+        MessagePack.Message300190(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -2520,6 +2574,14 @@ public class DungeonField : MotherBase
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
     }
+    else if (obj_name == "ObsidianStone")
+    {
+      current = Instantiate(prefab_ObsidianStone, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.ObsidianStone;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
     else
     {
       Debug.Log("AddFieldObj not found... " + obj_name);
@@ -2879,6 +2941,24 @@ public class DungeonField : MotherBase
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
+      // 宝箱２３
+      if (One.TF.Treasure_Artharium_00023)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２４
+      if (One.TF.Treasure_Artharium_00024)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２５
+      if (One.TF.Treasure_Artharium_00025)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
 
       // 岩壁１
       if (One.TF.FieldObject_Artharium_00001)
@@ -2924,6 +3004,12 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_Artharium_00009)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Rock_6_X, Fix.ARTHARIUM_Rock_6_Y, Fix.ARTHARIUM_Rock_6_Z));
+      }
+      // 扉４と５
+      if (One.TF.FieldObject_Artharium_00010)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_4_X, Fix.ARTHARIUM_Door_Copper_4_Y, Fix.ARTHARIUM_Door_Copper_4_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_5_X, Fix.ARTHARIUM_Door_Copper_5_Y, Fix.ARTHARIUM_Door_Copper_5_Z));
       }
     }
   }
@@ -3008,6 +3094,7 @@ public class DungeonField : MotherBase
     if (One.TF.QuestMain_00006) { AddQuestEvent(Fix.QUEST_TITLE_6, One.TF.QuestMain_Complete_00006, counter); counter++; }
     if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_TITLE_7, One.TF.QuestMain_Complete_00007, counter); counter++; }
     if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_TITLE_8, One.TF.QuestMain_Complete_00008, counter); counter++; }
+    if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_TITLE_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)

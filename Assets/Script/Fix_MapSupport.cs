@@ -267,4 +267,28 @@ public partial class Fix
   public const float ARTHARIUM_Rock_6_Y = 2.5f;
   public const float ARTHARIUM_Rock_6_Z = 11f;
 
+  public const string ARTHARIUM_Door_Copper_4_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_4_O = "4";
+  public const float ARTHARIUM_Door_Copper_4_X = -1f;
+  public const float ARTHARIUM_Door_Copper_4_Y = 1f;
+  public const float ARTHARIUM_Door_Copper_4_Z = 33f;
+
+  public const string ARTHARIUM_Door_Copper_5_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_5_O = "5";
+  public const float ARTHARIUM_Door_Copper_5_X = 0f;
+  public const float ARTHARIUM_Door_Copper_5_Y = 1f;
+  public const float ARTHARIUM_Door_Copper_5_Z = 33f;
+
+  public const string ARTHARIUM_Fountain_6_C = "Fountain";
+  public const string ARTHARIUM_Fountain_6_O = "6";
+  public const float ARTHARIUM_Fountain_6_X = -31f;
+  public const float ARTHARIUM_Fountain_6_Y = 1f;
+  public const float ARTHARIUM_Fountain_6_Z = 44f;
+
+  public const string ARTHARIUM_ObsidianStone_1_C = "ObsidianStone";
+  public const string ARTHARIUM_ObsidianStone_1_O = "1";
+  public const float ARTHARIUM_ObsidianStone_1_X = -31f;
+  public const float ARTHARIUM_ObsidianStone_1_Y = 3.5f;
+  public const float ARTHARIUM_ObsidianStone_1_Z = 66f;
+
 }

@@ -527,9 +527,10 @@ public static partial class Fix
   public const string DEATH_DRONE_JP = "デス ドローン";
   public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
-
-  public const string ENEMY_HELL_KERBEROS = "Hell Kerberos";
-  public const string ENEMY_HELL_KERBEROS_JP = "地獄のケルベロス";
+  public const string HELL_KERBEROS = "Hell Kerberos";
+  public const string HELL_KERBEROS_JP = "地獄のケルベロス";
+  public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
+  public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー ";
 
   public const string _ = "";
   public const string _JP = "";
@@ -639,8 +640,11 @@ public static partial class Fix
   public const string QUEST_TITLE_8 = "毒から身を守ろう";
   public const string QUEST_DESC_8 = "アーサリウム工場跡地の奥を探索している最中、毒で充満しているエリアを発見した。対策なしでこのエリアにこれ以上足を踏み入れるわけにはいかない。毒から身を守れるアイテムを探してこよう。アイテムは、マトックを見つけた区画内のどこかにあるはずだ。";
 
-  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8 };
-  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8 };
+  public const string QUEST_TITLE_9 = "奥に潜む不穏な気配";
+  public const string QUEST_DESC_9 = "中央通路の扉を解除した後、ただならぬ雰囲気をパーティ全員は感じ取った。この先、明らかに何かが待ち受けている。アイン達は気を引き締めて奥へと進もうとしている。準備を万全にして挑んだ方が良いだろう。";
+
+  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9 };
+  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_TITLE_9 };
 
 
   public const string DECISION_BACKTO_HOMETOWN = "ホームタウンへの帰還";

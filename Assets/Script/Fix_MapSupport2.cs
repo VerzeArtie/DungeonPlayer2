@@ -55,4 +55,20 @@ public partial class Fix
   public const float MAPEVENT_ARTHARIUM_8_X = 15;
   public const float MAPEVENT_ARTHARIUM_8_Y = -1.5f;
   public const float MAPEVENT_ARTHARIUM_8_Z = 35;
+
+  public const string MAPEVENT_ARTHARIUM_9_O = "MAPEVENT_ARTHARIUM_9";
+
+  public const string MAPEVENT_ARTHARIUM_10_O = "MAPEVENT_ARTHARIUM_10";
+  public const float MAPEVENT_ARTHARIUM_10_1_X = -32;
+  public const float MAPEVENT_ARTHARIUM_10_1_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_1_Z = 48;
+
+  public const float MAPEVENT_ARTHARIUM_10_2_X = -31;
+  public const float MAPEVENT_ARTHARIUM_10_2_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_2_Z = 48;
+
+  public const float MAPEVENT_ARTHARIUM_10_3_X = -30;
+  public const float MAPEVENT_ARTHARIUM_10_3_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_3_Z = 48;
+
 }

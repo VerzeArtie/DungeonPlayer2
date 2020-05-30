@@ -406,9 +406,13 @@ public partial class BattleEnemy : MotherBase
         panelGameEnd.SetActive(true);
 
         // todo ここでイベントフラグを制御してよいか、再考の余地はある。
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ENEMY_HELL_KERBEROS)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HELL_KERBEROS)
         {
           One.TF.DefeatHellKerberos = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_GALVADAZER)
+        {
+          One.TF.DefeatGalvadazer = true;
         }
       }
       return;

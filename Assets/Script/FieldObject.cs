@@ -17,6 +17,7 @@ public class FieldObject : MonoBehaviour
     Door_Silver,
     Door_Gold,
     Crystal,
+    ObsidianStone,
     Boss,
   }
 
