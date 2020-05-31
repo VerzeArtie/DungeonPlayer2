@@ -638,13 +638,16 @@ public static partial class Fix
   public const string QUEST_DESC_7 = "細い通路の手前口にある看板では、こう示されていた。『本エリア奥にて凶暴な生物が発生。至急、本通路を封鎖する。』\r\n\r\n通常とは違った強力なモンスターが待ち構えている可能性がある。本エリアでは慎重に探索を進めて行こう。";
 
   public const string QUEST_TITLE_8 = "毒から身を守ろう";
-  public const string QUEST_DESC_8 = "アーサリウム工場跡地の奥を探索している最中、毒で充満しているエリアを発見した。対策なしでこのエリアにこれ以上足を踏み入れるわけにはいかない。毒から身を守れるアイテムを探してこよう。アイテムは、マトックを見つけた区画内のどこかにあるはずだ。";
+  public const string QUEST_DESC_8 = "アーサリウム工場跡地を探索している最中、毒で充満しているエリアを発見した。対策なしでこのエリアにこれ以上足を踏み入れるわけにはいかない。毒から身を守れるアイテムを探してこよう。アイテムは、マトックを見つけた区画内のどこかにあるはずだ。";
 
   public const string QUEST_TITLE_9 = "奥に潜む不穏な気配";
   public const string QUEST_DESC_9 = "中央通路の扉を解除した後、ただならぬ雰囲気をパーティ全員は感じ取った。この先、明らかに何かが待ち受けている。アイン達は気を引き締めて奥へと進もうとしている。準備を万全にして挑んだ方が良いだろう。";
 
-  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9 };
-  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_TITLE_9 };
+  public const string QUEST_TITLE_10 = "奇妙な物体に関する調査";
+  public const string QUEST_DESC_10 = "アーサリウム工場跡地のボスを撃破した後、奥地で奇妙な物体を入手した。本アイテムが何を示す物なのかは全くの不明であり、この場で解析は行えない。本アイテムについてどうやって調査するか方針を決めようと考えたアインは、一旦クヴェルタ街に戻る事とした。クヴェルタ街に戻り、パーティメンバーと会話しよう。";
+
+  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9, Fix.QUEST_TITLE_10 };
+  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_DESC_9, Fix.QUEST_DESC_10 };
 
 
   public const string DECISION_BACKTO_HOMETOWN = "ホームタウンへの帰還";

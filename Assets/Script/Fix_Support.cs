@@ -68,4 +68,5 @@ public static partial class Fix
   public const string PURE_CLEAN_WATER = "清透水";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
+  public const string UNKNOWN_OBJECT = "奇妙な物体";
 }

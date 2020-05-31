@@ -786,7 +786,16 @@ public class DungeonField : MotherBase
         }
       }
 
-      // まず移動する。
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.ObsidianStone)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z))
+        {
+          MessagePack.Message300210(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
+      // 移動する。
       JumpToLocation(new Vector3(tile.transform.position.x,
                                  tile.transform.position.y + 1.0f,
                                  tile.transform.position.z));
@@ -1343,7 +1352,7 @@ public class DungeonField : MotherBase
           continue; // 継続
         }
         // 画面にシステムメッセージを表示する。
-        else if (currentEvent == MessagePack.ActionEvent.HomeTownMessageDisplay)
+        else if (currentEvent == MessagePack.ActionEvent.MessageDisplay)
         {
           this.txtSystemMessage.text = currentMessage;
           this.panelSystemMessage.SetActive(true);
@@ -1365,6 +1374,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
           RefreshQuestList();
           return;
         }
@@ -1384,6 +1394,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_Complete_00007 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_Complete_00008 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_Complete_00010 = true; }
           RefreshQuestList();
           return;
         }
@@ -1702,6 +1713,11 @@ public class DungeonField : MotherBase
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_4_X, Fix.ARTHARIUM_Door_Copper_4_Y, Fix.ARTHARIUM_Door_Copper_4_Z));
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_5_X, Fix.ARTHARIUM_Door_Copper_5_Y, Fix.ARTHARIUM_Door_Copper_5_Z));
+          }
+          // 奇妙な物体の入手
+          if (currentMessage == Fix.MAPEVENT_ARTHARIUM_11_O)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z));
           }
           continue; // 継続
         }
@@ -3011,6 +3027,11 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_4_X, Fix.ARTHARIUM_Door_Copper_4_Y, Fix.ARTHARIUM_Door_Copper_4_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_Door_Copper_5_X, Fix.ARTHARIUM_Door_Copper_5_Y, Fix.ARTHARIUM_Door_Copper_5_Z));
       }
+      // 奇妙な物体の入手
+      if (One.TF.Obsidian_Artharium_00001)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z));
+      }
     }
   }
 
@@ -3095,6 +3116,7 @@ public class DungeonField : MotherBase
     if (One.TF.QuestMain_00007) { AddQuestEvent(Fix.QUEST_TITLE_7, One.TF.QuestMain_Complete_00007, counter); counter++; }
     if (One.TF.QuestMain_00008) { AddQuestEvent(Fix.QUEST_TITLE_8, One.TF.QuestMain_Complete_00008, counter); counter++; }
     if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_TITLE_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
+    if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_TITLE_10, One.TF.QuestMain_Complete_00010, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)

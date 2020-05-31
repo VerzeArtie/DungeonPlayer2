@@ -677,6 +677,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_artharium_00023 = false;
   [SerializeField] protected bool _treasure_artharium_00024 = false;
   [SerializeField] protected bool _treasure_artharium_00025 = false;
+  [SerializeField] protected bool _obsidian_artharium_00001 = false;
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
   public bool Treasure_Artharium_00003 { get { return _treasure_artharium_00003; } set { _treasure_artharium_00003 = value; } }
@@ -702,6 +703,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_Artharium_00023 { get { return _treasure_artharium_00023; } set { _treasure_artharium_00023 = value; } }
   public bool Treasure_Artharium_00024 { get { return _treasure_artharium_00024; } set { _treasure_artharium_00024 = value; } }
   public bool Treasure_Artharium_00025 { get { return _treasure_artharium_00025; } set { _treasure_artharium_00025 = value; } }
+  public bool Obsidian_Artharium_00001 { get { return _obsidian_artharium_00001; } set { _obsidian_artharium_00001 = value; } }
   #endregion
 
   #region "etc"

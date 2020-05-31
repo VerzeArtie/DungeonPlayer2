@@ -1481,6 +1481,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.UNKNOWN_OBJECT:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "工場跡地の奥地にて入手した奇妙な物体。アインが触れた瞬間に見たこともない形状の空間を形成した。今は元の形状に戻っており、触れても何も起こらない。物体は常に少しだけ宙に浮いている状態で、何かに使える様な代物ではなさそうだ。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
     }
   }
 }

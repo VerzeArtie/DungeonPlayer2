@@ -30,6 +30,7 @@ public static class MessagePack
     ForceMoveFall,
     InstantiateObject,
     GainSoulFragment,
+    MessageDisplay,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -82,7 +83,6 @@ public static class MessagePack
     HomeTownExecItemBank,
     HomeTownCallRequestFood,
     HomeTownButtonHidden,
-    HomeTownMessageDisplay,
     HomeTownRewardDisplay,
     HomeTownYesNoMessageDisplay,
     HomeTownShowActiveSkillSpell,
@@ -125,7 +125,7 @@ public static class MessagePack
   {    
     Message(ref m_list, ref e_list, "", ActionEvent.MessageClear);
 
-    Message(ref m_list, ref e_list, "～ 休息を取りました ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ 休息を取りました ～", ActionEvent.MessageDisplay);
   }
 
   public static void MessageX00002(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -158,7 +158,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
 
-    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_ANSHET + "にて ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_ANSHET + "にて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：旅に出るんだ。荷物はこれぐらい軽くしておいたほうが良いだろ。", ActionEvent.None);
 
@@ -236,7 +236,7 @@ public static class MessagePack
 
     //Message(ref m_list, ref e_list, "アイン：ああ、わかった。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、受付口にて ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、受付口にて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "　　【受付嬢：" + Fix.TOWN_FAZIL_CASTLE + "へようこそ。】", ActionEvent.None);
 
@@ -262,7 +262,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "　　【受付嬢：どうぞ、お受け取りください。】", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【 " + Fix.FIELD_RESEARCH_LICENSE + " 】を獲得しました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【 " + Fix.FIELD_RESEARCH_LICENSE + " 】を獲得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, Fix.FIELD_RESEARCH_LICENSE, ActionEvent.GetItem);
 
@@ -282,7 +282,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、謁見の間にて ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、謁見の間にて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：よし、謁見の間は確かここだったな。", ActionEvent.None);
 
@@ -370,7 +370,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金を用意しておいた。この軍資金は好きに使ってもらって構わないから。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
 
@@ -396,7 +396,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
-    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：じゃあ、まずは" + Fix.TOWN_COTUHSYE + "へ向かえば良いみたいね。", ActionEvent.None);
 
@@ -469,7 +469,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！よろしくお願いします！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, " 【エオネ・フルネア】が仲間になりました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, " 【エオネ・フルネア】が仲間になりました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
 
@@ -482,7 +482,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "", ActionEvent.Fountain);
 
-    Message(ref m_list, ref e_list, "パーティは全回復しました。", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "パーティは全回復しました。", ActionEvent.MessageDisplay);
   }
 
   public static void Message101001(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -624,7 +624,7 @@ public static class MessagePack
     //{
     //    One.TF.Event_Message200020 = true;
 
-    Message(ref m_list, ref e_list, "～ ヴァスタの武器屋にて ～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～ ヴァスタの武器屋にて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：ごめんくださーい。", ActionEvent.None);
 
@@ -732,7 +732,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：よろしくおねがいします！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　しばらくして　～　", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　しばらくして　～　", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ヴァスタ：よし、レンズが完成したぞ。これじゃ。", ActionEvent.None);
 
@@ -804,7 +804,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ヴァスタ：ゴッホン、とにかく鑑定自体は完了じゃ。後はお主ら次第。このアイテムは返しておくかの。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～　【法剣？？？】を手に入れた！　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "～　【法剣？？？】を手に入れた！　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：鑑定、ありがとうございました♪", ActionEvent.None);
 
@@ -1129,7 +1129,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
 
-    Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：上手くいったみたいね♪", ActionEvent.None);
 
@@ -1196,7 +1196,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "ラナ：まあ、良いけど。じゃあソコどいて。", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+          Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.MessageDisplay);
 
           Message(ref m_list, ref e_list, "ラナ：えーと・・・多分これね。", ActionEvent.None);
 
@@ -1368,7 +1368,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ッゲ、マジかよ！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　アインは毒のダメージを食らった！！　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アインは毒のダメージを食らった！！　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ラナ：なんでもかんでも早とちりして、考えもせずにアイテムを拾わない事ね。", ActionEvent.None);
 
@@ -1386,7 +1386,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、了解了解！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 " + Fix.ITEM_MATOCK + " 】を手に入れました！", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "【 " + Fix.ITEM_MATOCK + " 】を手に入れました！", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, Fix.ITEM_MATOCK, ActionEvent.GetItem);
 
@@ -1480,7 +1480,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
 
-    Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を手にいれました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：でも、こんなのどこから仕入れたんだ？少なくともアンシェット街では売ってる訳がないよな。", ActionEvent.None);
 
@@ -1526,11 +1526,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：おーい、そっちは大丈夫かー？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【　アインは崖の下から上を眺めた　】", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【　アインは崖の下から上を眺めた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：あっ！ちょっと、何見ようとしてんのよ！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【　ラナはデカい岩のつぶてを崖の下へとぶん投げた　】", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【　ラナはデカい岩のつぶてを崖の下へとぶん投げた　】", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：イデっ！！ッゴワ！！", ActionEvent.None);
 
@@ -1803,7 +1803,7 @@ public static class MessagePack
     
     Message(ref m_list, ref e_list, Fix.PURE_CLEAN_WATER, ActionEvent.GetItem);
 
-    Message(ref m_list, ref e_list, "【 " + Fix.PURE_CLEAN_WATER + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "【 " + Fix.PURE_CLEAN_WATER + " 】を手にいれました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：あら、良い物手に入れたわね♪", ActionEvent.None);
 
@@ -1832,7 +1832,7 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "アイン：せっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -1902,7 +1902,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ここだな・・・じゃあ進んでみるぞ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【　アイン達は意を決して、毒エリアへ果敢に進んでいった！！　】", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "【　アイン達は意を決して、毒エリアへ果敢に進んでいった！！　】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
 
@@ -1964,7 +1964,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.RESIST_POISON_SUIT, ActionEvent.GetItem);
 
-      Message(ref m_list, ref e_list, "【 " + Fix.RESIST_POISON_SUIT + " 】を手にいれました！", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "【 " + Fix.RESIST_POISON_SUIT + " 】を手にいれました！", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_8 + " 】を達成しました！", ActionEvent.QuestComplete);
     }
@@ -1982,7 +1982,7 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "アイン：せっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -2012,7 +2012,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：まったくもう・・・ちょっとどいて。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　ラナは注意深く扉を調べ始めた　～", ActionEvent.MessageDisplay);
 
       if (One.TF.FindBackPackItem(Fix.ARTHARIUM_KEY))
       {
@@ -2200,6 +2200,122 @@ public static class MessagePack
     }
   }
 
+  public static void Message300210(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Obsidian_Artharium_00001 == false)
+    {
+      One.TF.Obsidian_Artharium_00001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直、お宝じゃなさそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いつもお宝があるとは限らないでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：不思議ですね・・・その物体、宙に浮いてる様に見えます・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと触ってみるか。どれどれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あっ、ちょっと、そこのバカ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　アインは奇妙な物体に手を触れてみた　", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：お・・・おおぉ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何だこれ！何か流れ込んでくるぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　アインは青白い球体に包まれ始めた！　", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：バッ、バカ！！ちょっと変な球体に包まれているけど、大丈夫なの！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（何だこれ・・・音がまったく聞こえない・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこのバカ！！聞いてるの！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・一体・・・なんだこれは・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（！？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（何かが・・・声が聞こえる・・・なんだ？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　応えよ　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　そして受諾せよ　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　さすれば意志が宿る　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 " + Fix.UNKNOWN_OBJECT + " 】を獲得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, Fix.UNKNOWN_OBJECT, ActionEvent.GetItem);
+
+      Message(ref m_list, ref e_list, "アイン：こ、これは・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：って、あんた一体誰なんだ！？どこにいるんだ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　時は満たず　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　精神は満たず　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　還るべきは理と知るがよい　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんだって？どういう意味だ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　－－－　時が満ちればまた姿を現すがよい、幼きものよ　－－－", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まってくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『空間が激しくフラッシュし、凝縮された空間へと連続的に小さくなる！！！』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『パパパパパパパ！！！！ッバシュウウウゥゥゥン！！！！！！！』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.MAPEVENT_ARTHARIUM_11_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：だ、大丈夫！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　ッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし何だったんだ今のは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：外からは全くわかりませんでした・・・どのような状態だったんですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何て言うんだろうな。何かこう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：声が、聞こえたんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私達の声は聞こえてたって事？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：す、すまねえ。そうじゃないんだ。うまく説明が出来ないんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、すまねえ。今回は本当についうっかりだな。ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：とにかく。ぶ、無事ならそれで良いのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、その手に入れた物体は、どう扱うのか分かってるのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これか・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここじゃなんだしな。この件については後で話す。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一旦クヴェルタ街に戻ろう。話はそれからだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネも、街までもう少しだけ付き合ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあクヴェルタ街に向かうとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_10 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    }
+  }
+
   public static void GetSoulFragmentMessage(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.FirstSoulFragment == false)
@@ -2212,7 +2328,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ。頼んだぜ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　ラナは注意深く物体を調べ始めた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　ラナは注意深く物体を調べ始めた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：どうだ、何か分かりそうか？", ActionEvent.None);
 
@@ -2232,7 +2348,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：マジか。じゃあせっかくだし、少しだけお祈りをしていくとするか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -2242,7 +2358,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
 
-      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
 
@@ -2260,7 +2376,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そうだな。じゃあ、少しだけ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アインは「蒼流石」の前に座り、祈りを捧げた　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -2270,7 +2386,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "1", ActionEvent.GainSoulFragment);
 
-      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.HomeTownMessageDisplay);
+      Message(ref m_list, ref e_list, "　～　アイン達は【ソウル・フラグメント】を獲得しました！　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし。こんなもんだろう。", ActionEvent.None);
 
@@ -2336,7 +2452,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ま、いいか。この辺りで一旦休むのもアリかな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　アインが、曲がり角まで差し掛かった所で　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　アインが、曲がり角まで差し掛かった所で　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：キャア！！", ActionEvent.None);
 
@@ -2376,7 +2492,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "フルネア：え、えっ、ええ・・・では。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　２時間　経過後　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　２時間　経過後　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -2401,7 +2517,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ええと、たしか船着き場はこっちのほうだったな・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　船着き場にて　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　船着き場にて　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "係員：だから、他を当たってくれと言ってるんだ。", ActionEvent.None);
 
@@ -2473,7 +2589,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：まあまあ、やってみるさ。任せておきな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　数分経過後　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　数分経過後　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：う～ん・・・何だろうなあ・・・", ActionEvent.None);
 
@@ -2515,7 +2631,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ああ、頼んだぜ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, " 【ビリー・ラキ】が仲間になりました！", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, " 【ビリー・ラキ】が仲間になりました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "", ActionEvent.None);
   }
@@ -2580,7 +2696,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：うん、わかったわ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　ラナとフルネアが門番に近づき、何かを話し始めた　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　ラナとフルネアが門番に近づき、何かを話し始めた　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：・・・何か普通に会話してるな・・・", ActionEvent.None);
 
@@ -2671,7 +2787,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ええ、いいわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　ラナは【法剣？？？】を長老へと差し出した　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　ラナは【法剣？？？】を長老へと差し出した　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
 
@@ -2709,7 +2825,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "長老：出てゆくがよい！！　もう二度と顔を見せるでないぞ！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　アイン達は部屋の外へ放り出されてしまった　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　アイン達は部屋の外へ放り出されてしまった　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：な・・・", ActionEvent.None);
 
@@ -2755,7 +2871,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "使者：それでは、失礼いたします。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　使者はその場から立ち去っていった　～", ActionEvent.HomeTownMessageDisplay);
+    Message(ref m_list, ref e_list, "　～　使者はその場から立ち去っていった　～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "アイン：行ったみたいだな。", ActionEvent.None);
 
