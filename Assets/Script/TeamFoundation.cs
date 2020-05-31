@@ -122,6 +122,13 @@ public class TeamFoundation : MonoBehaviour
     set { _currentDungeonField = value; }
     get { return _currentDungeonField; }
   }
+
+  protected bool _escapeFromDungeon = false;
+  public bool EscapeFromDungeon
+  {
+    set { _escapeFromDungeon = value; }
+    get { return _escapeFromDungeon; }
+  }
   #endregion
 
   #region "Characters"

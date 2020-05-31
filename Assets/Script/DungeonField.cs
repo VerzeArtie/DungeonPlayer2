@@ -993,14 +993,15 @@ public class DungeonField : MotherBase
   {
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
+      this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
       GroupMapSelect.SetActive(true);
     }
     else
     {
-      this.currentDecision = Fix.DECISION_BACKTO_HOMETOWN;
-      txtDecisionTitle.text = "ホームタウンへ帰還しますか？";
+      this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
+      txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
       int cost = One.TF.Gold / 4;
-      txtDecisionMessage.text = "ダンジョン内から直接帰還した場合、" + cost.ToString() + " ゴールド消費する事となります。";
+      txtDecisionMessage.text = "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。";
       txtDecisionA.text = "Accept";
       txtDecisionB.text = "Cancel";
       txtDecisionC.text = "";
@@ -1038,9 +1039,16 @@ public class DungeonField : MotherBase
 
   public void TapDecisionAccept()
   {
-    if (this.currentDecision == Fix.DECISION_BACKTO_HOMETOWN)
+    if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
     {
-      One.TF.Gold -= One.TF.Gold / 4;
+      // todo このペナルティは面白くない。他のペナルティを考えた方が良い。
+      // One.TF.Gold -= One.TF.Gold / 4;
+      One.TF.EscapeFromDungeon = true;
+      DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, 25, 3, 32);
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_TRANSFER_TOWN)
+    {
       One.TF.CurrentAreaName = this.CurrentMapSelectName;
       SceneManager.LoadSceneAsync("HomeTown");
       return;
@@ -1073,7 +1081,12 @@ public class DungeonField : MotherBase
 
   public void TapDecisionCancel()
   {
-    if (this.currentDecision == Fix.DECISION_BACKTO_HOMETOWN)
+    if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
+    {
+      GroupDecision.SetActive(false);
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_TRANSFER_TOWN)
     {
       this.CurrentMapSelectName = String.Empty;
       GroupDecision.SetActive(false);
@@ -1118,7 +1131,7 @@ public class DungeonField : MotherBase
     if (map_text.text == "???") { return; }
 
     this.CurrentMapSelectName = map_text.text;
-    txtDecisionTitle.text = map_text.text + "へ移動しますか？";
+    txtDecisionTitle.text = map_text.text + "へと移動しますか？";
     txtDecisionMessage.text = "";
     GroupDecision.SetActive(true);
   }
@@ -1965,11 +1978,7 @@ public class DungeonField : MotherBase
     {
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
-        this.DungeonMap = Fix.MAPFILE_BASE_FIELD;
-        this.DungeonCall = Fix.MAPFILE_BASE_FIELD;
-        One.TF.Field_X = 25;
-        One.TF.Field_Y = 3;
-        One.TF.Field_Z = 32;
+        DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, 25, 3, 32);
         return true;
       }
     }
@@ -2058,6 +2067,11 @@ public class DungeonField : MotherBase
     if (tile != null && tile.field == TileInformation.Field.Dungeon_1)
     {
       Debug.Log("Detect Dungeon_1: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
+      if (One.TF.EscapeFromDungeon)
+      {
+        MessagePack.MessageX00005(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
       if (tile.transform.position.x == 25 && tile.transform.position.y == 2 && tile.transform.position.z == 33)
       {
         Debug.Log("Detect Artharium");
@@ -2126,6 +2140,15 @@ public class DungeonField : MotherBase
       }
     }
     return false;
+  }
+
+  private void DungeonCallSetup(string target_dungeon, float x, float y, float z)
+  {
+    this.DungeonMap = target_dungeon;
+    this.DungeonCall = target_dungeon;
+    One.TF.Field_X = x;
+    One.TF.Field_Y = y;
+    One.TF.Field_Z = z;
   }
 
   private bool LocationFieldDetect(FieldObject field_obj, float x, float y, float z)

@@ -650,7 +650,8 @@ public static partial class Fix
   public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_DESC_9, Fix.QUEST_DESC_10 };
 
 
-  public const string DECISION_BACKTO_HOMETOWN = "ホームタウンへの帰還";
+  public const string DECISION_ESCAPE_FROM_DUNGEON = "遠見の青水晶（ダンジョンからの帰還）";
+  public const string DECISION_TRANSFER_TOWN = "遠見の青水晶（街へのワープ）";
   public const string DECISION_ARTHARIUM_CLIFF = "アーサリウム工場跡地：崖の下へ";
   public const string DECISION_ARTHARIUM_CLIFF_END = "アーサリウム工場跡地：元の通路へ";
   public const string DECISION_ARTHARIUM_CRASH_DOOR = "アーサリウム工場跡地：扉を蹴破れ！";

@@ -661,6 +661,7 @@ public partial class HomeTown : MotherBase
     }
     One.TF.AlreadyRestInn = true;
     One.TF.AlreadyDungeon = false;
+    One.TF.EscapeFromDungeon = false;
     RefreshAllView();
     this.GroupInn.SetActive(false);
 
