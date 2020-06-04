@@ -1872,6 +1872,12 @@ public class DungeonField : MotherBase
         MessagePack.Message101004(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+      if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z))
+      {
+        Debug.Log("Detect Message101005");
+        MessagePack.Message101005(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
     {

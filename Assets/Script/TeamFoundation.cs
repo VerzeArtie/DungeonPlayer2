@@ -506,6 +506,12 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message200030 = value; }
   }
 
+  [SerializeField] protected bool _event_message200040 = false;
+  public bool Event_Message200040 { get { return _event_message200040; } set { _event_message200040 = value; } }
+
+  [SerializeField] protected bool _event_message200050 = false;
+  public bool Event_Message200050 { get { return _event_message200050; } set { _event_message200050 = value; } }
+
   [SerializeField] protected bool _event_message300010 = false;
   public bool Event_Message300010
   {

@@ -223,6 +223,8 @@ public partial class HomeTown : MotherBase
 
   protected Item CurrentSelectBackpack;
 
+  protected bool FirstAction = false;
+    
   // Use this for initialization
   public override void Start()
   {
@@ -271,6 +273,22 @@ public partial class HomeTown : MotherBase
   // Update is called once per frame
   public void Update()
   {
+    if (this.FirstAction == false)
+    {
+      this.FirstAction = true;
+      // クヴェルタ街、奇妙な物体の調査
+      if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
+      {
+        MessagePack.Message200040(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      // 港町コチューシェ、初めのエントリー
+      if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400010 == false)
+      {
+        MessagePack.Message400010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
   }
 
   public void TapConfig()
@@ -295,6 +313,12 @@ public partial class HomeTown : MotherBase
 
   public void TapDungeonPlayer()
   {
+    if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
+    {
+      MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(true);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
@@ -329,6 +353,11 @@ public partial class HomeTown : MotherBase
       TapOK();
       return;
     }
+    if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
+    {
+      MessagePack.Message200050(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
 
     GroupDungeonPlayer.SetActive(false);
     GroupCharacter.SetActive(false);
@@ -360,6 +389,11 @@ public partial class HomeTown : MotherBase
     {
       MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
       TapOK();
+      return;
+    }
+    if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
+    {
+      MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
 
