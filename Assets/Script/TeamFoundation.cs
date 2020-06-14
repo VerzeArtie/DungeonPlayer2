@@ -605,6 +605,12 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message400020 = value; }
   }
 
+  protected bool _event_message400030 = false;
+  public bool Event_Message400030 { get { return _event_message400030; } set { _event_message400030 = value; } }
+
+  protected bool _event_message400040 = false;
+  public bool Event_Message400040 { get { return _event_message400040; } set { _event_message400040 = value; } }
+
   [SerializeField] protected bool _event_message500010 = false;
   public bool Event_Message500010
   {
@@ -631,6 +637,16 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_00008 = false;
   [SerializeField] protected bool _questmain_00009 = false;
   [SerializeField] protected bool _questmain_00010 = false;
+  [SerializeField] protected bool _questmain_update_00001 = false;
+  [SerializeField] protected bool _questmain_update_00002 = false;
+  [SerializeField] protected bool _questmain_update_00003 = false;
+  [SerializeField] protected bool _questmain_update_00004 = false;
+  [SerializeField] protected bool _questmain_update_00005 = false;
+  [SerializeField] protected bool _questmain_update_00006 = false;
+  [SerializeField] protected bool _questmain_update_00007 = false;
+  [SerializeField] protected bool _questmain_update_00008 = false;
+  [SerializeField] protected bool _questmain_update_00009 = false;
+  [SerializeField] protected bool _questmain_update_00010 = false;
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
   [SerializeField] protected bool _questmain_complete_00003 = false;
@@ -651,6 +667,17 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_00008 { get { return _questmain_00008; } set { _questmain_00008 = value; } }
   public bool QuestMain_00009 { get { return _questmain_00009; } set { _questmain_00009 = value; } }
   public bool QuestMain_00010 { get { return _questmain_00010; } set { _questmain_00010 = value; } }
+
+  public bool QuestMain_Update_00001 { get { return _questmain_update_00001; } set { _questmain_update_00001 = value; } }
+  public bool QuestMain_Update_00002 { get { return _questmain_update_00002; } set { _questmain_update_00002 = value; } }
+  public bool QuestMain_Update_00003 { get { return _questmain_update_00003; } set { _questmain_update_00003 = value; } }
+  public bool QuestMain_Update_00004 { get { return _questmain_update_00004; } set { _questmain_update_00004 = value; } }
+  public bool QuestMain_Update_00005 { get { return _questmain_update_00005; } set { _questmain_update_00005 = value; } }
+  public bool QuestMain_Update_00006 { get { return _questmain_update_00006; } set { _questmain_update_00006 = value; } }
+  public bool QuestMain_Update_00007 { get { return _questmain_update_00007; } set { _questmain_update_00007 = value; } }
+  public bool QuestMain_Update_00008 { get { return _questmain_update_00008; } set { _questmain_update_00008 = value; } }
+  public bool QuestMain_Update_00009 { get { return _questmain_update_00009; } set { _questmain_update_00009 = value; } }
+  public bool QuestMain_Update_00010 { get { return _questmain_update_00010; } set { _questmain_update_00010 = value; } }
 
   public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
   public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }

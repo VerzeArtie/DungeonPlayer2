@@ -1872,7 +1872,9 @@ public class DungeonField : MotherBase
         MessagePack.Message101004(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z))
+      if((LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z) &&
+         One.TF.Event_Message400040 == false)
+        )
       {
         Debug.Log("Detect Message101005");
         MessagePack.Message101005(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -3172,11 +3174,30 @@ public class DungeonField : MotherBase
   {
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
+
+    List<bool> updateFlag = new List<bool>();
+    updateFlag.Add(One.TF.QuestMain_Update_00001);
+    updateFlag.Add(One.TF.QuestMain_Update_00002);
+    updateFlag.Add(One.TF.QuestMain_Update_00003);
+    updateFlag.Add(One.TF.QuestMain_Update_00004);
+    updateFlag.Add(One.TF.QuestMain_Update_00005);
+    updateFlag.Add(One.TF.QuestMain_Update_00006);
+    updateFlag.Add(One.TF.QuestMain_Update_00007);
+    updateFlag.Add(One.TF.QuestMain_Update_00008);
+    updateFlag.Add(One.TF.QuestMain_Update_00009);
+    updateFlag.Add(One.TF.QuestMain_Update_00010);
     for (int ii = 0; ii < Fix.QUEST_TITLE_LIST.Count; ii++)
     {
       if (txtEventTitle.text == Fix.QUEST_TITLE_LIST[ii])
       {
-        txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
+        if (updateFlag[ii])
+        {
+          txtEventDescription.text = Fix.QUEST_DESC_LIST_2[ii];
+        }
+        else
+        {
+          txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
+        }
         break;
       }
     }

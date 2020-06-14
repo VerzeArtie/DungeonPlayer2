@@ -207,6 +207,10 @@ public partial class HomeTown : MotherBase
   public Button btnDecisionCancel;
   public Button btnDecisionOK;
 
+  // Menu Button
+  public Button btnCustomEvent1;
+  public Button btnCustomEvent2;
+
   public GameObject groupNowLoading;
 
   // Inner Value
@@ -318,6 +322,16 @@ public partial class HomeTown : MotherBase
       MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && (One.TF.Event_Message400020 == false || One.TF.Event_Message400030 == false))
+    {
+      MessagePack.Message400019(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400020 && One.TF.Event_Message400030 && One.TF.Event_Message400040 == false)
+    {
+      MessagePack.Message400040(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
 
     GroupDungeonPlayer.SetActive(true);
     GroupCharacter.SetActive(false);
@@ -403,6 +417,36 @@ public partial class HomeTown : MotherBase
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(true);
+  }
+
+  public void TapCustomEvent1()
+  {
+
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400020 == false)
+    {
+      MessagePack.Message400020(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else
+    {
+      MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+  }
+
+  public void TapCustomEvent2()
+  {
+
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400030 == false)
+    {
+      MessagePack.Message400030(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else
+    {
+      MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   public void TapDungeon()
@@ -757,6 +801,17 @@ public partial class HomeTown : MotherBase
           RefreshQuestList();
           return;
         }
+        // 画面にクエスト更新メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.QuestUpdate)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
+          // todo
+          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Update_00002 = true; }
+          RefreshQuestList();
+          return;
+        }
         // 画面にクエスト完了メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
         {
@@ -783,19 +838,24 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
           {
             One.TF.AvailableEoneFulnea = true;
-            List<Character> current = One.AvailableCharacters();
-            for (int jj = 0; jj < current.Count; jj++)
-            {
-              if (current[jj].FullName == currentMessage)
-              {
-                NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
-                CharaViewList.Add(charaView);
-                CreateCharaView(contentCharacter, charaView, current[jj], CharaViewList.Count - 1);
-                break;
-              }
-            }
-            RefreshAllView();
           }
+          else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
+          {
+            One.TF.AvailableBillyRaki = true;
+          }
+
+          List<Character> current = One.AvailableCharacters();
+          for (int jj = 0; jj < current.Count; jj++)
+          {
+            if (current[jj].FullName == currentMessage)
+            {
+              NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
+              CharaViewList.Add(charaView);
+              CreateCharaView(contentCharacter, charaView, current[jj], CharaViewList.Count - 1);
+              break;
+            }
+          }
+          RefreshAllView();
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
@@ -816,6 +876,17 @@ public partial class HomeTown : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.AutoSaveWorldEnvironment)
         {
           One.AutoSaveTruthWorldEnvironment();
+          continue;
+        }
+        // クエストビューの表示
+        else if (currentEvent == MessagePack.ActionEvent.ViewQuestDisplay)
+        {
+          GroupDungeonPlayer.SetActive(true);
+          GroupCharacter.SetActive(false);
+          GroupBackpack.SetActive(false);
+          GroupShopItem.SetActive(false);
+          GroupActionCommandSetting.SetActive(false);
+          GroupInn.SetActive(false);
           continue;
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
@@ -1287,6 +1358,13 @@ public partial class HomeTown : MotherBase
     //  rect.localPosition = new Vector3(0, -5 - ii * 100, 0);
     //}
 
+    // メニューボタンの設定
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    {
+      btnCustomEvent1.gameObject.SetActive(true);
+      btnCustomEvent2.gameObject.SetActive(true);
+    }
+
     // キャラクター情報を画面へ反映
     for (int ii = 0; ii < CharaViewList.Count; ii++)
     {
@@ -1420,11 +1498,30 @@ public partial class HomeTown : MotherBase
   {
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
+    List<bool> updateFlag = new List<bool>();
+    updateFlag.Add(One.TF.QuestMain_Update_00001);
+    updateFlag.Add(One.TF.QuestMain_Update_00002);
+    updateFlag.Add(One.TF.QuestMain_Update_00003);
+    updateFlag.Add(One.TF.QuestMain_Update_00004);
+    updateFlag.Add(One.TF.QuestMain_Update_00005);
+    updateFlag.Add(One.TF.QuestMain_Update_00006);
+    updateFlag.Add(One.TF.QuestMain_Update_00007);
+    updateFlag.Add(One.TF.QuestMain_Update_00008);
+    updateFlag.Add(One.TF.QuestMain_Update_00009);
+    updateFlag.Add(One.TF.QuestMain_Update_00010);
+
     for (int ii = 0; ii < Fix.QUEST_TITLE_LIST.Count; ii++)
     {
       if (txtEventTitle.text == Fix.QUEST_TITLE_LIST[ii])
       {
-        txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
+        if (updateFlag[ii])
+        {
+          txtEventDescription.text = Fix.QUEST_DESC_LIST_2[ii];
+        }
+        else
+        {
+          txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
+        }
         break;
       }
     }
