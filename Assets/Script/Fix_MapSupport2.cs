@@ -78,4 +78,11 @@ public partial class Fix
   public const float MAPEVENT_ARTHARIUM_12_X = 56;
   public const float MAPEVENT_ARTHARIUM_12_Y = 0;
   public const float MAPEVENT_ARTHARIUM_12_Z = 2;
+
+  // 山道ルート、ツァルマンの里入口
+  public const string EVENT_BASEFIELD_10_O = "EVENT_BASEFIELD_10_O";
+  public const float EVENT_BASEFIELD_10_X = 52;
+  public const float EVENT_BASEFIELD_10_Y = 6.5f;
+  public const float EVENT_BASEFIELD_10_Z = 38;
+
 }

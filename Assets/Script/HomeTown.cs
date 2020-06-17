@@ -209,7 +209,9 @@ public partial class HomeTown : MotherBase
 
   // Menu Button
   public Button btnCustomEvent1;
+  public Text txtCustomEvent1;
   public Button btnCustomEvent2;
+  public Text txtCustomEvent2;
 
   public GameObject groupNowLoading;
 
@@ -265,6 +267,14 @@ public partial class HomeTown : MotherBase
         One.TF.Event_Message200010 = true;
         MessagePack.Message200010(ref QuestMessageList, ref QuestEventList);
         TapOK();
+        return;
+      }
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    {
+      if (One.TF.Event_Message500010 == false)
+      {
+        MessagePack.Message500010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -330,6 +340,11 @@ public partial class HomeTown : MotherBase
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400020 && One.TF.Event_Message400030 && One.TF.Event_Message400040 == false)
     {
       MessagePack.Message400040(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500020 == false)
+    {
+      MessagePack.Message500019(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
 
@@ -421,16 +436,31 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent1()
   {
-
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400020 == false)
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
-      MessagePack.Message400020(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
+      if (One.TF.Event_Message400020 == false)
+      {
+        MessagePack.Message400020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
-    else
+    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
-      MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
+      if (One.TF.Event_Message500020 == false)
+      {
+        MessagePack.Message500020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.Message500021(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
   }
 
@@ -1362,7 +1392,16 @@ public partial class HomeTown : MotherBase
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "船着き場";
       btnCustomEvent2.gameObject.SetActive(true);
+      txtCustomEvent2.text = "街はずれ";
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    {
+      btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "長老の家";
+      btnCustomEvent2.gameObject.SetActive(false);
+      txtCustomEvent2.text = "";
     }
 
     // キャラクター情報を画面へ反映

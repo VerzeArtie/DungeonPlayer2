@@ -1872,12 +1872,17 @@ public class DungeonField : MotherBase
         MessagePack.Message101004(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      if((LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z) &&
+      if(LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z) &&
          One.TF.Event_Message400040 == false)
-        )
       {
         Debug.Log("Detect Message101005");
         MessagePack.Message101005(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_BASEFIELD_10_X, Fix.EVENT_BASEFIELD_10_Y, Fix.EVENT_BASEFIELD_10_Z) &&
+        One.TF.EventField_10 == false)
+      {
+        MessagePack.Field_000010(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

@@ -21585,7 +21585,9 @@ MonoBehaviour:
   btnDecisionCancel: {fileID: 255996568}
   btnDecisionOK: {fileID: 512852253}
   btnCustomEvent1: {fileID: 1046374311}
+  txtCustomEvent1: {fileID: 537166492}
   btnCustomEvent2: {fileID: 698428709}
+  txtCustomEvent2: {fileID: 135530859}
   groupNowLoading: {fileID: 1512366345}
 --- !u!1 &308250244
 GameObject:
