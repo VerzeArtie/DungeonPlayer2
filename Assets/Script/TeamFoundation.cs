@@ -633,6 +633,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_00008 = false;
   [SerializeField] protected bool _questmain_00009 = false;
   [SerializeField] protected bool _questmain_00010 = false;
+  [SerializeField] protected bool _questmain_00011 = false;
   [SerializeField] protected bool _questmain_update_00001 = false;
   [SerializeField] protected bool _questmain_update_00002 = false;
   [SerializeField] protected bool _questmain_update_00003 = false;
@@ -643,6 +644,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_update_00008 = false;
   [SerializeField] protected bool _questmain_update_00009 = false;
   [SerializeField] protected bool _questmain_update_00010 = false;
+  [SerializeField] protected bool _questmain_update_00011 = false;
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
   [SerializeField] protected bool _questmain_complete_00003 = false;
@@ -653,6 +655,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_complete_00008 = false;
   [SerializeField] protected bool _questmain_complete_00009 = false;
   [SerializeField] protected bool _questmain_complete_00010 = false;
+  [SerializeField] protected bool _questmain_complete_00011 = false;
   public bool QuestMain_00001 { get { return _questmain_00001; } set { _questmain_00001 = value; } }
   public bool QuestMain_00002 { get { return _questmain_00002; } set { _questmain_00002 = value; } }
   public bool QuestMain_00003 { get { return _questmain_00003; } set { _questmain_00003 = value; } }
@@ -663,6 +666,7 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_00008 { get { return _questmain_00008; } set { _questmain_00008 = value; } }
   public bool QuestMain_00009 { get { return _questmain_00009; } set { _questmain_00009 = value; } }
   public bool QuestMain_00010 { get { return _questmain_00010; } set { _questmain_00010 = value; } }
+  public bool QuestMain_00011 { get { return _questmain_00011; } set { _questmain_00011 = value; } }
 
   public bool QuestMain_Update_00001 { get { return _questmain_update_00001; } set { _questmain_update_00001 = value; } }
   public bool QuestMain_Update_00002 { get { return _questmain_update_00002; } set { _questmain_update_00002 = value; } }
@@ -674,6 +678,7 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Update_00008 { get { return _questmain_update_00008; } set { _questmain_update_00008 = value; } }
   public bool QuestMain_Update_00009 { get { return _questmain_update_00009; } set { _questmain_update_00009 = value; } }
   public bool QuestMain_Update_00010 { get { return _questmain_update_00010; } set { _questmain_update_00010 = value; } }
+  public bool QuestMain_Update_00011 { get { return _questmain_update_00011; } set { _questmain_update_00011 = value; } }
 
   public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
   public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }
@@ -685,6 +690,7 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00008 { get { return _questmain_complete_00008; } set { _questmain_complete_00008 = value; } }
   public bool QuestMain_Complete_00009 { get { return _questmain_complete_00009; } set { _questmain_complete_00009 = value; } }
   public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
+  public bool QuestMain_Complete_00011 { get { return _questmain_complete_00011; } set { _questmain_complete_00011 = value; } }
   #endregion
 
   #region "Treasure"

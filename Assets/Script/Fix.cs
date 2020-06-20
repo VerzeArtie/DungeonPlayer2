@@ -656,9 +656,13 @@ public static partial class Fix
   public const string QUEST_DESC_10 = "アーサリウム工場跡地のボスを撃破した後、奥地で奇妙な物体を入手した。本アイテムが何を示す物なのかは全くの不明であり、この場で解析は行えない。本アイテムについてどうやって調査するか方針を決めようと考えたアインは、一旦クヴェルタ街に戻る事とした。クヴェルタ街に戻り、パーティメンバーと会話しよう。";
   public const string QUEST_DESC_10_2 = "アーサリウム工場跡地のボスを撃破した後、奥地で奇妙な物体を入手した。本アイテムが何を示す物なのかは全くの不明であり、この場で解析は行えない。本アイテムについてどうやって調査するか方針を決めようと考えたアインは、一旦クヴェルタ街に戻る事とした。クヴェルタ街に戻り、パーティメンバーと会話しよう。";
 
-  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9, Fix.QUEST_TITLE_10 };
-  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_DESC_9, Fix.QUEST_DESC_10 };
-  public static List<string> QUEST_DESC_LIST_2 = new List<string> { Fix.QUEST_DESC_1_2, Fix.QUEST_DESC_2_2, Fix.QUEST_DESC_3_2, Fix.QUEST_DESC_4_2, Fix.QUEST_DESC_5_2, Fix.QUEST_DESC_6_2, Fix.QUEST_DESC_7_2, Fix.QUEST_DESC_8_2, Fix.QUEST_DESC_9_2, Fix.QUEST_DESC_10_2 };
+  public const string QUEST_TITLE_11 = "国王エルミからの依頼２";
+  public const string QUEST_DESC_11 = "ツァルマンの里からファージル宮殿へと戻ったアイン達は次の指令としてオーランの塔へ赴き、本大陸の視察をしてくるように依頼を受けた。オーランの塔はこのファージル宮殿から北東に進んだ所にある様だ。北東へと進みオーランの塔を目指そう。";
+  public const string QUEST_DESC_11_2 = "ツァルマンの里からファージル宮殿へと戻ったアイン達は次の指令としてオーランの塔へ赴き、本大陸の視察をしてくるように依頼を受けた。オーランの塔はこのファージル宮殿から北東に進んだ所にある様だ。北東へと進みオーランの塔を目指そう。";
+
+  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9, Fix.QUEST_TITLE_10, Fix.QUEST_TITLE_11 };
+  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_DESC_9, Fix.QUEST_DESC_10, Fix.QUEST_DESC_11 };
+  public static List<string> QUEST_DESC_LIST_2 = new List<string> { Fix.QUEST_DESC_1_2, Fix.QUEST_DESC_2_2, Fix.QUEST_DESC_3_2, Fix.QUEST_DESC_4_2, Fix.QUEST_DESC_5_2, Fix.QUEST_DESC_6_2, Fix.QUEST_DESC_7_2, Fix.QUEST_DESC_8_2, Fix.QUEST_DESC_9_2, Fix.QUEST_DESC_10_2, Fix.QUEST_DESC_11_2 };
 
   public const string DECISION_ESCAPE_FROM_DUNGEON = "遠見の青水晶（ダンジョンからの帰還）";
   public const string DECISION_TRANSFER_TOWN = "遠見の青水晶（街へのワープ）";

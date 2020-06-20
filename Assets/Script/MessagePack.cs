@@ -3645,7 +3645,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：い、いえいえ。もちろん喜んで。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
     Message(ref m_list, ref e_list, "エルミ：オーランの塔周辺は突然危険なモンスターも出没する。準備は怠らないように。", ActionEvent.None);
 
