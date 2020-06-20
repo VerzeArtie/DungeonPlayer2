@@ -3439,6 +3439,241 @@ public static class MessagePack
   #region "ファージル宮殿"
   public static void Message700010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "　　【受付嬢：ご用件をどうぞ。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王様にお会いしたい。要件があると伝令の者から教えてもらっている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：エルミ・ジョルジュ国王陛下への謁見ですね。しばらくお待ちください。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：お待たせいたしました。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：それでは、謁見の間へ行かれます様、よろしくお願い申し上げます。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、サンキューな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ皆、ちょっと行ってくるぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：なお、今回の謁見については、アイン様および関係者ご一同様も含めご参席ください。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、そうなのか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：意外よね。たいていは一人ずつだけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：わ・・・私もでしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そりゃ、もちろんさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：俺も入っていいのか！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、あぁ。ああ、まあ、そうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：んだ、そのリアクションは！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハハハ、悪い悪い。冗談だ。もちろん一緒に入ってもらうぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、受付さん。俺とラナ、エオネ、ビリーの４人で入るが問題ないかな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：はい。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあこのメンバーで謁見の間へ向かおう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、謁見の間にて ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ご・・・ご拝受つかまつります。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君。よく来てくれたね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：それから、ラナ君、ビリー君、エオネ君も来てくれてありがとう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：喋り方については楽にしてくれて構わないよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：は、はい。それでは・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今回、港町コチューシェには行ってみて、調査する事はできました・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかし、港からは船が出てないため、ヴィンスガルデ王国に渡ることはできず。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、港町から北に向けて行くルートは例の山道ルートしか残ってなかったので。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこへ向けて俺達は万全の準備を整えて・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：あ、ちょっと良いかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：そのあたりについてはアイン君も喋る意味はあまりないと思ってるよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・いえ、そういうわけでは。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　国王エルミは、いつになく威厳あるオーラを前面に放ち始めた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君、普段通り気軽にしゃべってくれて良いんだよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：これは僕からのお願いでもある。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：僕はね。アイン君、ラナ君、エオネ君、ビリー君。君たちがここに今来てくれている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：その事に関する【理】を見出すのが僕の役割なんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【理】・・・ですか？そう言われても・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：大丈夫。ありのままで喋ってくれれば良いから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃまあお言葉に甘えまして・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：正直な所、こうなるとは思ってなかったんですよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネからの依頼内容から始まって、ヴァスタの叔父さんの所に寄ってみる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、アイテムを見せたんだがこれがなんと解析不可。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しょうがないから、解析マテリアルを取りに行くと、奇妙な物体も同時に入手。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、戻ってみてヴァスタ叔父さんに見せるが、結果は予想通りガハハ笑いの一点張り。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：道筋としては成り行きで港町コチューシェへ向かったんだが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：これといった情報なし。ヒントなし。ついでに船も出ない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しょうがないから山道ルートでツァルマンの里を探索。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこで、色々話を聞きつつ、せっかく通してもらえそうだったが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ビリーのせいで追い出され、今に至る。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：お、おい！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：なかなか面白いね。やっぱりアイン君の喋りは興味が湧くよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あの、すみません。ちょっと聞いても良いでしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ああ、何でも聞いてくれて構わないよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナが持っていた例の剣。あれは国王様がラナに渡したものですよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：なっ！ちょっ！ちょ、何言ってるのよ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アハハ。ラナ君、そこまで慌てなくても良いよ。ここまで来た以上隠す必要はもうないんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：確かに、その剣はファージル宮殿の宝物庫に厳重に保管していた剣だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：僕がラナ君に頼んで管理してもらう事にした。間違いないよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：やっぱりそうだったのか。何か違和感があったからさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ど、ど、どーいうふーに違和感があったって言うわけ！！？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：い、いやいやいや・・・悪い、単なる直感だ。ハハハ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、もう一つだけいいですか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：いくつでも良いよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺が入手した奇妙な物体、つまりObsidianStoneとはいったい何なんでしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：その宝剣にはめるためのもので、間違いないよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、ちょっと待ってください。それっておかしいですよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっとバカアイン。何突っかかってんのよ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ラナ君。良いんだよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君、続けて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ええとですね・・・つまり・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王様は今何等かの事情があって、動けない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そう考えれば辻褄としては合う事になりますよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：いいや。「ハズレ」と答えておこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：え！？あれ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：うん。じゃあ少しだけ譲歩しよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君が最初にここに訪れる前に", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：僕はとある人とこの謁見の間で情報を取り交わしている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：その相手とは？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：え、だってそれは毎日山のようにやってるから、誰って言われても・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：え・・・？まさか！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　アインはふと、後ろで黙っているエオネの方に顔を向けてみた！　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、そうか！そういう事か！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何だよ俺！そんな事にも気づかずにずっと旅してたって事か！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッハッハッハ！いやいや、そうなのか！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：でも、アイン君なら薄々と勘づいてたんじゃないかな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、こればっかりはノーマークでしたね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネ、あとでちょっとだけ教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：えっ、あ。ハイ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：って事は、そうか。俺が戻された理由もようやくわかってきた。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王様。ありがとうございました！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：さて、どこまで合ってるか。後のお楽しみだね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、これにて失礼いたします。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：あ、すまないがちょっと待ってくれないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：実は別の案件を頼みたい事があるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：はい、なんでしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ここから北東に進み、オーランの塔に上り、本大陸全土の視察をしてきてくれないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーランの塔？そんな場所があるんですか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ああ、ちょっと面倒なお使いなんだけど、やってもらえるかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：い、いえいえ。もちろん喜んで。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_2 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+    Message(ref m_list, ref e_list, "エルミ：オーランの塔周辺は突然危険なモンスターも出没する。準備は怠らないように。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：これは軍資金だ。好きに使ってくれて良いからね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【 20000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "20000", ActionEvent.GetGold);
+
+    Message(ref m_list, ref e_list, "アイン：あ、わざわざすみません！大事に使います！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：じゃ、頼んだよ。くれぐれも気をつけて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：はい！失礼いたします！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、エントランスにて ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：オーランの塔・・・か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：が、その前にエオネ。ちょっと後で教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：ハ・・・ハイ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、いや今は良いんだ。タイミングが良い時によろしくな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・ハイ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よーし、じゃオーランの塔へ向けて出発とするか！", ActionEvent.None);
   }
   #endregion
 
