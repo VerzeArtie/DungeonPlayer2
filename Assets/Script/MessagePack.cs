@@ -3439,7 +3439,13 @@ public static class MessagePack
   #region "ファージル宮殿"
   public static void Message700010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "　　【受付嬢：ご用件をどうぞ。】", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速ファージル宮殿に行くとしよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ ファージル宮殿にて ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：ファージル宮殿へようこそ。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【受付嬢：アイン・ウォーレンス様ですね。ご用件をどうぞ。】", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：国王様にお会いしたい。要件があると伝令の者から教えてもらっている。", ActionEvent.None);
 
