@@ -18,6 +18,7 @@ public class FieldObject : MonoBehaviour
     Door_Gold,
     Crystal,
     ObsidianStone,
+    FloatingTile,
     Boss,
   }
 

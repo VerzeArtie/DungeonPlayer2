@@ -56,6 +56,10 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Artharium_Bridge2;
   public TileInformation prefab_Artharium_Wall;
   public TileInformation prefab_Artharium_Gate;
+  public TileInformation prefab_Ohran_Normal;
+  public TileInformation prefab_Ohran_Wall;
+  public TileInformation prefab_Ohran_FloatTile;
+  public TileInformation prefab_Ohran_WarpHole;
   public TileInformation prefab_Upstair;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -67,6 +71,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_DoorCopper;
   public FieldObject prefab_Crystal;
   public FieldObject prefab_ObsidianStone;
+  public FieldObject prefab_FloatingTile;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -152,6 +157,7 @@ public class DungeonField : MotherBase
   private bool NextTapOk = false; // 画面再描画が必要案ものについて、一旦メソッドを抜け次のフレーム更新(Update)で即時TapOKを自動処理する。
   private float NextTapOkSleep = 0.0f;
   private float NextTapOkCounter = 0.0f;
+  private FieldObject CurrentEventObject = null;
 
   private string currentDecision = String.Empty;
 
@@ -200,6 +206,10 @@ public class DungeonField : MotherBase
     PrefabList.Add("Artharium_Bridge1");
     PrefabList.Add("Artharium_Bridge2");
     PrefabList.Add("Artharium_Gate");
+    PrefabList.Add("Ohran_Normal");
+    PrefabList.Add("Ohran_Wall");
+    PrefabList.Add("Ohran_FloatTile");
+    PrefabList.Add("Ohran_WarpHole");
     PrefabList.Add("Upstair");
 
     // オブジェクトリストの設定
@@ -210,6 +220,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Door_Copper");
     ObjectList.Add("Crystal");
     ObjectList.Add("ObsidianStone");
+    ObjectList.Add("FloatingTile");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -625,11 +636,46 @@ public class DungeonField : MotherBase
 
     bool detectKey = false;
     TileInformation tile = null;
+
     if (Input.GetKeyDown(KeyCode.RightArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Right);
       if (BlockCheck(Player, tile) == false)
       {
+        // 移動直前、フィールドオブジェクトの検出および対応。
+        Vector3 next = new Vector3(this.Player.transform.position.x + 1.0f,
+                                   this.Player.transform.position.y - 1.0f,
+                                   this.Player.transform.position.z);
+        FieldObject fieldObjBefore = SearchObject(next);
+        if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.FloatingTile)
+        {
+          CurrentEventObject = fieldObjBefore;
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Right, 1); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Right, 2); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Right, 3); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y + 12.0f, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Right, 4); TapOK();
+            return;
+          }
+        }
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
         return;
       }
 
@@ -640,6 +686,40 @@ public class DungeonField : MotherBase
       tile = SearchNextTile(this.Player.transform.position, Direction.Left);
       if (BlockCheck(Player, tile) == false)
       {
+        // 移動直前、フィールドオブジェクトの検出および対応。
+        Vector3 next = new Vector3(this.Player.transform.position.x - 1.0f,
+                                   this.Player.transform.position.y - 1.0f,
+                                   this.Player.transform.position.z);
+        FieldObject fieldObjBefore = SearchObject(next);
+        if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.FloatingTile)
+        {
+          CurrentEventObject = fieldObjBefore;
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Left, 1); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Left, 2); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Left, 3); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y + 12.0f, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Left, 4); TapOK();
+            return;
+          }
+        }
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
         return;
       }
 
@@ -650,6 +730,46 @@ public class DungeonField : MotherBase
       tile = SearchNextTile(this.Player.transform.position, Direction.Top);
       if (BlockCheck(Player, tile) == false)
       {
+        // 移動直前、フィールドオブジェクトの検出および対応。
+        Vector3 next = new Vector3(this.Player.transform.position.x,
+                                   this.Player.transform.position.y - 1.0f,
+                                   this.Player.transform.position.z + 1.0f);
+        FieldObject fieldObjBefore = SearchObject(next);
+        if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.FloatingTile)
+        {
+          CurrentEventObject = fieldObjBefore;
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Top, 1); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Top, 2); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Top, 3); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y + 12.0f, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Top, 4); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_4_X, Fix.OHRANTOWER_FloatingTile_4_Y, Fix.OHRANTOWER_FloatingTile_4_Z))
+          {
+            One.TF.FieldObject_OhranTower_00004 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Top, 5); TapOK();
+            return;
+          }
+        }
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
         return;
       }
 
@@ -660,6 +780,47 @@ public class DungeonField : MotherBase
       tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
       if (BlockCheck(Player, tile) == false)
       {
+        // 移動直前、フィールドオブジェクトの検出および対応。
+        Vector3 next = new Vector3(this.Player.transform.position.x,
+                                   this.Player.transform.position.y - 1.0f,
+                                   this.Player.transform.position.z - 1.0f);
+        FieldObject fieldObjBefore = SearchObject(next);
+        if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.FloatingTile)
+        {
+          CurrentEventObject = fieldObjBefore;
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Bottom, 1); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_1_Z))
+          {
+            One.TF.FieldObject_OhranTower_00001 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Bottom, 2); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Bottom, 3); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y + 12.0f, Fix.OHRANTOWER_FloatingTile_2_Z))
+          {
+            One.TF.FieldObject_OhranTower_00002 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Bottom, 4); TapOK();
+            return;
+          }
+          if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FloatingTile_4_X, Fix.OHRANTOWER_FloatingTile_4_Y, Fix.OHRANTOWER_FloatingTile_4_Z + 13.0f))
+          {
+            One.TF.FieldObject_OhranTower_00004 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, Direction.Bottom, 6); TapOK();
+            return;
+          }
+
+        }
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
         return;
       }
 
@@ -1388,6 +1549,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
           RefreshQuestList();
           return;
         }
@@ -1408,6 +1570,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_Complete_00008 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_Complete_00010 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_Complete_00011 = true; }
           RefreshQuestList();
           return;
         }
@@ -1514,6 +1677,66 @@ public class DungeonField : MotherBase
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjTop)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
+                                                                     this.CurrentEventObject.transform.position.y,
+                                                                     this.CurrentEventObject.transform.position.z + 1.0f);
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjBottom)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
+                                                                     this.CurrentEventObject.transform.position.y,
+                                                                     this.CurrentEventObject.transform.position.z - 1.0f);
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjLeft)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x - 1.0f,
+                                                                     this.CurrentEventObject.transform.position.y,
+                                                                     this.CurrentEventObject.transform.position.z);
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjRight)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x + 1.0f,
+                                                                     this.CurrentEventObject.transform.position.y,
+                                                                     this.CurrentEventObject.transform.position.z);
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjRise)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
+                                                                     this.CurrentEventObject.transform.position.y + 1.0f,
+                                                                     this.CurrentEventObject.transform.position.z);
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjFall)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
+                                                                     this.CurrentEventObject.transform.position.y - 1.0f,
+                                                                     this.CurrentEventObject.transform.position.z);
+          }
+          continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
@@ -1872,7 +2095,7 @@ public class DungeonField : MotherBase
         MessagePack.Message101004(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      if(LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z) &&
+      if (LocationDetect(tile, Fix.MAPEVENT_ARTHARIUM_12_X, Fix.MAPEVENT_ARTHARIUM_12_Y, Fix.MAPEVENT_ARTHARIUM_12_Z) &&
          One.TF.Event_Message400040 == false)
       {
         Debug.Log("Detect Message101005");
@@ -1994,6 +2217,11 @@ public class DungeonField : MotherBase
         DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, 25, 3, 32);
         return true;
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+      {
+        DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -4, 10, 33);
+        return true;
+      }
     }
 
     // Town , Castle
@@ -2038,11 +2266,6 @@ public class DungeonField : MotherBase
       else if (tile.transform.position.x == -32 && tile.transform.position.y == 0.5 && tile.transform.position.z == 67)
       {
         this.HomeTownCall = Fix.TOWN_DALE;
-        return true;
-      }
-      else if (tile.transform.position.x == -4 && tile.transform.position.y == 9 && tile.transform.position.z == 34)
-      {
-        this.HomeTownCall = Fix.TOWER_OHRAN;
         return true;
       }
       else if (tile.transform.position.x == 59 && tile.transform.position.y == 0.5 && tile.transform.position.z == 92)
@@ -2093,6 +2316,16 @@ public class DungeonField : MotherBase
         One.TF.Field_X = 1;
         One.TF.Field_Y = 1;
         One.TF.Field_Z = 1;
+        return true;
+      }
+      if (tile.transform.position.x == -4 && tile.transform.position.y == 9 && tile.transform.position.z == 34)
+      {
+        Debug.Log("Detect Artharium");
+        this.DungeonMap = Fix.MAPFILE_OHRAN_TOWER;
+        this.DungeonCall = Fix.DUNGEON_OHRAN_TOWER;
+        One.TF.Field_X = 0;
+        One.TF.Field_Y = 1;
+        One.TF.Field_Z = 0;
         return true;
       }
       if (tile.transform.position.x == -27 && tile.transform.position.y == 0 && tile.transform.position.z == -7)
@@ -2305,25 +2538,21 @@ public class DungeonField : MotherBase
   {
     if (tile == null)
     {
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       Debug.Log("Tile is null.");
       return false;
     }
     if (tile != null && tile.MoveCost >= 999)
     {
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       Debug.Log("Tile next field: " + tile.field.ToString());
       return false;
     }
     if (tile.transform.position.y - Player.transform.position.y >= 0.0f)
     {
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       Debug.Log("Tile next field height is too high: " + (tile.transform.position.y - Player.transform.position.y).ToString());
       return false;
     }
     if (tile.transform.position.y - Player.transform.position.y <= -5.0f)
     {
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       Debug.Log("Tile next field height is too low: " + (tile.transform.position.y - Player.transform.position.y).ToString());
       return false;
     }
@@ -2560,6 +2789,22 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Artharium_Gate, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Ohran_Normal")
+    {
+      current = Instantiate(prefab_Ohran_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Ohran_Wall")
+    {
+      current = Instantiate(prefab_Ohran_Wall, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Ohran_FloatTile")
+    {
+      current = Instantiate(prefab_Ohran_FloatTile, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Ohran_WarpHole")
+    {
+      current = Instantiate(prefab_Ohran_WarpHole, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Upstair")
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
@@ -2634,6 +2879,14 @@ public class DungeonField : MotherBase
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
     }
+    else if (obj_name == "FloatingTile")
+    {
+      current = Instantiate(prefab_FloatingTile, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.FloatingTile;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
     else
     {
       Debug.Log("AddFieldObj not found... " + obj_name);
@@ -2641,6 +2894,7 @@ public class DungeonField : MotherBase
 
     if (current != null)
     {
+      current.gameObject.SetActive(true);
       FieldObjList.Add(current);
     }
   }
@@ -3069,6 +3323,36 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z));
       }
     }
+    else if (map_data == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      if (One.TF.FieldObject_OhranTower_00001)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_1_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00002)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y, Fix.OHRANTOWER_FloatingTile_2_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_2_X, Fix.OHRANTOWER_FloatingTile_2_Y + 12.0f, Fix.OHRANTOWER_FloatingTile_2_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00004)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_4_X, Fix.OHRANTOWER_FloatingTile_4_Y, Fix.OHRANTOWER_FloatingTile_4_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_4_X, Fix.OHRANTOWER_FloatingTile_4_Y, Fix.OHRANTOWER_FloatingTile_4_Z + 13.0f));
+      }
+    }
+  }
+
+  private void MoveFieldObject(List<FieldObject> list, Vector3 src, Vector3 dst)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (FieldObjList[ii].transform.position == src)
+      {
+        FieldObject current = FieldObjList[ii];
+        current.transform.position = dst;
+        Debug.Log("detect field ohran current.transform.position " + current.transform.position.ToString());
+        return;
+      }
+    }
+
   }
 
   private void RemoveFieldObject(List<FieldObject> list, Vector3 position)
@@ -3181,31 +3465,25 @@ public class DungeonField : MotherBase
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
 
-    List<bool> updateFlag = new List<bool>();
-    updateFlag.Add(One.TF.QuestMain_Update_00001);
-    updateFlag.Add(One.TF.QuestMain_Update_00002);
-    updateFlag.Add(One.TF.QuestMain_Update_00003);
-    updateFlag.Add(One.TF.QuestMain_Update_00004);
-    updateFlag.Add(One.TF.QuestMain_Update_00005);
-    updateFlag.Add(One.TF.QuestMain_Update_00006);
-    updateFlag.Add(One.TF.QuestMain_Update_00007);
-    updateFlag.Add(One.TF.QuestMain_Update_00008);
-    updateFlag.Add(One.TF.QuestMain_Update_00009);
-    updateFlag.Add(One.TF.QuestMain_Update_00010);
-    for (int ii = 0; ii < Fix.QUEST_TITLE_LIST.Count; ii++)
+    if (quest_name == Fix.QUEST_TITLE_1) { txtEventDescription.text = Fix.QUEST_DESC_1; }
+    if (quest_name == Fix.QUEST_TITLE_2) { txtEventDescription.text = Fix.QUEST_DESC_2; }
+    if (quest_name == Fix.QUEST_TITLE_3) { txtEventDescription.text = Fix.QUEST_DESC_3; }
+    if (quest_name == Fix.QUEST_TITLE_4) { txtEventDescription.text = Fix.QUEST_DESC_4; }
+    if (quest_name == Fix.QUEST_TITLE_5) { txtEventDescription.text = Fix.QUEST_DESC_5; }
+    if (quest_name == Fix.QUEST_TITLE_6) { txtEventDescription.text = Fix.QUEST_DESC_6; }
+    if (quest_name == Fix.QUEST_TITLE_7) { txtEventDescription.text = Fix.QUEST_DESC_7; }
+    if (quest_name == Fix.QUEST_TITLE_8) { txtEventDescription.text = Fix.QUEST_DESC_8; }
+    if (quest_name == Fix.QUEST_TITLE_9) { txtEventDescription.text = Fix.QUEST_DESC_9; }
+    if (quest_name == Fix.QUEST_TITLE_10) { txtEventDescription.text = Fix.QUEST_DESC_10; }
+    if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
+
+    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
     {
-      if (txtEventTitle.text == Fix.QUEST_TITLE_LIST[ii])
-      {
-        if (updateFlag[ii])
-        {
-          txtEventDescription.text = Fix.QUEST_DESC_LIST_2[ii];
-        }
-        else
-        {
-          txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
-        }
-        break;
-      }
+      txtEventDescription.text = Fix.QUEST_DESC_2_2;
+    }
+    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message500020)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_2_3;
     }
   }
 

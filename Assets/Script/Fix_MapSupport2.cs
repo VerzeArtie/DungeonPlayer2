@@ -85,4 +85,35 @@ public partial class Fix
   public const float EVENT_BASEFIELD_10_Y = 6.5f;
   public const float EVENT_BASEFIELD_10_Z = 38;
 
+  //// オーランの塔、一層、右側（下）
+  //public const string EVENT_OHRANTOWER_1_O = "EVENT_OHRANTOWER_1_O";
+  //public const float EVENT_OHRANTOWER_1_X = 10;
+  //public const float EVENT_OHRANTOWER_1_Y = 0;
+  //public const float EVENT_OHRANTOWER_1_Z = 1;
+
+  //// オーランの塔、二層、右側（上）
+  //public const string EVENT_OHRANTOWER_2_O = "EVENT_OHRANTOWER_2_O";
+  //public const float EVENT_OHRANTOWER_2_X = 10;
+  //public const float EVENT_OHRANTOWER_2_Y = 8;
+  //public const float EVENT_OHRANTOWER_2_Z = 1;
+
+  //// オーランの塔、一層、左側（下）
+  //public const string EVENT_OHRANTOWER_3_O = "EVENT_OHRANTOWER_3_O";
+  //public const float EVENT_OHRANTOWER_3_X = -16;
+  //public const float EVENT_OHRANTOWER_3_Y = 0;
+  //public const float EVENT_OHRANTOWER_3_Z = 1;
+
+  //// オーランの塔、一層、左側（上）
+  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
+  //public const float EVENT_OHRANTOWER_4_X = -16;
+  //public const float EVENT_OHRANTOWER_4_Y = 12;
+  //public const float EVENT_OHRANTOWER_4_Z = 1;
+
+  //// オーランの塔、二層、中央左岸（入口）
+  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
+  //public const float EVENT_OHRANTOWER_4_X = -16;
+  //public const float EVENT_OHRANTOWER_4_Y = 12;
+  //public const float EVENT_OHRANTOWER_4_Z = 1;
+
+
 }

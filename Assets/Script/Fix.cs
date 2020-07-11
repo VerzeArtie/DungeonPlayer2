@@ -618,51 +618,39 @@ public static partial class Fix
 
   public const string QUEST_TITLE_1 = "国内外遠征許可証の入手";
   public const string QUEST_DESC_1 = "ファージル宮殿へと向かい、遠征許可証を入手しよう。ファージル宮殿はアンシェットの町から川沿いに北へ進めば見えてくる。身支度が整い次第、すぐに出発しよう。";
-  public const string QUEST_DESC_1_2 = "ファージル宮殿へと向かい、遠征許可証を入手しよう。ファージル宮殿はアンシェットの町から川沿いに北へ進めば見えてくる。身支度が整い次第、すぐに出発しよう。";
 
   public const string QUEST_TITLE_2 = "国王エルミからの依頼";
   public const string QUEST_DESC_2 = "国内外遠征許可証を受理した際、国王エルミよりファージルエリアの港町コチューシェへ赴き調査を行うように依頼された。港町コチューシェはファージル区域の東側の海沿いにある。まずは東方面へ遠征してみよう。";
   public const string QUEST_DESC_2_2 = "港町コチューシェに着いたアイン達は【奇妙な物体】が何であるかを知るため、ツァルマンの里へ向かう事を決意した。ツァルマンの里の詳細な場所は把握出来ていないが、旅を続ける事で見つけられるとアインは直感していた。まずは、北方面のヴィンスガルデ王国に続く山道ルートの方へ歩を進める事にした。";
+  public const string QUEST_DESC_2_3 = "ツァルマンの里にたどり着いたアイン達は、里の長老と話をしていたが、その途中で突如追い返されてしまった。その直後、使者からの伝令により一度ファージル宮殿へ戻るよう告げられた。行く先を失ったアインはひとまず使者の伝令に従いファージル宮殿へと戻り、事の顛末を国王に報告する事とした。";
 
   public const string QUEST_TITLE_3 = "鍛冶屋ヴァスタと会話";
   public const string QUEST_DESC_3 = "鍛冶屋ヴァスタに会いに行こう。ヴァスタはファージル宮殿から東の方角へ真っ直ぐ進んだ所にあるクヴェルタ街に住んでいる。";
-  public const string QUEST_DESC_3_2 = "鍛冶屋ヴァスタに会いに行こう。ヴァスタはファージル宮殿から東の方角へ真っ直ぐ進んだ所にあるクヴェルタ街に住んでいる。";
 
   public const string QUEST_TITLE_4 = "ゼタニウム鉱石を採取";
   public const string QUEST_DESC_4 = "ゼタニウム鉱石を５つ採取する様に依頼された。ゼタニウム鉱石はアーサリウム工場跡地のどこかにある様だ。謎のアイテムの正体を掴むためにも是非とも採取してこよう。";
-  public const string QUEST_DESC_4_2 = "ゼタニウム鉱石を５つ採取する様に依頼された。ゼタニウム鉱石はアーサリウム工場跡地のどこかにある様だ。謎のアイテムの正体を掴むためにも是非とも採取してこよう。";
 
   public const string QUEST_TITLE_5 = "マトックを探せ";
   public const string QUEST_DESC_5 = "アーサリウム工場跡地のどこかにマトックがあるという事をエオネ・フルネアから教えてもらった。アーサリウム工場跡地内をくまなく探して、マトックを見つけ出そう。マトックを使えば岩壁を崩す事ができるはずだ。";
-  public const string QUEST_DESC_5_2 = "アーサリウム工場跡地のどこかにマトックがあるという事をエオネ・フルネアから教えてもらった。アーサリウム工場跡地内をくまなく探して、マトックを見つけ出そう。マトックを使えば岩壁を崩す事ができるはずだ。";
 
   public const string QUEST_TITLE_6 = "扉の鍵を探せ";
   public const string QUEST_DESC_6 = "アーサリウム工場跡地の通路を進めていると大きな扉が見つかった。扉は施錠されており、鍵が無い限り開放は難しい。アーサリウム工場跡地内のどこかに鍵があるはずだ。探してみよう。";
-  public const string QUEST_DESC_6_2 = "アーサリウム工場跡地の通路を進めていると大きな扉が見つかった。扉は施錠されており、鍵が無い限り開放は難しい。アーサリウム工場跡地内のどこかに鍵があるはずだ。探してみよう。";
 
   public const string QUEST_TITLE_7 = "猛獣を撃破せよ";
   public const string QUEST_DESC_7 = "細い通路の手前口にある看板では、こう示されていた。『本エリア奥にて凶暴な生物が発生。至急、本通路を封鎖する。』\r\n\r\n通常とは違った強力なモンスターが待ち構えている可能性がある。本エリアでは慎重に探索を進めて行こう。";
-  public const string QUEST_DESC_7_2 = "細い通路の手前口にある看板では、こう示されていた。『本エリア奥にて凶暴な生物が発生。至急、本通路を封鎖する。』\r\n\r\n通常とは違った強力なモンスターが待ち構えている可能性がある。本エリアでは慎重に探索を進めて行こう。";
 
   public const string QUEST_TITLE_8 = "毒から身を守ろう";
   public const string QUEST_DESC_8 = "アーサリウム工場跡地を探索している最中、毒で充満しているエリアを発見した。対策なしでこのエリアにこれ以上足を踏み入れるわけにはいかない。毒から身を守れるアイテムを探してこよう。アイテムは、マトックを見つけた区画内のどこかにあるはずだ。";
-  public const string QUEST_DESC_8_2 = "アーサリウム工場跡地を探索している最中、毒で充満しているエリアを発見した。対策なしでこのエリアにこれ以上足を踏み入れるわけにはいかない。毒から身を守れるアイテムを探してこよう。アイテムは、マトックを見つけた区画内のどこかにあるはずだ。";
 
   public const string QUEST_TITLE_9 = "奥に潜む不穏な気配";
   public const string QUEST_DESC_9 = "中央通路の扉を解除した後、ただならぬ雰囲気をパーティ全員は感じ取った。この先、明らかに何かが待ち受けている。アイン達は気を引き締めて奥へと進もうとしている。準備を万全にして挑んだ方が良いだろう。";
-  public const string QUEST_DESC_9_2 = "中央通路の扉を解除した後、ただならぬ雰囲気をパーティ全員は感じ取った。この先、明らかに何かが待ち受けている。アイン達は気を引き締めて奥へと進もうとしている。準備を万全にして挑んだ方が良いだろう。";
 
   public const string QUEST_TITLE_10 = "奇妙な物体に関する調査";
   public const string QUEST_DESC_10 = "アーサリウム工場跡地のボスを撃破した後、奥地で奇妙な物体を入手した。本アイテムが何を示す物なのかは全くの不明であり、この場で解析は行えない。本アイテムについてどうやって調査するか方針を決めようと考えたアインは、一旦クヴェルタ街に戻る事とした。クヴェルタ街に戻り、パーティメンバーと会話しよう。";
-  public const string QUEST_DESC_10_2 = "アーサリウム工場跡地のボスを撃破した後、奥地で奇妙な物体を入手した。本アイテムが何を示す物なのかは全くの不明であり、この場で解析は行えない。本アイテムについてどうやって調査するか方針を決めようと考えたアインは、一旦クヴェルタ街に戻る事とした。クヴェルタ街に戻り、パーティメンバーと会話しよう。";
 
   public const string QUEST_TITLE_11 = "国王エルミからの依頼２";
   public const string QUEST_DESC_11 = "ツァルマンの里からファージル宮殿へと戻ったアイン達は次の指令としてオーランの塔へ赴き、本大陸の視察をしてくるように依頼を受けた。オーランの塔はこのファージル宮殿から北東に進んだ所にある様だ。北東へと進みオーランの塔を目指そう。";
-  public const string QUEST_DESC_11_2 = "ツァルマンの里からファージル宮殿へと戻ったアイン達は次の指令としてオーランの塔へ赴き、本大陸の視察をしてくるように依頼を受けた。オーランの塔はこのファージル宮殿から北東に進んだ所にある様だ。北東へと進みオーランの塔を目指そう。";
 
-  public static List<string> QUEST_TITLE_LIST = new List<string> { Fix.QUEST_TITLE_1, Fix.QUEST_TITLE_2, Fix.QUEST_TITLE_3, Fix.QUEST_TITLE_4, Fix.QUEST_TITLE_5, Fix.QUEST_TITLE_6, Fix.QUEST_TITLE_7, Fix.QUEST_TITLE_8, Fix.QUEST_TITLE_9, Fix.QUEST_TITLE_10, Fix.QUEST_TITLE_11 };
-  public static List<string> QUEST_DESC_LIST = new List<string> { Fix.QUEST_DESC_1, Fix.QUEST_DESC_2, Fix.QUEST_DESC_3, Fix.QUEST_DESC_4, Fix.QUEST_DESC_5, Fix.QUEST_DESC_6, Fix.QUEST_DESC_7, Fix.QUEST_DESC_8, Fix.QUEST_DESC_9, Fix.QUEST_DESC_10, Fix.QUEST_DESC_11 };
-  public static List<string> QUEST_DESC_LIST_2 = new List<string> { Fix.QUEST_DESC_1_2, Fix.QUEST_DESC_2_2, Fix.QUEST_DESC_3_2, Fix.QUEST_DESC_4_2, Fix.QUEST_DESC_5_2, Fix.QUEST_DESC_6_2, Fix.QUEST_DESC_7_2, Fix.QUEST_DESC_8_2, Fix.QUEST_DESC_9_2, Fix.QUEST_DESC_10_2, Fix.QUEST_DESC_11_2 };
 
   public const string DECISION_ESCAPE_FROM_DUNGEON = "遠見の青水晶（ダンジョンからの帰還）";
   public const string DECISION_TRANSFER_TOWN = "遠見の青水晶（街へのワープ）";
@@ -885,6 +873,7 @@ public static partial class Fix
 
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
+  public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
   public const string DUNGEON_VELGUS_SEA_TEMPLE = "ヴェルガス海底神殿";
   public const string DUNGEON_GATE_OF_DHAL = "ダルの門";
   public const string DUNGEON_RUINS_OF_SARITAN = "廃墟サリタン";
@@ -928,7 +917,7 @@ public static partial class Fix
   public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
   public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
-  public const string MAPFILE_OHRAN = "MapData_Ohran.txt";
+  public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
   public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
   public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
   public const string MAPFILE_DISKEL = "MapData_Diskel.txt";

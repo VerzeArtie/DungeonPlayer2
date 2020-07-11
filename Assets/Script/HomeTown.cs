@@ -258,7 +258,15 @@ public partial class HomeTown : MotherBase
         One.TF.Event_Message100020 = true;
         MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
         TapOK();
+        return;
       }
+
+      if (One.TF.Event_Message500020 && One.TF.Event_Message700010 == false)
+      {
+        MessagePack.Message700010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
@@ -838,8 +846,6 @@ public partial class HomeTown : MotherBase
           this.txtSystemMessage.text = currentMessage;
           this.panelSystemMessage.SetActive(true);
 
-          // todo
-          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Update_00002 = true; }
           RefreshQuestList();
           return;
         }
@@ -1540,32 +1546,26 @@ public partial class HomeTown : MotherBase
   {
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
-    List<bool> updateFlag = new List<bool>();
-    updateFlag.Add(One.TF.QuestMain_Update_00001);
-    updateFlag.Add(One.TF.QuestMain_Update_00002);
-    updateFlag.Add(One.TF.QuestMain_Update_00003);
-    updateFlag.Add(One.TF.QuestMain_Update_00004);
-    updateFlag.Add(One.TF.QuestMain_Update_00005);
-    updateFlag.Add(One.TF.QuestMain_Update_00006);
-    updateFlag.Add(One.TF.QuestMain_Update_00007);
-    updateFlag.Add(One.TF.QuestMain_Update_00008);
-    updateFlag.Add(One.TF.QuestMain_Update_00009);
-    updateFlag.Add(One.TF.QuestMain_Update_00010);
 
-    for (int ii = 0; ii < Fix.QUEST_TITLE_LIST.Count; ii++)
+    if (quest_name == Fix.QUEST_TITLE_1) { txtEventDescription.text = Fix.QUEST_DESC_1; }
+    if (quest_name == Fix.QUEST_TITLE_2) { txtEventDescription.text = Fix.QUEST_DESC_2; }
+    if (quest_name == Fix.QUEST_TITLE_3) { txtEventDescription.text = Fix.QUEST_DESC_3; }
+    if (quest_name == Fix.QUEST_TITLE_4) { txtEventDescription.text = Fix.QUEST_DESC_4; }
+    if (quest_name == Fix.QUEST_TITLE_5) { txtEventDescription.text = Fix.QUEST_DESC_5; }
+    if (quest_name == Fix.QUEST_TITLE_6) { txtEventDescription.text = Fix.QUEST_DESC_6; }
+    if (quest_name == Fix.QUEST_TITLE_7) { txtEventDescription.text = Fix.QUEST_DESC_7; }
+    if (quest_name == Fix.QUEST_TITLE_8) { txtEventDescription.text = Fix.QUEST_DESC_8; }
+    if (quest_name == Fix.QUEST_TITLE_9) { txtEventDescription.text = Fix.QUEST_DESC_9; }
+    if (quest_name == Fix.QUEST_TITLE_10) { txtEventDescription.text = Fix.QUEST_DESC_10; }
+    if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
+
+    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
     {
-      if (txtEventTitle.text == Fix.QUEST_TITLE_LIST[ii])
-      {
-        if (updateFlag[ii])
-        {
-          txtEventDescription.text = Fix.QUEST_DESC_LIST_2[ii];
-        }
-        else
-        {
-          txtEventDescription.text = Fix.QUEST_DESC_LIST[ii];
-        }
-        break;
-      }
+      txtEventDescription.text = Fix.QUEST_DESC_2_2;
+    }
+    if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message500020)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_2_3;
     }
   }
 }

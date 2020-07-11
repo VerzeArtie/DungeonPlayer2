@@ -620,6 +620,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _event_message500020; }
     set { _event_message500020 = value; }
   }
+
+  [SerializeField] protected bool _event_message700010 = false;
+  public bool Event_Message700010
+  {
+    get { return _event_message700010; }
+    set { _event_message700010 = value; }
+  }
   #endregion
 
   #region "Quest"
@@ -634,17 +641,6 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_00009 = false;
   [SerializeField] protected bool _questmain_00010 = false;
   [SerializeField] protected bool _questmain_00011 = false;
-  [SerializeField] protected bool _questmain_update_00001 = false;
-  [SerializeField] protected bool _questmain_update_00002 = false;
-  [SerializeField] protected bool _questmain_update_00003 = false;
-  [SerializeField] protected bool _questmain_update_00004 = false;
-  [SerializeField] protected bool _questmain_update_00005 = false;
-  [SerializeField] protected bool _questmain_update_00006 = false;
-  [SerializeField] protected bool _questmain_update_00007 = false;
-  [SerializeField] protected bool _questmain_update_00008 = false;
-  [SerializeField] protected bool _questmain_update_00009 = false;
-  [SerializeField] protected bool _questmain_update_00010 = false;
-  [SerializeField] protected bool _questmain_update_00011 = false;
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
   [SerializeField] protected bool _questmain_complete_00003 = false;
@@ -667,18 +663,6 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_00009 { get { return _questmain_00009; } set { _questmain_00009 = value; } }
   public bool QuestMain_00010 { get { return _questmain_00010; } set { _questmain_00010 = value; } }
   public bool QuestMain_00011 { get { return _questmain_00011; } set { _questmain_00011 = value; } }
-
-  public bool QuestMain_Update_00001 { get { return _questmain_update_00001; } set { _questmain_update_00001 = value; } }
-  public bool QuestMain_Update_00002 { get { return _questmain_update_00002; } set { _questmain_update_00002 = value; } }
-  public bool QuestMain_Update_00003 { get { return _questmain_update_00003; } set { _questmain_update_00003 = value; } }
-  public bool QuestMain_Update_00004 { get { return _questmain_update_00004; } set { _questmain_update_00004 = value; } }
-  public bool QuestMain_Update_00005 { get { return _questmain_update_00005; } set { _questmain_update_00005 = value; } }
-  public bool QuestMain_Update_00006 { get { return _questmain_update_00006; } set { _questmain_update_00006 = value; } }
-  public bool QuestMain_Update_00007 { get { return _questmain_update_00007; } set { _questmain_update_00007 = value; } }
-  public bool QuestMain_Update_00008 { get { return _questmain_update_00008; } set { _questmain_update_00008 = value; } }
-  public bool QuestMain_Update_00009 { get { return _questmain_update_00009; } set { _questmain_update_00009 = value; } }
-  public bool QuestMain_Update_00010 { get { return _questmain_update_00010; } set { _questmain_update_00010 = value; } }
-  public bool QuestMain_Update_00011 { get { return _questmain_update_00011; } set { _questmain_update_00011 = value; } }
 
   public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
   public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }
@@ -778,6 +762,14 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
+
+  protected bool _fieldobject_ohrantower_00001 = false;
+  protected bool _fieldobject_ohrantower_00002 = false;
+  protected bool _fieldobject_ohrantower_00004 = false;
+  public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
+  public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
+  public bool FieldObject_OhranTower_00004 { get { return _fieldobject_ohrantower_00004; } set { _fieldobject_ohrantower_00004 = value; } }
+
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }
 
