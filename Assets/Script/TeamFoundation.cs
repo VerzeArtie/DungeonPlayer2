@@ -765,10 +765,24 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _fieldobject_ohrantower_00001 = false;
   protected bool _fieldobject_ohrantower_00002 = false;
+  protected bool _fieldobject_ohrantower_00003 = false;
   protected bool _fieldobject_ohrantower_00004 = false;
+  protected bool _fieldobject_ohrantower_00005 = false;
+  protected bool _fieldobject_ohrantower_00006 = false;
+  protected bool _fieldobject_ohrantower_00007 = false;
+  protected bool _fieldobject_ohrantower_00008 = false;
+  protected bool _fieldobject_ohrantower_00009 = false;
+  protected bool _fieldobject_ohrantower_00010 = false;
   public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
   public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
+  public bool FieldObject_OhranTower_00003 { get { return _fieldobject_ohrantower_00003; } set { _fieldobject_ohrantower_00003 = value; } }
   public bool FieldObject_OhranTower_00004 { get { return _fieldobject_ohrantower_00004; } set { _fieldobject_ohrantower_00004 = value; } }
+  public bool FieldObject_OhranTower_00005 { get { return _fieldobject_ohrantower_00005; } set { _fieldobject_ohrantower_00005 = value; } }
+  public bool FieldObject_OhranTower_00006 { get { return _fieldobject_ohrantower_00006; } set { _fieldobject_ohrantower_00006 = value; } }
+  public bool FieldObject_OhranTower_00007 { get { return _fieldobject_ohrantower_00007; } set { _fieldobject_ohrantower_00007 = value; } }
+  public bool FieldObject_OhranTower_00008 { get { return _fieldobject_ohrantower_00008; } set { _fieldobject_ohrantower_00008 = value; } }
+  public bool FieldObject_OhranTower_00009 { get { return _fieldobject_ohrantower_00009; } set { _fieldobject_ohrantower_00009 = value; } }
+  public bool FieldObject_OhranTower_00010 { get { return _fieldobject_ohrantower_00010; } set { _fieldobject_ohrantower_00010 = value; } }
 
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }

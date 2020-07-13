@@ -318,7 +318,7 @@ public partial class Fix
   public const string OHRANTOWER_Treasure_3_C = "Treasure";
   public const string OHRANTOWER_Treasure_3_O = "3";
   public const float OHRANTOWER_Treasure_3_X = -21f;
-  public const float OHRANTOWER_Treasure_3_Y = 10.5f;
+  public const float OHRANTOWER_Treasure_3_Y = 11f;
   public const float OHRANTOWER_Treasure_3_Z = 18f;
 
   public const string OHRANTOWER_FloatingTile_3_C = "FloatingTile";
@@ -357,4 +357,33 @@ public partial class Fix
   public const float OHRANTOWER_FloatingTile_7_Y = 8f;
   public const float OHRANTOWER_FloatingTile_7_Z = 22f;
 
+  public const string OHRANTOWER_FloatingTile_8_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_8_O = "8";
+  public const float OHRANTOWER_FloatingTile_8_X = 3f;
+  public const float OHRANTOWER_FloatingTile_8_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_8_Z = 25f;
+
+  public const string OHRANTOWER_FloatingTile_9_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_9_O = "9";
+  public const float OHRANTOWER_FloatingTile_9_X = -10f;
+  public const float OHRANTOWER_FloatingTile_9_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_9_Z = 23f;
+
+  public const string OHRANTOWER_FloatingTile_10_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_10_O = "10";
+  public const float OHRANTOWER_FloatingTile_10_X = 14f;
+  public const float OHRANTOWER_FloatingTile_10_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_10_Z = 7f;
+
+  public const string OHRANTOWER_FloatingTile_11_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_11_O = "11";
+  public const float OHRANTOWER_FloatingTile_11_X = 20f;
+  public const float OHRANTOWER_FloatingTile_11_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_11_Z = 17f;
+
+  public const string OHRANTOWER_ObsidianStone_2_C = "ObsidianStone";
+  public const string OHRANTOWER_ObsidianStone_2_O = "2";
+  public const float OHRANTOWER_ObsidianStone_2_X = -29f;
+  public const float OHRANTOWER_ObsidianStone_2_Y = 9f;
+  public const float OHRANTOWER_ObsidianStone_2_Z = 17f;
 }
