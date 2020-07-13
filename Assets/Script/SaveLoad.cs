@@ -61,6 +61,46 @@ public class SaveLoad : MotherBase
   // Use this for initialization
   public void Start()
   {
+    SceneLoading();
+  }
+
+  // Update is called once per frame
+  public void Update()
+  {
+    if (this.currentPhase == CurrentPhase.None)
+    {
+      // no action
+    }
+    else if (this.currentPhase == CurrentPhase.Save || this.currentPhase == CurrentPhase.Load)
+    {
+      ExecSaveLoad();
+    }
+    else
+    {
+      if (One.SaveMode)
+      {
+        this.systemMessage.text = MESSAGE_2;
+      }
+      else
+      {
+        this.systemMessage.text = "ゲームデータの読み込みが完了しました。";
+      }
+      this.pbSandglass.gameObject.SetActive(false);
+    }
+
+    if (this.nowAutoKill && this.nowAutoKillEnd == false)
+    {
+      this.autoKillTimer++;
+      if (this.autoKillTimer >= 200)
+      {
+        this.nowAutoKillEnd = true;
+        tapExit();
+      }
+    }
+  }
+
+  public void SceneLoading()
+  {
     Debug.Log("saveload start");
 
     if (One.SaveMode)
@@ -73,6 +113,9 @@ public class SaveLoad : MotherBase
       this.Background.GetComponent<Image>().color = UnityColor.Aqua;
       titleLabel.text = "LOAD";
     }
+
+    newDateTime = new DateTime(1, 1, 1, 0, 0, 0);
+    newDateTimeAuto = new DateTime(1, 1, 1, 0, 0, 0);
 
     One.MakeDirectory();
 
@@ -117,41 +160,7 @@ public class SaveLoad : MotherBase
     int BASE_SIZE_Y = 211;
     this.imageSandglass = Sprite.Create(Resources.Load<Texture2D>("SandGlassIcon"), new Rect(0, 0, BASE_SIZE_X, BASE_SIZE_Y), new Vector2(0, 0));
     this.pbSandglass.sprite = this.imageSandglass;
-  }
 
-  // Update is called once per frame
-  public void Update()
-  {
-    if (this.currentPhase == CurrentPhase.None)
-    {
-      // no action
-    }
-    else if (this.currentPhase == CurrentPhase.Save || this.currentPhase == CurrentPhase.Load)
-    {
-      ExecSaveLoad();
-    }
-    else
-    {
-      if (One.SaveMode)
-      {
-        this.systemMessage.text = MESSAGE_2;
-      }
-      else
-      {
-        this.systemMessage.text = "ゲームデータの読み込みが完了しました。";
-      }
-      this.pbSandglass.gameObject.SetActive(false);
-    }
-
-    if (this.nowAutoKill && this.nowAutoKillEnd == false)
-    {
-      this.autoKillTimer++;
-      if (this.autoKillTimer >= 200)
-      {
-        this.nowAutoKillEnd = true;
-        tapExit();
-      }
-    }
   }
 
   private void PageMove(int pageNum)
@@ -982,5 +991,11 @@ public class SaveLoad : MotherBase
     {
       SceneDimension.Back(this);
     }
+  }
+
+  public void TapClose()
+  {
+    One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+    this.gameObject.SetActive(false);
   }
 }

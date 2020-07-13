@@ -92,6 +92,7 @@ public class DungeonField : MotherBase
 
   // Group
   public GroupCharacterStatus groupCharacterStatus;
+  public SaveLoad groupSaveLoad;
 
   // GUI
   public Camera MainCamera;
@@ -1498,12 +1499,22 @@ public class DungeonField : MotherBase
 
   public void TapSave()
   {
-    SceneDimension.CallSaveLoad(this, true, false);
+    One.SaveMode = true;
+    One.AfterBacktoTitle = false;
+    One.SaveAndExit = false;
+    this.groupSaveLoad.SceneLoading();
+    this.groupSaveLoad.gameObject.SetActive(true);
+//    SceneDimension.CallSaveLoad(this, true, false);
   }
 
   public void TapLoad()
   {
-    SceneDimension.CallSaveLoad(this, false, false);
+    One.SaveMode = false;
+    One.AfterBacktoTitle = false;
+    One.SaveAndExit = false;
+    this.groupSaveLoad.SceneLoading();
+    this.groupSaveLoad.gameObject.SetActive(true);
+//    SceneDimension.CallSaveLoad(this, false, false);
   }
 
   public void TapBacktoTown()
