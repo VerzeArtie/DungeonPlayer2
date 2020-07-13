@@ -808,6 +808,19 @@ public class DungeonField : MotherBase
         MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, 20); TapOK();
         return;
       }
+
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_3_X, Fix.OHRANTOWER_FloatingTile_3_Y, Fix.OHRANTOWER_FloatingTile_3_Z))
+      {
+        One.TF.FieldObject_OhranTower_00011 = true;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, 21); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_3_X, Fix.OHRANTOWER_FloatingTile_3_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_3_Z))
+      {
+        One.TF.FieldObject_OhranTower_00011 = false;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, 22); TapOK();
+        return;
+      }
     }
 
     // ブロックチェック
@@ -3403,6 +3416,10 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_OhranTower_00010)
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_11_X, Fix.OHRANTOWER_FloatingTile_11_Y, Fix.OHRANTOWER_FloatingTile_11_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_11_X - 45.0f, Fix.OHRANTOWER_FloatingTile_11_Y, Fix.OHRANTOWER_FloatingTile_11_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00011)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_3_X, Fix.OHRANTOWER_FloatingTile_3_Y, Fix.OHRANTOWER_FloatingTile_3_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_3_X, Fix.OHRANTOWER_FloatingTile_3_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_3_Z));
       }
     }
   }

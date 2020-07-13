@@ -773,6 +773,7 @@ public class TeamFoundation : MonoBehaviour
   protected bool _fieldobject_ohrantower_00008 = false;
   protected bool _fieldobject_ohrantower_00009 = false;
   protected bool _fieldobject_ohrantower_00010 = false;
+  protected bool _fieldobject_ohrantower_00011 = false;
   public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
   public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
   public bool FieldObject_OhranTower_00003 { get { return _fieldobject_ohrantower_00003; } set { _fieldobject_ohrantower_00003 = value; } }
@@ -783,6 +784,7 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_OhranTower_00008 { get { return _fieldobject_ohrantower_00008; } set { _fieldobject_ohrantower_00008 = value; } }
   public bool FieldObject_OhranTower_00009 { get { return _fieldobject_ohrantower_00009; } set { _fieldobject_ohrantower_00009 = value; } }
   public bool FieldObject_OhranTower_00010 { get { return _fieldobject_ohrantower_00010; } set { _fieldobject_ohrantower_00010 = value; } }
+  public bool FieldObject_OhranTower_00011 { get { return _fieldobject_ohrantower_00011; } set { _fieldobject_ohrantower_00011 = value; } }
 
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }
