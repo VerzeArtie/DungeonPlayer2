@@ -19,6 +19,7 @@ public class FieldObject : MonoBehaviour
     Crystal,
     ObsidianStone,
     FloatingTile,
+    WarpHole,
     Boss,
   }
 

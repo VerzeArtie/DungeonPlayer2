@@ -72,6 +72,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Crystal;
   public FieldObject prefab_ObsidianStone;
   public FieldObject prefab_FloatingTile;
+  public FieldObject prefab_WarpHole;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -222,6 +223,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Crystal");
     ObjectList.Add("ObsidianStone");
     ObjectList.Add("FloatingTile");
+    ObjectList.Add("WarpHole");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -675,7 +677,8 @@ public class DungeonField : MotherBase
     }
 
     FieldObject beforeFloatingTile = SearchObject(nextLocation);
-    if (beforeFloatingTile != null && beforeFloatingTile.content == FieldObject.Content.FloatingTile)
+    if (beforeFloatingTile != null && beforeFloatingTile.content == FieldObject.Content.FloatingTile ||
+        beforeFloatingTile != null && beforeFloatingTile.content == FieldObject.Content.WarpHole)
     {
       CurrentEventObject = beforeFloatingTile;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_1_X, Fix.OHRANTOWER_FloatingTile_1_Y, Fix.OHRANTOWER_FloatingTile_1_Z))
@@ -819,6 +822,26 @@ public class DungeonField : MotherBase
       {
         One.TF.FieldObject_OhranTower_00011 = false;
         MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, 22); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_1_X, Fix.OHRANTOWER_WarpHole_1_Y, Fix.OHRANTOWER_WarpHole_1_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 1); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_2_X, Fix.OHRANTOWER_WarpHole_2_Y, Fix.OHRANTOWER_WarpHole_2_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 2); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_3_X, Fix.OHRANTOWER_WarpHole_3_Y, Fix.OHRANTOWER_WarpHole_3_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 3); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_4_X, Fix.OHRANTOWER_WarpHole_4_Y, Fix.OHRANTOWER_WarpHole_4_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 4); TapOK();
         return;
       }
     }
@@ -1788,6 +1811,16 @@ public class DungeonField : MotherBase
                                                                      this.CurrentEventObject.transform.position.y - 1.0f,
                                                                      this.CurrentEventObject.transform.position.z);
           }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
+        {
+          this.Player.SetActive(false);
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VisiblePlayer)
+        {
+          this.Player.SetActive(true);
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
@@ -2935,6 +2968,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_FloatingTile, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.FloatingTile;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "WarpHole")
+    {
+      current = Instantiate(prefab_WarpHole, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.WarpHole;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using UnityEngine;
 
@@ -39,6 +40,8 @@ public static class MessagePack
     GainSoulFragment,
     MessageDisplay,
     ViewQuestDisplay,
+    HidePlayer,
+    VisiblePlayer,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -4019,7 +4022,98 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
   }
 
+  public static void MoveWarpHoleTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
+  {
+    Message(ref m_list, ref e_list, "アイン：さてと、これでワープ移動するか。", ActionEvent.None);
 
+
+    if (direction == DungeonField.Direction.Right)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+    }
+    else if (direction == DungeonField.Direction.Left)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+    }
+    else if (direction == DungeonField.Direction.Top)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+    }
+    else if (direction == DungeonField.Direction.Bottom)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "", ActionEvent.HidePlayer);
+
+    if (num == 1)
+    {
+      for (int ii = 0; ii < 13; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 2)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRise);
+      }
+      for (int ii = 0; ii < 13; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 3)
+    {
+      for (int ii = 0; ii < 13; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 4)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveFall);
+      }
+      for (int ii = 0; ii < 13; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+
+    Message(ref m_list, ref e_list, "", ActionEvent.VisiblePlayer);
+
+    Message(ref m_list, ref e_list, "（シュワアアァァン）", ActionEvent.None);
+
+    if (num == 1)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 2)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 3)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 4)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+    }
+
+    Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
+  }
   #endregion
 
   #region "フィオーネの湖"

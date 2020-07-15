@@ -315,12 +315,6 @@ public partial class Fix
   public const float OHRANTOWER_FloatingTile_2_Y = 0f;
   public const float OHRANTOWER_FloatingTile_2_Z = 1f;
 
-  public const string OHRANTOWER_Treasure_3_C = "Treasure";
-  public const string OHRANTOWER_Treasure_3_O = "3";
-  public const float OHRANTOWER_Treasure_3_X = -21f;
-  public const float OHRANTOWER_Treasure_3_Y = 11f;
-  public const float OHRANTOWER_Treasure_3_Z = 18f;
-
   public const string OHRANTOWER_FloatingTile_3_C = "FloatingTile";
   public const string OHRANTOWER_FloatingTile_3_O = "3";
   public const float OHRANTOWER_FloatingTile_3_X = -16f;
@@ -386,4 +380,35 @@ public partial class Fix
   public const float OHRANTOWER_ObsidianStone_2_X = -29f;
   public const float OHRANTOWER_ObsidianStone_2_Y = 9f;
   public const float OHRANTOWER_ObsidianStone_2_Z = 17f;
+
+  public const string OHRANTOWER_Treasure_3_C = "Treasure";
+  public const string OHRANTOWER_Treasure_3_O = "3";
+  public const float OHRANTOWER_Treasure_3_X = -21f;
+  public const float OHRANTOWER_Treasure_3_Y = 11f;
+  public const float OHRANTOWER_Treasure_3_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_1_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_1_O = "1";
+  public const float OHRANTOWER_WarpHole_1_X = -8f;
+  public const float OHRANTOWER_WarpHole_1_Y = 20f;
+  public const float OHRANTOWER_WarpHole_1_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_2_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_2_O = "2";
+  public const float OHRANTOWER_WarpHole_2_X = 5f;
+  public const float OHRANTOWER_WarpHole_2_Y = 12f;
+  public const float OHRANTOWER_WarpHole_2_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_3_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_3_O = "3";
+  public const float OHRANTOWER_WarpHole_3_X = -6f;
+  public const float OHRANTOWER_WarpHole_3_Y = 12f;
+  public const float OHRANTOWER_WarpHole_3_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_4_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_4_O = "4";
+  public const float OHRANTOWER_WarpHole_4_X = 7f;
+  public const float OHRANTOWER_WarpHole_4_Y = 20f;
+  public const float OHRANTOWER_WarpHole_4_Z = 23f;
+
 }
