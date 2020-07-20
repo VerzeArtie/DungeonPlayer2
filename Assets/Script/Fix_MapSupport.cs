@@ -537,4 +537,148 @@ public partial class Fix
   public const float OHRANTOWER_FloatingTile_28_Y = 36f;
   public const float OHRANTOWER_FloatingTile_28_Z = 23f;
 
+  public const string OHRANTOWER_FloatingTile_29_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_29_O = "29";
+  public const float OHRANTOWER_FloatingTile_29_X = 10f;
+  public const float OHRANTOWER_FloatingTile_29_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_29_Z = 21f;
+
+  public const string OHRANTOWER_Treasure_7_C = "Treasure";
+  public const string OHRANTOWER_Treasure_7_O = "7";
+  public const float OHRANTOWER_Treasure_7_X = 1f;
+  public const float OHRANTOWER_Treasure_7_Y = 29f;
+  public const float OHRANTOWER_Treasure_7_Z = 22f;
+
+  public const string OHRANTOWER_Treasure_8_C = "Treasure";
+  public const string OHRANTOWER_Treasure_8_O = "8";
+  public const float OHRANTOWER_Treasure_8_X = -3f;
+  public const float OHRANTOWER_Treasure_8_Y = 29f;
+  public const float OHRANTOWER_Treasure_8_Z = 22f;
+
+  public const string OHRANTOWER_WarpHole_7_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_7_O = "7";
+  public const float OHRANTOWER_WarpHole_7_X = 0f;
+  public const float OHRANTOWER_WarpHole_7_Y = 36f;
+  public const float OHRANTOWER_WarpHole_7_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_8_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_8_O = "8";
+  public const float OHRANTOWER_WarpHole_8_X = 0f;
+  public const float OHRANTOWER_WarpHole_8_Y = 44f;
+  public const float OHRANTOWER_WarpHole_8_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_9_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_9_O = "9";
+  public const float OHRANTOWER_WarpHole_9_X = 4f;
+  public const float OHRANTOWER_WarpHole_9_Y = 44f;
+  public const float OHRANTOWER_WarpHole_9_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_10_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_10_O = "10";
+  public const float OHRANTOWER_WarpHole_10_X = 7f;
+  public const float OHRANTOWER_WarpHole_10_Y = 44f;
+  public const float OHRANTOWER_WarpHole_10_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_11_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_11_O = "11";
+  public const float OHRANTOWER_WarpHole_11_X = 0f;
+  public const float OHRANTOWER_WarpHole_11_Y = 44f;
+  public const float OHRANTOWER_WarpHole_11_Z = 14f;
+
+  public const string OHRANTOWER_WarpHole_12_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_12_O = "12";
+  public const float OHRANTOWER_WarpHole_12_X = -7f;
+  public const float OHRANTOWER_WarpHole_12_Y = 44f;
+  public const float OHRANTOWER_WarpHole_12_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_13_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_13_O = "13";
+  public const float OHRANTOWER_WarpHole_13_X = -4f;
+  public const float OHRANTOWER_WarpHole_13_Y = 44f;
+  public const float OHRANTOWER_WarpHole_13_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_14_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_14_O = "14";
+  public const float OHRANTOWER_WarpHole_14_X = -4f;
+  public const float OHRANTOWER_WarpHole_14_Y = 44f;
+  public const float OHRANTOWER_WarpHole_14_Z = 25f;
+
+  public const string OHRANTOWER_WarpHole_15_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_15_O = "15";
+  public const float OHRANTOWER_WarpHole_15_X = -7f;
+  public const float OHRANTOWER_WarpHole_15_Y = 44f;
+  public const float OHRANTOWER_WarpHole_15_Z = 28f;
+
+  public const string OHRANTOWER_WarpHole_16_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_16_O = "16";
+  public const float OHRANTOWER_WarpHole_16_X = -2f;
+  public const float OHRANTOWER_WarpHole_16_Y = 44f;
+  public const float OHRANTOWER_WarpHole_16_Z = 33f;
+
+  public const string OHRANTOWER_WarpHole_17_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_17_O = "17";
+  public const float OHRANTOWER_WarpHole_17_X = 2f;
+  public const float OHRANTOWER_WarpHole_17_Y = 44f;
+  public const float OHRANTOWER_WarpHole_17_Z = 33f;
+
+  public const string OHRANTOWER_WarpHole_18_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_18_O = "18";
+  public const float OHRANTOWER_WarpHole_18_X = 7f;
+  public const float OHRANTOWER_WarpHole_18_Y = 44f;
+  public const float OHRANTOWER_WarpHole_18_Z = 28f;
+
+  public const string OHRANTOWER_WarpHole_19_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_19_O = "19";
+  public const float OHRANTOWER_WarpHole_19_X = 4f;
+  public const float OHRANTOWER_WarpHole_19_Y = 44f;
+  public const float OHRANTOWER_WarpHole_19_Z = 25f;
+
+  public const string OHRANTOWER_WarpHole_20_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_20_O = "20";
+  public const float OHRANTOWER_WarpHole_20_X = 6f;
+  public const float OHRANTOWER_WarpHole_20_Y = 44f;
+  public const float OHRANTOWER_WarpHole_20_Z = 32f;
+
+  public const string OHRANTOWER_WarpHole_21_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_21_O = "21";
+  public const float OHRANTOWER_WarpHole_21_X = 6f;
+  public const float OHRANTOWER_WarpHole_21_Y = 44f;
+  public const float OHRANTOWER_WarpHole_21_Z = 15f;
+
+  public const string OHRANTOWER_WarpHole_22_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_22_O = "22";
+  public const float OHRANTOWER_WarpHole_22_X = -7f;
+  public const float OHRANTOWER_WarpHole_22_Y = 44f;
+  public const float OHRANTOWER_WarpHole_22_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_23_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_23_O = "23";
+  public const float OHRANTOWER_WarpHole_23_X = -2f;
+  public const float OHRANTOWER_WarpHole_23_Y = 44f;
+  public const float OHRANTOWER_WarpHole_23_Z = 35f;
+
+  public const string OHRANTOWER_WarpHole_24_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_24_O = "24";
+  public const float OHRANTOWER_WarpHole_24_X = -4f;
+  public const float OHRANTOWER_WarpHole_24_Y = 44f;
+  public const float OHRANTOWER_WarpHole_24_Z = 14f;
+
+  public const string OHRANTOWER_WarpHole_25_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_25_O = "25";
+  public const float OHRANTOWER_WarpHole_25_X = 0f;
+  public const float OHRANTOWER_WarpHole_25_Y = 44f;
+  public const float OHRANTOWER_WarpHole_25_Z = 28f;
+
+  public const string OHRANTOWER_FloatingTile_30_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_30_O = "30";
+  public const float OHRANTOWER_FloatingTile_30_X = 9f;
+  public const float OHRANTOWER_FloatingTile_30_Y = 44f;
+  public const float OHRANTOWER_FloatingTile_30_Z = 23f;
+
+  public const string OHRANTOWER_Fountain_1_C = "Fountain";
+  public const string OHRANTOWER_Fountain_1_O = "1";
+  public const float OHRANTOWER_Fountain_1_X = 4f;
+  public const float OHRANTOWER_Fountain_1_Y = 64f;
+  public const float OHRANTOWER_Fountain_1_Z = 22f;
+
 }

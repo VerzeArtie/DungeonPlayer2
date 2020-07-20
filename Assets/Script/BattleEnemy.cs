@@ -414,6 +414,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatGalvadazer = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_YODIRIAN)
+        {
+          One.TF.DefeatYodirian = true;
+        }
       }
       return;
     }

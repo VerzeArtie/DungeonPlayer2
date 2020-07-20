@@ -627,6 +627,9 @@ public class TeamFoundation : MonoBehaviour
     get { return _event_message700010; }
     set { _event_message700010 = value; }
   }
+
+  protected bool _event_message800090 = false;
+  public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
   #endregion
 
   #region "Quest"
@@ -641,6 +644,9 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_00009 = false;
   [SerializeField] protected bool _questmain_00010 = false;
   [SerializeField] protected bool _questmain_00011 = false;
+
+  [SerializeField] protected bool _questmain_00020 = false;
+
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
   [SerializeField] protected bool _questmain_complete_00003 = false;
@@ -652,6 +658,8 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_complete_00009 = false;
   [SerializeField] protected bool _questmain_complete_00010 = false;
   [SerializeField] protected bool _questmain_complete_00011 = false;
+
+  protected bool _questmain_complete_00020 = false;
   public bool QuestMain_00001 { get { return _questmain_00001; } set { _questmain_00001 = value; } }
   public bool QuestMain_00002 { get { return _questmain_00002; } set { _questmain_00002 = value; } }
   public bool QuestMain_00003 { get { return _questmain_00003; } set { _questmain_00003 = value; } }
@@ -664,6 +672,8 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_00010 { get { return _questmain_00010; } set { _questmain_00010 = value; } }
   public bool QuestMain_00011 { get { return _questmain_00011; } set { _questmain_00011 = value; } }
 
+  public bool QuestMain_00020 { get { return _questmain_00020; } set { _questmain_00020 = value; } }
+
   public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
   public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }
   public bool QuestMain_Complete_00003 { get { return _questmain_complete_00003; } set { _questmain_complete_00003 = value; } }
@@ -675,6 +685,8 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00009 { get { return _questmain_complete_00009; } set { _questmain_complete_00009 = value; } }
   public bool QuestMain_Complete_00010 { get { return _questmain_complete_00010; } set { _questmain_complete_00010 = value; } }
   public bool QuestMain_Complete_00011 { get { return _questmain_complete_00011; } set { _questmain_complete_00011 = value; } }
+
+  public bool QuestMain_Complete_00020 { get { return _questmain_complete_00020; } set { _questmain_complete_00020 = value; } }
   #endregion
 
   #region "Treasure"
@@ -758,7 +770,9 @@ public class TeamFoundation : MonoBehaviour
   public bool DefeatHellKerberos { get { return _defeat_hell_kerberos; } set { _defeat_hell_kerberos = value; } }
 
   protected bool _defeat_galvadazer = false;
+  protected bool _defeat_yodirian = false;
   public bool DefeatGalvadazer { get { return _defeat_galvadazer; } set { _defeat_galvadazer = value; } }
+  public bool DefeatYodirian { get { return _defeat_yodirian; } set { _defeat_yodirian = value; } }
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
@@ -791,6 +805,8 @@ public class TeamFoundation : MonoBehaviour
   protected bool _fieldobject_ohrantower_00026 = false;
   protected bool _fieldobject_ohrantower_00027 = false;
   protected bool _fieldobject_ohrantower_00028 = false;
+  protected bool _fieldobject_ohrantower_00029 = false;
+  protected bool _fieldobject_ohrantower_00030 = false;
   public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
   public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
   public bool FieldObject_OhranTower_00003 { get { return _fieldobject_ohrantower_00003; } set { _fieldobject_ohrantower_00003 = value; } }
@@ -819,6 +835,8 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_OhranTower_00026 { get { return _fieldobject_ohrantower_00026; } set { _fieldobject_ohrantower_00026 = value; } }
   public bool FieldObject_OhranTower_00027 { get { return _fieldobject_ohrantower_00027; } set { _fieldobject_ohrantower_00027 = value; } }
   public bool FieldObject_OhranTower_00028 { get { return _fieldobject_ohrantower_00028; } set { _fieldobject_ohrantower_00028 = value; } }
+  public bool FieldObject_OhranTower_00029 { get { return _fieldobject_ohrantower_00029; } set { _fieldobject_ohrantower_00029 = value; } }
+  public bool FieldObject_OhranTower_00030 { get { return _fieldobject_ohrantower_00030; } set { _fieldobject_ohrantower_00030 = value; } }
 
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }

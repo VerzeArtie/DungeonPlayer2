@@ -142,6 +142,13 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      case Fix.THE_YODIRIAN:
+      case Fix.THE_YODIRIAN_JP:
+        SetupParameter(1, 1, 1, 1, 1, 10, 7500, 2000);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
     }
 
     this.MaxGain();

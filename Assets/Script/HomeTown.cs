@@ -837,6 +837,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
           RefreshQuestList();
           return;
         }
@@ -867,6 +868,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_Complete_00010 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_Complete_00011 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
           RefreshQuestList();
           return;
         }
@@ -1520,6 +1522,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_TITLE_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
     if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_TITLE_10, One.TF.QuestMain_Complete_00010, counter); counter++; }
     if (One.TF.QuestMain_00011) { AddQuestEvent(Fix.QUEST_TITLE_11, One.TF.QuestMain_Complete_00011, counter); counter++; }
+    if (One.TF.QuestMain_00020) { AddQuestEvent(Fix.QUEST_TITLE_20, One.TF.QuestMain_Complete_00020, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -1558,7 +1561,9 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_9) { txtEventDescription.text = Fix.QUEST_DESC_9; }
     if (quest_name == Fix.QUEST_TITLE_10) { txtEventDescription.text = Fix.QUEST_DESC_10; }
     if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
+    if (quest_name == Fix.QUEST_TITLE_20) { txtEventDescription.text = Fix.QUEST_DESC_20; }
 
+    // クエスト到達状況に応じて、テキスト文章を更新する。
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
     {
       txtEventDescription.text = Fix.QUEST_DESC_2_2;
@@ -1566,6 +1571,11 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message500020)
     {
       txtEventDescription.text = Fix.QUEST_DESC_2_3;
+    }
+
+    if (quest_name == Fix.QUEST_TITLE_11 && One.TF.Event_Message800090)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_11_2;
     }
   }
 }

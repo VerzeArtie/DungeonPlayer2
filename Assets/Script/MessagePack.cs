@@ -2522,13 +2522,13 @@ public static class MessagePack
   {
     if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
     {
-      Message(ref m_list, ref e_list, "ガルヴァ：ゴッ・・・ゴガガガガガガ！！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ガルヴァデイザー：ゴッ・・・ゴガガガガガガ！！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：うお！　こいつまだ！？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ガルヴァ：ゴガア・・・ガ・・・ガアァァァ・・・ガ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ガルヴァデイザー：ゴガア・・・ガ・・・ガアァァァ・・・ガ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ガルヴァ：・・・　・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ガルヴァデイザー：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：どうやら、今のが最後の断末魔みたいね。", ActionEvent.None);
 
@@ -3728,6 +3728,255 @@ public static class MessagePack
   #region "オーランの塔"
   public static void Message800010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "アイン：へえ・・・ここが・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ アインは塔に入った途端、周囲を見回した ～", ActionEvent.MessageDisplay);
+    
+    Message(ref m_list, ref e_list, "アイン：なかなか面白そうな構造をしてるな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：フロア全体が吹き抜け構造になってるって感じよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：仕掛けもたくさんありそうで、難しそうですね・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：お・・・おいアイン。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん？どうした。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：これ、まさか上へ登るって話じゃないだろうな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：上へ登るために来たんだろ。塔に来たんだしな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：お、お前まさか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：っんでもねえよ！ああもう良いから、黙って俺に付いてこいや！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：はいはい、分かりましたよ。じゃあビリー様を先頭にして付いて行くとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：っんで俺が先頭なんだよ！！先頭はてめえが先に行けば良いだろうが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジかよ。じゃあまあ一応リーダーはビリー。で、ルート選択は俺がやる。それで良いかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：ああ、頼んだぜ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあオーランの塔を進んでみるとするか！", ActionEvent.None);
+
+  }
+
+  public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800090 == false)
+    {
+      One.TF.Event_Message800090 = true;
+
+      Message(ref m_list, ref e_list, "アイン：んっ・・・何か今・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大きく風が吹き抜けていったわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ:この塔の最上階から流れてきた感じですね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ、こんな作りなんだし、風ぐらいあんじゃねえの？何か気になるってのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：気のせいならそれで良いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、ある程度警戒はしておいて損はしないだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ:この塔の構造は通路形状ではないので、対流による風は起きにくいお思います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：という事は・・・やっぱり要警戒かしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この塔の最上階はおそらくもうすぐだ。ともかく、気をつけて行こう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    }
+  }
+
+  public static void Message800100(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatYodirian == false && One.TF.QuestMain_Complete_00020 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：おっと、出たみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：空中に浮いてますね・・・何の生物なんでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：鳥類にしては形態がちょっと異質よね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：行動パターンもちょっと読みにくそうだけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アインはどう思う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直言って、殺気の様なものは感じられない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：生物である以上、攻撃意志がないわけじゃない。実際の戦闘になってから本領発揮する感じだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あまり無理に急ぎ過ぎず、着々と戦闘を行おう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、相手が何かやらかしそうだったら、一旦防御に徹するのも手の一つだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：後方が安全とは限らない。この狭さではエリア全体攻撃もやってくると見た方が良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：各自で防ぎ切るか、または誰かが全体防御をできるように準備しておいた方が良いかもな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大体分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。エオネ、ラナ、ビリー、準備は良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私はいつでも良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：任せとけや！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ戦闘開始だ、行くぞ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.THE_YODIRIAN, ActionEvent.EncountBoss);
+    }
+  }
+
+
+  public static void Message800110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
+    {
+      Message(ref m_list, ref e_list, "ヨーディリアン：フッ・・・ッシュウウウウゥゥゥゥ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、終わったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーディリアン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何事もなく終わったみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ふう、相変わらずこういう系統は疲れるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし！制覇制覇！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃ、そろそろ行くぞ。もういいだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあそう焦るなって。この塔の最上階にある展望台から下を眺めて来いっていうのが依頼なんだからさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あぁ！？ざけてんじゃねえぞ！ボス倒したら大体こういうのは終わりだろ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：国王からの勅令だぞ。それを無視してどうすんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：グッ・・・そりゃまあ・・・まあ無視はできねえな・・・グッ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ビリーさん、怖いんですか？下を見るのが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ばっ、そんなわけねーだろーが！女子供は引っ込んでな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ、じゃあ私は怖いので、ビリーさんお願いします・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なにーーーーーーー！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ビリーさん、私もちょっと高い所から見下ろすのは苦手なんで、お願いします♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なにーーーーーーー！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういうわけだ、ビリー。ここはもうお前しかいない。頼む！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おおおおおし、ま、ままままあ、任せておけば良いじゃねえかコラァ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：行ってやらぁ！見とけよ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ ビリーは塔の展望台まで突貫していった ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：おーい、どうだ？何かそこから見えるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おーい、ビリー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、見に行った方が良いんじゃないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。じゃ、俺が行ってくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ アインは展望台へと向かっていった ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "～ １０分後 ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：よーーー、てめぇら！元気にしてたか！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あら、展望台は無事だったのね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あぁ！？何の話か全然わかんねーな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいやいや、お前のその応答だと、意味分からなくなるだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そんな事より。展望台から下を見て何か見つけたんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おお。そうだった、忘れる所だったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：皆、おれは展望台で驚くべき事象を見ちまったんだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：良いか、聞いて驚くなかれよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お前のそのノリも意味不明だからな。普通に言った方が良いぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：良いじゃねえか、ちょっとぐらい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあその、なんだ。見ちまったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：空には薄赤い星が出てるのをな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そうなんですか？地上からではそういった事象は見受けられなかったですが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらく、その薄赤いっていうのは本当に見分けが付きにくいレベルなんじゃないかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なに！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ ビリーは首を動かす事なく、刹那、アインへと視線を飛ばした ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "～ アイン、瞬間的なアイ・コンタクトでビリーへ応答を返した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：あ、ああそうだ。天候次第な面もあるが良く見ないと分からないレベルだった。間違いないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：凄いですね。さすがビリーさんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう。ザっとこんなもんだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；やるじゃねえか、ビリー。見直したぜ、本当助かったよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ヘッ、今回だけだからな。次はねえぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；分かった分かった。いやいやほんとサンキューな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；よし、じゃあこの結果を持って国王エルミに報告に戻るとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：待って。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；ん？どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この部屋の横。通路を見つけたわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；マジかよ？って事は。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、おそらく初めの入口に戻れる仕組みになってるわよ。きっと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；助かるぜ、戻る時はそれを使えばいいって事だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；よし、エオネ、ラナ、ビリー。みんなありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうって事ないわよ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；じゃあ、ここは一旦戻って国王エルミに報告するとしよう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】が更新されました！", ActionEvent.QuestUpdate);
+    }
   }
 
   public static void MoveFloatingTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
@@ -4199,6 +4448,38 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
       }
     }
+    else if (num == 57)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 58)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 59)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 60)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
 
     Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
 
@@ -4426,6 +4707,22 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
+    else if (num == 57)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 58)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 59)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 60)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
   }
@@ -4520,6 +4817,185 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
       }
     }
+    else if (num == 7)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRise);
+      }
+      for (int ii = 0; ii < 3; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 8)
+    {
+      for (int ii = 0; ii < 3; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 9)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+      for (int ii = 0; ii < 4; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 10)
+    {
+      for (int ii = 0; ii < 10; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 11)
+    {
+      for (int ii = 0; ii < 6; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 13)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 4; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 15)
+    {
+      for (int ii = 0; ii < 7; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 14; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 16)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 17)
+    {
+      for (int ii = 0; ii < 10; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 9; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 18)
+    {
+      for (int ii = 0; ii < 10; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 19)
+    {
+      for (int ii = 0; ii < 11; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 20)
+    {
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 6; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 21)
+    {
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 22)
+    {
+      for (int ii = 0; ii < 7; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 5; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 23)
+    {
+      for (int ii = 0; ii < 2; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 4; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 24)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 11; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 25)
+    {
+      for (int ii = 0; ii < 5; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 7; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
 
     Message(ref m_list, ref e_list, "", ActionEvent.VisiblePlayer);
 
@@ -4548,6 +5024,74 @@ public static class MessagePack
     else if (num == 6)
     {
       Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 7)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 8)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 9)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 10)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 11)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 13)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 15)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 16)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 17)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 18)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 19)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 20)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 21)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 22)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 23)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 24)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 25)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);

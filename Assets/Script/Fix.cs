@@ -532,6 +532,10 @@ public static partial class Fix
   public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
   public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー ";
 
+  // オーランの塔
+  public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
+  public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
+
   public const string _ = "";
   public const string _JP = "";
   #endregion
@@ -650,7 +654,10 @@ public static partial class Fix
 
   public const string QUEST_TITLE_11 = "国王エルミからの依頼２";
   public const string QUEST_DESC_11 = "ツァルマンの里からファージル宮殿へと戻ったアイン達は次の指令としてオーランの塔へ赴き、本大陸の視察をしてくるように依頼を受けた。オーランの塔はこのファージル宮殿から北東に進んだ所にある様だ。北東へと進みオーランの塔を目指そう。";
+  public const string QUEST_DESC_11_2 = "オーランの塔、最上階へと到達し展望台から本大陸の視察を行ったアイン達は、奇妙な薄赤い星が空にある事を確認した。この薄赤い星が何を意味するのかは分かってないが、少なくともその情報については一旦国王に伝えておいた方が良いとアインは判断した。ファージル宮殿へと戻り、謁見の間にて国王エルミと対談しよう。";
 
+  public const string QUEST_TITLE_20 = "塔最上階からの気配";
+  public const string QUEST_DESC_20 = "オーランの塔最上階へと上る階段にて、流れ込んでくる異質な風をパーティ全員は感じ取った。この先、何かが待ち受けている事だけは間違いない。準備を万全にして挑んだ方が良いだろう。";
 
   public const string DECISION_ESCAPE_FROM_DUNGEON = "遠見の青水晶（ダンジョンからの帰還）";
   public const string DECISION_TRANSFER_TOWN = "遠見の青水晶（街へのワープ）";

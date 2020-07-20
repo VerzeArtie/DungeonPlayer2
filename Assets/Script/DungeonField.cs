@@ -358,9 +358,16 @@ public class DungeonField : MotherBase
         MessagePack.Message300123(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
       if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
       {
         MessagePack.Message300200(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
+      if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
+      {
+        MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -1103,39 +1110,187 @@ public class DungeonField : MotherBase
       }
       num++;
 
-      // + 8.0fを治す
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_29_X, Fix.OHRANTOWER_FloatingTile_29_Y, Fix.OHRANTOWER_FloatingTile_29_Z))
+      {
+        One.TF.FieldObject_OhranTower_00029 = true;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
+        return;
+      }
+      num++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_29_X, Fix.OHRANTOWER_FloatingTile_29_Y - 8.0f, Fix.OHRANTOWER_FloatingTile_29_Z))
+      {
+        One.TF.FieldObject_OhranTower_00029 = false;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
+        return;
+      }
+      num++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_30_X, Fix.OHRANTOWER_FloatingTile_30_Y, Fix.OHRANTOWER_FloatingTile_30_Z))
+      {
+        One.TF.FieldObject_OhranTower_00030 = true;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
+        return;
+      }
+      num++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_30_X, Fix.OHRANTOWER_FloatingTile_30_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_30_Z))
+      {
+        One.TF.FieldObject_OhranTower_00030 = false;
+        MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
+        return;
+      }
+      num++;
 
+      int num2 = 1;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_1_X, Fix.OHRANTOWER_WarpHole_1_Y, Fix.OHRANTOWER_WarpHole_1_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 1); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
+      num2++;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_2_X, Fix.OHRANTOWER_WarpHole_2_Y, Fix.OHRANTOWER_WarpHole_2_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 2); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
+      num2++;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_3_X, Fix.OHRANTOWER_WarpHole_3_Y, Fix.OHRANTOWER_WarpHole_3_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 3); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
+      num2++;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_4_X, Fix.OHRANTOWER_WarpHole_4_Y, Fix.OHRANTOWER_WarpHole_4_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 4); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
+      num2++;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_5_X, Fix.OHRANTOWER_WarpHole_5_Y, Fix.OHRANTOWER_WarpHole_5_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 5); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
+      num2++;
       if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_6_X, Fix.OHRANTOWER_WarpHole_6_Y, Fix.OHRANTOWER_WarpHole_6_Z))
       {
-        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, 6); TapOK();
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
       }
-
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_7_X, Fix.OHRANTOWER_WarpHole_7_Y, Fix.OHRANTOWER_WarpHole_7_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_8_X, Fix.OHRANTOWER_WarpHole_8_Y, Fix.OHRANTOWER_WarpHole_8_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      // 1
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_9_X, Fix.OHRANTOWER_WarpHole_9_Y, Fix.OHRANTOWER_WarpHole_9_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_10_X, Fix.OHRANTOWER_WarpHole_10_Y, Fix.OHRANTOWER_WarpHole_10_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_11_X, Fix.OHRANTOWER_WarpHole_11_Y, Fix.OHRANTOWER_WarpHole_11_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_12_X, Fix.OHRANTOWER_WarpHole_12_Y, Fix.OHRANTOWER_WarpHole_12_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_13_X, Fix.OHRANTOWER_WarpHole_13_Y, Fix.OHRANTOWER_WarpHole_13_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_14_X, Fix.OHRANTOWER_WarpHole_14_Y, Fix.OHRANTOWER_WarpHole_14_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_15_X, Fix.OHRANTOWER_WarpHole_15_Y, Fix.OHRANTOWER_WarpHole_15_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_16_X, Fix.OHRANTOWER_WarpHole_16_Y, Fix.OHRANTOWER_WarpHole_16_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_17_X, Fix.OHRANTOWER_WarpHole_17_Y, Fix.OHRANTOWER_WarpHole_17_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_18_X, Fix.OHRANTOWER_WarpHole_18_Y, Fix.OHRANTOWER_WarpHole_18_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_19_X, Fix.OHRANTOWER_WarpHole_19_Y, Fix.OHRANTOWER_WarpHole_19_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_20_X, Fix.OHRANTOWER_WarpHole_20_Y, Fix.OHRANTOWER_WarpHole_20_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_21_X, Fix.OHRANTOWER_WarpHole_21_Y, Fix.OHRANTOWER_WarpHole_21_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_22_X, Fix.OHRANTOWER_WarpHole_22_Y, Fix.OHRANTOWER_WarpHole_22_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_23_X, Fix.OHRANTOWER_WarpHole_23_Y, Fix.OHRANTOWER_WarpHole_23_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_24_X, Fix.OHRANTOWER_WarpHole_24_Y, Fix.OHRANTOWER_WarpHole_24_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_25_X, Fix.OHRANTOWER_WarpHole_24_Y, Fix.OHRANTOWER_WarpHole_24_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
     }
 
     // ブロックチェック
@@ -1917,6 +2072,16 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
+          RefreshQuestList();
+          return;
+        }
+        // 画面にクエスト更新メッセージを表示する。
+        else if (currentEvent == MessagePack.ActionEvent.QuestUpdate)
+        {
+          this.txtSystemMessage.text = currentMessage;
+          this.panelSystemMessage.SetActive(true);
+
           RefreshQuestList();
           return;
         }
@@ -1938,6 +2103,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_Complete_00009 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_Complete_00010 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_Complete_00011 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
           RefreshQuestList();
           return;
         }
@@ -2583,6 +2749,20 @@ public class DungeonField : MotherBase
                )
       {
         MessagePack.Message300190(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_9_X, Fix.EVENT_OHRANTOWER_9_Y, Fix.EVENT_OHRANTOWER_9_Z))
+      {
+        Debug.Log("Detect ohran-tower 9");
+        MessagePack.Message800090(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, 1, 64, 25))
+      {
+        MessagePack.Message800100(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -3822,6 +4002,14 @@ public class DungeonField : MotherBase
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_28_X, Fix.OHRANTOWER_FloatingTile_28_Y, Fix.OHRANTOWER_FloatingTile_28_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_28_X + 2.0f, Fix.OHRANTOWER_FloatingTile_28_Y, Fix.OHRANTOWER_FloatingTile_28_Z));
       }
+      if (One.TF.FieldObject_OhranTower_00029)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_29_X, Fix.OHRANTOWER_FloatingTile_29_Y, Fix.OHRANTOWER_FloatingTile_29_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_29_X, Fix.OHRANTOWER_FloatingTile_29_Y - 8.0f, Fix.OHRANTOWER_FloatingTile_29_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00030)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_30_X, Fix.OHRANTOWER_FloatingTile_30_Y, Fix.OHRANTOWER_FloatingTile_30_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_30_X, Fix.OHRANTOWER_FloatingTile_30_Y + 8.0f, Fix.OHRANTOWER_FloatingTile_30_Z));
+      }
     }
   }
 
@@ -3923,6 +4111,7 @@ public class DungeonField : MotherBase
     if (One.TF.QuestMain_00009) { AddQuestEvent(Fix.QUEST_TITLE_9, One.TF.QuestMain_Complete_00009, counter); counter++; }
     if (One.TF.QuestMain_00010) { AddQuestEvent(Fix.QUEST_TITLE_10, One.TF.QuestMain_Complete_00010, counter); counter++; }
     if (One.TF.QuestMain_00011) { AddQuestEvent(Fix.QUEST_TITLE_11, One.TF.QuestMain_Complete_00011, counter); counter++; }
+    if (One.TF.QuestMain_00020) { AddQuestEvent(Fix.QUEST_TITLE_20, One.TF.QuestMain_Complete_00020, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -3961,7 +4150,9 @@ public class DungeonField : MotherBase
     if (quest_name == Fix.QUEST_TITLE_9) { txtEventDescription.text = Fix.QUEST_DESC_9; }
     if (quest_name == Fix.QUEST_TITLE_10) { txtEventDescription.text = Fix.QUEST_DESC_10; }
     if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
+    if (quest_name == Fix.QUEST_TITLE_20) { txtEventDescription.text = Fix.QUEST_DESC_20; }
 
+    // クエスト到達状況に応じて、テキスト文章を更新する。
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
     {
       txtEventDescription.text = Fix.QUEST_DESC_2_2;
@@ -3969,6 +4160,11 @@ public class DungeonField : MotherBase
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message500020)
     {
       txtEventDescription.text = Fix.QUEST_DESC_2_3;
+    }
+
+    if (quest_name == Fix.QUEST_TITLE_11 && One.TF.Event_Message800090)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_11_2;
     }
   }
 
