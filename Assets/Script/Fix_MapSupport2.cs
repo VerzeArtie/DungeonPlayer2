@@ -120,5 +120,15 @@ public partial class Fix
   public const float EVENT_OHRANTOWER_9_Y = 55.5f;
   public const float EVENT_OHRANTOWER_9_Z = 27.0f;
 
+  // オーランの塔、ボス戦
+  public const float EVENT_OHRANTOWER_10_X = 1.0f;
+  public const float EVENT_OHRANTOWER_10_Y = 64.0f;
+  public const float EVENT_OHRANTOWER_10_Z = 25.0f;
+
+  // オーランの塔、展望台箇所
+  public const float EVENT_OHRANTOWER_11_X = 1.0f;
+  public const float EVENT_OHRANTOWER_11_Y = 65.0f;
+  public const float EVENT_OHRANTOWER_11_Z = 32.0f;
+
 
 }

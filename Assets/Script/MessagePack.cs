@@ -3979,6 +3979,33 @@ public static class MessagePack
     }
   }
 
+  public static void Message800120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800110 == false)
+    {
+      One.TF.Event_Message800110 = true;
+
+      Message(ref m_list, ref e_list, "ビリー：おいちょって待て。そっちにもう用はねえだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、しかし気になる事がまだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：もう良いんじゃないの？今回はもう特に用は無いでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。ここは引き返すとするか", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ビリー：おい、そっちには行かねえ約束だろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪い悪い。じゃ、引き返すとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+    }
+  }
+
   public static void MoveFloatingTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
   {
     Message(ref m_list, ref e_list, "アイン：さてと、このタイルで移動するか。", ActionEvent.None);
@@ -4480,6 +4507,38 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
       }
     }
+    else if (num == 61)
+    {
+      for (int ii = 0; ii < 63; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 62)
+    {
+      for (int ii = 0; ii < 63; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 63)
+    {
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 64)
+    {
+      for (int ii = 0; ii < 18; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
 
     Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
 
@@ -4722,6 +4781,22 @@ public static class MessagePack
     else if (num == 60)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 61)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 62)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 63)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 64)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);

@@ -545,13 +545,13 @@ public partial class Fix
 
   public const string OHRANTOWER_Treasure_7_C = "Treasure";
   public const string OHRANTOWER_Treasure_7_O = "7";
-  public const float OHRANTOWER_Treasure_7_X = 1f;
+  public const float OHRANTOWER_Treasure_7_X = 2f;
   public const float OHRANTOWER_Treasure_7_Y = 29f;
   public const float OHRANTOWER_Treasure_7_Z = 22f;
 
   public const string OHRANTOWER_Treasure_8_C = "Treasure";
   public const string OHRANTOWER_Treasure_8_O = "8";
-  public const float OHRANTOWER_Treasure_8_X = -3f;
+  public const float OHRANTOWER_Treasure_8_X = -2f;
   public const float OHRANTOWER_Treasure_8_Y = 29f;
   public const float OHRANTOWER_Treasure_8_Z = 22f;
 
@@ -680,5 +680,17 @@ public partial class Fix
   public const float OHRANTOWER_Fountain_1_X = 4f;
   public const float OHRANTOWER_Fountain_1_Y = 64f;
   public const float OHRANTOWER_Fountain_1_Z = 22f;
+
+  public const string OHRANTOWER_FloatingTile_31_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_31_O = "31";
+  public const float OHRANTOWER_FloatingTile_31_X = -1f;
+  public const float OHRANTOWER_FloatingTile_31_Y = 64f;
+  public const float OHRANTOWER_FloatingTile_31_Z = 26f;
+
+  public const string OHRANTOWER_FloatingTile_32_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_32_O = "32";
+  public const float OHRANTOWER_FloatingTile_32_X = -1f;
+  public const float OHRANTOWER_FloatingTile_32_Y = 1f;
+  public const float OHRANTOWER_FloatingTile_32_Z = 24f;
 
 }

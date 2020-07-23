@@ -629,7 +629,9 @@ public class TeamFoundation : MonoBehaviour
   }
 
   protected bool _event_message800090 = false;
+  protected bool _event_message800110 = false;
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
+  public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } }
   #endregion
 
   #region "Quest"
@@ -807,6 +809,8 @@ public class TeamFoundation : MonoBehaviour
   protected bool _fieldobject_ohrantower_00028 = false;
   protected bool _fieldobject_ohrantower_00029 = false;
   protected bool _fieldobject_ohrantower_00030 = false;
+  protected bool _fieldobject_ohrantower_00031 = false;
+  protected bool _fieldobject_ohrantower_00032 = false;
   public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
   public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
   public bool FieldObject_OhranTower_00003 { get { return _fieldobject_ohrantower_00003; } set { _fieldobject_ohrantower_00003 = value; } }
@@ -837,6 +841,8 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_OhranTower_00028 { get { return _fieldobject_ohrantower_00028; } set { _fieldobject_ohrantower_00028 = value; } }
   public bool FieldObject_OhranTower_00029 { get { return _fieldobject_ohrantower_00029; } set { _fieldobject_ohrantower_00029 = value; } }
   public bool FieldObject_OhranTower_00030 { get { return _fieldobject_ohrantower_00030; } set { _fieldobject_ohrantower_00030 = value; } }
+  public bool FieldObject_OhranTower_00031 { get { return _fieldobject_ohrantower_00031; } set { _fieldobject_ohrantower_00031 = value; } }
+  public bool FieldObject_OhranTower_00032 { get { return _fieldobject_ohrantower_00032; } set { _fieldobject_ohrantower_00032 = value; } }
 
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }
