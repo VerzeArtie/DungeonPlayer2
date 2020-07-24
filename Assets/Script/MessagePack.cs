@@ -4943,6 +4943,17 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
       }
     }
+    else if (num == 12)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 2; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
     else if (num == 13)
     {
       for (int ii = 0; ii < 8; ii++)
@@ -4952,6 +4963,17 @@ public static class MessagePack
       for (int ii = 0; ii < 4; ii++)
       {
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 14)
+    {
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRight);
+      }
+      for (int ii = 0; ii < 4; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 15)
@@ -5071,6 +5093,17 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
       }
     }
+    else if (num == 26)
+    {
+      for (int ii = 0; ii < 2; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveBottom);
+      }
+      for (int ii = 0; ii < 8; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveLeft);
+      }
+    }
 
     Message(ref m_list, ref e_list, "", ActionEvent.VisiblePlayer);
 
@@ -5120,9 +5153,17 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
     }
+    else if (num == 12)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+    }
     else if (num == 13)
     {
       Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 14)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
     }
     else if (num == 15)
     {
@@ -5167,6 +5208,10 @@ public static class MessagePack
     else if (num == 25)
     {
       Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 26)
+    {
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);

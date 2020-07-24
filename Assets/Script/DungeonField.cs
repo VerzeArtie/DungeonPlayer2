@@ -1317,7 +1317,13 @@ public class DungeonField : MotherBase
         return;
       }
       num2++;
-      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_25_X, Fix.OHRANTOWER_WarpHole_24_Y, Fix.OHRANTOWER_WarpHole_24_Z))
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_25_X, Fix.OHRANTOWER_WarpHole_25_Y, Fix.OHRANTOWER_WarpHole_25_Z))
+      {
+        MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
+        return;
+      }
+      num2++;
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_WarpHole_26_X, Fix.OHRANTOWER_WarpHole_26_Y, Fix.OHRANTOWER_WarpHole_26_Z))
       {
         MessagePack.MoveWarpHoleTile(ref QuestMessageList, ref QuestEventList, direction, num2); TapOK();
         return;
@@ -1644,6 +1650,136 @@ public class DungeonField : MotherBase
           if (One.TF.Treasure_Artharium_00025 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
           {
             treasureName = Fix.FLAME_HAND_KEEPER;
+          }
+
+          if (treasureName == String.Empty)
+          {
+            // 何もしない
+          }
+          else
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          }
+          return;
+        }
+        // オーランの塔
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+        {
+          string treasureName = String.Empty;
+          // 宝箱１
+          if (One.TF.Treasure_OhranTower_00001 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
+          {
+            treasureName = Fix.RED_PENDANT;
+          }
+          // 宝箱２
+          if (One.TF.Treasure_OhranTower_00002 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
+          {
+            treasureName = Fix.BLUE_PENDANT;
+          }
+          // 宝箱３
+          if (One.TF.Treasure_OhranTower_00003 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
+          {
+            treasureName = Fix.YELLOW_PENDANT;
+          }
+          // 宝箱４
+          if (One.TF.Treasure_OhranTower_00004 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
+          {
+            treasureName = Fix.GREEN_PENDANT;
+          }
+          // 宝箱５
+          if (One.TF.Treasure_OhranTower_00005 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
+          {
+            treasureName = Fix.SWORD_OF_LIFE;
+          }
+          // 宝箱６
+          if (One.TF.Treasure_OhranTower_00006 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
+          {
+            treasureName = Fix.EARTH_POWER_AXE;
+          }
+          // 宝箱７
+          if (One.TF.Treasure_OhranTower_00007== false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
+          {
+            treasureName = Fix.FROST_LANCE;
+          }
+          // 宝箱８
+          if (One.TF.Treasure_OhranTower_00008 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
+          {
+            treasureName = Fix.TOUGH_TREE_ROD;
+          }
+          // 宝箱９
+          if (One.TF.Treasure_OhranTower_00009 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
+          {
+            treasureName = Fix.LIVING_GROWTH_ORB;
+          }
+          // 宝箱１０
+          if (One.TF.Treasure_OhranTower_00010 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
+          {
+            treasureName = Fix.MUIN_BOOK;
+          }
+          // 宝箱１１
+          if (One.TF.Treasure_OhranTower_00011 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
+          {
+            treasureName = Fix.ICICLE_LONGBOW;
+          }
+          // 宝箱１２
+          if (One.TF.Treasure_OhranTower_00012 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
+          {
+            treasureName = Fix.KITE_SHIELD;
+          }
+          // 宝箱１３
+          if (One.TF.Treasure_OhranTower_00013 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
+          {
+            treasureName = Fix.FINE_ARMOR;
+          }
+          // 宝箱１４
+          if (One.TF.Treasure_OhranTower_00014 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
+          {
+            treasureName = Fix.FINE_CROSS;
+          }
+          // 宝箱１５
+          if (One.TF.Treasure_OhranTower_00015 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
+          {
+            treasureName = Fix.FINE_ROBE;
+          }
+          // 宝箱１６
+          if (One.TF.Treasure_OhranTower_00016 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
+          {
+            treasureName = Fix.FLAT_SHOES;
+          }
+          // 宝箱１７
+          if (One.TF.Treasure_OhranTower_00017 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
+          {
+            treasureName = Fix.COMPACT_EARRING;
+          }
+          // 宝箱１８
+          if (One.TF.Treasure_OhranTower_00018 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
+          {
+            treasureName = Fix.POWER_BANDANA;
+          }
+          // 宝箱１９
+          if (One.TF.Treasure_OhranTower_00019 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
+          {
+            treasureName = Fix.CHERRY_CHOKER;
+          }
+          // 宝箱２０
+          if (One.TF.Treasure_OhranTower_00020 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
+          {
+            treasureName = Fix.BLUE_WIZARD_HAT;
+          }
+          // 宝箱２１
+          if (One.TF.Treasure_OhranTower_00021 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
+          {
+            treasureName = Fix.FLAME_HAND_KEEPER;
+          }
+          // 宝箱２２
+          if (One.TF.Treasure_OhranTower_00022 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
+          {
+            treasureName = Fix.MUMYOU_BOW;
+          }
+          // 宝箱２３
+          if (One.TF.Treasure_OhranTower_00023 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
           }
 
           if (treasureName == String.Empty)
@@ -2466,6 +2602,125 @@ public class DungeonField : MotherBase
               One.TF.Treasure_Artharium_00025 = true;
             }
           }
+          else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+          {
+            // 宝箱１
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
+            {
+              One.TF.Treasure_OhranTower_00001 = true;
+            }
+            // 宝箱２
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
+            {
+              One.TF.Treasure_OhranTower_00002 = true;
+            }
+            // 宝箱３
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
+            {
+              One.TF.Treasure_OhranTower_00003 = true;
+            }
+            // 宝箱４
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
+            {
+              One.TF.Treasure_OhranTower_00004 = true;
+            }
+            // 宝箱５
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
+            {
+              One.TF.Treasure_OhranTower_00005 = true;
+            }
+            // 宝箱６
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
+            {
+              One.TF.Treasure_OhranTower_00006 = true;
+            }
+            // 宝箱７
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
+            {
+              One.TF.Treasure_OhranTower_00007 = true;
+            }
+            // 宝箱８
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
+            {
+              One.TF.Treasure_OhranTower_00008 = true;
+            }
+            // 宝箱９
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
+            {
+              One.TF.Treasure_OhranTower_00009 = true;
+            }
+            // 宝箱１０
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
+            {
+              One.TF.Treasure_OhranTower_00010 = true;
+            }
+            // 宝箱１１
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
+            {
+              One.TF.Treasure_OhranTower_00011 = true;
+            }
+            // 宝箱１２
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
+            {
+              One.TF.Treasure_OhranTower_00012 = true;
+            }
+            // 宝箱１３
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
+            {
+              One.TF.Treasure_OhranTower_00013 = true;
+            }
+            // 宝箱１４
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
+            {
+              One.TF.Treasure_OhranTower_00014 = true;
+            }
+            // 宝箱１５
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
+            {
+              One.TF.Treasure_OhranTower_00015 = true;
+            }
+            // 宝箱１６
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
+            {
+              One.TF.Treasure_OhranTower_00016 = true;
+            }
+            // 宝箱１７
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
+            {
+              One.TF.Treasure_OhranTower_00017 = true;
+            }
+            // 宝箱１８
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
+            {
+              One.TF.Treasure_OhranTower_00018 = true;
+            }
+            // 宝箱１９
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
+            {
+              One.TF.Treasure_OhranTower_00019 = true;
+            }
+            // 宝箱２０
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
+            {
+              One.TF.Treasure_OhranTower_00020 = true;
+            }
+            // 宝箱２１
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
+            {
+              One.TF.Treasure_OhranTower_00021 = true;
+            }
+            // 宝箱２２
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
+            {
+              One.TF.Treasure_OhranTower_00022 = true;
+            }
+            // 宝箱２３
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
+            {
+              One.TF.Treasure_OhranTower_00023 = true;
+            }
+          }
+
           return; // 通常
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
@@ -4055,6 +4310,145 @@ public class DungeonField : MotherBase
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FloatingTile_32_X, Fix.OHRANTOWER_FloatingTile_32_Y, Fix.OHRANTOWER_FloatingTile_32_Z), new Vector3(Fix.OHRANTOWER_FloatingTile_32_X, Fix.OHRANTOWER_FloatingTile_32_Y, Fix.OHRANTOWER_FloatingTile_32_Z - 18.0f));
       }
+
+      // 宝箱１
+      if (One.TF.Treasure_OhranTower_00001)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２
+      if (One.TF.Treasure_OhranTower_00002)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱３
+      if (One.TF.Treasure_OhranTower_00003)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱４
+      if (One.TF.Treasure_OhranTower_00004)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱５
+      if (One.TF.Treasure_OhranTower_00005)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱６
+      if (One.TF.Treasure_OhranTower_00006)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱７
+      if (One.TF.Treasure_OhranTower_00007)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱８
+      if (One.TF.Treasure_OhranTower_00008)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱９
+      if (One.TF.Treasure_OhranTower_00009)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１０
+      if (One.TF.Treasure_OhranTower_00010)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１１
+      if (One.TF.Treasure_OhranTower_00011)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１２
+      if (One.TF.Treasure_OhranTower_00012)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１３
+      if (One.TF.Treasure_OhranTower_00013)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１４
+      if (One.TF.Treasure_OhranTower_00014)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１５
+      if (One.TF.Treasure_OhranTower_00015)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１６
+      if (One.TF.Treasure_OhranTower_00016)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１７
+      if (One.TF.Treasure_OhranTower_00017)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１８
+      if (One.TF.Treasure_OhranTower_00018)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱１９
+      if (One.TF.Treasure_OhranTower_00019)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２０
+      if (One.TF.Treasure_OhranTower_00020)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２１
+      if (One.TF.Treasure_OhranTower_00021)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２２
+      if (One.TF.Treasure_OhranTower_00022)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱２３
+      if (One.TF.Treasure_OhranTower_00023)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
     }
   }
 
@@ -4109,6 +4503,7 @@ public class DungeonField : MotherBase
     newCurrent.ObjectId = objectId;
     newCurrent.transform.SetParent(this.transform);
     newCurrent.transform.rotation = new_prefab.transform.rotation;
+    newCurrent.gameObject.SetActive(true);
     list.Insert(num, newCurrent);
 
     //for (int ii = 0; ii < FieldObjList.Count; ii++)
