@@ -30,18 +30,18 @@ public static class SceneDimension
     One.Parent.Clear();
   }
 
-  public static void CallSaveLoad(MotherBase scene, bool SaveMode, bool AfterBacktoTitle)
-  {
-    One.SaveMode = SaveMode;
-    One.AfterBacktoTitle = AfterBacktoTitle;
-    One.Parent.Add(scene);
-    One.SaveAndExit = false;
-    if (scene.Filter != null)
-    {
-      scene.Filter.SetActive(true);
-    }
-    SceneManager.LoadSceneAsync(Fix.SaveLoad, LoadSceneMode.Additive);
-  }
+  //public static void CallSaveLoad(MotherBase scene, bool SaveMode, bool AfterBacktoTitle)
+  //{
+  //  One.SaveMode = SaveMode;
+  //  One.AfterBacktoTitle = AfterBacktoTitle;
+  //  One.Parent.Add(scene);
+  //  One.SaveAndExit = false;
+  //  if (scene.Filter != null)
+  //  {
+  //    scene.Filter.SetActive(true);
+  //  }
+  //  SceneManager.LoadSceneAsync(Fix.SaveLoad, LoadSceneMode.Additive);
+  //}
 
   public static void CallBattleEnemy(List<string> enemy_list, bool cannot_runaway)
   {

@@ -214,6 +214,7 @@ public partial class HomeTown : MotherBase
   public Text txtCustomEvent2;
 
   public GameObject groupNowLoading;
+  public SaveLoad groupSaveLoad;
 
   // Inner Value
   protected List<NodeCharaView> CharaViewList = new List<NodeCharaView>();
@@ -325,12 +326,23 @@ public partial class HomeTown : MotherBase
 
   public void TapSave()
   {
-    SceneDimension.CallSaveLoad(this, true, false);
+    One.SaveMode = true;
+    One.AfterBacktoTitle = false;
+    One.SaveAndExit = false;
+    this.groupSaveLoad.SceneLoading();
+    this.groupSaveLoad.gameObject.SetActive(true);
+    //SceneDimension.CallSaveLoad(this, true, false);
   }
 
   public void TapLoad()
   {
-    SceneDimension.CallSaveLoad(this, false, false);
+    One.SaveMode = false;
+    One.AfterBacktoTitle = false;
+    One.SaveAndExit = false;
+    One.Parent.Add(this);
+    this.groupSaveLoad.SceneLoading();
+    this.groupSaveLoad.gameObject.SetActive(true);
+    //SceneDimension.CallSaveLoad(this, false, false);
   }
 
   public void TapDungeonPlayer()
