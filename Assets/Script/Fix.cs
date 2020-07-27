@@ -659,6 +659,9 @@ public static partial class Fix
   public const string QUEST_TITLE_20 = "塔最上階からの気配";
   public const string QUEST_DESC_20 = "オーランの塔最上階へと上る階段にて、流れ込んでくる異質な風をパーティ全員は感じ取った。この先、何かが待ち受けている事だけは間違いない。準備を万全にして挑んだ方が良いだろう。";
 
+  public const string QUEST_TITLE_21 = "国王エルミからの依頼３";
+  public const string QUEST_DESC_21 = "オーランの塔から見えた奇妙な赤い星、およびそれ以外にも見えた内容について国王へ報告を行った。国王エルミからは次の指令としてムーンフォーダー方面にあるアーケンダイン街を目指すよう依頼を受けた。準備を万全に整え、アーケンダイン街を目指そう。";
+
   public const string DECISION_ESCAPE_FROM_DUNGEON = "遠見の青水晶（ダンジョンからの帰還）";
   public const string DECISION_TRANSFER_TOWN = "遠見の青水晶（街へのワープ）";
   public const string DECISION_ARTHARIUM_CLIFF = "アーサリウム工場跡地：崖の下へ";
