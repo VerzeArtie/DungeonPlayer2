@@ -2242,6 +2242,7 @@ public class DungeonField : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00021 = true; }
           RefreshQuestList();
           return;
         }
