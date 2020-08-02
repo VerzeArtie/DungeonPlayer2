@@ -388,15 +388,15 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：分かりました。じゃあ、まずは" + Fix.TOWN_COTUHSYE + "へ行ってみます。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金を用意しておいた。この軍資金は好きに使ってもらって構わないから。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金とアイテムを用意しておいた。好きに使ってもらって構わないよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
+    //Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
+    //Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
 
     Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！僭越ながら、拝受つかまつります！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：アッハハハ、丁寧にどうもありがとう。固苦しい言葉は本当に気にしなくていいからね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：丁寧にどうもありがとう。固苦しい言葉は本当に気にしなくていいからね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：さて、港町までは少し距離がある。途中にある" + Fix.TOWN_QVELTA_TOWN + "に立ち寄ってみるのも良いだろう。", ActionEvent.None);
 
@@ -487,11 +487,13 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：決まりみたいね♪　じゃあ、" + Fix.TOWN_QVELTA_TOWN + "まで、一緒に行きましょう♪", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！よろしくお願いします！", ActionEvent.None);
-
     Message(ref m_list, ref e_list, " 【エオネ・フルネア】が仲間になりました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！よろしくお願いします！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_1 + " 】を達成しました！", ActionEvent.QuestComplete);
   }

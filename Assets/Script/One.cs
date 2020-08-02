@@ -607,58 +607,61 @@ public static class One
     return true;
   }
 
-  public static List<Character> AvailableCharacters()
+  public static List<Character> AvailableCharacters
   {
-    List<Character> list = new List<Character>();
-    int playerCounter = 0;
-    if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableLanaAmiria) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableEoneFulnea) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableSelmoiRo) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableKartinMai) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableJedaArus) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableSinikiaVeilhanz) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailablePermaWaramy) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableKiltJorju) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableSunYu) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableRvelZelkis) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableVanHehgustel) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableLadaMystorus) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableSinOscurete) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
-    if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
-    playerCounter++;
+    get
+    {
+      List<Character> list = new List<Character>();
+      int playerCounter = 0;
+      if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableLanaAmiria) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableEoneFulnea) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableSelmoiRo) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableKartinMai) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableJedaArus) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableSinikiaVeilhanz) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailablePermaWaramy) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableKiltJorju) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableSunYu) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableRvelZelkis) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableVanHehgustel) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableLadaMystorus) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableSinOscurete) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
 
-    return list;
+      return list;
+    }
   }
 
   #region "BGM再生と効果音関連"

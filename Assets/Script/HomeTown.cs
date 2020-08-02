@@ -180,6 +180,14 @@ public partial class HomeTown : MotherBase
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
 
+  // Quest Complete
+  public GameObject GroupQuestComplete;
+  public Text txtQCTitle;
+  public Text txtQCExpGain;
+  public Text txtQCGoldGain;
+  public Text txtQCItemGain;
+  public Text txtQCSoulEssenceGain;
+
   // AC Attribute
   public GameObject GroupActionCommandSetting;
   public NodeACAttribute NodeACAttribute;
@@ -376,6 +384,12 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (GroupDungeonPlayer.activeInHierarchy)
+    {
+      GroupDungeonPlayer.SetActive(false);
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(true);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
@@ -386,6 +400,12 @@ public partial class HomeTown : MotherBase
 
   public void TapCharacter()
   {
+    if (GroupCharacter.activeInHierarchy)
+    {
+      GroupCharacter.SetActive(false);
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(false);
     GroupCharacter.SetActive(true);
     GroupBackpack.SetActive(false);
@@ -393,8 +413,15 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(false);
   }
+
   public void TapBackpack()
   {
+    if (GroupBackpack.activeInHierarchy)
+    {
+      GroupBackpack.SetActive(false);
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(false);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(true);
@@ -402,6 +429,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(false);
   }
+
   public void TapShop()
   {
     if (One.TF.Event_Message100020 == false)
@@ -416,6 +444,12 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (GroupShopItem.activeInHierarchy)
+    {
+      GroupShopItem.SetActive(false);
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(false);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
@@ -423,12 +457,19 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupInn.SetActive(false);
   }
+
   public void TapActionCommandSetting()
   {
     if (One.TF.Event_Message100020 == false)
     {
       MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
       TapOK();
+      return;
+    }
+
+    if (GroupActionCommandSetting.activeInHierarchy)
+    {
+      GroupActionCommandSetting.SetActive(false);
       return;
     }
 
@@ -451,6 +492,12 @@ public partial class HomeTown : MotherBase
     if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
     {
       MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
+    if (GroupInn.activeInHierarchy)
+    {
+      GroupInn.SetActive(false);
       return;
     }
 
@@ -805,6 +852,11 @@ public partial class HomeTown : MotherBase
     TapOK();
   }
 
+  public void TapQuestCompleted()
+  {
+    GroupQuestComplete.SetActive(false);
+  }
+
   public void TapOK()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -874,11 +926,34 @@ public partial class HomeTown : MotherBase
         // 画面にクエスト完了メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.QuestComplete)
         {
-          this.txtSystemMessage.text = currentMessage;
-          this.panelSystemMessage.SetActive(true);
+          this.txtQCTitle.text = currentMessage;
+          this.GroupQuestComplete.SetActive(true);
+
+          //this.txtSystemMessage.text = currentMessage;
+          //this.panelSystemMessage.SetActive(true);
 
           // todo
-          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_Complete_00001 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_1))
+          {
+            One.TF.QuestMain_Complete_00001 = true;
+
+            int gainExp = 300;
+            int gainGold = 1000;
+            string gainItem = Fix.FINE_SWORD;
+            int gainSoulFragment = 1;
+            for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
+            {
+              One.AvailableCharacters[jj].Exp += gainExp;
+              One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
+            }
+            One.TF.Gold += gainGold;
+            One.TF.AddBackPack(new Item(gainItem));
+
+            this.txtQCGoldGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCExpGain.text = gainExp.ToString() + " 経験値を獲得しました！";
+            this.txtQCItemGain.text = gainItem + " を獲得しました";
+            this.txtQCSoulEssenceGain.text = "1 ソウル・エッセンスを獲得しました！";
+          }
           if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Complete_00002 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_Complete_00003 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_Complete_00004 = true; }
@@ -892,7 +967,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_Complete_00021 = true; }
           RefreshQuestList();
-          return;
+          continue; // 継続
         }
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)
@@ -906,7 +981,7 @@ public partial class HomeTown : MotherBase
             One.TF.AvailableBillyRaki = true;
           }
 
-          List<Character> current = One.AvailableCharacters();
+          List<Character> current = One.AvailableCharacters;
           for (int jj = 0; jj < current.Count; jj++)
           {
             if (current[jj].FullName == currentMessage)
@@ -1445,7 +1520,7 @@ public partial class HomeTown : MotherBase
         CharaViewList[ii] = null;
       }
     }
-    List<Character> currentList = One.AvailableCharacters();
+    List<Character> currentList = One.AvailableCharacters;
     for (int ii = 0; ii < currentList.Count; ii++)
     {
       NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
@@ -1468,7 +1543,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
-    List<Character> available = One.AvailableCharacters();
+    List<Character> available = One.AvailableCharacters;
     for (int ii = 0; ii < available.Count; ii++)
     {
       CreateMiniCharaIcon(available[ii]);

@@ -292,7 +292,7 @@ public class DungeonField : MotherBase
     counter++;
 
     // プレイヤーリスト
-    List<Character> list = One.AvailableCharacters();
+    List<Character> list = One.AvailableCharacters;
     for (int ii = 0; ii < list.Count; ii++)
     {
       NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
