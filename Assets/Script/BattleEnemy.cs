@@ -397,7 +397,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (PlayerList[ii].Exp < PlayerList[ii].GetNextExp())
           {
-            PlayerList[ii].Exp += gainExp;
+            PlayerList[ii].GainExp(gainExp);
           }
         }
         One.TF.Gold += gainGold;

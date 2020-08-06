@@ -42,6 +42,7 @@ public static class MessagePack
     ViewQuestDisplay,
     HidePlayer,
     VisiblePlayer,
+    ViewLevelUpCharacter,
 
     ObjectiveAdd,
     ObjectiveRemove,

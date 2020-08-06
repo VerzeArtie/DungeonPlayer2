@@ -229,6 +229,45 @@ public partial class Character : MonoBehaviour
     }
     get { return _baseLife; }
   }
+  [SerializeField] protected int _baseSoulPoint = 0;
+  public int BaseSoulPoint
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _baseSoulPoint = value;
+    }
+    get { return _baseSoulPoint; }
+  }
+
+  public int MaxSoulPoint
+  {
+    get
+    {
+      return _baseSoulPoint + TotalMind * 3;
+    }
+  }
+
+  [SerializeField] protected int _currentSoulPoint = 0;
+  public int CurrentSoulPoint
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      if (value >= MaxSoulPoint)
+      {
+        value = MaxSoulPoint;
+      }
+      _currentSoulPoint = value;
+    }
+    get { return _currentSoulPoint; }
+  }
 
   //[SerializeField] protected int _maxLife = 0;
   public int MaxLife
@@ -411,6 +450,20 @@ public partial class Character : MonoBehaviour
       _remainPoint = value;
     }
     get { return _remainPoint; }
+  }
+
+  [SerializeField] protected int _minusRemainPoint = 0;
+  public int MinusRemainPoint
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _minusRemainPoint = value;
+    }
+    get { return _minusRemainPoint; }
   }
 
   [SerializeField] protected int _plusStrength = 0;
@@ -1608,21 +1661,21 @@ public partial class Character : MonoBehaviour
     return result;
   }
 
-  public int GetRemainPoint()
-  {
-    int result = 0;
-    if (this.Level == 1) { result = 3; }
-    else if (this.Level == 2) { result = 4; }
-    else if (this.Level == 3) { result = 5; }
-    else if (this.Level == 4) { result = 6; }
-    else if (this.Level == 5) { result = 7; }
-    else if (this.Level == 6) { result = 8; }
-    else if (this.Level == 7) { result = 10; }
-    else if (this.Level == 8) { result = 12; }
-    else if (this.Level == 9) { result = 14; }
-    else { result = 0; }
-    return result;
-  }
+  //public int GetRemainPoint()
+  //{
+  //  int result = 0;
+  //  if (this.Level == 1) { result = 3; }
+  //  else if (this.Level == 2) { result = 4; }
+  //  else if (this.Level == 3) { result = 5; }
+  //  else if (this.Level == 4) { result = 6; }
+  //  else if (this.Level == 5) { result = 7; }
+  //  else if (this.Level == 6) { result = 8; }
+  //  else if (this.Level == 7) { result = 10; }
+  //  else if (this.Level == 8) { result = 12; }
+  //  else if (this.Level == 9) { result = 14; }
+  //  else { result = 0; }
+  //  return result;
+  //}
 
   public void AddStrength()
   {
@@ -1662,7 +1715,12 @@ public partial class Character : MonoBehaviour
 
   public void ResetLevelUp()
   {
-    this._remainPoint = GetRemainPoint();
+    this._remainPoint += this._plusStrength;
+    this._remainPoint += this._plusAgility;
+    this._remainPoint += this._plusIntelligence;
+    this._remainPoint += this._plusStamina;
+    this._remainPoint += this._plusMind;
+
     this._plusStrength = 0;
     this._plusAgility = 0;
     this._plusIntelligence = 0;
@@ -1671,20 +1729,52 @@ public partial class Character : MonoBehaviour
   }
   public void AcceptLevelup()
   {
-    this._level += 1;
+    if (this.Exp >= this.GetNextExp())
+    {
+      this.Exp = 0;
+      this._level += 1;
+    }
     this._strength += this._plusStrength;
     this._agility += this._plusAgility;
     this._intelligence += this._plusIntelligence;
     this._stamina += this._plusStamina;
     this._mind += this._plusMind;
 
-    this._remainPoint = 0;
+    //this._remainPoint = 0;
     this._plusStrength = 0;
     this._plusAgility = 0;
     this._plusIntelligence = 0;
     this._plusStamina = 0;
     this._plusMind = 0;
     this._exp = 0;
+  }
+
+  public void GainExp(int gain_exp)
+  {
+    if (this.GetNextExp() - this._exp > 0)
+    {
+      this._exp += gain_exp;
+
+      if (this._exp >= this.GetNextExp())
+      {
+        int gainRemainPoint = 0;
+        if (this.Level == 1) { gainRemainPoint = 3; }
+        else if (this.Level == 2) { gainRemainPoint = 4; }
+        else if (this.Level == 3) { gainRemainPoint = 5; }
+        else if (this.Level == 4) { gainRemainPoint = 6; }
+        else if (this.Level == 5) { gainRemainPoint = 7; }
+        else if (this.Level == 6) { gainRemainPoint = 8; }
+        else if (this.Level == 7) { gainRemainPoint = 10; }
+        else if (this.Level == 8) { gainRemainPoint = 12; }
+        else if (this.Level == 9) { gainRemainPoint = 14; }
+        else if (this.Level == 10) { gainRemainPoint = 16; }
+        else if (this.Level == 11) { gainRemainPoint = 18; }
+        else if (this.Level == 12) { gainRemainPoint = 20; }
+        else { gainRemainPoint = 20; }
+
+        this._remainPoint += gainRemainPoint;
+      }
+    }
   }
 
   public bool Equipable(Fix.EquipType equip_type, Item item)

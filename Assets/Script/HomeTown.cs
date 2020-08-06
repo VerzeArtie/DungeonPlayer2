@@ -188,6 +188,14 @@ public partial class HomeTown : MotherBase
   public Text txtQCItemGain;
   public Text txtQCSoulEssenceGain;
 
+  // Level-UP Character
+  public GameObject GroupLvupCharacter;
+  public Text txtLvupTitle;
+  public Text txtLvupMaxLife;
+  public Text txtLvupMaxMana;
+  public Text txtLvupRemainPoint;
+  public Text txtLvupSoulEssence;
+
   // AC Attribute
   public GameObject GroupActionCommandSetting;
   public NodeACAttribute NodeACAttribute;
@@ -855,6 +863,17 @@ public partial class HomeTown : MotherBase
   public void TapQuestCompleted()
   {
     GroupQuestComplete.SetActive(false);
+
+    QuestMessageList.Add(Fix.NAME_EIN_WOLENCE);
+    QuestEventList.Add(MessagePack.ActionEvent.ViewLevelUpCharacter);
+    TapOK();
+  }
+
+  public void TapLevelUpCharacterCompleted()
+  {
+    GroupLvupCharacter.SetActive(false);
+
+    TapOK();
   }
 
   public void TapOK()
@@ -943,7 +962,7 @@ public partial class HomeTown : MotherBase
             int gainSoulFragment = 1;
             for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
             {
-              One.AvailableCharacters[jj].Exp += gainExp;
+              One.AvailableCharacters[jj].GainExp(gainExp);
               One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
             }
             One.TF.Gold += gainGold;
@@ -967,7 +986,17 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_Complete_00021 = true; }
           RefreshAllView();
-          continue; // 継続
+          return;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ViewLevelUpCharacter)
+        {
+          this.txtLvupTitle.text = Fix.NAME_EIN_WOLENCE + "がレベルアップしました！";
+          this.txtLvupMaxLife.text = "最大ライフ 50 上昇！";
+          this.txtLvupMaxMana.text = "最大マナ 20 上昇！";
+          this.txtLvupRemainPoint.text = "コア・パラメタポイントを 3 獲得！";
+          this.txtLvupSoulEssence.text = "ソウル・エッセンスポイントを 1 獲得！";
+          this.GroupLvupCharacter.SetActive(true);
+          return;
         }
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)

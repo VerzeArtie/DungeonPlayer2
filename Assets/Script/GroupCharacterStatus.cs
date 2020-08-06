@@ -52,6 +52,7 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtDetailPotential;
   public GameObject GroupLevelUp;
   public Text txtDetailRemainPoint;
+  public List<GameObject> btnPlus;
   // Character ( Detail - Change Equip )
   public GameObject GroupMainEquip;
   public GameObject GroupChangeEquip;
@@ -163,13 +164,29 @@ public class GroupCharacterStatus : MonoBehaviour
     if (player.Exp < player.GetNextExp())
     {
       txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
-      GroupLevelUp?.SetActive(false);
+      //GroupLevelUp?.SetActive(true);
     }
     else
     {
       txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
       txtDetailExp.text = "MAX";
-      GroupLevelUp?.SetActive(true);
+      //GroupLevelUp?.SetActive(true);
+    }
+
+    Debug.Log("remain " + CurrentPlayer.FullName + " " + CurrentPlayer.RemainPoint);
+    if (CurrentPlayer.RemainPoint > 0)
+    {
+      for (int ii = 0; ii < btnPlus.Count; ii++)
+      {
+        btnPlus[ii].SetActive(true);
+      }
+    }
+    else
+    {
+      for (int ii = 0; ii < btnPlus.Count; ii++)
+      {
+        btnPlus[ii].SetActive(false);
+      }
     }
   }
 
@@ -764,6 +781,7 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentPlayer.PlusIntelligence = this.ShadowPlayer.PlusIntelligence;
     this.CurrentPlayer.PlusStamina = this.ShadowPlayer.PlusStamina;
     this.CurrentPlayer.PlusMind = this.ShadowPlayer.PlusMind;
+    this.CurrentPlayer.RemainPoint = this.ShadowPlayer.RemainPoint;
     this.CurrentPlayer.AcceptLevelup();
     this.CurrentPlayer.MaxGain();
 
