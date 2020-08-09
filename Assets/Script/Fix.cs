@@ -281,6 +281,7 @@ public static partial class Fix
   // Battle Effect Message
   public const string BATTLE_MISS = "Miss";
   public const string BATTLE_AP_LESS = "No AP";
+  public const string BATTLE_SP_LESS = "No SP";
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
 

@@ -238,8 +238,15 @@ public partial class BattleEnemy : MotherBase
     character.objArrow.SetActive(true);
     character.txtName = node.txtPlayerName;
     character.txtLife = node.txtPlayerLife;
+    character.objBackLifeGauge = node.objBackLifeGauge;
+    character.objCurrentLifeGauge = node.objCurrentLifeGauge;
+    character.objCurrentLifeBorder = node.objCurrentLifeBorder;
     character.objBackInstantGauge = node.objBackInstantGauge;
     character.objCurrentInstantGauge = node.objCurrentInstantGauge;
+    character.txtSoulPoint = node.txtSoulPoint;
+    character.objBackInstantGauge = node.objBackSoulPointGauge;
+    character.objCurrentSoulPointGauge = node.objCurrentSoulPointGauge;
+    character.objCurrentSoulPointBorder = node.objCurrentSoulPointBorder;
     character.objMainButton = node.objMainButton;
     character.txtActionCommand = node.txtActionCommand;
     character.groupActionPoint = node.groupActionPoint;
@@ -287,6 +294,10 @@ public partial class BattleEnemy : MotherBase
     if (character.objBackInstantGauge)
     {
       character.objBackInstantGauge.color = character.BattleBackColor;
+    }
+    if (character.txtSoulPoint != null)
+    {
+      character.txtSoulPoint.text = character.CurrentSoulPoint.ToString();
     }
 
     // アクションコマンドボタンの割当を設定する。
@@ -568,9 +579,11 @@ public partial class BattleEnemy : MotherBase
       // プレイヤーのリソースゲージ値を更新する。
       if (AllList[ii].Dead == false)
       {
+        AllList[ii].UpdateLife();
         AllList[ii].UpdatePlayerInstantPoint();
         AllList[ii].UpdateActionPoint();
         AllList[ii].UpdateEnergyPoint();
+        AllList[ii].UpdateSoulPoint();
       }
       // プレイヤーのステータス表示を更新する。
       if (AllList[ii].Target != null)
@@ -677,15 +690,23 @@ public partial class BattleEnemy : MotherBase
     }
 
     // アクションポイントが不足している場合、行動ミスとする。
-    if (player.CurrentActionPoint < ActionCommand.GetCost(command_name))
+    //if (player.CurrentActionPoint < ActionCommand.GetCost(command_name))
+    //{
+    //  StartAnimation(player.objGroup.gameObject, Fix.BATTLE_AP_LESS, Fix.COLOR_NORMAL);
+    //  return;
+    //}
+    //else
+    //{
+    //  player.CurrentActionPoint -= ActionCommand.GetCost(command_name);
+    //}
+
+
+    if (player.CurrentSoulPoint < ActionCommand.CostSP(command_name))
     {
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_AP_LESS, Fix.COLOR_NORMAL);
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SP_LESS, Fix.COLOR_NORMAL);
       return;
     }
-    else
-    {
-      player.CurrentActionPoint -= ActionCommand.GetCost(command_name);
-    }
+    player.CurrentSoulPoint -= ActionCommand.CostSP(command_name);
 
     player.CurrentEnergyPoint += 1000;
 
@@ -1564,6 +1585,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < AllList.Count; ii++)
     {
       AllList[ii].CurrentActionPoint += Fix.AP_BASE;
+      AllList[ii].GainSoulPoint();
       AllList[ii].UpdateActionPoint();
 
       if (AllList[ii].IsHeartOfLife)

@@ -319,7 +319,7 @@ public static class ActionCommand
     return Attribute.None;
   }
 
-  public static int GetCost(string command_name)
+  public static int CostSP(string command_name)
   {
     if (command_name == Fix.NORMAL_ATTACK) { return 0; }
     if (command_name == Fix.MAGIC_ATTACK) { return 0; }
@@ -327,36 +327,35 @@ public static class ActionCommand
     if (command_name == Fix.Stay) { return 0; }
     if (command_name == Fix.USE_RED_POTION) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
 
-    if (command_name == Fix.FIRE_BOLT) { return 100; }
-    if (command_name == Fix.ICE_NEEDLE) { return 100; }
-    if (command_name == Fix.FRESH_HEAL) { return 100; }
-    if (command_name == Fix.SHADOW_BLAST) { return 100; }
-    if (command_name == Fix.AURA_OF_POWER) { return 100; }
-    if (command_name == Fix.DISPEL_MAGIC) { return 100; }
-    if (command_name == Fix.STRAIGHT_SMASH) { return 100; }
-    if (command_name == Fix.SHIELD_BASH) { return 100; }
-    if (command_name == Fix.HUNTER_SHOT) { return 100; }
-    if (command_name == Fix.VENOM_SLASH) { return 100; }
-    if (command_name == Fix.HEART_OF_LIFE) { return 100; }
-    if (command_name == Fix.ORACLE_COMMAND) { return 100; }
+    if (command_name == Fix.FIRE_BOLT) { return 4; }
+    if (command_name == Fix.ICE_NEEDLE) { return 3; }
+    if (command_name == Fix.FRESH_HEAL) { return 3; }
+    if (command_name == Fix.SHADOW_BLAST) { return 3; }
+    if (command_name == Fix.AURA_OF_POWER) { return 2; }
+    if (command_name == Fix.DISPEL_MAGIC) { return 4; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return 5; }
+    if (command_name == Fix.SHIELD_BASH) { return 3; }
+    if (command_name == Fix.HUNTER_SHOT) { return 4; }
+    if (command_name == Fix.VENOM_SLASH) { return 3; }
+    if (command_name == Fix.HEART_OF_LIFE) { return 3; }
+    if (command_name == Fix.ORACLE_COMMAND) { return 2; } // todo
+    if (command_name == Fix.FLAME_BLADE) { return 7; }
+    if (command_name == Fix.PURE_PURIFICATION) { return 10; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return 9; }
+    if (command_name == Fix.BLOOD_SIGN) { return 10; }
+    if (command_name == Fix.SKY_SHIELD) { return 11; }
+    if (command_name == Fix.FLASH_COUNTER) { return 8; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 5; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 5; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return 12; }
+    if (command_name == Fix.INVISIBLE_BIND) { return 9; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return 15; }
+    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
 
-    if (command_name == Fix.FLAME_BLADE) { return 200; }
-    if (command_name == Fix.PURE_PURIFICATION) { return 200; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return 200; }
-    if (command_name == Fix.BLOOD_SIGN) { return 200; }
-    if (command_name == Fix.SKY_SHIELD) { return 200; }
-    if (command_name == Fix.FLASH_COUNTER) { return 200; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 200; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 200; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return 200; }
-    if (command_name == Fix.INVISIBLE_BIND) { return 200; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return 200; }
-    if (command_name == Fix.SPIRITUAL_REST) { return 200; }
 
-
-    if (command_name == Fix.ZERO_IMMUNITY) { return 200; }
-    if (command_name == Fix.CIRCLE_SLASH) { return 100; }
-    if (command_name == Fix.DOUBLE_SLASH) { return 100; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return 20; }
+    if (command_name == Fix.CIRCLE_SLASH) { return 18; }
+    if (command_name == Fix.DOUBLE_SLASH) { return 16; }
 
     // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }

@@ -12,6 +12,9 @@ public partial class Character : MonoBehaviour
   public Button objMainButton = null;
   public Text txtName = null;
   public Text txtLife = null;
+  public Image objBackLifeGauge = null;
+  public Image objCurrentLifeGauge = null;
+  public Image objCurrentLifeBorder = null;
   public Text txtActionCommand = null;
   public NodeActionPanel objParentActionPanel = null;
   public GameObject groupActionButton = null;
@@ -25,6 +28,10 @@ public partial class Character : MonoBehaviour
   public List<Image> imgActionPointList = null;
   public Text txtActionPoint = null;
   public Image imgCurrentEnergyPointGauge = null;
+  public Text txtSoulPoint = null;
+  public Image objBackSoulPointGauge = null;
+  public Image objCurrentSoulPointGauge = null;
+  public Image objCurrentSoulPointBorder = null;
   public GameObject objBuffPanel = null;
 
   [SerializeField] protected string _fullName = string.Empty;
@@ -1546,7 +1553,7 @@ public partial class Character : MonoBehaviour
   public void MaxGain()
   {
     _currentLife = MaxLife;
-
+    _currentSoulPoint = MaxSoulPoint;
     //_currentActionPoint = MaxActionPoint;
     //_currentEnergyPoint = MaxEnergyPoint;
   }
@@ -1567,6 +1574,26 @@ public partial class Character : MonoBehaviour
 
     if (this.txtName != null) this.txtName.color = Color.red;
     if (this.txtLife != null) this.txtLife.color = Color.red;
+  }
+
+  public void UpdateLife()
+  {
+    float dx = (float)this.CurrentLife / (float)this.MaxLife;
+    if (this.objCurrentLifeGauge != null)
+    {
+      this.objCurrentLifeGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+    }
+    if (this.objCurrentLifeBorder != null)
+    {
+      if (this.CurrentLife < this.MaxLife)
+      {
+        this.objCurrentLifeBorder.gameObject.SetActive(true);
+      }
+      else
+      {
+        this.objCurrentLifeBorder.gameObject.SetActive(false);
+      }
+    }
   }
 
   public void UpdatePlayerInstantPoint()
@@ -1630,6 +1657,32 @@ public partial class Character : MonoBehaviour
       if (0.80f <= dx && dx < 0.90f) { this.imgCurrentEnergyPointGauge.sprite = Resources.Load<Sprite>("Energy_80"); }
       if (0.90f <= dx && dx < 1.00f) { this.imgCurrentEnergyPointGauge.sprite = Resources.Load<Sprite>("Energy_90"); }
       if (dx >= 1.00f) { this.imgCurrentEnergyPointGauge.sprite = Resources.Load<Sprite>("Energy_100"); }
+    }
+  }
+
+  public void UpdateSoulPoint()
+  {
+    float dx = (float)this._currentSoulPoint / (float)this.MaxSoulPoint;
+    if (this.objCurrentSoulPointGauge != null)
+    {
+      this.objCurrentSoulPointGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (this.txtSoulPoint != null)
+    {
+      this.txtSoulPoint.text = this.CurrentSoulPoint.ToString() + " / " + this.MaxSoulPoint.ToString();
+    }
+    if (this.objCurrentSoulPointBorder != null)
+    {
+      if (dx >= 1.0f)
+      {
+        Debug.Log("border is 1");
+        this.objCurrentSoulPointBorder.gameObject.SetActive(false);
+      }
+      else
+      {
+        Debug.Log("border is 0, false");
+        this.objCurrentSoulPointBorder.gameObject.SetActive(true);
+      }
     }
   }
 
@@ -1941,6 +1994,11 @@ public partial class Character : MonoBehaviour
     {
       buffList[ii].BuffCountDown();
     }
+  }
+
+  public void GainSoulPoint()
+  {
+    this.CurrentSoulPoint += 1;
   }
 
   public BuffImage IsResistStun

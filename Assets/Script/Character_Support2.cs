@@ -38,6 +38,8 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 3;
         this.Stamina = 7;
         this.Mind = 3;
+        this.BaseLife = 50;
+        this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Armorer;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -57,6 +59,8 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 8;
         this.Stamina = 5;
         this.Mind = 3;
+        this.BaseLife = 40;
+        this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -76,6 +80,8 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 9;
         this.Stamina = 4;
         this.Mind = 3;
+        this.BaseLife = 30;
+        this.BaseSoulPoint = 20;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
@@ -85,6 +91,22 @@ public partial class Character : MonoBehaviour
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
         break;
+
+      case Fix.NAME_BILLY_RAKI:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.BaseLife = 50;
+        this.BaseSoulPoint = 10;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
 
       case Fix.NAME_MAGI_ZELKIS:
         this.Level = 1;
@@ -191,19 +213,6 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_KILT_JORJU:
-        this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
-        this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
-        break;
-
-      case Fix.NAME_BILLY_RAKI:
         this.Level = 1;
         this.Strength = 1;
         this.Agility = 1;
