@@ -281,8 +281,8 @@ public static class ActionCommand
   {
     if (command_name == Fix.NORMAL_ATTACK) { return Attribute.Skill; } // 物理としての基本攻撃である。
     if (command_name == Fix.MAGIC_ATTACK) { return Attribute.Magic; } // 魔法としての基本攻撃である。
-    if (command_name == Fix.Defense) { return Attribute.Basic; }
-    if (command_name == Fix.Stay) { return Attribute.Basic; }
+    if (command_name == Fix.DEFENSE) { return Attribute.Basic; }
+    if (command_name == Fix.STAY) { return Attribute.Basic; }
     if (command_name == Fix.USE_RED_POTION) { return Attribute.Basic; }
 
     if (command_name == Fix.FIRE_BOLT) { return Attribute.Magic; }
@@ -323,8 +323,8 @@ public static class ActionCommand
   {
     if (command_name == Fix.NORMAL_ATTACK) { return 0; }
     if (command_name == Fix.MAGIC_ATTACK) { return 0; }
-    if (command_name == Fix.Defense) { return 0; }
-    if (command_name == Fix.Stay) { return 0; }
+    if (command_name == Fix.DEFENSE) { return 0; }
+    if (command_name == Fix.STAY) { return 0; }
     if (command_name == Fix.USE_RED_POTION) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
 
     if (command_name == Fix.FIRE_BOLT) { return 4; }
@@ -378,8 +378,8 @@ public static class ActionCommand
   {
     if (command_name == Fix.NORMAL_ATTACK) { return BuffType.None; }
     if (command_name == Fix.MAGIC_ATTACK) { return BuffType.None; }
-    if (command_name == Fix.Defense) { return BuffType.None; }
-    if (command_name == Fix.Stay) { return BuffType.None; }
+    if (command_name == Fix.DEFENSE) { return BuffType.None; }
+    if (command_name == Fix.STAY) { return BuffType.None; }
     if (command_name == Fix.USE_RED_POTION) { return BuffType.None; }
 
     // コマンド別
@@ -428,8 +428,8 @@ public static class ActionCommand
   {
     if (command_name == Fix.NORMAL_ATTACK) { return true; }
     if (command_name == Fix.MAGIC_ATTACK) { return true; }
-    if (command_name == Fix.Defense) { return false; }
-    if (command_name == Fix.Stay) { return false; }
+    if (command_name == Fix.DEFENSE) { return false; }
+    if (command_name == Fix.STAY) { return false; }
     if (command_name == Fix.USE_RED_POTION) { return false; }
 
     // コマンド別

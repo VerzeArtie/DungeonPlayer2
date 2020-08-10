@@ -1263,7 +1263,7 @@ public partial class HomeTown : MotherBase
         attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
         for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
         {
-          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.Stay);
+          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
         }
         for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
         {

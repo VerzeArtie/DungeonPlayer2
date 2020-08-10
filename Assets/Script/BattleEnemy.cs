@@ -66,7 +66,7 @@ public partial class BattleEnemy : MotherBase
   public List<Character> AllList;
   public List<GameObject> AllFieldList;
 
-  protected Character currentPlayer = null;
+  //protected Character currentPlayer = null;
 
   protected Fix.BattleStatus TimeStatus = Fix.BattleStatus.Ready;
   protected float BattleTimer = 0;
@@ -82,6 +82,7 @@ public partial class BattleEnemy : MotherBase
   protected bool NowSelectGlobal = false;
   protected bool NowSelectTarget = false;
   protected bool NowInstantTarget = false;
+  public Character NowSelectSrcPlayer = null;
   public Button NowSelectActionSrcButton = null;
   public Button NowSelectActionCommandButton = null;
   public Button NowSelectActionDstButton = null;
@@ -123,7 +124,7 @@ public partial class BattleEnemy : MotherBase
     // グローバルアクションボタンを設定する。
     List<string> str_list0 = new List<string>();
     str_list0.Add(Fix.NORMAL_ATTACK);
-    str_list0.Add(Fix.Defense);
+    str_list0.Add(Fix.DEFENSE);
     str_list0.Add(Fix.USE_RED_POTION);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
@@ -223,7 +224,7 @@ public partial class BattleEnemy : MotherBase
       EnemyList[ii].Target = PlayerList[0]; // ターゲット可視化の最初の表示は相手側として設定
     }
 
-    this.currentPlayer = PlayerList[0];
+    //this.currentPlayer = PlayerList[0];
 
     this.AllFieldList.Add(this.PanelPlayerField);
     this.AllFieldList.Add(this.PanelEnemyField);
@@ -310,6 +311,11 @@ public partial class BattleEnemy : MotherBase
         {
           if (character.ActionCommandList[ii] != null)
           {
+            if (character.objActionButtonList == null)
+            {
+              character.objActionButtonList = new List<Button>();
+            }
+            character.objActionButtonList.Add(btnList[ii]);
             SetupActionCommandButton(btnList[ii], character.ActionCommandList[ii]);
           }
         }
@@ -683,7 +689,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    if (player.IsBind && command_name != Fix.Defense)
+    if (player.IsBind && command_name != Fix.DEFENSE)
     {
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_BIND, Fix.COLOR_NORMAL);
       return;
@@ -759,12 +765,12 @@ public partial class BattleEnemy : MotherBase
         ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.None, critical);
         break;
 
-      case Fix.Defense:
-        player.CurrentActionCommand = Fix.Defense;
-        player.txtActionCommand.text = Fix.Defense;
+      case Fix.DEFENSE:
+        player.CurrentActionCommand = Fix.DEFENSE;
+        player.txtActionCommand.text = Fix.DEFENSE;
         break;
 
-      case Fix.Stay:
+      case Fix.STAY:
         // 何もしない
         break;
 
@@ -1165,37 +1171,35 @@ public partial class BattleEnemy : MotherBase
       }
 
       // 最初は味方をターゲットにする。
-      bool detectChange = false;
+      //bool detectChange = false;
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
         Debug.Log(PlayerList[ii].objMainButton.name);
         if (sender.Equals(PlayerList[ii].objMainButton))
         {
-          if (this.currentPlayer.Equals(PlayerList[ii]) == false)
-          {
-            detectChange = true;
-          }
-
-          this.currentPlayer = PlayerList[ii];
-          //this.txtCurrentPlayerName.text = PlayerList[ii].FullName;
-          //this.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleColor;
+          //if (this.currentPlayer.Equals(PlayerList[ii]) == false)
+          //{
+          //  detectChange = true;
+          //}
+          //
+          //this.currentPlayer = PlayerList[ii];
+          ////this.txtCurrentPlayerName.text = PlayerList[ii].FullName;
+          ////this.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleColor;
 
           PlayerList[ii].objParentActionPanel.imgBackGauge.color = PlayerList[ii].BattleBackColor;
           PlayerList[ii].objParentActionPanel.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleForeColor;
           PlayerList[ii].objParentActionPanel.gameObject.SetActive(true);
-        }
-        else
-        {
-          PlayerList[ii].objParentActionPanel.gameObject.SetActive(false);
+          this.NowSelectSrcPlayer = PlayerList[ii];
+          break;
         }
       }
 
       // 味方選択が変わった場合は、ターゲット選択モードに入らず終了する。
-      if (detectChange)
-      {
-        Debug.Log("DetectChange has hitted, then no select target.");
-        return;
-      }
+      //if (detectChange)
+      //{
+      //  Debug.Log("DetectChange has hitted, then no select target.");
+      //  return;
+      //}
 
       this.NowSelectTarget = true;
       this.NowSelectActionSrcButton = sender;
@@ -1319,13 +1323,13 @@ public partial class BattleEnemy : MotherBase
               if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton))
               {
                 Debug.Log("instant target is " + AllList[ii].FullName);
-                ExecPlayerCommand(this.currentPlayer, AllList[ii], NowSelectActionCommandButton.name);
+                ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
                 break;
               }
             }
 
-            this.currentPlayer.CurrentInstantPoint = 0;
-            this.currentPlayer.UpdateInstantPointGauge();
+            this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+            this.NowSelectSrcPlayer.UpdateInstantPointGauge();
           }
           // 決定後、通常の戦闘モードに戻す。
           ClearSelectFilterGroup();
@@ -1339,26 +1343,47 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   public void TapPlayerActionButton(Button sender)
   {
+    Character selectedPlayer = null;
+    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    {
+      if (One.PlayerList[ii].objActionButtonList == null) { continue; }
+
+      for (int jj = 0; jj < One.PlayerList[ii].objActionButtonList.Count; jj++)
+      {
+        if (sender.Equals(One.PlayerList[ii].objActionButtonList[jj]))
+        {
+          selectedPlayer = One.PlayerList[ii];
+          break;
+        }
+      }
+    }
+
+    if (selectedPlayer == null)
+    {
+      Debug.Log("selectedPlayer is null, then no action.");
+      return;
+    }
+
     if (this.NowStackInTheCommand == false)
     {
-      if (this.currentPlayer.IsSleep || this.currentPlayer.IsStun)
+      if (selectedPlayer.IsSleep || selectedPlayer.IsStun)
       {
         Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
         return;
       }
 
-      if (sender.name == Fix.Defense)
+      if (sender.name == Fix.DEFENSE)
       {
-        CopyActionButton(sender, this.currentPlayer.objMainButton);
-        this.currentPlayer.CurrentActionCommand = Fix.Defense;
-        this.currentPlayer.txtActionCommand.text = Fix.Defense;
+        CopyActionButton(sender, selectedPlayer.objMainButton);
+        selectedPlayer.CurrentActionCommand = Fix.DEFENSE;
+        selectedPlayer.txtActionCommand.text = Fix.DEFENSE;
         return;
       }
 
       if (this.NowSelectTarget == false)
       {
-        Debug.Log("TapPlayerActionButton: " + this.currentPlayer.FullName + " " + this.currentPlayer.CurrentInstantPoint.ToString() + " " + this.currentPlayer.MaxInstantPoint.ToString());
-        if (this.currentPlayer.CurrentInstantPoint < this.currentPlayer.MaxInstantPoint)
+        Debug.Log("TapPlayerActionButton: " + selectedPlayer.FullName + " " + selectedPlayer.CurrentInstantPoint.ToString() + " " + selectedPlayer.MaxInstantPoint.ToString());
+        if (selectedPlayer.CurrentInstantPoint < selectedPlayer.MaxInstantPoint)
         {
           Debug.Log("Still now instant point. then no action.");
           return;
@@ -1378,11 +1403,11 @@ public partial class BattleEnemy : MotherBase
     }
     else
     {
-      if (currentPlayer.CurrentInstantPoint >= currentPlayer.MaxInstantPoint)
+      if (selectedPlayer.CurrentInstantPoint >= selectedPlayer.MaxInstantPoint)
       {
-        currentPlayer.CurrentInstantPoint = 0;
-        currentPlayer.UpdateInstantPointGauge();
-        CreateStackObject(currentPlayer, EnemyList[0], sender.name, 100);
+        selectedPlayer.CurrentInstantPoint = 0;
+        selectedPlayer.UpdateInstantPointGauge();
+        CreateStackObject(selectedPlayer, EnemyList[0], sender.name, 100);
       }
     }
   }
@@ -1396,12 +1421,12 @@ public partial class BattleEnemy : MotherBase
 
     switch (sender.name)
     {
-      case Fix.Defense:
+      case Fix.DEFENSE:
         Debug.Log("Global Defense");
         for (int ii = 0; ii < PlayerList.Count; ii++)
         {
-          PlayerList[ii].CurrentActionCommand = Fix.Defense;
-          PlayerList[ii].txtActionCommand.text = Fix.Defense;
+          PlayerList[ii].CurrentActionCommand = Fix.DEFENSE;
+          PlayerList[ii].txtActionCommand.text = Fix.DEFENSE;
           CopyActionButton(sender, PlayerList[ii].objMainButton);
         }
         break;
@@ -1535,8 +1560,8 @@ public partial class BattleEnemy : MotherBase
     }
     else
     {
-      current.sprite = Resources.Load<Sprite>(Fix.Stay);
-      current.name = Fix.Stay;
+      current.sprite = Resources.Load<Sprite>(Fix.STAY);
+      current.name = Fix.STAY;
     }
   }
 

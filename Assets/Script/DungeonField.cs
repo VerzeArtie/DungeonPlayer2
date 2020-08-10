@@ -3296,46 +3296,33 @@ public class DungeonField : MotherBase
 
   private void DetectEncount()
   {
-    bool encount = false;
+    One.EnemyList.Clear();
+    List<string> characters = new List<string>();
+
     CumulativeBattleCounter++;
 
     // 最初の歩きはじめはエンカウント対象外
-    if (CumulativeBattleCounter <= 4)
+    if (CumulativeBattleCounter <= 3)
     {
-      encount = false;
+      return;
     }
     // エンカウントしない場合は対象外
     else if (this.BattleEncount <= -1)
     {
-      encount = false;
-    }
-    else
-    {
-      int random = 100 - CumulativeBattleCounter;
-      if (random <= 0) { random = 0; }
-
-      if (AP.Math.RandomInteger(random) <= 5)
-      {
-        encount = true;
-      }
+      return;
     }
 
-    if (encount)
+    // エリア毎にランダムで敵軍隊を生成する。
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
-      // ランダムで敵軍隊を生成する。
-      One.EnemyList.Clear();
-      List<string> characters = new List<string>();
-      if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+      string enemyName = string.Empty;
+      if (One.PlayerList[0].Level <= 1)
       {
-        for (int ii = 0; ii < 4; ii++)
+        int random = 100 - CumulativeBattleCounter;
+        if (random <= 0) { random = 0; }
+        if (AP.Math.RandomInteger(random) <= 20)
         {
-          int rand = AP.Math.RandomInteger(100);
-          if (rand > (100 / (ii + 1)))
-          {
-            break;
-          }
-          string enemyName = string.Empty;
-          switch (AP.Math.RandomInteger(4))
+          switch (AP.Math.RandomInteger(2))
           {
             case 0:
               enemyName = Fix.TINY_MANTIS;
@@ -3343,28 +3330,11 @@ public class DungeonField : MotherBase
             case 1:
               enemyName = Fix.GREEN_SLIME;
               break;
-            case 2:
-              enemyName = Fix.MANDRAGORA;
-              break;
-            case 3:
-              enemyName = Fix.YOUNG_WOLF;
-              break;
           }
-
           characters.Add(enemyName);
+          SceneDimension.CallBattleEnemy(characters, false);
         }
       }
-      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
-      {
-        string enemyName = string.Empty;
-
-        enemyName = Fix.DEBRIS_SOLDIER;
-
-        characters.Add(enemyName);
-      }
-
-      SceneDimension.CallBattleEnemy(characters, false);
-
     }
   }
 

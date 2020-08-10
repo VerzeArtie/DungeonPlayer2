@@ -56,11 +56,11 @@ public static partial class Fix
 
   // Battle Gauge
   public const int BATTLE_CORE_SLEEP = 0;
-  public const int BASE_TIMER_BAR_LENGTH = 10000;
+  public const int BASE_TIMER_BAR_LENGTH = 30000;
   public const int BASE_TIMER_DIV = 12;
   public const int TIMER_ICON_NUM = 8;
-  public const int MAX_INSTANT_POINT = 100;
-  public const int GLOBAL_INSTANT_MAX = 100;
+  public const int MAX_INSTANT_POINT = 1000;
+  public const int GLOBAL_INSTANT_MAX = 1000;
   public const int AP_BASE = 100;
   public const int INFINITY = 9999999;
 
@@ -477,8 +477,8 @@ public static partial class Fix
   // ActionCommand
   public const string NORMAL_ATTACK = "Normal Attack";
   public const string MAGIC_ATTACK = "Magic Attack";
-  public const string Defense = "Defense";
-  public const string Stay = "Stay";
+  public const string DEFENSE = "Defense";
+  public const string STAY = "Stay";
   public const string USE_RED_POTION = "RedPotion";
 
   // ActionCommand [ Delve I ]

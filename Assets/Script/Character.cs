@@ -18,6 +18,7 @@ public partial class Character : MonoBehaviour
   public Text txtActionCommand = null;
   public NodeActionPanel objParentActionPanel = null;
   public GameObject groupActionButton = null;
+  public List<Button> objActionButtonList = null;
   public Image objBackInstantGauge = null;
   public Image objCurrentInstantGauge = null;
   public Image objCurrentInstangGauge_AC = null;
@@ -188,7 +189,7 @@ public partial class Character : MonoBehaviour
   {
     set
     {
-      if (value == Fix.Defense)
+      if (value == Fix.DEFENSE)
       {
         Debug.Log("_currentActionCommand isDefense true");
         this._isDefense = true;
@@ -1675,12 +1676,10 @@ public partial class Character : MonoBehaviour
     {
       if (dx >= 1.0f)
       {
-        Debug.Log("border is 1");
         this.objCurrentSoulPointBorder.gameObject.SetActive(false);
       }
       else
       {
-        Debug.Log("border is 0, false");
         this.objCurrentSoulPointBorder.gameObject.SetActive(true);
       }
     }

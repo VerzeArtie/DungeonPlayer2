@@ -13,21 +13,23 @@ public partial class Character : MonoBehaviour
   {
     this.FullName = character_name;
     List<string> actionList = new List<string>();
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
-    actionList.Add(Fix.Stay);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
+    actionList.Add(Fix.STAY);
     this.ActionCommandList = actionList;
     this.CurrentActionCommand = String.Empty;
 
     this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
     this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
+    this.ActionCommandList[0] = Fix.NORMAL_ATTACK;
+    this.ActionCommandList[1] = Fix.DEFENSE;
 
     switch (character_name)
     {
@@ -41,36 +43,36 @@ public partial class Character : MonoBehaviour
         this.BaseLife = 50;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Armorer;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.AvailableArmorer = true;
-        this.ShieldBash = 1;
+        this.AvailableSwordman = true;
+        this.StraightSmash = 1;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
         this.Level = 1;
-        this.Strength = 7;
-        this.Agility = 5;
+        this.Strength = 5;
+        this.Agility = 7;
         this.Intelligence = 8;
         this.Stamina = 5;
         this.Mind = 3;
         this.BaseLife = 40;
         this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
-        this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
-        this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
-        this.AvailableSwordman = true;
-        this.StraightSmash = 1;
+        this.AvailableRogue = true;
+        this.VenomSlash = 1;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -86,6 +88,8 @@ public partial class Character : MonoBehaviour
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
+        this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
@@ -94,17 +98,23 @@ public partial class Character : MonoBehaviour
 
       case Fix.NAME_BILLY_RAKI:
         this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
+        this.Strength = 10;
+        this.Agility = 5;
+        this.Intelligence = 2;
+        this.Stamina = 7;
+        this.Mind = 3;
         this.BaseLife = 50;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.BattleBackColor = Fix.COLOR_FOURTH_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_FOURTH_CHARA;
+        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
+        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
+        this.AvailableSwordman = true;
+        this.StraightSmash = 1;
         break;
 
 

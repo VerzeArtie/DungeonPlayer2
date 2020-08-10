@@ -83,15 +83,15 @@ public static class PrimaryLogic
     for (int ii = 0; ii < debug; ii++)
     {
       result = CoreDamage(player, value_type, min, max);
-      Debug.Log("CoreDamage: " + Convert.ToInt32(result).ToString());
+      //Debug.Log("CoreDamage: " + Convert.ToInt32(result).ToString());
       if (debug_min >= result) { debug_min = Convert.ToInt32(result); }
       if (debug_max <= result) { debug_max = Convert.ToInt32(result); }
       debug_avg += result;
     }
     debug_avg /= debug;
-    Debug.Log("AVG: " + Convert.ToInt32(debug_avg).ToString());
-    Debug.Log("MIN: " + Convert.ToInt32(debug_min).ToString());
-    Debug.Log("MAX: " + Convert.ToInt32(debug_max).ToString());
+    //Debug.Log("AVG: " + Convert.ToInt32(debug_avg).ToString());
+    //Debug.Log("MIN: " + Convert.ToInt32(debug_min).ToString());
+    //Debug.Log("MAX: " + Convert.ToInt32(debug_max).ToString());
 
     //    double result = CoreDamage(player, value_type, min, max);
 
@@ -211,7 +211,7 @@ public static class PrimaryLogic
   /// </summary>
   public static double BattleSpeed(Character player)
   {
-    double result = 1.00 + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
+    double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
     result += (player.MainArmor?.BattleSpeed ?? 0);
