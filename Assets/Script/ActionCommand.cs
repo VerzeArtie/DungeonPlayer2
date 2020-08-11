@@ -22,6 +22,19 @@ public static class ActionCommand
     Negative,
   }
 
+  public enum TargetType
+  {
+    None,
+    Enemy,
+    Ally,
+    Own,
+    EnemyOrAlly,
+    EnemyGroup,
+    AllyGroup,
+    AllMember,
+    InstantTarget
+  }
+
   public static List<string> GetCommandList(Fix.CommandAttribute attr)
   {
     List<string> result = new List<string>();
@@ -317,6 +330,61 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return Attribute.Skill; }
 
     return Attribute.None;
+  }
+
+  public static TargetType IsTarget(string command_name)
+  {
+    if (command_name == Fix.NORMAL_ATTACK) { return TargetType.Enemy; }
+    if (command_name == Fix.MAGIC_ATTACK) { return TargetType.Enemy; }
+    if (command_name == Fix.DEFENSE) { return TargetType.Own; }
+    if (command_name == Fix.STAY) { return TargetType.Own; }
+    if (command_name == Fix.USE_RED_POTION) { return TargetType.Ally; }
+
+    if (command_name == Fix.FIRE_BOLT) { return TargetType.Enemy; }
+    if (command_name == Fix.ICE_NEEDLE) { return TargetType.Enemy; }
+    if (command_name == Fix.FRESH_HEAL) { return TargetType.Ally; }
+    if (command_name == Fix.SHADOW_BLAST) { return TargetType.Enemy; }
+    if (command_name == Fix.AURA_OF_POWER) { return TargetType.Ally; }
+    if (command_name == Fix.DISPEL_MAGIC) { return TargetType.Enemy; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return TargetType.Enemy; }
+    if (command_name == Fix.SHIELD_BASH) { return TargetType.Enemy; }
+    if (command_name == Fix.HUNTER_SHOT) { return TargetType.Enemy; }
+    if (command_name == Fix.VENOM_SLASH) { return TargetType.Enemy; }
+    if (command_name == Fix.HEART_OF_LIFE) { return TargetType.Ally; }
+    if (command_name == Fix.ORACLE_COMMAND) { return TargetType.Ally; }
+    if (command_name == Fix.FLAME_BLADE) { return TargetType.Ally; }
+    if (command_name == Fix.PURE_PURIFICATION) { return TargetType.Ally; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return TargetType.AllyGroup; }
+    if (command_name == Fix.BLOOD_SIGN) { return TargetType.Enemy; }
+    if (command_name == Fix.SKY_SHIELD) { return TargetType.Ally; }
+    if (command_name == Fix.FLASH_COUNTER) { return TargetType.InstantTarget; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Own; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.INVISIBLE_BIND) { return TargetType.Enemy; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return TargetType.Ally; }
+    if (command_name == Fix.SPIRITUAL_REST) { return TargetType.Ally; }
+
+
+    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.None; }
+    if (command_name == Fix.CIRCLE_SLASH) { return TargetType.None; }
+    if (command_name == Fix.DOUBLE_SLASH) { return TargetType.None; }
+
+    // 以降、モンスターアクション
+    if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_GREEN_NENEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_KANAKIRI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_WILD_CLAW) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_KAMITSUKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_TREE_SONG) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SUN_FIRE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_TOSSHIN) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_FEATHER_WING) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_POISON_RINPUN) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_YOUEN_FIRE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_BLAZE_DANCE) { return TargetType.Enemy; }
+
+    return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
   public static int CostSP(string command_name)

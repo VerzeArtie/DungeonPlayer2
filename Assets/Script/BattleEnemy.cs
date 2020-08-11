@@ -218,12 +218,28 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
       PlayerList[ii].CurrentActionCommand = PlayerList[ii].ActionCommandList[0];
-      PlayerList[ii].Target = EnemyList[0]; // ターゲット可視化の最初の表示は相手側として設定
+      ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(PlayerList[ii].ActionCommandList[0]);
+      if (currentTargetType == ActionCommand.TargetType.Enemy)
+      {
+        PlayerList[ii].Target = EnemyList[0];
+      }
+      else if (currentTargetType == ActionCommand.TargetType.Ally)
+      {
+        PlayerList[ii].Target = PlayerList[0];
+      }
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
       EnemyList[ii].CurrentActionCommand = EnemyList[ii].ActionCommandList[0];
-      EnemyList[ii].Target = PlayerList[0]; // ターゲット可視化の最初の表示は相手側として設定
+      ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(EnemyList[ii].ActionCommandList[0]);
+      if (currentTargetType == ActionCommand.TargetType.Enemy)
+      {
+        EnemyList[ii].Target = PlayerList[0];
+      }
+      else if (currentTargetType == ActionCommand.TargetType.Ally)
+      {
+        EnemyList[ii].Target = EnemyList[0];
+      }
     }
 
     //this.currentPlayer = PlayerList[0];
@@ -663,8 +679,14 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   private void ExecPlayerCommand(Character player, Character target, string command_name)
   {
-    Debug.Log(MethodBase.GetCurrentMethod() + " " + player.FullName);
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + player?.FullName);
 
+    if (player == null)
+    {
+      Debug.Log("Player is null, then no action.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      return;
+    }
     if (target == null)
     {
       Debug.Log("Target is null, then no action.");
@@ -1031,7 +1053,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    damageObj.Construct(message, MAX_ANIMATION_TIME);
+    damageObj.Construct(message, color, MAX_ANIMATION_TIME);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;

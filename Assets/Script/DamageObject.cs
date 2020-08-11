@@ -24,10 +24,11 @@ public class DamageObject : MonoBehaviour
 
   public Text txtMessage;
 
-  public void Construct(string message, int timer)
+  public void Construct(string message, Color color, int timer)
   {
     _message = message;
     _timer = timer;
     txtMessage.text = message;
+    txtMessage.color = color;
   }
 }
