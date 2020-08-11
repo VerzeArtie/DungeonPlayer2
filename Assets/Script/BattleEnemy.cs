@@ -217,10 +217,12 @@ public partial class BattleEnemy : MotherBase
     // 初期ターゲットを設定する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
+      PlayerList[ii].CurrentActionCommand = PlayerList[ii].ActionCommandList[0];
       PlayerList[ii].Target = EnemyList[0]; // ターゲット可視化の最初の表示は相手側として設定
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
+      EnemyList[ii].CurrentActionCommand = EnemyList[ii].ActionCommandList[0];
       EnemyList[ii].Target = PlayerList[0]; // ターゲット可視化の最初の表示は相手側として設定
     }
 
@@ -1256,30 +1258,13 @@ public partial class BattleEnemy : MotherBase
       // 通常のアクションボタン指定時
       else
       {
-        // アクションコマンド指定が無い場合は、ターゲットの変更のみ。
+        // アクションコマンド指定が無い場合は、キャンセル扱いとする。
+        // note: ターゲット変更時、変更対象が敵味方によってターゲット指定できないものがあるが、
+        // それに準じたブロック仕様を行うと、プレイヤーはなぜターゲット指定できないのかが理解できないケースがあり
+        // ＧＵＩ不備と考えられるケースがある。また単にキャンセル扱いしたい場合は同じキャラクターを
+        // ２回タップするため、それが自然な操作であると考えられる。
         if (this.NowSelectActionCommandButton == null)
         {
-          // ターゲット元を検索
-          Character current = null;
-          for (int ii = 0; ii < PlayerList.Count; ii++)
-          {
-            if (this.NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton))
-            {
-              current = PlayerList[ii];
-            }
-          }
-
-          // ターゲットを更新
-          for (int ii = 0; ii < AllList.Count; ii++)
-          {
-            if (this.NowSelectActionDstButton.Equals(AllList[ii].objMainButton))
-            {
-              current.Target = AllList[ii];
-              break;
-            }
-          }
-
-          // 決定後、通常の戦闘モードに戻す。
           ClearSelectFilterGroup();
         }
         // アクションコマンド指定がある場合
@@ -1574,6 +1559,7 @@ public partial class BattleEnemy : MotherBase
     lblInstantAction.SetActive(false);
     btnCancelSelect.SetActive(false);
 
+    this.NowSelectSrcPlayer = null;
     this.NowSelectActionSrcButton = null;
     this.NowSelectActionCommandButton = null;
     this.NowSelectActionDstButton = null;

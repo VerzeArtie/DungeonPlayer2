@@ -971,7 +971,6 @@ public partial class Character : MonoBehaviour
     }
 
     this.MaxGain();
-    this.CurrentActionCommand = this.ActionCommandList[0];
   }
 
   private void SetupParameter(int strength, int agility, int intelligence, int stamina, int mind, int base_life, int exp, int gold)
