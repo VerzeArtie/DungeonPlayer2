@@ -191,12 +191,10 @@ public partial class Character : MonoBehaviour
     {
       if (value == Fix.DEFENSE)
       {
-        Debug.Log("_currentActionCommand isDefense true");
         this._isDefense = true;
       }
       else
       {
-        Debug.Log("_currentActionCommand isDefense false");
         this._isDefense = false;
       }
       _currentActionCommand = value;

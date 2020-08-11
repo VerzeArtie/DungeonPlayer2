@@ -329,7 +329,7 @@ public partial class BattleEnemy : MotherBase
       Image[] imageList = character.groupActionPoint.GetComponentsInChildren<Image>();
       for (int jj = 0; jj < imageList.Length; jj++)
       {
-        Debug.Log(imageList[jj].name);
+        //Debug.Log(imageList[jj].name);
         character.imgActionPointList.Add(imageList[jj]);
       }
     }
