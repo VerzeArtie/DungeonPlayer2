@@ -52,6 +52,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
+        this.ActionCommandList[2] = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -73,6 +74,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableRogue = true;
         this.VenomSlash = 1;
+        this.ActionCommandList[2] = Fix.VENOM_SLASH;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -368,5 +370,27 @@ public partial class Character : MonoBehaviour
     }
 
     MaxGain();
+  }
+
+  public string CharacterMessage(int num)
+  {
+    string result = string.Empty;
+    switch (num)
+    {
+      case 1001:
+        if (this.FullName == Fix.NAME_EIN_WOLENCE) { result = "アイン：いや、これは敵向けのコマンドだ。味方には向けられないな。"; }
+        else if (this.FullName == Fix.NAME_LANA_AMIRIA) { result = "ラナ：：これは敵専用コマンドでしょ。味方に向けられるわけないじゃない。"; }
+        else if (this.FullName == Fix.NAME_EONE_FULNEA) { result = "エオネ：このコマンドは敵向けです。味方には向けられません。"; }
+        else if (this.FullName == Fix.NAME_BILLY_RAKI) { result = "ビリー：やっべ、間違えて味方に向けそうだったぜ。"; }
+        break;
+      case 1002:
+        if (this.FullName == Fix.NAME_EIN_WOLENCE) { result = "アイン：いや、これは味方向けのコマンドだ。敵には向けられないな。"; }
+        else if (this.FullName == Fix.NAME_LANA_AMIRIA) { result = "ラナ：：これは味方専用コマンドでしょ。敵に向けられるわけないじゃない。"; }
+        else if (this.FullName == Fix.NAME_EONE_FULNEA) { result = "エオネ：いえ、このコマンドは味方向けです。敵には向けられません。"; }
+        else if (this.FullName == Fix.NAME_BILLY_RAKI) { result = "ビリー：やっべ、間違えて敵に向けそうだったぜ。"; }
+        break;
+    }
+
+    return result;
   }
 }

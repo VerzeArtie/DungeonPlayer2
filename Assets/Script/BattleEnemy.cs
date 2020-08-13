@@ -14,6 +14,7 @@ public partial class BattleEnemy : MotherBase
   public StackObject prefab_Stack = null;
   public DamageObject prefab_Damage = null;
   public NodeBattleChara node_BattleChara = null;
+  public GameObject prefab_Message = null;
 
   // GUI-BattleView
   public GameObject GroupBattleGauge;
@@ -41,12 +42,18 @@ public partial class BattleEnemy : MotherBase
   //public List<Image> imgEnemyPotentialGauge; // 敵用のアクションコマンドボタンは画面上に出てこない。
   public Image imgGlobalGauge_AC;
 
+  public GameObject GroupMainActionCommand;
+  public List<GameObject> GroupMainACList;
+
   public List<Button> GlobalActionButtonList;
   public List<NodeActionPanel> GroupParentActionPanelList;
   public List<NodeActionPanel> GroupEnemyActionPanel;
   public List<GameObject> GroupActionButton;
   public List<GameObject> GroupPlayerActionPoint;
   public List<Text> PlayerActionPointList;
+
+  // GUI Message
+  public GameObject GroupMessage;
 
   public GameObject SelectFilter;
   public GameObject lblInstantAction;
@@ -187,6 +194,7 @@ public partial class BattleEnemy : MotherBase
       node.gameObject.SetActive(true);
       node.transform.SetParent(GroupParentPlayer.transform);
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
+      playerList[ii].IsEnemy = false;
       AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii]);
 
       // キャラクターグループのリストに追加
@@ -205,6 +213,7 @@ public partial class BattleEnemy : MotherBase
       //character.BattleBackColor = Fix.COLOR_ENEMY_CHARA;
       //character.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
       //character.Construction(One.EnemyList[ii]);
+      One.EnemyList[ii].IsEnemy = true;
       AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
 
       // キャラクターグループのリストに追加
@@ -1229,8 +1238,9 @@ public partial class BattleEnemy : MotherBase
       this.NowSelectActionSrcButton = sender;
 
       SelectFilter.SetActive(true);
-      btnCancelSelect.SetActive(true);
+      //btnCancelSelect.SetActive(true);
       lblInstantAction.SetActive(false);
+      GroupMainActionCommand.SetActive(true);
     }
     // それ以外はターゲット選定中
     else
@@ -1304,19 +1314,32 @@ public partial class BattleEnemy : MotherBase
             {
               if (NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton))
               {
-                CopyActionButton(NowSelectActionCommandButton, NowSelectActionSrcButton);
-                PlayerList[ii].CurrentActionCommand = NowSelectActionCommandButton.name;
-                PlayerList[ii].txtActionCommand.text = NowSelectActionCommandButton.name;
                 // ターゲットを反映する。
                 for (int jj = 0; jj < AllList.Count; jj++)
                 {
                   if (NowSelectActionDstButton.Equals(AllList[jj].objMainButton))
                   {
+                    // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
+                    if (AllList[jj].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
+                    {
+                      Debug.Log("Target Error. IsEnemy False : AC is Enemy");
+                      UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1001));
+                      return;
+                    }
+                    if (AllList[jj].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+                    {
+                      Debug.Log("Target Error. IsEnemy True : AC is Enemy");
+                      UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1002));
+                      return;
+                    }
                     PlayerList[ii].Target = AllList[jj];
                     Debug.Log("command: " + NowSelectActionSrcButton.name + " Enemy: " + AllList[jj].FullName);
                     break;
                   }
                 }
+                CopyActionButton(NowSelectActionCommandButton, NowSelectActionSrcButton);
+                PlayerList[ii].CurrentActionCommand = NowSelectActionCommandButton.name;
+                PlayerList[ii].txtActionCommand.text = NowSelectActionCommandButton.name;
                 break;
               }
             }
@@ -1350,22 +1373,24 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   public void TapPlayerActionButton(Button sender)
   {
-    Character selectedPlayer = null;
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    if (this.NowSelectSrcPlayer == null)
     {
-      if (One.PlayerList[ii].objActionButtonList == null) { continue; }
-
-      for (int jj = 0; jj < One.PlayerList[ii].objActionButtonList.Count; jj++)
+      for (int ii = 0; ii < One.PlayerList.Count; ii++)
       {
-        if (sender.Equals(One.PlayerList[ii].objActionButtonList[jj]))
+        if (One.PlayerList[ii].objActionButtonList == null) { continue; }
+
+        for (int jj = 0; jj < One.PlayerList[ii].objActionButtonList.Count; jj++)
         {
-          selectedPlayer = One.PlayerList[ii];
-          break;
+          if (sender.Equals(One.PlayerList[ii].objActionButtonList[jj]))
+          {
+            this.NowSelectSrcPlayer = One.PlayerList[ii];
+            break;
+          }
         }
       }
     }
 
-    if (selectedPlayer == null)
+    if (this.NowSelectSrcPlayer == null)
     {
       Debug.Log("selectedPlayer is null, then no action.");
       return;
@@ -1373,7 +1398,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowStackInTheCommand == false)
     {
-      if (selectedPlayer.IsSleep || selectedPlayer.IsStun)
+      if (this.NowSelectSrcPlayer.IsSleep || this.NowSelectSrcPlayer.IsStun)
       {
         Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
         return;
@@ -1381,16 +1406,18 @@ public partial class BattleEnemy : MotherBase
 
       if (sender.name == Fix.DEFENSE)
       {
-        CopyActionButton(sender, selectedPlayer.objMainButton);
-        selectedPlayer.CurrentActionCommand = Fix.DEFENSE;
-        selectedPlayer.txtActionCommand.text = Fix.DEFENSE;
+        CopyActionButton(sender, this.NowSelectSrcPlayer.objMainButton);
+        this.NowSelectSrcPlayer.CurrentActionCommand = Fix.DEFENSE;
+        this.NowSelectSrcPlayer.txtActionCommand.text = Fix.DEFENSE;
+        // 決定後、通常の戦闘モードに戻す。
+        ClearSelectFilterGroup();
         return;
       }
 
       if (this.NowSelectTarget == false)
       {
-        Debug.Log("TapPlayerActionButton: " + selectedPlayer.FullName + " " + selectedPlayer.CurrentInstantPoint.ToString() + " " + selectedPlayer.MaxInstantPoint.ToString());
-        if (selectedPlayer.CurrentInstantPoint < selectedPlayer.MaxInstantPoint)
+        Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
+        if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
         {
           Debug.Log("Still now instant point. then no action.");
           return;
@@ -1399,7 +1426,8 @@ public partial class BattleEnemy : MotherBase
 
       this.NowSelectTarget = true;
       SelectFilter.SetActive(true);
-      btnCancelSelect.SetActive(true);
+      GroupMainActionCommand.SetActive(false);
+      //btnCancelSelect.SetActive(true);
       if (this.NowSelectActionSrcButton == null)
       {
         this.NowInstantTarget = true;
@@ -1410,11 +1438,11 @@ public partial class BattleEnemy : MotherBase
     }
     else
     {
-      if (selectedPlayer.CurrentInstantPoint >= selectedPlayer.MaxInstantPoint)
+      if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
       {
-        selectedPlayer.CurrentInstantPoint = 0;
-        selectedPlayer.UpdateInstantPointGauge();
-        CreateStackObject(selectedPlayer, EnemyList[0], sender.name, 100);
+        this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+        this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
       }
     }
   }
@@ -1444,7 +1472,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectActionSrcButton = sender;
           SelectFilter.SetActive(true);
-          btnCancelSelect.SetActive(true);
+          //btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
           this.NowSelectGlobal = true;
         }
@@ -1462,7 +1490,7 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectActionSrcButton = sender;
           SelectFilter.SetActive(true);
-          btnCancelSelect.SetActive(true);
+          //btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
           this.NowSelectGlobal = true;
         }
@@ -1579,7 +1607,7 @@ public partial class BattleEnemy : MotherBase
   {
     SelectFilter.SetActive(false);
     lblInstantAction.SetActive(false);
-    btnCancelSelect.SetActive(false);
+    //btnCancelSelect.SetActive(false);
 
     this.NowSelectSrcPlayer = null;
     this.NowSelectActionSrcButton = null;
@@ -1588,6 +1616,12 @@ public partial class BattleEnemy : MotherBase
     this.NowSelectGlobal = false;
     this.NowSelectTarget = false;
     this.NowInstantTarget = false;
+
+    GroupMainActionCommand.SetActive(false);
+    for (int ii = 0; ii < GroupMainACList.Count; ii++)
+    {
+      GroupMainACList[ii].SetActive(false);
+    }
   }
 
 
@@ -1674,6 +1708,20 @@ public partial class BattleEnemy : MotherBase
   private float SpeedFactor()
   {
     return (11.0f - speedDown) / 10.0f;
+  }
+
+  private void UpdateMessage(string message)
+  {
+    GameObject node = Instantiate(prefab_Message) as GameObject;
+    Text[] txtList = node.GetComponentsInChildren<Text>();
+    txtList[0].text = message;
+    node.SetActive(true);
+    node.transform.SetParent(GroupMessage.transform);
+    node.transform.SetAsFirstSibling();
+
+    RectTransform rect = GroupMessage.GetComponent<RectTransform>();
+    RectTransform rectMessage = node.GetComponent<RectTransform>();
+    rect.sizeDelta = new Vector2(rect.sizeDelta.x, rect.sizeDelta.y + rectMessage.sizeDelta.y);
   }
   #endregion
 }
