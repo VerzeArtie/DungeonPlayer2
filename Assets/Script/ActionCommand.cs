@@ -35,6 +35,14 @@ public static class ActionCommand
     InstantTarget
   }
 
+  public enum TimingType
+  {
+    None,
+    Normal,
+    Instant,
+    Sorcery
+  }
+
   public static List<string> GetCommandList(Fix.CommandAttribute attr)
   {
     List<string> result = new List<string>();
@@ -330,6 +338,48 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return Attribute.Skill; }
 
     return Attribute.None;
+  }
+
+  public static TimingType GetTiming(string command_name)
+  {
+    if (command_name == Fix.NORMAL_ATTACK) { return TimingType.Normal; }
+    if (command_name == Fix.MAGIC_ATTACK) { return TimingType.Normal; }
+    if (command_name == Fix.DEFENSE) { return TimingType.Instant; }
+    if (command_name == Fix.STAY) { return TimingType.Normal; }
+    if (command_name == Fix.USE_RED_POTION) { return TimingType.Instant; }
+
+    if (command_name == Fix.FIRE_BOLT) { return TimingType.Instant; }
+    if (command_name == Fix.ICE_NEEDLE) { return TimingType.Instant; }
+    if (command_name == Fix.FRESH_HEAL) { return TimingType.Instant; }
+    if (command_name == Fix.SHADOW_BLAST) { return TimingType.Instant; }
+    if (command_name == Fix.AURA_OF_POWER) { return TimingType.Instant; }
+    if (command_name == Fix.DISPEL_MAGIC) { return TimingType.Instant; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return TimingType.Instant; }
+    if (command_name == Fix.SHIELD_BASH) { return TimingType.Instant; }
+    if (command_name == Fix.HUNTER_SHOT) { return TimingType.Instant; }
+    if (command_name == Fix.VENOM_SLASH) { return TimingType.Instant; }
+    if (command_name == Fix.HEART_OF_LIFE) { return TimingType.Instant; }
+    if (command_name == Fix.ORACLE_COMMAND) { return TimingType.Instant; }
+
+    if (command_name == Fix.FLAME_BLADE) { return TimingType.Instant; }
+    if (command_name == Fix.PURE_PURIFICATION) { return TimingType.Instant; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return TimingType.Normal; }
+    if (command_name == Fix.BLOOD_SIGN) { return TimingType.Instant; }
+    if (command_name == Fix.SKY_SHIELD) { return TimingType.Instant; }
+    if (command_name == Fix.FLASH_COUNTER) { return TimingType.Instant; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TimingType.Normal; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TimingType.Normal; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return TimingType.Instant; }
+    if (command_name == Fix.INVISIBLE_BIND) { return TimingType.Instant; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return TimingType.Instant; }
+    if (command_name == Fix.SPIRITUAL_REST) { return TimingType.Instant; }
+
+
+    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
+    if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
+    if (command_name == Fix.DOUBLE_SLASH) { return TimingType.Instant; }
+
+    return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
   public static TargetType IsTarget(string command_name)

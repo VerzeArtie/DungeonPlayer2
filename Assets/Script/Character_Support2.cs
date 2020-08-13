@@ -96,7 +96,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
-        this.ActionCommandList[0] = Fix.FRESH_HEAL;
+        this.ActionCommandList[2] = Fix.FRESH_HEAL;
         break;
 
       case Fix.NAME_BILLY_RAKI:

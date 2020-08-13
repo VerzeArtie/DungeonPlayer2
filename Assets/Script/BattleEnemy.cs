@@ -15,6 +15,7 @@ public partial class BattleEnemy : MotherBase
   public DamageObject prefab_Damage = null;
   public NodeBattleChara node_BattleChara = null;
   public GameObject prefab_Message = null;
+  public NodeActionCommand prefab_InstantAction = null;
 
   // GUI-BattleView
   public GameObject GroupBattleGauge;
@@ -52,7 +53,10 @@ public partial class BattleEnemy : MotherBase
   public List<GameObject> GroupPlayerActionPoint;
   public List<Text> PlayerActionPointList;
 
-  // GUI Message
+  // GUI-InstantAction
+  public GameObject GroupInstantAction;
+
+  // GUI-Message
   public GameObject GroupMessage;
 
   public GameObject SelectFilter;
@@ -188,6 +192,7 @@ public partial class BattleEnemy : MotherBase
     if (One.TF.AvailableSinOscurete) { playerList.Add(One.Characters[counter]); }
     counter++;
 
+    // 味方グループの作成
     for (int ii = 0; ii < playerList.Count; ii++)
     {
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
@@ -201,8 +206,29 @@ public partial class BattleEnemy : MotherBase
       playerList[ii].Ally = Fix.Ally.Ally;
       PlayerList.Add(playerList[ii]);
       AllList.Add(playerList[ii]);
+
+      // インスタント・アクションの作成
+      for (int jj = 0; jj < playerList[ii].ActionCommandList.Count; jj++)
+      {
+        string commandName = playerList[ii].ActionCommandList[jj];
+        ActionCommand.TimingType timing = ActionCommand.GetTiming(commandName);
+        if (timing == ActionCommand.TimingType.Instant)
+        {
+          NodeActionCommand instant = Instantiate(prefab_InstantAction) as NodeActionCommand;
+          instant.BackColor.color = playerList[ii].BattleForeColor;
+          instant.CommandImage.sprite = Resources.Load<Sprite>(commandName);
+          instant.CommandName = commandName;
+          instant.name = commandName;
+          instant.OwnerName = playerList[ii].FullName;
+          instant.ActionButton.name = commandName;
+
+          instant.transform.SetParent(GroupInstantAction.transform);
+          instant.gameObject.SetActive(true);
+        }
+      }
     }
 
+    // 敵グループの作成
     for (int ii = 0; ii < One.EnemyList.Count; ii++)
     {
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
@@ -742,6 +768,7 @@ public partial class BattleEnemy : MotherBase
 
     if (player.CurrentSoulPoint < ActionCommand.CostSP(command_name))
     {
+      Debug.Log("NO SP: [" + command_name + "] " + player.CurrentSoulPoint + " < " + ActionCommand.CostSP(command_name));
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SP_LESS, Fix.COLOR_NORMAL);
       return;
     }
@@ -1376,15 +1403,15 @@ public partial class BattleEnemy : MotherBase
   {
     if (this.NowSelectSrcPlayer == null)
     {
-      for (int ii = 0; ii < One.PlayerList.Count; ii++)
+      for (int ii = 0; ii < PlayerList.Count; ii++)
       {
-        if (One.PlayerList[ii].objActionButtonList == null) { continue; }
+        if (PlayerList[ii].objActionButtonList == null) { continue; }
 
-        for (int jj = 0; jj < One.PlayerList[ii].objActionButtonList.Count; jj++)
+        for (int jj = 0; jj < PlayerList[ii].objActionButtonList.Count; jj++)
         {
-          if (sender.Equals(One.PlayerList[ii].objActionButtonList[jj]))
+          if (sender.Equals(PlayerList[ii].objActionButtonList[jj]))
           {
-            this.NowSelectSrcPlayer = One.PlayerList[ii];
+            this.NowSelectSrcPlayer = PlayerList[ii];
             break;
           }
         }
@@ -1436,6 +1463,59 @@ public partial class BattleEnemy : MotherBase
       }
 
       this.NowSelectActionCommandButton = sender;
+    }
+    else
+    {
+      if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
+      {
+        this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+        this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
+      }
+    }
+  }
+
+  public void TapInstantAction(NodeActionCommand sender)
+  {
+    for (int ii = 0; ii < PlayerList.Count; ii++)
+    {
+      if (sender.OwnerName == PlayerList[ii].FullName)
+      {
+        this.NowSelectSrcPlayer = PlayerList[ii];
+        break;
+      }
+    }
+
+    if (this.NowSelectSrcPlayer == null)
+    {
+      Debug.Log("selectedPlayer is null, then no action.");
+      return;
+    }
+
+    if (this.NowStackInTheCommand == false)
+    {
+      if (this.NowSelectSrcPlayer.IsSleep || this.NowSelectSrcPlayer.IsStun)
+      {
+        Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
+        return;
+      }
+
+      if (this.NowSelectTarget == false)
+      {
+        Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
+        if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
+        {
+          Debug.Log("Still now instant point. then no action.");
+          return;
+        }
+      }
+
+      this.NowSelectTarget = true;
+      SelectFilter.SetActive(true);
+      this.NowInstantTarget = true;
+      lblInstantAction.SetActive(true);
+
+      this.NowSelectActionCommandButton = sender.ActionButton;
     }
     else
     {
