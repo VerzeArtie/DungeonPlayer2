@@ -1340,6 +1340,7 @@ public partial class BattleEnemy : MotherBase
                 CopyActionButton(NowSelectActionCommandButton, NowSelectActionSrcButton);
                 PlayerList[ii].CurrentActionCommand = NowSelectActionCommandButton.name;
                 PlayerList[ii].txtActionCommand.text = NowSelectActionCommandButton.name;
+                LogicInvalidate();
                 break;
               }
             }

@@ -1606,10 +1606,10 @@ public partial class Character : MonoBehaviour
     {
       this.objCurrentInstantGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
-    if (this.objCurrentInstangGauge_AC != null)
-    {
-      this.objCurrentInstangGauge_AC.rectTransform.localScale = new Vector2(dx, 1.0f);
-    }
+    //if (this.objCurrentInstangGauge_AC != null)
+    //{
+    //  this.objCurrentInstangGauge_AC.rectTransform.localScale = new Vector2(dx, 1.0f);
+    //}
   }
 
   public void UpdateActionPoint()
