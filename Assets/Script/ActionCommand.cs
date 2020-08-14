@@ -344,7 +344,7 @@ public static class ActionCommand
   {
     if (command_name == Fix.NORMAL_ATTACK) { return TimingType.Normal; }
     if (command_name == Fix.MAGIC_ATTACK) { return TimingType.Normal; }
-    if (command_name == Fix.DEFENSE) { return TimingType.Instant; }
+    if (command_name == Fix.DEFENSE) { return TimingType.Normal; }
     if (command_name == Fix.STAY) { return TimingType.Normal; }
     if (command_name == Fix.USE_RED_POTION) { return TimingType.Instant; }
 

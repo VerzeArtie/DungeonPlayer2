@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Reflection;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
 
 public partial class BattleEnemy : MotherBase
 {
@@ -15,6 +16,7 @@ public partial class BattleEnemy : MotherBase
   public DamageObject prefab_Damage = null;
   public NodeBattleChara node_BattleChara = null;
   public GameObject prefab_Message = null;
+  public NodeActionCommand prefab_MainAction = null;
   public NodeActionCommand prefab_InstantAction = null;
 
   // GUI-BattleView
@@ -216,11 +218,11 @@ public partial class BattleEnemy : MotherBase
         {
           NodeActionCommand instant = Instantiate(prefab_InstantAction) as NodeActionCommand;
           instant.BackColor.color = playerList[ii].BattleForeColor;
-          instant.CommandImage.sprite = Resources.Load<Sprite>(commandName);
           instant.CommandName = commandName;
           instant.name = commandName;
           instant.OwnerName = playerList[ii].FullName;
           instant.ActionButton.name = commandName;
+          instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
           instant.transform.SetParent(GroupInstantAction.transform);
           instant.gameObject.SetActive(true);
@@ -357,21 +359,19 @@ public partial class BattleEnemy : MotherBase
     // アクションコマンドボタンの割当を設定する。
     if (groupActionButton != null)
     {
-      Button[] btnList = groupActionButton.GetComponentsInChildren<Button>();
-      for (int ii = 0; ii < btnList.Length; ii++)
+      for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
       {
-        if (character.ActionCommandList.Count > ii)
-        {
-          if (character.ActionCommandList[ii] != null)
-          {
-            if (character.objActionButtonList == null)
-            {
-              character.objActionButtonList = new List<Button>();
-            }
-            character.objActionButtonList.Add(btnList[ii]);
-            SetupActionCommandButton(btnList[ii], character.ActionCommandList[ii]);
-          }
-        }
+        string commandName = character.ActionCommandList[ii];
+        NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
+        instant.BackColor.color = character.BattleForeColor;
+        instant.CommandName = commandName;
+        instant.name = commandName;
+        instant.OwnerName = character.FullName;
+        instant.ActionButton.name = commandName;
+        instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+
+        instant.transform.SetParent(groupActionButton.transform);
+        instant.gameObject.SetActive(true);
       }
     }
 
@@ -1217,18 +1217,6 @@ public partial class BattleEnemy : MotherBase
           return;
         }
       }
-      // スリープ対象の味方はターゲットにできない。
-      for (int ii = 0; ii < PlayerList.Count; ii++)
-      {
-        if (sender.Equals(PlayerList[ii].objMainButton))
-        {
-          if (PlayerList[ii].IsSleep || PlayerList[ii].IsStun)
-          {
-            Debug.Log("First target is now sleeping, then no action.");
-            return;
-          }
-        }
-      }
 
       // 最初は味方をターゲットにする。
       //bool detectChange = false;
@@ -1396,11 +1384,50 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  public void TapMainAction(NodeActionCommand sender)
+  {
+    // 対象元を検索する。
+    for (int ii = 0; ii < PlayerList.Count; ii++)
+    {
+      if (sender.OwnerName == PlayerList[ii].FullName)
+      {
+        this.NowSelectSrcPlayer = PlayerList[ii];
+        break;
+      }
+    }
+
+    // 対象元が存在しない場合、行動できない。
+    if (this.NowSelectSrcPlayer == null)
+    {
+      Debug.Log("selectedPlayer is null, then no action.");
+      return;
+    }
+
+    // 自分自身の場合はその場で選択決定。（防御など）
+    ActionCommand.TargetType targetType = ActionCommand.IsTarget(sender.CommandName);
+    if (targetType == ActionCommand.TargetType.Own)
+    {
+      CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
+      this.NowSelectSrcPlayer.CurrentActionCommand = sender.CommandName;
+      this.NowSelectSrcPlayer.txtActionCommand.text = sender.CommandName;
+      // 決定後、通常の戦闘モードに戻す。
+      ClearSelectFilterGroup();
+      return;
+    }
+
+    // ターゲット選択状態へ遷移
+    this.NowSelectTarget = true;
+    SelectFilter.SetActive(true);
+    GroupMainActionCommand.SetActive(false);
+    this.NowSelectActionCommandButton = sender.ActionButton;
+  }
+
   /// <summary>
   /// アクションコマンド押下時の処理
   /// </summary>
   public void TapPlayerActionButton(Button sender)
   {
+    // 対象元を検索する。
     if (this.NowSelectSrcPlayer == null)
     {
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -1426,12 +1453,6 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowStackInTheCommand == false)
     {
-      if (this.NowSelectSrcPlayer.IsSleep || this.NowSelectSrcPlayer.IsStun)
-      {
-        Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
-        return;
-      }
-
       if (sender.name == Fix.DEFENSE)
       {
         CopyActionButton(sender, this.NowSelectSrcPlayer.objMainButton);
@@ -1442,25 +1463,9 @@ public partial class BattleEnemy : MotherBase
         return;
       }
 
-      if (this.NowSelectTarget == false)
-      {
-        Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
-        if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
-        {
-          Debug.Log("Still now instant point. then no action.");
-          return;
-        }
-      }
-
       this.NowSelectTarget = true;
       SelectFilter.SetActive(true);
       GroupMainActionCommand.SetActive(false);
-      //btnCancelSelect.SetActive(true);
-      if (this.NowSelectActionSrcButton == null)
-      {
-        this.NowInstantTarget = true;
-        lblInstantAction.SetActive(true);
-      }
 
       this.NowSelectActionCommandButton = sender;
     }
@@ -1477,6 +1482,7 @@ public partial class BattleEnemy : MotherBase
 
   public void TapInstantAction(NodeActionCommand sender)
   {
+    // 対象元を検索する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
       if (sender.OwnerName == PlayerList[ii].FullName)
@@ -1486,9 +1492,18 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // 対象元が存在しない場合、行動できない。
     if (this.NowSelectSrcPlayer == null)
     {
       Debug.Log("selectedPlayer is null, then no action.");
+      return;
+    }
+
+    // インスタント値が不足している場合、行動できない。
+    if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
+    {
+      UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+      Debug.Log("Still now instant point. then no action.");
       return;
     }
 
@@ -1503,11 +1518,6 @@ public partial class BattleEnemy : MotherBase
       if (this.NowSelectTarget == false)
       {
         Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
-        if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
-        {
-          Debug.Log("Still now instant point. then no action.");
-          return;
-        }
       }
 
       this.NowSelectTarget = true;

@@ -29,7 +29,8 @@ public partial class Character : MonoBehaviour
     this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
     this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
     this.ActionCommandList[0] = Fix.NORMAL_ATTACK;
-    this.ActionCommandList[1] = Fix.DEFENSE;
+    this.ActionCommandList[1] = Fix.MAGIC_ATTACK;
+    this.ActionCommandList[2] = Fix.DEFENSE;
 
     switch (character_name)
     {
@@ -52,7 +53,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
-        this.ActionCommandList[2] = Fix.STRAIGHT_SMASH;
+        this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -74,12 +75,12 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableRogue = true;
         this.VenomSlash = 1;
-        this.ActionCommandList[2] = Fix.VENOM_SLASH;
+        this.ActionCommandList[3] = Fix.VENOM_SLASH;
         break;
 
       case Fix.NAME_EONE_FULNEA:
         this.Level = 1;
-        this.Strength = 6;
+        this.Strength = 4;
         this.Agility = 6;
         this.Intelligence = 9;
         this.Stamina = 4;
@@ -96,7 +97,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
-        this.ActionCommandList[2] = Fix.FRESH_HEAL;
+        this.ActionCommandList[3] = Fix.FRESH_HEAL;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -118,6 +119,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
+        this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
         break;
 
 
@@ -388,6 +390,12 @@ public partial class Character : MonoBehaviour
         else if (this.FullName == Fix.NAME_LANA_AMIRIA) { result = "ラナ：：これは味方専用コマンドでしょ。敵に向けられるわけないじゃない。"; }
         else if (this.FullName == Fix.NAME_EONE_FULNEA) { result = "エオネ：いえ、このコマンドは味方向けです。敵には向けられません。"; }
         else if (this.FullName == Fix.NAME_BILLY_RAKI) { result = "ビリー：やっべ、間違えて敵に向けそうだったぜ。"; }
+        break;
+      case 1003:
+        if (this.FullName == Fix.NAME_EIN_WOLENCE) { result = "アイン：しまった。インスタントが足りねえ。"; }
+        else if (this.FullName == Fix.NAME_LANA_AMIRIA) { result = "ラナ：：インスタントが足りないわよ。"; }
+        else if (this.FullName == Fix.NAME_EONE_FULNEA) { result = "エオネ：インスタントが足りませんね。"; }
+        else if (this.FullName == Fix.NAME_BILLY_RAKI) { result = "ビリー：インスタント足りねー！"; }
         break;
     }
 

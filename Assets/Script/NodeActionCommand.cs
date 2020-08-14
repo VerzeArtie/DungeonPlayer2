@@ -7,7 +7,6 @@ public class NodeActionCommand : MonoBehaviour
 {
   public Image BackColor;
   public string CommandName;
-  public Image CommandImage;
   public string OwnerName;
   public Button ActionButton;
 }
