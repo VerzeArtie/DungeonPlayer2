@@ -132,6 +132,15 @@ public class TeamFoundation : MonoBehaviour
   #endregion
 
   #region "Characters"
+  protected string _battlePlayer1 = String.Empty;
+  public string BattlePlayer1 { get { return _battlePlayer1; } set { _battlePlayer1 = value; } }
+  protected string _battlePlayer2 = String.Empty;
+  public string BattlePlayer2 { get { return _battlePlayer2; } set { _battlePlayer2 = value; } }
+  protected string _battlePlayer3 = String.Empty;
+  public string BattlePlayer3 { get { return _battlePlayer3; } set { _battlePlayer3 = value; } }
+  protected string _battlePlayer4 = String.Empty;
+  public string BattlePlayer4 { get { return _battlePlayer4; } set { _battlePlayer4 = value; } }
+
   [SerializeField] protected bool _availableEinWolence = false;
   [SerializeField] protected bool _availableLanaAmiria = false;
   [SerializeField] protected bool _availableEoneFulnea = false;

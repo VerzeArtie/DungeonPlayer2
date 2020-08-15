@@ -147,52 +147,63 @@ public partial class BattleEnemy : MotherBase
     }
 
     // キャラクターを生成する。
-    int counter = 0;
     List<Character> playerList = new List<Character>();
-    if (One.TF.AvailableEinWolence) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableLanaAmiria) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableEoneFulnea) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableMagiZelkis) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableSelmoiRo) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableKartinMai) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableJedaArus) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableSinikiaVeilhanz) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableAdelBrigandy) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableLeneColtos) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailablePermaWaramy) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableKiltJorju) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableBillyRaki) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableAnnaHamilton) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableCalmansOhn) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableSunYu) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableShuvaltzFlore) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableRvelZelkis) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableVanHehgustel) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableOhryuGenma) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableLadaMystorus) { playerList.Add(One.Characters[counter]); }
-    counter++;
-    if (One.TF.AvailableSinOscurete) { playerList.Add(One.Characters[counter]); }
-    counter++;
+    for (int ii = 0; ii < Fix.MAX_TEAM_MEMBER; ii++)
+    {
+      string target = String.Empty;
+      if (ii == 0) { target = One.TF.BattlePlayer1; }
+      if (ii == 1) { target = One.TF.BattlePlayer2; }
+      if (ii == 2) { target = One.TF.BattlePlayer3; }
+      if (ii == 3) { target = One.TF.BattlePlayer4; }
+
+      int counter = 0;
+      if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableLanaAmiria && target == Fix.NAME_LANA_AMIRIA) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableEoneFulnea && target == Fix.NAME_EONE_FULNEA) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableMagiZelkis && target == Fix.NAME_MAGI_ZELKIS) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableSelmoiRo && target == Fix.NAME_SELMOI_RO) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableKartinMai && target == Fix.NAME_KARTIN_MAI) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableJedaArus && target == Fix.NAME_JEDA_ARUS) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableSinikiaVeilhanz && target == Fix.NAME_SINIKIA_VEILHANZ) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableAdelBrigandy && target == Fix.NAME_ADEL_BRIGANDY) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableLeneColtos && target == Fix.NAME_LENE_COLTOS) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailablePermaWaramy && target == Fix.NAME_PERMA_WARAMY) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableKiltJorju && target == Fix.NAME_KILT_JORJU) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableBillyRaki && target == Fix.NAME_BILLY_RAKI) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableAnnaHamilton && target == Fix.NAME_ANNA_HAMILTON) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableCalmansOhn && target == Fix.NAME_CALMANS_OHN) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableSunYu && target == Fix.NAME_SUN_YU) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableShuvaltzFlore && target == Fix.NAME_SHUVALTZ_FLORE) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableRvelZelkis && target == Fix.NAME_RVEL_ZELKIS) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableVanHehgustel && target == Fix.NAME_VAN_HEHGUSTEL) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableOhryuGenma && target == Fix.NAME_OHRYU_GENMA) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableLadaMystorus && target == Fix.NAME_LADA_MYSTORUS) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableSinOscurete && target == Fix.NAME_SIN_OSCURETE) { playerList.Add(One.Characters[counter]); }
+      counter++;
+      if (One.TF.AvailableDelvaTreckino && target == Fix.NAME_DELVA_TRECKINO) { playerList.Add(One.Characters[counter]); }
+      counter++;
+    }
 
     // 味方グループの作成
     for (int ii = 0; ii < playerList.Count; ii++)
@@ -254,7 +265,10 @@ public partial class BattleEnemy : MotherBase
     // 初期ターゲットを設定する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
+      Debug.Log("first command: " + PlayerList[ii].ActionCommandList[0]);
       PlayerList[ii].CurrentActionCommand = PlayerList[ii].ActionCommandList[0];
+      SetupActionCommandButton(PlayerList[ii].objMainButton, PlayerList[ii].ActionCommandList[0]);
+      PlayerList[ii].txtActionCommand.text = PlayerList[ii].ActionCommandList[0];
       ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(PlayerList[ii].ActionCommandList[0]);
       if (currentTargetType == ActionCommand.TargetType.Enemy)
       {
@@ -323,11 +337,6 @@ public partial class BattleEnemy : MotherBase
     {
       character.txtLife.text = character.CurrentLife.ToString();
     }
-    if (character.objMainButton != null)
-    {
-      SetupActionCommandButton(character.objMainButton, character.ActionCommandList[0]);
-      character.txtActionCommand.text = character.ActionCommandList[0];
-    }
     if (instant_gauge_ac != null)
     {
       character.objCurrentInstangGauge_AC = instant_gauge_ac;
@@ -359,20 +368,60 @@ public partial class BattleEnemy : MotherBase
     // アクションコマンドボタンの割当を設定する。
     if (groupActionButton != null)
     {
-      for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
+      character.ActionCommandList.Clear();
+      if (character.Job == Fix.JobClass.Fighter)
       {
-        string commandName = character.ActionCommandList[ii];
-        NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
-        instant.BackColor.color = character.BattleForeColor;
-        instant.CommandName = commandName;
-        instant.name = commandName;
-        instant.OwnerName = character.FullName;
-        instant.ActionButton.name = commandName;
-        instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
-
-        instant.transform.SetParent(groupActionButton.transform);
-        instant.gameObject.SetActive(true);
+        AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
       }
+      else if (character.Job == Fix.JobClass.Magician)
+      {
+        AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
+      }
+      else if (character.Job == Fix.JobClass.Seeker)
+      {
+        AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
+        AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
+      }
+      AddActionButton(character, groupActionButton, Fix.DEFENSE);
+      if (character.FireBolt > 0) { AddActionButton(character, groupActionButton, Fix.FIRE_BOLT); }
+      if (character.IceNeedle > 0) { AddActionButton(character, groupActionButton, Fix.ICE_NEEDLE); }
+      if (character.FreshHeal > 0) { AddActionButton(character, groupActionButton, Fix.FRESH_HEAL); }
+      if (character.ShadowBlast > 0) { AddActionButton(character, groupActionButton, Fix.SHADOW_BLAST); }
+      if (character.AuraOfPower > 0) { AddActionButton(character, groupActionButton, Fix.AURA_OF_POWER); }
+      if (character.DispelMagic > 0) { AddActionButton(character, groupActionButton, Fix.DISPEL_MAGIC); }
+      if (character.StraightSmash > 0) { AddActionButton(character, groupActionButton, Fix.STRAIGHT_SMASH); }
+      if (character.ShieldBash > 0) { AddActionButton(character, groupActionButton, Fix.SHIELD_BASH); }
+      if (character.HunterShot > 0) { AddActionButton(character, groupActionButton, Fix.HUNTER_SHOT); }
+      if (character.VenomSlash > 0) { AddActionButton(character, groupActionButton, Fix.VENOM_SLASH); }
+      if (character.HeartOfLife > 0) { AddActionButton(character, groupActionButton, Fix.HEART_OF_LIFE); }
+      if (character.OracleCommand > 0) { AddActionButton(character, groupActionButton, Fix.ORACLE_COMMAND); }
+      if (character.FlameBlade > 0) { AddActionButton(character, groupActionButton, Fix.FLAME_BLADE); }
+      if (character.PurePurification > 0) { AddActionButton(character, groupActionButton, Fix.PURE_PURIFICATION); }
+      if (character.DivineCircle> 0) { AddActionButton(character, groupActionButton, Fix.DIVINE_CIRCLE); }
+      if (character.BloodSign> 0) { AddActionButton(character, groupActionButton, Fix.BLOOD_SIGN); }
+      if (character.SkyShield > 0) { AddActionButton(character, groupActionButton, Fix.SKY_SHIELD); }
+      if (character.FlashCounter > 0) { AddActionButton(character, groupActionButton, Fix.FLASH_COUNTER); }
+      if (character.StanceOfTheBlade > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_BLADE); }
+      if (character.StanceOfTheGuard > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_GUARD); }
+      if (character.MultipleShot > 0) { AddActionButton(character, groupActionButton, Fix.MULTIPLE_SHOT); }
+      if (character.InvisibleBind > 0) { AddActionButton(character, groupActionButton, Fix.INVISIBLE_BIND); }
+      if (character.FortuneSpirit > 0) { AddActionButton(character, groupActionButton, Fix.FORTUNE_SPIRIT); }
+      if (character.SpiritualRest > 0) { AddActionButton(character, groupActionButton, Fix.SPIRITUAL_REST); }
+
+      //for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
+      //{
+      //  string commandName = character.ActionCommandList[ii];
+      //  NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
+      //  instant.BackColor.color = character.BattleForeColor;
+      //  instant.CommandName = commandName;
+      //  instant.name = commandName;
+      //  instant.OwnerName = character.FullName;
+      //  instant.ActionButton.name = commandName;
+      //  instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+
+      //  instant.transform.SetParent(groupActionButton.transform);
+      //  instant.gameObject.SetActive(true);
+      //}
     }
 
     // アクションポイントのビュー割当を設定する。
@@ -1813,6 +1862,24 @@ public partial class BattleEnemy : MotherBase
     RectTransform rect = GroupMessage.GetComponent<RectTransform>();
     RectTransform rectMessage = node.GetComponent<RectTransform>();
     rect.sizeDelta = new Vector2(rect.sizeDelta.x, rect.sizeDelta.y + rectMessage.sizeDelta.y);
+  }
+
+  private void AddActionButton(Character character, GameObject group_action_button, string command_name)
+  {
+    NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
+    instant.BackColor.color = character.BattleForeColor;
+    instant.CommandName = command_name;
+    instant.name = command_name;
+    instant.OwnerName = character.FullName;
+    instant.ActionButton.name = command_name;
+    instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
+
+    instant.transform.SetParent(group_action_button.transform);
+    instant.gameObject.SetActive(true);
+
+    character.ActionCommandList.Add(command_name);
+    Debug.Log("character AC add: " + character.ActionCommandList.Count);
+
   }
   #endregion
 }

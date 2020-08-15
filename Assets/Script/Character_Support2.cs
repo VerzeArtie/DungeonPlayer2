@@ -28,9 +28,9 @@ public partial class Character : MonoBehaviour
 
     this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
     this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
-    this.ActionCommandList[0] = Fix.NORMAL_ATTACK;
-    this.ActionCommandList[1] = Fix.MAGIC_ATTACK;
-    this.ActionCommandList[2] = Fix.DEFENSE;
+    //this.ActionCommandList[0] = Fix.NORMAL_ATTACK;
+    //this.ActionCommandList[1] = Fix.MAGIC_ATTACK;
+    //this.ActionCommandList[2] = Fix.DEFENSE;
 
     switch (character_name)
     {
@@ -53,7 +53,6 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
-        this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -75,7 +74,6 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableRogue = true;
         this.VenomSlash = 1;
-        this.ActionCommandList[3] = Fix.VENOM_SLASH;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -97,7 +95,6 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
-        this.ActionCommandList[3] = Fix.FRESH_HEAL;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -119,9 +116,27 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
-        this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
         break;
 
+      case Fix.NAME_ADEL_BRIGANDY:
+        this.Level = 1;
+        this.Strength = 6;
+        this.Agility = 5;
+        this.Intelligence = 7;
+        this.Stamina = 6;
+        this.Mind = 3;
+        this.Job = Fix.JobClass.Seeker;
+        this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
+        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
+        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
+        this.AvailableEnhanceForm = true;
+        this.AuraOfPower = 1;
+        //this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
+        break;
 
       case Fix.NAME_MAGI_ZELKIS:
         this.Level = 1;
@@ -176,19 +191,6 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_SINIKIA_VEILHANZ:
-        this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
-        this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
-        break;
-
-      case Fix.NAME_ADEL_BRIGANDY:
         this.Level = 1;
         this.Strength = 1;
         this.Agility = 1;
