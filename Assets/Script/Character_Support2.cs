@@ -53,6 +53,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.DEFENSE;
+        this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -74,6 +78,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableRogue = true;
         this.VenomSlash = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.NORMAL_ATTACK;
+        this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -95,6 +103,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
+        this.GlobalAction1 = Fix.MAGIC_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.FRESH_HEAL;
+        this.GlobalAction4 = Fix.MAGIC_ATTACK;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -116,6 +128,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.NORMAL_ATTACK;
+        this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -135,7 +151,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableEnhanceForm = true;
         this.AuraOfPower = 1;
-        //this.ActionCommandList[3] = Fix.STRAIGHT_SMASH;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.NORMAL_ATTACK;
+        this.GlobalAction4 = Fix.MAGIC_ATTACK;
         break;
 
       case Fix.NAME_MAGI_ZELKIS:

@@ -209,6 +209,31 @@ public partial class Character : MonoBehaviour
     get { return _actionCommand; }
   }
 
+  [SerializeField] protected string _GlobalAction1 = string.Empty;
+  public string GlobalAction1
+  {
+    get { return _GlobalAction1; }
+    set { _GlobalAction1 = value; }
+  }
+  [SerializeField] protected string _GlobalAction2 = string.Empty;
+  public string GlobalAction2
+  {
+    get { return _GlobalAction2; }
+    set { _GlobalAction2 = value; }
+  }
+  [SerializeField] protected string _GlobalAction3 = string.Empty;
+  public string GlobalAction3
+  {
+    get { return _GlobalAction3; }
+    set { _GlobalAction3 = value; }
+  }
+  [SerializeField] protected string _GlobalAction4 = string.Empty;
+  public string GlobalAction4
+  {
+    get { return _GlobalAction4; }
+    set { _GlobalAction4 = value; }
+  }
+
   [SerializeField] protected bool _isDefense = false;
   public bool IsDefense
   {

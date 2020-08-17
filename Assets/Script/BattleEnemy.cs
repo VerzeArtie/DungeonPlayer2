@@ -18,8 +18,10 @@ public partial class BattleEnemy : MotherBase
   public GameObject prefab_Message = null;
   public NodeActionCommand prefab_MainAction = null;
   public NodeActionCommand prefab_InstantAction = null;
+  public NodeActionCommand prefab_GlobalAction = null;
 
   // GUI-BattleView
+  public GameObject GroupGlobalAction;
   public GameObject GroupBattleGauge;
   public GameObject GroupParentPlayer;
   public GameObject GroupParentEnemy;
@@ -136,14 +138,27 @@ public partial class BattleEnemy : MotherBase
 
     // グローバルアクションボタンを設定する。
     List<string> str_list0 = new List<string>();
-    str_list0.Add(Fix.NORMAL_ATTACK);
-    str_list0.Add(Fix.DEFENSE);
+    str_list0.Add(Fix.GLOBAL_ACTION_1);
+    str_list0.Add(Fix.GLOBAL_ACTION_2);
+    str_list0.Add(Fix.GLOBAL_ACTION_3);
+    str_list0.Add(Fix.GLOBAL_ACTION_4);
     str_list0.Add(Fix.USE_RED_POTION);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
-    for (int ii = 0; ii < GlobalActionButtonList.Count; ii++)
+    for (int ii = 0; ii < str_list0.Count; ii++)
     {
-      SetupActionCommandButton(GlobalActionButtonList[ii], str_list0[ii]);
+      string commandName = str_list0[ii];
+      NodeActionCommand global = Instantiate(prefab_GlobalAction) as NodeActionCommand;
+      global.CommandName = commandName;
+      global.name = commandName;
+      global.OwnerName = "Owner";
+      global.ActionButton.name = commandName;
+      global.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+
+      global.transform.SetParent(GroupGlobalAction.transform);
+      global.gameObject.SetActive(true);
+
+//      SetupActionCommandButton(GlobalActionButtonList[ii], str_list0[ii]);
     }
 
     // キャラクターを生成する。
@@ -262,22 +277,10 @@ public partial class BattleEnemy : MotherBase
       AllList.Add(One.EnemyList[ii]);
     }
 
-    // 初期ターゲットを設定する。
+    // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
-      Debug.Log("first command: " + PlayerList[ii].ActionCommandList[0]);
-      PlayerList[ii].CurrentActionCommand = PlayerList[ii].ActionCommandList[0];
-      SetupActionCommandButton(PlayerList[ii].objMainButton, PlayerList[ii].ActionCommandList[0]);
-      PlayerList[ii].txtActionCommand.text = PlayerList[ii].ActionCommandList[0];
-      ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(PlayerList[ii].ActionCommandList[0]);
-      if (currentTargetType == ActionCommand.TargetType.Enemy)
-      {
-        PlayerList[ii].Target = EnemyList[0];
-      }
-      else if (currentTargetType == ActionCommand.TargetType.Ally)
-      {
-        PlayerList[ii].Target = PlayerList[0];
-      }
+      SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction1);
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
@@ -1433,6 +1436,9 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  /// <summary>
+  /// 行動元プレイヤー選択後、表示されるメインアクションを選択する。
+  /// </summary>
   public void TapMainAction(NodeActionCommand sender)
   {
     // 対象元を検索する。
@@ -1474,61 +1480,6 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// アクションコマンド押下時の処理
   /// </summary>
-  public void TapPlayerActionButton(Button sender)
-  {
-    // 対象元を検索する。
-    if (this.NowSelectSrcPlayer == null)
-    {
-      for (int ii = 0; ii < PlayerList.Count; ii++)
-      {
-        if (PlayerList[ii].objActionButtonList == null) { continue; }
-
-        for (int jj = 0; jj < PlayerList[ii].objActionButtonList.Count; jj++)
-        {
-          if (sender.Equals(PlayerList[ii].objActionButtonList[jj]))
-          {
-            this.NowSelectSrcPlayer = PlayerList[ii];
-            break;
-          }
-        }
-      }
-    }
-
-    if (this.NowSelectSrcPlayer == null)
-    {
-      Debug.Log("selectedPlayer is null, then no action.");
-      return;
-    }
-
-    if (this.NowStackInTheCommand == false)
-    {
-      if (sender.name == Fix.DEFENSE)
-      {
-        CopyActionButton(sender, this.NowSelectSrcPlayer.objMainButton);
-        this.NowSelectSrcPlayer.CurrentActionCommand = Fix.DEFENSE;
-        this.NowSelectSrcPlayer.txtActionCommand.text = Fix.DEFENSE;
-        // 決定後、通常の戦闘モードに戻す。
-        ClearSelectFilterGroup();
-        return;
-      }
-
-      this.NowSelectTarget = true;
-      SelectFilter.SetActive(true);
-      GroupMainActionCommand.SetActive(false);
-
-      this.NowSelectActionCommandButton = sender;
-    }
-    else
-    {
-      if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
-      {
-        this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
-        this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
-      }
-    }
-  }
-
   public void TapInstantAction(NodeActionCommand sender)
   {
     // 対象元を検索する。
@@ -1590,9 +1541,8 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// グローバルアクションボタン押下時の処理
   /// </summary>
-  public void TapGlobalActionButton(Button sender)
+  public void TapGlobalAction(NodeActionCommand sender)
   {
-    Debug.Log(MethodBase.GetCurrentMethod());
 
     switch (sender.name)
     {
@@ -1602,19 +1552,39 @@ public partial class BattleEnemy : MotherBase
         {
           PlayerList[ii].CurrentActionCommand = Fix.DEFENSE;
           PlayerList[ii].txtActionCommand.text = Fix.DEFENSE;
-          CopyActionButton(sender, PlayerList[ii].objMainButton);
+          CopyActionButton(sender.ActionButton, PlayerList[ii].objMainButton);
         }
         break;
 
-      case Fix.NORMAL_ATTACK:
-        Debug.Log("Global NormalAttack");
-        if (this.NowSelectActionSrcButton == null)
+      case Fix.GLOBAL_ACTION_1:
+        Debug.Log(Fix.GLOBAL_ACTION_1);
+        for (int ii = 0; ii < PlayerList.Count; ii++)
         {
-          this.NowSelectActionSrcButton = sender;
-          SelectFilter.SetActive(true);
-          //btnCancelSelect.SetActive(true);
-          this.NowSelectTarget = true;
-          this.NowSelectGlobal = true;
+          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction1);
+        }
+        break;
+
+      case Fix.GLOBAL_ACTION_2:
+        Debug.Log(Fix.GLOBAL_ACTION_2);
+        for (int ii = 0; ii < PlayerList.Count; ii++)
+        {
+          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction2);
+        }
+        break;
+
+      case Fix.GLOBAL_ACTION_3:
+        Debug.Log(Fix.GLOBAL_ACTION_3);
+        for (int ii = 0; ii < PlayerList.Count; ii++)
+        {
+          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction3);
+        }
+        break;
+
+      case Fix.GLOBAL_ACTION_4:
+        Debug.Log(Fix.GLOBAL_ACTION_4);
+        for (int ii = 0; ii < PlayerList.Count; ii++)
+        {
+          SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction4);
         }
         break;
 
@@ -1628,7 +1598,7 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("UsePotionRed");
         if (this.NowSelectActionSrcButton == null)
         {
-          this.NowSelectActionSrcButton = sender;
+          this.NowSelectActionSrcButton = sender.ActionButton;
           SelectFilter.SetActive(true);
           //btnCancelSelect.SetActive(true);
           this.NowSelectTarget = true;
@@ -1639,21 +1609,24 @@ public partial class BattleEnemy : MotherBase
       case Fix.READY_BUTTON:
         Debug.Log("Global READY_BUTTON");
         this.TimeStatus = Fix.BattleStatus.Go;
-        sender.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.GO_BUTTON);
+        sender.ActionButton.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.GO_BUTTON);
+        sender.ActionButton.name = Fix.GO_BUTTON;
         sender.name = Fix.GO_BUTTON;
         break;
 
       case Fix.GO_BUTTON:
         Debug.Log("Global GO_BUTTON");
         this.TimeStatus = Fix.BattleStatus.Stop;
-        sender.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.STOP_BUTTON);
+        sender.ActionButton.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.STOP_BUTTON);
+        sender.ActionButton.name = Fix.STOP_BUTTON;
         sender.name = Fix.STOP_BUTTON;
         break;
 
       case Fix.STOP_BUTTON:
         Debug.Log("Global STOP_BUTTON");
         this.TimeStatus = Fix.BattleStatus.Go;
-        sender.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.GO_BUTTON);
+        sender.ActionButton.GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.GO_BUTTON);
+        sender.ActionButton.name = Fix.GO_BUTTON;
         sender.name = Fix.GO_BUTTON;
         break;
 
@@ -1879,7 +1852,23 @@ public partial class BattleEnemy : MotherBase
 
     character.ActionCommandList.Add(command_name);
     Debug.Log("character AC add: " + character.ActionCommandList.Count);
+  }
 
+  private void SetupFirstCommand(Character player, string command_name)
+  {
+    Debug.Log("SetupFirstCommand: " + player.FullName + " "  + command_name);
+    player.CurrentActionCommand = command_name;
+    SetupActionCommandButton(player.objMainButton, command_name);
+    player.txtActionCommand.text = command_name;
+    ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(command_name);
+    if (currentTargetType == ActionCommand.TargetType.Enemy)
+    {
+      player.Target = EnemyList[0];
+    }
+    else if (currentTargetType == ActionCommand.TargetType.Ally)
+    {
+      player.Target = PlayerList[0];
+    }
   }
   #endregion
 }

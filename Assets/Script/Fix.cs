@@ -472,6 +472,10 @@ public static partial class Fix
 
   #region "Action Command"
   // GlobalCommand
+  public const string GLOBAL_ACTION_1 = "GlobalAction1";
+  public const string GLOBAL_ACTION_2 = "GlobalAction2";
+  public const string GLOBAL_ACTION_3 = "GlobalAction3";
+  public const string GLOBAL_ACTION_4 = "GlobalAction4";
   public const string READY_BUTTON = "ReadyButton";
   public const string GO_BUTTON = "GoButton";
   public const string STOP_BUTTON = "StopButton";
