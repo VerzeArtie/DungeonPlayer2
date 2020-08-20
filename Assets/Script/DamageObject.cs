@@ -22,13 +22,28 @@ public class DamageObject : MonoBehaviour
     set { _message = value; }
   }
 
+  [SerializeField] protected bool _firstLook = false;
+  public bool FirstLook
+  {
+    get { return _firstLook; }
+    set 
+    {
+      _firstLook = value;
+      if (_firstLook)
+      {
+        txtMessage.text = _message;
+      }
+    }
+  }
+
   public Text txtMessage;
 
   public void Construct(string message, Color color, int timer)
   {
     _message = message;
     _timer = timer;
-    txtMessage.text = message;
+    _firstLook = false;
+    txtMessage.text = String.Empty; // message;
     txtMessage.color = color;
   }
 }

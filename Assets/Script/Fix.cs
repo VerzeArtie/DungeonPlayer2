@@ -287,6 +287,7 @@ public static partial class Fix
   public const string BATTLE_SP_LESS = "No SP";
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
+  public const string BATTLE_SILENT = "Silent";
 
   #region "Environment"
   public static string BaseMapFolder = @"\Map\";
@@ -603,6 +604,9 @@ public static partial class Fix
   public const string COMMAND_POISON_RINPUN = "毒の鱗粉";
   public const string COMMAND_YOUEN_FIRE = "妖艶なる炎";
   public const string COMMAND_BLAZE_DANCE = "ブレイズ・ダンス";
+  public const string COMMAND_DRILL_CYCLONE = "ドリル・サイクロン";
+  public const string COMMAND_RUMBLE_MACHINEGUN = "ランブル・マシンガン";
+  public const string COMMAND_STRUGGLE_VOICE = "威圧する怒声";
   #endregion
 
   #region "Effect"
@@ -615,6 +619,7 @@ public static partial class Fix
   public const string EFFECT_BIND = "Bind";
   public const string EFFECT_SLEEP = "Sleep";
   public const string EFFECT_DIZZY = "Dizzy";
+  public const string EFFECT_SILENT = "Silent";
 
   public const string EFFECT_POWERUP_FIRE = "UP Fire";
   public const string EFFECT_POWERUP_ICE = "UP Ice";

@@ -433,6 +433,9 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_POISON_RINPUN) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_YOUEN_FIRE) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_BLAZE_DANCE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_DRILL_CYCLONE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_RUMBLE_MACHINEGUN) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_STRUGGLE_VOICE) { return TargetType.Enemy; }
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -488,6 +491,9 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_POISON_RINPUN) { return 0; }
     if (command_name == Fix.COMMAND_YOUEN_FIRE) { return 0; }
     if (command_name == Fix.COMMAND_BLAZE_DANCE) { return 0; }
+    if (command_name == Fix.COMMAND_DRILL_CYCLONE) { return 0; }
+    if (command_name == Fix.COMMAND_RUMBLE_MACHINEGUN) { return 0; }
+    if (command_name == Fix.COMMAND_STRUGGLE_VOICE) { return 0; }
 
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }

@@ -6,6 +6,7 @@ public partial class Character : MonoBehaviour
 {
   public bool Decision = false; // アクションコマンドを決定したかどうかを示すフラグ
   public bool CannotCritical = false; // 雑魚キャラレベルはクリティカルなし
+  public int AI_Phase = 0;
 
   protected int _gold = 0;
   public int Gold
@@ -746,7 +747,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_GALVADAZER:
       case Fix.THE_GALVADAZER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 10, 7500, 2000);
+        SetupParameter(150, 120, 60, 420, 100, 0, 7500, 2000);
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         break;
@@ -988,32 +989,53 @@ public partial class Character : MonoBehaviour
   public string ChooseCommand()
   {
     string result = string.Empty;
-    if (this.FullName == Fix.MYSTIC_DRYAD)
+    List<string> current = new List<string>();
+    switch (this.FullName)
     {
-      List<string> current = new List<string>();
-      if (this.Target != null && this.Target.IsPoison == null)
-      {
-        current.Add(Fix.COMMAND_POISON_RINPUN);
-      }
+      case Fix.MYSTIC_DRYAD:
+        if (this.Target != null && this.Target.IsPoison == null)
+        {
+          current.Add(Fix.COMMAND_POISON_RINPUN);
+        }
 
-      if (this.IsUpFire == null)
-      {
-        current.Add(Fix.COMMAND_BLAZE_DANCE);
-      }
+        if (this.IsUpFire == null)
+        {
+          current.Add(Fix.COMMAND_BLAZE_DANCE);
+        }
 
-      current.Add(Fix.COMMAND_YOUEN_FIRE);
-      result = LogicMRandom(current);
-    }
-    else
-    {
-      // 雑魚はランダムでひとまずよい。
-      result = LogicMRandom(this.ActionCommandList);
+        current.Add(Fix.COMMAND_YOUEN_FIRE);
+        result = RandomChoice(current);
+        break;
+
+      case Fix.THE_GALVADAZER:
+        this.AI_Phase++;
+        if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_RUMBLE_MACHINEGUN);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_STRUGGLE_VOICE);
+        }
+        result = RandomChoice(current);
+        break;
+
+      default:
+        // 雑魚はランダムでひとまずよい。
+        result = RandomChoice(this.ActionCommandList);
+        break;
     }
 
     return result;
   }
 
-  private string LogicMRandom(List<string> command_list)
+  private string RandomChoice(List<string> command_list)
   {
     string result = string.Empty;
     int random = AP.Math.RandomInteger(command_list.Count);

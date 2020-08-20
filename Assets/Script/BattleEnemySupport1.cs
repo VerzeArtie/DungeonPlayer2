@@ -562,6 +562,18 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DIZZY, Fix.COLOR_NORMAL);
   }
 
+  private void ExecBuffBind(Character player, Character target, int turn, double effect_value)
+  {
+    target.AddBuff(Fix.EFFECT_BIND, effect_value, turn);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffSilent(Character player, Character target, int turn, double effect_value)
+  {
+    target.AddBuff(Fix.EFFECT_SILENT, effect_value, turn);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
+  }
+
   private void BuffUpFire(Character player, Character target, int turn, double effect_value)
   {
     target.AddBuff(Fix.EFFECT_POWERUP_FIRE, effect_value, turn);

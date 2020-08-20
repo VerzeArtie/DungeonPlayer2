@@ -549,7 +549,7 @@ public partial class BattleEnemy : MotherBase
       this.BattleEnd = GameEndType.Fail;
       if (panelGameEnd.activeInHierarchy == false)
       {
-        txtGameEndMessage.text = PlayerList[0].FullName + "達は全滅しました・・・\r\n街へ戻ります。";
+        txtGameEndMessage.text = "パーティが全滅しました・・・";
         panelGameEnd.SetActive(true);
       }
       return;
@@ -599,7 +599,7 @@ public partial class BattleEnemy : MotherBase
     {
       RectTransform rectX = EnemyList[ii].objArrow.GetComponent<RectTransform>();
       //Debug.Log("width: " + GroupBattleGauge.GetComponent<RectTransform>().rect.width);
-      if (rectX.position.x <= (GroupBattleGauge.GetComponent<RectTransform>().rect.width - rectX.sizeDelta.x) / 5.0f)
+      if (rectX.position.x <= (GroupBattleGauge.GetComponent<RectTransform>().rect.width - rectX.sizeDelta.x) / 3.0f)
       {
         if (EnemyList[ii].Target != null && EnemyList[ii].Target.Dead && EnemyList[ii].Target.IsEnemy == false)
         {
@@ -622,6 +622,21 @@ public partial class BattleEnemy : MotherBase
         string decision = EnemyList[ii].ChooseCommand();
         EnemyList[ii].CurrentActionCommand = decision;
         EnemyList[ii].txtActionCommand.text = decision;
+      }
+    }
+
+    // ボス戦のスタックインザコマンド
+    for (int ii = 0; ii < EnemyList.Count; ii++)
+    {
+      if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
+      {
+        if (EnemyList[ii].FullName == Fix.THE_GALVADAZER)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_DRILL_CYCLONE, 100);
+          break;
+        }
       }
     }
 
@@ -800,9 +815,15 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    if (player.IsBind && command_name != Fix.DEFENSE)
+    if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
     {
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_BIND, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    if (player.IsSilent && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
+    {
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SILENT, Fix.COLOR_NORMAL);
       return;
     }
 
@@ -1077,8 +1098,41 @@ public partial class BattleEnemy : MotherBase
         BuffUpFire(player, player, 5, 1.20f);
         break;
 
+      case Fix.COMMAND_DRILL_CYCLONE:
+        ExecNormalAttack(player, target, 1.50f, CriticalType.None);
+        ExecBuffStun(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_RUMBLE_MACHINEGUN:
+        for (int jj = 0; jj < 5; jj++)
+        {
+          int rand = AP.Math.RandomInteger(PlayerList.Count);
+          ExecNormalAttack(player, PlayerList[rand], 1.0f, CriticalType.Random);
+        }
+        break;
+
+      case Fix.COMMAND_STRUGGLE_VOICE:
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          int rand = AP.Math.RandomInteger(3);
+          if (rand == 0)
+          {
+            ExecBuffDizzy(player, PlayerList[jj], 2, 30.0f);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffSilent(player, PlayerList[jj], 2, 0);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffBind(player, PlayerList[jj], 2, 0);
+          }
+        }
+        break;
+
       default:
         Debug.Log("Nothing Command: " + command_name);
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
         break;
     }
     #endregion
@@ -1158,6 +1212,7 @@ public partial class BattleEnemy : MotherBase
     {
       if (damageObj[ii].Timer > 0)
       {
+        damageObj[ii].FirstLook = true;
         damageObj[ii].Timer--;
         RectTransform rect = damageObj[ii].txtMessage.GetComponent<RectTransform>();
         float moveX = 0.0f;
@@ -1179,6 +1234,7 @@ public partial class BattleEnemy : MotherBase
           Destroy(damageObj[ii].gameObject);
           damageObj[ii] = null;
         }
+        break;
       }
     }
 

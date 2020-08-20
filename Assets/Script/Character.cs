@@ -2043,6 +2043,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_BIND); }
   }
 
+  public BuffImage IsSilent
+  {
+    get { return SearchBuff(Fix.EFFECT_SILENT); }
+  }
+
   public BuffImage IsSleep
   {
     get { return SearchBuff(Fix.EFFECT_SLEEP); }
