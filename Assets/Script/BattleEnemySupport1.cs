@@ -306,14 +306,34 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
   }
 
-  private void ExecDivineCircle(Character player, List<Character> target_list)
+  private void ExecDivineCircle(Character player, Character target)
   {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    for (int ii = 0; ii < target_list.Count; ii++)
+    bool detect = false;
+    string buff_name = Fix.DIVINE_CIRCLE;
+    GameObject targetPanel = GetPanelFieldFromPlayer(target);
+    BuffImage[] buffList = targetPanel.GetComponentsInChildren<BuffImage>();
+    for (int ii = 0; ii < buffList.Length; ii++)
     {
-      target_list[ii].AddBuff(Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle(player), SecondaryLogic.DivineCircle_Turn(player));
-      StartAnimation(target_list[ii].objGroup.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
+      if (buffList[ii].BuffName == buff_name)
+      {
+        buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
+        detect = true;
+        break;
+      }
     }
+    if (detect == false)
+    {
+      for (int ii = 0; ii < buffList.Length; ii++)
+      {
+        if (buffList[ii].BuffName == string.Empty)
+        {
+          buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
+          detect = true;
+          break;
+        }
+      }
+    }
+    StartAnimation(target.objGroup.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
   }
 
   private void ExecBloodSign(Character player, Character target)
@@ -431,7 +451,6 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_RESIST_STUN, Fix.COLOR_NORMAL);
   }
 
-
   private void ExecZeroImmunity(Character player, Character target)
   {
     // todo
@@ -492,6 +511,25 @@ public partial class BattleEnemy : MotherBase
           stanceOfTheBlade.Cumulative++;
         }
       }
+    }
+  }
+
+  private void ExecMeteorBullet(Character player, List<Character> target_list, CriticalType critical)
+  {
+    for (int ii = 0; ii < 3; ii++)
+    {
+      int rand = AP.Math.RandomInteger(target_list.Count);
+      double damageValue = MagicDamageLogic(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.CommandAttribute.Fire, critical);
+      AbstractDamageCommand(player, target_list[rand], damageValue);
+    }
+  }
+
+  private void ExecBlueBullet(Character player, Character target, CriticalType critical)
+  {
+    for (int ii = 0; ii < 3; ii++)
+    {
+      double damageValue = MagicDamageLogic(player, target, SecondaryLogic.BlueBullet(player), Fix.CommandAttribute.Ice, critical);
+      AbstractDamageCommand(player, target, damageValue);
     }
   }
 
@@ -662,7 +700,7 @@ public partial class BattleEnemy : MotherBase
     {
       if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
       {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
         this.NowAnimationMode = true;
         return false;
       }

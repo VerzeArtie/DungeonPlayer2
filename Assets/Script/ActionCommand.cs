@@ -332,6 +332,8 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return Attribute.Skill; }
     if (command_name == Fix.SPIRITUAL_REST) { return Attribute.Skill; }
 
+    if (command_name == Fix.METEOR_BULLET) { return Attribute.Magic; }
+    if (command_name == Fix.BLUE_BULLET) { return Attribute.Magic; }
 
     if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
     if (command_name == Fix.CIRCLE_SLASH) { return Attribute.Skill; }
@@ -374,6 +376,8 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return TimingType.Instant; }
     if (command_name == Fix.SPIRITUAL_REST) { return TimingType.Instant; }
 
+    if (command_name == Fix.METEOR_BULLET) { return TimingType.Instant; }
+    if (command_name == Fix.BLUE_BULLET) { return TimingType.Instant; }
 
     if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
     if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
@@ -415,6 +419,8 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return TargetType.Ally; }
     if (command_name == Fix.SPIRITUAL_REST) { return TargetType.Ally; }
 
+    if (command_name == Fix.METEOR_BULLET) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.BLUE_BULLET) { return TargetType.Enemy; }
 
     if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.None; }
     if (command_name == Fix.CIRCLE_SLASH) { return TargetType.None; }
@@ -473,6 +479,8 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return 15; }
     if (command_name == Fix.SPIRITUAL_REST) { return 15; }
 
+    if (command_name == Fix.METEOR_BULLET) { return 1; }
+    if (command_name == Fix.BLUE_BULLET) { return 1; }
 
     if (command_name == Fix.ZERO_IMMUNITY) { return 20; }
     if (command_name == Fix.CIRCLE_SLASH) { return 18; }
@@ -533,6 +541,9 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return BuffType.Positive; }
     if (command_name == Fix.SPIRITUAL_REST) { return BuffType.None; }
 
+    if (command_name == Fix.METEOR_BULLET) { return BuffType.None; }
+    if (command_name == Fix.BLUE_BULLET) { return BuffType.None; }
+
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
     if (command_name == Fix.EFFECT_SLIP) { return BuffType.Negative; }
@@ -582,6 +593,9 @@ public static class ActionCommand
     if (command_name == Fix.INVISIBLE_BIND) { return false; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return false; }
     if (command_name == Fix.SPIRITUAL_REST) { return false; }
+
+    if (command_name == Fix.METEOR_BULLET) { return true; }
+    if (command_name == Fix.BLUE_BULLET) { return true; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }

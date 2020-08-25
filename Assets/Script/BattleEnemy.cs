@@ -47,6 +47,11 @@ public partial class BattleEnemy : MotherBase
   //public List<Image> imgEnemyPotentialGauge; // 敵用のアクションコマンドボタンは画面上に出てこない。
   public Image imgGlobalGauge_AC;
 
+  // GUI Team-Energy
+  public GameObject groupPotentialEnergy;
+  public Image imgPotentialEnergy;
+  public Text txtPotentialEnergy;
+
   public GameObject GroupMainActionCommand;
   public List<GameObject> GroupMainACList;
 
@@ -317,7 +322,8 @@ public partial class BattleEnemy : MotherBase
     character.objBackInstantGauge = node.objBackInstantGauge;
     character.objCurrentInstantGauge = node.objCurrentInstantGauge;
     character.txtSoulPoint = node.txtSoulPoint;
-    character.objBackInstantGauge = node.objBackSoulPointGauge;
+    character.objBackSoulPointGauge = node.objBackSoulPointGauge;
+//    character.objBackInstantGauge = node.objBackSoulPointGauge;
     character.objCurrentSoulPointGauge = node.objCurrentSoulPointGauge;
     character.objCurrentSoulPointBorder = node.objCurrentSoulPointBorder;
     character.objMainButton = node.objMainButton;
@@ -410,6 +416,8 @@ public partial class BattleEnemy : MotherBase
       if (character.InvisibleBind > 0) { AddActionButton(character, groupActionButton, Fix.INVISIBLE_BIND); }
       if (character.FortuneSpirit > 0) { AddActionButton(character, groupActionButton, Fix.FORTUNE_SPIRIT); }
       if (character.SpiritualRest > 0) { AddActionButton(character, groupActionButton, Fix.SPIRITUAL_REST); }
+      if (character.MeteorBullet > 0) { AddActionButton(character, groupActionButton, Fix.METEOR_BULLET); }
+      if (character.BlueBullet > 0) { AddActionButton(character, groupActionButton, Fix.BLUE_BULLET); }
 
       //for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
       //{
@@ -443,6 +451,9 @@ public partial class BattleEnemy : MotherBase
   // Update is called once per frame
   void Update()
   {
+    // todo 試験的に常に再描画を行うようにする。処理落ちの場合はコメントアウトする。
+    LogicInvalidate();
+
     // アニメーションを実行する。この間、時間を進めない。
     if (NowAnimationMode)
     {
@@ -700,6 +711,30 @@ public partial class BattleEnemy : MotherBase
   {
     UpdateTimerSpeed();
 
+    // ポテンシャル・ポイントの更新
+    if (this.imgPotentialEnergy != null)
+    {
+      float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
+      if (dx < 0.10f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_0"); }
+      if (0.10f <= dx && dx < 0.20f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_10"); }
+      if (0.20f <= dx && dx < 0.30f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_20"); }
+      if (0.30f <= dx && dx < 0.40f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_30"); }
+      if (0.40f <= dx && dx < 0.50f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_40"); }
+      if (0.50f <= dx && dx < 0.60f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_50"); }
+      if (0.60f <= dx && dx < 0.70f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_60"); }
+      if (0.70f <= dx && dx < 0.80f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_70"); }
+      if (0.80f <= dx && dx < 0.90f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_80"); }
+      if (0.90f <= dx && dx < 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_90"); }
+      if (dx >= 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_100"); }
+    }
+    if (this.txtPotentialEnergy)
+    {
+      float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
+      int dx_percent = (int)(dx * 100.0f);
+      this.txtPotentialEnergy.text = dx_percent.ToString() + " %";
+    }
+
+    // プレイヤー関連
     for (int ii = 0; ii < AllList.Count; ii++)
     {
       // プレイヤーのリソースゲージ値を更新する。
@@ -847,7 +882,10 @@ public partial class BattleEnemy : MotherBase
     }
     player.CurrentSoulPoint -= ActionCommand.CostSP(command_name);
 
-    player.CurrentEnergyPoint += 1000;
+    if (player.Ally == Fix.Ally.Ally)
+    {
+      One.TF.PotentialEnergy += player.GetPotentialEnergy();
+    }
 
     // ブラッド・サインによる効果
     if (player.IsBloodSign && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
@@ -973,32 +1011,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DIVINE_CIRCLE:
-        bool detect = false;
-        string buff_name = Fix.DIVINE_CIRCLE;
-        GameObject targetPanel = GetPanelFieldFromPlayer(target);
-        BuffImage[] buffList = targetPanel.GetComponentsInChildren<BuffImage>();
-        for (int ii = 0; ii < buffList.Length; ii++)
-        {
-          if (buffList[ii].BuffName == buff_name)
-          {
-            buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
-            detect = true;
-            break;
-          }
-        }
-        if (detect == false)
-        {
-          for (int ii = 0; ii < buffList.Length; ii++)
-          {
-            if (buffList[ii].BuffName == string.Empty)
-            {
-              buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
-              detect = true;
-              break;
-            }
-          }
-        }
-        StartAnimation(target.objGroup.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
+        ExecDivineCircle(player, target);
         break;
 
       case Fix.SKY_SHIELD:
@@ -1045,6 +1058,15 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.DOUBLE_SLASH:
         ExecDoubleSlash(player, target, critical);
+        break;
+
+      case Fix.METEOR_BULLET:
+        target_group = GetOpponentGroup(player);
+        ExecMeteorBullet(player, target_group, critical);
+        break;
+
+      case Fix.BLUE_BULLET:
+        ExecBlueBullet(player, target, critical);
         break;
 
       // 以下、モンスターアクションはmagic numberでよい
@@ -1476,6 +1498,20 @@ public partial class BattleEnemy : MotherBase
             {
               if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton))
               {
+                // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
+                if (AllList[ii].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
+                {
+                  Debug.Log("Target Error. IsEnemy False : AC is Enemy");
+                  UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1001));
+                  return;
+                }
+                if (AllList[ii].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+                {
+                  Debug.Log("Target Error. IsEnemy True : AC is Enemy");
+                  UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1002));
+                  return;
+                }
+
                 Debug.Log("instant target is " + AllList[ii].FullName);
                 ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
                 break;
@@ -1710,6 +1746,10 @@ public partial class BattleEnemy : MotherBase
 
   public void TapPotentialAction(Button sender)
   {
+    Debug.Log("TapPotentialAction(S)");
+
+    // todo プレイヤー毎に潜在奥義を出させるか、何か固定か？
+    Debug.Log("TapPotentialAction(S)");
   }
 
   /// <summary>

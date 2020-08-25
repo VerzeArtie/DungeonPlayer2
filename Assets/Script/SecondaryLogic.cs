@@ -222,4 +222,14 @@ public static class SecondaryLogic
   {
     return 1.20f;
   }
+
+  public static double MeteorBullet(Character player)
+  {
+    return 0.80f;
+  }
+
+  public static double BlueBullet(Character player)
+  {
+    return 0.70f;
+  }
 }

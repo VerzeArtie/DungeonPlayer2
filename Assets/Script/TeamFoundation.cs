@@ -140,6 +140,29 @@ public class TeamFoundation : MonoBehaviour
   public string BattlePlayer3 { get { return _battlePlayer3; } set { _battlePlayer3 = value; } }
   protected string _battlePlayer4 = String.Empty;
   public string BattlePlayer4 { get { return _battlePlayer4; } set { _battlePlayer4 = value; } }
+
+  [SerializeField] protected int _maxPotentialEnergy = 10000;
+  public int MaxPotentialEnergy { get { return _maxPotentialEnergy; } set { _maxPotentialEnergy = value; } }
+
+  [SerializeField] protected int _potentialEnergy = 0;
+  public int PotentialEnergy 
+  {
+    get
+    {
+      return _potentialEnergy;
+    }
+    set
+    {
+      if (_potentialEnergy >= _maxPotentialEnergy)
+      {
+        _potentialEnergy = _maxPotentialEnergy;
+      }
+      else
+      {
+        _potentialEnergy = value;
+      }
+    }
+  }
   #endregion
 
   #region "Characters"

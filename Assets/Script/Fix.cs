@@ -57,7 +57,7 @@ public static partial class Fix
   // Battle Gauge
   public const int BATTLE_CORE_SLEEP = 0;
   public const int BASE_TIMER_BAR_LENGTH = 30000;
-  public const int BASE_TIMER_DIV = 12;
+  public const int BASE_TIMER_DIV = 36;
   public const int TIMER_ICON_NUM = 8;
   public const int MAX_INSTANT_POINT = 1000;
   public const int GLOBAL_INSTANT_MAX = 1000;
@@ -80,7 +80,7 @@ public static partial class Fix
   public static Color COLOR_FOURTH_CHARA = new Color(189.0f / 255.0f, 255.0f / 255.0f, 199.0f / 255.0f);
   public static Color COLORFORE_FOURTH_CHARA = new Color(0 / 255.0f, 187.0f / 255.0f, 0 / 255.0f);
 
-  public static Color COLOR_FIFTH_CHARA = new Color(1.0f, 0.1f, 0.1f);
+  public static Color COLOR_FIFTH_CHARA = new Color(1.0f, 0.8f, 0.8f);
   public static Color COLORFORE_FIFTH_CHARA = new Color(200 / 255.0f, 0.3f, 0.3f);
 
   public static Color COLOR_ENEMY_CHARA = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f);
@@ -283,6 +283,7 @@ public static partial class Fix
 
   // Battle Effect Message
   public const string BATTLE_MISS = "Miss";
+  public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
   public const string BATTLE_AP_LESS = "No AP";
   public const string BATTLE_SP_LESS = "No SP";
   public const string BATTLE_BIND = "Bind";

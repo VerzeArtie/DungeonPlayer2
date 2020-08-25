@@ -1574,6 +1574,10 @@ public partial class Character : MonoBehaviour
   #endregion
 
   #region "Method"
+  public int GetPotentialEnergy()
+  {
+    return 100; // todo 係数化して変化があると良い。
+  }
   public void MaxGain()
   {
     _currentLife = MaxLife;
