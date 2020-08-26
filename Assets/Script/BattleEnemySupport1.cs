@@ -68,11 +68,45 @@ public partial class BattleEnemy : MotherBase
     return result;
   }
 
-  private void ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical)
+  /// <summary>
+  /// 基本ロジックを内包した物理攻撃実行コマンド
+  /// </summary>
+  private bool ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, magnify, critical);
+
+    // 攻撃コマンドのダメージを算出
+    double debug1 = 0; double debug2 = 0; double debug3 = 0;
+    
+    double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    debug1 = damageValue;
+    if (player.CannotCritical == false &&
+        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
+       )
+    {
+      if (critical == CriticalType.Absolute) { Debug.Log("detect Critical! (Absolute)"); }
+      if (critical == CriticalType.Random) { Debug.Log("detect Critical! (Random)"); }
+      damageValue *= SecondaryLogic.CriticalFactor(player);
+    }
+
+    // ターゲットの物理防御を差し引く
+    double defenseValue = PrimaryLogic.PhysicalDefense(target);
+    debug2 = defenseValue;
+    damageValue -= defenseValue;
+    debug3 = damageValue;
+
+    Debug.Log("DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
+
+    // ターゲットが防御姿勢であれば、ダメージを軽減する
+    if (target.IsDefense)
+    {
+      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
+      Debug.Log("Target is Defense mode: " + damageValue.ToString());
+    }
+    if (damageValue <= 0) { damageValue = 0; }
+    debug3 = damageValue;
+
     success = AbstractDamageCommand(player, target, damageValue);
 
     // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
@@ -94,6 +128,7 @@ public partial class BattleEnemy : MotherBase
         stanceOfTheGuard.Cumulative++;
       }
     }
+    return success;
   }
 
   private void ExecMagicAttack(Character player, Character target, double magnify, Fix.CommandAttribute attr, CriticalType critical)
@@ -154,37 +189,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecStraightSmash(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.StraightSmash(player), critical);
-    success = AbstractDamageCommand(player, target, damageValue);
 
-    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
-    if (success)
-    {
-      if (player.IsFlameBlade && player.Dead == false)
-      {
-        double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-        AbstractDamageCommand(player, target, addDamageValue);
-      }
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
-      BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-      if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
-      {
-        stanceOfTheGuard.Cumulative++;
-      }
-    }
+    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), critical);
   }
 
   private void ExecShieldBash(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.ShieldBash(player), critical);
-    success = AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
 
     // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
@@ -192,88 +204,36 @@ public partial class BattleEnemy : MotherBase
       if (target.IsResistStun)
       {
         StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_STUN, Fix.COLOR_NORMAL);
-      }
-      else
-      {
-        target.AddBuff(Fix.EFFECT_STUN, 0, SecondaryLogic.ShieldBash_Turn(player));
-        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
+        return;
       }
 
-      if (player.IsFlameBlade && player.Dead == false)
-      {
-        double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-        AbstractDamageCommand(player, target, addDamageValue);
-      }
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
-      BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-      if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
-      {
-        stanceOfTheGuard.Cumulative++;
-      }
+      target.AddBuff(Fix.EFFECT_STUN, 0, SecondaryLogic.ShieldBash_Turn(player));
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
     }
   }
 
   private void ExecHunterShot(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.HunterShot(player), critical);
-    success = AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
 
+    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
     {
       target.AddBuff(Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Value(player), SecondaryLogic.HunterShot_Turn(player));
       StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
-
-      if (player.IsFlameBlade && player.Dead == false)
-      {
-        double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-        AbstractDamageCommand(player, target, addDamageValue);
-      }
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
-      BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-      if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
-      {
-        stanceOfTheGuard.Cumulative++;
-      }
     }
   }
 
   private void ExecVenomSlash(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.VenomSlash(player), critical);
-    success = AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
 
     if (success)
     {
       target.AddBuff(Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_2(player), SecondaryLogic.VenomSlash_Turn(player));
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
-
-      if (player.IsFlameBlade && player.Dead == false)
-      {
-        double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-        AbstractDamageCommand(player, target, addDamageValue);
-      }
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
-      BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-      if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
-      {
-        stanceOfTheGuard.Cumulative++;
-      }
     }
   }
 
@@ -387,44 +347,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecMultipleShot(Character player, List<Character> target_list, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      double damageValue = PhysicalDamageLogic(player, target_list[ii], SecondaryLogic.MultipleShot(player), critical);
-      bool current = AbstractDamageCommand(player, target_list[ii], damageValue);
-      if (current)
-      {
-        if (current) { success = current; } // 一つでも成功していれば、成功と判定する。
-
-        if (player.IsFlameBlade && player.Dead == false)
-        {
-          double addDamageValue = MagicDamageLogic(player, target_list[ii], SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-          AbstractDamageCommand(player, target_list[ii], addDamageValue);
-        }
-        BuffImage stanceOfTheGuard = target_list[ii].IsStanceOfTheGuard;
-        if (target_list[ii].IsStanceOfTheGuard && target_list[ii].IsDefense && target_list[ii].Dead == false)
-        {
-          stanceOfTheGuard.Cumulative++;
-        }
-      }
-    }
-
-    if (success)
-    {
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), critical);
     }
   }
 
   private void ExecInvisibleBind(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
-    double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.InvisibleBind(player), critical);
-    success = AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), critical);
+
+    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
     {
       target.AddBuff(Fix.EFFECT_BIND, 0, SecondaryLogic.InvibisleBind_Turn(player));
@@ -459,35 +393,9 @@ public partial class BattleEnemy : MotherBase
   private void ExecCircleSlash(Character player, List<Character> target_list, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      double damageValue = PhysicalDamageLogic(player, target_list[ii], SecondaryLogic.NormalAttack(player), critical);
-      bool current = AbstractDamageCommand(player, target_list[ii], damageValue);
-      if (current)
-      {
-        if (current) { success = current; } // 一つでも成功していれば、成功と判定する。
-
-        if (player.IsFlameBlade && player.Dead == false)
-        {
-          double addDamageValue = MagicDamageLogic(player, target_list[ii], SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-          AbstractDamageCommand(player, target_list[ii], addDamageValue);
-        }
-        BuffImage stanceOfTheGuard = target_list[ii].IsStanceOfTheGuard;
-        if (target_list[ii].IsStanceOfTheGuard && target_list[ii].IsDefense && target_list[ii].Dead == false)
-        {
-          stanceOfTheGuard.Cumulative++;
-        }
-      }
-    }
-
-    if (success)
-    {
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), critical);
     }
   }
 
@@ -496,21 +404,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < 2; ii++)
     {
-      double damageValue = PhysicalDamageLogic(player, target, SecondaryLogic.NormalAttack(player), critical);
-      bool success = AbstractDamageCommand(player, target, damageValue);
-      if (success)
-      {
-        if (player.IsFlameBlade && player.Dead == false)
-        {
-          double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-          AbstractDamageCommand(player, target, addDamageValue);
-        }
-        BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-        if (stanceOfTheBlade)
-        {
-          stanceOfTheBlade.Cumulative++;
-        }
-      }
+      ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
     }
   }
 
@@ -619,31 +513,6 @@ public partial class BattleEnemy : MotherBase
   }
 
   #region "General"
-  private double PhysicalDamageLogic(Character player, Character target, double magnify, CriticalType critical)
-  {
-    double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
-    Debug.Log("damage-1: " + (PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify).ToString());
-    if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
-       )
-    {
-      if (critical == CriticalType.Absolute) { Debug.Log("PhysicalDamageLogic detect Critical! (Absolute)"); }
-      if (critical == CriticalType.Random) { Debug.Log("PhysicalDamageLogic detect Critical! (Random)"); }
-      damageValue *= SecondaryLogic.CriticalFactor(player);
-    }
-    else
-    {
-      Debug.Log("PhysicalDamageLogic detect Normal...");
-    }
-
-    damageValue -= PrimaryLogic.PhysicalDefense(target);
-    Debug.Log("damage-2: " + (PrimaryLogic.PhysicalDefense(target)).ToString());
-
-    if (target.IsDefense) { damageValue = damageValue * SecondaryLogic.DefenseFactor(target); }
-    if (damageValue <= 0) { damageValue = 0; }
-
-    return damageValue;
-  }
 
   private double MagicDamageLogic(Character player, Character target, double magnify, Fix.CommandAttribute attr, CriticalType critical)
   {
