@@ -74,85 +74,104 @@ public partial class BattleEnemy : MotherBase
   private bool ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = false;
 
-    // 攻撃コマンドのダメージを算出
-    double debug1 = 0; double debug2 = 0; double debug3 = 0;
-    
-    double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
-    debug1 = damageValue;
-    if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
-       )
+    // ターゲットが既に死んでいる場合
+    if (target.Dead)
     {
-      if (critical == CriticalType.Absolute) { Debug.Log("detect Critical! (Absolute)"); }
-      if (critical == CriticalType.Random) { Debug.Log("detect Critical! (Random)"); }
-      damageValue *= SecondaryLogic.CriticalFactor(player);
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
     }
 
-    // ターゲットの物理防御を差し引く
-    double defenseValue = PrimaryLogic.PhysicalDefense(target);
-    debug2 = defenseValue;
-    damageValue -= defenseValue;
-    debug3 = damageValue;
-
-    Debug.Log("DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
-
-    // ターゲットが防御姿勢であれば、ダメージを軽減する
-    if (target.IsDefense)
+    // ターゲットに対して命中していない場合
+    if (player.IsDizzy)
     {
-      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
-      Debug.Log("Target is Defense mode: " + damageValue.ToString());
-    }
-    if (damageValue <= 0) { damageValue = 0; }
-    debug3 = damageValue;
-
-    success = AbstractDamageCommand(player, target, damageValue);
-
-    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
-    if (success)
-    {
-      if (player.IsFlameBlade && player.Dead == false)
+      if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
       {
-        double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.Fire, critical);
-        AbstractDamageCommand(player, target, addDamageValue);
-      }
-      BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
-      if (stanceOfTheBlade != null)
-      {
-        stanceOfTheBlade.Cumulative++;
-      }
-      BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-      if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
-      {
-        stanceOfTheGuard.Cumulative++;
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
+        this.NowAnimationMode = true;
+        return false;
       }
     }
-    return success;
+
+    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical); // Swordman固定はおかしい。
+
+    // ダメージ適用
+    ApplyDamage(player, target, damageValue);
+
+    // 追加効果
+    if (player.IsFlameBlade && player.Dead == false)
+    {
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, critical);
+      ApplyDamage(player, target, addDamageValue);
+    }
+    BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
+    if (stanceOfTheBlade != null)
+    {
+      stanceOfTheBlade.Cumulative++;
+    }
+    BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
+    if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
+    {
+      stanceOfTheGuard.Cumulative++;
+    }
+
+    return true;
   }
 
-  private void ExecMagicAttack(Character player, Character target, double magnify, Fix.CommandAttribute attr, CriticalType critical)
+  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    // ターゲットが既に死んでいる場合
+    if (target.Dead)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    // ターゲットに対して命中していない場合
+    if (player.IsDizzy)
+    {
+      if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
+        this.NowAnimationMode = true;
+        return false;
+      }
+    }
+
+    // 攻撃コマンドのダメージを算出
     double damageValue = MagicDamageLogic(player, target, magnify, attr, critical);
-    AbstractDamageCommand(player, target, damageValue);
+    ApplyDamage(player, target, damageValue);
+
+    // 追加効果
+    BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
+    if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
+    {
+      stanceOfTheGuard.Cumulative++;
+    }
+
+    return true;
   }
 
   private void ExecFireBolt(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double damageValue = MagicDamageLogic(player, target, SecondaryLogic.FireBolt(player), Fix.CommandAttribute.Fire, critical);
-    AbstractDamageCommand(player, target, damageValue);
+    ExecMagicAttack(player, target, SecondaryLogic.FireBolt(player), Fix.DamageSource.Fire, critical);
   }
 
   private void ExecIceNeedle(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double damageValue = MagicDamageLogic(player, target, SecondaryLogic.IceNeedle(player), Fix.CommandAttribute.Ice, critical);
-    AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, critical);
 
-    target.AddBuff(Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Value(player), SecondaryLogic.IceNeedle_Turn(player));
-    StartAnimation(target.objGroup.gameObject, Fix.ICE_NEEDLE, Fix.COLOR_NORMAL);
+    if (success)
+    {
+      target.AddBuff(Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Value(player), SecondaryLogic.IceNeedle_Turn(player));
+      StartAnimation(target.objGroup.gameObject, Fix.ICE_NEEDLE, Fix.COLOR_NORMAL);
+    }
   }
 
   private void ExecFreshHeal(Character player, Character target)
@@ -165,11 +184,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecShadowBlast(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double damageValue = MagicDamageLogic(player, target, SecondaryLogic.ShadowBlast(player), Fix.CommandAttribute.DarkMagic, critical);
-    AbstractDamageCommand(player, target, damageValue);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, critical);
 
-    target.AddBuff(Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Value(player), SecondaryLogic.ShadowBlast_Turn(player));
-    StartAnimation(target.objGroup.gameObject, Fix.SHADOW_BLAST, Fix.COLOR_NORMAL);
+    if (success)
+    {
+      target.AddBuff(Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Value(player), SecondaryLogic.ShadowBlast_Turn(player));
+      StartAnimation(target.objGroup.gameObject, Fix.SHADOW_BLAST, Fix.COLOR_NORMAL);
+    }
   }
 
   private void ExecAuraOfPower(Character player, Character target)
@@ -198,7 +219,6 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
 
-    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
     {
       if (target.IsResistStun)
@@ -217,7 +237,6 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
 
-    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
     {
       target.AddBuff(Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Value(player), SecondaryLogic.HunterShot_Turn(player));
@@ -358,7 +377,6 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), critical);
 
-    // アクションコマンド実行後、行動が成立した場合、追加効果を行う。
     if (success)
     {
       target.AddBuff(Fix.EFFECT_BIND, 0, SecondaryLogic.InvibisleBind_Turn(player));
@@ -413,8 +431,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < 3; ii++)
     {
       int rand = AP.Math.RandomInteger(target_list.Count);
-      double damageValue = MagicDamageLogic(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.CommandAttribute.Fire, critical);
-      AbstractDamageCommand(player, target_list[rand], damageValue);
+      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, critical);
     }
   }
 
@@ -422,8 +439,7 @@ public partial class BattleEnemy : MotherBase
   {
     for (int ii = 0; ii < 3; ii++)
     {
-      double damageValue = MagicDamageLogic(player, target, SecondaryLogic.BlueBullet(player), Fix.CommandAttribute.Ice, critical);
-      AbstractDamageCommand(player, target, damageValue);
+      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, critical);
     }
   }
 
@@ -513,28 +529,74 @@ public partial class BattleEnemy : MotherBase
   }
 
   #region "General"
-
-  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.CommandAttribute attr, CriticalType critical)
+  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
   {
+    // 攻撃コマンドのダメージを算出
+    double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    double debug1 = damageValue;
+
+    // Buff効果による増強（物理属性専用UPは現時点では存在しない）
+
+    // クリティカル判定
+    if (player.CannotCritical == false &&
+        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
+       )
+    {
+      if (critical == CriticalType.Absolute) { Debug.Log("PhysicalDamageLogic detect Critical! (Absolute)"); }
+      if (critical == CriticalType.Random) { Debug.Log("PhysicalDamageLogic detect Critical! (Random)"); }
+      damageValue *= SecondaryLogic.CriticalFactor(player);
+    }
+
+    // ターゲットの物理防御を差し引く
+    double defenseValue = PrimaryLogic.PhysicalDefense(target);
+    double debug2 = defenseValue;
+    damageValue -= defenseValue;
+    double debug3 = damageValue;
+
+    Debug.Log("Physical-DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
+
+    // ターゲットが防御姿勢であれば、ダメージを軽減する
+    if (target.IsDefense)
+    {
+      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
+      Debug.Log("Target is Defense mode: " + damageValue.ToString());
+    }
+
+    // ダメージ量が負の値になる場合は０とみなす。
+    if (damageValue <= 0) { damageValue = 0; }
+
+    return damageValue;
+  }
+
+  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
+  {
+    // 魔法コマンドのダメージを算出
     double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
-    if (attr == Fix.CommandAttribute.Fire && player.IsUpFire)
+    double debug1 = damageValue;
+    
+    // Buff効果による増強
+    if (attr == Fix.DamageSource.Fire && player.IsUpFire)
     {
       Debug.Log("damageValue UpFire: " + player.IsUpFire.EffectValue.ToString());
       damageValue = damageValue * player.IsUpFire.EffectValue;
     }
-    if (attr == Fix.CommandAttribute.Ice && player.IsUpIce)
+    if (attr == Fix.DamageSource.Ice && player.IsUpIce)
     {
+      Debug.Log("damageValue IsUpIce: " + player.IsUpIce.EffectValue.ToString());
       damageValue = damageValue * player.IsUpIce.EffectValue;
     }
-    if (attr == Fix.CommandAttribute.HolyLight && player.IsUpLight)
+    if (attr == Fix.DamageSource.HolyLight && player.IsUpLight)
     {
+      Debug.Log("damageValue IsUpLight: " + player.IsUpLight.EffectValue.ToString());
       damageValue = damageValue * player.IsUpLight.EffectValue;
     }
-    if (attr == Fix.CommandAttribute.DarkMagic && player.IsUpShadow)
+    if (attr == Fix.DamageSource.DarkMagic && player.IsUpShadow)
     {
+      Debug.Log("damageValue IsUpShadow: " + player.IsUpShadow.EffectValue.ToString());
       damageValue = damageValue * player.IsUpShadow.EffectValue;
     }
 
+    // クリティカル判定
     if (player.CannotCritical == false &&
         ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
        )
@@ -543,37 +605,31 @@ public partial class BattleEnemy : MotherBase
       if (critical == CriticalType.Random) { Debug.Log("MagicDamageLogic detect Critical! (Random)"); }
       damageValue *= SecondaryLogic.CriticalFactor(player);
     }
-    else
+
+    // ターゲットの魔法防御を差し引く
+    double defenseValue = PrimaryLogic.MagicDefense(target);
+    double debug2 = defenseValue;
+    damageValue -= defenseValue;
+    double debug3 = damageValue;
+
+    Debug.Log("Magic-DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
+
+    // ターゲットが防御姿勢であれば、ダメージを軽減する
+    if (target.IsDefense)
     {
-      Debug.Log("MagicDamageLogic detect Normal...");
+      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
+      Debug.Log("Target is Defense mode: " + damageValue.ToString());
     }
 
-    damageValue -= PrimaryLogic.MagicDefense(target);
-
+    // ダメージ量が負の値になる場合は０とみなす。
     if (damageValue <= 0) { damageValue = 0; }
-    if (target.IsDefense) { damageValue = damageValue * SecondaryLogic.DefenseFactor(target); }
 
     return damageValue;
   }
 
-  private bool AbstractDamageCommand(Character player, Character target, double damageValue)
+  private void ApplyDamage(Character player, Character target, double damageValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    if (target.Dead)
-    {
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      this.NowAnimationMode = true;
-      return false;
-    }
-    if (player.IsDizzy)
-    {
-      if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
-      {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
-        this.NowAnimationMode = true;
-        return false;
-      }
-    }
 
     if (damageValue <= 0) { damageValue = 0; }
 
@@ -582,8 +638,6 @@ public partial class BattleEnemy : MotherBase
     target.CurrentLife -= result;
     target.txtLife.text = target.CurrentLife.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
-
-    return true;
   }
 
   private bool AbstractHealCommand(Character player, Character target, double healValue)

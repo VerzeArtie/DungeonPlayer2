@@ -289,16 +289,7 @@ public partial class BattleEnemy : MotherBase
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
-      EnemyList[ii].CurrentActionCommand = EnemyList[ii].ActionCommandList[0];
-      ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(EnemyList[ii].ActionCommandList[0]);
-      if (currentTargetType == ActionCommand.TargetType.Enemy)
-      {
-        EnemyList[ii].Target = PlayerList[0];
-      }
-      else if (currentTargetType == ActionCommand.TargetType.Ally)
-      {
-        EnemyList[ii].Target = EnemyList[0];
-      }
+      SetupFirstCommand(EnemyList[ii], EnemyList[ii].ActionCommandList[0]);
     }
 
     //this.currentPlayer = PlayerList[0];
@@ -824,13 +815,13 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
-    if (target == null)
+    if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy &&　target == null)
     {
       Debug.Log("Target is null, then no action.");
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
-    if (target.Dead && command_name != Fix.RESURRECTION)
+    if (target != null && target.Dead && command_name != Fix.RESURRECTION)
     {
       Debug.Log("Target is dead, then no action.");
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -895,7 +886,7 @@ public partial class BattleEnemy : MotherBase
 
     // ディバイン・フィールドによる効果
     GameObject panelField = GetPanelFieldFromPlayer(target);
-    if (ActionCommand.IsDamage(command_name))
+    if (panelField != null && ActionCommand.IsDamage(command_name))
     {
       Debug.Log("IsDamage: " + command_name);
       BuffImage buffImage = PreCheckFieldEffect(panelField, Fix.DIVINE_CIRCLE);
@@ -933,7 +924,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.MAGIC_ATTACK:
-        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.CommandAttribute.None, critical);
+        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, critical);
         break;
 
       case Fix.DEFENSE:
@@ -1095,7 +1086,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUN_FIRE:
-        ExecMagicAttack(player, target, 1.35f, Fix.CommandAttribute.Fire, critical);
+        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, critical);
         break;
 
       case Fix.COMMAND_TOSSHIN:
@@ -1104,7 +1095,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FEATHER_WING:
-        ExecMagicAttack(player, target, 0.5f, Fix.CommandAttribute.None, critical);
+        ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, critical);
         ExecBuffSleep(player, target, 2, 0);
         break;
 
@@ -1113,7 +1104,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_YOUEN_FIRE:
-        ExecMagicAttack(player, target, 1.40f, Fix.CommandAttribute.Fire, critical);
+        ExecMagicAttack(player, target, 1.40f, Fix.DamageSource.Fire, critical);
         break;
 
       case Fix.COMMAND_BLAZE_DANCE:
@@ -1160,6 +1151,19 @@ public partial class BattleEnemy : MotherBase
     #endregion
   }
 
+  private List<Character> GetAllyGroup(Character player)
+  {
+    if (player.Ally == Fix.Ally.Ally)
+    {
+      return PlayerList;
+    }
+    //else if (player.Ally == Fix.Ally.Enemy)
+    else
+    {
+      return EnemyList;
+    }
+  }
+
   private List<Character> GetOpponentGroup(Character player)
   {
     if (player.Ally == Fix.Ally.Ally)
@@ -1176,6 +1180,8 @@ public partial class BattleEnemy : MotherBase
 
   private GameObject GetPanelFieldFromPlayer(Character player)
   {
+    if (player == null) { return null; }
+
     if (player.Ally == Fix.Ally.Ally)
     {
       return this.PanelPlayerField;
@@ -1957,13 +1963,25 @@ public partial class BattleEnemy : MotherBase
     SetupActionCommandButton(player.objMainButton, command_name);
     player.txtActionCommand.text = command_name;
     ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(command_name);
-    if (currentTargetType == ActionCommand.TargetType.Enemy)
+    if (currentTargetType == ActionCommand.TargetType.Enemy || currentTargetType == ActionCommand.TargetType.EnemyGroup)
     {
-      player.Target = EnemyList[0];
+      player.Target = GetOpponentGroup(player)[0];
     }
-    else if (currentTargetType == ActionCommand.TargetType.Ally)
+    else if (currentTargetType == ActionCommand.TargetType.Ally || currentTargetType == ActionCommand.TargetType.AllyGroup)
     {
-      player.Target = PlayerList[0];
+      player.Target = GetAllyGroup(player)[0];
+    }
+    else if (currentTargetType == ActionCommand.TargetType.EnemyOrAlly || currentTargetType == ActionCommand.TargetType.AllMember)
+    {
+      player.Target = GetOpponentGroup(player)[0];
+    }
+    else if (currentTargetType == ActionCommand.TargetType.Own)
+    {
+      player.Target = player;
+    }
+    else
+    {
+      player.Target = GetOpponentGroup(player)[0]; // Targetは基本NULLは入れない。何も考えない場合は相手側をターゲットとする。
     }
   }
   #endregion

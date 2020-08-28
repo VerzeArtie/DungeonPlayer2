@@ -706,7 +706,7 @@ public partial class HomeTown : MotherBase
     else if (imgCurrentDecision.name == Fix.VALKYRIE_BREAK) { CurrentPlayer.ValkyrieBreak++; }
     else if (imgCurrentDecision.name == Fix.SHADOW_BLAST) { CurrentPlayer.ShadowBlast++; }
     else if (imgCurrentDecision.name == Fix.BLOOD_SIGN) { CurrentPlayer.BloodSign++; }
-    else if (imgCurrentDecision.name == Fix.DEATH_SCYTHE) { CurrentPlayer.DeathScythe++; }
+    else if (imgCurrentDecision.name == Fix.BLACK_CONTRACT) { CurrentPlayer.BlackContract++; }
     else if (imgCurrentDecision.name == Fix.WHISPER_VOICE) { CurrentPlayer.WhisperVoice++; }
     else if (imgCurrentDecision.name == Fix.ABYSS_EYE) { CurrentPlayer.AbyssEye++; }
     else if (imgCurrentDecision.name == Fix.STRAIGHT_SMASH) { CurrentPlayer.StraightSmash++; }
@@ -721,7 +721,7 @@ public partial class HomeTown : MotherBase
     else if (imgCurrentDecision.name == Fix.OATH_OF_AEGIS) { CurrentPlayer.OathOfAegis++; }
     else if (imgCurrentDecision.name == Fix.HUNTER_SHOT) { CurrentPlayer.HunterShot++; }
     else if (imgCurrentDecision.name == Fix.MULTIPLE_SHOT) { CurrentPlayer.MultipleShot++; }
-    else if (imgCurrentDecision.name == Fix.REACHABLE_TARGET) { CurrentPlayer.ReachableTarget++; }
+    else if (imgCurrentDecision.name == Fix.EYE_OF_THE_TRUTH) { CurrentPlayer.EyeOfTheTruth++; }
     else if (imgCurrentDecision.name == Fix.HAWK_EYE) { CurrentPlayer.HawkEye++; }
     else if (imgCurrentDecision.name == Fix.PIERCING_ARROW) { CurrentPlayer.PiercingArrow++; }
     else if (imgCurrentDecision.name == Fix.VENOM_SLASH) { CurrentPlayer.VenomSlash++; }

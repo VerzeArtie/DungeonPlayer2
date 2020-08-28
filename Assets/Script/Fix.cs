@@ -44,6 +44,17 @@ public static partial class Fix
     None,
   }
 
+  public enum DamageSource
+  {
+    None,
+    Fire,
+    Ice,
+    HolyLight,
+    DarkMagic,
+    Physical, // 物理
+    Colorless, // 無属性
+  }
+
   public enum EquipType
   {
     MainWeapon,
@@ -525,12 +536,14 @@ public static partial class Fix
   // Delve III
   public const string DOUBLE_SLASH = "Double Slash";
   public const string CONCUSSIVE_HIT = "Concussive Hit";
-  public const string REACHABLE_TARGET = "Reachable Target";
+  public const string EYE_OF_THE_TRUTH = "Eye of the Truth";
+//  public const string REACHABLE_TARGET = "Reachable Target";
   public const string IRREGULAR_STEP = "Irregular Step";
   public const string VOICE_OF_VIGOR = "Voice of Vigor";
   public const string SPIRITUAL_REST = "Spiritual Rest";
   public const string HOLY_BREATH = "Holy Breath";
-  public const string DEATH_SCYTHE = "Death Scythe";
+  public const string BLACK_CONTRACT = "Black Contract";
+//  public const string DEATH_SCYTHE = "Death Scythe";
   public const string METEOR_BULLET = "Meteor Bullet";
   public const string BLUE_BULLET = "Blue Bullet";
   public const string AETHER_DRIVE = "Aether Drive";

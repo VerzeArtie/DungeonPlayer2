@@ -74,7 +74,7 @@ public static class ActionCommand
     {
       result.Add(Fix.SHADOW_BLAST);
       result.Add(Fix.BLOOD_SIGN);
-      result.Add(Fix.DEATH_SCYTHE);
+      result.Add(Fix.BLACK_CONTRACT);
       result.Add(Fix.WHISPER_VOICE);
       result.Add(Fix.ABYSS_EYE);
     }
@@ -98,7 +98,7 @@ public static class ActionCommand
     {
       result.Add(Fix.HUNTER_SHOT);
       result.Add(Fix.MULTIPLE_SHOT);
-      result.Add(Fix.REACHABLE_TARGET);
+      result.Add(Fix.EYE_OF_THE_TRUTH);
       result.Add(Fix.HAWK_EYE);
       result.Add(Fix.PIERCING_ARROW);
     }
@@ -175,7 +175,7 @@ public static class ActionCommand
     {
       result.Add(player.ShadowBlast);
       result.Add(player.BloodSign);
-      result.Add(player.DeathScythe);
+      result.Add(player.BlackContract);
       result.Add(player.WhisperVoice);
       result.Add(player.AbyssEye);
     }
@@ -199,7 +199,7 @@ public static class ActionCommand
     {
       result.Add(player.HunterShot);
       result.Add(player.MultipleShot);
-      result.Add(player.ReachableTarget);
+      result.Add(player.EyeOfTheTruth);
       result.Add(player.HawkEye);
       result.Add(player.PiercingArrow);
     }
@@ -334,10 +334,18 @@ public static class ActionCommand
 
     if (command_name == Fix.METEOR_BULLET) { return Attribute.Magic; }
     if (command_name == Fix.BLUE_BULLET) { return Attribute.Magic; }
-
-    if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
-    if (command_name == Fix.CIRCLE_SLASH) { return Attribute.Skill; }
+    if (command_name == Fix.HOLY_BREATH) { return Attribute.Magic; }
+    if (command_name == Fix.BLACK_CONTRACT) { return Attribute.Magic; }
+    if (command_name == Fix.STORM_ARMOR) { return Attribute.Magic; }
+    if (command_name == Fix.MUTE_IMPULSE) { return Attribute.Magic; }
     if (command_name == Fix.DOUBLE_SLASH) { return Attribute.Skill; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return Attribute.Skill; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return Attribute.Skill; }
+    if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return Attribute.Skill; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
+
+    if (command_name == Fix.CIRCLE_SLASH) { return Attribute.Skill; }
 
     return Attribute.None;
   }
@@ -378,10 +386,18 @@ public static class ActionCommand
 
     if (command_name == Fix.METEOR_BULLET) { return TimingType.Instant; }
     if (command_name == Fix.BLUE_BULLET) { return TimingType.Instant; }
-
-    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
-    if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
+    if (command_name == Fix.HOLY_BREATH) { return TimingType.Instant; }
+    if (command_name == Fix.BLACK_CONTRACT) { return TimingType.Normal; }
+    if (command_name == Fix.STORM_ARMOR) { return TimingType.Instant; }
+    if (command_name == Fix.MUTE_IMPULSE) { return TimingType.Instant; }
     if (command_name == Fix.DOUBLE_SLASH) { return TimingType.Instant; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return TimingType.Instant; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return TimingType.Instant; }
+    if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return TimingType.Normal; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
+
+    if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
 
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -421,10 +437,18 @@ public static class ActionCommand
 
     if (command_name == Fix.METEOR_BULLET) { return TargetType.EnemyGroup; }
     if (command_name == Fix.BLUE_BULLET) { return TargetType.Enemy; }
+    if (command_name == Fix.HOLY_BREATH) { return TargetType.Ally; }
+    if (command_name == Fix.BLACK_CONTRACT) { return TargetType.Own; }
+    if (command_name == Fix.STORM_ARMOR) { return TargetType.Ally; }
+    if (command_name == Fix.MUTE_IMPULSE) { return TargetType.Enemy; }
+    if (command_name == Fix.DOUBLE_SLASH) { return TargetType.Enemy; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return TargetType.Enemy; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return TargetType.Own; }
+    if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return TargetType.AllyGroup; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
 
-    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.None; }
     if (command_name == Fix.CIRCLE_SLASH) { return TargetType.None; }
-    if (command_name == Fix.DOUBLE_SLASH) { return TargetType.None; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -464,27 +488,36 @@ public static class ActionCommand
     if (command_name == Fix.SHIELD_BASH) { return 3; }
     if (command_name == Fix.HUNTER_SHOT) { return 4; }
     if (command_name == Fix.VENOM_SLASH) { return 3; }
-    if (command_name == Fix.HEART_OF_LIFE) { return 3; }
-    if (command_name == Fix.ORACLE_COMMAND) { return 2; } // todo
+    if (command_name == Fix.HEART_OF_LIFE) { return 6; }
+    if (command_name == Fix.ORACLE_COMMAND) { return 6; }
+
     if (command_name == Fix.FLAME_BLADE) { return 7; }
-    if (command_name == Fix.PURE_PURIFICATION) { return 10; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return 9; }
-    if (command_name == Fix.BLOOD_SIGN) { return 10; }
-    if (command_name == Fix.SKY_SHIELD) { return 11; }
-    if (command_name == Fix.FLASH_COUNTER) { return 8; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 5; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 5; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return 12; }
+    if (command_name == Fix.PURE_PURIFICATION) { return 6; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return 8; }
+    if (command_name == Fix.BLOOD_SIGN) { return 7; }
+    if (command_name == Fix.SKY_SHIELD) { return 6; }
+    if (command_name == Fix.FLASH_COUNTER) { return 7; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 7; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 7; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return 8; }
     if (command_name == Fix.INVISIBLE_BIND) { return 9; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return 15; }
-    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return 11; }
+    if (command_name == Fix.SPIRITUAL_REST) { return 11; }
 
-    if (command_name == Fix.METEOR_BULLET) { return 1; }
-    if (command_name == Fix.BLUE_BULLET) { return 1; }
+    if (command_name == Fix.METEOR_BULLET) { return 14; }
+    if (command_name == Fix.BLUE_BULLET) { return 13; }
+    if (command_name == Fix.HOLY_BREATH) { return 11; }
+    if (command_name == Fix.BLACK_CONTRACT) { return 12; }
+    if (command_name == Fix.STORM_ARMOR) { return 16; }
+    if (command_name == Fix.MUTE_IMPULSE) { return 15; }
+    if (command_name == Fix.DOUBLE_SLASH) { return 14; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return 13; }
+    if (command_name == Fix.IRREGULAR_STEP) { return 14; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return 17; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
 
-    if (command_name == Fix.ZERO_IMMUNITY) { return 20; }
     if (command_name == Fix.CIRCLE_SLASH) { return 18; }
-    if (command_name == Fix.DOUBLE_SLASH) { return 16; }
 
     // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
@@ -543,6 +576,16 @@ public static class ActionCommand
 
     if (command_name == Fix.METEOR_BULLET) { return BuffType.None; }
     if (command_name == Fix.BLUE_BULLET) { return BuffType.None; }
+    if (command_name == Fix.HOLY_BREATH) { return BuffType.Positive; }
+    if (command_name == Fix.BLACK_CONTRACT) { return BuffType.Positive; }
+    if (command_name == Fix.STORM_ARMOR) { return BuffType.Positive; }
+    if (command_name == Fix.MUTE_IMPULSE) { return BuffType.None; }
+    if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return BuffType.Negative; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return BuffType.Positive; }
+    if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return BuffType.Positive; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -596,6 +639,18 @@ public static class ActionCommand
 
     if (command_name == Fix.METEOR_BULLET) { return true; }
     if (command_name == Fix.BLUE_BULLET) { return true; }
+    if (command_name == Fix.HOLY_BREATH) { return false; }
+    if (command_name == Fix.BLACK_CONTRACT) { return false; }
+    if (command_name == Fix.STORM_ARMOR) { return false; }
+    if (command_name == Fix.MUTE_IMPULSE) { return true; }
+    if (command_name == Fix.DOUBLE_SLASH) { return true; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return true; }
+    if (command_name == Fix.EYE_OF_THE_TRUTH) { return false; }
+    if (command_name == Fix.IRREGULAR_STEP) { return false; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return false; }
+
+    if (command_name == Fix.CIRCLE_SLASH) { return true; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -604,11 +659,6 @@ public static class ActionCommand
     if (command_name == Fix.EFFECT_SHADOW_BLAST) { return true; }
     if (command_name == Fix.EFFECT_FORTUNE) { return false; }
     if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return false; }
-
-
-    if (command_name == Fix.ZERO_IMMUNITY) { return false; }
-    if (command_name == Fix.CIRCLE_SLASH) { return true; }
-    if (command_name == Fix.DOUBLE_SLASH) { return true; }
 
     return false;
   }

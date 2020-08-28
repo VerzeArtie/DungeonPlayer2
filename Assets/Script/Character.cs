@@ -1055,6 +1055,20 @@ public partial class Character : MonoBehaviour
     }
     get { return _BloodSign; }
   }
+
+  [SerializeField] protected int _BlackContract = 0;
+  public int BlackContract
+  {
+    set
+    {
+      if (value >= 0)
+      {
+        _BlackContract = value;
+      }
+    }
+    get { return _BlackContract; }
+  }
+
   [SerializeField] protected int _DeathScythe = 0;
   public int DeathScythe
   {
@@ -1235,6 +1249,20 @@ public partial class Character : MonoBehaviour
     }
     get { return _MultipleShot; }
   }
+
+  [SerializeField] protected int _EyeOfTheTruth = 0;
+  public int EyeOfTheTruth
+  {
+    set
+    {
+      if (value >= 0)
+      {
+        _EyeOfTheTruth = value;
+      }
+    }
+    get { return _EyeOfTheTruth; }
+  }
+
   [SerializeField] protected int _ReachableTarget = 0;
   public int ReachableTarget
   {
