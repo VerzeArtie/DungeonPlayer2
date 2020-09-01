@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Reflection;
 using UnityEngine.SceneManagement;
 using UnityEditor.VersionControl;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public partial class BattleEnemy : MotherBase
 {
@@ -383,32 +384,44 @@ public partial class BattleEnemy : MotherBase
         AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
       }
       AddActionButton(character, groupActionButton, Fix.DEFENSE);
+
+      // todo
       if (character.FireBolt > 0) { AddActionButton(character, groupActionButton, Fix.FIRE_BOLT); }
       if (character.IceNeedle > 0) { AddActionButton(character, groupActionButton, Fix.ICE_NEEDLE); }
       if (character.FreshHeal > 0) { AddActionButton(character, groupActionButton, Fix.FRESH_HEAL); }
       if (character.ShadowBlast > 0) { AddActionButton(character, groupActionButton, Fix.SHADOW_BLAST); }
-      if (character.AuraOfPower > 0) { AddActionButton(character, groupActionButton, Fix.AURA_OF_POWER); }
-      if (character.DispelMagic > 0) { AddActionButton(character, groupActionButton, Fix.DISPEL_MAGIC); }
       if (character.StraightSmash > 0) { AddActionButton(character, groupActionButton, Fix.STRAIGHT_SMASH); }
       if (character.ShieldBash > 0) { AddActionButton(character, groupActionButton, Fix.SHIELD_BASH); }
       if (character.HunterShot > 0) { AddActionButton(character, groupActionButton, Fix.HUNTER_SHOT); }
       if (character.VenomSlash > 0) { AddActionButton(character, groupActionButton, Fix.VENOM_SLASH); }
+      if (character.AuraOfPower > 0) { AddActionButton(character, groupActionButton, Fix.AURA_OF_POWER); }
+      if (character.DispelMagic > 0) { AddActionButton(character, groupActionButton, Fix.DISPEL_MAGIC); }
       if (character.HeartOfLife > 0) { AddActionButton(character, groupActionButton, Fix.HEART_OF_LIFE); }
       if (character.OracleCommand > 0) { AddActionButton(character, groupActionButton, Fix.ORACLE_COMMAND); }
       if (character.FlameBlade > 0) { AddActionButton(character, groupActionButton, Fix.FLAME_BLADE); }
       if (character.PurePurification > 0) { AddActionButton(character, groupActionButton, Fix.PURE_PURIFICATION); }
       if (character.DivineCircle> 0) { AddActionButton(character, groupActionButton, Fix.DIVINE_CIRCLE); }
       if (character.BloodSign> 0) { AddActionButton(character, groupActionButton, Fix.BLOOD_SIGN); }
-      if (character.SkyShield > 0) { AddActionButton(character, groupActionButton, Fix.SKY_SHIELD); }
-      if (character.FlashCounter > 0) { AddActionButton(character, groupActionButton, Fix.FLASH_COUNTER); }
       if (character.StanceOfTheBlade > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_BLADE); }
       if (character.StanceOfTheGuard > 0) { AddActionButton(character, groupActionButton, Fix.STANCE_OF_THE_GUARD); }
       if (character.MultipleShot > 0) { AddActionButton(character, groupActionButton, Fix.MULTIPLE_SHOT); }
       if (character.InvisibleBind > 0) { AddActionButton(character, groupActionButton, Fix.INVISIBLE_BIND); }
+      if (character.SkyShield > 0) { AddActionButton(character, groupActionButton, Fix.SKY_SHIELD); }
+      if (character.FlashCounter > 0) { AddActionButton(character, groupActionButton, Fix.FLASH_COUNTER); }
       if (character.FortuneSpirit > 0) { AddActionButton(character, groupActionButton, Fix.FORTUNE_SPIRIT); }
       if (character.SpiritualRest > 0) { AddActionButton(character, groupActionButton, Fix.SPIRITUAL_REST); }
       if (character.MeteorBullet > 0) { AddActionButton(character, groupActionButton, Fix.METEOR_BULLET); }
       if (character.BlueBullet > 0) { AddActionButton(character, groupActionButton, Fix.BLUE_BULLET); }
+      if (character.HolyBreath > 0) { AddActionButton(character, groupActionButton, Fix.HOLY_BREATH); }
+      if (character.BlackContract > 0) { AddActionButton(character, groupActionButton, Fix.BLACK_CONTRACT); }
+      if (character.DoubleSlash > 0) { AddActionButton(character, groupActionButton, Fix.DOUBLE_SLASH); }
+      if (character.ConcussiveHit > 0) { AddActionButton(character, groupActionButton, Fix.CONCUSSIVE_HIT); }
+      if (character.EyeOfTheTruth > 0) { AddActionButton(character, groupActionButton, Fix.EYE_OF_THE_TRUTH); }
+      if (character.IrregularStep > 0) { AddActionButton(character, groupActionButton, Fix.IRREGULAR_STEP); }
+      if (character.StormArmor > 0) { AddActionButton(character, groupActionButton, Fix.STORM_ARMOR); }
+      if (character.MuteImpulse > 0) { AddActionButton(character, groupActionButton, Fix.MUTE_IMPULSE); }
+      if (character.VoiceOfVigor > 0) { AddActionButton(character, groupActionButton, Fix.VOICE_OF_VIGOR); }
+      if (character.UnseenAid > 0) { AddActionButton(character, groupActionButton, Fix.UNSEEN_AID); }
 
       //for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
       //{
@@ -884,27 +897,6 @@ public partial class BattleEnemy : MotherBase
       ExecSlipDamage(player, player.IsBloodSign.EffectValue);
     }
 
-    // ディバイン・フィールドによる効果
-    GameObject panelField = GetPanelFieldFromPlayer(target);
-    if (panelField != null && ActionCommand.IsDamage(command_name))
-    {
-      Debug.Log("IsDamage: " + command_name);
-      BuffImage buffImage = PreCheckFieldEffect(panelField, Fix.DIVINE_CIRCLE);
-      if (buffImage != null)
-      {
-        double damage = DamageFromCommand(player, command_name);
-        Debug.Log("DivineShiled: " + player.FullName + " -> " + damage.ToString("F2"));
-        buffImage.EffectValue -= damage;
-        if (buffImage.EffectValue <= 0)
-        {
-          buffImage.RemoveBuff();
-        }
-        StartAnimation(panelField, Fix.BATTLE_DIVINE, Fix.COLOR_NORMAL);
-        return; // todo ただし追加効果やダメージ軽減しきれなかった分があり、本来次のフェーズに繋げないといけない。
-      }
-    }
-
-    // todo Critical Hit.  PlayerNormalAttackの基本攻撃ロジックの実装が必要となってきている。
     CriticalType critical = CriticalType.Random;
     BuffImage fortune = player.IsFortuneSpirit;
     if (ActionCommand.IsDamage(command_name) && fortune != null)
@@ -915,8 +907,8 @@ public partial class BattleEnemy : MotherBase
     }
 
     #region "コマンド実行"
-    List<Character> target_group = null;
-    Debug.Log("Command: " + command_name);
+    List<Character> target_list = null;
+    Debug.Log("Player: " + player.FullName + " Command: " + command_name);
     switch (command_name)
     {
       case Fix.NORMAL_ATTACK:
@@ -1022,8 +1014,8 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.MULTIPLE_SHOT:
-        target_group = GetOpponentGroup(player);
-        ExecMultipleShot(player, target_group, critical);
+        target_list = GetOpponentGroup(player);
+        ExecMultipleShot(player, target_list, critical);
         break;
 
       case Fix.INVISIBLE_BIND:
@@ -1043,22 +1035,62 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.CIRCLE_SLASH:
-        target_group = GetOpponentGroup(player);
-        ExecCircleSlash(player, target_group, critical);
+        target_list = GetOpponentGroup(player);
+        ExecCircleSlash(player, target_list, critical);
+        break;
+
+      case Fix.METEOR_BULLET:
+        target_list = GetOpponentGroup(player);
+        ExecMeteorBullet(player, target_list, critical);
+        break;
+
+      case Fix.BLUE_BULLET:
+        ExecBlueBullet(player, target, critical);
+        break;
+
+      case Fix.HOLY_BREATH:
+        target_list = GetAllyGroup(player);
+        ExecHolyBreath(player, target_list);
+        break;
+
+      case Fix.BLACK_CONTRACT:
+        ExecBlackContract(player, target);
         break;
 
       case Fix.DOUBLE_SLASH:
         ExecDoubleSlash(player, target, critical);
         break;
 
-      case Fix.METEOR_BULLET:
-        target_group = GetOpponentGroup(player);
-        ExecMeteorBullet(player, target_group, critical);
+      case Fix.CONCUSSIVE_HIT:
+        ExecConcussiveHit(player, target, critical);
         break;
 
-      case Fix.BLUE_BULLET:
-        ExecBlueBullet(player, target, critical);
+      case Fix.EYE_OF_THE_TRUTH:
+        ExecEyeOfTheTruth(player, target);
         break;
+
+      case Fix.IRREGULAR_STEP:
+        ExecIrregularStep(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        break;
+
+      case Fix.STORM_ARMOR:
+        ExecStormArmor(player, target);
+        break;
+
+      case Fix.MUTE_IMPULSE:
+        ExecMuteImpulse(player, target, critical);
+        break;
+
+      case Fix.VOICE_OF_VIGOR:
+        target_list = GetAllyGroup(player);
+        ExecVoiceOfVigor(player, target_list);
+        break;
+
+      case Fix.UNSEEN_AID:
+        target_list = GetAllMember();
+        ExecUnseenAid(player, target_list);
+        break;
+
 
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
@@ -1151,6 +1183,11 @@ public partial class BattleEnemy : MotherBase
     #endregion
   }
 
+  private List<Character> GetAllMember()
+  {
+    return AllList;
+  }
+
   private List<Character> GetAllyGroup(Character player)
   {
     if (player.Ally == Fix.Ally.Ally)
@@ -1216,6 +1253,26 @@ public partial class BattleEnemy : MotherBase
     damageObj.transform.SetParent(targetObj.transform);
     damageObj.name = "DamageObject";
     RectTransform rect = damageObj.GetComponent<RectTransform>();
+    rect.anchoredPosition = new Vector2(0, 0);
+    rect.anchorMin = new Vector2(0, 0);
+    rect.anchorMax = new Vector2(0, 0);
+    rect.pivot = new Vector2(0, 0);
+    rect.anchoredPosition = new Vector2(0, 0);
+
+    // アニメーショングループに再設定してアニメーション表示する。
+    damageObj.Construct(message, color, MAX_ANIMATION_TIME);
+    damageObj.transform.SetParent(GroupAnimation.transform);
+    damageObj.gameObject.SetActive(true);
+    this.NowAnimationMode = true;
+  }
+  private void StartAnimationGroupPanel(GameObject targetObj, string message, Color color)
+  {
+    DamageObject damageObj = Instantiate(this.prefab_Damage, new Vector3(0, 0, 0), Quaternion.identity) as DamageObject;
+    // 対象オブジェクトにリンクさせて位置を設定する。
+    damageObj.transform.SetParent(targetObj.transform);
+    damageObj.name = "DamageObject";
+    RectTransform rect = damageObj.GetComponent<RectTransform>();
+    rect.sizeDelta = new Vector2(150, 100);
     rect.anchoredPosition = new Vector2(0, 0);
     rect.anchorMin = new Vector2(0, 0);
     rect.anchorMax = new Vector2(0, 0);

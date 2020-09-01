@@ -1515,6 +1515,20 @@ public partial class Character : MonoBehaviour
     }
     get { return _VoiceOfVigor; }
   }
+
+  [SerializeField] protected int _UnseenAid = 0;
+  public int UnseenAid
+  {
+    set
+    {
+      if (value >= 0)
+      {
+        _UnseenAid = value;
+      }
+    }
+    get { return _UnseenAid; }
+  }
+
   [SerializeField] protected int _SigilOfTheFaith = 0;
   public int SigilOfTheFaith
   {
@@ -2012,17 +2026,26 @@ public partial class Character : MonoBehaviour
     BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
     if (buffList == null) { return; }
 
+    // 既に該当BUFFがあるかどうかを確認。
     for (int ii = 0; ii < buffList.Length; ii++)
     {
       if (buffList[ii].BuffName == buff_name)
       {
-        buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
         detect = true;
+        if (buff_name == Fix.BUFF_PD_DOWN)
+        {
+          buffList[ii].CumulativeUp(remain_counter, 1);
+        }
+        else
+        {
+          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
+        }
         break;
       }
     }
     if (detect) { return; }
 
+    // 該当BUFFが無い場合は、空BUFFを検索して入れ込む。
     for (int ii = 0; ii < buffList.Length; ii++)
     {
       if (buffList[ii].BuffName == string.Empty)
@@ -2168,6 +2191,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsUpShadow
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_SHADOW); }
+  }
+
+  public BuffImage IsPhysicalDefenseDown
+  {
+    get { return SearchBuff(Fix.BUFF_PD_DOWN); }
   }
 
   public void RemoveStun()

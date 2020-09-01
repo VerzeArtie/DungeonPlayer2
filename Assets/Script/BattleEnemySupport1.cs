@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -94,7 +95,26 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
-    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical); // Swordman固定はおかしい。
+    // 攻撃コマンドのダメージを算出
+    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical);
+
+    // ディバイン・フィールドによる効果
+    GameObject panelField = GetPanelFieldFromPlayer(target);
+    if (panelField != null)
+    {
+      BuffImage buffImage = PreCheckFieldEffect(panelField, Fix.DIVINE_CIRCLE);
+      if (buffImage != null)
+      {
+        Debug.Log("DivineShiled: " + player.FullName + " -> " + damageValue.ToString("F2") + " " + buffImage.EffectValue.ToString("F2"));
+        buffImage.EffectValue -= damageValue;
+        StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
+        if (buffImage.EffectValue <= 0)
+        {
+          buffImage.RemoveBuff();
+        }
+        return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
+      }
+    }
 
     // ダメージ適用
     ApplyDamage(player, target, damageValue);
@@ -144,6 +164,26 @@ public partial class BattleEnemy : MotherBase
 
     // 攻撃コマンドのダメージを算出
     double damageValue = MagicDamageLogic(player, target, magnify, attr, critical);
+
+    // ディバイン・フィールドによる効果
+    GameObject panelField = GetPanelFieldFromPlayer(target);
+    if (panelField != null)
+    {
+      BuffImage buffImage = PreCheckFieldEffect(panelField, Fix.DIVINE_CIRCLE);
+      if (buffImage != null)
+      {
+        Debug.Log("DivineShiled: " + player.FullName + " -> " + damageValue.ToString("F2") + " " + buffImage.EffectValue.ToString("F2"));
+        buffImage.EffectValue -= damageValue;
+        StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
+        if (buffImage.EffectValue <= 0)
+        {
+          buffImage.RemoveBuff();
+        }
+        return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
+      }
+    }
+
+    // ダメージ適用
     ApplyDamage(player, target, damageValue);
 
     // 追加効果
@@ -443,6 +483,53 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  public void ExecHolyBreath(Character player, List<Character> target_list)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.HolyBreath(player);
+      AbstractHealCommand(player, target_list[ii], healValue);
+    }
+  }
+
+  public void ExecBlackContract(Character player, Character target)
+  {
+  }
+
+  public void ExecConcussiveHit(Character player, Character target, CriticalType critical)
+  {
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), critical);
+    if (success)
+    {
+      ExecBuffPhysicalDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
+    }
+  }
+
+  public void ExecEyeOfTheTruth(Character player, Character target)
+  {
+  }
+
+  public void ExecIrregularStep(Character player, StackObject[] stack_list)
+  {
+  }
+
+  public void ExecStormArmor(Character player, Character target)
+  {
+  }
+
+  public void ExecMuteImpulse(Character player, Character target, CriticalType critical)
+  {
+  }
+
+  public void ExecVoiceOfVigor(Character player, List<Character> target_list)
+  {
+  }
+
+  public void ExecUnseenAid(Character player, List<Character> target_list)
+  {
+  }
+
   private void ExecUseRedPotion(Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -520,6 +607,12 @@ public partial class BattleEnemy : MotherBase
   {
     target.AddBuff(Fix.EFFECT_SILENT, effect_value, turn);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffPhysicalDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.AddBuff(Fix.BUFF_PD_DOWN, effect_value, turn);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_DOWN, Fix.COLOR_NORMAL);
   }
 
   private void BuffUpFire(Character player, Character target, int turn, double effect_value)
@@ -650,8 +743,11 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    // ヒールなので、防御姿勢で軽減はしない。
+    // if (target.IsDefense) { healValue = healValue / 3.0f; }
+
+    // ヒール量が負の値になる場合は０とみなす。
     if (healValue <= 0) { healValue = 0; }
-    // if (target.IsDefense) { damageValue = damageValue / 3.0f; } // 回復なので、防御軽減は対象外。
 
     int result = (int)healValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");

@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class BuffImage : Image
 {
+  [SerializeField] public Text txtRemainCounter;
+  [SerializeField] public GameObject objRemainCounter;
+
   [SerializeField] protected string _buffName = String.Empty;
   public string BuffName
   {
@@ -47,6 +50,12 @@ public class BuffImage : Image
     this._effectValue = effect_value;
     this._cumulative = 1; // 累積は標準１がデフォルトで与えられる。
     this.sprite = Resources.Load<Sprite>(buff_name);
+  }
+
+  public void CumulativeUp(int remain, int cumulative_up)
+  {
+    this._remainCounter = remain;
+    this.Cumulative = this._cumulative + cumulative_up;
   }
 
   public void RemoveBuff()

@@ -164,7 +164,7 @@ public static class SecondaryLogic
 
   public static int DivineCircle(Character player)
   {
-    return 300;
+    return 150;
   }
 
   public static int DivineCircle_Turn(Character player)
@@ -231,5 +231,25 @@ public static class SecondaryLogic
   public static double BlueBullet(Character player)
   {
     return 0.70f;
+  }
+
+  public static double HolyBreath(Character player)
+  {
+    return 3.00f;
+  }
+
+  public static double BlackContract_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double ConcussiveHit(Character player)
+  {
+    return 0.05f;
+  }
+
+  public static int ConcussiveHit_Turn(Character player)
+  {
+    return 10;
   }
 }

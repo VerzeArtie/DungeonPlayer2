@@ -529,25 +529,26 @@ public static partial class Fix
   public const string STORM_ARMOR = "Storm Armor";
   public const string DISPEL_MAGIC = "Dispel Magic";
   public const string FLASH_COUNTER = "Flash Counter";
+  public const string SPIRITUAL_REST = "Spiritual Rest";
 
   public const string CIRCLE_SLASH = "Circle Slash";
   public const string PHANTASMAL_WIND = "Phantasmal Wind";
 
   // Delve III
+  public const string METEOR_BULLET = "Meteor Bullet";
+  public const string BLUE_BULLET = "Blue Bullet";
+  public const string HOLY_BREATH = "Holy Breath";
+  public const string BLACK_CONTRACT = "Black Contract";
+  //  public const string DEATH_SCYTHE = "Death Scythe";
+  //  public const string AETHER_DRIVE = "Aether Drive";
   public const string DOUBLE_SLASH = "Double Slash";
   public const string CONCUSSIVE_HIT = "Concussive Hit";
   public const string EYE_OF_THE_TRUTH = "Eye of the Truth";
-//  public const string REACHABLE_TARGET = "Reachable Target";
+  //  public const string REACHABLE_TARGET = "Reachable Target";
   public const string IRREGULAR_STEP = "Irregular Step";
-  public const string VOICE_OF_VIGOR = "Voice of Vigor";
-  public const string SPIRITUAL_REST = "Spiritual Rest";
-  public const string HOLY_BREATH = "Holy Breath";
-  public const string BLACK_CONTRACT = "Black Contract";
-//  public const string DEATH_SCYTHE = "Death Scythe";
-  public const string METEOR_BULLET = "Meteor Bullet";
-  public const string BLUE_BULLET = "Blue Bullet";
-  public const string AETHER_DRIVE = "Aether Drive";
   public const string MUTE_IMPULSE = "Mute Impulse";
+  public const string VOICE_OF_VIGOR = "Voice of Vigor";
+  public const string UNSEEN_AID = "Unseen Aid";
 
   // Delve IV
   public const string WAR_SWING = "War Swing";
@@ -634,6 +635,7 @@ public static partial class Fix
   public const string EFFECT_SLEEP = "Sleep";
   public const string EFFECT_DIZZY = "Dizzy";
   public const string EFFECT_SILENT = "Silent";
+  public const string EFFECT_PD_DOWN = "PD Down";
 
   public const string EFFECT_POWERUP_FIRE = "UP Fire";
   public const string EFFECT_POWERUP_ICE = "UP Ice";
@@ -643,6 +645,8 @@ public static partial class Fix
   public const string BUFF_RESIST_STUN = "Resist Stun";
   public const string EFFECT_RESIST_STUN = "Stun耐性";
   public const string EFFECT_REMOVE_STUN = "Stun除去";
+
+  public const string BUFF_PD_DOWN = "PhysicalDefenseDown";
   #endregion
 
   #region "Item Name"

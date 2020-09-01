@@ -115,7 +115,7 @@ public static class ActionCommand
       result.Add(Fix.AURA_OF_POWER);
       result.Add(Fix.SKY_SHIELD);
       result.Add(Fix.STORM_ARMOR);
-      result.Add(Fix.AETHER_DRIVE);
+      //result.Add(Fix.AETHER_DRIVE);
       result.Add(Fix.RUNE_STRIKE);
     }
     else if (attr == Fix.CommandAttribute.MysticForm)
