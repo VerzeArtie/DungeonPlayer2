@@ -55,7 +55,7 @@ public static class SecondaryLogic
   }
   public static int ShadowBlast_Turn(Character player)
   {
-    return 10;
+    return 9;
   }
   public static double ShadowBlast_Value(Character player)
   {
@@ -102,7 +102,7 @@ public static class SecondaryLogic
   }
   public static int HunterShot_Turn(Character player)
   {
-    return 10;
+    return 9;
   }
   public static double HunterShot_Value(Character player)
   {
@@ -169,7 +169,7 @@ public static class SecondaryLogic
 
   public static int DivineCircle_Turn(Character player)
   {
-    return 10;
+    return 9;
   }
 
   public static double FortuneSpirit(Character player)
@@ -214,7 +214,7 @@ public static class SecondaryLogic
 
   public static int SpiritualRest_Turn(Character player)
   {
-    return 10;
+    return 9;
   }
 
   // todo draft
@@ -250,6 +250,6 @@ public static class SecondaryLogic
 
   public static int ConcussiveHit_Turn(Character player)
   {
-    return 10;
+    return 9;
   }
 }

@@ -2014,7 +2014,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public void AddBuff(string buff_name, double effect_value, int remain_counter)
+  public void AddBuff(BuffImage prefab, string buff_name, double effect_value, int remain_counter)
   {
     bool detect = false;
 
@@ -2045,16 +2045,27 @@ public partial class Character : MonoBehaviour
     }
     if (detect) { return; }
 
-    // 該当BUFFが無い場合は、空BUFFを検索して入れ込む。
-    for (int ii = 0; ii < buffList.Length; ii++)
-    {
-      if (buffList[ii].BuffName == string.Empty)
-      {
-        buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
-        detect = true;
-        break;
-      }
-    }
+    // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
+    BuffImage buff = Instantiate(prefab) as BuffImage;
+    buff.UpdateBuff(buff_name, remain_counter, effect_value);
+    buff.gameObject.SetActive(true);
+    buff.transform.SetParent(this.objBuffPanel.transform);
+    RectTransform rect = buff.GetComponent<RectTransform>();
+
+    rect.transform.localPosition = new Vector3(0, 0);
+    rect.anchoredPosition = new Vector2(0, 0);
+    rect.anchorMin = new Vector2(0, 0);
+    rect.anchorMax = new Vector2(1, 1);
+
+    //for (int ii = 0; ii < buffList.Length; ii++)
+    //{
+    //  if (buffList[ii].BuffName == string.Empty)
+    //  {
+    //    buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
+    //    detect = true;
+    //    break;
+    //  }
+    //}
   }
 
   public void BuffCountdown()

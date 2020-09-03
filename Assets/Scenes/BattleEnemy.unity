@@ -1247,6 +1247,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -2982,6 +2984,7 @@ GameObject:
   - component: {fileID: 263067407}
   - component: {fileID: 263067406}
   - component: {fileID: 263067405}
+  - component: {fileID: 263067408}
   m_Layer: 5
   m_Name: prefab_BuffImage
   m_TagString: Untagged
@@ -3020,6 +3023,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 1775657963}
   objRemainCounter: {fileID: 1915172595}
+  txtCumulativeCounter: {fileID: 557253446}
+  objCumulativeCounter: {fileID: 1365143071}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -3044,14 +3049,29 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1915172596}
+  - {fileID: 1365143074}
   m_Father: {fileID: 1724498445}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &263067408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263067404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
 --- !u!1 &265035891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,6 +3201,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -3621,7 +3643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &296486284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3672,6 +3694,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -4764,6 +4788,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -5788,7 +5814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &477313111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5839,6 +5865,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -6156,7 +6184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &526095021
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6207,6 +6235,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -6331,8 +6361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: -442, y: 223}
+  m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529999375
 MonoBehaviour:
@@ -6356,7 +6386,7 @@ MonoBehaviour:
   objMainButton: {fileID: 797114856}
   txtActionCommand: {fileID: 530815576}
   groupActionPoint: {fileID: 1463739331}
-  groupBuff: {fileID: 1811779594}
+  groupBuff: {fileID: 1491011526}
   txtTargetName: {fileID: 854613112}
   imgTargetLifeGauge: {fileID: 355843959}
   objBackSoulPointGauge: {fileID: 1603210460}
@@ -6675,6 +6705,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557054450}
   m_CullTransparentMesh: 0
+--- !u!1 &557253443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 557253444}
+  - component: {fileID: 557253445}
+  - component: {fileID: 557253446}
+  m_Layer: 5
+  m_Name: txtCumulativeCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &557253444
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557253443}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1365143074}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &557253445
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557253443}
+  m_CullTransparentMesh: 0
+--- !u!114 &557253446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557253443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 16
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 9
 --- !u!1 &563093509
 GameObject:
   m_ObjectHideFlags: 0
@@ -6870,6 +6979,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -7178,6 +7289,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -8384,7 +8497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &732009301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8435,6 +8548,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -8731,6 +8846,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -9197,7 +9314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &810424410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9248,6 +9365,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -9430,7 +9549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &836323200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9481,6 +9600,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -9912,7 +10033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &856605513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9963,6 +10084,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -10547,6 +10670,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -10780,6 +10905,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -10981,7 +11108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1005736181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11032,6 +11159,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -11306,7 +11435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1034765158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11357,6 +11486,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -11437,6 +11568,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -11517,6 +11650,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -11972,7 +12107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1083385273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12023,6 +12158,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -12700,7 +12837,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 125955464}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.997235
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12812,6 +12949,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -13023,6 +13162,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -13052,7 +13193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147405751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13103,6 +13244,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -13183,6 +13326,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -13783,7 +13928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000052264528}
+  m_AnchoredPosition: {x: 0, y: 0.11543655}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1183874491
@@ -14938,7 +15083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1332644545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14989,6 +15134,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -15207,6 +15354,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352652757}
   m_CullTransparentMesh: 0
+--- !u!1 &1365143071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365143074}
+  - component: {fileID: 1365143073}
+  - component: {fileID: 1365143072}
+  m_Layer: 5
+  m_Name: objCumulativeCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1365143072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365143071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: adc925588fa93284f9470cf75bf3f85f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1365143073
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365143071}
+  m_CullTransparentMesh: 0
+--- !u!224 &1365143074
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365143071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 557253444}
+  m_Father: {fileID: 263067407}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &1371286957
 GameObject:
   m_ObjectHideFlags: 0
@@ -16069,6 +16291,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -16878,7 +17102,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
 --- !u!1 &1492009101
@@ -17574,6 +17798,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -18129,6 +18355,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -18363,7 +18591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1646792087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18414,6 +18642,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -19225,7 +19455,7 @@ MonoBehaviour:
   imgGlobalGauge_AC: {fileID: 250475764}
   groupPotentialEnergy: {fileID: 2007697348}
   imgPotentialEnergy: {fileID: 1783020457}
-  txtPotentialEnergy: {fileID: 0}
+  txtPotentialEnergy: {fileID: 1740155780}
   GroupMainActionCommand: {fileID: 80248253}
   GroupMainACList:
   - {fileID: 1910005528}
@@ -19352,6 +19582,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737568750}
+  m_CullTransparentMesh: 0
+--- !u!1 &1740155778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1740155779}
+  - component: {fileID: 1740155781}
+  - component: {fileID: 1740155780}
+  m_Layer: 5
+  m_Name: txtPotentialEnergy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1740155779
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740155778}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2007697349}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1740155780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740155778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 28
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 100%
+--- !u!222 &1740155781
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740155778}
   m_CullTransparentMesh: 0
 --- !u!1 &1740438783
 GameObject:
@@ -19575,7 +19884,7 @@ GameObject:
   - component: {fileID: 1775657964}
   - component: {fileID: 1775657963}
   m_Layer: 5
-  m_Name: txtBuffImage
+  m_Name: txtRemainCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19622,10 +19931,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -19844,7 +20153,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -120}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1845412336
 GameObject:
@@ -20564,7 +20873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1902238868
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20615,6 +20924,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -20748,7 +21059,7 @@ GameObject:
   - component: {fileID: 1915172598}
   - component: {fileID: 1915172597}
   m_Layer: 5
-  m_Name: objBuffImage
+  m_Name: objRemainCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20772,7 +21083,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1915172597
 MonoBehaviour:
@@ -20787,7 +21098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20904,7 +21215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1924857498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20955,6 +21266,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -21335,6 +21648,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -21546,6 +21861,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -21810,6 +22127,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1783020455}
+  - {fileID: 1740155779}
   m_Father: {fileID: 1724498445}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22295,6 +22613,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -22613,6 +22933,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -22768,6 +23090,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -22797,7 +23121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2130345121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22848,6 +23172,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
@@ -22928,6 +23254,8 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   txtRemainCounter: {fileID: 0}
   objRemainCounter: {fileID: 0}
+  txtCumulativeCounter: {fileID: 0}
+  objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
   _cumulative: 0
