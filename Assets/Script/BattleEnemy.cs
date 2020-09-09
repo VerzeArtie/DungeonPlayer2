@@ -446,7 +446,6 @@ public partial class BattleEnemy : MotherBase
       Image[] imageList = character.groupActionPoint.GetComponentsInChildren<Image>();
       for (int jj = 0; jj < imageList.Length; jj++)
       {
-        //Debug.Log(imageList[jj].name);
         character.imgActionPointList.Add(imageList[jj]);
       }
     }
@@ -877,14 +876,22 @@ public partial class BattleEnemy : MotherBase
     //  player.CurrentActionPoint -= ActionCommand.GetCost(command_name);
     //}
 
-
-    if (player.CurrentSoulPoint < ActionCommand.CostSP(command_name))
+    // ブラック・コントラクトがかかっていれば、SPは消費しない。
+    if (player.IsBlackContract)
     {
-      Debug.Log("NO SP: [" + command_name + "] " + player.CurrentSoulPoint + " < " + ActionCommand.CostSP(command_name));
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SP_LESS, Fix.COLOR_NORMAL);
-      return;
+      Debug.Log("IsBlackContract was detected, then no spend SP.");
+      // 何もしない
     }
-    player.CurrentSoulPoint -= ActionCommand.CostSP(command_name);
+    else
+    {
+      if (player.CurrentSoulPoint < ActionCommand.CostSP(command_name))
+      {
+        Debug.Log("NO SP: [" + command_name + "] " + player.CurrentSoulPoint + " < " + ActionCommand.CostSP(command_name));
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SP_LESS, Fix.COLOR_NORMAL);
+        return;
+      }
+      player.CurrentSoulPoint -= ActionCommand.CostSP(command_name);
+    }
 
     if (player.Ally == Fix.Ally.Ally)
     {
@@ -994,7 +1001,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DIVINE_CIRCLE:
-        ExecDivineCircle(player, target);
+        ExecDivineCircle(player, target, this.PanelPlayerField);
         break;
 
       case Fix.SKY_SHIELD:
@@ -1054,7 +1061,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.BLACK_CONTRACT:
-        ExecBlackContract(player, target);
+        ExecBlackContract(player);
         break;
 
       case Fix.DOUBLE_SLASH:
@@ -1254,9 +1261,9 @@ public partial class BattleEnemy : MotherBase
     damageObj.name = "DamageObject";
     RectTransform rect = damageObj.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
-    rect.anchorMin = new Vector2(0, 0);
-    rect.anchorMax = new Vector2(0, 0);
-    rect.pivot = new Vector2(0, 0);
+    rect.anchorMin = new Vector2(0, 1);
+    rect.anchorMax = new Vector2(0, 1);
+    rect.pivot = new Vector2(0, 1);
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
@@ -1274,9 +1281,9 @@ public partial class BattleEnemy : MotherBase
     RectTransform rect = damageObj.GetComponent<RectTransform>();
     rect.sizeDelta = new Vector2(150, 100);
     rect.anchoredPosition = new Vector2(0, 0);
-    rect.anchorMin = new Vector2(0, 0);
-    rect.anchorMax = new Vector2(0, 0);
-    rect.pivot = new Vector2(0, 0);
+    rect.anchorMin = new Vector2(0, 1);
+    rect.anchorMax = new Vector2(0, 1);
+    rect.pivot = new Vector2(0, 1);
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
@@ -1545,9 +1552,7 @@ public partial class BattleEnemy : MotherBase
                     break;
                   }
                 }
-                CopyActionButton(NowSelectActionCommandButton, NowSelectActionSrcButton);
-                PlayerList[ii].CurrentActionCommand = NowSelectActionCommandButton.name;
-                PlayerList[ii].txtActionCommand.text = NowSelectActionCommandButton.name;
+                ApplyMainActionCommand(PlayerList[ii], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
                 LogicInvalidate();
                 break;
               }
@@ -1615,12 +1620,28 @@ public partial class BattleEnemy : MotherBase
 
     // 自分自身の場合はその場で選択決定。（防御など）
     ActionCommand.TargetType targetType = ActionCommand.IsTarget(sender.CommandName);
+    Debug.Log("current mainaction " + sender.CommandName + " targetType: " + targetType.ToString());
     if (targetType == ActionCommand.TargetType.Own)
     {
-      CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
-      this.NowSelectSrcPlayer.CurrentActionCommand = sender.CommandName;
-      this.NowSelectSrcPlayer.txtActionCommand.text = sender.CommandName;
+      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectSrcPlayer.objMainButton, sender.CommandName);
+      //CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
+      //this.NowSelectSrcPlayer.CurrentActionCommand = sender.CommandName;
+      //this.NowSelectSrcPlayer.txtActionCommand.text = sender.CommandName;
       // 決定後、通常の戦闘モードに戻す。
+      ClearSelectFilterGroup();
+      return;
+    }
+    // 味方全体の場合はその場で選択決定。（DivineCircleなど）
+    if (targetType == ActionCommand.TargetType.AllyGroup)
+    {
+      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectActionSrcButton, sender.name);
+      ClearSelectFilterGroup();
+      return;
+    }
+    // 敵全体の場合はその場で選択決定。（）
+    if (targetType == ActionCommand.TargetType.EnemyGroup)
+    {
+      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectActionSrcButton, sender.name);
       ClearSelectFilterGroup();
       return;
     }
@@ -1873,6 +1894,16 @@ public partial class BattleEnemy : MotherBase
   }
 
   /// <summary>
+  /// メインアクションコマンドを適用します。
+  /// </summary>
+  private void ApplyMainActionCommand(Character player, Button src, Button dst, string command_name)
+  {
+    CopyActionButton(src, dst);
+    player.CurrentActionCommand = command_name;
+    player.txtActionCommand.text = command_name;
+  }
+
+  /// <summary>
   /// アクション選択中の状態を解除します。
   /// </summary>
   private void ClearSelectFilterGroup()
@@ -1940,6 +1971,11 @@ public partial class BattleEnemy : MotherBase
       if (AllList[ii].IsBloodSign)
       {
         ExecSlipDamage(AllList[ii], AllList[ii].IsBloodSign.EffectValue);
+      }
+
+      if (AllList[ii].IsBlackContract)
+      {
+        ExecSlipDamage(AllList[ii], AllList[ii].IsBlackContract.EffectValue * AllList[ii].MaxLife);
       }
 
       AllList[ii].BuffCountdown();

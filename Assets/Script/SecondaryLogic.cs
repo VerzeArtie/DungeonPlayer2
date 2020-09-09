@@ -238,7 +238,12 @@ public static class SecondaryLogic
     return 3.00f;
   }
 
-  public static double BlackContract_Turn(Character player)
+  public static double BlackContract(Character plyaer)
+  {
+    return 0.10f;
+  }
+
+  public static int BlackContract_Turn(Character player)
   {
     return 3;
   }
@@ -251,5 +256,30 @@ public static class SecondaryLogic
   public static int ConcussiveHit_Turn(Character player)
   {
     return 9;
+  }
+
+  public static double EyeOfTheTruth(Character player)
+  {
+    return 0.20f;
+  }
+
+  public static int EyeOfTheTruth_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double StormArmor_SpeedUp(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double StormArmor_Damage(Character player)
+  {
+    return 1.20f;
+  }
+
+  public static int StormArmor_Turn(Character player)
+  {
+    return 3;
   }
 }

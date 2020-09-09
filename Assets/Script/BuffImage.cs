@@ -27,6 +27,13 @@ public class BuffImage : Image
     get { return _effectValue; }
   }
 
+  [SerializeField] protected double _effectValue2 = 0;
+  public double EffectValue2
+  {
+    set { _effectValue2 = value; }
+    get { return _effectValue2; }
+  }
+
   [SerializeField] protected int _cumulative = 0;
   public int Cumulative
   {
@@ -45,11 +52,12 @@ public class BuffImage : Image
     get { return _remainCounter; }
   }
 
-  public void UpdateBuff(string buff_name, int remain, double effect_value)
+  public void UpdateBuff(string buff_name, int remain, double effect_value, double effect_value2)
   {
     this._buffName = buff_name;
     this._remainCounter = remain;
     this._effectValue = effect_value;
+    this._effectValue2 = effect_value2;
     this._cumulative = 1; // 累積は標準１がデフォルトで与えられる。
     this.sprite = Resources.Load<Sprite>(buff_name);
     Invalidate();
@@ -67,6 +75,7 @@ public class BuffImage : Image
     this._buffName = String.Empty;
     this._remainCounter = 0;
     this._effectValue = 0;
+    this._effectValue2 = 0;
     this._cumulative = 0;
     this.sprite = Resources.Load<Sprite>("Buff_Empty");
     Destroy(this.gameObject);

@@ -2014,7 +2014,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public void AddBuff(BuffImage prefab, string buff_name, double effect_value, int remain_counter)
+  public void AddBuff(BuffImage prefab, string buff_name, int remain_counter, double effect_value, double effect_value2)
   {
     bool detect = false;
 
@@ -2038,7 +2038,7 @@ public partial class Character : MonoBehaviour
         }
         else
         {
-          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
+          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
         }
         break;
       }
@@ -2047,7 +2047,7 @@ public partial class Character : MonoBehaviour
 
     // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
     BuffImage buff = Instantiate(prefab) as BuffImage;
-    buff.UpdateBuff(buff_name, remain_counter, effect_value);
+    buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
     buff.gameObject.SetActive(true);
     buff.transform.SetParent(this.objBuffPanel.transform);
     RectTransform rect = buff.GetComponent<RectTransform>();
@@ -2182,6 +2182,21 @@ public partial class Character : MonoBehaviour
   public BuffImage IsStanceOfTheGuard
   {
     get { return SearchBuff(Fix.STANCE_OF_THE_GUARD); }
+  }
+
+  public BuffImage IsBlackContract
+  {
+    get { return SearchBuff(Fix.BLACK_CONTRACT); }
+  }
+
+  public BuffImage IsEyeOfTheTruth
+  {
+    get { return SearchBuff(Fix.EYE_OF_THE_TRUTH); }
+  }
+
+  public BuffImage IsStormArmor
+  {
+    get { return SearchBuff(Fix.STORM_ARMOR); }
   }
 
   public BuffImage IsUpFire

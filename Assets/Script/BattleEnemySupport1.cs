@@ -209,7 +209,7 @@ public partial class BattleEnemy : MotherBase
 
     if (success)
     {
-      target.AddBuff(prefab_Buff, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Value(player), SecondaryLogic.IceNeedle_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0);
       StartAnimation(target.objGroup.gameObject, Fix.ICE_NEEDLE, Fix.COLOR_NORMAL);
     }
   }
@@ -228,7 +228,7 @@ public partial class BattleEnemy : MotherBase
 
     if (success)
     {
-      target.AddBuff(prefab_Buff, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Value(player), SecondaryLogic.ShadowBlast_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0);
       StartAnimation(target.objGroup.gameObject, Fix.SHADOW_BLAST, Fix.COLOR_NORMAL);
     }
   }
@@ -236,7 +236,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecAuraOfPower(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Value(player), SecondaryLogic.AuraOfPower_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.AURA_OF_POWER, Fix.COLOR_NORMAL);
   }
 
@@ -267,7 +267,7 @@ public partial class BattleEnemy : MotherBase
         return;
       }
 
-      target.AddBuff(prefab_Buff, Fix.EFFECT_STUN, 0, SecondaryLogic.ShieldBash_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.EFFECT_STUN, SecondaryLogic.ShieldBash_Turn(player), 0, 0);
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
     }
   }
@@ -279,7 +279,7 @@ public partial class BattleEnemy : MotherBase
 
     if (success)
     {
-      target.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Value(player), SecondaryLogic.HunterShot_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0);
       StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
     }
   }
@@ -291,7 +291,7 @@ public partial class BattleEnemy : MotherBase
 
     if (success)
     {
-      target.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_2(player), SecondaryLogic.VenomSlash_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0);
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
     }
   }
@@ -299,7 +299,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecHeartOfLife(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random), SecondaryLogic.HeartOfLife_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random), 0);
     StartAnimation(target.objGroup.gameObject, Fix.HEART_OF_LIFE, Fix.COLOR_NORMAL);
   }
 
@@ -314,8 +314,8 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade(player), SecondaryLogic.FlameBlade_Turn(player));
-    StartAnimation(target.objGroup.gameObject, Fix.FLAME_BLADE, Fix.COLOR_NORMAL);
+    target.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), 0);
+    StartAnimation(target.objBuffPanel.gameObject, Fix.FLAME_BLADE, Fix.COLOR_NORMAL);
   }
 
   private void ExecPurePurification(Character player, Character target)
@@ -325,7 +325,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
   }
 
-  private void ExecDivineCircle(Character player, Character target)
+  private void ExecDivineCircle(Character player, Character target, GameObject target_field_obj)
   {
     bool detect = false;
     string buff_name = Fix.DIVINE_CIRCLE;
@@ -335,37 +335,39 @@ public partial class BattleEnemy : MotherBase
     {
       if (buffList[ii].BuffName == buff_name)
       {
-        buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
+        buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle(player), SecondaryLogic.DivineCircle_Turn(player), 0);
         detect = true;
         break;
       }
     }
     if (detect == false)
     {
-      for (int ii = 0; ii < buffList.Length; ii++)
-      {
-        if (buffList[ii].BuffName == string.Empty)
-        {
-          buffList[ii].UpdateBuff(buff_name, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player));
-          detect = true;
-          break;
-        }
-      }
+      // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
+      BuffImage buff = Instantiate(prefab_Buff) as BuffImage;
+      buff.UpdateBuff(buff_name, SecondaryLogic.DivineCircle(player), SecondaryLogic.DivineCircle_Turn(player), 0);
+      buff.gameObject.SetActive(true);
+      buff.transform.SetParent(this.PanelPlayerField.transform);
+      RectTransform rect = buff.GetComponent<RectTransform>();
+
+      rect.transform.localPosition = new Vector3(0, 0);
+      rect.anchoredPosition = new Vector2(0, 0);
+      rect.anchorMin = new Vector2(0, 0);
+      rect.anchorMax = new Vector2(1, 1);
     }
-    StartAnimation(target.objGroup.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
+    StartAnimation(target_field_obj, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
   }
 
   private void ExecBloodSign(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign(player), SecondaryLogic.BloodSign_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.BLOOD_SIGN, Fix.COLOR_NORMAL);
   }
 
   private void ExecSkyShield(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Value(player), SecondaryLogic.SkyShield_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.SKY_SHIELD, Fix.COLOR_NORMAL);
   }
 
@@ -392,14 +394,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade(player), SecondaryLogic.StanceOfTheBlade_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
   }
 
   private void ExecStanceOfTheGuard(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard(player), SecondaryLogic.StanceOfTheGuard_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.STANCE_OF_THE_GUARD, Fix.COLOR_NORMAL);
   }
 
@@ -419,7 +421,7 @@ public partial class BattleEnemy : MotherBase
 
     if (success)
     {
-      target.AddBuff(prefab_Buff, Fix.EFFECT_BIND, 0, SecondaryLogic.InvibisleBind_Turn(player));
+      target.AddBuff(prefab_Buff, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0);
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
     }
   }
@@ -427,7 +429,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.AddBuff(prefab_Buff, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit(player), SecondaryLogic.FortuneSpirit_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.FORTUNE_SPIRIT, Fix.COLOR_NORMAL);
   }
 
@@ -439,7 +441,7 @@ public partial class BattleEnemy : MotherBase
       target.RemoveStun();
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_REMOVE_STUN, Fix.COLOR_NORMAL);
     }
-    target.AddBuff(prefab_Buff, Fix.BUFF_RESIST_STUN, 0, SecondaryLogic.SpiritualRest_Turn(player));
+    target.AddBuff(prefab_Buff, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_RESIST_STUN, Fix.COLOR_NORMAL);
   }
 
@@ -493,8 +495,10 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  public void ExecBlackContract(Character player, Character target)
+  public void ExecBlackContract(Character player)
   {
+    player.AddBuff(prefab_Buff, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0);
+    StartAnimation(player.objGroup.gameObject, Fix.BLACK_CONTRACT, Fix.COLOR_NORMAL);
   }
 
   public void ExecConcussiveHit(Character player, Character target, CriticalType critical)
@@ -508,6 +512,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecEyeOfTheTruth(Character player, Character target)
   {
+    player.AddBuff(prefab_Buff, Fix.EYE_OF_THE_TRUTH, SecondaryLogic.EyeOfTheTruth_Turn(player), SecondaryLogic.EyeOfTheTruth(player), 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_TRUTH, Fix.COLOR_NORMAL);
   }
 
   public void ExecIrregularStep(Character player, StackObject[] stack_list)
@@ -516,6 +522,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecStormArmor(Character player, Character target)
   {
+    target.AddBuff(prefab_Buff, Fix.STORM_ARMOR, SecondaryLogic.StormArmor_Turn(player), SecondaryLogic.StormArmor_SpeedUp(player), SecondaryLogic.StormArmor_Damage(player));
+    StartAnimation(target.objGroup.gameObject, Fix.STORM_ARMOR, Fix.COLOR_NORMAL);
   }
 
   public void ExecMuteImpulse(Character player, Character target, CriticalType critical)
@@ -575,50 +583,50 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecBuffPoison(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_POISON, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_POISON, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffSleep(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_SLEEP, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_SLEEP, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLEEP, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffStun(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_STUN, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_STUN, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffDizzy(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_DIZZY, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_DIZZY, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DIZZY, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffBind(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_BIND, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_BIND, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffSilent(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_SILENT, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_SILENT, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffPhysicalDown(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.BUFF_PD_DOWN, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.BUFF_PD_DOWN, turn, effect_value, 0);
     //target.AddBuff(Fix.BUFF_PD_DOWN, effect_value, turn);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_DOWN, Fix.COLOR_NORMAL);
   }
 
   private void BuffUpFire(Character player, Character target, int turn, double effect_value)
   {
-    target.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_FIRE, effect_value, turn);
+    target.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_FIRE, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_FIRE, Fix.COLOR_NORMAL);
   }
 
@@ -628,6 +636,7 @@ public partial class BattleEnemy : MotherBase
     // 攻撃コマンドのダメージを算出
     double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
     double debug1 = damageValue;
+    Debug.Log("PrimaryLogic.PhysicalAttack: " + debug1.ToString());
 
     // Buff効果による増強（物理属性専用UPは現時点では存在しない）
 
@@ -639,14 +648,26 @@ public partial class BattleEnemy : MotherBase
       if (critical == CriticalType.Absolute) { Debug.Log("PhysicalDamageLogic detect Critical! (Absolute)"); }
       if (critical == CriticalType.Random) { Debug.Log("PhysicalDamageLogic detect Critical! (Random)"); }
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      debug1 = damageValue;
+      Debug.Log("PrimaryLogic.PhysicalAttack(Critical): " + debug1.ToString());
     }
 
     // ターゲットの物理防御を差し引く
     double defenseValue = PrimaryLogic.PhysicalDefense(target);
     double debug2 = defenseValue;
+    Debug.Log("PrimaryLogic.PhysicalDefense: " + debug2.ToString());
+
+    if (player.IsEyeOfTheTruth)
+    {
+      double reduce = 1.00f - player.IsEyeOfTheTruth.EffectValue;
+      if (reduce <= 0.0f) { reduce = 0.0f; }
+      Debug.Log("player.IsEyeOfTheTruth.EffectValue: " + reduce.ToString("F2"));
+      defenseValue = defenseValue * reduce;
+      debug2 = defenseValue;
+      Debug.Log("PrimaryLogic.PhysicalDefense(EoT): " + debug2.ToString());
+    }
     damageValue -= defenseValue;
     double debug3 = damageValue;
-
     Debug.Log("Physical-DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
 
     // ターゲットが防御姿勢であれば、ダメージを軽減する
@@ -667,7 +688,8 @@ public partial class BattleEnemy : MotherBase
     // 魔法コマンドのダメージを算出
     double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
     double debug1 = damageValue;
-    
+    Debug.Log("PrimaryLogic.MagicDamage: " + debug1.ToString());
+
     // Buff効果による増強
     if (attr == Fix.DamageSource.Fire && player.IsUpFire)
     {
@@ -688,6 +710,13 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("damageValue IsUpShadow: " + player.IsUpShadow.EffectValue.ToString());
       damageValue = damageValue * player.IsUpShadow.EffectValue;
+    }
+
+    // ストーム・アーマーによる効果
+    if (player.IsStormArmor)
+    {
+      damageValue = damageValue * player.IsStormArmor.EffectValue2;
+      Debug.Log("damageValue IsStormArmor(after): " + damageValue.ToString());
     }
 
     // クリティカル判定

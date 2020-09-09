@@ -231,6 +231,10 @@ public static class PrimaryLogic
     {
       result *= player.IsIceNeedle.EffectValue;
     }
+    if (player.IsStormArmor)
+    {
+      result *= player.IsStormArmor.EffectValue;
+    }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;
