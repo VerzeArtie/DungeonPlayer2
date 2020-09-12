@@ -33,7 +33,7 @@ public partial class Character : MonoBehaviour
   public Image objBackSoulPointGauge = null;
   public Image objCurrentSoulPointGauge = null;
   public Image objCurrentSoulPointBorder = null;
-  public GameObject objBuffPanel = null;
+  public BuffField objBuffPanel = null;
 
   [SerializeField] protected string _fullName = string.Empty;
   public string FullName
@@ -305,7 +305,12 @@ public partial class Character : MonoBehaviour
   {
     get
     {
-      return _baseLife + TotalStamina * 10;
+      int result = _baseLife + TotalStamina * 10;
+      if (this.IsVoiceOfVigor)
+      {
+        result = (int)((double)result * (this.IsVoiceOfVigor.EffectValue));
+      }
+      return result;
     }
   }
 
@@ -1646,9 +1651,22 @@ public partial class Character : MonoBehaviour
     if (this.txtLife != null) this.txtLife.color = Color.red;
   }
 
+  public void MaxLifeCheck()
+  {
+    if (this.CurrentLife >= this.MaxLife)
+    {
+      this.CurrentLife = this.MaxLife;
+    }
+  }
+
   public void UpdateLife()
   {
     float dx = (float)this.CurrentLife / (float)this.MaxLife;
+
+    if (this.txtLife != null)
+    {
+      this.txtLife.text = this.CurrentLife.ToString();
+    }
     if (this.objCurrentLifeGauge != null)
     {
       this.objCurrentLifeGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
@@ -2014,60 +2032,6 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public void AddBuff(BuffImage prefab, string buff_name, int remain_counter, double effect_value, double effect_value2)
-  {
-    bool detect = false;
-
-    if (this.objBuffPanel == null) { return; }
-
-    // unity潜在バグの可能性。null合体演算子、厳密にはnull判定かどうかを行おうとした時、
-    // missing exceptionが発生するので、null合体演算子はここでは使わない。
-    //BuffImage[] buffList = this.objBuffPanel?.GetComponentsInChildren<BuffImage>() ?? null;
-    BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
-    if (buffList == null) { return; }
-
-    // 既に該当BUFFがあるかどうかを確認。
-    for (int ii = 0; ii < buffList.Length; ii++)
-    {
-      if (buffList[ii].BuffName == buff_name)
-      {
-        detect = true;
-        if (buff_name == Fix.BUFF_PD_DOWN)
-        {
-          buffList[ii].CumulativeUp(remain_counter, 1);
-        }
-        else
-        {
-          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
-        }
-        break;
-      }
-    }
-    if (detect) { return; }
-
-    // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
-    BuffImage buff = Instantiate(prefab) as BuffImage;
-    buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
-    buff.gameObject.SetActive(true);
-    buff.transform.SetParent(this.objBuffPanel.transform);
-    RectTransform rect = buff.GetComponent<RectTransform>();
-
-    rect.transform.localPosition = new Vector3(0, 0);
-    rect.anchoredPosition = new Vector2(0, 0);
-    rect.anchorMin = new Vector2(0, 0);
-    rect.anchorMax = new Vector2(1, 1);
-
-    //for (int ii = 0; ii < buffList.Length; ii++)
-    //{
-    //  if (buffList[ii].BuffName == string.Empty)
-    //  {
-    //    buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value);
-    //    detect = true;
-    //    break;
-    //  }
-    //}
-  }
-
   public void BuffCountdown()
   {
     if (this.objBuffPanel == null) { return; }
@@ -2199,6 +2163,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.STORM_ARMOR); }
   }
 
+  public BuffImage IsVoiceOfVigor
+  {
+    get { return SearchBuff(Fix.VOICE_OF_VIGOR); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
@@ -2262,6 +2231,22 @@ public partial class Character : MonoBehaviour
         break;
       }
     }
+  }
+
+  public int GetPositiveBuff()
+  {
+    BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return 0; }
+
+    int result = 0;
+    for (int ii = 0; ii < buffList.Length; ii++)
+    {
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == ActionCommand.BuffType.Positive)
+      {
+        result++;
+      }
+    }
+    return result;
   }
 
   /// <summary>

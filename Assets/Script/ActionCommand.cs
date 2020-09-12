@@ -138,7 +138,8 @@ public static class ActionCommand
     {
       result.Add(Fix.ORACLE_COMMAND);
       result.Add(Fix.SPIRITUAL_REST);
-      result.Add(Fix.ZERO_IMMUNITY);
+      result.Add(Fix.UNSEEN_AID);
+      //result.Add(Fix.ZERO_IMMUNITY);
       result.Add(Fix.ESSENCE_OVERFLOW);
       result.Add(Fix.INNER_INSPIRATION);
     }
@@ -239,7 +240,8 @@ public static class ActionCommand
     {
       result.Add(player.OracleCommand);
       result.Add(player.SpiritualRest);
-      result.Add(player.ZeroImmunity);
+      result.Add(player.UnseenAid);
+      //result.Add(player.ZeroImmunity);
       result.Add(player.EssenceOverflow);
       result.Add(player.InnerInspiration);
     }
@@ -343,7 +345,8 @@ public static class ActionCommand
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return Attribute.Skill; }
     if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return Attribute.Skill; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
+    if (command_name == Fix.UNSEEN_AID) { return Attribute.Skill; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
 
     if (command_name == Fix.CIRCLE_SLASH) { return Attribute.Skill; }
 
@@ -395,7 +398,8 @@ public static class ActionCommand
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return TimingType.Instant; }
     if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return TimingType.Normal; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
+    if (command_name == Fix.UNSEEN_AID) { return TimingType.Instant; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
 
     if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
 
@@ -446,7 +450,8 @@ public static class ActionCommand
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return TargetType.Own; }
     if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return TargetType.AllyGroup; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
+    if (command_name == Fix.UNSEEN_AID) { return TargetType.AllMember; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
 
     if (command_name == Fix.CIRCLE_SLASH) { return TargetType.None; }
 
@@ -513,9 +518,10 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return 13; }
-    if (command_name == Fix.IRREGULAR_STEP) { return 14; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return 17; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
+    if (command_name == Fix.IRREGULAR_STEP) { return 12; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
+    if (command_name == Fix.UNSEEN_AID) { return 16; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
 
     if (command_name == Fix.CIRCLE_SLASH) { return 18; }
 
@@ -585,7 +591,8 @@ public static class ActionCommand
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return BuffType.Positive; }
     if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return BuffType.Positive; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
+    if (command_name == Fix.UNSEEN_AID) { return BuffType.None; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -648,7 +655,8 @@ public static class ActionCommand
     if (command_name == Fix.EYE_OF_THE_TRUTH) { return false; }
     if (command_name == Fix.IRREGULAR_STEP) { return false; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return false; }
+    if (command_name == Fix.UNSEEN_AID) { return false; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
 
     if (command_name == Fix.CIRCLE_SLASH) { return true; }
 

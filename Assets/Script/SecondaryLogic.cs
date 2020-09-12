@@ -268,6 +268,16 @@ public static class SecondaryLogic
     return 9;
   }
 
+  public static double IrregularStep_Damage(Character player)
+  {
+    return 2.00f;
+  }
+
+  public static double IrregularStep_GaugeStep(Character player)
+  {
+    return 0.30f;
+  }
+     
   public static double StormArmor_SpeedUp(Character player)
   {
     return 1.10f;
@@ -281,5 +291,20 @@ public static class SecondaryLogic
   public static int StormArmor_Turn(Character player)
   {
     return 3;
+  }
+
+  public static double MuteImpulse(Character player)
+  {
+    return 1.00f;
+  }
+
+  public static double VoiceOfVigor(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static int VoiceOfVigor_Turn(Character player)
+  {
+    return 2;
   }
 }

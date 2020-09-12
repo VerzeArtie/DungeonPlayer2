@@ -1251,6 +1251,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &74002446
@@ -1523,6 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96568922}
   - component: {fileID: 96568923}
+  - component: {fileID: 96568924}
   m_Layer: 5
   m_Name: panelEnemyField
   m_TagString: Untagged
@@ -1585,6 +1587,18 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &96568924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96568921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679543b9bac78e64abbe7817a1670b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97982042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,6 +3041,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 1365143071}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &263067406
@@ -3205,6 +3220,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &269905055
@@ -3698,6 +3714,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &296486286
@@ -4737,7 +4754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &401591310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4752,10 +4769,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -525.1364}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401591311
 MonoBehaviour:
@@ -4792,6 +4809,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &401591312
@@ -5869,6 +5887,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &477313113
@@ -6239,6 +6258,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &526095023
@@ -6386,7 +6406,7 @@ MonoBehaviour:
   objMainButton: {fileID: 797114856}
   txtActionCommand: {fileID: 530815576}
   groupActionPoint: {fileID: 1463739331}
-  groupBuff: {fileID: 1491011526}
+  groupBuff: {fileID: 1491011529}
   txtTargetName: {fileID: 854613112}
   imgTargetLifeGauge: {fileID: 355843959}
   objBackSoulPointGauge: {fileID: 1603210460}
@@ -6983,6 +7003,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &592903082
@@ -7238,7 +7259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637481856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7253,10 +7274,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -340.50003}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &637481857
 MonoBehaviour:
@@ -7293,6 +7314,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &637481858
@@ -7313,6 +7335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 643017001}
   - component: {fileID: 643017002}
+  - component: {fileID: 643017003}
   m_Layer: 5
   m_Name: panelPlayerField
   m_TagString: Untagged
@@ -7375,6 +7398,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &643017003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643017000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679543b9bac78e64abbe7817a1670b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &649409460
 GameObject:
   m_ObjectHideFlags: 0
@@ -8552,6 +8587,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &732009303
@@ -8850,6 +8886,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &765872457
@@ -9369,6 +9406,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &810424412
@@ -9604,6 +9642,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &836323202
@@ -10088,6 +10127,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &856605515
@@ -10619,7 +10659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &926852578
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10634,10 +10674,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -586.6819}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926852579
 MonoBehaviour:
@@ -10674,6 +10714,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &926852580
@@ -10909,6 +10950,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &974277810
@@ -11163,6 +11205,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1005736183
@@ -11490,6 +11533,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1034765160
@@ -11517,7 +11561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035403041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11532,10 +11576,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -648.22736}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1035403042
 MonoBehaviour:
@@ -11572,6 +11616,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1035403043
@@ -11599,7 +11644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1040105033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11614,10 +11659,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -94.318184}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040105034
 MonoBehaviour:
@@ -11654,6 +11699,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1040105035
@@ -12162,6 +12208,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1083385275
@@ -12953,6 +13000,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1113132515
@@ -13166,6 +13214,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1145399843
@@ -13248,6 +13297,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1147405753
@@ -13275,7 +13325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147582178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13290,10 +13340,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -217.40909}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1147582179
 MonoBehaviour:
@@ -13330,6 +13380,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1147582180
@@ -13928,7 +13979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000099861405}
+  m_AnchoredPosition: {x: 0, y: 0.0000009685755}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1183874491
@@ -15138,6 +15189,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1332644547
@@ -16295,6 +16347,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1445460507
@@ -17038,6 +17091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1491011527}
   - component: {fileID: 1491011528}
+  - component: {fileID: 1491011529}
   m_Layer: 5
   m_Name: panelBuffPlayer1
   m_TagString: Untagged
@@ -17105,6 +17159,18 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1491011529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491011526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679543b9bac78e64abbe7817a1670b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1492009101
 GameObject:
   m_ObjectHideFlags: 0
@@ -17747,7 +17813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1568100720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17762,10 +17828,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -463.59097}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568100721
 MonoBehaviour:
@@ -17802,6 +17868,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1568100722
@@ -18359,6 +18426,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1618022867
@@ -18646,6 +18714,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1646792089
@@ -19430,8 +19499,8 @@ MonoBehaviour:
   lblBattleTurn: {fileID: 675918823}
   lblTimerCount: {fileID: 1528762299}
   lblTimerSpeed: {fileID: 1870813801}
-  PanelPlayerField: {fileID: 643017000}
-  PanelEnemyField: {fileID: 96568921}
+  PanelPlayerField: {fileID: 643017003}
+  PanelEnemyField: {fileID: 96568924}
   PlayerArrowList:
   - {fileID: 943897149}
   - {fileID: 220034000}
@@ -20928,6 +20997,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1902238870
@@ -21270,6 +21340,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1924857500
@@ -21652,6 +21723,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1982383024
@@ -21810,7 +21882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1998962960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21825,10 +21897,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -32.772728}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998962961
 MonoBehaviour:
@@ -21865,6 +21937,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1998962962
@@ -22562,7 +22635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2047796662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22577,10 +22650,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -402.0455}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047796663
 MonoBehaviour:
@@ -22617,6 +22690,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2047796664
@@ -22882,7 +22956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106562698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22897,10 +22971,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -278.95456}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106562699
 MonoBehaviour:
@@ -22937,6 +23011,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2106562700
@@ -23094,6 +23169,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2121418780
@@ -23176,6 +23252,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2130345123
@@ -23203,7 +23280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2130861532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23218,10 +23295,10 @@ RectTransform:
   m_Father: {fileID: 96568922}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -155.86365}
+  m_SizeDelta: {x: 56, y: 61.545456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2130861533
 MonoBehaviour:
@@ -23258,6 +23335,7 @@ MonoBehaviour:
   objCumulativeCounter: {fileID: 0}
   _buffName: 
   _effectValue: 0
+  _effectValue2: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2130861534

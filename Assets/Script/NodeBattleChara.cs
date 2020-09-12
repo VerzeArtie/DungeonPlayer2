@@ -18,7 +18,7 @@ public class NodeBattleChara : MonoBehaviour
   public Button objMainButton;
   public Text txtActionCommand;
   public GameObject groupActionPoint;
-  public GameObject groupBuff;
+  public BuffField groupBuff;
   public Text txtTargetName;
   public Image imgTargetLifeGauge;
   public Image objBackSoulPointGauge;

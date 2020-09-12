@@ -647,6 +647,8 @@ public static partial class Fix
   public const string EFFECT_REMOVE_STUN = "Stun除去";
 
   public const string BUFF_PD_DOWN = "PhysicalDefenseDown";
+
+  public const string BUFF_REMOVE_ALL = "BUFF全除去";
   #endregion
 
   #region "Item Name"

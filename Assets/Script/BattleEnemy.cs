@@ -36,8 +36,8 @@ public partial class BattleEnemy : MotherBase
   public Text lblTimerSpeed;
 
   // GUI-Field
-  public GameObject PanelPlayerField;
-  public GameObject PanelEnemyField;
+  public BuffField PanelPlayerField;
+  public BuffField PanelEnemyField;
 
   // GUI-Player
   public List<GameObject> PlayerArrowList;
@@ -85,7 +85,7 @@ public partial class BattleEnemy : MotherBase
   public List<Character> PlayerList;
   public List<Character> EnemyList;
   public List<Character> AllList;
-  public List<GameObject> AllFieldList;
+  public List<BuffField> AllFieldList;
 
   //protected Character currentPlayer = null;
 
@@ -275,6 +275,9 @@ public partial class BattleEnemy : MotherBase
       //character.Construction(One.EnemyList[ii]);
       One.EnemyList[ii].IsEnemy = true;
       AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
+      // debug
+      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
+      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
 
       // キャラクターグループのリストに追加
       One.EnemyList[ii].Ally = Fix.Ally.Enemy;
@@ -743,6 +746,7 @@ public partial class BattleEnemy : MotherBase
       // プレイヤーのリソースゲージ値を更新する。
       if (AllList[ii].Dead == false)
       {
+        AllList[ii].MaxLifeCheck();
         AllList[ii].UpdateLife();
         AllList[ii].UpdatePlayerInstantPoint();
         AllList[ii].UpdateActionPoint();
@@ -1001,7 +1005,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DIVINE_CIRCLE:
-        ExecDivineCircle(player, target, this.PanelPlayerField);
+        ExecDivineCircle(player, target, GetPanelFieldFromPlayer(player));
         break;
 
       case Fix.SKY_SHIELD:
@@ -1077,7 +1081,8 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.IRREGULAR_STEP:
-        ExecIrregularStep(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        StackObject[] stackList = GroupStackInTheCommand.GetComponentsInChildren<StackObject>();
+        ExecIrregularStep(player, target, critical);
         break;
 
       case Fix.STORM_ARMOR:
@@ -1222,7 +1227,7 @@ public partial class BattleEnemy : MotherBase
 
   }
 
-  private GameObject GetPanelFieldFromPlayer(Character player)
+  private BuffField GetPanelFieldFromPlayer(Character player)
   {
     if (player == null) { return null; }
 
@@ -2034,18 +2039,23 @@ public partial class BattleEnemy : MotherBase
 
   private void AddActionButton(Character character, GameObject group_action_button, string command_name)
   {
-    NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
-    instant.BackColor.color = character.BattleForeColor;
-    instant.CommandName = command_name;
-    instant.name = command_name;
-    instant.OwnerName = character.FullName;
-    instant.ActionButton.name = command_name;
-    instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
-
-    instant.transform.SetParent(group_action_button.transform);
-    instant.gameObject.SetActive(true);
-
     character.ActionCommandList.Add(command_name);
+
+    // インスタント限定でなければ、メインアクションに登録する。
+    if (ActionCommand.IsTarget(command_name) != ActionCommand.TargetType.InstantTarget)
+    {
+      NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
+      instant.BackColor.color = character.BattleForeColor;
+      instant.CommandName = command_name;
+      instant.name = command_name;
+      instant.OwnerName = character.FullName;
+      instant.ActionButton.name = command_name;
+      instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
+
+      instant.transform.SetParent(group_action_button.transform);
+      instant.gameObject.SetActive(true);
+    }
+
     Debug.Log("character AC add: " + character.ActionCommandList.Count);
   }
 
