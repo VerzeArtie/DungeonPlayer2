@@ -100,6 +100,11 @@ public partial class BattleEnemy : MotherBase
   public List<int> AnimationProgress;
   protected const int MAX_ANIMATION_TIME = 40;
 
+  protected bool NowIrregularStepMode = false;
+  protected Character NowIrregularStepPlayer = null;
+  protected Character NowIrregularStepTarget = null;
+  protected double NowIrregularStepCounter = 0;
+
   protected bool NowSelectGlobal = false;
   protected bool NowSelectTarget = false;
   protected bool NowInstantTarget = false;
@@ -112,6 +117,8 @@ public partial class BattleEnemy : MotherBase
 
   protected bool DuelMode = true;
   protected bool NowStackInTheCommand = false;
+
+  private float BATTLE_GAUGE_WITDH = 0;
 
   public enum GameEndType
   {
@@ -126,6 +133,8 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     base.Start();
+
+    BATTLE_GAUGE_WITDH = (GroupBattleGauge.GetComponent<RectTransform>().rect.width - PlayerArrowList[0].GetComponent<RectTransform>().sizeDelta.x);
 
     this.CannotRunAway = One.CannotRunAway;
 
@@ -460,6 +469,13 @@ public partial class BattleEnemy : MotherBase
     // todo 試験的に常に再描画を行うようにする。処理落ちの場合はコメントアウトする。
     LogicInvalidate();
 
+    // イレギュラー・ステップを実行する。この間、時間を進めずイレギュラー・ステップのゲージ進行を行う。
+    if (NowIrregularStepMode)
+    {
+      ExecPlayIrregularStep();
+      return;
+    }
+
     // アニメーションを実行する。この間、時間を進めない。
     if (NowAnimationMode)
     {
@@ -579,7 +595,7 @@ public partial class BattleEnemy : MotherBase
     {
       if (AllList[ii].Dead == false && AllList[ii].IsSleep == false && AllList[ii].IsStun == false)
       {
-        UpdatePlayerArrow(AllList[ii]);
+        UpdatePlayerArrow(AllList[ii], 0);
       }
     }
 
@@ -615,8 +631,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
       RectTransform rectX = EnemyList[ii].objArrow.GetComponent<RectTransform>();
-      //Debug.Log("width: " + GroupBattleGauge.GetComponent<RectTransform>().rect.width);
-      if (rectX.position.x <= (GroupBattleGauge.GetComponent<RectTransform>().rect.width - rectX.sizeDelta.x) / 3.0f)
+      if (rectX.position.x <= BATTLE_GAUGE_WITDH / 3.0f)
       {
         if (EnemyList[ii].Target != null && EnemyList[ii].Target.Dead && EnemyList[ii].Target.IsEnemy == false)
         {
@@ -633,7 +648,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
       RectTransform rectX = EnemyList[ii].objArrow.GetComponent<RectTransform>();
-      if (rectX.position.x >= (GroupBattleGauge.GetComponent<RectTransform>().rect.width - rectX.sizeDelta.x) / 4.0f && EnemyList[ii].Decision == false)
+      if (rectX.position.x >= BATTLE_GAUGE_WITDH / 4.0f && EnemyList[ii].Decision == false)
       {
         EnemyList[ii].Decision = true;
         string decision = EnemyList[ii].ChooseCommand();
@@ -682,7 +697,7 @@ public partial class BattleEnemy : MotherBase
       if (AllList[ii].Dead == false)
       {
         RectTransform rectX = AllList[ii].objArrow.GetComponent<RectTransform>();
-        if (rectX.position.x >= GroupBattleGauge.GetComponent<RectTransform>().rect.width - rectX.sizeDelta.x)
+        if (rectX.position.x >= BATTLE_GAUGE_WITDH)
         {
           ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
           UpdatePlayerArrowZero(AllList[ii], AllList[ii].objArrow);
@@ -1081,8 +1096,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.IRREGULAR_STEP:
-        StackObject[] stackList = GroupStackInTheCommand.GetComponentsInChildren<StackObject>();
-        ExecIrregularStep(player, target, critical);
+        ExecIrregularStep(player, target);
         break;
 
       case Fix.STORM_ARMOR:
@@ -1373,21 +1387,30 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// プレイヤーの行動ゲージを更新します。
   /// </summary>
-  private void UpdatePlayerArrow(Character player)
+  private void UpdatePlayerArrow(Character player, float move_skip)
   {
     RectTransform rect = player.objArrow.GetComponent<RectTransform>();
     float speedValue = (float)PrimaryLogic.BattleSpeed(player);
     //Debug.Log("speedValue: " + speedValue);
     // 画面の枠の大きさに応じて、スピード倍率を調整する。(ベース100)
     // プレイヤーアローの大きさの分を画面枠から差し引いて調整する。
-    float factor = (GroupBattleGauge.GetComponent<RectTransform>().rect.width - rect.sizeDelta.x) / 100.0f;
+    float factor = BATTLE_GAUGE_WITDH / 100.0f;
     //Debug.Log("factor: " + factor);
     speedValue = speedValue * factor * SpeedFactor();
     //Debug.Log("speedValue2: " + speedValue);
-    rect.position = new Vector3(rect.position.x + speedValue, rect.position.y, rect.position.z);
-    if (rect.position.x >= GroupBattleGauge.GetComponent<RectTransform>().rect.width - rect.sizeDelta.x)
+
+    if (move_skip > 0)
     {
-      rect.position = new Vector3(GroupBattleGauge.GetComponent<RectTransform>().rect.width - rect.sizeDelta.x, rect.position.y, rect.position.z);
+      rect.position = new Vector3(rect.position.x + move_skip, rect.position.y, rect.position.z);
+    }
+    else
+    {
+      rect.position = new Vector3(rect.position.x + speedValue, rect.position.y, rect.position.z);
+    }
+
+    if (rect.position.x >= BATTLE_GAUGE_WITDH)
+    {
+      rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
     }
   }
 

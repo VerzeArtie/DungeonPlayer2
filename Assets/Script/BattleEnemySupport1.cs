@@ -497,10 +497,30 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_TRUTH, Fix.COLOR_NORMAL);
   }
 
-  public void ExecIrregularStep(Character player, Character target, CriticalType critical)
+  public void ExecIrregularStep(Character player, Character target)
   {
-    ExecNormalAttack(player, target, SecondaryLogic.IrregularStep_Damage(player), critical);
-    // todo 行動ゲージバーを30%進める
+    this.NowIrregularStepPlayer = player;
+    this.NowIrregularStepTarget = target;
+    this.NowIrregularStepCounter = SecondaryLogic.IrregularStep_GaugeStep(player) * BATTLE_GAUGE_WITDH;
+    this.NowIrregularStepMode = true;
+  }
+  private void ExecPlayIrregularStep()
+  {
+    if (this.NowIrregularStepCounter > 0)
+    {
+      float factor = BATTLE_GAUGE_WITDH / 100.0f;
+      UpdatePlayerArrow(this.NowIrregularStepPlayer, factor);
+      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor;
+    }
+
+    if (this.NowIrregularStepCounter <= 0.0f)
+    {
+      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), CriticalType.Random);
+      this.NowIrregularStepPlayer = null;
+      this.NowIrregularStepTarget = null;
+      this.NowIrregularStepCounter = 0;
+      this.NowIrregularStepMode = false;
+    }
   }
 
   public void ExecStormArmor(Character player, Character target)

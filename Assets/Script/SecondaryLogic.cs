@@ -273,7 +273,7 @@ public static class SecondaryLogic
     return 2.00f;
   }
 
-  public static double IrregularStep_GaugeStep(Character player)
+  public static float IrregularStep_GaugeStep(Character player)
   {
     return 0.30f;
   }
