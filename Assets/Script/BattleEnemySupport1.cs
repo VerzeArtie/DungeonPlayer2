@@ -508,9 +508,10 @@ public partial class BattleEnemy : MotherBase
   {
     if (this.NowIrregularStepCounter > 0)
     {
-      float factor = BATTLE_GAUGE_WITDH / 100.0f;
+      Debug.Log("this.NowIrregularStepCounter: " + this.NowIrregularStepCounter.ToString());
+      float factor = (float)PrimaryLogic.BattleSpeed(this.NowIrregularStepPlayer) * 2.00f;
       UpdatePlayerArrow(this.NowIrregularStepPlayer, factor);
-      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor;
+      this.NowIrregularStepCounter = this.NowIrregularStepCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
     }
 
     if (this.NowIrregularStepCounter <= 0.0f)

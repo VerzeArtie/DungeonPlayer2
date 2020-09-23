@@ -184,6 +184,13 @@ public partial class Character : MonoBehaviour
     get { return _battleForeColor; }
   }
 
+  [SerializeField] protected float _battleGaugeArrow = 0.0f;
+  public float BattleGaugeArrow
+  {
+    set { _battleGaugeArrow = value; }
+    get { return _battleGaugeArrow; }
+  }
+
   [SerializeField] protected string _currentActionCommand = string.Empty;
   public string CurrentActionCommand
   {
@@ -1699,6 +1706,15 @@ public partial class Character : MonoBehaviour
     //{
     //  this.objCurrentInstangGauge_AC.rectTransform.localScale = new Vector2(dx, 1.0f);
     //}
+  }
+
+  public void UpdateBattleGaugeArrow(float gui_view_factor)
+  {
+    if (this.objArrow != null)
+    {
+      RectTransform rect = this.objArrow.GetComponent<RectTransform>();
+      rect.position = new Vector3(this.BattleGaugeArrow * gui_view_factor, rect.position.y, rect.position.z);
+    }
   }
 
   public void UpdateActionPoint()

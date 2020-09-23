@@ -236,6 +236,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // 味方グループの作成
+    float allyBaseStart = AP.Math.RandomInteger(30) + 30.0f;
     for (int ii = 0; ii < playerList.Count; ii++)
     {
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
@@ -269,9 +270,15 @@ public partial class BattleEnemy : MotherBase
           instant.gameObject.SetActive(true);
         }
       }
+
+      // 戦闘ゲージを設定
+      playerList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (allyBaseStart - (10.0f * ii)));
+      playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
 
     // 敵グループの作成
+    float enemyBaseStart = AP.Math.RandomInteger(0) + (One.EnemyList.Count - 1) * 10.0f;
+    if (enemyBaseStart <= 0.0f) { enemyBaseStart = 0.0f; }
     for (int ii = 0; ii < One.EnemyList.Count; ii++)
     {
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
@@ -287,6 +294,10 @@ public partial class BattleEnemy : MotherBase
       // debug
       //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
       //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
+
+      // 戦闘ゲージを設定
+      One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
+      One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
 
       // キャラクターグループのリストに追加
       One.EnemyList[ii].Ally = Fix.Ally.Enemy;
@@ -376,6 +387,10 @@ public partial class BattleEnemy : MotherBase
     if (character.txtSoulPoint != null)
     {
       character.txtSoulPoint.text = character.CurrentSoulPoint.ToString();
+    }
+    if (character.objArrow)
+    {
+      character.objArrow.GetComponent<Image>().color = character.BattleForeColor;
     }
 
     // アクションコマンドボタンの割当を設定する。
@@ -1389,28 +1404,43 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   private void UpdatePlayerArrow(Character player, float move_skip)
   {
-    RectTransform rect = player.objArrow.GetComponent<RectTransform>();
-    float speedValue = (float)PrimaryLogic.BattleSpeed(player);
-    //Debug.Log("speedValue: " + speedValue);
-    // 画面の枠の大きさに応じて、スピード倍率を調整する。(ベース100)
-    // プレイヤーアローの大きさの分を画面枠から差し引いて調整する。
-    float factor = BATTLE_GAUGE_WITDH / 100.0f;
-    //Debug.Log("factor: " + factor);
-    speedValue = speedValue * factor * SpeedFactor();
-    //Debug.Log("speedValue2: " + speedValue);
+    //RectTransform rect = player.objArrow.GetComponent<RectTransform>();
+    //float speedValue = (float)PrimaryLogic.BattleSpeed(player);
+    ////Debug.Log("speedValue: " + speedValue);
+    //// 画面の枠の大きさに応じて、スピード倍率を調整する。(ベース100)
+    //// プレイヤーアローの大きさの分を画面枠から差し引いて調整する。
+    //float factor = BATTLE_GAUGE_WITDH / 100.0f;
+    ////Debug.Log("factor: " + factor);
+    //speedValue = speedValue * factor * SpeedFactor();
+    ////Debug.Log("speedValue2: " + speedValue);
+
+    //if (move_skip > 0)
+    //{
+    //  rect.position = new Vector3(rect.position.x + move_skip, rect.position.y, rect.position.z);
+    //}
+    //else
+    //{
+    //  rect.position = new Vector3(rect.position.x + speedValue, rect.position.y, rect.position.z);
+    //}
+
+    //if (rect.position.x >= BATTLE_GAUGE_WITDH)
+    //{
+    //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
+    //}
 
     if (move_skip > 0)
     {
-      rect.position = new Vector3(rect.position.x + move_skip, rect.position.y, rect.position.z);
+      Debug.Log("move_skip: " + move_skip.ToString());
+      player.BattleGaugeArrow += move_skip;
+      Debug.Log("BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
+      if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
     else
     {
-      rect.position = new Vector3(rect.position.x + speedValue, rect.position.y, rect.position.z);
-    }
-
-    if (rect.position.x >= BATTLE_GAUGE_WITDH)
-    {
-      rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
+      player.BattleGaugeArrow += (float)PrimaryLogic.BattleSpeed(player);
+      if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
   }
 
@@ -1421,8 +1451,10 @@ public partial class BattleEnemy : MotherBase
   /// <param name="arrow"></param>
   private void UpdatePlayerArrowZero(Character player, GameObject arrow)
   {
-    RectTransform rect = arrow.GetComponent<RectTransform>();
-    rect.position = new Vector3(0, rect.position.y, rect.position.z);
+    player.BattleGaugeArrow = 0;
+    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH);
+    //RectTransform rect = arrow.GetComponent<RectTransform>();
+    //rect.position = new Vector3(0, rect.position.y, rect.position.z);
   }
 
   #region "GUI Event"
