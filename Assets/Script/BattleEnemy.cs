@@ -1430,9 +1430,7 @@ public partial class BattleEnemy : MotherBase
 
     if (move_skip > 0)
     {
-      Debug.Log("move_skip: " + move_skip.ToString());
       player.BattleGaugeArrow += move_skip;
-      Debug.Log("BattleGaugeArrow: " + player.BattleGaugeArrow.ToString());
       if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
