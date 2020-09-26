@@ -173,6 +173,10 @@ public partial class HomeTown : MotherBase
 
   // Inn
   public GameObject GroupInn;
+  public GameObject GroupInnDecision;
+  public List<Text> txtFoodMenuList;
+  public Text txtFoodMenuTitle;
+  public Text txtFoodMenuDesc;
 
   // Quest Message
   public GameObject GroupQuestMessage;
@@ -500,6 +504,12 @@ public partial class HomeTown : MotherBase
     if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
     {
       MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
+    if (One.TF.AlreadyRestInn)
+    {
+      MessagePack.MessageX00002(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
 
@@ -837,6 +847,43 @@ public partial class HomeTown : MotherBase
     txtBuyMessage.text = string.Empty;
   }
 
+  public void TapSelectInn()
+  {
+    GroupInnDecision.SetActive(true);
+  }
+
+  public void TapSelectFood(Text sender)
+  {
+    this.txtFoodMenuTitle.text = sender.text;
+    if (sender.text == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11; }
+    if (sender.text == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12; }
+    if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13; }
+    if (sender.text == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14; }
+    if (sender.text == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15; }
+  }
+
+  public void TapInnAccept(Text sender)
+  {
+    GroupInnDecision.SetActive(false);
+    GroupInn.SetActive(false);
+    One.TF.AlreadyRestInn = true;
+    One.TF.AlreadyDungeon = false;
+    One.TF.EscapeFromDungeon = false;
+    List<Character> characters = One.AvailableCharacters;
+    for (int ii = 0; ii < characters.Count; ii++)
+    {
+      characters[ii].MaxGain();
+    }
+
+    MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text);
+    TapOK();
+  }
+
+  public void tapInnCancel()
+  {
+    GroupInnDecision.SetActive(false);
+  }
+
   public void TapRestInn()
   {
     if (One.TF.AlreadyRestInn)
@@ -1024,6 +1071,7 @@ public partial class HomeTown : MotherBase
           RefreshAllView();
           continue; // 継続
         }
+        // アイテムの入手
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
@@ -1031,12 +1079,107 @@ public partial class HomeTown : MotherBase
           ConstructBackpackView();
           continue; // 継続
         }
+        // Goldの入手
         else if (currentEvent == MessagePack.ActionEvent.GetGold)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           One.TF.Gold += Convert.ToInt32(currentMessage);
           txtGold.text = One.TF.Gold.ToString();
           continue; // 継続
+        }
+        // 食事によるパラメタUP対象の更新
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownCallRequestFood)
+        {
+          List<Character> characters = One.AvailableCharacters;
+          for (int jj = 0; jj < characters.Count; jj++)
+          {
+            // エリア１
+            if (currentMessage == Fix.FOOD_KATUCARRY)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_11_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_OLIVE_AND_ONION)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_12_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_INAGO_AND_TAMAGO)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_13_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_USAGI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_14_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_SANMA)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_15_VALUE);
+            }
+            // エリア２
+            else if (currentMessage == Fix.FOOD_FISH_GURATAN)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_21_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_SEA_TENPURA)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_22_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_TRUTH_YAMINABE_1)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_23_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_OSAKANA_ZINGISKAN)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_24_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_RED_HOT_SPAGHETTI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_25_VALUE);
+            }
+            // エリア３
+            else if (currentMessage == Fix.FOOD_HINYARI_YASAI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_31_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_AZARASI_SHIOYAKI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_32_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_WINTER_BEEF_CURRY)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_33_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_GATTURI_GOZEN)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_34_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_KOGOERU_DESSERT)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_35_VALUE);
+            }
+            // エリア４
+            else if (currentMessage == Fix.FOOD_BLACK_BUTTER_SPAGHETTI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_41_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_KOROKORO_PIENUS_HAMBURG)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_42_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_43_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_HUNWARI_ORANGE_TOAST)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_44_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_TRUTH_YAMINABE_2)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_45_VALUE);
+            }
+          }
+          RefreshAllView();
+          continue;
         }
         // 自動セーブを行う。
         else if (currentEvent == MessagePack.ActionEvent.AutoSaveWorldEnvironment)
@@ -1095,6 +1238,15 @@ public partial class HomeTown : MotherBase
     {
       this.QuestEventList.RemoveAt(0);
     }
+  }
+
+  private void CharacterEatFood(Character player, int[] food_up_value)
+  {
+    player.StrengthFood = food_up_value[0];
+    player.AgilityFood = food_up_value[1];
+    player.IntelligenceFood = food_up_value[2];
+    player.StaminaFood = food_up_value[3];
+    player.MindFood = food_up_value[4];
   }
 
   /// <summary>
@@ -1625,6 +1777,19 @@ public partial class HomeTown : MotherBase
     {
       SelectShopItem(ShopItemList[0]);
     }
+
+    // 食事メニュー
+    List<string> listFoodMenu = new List<string>();
+    listFoodMenu.Add(Fix.FOOD_KATUCARRY);
+    listFoodMenu.Add(Fix.FOOD_OLIVE_AND_ONION);
+    listFoodMenu.Add(Fix.FOOD_INAGO_AND_TAMAGO);
+    listFoodMenu.Add(Fix.FOOD_USAGI);
+    listFoodMenu.Add(Fix.FOOD_SANMA);
+    for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
+    {
+      txtFoodMenuList[ii].text = listFoodMenu[ii];
+    }
+    TapSelectFood(txtFoodMenuList[0]);
   }
 
   private void RefreshQuestList()

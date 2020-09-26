@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -579,6 +580,76 @@ public partial class Character : MonoBehaviour
     get { return _plusMind; }
   }
 
+  [SerializeField] protected int _strengthFood = 0;
+  public int StrengthFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _strengthFood = value;
+    }
+    get { return _strengthFood; }
+  }
+
+  [SerializeField] protected int _agilityhFood = 0;
+  public int AgilityFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _agilityhFood = value;
+    }
+    get { return _agilityhFood; }
+  }
+
+  [SerializeField] protected int _intelligenceFood = 0;
+  public int IntelligenceFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _intelligenceFood = value;
+    }
+    get { return _intelligenceFood; }
+  }
+
+  [SerializeField] protected int _staminaFood = 0;
+  public int StaminaFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _staminaFood = value;
+    }
+    get { return _staminaFood; }
+  }
+
+  [SerializeField] protected int _mindFood = 0;
+  public int MindFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _mindFood = value;
+    }
+    get { return _mindFood; }
+  }
+
   public int TotalStrength
   {
     get
@@ -591,6 +662,7 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory1?.Strength ?? 0);
       result += (this.Accessory2?.Strength ?? 0);
       result += (this.Artifact?.Strength ?? 0);
+      result += this._strengthFood;
       return result;
     }
   }
@@ -607,6 +679,7 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory1?.Agility ?? 0);
       result += (this.Accessory2?.Agility ?? 0);
       result += (this.Artifact?.Agility ?? 0);
+      result += this._agilityhFood;
       return result;
     }
   }
@@ -623,6 +696,7 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory1?.Intelligence ?? 0);
       result += (this.Accessory2?.Intelligence ?? 0);
       result += (this.Artifact?.Intelligence ?? 0);
+      result += this._intelligenceFood;
       return result;
     }
   }
@@ -639,6 +713,7 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory1?.Stamina ?? 0);
       result += (this.Accessory2?.Stamina ?? 0);
       result += (this.Artifact?.Stamina ?? 0);
+      result += this._staminaFood;
       return result;
     }
   }
@@ -655,6 +730,7 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory1?.Mind ?? 0);
       result += (this.Accessory2?.Mind ?? 0);
       result += (this.Artifact?.Mind ?? 0);
+      result += this._mindFood;
       return result;
     }
   }

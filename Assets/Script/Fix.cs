@@ -483,6 +483,102 @@ public static partial class Fix
   public const string DECISION_ARTHARIUM_CRASH_DOOR2 = "アーサリウム工場跡地：扉を蹴破れ！（２）";
   #endregion
 
+  #region "食事メニュー"
+  // １階
+  public const string FOOD_KATUCARRY = @"激辛カツカレー定食";
+  public const string FOOD_OLIVE_AND_ONION = @"オリーブパンとオニオンスープ";
+  public const string FOOD_INAGO_AND_TAMAGO = @"イナゴの佃煮と卵和え定食";
+  public const string FOOD_USAGI = @"ウサギ肉のシチュー";
+  public const string FOOD_SANMA = @"サンマ定食（煮物添え）";
+  // ２階
+  public const string FOOD_FISH_GURATAN = @"フィッシュ・グラタン";
+  public const string FOOD_SEA_TENPURA = @"海鮮サクサク天プラ";
+  public const string FOOD_TRUTH_YAMINABE_1 = @"真実の闇鍋（パート１）";
+  public const string FOOD_OSAKANA_ZINGISKAN = @"お魚ジンギスカン";
+  public const string FOOD_RED_HOT_SPAGHETTI = @"レッドホット・スパゲッティ";
+  // ３階
+  public const string FOOD_HINYARI_YASAI = @"ヒンヤリ・カリっと野菜定食";
+  public const string FOOD_AZARASI_SHIOYAKI = @"白アザラシの塩焼き";
+  public const string FOOD_WINTER_BEEF_CURRY = @"ウィンター・ビーフカレー";
+  public const string FOOD_GATTURI_GOZEN = @"ガッツリ骨太御膳";
+  public const string FOOD_KOGOERU_DESSERT = @"身も凍える・ブルーデザート";
+  // ４階
+  public const string FOOD_BLACK_BUTTER_SPAGHETTI = @"ブラックバター・スパゲッティ";
+  public const string FOOD_KOROKORO_PIENUS_HAMBURG = @"コロコロ・ピーナッツ・ハンバーグ";
+  public const string FOOD_PIRIKARA_HATIMITSU_STEAK = @"ピリ辛・ハチミツステーキ定食";
+  public const string FOOD_HUNWARI_ORANGE_TOAST = @"ふんわり・オレンジトースト";
+  public const string FOOD_TRUTH_YAMINABE_2 = @"真実の闇鍋（パート２）";
+
+  public static string DESC_11 = DESC_11_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技\r\n  知\r\n  体＋５\r\n  心";
+  public static string DESC_12 = DESC_12_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知\r\n  体＋５\r\n  心＋５";
+  public static string DESC_13 = DESC_13_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋５\r\n  体\r\n  心＋５";
+  public static string DESC_14 = DESC_14_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技＋５\r\n  知\r\n  体\r\n  心";
+  public static string DESC_15 = DESC_15_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋５\r\n  知＋５\r\n  体\r\n  心";
+
+  public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋３０\r\n  知\r\n  体＋２０\r\n  心";
+  public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２０\r\n  技\r\n  知\r\n  体＋３０\r\n  心";
+  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋２０\r\n  体\r\n  心＋３０";
+  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３０\r\n  技\r\n  知\r\n  体\r\n  心＋２０";
+  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋３０\r\n  体＋２０\r\n  心";
+
+  public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋８０\r\n  体\r\n  心＋６０";
+  public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋８０\r\n  知＋６０\r\n  体＋６０\r\n  心";
+  public static string DESC_33 = DESC_33_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８０\r\n  技\r\n  知\r\n  体＋８０\r\n  心＋４０";
+  public static string DESC_34 = DESC_34_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５０\r\n  技＋５０\r\n  知＋５０\r\n  体＋５０\r\n  心＋５０";
+  public static string DESC_35 = DESC_35_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋１５０\r\n  体＋１００\r\n  心";
+
+  public static string DESC_41 = DESC_41_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体\r\n  心＋２５０";
+  public static string DESC_42 = DESC_42_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技\r\n  知\r\n  体＋２５０\r\n  心＋２５０";
+  public static string DESC_43 = DESC_43_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知＋２５０\r\n  知\r\n  体＋２５０";
+  public static string DESC_44 = DESC_44_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋２５０\r\n  心";
+  public static string DESC_45 = DESC_45_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技＋２５０\r\n  知\r\n  体\r\n  心＋２５０";
+
+  public const string DESC_11_MINI = "か・・・辛い！！でもウマイ！！\r\n　実はハンナが客に応じて辛い配分を全調整してるとの事。";
+  public const string DESC_12_MINI = "ほんのりとするオリーブの香りと、アッサリ味に仕立ててあるオニオン味のスープ。非常に好評のため定番メニューの一つとなっている。";
+  public const string DESC_13_MINI = "味自体が非常に絶妙で美味しく、歯ごたえも非常に良い。問題はその見た目だが・・・。";
+  public const string DESC_14_MINI = "ウサギ独特の臭みを無くし、肉の旨みは残してある。歯ごたえがかなりあるが、噛めばかむほど味が出る。";
+  public const string DESC_15_MINI = "魚本来の味を引き出しており、かつ、煮物と非常にマッチしてる。";
+
+  public const string DESC_21_MINI = "新鮮な魚介類の素材を細切りにして散りばめてあるグラタン。";
+  public const string DESC_22_MINI = "魚介類独特の臭みを完全に除去し、質の高いテンプラに仕上げられている。大きさ／柔らかさ／食べごたえ共に申し分なく、腹いっぱい食べられる。";
+  public const string DESC_23_MINI = "真実は闇の中にこそ潜む。味だけは保証されてるらしい・・・。";
+  public const string DESC_24_MINI = "魚とは思えないような歯ごたえのあるジンギスカン。食べた後の後味は良く、何度でも食べたくなる味付け。";
+  public const string DESC_25_MINI = "真っ赤なスパゲッティだが、実は全然辛く無いらしい。\r\n　素材の原色を駆使し、着色は一切行ってないそうだ。";
+
+  public const string DESC_31_MINI = "カリっと天ぷら粉で焼き上げた野菜天ぷら。\r\n野菜であることを忘れてしまうぐらい、非常に香ばしい食感が残る。";
+  public const string DESC_32_MINI = "固くて歯ごたえの悪いアザラシ肉を十分にほぐし、凍らせた後、焼き、塩をまぶした究極の一品。";
+  public const string DESC_33_MINI = "冬の季節、急激な温度変化により身が引き締まったビーフを使用したカレーライス。臭みは一切感じない。";
+  public const string DESC_34_MINI = "肉、魚、豆、味噌汁、ご飯、煎茶。全てが揃ったバランスの良い定食。\r\nハンナおばさん自慢の定食。";
+  public const string DESC_35_MINI = "何という青さ・・・見ただけで凍えてしまいそうだ。\r\n　食べた時の口いっぱいに広がる感触は一級品のデザートそのものである。";
+
+  public const string DESC_41_MINI = "真っ黒な色のスパゲッティ\r\n見た目がかなり不気味だが・・・スパイスの効いた香りがする。";
+  public const string DESC_42_MINI = "ハンバーグの中に小さめに切り刻んだピーナッツが入っている\r\nフワフワとしたジューシーな肉とカリっとしたピーナッツが食欲をそそる。";
+  public const string DESC_43_MINI = "表面に真っ赤なトウガラシがかけられているヒレステーキ。\r\nその裏には実はほんのりとハチミツが隠し味として入っており、食べた者には辛さと甘さが同時に響き渡る。";
+  public const string DESC_44_MINI = "１番人気のトースト定食といえば、このオレンジトースト。\r\nふんだんに塗られたオレンジジャムとホワイトクリームを乗せたバカでかいトーストは男女問わず人気の一品である。";
+  public const string DESC_45_MINI = "食物の匂いが全くしない闇の鍋\r\n　ハンナ叔母さん曰く、美味しいモノはちゃんと入っているとの事。それを信じて食べるしか選択肢は無い。";
+
+  public static int[] FOOD_11_VALUE = { 5, 0, 0, 5, 0 };
+  public static int[] FOOD_12_VALUE = { 0, 0, 0, 5, 5 };
+  public static int[] FOOD_13_VALUE = { 0, 0, 5, 0, 5 };
+  public static int[] FOOD_14_VALUE = { 5, 5, 0, 0, 0 };
+  public static int[] FOOD_15_VALUE = { 0, 5, 5, 0, 0 };
+  public static int[] FOOD_21_VALUE = { 0, 30, 0, 20, 0 };
+  public static int[] FOOD_22_VALUE = { 20, 0, 0, 30, 0 };
+  public static int[] FOOD_23_VALUE = { 0, 0, 20, 0, 30 };
+  public static int[] FOOD_24_VALUE = { 30, 0, 0, 0, 20 };
+  public static int[] FOOD_25_VALUE = { 0, 0, 30, 20, 0 };
+  public static int[] FOOD_31_VALUE = { 0, 0, 80, 0, 60 };
+  public static int[] FOOD_32_VALUE = { 0, 80, 60, 60, 0 };
+  public static int[] FOOD_33_VALUE = { 80, 0, 0, 80, 40 };
+  public static int[] FOOD_34_VALUE = { 50, 50, 50, 50, 50 };
+  public static int[] FOOD_35_VALUE = { 0, 0, 150, 100, 0 };
+  public static int[] FOOD_41_VALUE = { 0, 250, 250, 0, 250 };
+  public static int[] FOOD_42_VALUE = { 250, 0, 0, 250, 250 };
+  public static int[] FOOD_43_VALUE = { 250, 0, 250, 250, 0 };
+  public static int[] FOOD_44_VALUE = { 0, 250, 250, 250, 0 };
+  public static int[] FOOD_45_VALUE = { 250, 250, 0, 0, 250 };
+  #endregion
+
   #region "Action Command"
   // GlobalCommand
   public const string GLOBAL_ACTION_1 = "GlobalAction1";

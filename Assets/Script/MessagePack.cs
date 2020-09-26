@@ -142,7 +142,7 @@ public static class MessagePack
 
   public static void MessageX00002(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：今、休息を取ったばかりだ。他に何かやらねえとな。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：休息を取ったばかりだ。他に何かやらねえとな。", ActionEvent.None);
   }
 
   public static void MessageX00003(ref List<string> m_list, ref List<ActionEvent> e_list, string item_name)
@@ -164,6 +164,35 @@ public static class MessagePack
   public static void MessageX00005(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：遠見の青水晶で既にダンジョンから脱出しているからな。今日はもう止めておこう。", ActionEvent.None);
+  }
+
+  public static void MessageX00006(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+
+    Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ごちそうさまでした！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
   }
 
   #region "アンシェットの街"
