@@ -799,11 +799,12 @@ public partial class HomeTown : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + txt.text);
     Item current = new Item(txt.text);
+    Debug.Log("itemBuy ItemType: " + current.ItemType.ToString());
+    imgBuy.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+    imgBuy.name = txt.text;
     if (One.TF.Gold < current.Gold)
     {
       int diff = current.Gold - One.TF.Gold;
-      imgBuy.sprite = Resources.Load<Sprite>(txt.text);
-      imgBuy.name = txt.text;
       txtBuyTitle.text = txt.text + " を購入する事ができません。";
       txtBuyMessage.text = "ゴールドがあと" + diff.ToString() + " 不足しています。ゴールドを入手してください。";
       btnBuyAccept.gameObject.SetActive(false);
@@ -812,8 +813,6 @@ public partial class HomeTown : MotherBase
     }
     else
     {
-      imgBuy.sprite = Resources.Load<Sprite>(txt.text);
-      imgBuy.name = txt.text;
       txtBuyTitle.text = txt.text + " を購入しますか？";
       txtBuyMessage.text = current.Gold.ToString() + " ゴールドを消費します。この操作は元に戻せません。";
       btnBuyAccept.gameObject.SetActive(true);
@@ -821,6 +820,7 @@ public partial class HomeTown : MotherBase
       btnBuyOK.gameObject.SetActive(false);
     }
     groupBuyDecision.SetActive(true);
+    RefreshAllView();
   }
 
   public void TapBuyAccept()
@@ -1732,42 +1732,8 @@ public partial class HomeTown : MotherBase
     UpdateActionCommandSetting(this.CurrentPlayer);
 
     // ショップアイテムを設定
-    List<Item> shopList = new List<Item>();
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
-    {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-      shopList.Add(new Item(Fix.FINE_CLAW));
-      shopList.Add(new Item(Fix.FINE_ORB));
-      shopList.Add(new Item(Fix.FINE_ARMOR));
-      shopList.Add(new Item(Fix.FINE_CROSS));
-      shopList.Add(new Item(Fix.FINE_ROBE));
-      shopList.Add(new Item(Fix.FINE_SHIELD));
-      shopList.Add(new Item(Fix.RED_PENDANT));
-      shopList.Add(new Item(Fix.BLUE_PENDANT));
-      shopList.Add(new Item(Fix.PURPLE_PENDANT));
-      shopList.Add(new Item(Fix.GREEN_PENDANT));
-      shopList.Add(new Item(Fix.YELLOW_PENDANT));
-      shopList.Add(new Item(Fix.SMALL_RED_POTION));
-
-      // todo
-      if (false)
-      {
-        shopList.Add(new Item(Fix.FINE_LANCE));
-        shopList.Add(new Item(Fix.FINE_AXE));
-        shopList.Add(new Item(Fix.FINE_BOW));
-        shopList.Add(new Item(Fix.FINE_ROD));
-        shopList.Add(new Item(Fix.FINE_BOOK));
-        //shopList.Add(new Item(Fix.BASTARD_SWORD));
-        shopList.Add(new Item(Fix.AERO_BLADE));
-        shopList.Add(new Item(Fix.GEAR_GENSEI));
-        shopList.Add(new Item(Fix.MASTER_SWORD));
-        shopList.Add(new Item(Fix.MASTER_SHIELD));
-        shopList.Add(new Item(Fix.EDIL_BLACK_BLADE));
-        shopList.Add(new Item(Fix.WHITE_PARGE_LANCE));
-        shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
-      }
-    }
     ShopItemList.Clear();
+    List<Item> shopList = GetShopItem(One.TF.CurrentAreaName);
     for (int ii = 0; ii < shopList.Count; ii++)
     {
       ShopItemList.Add(CreateShopItem(contentShopItem, shopList[ii], ii));
