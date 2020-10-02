@@ -16,4 +16,5 @@ public class NodeACAttribute : MonoBehaviour
   public List<Image> imgACElement;
   public List<Text> txtACElement;
   public List<Text> txtACPlus;
+  public List<GameObject> ACLockPanel;
 }

@@ -250,6 +250,8 @@ public partial class HomeTown : MotherBase
 
   protected Item CurrentSelectBackpack;
 
+  protected GameObject CurrentSelectHideACAttribute;
+
   protected bool FirstAction = false;
     
   // Use this for initialization
@@ -670,6 +672,59 @@ public partial class HomeTown : MotherBase
     GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
+  public void TapHideACAttributeButton(GameObject sender)
+  {
+    Debug.Log("TapHideACAttributeButton(S) " + sender.name);
+    Button[] btnList = sender.GetComponentsInChildren<Button>();
+    for (int ii = 0; ii < btnList.Length; ii++)
+    {
+      Debug.Log("btnList: " + btnList[ii].name);
+      if (btnList[ii].name.Contains("hidePanel"))
+      {
+        this.CurrentSelectHideACAttribute = sender;
+        break;
+      }
+    }
+
+    Text[] txtList = sender.GetComponentsInChildren<Text>();
+    string currentAttributeName = String.Empty;
+    for (int ii = 0; ii < txtList.Length; ii++)
+    {
+      Debug.Log("txtList: " + txtList[ii].name);
+      if (txtList[ii].name.Contains("txtElement"))
+      {
+        currentAttributeName = txtList[ii].text;
+        break;
+      }
+    }
+
+    if (CurrentPlayer.SoulFragment <= 0)
+    {
+      Debug.Log("CurrentPlayer.SoulFragment is under 0");
+
+      imgCurrentDecision.sprite = Resources.Load<Sprite>(currentAttributeName);
+      imgCurrentDecision.name = currentAttributeName;
+      txtDecisionTitle.text = currentAttributeName + " を解放する事ができません。";
+      txtDecisionMessage.text = "ソウル・フラグメントが不足しています。ソウル・フラグメントを入手してください。";
+      btnDecisionAccept.gameObject.SetActive(false);
+      btnDecisionCancel.gameObject.SetActive(false);
+      btnDecisionOK.gameObject.SetActive(true);
+      groupDecision.SetActive(true);
+      return;
+    }
+
+    Debug.Log("CurrentPlayer.SoulFragment is currently " + CurrentPlayer.SoulFragment);
+
+    imgCurrentDecision.sprite = Resources.Load<Sprite>(currentAttributeName);
+    imgCurrentDecision.name = currentAttributeName;
+    txtDecisionTitle.text = currentAttributeName + " を解放しますか？";
+    txtDecisionMessage.text = "ソウル・フラグメントを１ポイント消費します。この操作は元に戻せません。";
+    btnDecisionAccept.gameObject.SetActive(true);
+    btnDecisionCancel.gameObject.SetActive(true);
+    btnDecisionOK.gameObject.SetActive(false);
+    groupDecision.SetActive(true);
+  }
+
   public void TapACAttributeButton(Text sender)
   {
     Debug.Log("sender: " + sender.text);
@@ -765,6 +820,7 @@ public partial class HomeTown : MotherBase
       return; // 未登録の場合は、何も更新せず終了する。
     }
     CurrentPlayer.SoulFragment--;
+    CurrentSelectHideACAttribute.gameObject.SetActive(false);
     UpdateActionCommandSetting(CurrentPlayer);
   }
   public void TapDecisionCancel()
@@ -1398,11 +1454,13 @@ public partial class HomeTown : MotherBase
         {
           if (attrPlus[jj] > 0)
           {
+            attributeList[ii].ACLockPanel[jj].SetActive(false);
             attributeList[ii].txtACPlus[jj].text = "+" + attrPlus[jj].ToString();
           }
           else
           {
             attributeList[ii].txtACPlus[jj].text = String.Empty;
+            //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
           }
         }
       }
