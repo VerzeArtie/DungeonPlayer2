@@ -698,6 +698,29 @@ public partial class HomeTown : MotherBase
       }
     }
 
+    // １つ前のリストが解放されてないなら、ブロックする。
+    // todo ただし一つ一つのコマンドをコーディングしないといけない。
+    if (currentAttributeName == Fix.STANCE_OF_THE_BLADE && CurrentPlayer.StraightSmash <= 0)
+    {
+      CallBlockPage(currentAttributeName, Fix.STRAIGHT_SMASH);
+      return;
+    }
+    if (currentAttributeName == Fix.DOUBLE_SLASH && CurrentPlayer.StanceOfTheBlade <= 0)
+    {
+      CallBlockPage(currentAttributeName, Fix.STANCE_OF_THE_BLADE);
+      return;
+    }
+    if (currentAttributeName == Fix.WAR_SWING && CurrentPlayer.DoubleSlash <= 0)
+    {
+      CallBlockPage(currentAttributeName, Fix.DOUBLE_SLASH);
+      return;
+    }
+    if (currentAttributeName == Fix.KINETIC_SMASH && CurrentPlayer.WarSwing <= 0)
+    {
+      CallBlockPage(currentAttributeName, Fix.WAR_SWING);
+      return;
+    }
+
     if (CurrentPlayer.SoulFragment <= 0)
     {
       Debug.Log("CurrentPlayer.SoulFragment is under 0");
@@ -722,6 +745,18 @@ public partial class HomeTown : MotherBase
     btnDecisionAccept.gameObject.SetActive(true);
     btnDecisionCancel.gameObject.SetActive(true);
     btnDecisionOK.gameObject.SetActive(false);
+    groupDecision.SetActive(true);
+  }
+
+  private void CallBlockPage(string wish_command, string restriction)
+  {
+    imgCurrentDecision.sprite = Resources.Load<Sprite>(wish_command);
+    imgCurrentDecision.name = wish_command;
+    txtDecisionTitle.text = wish_command + " を解放する条件を満たしていません。";
+    txtDecisionMessage.text = "このコマンドを解放するためには、" + restriction + "を解放する必要があります";
+    btnDecisionAccept.gameObject.SetActive(false);
+    btnDecisionCancel.gameObject.SetActive(false);
+    btnDecisionOK.gameObject.SetActive(true);
     groupDecision.SetActive(true);
   }
 
@@ -1440,7 +1475,7 @@ public partial class HomeTown : MotherBase
         Debug.Log("Detect totalValue: " + totalValue.ToString());
         attributeList[ii].lockPanel.SetActive(false);
         attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
-        attributeList[ii].txtTotal.text = "Lv" + totalValue;
+        attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
         attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
         for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
         {

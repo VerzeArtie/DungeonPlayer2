@@ -46,6 +46,10 @@ public class Title : MotherBase
     //}
 
     One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+    One.TF.AvailableEinWolence = true;
+    One.TF.AvailableLanaAmiria = true;
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
     SceneManager.LoadSceneAsync("HomeTown");
   }
 
