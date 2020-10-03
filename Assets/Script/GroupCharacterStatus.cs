@@ -433,10 +433,15 @@ public class GroupCharacterStatus : MonoBehaviour
       ShadowPlayer.Level = player.Level;
       ShadowPlayer.Exp = player.Exp;
       ShadowPlayer.Strength = player.Strength;
+      ShadowPlayer.StrengthFood = player.StrengthFood;
       ShadowPlayer.Agility = player.Agility;
+      ShadowPlayer.AgilityFood = player.AgilityFood;
       ShadowPlayer.Intelligence = player.Intelligence;
+      ShadowPlayer.IntelligenceFood = player.IntelligenceFood;
       ShadowPlayer.Stamina = player.Stamina;
+      ShadowPlayer.StaminaFood = player.StaminaFood;
       ShadowPlayer.Mind = player.Mind;
+      ShadowPlayer.MindFood = player.MindFood;
       ShadowPlayer.BaseLife = player.BaseLife;
       ShadowPlayer.RemainPoint = player.RemainPoint;
       if (player.MainWeapon != null)
