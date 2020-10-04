@@ -117,6 +117,7 @@ public static class ActionCommand
       result.Add(Fix.STORM_ARMOR);
       //result.Add(Fix.AETHER_DRIVE);
       result.Add(Fix.RUNE_STRIKE);
+      result.Add(Fix.RUNE_STRIKE);
     }
     else if (attr == Fix.CommandAttribute.MysticForm)
     {

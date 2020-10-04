@@ -601,13 +601,17 @@ public static class MessagePack
       return;
     }
 
-    Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
+    if (One.TF.QuestMain_00021 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。まずはファージル宮殿に報告しに行くんでしょ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。まずはファージル宮殿に報告しに行くんでしょ？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      return;
+    }
   }
   public static void Message101003(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -636,9 +640,21 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
     }
 
+    if (One.TF.QuestMain_00021 == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。まずはファージル宮殿に報告しに行くんでしょ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
+    }
+
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ通行許可証を・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：ちょっと待ってよ。まずはファージル宮殿に報告しに行くんでしょ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、そっちにいってもアーケンダイン街にはたどり着けないわよ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 

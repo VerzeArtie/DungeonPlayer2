@@ -67,4 +67,26 @@ public partial class HomeTown : MotherBase
     }
     return shopList;
   }
+
+  public List<string> GetFoodMenu(string area_name)
+  {
+    List<string> foodList = new List<string>();
+    if (area_name == Fix.TOWN_ARCANEDINE)
+    {
+      foodList.Add(Fix.FOOD_FISH_GURATAN);
+      foodList.Add(Fix.FOOD_SEA_TENPURA);
+      foodList.Add(Fix.FOOD_TRUTH_YAMINABE_1);
+      foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN);
+      foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI);
+    }
+    else
+    {
+      foodList.Add(Fix.FOOD_KATUCARRY);
+      foodList.Add(Fix.FOOD_OLIVE_AND_ONION);
+      foodList.Add(Fix.FOOD_INAGO_AND_TAMAGO);
+      foodList.Add(Fix.FOOD_USAGI);
+      foodList.Add(Fix.FOOD_SANMA);
+    }
+    return foodList;
+  }
 }

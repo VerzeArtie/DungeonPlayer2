@@ -90,6 +90,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableThirdCommand; }
   }
 
+  [SerializeField] protected bool _availableAllCommand = false;
+  public bool AvailableAllCommand
+  {
+    set { _availableAllCommand = value; }
+    get { return _availableAllCommand; }
+  }
+
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
   {
@@ -674,6 +681,9 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
   public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } }
   public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } }
+
+  [SerializeField] protected bool _event_message1100010 = false;
+  public bool Event_Message1100010 { get { return _event_message1100010; } set { _event_message1100010 = value; } }
   #endregion
 
   #region "Quest"
