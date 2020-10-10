@@ -33,7 +33,7 @@ public static class SecondaryLogic
 
   public static double IceNeedle(Character player)
   {
-    return 1.50f;
+    return 1.80f;
   }
   public static int IceNeedle_Turn(Character player)
   {
