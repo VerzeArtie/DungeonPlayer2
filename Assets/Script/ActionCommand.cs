@@ -48,7 +48,7 @@ public static class ActionCommand
     List<string> result = new List<string>();
     if (attr == Fix.CommandAttribute.Fire)
     {
-      result.Add(Fix.FIRE_BOLT);
+      result.Add(Fix.FIRE_BALL);
       result.Add(Fix.FLAME_BLADE);
       result.Add(Fix.METEOR_BULLET);
       result.Add(Fix.FLAME_STRIKE);
@@ -78,21 +78,29 @@ public static class ActionCommand
       result.Add(Fix.WHISPER_VOICE);
       result.Add(Fix.ABYSS_EYE);
     }
-    else if (attr == Fix.CommandAttribute.Swordman)
+    else if (attr == Fix.CommandAttribute.Wind)
+    {
+      result.Add(Fix.AIR_CUTTER);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
+    else if (attr == Fix.CommandAttribute.Earth)
+    {
+      result.Add(Fix.ROCK_SLAM);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior)
     {
       result.Add(Fix.STRAIGHT_SMASH);
       result.Add(Fix.STANCE_OF_THE_BLADE);
       result.Add(Fix.DOUBLE_SLASH);
       result.Add(Fix.WAR_SWING);
       result.Add(Fix.KINETIC_SMASH);
-    }
-    else if (attr == Fix.CommandAttribute.Armorer)
-    {
-      result.Add(Fix.SHIELD_BASH);
-      result.Add(Fix.STANCE_OF_THE_GUARD);
-      result.Add(Fix.CONCUSSIVE_HIT);
-      result.Add(Fix.DOMINATION_FIELD);
-      result.Add(Fix.OATH_OF_AEGIS);
     }
     else if (attr == Fix.CommandAttribute.Archer)
     {
@@ -102,6 +110,14 @@ public static class ActionCommand
       result.Add(Fix.HAWK_EYE);
       result.Add(Fix.PIERCING_ARROW);
     }
+    else if (attr == Fix.CommandAttribute.MartialArts)
+    {
+      result.Add(Fix.LEG_STRIKE);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
     else if (attr == Fix.CommandAttribute.Rogue)
     {
       result.Add(Fix.VENOM_SLASH);
@@ -109,6 +125,22 @@ public static class ActionCommand
       result.Add(Fix.IRREGULAR_STEP);
       result.Add(Fix.DISSENSION_RHYTHM);
       result.Add(Fix.ASSASSINATION_HIT);
+    }
+    else if (attr == Fix.CommandAttribute.WonderHermit)
+    {
+      result.Add(Fix.ENERGY_BOLT);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
+    else if (attr == Fix.CommandAttribute.Armorer)
+    {
+      result.Add(Fix.SHIELD_BASH);
+      result.Add(Fix.STANCE_OF_THE_GUARD);
+      result.Add(Fix.CONCUSSIVE_HIT);
+      result.Add(Fix.DOMINATION_FIELD);
+      result.Add(Fix.OATH_OF_AEGIS);
     }
     else if (attr == Fix.CommandAttribute.EnhanceForm)
     {
@@ -135,6 +167,22 @@ public static class ActionCommand
       result.Add(Fix.SIGIL_OF_THE_FAITH);
       result.Add(Fix.RAGING_STORM);
     }
+    else if (attr == Fix.CommandAttribute.Vengeance)
+    {
+      result.Add(Fix.DARK_AURA);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
+    else if (attr == Fix.CommandAttribute.Truth)
+    {
+      result.Add(Fix.TRUE_SIGHT);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.COMMAND_NOTHING);
+    }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
       result.Add(Fix.ORACLE_COMMAND);
@@ -151,7 +199,7 @@ public static class ActionCommand
     List<int> result = new List<int>();
     if (attr == Fix.CommandAttribute.Fire)
     {
-      result.Add(player.FireBolt);
+      result.Add(player.FireBall);
       result.Add(player.FlameBlade);
       result.Add(player.MeteorBullet);
       result.Add(player.FlameStrike);
@@ -181,21 +229,29 @@ public static class ActionCommand
       result.Add(player.WhisperVoice);
       result.Add(player.AbyssEye);
     }
-    else if (attr == Fix.CommandAttribute.Swordman)
+    else if (attr == Fix.CommandAttribute.Wind)
+    {
+      result.Add(player.AirCutter);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+    }
+    else if (attr == Fix.CommandAttribute.Earth)
+    {
+      result.Add(player.RockSlam);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior)
     {
       result.Add(player.StraightSmash);
       result.Add(player.StanceOfTheBlade);
       result.Add(player.DoubleSlash);
       result.Add(player.WarSwing);
       result.Add(player.KineticSmash);
-    }
-    else if (attr == Fix.CommandAttribute.Armorer)
-    {
-      result.Add(player.ShieldBash);
-      result.Add(player.StanceOfTheGuard);
-      result.Add(player.ConcussiveHit);
-      result.Add(player.DominationField);
-      result.Add(player.OathOfAegis);
     }
     else if (attr == Fix.CommandAttribute.Archer)
     {
@@ -205,6 +261,14 @@ public static class ActionCommand
       result.Add(player.HawkEye);
       result.Add(player.PiercingArrow);
     }
+    else if (attr == Fix.CommandAttribute.MartialArts)
+    {
+      result.Add(player.LegStrike);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+    }
     else if (attr == Fix.CommandAttribute.Rogue)
     {
       result.Add(player.VenomSlash);
@@ -212,6 +276,22 @@ public static class ActionCommand
       result.Add(player.IrregularStep);
       result.Add(player.DissensionRhythm);
       result.Add(player.AssassinationHit);
+    }
+    else if (attr == Fix.CommandAttribute.WonderHermit)
+    {
+      result.Add(player.EnergyBolt);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+    }
+    else if (attr == Fix.CommandAttribute.Armorer)
+    {
+      result.Add(player.ShieldBash);
+      result.Add(player.StanceOfTheGuard);
+      result.Add(player.ConcussiveHit);
+      result.Add(player.DominationField);
+      result.Add(player.OathOfAegis);
     }
     else if (attr == Fix.CommandAttribute.EnhanceForm)
     {
@@ -236,6 +316,22 @@ public static class ActionCommand
       result.Add(player.VoiceOfVigor);
       result.Add(player.SigilOfTheFaith);
       result.Add(player.RagingStorm);
+    }
+    else if (attr == Fix.CommandAttribute.Vengeance)
+    {
+      result.Add(player.DarkAura);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+    }
+    else if (attr == Fix.CommandAttribute.Truth)
+    {
+      result.Add(player.TrueSight);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
+      result.Add(0);
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
@@ -266,21 +362,37 @@ public static class ActionCommand
     {
       return new Color(0, 0, 0);
     }
-    else if (attr == Fix.CommandAttribute.Swordman)
+    else if (attr == Fix.CommandAttribute.Wind)
     {
-      return new Color(0, 210.0f / 255.0f, 40.0f / 255.0f);
+      return new Color(0, 1.0f, 0);
     }
-    else if (attr == Fix.CommandAttribute.Armorer)
+    else if (attr == Fix.CommandAttribute.Earth)
     {
-      return new Color(1.0f, 194.0f / 255.0f, 0);
+      return new Color(200.0f / 255.0f, 150.0f / 255.0f, 40.0f / 255.0f);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior)
+    {
+      return new Color(0.9f, 0.1f, 0.1f);
     }
     else if (attr == Fix.CommandAttribute.Archer)
     {
       return new Color(114.0f / 255.0f, 0, 217.0f / 255.0f);
     }
+    else if (attr == Fix.CommandAttribute.MartialArts)
+    {
+      return new Color(0.9f, 0.9f, 0.1f);
+    }
     else if (attr == Fix.CommandAttribute.Rogue)
     {
       return new Color(45.0f / 255.0f, 58.0f / 255.0f, 24.0f / 255.0f);
+    }
+    else if (attr == Fix.CommandAttribute.WonderHermit)
+    {
+      return new Color(0.1f, 0.9f, 0.1f);
+    }
+    else if (attr == Fix.CommandAttribute.Armorer)
+    {
+      return new Color(1.0f, 194.0f / 255.0f, 0);
     }
     else if (attr == Fix.CommandAttribute.EnhanceForm)
     {
@@ -293,6 +405,14 @@ public static class ActionCommand
     else if (attr == Fix.CommandAttribute.Brave)
     {
       return new Color(123.0f / 255.0f, 0, 54.0f / 255.0f);
+    }
+    else if (attr == Fix.CommandAttribute.Vengeance)
+    {
+      return new Color(0, 0, 0);
+    }
+    else if (attr == Fix.CommandAttribute.Truth)
+    {
+      return new Color(0.15f, 0.8f, 0.15f);
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
@@ -309,7 +429,7 @@ public static class ActionCommand
     if (command_name == Fix.STAY) { return Attribute.Basic; }
     if (command_name == Fix.USE_RED_POTION) { return Attribute.Basic; }
 
-    if (command_name == Fix.FIRE_BOLT) { return Attribute.Magic; }
+    if (command_name == Fix.FIRE_BALL) { return Attribute.Magic; }
     if (command_name == Fix.ICE_NEEDLE) { return Attribute.Magic; }
     if (command_name == Fix.FRESH_HEAL) { return Attribute.Magic; }
     if (command_name == Fix.SHADOW_BLAST) { return Attribute.Magic; }
@@ -362,7 +482,7 @@ public static class ActionCommand
     if (command_name == Fix.STAY) { return TimingType.Normal; }
     if (command_name == Fix.USE_RED_POTION) { return TimingType.Instant; }
 
-    if (command_name == Fix.FIRE_BOLT) { return TimingType.Instant; }
+    if (command_name == Fix.FIRE_BALL) { return TimingType.Instant; }
     if (command_name == Fix.ICE_NEEDLE) { return TimingType.Instant; }
     if (command_name == Fix.FRESH_HEAL) { return TimingType.Instant; }
     if (command_name == Fix.SHADOW_BLAST) { return TimingType.Instant; }
@@ -415,7 +535,7 @@ public static class ActionCommand
     if (command_name == Fix.STAY) { return TargetType.Own; }
     if (command_name == Fix.USE_RED_POTION) { return TargetType.Ally; }
 
-    if (command_name == Fix.FIRE_BOLT) { return TargetType.Enemy; }
+    if (command_name == Fix.FIRE_BALL) { return TargetType.Enemy; }
     if (command_name == Fix.ICE_NEEDLE) { return TargetType.Enemy; }
     if (command_name == Fix.FRESH_HEAL) { return TargetType.Ally; }
     if (command_name == Fix.SHADOW_BLAST) { return TargetType.Enemy; }
@@ -484,7 +604,7 @@ public static class ActionCommand
     if (command_name == Fix.STAY) { return 0; }
     if (command_name == Fix.USE_RED_POTION) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
 
-    if (command_name == Fix.FIRE_BOLT) { return 4; }
+    if (command_name == Fix.FIRE_BALL) { return 4; }
     if (command_name == Fix.ICE_NEEDLE) { return 3; }
     if (command_name == Fix.FRESH_HEAL) { return 3; }
     if (command_name == Fix.SHADOW_BLAST) { return 3; }
@@ -555,7 +675,7 @@ public static class ActionCommand
     if (command_name == Fix.USE_RED_POTION) { return BuffType.None; }
 
     // コマンド別
-    if (command_name == Fix.FIRE_BOLT) { return BuffType.None; }
+    if (command_name == Fix.FIRE_BALL) { return BuffType.None; }
     if (command_name == Fix.ICE_NEEDLE) { return BuffType.Negative; }
     if (command_name == Fix.FRESH_HEAL) { return BuffType.None; }
     if (command_name == Fix.SHADOW_BLAST) { return BuffType.Negative; }
@@ -619,7 +739,7 @@ public static class ActionCommand
     if (command_name == Fix.USE_RED_POTION) { return false; }
 
     // コマンド別
-    if (command_name == Fix.FIRE_BOLT) { return true; }
+    if (command_name == Fix.FIRE_BALL) { return true; }
     if (command_name == Fix.ICE_NEEDLE) { return true; }
     if (command_name == Fix.FRESH_HEAL) { return false; }
     if (command_name == Fix.SHADOW_BLAST) { return true; }

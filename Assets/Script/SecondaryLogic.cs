@@ -26,7 +26,7 @@ public static class SecondaryLogic
     return 0.50f;
   }
 
-  public static double FireBolt(Character player)
+  public static double FireBall(Character player)
   {
     return 2.00f;
   }

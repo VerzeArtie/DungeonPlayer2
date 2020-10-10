@@ -33,20 +33,19 @@ public static partial class Fix
     Ice,
     HolyLight,
     DarkMagic,
-    //Wind,
-    //Earth,
-    Swordman,
-    //Lancer,
+    Wind,
+    Earth,
+    Warrior,
     Archer,
-    //Axe,
-    //MartialArts,
-    Armorer,
+    MartialArts,
     Rogue,
+    WonderHermit,
+    Armorer,
     EnhanceForm,
     MysticForm,
+    Truth,
     Brave,
-    //Vengeance,
-    //TrueEye,
+    Vengeance,
     Mindfulness,
     None,
   }
@@ -604,19 +603,27 @@ public static partial class Fix
   public const string STAY = "Stay";
   public const string USE_RED_POTION = "RedPotion";
 
-  // ActionCommand [ Delve I ]
-  public const string FIRE_BOLT = "Fire Bolt";
+  // [ Delve I ]
+  public const string FIRE_BALL = "Fire Ball";
   public const string ICE_NEEDLE = "Ice Needle";
   public const string FRESH_HEAL = "Fresh Heal";
   public const string SHADOW_BLAST = "Shadow Blast";
-  public const string AURA_OF_POWER = "Aura of Power";
-  public const string SKY_SHIELD = "Sky Shield";
+  public const string AIR_CUTTER = "Air Cutter";
+  public const string ROCK_SLAM = "Rock Slam";
   public const string STRAIGHT_SMASH = "Straight Smash";
-  public const string SHIELD_BASH = "Shield Bash";
   public const string HUNTER_SHOT = "Hunter Shot";
+  public const string LEG_STRIKE = "Leg Strike";
   public const string VENOM_SLASH = "Venom Slash";
+  public const string ENERGY_BOLT = "Energy Bolt";
+  public const string SHIELD_BASH = "Shield Bash";
+  public const string AURA_OF_POWER = "Aura of Power";
+  public const string DISPEL_MAGIC = "Dispel Magic";
   public const string HEART_OF_LIFE = "Heart of Life";
+  public const string DARK_AURA = "Dark Aura";
+  public const string TRUE_SIGHT = "True Sight";
   public const string ORACLE_COMMAND = "Oracle Command";
+
+  public const string SKY_SHIELD = "Sky Shield";
 
   // Devle II
   public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
@@ -630,7 +637,6 @@ public static partial class Fix
   public const string FLAME_BLADE = "Flame Blade";
   public const string PURE_PURIFICATION = "Pure Purification";
   public const string STORM_ARMOR = "Storm Armor";
-  public const string DISPEL_MAGIC = "Dispel Magic";
   public const string FLASH_COUNTER = "Flash Counter";
   public const string SPIRITUAL_REST = "Spiritual Rest";
 
@@ -725,6 +731,8 @@ public static partial class Fix
   public const string COMMAND_DRILL_CYCLONE = "ドリル・サイクロン";
   public const string COMMAND_RUMBLE_MACHINEGUN = "ランブル・マシンガン";
   public const string COMMAND_STRUGGLE_VOICE = "威圧する怒声";
+
+  public const string COMMAND_NOTHING = "なし";
   #endregion
 
   #region "Effect"

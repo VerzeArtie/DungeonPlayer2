@@ -25,9 +25,9 @@ public partial class BattleEnemy : MotherBase
     {
       result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.MagicAttack(player);
     }
-    else if (command_name == Fix.FIRE_BOLT)
+    else if (command_name == Fix.FIRE_BALL)
     {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FireBolt(player);
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FireBall(player);
     }
     else if (command_name == Fix.ICE_NEEDLE)
     {
@@ -201,10 +201,10 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private void ExecFireBolt(Character player, Character target, CriticalType critical)
+  private void ExecFireBall(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecMagicAttack(player, target, SecondaryLogic.FireBolt(player), Fix.DamageSource.Fire, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, critical);
   }
 
   private void ExecIceNeedle(Character player, Character target, CriticalType critical)

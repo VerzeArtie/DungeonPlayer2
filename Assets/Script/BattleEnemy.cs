@@ -413,17 +413,24 @@ public partial class BattleEnemy : MotherBase
       AddActionButton(character, groupActionButton, Fix.DEFENSE);
 
       // todo
-      if (character.FireBolt > 0) { AddActionButton(character, groupActionButton, Fix.FIRE_BOLT); }
+      // Delve I
+      if (character.FireBall > 0) { AddActionButton(character, groupActionButton, Fix.FIRE_BALL); }
       if (character.IceNeedle > 0) { AddActionButton(character, groupActionButton, Fix.ICE_NEEDLE); }
       if (character.FreshHeal > 0) { AddActionButton(character, groupActionButton, Fix.FRESH_HEAL); }
       if (character.ShadowBlast > 0) { AddActionButton(character, groupActionButton, Fix.SHADOW_BLAST); }
+      if (character.AirCutter > 0) { AddActionButton(character, groupActionButton, Fix.AIR_CUTTER); }
+      if (character.RockSlam > 0) { AddActionButton(character, groupActionButton, Fix.ROCK_SLAM); }
       if (character.StraightSmash > 0) { AddActionButton(character, groupActionButton, Fix.STRAIGHT_SMASH); }
-      if (character.ShieldBash > 0) { AddActionButton(character, groupActionButton, Fix.SHIELD_BASH); }
       if (character.HunterShot > 0) { AddActionButton(character, groupActionButton, Fix.HUNTER_SHOT); }
+      if (character.LegStrike > 0) { AddActionButton(character, groupActionButton, Fix.LEG_STRIKE); }
       if (character.VenomSlash > 0) { AddActionButton(character, groupActionButton, Fix.VENOM_SLASH); }
+      if (character.EnergyBolt > 0) { AddActionButton(character, groupActionButton, Fix.ENERGY_BOLT); }
+      if (character.ShieldBash > 0) { AddActionButton(character, groupActionButton, Fix.SHIELD_BASH); }
       if (character.AuraOfPower > 0) { AddActionButton(character, groupActionButton, Fix.AURA_OF_POWER); }
       if (character.DispelMagic > 0) { AddActionButton(character, groupActionButton, Fix.DISPEL_MAGIC); }
+      if (character.TrueSight > 0) { AddActionButton(character, groupActionButton, Fix.TRUE_SIGHT); }
       if (character.HeartOfLife > 0) { AddActionButton(character, groupActionButton, Fix.HEART_OF_LIFE); }
+      if (character.DarkAura > 0) { AddActionButton(character, groupActionButton, Fix.DARK_AURA); }
       if (character.OracleCommand > 0) { AddActionButton(character, groupActionButton, Fix.ORACLE_COMMAND); }
       if (character.FlameBlade > 0) { AddActionButton(character, groupActionButton, Fix.FLAME_BLADE); }
       if (character.PurePurification > 0) { AddActionButton(character, groupActionButton, Fix.PURE_PURIFICATION); }
@@ -973,8 +980,8 @@ public partial class BattleEnemy : MotherBase
         ExecUseRedPotion(target);
         break;
 
-      case Fix.FIRE_BOLT:
-        ExecFireBolt(player, target, critical);
+      case Fix.FIRE_BALL:
+        ExecFireBall(player, target, critical);
         break;
 
       case Fix.ICE_NEEDLE:

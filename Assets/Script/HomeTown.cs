@@ -213,11 +213,6 @@ public partial class HomeTown : MotherBase
 
   public List<Image> imgACElement;
   public List<Text> txtACElement;
-  public Text txtFireBolt;
-  public Text txtFlameBlade;
-  public Text txtMeteorBullet;
-  public Text txtFlameStrike;
-  public Text txtLavaAnnihilation;
 
   public GameObject groupDecision;
   public Image imgCurrentDecision;
@@ -339,6 +334,12 @@ public partial class HomeTown : MotherBase
       if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400010 == false)
       {
         MessagePack.Message400010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      // アーケンダイン街、初めのエントリー
+      if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE && One.TF.Event_Message1100010 == false)
+      {
+        MessagePack.Message1100010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -789,62 +790,71 @@ public partial class HomeTown : MotherBase
   public void TapDecisionAccept()
   {
     groupDecision.SetActive(false);
-    if (imgCurrentDecision.name == Fix.FIRE_BOLT) { CurrentPlayer.FireBolt++; }
+    // Delve I
+    if (imgCurrentDecision.name == Fix.FIRE_BALL) { CurrentPlayer.FireBall++; }
+    else if (imgCurrentDecision.name == Fix.ICE_NEEDLE) { CurrentPlayer.IceNeedle++; }
+    else if (imgCurrentDecision.name == Fix.FRESH_HEAL) { CurrentPlayer.FreshHeal++; }
+    else if (imgCurrentDecision.name == Fix.SHADOW_BLAST) { CurrentPlayer.ShadowBlast++; }
+    else if (imgCurrentDecision.name == Fix.AIR_CUTTER) { CurrentPlayer.AirCutter++; }
+    else if (imgCurrentDecision.name == Fix.ROCK_SLAM) { CurrentPlayer.RockSlam++; }
+    else if (imgCurrentDecision.name == Fix.STRAIGHT_SMASH) { CurrentPlayer.StraightSmash++; }
+    else if (imgCurrentDecision.name == Fix.HUNTER_SHOT) { CurrentPlayer.HunterShot++; }
+    else if (imgCurrentDecision.name == Fix.LEG_STRIKE) { CurrentPlayer.LegStrike++; }
+    else if (imgCurrentDecision.name == Fix.VENOM_SLASH) { CurrentPlayer.VenomSlash++; }
+    else if (imgCurrentDecision.name == Fix.ENERGY_BOLT) { CurrentPlayer.EnergyBolt++; }
+    else if (imgCurrentDecision.name == Fix.SHIELD_BASH) { CurrentPlayer.ShieldBash++; }
+    else if (imgCurrentDecision.name == Fix.AURA_OF_POWER) { CurrentPlayer.AuraOfPower++; }
+    else if (imgCurrentDecision.name == Fix.DISPEL_MAGIC) { CurrentPlayer.DispelMagic++; }
+    else if (imgCurrentDecision.name == Fix.TRUE_SIGHT) { CurrentPlayer.TrueSight++; }
+    else if (imgCurrentDecision.name == Fix.HEART_OF_LIFE) { CurrentPlayer.HeartOfLife++; }
+    else if (imgCurrentDecision.name == Fix.DARK_AURA) { CurrentPlayer.DarkAura++; }
+    else if (imgCurrentDecision.name == Fix.ORACLE_COMMAND) { CurrentPlayer.OracleCommand++; }
+
+
     else if (imgCurrentDecision.name == Fix.FLAME_BLADE) { CurrentPlayer.FlameBlade++; }
     else if (imgCurrentDecision.name == Fix.METEOR_BULLET) { CurrentPlayer.MeteorBullet++; }
     else if (imgCurrentDecision.name == Fix.FLAME_STRIKE) { CurrentPlayer.FlameStrike++; }
     else if (imgCurrentDecision.name == Fix.LAVA_ANNIHILATION) { CurrentPlayer.LavaAnnihilation++; }
-    else if (imgCurrentDecision.name == Fix.ICE_NEEDLE) { CurrentPlayer.IceNeedle++; }
     else if (imgCurrentDecision.name == Fix.PURE_PURIFICATION) { CurrentPlayer.PurePurification++; }
     else if (imgCurrentDecision.name == Fix.BLUE_BULLET) { CurrentPlayer.BlueBullet++; }
     else if (imgCurrentDecision.name == Fix.FREEZING_CUBE) { CurrentPlayer.FreezingCube++; }
     else if (imgCurrentDecision.name == Fix.FROST_LANCE) { CurrentPlayer.FrostLance++; }
-    else if (imgCurrentDecision.name == Fix.FRESH_HEAL) { CurrentPlayer.FreshHeal++; }
     else if (imgCurrentDecision.name == Fix.DIVINE_CIRCLE) { CurrentPlayer.DivineCircle++; }
     else if (imgCurrentDecision.name == Fix.HOLY_BREATH) { CurrentPlayer.HolyBreath++; }
     else if (imgCurrentDecision.name == Fix.SANCTION_FIELD) { CurrentPlayer.SanctionField++; }
     else if (imgCurrentDecision.name == Fix.VALKYRIE_BREAK) { CurrentPlayer.ValkyrieBreak++; }
-    else if (imgCurrentDecision.name == Fix.SHADOW_BLAST) { CurrentPlayer.ShadowBlast++; }
     else if (imgCurrentDecision.name == Fix.BLOOD_SIGN) { CurrentPlayer.BloodSign++; }
     else if (imgCurrentDecision.name == Fix.BLACK_CONTRACT) { CurrentPlayer.BlackContract++; }
     else if (imgCurrentDecision.name == Fix.WHISPER_VOICE) { CurrentPlayer.WhisperVoice++; }
     else if (imgCurrentDecision.name == Fix.ABYSS_EYE) { CurrentPlayer.AbyssEye++; }
-    else if (imgCurrentDecision.name == Fix.STRAIGHT_SMASH) { CurrentPlayer.StraightSmash++; }
     else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_BLADE) { CurrentPlayer.StanceOfTheBlade++; }
     else if (imgCurrentDecision.name == Fix.DOUBLE_SLASH) { CurrentPlayer.DoubleSlash++; }
     else if (imgCurrentDecision.name == Fix.WAR_SWING) { CurrentPlayer.WarSwing++; }
     else if (imgCurrentDecision.name == Fix.KINETIC_SMASH) { CurrentPlayer.KineticSmash++; }
-    else if (imgCurrentDecision.name == Fix.SHIELD_BASH) { CurrentPlayer.ShieldBash++; }
     else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_GUARD) { CurrentPlayer.StanceOfTheGuard++; }
     else if (imgCurrentDecision.name == Fix.CONCUSSIVE_HIT) { CurrentPlayer.ConcussiveHit++; }
     else if (imgCurrentDecision.name == Fix.DOMINATION_FIELD) { CurrentPlayer.DominationField++; }
     else if (imgCurrentDecision.name == Fix.OATH_OF_AEGIS) { CurrentPlayer.OathOfAegis++; }
-    else if (imgCurrentDecision.name == Fix.HUNTER_SHOT) { CurrentPlayer.HunterShot++; }
     else if (imgCurrentDecision.name == Fix.MULTIPLE_SHOT) { CurrentPlayer.MultipleShot++; }
     else if (imgCurrentDecision.name == Fix.EYE_OF_THE_TRUTH) { CurrentPlayer.EyeOfTheTruth++; }
     else if (imgCurrentDecision.name == Fix.HAWK_EYE) { CurrentPlayer.HawkEye++; }
     else if (imgCurrentDecision.name == Fix.PIERCING_ARROW) { CurrentPlayer.PiercingArrow++; }
-    else if (imgCurrentDecision.name == Fix.VENOM_SLASH) { CurrentPlayer.VenomSlash++; }
     else if (imgCurrentDecision.name == Fix.INVISIBLE_BIND) { CurrentPlayer.InvisibleBind++; }
     else if (imgCurrentDecision.name == Fix.IRREGULAR_STEP) { CurrentPlayer.IrregularStep++; }
     else if (imgCurrentDecision.name == Fix.DISSENSION_RHYTHM) { CurrentPlayer.DissensionRhythm++; }
     else if (imgCurrentDecision.name == Fix.ASSASSINATION_HIT) { CurrentPlayer.AssassinationHit++; }
-    else if (imgCurrentDecision.name == Fix.AURA_OF_POWER) { CurrentPlayer.AuraOfPower++; }
     else if (imgCurrentDecision.name == Fix.SKY_SHIELD) { CurrentPlayer.SkyShield++; }
     else if (imgCurrentDecision.name == Fix.STORM_ARMOR) { CurrentPlayer.StormArmor++; }
    // else if (imgCurrentDecision.name == Fix.AETHER_DRIVE) { CurrentPlayer.AetherDrive++; }
     else if (imgCurrentDecision.name == Fix.RUNE_STRIKE) { CurrentPlayer.RuneStrike++; }
-    else if (imgCurrentDecision.name == Fix.DISPEL_MAGIC) { CurrentPlayer.DispelMagic++; }
     else if (imgCurrentDecision.name == Fix.FLASH_COUNTER) { CurrentPlayer.FlashCounter++; }
     else if (imgCurrentDecision.name == Fix.MUTE_IMPULSE) { CurrentPlayer.MuteImpulse++; }
     else if (imgCurrentDecision.name == Fix.DETACHMENT_FAULT) { CurrentPlayer.DetachmentFault++; }
     else if (imgCurrentDecision.name == Fix.PHANTOM_OBORO) { CurrentPlayer.PhantomOboro++; }
-    else if (imgCurrentDecision.name == Fix.HEART_OF_LIFE) { CurrentPlayer.HeartOfLife++; }
     else if (imgCurrentDecision.name == Fix.FORTUNE_SPIRIT) { CurrentPlayer.FortuneSpirit++; }
     else if (imgCurrentDecision.name == Fix.VOICE_OF_VIGOR) { CurrentPlayer.VoiceOfVigor++; }
     else if (imgCurrentDecision.name == Fix.SIGIL_OF_THE_FAITH) { CurrentPlayer.SigilOfTheFaith++; }
     else if (imgCurrentDecision.name == Fix.RAGING_STORM) { CurrentPlayer.RagingStorm++; }
-    else if (imgCurrentDecision.name == Fix.ORACLE_COMMAND) { CurrentPlayer.OracleCommand++; }
     else if (imgCurrentDecision.name == Fix.SPIRITUAL_REST) { CurrentPlayer.SpiritualRest++; }
     else if (imgCurrentDecision.name == Fix.ZERO_IMMUNITY) { CurrentPlayer.ZeroImmunity++; }
     else if (imgCurrentDecision.name == Fix.ESSENCE_OVERFLOW) { CurrentPlayer.EssenceOverflow++; }
@@ -951,6 +961,24 @@ public partial class HomeTown : MotherBase
     if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13; }
     if (sender.text == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14; }
     if (sender.text == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15; }
+
+    if (sender.text == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21; }
+    if (sender.text == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22; }
+    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23; }
+    if (sender.text == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24; }
+    if (sender.text == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25; }
+
+    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_31; }
+    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_32; }
+    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_33; }
+    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_34; }
+    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_35; }
+
+    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_41; }
+    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_42; }
+    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_43; }
+    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_44; }
+    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_45; }
   }
 
   public void TapInnAccept(Text sender)
@@ -1432,29 +1460,53 @@ public partial class HomeTown : MotherBase
 
     // 制限開放の分だけ、リスト生成する。
     List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
-    if (One.TF.AvailableFirstCommand)
+    if (One.TF.AvailableAllCommand)
     {
-      Debug.Log("Detect AvailableFirstCommand");
-      NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-      current.CommandAttribute = player.FirstCommandAttribute;
-      CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-      attributeList.Add(current);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Fire);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Wind);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Earth);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Archer);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Rogue);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.WonderHermit);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Armorer);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.EnhanceForm);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.MysticForm);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Brave);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Vengeance);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
     }
-    if (One.TF.AvailableSecondCommand)
+    else
     {
-      Debug.Log("Detect AvailableSecondCommand");
-      NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-      current.CommandAttribute = player.SecondCommandAttribute;
-      CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-      attributeList.Add(current);
-    }
-    if (One.TF.AvailableThirdCommand)
-    {
-      Debug.Log("Detect AvailableThirdCommand");
-      NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-      current.CommandAttribute = player.ThirdCommandAttribute;
-      CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-      attributeList.Add(current);
+      if (One.TF.AvailableFirstCommand)
+      {
+        Debug.Log("Detect AvailableFirstCommand");
+        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+        current.CommandAttribute = player.FirstCommandAttribute;
+        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+        attributeList.Add(current);
+      }
+      if (One.TF.AvailableSecondCommand)
+      {
+        Debug.Log("Detect AvailableSecondCommand");
+        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+        current.CommandAttribute = player.SecondCommandAttribute;
+        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+        attributeList.Add(current);
+      }
+      if (One.TF.AvailableThirdCommand)
+      {
+        Debug.Log("Detect AvailableThirdCommand");
+        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+        current.CommandAttribute = player.ThirdCommandAttribute;
+        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+        attributeList.Add(current);
+      }
     }
 
     // アクションコマンドリストを表示する。
@@ -1470,8 +1522,8 @@ public partial class HomeTown : MotherBase
       }
 
       // トータル１以上であれば表示。それ以外はLOCKED表示とする。
-      if (totalValue > 0)
-      {
+//      if (totalValue > 0)
+//      {
         Debug.Log("Detect totalValue: " + totalValue.ToString());
         attributeList[ii].lockPanel.SetActive(false);
         attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
@@ -1498,28 +1550,36 @@ public partial class HomeTown : MotherBase
             //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
           }
         }
-      }
-      else
-      {
+      //}
+      //else
+      //{
         Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
-        attributeList[ii].lockPanel.SetActive(true);
-        attributeList[ii].txtName.text = String.Empty;
-        attributeList[ii].txtTotal.text = String.Empty;
-        attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
-        for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
-        {
-          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
-        }
-        for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
-        {
-          attributeList[ii].txtACElement[jj].text = string.Empty;
-        }
-        for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
-        {
-          attributeList[ii].txtACPlus[jj].text = string.Empty;
-        }
-      }
+        //attributeList[ii].lockPanel.SetActive(true);
+        //attributeList[ii].txtName.text = String.Empty;
+        //attributeList[ii].txtTotal.text = String.Empty;
+        //attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
+        //for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
+        //{
+        //  attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
+        //}
+        //for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
+        //{
+        //  attributeList[ii].txtACElement[jj].text = string.Empty;
+        //}
+        //for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
+        //{
+        //  attributeList[ii].txtACPlus[jj].text = string.Empty;
+        //}
+      //}
     }
+  }
+
+  private void CreateACAttribute(List<NodeACAttribute> list,  Fix.CommandAttribute attribute)
+  {
+    NodeACAttribute current = Instantiate(NodeACAttribute);
+    current.CommandAttribute = attribute;
+    CreateACAttribute(ContentActionCommandSetting, current, list.Count);
+    list.Add(current);
   }
 
   private void CreateMiniCharaIcon(Character player)
@@ -1838,12 +1898,7 @@ public partial class HomeTown : MotherBase
     }
 
     // 食事メニュー
-    List<string> listFoodMenu = new List<string>();
-    listFoodMenu.Add(Fix.FOOD_KATUCARRY);
-    listFoodMenu.Add(Fix.FOOD_OLIVE_AND_ONION);
-    listFoodMenu.Add(Fix.FOOD_INAGO_AND_TAMAGO);
-    listFoodMenu.Add(Fix.FOOD_USAGI);
-    listFoodMenu.Add(Fix.FOOD_SANMA);
+    List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
     for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
     {
       txtFoodMenuList[ii].text = listFoodMenu[ii];
