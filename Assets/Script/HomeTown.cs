@@ -227,6 +227,8 @@ public partial class HomeTown : MotherBase
   public Text txtCustomEvent1;
   public Button btnCustomEvent2;
   public Text txtCustomEvent2;
+  public Button btnCustomEvent3;
+  public Text txtCustomEvent3;
 
   public GameObject groupNowLoading;
   public SaveLoad groupSaveLoad;
@@ -398,6 +400,16 @@ public partial class HomeTown : MotherBase
       MessagePack.Message500019(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+    if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE && (One.TF.Event_Message1100020 == false || One.TF.Event_Message1100030 == false || One.TF.Event_Message1100040 == false))
+    {
+      MessagePack.Message1100011(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE && (One.TF.Event_Message1100050 == false && One.TF.Event_Message1100020 && One.TF.Event_Message1100030 && One.TF.Event_Message1100040))
+    {
+      MessagePack.Message1100050(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
 
     if (GroupDungeonPlayer.activeInHierarchy)
     {
@@ -558,19 +570,89 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
+    if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    {
+      if (One.TF.Event_Message1100020 == false)
+      {
+        MessagePack.Message1100020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
   }
 
   public void TapCustomEvent2()
   {
-
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400030 == false)
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
-      MessagePack.Message400030(ref QuestMessageList, ref QuestEventList); TapOK();
+      if (One.TF.Event_Message400030 == false)
+      {
+        MessagePack.Message400030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    {
+      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    {
+      if (One.TF.Event_Message1100030 == false)
+      {
+        MessagePack.Message1100030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
     else
     {
-      MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+  }
+
+  public void TapCustomEvent3()
+  {
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    {
+      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    {
+      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    {
+      if (One.TF.Event_Message1100040 == false)
+      {
+        MessagePack.Message1100040(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    else
+    {
+      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
   }
@@ -1096,6 +1178,9 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_00021 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_00022 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_00023 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_24)) { One.TF.QuestMain_00024 = true; }
           RefreshQuestList();
           return;
         }
@@ -1151,6 +1236,9 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_Complete_00011 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_Complete_00020 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_Complete_00021 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_Complete_00022 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_Complete_00023 = true; }
+          if (currentMessage.Contains(Fix.QUEST_TITLE_24)) { One.TF.QuestMain_Complete_00024 = true; }
           RefreshAllView();
           return;
         }
@@ -1844,6 +1932,15 @@ public partial class HomeTown : MotherBase
       btnCustomEvent2.gameObject.SetActive(false);
       txtCustomEvent2.text = "";
     }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+    {
+      btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "中央噴水広場";
+      btnCustomEvent2.gameObject.SetActive(true);
+      txtCustomEvent2.text = "ワッツの民芸品店";
+      btnCustomEvent3.gameObject.SetActive(true);
+      txtCustomEvent3.text = "占いの館：アミンダ";
+    }
 
     // キャラクター情報を画面へ反映
     for (int ii = 0; ii < CharaViewList.Count; ii++)
@@ -1929,6 +2026,9 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00011) { AddQuestEvent(Fix.QUEST_TITLE_11, One.TF.QuestMain_Complete_00011, counter); counter++; }
     if (One.TF.QuestMain_00020) { AddQuestEvent(Fix.QUEST_TITLE_20, One.TF.QuestMain_Complete_00020, counter); counter++; }
     if (One.TF.QuestMain_00021) { AddQuestEvent(Fix.QUEST_TITLE_21, One.TF.QuestMain_Complete_00021, counter); counter++; }
+    if (One.TF.QuestMain_00022) { AddQuestEvent(Fix.QUEST_TITLE_22, One.TF.QuestMain_Complete_00022, counter); counter++; }
+    if (One.TF.QuestMain_00023) { AddQuestEvent(Fix.QUEST_TITLE_23, One.TF.QuestMain_Complete_00023, counter); counter++; }
+    if (One.TF.QuestMain_00024) { AddQuestEvent(Fix.QUEST_TITLE_24, One.TF.QuestMain_Complete_00024, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -1969,6 +2069,9 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_11) { txtEventDescription.text = Fix.QUEST_DESC_11; }
     if (quest_name == Fix.QUEST_TITLE_20) { txtEventDescription.text = Fix.QUEST_DESC_20; }
     if (quest_name == Fix.QUEST_TITLE_21) { txtEventDescription.text = Fix.QUEST_DESC_21; }
+    if (quest_name == Fix.QUEST_TITLE_22) { txtEventDescription.text = Fix.QUEST_DESC_22; }
+    if (quest_name == Fix.QUEST_TITLE_23) { txtEventDescription.text = Fix.QUEST_DESC_23; }
+    if (quest_name == Fix.QUEST_TITLE_24) { txtEventDescription.text = Fix.QUEST_DESC_24; }
 
     // クエスト到達状況に応じて、テキスト文章を更新する。
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)
@@ -1983,6 +2086,10 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_11 && One.TF.Event_Message800090)
     {
       txtEventDescription.text = Fix.QUEST_DESC_11_2;
+    }
+    if (quest_name == Fix.QUEST_TITLE_21 && One.TF.Event_Message1100010)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_21_2;
     }
   }
 }

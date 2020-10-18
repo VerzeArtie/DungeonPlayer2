@@ -195,6 +195,11 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
   }
 
+  public static void MessageX00007(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：何もねえな・・・戻るとするか。", ActionEvent.None);
+  }
+
   #region "アンシェットの街"
   public static void Message100010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -5547,6 +5552,457 @@ public static class MessagePack
   #region "アーケンダインの街"
   public static void Message1100010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message1100010 == false)
+    {
+      One.TF.Event_Message1100010 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、アーケンダイン街に着いたみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ここも結構にぎわってるわね。あちこちにお店があるわよ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ、すみません。みなさん・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：私、どうしても寄りたい所があるので行ってきても良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、おお。俺は別に構わないぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ビリー、お前もどっか行っていいぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なんで俺に振ってんだよ。俺は別にどっか行きてーわけじゃねぇ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ、冗談だよ。気にするなって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：では・・・すみませんが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、またな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ エオネ・フルネアはパーティを一旦離脱しました ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・本当に行っちゃったわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いの？アイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし。じゃあ、国王から受けていた依頼をこなしますか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：依頼って何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：聞き込みだよ。アーケンダイン街で色々と情報収集してくれって言われている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何を聞き出すんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そりゃあ、色々な事だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：てめぇ、もう少し説明しろっつうの。適当すぎるだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこのバカには何を言っても無駄よ。まともに相手すると疲れるだけよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジっすか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：い、いや悪かった。まあ簡単に解説しておくとあれだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーランの塔で見た件と、ツァルマンの里で強引に足止めを食らってしまった件なんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、その前にアーサリウム工場跡地で見つけたアイテムも気になってる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ていうか、最初にラナが受けもらっていた剣も知る必要が・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：わ、分かった。てめぇに聞いた俺が悪かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、そういう事だ。まずは何はともあれ情報収集をしよう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】が更新されました！", ActionEvent.QuestUpdate);
+    }
+  }
+
+  public static void Message1100011(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：いや、このアーケンダイン街をもう少し探索を続けよう。", ActionEvent.None);
+
+  }
+
+  public static void Message1100020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1100020 == false)
+    {
+      One.TF.Event_Message1100020 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おおー、ここはまた大きい広場に出たな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ♪　大きい噴水があるわね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：人もそれなりに結構いるんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、色んな人が行き来している場所。ラナ、聞き込みとは得意か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私はそういうのはちょっと不得手ね。初対面の人とはあまり上手く話せないわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあビリー！聞き込みの方は頼んだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ。で、何聞いてくんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ひとまずは妙な伝説とか、あまり聞かない噂話とかをあたってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：初対面にそんなワケわかんねー内容聞けるかよ。もうちっと具体的に言え。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・じゃあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ツァルマンの里に行った事が人を探してきてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ちょ待てよ。今、ツァルマンの里っつったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。俺の読み通りなら、おそらく少しは居るはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：頼んだぜ。ビリー。お前はここぞという時、本当に頼りになる！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おぉ！任せとけっつんだ！じゃ行ってくるぞ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ しばらくして ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ！聞いてきたぜ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おー！サンキューサンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：しかし、ツァルマンの里に行った事はあると言っても、だいぶ昔の話らしいぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、別に良いんだ。で、どんな事を言ってた？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そうだな。昔は交易も少々あって特産品の売買をやってたらしいぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：交易のルートは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そりゃあ当然ファージル国を通って、港町コチューシェに寄ってから山登りで決まりだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう言ってたのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ああ、そうだな。ファージル国王には感謝の意が絶えないとか何とか言ってたぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あ、そういやもう１個重要な事言ってたぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どんな内容だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ツァルマンの里には、「神秘の森」っていう不可侵なエリアがあるらしいぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：「神秘の森」・・・か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあウワサ程度の話らしいけどな。本人も直接入って見たわけじゃねえって言ってたぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、そうかそうか。いや、サンキューな！　助かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジ助かってんのか？ま、別に良いけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：【神秘の森】か・・・今はこのエリアの探索が先だが、後でツァルマンの里にもう一度赴いても良いかもな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：俺はいつでも行けるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ、ありがとな。じゃあ【神秘の森】も行く計画ぐらいは立てておくか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おうよ！頼んだぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_22 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+    }
+  }
+  public static void Message1100030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1100030 == false)
+    {
+      One.TF.Event_Message1100030 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ワッツの民芸品店・・・", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "アイン：ラナ、お前こういう場所だったら聞き込み行けるんじゃねえのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：て、あれ？どこ行ったんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：もうその店ん中に入っちまったぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか。やる気十分って所だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあちょっと雰囲気見てくる。ビリー、ここで待っててくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインがワッツの民芸品店に入った途端・・・　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：キャーーーーーー！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っな！！　だ、大丈夫か！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：見てこれ！！すごい可愛いわ♪♪♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、これも良いわね♪　あれもこれも素敵な物ばかりね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ、アイン。これも良いと思わない？ちっちゃくて可愛いし♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、おぉ。まあそうだな、ッハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "店員：ようこそいらっしゃいました。どうぞ、ゆっくりと店内をご覧ください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ店員さん。このアクセサリーの他に、一体どういった物があるの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "店員：オススメ商品ですね、どうぞこちらへ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ありがと♪こっちも見てみるわ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナは店員と共に店の奥へと消えていった・・・ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（なるほど、どうやらあの様子だと「聞き込み」では無さそうだな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（かと言って俺がこの店内で聞き込むとかなり違和感があるしな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ふう。ちょうどここが裏口か。一旦外に出てみるか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　店の裏口にて ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（さてと、どうすっかな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ハイ。全ては手筈通りです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ん？　壁の向こうから何か声が聞こえる・・・誰だ？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：手筈通りと申したな。それだけかね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：す！すみません！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：エオネ・フルネア。期待値通りの結果を持って、報告のみ。それでは貴君を遣わした意味が無いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ッハ・・・ハイ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ま、まさか・・・エオネか？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：分かっておるな。狙いは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ハイ。目的の・・・物は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：待て。その名称を口にしてはならん。もう少しこちらへ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：（・・・　で・・・）　（・・・それ　・・　に　・・・ついては・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ん？何だ、聞き取りにくくなったぞ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・　ではなく・・・）　（・・・あれに・・・）　（・・・とはいえ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・　と考えた所・・・）　（・・・となる様に　・・・　） （・・・　・・・のシナリオで・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：（・・・　が良いだろう・・・）　（・・・パルメテイシア神殿・・・）　（では・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ハイ、分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ふむ。では行くがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（どうやら会話は終わったようだな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（重要な部分が今一つ聞こえなかったが・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（パルメティシア神殿。そこだけは聞き取れたな。）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（さてと・・・どうしたものか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（エオネ・・・お前一体・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あら、バカアイン。そんなところにいたのね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、ボケアイン。てめ聞いてんのかよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『ズドゴシッシャアアァァァ！！！』（ラナのアブソリュート・ストライクがアインに炸裂）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_24 + " 】が開始されました！", ActionEvent.GetNewQuest);
+
+    }
+  }
+  public static void Message1100040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1100040 == false)
+    {
+      One.TF.Event_Message1100040 = true;
+      Message(ref m_list, ref e_list, "アイン：こんちわー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：あら・・・いらっしゃい・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと占ってもらえますかね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：何を・・・占って欲しいのかしら・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：えっ・・・じゃ、どれにしようかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：迷ってる・・・ようですわね・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あっ・・・まあ・・・はい・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：では・・・そのまま・・・で・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：え、ええ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　占い師はスっと目を閉じた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "占い師：・・・いきます・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：お告げが・・・出ました・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ど・・・どうでしょうか・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：探し人・・・見つからず・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：探すべき物・・・神より隠されたまま・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：隠されしは・・・悠久なる古代への・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：物語・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：です", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：な・・・なるほど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：つまり・・・・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー（外からの声）：おいアイン！！なげーぞコラァ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ゲッ、うるさ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：他に・・・何か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、じゃあ１件だけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：空に赤い星が見えているだろ。あれについて何か知らないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：良いでしょう。合格です。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：え？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：あなたにはこれを差し上げましょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 " + Fix.MARBLE_STAR + " 】を獲得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, Fix.MARBLE_STAR, ActionEvent.GetItem);
+
+      Message(ref m_list, ref e_list, "アイン：こ、これは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：それを持って、旅を続けると良いでしょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "占い師：では・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、どうも。じゃあ失礼いたします。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アインは占いの館から外に出た　～　", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：よお！すげー長かったみたいだが、どうだったよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：占ってもらった。面白かったぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうじゃないでしょ。で、何か収穫はあったわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もちろんだ。これを見てみろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で・・・それは何なわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：" + Fix.MARBLE_STAR + "だよ。どうだ、良いものもらっただろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：使い道はちゃんと教えてもらえたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：【良き旅を】とは伝えられたぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：情報収集しに行ったのに、またワケわかんない話増やしてどーすんのよ、まったく・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあまあ・・・これはこれで・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ボケアイン。てめぇ、ともかくキッチリ解決していけよ。分かってんだろうな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった分かったって。任せておけって。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_23 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    }
+  }
+
+  public static void Message1100050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1100050 == false)
+    {
+      One.TF.Event_Message1100050 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、大体一通り回ってって所だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、これからどうするのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、好きなように進んでみるさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いやそうじゃねえだろ。目星ぐらい付いてんだろって話してんだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ、悪い悪い。ええとだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず第一候補は、例のマーブル・スターが何なのかを探る事だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：占い屋でもらってきたやつか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：他に候補は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：第二候補はツァルマンの里に赴いて、【秘境の森】の調査だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、あと残るは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：えっ、まだ何かあるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。そうか言ってなかったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：黙っていたが・・・第三候補は、パルメティシア神殿だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、場所についてはこれからだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：パルメティシア神殿の事ね。それなら、ここから少し北に行けばあるみたいよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なに、マジかよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おお。その神殿なら俺も知ってるぜ。結構有名だしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ビリー！お前も知ってたのか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前こそ、むしろ知らなかったのが驚きだぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだったのか・・・俺はてっきり重要な秘密情報を聞いた気がしたんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何よそれ。アンタ何か聞いたワケ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：い、いやいや。単にすれ違いで聞いただけさ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ良いけど。じゃ、どうするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、特に決め事は無しだ。行きたい方に行こうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：相変わらずテキトーよね。じゃあ基本は任せるからちゃんと行動してよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっしゃ、任せとけ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ViewQuestDisplay);
+    }
   }
   #endregion
 
