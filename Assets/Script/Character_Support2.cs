@@ -44,7 +44,7 @@ public partial class Character : MonoBehaviour
         this.BaseLife = 50;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
@@ -55,7 +55,7 @@ public partial class Character : MonoBehaviour
         this.StraightSmash = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.STRAIGHT_SMASH;
         this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
@@ -69,18 +69,18 @@ public partial class Character : MonoBehaviour
         this.BaseLife = 40;
         this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Rogue;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
-        this.AvailableRogue = true;
-        this.VenomSlash = 1;
+        this.AvailableIce = true;
+        this.IceNeedle = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.NORMAL_ATTACK;
+        this.GlobalAction3 = Fix.ICE_NEEDLE;
         this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
@@ -119,7 +119,7 @@ public partial class Character : MonoBehaviour
         this.BaseLife = 50;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.BattleBackColor = Fix.COLOR_FOURTH_CHARA;
@@ -130,8 +130,8 @@ public partial class Character : MonoBehaviour
         this.StraightSmash = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.NORMAL_ATTACK;
-        this.GlobalAction4 = Fix.NORMAL_ATTACK;
+        this.GlobalAction3 = Fix.STRAIGHT_SMASH;
+        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -141,10 +141,12 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 7;
         this.Stamina = 6;
         this.Mind = 3;
+        this.BaseLife = 45;
+        this.BaseSoulPoint = 12;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Warrior;
         this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
@@ -165,22 +167,34 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_SELMOI_RO:
         this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
+        this.Strength = 3;
+        this.Agility = 20;
+        this.Intelligence = 9;
+        this.Stamina = 4;
+        this.Mind = 8;
+        this.BaseLife = 35;
+        this.BaseSoulPoint = 20;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.MysticForm;
+        this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
+        this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
+        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
+        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
+        this.AvailableMysticForm = true;
+        this.DispelMagic = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.DispelMagic;
+        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_KARTIN_MAI:
@@ -191,22 +205,29 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_JEDA_ARUS:
         this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
-        this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.Strength = 7;
+        this.Agility = 6;
+        this.Intelligence = 7;
+        this.Stamina = 4;
+        this.Mind = 3;
+        this.BaseLife = 35;
+        this.BaseSoulPoint = 25;
+        this.Job = Fix.JobClass.Seeker;
+        this.FirstCommandAttribute = Fix.CommandAttribute.DarkMagic;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.ShadowBlast = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.SHADOW_BLAST;
+        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_SINIKIA_VEILHANZ:
@@ -217,7 +238,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -230,7 +251,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -243,7 +264,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -256,7 +277,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -268,10 +289,22 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 1;
         this.Stamina = 1;
         this.Mind = 1;
+        this.Strength = 4;
+        this.Agility = 10;
+        this.Intelligence = 5;
+        this.Stamina = 5;
+        this.Mind = 3;
+        this.BaseLife = 40;
+        this.BaseSoulPoint = 16;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Archer;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.HunterShot = 1;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.GlobalAction3 = Fix.HUNTER_SHOT;
+        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_CALMANS_OHN:
@@ -282,7 +315,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -295,7 +328,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -308,7 +341,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -321,7 +354,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -334,7 +367,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -347,7 +380,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -360,7 +393,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -373,7 +406,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
@@ -386,7 +419,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Swordman;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
