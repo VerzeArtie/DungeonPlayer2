@@ -521,6 +521,11 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _event_field_10 = false;
   public bool EventField_10 { get { return _event_field_10; } set { _event_field_10 = value; } }
+  protected bool _event_field_20 = false;
+  public bool EventField_20 { get { return _event_field_20; } set { _event_field_20 = value; } }
+  protected bool _event_field_20_GetName = false;
+  public bool EventField_20_GetName { get { return _event_field_20_GetName; } set { _event_field_20_GetName = value; } }
+
 
   [SerializeField] protected bool _event_message200010 = false;
   public bool Event_Message200010

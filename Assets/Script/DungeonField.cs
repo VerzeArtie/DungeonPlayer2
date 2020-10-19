@@ -2947,6 +2947,12 @@ public class DungeonField : MotherBase
         MessagePack.Field_000010(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+
+      if (LocationDetect(tile, -100, 2, 80))
+      {
+        MessagePack.Field_000020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
     {

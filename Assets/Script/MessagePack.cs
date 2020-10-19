@@ -806,6 +806,79 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：オーケー！じゃ、早速通過させてもらうとしますか！", ActionEvent.None);
     }
   }
+
+  public static void Field_000020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventField_20_GetName == false)
+    {
+      if (One.TF.EventField_20 == false)
+      {
+        One.TF.EventField_20 = true;
+
+        Message(ref m_list, ref e_list, "アイン：あ、やっぱ門番らしき人物が居るな・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：あの野郎。ここは通さねえってオーラ出しまくってやがるな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ま、まあそう言わず、まずは一応声をかけてみよう。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　アインは門番の前に近寄っていった　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "アイン：こんにちわー。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：名を何と申す。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスという者です。よろしくお願いいたします。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：其方の名は、天より授けられし名称であるか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：っな、いや、俺の名は・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：名を名乗れぬ以上、通すわけには行かぬ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：お引き取りを。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ちょっと待ってくれ。この【ムーンフォーダー区域遠征許可証】じゃダメなのか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：お引き取りを。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：は・・・はい・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　アイン、そのまま引き返してきた　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ラナ：で、駄目だったわけ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあそうだな。基本は通してくれなさそうだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：許可証ちゃんと見せたのかよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：見せてはいるが・・・どうもそれだけじゃ駄目みたいだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どういう意味よ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：天の名を名乗れと言われた。そういうオカルト的なのはお手上げだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ふーーん、そうなの。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：まあ、第一はまず神殿に行った方が良いんじゃないのかしら？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：やっぱそうかな。ここは一旦引き下がるとするか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "門番：名を何と申す。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスという者です。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：其方の名は、天より授けられし名称に非ず。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "門番：お引き取りを。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+      }
+    }
+  }
   #endregion
 
   #region "クヴェルタ街"
