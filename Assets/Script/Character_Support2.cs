@@ -193,7 +193,7 @@ public partial class Character : MonoBehaviour
         this.DispelMagic = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.DispelMagic;
+        this.GlobalAction3 = Fix.DISPEL_MAGIC;
         this.GlobalAction4 = Fix.DEFENSE;
         break;
 
