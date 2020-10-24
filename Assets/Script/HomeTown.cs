@@ -344,6 +344,11 @@ public partial class HomeTown : MotherBase
         MessagePack.Message1100010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1100050)
+      {
+        MessagePack.Message2200010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
   }
 
@@ -575,6 +580,19 @@ public partial class HomeTown : MotherBase
       if (One.TF.Event_Message1100020 == false)
       {
         MessagePack.Message1100020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    {
+      if (One.TF.Event_Message2200020 == false)
+      {
+        MessagePack.Message2200020(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
@@ -1924,6 +1942,8 @@ public partial class HomeTown : MotherBase
       txtCustomEvent1.text = "船着き場";
       btnCustomEvent2.gameObject.SetActive(true);
       txtCustomEvent2.text = "街はずれ";
+      btnCustomEvent3.gameObject.SetActive(false);
+      txtCustomEvent3.text = "";
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
@@ -1931,6 +1951,8 @@ public partial class HomeTown : MotherBase
       txtCustomEvent1.text = "長老の家";
       btnCustomEvent2.gameObject.SetActive(false);
       txtCustomEvent2.text = "";
+      btnCustomEvent3.gameObject.SetActive(false);
+      txtCustomEvent3.text = "";
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
     {
@@ -1940,6 +1962,15 @@ public partial class HomeTown : MotherBase
       txtCustomEvent2.text = "ワッツの民芸品店";
       btnCustomEvent3.gameObject.SetActive(true);
       txtCustomEvent3.text = "占いの館：アミンダ";
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    {
+      btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "中央神殿";
+      btnCustomEvent2.gameObject.SetActive(false);
+      txtCustomEvent2.text = "";
+      btnCustomEvent3.gameObject.SetActive(false);
+      txtCustomEvent3.text = "";
     }
 
     // キャラクター情報を画面へ反映
@@ -2090,6 +2121,10 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_21 && One.TF.Event_Message1100010)
     {
       txtEventDescription.text = Fix.QUEST_DESC_21_2;
+    }
+    if (quest_name == Fix.QUEST_TITLE_24 && One.TF.Event_Message2200020)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_24_2;
     }
   }
 }

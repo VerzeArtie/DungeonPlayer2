@@ -4602,6 +4602,10 @@ public class DungeonField : MotherBase
     {
       txtEventDescription.text = Fix.QUEST_DESC_21_2;
     }
+    if (quest_name == Fix.QUEST_TITLE_24 && One.TF.Event_Message2200020)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_24_2;
+    }
   }
 
   private int FindFieldObjectIndex(List<FieldObject> field_obj_list, Vector3 position)
