@@ -789,4 +789,34 @@ public partial class Fix
   public const float OHRANTOWER_WarpHole_26_Y = 44f;
   public const float OHRANTOWER_WarpHole_26_Z = 20f;
 
+  public const string GATEOFDHAL_DhalGate_Tile_1_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_1_O = "1";
+  public const float GATEOFDHAL_DhalGate_Tile_1_X = 20f;
+  public const float GATEOFDHAL_DhalGate_Tile_1_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_1_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_2_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_2_O = "2";
+  public const float GATEOFDHAL_DhalGate_Tile_2_X = 18f;
+  public const float GATEOFDHAL_DhalGate_Tile_2_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_2_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_3_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_3_O = "3";
+  public const float GATEOFDHAL_DhalGate_Tile_3_X = 16f;
+  public const float GATEOFDHAL_DhalGate_Tile_3_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_3_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_4_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_4_O = "4";
+  public const float GATEOFDHAL_DhalGate_Tile_4_X = 14f;
+  public const float GATEOFDHAL_DhalGate_Tile_4_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_4_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_5_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_5_O = "5";
+  public const float GATEOFDHAL_DhalGate_Tile_5_X = 12f;
+  public const float GATEOFDHAL_DhalGate_Tile_5_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_5_Z = 5f;
+
 }

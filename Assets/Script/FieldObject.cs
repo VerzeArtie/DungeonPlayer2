@@ -20,6 +20,8 @@ public class FieldObject : MonoBehaviour
     ObsidianStone,
     FloatingTile,
     WarpHole,
+    DhalGate_Tile,
+    DhalGate_Wall,
     Boss,
   }
 

@@ -45,6 +45,14 @@ public class TileInformation : MonoBehaviour
     Ohran_Wall = 2002,
     Ohran_FloatTile = 2003,
     Ohran_WarpHole = 2004,
+    // ヴェルガスの海底神殿
+    // 3000
+    // ダルの門
+    Dhal_Normal = 4001,
+    Dhal_Wall = 4002,
+    Dhal_NormalObj = 4003,
+    Dhal_WallObj = 4004,
+
   }
   public Field field = Field.Plain;
 
@@ -90,6 +98,11 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Ohran_FloatTile) { return 1; }
       if (field == Field.Ohran_WarpHole) { return 1; }
 
+      // ダルの門
+      if (field == Field.Dhal_Normal) { return 1; }
+      if (field == Field.Dhal_Wall) { return 999; }
+      if (field == Field.Dhal_NormalObj) { return 1; }
+      if (field == Field.Dhal_WallObj) { return 999; }
       return 999;
     }
   }

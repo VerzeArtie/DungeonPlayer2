@@ -879,6 +879,7 @@ public static partial class Fix
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
   public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
   public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
+  public const string MAPFILE_GATE_OF_DHAL = "MapData_GateOfDhal.txt";
   public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
   public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
   public const string MAPFILE_DISKEL = "MapData_Diskel.txt";

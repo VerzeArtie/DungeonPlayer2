@@ -60,6 +60,8 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Ohran_Wall;
   public TileInformation prefab_Ohran_FloatTile;
   public TileInformation prefab_Ohran_WarpHole;
+  public TileInformation prefab_Dhal_Normal;
+  public TileInformation prefab_Dhal_Wall;
   public TileInformation prefab_Upstair;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -73,6 +75,11 @@ public class DungeonField : MotherBase
   public FieldObject prefab_ObsidianStone;
   public FieldObject prefab_FloatingTile;
   public FieldObject prefab_WarpHole;
+  public FieldObject prefab_DhalGate;
+  public FieldObject prefab_LeverLeft;
+  public FieldObject prefab_LevelRight;
+  public FieldObject prefab_DhalGateTile;
+  public FieldObject prefab_DhalGateWall;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -212,6 +219,8 @@ public class DungeonField : MotherBase
     PrefabList.Add("Ohran_Wall");
     PrefabList.Add("Ohran_FloatTile");
     PrefabList.Add("Ohran_WarpHole");
+    PrefabList.Add("Dhal_Normal");
+    PrefabList.Add("Dhal_Wall");
     PrefabList.Add("Upstair");
 
     // オブジェクトリストの設定
@@ -224,6 +233,8 @@ public class DungeonField : MotherBase
     ObjectList.Add("ObsidianStone");
     ObjectList.Add("FloatingTile");
     ObjectList.Add("WarpHole");
+    ObjectList.Add("DhalGate_Tile");
+    ObjectList.Add("DhalGate_Wall");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -2124,6 +2135,37 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapHideView(int hide_floor)
+  {
+    Debug.Log("TapHideView");
+
+    for (int ii = 0; ii < TileList.Count; ii++)
+    {
+      if (TileList[ii].transform.position.y >= hide_floor)
+      {
+        TileList[ii].gameObject.SetActive(false);
+      }
+      else
+      {
+        TileList[ii].gameObject.SetActive(true);
+      }
+    }
+  }
+
+  public void TapHideViewRev(int hide_floor)
+  {
+    for (int ii = TileList.Count - 1; ii >= 0; ii--)
+    {
+      if (TileList[ii].transform.position.y <= hide_floor)
+      {
+        TileList[ii].gameObject.SetActive(false);
+      }
+      else
+      {
+        TileList[ii].gameObject.SetActive(true);
+      }
+    }
+  }
 
   public void TapEditMode()
   {
@@ -2948,6 +2990,7 @@ public class DungeonField : MotherBase
         return true;
       }
 
+      // パルメテイシア神殿
       if (LocationDetect(tile, -100, 2, 80))
       {
         MessagePack.Field_000020(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -3195,6 +3238,12 @@ public class DungeonField : MotherBase
       {
         this.DungeonMap = Fix.MAPFILE_GORATRUM;
         this.DungeonCall = Fix.DUNGEON_GORATRUM_CAVE;
+        return true;
+      }
+      if (tile.transform.position.x == -66 && tile.transform.position.y == 0.5f && tile.transform.position.z == 74)
+      {
+        this.DungeonMap = Fix.MAPFILE_GATE_OF_DHAL;
+        this.DungeonCall = Fix.DUNGEON_GATE_OF_DHAL;
         return true;
       }
       else if (tile.transform.position.x == -69 && tile.transform.position.y == 0 && tile.transform.position.z == 33)
@@ -3638,6 +3687,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Ohran_WarpHole, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Dhal_Normal")
+    {
+      current = Instantiate(prefab_Dhal_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Dhal_Wall")
+    {
+      current = Instantiate(prefab_Dhal_Wall, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Upstair")
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
@@ -3724,6 +3781,22 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_WarpHole, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.WarpHole;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "DhalGate_Tile")
+    {
+      current = Instantiate(prefab_DhalGateTile, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.DhalGate_Tile;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "DhalGate_Wall")
+    {
+      current = Instantiate(prefab_DhalGateWall, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.DhalGate_Wall;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
