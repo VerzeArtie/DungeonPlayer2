@@ -894,4 +894,6 @@ public static partial class Fix
   public static int MAX_ITEM_STACK_SIZE = 10;
   public static int MAX_TEAM_MEMBER = 4;
   #endregion
+
+  public static string MARBLE_STAR = "マーブル・スター";
 }

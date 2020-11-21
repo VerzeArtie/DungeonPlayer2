@@ -819,4 +819,364 @@ public partial class Fix
   public const float GATEOFDHAL_DhalGate_Tile_5_Y = 0f;
   public const float GATEOFDHAL_DhalGate_Tile_5_Z = 5f;
 
+  public const string GATEOFDHAL_DhalGate_Tile_6_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_6_O = "6";
+  public const float GATEOFDHAL_DhalGate_Tile_6_X = -19f;
+  public const float GATEOFDHAL_DhalGate_Tile_6_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_6_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_7_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_7_O = "7";
+  public const float GATEOFDHAL_DhalGate_Tile_7_X = -21f;
+  public const float GATEOFDHAL_DhalGate_Tile_7_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_7_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_8_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_8_O = "8";
+  public const float GATEOFDHAL_DhalGate_Tile_8_X = -23f;
+  public const float GATEOFDHAL_DhalGate_Tile_8_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_8_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_9_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_9_O = "9";
+  public const float GATEOFDHAL_DhalGate_Tile_9_X = -25f;
+  public const float GATEOFDHAL_DhalGate_Tile_9_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_9_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_10_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_10_O = "10";
+  public const float GATEOFDHAL_DhalGate_Tile_10_X = -27f;
+  public const float GATEOFDHAL_DhalGate_Tile_10_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_10_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_11_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_11_O = "11";
+  public const float GATEOFDHAL_DhalGate_Tile_11_X = -29f;
+  public const float GATEOFDHAL_DhalGate_Tile_11_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_11_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Door_1_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_1_O = "1";
+  public const float GATEOFDHAL_DhalGate_Door_1_X = 44f;
+  public const float GATEOFDHAL_DhalGate_Door_1_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_1_Z = 3f;
+
+  public const string GATEOFDHAL_DhalGate_Door_2_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_2_O = "2";
+  public const float GATEOFDHAL_DhalGate_Door_2_X = -44f;
+  public const float GATEOFDHAL_DhalGate_Door_2_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_2_Z = 3f;
+
+  public const string GATEOFDHAL_DhalGate_Door_3_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_3_O = "3";
+  public const float GATEOFDHAL_DhalGate_Door_3_X = 0f;
+  public const float GATEOFDHAL_DhalGate_Door_3_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_3_Z = 2f;
+
+  public const string GATEOFDHAL_Treasure_1_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_1_O = "1";
+  public const float GATEOFDHAL_Treasure_1_X = 42f;
+  public const float GATEOFDHAL_Treasure_1_Y = 1f;
+  public const float GATEOFDHAL_Treasure_1_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_2_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_2_O = "2";
+  public const float GATEOFDHAL_Treasure_2_X = 38f;
+  public const float GATEOFDHAL_Treasure_2_Y = 1f;
+  public const float GATEOFDHAL_Treasure_2_Z = 6f;
+
+  public const string GATEOFDHAL_Treasure_3_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_3_O = "3";
+  public const float GATEOFDHAL_Treasure_3_X = 20f;
+  public const float GATEOFDHAL_Treasure_3_Y = 4f;
+  public const float GATEOFDHAL_Treasure_3_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_4_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_4_O = "4";
+  public const float GATEOFDHAL_Treasure_4_X = 8f;
+  public const float GATEOFDHAL_Treasure_4_Y = 4f;
+  public const float GATEOFDHAL_Treasure_4_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_5_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_5_O = "5";
+  public const float GATEOFDHAL_Treasure_5_X = 20f;
+  public const float GATEOFDHAL_Treasure_5_Y = 4f;
+  public const float GATEOFDHAL_Treasure_5_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_6_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_6_O = "6";
+  public const float GATEOFDHAL_Treasure_6_X = 19f;
+  public const float GATEOFDHAL_Treasure_6_Y = 4f;
+  public const float GATEOFDHAL_Treasure_6_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_7_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_7_O = "7";
+  public const float GATEOFDHAL_Treasure_7_X = 31f;
+  public const float GATEOFDHAL_Treasure_7_Y = 4f;
+  public const float GATEOFDHAL_Treasure_7_Z = 24f;
+
+  public const string GATEOFDHAL_Treasure_8_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_8_O = "8";
+  public const float GATEOFDHAL_Treasure_8_X = -39f;
+  public const float GATEOFDHAL_Treasure_8_Y = 1f;
+  public const float GATEOFDHAL_Treasure_8_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_9_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_9_O = "9";
+  public const float GATEOFDHAL_Treasure_9_X = -33f;
+  public const float GATEOFDHAL_Treasure_9_Y = 1f;
+  public const float GATEOFDHAL_Treasure_9_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_10_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_10_O = "10";
+  public const float GATEOFDHAL_Treasure_10_X = -33f;
+  public const float GATEOFDHAL_Treasure_10_Y = 1f;
+  public const float GATEOFDHAL_Treasure_10_Z = 9f;
+
+  public const string GATEOFDHAL_Treasure_11_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_11_O = "11";
+  public const float GATEOFDHAL_Treasure_11_X = -39f;
+  public const float GATEOFDHAL_Treasure_11_Y = 1f;
+  public const float GATEOFDHAL_Treasure_11_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_12_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_12_O = "12";
+  public const float GATEOFDHAL_Treasure_12_X = -39f;
+  public const float GATEOFDHAL_Treasure_12_Y = 1f;
+  public const float GATEOFDHAL_Treasure_12_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_13_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_13_O = "13";
+  public const float GATEOFDHAL_Treasure_13_X = -23f;
+  public const float GATEOFDHAL_Treasure_13_Y = 4f;
+  public const float GATEOFDHAL_Treasure_13_Z = 16f;
+
+  public const string GATEOFDHAL_Treasure_14_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_14_O = "14";
+  public const float GATEOFDHAL_Treasure_14_X = -16f;
+  public const float GATEOFDHAL_Treasure_14_Y = 4f;
+  public const float GATEOFDHAL_Treasure_14_Z = 12f;
+
+  public const string GATEOFDHAL_Treasure_15_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_15_O = "15";
+  public const float GATEOFDHAL_Treasure_15_X = -9f;
+  public const float GATEOFDHAL_Treasure_15_Y = 4f;
+  public const float GATEOFDHAL_Treasure_15_Z = 13f;
+
+  public const string GATEOFDHAL_Treasure_16_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_16_O = "16";
+  public const float GATEOFDHAL_Treasure_16_X = -6f;
+  public const float GATEOFDHAL_Treasure_16_Y = 4f;
+  public const float GATEOFDHAL_Treasure_16_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_17_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_17_O = "17";
+  public const float GATEOFDHAL_Treasure_17_X = -17f;
+  public const float GATEOFDHAL_Treasure_17_Y = 4f;
+  public const float GATEOFDHAL_Treasure_17_Z = 23f;
+
+  public const string GATEOFDHAL_Treasure_18_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_18_O = "18";
+  public const float GATEOFDHAL_Treasure_18_X = -15f;
+  public const float GATEOFDHAL_Treasure_18_Y = 4f;
+  public const float GATEOFDHAL_Treasure_18_Z = 24f;
+
+  public const string GATEOFDHAL_Treasure_19_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_19_O = "19";
+  public const float GATEOFDHAL_Treasure_19_X = 27f;
+  public const float GATEOFDHAL_Treasure_19_Y = 10f;
+  public const float GATEOFDHAL_Treasure_19_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_20_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_20_O = "20";
+  public const float GATEOFDHAL_Treasure_20_X = 42f;
+  public const float GATEOFDHAL_Treasure_20_Y = 10f;
+  public const float GATEOFDHAL_Treasure_20_Z = 7f;
+
+  public const string GATEOFDHAL_Treasure_21_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_21_O = "21";
+  public const float GATEOFDHAL_Treasure_21_X = 45f;
+  public const float GATEOFDHAL_Treasure_21_Y = 10f;
+  public const float GATEOFDHAL_Treasure_21_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_22_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_22_O = "22";
+  public const float GATEOFDHAL_Treasure_22_X = 13f;
+  public const float GATEOFDHAL_Treasure_22_Y = 10f;
+  public const float GATEOFDHAL_Treasure_22_Z = 13f;
+
+  public const string GATEOFDHAL_Treasure_23_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_23_O = "23";
+  public const float GATEOFDHAL_Treasure_23_X = 5f;
+  public const float GATEOFDHAL_Treasure_23_Y = 10f;
+  public const float GATEOFDHAL_Treasure_23_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_24_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_24_O = "24";
+  public const float GATEOFDHAL_Treasure_24_X = 6f;
+  public const float GATEOFDHAL_Treasure_24_Y = 10f;
+  public const float GATEOFDHAL_Treasure_24_Z = 18f;
+
+  public const string GATEOFDHAL_Treasure_25_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_25_O = "25";
+  public const float GATEOFDHAL_Treasure_25_X = 7f;
+  public const float GATEOFDHAL_Treasure_25_Y = 10f;
+  public const float GATEOFDHAL_Treasure_25_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_26_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_26_O = "26";
+  public const float GATEOFDHAL_Treasure_26_X = 4f;
+  public const float GATEOFDHAL_Treasure_26_Y = 10f;
+  public const float GATEOFDHAL_Treasure_26_Z = 31f;
+
+  public const string GATEOFDHAL_Treasure_27_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_27_O = "27";
+  public const float GATEOFDHAL_Treasure_27_X = 23f;
+  public const float GATEOFDHAL_Treasure_27_Y = 10f;
+  public const float GATEOFDHAL_Treasure_27_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_28_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_28_O = "28";
+  public const float GATEOFDHAL_Treasure_28_X = 29f;
+  public const float GATEOFDHAL_Treasure_28_Y = 10f;
+  public const float GATEOFDHAL_Treasure_28_Z = 27f;
+
+  public const string GATEOFDHAL_Treasure_29_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_29_O = "29";
+  public const float GATEOFDHAL_Treasure_29_X = 29f;
+  public const float GATEOFDHAL_Treasure_29_Y = 10f;
+  public const float GATEOFDHAL_Treasure_29_Z = 23f;
+
+  public const string GATEOFDHAL_Treasure_30_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_30_O = "30";
+  public const float GATEOFDHAL_Treasure_30_X = 39f;
+  public const float GATEOFDHAL_Treasure_30_Y = 10f;
+  public const float GATEOFDHAL_Treasure_30_Z = 29f;
+
+  public const string GATEOFDHAL_Treasure_31_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_31_O = "31";
+  public const float GATEOFDHAL_Treasure_31_X = 44f;
+  public const float GATEOFDHAL_Treasure_31_Y = 10f;
+  public const float GATEOFDHAL_Treasure_31_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_32_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_32_O = "32";
+  public const float GATEOFDHAL_Treasure_32_X = 37f;
+  public const float GATEOFDHAL_Treasure_32_Y = 10f;
+  public const float GATEOFDHAL_Treasure_32_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_33_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_33_O = "33";
+  public const float GATEOFDHAL_Treasure_33_X = -5f;
+  public const float GATEOFDHAL_Treasure_33_Y = 10f;
+  public const float GATEOFDHAL_Treasure_33_Z = 16f;
+
+  public const string GATEOFDHAL_Treasure_34_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_34_O = "34";
+  public const float GATEOFDHAL_Treasure_34_X = -12f;
+  public const float GATEOFDHAL_Treasure_34_Y = 10f;
+  public const float GATEOFDHAL_Treasure_34_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_35_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_35_O = "35";
+  public const float GATEOFDHAL_Treasure_35_X = -17f;
+  public const float GATEOFDHAL_Treasure_35_Y = 10f;
+  public const float GATEOFDHAL_Treasure_35_Z = 9f;
+
+  public const string GATEOFDHAL_Treasure_36_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_36_O = "36";
+  public const float GATEOFDHAL_Treasure_36_X = -13f;
+  public const float GATEOFDHAL_Treasure_36_Y = 10f;
+  public const float GATEOFDHAL_Treasure_36_Z = 3f;
+
+  public const string GATEOFDHAL_Treasure_37_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_37_O = "37";
+  public const float GATEOFDHAL_Treasure_37_X = -44f;
+  public const float GATEOFDHAL_Treasure_37_Y = 10f;
+  public const float GATEOFDHAL_Treasure_37_Z = 5f;
+
+  public const string GATEOFDHAL_Treasure_38_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_38_O = "38";
+  public const float GATEOFDHAL_Treasure_38_X = -45f;
+  public const float GATEOFDHAL_Treasure_38_Y = 10f;
+  public const float GATEOFDHAL_Treasure_38_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_39_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_39_O = "39";
+  public const float GATEOFDHAL_Treasure_39_X = -41f;
+  public const float GATEOFDHAL_Treasure_39_Y = 10f;
+  public const float GATEOFDHAL_Treasure_39_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_40_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_40_O = "40";
+  public const float GATEOFDHAL_Treasure_40_X = -39f;
+  public const float GATEOFDHAL_Treasure_40_Y = 10f;
+  public const float GATEOFDHAL_Treasure_40_Z = 5f;
+
+  public const string GATEOFDHAL_Treasure_41_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_41_O = "41";
+  public const float GATEOFDHAL_Treasure_41_X = -27f;
+  public const float GATEOFDHAL_Treasure_41_Y = 10f;
+  public const float GATEOFDHAL_Treasure_41_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_42_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_42_O = "42";
+  public const float GATEOFDHAL_Treasure_42_X = -4f;
+  public const float GATEOFDHAL_Treasure_42_Y = 10f;
+  public const float GATEOFDHAL_Treasure_42_Z = 20f;
+
+  public const string GATEOFDHAL_Treasure_43_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_43_O = "43";
+  public const float GATEOFDHAL_Treasure_43_X = -7f;
+  public const float GATEOFDHAL_Treasure_43_Y = 10f;
+  public const float GATEOFDHAL_Treasure_43_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_44_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_44_O = "44";
+  public const float GATEOFDHAL_Treasure_44_X = -4f;
+  public const float GATEOFDHAL_Treasure_44_Y = 10f;
+  public const float GATEOFDHAL_Treasure_44_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_45_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_45_O = "45";
+  public const float GATEOFDHAL_Treasure_45_X = -13f;
+  public const float GATEOFDHAL_Treasure_45_Y = 10f;
+  public const float GATEOFDHAL_Treasure_45_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_46_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_46_O = "46";
+  public const float GATEOFDHAL_Treasure_46_X = -23f;
+  public const float GATEOFDHAL_Treasure_46_Y = 10f;
+  public const float GATEOFDHAL_Treasure_46_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_47_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_47_O = "47";
+  public const float GATEOFDHAL_Treasure_47_X = -30f;
+  public const float GATEOFDHAL_Treasure_47_Y = 10f;
+  public const float GATEOFDHAL_Treasure_47_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_48_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_48_O = "48";
+  public const float GATEOFDHAL_Treasure_48_X = -44f;
+  public const float GATEOFDHAL_Treasure_48_Y = 10f;
+  public const float GATEOFDHAL_Treasure_48_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_49_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_49_O = "49";
+  public const float GATEOFDHAL_Treasure_49_X = -37f;
+  public const float GATEOFDHAL_Treasure_49_Y = 10f;
+  public const float GATEOFDHAL_Treasure_49_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_50_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_50_O = "50";
+  public const float GATEOFDHAL_Treasure_50_X = -8f;
+  public const float GATEOFDHAL_Treasure_50_Y = 13f;
+  public const float GATEOFDHAL_Treasure_50_Z = 25f;
+
+  public const string GATEOFDHAL_Treasure_51_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_51_O = "51";
+  public const float GATEOFDHAL_Treasure_51_X = 29f;
+  public const float GATEOFDHAL_Treasure_51_Y = 13f;
+  public const float GATEOFDHAL_Treasure_51_Z = 11f;
+
 }

@@ -52,7 +52,6 @@ public class TileInformation : MonoBehaviour
     Dhal_Wall = 4002,
     Dhal_NormalObj = 4003,
     Dhal_WallObj = 4004,
-
   }
   public Field field = Field.Plain;
 
@@ -103,6 +102,7 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Dhal_Wall) { return 999; }
       if (field == Field.Dhal_NormalObj) { return 1; }
       if (field == Field.Dhal_WallObj) { return 999; }
+
       return 999;
     }
   }

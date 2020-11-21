@@ -80,6 +80,8 @@ public class DungeonField : MotherBase
   public FieldObject prefab_LevelRight;
   public FieldObject prefab_DhalGateTile;
   public FieldObject prefab_DhalGateWall;
+  public FieldObject prefab_DhalGateDoor;
+  public FieldObject prefab_DhalGateDoorOpen;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -160,6 +162,7 @@ public class DungeonField : MotherBase
   private int CumulativeBattleCounter = 0;
 
   private string CurrentMapSelectName = String.Empty;
+  private bool ReloadMap = false;
 
   private bool GameOver = false;
 
@@ -235,6 +238,8 @@ public class DungeonField : MotherBase
     ObjectList.Add("WarpHole");
     ObjectList.Add("DhalGate_Tile");
     ObjectList.Add("DhalGate_Wall");
+    ObjectList.Add("DhalGate_Door");
+    ObjectList.Add("DhalGate_Door_Open");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -1532,6 +1537,7 @@ public class DungeonField : MotherBase
         Vector3 location = fieldObj.transform.position;
         int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
 
+        #region "アーサリウム工場跡地"
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
         {
           string treasureName = String.Empty;
@@ -1673,6 +1679,8 @@ public class DungeonField : MotherBase
           }
           return;
         }
+        #endregion
+        #region "オーランの塔"
         // オーランの塔
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
         {
@@ -1803,6 +1811,231 @@ public class DungeonField : MotherBase
           }
           return;
         }
+        #endregion
+        #region "ダルの門"
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
+        {
+          string treasureName = String.Empty;
+          if (One.TF.Treasure_GateDhal_00001 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
+          {
+            treasureName = Fix.RED_PENDANT;
+          }
+          if (One.TF.Treasure_GateDhal_00002 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
+          {
+            treasureName = Fix.BLUE_PENDANT;
+          }
+          if (One.TF.Treasure_GateDhal_00003 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
+          {
+            treasureName = Fix.YELLOW_PENDANT;
+          }
+          if (One.TF.Treasure_GateDhal_00004 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
+          {
+            treasureName = Fix.GREEN_PENDANT;
+          }
+          if (One.TF.Treasure_GateDhal_00005 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
+          {
+            treasureName = Fix.SWORD_OF_LIFE;
+          }
+          if (One.TF.Treasure_GateDhal_00006 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
+          {
+            treasureName = Fix.EARTH_POWER_AXE;
+          }
+          if (One.TF.Treasure_GateDhal_00007 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
+          {
+            treasureName = Fix.FROST_LANCE;
+          }
+          if (One.TF.Treasure_GateDhal_00008 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
+          {
+            treasureName = Fix.TOUGH_TREE_ROD;
+          }
+          if (One.TF.Treasure_GateDhal_00009 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
+          {
+            treasureName = Fix.LIVING_GROWTH_ORB;
+          }
+          if (One.TF.Treasure_GateDhal_00010 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
+          {
+            treasureName = Fix.MUIN_BOOK;
+          }
+          if (One.TF.Treasure_GateDhal_00011 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
+          {
+            treasureName = Fix.ICICLE_LONGBOW;
+          }
+          if (One.TF.Treasure_GateDhal_00012 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
+          {
+            treasureName = Fix.KITE_SHIELD;
+          }
+          if (One.TF.Treasure_GateDhal_00013 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
+          {
+            treasureName = Fix.FINE_ARMOR;
+          }
+          if (One.TF.Treasure_GateDhal_00014 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
+          {
+            treasureName = Fix.FINE_CROSS;
+          }
+          if (One.TF.Treasure_GateDhal_00015 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
+          {
+            treasureName = Fix.FINE_ROBE;
+          }
+          if (One.TF.Treasure_GateDhal_00016 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
+          {
+            treasureName = Fix.FLAT_SHOES;
+          }
+          if (One.TF.Treasure_GateDhal_00017 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
+          {
+            treasureName = Fix.COMPACT_EARRING;
+          }
+          if (One.TF.Treasure_GateDhal_00018 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
+          {
+            treasureName = Fix.POWER_BANDANA;
+          }
+          if (One.TF.Treasure_GateDhal_00019 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
+          {
+            treasureName = Fix.CHERRY_CHOKER;
+          }
+          if (One.TF.Treasure_GateDhal_00020 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
+          {
+            treasureName = Fix.BLUE_WIZARD_HAT;
+          }
+          if (One.TF.Treasure_GateDhal_00021 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
+          {
+            treasureName = Fix.FLAME_HAND_KEEPER;
+          }
+          if (One.TF.Treasure_GateDhal_00022 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
+          {
+            treasureName = Fix.MUMYOU_BOW;
+          }
+          if (One.TF.Treasure_GateDhal_00023 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00025 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00026 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00027 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00028 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00029 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00030 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00031 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00032 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00033 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00034 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00035 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00036 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00037 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00038 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00039 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00040 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00041 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00042 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00043 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00044 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00045 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00046 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00047 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00048 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00049 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00050 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_GateDhal_00051 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+
+          if (treasureName == String.Empty)
+          {
+            // 何もしない
+          }
+          else
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          }
+          return;
+        }
+        #endregion
       }
 
       // 各種イベント発生チェック。イベント発生時は下記の敵遭遇エンカウントには到達させない。
@@ -1839,6 +2072,31 @@ public class DungeonField : MotherBase
     One.TF.CurrentDungeonField = "MapData_" + txtMap.text + ".txt";
     // タイルを設置
     LoadTileMapping(One.TF.CurrentDungeonField);
+
+    if (this.ReloadMap)
+    {
+      // イベント進行に応じたオブジェクトの設置
+      LoadObjectFromEvent();
+
+      // フィールドオブジェクトの状態更新
+      UpdateFieldObject(One.TF.CurrentDungeonField);
+
+      // キャラクター情報を画面へ反映
+      UpdateCharacterStatus();
+    }
+  }
+
+  public void TapSelectReload(Text txtReloadMap)
+  {
+    this.ReloadMap = !this.ReloadMap;
+    if (this.ReloadMap)
+    {
+      txtReloadMap.text = "ReloadMap";
+    }
+    else
+    {
+      txtReloadMap.text = "NoReload";
+    }
   }
 
   public void TapFastTravel()
@@ -2524,6 +2782,7 @@ public class DungeonField : MotherBase
           Debug.Log("GetTreasure 3");
 
           One.TF.AddBackPack(new Item(currentMessage));
+          #region "アーサリウム工場跡地"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
           {
             // 宝箱１
@@ -2652,6 +2911,8 @@ public class DungeonField : MotherBase
               One.TF.Treasure_Artharium_00025 = true;
             }
           }
+          #endregion
+          #region "オーランの塔"
           else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
           {
             // 宝箱１
@@ -2770,6 +3031,216 @@ public class DungeonField : MotherBase
               One.TF.Treasure_OhranTower_00023 = true;
             }
           }
+          #endregion
+          #region "ダルの門"
+          else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
+            {
+              One.TF.Treasure_GateDhal_00001 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
+            {
+              One.TF.Treasure_GateDhal_00002 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
+            {
+              One.TF.Treasure_GateDhal_00003 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
+            {
+              One.TF.Treasure_GateDhal_00004 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
+            {
+              One.TF.Treasure_GateDhal_00005 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
+            {
+              One.TF.Treasure_GateDhal_00006 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
+            {
+              One.TF.Treasure_GateDhal_00007 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
+            {
+              One.TF.Treasure_GateDhal_00008 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
+            {
+              One.TF.Treasure_GateDhal_00009 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
+            {
+              One.TF.Treasure_GateDhal_00010 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
+            {
+              One.TF.Treasure_GateDhal_00011 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
+            {
+              One.TF.Treasure_GateDhal_00012 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
+            {
+              One.TF.Treasure_GateDhal_00013 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
+            {
+              One.TF.Treasure_GateDhal_00014 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
+            {
+              One.TF.Treasure_GateDhal_00015 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
+            {
+              One.TF.Treasure_GateDhal_00016 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
+            {
+              One.TF.Treasure_GateDhal_00017 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
+            {
+              One.TF.Treasure_GateDhal_00018 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
+            {
+              One.TF.Treasure_GateDhal_00019 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
+            {
+              One.TF.Treasure_GateDhal_00020 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
+            {
+              One.TF.Treasure_GateDhal_00021 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
+            {
+              One.TF.Treasure_GateDhal_00022 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
+            {
+              One.TF.Treasure_GateDhal_00023 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+            {
+              One.TF.Treasure_GateDhal_00024 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
+            {
+              One.TF.Treasure_GateDhal_00025 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
+            {
+              One.TF.Treasure_GateDhal_00026 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
+            {
+              One.TF.Treasure_GateDhal_00027 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
+            {
+              One.TF.Treasure_GateDhal_00028 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
+            {
+              One.TF.Treasure_GateDhal_00029 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
+            {
+              One.TF.Treasure_GateDhal_00030 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
+            {
+              One.TF.Treasure_GateDhal_00031 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
+            {
+              One.TF.Treasure_GateDhal_00032 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
+            {
+              One.TF.Treasure_GateDhal_00033 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
+            {
+              One.TF.Treasure_GateDhal_00034 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
+            {
+              One.TF.Treasure_GateDhal_00035 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
+            {
+              One.TF.Treasure_GateDhal_00036 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
+            {
+              One.TF.Treasure_GateDhal_00037 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
+            {
+              One.TF.Treasure_GateDhal_00038 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
+            {
+              One.TF.Treasure_GateDhal_00039 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
+            {
+              One.TF.Treasure_GateDhal_00040 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
+            {
+              One.TF.Treasure_GateDhal_00041 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
+            {
+              One.TF.Treasure_GateDhal_00042 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
+            {
+              One.TF.Treasure_GateDhal_00043 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
+            {
+              One.TF.Treasure_GateDhal_00044 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
+            {
+              One.TF.Treasure_GateDhal_00045 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
+            {
+              One.TF.Treasure_GateDhal_00046 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
+            {
+              One.TF.Treasure_GateDhal_00047 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
+            {
+              One.TF.Treasure_GateDhal_00048 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
+            {
+              One.TF.Treasure_GateDhal_00049 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
+            {
+              One.TF.Treasure_GateDhal_00050 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
+            {
+              One.TF.Treasure_GateDhal_00051 = true;
+            }
+          }
+          #endregion
 
           return; // 通常
         }
@@ -3128,6 +3599,21 @@ public class DungeonField : MotherBase
         DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -4, 10, 33);
         return true;
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
+      {
+        // 入口
+        if (LocationDetect(tile, 0, 0, -3))
+        {
+          DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -67, 1.5f, 74);
+          return true;
+        }
+        // 出口
+        if (LocationDetect(tile, 0, 0, 37))
+        {
+          DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -65, 1.5f, 74);
+          return true;
+        }
+      }
     }
 
     // Town , Castle
@@ -3226,7 +3712,7 @@ public class DungeonField : MotherBase
       }
       if (tile.transform.position.x == -4 && tile.transform.position.y == 9 && tile.transform.position.z == 34)
       {
-        Debug.Log("Detect Artharium");
+        Debug.Log("Detect OhranTower");
         this.DungeonMap = Fix.MAPFILE_OHRAN_TOWER;
         this.DungeonCall = Fix.DUNGEON_OHRAN_TOWER;
         One.TF.Field_X = 0;
@@ -3242,8 +3728,12 @@ public class DungeonField : MotherBase
       }
       if (tile.transform.position.x == -66 && tile.transform.position.y == 0.5f && tile.transform.position.z == 74)
       {
+        Debug.Log("Detect Gate of Dhal");
         this.DungeonMap = Fix.MAPFILE_GATE_OF_DHAL;
         this.DungeonCall = Fix.DUNGEON_GATE_OF_DHAL;
+        One.TF.Field_X = 0;
+        One.TF.Field_Y = 1;
+        One.TF.Field_Z = -1;
         return true;
       }
       else if (tile.transform.position.x == -69 && tile.transform.position.y == 0 && tile.transform.position.z == 33)
@@ -3320,6 +3810,8 @@ public class DungeonField : MotherBase
 
   private bool LocationDetect(TileInformation tile, float x, float y, float z)
   {
+    if (tile == null) { return false; }
+
     if (tile.transform.position.x == x && tile.transform.position.y == y && tile.transform.position.z == z)
     {
       return true;
@@ -3801,6 +4293,14 @@ public class DungeonField : MotherBase
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
     }
+    else if (obj_name == "DhalGate_Door")
+    {
+      current = Instantiate(prefab_DhalGateDoor, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.DhalGate_Door;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
     else
     {
       Debug.Log("AddFieldObj not found... " + obj_name);
@@ -4026,6 +4526,7 @@ public class DungeonField : MotherBase
   private void UpdateFieldObject(string map_data)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    #region "アーサリウム工場跡地"
     if (map_data == Fix.MAPFILE_ARTHARIUM)
     {
       Debug.Log("update " + map_data + " field");
@@ -4237,6 +4738,8 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z));
       }
     }
+    #endregion
+    #region "オーランの塔"
     else if (map_data == Fix.MAPFILE_OHRAN_TOWER)
     {
       if (One.TF.FieldObject_OhranTower_00001)
@@ -4507,6 +5010,305 @@ public class DungeonField : MotherBase
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
     }
+    #endregion
+    #region "ダルの門"
+    else if (map_data == Fix.MAPFILE_GATE_OF_DHAL)
+    {
+      if (One.TF.Fieldobject_GateDhal_00001 == false)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_1_X, Fix.GATEOFDHAL_DhalGate_Tile_1_Y, Fix.GATEOFDHAL_DhalGate_Tile_1_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_2_X, Fix.GATEOFDHAL_DhalGate_Tile_2_Y, Fix.GATEOFDHAL_DhalGate_Tile_2_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_3_X, Fix.GATEOFDHAL_DhalGate_Tile_3_Y, Fix.GATEOFDHAL_DhalGate_Tile_3_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_4_X, Fix.GATEOFDHAL_DhalGate_Tile_4_Y, Fix.GATEOFDHAL_DhalGate_Tile_4_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_5_X, Fix.GATEOFDHAL_DhalGate_Tile_5_Y, Fix.GATEOFDHAL_DhalGate_Tile_5_Z));
+      }
+      if (One.TF.Fieldobject_GateDhal_00002 == false)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_6_X, Fix.GATEOFDHAL_DhalGate_Tile_6_Y, Fix.GATEOFDHAL_DhalGate_Tile_6_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_7_X, Fix.GATEOFDHAL_DhalGate_Tile_7_Y, Fix.GATEOFDHAL_DhalGate_Tile_7_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_8_X, Fix.GATEOFDHAL_DhalGate_Tile_8_Y, Fix.GATEOFDHAL_DhalGate_Tile_8_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_9_X, Fix.GATEOFDHAL_DhalGate_Tile_9_Y, Fix.GATEOFDHAL_DhalGate_Tile_9_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_10_X, Fix.GATEOFDHAL_DhalGate_Tile_10_Y, Fix.GATEOFDHAL_DhalGate_Tile_10_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_11_X, Fix.GATEOFDHAL_DhalGate_Tile_11_Y, Fix.GATEOFDHAL_DhalGate_Tile_11_Z));
+      }
+
+      // 扉１
+      if (One.TF.Fieldobject_GateDhal_00003)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_1_X, Fix.GATEOFDHAL_DhalGate_Door_1_Y, Fix.GATEOFDHAL_DhalGate_Door_1_Z));
+        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
+      }
+      // 扉２
+      if (One.TF.Fieldobject_GateDhal_00004)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_2_X, Fix.GATEOFDHAL_DhalGate_Door_2_Y, Fix.GATEOFDHAL_DhalGate_Door_2_Z));
+        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
+      }
+      // 扉３
+      if (One.TF.Fieldobject_GateDhal_00005)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_3_X, Fix.GATEOFDHAL_DhalGate_Door_3_Y, Fix.GATEOFDHAL_DhalGate_Door_3_Z));
+        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
+      }
+
+      // 宝箱
+      if (One.TF.Treasure_GateDhal_00001)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00002)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00003)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00004)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00005)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00006)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00007)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00008)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00009)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00010)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00011)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00012)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00013)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00014)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00015)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00016)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00017)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00018)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00019)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00020)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00021)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00022)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00023)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00024)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00025)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00026)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00027)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00028)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00029)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00030)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00031)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00032)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00033)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00034)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00035)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00036)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00037)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00038)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00039)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00040)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00041)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00042)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00043)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00044)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00045)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00046)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00047)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00048)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00049)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00050)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      if (One.TF.Treasure_GateDhal_00051)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+    }
+    #endregion
   }
 
   private void MoveFieldObject(List<FieldObject> list, Vector3 src, Vector3 dst)

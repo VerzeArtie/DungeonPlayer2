@@ -22,6 +22,7 @@ public class FieldObject : MonoBehaviour
     WarpHole,
     DhalGate_Tile,
     DhalGate_Wall,
+    DhalGate_Door,
     Boss,
   }
 
