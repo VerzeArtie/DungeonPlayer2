@@ -1496,6 +1496,26 @@ public class DungeonField : MotherBase
         }
         return;
       }
+
+      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.DhalGate_Door)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_1_X, Fix.EVENT_GATEDHAL_1_Y, Fix.EVENT_GATEDHAL_1_Z))
+        {
+          MessagePack.Message1400010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_2_X, Fix.EVENT_GATEDHAL_2_Y, Fix.EVENT_GATEDHAL_2_Z))
+        {
+          MessagePack.Message1400020(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_3_X, Fix.EVENT_GATEDHAL_3_Y, Fix.EVENT_GATEDHAL_3_Z))
+        {
+          MessagePack.Message1400030(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
       if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
       {
         if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_1_X, Fix.ARTHARIUM_Crystal_1_Y, Fix.ARTHARIUM_Crystal_1_Z))
@@ -3307,6 +3327,22 @@ public class DungeonField : MotherBase
           {
             RemoveFieldObject(FieldObjList, new Vector3(Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z));
           }
+
+          // ダルの門、右エリア入口
+          if (currentMessage == Fix.EVENT_GATEDHAL_1)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.EVENT_GATEDHAL_1_X, Fix.EVENT_GATEDHAL_1_Y, Fix.EVENT_GATEDHAL_1_Z));
+          }
+          // ダルの門、左エリア入口
+          if (currentMessage == Fix.EVENT_GATEDHAL_2)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.EVENT_GATEDHAL_2_X, Fix.EVENT_GATEDHAL_2_Y, Fix.EVENT_GATEDHAL_2_Z));
+          }
+          // ダルの門、正面通路
+          if (currentMessage == Fix.EVENT_GATEDHAL_3)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(Fix.EVENT_GATEDHAL_3_X, Fix.EVENT_GATEDHAL_3_Y, Fix.EVENT_GATEDHAL_3_Z));
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.CallDecision)
@@ -5014,7 +5050,24 @@ public class DungeonField : MotherBase
     #region "ダルの門"
     else if (map_data == Fix.MAPFILE_GATE_OF_DHAL)
     {
-      if (One.TF.Fieldobject_GateDhal_00001 == false)
+      // 扉１（右エリア、入口）
+      if (One.TF.Fieldobject_GateDhal_00001)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_1_X, Fix.GATEOFDHAL_DhalGate_Door_1_Y, Fix.GATEOFDHAL_DhalGate_Door_1_Z));
+      }
+      // 扉２（左エリア、入口）
+      if (One.TF.Fieldobject_GateDhal_00002)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_2_X, Fix.GATEOFDHAL_DhalGate_Door_2_Y, Fix.GATEOFDHAL_DhalGate_Door_2_Z));
+      }
+      // 扉３（正面通路）
+      if (One.TF.Fieldobject_GateDhal_00003)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_3_X, Fix.GATEOFDHAL_DhalGate_Door_3_Y, Fix.GATEOFDHAL_DhalGate_Door_3_Z));
+      }
+
+      // 床タイル浮上（右エリア階層１－１）
+      if (One.TF.Fieldobject_GateDhal_00004 == false)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_1_X, Fix.GATEOFDHAL_DhalGate_Tile_1_Y, Fix.GATEOFDHAL_DhalGate_Tile_1_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_2_X, Fix.GATEOFDHAL_DhalGate_Tile_2_Y, Fix.GATEOFDHAL_DhalGate_Tile_2_Z));
@@ -5022,7 +5075,8 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_4_X, Fix.GATEOFDHAL_DhalGate_Tile_4_Y, Fix.GATEOFDHAL_DhalGate_Tile_4_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_5_X, Fix.GATEOFDHAL_DhalGate_Tile_5_Y, Fix.GATEOFDHAL_DhalGate_Tile_5_Z));
       }
-      if (One.TF.Fieldobject_GateDhal_00002 == false)
+      // 床タイル浮上（左エリア階層１－１）
+      if (One.TF.Fieldobject_GateDhal_00005 == false)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_6_X, Fix.GATEOFDHAL_DhalGate_Tile_6_Y, Fix.GATEOFDHAL_DhalGate_Tile_6_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_7_X, Fix.GATEOFDHAL_DhalGate_Tile_7_Y, Fix.GATEOFDHAL_DhalGate_Tile_7_Z));
@@ -5030,25 +5084,6 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_9_X, Fix.GATEOFDHAL_DhalGate_Tile_9_Y, Fix.GATEOFDHAL_DhalGate_Tile_9_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_10_X, Fix.GATEOFDHAL_DhalGate_Tile_10_Y, Fix.GATEOFDHAL_DhalGate_Tile_10_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Tile_11_X, Fix.GATEOFDHAL_DhalGate_Tile_11_Y, Fix.GATEOFDHAL_DhalGate_Tile_11_Z));
-      }
-
-      // 扉１
-      if (One.TF.Fieldobject_GateDhal_00003)
-      {
-        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_1_X, Fix.GATEOFDHAL_DhalGate_Door_1_Y, Fix.GATEOFDHAL_DhalGate_Door_1_Z));
-        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
-      }
-      // 扉２
-      if (One.TF.Fieldobject_GateDhal_00004)
-      {
-        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_2_X, Fix.GATEOFDHAL_DhalGate_Door_2_Y, Fix.GATEOFDHAL_DhalGate_Door_2_Z));
-        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
-      }
-      // 扉３
-      if (One.TF.Fieldobject_GateDhal_00005)
-      {
-        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GATEOFDHAL_DhalGate_Door_3_X, Fix.GATEOFDHAL_DhalGate_Door_3_Y, Fix.GATEOFDHAL_DhalGate_Door_3_Z));
-        ExchangeFieldObject(FieldObjList, prefab_DhalGateDoorOpen, num);
       }
 
       // 宝箱

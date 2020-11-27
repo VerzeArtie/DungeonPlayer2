@@ -130,5 +130,22 @@ public partial class Fix
   public const float EVENT_OHRANTOWER_11_Y = 65.0f;
   public const float EVENT_OHRANTOWER_11_Z = 32.0f;
 
+  // ダルの門、右エリア入口
+  public const string EVENT_GATEDHAL_1 = "EVENT_GATEDHAL_1";
+  public const float EVENT_GATEDHAL_1_X = 44.0f;
+  public const float EVENT_GATEDHAL_1_Y = 1.0f;
+  public const float EVENT_GATEDHAL_1_Z = 3.0f;
+
+  // ダルの門、左エリア入口
+  public const string EVENT_GATEDHAL_2 = "EVENT_GATEDHAL_2";
+  public const float EVENT_GATEDHAL_2_X = -44.0f;
+  public const float EVENT_GATEDHAL_2_Y = 1.0f;
+  public const float EVENT_GATEDHAL_2_Z = 3.0f;
+
+  // ダルの門、中央通路入口
+  public const string EVENT_GATEDHAL_3 = "EVENT_GATEDHAL_3";
+  public const float EVENT_GATEDHAL_3_X = 0;
+  public const float EVENT_GATEDHAL_3_Y = 1.0f;
+  public const float EVENT_GATEDHAL_3_Z = 2.0f;
 
 }

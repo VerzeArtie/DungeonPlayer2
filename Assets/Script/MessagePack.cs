@@ -6094,7 +6094,81 @@ public static class MessagePack
   #region "ダルの門"
   public static void Message1400010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message1400010 == false)
+    {
+      One.TF.Event_Message1400010 = true;
+      One.TF.Fieldobject_GateDhal_00001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、扉発見っと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に仕掛けはなさそうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ早速開けるとしますか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【ギッギッギギィィ・・・】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EVENT_GATEDHAL_1, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "【ッバン！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ探索開始だ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：駄目だ。開かないな。", ActionEvent.None);
+    }
   }
+
+  public static void Message1400020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1400020 == false)
+    {
+      One.TF.Event_Message1400020 = true;
+      One.TF.Fieldobject_GateDhal_00002 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、扉発見っと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に仕掛けはなさそうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ早速開けるとしますか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【ギッギッギギィィ・・・】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EVENT_GATEDHAL_2, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "【ッバン！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ探索開始だ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1400030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1400030 == false)
+    {
+      One.TF.Event_Message1400030 = true;
+      One.TF.Fieldobject_GateDhal_00003 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、扉発見っと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に仕掛けはなさそうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ早速開けるとしますか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【ギッギッギギィィ・・・】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EVENT_GATEDHAL_3, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "【ッバン！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ探索開始だ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：駄目だ。開かないな。", ActionEvent.None);
+    }
+  }
+
   #endregion
 
   #region "ディルの街"
