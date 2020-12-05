@@ -247,11 +247,24 @@ public static class One
     TF.AvailableLanaAmiria = true;
 
     // debug
+    TF.AvailableAllCommand = true;
     //TF.AvailableThird = true;
     //TF.AvailableFourth = true;
     //TF.AvailableFirstCommand = true;
     //TF.AvailableSecondCommand = true;
     //TF.AvailableThirdCommand = true;
+
+    //TF.AvailableEoneFulnea = true;
+    //TF.AvailableBillyRaki = true;
+    //TF.AvailableAdelBrigandy = true;
+    //TF.AvailableJedaArus = true;
+    //TF.AvailableAnnaHamilton = true;
+    //TF.AvailableSelmoiRo = true;
+
+    //TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    //TF.BattlePlayer2 = Fix.NAME_EONE_FULNEA;
+    //TF.BattlePlayer3 = Fix.NAME_LANA_AMIRIA;
+    //TF.BattlePlayer4 = Fix.NAME_ADEL_BRIGANDY;
 
     int num = 0;
 
@@ -278,6 +291,8 @@ public static class One
     _characters[num].CharacterCreation(Fix.NAME_LADA_MYSTORUS); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_SIN_OSCURETE); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_DELVA_TRECKINO); PlayerList.Add(_characters[num]); num++;
+
+    num = 0;
     //_characters[num].FullName = Fix.NAME_EIN_WOLENCE;
     //_characters[num].Level = 1;
     //_characters[num].Strength = 5;
@@ -295,7 +310,7 @@ public static class One
     //actionList.Add(Fix.STRAIGHT_SMASH);
 
     //actionList.Add(Fix.CIRCLE_SLASH);
-    //actionList.Add(Fix.FIRE_BOLT);
+    //actionList.Add(Fix.FIRE_BALL);
     //actionList.Add(Fix.FLAME_BLADE);
     //actionList.Add(Fix.MULTIPLE_SHOT);
     //actionList.Add(Fix.FLASH_COUNTER);
@@ -318,7 +333,7 @@ public static class One
     //Characters[num].AvailableFire = true;
     //Characters[num].AvailableBrave = true;
     //Characters[num].StraightSmash = 1;
-    //Characters[num].FireBolt = 1;
+    //Characters[num].FireBall = 1;
     //Characters[num].HeartOfLife = 1;
     //Characters[num].AvailableFire = true;
     //Characters[num].AvailableIce = true;
@@ -332,7 +347,7 @@ public static class One
     //Characters[num].AvailableMysticForm = true;
     //Characters[num].AvailableBrave = true;
     //Characters[num].AvailableMindfulness = true;
-    //Characters[num].FireBolt = 1;
+    //Characters[num].FireBall = 1;
     //Characters[num].FlameBlade = 59;
     //Characters[num].MeteorBullet = 58;
     //Characters[num].FlameStrike = 57;
@@ -565,11 +580,32 @@ public static class One
 
     //Character character = new GameObject("objEC_1").AddComponent<Character>();
     //character.Construction(Fix.TINY_MANTIS);
+    //character.Construction(Fix.WILD_ANT);
+    //character.Construction(Fix.OLD_TREEFORK);
+    //character.Construction(Fix.THE_GALVADAZER);
+    //character.Construction(Fix.WILD_ANT);
     //EnemyList.Add(character);
-    ////EnemyList.Add(Fix.GREEN_SLIME);
+
+    //Character character2 = new GameObject("objEC_2").AddComponent<Character>();
+    //character2.Construction(Fix.OLD_TREEFORK);
+    //EnemyList.Add(character2);
+
+    //Character character3 = new GameObject("objEC_3").AddComponent<Character>();
+    //character3.Construction(Fix.SOLID_BEETLE_JP);
+    //EnemyList.Add(character3);
+
+    //Character character4 = new GameObject("objEC_4").AddComponent<Character>();
+    //character4.Construction(Fix.CREEPING_SPIDER);
+    //EnemyList.Add(character4);
+
+    //for (int ii = 0; ii < One.EnemyList.Count; ii++)
+    //{
+    //  UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
+    //}
+
+    //EnemyList.Add(Fix.GREEN_SLIME);
     ////EnemyList.Add(Fix.MANDRAGORA);
     ////EnemyList.Add(Fix.YOUNG_WOLF);
-    ////EnemyList.Add(Fix.WILD_ANT);
     //Character character2 = new GameObject("objEC_2").AddComponent<Character>();
     //character.Construction(Fix.OLD_TREEFORK);
     //EnemyList.Add(character2);
@@ -579,10 +615,6 @@ public static class One
     //character.Construction(Fix.SILENT_LADYBUG);
     //EnemyList.Add(character3);
     ////EnemyList.Add(Fix.MYSTIC_DRYAD);
-    //for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    //{
-    //  UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    //}
 
     //DungeonFieldName = Fix.MAPFILE_ARTHARIUM;
     //DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
