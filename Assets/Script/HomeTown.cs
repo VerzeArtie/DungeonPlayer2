@@ -192,6 +192,13 @@ public partial class HomeTown : MotherBase
   public Text txtQCItemGain;
   public Text txtQCSoulEssenceGain;
 
+  // Decision Message
+  public GameObject GroupDecisionMessage;
+  public Text txtDecisionMessageTitle;
+  public Text txtDecisionMessageDescription;
+  public Button btnDecisionMessageAccept;
+  public Button btnDecisionMessageCancel;
+
   // Level-UP Character
   public GameObject GroupLvupCharacter;
   public Text txtLvupTitle;
@@ -248,6 +255,10 @@ public partial class HomeTown : MotherBase
   protected Item CurrentSelectBackpack;
 
   protected GameObject CurrentSelectHideACAttribute;
+
+  private string DungeonCall = string.Empty;
+  private string DungeonMap = string.Empty;
+  private bool DungeonCallComplete = false;
 
   protected bool FirstAction = false;
     
@@ -349,6 +360,24 @@ public partial class HomeTown : MotherBase
         MessagePack.Message2200010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      // ツァルマンの里、神秘の森から帰還
+      if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_Message500024 == false)
+      {
+        MessagePack.Message500024(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
+    if (this.DungeonCallComplete)
+    {
+      return;
+    }
+    if (this.DungeonCall != string.Empty && this.DungeonMap != string.Empty && this.DungeonCallComplete == false)
+    {
+      this.DungeonCallComplete = true;
+      Debug.Log("DungeonCallComplete: " + this.DungeonCall + " " + this.DungeonMap);
+      SceneDimension.JumpToDungeonField(this.DungeonMap);
+      return;
     }
   }
 
@@ -564,6 +593,12 @@ public partial class HomeTown : MotherBase
     }
     if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
+      if (One.TF.QuestMain_00022)
+      {
+        MessagePack.Message500022(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       if (One.TF.Event_Message500020 == false)
       {
         MessagePack.Message500020(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -620,8 +655,16 @@ public partial class HomeTown : MotherBase
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
-      MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
+      if (One.TF.Event_Message500022)
+      {
+        MessagePack.Message500023(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
     {
@@ -673,6 +716,25 @@ public partial class HomeTown : MotherBase
       MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+  }
+
+  public void TapDecisionMessageAccept()
+  {
+    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
+    {
+      this.DungeonMap = Fix.MAPFILE_MYSTIC_FOREST;
+      this.DungeonCall = Fix.DUNGEON_MYSTIC_FOREST;
+      One.TF.Field_X = 0;
+      One.TF.Field_Y = 1;
+      One.TF.Field_Z = 0;
+    }
+  }
+
+  public void TapDecisionMessageCancel()
+  {
+    GroupDecisionMessage.SetActive(false);
+    txtDecisionMessageTitle.text = string.Empty;
+    txtDecisionMessageDescription.text = string.Empty;
   }
 
   public void TapDungeon()
@@ -1176,6 +1238,13 @@ public partial class HomeTown : MotherBase
           this.panelSystemMessage.SetActive(true);
           return;
         }
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownYesNoMessageDisplay)
+        {
+          this.txtDecisionMessageTitle.text = currentMessage;
+          this.txtDecisionMessageDescription.text = "【神秘の森】はダンジョンエリアとなります。全滅した場合はゴールドが失われます。";
+          this.GroupDecisionMessage.SetActive(true);
+          continue; // 継続
+        }
         // 画面にクエスト開始メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
         {
@@ -1280,6 +1349,10 @@ public partial class HomeTown : MotherBase
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
           {
             One.TF.AvailableBillyRaki = true;
+          }
+          else if (currentMessage.Contains(Fix.NAME_ADEL_BRIGANDY))
+          {
+            One.TF.AvailableAdelBrigandy = true;
           }
 
           List<Character> current = One.AvailableCharacters;
@@ -1949,8 +2022,16 @@ public partial class HomeTown : MotherBase
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = "長老の家";
-      btnCustomEvent2.gameObject.SetActive(false);
-      txtCustomEvent2.text = "";
+      if (One.TF.Event_Message500022 == false)
+      {
+        btnCustomEvent2.gameObject.SetActive(false);
+        txtCustomEvent2.text = "";
+      }
+      else
+      {
+        btnCustomEvent2.gameObject.SetActive(true);
+        txtCustomEvent2.text = "神秘の森";
+      }
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = "";
     }
@@ -2125,6 +2206,11 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_24 && One.TF.Event_Message2200020)
     {
       txtEventDescription.text = Fix.QUEST_DESC_24_2;
+    }
+
+    if (quest_name == Fix.QUEST_TITLE_22 && One.TF.Event_Message500022)
+    {
+      txtEventDescription.text = Fix.QUEST_DESC_22_2;
     }
   }
 }

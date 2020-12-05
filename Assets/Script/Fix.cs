@@ -484,6 +484,7 @@ public static partial class Fix
 
   public const string QUEST_TITLE_22 = "隠されしは【神秘の森】";
   public const string QUEST_DESC_22 = "アーケンダイン街の中央噴水広場を行き交う町の人から、ここアーケンダイン街とツァルマンの里は過去において、交易ルートが存在していた事が分かった。交易ルートはアイン達が通ってきた道のりがそのまま交易路として使われていたようだ。その当時、ツァルマンの里の奥には不可侵なる領域【神秘の森】が存在していたという噂が流れていたという。今もその【神秘の森】があるか定かではないが、ツァルマンの里にもう一度訪れる事で判明するかもしれない。ツァルマンの里へ赴き、長老ともう一度対話を行おう。";
+  public const string QUEST_DESC_22_2 = "ツァルマンの里にいる長老に【神秘の森】を問い合わせた結果、聖なる場所として管理されており、アイン達は入る事を許してもらう事が出来なかった。しかし長老は、アデル・ブリガンディという者にお使いを指示し、そのお使いに同行する形で認めてくれたようだ。アデル・ブリガンディと共に【神秘の森】を探索してみよう。きっと何か見つかるはずだ。";
 
   public const string QUEST_TITLE_23 = "赤き星はマーブルスター";
   public const string QUEST_DESC_23 = "アーケンダイン街の「占いの館：アミンダ」にて、赤い星について聞いた所、アインは占い師からマーブル・スターを提供される形となった。このアイテムが何のために使用されるのかは定かではないが、アインはひとまずこのアイテムについては旅を進めて行けば何かが分かるはずと信じる事にした。このムーンフォーダー地にてマーブル・スターの事を知っている人物を探そう。";
@@ -836,6 +837,7 @@ public static partial class Fix
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
   public const string DUNGEON_VELGUS_SEA_TEMPLE = "ヴェルガス海底神殿";
+  public const string DUNGEON_MYSTIC_FOREST = "神秘の森";
   public const string DUNGEON_GATE_OF_DHAL = "ダルの門";
   public const string DUNGEON_RUINS_OF_SARITAN = "廃墟サリタン";
   public const string DUNGEON_SNOWTREE_LATA = "雪原の大樹ラタ";
@@ -879,6 +881,7 @@ public static partial class Fix
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
   public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
   public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
+  public const string MAPFILE_MYSTIC_FOREST = "MapData_MysticForest.txt";
   public const string MAPFILE_GATE_OF_DHAL = "MapData_GateOfDhal.txt";
   public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
   public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
@@ -895,5 +898,4 @@ public static partial class Fix
   public static int MAX_TEAM_MEMBER = 4;
   #endregion
 
-  public static string MARBLE_STAR = "マーブル・スター";
 }
