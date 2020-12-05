@@ -266,4 +266,16 @@ public static partial class Fix
   public const string VEIL_FORTUNE_WIZARD_JP = "ヴェイル フォーチュン ウィザード";
   public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
   public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
+  public const string IMPERIAL_KNIGHT = "Imperial Knight";
+  public const string IMPERIAL_KNIGHT_JP = "インペリアル・ナイト";
+  public const string VENERABLE_WIZARD = "Venerable Wizard";
+  public const string VENERABLE_WIZARD_JP = "ヴェネラブル・ウィザード";
+  public const string HOLLOW_SPECTOR = "Hollow Spector";
+  public const string HOLLOW_SPECTOR_JP = "ホロウ・スペクター";
+  public const string LIGHTNING_SPHERE = "Lightning Sphere";
+  public const string LIGHTNING_SPHERE_JP = "ライトニング・スフィア";
+  public const string DECEIVED_HUNTSMAN = "Deceived Huntsman";
+  public const string DECEIVED_HUNTSMAN_JP = "待ち伏せハンツマン";
+  public const string MOVING_CANNON = "Moving Cannon";
+  public const string MOVING_CANNON_JP = "動き回る砲台";
 }

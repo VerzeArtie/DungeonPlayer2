@@ -747,7 +747,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_GALVADAZER:
       case Fix.THE_GALVADAZER_JP:
-        SetupParameter(150, 120, 60, 420, 100, 0, 7500, 2000);
+        SetupParameter(150, 120, 60, 420, 100, 10, 7500, 2000);
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         break;
@@ -962,6 +962,48 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      case Fix.IMPERIAL_KNIGHT:
+      case Fix.IMPERIAL_KNIGHT_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.VENERABLE_WIZARD:
+      case Fix.VENERABLE_WIZARD_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.HOLLOW_SPECTOR:
+      case Fix.HOLLOW_SPECTOR_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LIGHTNING_SPHERE:
+      case Fix.LIGHTNING_SPHERE_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DECEIVED_HUNTSMAN:
+      case Fix.DECEIVED_HUNTSMAN_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MOVING_CANNON:
+      case Fix.MOVING_CANNON_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
       case Fix.HELL_KERBEROS:
       case Fix.HELL_KERBEROS_JP:
         //SetupParameter(85, 50, 15, 300, 10, 10000, 3000, 2000);
@@ -969,9 +1011,11 @@ public partial class Character : MonoBehaviour
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         break;
+
     }
 
     this.MaxGain();
+    this.CurrentActionCommand = this.ActionCommandList[0];
   }
 
   private void SetupParameter(int strength, int agility, int intelligence, int stamina, int mind, int base_life, int exp, int gold)
