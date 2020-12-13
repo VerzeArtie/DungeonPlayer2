@@ -6263,7 +6263,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：こ、これは？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "占い師：それを持って、旅を続けると良いでしょう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "占い師：それを持って、サリタンの地を訪れると良いでしょう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "占い師：では・・・", ActionEvent.None);
 
@@ -6285,11 +6285,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：使い道はちゃんと教えてもらえたわけ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：【良き旅を】とは伝えられたぞ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：【サリタンの地】に行けとは伝えられたぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：【サリタンの地】ねえ・・・あまり詳しくないんだけど、場所は分かってるの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあまあ・・・これはこれで・・・ハハハ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：情報収集しに行ったのに、またワケわかんない話増やしてどーすんのよ、まったく・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあまあ・・・これはこれで・・・ハハハ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：大丈夫だって。ま、そのうち見つかるさ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：ボケアイン。てめぇ、ともかくキッチリ解決していけよ。分かってんだろうな？", ActionEvent.None);
 

@@ -3655,6 +3655,11 @@ public class DungeonField : MotherBase
         this.HomeTownCall = Fix.TOWN_ZHALMAN;
         return true;
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
+      {
+        DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -109, 1.5f, 33);
+          return true;
+      }
     }
 
     // Town , Castle
@@ -3784,7 +3789,12 @@ public class DungeonField : MotherBase
       }
       else if (tile.transform.position.x == -109 && tile.transform.position.y == 0.5 && tile.transform.position.z == 34)
       {
+        Debug.Log("Detect Saritan");
+        this.DungeonMap = Fix.MAPFILE_SARITAN;
         this.DungeonCall = Fix.DUNGEON_RUINS_OF_SARITAN;
+        One.TF.Field_X = 0;
+        One.TF.Field_Y = 1;
+        One.TF.Field_Z = -1;
         return true;
       }
       else if (tile.transform.position.x == -112 && tile.transform.position.y == 7 && tile.transform.position.z == 95)
