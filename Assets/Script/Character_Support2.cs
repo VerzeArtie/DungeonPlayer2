@@ -159,6 +159,19 @@ public partial class Character : MonoBehaviour
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
         break;
 
+      case Fix.NAME_CALMANS_OHN:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
+
       case Fix.NAME_MAGI_ZELKIS:
         this.Level = 1;
         this.Strength = 1;
@@ -305,19 +318,6 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.HUNTER_SHOT;
         this.GlobalAction4 = Fix.DEFENSE;
-        break;
-
-      case Fix.NAME_CALMANS_OHN:
-        this.Level = 1;
-        this.Strength = 1;
-        this.Agility = 1;
-        this.Intelligence = 1;
-        this.Stamina = 1;
-        this.Mind = 1;
-        this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_SUN_YU:

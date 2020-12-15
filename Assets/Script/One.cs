@@ -618,6 +618,7 @@ public static class One
 
     //DungeonFieldName = Fix.MAPFILE_ARTHARIUM;
     //DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
+    //TF.CurrentDungeonField = Fix.DUNGEON_RUINS_OF_SARITAN;
     // debug-end
 
     for (int ii = 0; ii < _characters.Count; ii++)
