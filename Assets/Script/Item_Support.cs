@@ -985,7 +985,7 @@ public partial class Item
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 4;
-        this._magicDefense = 0;
+        this._magicDefense = 2;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 400;
@@ -1394,8 +1394,8 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 47;
-        this._physicalAttackMax = 52;
+        this._physicalAttack = 52;
+        this._physicalAttackMax = 57;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
@@ -1440,15 +1440,15 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Sword;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 95;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
+        this._physicalAttack = 56;
+        this._physicalAttackMax = 62;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 5750;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1463,7 +1463,7 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 92;
-        this._physicalAttack = 52;
+        this._physicalAttack = 51;
         this._physicalAttackMax = 58;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
@@ -1473,7 +1473,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6000;
         this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた槍。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５２～５８";
+        this._description = "標準よりも研ぎ澄まされた槍。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５１～５８";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1486,15 +1486,15 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 92;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
+        this._physicalAttack = 60;
+        this._physicalAttackMax = 67;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6250;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1509,8 +1509,8 @@ public partial class Item
         this._itemType = ItemTypes.Twohand_Bow;
         this._gripType = GripTypes.TwoHand;
         this._battleAccuracy = 88;
-        this._physicalAttack = 58;
-        this._physicalAttackMax = 66;
+        this._physicalAttack = 55;
+        this._physicalAttackMax = 63;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
@@ -1519,7 +1519,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6500;
         this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた弓。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５８～６６";
+        this._description = "標準よりも研ぎ澄まされた弓。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５５～６３";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1532,15 +1532,15 @@ public partial class Item
         this._itemType = ItemTypes.Twohand_Bow;
         this._gripType = GripTypes.TwoHand;
         this._battleAccuracy = 88;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
+        this._physicalAttack = 65;
+        this._physicalAttackMax = 73;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6750;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1578,15 +1578,15 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 85;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
+        this._physicalAttack = 72;
+        this._physicalAttackMax = 82;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7250;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1626,13 +1626,13 @@ public partial class Item
         this._battleAccuracy = 98;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
+        this._magicAttack = 52;
+        this._magicAttackMax = 57;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 5250;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1672,36 +1672,13 @@ public partial class Item
         this._battleAccuracy = 95;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
+        this._magicAttack = 56;
+        this._magicAttackMax = 62;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        break;
-
-      case Fix.FATEFUL_INSCRIPTOR_STAFF:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Onehand_Rod;
-        this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 95;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 5750;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1718,7 +1695,7 @@ public partial class Item
         this._battleAccuracy = 92;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
-        this._magicAttack = 52;
+        this._magicAttack = 51;
         this._magicAttackMax = 58;
         this._physicalDefense = 0;
         this._magicDefense = 0;
@@ -1726,7 +1703,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6000;
         this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた本。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５２～５８";
+        this._description = "標準よりも研ぎ澄まされた本。戦闘に少々馴染んできた者が好んでこれを使用する。攻撃力５１～５８";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1741,13 +1718,13 @@ public partial class Item
         this._battleAccuracy = 92;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
+        this._magicAttack = 60;
+        this._magicAttackMax = 67;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6250;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1766,7 +1743,7 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 9;
+        this._physicalDefense = 10;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
@@ -1789,11 +1766,11 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 0;
+        this._physicalDefense = 14;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 3800;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1835,11 +1812,11 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 0;
+        this._physicalDefense = 20;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 3800;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1859,7 +1836,7 @@ public partial class Item
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 10;
-        this._magicDefense = 0;
+        this._magicDefense = 5;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 4000;
@@ -1881,11 +1858,11 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
+        this._physicalDefense = 13;
+        this._magicDefense = 7;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4200;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1927,11 +1904,11 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
+        this._physicalDefense = 7;
+        this._magicDefense = 13;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4600;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
@@ -1954,13 +1931,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
+        this._intelligence = 5;
+        this._stamina = 3;
         this._mind = 0;
         break;
 
@@ -1977,12 +1954,12 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
+        this._agility = 5;
+        this._intelligence = 3;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -2000,13 +1977,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 3;
         this._mind = 0;
         break;
 
@@ -2023,14 +2000,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 3;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 5;
         break;
 
       case Fix.GORGEOUS_MANTLE:
@@ -2046,12 +2023,12 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 3;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 5;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -2069,11 +2046,11 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
-        this._agility = 0;
+        this._strength = 3;
+        this._agility = 5;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -2092,14 +2069,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 3;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 5;
         break;
 
       case Fix.WARM_LEGGUARD:
@@ -2115,14 +2092,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 4000;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
+        this._stamina = 5;
+        this._mind = 3;
         break;
 
       case Fix.RED_AMULET:
@@ -2138,10 +2115,10 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 10;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
@@ -2161,11 +2138,11 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 10;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -2184,12 +2161,12 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -2207,13 +2184,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 10;
         this._mind = 0;
         break;
 
@@ -2230,14 +2207,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 10;
         break;
 
       case Fix.COPPERRING_TIGER:
@@ -2253,11 +2230,11 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
-        this._agility = 0;
+        this._strength = 7;
+        this._agility = 7;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -2276,12 +2253,12 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 7;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 7;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -2299,13 +2276,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 7;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 7;
         this._mind = 0;
         break;
 
@@ -2322,14 +2299,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
-        this._strength = 0;
+        this._strength = 7;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 7;
         break;
 
       case Fix.COPPERRING_HAYABUSA:
@@ -2345,12 +2322,12 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
+        this._agility = 7;
+        this._intelligence = 7;
         this._stamina = 0;
         this._mind = 0;
         break;
@@ -2368,13 +2345,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 7;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 7;
         this._mind = 0;
         break;
 
@@ -2391,14 +2368,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 7;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 7;
         break;
 
       case Fix.COPPERRING_SPIDER:
@@ -2414,13 +2391,13 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
+        this._intelligence = 7;
+        this._stamina = 7;
         this._mind = 0;
         break;
 
@@ -2437,14 +2414,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 7;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 7;
         break;
 
       case Fix.COPPERRING_ELEPHANT:
@@ -2460,14 +2437,14 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = ;
+        this._gold = 6500;
         this._importantType = Important.None;
         this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
+        this._stamina = 7;
+        this._mind = 7;
         break;
 
       case Fix.ZETANIUM_STONE:

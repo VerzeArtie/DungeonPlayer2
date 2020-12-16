@@ -77,7 +77,6 @@ public static partial class Fix
   public const string FOCUS_ORB = "フォーカス・オーブ";
   public const string SMART_ROD = "スマート・ロッド";
   public const string AUTUMN_ROD = "オータムン・ロッド";
-  public const string FATEFUL_INSCRIPTOR_STAFF = "信仰碑の杖";
   public const string SMART_BOOK = "スマート・ブック";
   public const string BULKY_BOOK = "バルキー・ブック";
   public const string SMART_SHIELD = "スマート・シールド";
