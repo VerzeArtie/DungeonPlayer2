@@ -1990,16 +1990,8 @@ public partial class Character : MonoBehaviour
       return false;
     }
 
-    if (equip_type == Fix.EquipType.Accessory1)
-    {
-      if (item.ItemType == Item.ItemTypes.Accessory)
-      {
-        return true;
-      }
-      return false;
-    }
-
-    if (equip_type == Fix.EquipType.Accessory2)
+    if (equip_type == Fix.EquipType.Accessory1 ||
+        equip_type == Fix.EquipType.Accessory2)
     {
       if (item.ItemType == Item.ItemTypes.Accessory)
       {
@@ -2010,7 +2002,8 @@ public partial class Character : MonoBehaviour
 
     if (equip_type == Fix.EquipType.Artifact)
     {
-      if (item.ItemType == Item.ItemTypes.Artifact)
+      if (item.ItemType == Item.ItemTypes.Accessory ||
+          item.ItemType == Item.ItemTypes.Artifact)
       {
         return true;
       }

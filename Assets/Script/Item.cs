@@ -423,6 +423,29 @@ public partial class Item
   //  get { return _lifeGain; }
   //}
 
+  protected bool _canbeSocket1 = true;
+  protected bool _canbeSocket2 = true;
+  protected bool _canbeSocket3 = true;
+  protected bool _canbeSocket4 = true;
+  protected bool _canbeSocket5 = true;
+  public bool CanbeSocket { get { return _canbeSocket1; } set { _canbeSocket1 = value; } }
+  public bool CanbeSocket2 { get { return _canbeSocket2; } set { _canbeSocket2 = value; } }
+  public bool CanbeSocket3 { get { return _canbeSocket3; } set { _canbeSocket3 = value; } }
+  public bool CanbeSocket4 { get { return _canbeSocket4; } set { _canbeSocket4 = value; } }
+  public bool CanbeSocket5 { get { return _canbeSocket5; } set { _canbeSocket5 = value; } }
+
+  protected Item _socketedItem1 = null;
+  protected Item _socketedItem2 = null;
+  protected Item _socketedItem3 = null;
+  protected Item _socketedItem4 = null;
+  protected Item _socketedItem5 = null;
+
+  public Item SocketedItem1 { get { return _socketedItem1; } set { _socketedItem1 = value; } }
+  public Item SocketedItem2 { get { return _socketedItem2; } set { _socketedItem2 = value; } }
+  public Item SocketedItem3 { get { return _socketedItem3; } set { _socketedItem3 = value; } }
+  public Item SocketedItem4 { get { return _socketedItem4; } set { _socketedItem4 = value; } }
+  public Item SocketedItem5 { get { return _socketedItem5; } set { _socketedItem5 = value; } }
+
 
   public void SetupItemView(Text txtName, Image img)
   {
