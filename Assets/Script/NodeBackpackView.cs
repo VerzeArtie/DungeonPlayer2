@@ -71,10 +71,12 @@ public class NodeBackpackView : MonoBehaviour
     }
     ContentBackpack.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
     BackpackList.Clear();
+    int counter = 0;
     for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
     {
       NodeBackpackItem current = Instantiate(nodeBackpackItem) as NodeBackpackItem;
-      current.Construct(ContentBackpack, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii);
+      current.Construct(ContentBackpack, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii, counter);
+      counter++;
       BackpackList.Add(current);
     }
   }

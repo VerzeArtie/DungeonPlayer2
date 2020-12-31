@@ -81,6 +81,44 @@ public partial class HomeTown : MotherBase
   public Image imgItemDetailRSP;
   public Image imgItemDetailPO;
 
+  // Item-JewelSocket
+  public GameObject GroupJewelSocket;
+  public Text txtJewelSocketName;
+  public Text txtJewelSocketType;
+  public Image imgJewelSocket;
+  public GameObject objJewelSocketItem1;
+  public GameObject objJewelSocketItem2;
+  public GameObject objJewelSocketItem3;
+  public GameObject objJewelSocketItem4;
+  public GameObject objJewelSocketItem5;
+  public GameObject objBlackout_1;
+  public GameObject objBlackout_2;
+  public GameObject objBlackout_3;
+  public GameObject objBlackout_4;
+  public GameObject objBlackout_5;
+  public Image imgJewelSocketItem1;
+  public Image imgJewelSocketItem2;
+  public Image imgJewelSocketItem3;
+  public Image imgJewelSocketItem4;
+  public Image imgJewelSocketItem5;
+  public Text txtJewelSocketItem1;
+  public Text txtJewelSocketItem2;
+  public Text txtJewelSocketItem3;
+  public Text txtJewelSocketItem4;
+  public Text txtJewelSocketItem5;
+  public Text lblJewelSocketItem1;
+  public Text lblJewelSocketItem2;
+  public Text lblJewelSocketItem3;
+  public Text lblJewelSocketItem4;
+  public Text lblJewelSocketItem5;
+  // Equip-JewelSocket
+  public GameObject GroupEquipJewelSocket;
+  public Text lblEquipJewelSocket;
+  public Text txtEquipJewelSocketName;
+  public Image imgEquipJewelSocket;
+  public GameObject ContentChangeJewelSocket;
+  public NodeBackpackItem NodeBackpackItem_JeweSocket;
+
   // Character ( Detail )
   public GroupCharacterStatus GroupCharacterDetail;
   public Text txtDetailName;
@@ -251,8 +289,10 @@ public partial class HomeTown : MotherBase
 
   List<NodeShopItem> ShopItemList = new List<NodeShopItem>();
   List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
+  List<NodeBackpackItem> BackpackJewelSocketList = new List<NodeBackpackItem>();
 
   protected Item CurrentSelectBackpack;
+  protected Item CurrentSelectJewelSocketItem;
 
   protected GameObject CurrentSelectHideACAttribute;
 
@@ -1838,11 +1878,34 @@ public partial class HomeTown : MotherBase
     }
     ContentBackpack.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
     BackpackList.Clear();
+    int counter = 0;
     for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
     {
       NodeBackpackItem current = Instantiate(nodeBackpackItem) as NodeBackpackItem;
-      current.Construct(ContentBackpack, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii);
+      current.Construct(ContentBackpack, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii, counter);
+      counter++;
       BackpackList.Add(current);
+    }
+  }
+
+  private void ConstructBackpackJewelSocketView()
+  {
+    foreach (Transform n in ContentChangeJewelSocket.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    ContentChangeJewelSocket.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+    BackpackJewelSocketList.Clear();
+    int counter = 0;
+    for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
+    {
+      if (CurrentPlayer.Equipable(Fix.EquipType.Artifact, One.TF.BackpackList[ii]))
+      {
+        NodeBackpackItem current = Instantiate(NodeBackpackItem_JeweSocket) as NodeBackpackItem;
+        current.Construct(ContentChangeJewelSocket, One.TF.BackpackList[ii].ItemName, One.TF.BackpackList[ii].StackValue, ii, counter);
+        counter++;
+        BackpackJewelSocketList.Add(current);
+      }
     }
   }
 
@@ -1914,7 +1977,7 @@ public partial class HomeTown : MotherBase
   public void TapBackpackSelect(NodeBackpackItem backpack)
   {
     Debug.Log("TapBackpackSelect(S)");
-    this.CurrentSelectBackpack = new Item(backpack.txtName.text);
+    this.CurrentSelectBackpack = One.TF.BackpackList[backpack.BackpackNumber];
 
     for (int ii = 0; ii < BackpackList.Count; ii++)
     {
@@ -1923,6 +1986,20 @@ public partial class HomeTown : MotherBase
     }
     backpack.imgSelect.gameObject.SetActive(true);
   }
+
+  public void TapBackpackSelectJewelSocket(NodeBackpackItem backpack)
+  {
+    Debug.Log("TapBackpackSelectJewelSocket(S)");
+    this.CurrentSelectJewelSocketItem = One.TF.BackpackList[backpack.BackpackNumber];
+
+    for (int ii = 0; ii < BackpackJewelSocketList.Count; ii++)
+    {
+      Debug.Log("TapBackpackSelectJewelSocket: " + BackpackJewelSocketList[ii].txtName.text);
+      BackpackJewelSocketList[ii].imgSelect.gameObject.SetActive(false);
+    }
+    backpack.imgSelect.gameObject.SetActive(true);
+  }
+
 
   public void TapBackpackUse()
   {
@@ -1984,6 +2061,91 @@ public partial class HomeTown : MotherBase
   public void TapDeleteCancel()
   {
     GroupDeleteDecision.SetActive(false);
+  }
+
+  /// <summary>
+  /// 対象のアイテムに宝玉ソケットを設定する画面を呼び出します。
+  /// </summary>
+  public void TapJewelSocket(Text sender)
+  {
+    Debug.Log("TapJewelSocket");
+
+    RefreshJewelSocketView();
+
+    GroupJewelSocket.SetActive(true);
+  }
+
+  public void TapCancelJewelSocket()
+  {
+    GroupJewelSocket.SetActive(false);
+  }
+
+  public void TapEquipJewelSocket(Text sender)
+  {
+    Debug.Log("TapEquipJewelSocket");
+
+    Item current = new Item(sender.text);
+    txtEquipJewelSocketName.text = current.ItemName;
+    imgEquipJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+
+    // バックパックから装備可能なアイテムを設定
+    ConstructBackpackJewelSocketView();
+
+    GroupEquipJewelSocket.SetActive(true);
+  }
+
+  public void TapEquipJewelSocket_Equip(Text sender)
+  {
+    Debug.Log("CurrentSelectBackpack: " + CurrentSelectBackpack.ItemName);
+    Debug.Log("CurrentSelectJewelSocketItem: " + CurrentSelectJewelSocketItem.ItemName);
+
+    // 現在装備アイテムをバックパックに戻す。
+    if (this.CurrentSelectBackpack.SocketedItem1 != null)
+    {
+      One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
+    }
+
+    // 選択アイテムを装備する。
+    this.CurrentSelectBackpack.SocketedItem1 = this.CurrentSelectJewelSocketItem;
+
+    // 選択アイテムをバックパックから削除する。
+    One.TF.RemoveItem(this.CurrentSelectJewelSocketItem);
+
+    // 宝玉ソケット用のバックパックを再反映する。
+    ConstructBackpackJewelSocketView();
+
+    // 宝玉ソケット画面を再反映する。
+    RefreshJewelSocketView();
+    RefreshAllView();
+
+    GroupEquipJewelSocket.SetActive(false);
+  }
+  public void TapEquipJewelSocket_Detach()
+  {
+    Debug.Log("TapEquipJewelSocket_Detach: " + CurrentSelectBackpack.ItemName);
+
+    // 現在装備アイテムをバックパックに戻す。
+    if (this.CurrentSelectBackpack.SocketedItem1 != null)
+    {
+      One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
+    }
+
+    // 現在装備を「装備なし」にする。
+    this.CurrentSelectBackpack.SocketedItem1 = null;
+
+    // 宝玉ソケット用のバックパックを再反映する。
+    ConstructBackpackJewelSocketView();
+
+    // 宝玉ソケット画面を再反映する。
+    RefreshJewelSocketView();
+    RefreshAllView();
+
+    GroupEquipJewelSocket.SetActive(false);
+  }
+
+  public void TapEquipJewelSocket_Cancel()
+  {
+    GroupEquipJewelSocket.SetActive(false);
   }
 
   public override void RefreshAllView()
@@ -2211,6 +2373,165 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_22 && One.TF.Event_Message500022)
     {
       txtEventDescription.text = Fix.QUEST_DESC_22_2;
+    }
+  }
+
+  private void RefreshJewelSocketView()
+  {
+    if (this.CurrentSelectBackpack != null)
+    {
+      Debug.Log("CurrentSelectBackpack: " + this.CurrentSelectBackpack.ItemName);
+      Item current = this.CurrentSelectBackpack;
+      txtJewelSocketName.text = current.ItemName;
+      txtJewelSocketType.text = current.ItemType.ToString();
+      imgJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+
+      // ソケット１～５は芋プログラミングだが、良しとする。ただし、横展開概念が出た場合は要対処。
+      // １つ目
+      if (this.CurrentSelectBackpack.CanbeSocket1)
+      {
+        Item item = CurrentSelectBackpack.SocketedItem1;
+        Image img = imgJewelSocketItem1;
+        Text txt = txtJewelSocketItem1;
+        if (item != null)
+        {
+          img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
+          txt.text = item.ItemName;
+        }
+        else
+        {
+          img.sprite = null;
+          txt.text = string.Empty;
+        }
+        lblJewelSocketItem1.text = "Jewel-Socket 1";
+        objBlackout_1.SetActive(false);
+        objJewelSocketItem1.GetComponent<Button>().interactable = true;
+        objJewelSocketItem1.GetComponent<Outline>().enabled = true;
+      }
+      else
+      {
+        lblJewelSocketItem1.text = string.Empty;
+        objBlackout_1.SetActive(true);
+        objJewelSocketItem1.GetComponent<Button>().interactable = false;
+        objJewelSocketItem1.GetComponent<Outline>().enabled = false;
+      }
+
+      // ２つ目
+      if (this.CurrentSelectBackpack.CanbeSocket2)
+      {
+        Item item = CurrentSelectBackpack.SocketedItem2;
+        Image img = imgJewelSocketItem2;
+        Text txt = txtJewelSocketItem2;
+        if (item != null)
+        {
+          img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
+          txt.text = item.ItemName;
+        }
+        else
+        {
+          img.sprite = null;
+          txt.text = string.Empty;
+        }
+        lblJewelSocketItem2.text = "Jewel-Socket 2";
+        objBlackout_2.SetActive(false);
+        objJewelSocketItem2.GetComponent<Button>().interactable = true;
+        objJewelSocketItem2.GetComponent<Outline>().enabled = true;
+      }
+      else
+      {
+        lblJewelSocketItem2.text = string.Empty;
+        objBlackout_2.SetActive(true);
+        objJewelSocketItem2.GetComponent<Button>().interactable = false;
+        objJewelSocketItem2.GetComponent<Outline>().enabled = false;
+      }
+
+      // ３つ目
+      if (this.CurrentSelectBackpack.CanbeSocket3)
+      {
+        Item item = CurrentSelectBackpack.SocketedItem3;
+        Image img = imgJewelSocketItem3;
+        Text txt = txtJewelSocketItem3;
+        if (item != null)
+        {
+          img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
+          txt.text = item.ItemName;
+        }
+        else
+        {
+          img.sprite = null;
+          txt.text = string.Empty;
+        }
+        lblJewelSocketItem3.text = "Jewel-Socket 3";
+        objBlackout_3.SetActive(false);
+        objJewelSocketItem3.GetComponent<Button>().interactable = true;
+        objJewelSocketItem3.GetComponent<Outline>().enabled = true;
+      }
+      else
+      {
+        lblJewelSocketItem3.text = string.Empty;
+        objBlackout_3.SetActive(true);
+        objJewelSocketItem3.GetComponent<Button>().interactable = false;
+        objJewelSocketItem3.GetComponent<Outline>().enabled = false;
+      }
+
+      // ４つ目
+      if (this.CurrentSelectBackpack.CanbeSocket4)
+      {
+        Item item = CurrentSelectBackpack.SocketedItem4;
+        Image img = imgJewelSocketItem4;
+        Text txt = txtJewelSocketItem4;
+        if (item != null)
+        {
+          img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
+          txt.text = item.ItemName;
+        }
+        else
+        {
+          img.sprite = null;
+          txt.text = string.Empty;
+        }
+        lblJewelSocketItem4.text = "Jewel-Socket 4";
+        objBlackout_4.SetActive(false);
+        objJewelSocketItem4.GetComponent<Button>().interactable = true;
+        objJewelSocketItem4.GetComponent<Outline>().enabled = true;
+      }
+      else
+      {
+        lblJewelSocketItem4.text = string.Empty;
+        objBlackout_4.SetActive(true);
+        objJewelSocketItem4.GetComponent<Button>().interactable = false;
+        objJewelSocketItem4.GetComponent<Outline>().enabled = false;
+      }
+
+      // ５つ目
+      if (this.CurrentSelectBackpack.CanbeSocket5)
+      {
+        Item item = CurrentSelectBackpack.SocketedItem5;
+        Image img = imgJewelSocketItem5;
+        Text txt = txtJewelSocketItem5;
+        if (item != null)
+        {
+          img.sprite = Resources.Load<Sprite>("Icon_" + item.ItemType.ToString());
+          txt.text = item.ItemName;
+        }
+        else
+        {
+          img.sprite = null;
+          txt.text = string.Empty;
+        }
+        lblJewelSocketItem5.text = "Jewel-Socket 5";
+        objBlackout_5.SetActive(false);
+        objJewelSocketItem5.GetComponent<Button>().interactable = true;
+        objJewelSocketItem5.GetComponent<Outline>().enabled = true;
+      }
+      else
+      {
+        lblJewelSocketItem5.text = string.Empty;
+        objBlackout_5.SetActive(true);
+        objJewelSocketItem5.GetComponent<Button>().interactable = false;
+        objJewelSocketItem5.GetComponent<Outline>().enabled = false;
+      }
+
     }
   }
 }

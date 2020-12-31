@@ -13,10 +13,12 @@ public class NodeBackpackItem : MonoBehaviour
   public Text txtItemNum;
   public Image background;
   public Image imgSelect;
+  public int BackpackNumber;
 
-  public void Construct(GameObject content, string item_name, int item_num, int num)
+  public void Construct(GameObject content, string item_name, int item_num, int num, int counter)
   {
     this.transform.SetParent(content.transform);
+    this.BackpackNumber = num;
 
     Item current = new Item(item_name);
 
@@ -52,7 +54,7 @@ public class NodeBackpackItem : MonoBehaviour
     RectTransform rect = this.GetComponent<RectTransform>();
     rect.anchoredPosition = new Vector2(0, 0);
     rect.sizeDelta = new Vector2(0, 0);
-    rect.localPosition = new Vector3(0, -num * HEIGHT, 0);
+    rect.localPosition = new Vector3(0, -counter * HEIGHT, 0);
 
     content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x, content.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
   }

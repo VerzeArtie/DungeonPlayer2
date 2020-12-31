@@ -2677,6 +2677,153 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.ZEMULGEARS:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 10000;
+        this._physicalAttackMax = 15000;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = true;
+        this.CanbeSocket2 = true;
+        this.CanbeSocket3 = true;
+        this.CanbeSocket4 = true;
+        this.CanbeSocket5 = true;
+        this._importantType = Important.Normal;
+        this._description = "その輝きが届く事は決してない。攻撃力10000～15000、宝玉ソケット１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.ARTIFACT_GENSEI:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Artifact;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = false;
+        this._importantType = Important.Normal;
+        this._description = "厳正の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。心：＋１００、「宝玉ソケット埋め込み時：心：＋３００";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 100;
+        break;
+
+      case Fix.ARTIFACT_ZETSUKEN:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Artifact;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = false;
+        this._importantType = Important.Normal;
+        this._description = "厳正の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。力：＋１００、「宝玉ソケット埋め込み時：力：＋３００";
+        this._strength = 100;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.ARTIFACT_ZIHI:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Artifact;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = false;
+        this._importantType = Important.Normal;
+        this._description = "慈悲の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。体：＋１００、「宝玉ソケット埋め込み時：体：＋３００";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 300;
+        this._mind = 0;
+        break;
+
+      case Fix.ARTIFACT_MUSOU:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Artifact;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = false;
+        this._importantType = Important.Normal;
+        this._description = "無双の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。技：＋１００、「宝玉ソケット埋め込み時：技：＋３００";
+        this._strength = 0;
+        this._agility = 300;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.ARTIFACT_JOURYOKU:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Artifact;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this.CanbeSocket1 = false;
+        this._importantType = Important.Normal;
+        this._description = "常緑の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。知：＋１００、「宝玉ソケット埋め込み時：知：＋３００";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 300;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
     }
   }
 }

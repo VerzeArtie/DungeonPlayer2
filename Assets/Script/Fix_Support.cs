@@ -120,4 +120,10 @@ public static partial class Fix
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
   public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
+  public const string ZEMULGEARS = "極剣：ゼムルギアス";
+  public const string ARTIFACT_GENSEI = "古代の宝珠：厳正";
+  public const string ARTIFACT_ZIHI = "古代の宝珠：慈悲";
+  public const string ARTIFACT_MUSOU = "古代の宝珠：無双";
+  public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
+  public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
 }

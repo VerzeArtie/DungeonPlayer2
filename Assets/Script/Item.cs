@@ -423,12 +423,12 @@ public partial class Item
   //  get { return _lifeGain; }
   //}
 
-  protected bool _canbeSocket1 = true;
-  protected bool _canbeSocket2 = true;
-  protected bool _canbeSocket3 = true;
-  protected bool _canbeSocket4 = true;
-  protected bool _canbeSocket5 = true;
-  public bool CanbeSocket { get { return _canbeSocket1; } set { _canbeSocket1 = value; } }
+  protected bool _canbeSocket1 = false;
+  protected bool _canbeSocket2 = false;
+  protected bool _canbeSocket3 = false;
+  protected bool _canbeSocket4 = false;
+  protected bool _canbeSocket5 = false;
+  public bool CanbeSocket1 { get { return _canbeSocket1; } set { _canbeSocket1 = value; } }
   public bool CanbeSocket2 { get { return _canbeSocket2; } set { _canbeSocket2 = value; } }
   public bool CanbeSocket3 { get { return _canbeSocket3; } set { _canbeSocket3 = value; } }
   public bool CanbeSocket4 { get { return _canbeSocket4; } set { _canbeSocket4 = value; } }
