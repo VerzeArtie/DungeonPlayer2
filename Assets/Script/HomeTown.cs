@@ -291,8 +291,9 @@ public partial class HomeTown : MotherBase
   List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
   List<NodeBackpackItem> BackpackJewelSocketList = new List<NodeBackpackItem>();
 
-  protected Item CurrentSelectBackpack;
-  protected Item CurrentSelectJewelSocketItem;
+  protected Item CurrentSelectBackpack = null;
+  protected Item CurrentSelectJewelSocketItem = null;
+  protected int CurrentSelectJewelSocketNumber = 0;
 
   protected GameObject CurrentSelectHideACAttribute;
 
@@ -2080,13 +2081,24 @@ public partial class HomeTown : MotherBase
     GroupJewelSocket.SetActive(false);
   }
 
-  public void TapEquipJewelSocket(Text sender)
+  public void TapSelectJewelSocket(int num)
   {
-    Debug.Log("TapEquipJewelSocket");
+    Debug.Log("TapEquipJewelSocket: " + num.ToString());
 
-    Item current = new Item(sender.text);
-    txtEquipJewelSocketName.text = current.ItemName;
-    imgEquipJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+    this.CurrentSelectJewelSocketNumber = num;
+
+    Item current = null;
+    if (num == 0) { current = this.CurrentSelectBackpack.SocketedItem1; }
+    else if (num == 1) { current = this.CurrentSelectBackpack.SocketedItem2; }
+    else if (num == 2) { current = this.CurrentSelectBackpack.SocketedItem3; }
+    else if (num == 3) { current = this.CurrentSelectBackpack.SocketedItem4; }
+    else if (num == 4) { current = this.CurrentSelectBackpack.SocketedItem5; }
+
+    if (current != null)
+    {
+      txtEquipJewelSocketName.text = current.ItemName;
+      imgEquipJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+    }
 
     // バックパックから装備可能なアイテムを設定
     ConstructBackpackJewelSocketView();
@@ -2100,13 +2112,47 @@ public partial class HomeTown : MotherBase
     Debug.Log("CurrentSelectJewelSocketItem: " + CurrentSelectJewelSocketItem.ItemName);
 
     // 現在装備アイテムをバックパックに戻す。
-    if (this.CurrentSelectBackpack.SocketedItem1 != null)
-    {
-      One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
-    }
-
     // 選択アイテムを装備する。
-    this.CurrentSelectBackpack.SocketedItem1 = this.CurrentSelectJewelSocketItem;
+    if (this.CurrentSelectJewelSocketNumber == 0)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem1 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
+      }
+      this.CurrentSelectBackpack.SocketedItem1 = this.CurrentSelectJewelSocketItem;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 1)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem2 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem2);
+      }
+      this.CurrentSelectBackpack.SocketedItem2 = this.CurrentSelectJewelSocketItem;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 2)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem3 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem3);
+      }
+      this.CurrentSelectBackpack.SocketedItem3 = this.CurrentSelectJewelSocketItem;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 3)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem4 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem4);
+      }
+      this.CurrentSelectBackpack.SocketedItem4 = this.CurrentSelectJewelSocketItem;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 4)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem5 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem5);
+      }
+      this.CurrentSelectBackpack.SocketedItem5 = this.CurrentSelectJewelSocketItem;
+    }
 
     // 選択アイテムをバックパックから削除する。
     One.TF.RemoveItem(this.CurrentSelectJewelSocketItem);
@@ -2125,13 +2171,47 @@ public partial class HomeTown : MotherBase
     Debug.Log("TapEquipJewelSocket_Detach: " + CurrentSelectBackpack.ItemName);
 
     // 現在装備アイテムをバックパックに戻す。
-    if (this.CurrentSelectBackpack.SocketedItem1 != null)
-    {
-      One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
-    }
-
     // 現在装備を「装備なし」にする。
-    this.CurrentSelectBackpack.SocketedItem1 = null;
+    if (this.CurrentSelectJewelSocketNumber == 0)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem1 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem1);
+      }
+      this.CurrentSelectBackpack.SocketedItem1 = null;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 1)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem2 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem2);
+      }
+      this.CurrentSelectBackpack.SocketedItem2 = null;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 2)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem3 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem3);
+      }
+      this.CurrentSelectBackpack.SocketedItem3 = null;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 3)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem4 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem4);
+      }
+      this.CurrentSelectBackpack.SocketedItem4 = null;
+    }
+    else if (this.CurrentSelectJewelSocketNumber == 4)
+    {
+      if (this.CurrentSelectBackpack.SocketedItem5 != null)
+      {
+        One.TF.AddBackPack(CurrentSelectBackpack.SocketedItem5);
+      }
+      this.CurrentSelectBackpack.SocketedItem5 = null;
+    }
 
     // 宝玉ソケット用のバックパックを再反映する。
     ConstructBackpackJewelSocketView();

@@ -17641,11 +17641,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305560135}
-        m_MethodName: TapEquipJewelSocket
-        m_Mode: 2
+        m_MethodName: TapSelectJewelSocket
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 253463385}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -26936,11 +26936,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305560135}
-        m_MethodName: TapEquipJewelSocket
-        m_Mode: 2
+        m_MethodName: TapSelectJewelSocket
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1161580380}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -51615,6 +51615,7 @@ MonoBehaviour:
   txtItemNum: {fileID: 1227017549}
   background: {fileID: 1425199915}
   imgSelect: {fileID: 897780115}
+  BackpackNumber: 0
 --- !u!114 &763088323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57670,11 +57671,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305560135}
-        m_MethodName: TapEquipJewelSocket
-        m_Mode: 2
+        m_MethodName: TapSelectJewelSocket
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1322168931}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
@@ -81184,6 +81185,7 @@ MonoBehaviour:
   txtItemNum: {fileID: 2004481164}
   background: {fileID: 934280957}
   imgSelect: {fileID: 1030961994}
+  BackpackNumber: 0
 --- !u!114 &1217324331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88620,11 +88622,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305560135}
-        m_MethodName: TapEquipJewelSocket
-        m_Mode: 2
+        m_MethodName: TapSelectJewelSocket
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1518498105}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
@@ -91404,11 +91406,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 305560135}
-        m_MethodName: TapEquipJewelSocket
-        m_Mode: 2
+        m_MethodName: TapSelectJewelSocket
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1067714386}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -132093,6 +132095,7 @@ MonoBehaviour:
   txtItemNum: {fileID: 0}
   background: {fileID: 1124657132}
   imgSelect: {fileID: 0}
+  BackpackNumber: 0
 --- !u!1 &1964650024
 GameObject:
   m_ObjectHideFlags: 0
