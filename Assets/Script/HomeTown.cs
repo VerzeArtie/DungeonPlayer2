@@ -80,6 +80,7 @@ public partial class HomeTown : MotherBase
   public Image imgItemDetailSPD;
   public Image imgItemDetailRSP;
   public Image imgItemDetailPO;
+  public Button btnJewelSocket;
 
   // Item-JewelSocket
   public GameObject GroupJewelSocket;
@@ -2016,6 +2017,7 @@ public partial class HomeTown : MotherBase
     if (this.CurrentSelectBackpack != null)
     {
       SetupItemDetail(this.CurrentSelectBackpack, imgItemDetail, txtItemDetailName, txtItemDetailType, txtItemDetailDesc, txtItemDetailSTR, txtItemDetailAGL, txtItemDetailINT, txtItemDetailSTM, txtItemDetailMND, txtItemDetailPA, txtItemDetailPAMax, txtItemDetailPD, txtItemDetailMA, txtItemDetailMAMax, txtItemDetailMD, txtItemDetailACC, txtItemDetailSPD, txtItemDetailRSP, txtItemDetailPO, imgItemDetailSTR, imgItemDetailAGL, imgItemDetailINT, imgItemDetailSTM, imgItemDetailMND, imgItemDetailPA, imgItemDetailPAMax, imgItemDetailPD, imgItemDetailMA, imgItemDetailMAMax, imgItemDetailMD, imgItemDetailACC, imgItemDetailSPD, imgItemDetailRSP, imgItemDetailPO);
+      btnJewelSocket.gameObject.SetActive(this.CurrentSelectBackpack.CanbeSocket1);
       GroupItemDetail.SetActive(true);
     }
   }

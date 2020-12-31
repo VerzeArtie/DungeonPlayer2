@@ -2697,7 +2697,7 @@ public partial class Item
         this.CanbeSocket4 = true;
         this.CanbeSocket5 = true;
         this._importantType = Important.Normal;
-        this._description = "その輝きが届く事は決してない。攻撃力10000～15000、宝玉ソケット１";
+        this._description = "その輝きが届く事は決してない。攻撃力10000～15000、宝玉ソケット５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
