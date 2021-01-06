@@ -2101,6 +2101,11 @@ public partial class HomeTown : MotherBase
       txtEquipJewelSocketName.text = current.ItemName;
       imgEquipJewelSocket.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
     }
+    else
+    {
+      txtEquipJewelSocketName.text = string.Empty;
+      imgEquipJewelSocket.sprite = null;
+    }
 
     // バックパックから装備可能なアイテムを設定
     ConstructBackpackJewelSocketView();

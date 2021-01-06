@@ -554,6 +554,28 @@ public partial class Item
       if (this._itemType == ItemTypes.EventItem) { return "貴重品"; }
 
       return "売却専用品";
-    }
+    }      
   }
+
+  public void AddJewelSocket1(string item_name)
+  {
+    this.SocketedItem1 = new Item(item_name);
+  }
+  public void AddJewelSocket2(string item_name)
+  {
+    this.SocketedItem2 = new Item(item_name);
+  }
+  public void AddJewelSocket3(string item_name)
+  {
+    this.SocketedItem3 = new Item(item_name);
+  }
+  public void AddJewelSocket4(string item_name)
+  {
+    this.SocketedItem4 = new Item(item_name);
+  }
+  public void AddJewelSocket5(string item_name)
+  {
+    this.SocketedItem5 = new Item(item_name);
+  }
+
 }

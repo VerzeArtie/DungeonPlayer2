@@ -483,6 +483,31 @@ public class SaveLoad : MotherBase
         xmlWriter.WriteWhitespace("\r\n");
         xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_Stack", One.TF.BackpackList[ii].StackValue.ToString());
         xmlWriter.WriteWhitespace("\r\n");
+        if (One.TF.BackpackList[ii].CanbeSocket1 && One.TF.BackpackList[ii].SocketedItem1 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket1", One.TF.BackpackList[ii].SocketedItem1.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket2 && One.TF.BackpackList[ii].SocketedItem2 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket2", One.TF.BackpackList[ii].SocketedItem2.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket3 && One.TF.BackpackList[ii].SocketedItem3 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket3", One.TF.BackpackList[ii].SocketedItem3.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket4 && One.TF.BackpackList[ii].SocketedItem4 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket4", One.TF.BackpackList[ii].SocketedItem4.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket5 && One.TF.BackpackList[ii].SocketedItem5 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket5", One.TF.BackpackList[ii].SocketedItem5.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
       }
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -743,21 +768,39 @@ public class SaveLoad : MotherBase
     }
 
     // Backpack
-    List<string> listItemName = new List<string>();
     List<string> listItemValue = new List<string>();
     List<string> listItemStack = new List<string>();
+    List<string> listItemJewelSocket1 = new List<string>();
+    List<string> listItemJewelSocket2 = new List<string>();
+    List<string> listItemJewelSocket3 = new List<string>();
+    List<string> listItemJewelSocket4 = new List<string>();
+    List<string> listItemJewelSocket5 = new List<string>();
     XmlNodeList parentBackpack = xml.GetElementsByTagName("Backpack");
     for (int ii = 0; ii < parentBackpack.Count; ii++)
     {
       XmlNodeList current = parentBackpack[ii].ChildNodes;
       for (int jj = 0; jj < current.Count; jj++)
       {
-        if (current[jj].Name.Contains("Stack") == false)
+        if (current[jj].Name.Contains("Stack") == false && current[jj].Name.Contains("JewelSocket") == false)
         {
-          listItemName.Add(current[jj].Name);
           listItemValue.Add(current[jj].InnerText);
           XmlNodeList temp2 = xml.GetElementsByTagName(current[jj].Name + "_Stack");
           listItemStack.Add(temp2[0]?.InnerText ?? String.Empty);
+
+          XmlNodeList temp3_1 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket1");
+          listItemJewelSocket1.Add(temp3_1[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_2 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket2");
+          listItemJewelSocket2.Add(temp3_2[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_3 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket3");
+          listItemJewelSocket3.Add(temp3_3[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_4 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket4");
+          listItemJewelSocket4.Add(temp3_4[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_5 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket5");
+          listItemJewelSocket5.Add(temp3_5[0]?.InnerText ?? string.Empty);
         }
       }
     }
@@ -767,7 +810,28 @@ public class SaveLoad : MotherBase
       Debug.Log("listItemStack: " + listItemStack[ii]);
       for (int jj = 0; jj < Convert.ToInt32(listItemStack[ii]); jj++)
       {
-        One.TF.AddBackPack(new Item(listItemValue[ii]));
+        Item current = new Item(listItemValue[ii]);
+        if (listItemJewelSocket1[ii] != string.Empty)
+        {
+          current.AddJewelSocket1(listItemJewelSocket1[ii]);
+        }
+        if (listItemJewelSocket2[ii] != string.Empty)
+        {
+          current.AddJewelSocket2(listItemJewelSocket2[ii]);
+        }
+        if (listItemJewelSocket3[ii] != string.Empty)
+        {
+          current.AddJewelSocket3(listItemJewelSocket3[ii]);
+        }
+        if (listItemJewelSocket4[ii] != string.Empty)
+        {
+          current.AddJewelSocket4(listItemJewelSocket4[ii]);
+        }
+        if (listItemJewelSocket5[ii] != string.Empty)
+        {
+          current.AddJewelSocket5(listItemJewelSocket5[ii]);
+        }
+        One.TF.AddBackPack(current);
       }
     }
 

@@ -545,6 +545,12 @@ public static class One
     // TF.BackpackList.Add(new Item(Fix.EDIL_BLACK_BLADE));
     // TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     // TF.BackpackList.Add(new Item(Fix.ZETANIUM_STONE));
+    // TF.BackpackList.Add(new Item(Fix.ZEMULGEARS));
+    // TF.BackpackList.Add(new Item(Fix.ARTIFACT_GENSEI));
+    // TF.BackpackList.Add(new Item(Fix.ARTIFACT_JOURYOKU));
+    // TF.BackpackList.Add(new Item(Fix.ARTIFACT_ZETSUKEN));
+    // TF.BackpackList.Add(new Item(Fix.ARTIFACT_MUSOU));
+    // TF.BackpackList.Add(new Item(Fix.ARTIFACT_ZIHI));
 
     //One.TF.Event_Message100010 = true;
     //TF.Event_Message100010 = true;
