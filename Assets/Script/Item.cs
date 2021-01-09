@@ -395,7 +395,7 @@ public partial class Item
     get { return _itemValue2; }
   }
 
-  protected int _limitValue = Fix.MAX_ITEM_STACK_SIZE; // オブジェクトがスタックできる最大数
+  protected int _limitValue = 1; 
   public int LimitValue
   {
     set
@@ -578,4 +578,37 @@ public partial class Item
     this.SocketedItem5 = new Item(item_name);
   }
 
+  public void SetupLimitValue()
+  {
+    if (this.ItemType == ItemTypes.Accessory ||
+        this.ItemType == ItemTypes.Artifact ||
+        this.ItemType == ItemTypes.EventItem ||
+        this.ItemType == ItemTypes.Heavy_Armor ||
+        this.ItemType == ItemTypes.Light_Armor ||
+        this.ItemType == ItemTypes.Middle_Armor ||
+        this.ItemType == ItemTypes.Onehand_Axe ||
+        this.ItemType == ItemTypes.Onehand_Book ||
+        this.ItemType == ItemTypes.Onehand_Claw ||
+        this.ItemType == ItemTypes.Onehand_Lance ||
+        this.ItemType == ItemTypes.Onehand_Orb ||
+        this.ItemType == ItemTypes.Onehand_Rod ||
+        this.ItemType == ItemTypes.Onehand_Sword ||
+        this.ItemType == ItemTypes.Shield ||
+        this.ItemType == ItemTypes.Twohand_Axe ||
+        this.ItemType == ItemTypes.Twohand_Bow ||
+        this.ItemType == ItemTypes.Twohand_Lance ||
+        this.ItemType == ItemTypes.Twohand_Rod ||
+        this.ItemType == ItemTypes.Twohand_Sword)
+    {
+      this._limitValue = 1;
+    }
+    else if (this.ItemType == ItemTypes.Potion)
+    {
+      this.LimitValue = Fix.MAX_ITEM_STACK_SIZE; // オブジェクトがスタックできる最大数
+    }
+    else
+    {
+      this.LimitValue = Fix.MAX_ITEM_STACK_SIZE; // オブジェクトがスタックできる最大数
+    }
+  }
 }
