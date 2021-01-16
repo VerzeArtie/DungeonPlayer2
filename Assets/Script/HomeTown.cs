@@ -1280,6 +1280,7 @@ public partial class HomeTown : MotherBase
           this.panelSystemMessage.SetActive(true);
           return;
         }
+        // 画面にYES/NOメッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownYesNoMessageDisplay)
         {
           this.txtDecisionMessageTitle.text = currentMessage;

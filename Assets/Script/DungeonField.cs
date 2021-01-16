@@ -136,7 +136,7 @@ public class DungeonField : MotherBase
   public Image imgEventIcon;
   public Text txtEventTitle;
   public Text txtEventDescription;
-   
+
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -307,18 +307,6 @@ public class DungeonField : MotherBase
     }
     counter++;
 
-    // プレイヤーリスト
-    List<Character> list = One.AvailableCharacters;
-    for (int ii = 0; ii < list.Count; ii++)
-    {
-      NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
-      current.Refresh(list[ii]);
-      current.transform.SetParent(GroupCharacterList.transform);
-      MiniCharaList.Add(current);
-
-      PlayerList.Add(list[ii]);
-    }
-
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
 
@@ -354,11 +342,7 @@ public class DungeonField : MotherBase
     ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
     // debug
 
-    // フィールドオブジェクトの状態更新
-    UpdateFieldObject(One.TF.CurrentDungeonField);
-
-    // キャラクター情報を画面へ反映
-    UpdateCharacterStatus();
+    RefreshAllView();
   }
 
   // Update is called once per frame
@@ -369,22 +353,33 @@ public class DungeonField : MotherBase
       this.FirstAction = true;
 
       // 画面表示時のイベント進行
-      if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
-        MessagePack.Message300123(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
+        if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
+        {
+          MessagePack.Message300123(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
+        {
+          MessagePack.Message300200(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
+        {
+          MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
       }
 
-      if (One.TF.DefeatGalvadazer && One.TF.QuestMain_Complete_00009 == false)
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
-        MessagePack.Message300200(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-
-      if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
-      {
-        MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
+        if (One.TF.Event_Message1200010 == false)
+        {
+          MessagePack.Message1200010(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
 
       return;
@@ -2098,11 +2093,7 @@ public class DungeonField : MotherBase
       // イベント進行に応じたオブジェクトの設置
       LoadObjectFromEvent();
 
-      // フィールドオブジェクトの状態更新
-      UpdateFieldObject(One.TF.CurrentDungeonField);
-
-      // キャラクター情報を画面へ反映
-      UpdateCharacterStatus();
+      RefreshAllView();
     }
   }
 
@@ -2207,6 +2198,12 @@ public class DungeonField : MotherBase
       MessagePack.Message300121(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+    if (this.currentDecision == Fix.DECISION_PARTY_JOIN_SELMOI_RO)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message1200011(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   public void TapDecisionCancel()
@@ -2244,6 +2241,12 @@ public class DungeonField : MotherBase
     {
       GroupDecision.SetActive(false);
       MessagePack.Message300122(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    if (this.currentDecision == Fix.DECISION_PARTY_JOIN_SELMOI_RO)
+    {
+      GroupDecision.SetActive(false);
+      MessagePack.Message1200012(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
   }
@@ -2535,6 +2538,11 @@ public class DungeonField : MotherBase
         {
           EventFountain();
           continue; // 継続
+        }
+        // 画面を再描画する。
+        else if (currentEvent == MessagePack.ActionEvent.RefreshAllView)
+        {
+          RefreshAllView();
         }
         // 画面にシステムメッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.MessageDisplay)
@@ -3391,6 +3399,16 @@ public class DungeonField : MotherBase
             GroupDecision.SetActive(true);
             return;
           }
+          if (currentMessage == Fix.DECISION_PARTY_JOIN_SELMOI_RO)
+          {
+            this.currentDecision = currentMessage;
+            txtDecisionTitle.text = "セルモイ・ロウに50000G支払い、仲間に引き入れますか？";
+            txtDecisionMessage.text = "50000G支払う事で、セルモイ・ロウを仲間にする事が出来ます。50000G持っていない場合は仲間にする事は出来ません。";
+            txtDecisionA.text = "仲間にする";
+            txtDecisionB.text = "仲間にしない";
+            GroupDecision.SetActive(true);
+            return;
+          }
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountBoss)
         {
@@ -3619,6 +3637,15 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z))
       {
         MessagePack.Message800120(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
+    {
+      if (LocationDetect(tile, 1, 0, 0) && One.TF.AvailableSelmoiRo == false)
+      {
+        MessagePack.Message1200013(ref QuestMessageList, ref QuestEventList); TapOK();
+        GroupQuestMessage.SetActive(true);
         return true;
       }
     }
@@ -5436,9 +5463,32 @@ public class DungeonField : MotherBase
 
   public override void RefreshAllView()
   {
+    // プレイヤーリストの反映
+    foreach (Transform n in GroupCharacterList.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    PlayerList.Clear();
+    MiniCharaList.Clear();
+
+    List<Character> list = One.AvailableCharacters;
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+      current.Refresh(list[ii]);
+      current.transform.SetParent(GroupCharacterList.transform);
+      MiniCharaList.Add(current);
+
+      PlayerList.Add(list[ii]);
+    }
+
+    // キャラクター情報を画面へ反映
     UpdateCharacterStatus();
+
+    // フィールドオブジェクトの状態更新
+    UpdateFieldObject(One.TF.CurrentDungeonField);
   }
-  
+
   private void RefreshQuestList()
   {
     // same DungeonField, HomeTown

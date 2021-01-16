@@ -724,6 +724,12 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message2200020 = false;
   public bool Event_Message2200020 { get { return _event_message2200020; } set { _event_message2200020 = value; } }
 
+  [SerializeField] protected bool _event_message1200010 = false;
+  public bool Event_Message1200010 { get { return _event_message1200010; } set { _event_message1200010 = value; } }
+
+  [SerializeField] protected bool _event_message1200012 = false;
+  public bool Event_Message1200012 { get { return _event_message1200012; } set { _event_message1200012 = value; } }
+
   #endregion
 
   #region "Quest"

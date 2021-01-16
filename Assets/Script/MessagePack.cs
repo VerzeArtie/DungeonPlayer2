@@ -43,6 +43,7 @@ public static class MessagePack
     HidePlayer,
     VisiblePlayer,
     ViewLevelUpCharacter,
+    RefreshAllView,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -6369,6 +6370,159 @@ public static class MessagePack
   #region "廃墟サリタン"
   public static void Message1200010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message1200010 == false)
+    {
+      One.TF.Event_Message1200010 = true;
+      Message(ref m_list, ref e_list, "アイン：着いたな。ここが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そう、サリタンの町よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：町って言うか、まるで廃墟みたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この町は過去の大災厄により見捨てられた土地なの。今は誰も住んでいないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうなのか・・・結構建物自体は残ってるのにな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・ん？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今は誰も住んでない。そう言ったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、ここに住んでいる人はもう居ないはずよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アイン、真剣な目つきで、とある建物の裏影に視線を映した　～　", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・間違いないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ウソ。誰か居るって事？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　しばらくして　～　", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：クッ、ククク。しょうがあるまい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：とりあえず姿を見せてくれ。敵じゃなければ尚更だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：クク、まあ良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：俺の名はセルモイ・ロウ。ひとまず貴様の敵ではないと言っておこう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺はアイン・ウォーレンスだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：アイン・・・か。幾度なく聞いた事のある名だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：ここに、何をしに来た？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：（アイン、あんたさっきからどうしたのよ。言葉が詰まってるだけど？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ラナ、下がってろ。こいつは色々と要注意だ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：（ふーん、そうなの。まあ、分かったわ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：仲間だ。仲間を探しにここに来ている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：ほう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：港町コチューシェで行方不明になった者を探している。ここに誰か来なかったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：知らんな。知っていたとしても教える事はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：話を変える。ここの地形にお前は詳しいのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：意図が読めんな。答える義理はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：率直に頼みたい事がある。", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "アイン：このサリタンの町を探索したい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：付き合ってもらえないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：クッ、クククク・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：ハハハハハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：初対面でよく言えたものだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：面白いやつとは聞いていたが、想像以上だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：良いだろう。同行してやる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：ただし、条件がある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：金をよこせ。それだけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いくら必要だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：50000Gで良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ロウ：その後の追加要求は決して行わない事を約束する。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DECISION_PARTY_JOIN_SELMOI_RO, ActionEvent.CallDecision);
+    }
+  }
+
+  public static void Message1200011(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.AvailableSelmoiRo == false)
+    {
+      if (One.TF.Gold >= 50000)
+      {
+        One.TF.Gold -= 50000;
+        One.TF.AvailableSelmoiRo = true;
+
+        Message(ref m_list, ref e_list, "アイン：50000Gだ。受け取ってくれ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：確かに受け取った。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ありがとう。じゃあサリタンの町を今から探索するから、何か発見できる事があったら教えてくれ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：よかろう。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, " 【" + Fix.NAME_SELMOI_RO + "】が仲間になりました！", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.RefreshAllView);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：あれ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：どうした。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いや、なんでもない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：50000G持ってこい。でなければ、去れ。", ActionEvent.None);
+      }
+    }
+  }
+
+  public static void Message1200012(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：すまねえ。今は金を準備できていないんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ロウ：金次第だ。去れ。", ActionEvent.None);
+  }
+
+  public static void Message1200013(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：セルモイ・ロウ。頼みたい事がある。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ロウ：なんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.DECISION_PARTY_JOIN_SELMOI_RO, ActionEvent.CallDecision);
   }
   #endregion
 
