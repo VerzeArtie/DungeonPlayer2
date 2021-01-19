@@ -374,6 +374,15 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+      {
+        if (One.TF.Event_EntryMysticForest == false)
+        {
+          One.TF.Event_EntryMysticForest = true;
+          return;
+        }
+      }
+
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
         if (One.TF.Event_Message1200010 == false)

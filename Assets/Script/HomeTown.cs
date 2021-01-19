@@ -403,7 +403,7 @@ public partial class HomeTown : MotherBase
         return;
       }
       // ツァルマンの里、神秘の森から帰還
-      if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_Message500024 == false)
+      if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_EntryMysticForest && One.TF.Event_Message500024 == false)
       {
         MessagePack.Message500024(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
