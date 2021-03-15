@@ -423,6 +423,19 @@ public partial class Character : MonoBehaviour
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
+
+      case Fix.NAME_ILZINA_MELDIETE:
+        this.Level = 1;
+        this.Strength = 1;
+        this.Agility = 1;
+        this.Intelligence = 1;
+        this.Stamina = 1;
+        this.Mind = 1;
+        this.Job = Fix.JobClass.Fighter;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        break;
     }
 
     MaxGain();

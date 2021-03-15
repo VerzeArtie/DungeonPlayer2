@@ -271,26 +271,28 @@ public static class One
     _characters[num].CharacterCreation(Fix.NAME_EIN_WOLENCE); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_LANA_AMIRIA); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_EONE_FULNEA); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_MAGI_ZELKIS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_BILLY_RAKI); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_ADEL_BRIGANDY); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_CALMANS_OHN); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_ANNA_HAMILTON); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_SELMOI_RO); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_MAGI_ZELKIS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_LENE_COLTOS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_SHUVALTZ_FLORE); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_KARTIN_MAI); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_JEDA_ARUS); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_ILZINA_MELDIETE); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_OHRYU_GENMA); PlayerList.Add(_characters[num]); num++;
+    _characters[num].CharacterCreation(Fix.NAME_DELVA_TRECKINO); PlayerList.Add(_characters[num]); num++;
+
     _characters[num].CharacterCreation(Fix.NAME_SINIKIA_VEILHANZ); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_ADEL_BRIGANDY); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_LENE_COLTOS); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_PERMA_WARAMY); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_KILT_JORJU); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_BILLY_RAKI); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_ANNA_HAMILTON); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_CALMANS_OHN); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_SUN_YU); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_SHUVALTZ_FLORE); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_RVEL_ZELKIS); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_VAN_HEHGUSTEL); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_OHRYU_GENMA); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_LADA_MYSTORUS); PlayerList.Add(_characters[num]); num++;
     _characters[num].CharacterCreation(Fix.NAME_SIN_OSCURETE); PlayerList.Add(_characters[num]); num++;
-    _characters[num].CharacterCreation(Fix.NAME_DELVA_TRECKINO); PlayerList.Add(_characters[num]); num++;
 
     num = 0;
     //_characters[num].FullName = Fix.NAME_EIN_WOLENCE;
@@ -306,7 +308,7 @@ public static class One
     //_characters[num].ThirdCommandAttribute = Fix.CommandAttribute.Brave;
     //List<string> actionList = new List<string>();
     //actionList.Add(Fix.NORMAL_ATTACK);
-    //actionList.Add(Fix.Defense);
+    //actionList.Add(Fix.DEFENSE);
     //actionList.Add(Fix.STRAIGHT_SMASH);
 
     //actionList.Add(Fix.CIRCLE_SLASH);

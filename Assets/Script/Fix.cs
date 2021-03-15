@@ -323,30 +323,35 @@ public static partial class Fix
   #endregion
 
   #region "Player Name"
-  public const int CHARACTER_LIST_NUM = 23;
+  public const int CHARACTER_LIST_NUM = 24;
   public const string NAME_EIN_WOLENCE = @"アイン ウォーレンス";
   public const string NAME_LANA_AMIRIA = @"ラナ アミリア";
   public const string NAME_EONE_FULNEA = @"エオネ フルネア";
-  public const string NAME_MAGI_ZELKIS = @"マーギ ゼルキス";
+  public const string NAME_BILLY_RAKI = @"ビリー ラキ";
+  public const string NAME_ADEL_BRIGANDY = @"アデル ブリガンディ";
+  public const string NAME_CALMANS_OHN = @"カルマンズ オーン";
+  public const string NAME_ANNA_HAMILTON = @"アンナ ハミルトン";
   public const string NAME_SELMOI_RO = @"セルモイ ロウ";
+  public const string NAME_MAGI_ZELKIS = @"マーギ ゼルキス";
+  public const string NAME_LENE_COLTOS = @"レネ コルトス";
+  public const string NAME_SHUVALTZ_FLORE = @"シュヴァルツェ フローレ";
   public const string NAME_KARTIN_MAI = @"カーティン マイ";
   public const string NAME_JEDA_ARUS = @"ジェダ アルス";
+  public const string NAME_ILZINA_MELDIETE = @"イルジナ メルディート";
+  public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
+  public const string NAME_DELVA_TRECKINO = @"デルバ トレッキーノ";
+
   public const string NAME_SINIKIA_VEILHANZ = @"シニキア ヴェイルハンツ";
-  public const string NAME_ADEL_BRIGANDY = @"アデル ブリガンディ";
-  public const string NAME_LENE_COLTOS = @"レネ コルトス";
   public const string NAME_PERMA_WARAMY = @"ペルマ ワラミィ";
   public const string NAME_KILT_JORJU = @"キルト ジョルジュ";
-  public const string NAME_BILLY_RAKI = @"ビリー ラキ";
-  public const string NAME_ANNA_HAMILTON = @"アンナ ハミルトン";
-  public const string NAME_CALMANS_OHN = @"カルマンズ オーン";
   public const string NAME_SUN_YU = @"サン ユウ";
-  public const string NAME_SHUVALTZ_FLORE = @"シュヴァルツェ フローレ";
   public const string NAME_RVEL_ZELKIS = @"ルベル ゼルキス";
   public const string NAME_VAN_HEHGUSTEL = @"ヴァン ヘーグステル";
-  public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
   public const string NAME_LADA_MYSTORUS = @"ラダ ミストゥルス";
   public const string NAME_SIN_OSCURETE = @"シン オスキュレーテ";
-  public const string NAME_DELVA_TRECKINO = @"デルバ トレッキーノ";
+  public static string[] NAME_LIST = { NAME_EIN_WOLENCE, NAME_LANA_AMIRIA, NAME_EONE_FULNEA, NAME_BILLY_RAKI, NAME_ADEL_BRIGANDY, NAME_CALMANS_OHN,
+                                       NAME_ANNA_HAMILTON, NAME_SELMOI_RO, NAME_MAGI_ZELKIS, NAME_LENE_COLTOS, NAME_SHUVALTZ_FLORE, NAME_KARTIN_MAI,
+                                       NAME_JEDA_ARUS, NAME_ILZINA_MELDIETE, NAME_OHRYU_GENMA, NAME_DELVA_TRECKINO };
   #endregion
 
   #region "Enemy Name"
