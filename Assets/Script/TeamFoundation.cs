@@ -97,6 +97,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableAllCommand; }
   }
 
+  [SerializeField] protected bool _availableTactics = false;
+  public bool AvailableTactics
+  {
+    set { _availableTactics = value; }
+    get { return _availableTactics; }
+  }
+
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
   {

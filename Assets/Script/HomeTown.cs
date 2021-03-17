@@ -290,6 +290,8 @@ public partial class HomeTown : MotherBase
   public Button btnDecisionOK;
 
   // Menu Button
+  public Button btnTactics;
+  public Text txtTactics;
   public Button btnCustomEvent1;
   public Text txtCustomEvent1;
   public Button btnCustomEvent2;
@@ -2505,6 +2507,17 @@ public partial class HomeTown : MotherBase
     //}
 
     // メニューボタンの設定
+    if (One.TF.AvailableTactics)
+    {
+      btnTactics.gameObject.SetActive(true);
+      txtTactics.text = "Tactics";
+    }
+    else
+    {
+      btnTactics.gameObject.SetActive(false);
+      txtTactics.text = string.Empty;
+    }
+
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
@@ -2512,7 +2525,7 @@ public partial class HomeTown : MotherBase
       btnCustomEvent2.gameObject.SetActive(true);
       txtCustomEvent2.text = "街はずれ";
       btnCustomEvent3.gameObject.SetActive(false);
-      txtCustomEvent3.text = "";
+      txtCustomEvent3.text = string.Empty;
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
@@ -2521,7 +2534,7 @@ public partial class HomeTown : MotherBase
       if (One.TF.Event_Message500022 == false)
       {
         btnCustomEvent2.gameObject.SetActive(false);
-        txtCustomEvent2.text = "";
+        txtCustomEvent2.text = string.Empty;
       }
       else
       {
@@ -2529,7 +2542,7 @@ public partial class HomeTown : MotherBase
         txtCustomEvent2.text = "神秘の森";
       }
       btnCustomEvent3.gameObject.SetActive(false);
-      txtCustomEvent3.text = "";
+      txtCustomEvent3.text = string.Empty;
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
     {
@@ -2545,9 +2558,9 @@ public partial class HomeTown : MotherBase
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = "中央神殿";
       btnCustomEvent2.gameObject.SetActive(false);
-      txtCustomEvent2.text = "";
+      txtCustomEvent2.text = string.Empty;
       btnCustomEvent3.gameObject.SetActive(false);
-      txtCustomEvent3.text = "";
+      txtCustomEvent3.text = string.Empty;
     }
 
     // キャラクター情報を画面へ反映
