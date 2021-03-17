@@ -2611,9 +2611,18 @@ public partial class HomeTown : MotherBase
     TapSelectFood(txtFoodMenuList[0]);
 
     // Tacticsのリスト
+    int counter = 0;
     for (int ii = 0; ii < StayListName.Count; ii++)
     {
-      StayListName[ii].text = Fix.NAME_LIST[ii];
+      StayListName[ii].text = string.Empty;
+    }
+    for (int ii = 0; ii < StayListName.Count; ii++)
+    {
+      if (One.AvailableCharacterName(Fix.NAME_LIST[ii]))
+      {
+        StayListName[counter].text = Fix.NAME_LIST[ii];
+        counter++;
+      }
     }
 
     int num = 0;

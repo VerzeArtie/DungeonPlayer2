@@ -660,49 +660,87 @@ public static class One
       playerCounter++;
       if (TF.AvailableEoneFulnea) { list.Add(_characters[playerCounter]); }
       playerCounter++;
-      if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
+      if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableSelmoiRo) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableMagiZelkis) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableKartinMai) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableJedaArus) { list.Add(_characters[playerCounter]); }
       playerCounter++;
+      if (TF.AvailableIlzinaMeldiete) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+      if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
+      playerCounter++;
+
       if (TF.AvailableSinikiaVeilhanz) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableAdelBrigandy) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableLeneColtos) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailablePermaWaramy) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableKiltJorju) { list.Add(_characters[playerCounter]); }
       playerCounter++;
-      if (TF.AvailableBillyRaki) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableAnnaHamilton) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableCalmansOhn) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
       if (TF.AvailableSunYu) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
-      if (TF.AvailableShuvaltzFlore) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableRvelZelkis) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableVanHehgustel) { list.Add(_characters[playerCounter]); }
       playerCounter++;
-      if (TF.AvailableOhryuGenma) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
       if (TF.AvailableLadaMystorus) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableSinOscurete) { list.Add(_characters[playerCounter]); }
       playerCounter++;
-      if (TF.AvailableDelvaTreckino) { list.Add(_characters[playerCounter]); }
-      playerCounter++;
 
       return list;
     }
+  }
+
+  public static bool AvailableCharacterName(string full_name)
+  {
+    if ((TF.AvailableEinWolence && full_name == Fix.NAME_EIN_WOLENCE) ||
+        (TF.AvailableLanaAmiria && full_name == Fix.NAME_LANA_AMIRIA) ||
+        (TF.AvailableEoneFulnea && full_name == Fix.NAME_EONE_FULNEA) ||
+        (TF.AvailableBillyRaki && full_name == Fix.NAME_BILLY_RAKI) ||
+        (TF.AvailableAdelBrigandy && full_name == Fix.NAME_ADEL_BRIGANDY) ||
+        (TF.AvailableCalmansOhn && full_name == Fix.NAME_CALMANS_OHN) ||
+        (TF.AvailableAnnaHamilton && full_name == Fix.NAME_ANNA_HAMILTON) ||
+        (TF.AvailableSelmoiRo && full_name == Fix.NAME_SELMOI_RO) ||
+        (TF.AvailableMagiZelkis && full_name == Fix.NAME_MAGI_ZELKIS) ||
+        (TF.AvailableLeneColtos && full_name == Fix.NAME_LENE_COLTOS) ||
+        (TF.AvailableShuvaltzFlore && full_name == Fix.NAME_SHUVALTZ_FLORE) ||
+        (TF.AvailableKartinMai && full_name == Fix.NAME_KARTIN_MAI) ||
+        (TF.AvailableJedaArus && full_name == Fix.NAME_JEDA_ARUS) ||
+        (TF.AvailableIlzinaMeldiete && full_name == Fix.NAME_ILZINA_MELDIETE) ||
+        (TF.AvailableOhryuGenma && full_name == Fix.NAME_OHRYU_GENMA) ||
+        (TF.AvailableDelvaTreckino && full_name == Fix.NAME_DELVA_TRECKINO) ||
+
+        (TF.AvailableSinikiaVeilhanz && full_name == Fix.NAME_SINIKIA_VEILHANZ) ||
+        (TF.AvailablePermaWaramy && full_name == Fix.NAME_PERMA_WARAMY) ||
+        (TF.AvailableKiltJorju && full_name == Fix.NAME_KILT_JORJU) ||
+        (TF.AvailableSunYu && full_name == Fix.NAME_SUN_YU) ||
+        (TF.AvailableRvelZelkis && full_name == Fix.NAME_RVEL_ZELKIS) ||
+        (TF.AvailableVanHehgustel && full_name == Fix.NAME_VAN_HEHGUSTEL) ||
+        (TF.AvailableLadaMystorus && full_name == Fix.NAME_LADA_MYSTORUS) ||
+        (TF.AvailableSinOscurete && full_name == Fix.NAME_SIN_OSCURETE)
+        )
+    {
+      return true;
+    }
+
+    return false;
   }
 
   #region "BGM再生と効果音関連"

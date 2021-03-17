@@ -196,6 +196,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _availableLadaMystorus = false;
   [SerializeField] protected bool _availableSinOscurete = false;
   [SerializeField] protected bool _availableDelvaTreckino = false;
+  [SerializeField] protected bool _availableIlzinaMeldiete = false;
 
   public bool AvailableEinWolence
   {
@@ -311,6 +312,11 @@ public class TeamFoundation : MonoBehaviour
   {
     set { _availableDelvaTreckino = value; }
     get { return _availableDelvaTreckino; }
+  }
+  public bool AvailableIlzinaMeldiete
+  {
+    set { _availableIlzinaMeldiete = value; }
+    get { return _availableIlzinaMeldiete; }
   }
   #endregion
 
