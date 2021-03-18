@@ -388,7 +388,7 @@ public partial class BattleEnemy : MotherBase
     {
       character.txtSoulPoint.text = character.CurrentSoulPoint.ToString();
     }
-    if (character.objArrow)
+    if (character.IsEnemy == false && character.objArrow)
     {
       character.objArrow.GetComponent<Image>().color = character.BattleForeColor;
     }

@@ -290,6 +290,8 @@ public partial class HomeTown : MotherBase
   public Button btnDecisionOK;
 
   // Menu Button
+  public Button btnSkillTree;
+  public Text txtSkillTree;
   public Button btnTactics;
   public Text txtTactics;
   public Button btnCustomEvent1;
@@ -2516,6 +2518,17 @@ public partial class HomeTown : MotherBase
     {
       btnTactics.gameObject.SetActive(false);
       txtTactics.text = string.Empty;
+    }
+
+    if (One.TF.AvailableSkillTree)
+    {
+      btnSkillTree.gameObject.SetActive(true);
+      txtSkillTree.text = "Skill Tree";
+    }
+    else
+    {
+      btnSkillTree.gameObject.SetActive(false);
+      txtSkillTree.text = string.Empty;
     }
 
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
