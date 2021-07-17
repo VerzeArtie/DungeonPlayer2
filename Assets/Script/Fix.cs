@@ -621,7 +621,7 @@ public static partial class Fix
   public const string STAY = "Stay";
   public const string USE_RED_POTION = "RedPotion";
 
-  // [ Delve I ]
+  // Delve I
   public const string FIRE_BALL = "Fire Ball";
   public const string ICE_NEEDLE = "Ice Needle";
   public const string FRESH_HEAL = "Fresh Heal";
@@ -636,102 +636,150 @@ public static partial class Fix
   public const string SHIELD_BASH = "Shield Bash";
   public const string AURA_OF_POWER = "Aura of Power";
   public const string DISPEL_MAGIC = "Dispel Magic";
+  public const string TRUE_SIGHT = "True Sight";
   public const string HEART_OF_LIFE = "Heart of Life";
   public const string DARK_AURA = "Dark Aura";
-  public const string TRUE_SIGHT = "True Sight";
   public const string ORACLE_COMMAND = "Oracle Command";
 
-  public const string SKY_SHIELD = "Sky Shield";
-
   // Devle II
-  public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
-  public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
-  public const string MULTIPLE_SHOT = "Multiple Shot";
-  public const string INVISIBLE_BIND = "Invisible Bind";
-  public const string FORTUNE_SPIRIT = "Fortune Spirit";
-  public const string ZERO_IMMUNITY = "Zero Immunity";
-  public const string DIVINE_CIRCLE = "Divine Circle";
-  public const string BLOOD_SIGN = "Blood Sign";
   public const string FLAME_BLADE = "Flame Blade";
   public const string PURE_PURIFICATION = "Pure Purification";
+  public const string DIVINE_CIRCLE = "Divine Circle";
+  public const string BLOOD_SIGN = "Blood Sign";
   public const string STORM_ARMOR = "Storm Armor";
+  public const string SOLID_WALL = "Solid Wall";
+  public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
+  public const string MULTIPLE_SHOT = "Multiple Shot";
+  public const string SPEED_STEP = "Speed Step";
+  public const string INVISIBLE_BIND = "Invisible Bind";
+  public const string IDEOLOGY_OF_SOPHISTICATION = "Ideology of Sophistication";
+  public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
+  public const string SKY_SHIELD = "Sky Shield";
   public const string FLASH_COUNTER = "Flash Counter";
+  public const string LAYLINE_SCHEMA = "Layline Schema";
+  public const string FORTUNE_SPIRIT = "Fortune Spirit";
+  public const string STANCE_OF_THE_SHADE = "Stance of the Shade";
   public const string SPIRITUAL_REST = "Spiritual Rest";
-
-  public const string CIRCLE_SLASH = "Circle Slash";
-  public const string PHANTASMAL_WIND = "Phantasmal Wind";
 
   // Delve III
   public const string METEOR_BULLET = "Meteor Bullet";
   public const string BLUE_BULLET = "Blue Bullet";
   public const string HOLY_BREATH = "Holy Breath";
   public const string BLACK_CONTRACT = "Black Contract";
-  //  public const string DEATH_SCYTHE = "Death Scythe";
-  //  public const string AETHER_DRIVE = "Aether Drive";
+  public const string SONIC_PULSE = "Sonic Pulse";
+  public const string EARTH_SURGE = "Earth Surge";
   public const string DOUBLE_SLASH = "Double Slash";
-  public const string CONCUSSIVE_HIT = "Concussive Hit";
   public const string EYE_OF_THE_TRUTH = "Eye of the Truth";
-  //  public const string REACHABLE_TARGET = "Reachable Target";
+  public const string BONE_CRUSH = "Bone Crush";
   public const string IRREGULAR_STEP = "Irregular Step";
+  public const string SIGIL_OF_THE_PENDING = "Sigil of the Pending";
+  public const string CONCUSSIVE_HIT = "Concussive Hit";
+  public const string AETHER_DRIVE = "Aether Drive";
   public const string MUTE_IMPULSE = "Mute Impulse";
+  public const string WORD_OF_POWER = "Word Of Power";
   public const string VOICE_OF_VIGOR = "Voice of Vigor";
+  public const string KILLING_WAVE = "Killing Wave";
   public const string UNSEEN_AID = "Unseen Aid";
 
   // Delve IV
-  public const string WAR_SWING = "War Swing";
-  public const string DOMINATION_FIELD = "Domination Field";
-  public const string HAWK_EYE = "Hawk Eye";
-  public const string DISSENSION_RHYTHM = "Dissension Rhythm";
-  public const string SIGIL_OF_THE_FAITH = "Sigil of the Faith";
-  public const string ESSENCE_OVERFLOW = "Essence Overflow";
-  public const string SANCTION_FIELD = "Sanction Field";
-  public const string WHISPER_VOICE = "Whisper Voice";
-  public const string FLAME_STRIKE = "Flame Strike";
+  public const string VOLCANIC_BLAZE = "Volcanic Blaze";
   public const string FREEZING_CUBE = "Freezing Cube";
-  public const string CIRCLE_OF_THE_POWER = "Circle of the Power";
+  public const string ANGELIC_ECHO = "Angelic Echo";
+  public const string CURSED_EVANGEL = "Cursed Evangel";
+  public const string GALE_WIND = "Gale Wind";
+  public const string SAND_BURST = "Sand Burst";
+  public const string IRON_BASTER = "Iron Baster";
+  public const string PENETRATION_ARROW = "Penetration Arrow";
+  public const string DEADLY_DRIVE = "Deadly Drive";
+  public const string ASSASSINATION_HIT = "Assassination Hit";
+  public const string PHANTOM_OBORO = "Phantom Oboro";
+  public const string DOMINATION_FIELD = "Domination Field";
+  public const string CIRCLE_OF_THE_VIGOR = "Circle of the Vigor";
   public const string DETACHMENT_FAULT = "Detachment Fault";
+  public const string WILL_AWAKENING = "Will Awakening";
+  public const string AURA_BURN = "Aura Burn";
+  public const string LEVEL_EATER = "Level Eater";
+  public const string EXACT_TIME = "Exact Time";
 
   // Delve V
-  public const string KINETIC_SMASH = "Kinetic Smash";
-  public const string SAFETY_FIELD = "Safety Field";
-  public const string PIERCING_ARROW = "Piercing Arrow";
-  public const string ASSASSINATION_HIT = "Assassination Hit";
-  public const string RAGING_STORM = "Raging Storm";
-  public const string INNER_INSPIRATION = "Inner Inspiration";
-  public const string VALKYRIE_BREAK = "Valkyrie Break";
-  public const string ABYSS_EYE = "Abyss Eye";
-  public const string SIGIL_OF_THE_HOMURA = "Sigil of the Homura";
+  public const string FLAME_STRIKE = "Frame Strike";
   public const string FROST_LANCE = "Frost Lance";
-  public const string RUNE_STRIKE = "Rune Strike";
-  public const string PHANTOM_OBORO = "Phantom Oboro";
+  public const string SHINING_HEAL = "Shining Heal";
+  public const string CIRCLE_OF_THE_DESPAIR = "Circle of the Despair";
+  public const string ERRATIC_THUNDER = "Erratic Thunder";
+  public const string PETRIFICATION = "Petrification";
+  public const string RAGING_STORM = "Raging Storm";
+  public const string PRECISION_RANGE = "Precision Range";
+  public const string UNINTENTIONAL_HIT = "Unintentional Hit";
+  public const string COUNTER_DISALLOW = "Counter Disallow";
+  public const string SIGIL_OF_THE_HOMURA = "Sigil of the Homura";
+  public const string HARDEST_PARRY = "Hardest Parry";
+  public const string REVOLUTION_AURA = "Revolution Aura";
+  public const string OATH_OF_AEGIS = "Oath of Aegis";
+  public const string EAGLE_EYE = "Eagle Eye";
+  public const string EVERFLOW_MIND = "Everflow Mind";
+  public const string ABYSS_EYE = "Abyss Eye";
+  public const string INNER_INSPIRATION = "Inner Inspiration";
 
   // Delve VI
-  public const string STANCE_OF_THE_IAI = "Stance of the Iai";
-  public const string OATH_OF_AEGIS = "Oath of Aegis";
-  public const string WIND_RUNNER = "Wind Runner";
-  public const string KILLER_GAZE = "Killer Gaze";
-  public const string SOUL_SHOUT = "Soul Shout";
-  public const string EVERFLOW_MIND = "Everflow Mind";
-  public const string SHINING_HEAL = "Shining Heal";
+  public const string CIRCLE_OF_THE_IGNITE = "Circle of the Ignite";
+  public const string WATER_PRESENCE = "Water Presence";
+  public const string VALKYRIE_BLADE = "Valkyrie Blade";
   public const string THE_DARK_INTENSITY = "The Dark Intensity";
-  public const string PIERCING_FLAME = "Piercing Flame";
-  public const string WATER_SPLASH = "Water Splash";
-  public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
-  public const string TRANQUILITY = "Tranquility";
+  public const string CYCLONE_FIELD = "Cyclone Field";
+  public const string LIFE_GRACE = "Life Grace";
+  public const string STANCE_OF_THE_IAI = "Stance of the Iai";
+  public const string ETERNAL_CONCENTRATION = "Eternal Concentration";
+  public const string STANCE_OF_MUIN = "Stance of Muin";
+  public const string DIRTY_WISDOM = "Dirty Wisdom";
+  public const string WORD_OF_PROPHECY = "Word of Prophecy";
+  public const string WILD_SWING = "Wild Swing";
+  public const string AUSTERITY_MATRIX = "Austerity Matrix";
+  public const string FUTURE_VISION = "Future Vision";
+  public const string SIGIL_OF_THE_FAITH = "Sigil of the Faith";
+  public const string SOUL_SHOUT = "Soul Shout";
+  public const string AVENGER_PROMISE = "Avenger Promise";
+  public const string ZERO_IMMUNITY = "Zero Immunity";
 
   // Delve VII
-  public const string DESTROYER_SMASH = "Destroyer Smash";
-  public const string ONE_IMMUNITY = "One Immunity";
-  public const string DEADLY_ARROW = "Deadly Arrow";
-  public const string CARNAGE_RUSH = "Carnage Rush";
-  public const string OVERWHELMING_DESTINY = "Overwhelming Destiny";
-  public const string TRANSCENDENCE_REACHED = "Transcendence Reached";
-  public const string RESURRECTION = "Resurrection";
-  public const string DEMON_CONTRACT = "Demon Contract";
   public const string LAVA_ANNIHILATION = "Lava Annihilation";
   public const string ABSOLUTE_ZERO = "Absolute Zero";
+  public const string RESURRECTION = "Resurrection";
+  public const string DEATH_SCYTHE = "Death Scythe";
+  public const string LIGHTNING_SQUALL = "Lightning Squall";
+  public const string EARTH_QUAKE = "Earth Quake";
+  public const string KINETIC_SMASH = "Kinetic Smash";
+  public const string PIERCING_ARROW = "Piercing Arrow";
+  public const string CARNAGE_RUSH = "Carnage Rush";
+  public const string AMBIDEXTERITY = "Ambidexterity";
+  public const string TRANSCENDENCE_REACHED = "Transcendence Reached";
+  public const string ONE_IMMUNITY = "One Immunity";
   public const string BRILLIANT_FORM = "Brilliant Form";
+  public const string ESSENCE_OVERFLOW = "Essence Overflow";
+  public const string STANCE_OF_THE_KOKOROE = "Stance of the Kokoroe";
+  public const string OVERWHELMING_DESTINY = "Overwhelming Destiny";
+  public const string DEMON_CONTRACT = "Demon Contract";
   public const string TIME_SKIP = "Time Skip";
+
+  //public const string DESTROYER_SMASH = "Destroyer Smash";
+  //public const string DEADLY_ARROW = "Deadly Arrow";
+  //public const string CIRCLE_SLASH = "Circle Slash";
+  //public const string PHANTASMAL_WIND = "Phantasmal Wind";
+  //public const string WAR_SWING = "War Swing";
+  //public const string HAWK_EYE = "Hawk Eye";
+  //public const string DISSENSION_RHYTHM = "Dissension Rhythm";
+  //public const string SANCTION_FIELD = "Sanction Field";
+  //public const string WHISPER_VOICE = "Whisper Voice";
+  //public const string CIRCLE_OF_THE_POWER = "Circle of the Power";
+  //public const string SAFETY_FIELD = "Safety Field";
+  //public const string VALKYRIE_BREAK = "Valkyrie Break";
+  //public const string RUNE_STRIKE = "Rune Strike";
+  //public const string WIND_RUNNER = "Wind Runner";
+  //public const string KILLER_GAZE = "Killer Gaze";
+  //public const string PIERCING_FLAME = "Piercing Flame";
+  //public const string WATER_SPLASH = "Water Splash";
+  //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
+  //public const string TRANQUILITY = "Tranquility";
 
   // Monster Action
   public const string COMMAND_HIKKAKI = "ひっかき";

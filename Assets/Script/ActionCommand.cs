@@ -51,7 +51,9 @@ public static class ActionCommand
       result.Add(Fix.FIRE_BALL);
       result.Add(Fix.FLAME_BLADE);
       result.Add(Fix.METEOR_BULLET);
+      result.Add(Fix.VOLCANIC_BLAZE);
       result.Add(Fix.FLAME_STRIKE);
+      result.Add(Fix.CIRCLE_OF_THE_IGNITE);
       result.Add(Fix.LAVA_ANNIHILATION);
     }
     else if (attr == Fix.CommandAttribute.Ice)
@@ -61,45 +63,57 @@ public static class ActionCommand
       result.Add(Fix.BLUE_BULLET);
       result.Add(Fix.FREEZING_CUBE);
       result.Add(Fix.FROST_LANCE);
+      result.Add(Fix.WATER_PRESENCE);
+      result.Add(Fix.ABSOLUTE_ZERO);
     }
     else if (attr == Fix.CommandAttribute.HolyLight)
     {
       result.Add(Fix.FRESH_HEAL);
       result.Add(Fix.DIVINE_CIRCLE);
       result.Add(Fix.HOLY_BREATH);
-      result.Add(Fix.SANCTION_FIELD);
-      result.Add(Fix.VALKYRIE_BREAK);
+      result.Add(Fix.ANGELIC_ECHO);
+      result.Add(Fix.SHINING_HEAL);
+      result.Add(Fix.VALKYRIE_BLADE);
+      result.Add(Fix.RESURRECTION);
     }
     else if (attr == Fix.CommandAttribute.DarkMagic)
     {
       result.Add(Fix.SHADOW_BLAST);
       result.Add(Fix.BLOOD_SIGN);
       result.Add(Fix.BLACK_CONTRACT);
-      result.Add(Fix.WHISPER_VOICE);
-      result.Add(Fix.ABYSS_EYE);
+      result.Add(Fix.CURSED_EVANGEL);
+      result.Add(Fix.CIRCLE_OF_THE_DESPAIR);
+      result.Add(Fix.THE_DARK_INTENSITY);
+      result.Add(Fix.DEATH_SCYTHE);
     }
     else if (attr == Fix.CommandAttribute.Wind)
     {
       result.Add(Fix.AIR_CUTTER);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.STORM_ARMOR);
+      result.Add(Fix.SONIC_PULSE);
+      result.Add(Fix.GALE_WIND);
+      result.Add(Fix.ERRATIC_THUNDER);
+      result.Add(Fix.CYCLONE_FIELD);
+      result.Add(Fix.LIGHTNING_SQUALL);
     }
     else if (attr == Fix.CommandAttribute.Earth)
     {
       result.Add(Fix.ROCK_SLAM);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.SOLID_WALL);
+      result.Add(Fix.EARTH_SURGE);
+      result.Add(Fix.SAND_BURST);
+      result.Add(Fix.PETRIFICATION);
+      result.Add(Fix.LIFE_GRACE);
+      result.Add(Fix.EARTH_QUAKE);
     }
     else if (attr == Fix.CommandAttribute.Warrior)
     {
       result.Add(Fix.STRAIGHT_SMASH);
       result.Add(Fix.STANCE_OF_THE_BLADE);
       result.Add(Fix.DOUBLE_SLASH);
-      result.Add(Fix.WAR_SWING);
+      result.Add(Fix.IRON_BASTER);
+      result.Add(Fix.RAGING_STORM);
+      result.Add(Fix.STANCE_OF_THE_IAI);
       result.Add(Fix.KINETIC_SMASH);
     }
     else if (attr == Fix.CommandAttribute.Archer)
@@ -107,32 +121,40 @@ public static class ActionCommand
       result.Add(Fix.HUNTER_SHOT);
       result.Add(Fix.MULTIPLE_SHOT);
       result.Add(Fix.EYE_OF_THE_TRUTH);
-      result.Add(Fix.HAWK_EYE);
+      result.Add(Fix.PENETRATION_ARROW);
+      result.Add(Fix.PRECISION_RANGE);
+      result.Add(Fix.ETERNAL_CONCENTRATION);
       result.Add(Fix.PIERCING_ARROW);
     }
     else if (attr == Fix.CommandAttribute.MartialArts)
     {
       result.Add(Fix.LEG_STRIKE);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.SPEED_STEP);
+      result.Add(Fix.BONE_CRUSH);
+      result.Add(Fix.DEADLY_DRIVE);
+      result.Add(Fix.UNINTENTIONAL_HIT);
+      result.Add(Fix.STANCE_OF_MUIN);
+      result.Add(Fix.CARNAGE_RUSH);
     }
     else if (attr == Fix.CommandAttribute.Rogue)
     {
       result.Add(Fix.VENOM_SLASH);
       result.Add(Fix.INVISIBLE_BIND);
       result.Add(Fix.IRREGULAR_STEP);
-      result.Add(Fix.DISSENSION_RHYTHM);
       result.Add(Fix.ASSASSINATION_HIT);
+      result.Add(Fix.COUNTER_DISALLOW);
+      result.Add(Fix.DIRTY_WISDOM);
+      result.Add(Fix.AMBIDEXTERITY);
     }
     else if (attr == Fix.CommandAttribute.WonderHermit)
     {
       result.Add(Fix.ENERGY_BOLT);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.IDEOLOGY_OF_SOPHISTICATION);
+      result.Add(Fix.SIGIL_OF_THE_PENDING);
+      result.Add(Fix.PHANTOM_OBORO);
+      result.Add(Fix.SIGIL_OF_THE_HOMURA);
+      result.Add(Fix.WORD_OF_PROPHECY);
+      result.Add(Fix.TRANSCENDENCE_REACHED);
     }
     else if (attr == Fix.CommandAttribute.Armorer)
     {
@@ -140,16 +162,19 @@ public static class ActionCommand
       result.Add(Fix.STANCE_OF_THE_GUARD);
       result.Add(Fix.CONCUSSIVE_HIT);
       result.Add(Fix.DOMINATION_FIELD);
-      result.Add(Fix.OATH_OF_AEGIS);
+      result.Add(Fix.HARDEST_PARRY);
+      result.Add(Fix.WILD_SWING);
+      result.Add(Fix.ONE_IMMUNITY);
     }
     else if (attr == Fix.CommandAttribute.EnhanceForm)
     {
       result.Add(Fix.AURA_OF_POWER);
       result.Add(Fix.SKY_SHIELD);
-      result.Add(Fix.STORM_ARMOR);
-      //result.Add(Fix.AETHER_DRIVE);
-      result.Add(Fix.RUNE_STRIKE);
-      result.Add(Fix.RUNE_STRIKE);
+      result.Add(Fix.AETHER_DRIVE);
+      result.Add(Fix.CIRCLE_OF_THE_VIGOR);
+      result.Add(Fix.REVOLUTION_AURA);
+      result.Add(Fix.BRILLIANT_FORM);
+      result.Add(Fix.AUSTERITY_MATRIX);
     }
     else if (attr == Fix.CommandAttribute.MysticForm)
     {
@@ -157,40 +182,49 @@ public static class ActionCommand
       result.Add(Fix.FLASH_COUNTER);
       result.Add(Fix.MUTE_IMPULSE);
       result.Add(Fix.DETACHMENT_FAULT);
-      result.Add(Fix.PHANTOM_OBORO);
+      result.Add(Fix.OATH_OF_AEGIS);
+      result.Add(Fix.FUTURE_VISION);
+      result.Add(Fix.ESSENCE_OVERFLOW);
+    }
+    else if (attr == Fix.CommandAttribute.Truth)
+    {
+      result.Add(Fix.TRUE_SIGHT);
+      result.Add(Fix.LAYLINE_SCHEMA);
+      result.Add(Fix.WORD_OF_POWER);
+      result.Add(Fix.WILL_AWAKENING);
+      result.Add(Fix.EAGLE_EYE);
+      result.Add(Fix.SIGIL_OF_THE_FAITH);
+      result.Add(Fix.STANCE_OF_THE_KOKOROE);
     }
     else if (attr == Fix.CommandAttribute.Brave)
     {
       result.Add(Fix.HEART_OF_LIFE);
       result.Add(Fix.FORTUNE_SPIRIT);
       result.Add(Fix.VOICE_OF_VIGOR);
-      result.Add(Fix.SIGIL_OF_THE_FAITH);
-      result.Add(Fix.RAGING_STORM);
+      result.Add(Fix.AURA_BURN);
+      result.Add(Fix.EVERFLOW_MIND);
+      result.Add(Fix.SOUL_SHOUT);
+      result.Add(Fix.OVERWHELMING_DESTINY);
     }
     else if (attr == Fix.CommandAttribute.Vengeance)
     {
       result.Add(Fix.DARK_AURA);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-    }
-    else if (attr == Fix.CommandAttribute.Truth)
-    {
-      result.Add(Fix.TRUE_SIGHT);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
-      result.Add(Fix.COMMAND_NOTHING);
+      result.Add(Fix.STANCE_OF_THE_SHADE);
+      result.Add(Fix.KILLING_WAVE);
+      result.Add(Fix.LEVEL_EATER);
+      result.Add(Fix.ABYSS_EYE);
+      result.Add(Fix.AVENGER_PROMISE);
+      result.Add(Fix.DEMON_CONTRACT);
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
       result.Add(Fix.ORACLE_COMMAND);
       result.Add(Fix.SPIRITUAL_REST);
       result.Add(Fix.UNSEEN_AID);
-      //result.Add(Fix.ZERO_IMMUNITY);
-      result.Add(Fix.ESSENCE_OVERFLOW);
+      result.Add(Fix.EXACT_TIME);
       result.Add(Fix.INNER_INSPIRATION);
+      result.Add(Fix.ZERO_IMMUNITY);
+      result.Add(Fix.TIME_SKIP);
     }
     return result;
   }
@@ -469,8 +503,6 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return Attribute.Skill; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
 
-    if (command_name == Fix.CIRCLE_SLASH) { return Attribute.Skill; }
-
     return Attribute.None;
   }
 
@@ -522,8 +554,6 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return TimingType.Instant; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
 
-    if (command_name == Fix.CIRCLE_SLASH) { return TimingType.Instant; }
-
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
@@ -573,8 +603,6 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return TargetType.AllyGroup; }
     if (command_name == Fix.UNSEEN_AID) { return TargetType.AllMember; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
-
-    if (command_name == Fix.CIRCLE_SLASH) { return TargetType.None; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -643,8 +671,6 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
     if (command_name == Fix.UNSEEN_AID) { return 16; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
-
-    if (command_name == Fix.CIRCLE_SLASH) { return 18; }
 
     // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
@@ -724,7 +750,6 @@ public static class ActionCommand
     if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return BuffType.Positive; }
 
     if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.Positive; }
-    if (command_name == Fix.CIRCLE_SLASH) { return BuffType.None; }
     if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
 
     return BuffType.None;
@@ -778,8 +803,6 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     if (command_name == Fix.UNSEEN_AID) { return false; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
-
-    if (command_name == Fix.CIRCLE_SLASH) { return true; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }

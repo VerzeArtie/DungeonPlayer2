@@ -57,10 +57,10 @@ public partial class BattleEnemy : MotherBase
     {
       result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.MultipleShot(player);
     }
-    else if (command_name == Fix.CIRCLE_SLASH)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.CircleSlash(player);
-    }
+    //else if (command_name == Fix.CIRCLE_SLASH)
+    //{
+    //  result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.CircleSlash(player);
+    //}
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.NormalAttack(player);

@@ -6620,6 +6620,86 @@ public static class MessagePack
   #region "ディルの街"
   public static void Message1500010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "アイン：着いたな。ここがディルの街か。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何か・・・雰囲気が・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　アイン達は街の中を見回した　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ビリー：そっけねえ感じだよな。人は一応いるんだけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：活気がない。みんな一体どうしたんだ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、あちらを見てください。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、何かあるな・・・何かのモニュメントか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：近くに行ってみましょう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　アイン達は街の中央にある石碑に近づいた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：おお、結構デカイな。っと、なんか書いてあるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これは記念碑ね。この町の歴史とかが書いてあるんじゃないのかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ビリー、読んでくれないか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：俺じゃ無理だろ。そんなん・・・そ・・・そこのエオネに頼めば良いんじゃねえのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、ここはイルジナに頼みたい。読めるか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：ッフン、ちょっとどきなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：悪いな、頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　原刻の歴７８２年：ここに栄えあるディルの街を建設する ｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　ディルは偉大なる古代賢者：ディル・サーカーンより授かりし命名とする ｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　ディルには優しき風が吹き　｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　ディルには力強き大地が宿る　｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　ディルには輝ける太陽より加護を受ける　｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：｛　ここに未来永劫の繁栄と栄華を約束する　｝", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：以上よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど・・・これは辛いな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：なんでだよ。こんなもん単なる記念碑の言葉だろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：このディルの街の今をザっと見渡したところ、とてもじゃないが良い状態だとは言えない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：当初の頃からすると、この街は今よりもっと発展したんじゃないのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だとすると、記念碑だけが綺麗にされている、という事は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：過去もロクに知らないヤツが、よくそこまで分かるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、分かってる訳じゃないんだ。気に障ったんなら謝る。すまねえ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ただ、なんとなくこの町の人達はまだ希望を持っている。そんな気がするんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イルジナ：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：まずはテキトーに話かけりゃいいんだろ？そういう役は俺に任せろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、ちょっと頼んだぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私とかエオネは良いのかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。この街は活気のあるやつが最適だ。とりあえずビリーに任せよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：とりあえずって何だよ。俺様にしか出来ないって事だろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、その通りだ！任せたぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：おうよ！", ActionEvent.None);
+
   }
   #endregion
 

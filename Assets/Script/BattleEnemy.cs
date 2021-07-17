@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Reflection;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 public partial class BattleEnemy : MotherBase
@@ -1080,11 +1079,6 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
-        break;
-
-      case Fix.CIRCLE_SLASH:
-        target_list = GetOpponentGroup(player);
-        ExecCircleSlash(player, target_list, critical);
         break;
 
       case Fix.METEOR_BULLET:
