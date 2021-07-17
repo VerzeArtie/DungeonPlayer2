@@ -247,9 +247,9 @@ public static class One
     TF.AvailableLanaAmiria = true;
 
     // debug
-    TF.AvailableTactics = true;
-    TF.AvailableSkillTree = true;
-    TF.AvailableAllCommand = true;
+    //TF.AvailableTactics = true;
+    //TF.AvailableSkillTree = true;
+    //TF.AvailableAllCommand = true;
     //TF.AvailableThird = true;
     //TF.AvailableFourth = true;
     //TF.AvailableFirstCommand = true;
