@@ -236,7 +236,9 @@ public static class ActionCommand
       result.Add(player.FireBall);
       result.Add(player.FlameBlade);
       result.Add(player.MeteorBullet);
+      result.Add(player.VolcanicBlaze);
       result.Add(player.FlameStrike);
+      result.Add(player.CircleOfTheIgnite);
       result.Add(player.LavaAnnihilation);
     }
     else if (attr == Fix.CommandAttribute.Ice)
@@ -246,78 +248,98 @@ public static class ActionCommand
       result.Add(player.BlueBullet);
       result.Add(player.FreezingCube);
       result.Add(player.FrostLance);
+      result.Add(player.WaterPresence);
+      result.Add(player.AbsoluteZero);
     }
     else if (attr == Fix.CommandAttribute.HolyLight)
     {
       result.Add(player.FreshHeal);
       result.Add(player.DivineCircle);
       result.Add(player.HolyBreath);
-      result.Add(player.SanctionField);
-      result.Add(player.ValkyrieBreak);
+      result.Add(player.AngelicEcho);
+      result.Add(player.ShiningHeal);
+      result.Add(player.ValkyrieBlade);
+      result.Add(player.Resurrection);
     }
     else if (attr == Fix.CommandAttribute.DarkMagic)
     {
       result.Add(player.ShadowBlast);
       result.Add(player.BloodSign);
       result.Add(player.BlackContract);
-      result.Add(player.WhisperVoice);
-      result.Add(player.AbyssEye);
+      result.Add(player.CursedEvangel);
+      result.Add(player.CircleOfTheDespair);
+      result.Add(player.TheDarkIntensity);
+      result.Add(player.DeathScythe);
     }
     else if (attr == Fix.CommandAttribute.Wind)
     {
       result.Add(player.AirCutter);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.StormArmor);
+      result.Add(player.SonicPulse);
+      result.Add(player.GaleWind);
+      result.Add(player.ErraticThunder);
+      result.Add(player.CycloneField);
+      result.Add(player.LightningSquall);
     }
     else if (attr == Fix.CommandAttribute.Earth)
     {
       result.Add(player.RockSlam);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.SoldWall);
+      result.Add(player.EarthSurge);
+      result.Add(player.SandBurst);
+      result.Add(player.Petrification);
+      result.Add(player.LifeGrace);
+      result.Add(player.EarthQuake);
     }
     else if (attr == Fix.CommandAttribute.Warrior)
     {
       result.Add(player.StraightSmash);
       result.Add(player.StanceOfTheBlade);
       result.Add(player.DoubleSlash);
-      result.Add(player.WarSwing);
+      result.Add(player.IronBaster);
+      result.Add(player.RagingStorm);
+      result.Add(player.StanceOfTheIai);
       result.Add(player.KineticSmash);
     }
     else if (attr == Fix.CommandAttribute.Archer)
     {
       result.Add(player.HunterShot);
       result.Add(player.MultipleShot);
-      result.Add(player.EyeOfTheTruth);
-      result.Add(player.HawkEye);
+      result.Add(player.EyeOfTheIsshin);
+      result.Add(player.PenetrationArrow);
+      result.Add(player.PrecisionRange);
+      result.Add(player.EternalConcentration);
       result.Add(player.PiercingArrow);
     }
     else if (attr == Fix.CommandAttribute.MartialArts)
     {
       result.Add(player.LegStrike);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.SpeedStep);
+      result.Add(player.BoneCrush);
+      result.Add(player.DeadlyDrive);
+      result.Add(player.UnintentionalHit);
+      result.Add(player.StanceOfMuin);
+      result.Add(player.CarnageRush);
     }
     else if (attr == Fix.CommandAttribute.Rogue)
     {
       result.Add(player.VenomSlash);
       result.Add(player.InvisibleBind);
       result.Add(player.IrregularStep);
-      result.Add(player.DissensionRhythm);
       result.Add(player.AssassinationHit);
+      result.Add(player.CounterDisallow);
+      result.Add(player.DirtyWisdom);
+      result.Add(player.Ambidexterity);
     }
     else if (attr == Fix.CommandAttribute.WonderHermit)
     {
       result.Add(player.EnergyBolt);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.IdeologyOfSophistication);
+      result.Add(player.SigilOfThePending);
+      result.Add(player.PhantomOboro);
+      result.Add(player.SigilOfTheHomura);
+      result.Add(player.WordOfProphecy);
+      result.Add(player.TranscendenceReached);
     }
     else if (attr == Fix.CommandAttribute.Armorer)
     {
@@ -325,15 +347,19 @@ public static class ActionCommand
       result.Add(player.StanceOfTheGuard);
       result.Add(player.ConcussiveHit);
       result.Add(player.DominationField);
-      result.Add(player.OathOfAegis);
+      result.Add(player.HardestParry);
+      result.Add(player.WildSwing);
+      result.Add(player.OneImmunity);
     }
     else if (attr == Fix.CommandAttribute.EnhanceForm)
     {
       result.Add(player.AuraOfPower);
       result.Add(player.SkyShield);
-      result.Add(player.StormArmor);
       result.Add(player.AetherDrive);
-      result.Add(player.RuneStrike);
+      result.Add(player.CircleOfTheVigor);
+      result.Add(player.RevolutionAura);
+      result.Add(player.BrilliantForm);
+      result.Add(player.AusterityMatrix);
     }
     else if (attr == Fix.CommandAttribute.MysticForm)
     {
@@ -341,40 +367,49 @@ public static class ActionCommand
       result.Add(player.FlashCounter);
       result.Add(player.MuteImpulse);
       result.Add(player.DetachmentFault);
-      result.Add(player.PhantomOboro);
+      result.Add(player.OathOfAegis);
+      result.Add(player.FutureVision);
+      result.Add(player.EssenceOverflow);
     }
     else if (attr == Fix.CommandAttribute.Brave)
     {
       result.Add(player.HeartOfLife);
       result.Add(player.FortuneSpirit);
       result.Add(player.VoiceOfVigor);
-      result.Add(player.SigilOfTheFaith);
-      result.Add(player.RagingStorm);
+      result.Add(player.AuraBurn);
+      result.Add(player.EverflowMind);
+      result.Add(player.SoulShout);
+      result.Add(player.OverwhelmingDestiny);
     }
     else if (attr == Fix.CommandAttribute.Vengeance)
     {
       result.Add(player.DarkAura);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.StanceOfTheShade);
+      result.Add(player.KillingWave);
+      result.Add(player.LevelEater);
+      result.Add(player.AbyssEye);
+      result.Add(player.AvengerPromise);
+      result.Add(player.DemonContract);
     }
     else if (attr == Fix.CommandAttribute.Truth)
     {
       result.Add(player.TrueSight);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
-      result.Add(0);
+      result.Add(player.LaylineSchema);
+      result.Add(player.WordOfPower);
+      result.Add(player.WillAwakening);
+      result.Add(player.EagleEye);
+      result.Add(player.SigilOfTheFaith);
+      result.Add(player.StanceOfTheKokoroe);
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
       result.Add(player.OracleCommand);
       result.Add(player.SpiritualRest);
       result.Add(player.UnseenAid);
-      //result.Add(player.ZeroImmunity);
-      result.Add(player.EssenceOverflow);
+      result.Add(player.ExactTime);
       result.Add(player.InnerInspiration);
+      result.Add(player.ZeroImmunity);
+      result.Add(player.TimeSkip);
     }
     return result;
   }
