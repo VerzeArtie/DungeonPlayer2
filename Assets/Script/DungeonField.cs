@@ -176,6 +176,7 @@ public class DungeonField : MotherBase
   private float FieldDamage  = 1.0f;
 
   private bool FirstAction = false;
+  private bool AlreadyDetectEncount = false;
 
   // Start is called before the first frame update
   public override void Start()
@@ -3937,6 +3938,13 @@ public class DungeonField : MotherBase
 
   private void DetectEncount()
   {
+    Debug.Log("DetectEncount(S)");
+    if (this.AlreadyDetectEncount)
+    {
+      Debug.Log("AlreadyDetectEncount is true, then not call DetectEncount");
+      return;
+    }
+
     One.EnemyList.Clear();
     List<string> characters = new List<string>();
 
@@ -3973,6 +3981,7 @@ public class DungeonField : MotherBase
               break;
           }
           characters.Add(enemyName);
+          this.AlreadyDetectEncount = true;
           SceneDimension.CallBattleEnemy(characters, false);
         }
       }

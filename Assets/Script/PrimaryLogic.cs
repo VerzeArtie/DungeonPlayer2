@@ -220,6 +220,7 @@ public static class PrimaryLogic
   public static double BattleSpeed(Character player)
   {
     double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
+    //Debug.Log(player.FullName +  " battlespeed: " + result.ToString());
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
     result += (player.MainArmor?.BattleSpeed ?? 0);

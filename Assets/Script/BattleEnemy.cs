@@ -134,6 +134,7 @@ public partial class BattleEnemy : MotherBase
     base.Start();
 
     BATTLE_GAUGE_WITDH = (GroupBattleGauge.GetComponent<RectTransform>().rect.width - PlayerArrowList[0].GetComponent<RectTransform>().sizeDelta.x);
+    Debug.Log("BATTLE_GAUGE_WIDTH: " + BATTLE_GAUGE_WITDH);
 
     this.CannotRunAway = One.CannotRunAway;
 
@@ -2074,7 +2075,8 @@ public partial class BattleEnemy : MotherBase
 
   private float SpeedFactor()
   {
-    return (11.0f - speedDown) / 10.0f;
+    float result = (11.0f - speedDown) / 10.0f;
+    return result;
   }
 
   private void UpdateMessage(string message)

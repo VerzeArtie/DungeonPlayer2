@@ -36,12 +36,12 @@ public partial class Character : MonoBehaviour
     {
       case Fix.NAME_EIN_WOLENCE:
         this.Level = 1;
-        this.Strength = 9;
-        this.Agility = 6;
-        this.Intelligence = 3;
-        this.Stamina = 7;
+        this.Strength = 5;
+        this.Agility = 3;
+        this.Intelligence = 2;
+        this.Stamina = 4;
         this.Mind = 3;
-        this.BaseLife = 50;
+        this.BaseLife = 30;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
@@ -54,19 +54,18 @@ public partial class Character : MonoBehaviour
         this.AvailableSwordman = true;
         this.StraightSmash = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.STRAIGHT_SMASH;
-        this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
         this.Level = 1;
-        this.Strength = 5;
-        this.Agility = 7;
-        this.Intelligence = 8;
-        this.Stamina = 5;
+        this.Strength = 3;
+        this.Agility = 4;
+        this.Intelligence = 4;
+        this.Stamina = 2;
         this.Mind = 3;
-        this.BaseLife = 40;
+        this.BaseLife = 25;
         this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
@@ -79,9 +78,8 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         this.IceNeedle = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.ICE_NEEDLE;
-        this.GlobalAction4 = Fix.NORMAL_ATTACK;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -91,7 +89,7 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 9;
         this.Stamina = 4;
         this.Mind = 3;
-        this.BaseLife = 30;
+        this.BaseLife = 20;
         this.BaseSoulPoint = 20;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
@@ -116,7 +114,7 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 2;
         this.Stamina = 7;
         this.Mind = 3;
-        this.BaseLife = 50;
+        this.BaseLife = 30;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
@@ -141,7 +139,7 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 7;
         this.Stamina = 6;
         this.Mind = 3;
-        this.BaseLife = 45;
+        this.BaseLife = 40;
         this.BaseSoulPoint = 12;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
@@ -192,7 +190,7 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 9;
         this.Stamina = 4;
         this.Mind = 8;
-        this.BaseLife = 35;
+        this.BaseLife = 20;
         this.BaseSoulPoint = 20;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
@@ -230,7 +228,7 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 7;
         this.Stamina = 4;
         this.Mind = 3;
-        this.BaseLife = 35;
+        this.BaseLife = 30;
         this.BaseSoulPoint = 25;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.DarkMagic;

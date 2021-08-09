@@ -15,7 +15,7 @@ public partial class Character : MonoBehaviour
     {
       case Fix.TINY_MANTIS:
       case Fix.TINY_MANTIS_JP:
-        SetupParameter(10, 2, 1, 2, 3, 4, 16, 12);
+        SetupParameter(15, 2, 1, 2, 3, 4, 16, 12);
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
         this.ActionCommandList.Add(Fix.COMMAND_HIKKAKI);
         this.CannotCritical = true;
@@ -23,7 +23,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GREEN_SLIME:
       case Fix.GREEN_SLIME_JP:
-        SetupParameter(2, 2, 12, 2, 3, 8, 19, 14);
+        SetupParameter(2, 2, 15, 2, 3, 8, 19, 14);
         this.ActionCommandList.Add(Fix.MAGIC_ATTACK);
         this.ActionCommandList.Add(Fix.COMMAND_GREEN_NENEKI);
         this.CannotCritical = true;
@@ -31,7 +31,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MANDRAGORA:
       case Fix.MANDRAGORA_JP:
-        SetupParameter(2, 4, 16, 3, 3, 5, 21, 17);
+        SetupParameter(2, 4, 18, 3, 3, 5, 21, 17);
         this.ActionCommandList.Add(Fix.MAGIC_ATTACK);
         this.ActionCommandList.Add(Fix.COMMAND_KANAKIRI);
         this.CannotCritical = true;
@@ -978,6 +978,104 @@ public partial class Character : MonoBehaviour
 
       case Fix.MOVING_CANNON:
       case Fix.MOVING_CANNON_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DHAL_GUARDIAN:
+      case Fix.DHAL_GUARDIAN_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.PUPPET_MASTER:
+      case Fix.PUPPET_MASTER_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DANCING_BLADE:
+      case Fix.DANCING_BLADE_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MASCLEWARRIOR_HARDIL:
+      case Fix.MASCLEWARRIOR_HARDIL_JP:
+        SetupParameter(1, 1, 1, 1, 1, 10, 7500, 2000);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.TRAPPED_DISK:
+      case Fix.TRAPPED_DISK_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WHISTLE_SENSOR:
+      case Fix.WHISTLE_SENSOR_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DREAD_LANCER:
+      case Fix.DREAD_LANCER_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.RAGE_TIGER:
+      case Fix.RAGE_TIGER_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.PEACEFUL_ANDANTINO:
+      case Fix.PEACEFUL_ANDANTINO_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.POISONED_CHALICE:
+      case Fix.POISONED_CHALICE_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WISDOM_CENTAURUS:
+      case Fix.WISDOM_CENTAURUS_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.UNKNOWN_FLOATING_BALL:
+      case Fix.UNKNOWN_FLOATING_BALL_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.AURORA_SPIRIT:
+      case Fix.AURORA_SPIRIT_JP:
+        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.HUGE_MAGICIAN_ZAGAN:
+      case Fix.HUGE_MAGICIAN_ZAGAN_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;

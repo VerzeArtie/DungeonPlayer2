@@ -1372,7 +1372,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -165}
-  m_SizeDelta: {x: 0, y: 173.7}
+  m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77643228
 MonoBehaviour:
@@ -12884,7 +12884,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 125955464}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9986928
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13979,7 +13979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000067933}
+  m_AnchoredPosition: {x: 0, y: 0.0000016595875}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1183874491
@@ -22500,7 +22500,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sample message
+  m_Text: 'sample message
+
+    sample message 2
+
+    sample message 3'
 --- !u!222 &2017663498
 CanvasRenderer:
   m_ObjectHideFlags: 0

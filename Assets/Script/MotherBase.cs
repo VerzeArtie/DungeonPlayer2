@@ -13,6 +13,7 @@ public class MotherBase : MonoBehaviour
   public virtual void Start()
   {
     One.InitializeGroundOne(false);
+    Application.targetFrameRate = 60;
   }
 
   public virtual void RefreshAllView()
