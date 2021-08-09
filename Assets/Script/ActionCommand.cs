@@ -502,13 +502,19 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return Attribute.Magic; }
     if (command_name == Fix.FRESH_HEAL) { return Attribute.Magic; }
     if (command_name == Fix.SHADOW_BLAST) { return Attribute.Magic; }
+    if (command_name == Fix.AIR_CUTTER) { return Attribute.Magic; }
+    if (command_name == Fix.ROCK_SLAM) { return Attribute.Magic; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return Attribute.Skill; }
+    if (command_name == Fix.HUNTER_SHOT) { return Attribute.Skill; }
+    if (command_name == Fix.LEG_STRIKE) { return Attribute.Skill; }
+    if (command_name == Fix.VENOM_SLASH) { return Attribute.Skill; }
+    if (command_name == Fix.ENERGY_BOLT) { return Attribute.Magic; }
+    if (command_name == Fix.SHIELD_BASH) { return Attribute.Skill; }
     if (command_name == Fix.AURA_OF_POWER) { return Attribute.Magic; }
     if (command_name == Fix.DISPEL_MAGIC) { return Attribute.Magic; }
-    if (command_name == Fix.STRAIGHT_SMASH) { return Attribute.Skill; }
-    if (command_name == Fix.SHIELD_BASH) { return Attribute.Skill; }
-    if (command_name == Fix.HUNTER_SHOT) { return Attribute.Skill; }
-    if (command_name == Fix.VENOM_SLASH) { return Attribute.Skill; }
     if (command_name == Fix.HEART_OF_LIFE) { return Attribute.Skill; }
+    if (command_name == Fix.DARK_AURA) { return Attribute.Skill; }
+    if (command_name == Fix.TRUE_SIGHT) { return Attribute.Magic; }
     if (command_name == Fix.ORACLE_COMMAND) { return Attribute.Skill; }
 
     if (command_name == Fix.FLAME_BLADE) { return Attribute.Magic; }

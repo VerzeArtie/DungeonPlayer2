@@ -580,12 +580,10 @@ public partial class HomeTown : MotherBase
 
   public void TapShop()
   {
-    if (One.TF.Event_Message100020 == false)
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
-      TapOK();
-      return;
     }
+
     if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
     {
       MessagePack.Message200050(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -634,6 +632,13 @@ public partial class HomeTown : MotherBase
   public void TapTactics()
   {
     Debug.Log("TapTactics(S)");
+    if (One.TF.Event_Message100020 == false)
+    {
+      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
     GroupDungeonPlayer.SetActive(false);
     GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
@@ -2070,6 +2075,11 @@ public partial class HomeTown : MotherBase
     charaView.txtLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
     float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
     charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
+
+    charaView.txtSoulPoint.text = player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString();
+    float dx_sp = (float)((float)player.CurrentSoulPoint / (float)player.MaxSoulPoint);
+    charaView.imgSoulPointGauge.rectTransform.localScale = new Vector2(dx_sp, 1.0f);
+
     charaView.txtStrength.text = player.TotalStrength.ToString();
     charaView.txtAgility.text = player.TotalAgility.ToString();
     charaView.txtIntelligence.text = player.TotalIntelligence.ToString();

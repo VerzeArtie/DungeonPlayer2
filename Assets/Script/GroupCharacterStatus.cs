@@ -21,6 +21,7 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtDetailName;
   public Text txtDetailLevel;
   public Text txtDetailLife;
+  public Text txtDetailSoulPoint;
   public Text txtDetailExp;
   public Image imgDetailExp;
   public Text txtDetailStrength;
@@ -99,6 +100,7 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailName.text = player.FullName;
     txtDetailLevel.text = player.Level.ToString();
     txtDetailLife.text = player.MaxLife.ToString();
+    txtDetailSoulPoint.text = player.MaxSoulPoint.ToString();
     txtDetailExp.text = player.Exp.ToString() + " / " + player.GetNextExp().ToString();
     txtDetailStrength.text = player.TotalStrength.ToString();
     txtDetailAgility.text = player.TotalAgility.ToString();
@@ -149,6 +151,7 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
+      UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));
@@ -443,6 +446,7 @@ public class GroupCharacterStatus : MonoBehaviour
       ShadowPlayer.Mind = player.Mind;
       ShadowPlayer.MindFood = player.MindFood;
       ShadowPlayer.BaseLife = player.BaseLife;
+      ShadowPlayer.BaseSoulPoint = player.BaseSoulPoint;
       ShadowPlayer.RemainPoint = player.RemainPoint;
       if (player.MainWeapon != null)
       {
@@ -524,6 +528,7 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));

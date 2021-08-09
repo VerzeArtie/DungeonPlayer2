@@ -61,6 +61,7 @@ public static partial class Fix
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
   public const string SMALL_RED_POTION = "小さい赤ポーション";
+  public const string SMALL_BLUE_POTION = "小さい青ポーション";
   public const string NORMAL_RED_POTION = "普通の赤ポーション";
   public const string LARGE_RED_POTION = "大きな赤ポーション";
   public const string SMART_CLAW = "スマート・クロー";

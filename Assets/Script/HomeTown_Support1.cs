@@ -7,6 +7,16 @@ public partial class HomeTown : MotherBase
   private List<Item> GetShopItem(string area_name)
   {
     List<Item> shopList = new List<Item>();
+    if (area_name == Fix.TOWN_ANSHET)
+    {
+      shopList.Add(new Item(Fix.FINE_SWORD));
+      shopList.Add(new Item(Fix.FINE_CLAW));
+      shopList.Add(new Item(Fix.FINE_ARMOR));
+      shopList.Add(new Item(Fix.FINE_CROSS));
+      shopList.Add(new Item(Fix.FINE_SHIELD));
+      shopList.Add(new Item(Fix.SMALL_RED_POTION));
+      shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
+    }
     if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
       shopList.Add(new Item(Fix.FINE_SWORD));

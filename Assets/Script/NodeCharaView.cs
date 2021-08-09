@@ -15,6 +15,8 @@ public class NodeCharaView : MonoBehaviour
   public Image imgExpGauge;
   public Text txtLife;
   public Image imgLifeGauge;
+  public Text txtSoulPoint;
+  public Image imgSoulPointGauge;
   public Text txtStrength;
   public Text txtAgility;
   public Text txtIntelligence;

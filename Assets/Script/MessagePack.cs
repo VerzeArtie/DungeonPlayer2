@@ -216,11 +216,19 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：旅に出るんだ。荷物はこれぐらい軽くしておいたほうが良いだろ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
-    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
-    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, "ラナ：軽くしておいたらって・・・ほぼ手ぶら状態じゃないのよ、何考えてんのかしらホント・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：旅に出るわけじゃなくて、正式な調査依頼を受けて、任務遂行しに行くのよ。ちゃんと準備してよね、ホント。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：はい、赤ポーションと軍資金。用意しておいたからね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】を獲得しました！", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "1000", ActionEvent.GetGold);
+    Message(ref m_list, ref e_list, "【 1000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：あと旅に出るわけじゃなくて、正式な調査依頼を受けて、任務遂行しに行くのよ。ちゃんと準備してよね、ホント。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：大丈夫だって、オーケーオーケー！ッハッハッハ！", ActionEvent.None);
 
@@ -267,9 +275,7 @@ public static class MessagePack
 
   public static void Message100015(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "ラナ：ちょっと、そこのバカアイン！？", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：（　国内外遠征許可証を取りに行かねえと。ラナに睨まれている以上、他の行動は出来そうもないな・・・　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、そんな事やってないでファージル宮殿に行きましょうよ。", ActionEvent.None);
   }
 
   public static void Message100020(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -428,9 +434,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金とアイテムを用意しておいた。好きに使ってもらって構わないよ。", ActionEvent.None);
 
-    //Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
-    //Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
+    Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
 
     Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！僭越ながら、拝受つかまつります！", ActionEvent.None);
 
