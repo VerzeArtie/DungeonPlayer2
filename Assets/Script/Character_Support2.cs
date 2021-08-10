@@ -54,7 +54,6 @@ public partial class Character : MonoBehaviour
         this.AvailableSwordman = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.MAGIC_ATTACK;
-        this.GlobalAction3 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -76,8 +75,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableIce = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.MAGIC_ATTACK;
-        this.GlobalAction3 = Fix.DEFENSE;
+        this.GlobalAction2 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_EONE_FULNEA:

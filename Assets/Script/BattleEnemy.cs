@@ -397,19 +397,8 @@ public partial class BattleEnemy : MotherBase
     if (groupActionButton != null)
     {
       character.ActionCommandList.Clear();
-      if (character.Job == Fix.JobClass.Fighter)
-      {
-        AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
-      }
-      else if (character.Job == Fix.JobClass.Magician)
-      {
-        AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
-      }
-      else if (character.Job == Fix.JobClass.Seeker)
-      {
-        AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
-        AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
-      }
+      AddActionButton(character, groupActionButton, Fix.NORMAL_ATTACK);
+      AddActionButton(character, groupActionButton, Fix.MAGIC_ATTACK);
       AddActionButton(character, groupActionButton, Fix.DEFENSE);
 
       // todo
