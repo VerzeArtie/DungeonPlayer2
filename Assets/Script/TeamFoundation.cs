@@ -1169,6 +1169,22 @@ public class TeamFoundation : MonoBehaviour
   }
 
   /// <summary>
+  /// アイテム内容を全面的に入れ替えます。
+  /// </summary>
+  /// <param name="item"></param>
+  public void ReplaceBackPack(Item[] item)
+  {
+    this._backpackList.Clear();
+    for (int ii = 0; ii < item.Length; ii++)
+    {
+      if (item[ii] != null)
+      {
+        AddBackPack(item[ii]);
+      }
+    }
+  }
+
+  /// <summary>
   /// バックパックにアイテムを追加します。
   /// </summary>
   /// <param name="item"></param>

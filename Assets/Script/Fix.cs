@@ -19,6 +19,14 @@ public static partial class Fix
     Stop,
   }
 
+  public enum GameEndType
+  {
+    None,
+    Success,
+    Fail,
+    RunAway,
+  }
+
   public enum JobClass
   {
     None,

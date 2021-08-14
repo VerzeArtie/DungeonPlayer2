@@ -177,6 +177,7 @@ public class DungeonField : MotherBase
 
   private bool FirstAction = false;
   private bool AlreadyDetectEncount = false;
+  bool ignoreCreateShadow = false;
 
   // Start is called before the first frame update
   public override void Start()
@@ -344,6 +345,27 @@ public class DungeonField : MotherBase
     // debug
 
     RefreshAllView();
+
+    if (One.BattleEnd != Fix.GameEndType.None)
+    {
+      One.BattleEnd = Fix.GameEndType.None;
+      One.CopyShadowToMain();
+      this.ignoreCreateShadow = true;
+      PrepareCallTruthBattleEnemy();
+      //this.nowEncountEnemy = true;
+    }
+    else
+    {
+      this.ignoreCreateShadow = false;
+      One.BattleEnemyList.Clear();
+
+      for (int ii = 0; ii < One.ShadowPlayerList.Count; ii++)
+      {
+        Destroy(One.ShadowPlayerList[ii].gameObject);
+      }
+      Destroy(One.ShadowTF);
+      One.ShadowTF = null;
+    }
   }
 
   // Update is called once per frame
@@ -3422,9 +3444,10 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountBoss)
         {
-          List<string> list = new List<string>();
-          list.Add(currentMessage);
-          SceneDimension.CallBattleEnemy(list, true);
+          One.CannotRunAway = true;
+          One.BattleEnemyList.Clear();
+          One.BattleEnemyList.Add(currentMessage);
+          PrepareCallTruthBattleEnemy();
         }
         else if (currentEvent == MessagePack.ActionEvent.InstantiateObject)
         {
@@ -3458,6 +3481,31 @@ public class DungeonField : MotherBase
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }
+  }
+
+  private void PrepareCallTruthBattleEnemy()
+  {
+    this.AlreadyDetectEncount = true;
+    One.BattleEnd = Fix.GameEndType.None;
+    if (this.ignoreCreateShadow == false)
+    {
+      One.CreateShadowData();
+    }
+
+    One.EnemyList.Clear();
+    for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
+    {
+      GameObject objEC = new GameObject("objEC_" + ii.ToString());
+      Character character = objEC.AddComponent<Character>();
+      character.Construction(One.BattleEnemyList[ii]);
+      One.EnemyList.Add(character);
+    }
+
+    for (int ii = 0; ii < One.EnemyList.Count; ii++)
+    {
+      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
+    }
+    SceneDimension.CallBattleEnemy();
   }
 
   private void RemoveOneSentence()
@@ -3945,9 +3993,6 @@ public class DungeonField : MotherBase
       return;
     }
 
-    One.EnemyList.Clear();
-    List<string> characters = new List<string>();
-
     CumulativeBattleCounter++;
 
     // 最初の歩きはじめはエンカウント対象外
@@ -3964,25 +4009,38 @@ public class DungeonField : MotherBase
     // エリア毎にランダムで敵軍隊を生成する。
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
-      string enemyName = string.Empty;
       if (One.PlayerList[0].Level <= 1)
       {
         int random = 100 - CumulativeBattleCounter;
         if (random <= 0) { random = 0; }
         if (AP.Math.RandomInteger(random) <= 20)
         {
-          switch (AP.Math.RandomInteger(2))
+          switch (AP.Math.RandomInteger(5))
           {
             case 0:
-              enemyName = Fix.TINY_MANTIS;
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
               break;
             case 1:
-              enemyName = Fix.GREEN_SLIME;
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
               break;
           }
-          characters.Add(enemyName);
-          this.AlreadyDetectEncount = true;
-          SceneDimension.CallBattleEnemy(characters, false);
+          One.CannotRunAway = false;
+          PrepareCallTruthBattleEnemy();
         }
       }
     }

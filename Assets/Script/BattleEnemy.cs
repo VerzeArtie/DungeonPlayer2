@@ -27,6 +27,8 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupParentEnemy;
   public GameObject panelGameEnd;
   public Text txtGameEndMessage;
+  public GameObject panelGameOver;
+  public Text txtGameoverMessage;
 
   // GUI-SandGlass
   public Image pbSandglass;
@@ -112,20 +114,11 @@ public partial class BattleEnemy : MotherBase
   public Button NowSelectActionCommandButton = null;
   public Button NowSelectActionDstButton = null;
 
-  protected GameEndType BattleEnd = GameEndType.None;
 
   protected bool DuelMode = true;
   protected bool NowStackInTheCommand = false;
 
   private float BATTLE_GAUGE_WITDH = 0;
-
-  public enum GameEndType
-  {
-    None,
-    Success,
-    Fail,
-    RunAway,
-  }
 
   // Start is called before the first frame update
   public override void Start()
@@ -511,7 +504,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
     // バトルが完了している場合、時間を進めない。
-    if (BattleEnd != GameEndType.None)
+    if (One.BattleEnd != Fix.GameEndType.None)
     {
       return;
     }
@@ -548,7 +541,7 @@ public partial class BattleEnemy : MotherBase
     // 敵側が全滅した場合、ゲームエンドとする。
     if (CheckGroupAlive(EnemyList) == false)
     {
-      this.BattleEnd = GameEndType.Success;
+      One.BattleEnd = Fix.GameEndType.Success;
       if (panelGameEnd.activeInHierarchy == false)
       {
         int gainExp = 0;
@@ -590,11 +583,10 @@ public partial class BattleEnemy : MotherBase
     // プレイヤー側が全滅した場合、ゲームエンドとする。
     if (CheckGroupAlive(PlayerList) == false)
     {
-      this.BattleEnd = GameEndType.Fail;
-      if (panelGameEnd.activeInHierarchy == false)
+      One.BattleEnd = Fix.GameEndType.Fail;
+      if (panelGameOver.activeInHierarchy == false)
       {
-        txtGameEndMessage.text = "パーティが全滅しました・・・";
-        panelGameEnd.SetActive(true);
+        panelGameOver.SetActive(true);
       }
       return;
     }
@@ -1863,7 +1855,7 @@ public partial class BattleEnemy : MotherBase
           return;
         }
 
-        this.BattleEnd = GameEndType.RunAway;
+        One.BattleEnd = Fix.GameEndType.RunAway;
         if (panelGameEnd.activeInHierarchy == false)
         {
           txtGameEndMessage.text = PlayerList[0].FullName + "達は逃げ出した・・・";
@@ -1916,6 +1908,16 @@ public partial class BattleEnemy : MotherBase
       speedDown++;
     }
     LogicInvalidate();
+  }
+
+  public void TapRetryBattle()
+  {
+    TapEndScene();
+  }
+
+  public void TapSurrenderBattle()
+  {
+    SceneDimension.JumpToTitle();
   }
   #endregion
 

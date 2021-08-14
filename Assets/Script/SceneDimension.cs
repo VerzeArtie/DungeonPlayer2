@@ -43,23 +43,8 @@ public static class SceneDimension
   //  SceneManager.LoadSceneAsync(Fix.SaveLoad, LoadSceneMode.Additive);
   //}
 
-  public static void CallBattleEnemy(List<string> enemy_list, bool cannot_runaway)
+  public static void CallBattleEnemy()
   {
-    One.EnemyList.Clear();
-    for (int ii = 0; ii < enemy_list.Count; ii++)
-    {
-      GameObject objEC = new GameObject("objEC_1");
-      Character character = objEC.AddComponent<Character>();
-      character.Construction(enemy_list[ii]);
-      One.EnemyList.Add(character);
-    }
-
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
-    {
-      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
-    }
-    One.CannotRunAway = cannot_runaway;
-
     One.StopDungeonMusic();
     SceneManager.LoadSceneAsync("BattleEnemy");
   }

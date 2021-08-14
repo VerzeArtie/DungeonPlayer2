@@ -453,14 +453,19 @@ public class SaveLoad : MotherBase
             xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.TF, null))).ToString());
             xmlWriter.WriteWhitespace("\r\n");
           }
-          else if (pi.PropertyType == typeof(System.Single))
-          {
-            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.TF, null))).ToString());
-            xmlWriter.WriteWhitespace("\r\n");
-          }
           else if (pi.PropertyType == typeof(System.String))
           {
             xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(One.TF, null)));
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Double)(pi.GetValue(One.TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.TF, null))).ToString());
             xmlWriter.WriteWhitespace("\r\n");
           }
           else if (pi.PropertyType == typeof(System.Boolean))
@@ -532,6 +537,16 @@ public class SaveLoad : MotherBase
             xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(One.PlayerList[ii], null)));
             xmlWriter.WriteWhitespace("\r\n");
           }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Double)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
           else if (pi.PropertyType == typeof(System.Boolean))
           {
             xmlWriter.WriteElementString(pi.Name, ((System.Boolean)pi.GetValue(One.PlayerList[ii], null)).ToString());
@@ -540,6 +555,11 @@ public class SaveLoad : MotherBase
           else if (pi.PropertyType == typeof(Fix.JobClass))
           {
             xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(Fix.CommandAttribute))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((Fix.CommandAttribute)(pi.GetValue(One.PlayerList[ii], null))).ToString());
             xmlWriter.WriteWhitespace("\r\n");
           }
         }
