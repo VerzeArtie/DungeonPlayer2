@@ -555,11 +555,36 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecUseRedPotion(Character target)
+  private bool ExecUseRedPotion(Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double effectValue = 60;
-    AbstractHealCommand(null, target, effectValue);
+    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION))
+    {
+      Item current = new Item(Fix.SMALL_RED_POTION);
+      One.TF.RemoveItem(current);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractHealCommand(null, target, effectValue);
+      return true;
+    }
+
+    Debug.Log("Red Potion is nothing...then miss.");
+    return false;
+  }
+
+  private bool ExecUseBluePotion(Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION))
+    {
+      Item current = new Item(Fix.SMALL_BLUE_POTION);
+      One.TF.RemoveItem(current);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractGainSoulPoint(null, target, effectValue);
+      return true;
+    }
+
+    Debug.Log("Blue Potion is nothing...then miss.");
+    return false;
   }
 
   private void ExecLifeGain(Character target, double effectValue)
@@ -800,6 +825,28 @@ public partial class BattleEnemy : MotherBase
     target.CurrentLife += result;
     target.txtLife.text = target.CurrentLife.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_HEAL);
+
+    return true;
+  }
+
+  private bool AbstractGainSoulPoint(Character player, Character target, double gainValue)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (target.Dead)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    // ゲイン量が負の値になる場合は０とみなす。
+    if (gainValue <= 0) { gainValue = 0; }
+
+    int result = (int)gainValue;
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " gain");
+    target.CurrentSoulPoint += result;
+    target.txtSoulPoint.text = target.CurrentSoulPoint.ToString();
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
 
     return true;
   }

@@ -54,6 +54,7 @@ public partial class Character : MonoBehaviour
         this.AvailableSwordman = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.MAGIC_ATTACK;
+        this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -76,6 +77,7 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
+        this.CurrentImmediateCommand = Fix.SMALL_BLUE_POTION;
         break;
 
       case Fix.NAME_EONE_FULNEA:

@@ -35,6 +35,7 @@ public partial class Character : MonoBehaviour
   public Image objCurrentSoulPointGauge = null;
   public Image objCurrentSoulPointBorder = null;
   public BuffField objBuffPanel = null;
+  public NodeActionCommand objImmediageCommand = null;
 
   [SerializeField] protected string _fullName = string.Empty;
   public string FullName
@@ -208,6 +209,16 @@ public partial class Character : MonoBehaviour
       _currentActionCommand = value;
     }
     get { return _currentActionCommand; }
+  }
+
+  [SerializeField] protected string _currentImmediateCommand = string.Empty;
+  public string CurrentImmediateCommand
+  {
+    set
+    {
+      _currentImmediateCommand = value;
+    }
+    get { return _currentImmediateCommand; }
   }
 
   [SerializeField] protected List<string> _actionCommand = new List<string>();

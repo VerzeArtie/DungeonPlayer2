@@ -25,4 +25,5 @@ public class NodeBattleChara : MonoBehaviour
   public Image objCurrentSoulPointGauge;
   public Image objCurrentSoulPointBorder;
   public Text txtSoulPoint;
+  public NodeActionCommand objImmediateCommand;
 }

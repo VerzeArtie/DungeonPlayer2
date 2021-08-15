@@ -1093,6 +1093,7 @@ public partial class Character : MonoBehaviour
 
     this.MaxGain();
     this.CurrentActionCommand = this.ActionCommandList[0];
+    this.CurrentImmediateCommand = string.Empty;
   }
 
 }

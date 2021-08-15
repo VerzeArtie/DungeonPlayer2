@@ -92,6 +92,7 @@ public static partial class Fix
   // Color
   public static Color COLOR_NORMAL = Color.black;
   public static Color COLOR_HEAL = Color.green;
+  public static Color COLOR_GAIN_SP = Color.blue;
 
   public static Color COLOR_FIRST_CHARA = new Color(235.0f / 255.0f, 253.0f / 255.0f, 255.0f / 255.0f);
   public static Color COLORFORE_FIRST_CHARA = new Color(0, 185.0f / 255.0f, 255.0f / 255.0f);

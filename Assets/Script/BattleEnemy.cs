@@ -19,6 +19,7 @@ public partial class BattleEnemy : MotherBase
   public NodeActionCommand prefab_MainAction = null;
   public NodeActionCommand prefab_InstantAction = null;
   public NodeActionCommand prefab_GlobalAction = null;
+  public NodeActionCommand prefab_ImmediateAction = null;
 
   // GUI-BattleView
   public GameObject GroupGlobalAction;
@@ -340,6 +341,16 @@ public partial class BattleEnemy : MotherBase
     character.objBuffPanel = node.groupBuff;
     character.txtTargetName = node.txtTargetName;
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
+
+    string command_name = character.CurrentImmediateCommand;
+    character.objImmediageCommand = node.objImmediateCommand;
+    character.objImmediageCommand.BackColor.color = new Color(0, 0, 0, 0);
+    character.objImmediageCommand.CommandName = command_name;
+    character.objImmediageCommand.name = command_name;
+    character.objImmediageCommand.OwnerName = character.FullName;
+    character.objImmediageCommand.ActionButton.name = command_name;
+    character.objImmediageCommand.ApplyImageIcon(command_name);
+    character.objImmediageCommand.gameObject.SetActive(true);
 
     character.objParentActionPanel = group_parent_actionpanel;
     character.groupActionButton = groupActionButton;
@@ -1751,6 +1762,36 @@ public partial class BattleEnemy : MotherBase
         this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
         this.NowSelectSrcPlayer.UpdateInstantPointGauge();
         CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
+      }
+    }
+  }
+
+  public void TapImmediateAction(NodeActionCommand sender)
+  {
+    Debug.Log("TapImmediateAction(S)");
+    Debug.Log("target Action is " + sender.CommandName);
+    Debug.Log("target Owner is " + sender.OwnerName);
+    for (int ii = 0; ii < this.PlayerList.Count; ii++)
+    {
+      if (this.PlayerList[ii].FullName == sender.OwnerName)
+      {
+        if (sender.CommandName == Fix.SMALL_RED_POTION)
+        {
+          bool result = ExecUseRedPotion(this.PlayerList[ii]);
+          if (result == false)
+          {
+            StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+          }
+        }
+        else if (sender.CommandName == Fix.SMALL_BLUE_POTION)
+        {
+          bool result = ExecUseBluePotion(this.PlayerList[ii]);
+          if (result == false)
+          {
+            StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+          }
+        }
+        break;
       }
     }
   }
