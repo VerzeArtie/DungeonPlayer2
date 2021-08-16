@@ -175,57 +175,57 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < Fix.MAX_TEAM_MEMBER; ii++)
     {
       string target = String.Empty;
-      if (ii == 0) { target = One.TF.BattlePlayer1; }
-      if (ii == 1) { target = One.TF.BattlePlayer2; }
-      if (ii == 2) { target = One.TF.BattlePlayer3; }
-      if (ii == 3) { target = One.TF.BattlePlayer4; }
+      if (ii == 0) { target = One.TF.BattlePlayer1; Debug.Log("target1 is " + target); }
+      if (ii == 1) { target = One.TF.BattlePlayer2; Debug.Log("target2 is " + target); }
+      if (ii == 2) { target = One.TF.BattlePlayer3; Debug.Log("target3 is " + target); }
+      if (ii == 3) { target = One.TF.BattlePlayer4; Debug.Log("target4 is " + target); }
 
       int counter = 0;
-      if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableLanaAmiria && target == Fix.NAME_LANA_AMIRIA) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableLanaAmiria && target == Fix.NAME_LANA_AMIRIA) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableEoneFulnea && target == Fix.NAME_EONE_FULNEA) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableEoneFulnea && target == Fix.NAME_EONE_FULNEA) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableMagiZelkis && target == Fix.NAME_MAGI_ZELKIS) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableMagiZelkis && target == Fix.NAME_MAGI_ZELKIS) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableSelmoiRo && target == Fix.NAME_SELMOI_RO) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableSelmoiRo && target == Fix.NAME_SELMOI_RO) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableKartinMai && target == Fix.NAME_KARTIN_MAI) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableKartinMai && target == Fix.NAME_KARTIN_MAI) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableJedaArus && target == Fix.NAME_JEDA_ARUS) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableJedaArus && target == Fix.NAME_JEDA_ARUS) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableSinikiaVeilhanz && target == Fix.NAME_SINIKIA_VEILHANZ) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableSinikiaVeilhanz && target == Fix.NAME_SINIKIA_VEILHANZ) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableAdelBrigandy && target == Fix.NAME_ADEL_BRIGANDY) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableAdelBrigandy && target == Fix.NAME_ADEL_BRIGANDY) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableLeneColtos && target == Fix.NAME_LENE_COLTOS) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableLeneColtos && target == Fix.NAME_LENE_COLTOS) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailablePermaWaramy && target == Fix.NAME_PERMA_WARAMY) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailablePermaWaramy && target == Fix.NAME_PERMA_WARAMY) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableKiltJorju && target == Fix.NAME_KILT_JORJU) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableKiltJorju && target == Fix.NAME_KILT_JORJU) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableBillyRaki && target == Fix.NAME_BILLY_RAKI) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableBillyRaki && target == Fix.NAME_BILLY_RAKI) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableAnnaHamilton && target == Fix.NAME_ANNA_HAMILTON) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableAnnaHamilton && target == Fix.NAME_ANNA_HAMILTON) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableCalmansOhn && target == Fix.NAME_CALMANS_OHN) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableCalmansOhn && target == Fix.NAME_CALMANS_OHN) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableSunYu && target == Fix.NAME_SUN_YU) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableSunYu && target == Fix.NAME_SUN_YU) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableShuvaltzFlore && target == Fix.NAME_SHUVALTZ_FLORE) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableShuvaltzFlore && target == Fix.NAME_SHUVALTZ_FLORE) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableRvelZelkis && target == Fix.NAME_RVEL_ZELKIS) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableRvelZelkis && target == Fix.NAME_RVEL_ZELKIS) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableVanHehgustel && target == Fix.NAME_VAN_HEHGUSTEL) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableVanHehgustel && target == Fix.NAME_VAN_HEHGUSTEL) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableOhryuGenma && target == Fix.NAME_OHRYU_GENMA) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableOhryuGenma && target == Fix.NAME_OHRYU_GENMA) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableLadaMystorus && target == Fix.NAME_LADA_MYSTORUS) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableLadaMystorus && target == Fix.NAME_LADA_MYSTORUS) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableSinOscurete && target == Fix.NAME_SIN_OSCURETE) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableSinOscurete && target == Fix.NAME_SIN_OSCURETE) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
-      if (One.TF.AvailableDelvaTreckino && target == Fix.NAME_DELVA_TRECKINO) { playerList.Add(One.Characters[counter]); }
+      if (One.TF.AvailableDelvaTreckino && target == Fix.NAME_DELVA_TRECKINO) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
     }
 
@@ -233,6 +233,7 @@ public partial class BattleEnemy : MotherBase
     float allyBaseStart = AP.Math.RandomInteger(30) + 30.0f;
     for (int ii = 0; ii < playerList.Count; ii++)
     {
+      Debug.Log("playerList: " + ii.ToString() + " " + playerList[ii].FullName);
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
       node.gameObject.SetActive(true);
       node.transform.SetParent(GroupParentPlayer.transform);
