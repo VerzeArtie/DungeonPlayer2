@@ -351,6 +351,10 @@ public partial class BattleEnemy : MotherBase
     character.objImmediageCommand.ActionButton.name = command_name;
     character.objImmediageCommand.ApplyImageIcon(command_name);
     character.objImmediageCommand.gameObject.SetActive(true);
+    if (character.IsEnemy)
+    {
+      character.objImmediageCommand.gameObject.SetActive(false);
+    }
 
     character.objParentActionPanel = group_parent_actionpanel;
     character.groupActionButton = groupActionButton;
@@ -1775,6 +1779,17 @@ public partial class BattleEnemy : MotherBase
     {
       if (this.PlayerList[ii].FullName == sender.OwnerName)
       {
+        // インスタント値が不足している場合、行動できない。
+        if (PlayerList[ii].CurrentInstantPoint < PlayerList[ii].MaxInstantPoint)
+        {
+          UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+          Debug.Log("Still now instant point. then no action.");
+          return;
+        }
+
+        this.PlayerList[ii].CurrentInstantPoint = 0;
+        this.PlayerList[ii].UpdateInstantPointGauge();
+
         if (sender.CommandName == Fix.SMALL_RED_POTION)
         {
           bool result = ExecUseRedPotion(this.PlayerList[ii]);
