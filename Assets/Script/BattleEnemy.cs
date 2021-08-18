@@ -147,11 +147,11 @@ public partial class BattleEnemy : MotherBase
 
     // グローバルアクションボタンを設定する。
     List<string> str_list0 = new List<string>();
-    str_list0.Add(Fix.GLOBAL_ACTION_1);
-    str_list0.Add(Fix.GLOBAL_ACTION_2);
-    str_list0.Add(Fix.GLOBAL_ACTION_3);
-    str_list0.Add(Fix.GLOBAL_ACTION_4);
-    str_list0.Add(Fix.USE_RED_POTION);
+    //str_list0.Add(Fix.GLOBAL_ACTION_1);
+    //str_list0.Add(Fix.GLOBAL_ACTION_2);
+    //str_list0.Add(Fix.GLOBAL_ACTION_3);
+    //str_list0.Add(Fix.GLOBAL_ACTION_4);
+    //str_list0.Add(Fix.USE_RED_POTION);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
     for (int ii = 0; ii < str_list0.Count; ii++)

@@ -56,6 +56,10 @@ public static class One
   //public static bool[] Truth_KnownTileInfo4 = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
   //public static bool[] Truth_KnownTileInfo5 = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
 
+  public static List<Character> ShadowPlayerList = new List<Character>();
+  public static TeamFoundation ShadowTF = null;
+  //public static TeamFoundation shadowWE2 = null; // todo 世界セーブはDungeonPlayer2でも必要
+
   public static GameObject sound = null; // サウンド音源
   public static AudioSource soundSource = null; // サウンドソース
 
@@ -93,6 +97,8 @@ public static class One
 
   // DungeonField
   //public static string DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
+  public static Fix.GameEndType BattleEnd = Fix.GameEndType.None;
+  public static List<string> BattleEnemyList = new List<string>();
 
   // BattleEnemy
   public static bool CannotRunAway = false;
@@ -411,7 +417,7 @@ public static class One
     //Characters[num].ZeroImmunity = 3;
     //Characters[num].EssenceOverflow = 2;
     //Characters[num].InnerInspiration = 1;
-    // num++;
+    //num++;
 
     // Characters[num].FullName = Fix.NAME_LANA_AMIRIA;
     // Characters[num].Level = 1;
@@ -448,7 +454,7 @@ public static class One
     // Characters[num].ShadowBlast = 1;
     // Characters[num].OracleCommand = 1;
     // //Characters[num].Exp = Characters[num].GetNextExp();
-    //  num++;
+    //num++;
 
     // Characters[num].FullName = Fix.NAME_EONE_FULNEA;
     // Characters[num].Level = 1;
@@ -525,6 +531,11 @@ public static class One
     // Characters[num].ShadowBlast = 0;
     // num++;
 
+    //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
+    //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
+    //TF.BackpackList.Add(new Item(Fix.SMALL_BLUE_POTION));
+    //TF.BackpackList.Add(new Item(Fix.SMALL_BLUE_POTION));
+    //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     // TF.BackpackList.Add(new Item(Fix.FINE_SWORD));
     // TF.BackpackList.Add(new Item(Fix.FINE_ROD));
     // TF.BackpackList.Add(new Item(Fix.FINE_AXE));
@@ -710,6 +721,18 @@ public static class One
     }
   }
 
+  public static Character SelectCharacter(string full_name)
+  {
+    for (int ii = 0; ii < _characters.Count; ii++)
+    {
+      if (full_name == _characters[ii].FullName)
+      {
+        return _characters[ii];
+      }
+    }
+    return null;
+  }
+
   public static bool AvailableCharacterName(string full_name)
   {
     if ((TF.AvailableEinWolence && full_name == Fix.NAME_EIN_WOLENCE) ||
@@ -744,6 +767,395 @@ public static class One
 
     return false;
   }
+
+  public static void CreateShadowData()
+  {
+    for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
+    {
+      GameObject current = new GameObject("shadowPlayer_" + (ii + 1).ToString("D2"));
+      Character shadow = current.AddComponent<Character>();
+      shadow.MainWeapon = PlayerList[ii].MainWeapon;
+      shadow.SubWeapon = PlayerList[ii].SubWeapon;
+      shadow.MainArmor = PlayerList[ii].MainArmor;
+      shadow.Accessory1 = PlayerList[ii].Accessory1;
+      shadow.Accessory2 = PlayerList[ii].Accessory2;
+      shadow.Artifact = PlayerList[ii].Artifact;
+
+      Type type = PlayerList[ii].GetType();
+      foreach (PropertyInfo pi in type.GetProperties())
+      {
+        if (pi.PropertyType == typeof(System.Int32))
+        {
+          try
+          {
+            pi.SetValue(shadow, (System.Int32)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.String))
+        {
+          try
+          {
+            pi.SetValue(shadow, (string)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Double))
+        {
+          try
+          {
+            pi.SetValue(shadow, (System.Double)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Single))
+        {
+          try
+          {
+            pi.SetValue(shadow, (System.Single)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Boolean))
+        {
+          try
+          {
+            pi.SetValue(shadow, (System.Boolean)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(Fix.JobClass))
+        {
+          try
+          {
+            pi.SetValue(shadow, (Fix.JobClass)Enum.Parse(typeof(Fix.JobClass), PlayerList[ii].Job.ToString()));
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(Fix.CommandAttribute))
+        {
+          try
+          {
+            pi.SetValue(shadow, (Fix.CommandAttribute)(type.GetProperty(pi.Name).GetValue(PlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(List<string>))
+        {
+          // todo ActionCommandList
+        }
+      }
+
+      ShadowPlayerList.Add(shadow);
+    }
+
+    GameObject objTF = new GameObject("ShadowTF");
+    ShadowTF = objTF.AddComponent<TeamFoundation>();
+    Type type2 = TF.GetType();
+    foreach (PropertyInfo pi in type2.GetProperties())
+    {
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          pi.SetValue(ShadowTF, (System.Int32)(type2.GetProperty(pi.Name).GetValue(TF, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          pi.SetValue(ShadowTF, (string)(type2.GetProperty(pi.Name).GetValue(TF, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Double))
+      {
+        try
+        {
+          pi.SetValue(ShadowTF, (System.Double)(type2.GetProperty(pi.Name).GetValue(TF, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          pi.SetValue(ShadowTF, (System.Single)(type2.GetProperty(pi.Name).GetValue(TF, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          pi.SetValue(ShadowTF, (System.Boolean)(type2.GetProperty(pi.Name).GetValue(TF, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(List<Item>))
+      {
+        Debug.Log("backpack maybe: " + pi.Name);
+        if (pi.Name == "BackpackList")
+        {
+          try
+          {
+            Debug.Log("before shadowTF.backpack: " + ShadowTF.BackpackList.Count.ToString());
+
+            ShadowTF.BackpackList.Clear();
+            for (int ii = 0; ii < TF.BackpackList.Count; ii++)
+            {
+              Debug.Log("TF.backpack " + TF.BackpackList[ii].ItemName + " " + TF.BackpackList[ii].StackValue.ToString());
+              ShadowTF.AddBackPack(TF.BackpackList[ii], TF.BackpackList[ii].StackValue);
+            }
+
+            Debug.Log("after shadowTF.backpack: " + ShadowTF.BackpackList.Count.ToString());
+            for (int ii = 0; ii < TF.BackpackList.Count; ii++)
+            {
+              Debug.Log("ShadowTF.backpack " + ShadowTF.BackpackList[ii].ItemName + " " + ShadowTF.BackpackList[ii].StackValue.ToString());
+            }
+          }
+          catch { }
+        }
+      }
+    }
+
+
+    //Type type3 = WE2.GetType();
+    //foreach (PropertyInfo pi in type3.GetProperties())
+    //{
+    //  // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+    //  if (pi.PropertyType == typeof(System.Int32))
+    //  {
+    //    try
+    //    {
+    //      pi.SetValue(ShadowTF2, (System.Int32)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
+    //    }
+    //    catch { }
+    //  }
+    //  else if (pi.PropertyType == typeof(System.String))
+    //  {
+    //    try
+    //    {
+    //      pi.SetValue(ShadowTF2, (string)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
+    //    }
+    //    catch { }
+    //  }
+    //  else if (pi.PropertyType == typeof(System.Boolean))
+    //  {
+    //    try
+    //    {
+    //      pi.SetValue(ShadowTF2, (System.Boolean)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
+    //    }
+    //    catch { }
+    //  }
+    //}
+  }
+
+  public static void CopyShadowToMain()
+  {
+    Debug.Log("ShadowPlayer.Count " + One.ShadowPlayerList.Count.ToString());
+    for (int ii = 0; ii < One.ShadowPlayerList.Count; ii++)
+    {
+      Debug.Log("ShadowPlayer life: " + One.ShadowPlayerList[ii].CurrentLife.ToString());
+      One.PlayerList[ii].MainWeapon = One.ShadowPlayerList[ii].MainWeapon;
+      One.PlayerList[ii].SubWeapon = One.ShadowPlayerList[ii].SubWeapon;
+      One.PlayerList[ii].MainArmor = One.ShadowPlayerList[ii].MainArmor;
+      One.PlayerList[ii].Accessory1 = One.ShadowPlayerList[ii].Accessory1;
+      One.PlayerList[ii].Accessory2 = One.ShadowPlayerList[ii].Accessory2;
+      One.PlayerList[ii].Artifact = One.ShadowPlayerList[ii].Artifact;
+
+      Type type = PlayerList[ii].GetType();
+      foreach (PropertyInfo pi in type.GetProperties())
+      {
+        if (pi.PropertyType == typeof(System.Int32))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (System.Int32)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.String))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (string)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Double))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (System.Double)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Single))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (System.Single)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Boolean))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (System.Boolean)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(Fix.JobClass))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (Fix.JobClass)Enum.Parse(typeof(Fix.JobClass), One.ShadowPlayerList[ii].Job.ToString()));
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(Fix.CommandAttribute))
+        {
+          try
+          {
+            pi.SetValue(One.PlayerList[ii], (Fix.CommandAttribute)(type.GetProperty(pi.Name).GetValue(One.ShadowPlayerList[ii], null)), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(List<string>))
+        {
+          // todo ActionCommandList
+        }
+      }
+    }
+
+    // todo backpack
+    // GetBackpack
+
+
+      //Type type = MC.GetType();
+      //foreach (PropertyInfo pi in type.GetProperties())
+      //{
+      //  // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+      //  if (pi.PropertyType == typeof(System.Int32))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(MC, (System.Int32)(type.GetProperty(pi.Name).GetValue(ShadowMC, null)), null);
+      //      pi.SetValue(SC, (System.Int32)(type.GetProperty(pi.Name).GetValue(ShadowSC, null)), null);
+      //      pi.SetValue(TC, (System.Int32)(type.GetProperty(pi.Name).GetValue(ShadowTC, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.String))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(MC, (string)(type.GetProperty(pi.Name).GetValue(ShadowMC, null)), null);
+      //      pi.SetValue(SC, (string)(type.GetProperty(pi.Name).GetValue(ShadowSC, null)), null);
+      //      pi.SetValue(TC, (string)(type.GetProperty(pi.Name).GetValue(ShadowTC, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.Boolean))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(MC, (System.Boolean)(type.GetProperty(pi.Name).GetValue(ShadowMC, null)), null);
+      //      pi.SetValue(SC, (System.Boolean)(type.GetProperty(pi.Name).GetValue(ShadowSC, null)), null);
+      //      pi.SetValue(TC, (System.Boolean)(type.GetProperty(pi.Name).GetValue(ShadowTC, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  // s 後編追加
+      //  else if (pi.PropertyType == typeof(Character.AdditionalSpellType))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(MC, (Character.AdditionalSpellType)(Enum.Parse(typeof(Character.AdditionalSpellType), type.GetProperty(pi.Name).GetValue(ShadowMC, null).ToString())), null);
+      //      pi.SetValue(SC, (Character.AdditionalSpellType)(Enum.Parse(typeof(Character.AdditionalSpellType), type.GetProperty(pi.Name).GetValue(ShadowSC, null).ToString())), null);
+      //      pi.SetValue(TC, (Character.AdditionalSpellType)(Enum.Parse(typeof(Character.AdditionalSpellType), type.GetProperty(pi.Name).GetValue(ShadowTC, null).ToString())), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(Character.AdditionalSkillType))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(MC, (Character.AdditionalSkillType)(Enum.Parse(typeof(Character.AdditionalSkillType), type.GetProperty(pi.Name).GetValue(ShadowMC, null).ToString())), null);
+      //      pi.SetValue(SC, (Character.AdditionalSkillType)(Enum.Parse(typeof(Character.AdditionalSkillType), type.GetProperty(pi.Name).GetValue(ShadowSC, null).ToString())), null);
+      //      pi.SetValue(TC, (Character.AdditionalSkillType)(Enum.Parse(typeof(Character.AdditionalSkillType), type.GetProperty(pi.Name).GetValue(ShadowTC, null).ToString())), null);
+      //    }
+      //    catch { }
+      //  }
+      //  // e 後編追加
+      //}
+
+      //Type type2 = TF.GetType();
+      //foreach (PropertyInfo pi in type2.GetProperties())
+      //{
+      //  // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+      //  if (pi.PropertyType == typeof(System.Int32))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(TF, (System.Int32)(type2.GetProperty(pi.Name).GetValue(shadowTF, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.String))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(TF, (string)(type2.GetProperty(pi.Name).GetValue(shadowTF, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.Boolean))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(TF, (System.Boolean)(type2.GetProperty(pi.Name).GetValue(shadowTF, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //}
+
+      //Type type3 = WE2.GetType();
+      //foreach (PropertyInfo pi in type3.GetProperties())
+      //{
+      //  // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+      //  if (pi.PropertyType == typeof(System.Int32))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(WE2, (System.Int32)(type3.GetProperty(pi.Name).GetValue(shadowTF2, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.String))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(WE2, (string)(type3.GetProperty(pi.Name).GetValue(shadowTF2, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //  else if (pi.PropertyType == typeof(System.Boolean))
+      //  {
+      //    try
+      //    {
+      //      pi.SetValue(WE2, (System.Boolean)(type3.GetProperty(pi.Name).GetValue(shadowTF2, null)), null);
+      //    }
+      //    catch { }
+      //  }
+      //}
+    }
+
+
 
   #region "BGM再生と効果音関連"
   public static void PlaySoundEffect(string soundName)
