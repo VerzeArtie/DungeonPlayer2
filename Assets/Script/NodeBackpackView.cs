@@ -61,7 +61,9 @@ public class NodeBackpackView : MonoBehaviour
 
   public List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
 
-  protected Item CurrentSelectBackpack;
+  public GameObject objBlockFilter;
+
+  public Item CurrentSelectBackpack;
 
   public void ConstructBackpackView()
   {
@@ -97,10 +99,16 @@ public class NodeBackpackView : MonoBehaviour
   public void TapBackpackUse()
   {
     string current = (CurrentSelectBackpack?.ItemName ?? String.Empty);
-    if (current == Fix.SMALL_RED_POTION)
+    if (current == Fix.SMALL_RED_POTION ||
+        current == Fix.SMALL_BLUE_POTION)
     {
-      Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
+      objBlockFilter.SetActive(true);
     }
+  }
+
+  public void TapCancelUse()
+  {
+    objBlockFilter.SetActive(false);
   }
 
   public void TapBackpackDetail()

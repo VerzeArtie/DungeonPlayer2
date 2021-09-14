@@ -14,14 +14,16 @@ using System.Xml.XPath;
 public class GroupCharacterStatus : MonoBehaviour
 {
   public Character CurrentPlayer = null;
-  private Character ShadowPlayer = null;
+  public Character ShadowPlayer = null;
 
   public string CurrentItemType = String.Empty;
   // Character ( Detail )
   public Text txtDetailName;
   public Text txtDetailLevel;
   public Text txtDetailLife;
+  public Image imgDetailLife;
   public Text txtDetailSoulPoint;
+  public Image imgDetailSP;
   public Text txtDetailExp;
   public Image imgDetailExp;
   public Text txtDetailStrength;
@@ -89,18 +91,21 @@ public class GroupCharacterStatus : MonoBehaviour
   /// </summary>
   public void UpdateCharacterDetailView(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
     this.GroupMainEquip.SetActive(true);
     this.GroupChangeEquip.SetActive(false);
-    this.gameObject.SetActive(true);
+    //this.gameObject.SetActive(true);
 
     // シャドウデータを生成
     CreateShadowData(player);
+    Debug.Log(MethodBase.GetCurrentMethod() + " CreateShadowData ok");
+    Debug.Log("ShadowData name: " + ShadowPlayer.FullName);
 
     // キャラクター情報を画面に反映
     txtDetailName.text = player.FullName;
     txtDetailLevel.text = player.Level.ToString();
-    txtDetailLife.text = player.MaxLife.ToString();
-    txtDetailSoulPoint.text = player.MaxSoulPoint.ToString();
+    txtDetailLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
+    txtDetailSoulPoint.text = player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString();
     txtDetailExp.text = player.Exp.ToString() + " / " + player.GetNextExp().ToString();
     txtDetailStrength.text = player.TotalStrength.ToString();
     txtDetailAgility.text = player.TotalAgility.ToString();
@@ -137,10 +142,21 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailArtifact.text = (player.Artifact?.ItemName ?? "( 装備なし )");
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
 
-    float dx = (float)player.Exp / (float)player.GetNextExp();
     if (imgDetailExp != null)
     {
+      float dx = (float)player.Exp / (float)player.GetNextExp();
       imgDetailExp.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (imgDetailSP != null)
+    {
+      Debug.Log("sp: " + player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString());
+      float dx = (float)player.CurrentSoulPoint / (float)player.MaxSoulPoint;
+      imgDetailSP.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (imgDetailLife != null)
+    {
+      float dx = (float)player.CurrentLife / (float)player.MaxLife;
+      imgDetailLife.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
 
     if (ShadowPlayer != null)
@@ -150,8 +166,8 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailIntelligence, CurrentPlayer.TotalIntelligence, ShadowPlayer.TotalIntelligence);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
-      UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
-      UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
+      UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife, CurrentPlayer.CurrentLife);
+      UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint, CurrentPlayer.CurrentSoulPoint);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));
@@ -202,6 +218,24 @@ public class GroupCharacterStatus : MonoBehaviour
     if (value1 < value2) { color = "blue"; }
     if (value1 > value2) { color = "red"; }
     txtObj.text = value1.ToString();
+
+    if (value1 != value2)
+    {
+      txtObj.text += " -> <color=" + color + ">" + value2.ToString() + "</color>";
+    }
+  }
+
+  /// <summary>
+  /// シャドウデータからバトル設定値を画面へ反映します。（int型)
+  /// </summary>
+  private void UpdateBattleValueTwoWithShadow(Character player, Character shadow, Text txtObj, int value1, int value2, int value3)
+  {
+    txtObj.text = value3.ToString() + " / ";
+
+    string color = "black";
+    if (value1 < value2) { color = "blue"; }
+    if (value1 > value2) { color = "red"; }
+    txtObj.text += value1.ToString();
 
     if (value1 != value2)
     {
@@ -430,6 +464,8 @@ public class GroupCharacterStatus : MonoBehaviour
   {
     if (ShadowPlayer == null)
     {
+      Debug.Log(MethodBase.GetCurrentMethod() + " ShadowPlayer is null, then create it");
+      if (player == null) { Debug.Log("player is null..."); }
       GameObject objShadow = new GameObject();
       ShadowPlayer = objShadow.AddComponent<Character>();
       ShadowPlayer.FullName = player.FullName;
@@ -447,6 +483,8 @@ public class GroupCharacterStatus : MonoBehaviour
       ShadowPlayer.MindFood = player.MindFood;
       ShadowPlayer.BaseLife = player.BaseLife;
       ShadowPlayer.BaseSoulPoint = player.BaseSoulPoint;
+      ShadowPlayer.CurrentLife = player.CurrentLife;
+      ShadowPlayer.CurrentSoulPoint = player.CurrentSoulPoint;
       ShadowPlayer.RemainPoint = player.RemainPoint;
       if (player.MainWeapon != null)
       {
@@ -551,65 +589,83 @@ public class GroupCharacterStatus : MonoBehaviour
     // ・選択アイテムをバックパックから削除する。
     if (CurrentItemType == Fix.ITEMTYPE_MAIN_WEAPON)
     {
-      Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.MainWeapon);
+        Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.MainWeapon);
+        }
+        CurrentPlayer.MainWeapon = new Item(ShadowPlayer.MainWeapon.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.MainWeapon);
       }
-      CurrentPlayer.MainWeapon = new Item(ShadowPlayer.MainWeapon.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.MainWeapon);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)
     {
-      Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+        Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+        }
+        CurrentPlayer.SubWeapon = new Item(ShadowPlayer.SubWeapon.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.SubWeapon);
       }
-      CurrentPlayer.SubWeapon = new Item(ShadowPlayer.SubWeapon.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.SubWeapon);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ARMOR)
     {
-      Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.MainArmor);
+        Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.MainArmor);
+        }
+        CurrentPlayer.MainArmor = new Item(ShadowPlayer.MainArmor.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.MainArmor);
       }
-      CurrentPlayer.MainArmor = new Item(ShadowPlayer.MainArmor.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.MainArmor);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY1)
     {
-      Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.Accessory1);
+        Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.Accessory1);
+        }
+        CurrentPlayer.Accessory1 = new Item(ShadowPlayer.Accessory1.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.Accessory1);
       }
-      CurrentPlayer.Accessory1 = new Item(ShadowPlayer.Accessory1.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.Accessory1);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY2)
     {
-      Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.Accessory2);
+        Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.Accessory2);
+        }
+        CurrentPlayer.Accessory2 = new Item(ShadowPlayer.Accessory2.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.Accessory2);
       }
-      CurrentPlayer.Accessory2 = new Item(ShadowPlayer.Accessory2.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.Accessory2);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ARTIFACT)
     {
-      Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
-      if (current.ItemType != Item.ItemTypes.None)
+      if (ShadowPlayer.MainWeapon != null)
       {
-        One.TF.AddBackPack(CurrentPlayer.Artifact);
+        Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
+        if (current.ItemType != Item.ItemTypes.None)
+        {
+          One.TF.AddBackPack(CurrentPlayer.Artifact);
+        }
+        CurrentPlayer.Artifact = new Item(ShadowPlayer.Artifact.ItemName);
+        One.TF.RemoveItem(ShadowPlayer.Artifact);
       }
-      CurrentPlayer.Artifact = new Item(ShadowPlayer.Artifact.ItemName);
-      One.TF.RemoveItem(ShadowPlayer.Artifact);
     }
-    CurrentPlayer.MaxGain();
+    //CurrentPlayer.MaxGain();
 
     ReleaseIt();
 
@@ -681,7 +737,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.Artifact = null;
     }
-    CurrentPlayer.MaxGain();
+    //CurrentPlayer.MaxGain();
 
     ReleaseIt();
 
@@ -793,7 +849,7 @@ public class GroupCharacterStatus : MonoBehaviour
     this.CurrentPlayer.PlusMind = this.ShadowPlayer.PlusMind;
     this.CurrentPlayer.RemainPoint = this.ShadowPlayer.RemainPoint;
     this.CurrentPlayer.AcceptLevelup();
-    this.CurrentPlayer.MaxGain();
+    //this.CurrentPlayer.MaxGain();
 
     // 本来であれば親シーンのオブジェクトは不要である。
     if (parentMotherBase != null)
@@ -804,6 +860,10 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // トップ画面へ戻す。
     GroupLevelUp.SetActive(false);
-    this.gameObject.SetActive(false);
+    for (int ii = 0; ii < btnPlus.Count; ii++)
+    {
+      btnPlus[ii].SetActive(false);
+    }
+    //this.gameObject.SetActive(false);
   }
 }

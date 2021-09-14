@@ -25,6 +25,7 @@ public static partial class Fix
     Success,
     Fail,
     RunAway,
+    Retry,
   }
 
   public enum JobClass

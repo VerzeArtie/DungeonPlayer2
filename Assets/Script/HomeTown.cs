@@ -939,6 +939,7 @@ public partial class HomeTown : MotherBase
     GroupCharacterDetail.ReleaseIt();
     GroupCharacterDetail.CurrentPlayer = this.CurrentPlayer;
     GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
+    GroupCharacterDetail.gameObject.SetActive(true);
   }
 
   public void TapHideACAttributeButton(GameObject sender)
@@ -1625,6 +1626,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
           {
             One.TF.AvailableEoneFulnea = true;
+            One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
           }
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
           {

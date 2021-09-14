@@ -713,6 +713,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return 16; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
 
+    if (command_name == Fix.SHINING_HEAL) { return 7; }
+
     // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
     if (command_name == Fix.COMMAND_GREEN_NENEKI) { return 0; }

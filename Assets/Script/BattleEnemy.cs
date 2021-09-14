@@ -1969,6 +1969,7 @@ public partial class BattleEnemy : MotherBase
 
   public void TapRetryBattle()
   {
+    One.BattleEnd = Fix.GameEndType.Retry;
     TapEndScene();
   }
 

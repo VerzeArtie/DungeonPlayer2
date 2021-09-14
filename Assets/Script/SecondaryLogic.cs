@@ -307,4 +307,9 @@ public static class SecondaryLogic
   {
     return 2;
   }
+
+  public static double ShiningHeal(Character player)
+  {
+    return 4.00f;
+  }
 }

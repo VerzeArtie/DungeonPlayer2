@@ -100,7 +100,23 @@ public class DungeonField : MotherBase
   public GameObject background3;
   public GameObject LayoutBottom;
 
+  // Tactics
+  public List<Button> StayList;
+  public List<Text> StayListName;
+  public List<Text> StayListLife;
+  public List<Image> StayListLifeGauge;
+  public List<Text> StayListSP;
+  public List<Image> StayListSPGauge;
+  public List<GameObject> StayListCheckMark;
+  public GameObject objCancelActionCommand;
+  public Text txtCurrentName;
+
   // Group
+  public GameObject GroupPartyMenu;
+  public GroupCharacterStatus groupPartyStatus;
+  public GameObject groupPartyCommand;
+  public GameObject groupPartyItem;
+  // public GameObject groupPartyExit;
   public GroupCharacterStatus groupCharacterStatus;
   public SaveLoad groupSaveLoad;
 
@@ -346,7 +362,7 @@ public class DungeonField : MotherBase
 
     RefreshAllView();
 
-    if (One.BattleEnd != Fix.GameEndType.None)
+    if (One.BattleEnd == Fix.GameEndType.Retry)
     {
       One.BattleEnd = Fix.GameEndType.None;
       One.CopyShadowToMain();
@@ -361,8 +377,17 @@ public class DungeonField : MotherBase
 
       for (int ii = 0; ii < One.ShadowPlayerList.Count; ii++)
       {
-        Destroy(One.ShadowPlayerList[ii].gameObject);
+        if (One.ShadowPlayerList[ii] == null)
+        {
+          Debug.Log("ShadPlayerList " + ii.ToString() + " is null...");
+        }
+        else
+        {
+          Destroy(One.ShadowPlayerList[ii].gameObject);
+        }
       }
+      One.ShadowPlayerList.Clear();
+
       Destroy(One.ShadowTF);
       One.ShadowTF = null;
     }
@@ -2142,6 +2167,314 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapPartyMenu()
+  {
+    GroupPartyMenu.gameObject.SetActive(true);
+    TapStatus();
+  }
+
+  public void TapStatus()
+  {
+    SetupStayList();
+    groupPartyStatus.gameObject.SetActive(true);
+    groupPartyCommand.SetActive(false);
+    groupPartyItem.SetActive(false);
+  }
+  public void TapCommand()
+  {
+    SetupStayList();
+    groupPartyStatus.gameObject.SetActive(false);
+    groupPartyCommand.SetActive(true);
+    groupPartyItem.SetActive(false);
+  }
+
+  public void TapItem()
+  {
+    SetupStayList();
+    groupPartyStatus.gameObject.SetActive(false);
+    groupPartyCommand.SetActive(false);
+    groupPartyItem.SetActive(true);
+  }
+
+  public void TapExit()
+  {
+    GroupPartyMenu.gameObject.SetActive(false);
+  }
+
+  public void TapMenu()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    // Tacticsのリスト
+    SetupStayList();
+
+    //int num = 0;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer1, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer2, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer3, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer4, num); num++;
+
+
+    //UpdateStayListCheckMark();
+
+  }
+
+  public void TapStatusCharacter()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+  }
+
+  public void TapActionCommand(Text txt_src)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + txt_src.text);
+
+    if (txt_src.text == Fix.FRESH_HEAL)
+    {
+      objCancelActionCommand.SetActive(true);
+    }
+    else if (txt_src.text == Fix.SHINING_HEAL)
+    {
+      Character player = One.SelectCharacter(txtCurrentName.text);
+      if (player.CurrentSoulPoint < ActionCommand.CostSP(Fix.SHINING_HEAL))
+      {
+        return;
+      }
+      player.CurrentSoulPoint -= ActionCommand.CostSP(Fix.SHINING_HEAL);
+
+      for (int ii = 0; ii < PlayerList.Count; ii++)
+      {
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.ShiningHeal(player);
+        Character target = PlayerList[ii];
+        if (target.Dead)
+        {
+          return;
+        }
+
+        if (healValue <= 0) { healValue = 0; }
+        PlayerList[ii].CurrentLife += (int)healValue;
+      }
+      groupPartyStatus.UpdateCharacterDetailView(groupPartyStatus.CurrentPlayer);
+    }
+    SetupStayList();
+  }
+
+  public void TapCancelActionCommand()
+  {
+    objCancelActionCommand.SetActive(false);
+  }
+
+  public void TapStayListCharacter(Text txt_name)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    // コマンド実行
+    if (objCancelActionCommand.activeInHierarchy)
+    {
+      Character player = One.SelectCharacter(txtCurrentName.text);
+      Character target = One.SelectCharacter(txt_name.text);
+
+      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FreshHeal(player);
+      Debug.Log(MethodBase.GetCurrentMethod());
+      if (target.Dead)
+      {
+        return;
+      }
+      if (player.CurrentSoulPoint < ActionCommand.CostSP(Fix.FRESH_HEAL))
+      {
+        return;
+      }
+      player.CurrentSoulPoint -= ActionCommand.CostSP(Fix.FRESH_HEAL);
+
+      if (healValue <= 0) { healValue = 0; }
+      int result = (int)healValue;
+      Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
+      target.CurrentLife += result;
+      
+      objCancelActionCommand.SetActive(false);
+      ParentBackpackView.objBlockFilter.SetActive(false);
+      SetupStayList();
+      RefreshAllView();
+    }
+    // アイテム実行
+    if (ParentBackpackView.objBlockFilter.activeInHierarchy)
+    {
+      for (int ii = 0; ii < PlayerList.Count; ii++)
+      {
+        if (txt_name.text == PlayerList[ii].FullName)
+        {
+          if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.RemoveItem(current);
+            double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].CurrentLife += (int)effectValue;
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_BLUE_POTION)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.RemoveItem(current);
+            double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].CurrentSoulPoint += (int)effectValue;
+          }
+          objCancelActionCommand.SetActive(false);
+          ParentBackpackView.objBlockFilter.SetActive(false);
+          SetupStayList();
+          RefreshAllView();
+          break;
+        }
+      }
+    }
+
+    // 通常選択
+    for (int ii = 0; ii < PlayerList.Count; ii++)
+    {
+      if (txt_name.text == PlayerList[ii].FullName)
+      {
+        groupPartyStatus.parentMotherBase = this;
+        groupPartyStatus.ReleaseIt();
+        groupPartyStatus.CurrentPlayer = PlayerList[ii];
+        groupPartyStatus.UpdateCharacterDetailView(PlayerList[ii]);
+        break;
+      }
+    }
+
+    txtCurrentName.text = txt_name.text;
+  }
+
+  private void SetupStayList()
+  {
+    for (int ii = 0; ii < StayListName.Count; ii++)
+    {
+      if (StayList[ii] != null) { StayList[ii].gameObject.SetActive(false); }
+      if (StayListName[ii] != null) { StayListName[ii].text = string.Empty; }
+      if (StayListLife[ii] != null) { StayListLife[ii].text = string.Empty; }
+      if (StayListSP[ii] != null) { StayListSP[ii].text = string.Empty; }
+    }
+    int counter = 0;
+    Debug.Log("PlayerList count: " + PlayerList.Count.ToString());
+
+    for (int ii = 0; ii < PlayerList.Count; ii++)
+    {
+      Debug.Log("PlayerList name: " + PlayerList[ii].FullName);
+      StayListName[ii].text = PlayerList[ii].FullName;
+      StayListLife[ii].text = PlayerList[ii].CurrentLife.ToString() + " / " + PlayerList[ii].MaxLife.ToString();
+      if (StayListLifeGauge[ii] != null) 
+      {
+        float dx = (float)PlayerList[ii].CurrentLife / (float)PlayerList[ii].MaxLife;
+        StayListLifeGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
+      }
+      if (StayListSP[ii] != null) { StayListSP[ii].text = PlayerList[ii].CurrentSoulPoint.ToString() + " / " + PlayerList[ii].MaxSoulPoint.ToString(); }
+      if (StayListSPGauge[ii] != null)
+      {
+        float dx = (float)PlayerList[ii].CurrentSoulPoint / (float)PlayerList[ii].MaxSoulPoint;
+        StayListSPGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
+      }
+      StayList[ii].gameObject.SetActive(true);
+      //if (One.PlayerList[ii].FullName == One.TF.BattlePlayer1)
+      //{
+      //  StayListName[counter].text = One.PlayerList[ii].FullName;
+      //  StayListLife[counter].text = One.PlayerList[ii].CurrentLife.ToString();
+      //  counter++;
+      //}
+      //if (One.PlayerList[ii].FullName == One.TF.BattlePlayer2)
+      //{
+      //  StayListName[counter].text = One.PlayerList[ii].FullName;
+      //  StayListLife[counter].text = One.PlayerList[ii].CurrentLife.ToString();
+      //  counter++;
+      //}
+      //if (One.PlayerList[ii].FullName == One.TF.BattlePlayer3)
+      //{
+      //  StayListName[counter].text = One.PlayerList[ii].FullName;
+      //  StayListLife[counter].text = One.PlayerList[ii].CurrentLife.ToString();
+      //  counter++;
+      //}
+      //if (One.PlayerList[ii].FullName == One.TF.BattlePlayer4)
+      //{
+      //  StayListName[counter].text = One.PlayerList[ii].FullName;
+      //  StayListLife[counter].text = One.PlayerList[ii].CurrentLife.ToString();
+      //  counter++;
+      //}
+    }
+  }
+
+  private void UpdateStayListCheckMark()
+  {
+    //for (int ii = 0; ii < PartyListName.Count; ii++)
+    //{
+    //  if (PartyListName[ii].text != "(Empty" && PartyListName[ii].text != String.Empty)
+    //  {
+    //    if (ii == 0) { One.TF.BattlePlayer1 = PartyListName[ii].text; }
+    //    if (ii == 1) { One.TF.BattlePlayer2 = PartyListName[ii].text; }
+    //    if (ii == 2) { One.TF.BattlePlayer3 = PartyListName[ii].text; }
+    //    if (ii == 3) { One.TF.BattlePlayer4 = PartyListName[ii].text; }
+    //  }
+    //  else
+    //  {
+    //    if (ii == 0) { One.TF.BattlePlayer1 = string.Empty; }
+    //    if (ii == 1) { One.TF.BattlePlayer2 = string.Empty; }
+    //    if (ii == 2) { One.TF.BattlePlayer3 = string.Empty; }
+    //    if (ii == 3) { One.TF.BattlePlayer4 = string.Empty; }
+    //  }
+    //}
+
+    for (int ii = 0; ii < StayListName.Count; ii++)
+    {
+      Debug.Log("StayListName: " + StayListName[ii].text);
+      if (StayListName[ii].text != string.Empty &&
+          (StayListName[ii].text == One.TF.BattlePlayer1 ||
+           StayListName[ii].text == One.TF.BattlePlayer2 ||
+           StayListName[ii].text == One.TF.BattlePlayer3 ||
+           StayListName[ii].text == One.TF.BattlePlayer4))
+      {
+        StayListCheckMark[ii].SetActive(true);
+      }
+      else
+      {
+        StayListCheckMark[ii].SetActive(false);
+      }
+    }
+  }
+
+  private void UpdateTacticsPartyMember(string full_name, int num)
+  {
+    if (full_name != string.Empty)
+    {
+      for (int ii = 0; ii < One.PlayerList.Count; ii++)
+      {
+        if (One.PlayerList[ii].FullName == full_name)
+        {
+          //PartyListClass[num].sprite = Resources.Load<Sprite>("Unit_" + current?.Job.ToString() ?? "");
+          //PartyListName[num].text = current.FullName;
+          //PartyListLevel[num].text = current.Level.ToString();
+          //PartyListLife[num].text = current.CurrentLife.ToString() + " / " + current.MaxLife.ToString();
+          //PartyListSTR[num].text = current.TotalStrength.ToString();
+          //PartyListAGL[num].text = current.TotalAgility.ToString();
+          //PartyListINT[num].text = current.TotalIntelligence.ToString();
+          //PartyListSTM[num].text = current.TotalStamina.ToString();
+          //PartyListMND[num].text = current.TotalMind.ToString();
+
+          //foreach (Transform n in GroupPartyList[num].transform)
+          //{
+          //  GameObject.Destroy(n.gameObject);
+          //}
+          //for (int jj = 0; jj < current.ActionCommandList.Count; jj++)
+          //{
+          //  NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
+          //  instant.BackColor.color = current.BattleForeColor;
+          //  instant.CommandName = current.ActionCommandList[jj];
+          //  instant.name = current.ActionCommandList[jj];
+          //  instant.OwnerName = current.FullName;
+          //  instant.ActionButton.name = current.ActionCommandList[jj];
+          //  instant.ActionButton.image.sprite = Resources.Load<Sprite>(current.ActionCommandList[jj]);
+
+          //  //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[jj]);
+          //  instant.transform.SetParent(GroupPartyList[num].transform);
+          //  instant.gameObject.SetActive(true);
+          //}
+          break;
+        }
+      }
+    }
+  }
+
   public void TapFastTravel()
   {
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
@@ -2303,31 +2636,31 @@ public class DungeonField : MotherBase
 
   public void TapPlayerStatus(Text player_text)
   {
-    if (One.PlayerList == null) { Debug.Log("PlayerList is null..."); return; }
+    //if (One.PlayerList == null) { Debug.Log("PlayerList is null..."); return; }
 
-    // 既にプレイヤーステータスが開かれており、同一の名前だった場合は、その画面を閉じる。
-    if (groupCharacterStatus.gameObject.activeInHierarchy && groupCharacterStatus.CurrentPlayer?.FullName == player_text.text)
-    {
-      groupCharacterStatus.gameObject.SetActive(false);
-      return;
-    }
+    //// 既にプレイヤーステータスが開かれており、同一の名前だった場合は、その画面を閉じる。
+    //if (groupCharacterStatus.gameObject.activeInHierarchy && groupCharacterStatus.CurrentPlayer?.FullName == player_text.text)
+    //{
+    //  groupCharacterStatus.gameObject.SetActive(false);
+    //  return;
+    //}
 
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
-    {
-      if (One.PlayerList[ii] == null) { Debug.Log("PlayerList[" + ii.ToString() + "] is null..."); return; }
+    //for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //{
+    //  if (One.PlayerList[ii] == null) { Debug.Log("PlayerList[" + ii.ToString() + "] is null..."); return; }
 
-      if (One.PlayerList[ii].FullName == player_text.text)
-      {
-        One.PlayerList[ii].GetReadyLevelUp();
-        groupCharacterStatus.parentMotherBase = this;
-        groupCharacterStatus.ReleaseIt();
-        groupCharacterStatus.CurrentPlayer = One.PlayerList[ii];
-        groupCharacterStatus.UpdateCharacterDetailView(One.PlayerList[ii]);
-        break;
-      }
-    }
+    //  if (One.PlayerList[ii].FullName == player_text.text)
+    //  {
+    //    One.PlayerList[ii].GetReadyLevelUp();
+    //    groupCharacterStatus.parentMotherBase = this;
+    //    groupCharacterStatus.ReleaseIt();
+    //    groupCharacterStatus.CurrentPlayer = One.PlayerList[ii];
+    //    groupCharacterStatus.UpdateCharacterDetailView(One.PlayerList[ii]);
+    //    break;
+    //  }
+    //}
 
-    groupCharacterStatus.gameObject.SetActive(true);
+    //groupCharacterStatus.gameObject.SetActive(true);
   }
 
   public void TapCharacterDetailBack()
@@ -3490,6 +3823,10 @@ public class DungeonField : MotherBase
     if (this.ignoreCreateShadow == false)
     {
       One.CreateShadowData();
+      for (int ii = 0; ii < One.EnemyList.Count; ii++)
+      {
+        UnityEngine.Object.DontDestroyOnLoad(One.ShadowPlayerList[ii]);
+      }
     }
 
     One.EnemyList.Clear();
@@ -4009,39 +4346,48 @@ public class DungeonField : MotherBase
     // エリア毎にランダムで敵軍隊を生成する。
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
-      if (One.PlayerList[0].Level <= 1)
+      int random = 100 - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 20)
       {
-        int random = 100 - CumulativeBattleCounter;
-        if (random <= 0) { random = 0; }
-        if (AP.Math.RandomInteger(random) <= 20)
+        switch (AP.Math.RandomInteger(9))
         {
-          switch (AP.Math.RandomInteger(5))
-          {
-            case 0:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 1:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
-            case 2:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 3:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-            case 4:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-          }
-          One.CannotRunAway = false;
-          PrepareCallTruthBattleEnemy();
+          case 0:
+            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+            break;
+          case 1:
+            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+            break;
+          case 2:
+            One.BattleEnemyList.Add(Fix.MANDRAGORA);
+            break;
+          case 3:
+            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+            break;
+          case 4:
+            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+            break;
+          case 5:
+            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+            break;
+          case 6:
+            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+            break;
+          case 7:
+            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+            One.BattleEnemyList.Add(Fix.MANDRAGORA);
+            break;
+          case 8:
+            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+            One.BattleEnemyList.Add(Fix.MANDRAGORA);
+            break;
         }
+        One.CannotRunAway = false;
+        PrepareCallTruthBattleEnemy();
       }
     }
   }
@@ -5539,6 +5885,7 @@ public class DungeonField : MotherBase
 
   public override void RefreshAllView()
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
     // プレイヤーリストの反映
     foreach (Transform n in GroupCharacterList.transform)
     {
@@ -5560,6 +5907,13 @@ public class DungeonField : MotherBase
 
     // キャラクター情報を画面へ反映
     UpdateCharacterStatus();
+
+    // パーティステータス画面への反映
+    SetupStayList();
+    TapStayListCharacter(StayListName[0]);
+
+    // バックパック情報を画面へ反映
+    ParentBackpackView.ConstructBackpackView();
 
     // フィールドオブジェクトの状態更新
     UpdateFieldObject(One.TF.CurrentDungeonField);
@@ -5671,8 +6025,4 @@ public class DungeonField : MotherBase
 
     return -1;
   }
-
-  // todo バックパック実装（ホームタウンと統合できないか）
-
-
 }

@@ -652,6 +652,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+      return;
     }
 
     if (One.TF.QuestMain_00021 == false)
@@ -673,6 +674,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：おっと、悪い悪い・・・ここは一旦戻るとするか。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "0", ActionEvent.MoveRight);
+    return;
   }
 
   public static void Message101004(ref List<string> m_list, ref List<ActionEvent> e_list)
