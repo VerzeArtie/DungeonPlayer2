@@ -110,6 +110,7 @@ public class DungeonField : MotherBase
   public List<GameObject> StayListCheckMark;
   public GameObject objCancelActionCommand;
   public Text txtCurrentName;
+  public List<GameObject> objActionCommand;
 
   // Group
   public GameObject GroupPartyMenu;
@@ -190,6 +191,8 @@ public class DungeonField : MotherBase
   private string currentDecision = String.Empty;
 
   private float FieldDamage  = 1.0f;
+
+  private Character CurrentPlayer = null;
 
   private bool FirstAction = false;
   private bool AlreadyDetectEncount = false;
@@ -2170,12 +2173,17 @@ public class DungeonField : MotherBase
   public void TapPartyMenu()
   {
     GroupPartyMenu.gameObject.SetActive(true);
+    this.CurrentPlayer = PlayerList[0];
+    TapStayListCharacter(StayListName[0]);
+    CallGroupPartyStatus(this.CurrentPlayer);
     TapStatus();
   }
 
   public void TapStatus()
   {
     SetupStayList();
+    CallGroupPartyStatus(this.CurrentPlayer);
+
     groupPartyStatus.gameObject.SetActive(true);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
@@ -2292,7 +2300,9 @@ public class DungeonField : MotherBase
       ParentBackpackView.objBlockFilter.SetActive(false);
       SetupStayList();
       RefreshAllView();
+      return;
     }
+
     // アイテム実行
     if (ParentBackpackView.objBlockFilter.activeInHierarchy)
     {
@@ -2321,6 +2331,7 @@ public class DungeonField : MotherBase
           break;
         }
       }
+      return;
     }
 
     // 通常選択
@@ -2328,15 +2339,34 @@ public class DungeonField : MotherBase
     {
       if (txt_name.text == PlayerList[ii].FullName)
       {
-        groupPartyStatus.parentMotherBase = this;
-        groupPartyStatus.ReleaseIt();
-        groupPartyStatus.CurrentPlayer = PlayerList[ii];
-        groupPartyStatus.UpdateCharacterDetailView(PlayerList[ii]);
+        this.CurrentPlayer = PlayerList[ii];
+        CallGroupPartyStatus(PlayerList[ii]);
         break;
       }
     }
 
     txtCurrentName.text = txt_name.text;
+    Character player2 = One.SelectCharacter(txt_name.text);
+    if (player2 != null)
+    {
+      if (player2.FreshHeal > 0) { objActionCommand[0].SetActive(true); }
+      else { objActionCommand[0].SetActive(false); }
+
+      if (player2.ShiningHeal > 0) { objActionCommand[1].SetActive(true); }
+      else { objActionCommand[1].SetActive(false); }
+
+      if (player2.LifeGrace > 0) { objActionCommand[2].SetActive(true); }
+      else { objActionCommand[2].SetActive(false); }
+
+    }
+  }
+
+  private void CallGroupPartyStatus(Character player)
+  {
+    groupPartyStatus.parentMotherBase = this;
+    groupPartyStatus.ReleaseIt();
+    groupPartyStatus.CurrentPlayer = player;
+    groupPartyStatus.UpdateCharacterDetailView(player);
   }
 
   private void SetupStayList()
@@ -5910,7 +5940,6 @@ public class DungeonField : MotherBase
 
     // パーティステータス画面への反映
     SetupStayList();
-    TapStayListCharacter(StayListName[0]);
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView();
