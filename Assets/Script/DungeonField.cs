@@ -63,6 +63,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Dhal_Normal;
   public TileInformation prefab_Dhal_Wall;
   public TileInformation prefab_Upstair;
+  public TileInformation prefab_Unknown;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
   public FieldObject prefab_TreasureOpen;
@@ -158,6 +159,7 @@ public class DungeonField : MotherBase
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
   private List<FieldObject> FieldObjList = new List<FieldObject>();
+  private List<TileInformation> UnknownTileList = new List<TileInformation>();
   private List<Character> PlayerList = new List<Character>();
   private List<NodeMiniChara> MiniCharaList = new List<NodeMiniChara>();
 
@@ -340,6 +342,9 @@ public class DungeonField : MotherBase
     // タイルおよびフィールドオブジェクトの設置
     LoadTileMapping(One.TF.CurrentDungeonField);
 
+    // Unknownタイルの設置
+    SetupUnknownTile(One.TF.CurrentDungeonField);
+
     // イベント進行に応じたオブジェクトの設置
     LoadObjectFromEvent();
 
@@ -404,6 +409,15 @@ public class DungeonField : MotherBase
       this.FirstAction = true;
 
       // 画面表示時のイベント進行
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+      {
+        if (One.TF.Event_Message000010 == false)
+        {
+          One.TF.Event_Message000010 = true;
+          MessagePack.Message000010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
@@ -1530,7 +1544,14 @@ public class DungeonField : MotherBase
       // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
       if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
       {
-        MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+        {
+          MessagePack.Message000020(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else
+        {
+          MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
         return;
       }
 
@@ -1601,6 +1622,9 @@ public class DungeonField : MotherBase
       JumpToLocation(new Vector3(tile.transform.position.x,
                                  tile.transform.position.y + 1.0f,
                                  tile.transform.position.z));
+
+      // UnknownTileを更新する。
+      UpdateUnknownTile(Player.transform.position);
 
       One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
 
@@ -2378,7 +2402,6 @@ public class DungeonField : MotherBase
       if (StayListLife[ii] != null) { StayListLife[ii].text = string.Empty; }
       if (StayListSP[ii] != null) { StayListSP[ii].text = string.Empty; }
     }
-    int counter = 0;
     Debug.Log("PlayerList count: " + PlayerList.Count.ToString());
 
     for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -2899,7 +2922,7 @@ public class DungeonField : MotherBase
   {
     MainCamera.transform.position = new Vector3(node_edit_obj.x - 0.0f,
                                        node_edit_obj.y + 7.0f,
-                                       node_edit_obj.z - 5.0f);
+                                       node_edit_obj.z - 1.0f);
 
     SelectField.transform.position = new Vector3(node_edit_obj.x,
                                              node_edit_obj.y,
@@ -4374,7 +4397,7 @@ public class DungeonField : MotherBase
     }
 
     // エリア毎にランダムで敵軍隊を生成する。
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
     {
       int random = 100 - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
@@ -4419,6 +4442,72 @@ public class DungeonField : MotherBase
         One.CannotRunAway = false;
         PrepareCallTruthBattleEnemy();
       }
+      return;
+    }
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    {
+      int random = 100 - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        if (PlayerList[0].Level <= 1)
+        {
+          switch (AP.Math.RandomInteger(3))
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              break;
+          }
+        }
+        else
+        {
+          switch (AP.Math.RandomInteger(9))
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+          }
+        }
+        One.CannotRunAway = false;
+        PrepareCallTruthBattleEnemy();
+      }
+      return;
     }
   }
 
@@ -4579,12 +4668,25 @@ public class DungeonField : MotherBase
 
     MainCamera.transform.position = new Vector3(Player.transform.position.x - 0.0f,
                                            Player.transform.position.y + 7.0f,
-                                           Player.transform.position.z - 5.0f);
+                                           Player.transform.position.z - 1.0f);
     PlayerLight.transform.position = Player.transform.position;
 
     One.TF.Field_X = this.Player.transform.position.x;
     One.TF.Field_Y = this.Player.transform.position.y;
     One.TF.Field_Z = this.Player.transform.position.z;
+  }
+
+  private void UpdateUnknownTile(Vector3 position)
+  {
+    for (int ii = 0; ii < UnknownTileList.Count; ii++)
+    {
+      if ( position.x - 2.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < position.x + 2.01f
+        && position.z - 2.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < position.z + 2.01f)
+      {
+        UnknownTileList[ii].gameObject.SetActive(false);
+        One.TF.KnownTileList_CaveOfSarun[ii] = true;
+      }
+    }
   }
 
   // キャラクターのステータス表示を更新します。
@@ -4721,6 +4823,10 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Unknown")
+    {
+      current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
+    }
 
     if (current != null)
     {
@@ -4728,6 +4834,25 @@ public class DungeonField : MotherBase
       current.transform.SetParent(this.transform);
       //current.gameObject.SetActive(false);
       TileList.Add(current);
+    }
+  }
+
+  /// <summary>
+  /// タイルを追加します。
+  /// </summary>
+  private void AddUnknown(string tile_name, Vector3 position, string id)
+  {
+    TileInformation current = null;
+    if (tile_name == "Unknown")
+    {
+      current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
+    }
+
+    if (current != null)
+    {
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      UnknownTileList.Add(current);
     }
   }
 
@@ -5015,6 +5140,42 @@ public class DungeonField : MotherBase
     }
 
     Debug.Log("LoadTileMapping-2 " + DateTime.Now.ToString());
+  }
+
+  /// <summary>
+  /// 未到達箇所にUnknownタイルを設置します。
+  /// </summary>
+  private void SetupUnknownTile(string map_data)
+  {
+    if (map_data == Fix.MAPFILE_CAVEOFSARUN)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_Z_CAVEOFSARUN; jj++)
+        {
+          Vector3 position = new Vector3(ii - 10, 1.0f, 12 - jj);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          if (7 < ii && ii < 14 && 9 < jj && jj < 15)
+          {
+            UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(false);
+          }
+          else
+          {
+            UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+          }
+        }
+      }
+      for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_Z_CAVEOFSARUN; jj++)
+        {
+          if (One.TF.KnownTileList_CaveOfSarun[ii * Fix.MAPSIZE_Z_CAVEOFSARUN + jj])
+          {
+            UnknownTileList[ii * Fix.MAPSIZE_Z_CAVEOFSARUN + jj].gameObject.SetActive(false);
+          }
+        }
+      }
+    }
   }
 
   private void LoadObjectFromEvent()

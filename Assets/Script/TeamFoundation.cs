@@ -511,12 +511,28 @@ public class TeamFoundation : MonoBehaviour
   }
   #endregion
 
+  #region "Map KnownTileInfo"
+  [SerializeField] protected List<bool> _knownTileList_CaveOfSarun = new List<bool>(Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN);
+  public List<bool> KnownTileList_CaveOfSarun
+  {
+    set { _knownTileList_CaveOfSarun = value; }
+    get { return _knownTileList_CaveOfSarun; }
+  }
+  #endregion
+
   #region "Event"
   [SerializeField] public bool Zetanium_001 { get; set; }
   [SerializeField] public bool Zetanium_002 { get; set; }
   [SerializeField] public bool Zetanium_003 { get; set; }
   [SerializeField] public bool Zetanium_004 { get; set; }
   [SerializeField] public bool Zetanium_005 { get; set; }
+
+  [SerializeField] protected bool _event_message000010 = false;
+  public bool Event_Message000010
+  {
+    get { return _event_message000010; }
+    set { _event_message000010 = value; }
+  }
 
   [SerializeField] protected bool _event_message100010 = false;
   public bool Event_Message100010

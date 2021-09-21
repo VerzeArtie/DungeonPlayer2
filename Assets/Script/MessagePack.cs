@@ -203,6 +203,68 @@ public static class MessagePack
   }
   #endregion
 
+  #region "サルン洞窟入口前のフィールド"
+  public static void Message000010(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：っしゃ・・・ついに到着かな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：で、どこに到着したっていうのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：決まってるだろ。サルンの洞窟さ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どう見ても看板１つしか見あたらないけど。どの辺に洞窟があるのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、見てなって。そこの看板に書いてある通りさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃ、読んでみるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい。　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アーッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのエレクトリカル・ブローがアインに炸裂）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッグフオォ・・・、ラナ、お前もう少し加減しろよ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ハアアァァァ・・・骨折り損ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジかよ！　どう考えてもここが終着点でなんかあるはずだろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：わざとらしい看板が１本ちゃんとあったじゃない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや・・・いやいやいや・・・きっと何かあるに違いない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：さてと、引き返すわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、マップ見せてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アンタがここまで連れてきたんでしょうが、マップ作成してこなかったの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：わりぃ。。。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ったく、しょうがないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今度から私が取ってあげるから、ちゃんとマップ管理しなさいよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：助かるぜ。サンキューな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあひとまずここを出るとするか！", ActionEvent.None);
+
+  }
+
+  public static void Message000020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい。　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さすがに何もなさそうだな・・・引き返すしかないか。", ActionEvent.None);
+
+  }
+  #endregion
+
   #region "アンシェットの街"
   public static void Message100010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {

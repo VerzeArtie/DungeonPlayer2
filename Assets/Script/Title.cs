@@ -45,12 +45,14 @@ public class Title : MotherBase
     //    Debug.Log("One.TF.Event_Message100010: " + One.TF.Event_Message100010.ToString());
     //}
 
-    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
     One.TF.AvailableEinWolence = true;
     One.TF.AvailableLanaAmiria = true;
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
-    SceneManager.LoadSceneAsync("HomeTown");
+    One.TF.Field_X = 2;
+    One.TF.Field_Y = 1;
+    One.TF.Field_Z = 0;
+    SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
   }
 
   public void TapGameLoad()

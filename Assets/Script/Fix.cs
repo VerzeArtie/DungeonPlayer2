@@ -941,6 +941,7 @@ public static partial class Fix
 
   #region "DungeonMapFile"
   public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";
+  public const string MAPFILE_CAVEOFSARUN = "MapData_CaveOfSarun.txt";
   public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
   public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
@@ -954,6 +955,11 @@ public static partial class Fix
   public const string MAPFILE_LOSLON = "MapData_Loslon.txt";
   public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
+
+  public const int MAPSIZE_X_CAVEOFSARUN = 40;
+  public const int MAPSIZE_Z_CAVEOFSARUN = 20;
+
+
   #endregion
 
   #region "Limit"

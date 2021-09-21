@@ -580,8 +580,22 @@ public class SaveLoad : MotherBase
         xmlWriter.WriteWhitespace("\r\n");
       }
 
+
+      // ダンジョンKnownTileInfo
+      xmlWriter.WriteStartElement("CaveOfSarun");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_CaveOfSarun.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_CaveOfSarun_" + ii.ToString("D8"), One.TF.KnownTileList_CaveOfSarun[ii].ToString());
+      }
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // TeamFoundation終了
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+
       xmlWriter.WriteEndDocument();
     }
     finally
@@ -1022,6 +1036,27 @@ public class SaveLoad : MotherBase
 
     Debug.Log(DateTime.Now.ToString());
     Debug.Log("ExecLoad 8-1 " + DateTime.Now + DateTime.Now.Millisecond);
+
+    Debug.Log("ExecLoad 9-1");
+    // KnownTileInfo
+    XmlNodeList parentCaveOfSarun = xml.GetElementsByTagName("CaveOfSarun");
+    for (int ii = 0; ii < parentCaveOfSarun.Count; ii++)
+    {
+      XmlNodeList current = parentCaveOfSarun[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        //Debug.Log("ExecLoad current " + jj.ToString() + " " + current[jj].InnerText);
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_CaveOfSarun[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_CaveOfSarun[jj] = false;
+        }
+      }
+    }
+    Debug.Log("ExecLoad 9-2");
 
     if (forceLoad == false)
     {

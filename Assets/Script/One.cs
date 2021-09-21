@@ -237,6 +237,11 @@ public static class One
     //WE2 = objWE2.AddComponent<TruthWorldEnvironment>();
     TF = objTF.AddComponent<TeamFoundation>();
 
+    for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
+    {
+      TF.KnownTileList_CaveOfSarun.Add(false);
+    }
+    
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
       _characters.Add(objCharacterList[ii].AddComponent<Character>());
@@ -265,9 +270,33 @@ public static class One
     //TF.AvailableEoneFulnea = true;
     //TF.AvailableBillyRaki = true;
     //TF.AvailableAdelBrigandy = true;
-    //TF.AvailableJedaArus = true;
     //TF.AvailableAnnaHamilton = true;
+    //TF.AvailableCalmansOhn = true;
+    //TF.AvailableDelvaTreckino = true;
+    //TF.AvailableIlzinaMeldiete = true;
+    //TF.AvailableJedaArus = true;
+    //TF.AvailableKartinMai = true;
+    //TF.AvailableLeneColtos = true;
+    //TF.AvailableMagiZelkis = true;
+    //TF.AvailableOhryuGenma = true;
     //TF.AvailableSelmoiRo = true;
+    //TF.AvailableShuvaltzFlore = true;
+    ////TF.AvailableKiltJorju = true;
+    ////TF.AvailableLadaMystorus = true;
+    ////TF.AvailablePermaWaramy = true;
+    ////TF.AvailableRvelZelkis = true;
+    ////TF.AvailableSinikiaVeilhanz = true;
+    ////TF.AvailableSinOscurete = true;
+    ////TF.AvailableSunYu = true;
+    ////TF.AvailableVanHehgustel = true;
+    ////TF.AvailableTactics = true;
+    ////TF.AvailableSkillTree = true;
+    ////TF.AvailableAllCommand = true;
+    ////TF.AvailableThird = true;
+    ////TF.AvailableFourth = true;
+    ////TF.AvailableFirstCommand = true;
+    ////TF.AvailableSecondCommand = true;
+    ////TF.AvailableThirdCommand = true;
 
     //TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     //TF.BattlePlayer2 = Fix.NAME_EONE_FULNEA;
@@ -337,6 +366,8 @@ public static class One
     //_characters[num].BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
 
     //Characters[num].Exp = Characters[num].GetNextExp();
+    //Characters[num].RemainPoint = 5;
+    //Characters[num].CurrentSoulPoint = 10;
     //Characters[num].MaxGain();
     //Characters[num].SoulFragment = 20;
     //Characters[num].AvailableSwordman = true;
@@ -417,6 +448,7 @@ public static class One
     //Characters[num].ZeroImmunity = 3;
     //Characters[num].EssenceOverflow = 2;
     //Characters[num].InnerInspiration = 1;
+    //Characters[num].CurrentLife = 1;
     //num++;
 
     // Characters[num].FullName = Fix.NAME_LANA_AMIRIA;
@@ -454,6 +486,7 @@ public static class One
     // Characters[num].ShadowBlast = 1;
     // Characters[num].OracleCommand = 1;
     // //Characters[num].Exp = Characters[num].GetNextExp();
+    //Characters[num].CurrentLife = 1;
     //num++;
 
     // Characters[num].FullName = Fix.NAME_EONE_FULNEA;
@@ -490,7 +523,8 @@ public static class One
     // Characters[num].FreshHeal = 1;
     // Characters[num].VenomSlash = 1;
     // Characters[num].DispelMagic = 1;
-    // num++;
+    //Characters[num].CurrentLife = 1;
+    //num++;
 
     // Characters[num].FullName = Fix.NAME_JEDA_ARUS;
     // Characters[num].Level = 1;
@@ -529,14 +563,15 @@ public static class One
     // Characters[num].ShieldBash = 0;
     // Characters[num].HunterShot = 0;
     // Characters[num].ShadowBlast = 0;
-    // num++;
+    //Characters[num].CurrentLife = 1;
+    //num++;
 
     //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     //TF.BackpackList.Add(new Item(Fix.SMALL_BLUE_POTION));
     //TF.BackpackList.Add(new Item(Fix.SMALL_BLUE_POTION));
     //TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
-    // TF.BackpackList.Add(new Item(Fix.FINE_SWORD));
+    //TF.BackpackList.Add(new Item(Fix.FINE_SWORD));
     // TF.BackpackList.Add(new Item(Fix.FINE_ROD));
     // TF.BackpackList.Add(new Item(Fix.FINE_AXE));
     // TF.BackpackList.Add(new Item(Fix.FINE_ORB));
@@ -637,9 +672,9 @@ public static class One
     //EnemyList.Add(character3);
     ////EnemyList.Add(Fix.MYSTIC_DRYAD);
 
-    //DungeonFieldName = Fix.MAPFILE_ARTHARIUM;
+    // DungeonFieldName = Fix.MAPFILE_ARTHARIUM;
     //DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
-    //TF.CurrentDungeonField = Fix.DUNGEON_RUINS_OF_SARITAN;
+    //TF.CurrentDungeonField = Fix.MAPFILE_CAVEOFSARUN;
     // debug-end
 
     for (int ii = 0; ii < _characters.Count; ii++)
