@@ -132,26 +132,27 @@ public class GroupCharacterStatus : MonoBehaviour
 
     txtDetailMainWeapon.text = (player.MainWeapon?.ItemName ?? "( 装備なし )");
     imgDetailMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.MainWeapon?.ItemType.ToString() ?? "");
-    backDetailMainWeapon.GetComponent<Image>().color = player.MainWeapon.GetRareColor;
+    backDetailMainWeapon.GetComponent<Image>().color = player.MainWeapon?.GetRareColor ?? Color.white;
 
     txtDetailSubWeapon.text = (player.SubWeapon?.ItemName ?? "( 装備なし )");
     imgDetailSubWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.SubWeapon?.ItemType.ToString() ?? "");
+    backDetailSubWeapon.GetComponent<Image>().color = player.SubWeapon?.GetRareColor ?? Color.white;
 
     txtDetailArmor.text = (player.MainArmor?.ItemName ?? "( 装備なし )");
     imgDetailArmor.sprite = Resources.Load<Sprite>("Icon_" + player.MainArmor?.ItemType.ToString() ?? "");
-    backDetailArmor.GetComponent<Image>().color = player.MainArmor.GetRareColor;
+    backDetailArmor.GetComponent<Image>().color = player.MainArmor?.GetRareColor ?? Color.white;
 
     txtDetailAccessory1.text = (player.Accessory1?.ItemName ?? "( 装備なし )");
     imgDetailAccessory1.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory1?.ItemType.ToString() ?? "");
-    backDetailAccessory1.GetComponent<Image>().color = player.Accessory1.GetRareColor;
+    backDetailAccessory1.GetComponent<Image>().color = player.Accessory1?.GetRareColor ?? Color.white;
 
     txtDetailAccessory2.text = (player.Accessory2?.ItemName ?? "( 装備なし )");
     imgDetailAccessory2.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory2?.ItemType.ToString() ?? "");
-    backDetailAccessory2.GetComponent<Image>().color = player.Accessory2.GetRareColor;
+    backDetailAccessory2.GetComponent<Image>().color = player.Accessory2?.GetRareColor ?? Color.white;
 
     txtDetailArtifact.text = (player.Artifact?.ItemName ?? "( 装備なし )");
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
-    backDetailArtifact.GetComponent<Image>().color = player.Artifact.GetRareColor;
+    backDetailArtifact.GetComponent<Image>().color = player.Artifact?.GetRareColor ?? Color.white;
 
     if (imgDetailExp != null)
     {
