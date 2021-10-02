@@ -306,4 +306,5 @@ public static partial class Fix
   public const string AURORA_SPIRIT_JP = "オーロラ・スピリット";
   public const string HUGE_MAGICIAN_ZAGAN = "Huge Magician Zagan";
   public const string HUGE_MAGICIAN_ZAGAN_JP = "巨体魔導士：ザガン";
+  public const string SCREAMING_RAFFLESIA = "叫喚のラフレシア";
 }

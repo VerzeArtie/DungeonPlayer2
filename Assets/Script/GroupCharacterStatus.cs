@@ -33,16 +33,22 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtDetailMind;
   public Text txtDetailMainWeapon;
   public Image imgDetailMainWeapon;
+  public GameObject backDetailMainWeapon;
   public Text txtDetailSubWeapon;
   public Image imgDetailSubWeapon;
+  public GameObject backDetailSubWeapon;
   public Text txtDetailArmor;
   public Image imgDetailArmor;
+  public GameObject backDetailArmor;
   public Text txtDetailAccessory1;
   public Image imgDetailAccessory1;
+  public GameObject backDetailAccessory1;
   public Text txtDetailAccessory2;
   public Image imgDetailAccessory2;
+  public GameObject backDetailAccessory2;
   public Text txtDetailArtifact;
   public Image imgDetailArtifact;
+  public GameObject backDetailArtifact;
   public Text txtDetailPhysicalAttack;
   public Text txtDetailPhysicalAttackMax;
   public Text txtDetailPhysicalDefense;
@@ -126,21 +132,26 @@ public class GroupCharacterStatus : MonoBehaviour
 
     txtDetailMainWeapon.text = (player.MainWeapon?.ItemName ?? "( 装備なし )");
     imgDetailMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.MainWeapon?.ItemType.ToString() ?? "");
+    backDetailMainWeapon.GetComponent<Image>().color = player.MainWeapon.GetRareColor;
 
     txtDetailSubWeapon.text = (player.SubWeapon?.ItemName ?? "( 装備なし )");
     imgDetailSubWeapon.sprite = Resources.Load<Sprite>("Icon_" + player.SubWeapon?.ItemType.ToString() ?? "");
 
     txtDetailArmor.text = (player.MainArmor?.ItemName ?? "( 装備なし )");
     imgDetailArmor.sprite = Resources.Load<Sprite>("Icon_" + player.MainArmor?.ItemType.ToString() ?? "");
+    backDetailArmor.GetComponent<Image>().color = player.MainArmor.GetRareColor;
 
     txtDetailAccessory1.text = (player.Accessory1?.ItemName ?? "( 装備なし )");
     imgDetailAccessory1.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory1?.ItemType.ToString() ?? "");
+    backDetailAccessory1.GetComponent<Image>().color = player.Accessory1.GetRareColor;
 
     txtDetailAccessory2.text = (player.Accessory2?.ItemName ?? "( 装備なし )");
     imgDetailAccessory2.sprite = Resources.Load<Sprite>("Icon_" + player.Accessory2?.ItemType.ToString() ?? "");
+    backDetailAccessory2.GetComponent<Image>().color = player.Accessory2.GetRareColor;
 
     txtDetailArtifact.text = (player.Artifact?.ItemName ?? "( 装備なし )");
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
+    backDetailArtifact.GetComponent<Image>().color = player.Artifact.GetRareColor;
 
     if (imgDetailExp != null)
     {
@@ -184,6 +195,10 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
       GroupLevelUp?.SetActive(false);
+      for (int ii = 0; ii < btnPlus.Count; ii++)
+      {
+        btnPlus[ii].SetActive(false);
+      }
     }
     else
     {

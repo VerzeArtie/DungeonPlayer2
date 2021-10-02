@@ -206,6 +206,8 @@ public static class MessagePack
   #region "サルン洞窟入口前のフィールド"
   public static void Message000010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
     Message(ref m_list, ref e_list, "アイン：っしゃ・・・ついに到着かな。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：で、どこに到着したっていうのよ？", ActionEvent.None);
@@ -220,7 +222,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：じゃ、読んでみるわね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい。　』", ActionEvent.None);
+    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい　』", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
@@ -258,9 +260,141 @@ public static class MessagePack
 
   public static void Message000020(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい。　』", ActionEvent.None);
+    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい　』", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：さすがに何もなさそうだな・・・引き返すしかないか。", ActionEvent.None);
+  }
+
+  public static void Message000030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：看板だな。どれどれ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『　急がば回れ、報酬は遠き道にあり　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どういう意味だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：焦って探索してもしょうがないって事でしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこに岩があるが、ひょっとして・・・何かあるって事か！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうかしら。行ってみないと、さすがに分からないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ま、このデケぇ岩はどけられないしな。ほかのルートを探すとするか。", ActionEvent.None);
+  }
+
+  public static void Message000040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000040 == false)
+    {
+      One.TF.Event_Message000040 = true;
+      One.TF.FieldObject_CaveofSarun_00001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみるぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　訪れし者よ。次へと進むが良い　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ラナ：岩が取り除かれたみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、行ってみよう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　次へと、進むが良い　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message000050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000050 == false)
+    {
+      One.TF.Event_Message000050 = true;
+      One.TF.FieldObject_CaveofSarun_00002 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな、ええと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　訪れし者よ。更に奥へと進むが良い　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "2", ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ラナ：音がしたみたいだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、戻って確認してみようぜ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　訪れし者よ。更に奥へと進むが良い　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message000060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000060 == false)
+    {
+      One.TF.Event_Message000060 = true;
+      One.TF.FieldObject_CaveofSarun_00003 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、きっとこの看板だ。ラナ、読んでくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いいわよ。ええと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　訪れし者よ。開かれし地へと進むが良い　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "3", ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：開かれし地・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か気になる事でも？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、何ってわけじゃないんだがな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ひとまず岩は取り除かれたみたいだし、そこに行ってみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　訪れし者よ。開かれし地へと進むが良い　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message000100(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：待て、なんかいるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：えっ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あっちの広場だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "10", ActionEvent.UpdateUnknownTile);
+
+    Message(ref m_list, ref e_list, "2", ActionEvent.MoveRight);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+
+    Message(ref m_list, ref e_list, "ラナ：本当ね。また面倒そうなモンスターが出たわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、危険レベルは低いだろうが、気を付けて行こう。", ActionEvent.None);
+  }
+
+  public static void Message000110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：ッキシャアアアアァァァ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、気を付けて挑むぞ、準備いいか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、いつでも良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ、行くぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.SCREAMING_RAFFLESIA, ActionEvent.EncountBoss);
 
   }
   #endregion

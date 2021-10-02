@@ -1048,6 +1048,7 @@ public class SaveLoad : MotherBase
         //Debug.Log("ExecLoad current " + jj.ToString() + " " + current[jj].InnerText);
         if (current[jj].InnerText.Contains("True"))
         {
+          Debug.Log("ExecLoad KnownNumber: " + jj.ToString());
           One.TF.KnownTileList_CaveOfSarun[jj] = true;
         }
         else

@@ -25,6 +25,7 @@ public class DungeonField : MotherBase
   }
 
   // developer-mode
+  public GameObject GroupDevelop;
   public TileInformation SelectField;
   public Text txtSelectName;
   public Text txtSelectObjectName;
@@ -173,6 +174,7 @@ public class DungeonField : MotherBase
   protected List<MessagePack.ActionEvent> QuestEventList = new List<MessagePack.ActionEvent>();
 
   private bool EditMode = false;
+  private bool IgnoreObjMode = false;
 
   List<string> PrefabList = new List<string>();
   List<string> ObjectList = new List<string>();
@@ -460,6 +462,12 @@ public class DungeonField : MotherBase
     }
 
     // Editモード（開発者専用）
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+      Debug.Log("Input getkeydown is escape");
+      GroupDevelop.SetActive(true);
+    }
+
     if (EditMode)
     {
       txtCurrentCursor.text = SelectField.transform.position.ToString();
@@ -1546,7 +1554,27 @@ public class DungeonField : MotherBase
       {
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
         {
-          MessagePack.Message000020(ref QuestMessageList, ref QuestEventList); TapOK();
+          Debug.Log("fieldObjBefore: " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
+          if (LocationFieldDetect(fieldObjBefore, 0, 1, 0))
+          {
+            MessagePack.Message000020(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else if (LocationFieldDetect(fieldObjBefore, 12, 1, -4))
+          {
+            MessagePack.Message000030(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else if (LocationFieldDetect(fieldObjBefore, -9, 1, 11))
+          {
+            MessagePack.Message000040(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else if (LocationFieldDetect(fieldObjBefore, -5, 1, -3))
+          {
+            MessagePack.Message000050(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else if (LocationFieldDetect(fieldObjBefore, 7, 1, -3))
+          {
+            MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         else
         {
@@ -1636,6 +1664,60 @@ public class DungeonField : MotherBase
         Vector3 location = fieldObj.transform.position;
         int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
 
+        #region "サルンの洞窟前"
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+        {
+          string treasureName = String.Empty;
+
+          Debug.Log("Detect fieldObj: " + location);
+          // 宝箱１
+          if (One.TF.Treasure_CaveOfSarun_00001 == false && location.x == Fix.CAVEOFSARUN_Treasure_1_X && location.y == Fix.CAVEOFSARUN_Treasure_1_Y && location.z == Fix.CAVEOFSARUN_Treasure_1_Z)
+          {
+            treasureName = Fix.FINE_CROSS;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00002 == false && location.x == Fix.CAVEOFSARUN_Treasure_2_X && location.y == Fix.CAVEOFSARUN_Treasure_2_Y && location.z == Fix.CAVEOFSARUN_Treasure_2_Z)
+          {
+            treasureName = Fix.SMALL_BLUE_POTION;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00003 == false && location.x == Fix.CAVEOFSARUN_Treasure_3_X && location.y == Fix.CAVEOFSARUN_Treasure_3_Y && location.z == Fix.CAVEOFSARUN_Treasure_3_Z)
+          {
+            treasureName = Fix.SMALL_RED_POTION;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00004 == false && location.x == Fix.CAVEOFSARUN_Treasure_4_X && location.y == Fix.CAVEOFSARUN_Treasure_4_Y && location.z == Fix.CAVEOFSARUN_Treasure_4_Z)
+          {
+            treasureName = Fix.COMPACT_EARRING;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00005 == false && location.x == Fix.CAVEOFSARUN_Treasure_5_X && location.y == Fix.CAVEOFSARUN_Treasure_5_Y && location.z == Fix.CAVEOFSARUN_Treasure_5_Z)
+          {
+            treasureName = Fix.FLAT_SHOES;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00006 == false && location.x == Fix.CAVEOFSARUN_Treasure_6_X && location.y == Fix.CAVEOFSARUN_Treasure_6_Y && location.z == Fix.CAVEOFSARUN_Treasure_6_Z)
+          {
+            treasureName = Fix.FINE_SHIELD;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00007 == false && location.x == Fix.CAVEOFSARUN_Treasure_7_X && location.y == Fix.CAVEOFSARUN_Treasure_7_Y && location.z == Fix.CAVEOFSARUN_Treasure_7_Z)
+          {
+            treasureName = Fix.SURVIVAL_CLAW;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00008 == false && location.x == Fix.CAVEOFSARUN_Treasure_8_X && location.y == Fix.CAVEOFSARUN_Treasure_8_Y && location.z == Fix.CAVEOFSARUN_Treasure_8_Z)
+          {
+            treasureName = Fix.GREEN_PENDANT;
+          }
+          if (One.TF.Treasure_CaveOfSarun_00009 == false && location.x == Fix.CAVEOFSARUN_Treasure_9_X && location.y == Fix.CAVEOFSARUN_Treasure_9_Y && location.z == Fix.CAVEOFSARUN_Treasure_9_Z)
+          {
+            treasureName = Fix.FINE_SWORD;
+          }
+
+          if (treasureName == String.Empty)
+          {
+            // 何もしない
+          }
+          else
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+          }
+        }
+        #endregion
         #region "アーサリウム工場跡地"
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
         {
@@ -2758,6 +2840,45 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapHideUnknown(Text txt)
+  {
+    if (txt.text == "Hide Disable")
+    {
+      for (int ii = 0; ii < UnknownTileList.Count; ii++)
+      {
+        UnknownTileList[ii].gameObject.SetActive(false);
+      }
+    }
+  }
+
+  public void TapIgnoreObjectMove(Text txt)
+  {
+    if (txt.text == "IgnoreObj Disable")
+    {
+      txt.text = "IgnoreObj Enable";
+      IgnoreObjMode = true;
+    }
+    else
+    {
+      txt.text = "IgnoreObj Disable";
+      IgnoreObjMode = false;
+    }
+  }
+
+  public void TapDevelopView(Text txt)
+  {
+    if (txt.text == "Develop Enable")
+    {
+      txt.text = "Develop Disable";
+      GroupDevelop.SetActive(false);
+    }
+    else
+    {
+      txt.text = "Develop Enable";
+      GroupDevelop.SetActive(true);
+    }
+  }
+
   public void TapSelectNameBack()
   {
     for (int ii = PrefabList.Count - 1; ii >= 0; ii--)
@@ -3030,6 +3151,29 @@ public class DungeonField : MotherBase
           RefreshQuestList();
           return;
         }
+        // 未到達タイルを更新する。
+        else if (currentEvent == MessagePack.ActionEvent.UpdateUnknownTile)
+        {
+          // ダンジョン毎に特定領域を可視化
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>() { 408, 409, 410, 411, 412, 448, 449, 450, 451, 452, 488, 489, 490, 491, 492, 528, 529, 530, 531, 532, 568, 569, 570, 571, 572 };
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "10")
+          {
+            List<int> numbers = new List<int>() { 32, 33, 34, 35, 36, 37, 72, 73, 74, 75, 76, 77, 112, 113, 114, 115, 116, 117, 112, 153, 154, 155, 156, 157, 192, 193, 194, 195, 196, 197, 232, 233, 234, 235, 236, 237, 272, 273, 274, 275, 275, 276, 277 };
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
+            }
+          }
+        }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
         {
@@ -3228,6 +3372,56 @@ public class DungeonField : MotherBase
           Debug.Log("GetTreasure 3");
 
           One.TF.AddBackPack(new Item(currentMessage));
+          #region "サルンの洞窟前"
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+          {
+            // 宝箱１
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_1_X, Fix.CAVEOFSARUN_Treasure_1_Y, Fix.CAVEOFSARUN_Treasure_1_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00001 = true;
+            }
+            // 宝箱２
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_2_X, Fix.CAVEOFSARUN_Treasure_2_Y, Fix.CAVEOFSARUN_Treasure_2_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00002 = true;
+            }
+            // 宝箱３
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_3_X, Fix.CAVEOFSARUN_Treasure_3_Y, Fix.CAVEOFSARUN_Treasure_3_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00003 = true;
+            }
+            // 宝箱４
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_4_X, Fix.CAVEOFSARUN_Treasure_4_Y, Fix.CAVEOFSARUN_Treasure_4_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00004 = true;
+            }
+            // 宝箱５
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_5_X, Fix.CAVEOFSARUN_Treasure_5_Y, Fix.CAVEOFSARUN_Treasure_5_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00005 = true;
+            }
+            // 宝箱６
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_6_X, Fix.CAVEOFSARUN_Treasure_6_Y, Fix.CAVEOFSARUN_Treasure_6_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00006 = true;
+            }
+            // 宝箱７
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_7_X, Fix.CAVEOFSARUN_Treasure_7_Y, Fix.CAVEOFSARUN_Treasure_7_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00007 = true;
+            }
+            // 宝箱８
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_8_X, Fix.CAVEOFSARUN_Treasure_8_Y, Fix.CAVEOFSARUN_Treasure_8_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00008 = true;
+            }
+            // 宝箱９
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00009 = true;
+            }
+          }
+          #endregion
           #region "アーサリウム工場跡地"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
           {
@@ -3692,6 +3886,26 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.RemoveFieldObject)
         {
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+          {
+            // 岩壁１
+            if (currentMessage == "1")
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_1_X, Fix.CAVEOFSARUN_Rock_1_Y, Fix.CAVEOFSARUN_Rock_1_Z));
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_2_X, Fix.CAVEOFSARUN_Rock_2_Y, Fix.CAVEOFSARUN_Rock_2_Z));
+            }
+            if (currentMessage == "2")
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_3_X, Fix.CAVEOFSARUN_Rock_3_Y, Fix.CAVEOFSARUN_Rock_3_Z));
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_4_X, Fix.CAVEOFSARUN_Rock_4_Y, Fix.CAVEOFSARUN_Rock_4_Z));
+            }
+            if (currentMessage == "3")
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_5_X, Fix.CAVEOFSARUN_Rock_5_Y, Fix.CAVEOFSARUN_Rock_5_Z));
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_6_X, Fix.CAVEOFSARUN_Rock_6_Y, Fix.CAVEOFSARUN_Rock_6_Z));
+            }
+          }
+
           // 岩壁１
           if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
           {
@@ -3923,6 +4137,20 @@ public class DungeonField : MotherBase
 
     // todo town , castle, field, dungeonの属性分けが誤っている。
     // field
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+    {
+      if (LocationDetect(tile, 21, 0, 9) && One.TF.Event_Message000100 == false)
+      {
+        One.TF.Event_Message000100 = true;
+        MessagePack.Message000100(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, 23, 0, 9) && One.TF.DefeatScreamingRafflesia == false)
+      {
+        MessagePack.Message000110(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       if (LocationDetect(tile, -47, 3.5f, 17))
@@ -4100,6 +4328,11 @@ public class DungeonField : MotherBase
 
     if (tile != null && tile.field == TileInformation.Field.Upstair)
     {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+      {
+        DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -43, 2, -2);
+        return true;
+      }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, 25, 3, 32);
@@ -4219,6 +4452,17 @@ public class DungeonField : MotherBase
       if (One.TF.EscapeFromDungeon)
       {
         MessagePack.MessageX00005(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (tile.transform.position.x == -44 && tile.transform.position.y == 1 && tile.transform.position.z == -2)
+      {
+        Debug.Log("Detect CaveOfSarun");
+        this.DungeonMap = Fix.MAPFILE_CAVEOFSARUN;
+        this.DungeonCall = Fix.DUNGEON_CAVEOFSARUN;
+        One.TF.Field_X = 27;
+        One.TF.Field_Y = 1;
+        One.TF.Field_Z = 9;
         return true;
       }
       if (tile.transform.position.x == 25 && tile.transform.position.y == 2 && tile.transform.position.z == 33)
@@ -4401,43 +4645,58 @@ public class DungeonField : MotherBase
     {
       int random = 100 - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
-      if (AP.Math.RandomInteger(random) <= 20)
+      if (AP.Math.RandomInteger(random) <= 10)
       {
-        switch (AP.Math.RandomInteger(9))
+        if (PlayerList[0].Level <= 1)
         {
-          case 0:
-            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-            break;
-          case 1:
-            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-            break;
-          case 2:
-            One.BattleEnemyList.Add(Fix.MANDRAGORA);
-            break;
-          case 3:
-            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-            break;
-          case 4:
-            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-            break;
-          case 5:
-            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-            break;
-          case 6:
-            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-            One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-            break;
-          case 7:
-            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-            One.BattleEnemyList.Add(Fix.MANDRAGORA);
-            break;
-          case 8:
-            One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-            One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-            One.BattleEnemyList.Add(Fix.MANDRAGORA);
-            break;
+          switch (AP.Math.RandomInteger(2))
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+          }
+        }
+        else
+        {
+          switch (AP.Math.RandomInteger(9))
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              break;
+          }
         }
         One.CannotRunAway = false;
         PrepareCallTruthBattleEnemy();
@@ -4549,6 +4808,22 @@ public class DungeonField : MotherBase
       Debug.Log("Tile next field height is too low: " + (tile.transform.position.y - Player.transform.position.y).ToString());
       return false;
     }
+
+    // debug（オブジェクト判定しない）
+    if (IgnoreObjMode)
+    {
+      return true;
+    }
+    
+    // オブジェクト（岩）の判定
+    Vector3 vector = new Vector3(tile.transform.position.x, tile.transform.position.y + 1.0f, tile.transform.position.z);
+    FieldObject field_obj = SearchObject(vector);
+    if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+    {
+      Debug.Log("Tile next field contain Rock: " + (tile.transform.position.y - Player.transform.position.y).ToString());
+      return false;
+    }
+
     return true;
   }
 
@@ -4678,13 +4953,155 @@ public class DungeonField : MotherBase
 
   private void UpdateUnknownTile(Vector3 position)
   {
+    TileInformation currentRight = SearchNextTile(position, Direction.Right);
+    TileInformation currentLeft = SearchNextTile(position, Direction.Left);
+    TileInformation currentTop = SearchNextTile(position, Direction.Top);
+    TileInformation currentBottom = SearchNextTile(position, Direction.Bottom);
+
     for (int ii = 0; ii < UnknownTileList.Count; ii++)
     {
-      if ( position.x - 2.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < position.x + 2.01f
-        && position.z - 2.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < position.z + 2.01f)
+      // 自プレイヤー位置の１スクエアは無条件で可視化する。
+      if (position.x - 1.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < position.x + 1.01f
+       && position.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < position.z + 1.01f)
       {
         UnknownTileList[ii].gameObject.SetActive(false);
         One.TF.KnownTileList_CaveOfSarun[ii] = true;
+      }
+
+      //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
+      // 右
+      if (currentRight != null && currentRight.MoveCost != 999)
+      {
+        Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+        FieldObject field_obj = SearchObject(vector);
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        {
+          // 可視化しない
+        }
+        else
+        {
+          Vector3 rightPos = new Vector3(position.x + 1, position.y, position.z);
+          if (rightPos.x - 1.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 1.01f
+           && rightPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < rightPos.z + 0.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+
+          if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
+           && rightPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < rightPos.z + 1.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+        }
+      }
+
+      // 左
+      if (currentLeft != null && currentLeft.MoveCost != 999)
+      {
+        Vector3 vector = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 1.0f, currentLeft.transform.position.z);
+        FieldObject field_obj = SearchObject(vector);
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        {
+          // 可視化しない
+        }
+        else
+        {
+          Vector3 leftPos = new Vector3(position.x - 1, position.y, position.z);
+          if (leftPos.x - 1.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 1.01f
+           && leftPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < leftPos.z + 0.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+
+          if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
+           && leftPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < leftPos.z + 1.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+        }
+      }
+
+      // 上
+      if (currentTop != null && currentTop.MoveCost != 999)
+      {
+        Vector3 vector = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 1.0f, currentTop.transform.position.z);
+        FieldObject field_obj = SearchObject(vector);
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        {
+          // 可視化しない
+        }
+        else
+        {
+          Vector3 topPos = new Vector3(position.x, position.y, position.z + 1);
+          if (topPos.x - 1.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 1.01f
+           && topPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < topPos.z + 0.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+
+          if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
+           && topPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < topPos.z + 1.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+        }
+      }
+
+      // 下
+      if (currentBottom != null && currentBottom.MoveCost != 999)
+      {
+        Vector3 vector = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 1.0f, currentBottom.transform.position.z);
+        FieldObject field_obj = SearchObject(vector);
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        {
+          // 可視化しない
+        }
+        else
+        {
+          Vector3 bottomPos = new Vector3(position.x, position.y, position.z - 1);
+          if (bottomPos.x - 1.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 1.01f
+           && bottomPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < bottomPos.z + 0.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+
+          if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
+           && bottomPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < bottomPos.z + 1.01f)
+          {
+            UnknownTileList[ii].gameObject.SetActive(false);
+            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+          }
+        }
+      }
+    }
+
+    // ダンジョン毎に到達ポイントで特定領域を可視化
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+    {
+      if (position.x == 4.0f && position.y == 1.0f && position.z == 5.0f)
+      {
+        List<int> numbers = new List<int>() { 172, 173, 174, 175, 176, 212, 213, 214, 215, 216, 252, 253, 254, 255, 256, 292, 293, 294, 295, 296, 332, 333, 334, 335, 336 };
+        for (int ii = 0; ii < numbers.Count; ii++)
+        {
+          UnknownTileList[numbers[ii]].gameObject.SetActive(false);
+          One.TF.KnownTileList_CaveOfSarun[numbers[ii]] = true;
+        }
+      }
+      if (position.x == 10.0f && position.y == 1 && position.z == -3)
+      {
+        List<int> numbers = new List<int>() { 619, 620, 621, 622, 623, 624, 659, 660, 661, 662, 663, 664,  699, 700, 701, 702, 703, 704, 739, 740, 741, 742, 743, 744, 779, 780, 781, 782, 783, 784 };
+        for (int ii = 0; ii < numbers.Count; ii++)
+        {
+          UnknownTileList[numbers[ii]].gameObject.SetActive(false);
+          One.TF.KnownTileList_CaveOfSarun[numbers[ii]] = true;
+        }
       }
     }
   }
@@ -5149,13 +5566,14 @@ public class DungeonField : MotherBase
   {
     if (map_data == Fix.MAPFILE_CAVEOFSARUN)
     {
-      for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_CAVEOFSARUN; jj++)
+        for (int jj = 0; jj < Fix.MAPSIZE_X_CAVEOFSARUN; jj++)
         {
-          Vector3 position = new Vector3(ii - 10, 1.0f, 12 - jj);
+          Vector3 position = new Vector3(jj - 10, 1.0f, 12 - ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
-          if (7 < ii && ii < 14 && 9 < jj && jj < 15)
+          //if (7 < jj && jj < 14 && 9 < ii && ii < 15)
+          if (false)
           {
             UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(false);
           }
@@ -5165,14 +5583,11 @@ public class DungeonField : MotherBase
           }
         }
       }
-      for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_CAVEOFSARUN; jj++)
+        if (One.TF.KnownTileList_CaveOfSarun[ii])
         {
-          if (One.TF.KnownTileList_CaveOfSarun[ii * Fix.MAPSIZE_Z_CAVEOFSARUN + jj])
-          {
-            UnknownTileList[ii * Fix.MAPSIZE_Z_CAVEOFSARUN + jj].gameObject.SetActive(false);
-          }
+          UnknownTileList[ii].gameObject.SetActive(false);
         }
       }
     }
@@ -5217,6 +5632,77 @@ public class DungeonField : MotherBase
   private void UpdateFieldObject(string map_data)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    #region "サルン洞窟前"
+    if (map_data == Fix.MAPFILE_CAVEOFSARUN)
+    {
+      Debug.Log("update " + map_data + " field");
+      // 宝箱１
+      if (One.TF.Treasure_CaveOfSarun_00001)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_1_X, Fix.CAVEOFSARUN_Treasure_1_Y, Fix.CAVEOFSARUN_Treasure_1_Z)));
+      }
+      // 宝箱２
+      if (One.TF.Treasure_CaveOfSarun_00002)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_2_X, Fix.CAVEOFSARUN_Treasure_2_Y, Fix.CAVEOFSARUN_Treasure_2_Z)));
+      }
+      // 宝箱３
+      if (One.TF.Treasure_CaveOfSarun_00003)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_3_X, Fix.CAVEOFSARUN_Treasure_3_Y, Fix.CAVEOFSARUN_Treasure_3_Z)));
+      }
+      // 宝箱４
+      if (One.TF.Treasure_CaveOfSarun_00004)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_4_X, Fix.CAVEOFSARUN_Treasure_4_Y, Fix.CAVEOFSARUN_Treasure_4_Z)));
+      }
+      // 宝箱５
+      if (One.TF.Treasure_CaveOfSarun_00005)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_5_X, Fix.CAVEOFSARUN_Treasure_5_Y, Fix.CAVEOFSARUN_Treasure_5_Z)));
+      }
+      // 宝箱６
+      if (One.TF.Treasure_CaveOfSarun_00006)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_6_X, Fix.CAVEOFSARUN_Treasure_6_Y, Fix.CAVEOFSARUN_Treasure_6_Z)));
+      }
+      // 宝箱７
+      if (One.TF.Treasure_CaveOfSarun_00007)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_7_X, Fix.CAVEOFSARUN_Treasure_7_Y, Fix.CAVEOFSARUN_Treasure_7_Z)));
+      }
+      // 宝箱８
+      if (One.TF.Treasure_CaveOfSarun_00008)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_8_X, Fix.CAVEOFSARUN_Treasure_8_Y, Fix.CAVEOFSARUN_Treasure_8_Z)));
+      }
+      // 宝箱９
+      if (One.TF.Treasure_CaveOfSarun_00009)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z)));
+      }
+
+      // 岩壁１
+      if (One.TF.FieldObject_CaveofSarun_00001)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_1_X, Fix.CAVEOFSARUN_Rock_1_Y, Fix.CAVEOFSARUN_Rock_1_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_2_X, Fix.CAVEOFSARUN_Rock_2_Y, Fix.CAVEOFSARUN_Rock_2_Z));
+      }
+      // 岩壁２
+      if (One.TF.FieldObject_CaveofSarun_00002)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_3_X, Fix.CAVEOFSARUN_Rock_3_Y, Fix.CAVEOFSARUN_Rock_3_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_4_X, Fix.CAVEOFSARUN_Rock_4_Y, Fix.CAVEOFSARUN_Rock_4_Z));
+      }
+      // 岩壁１
+      if (One.TF.FieldObject_CaveofSarun_00003)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_5_X, Fix.CAVEOFSARUN_Rock_5_Y, Fix.CAVEOFSARUN_Rock_5_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Rock_6_X, Fix.CAVEOFSARUN_Rock_6_Y, Fix.CAVEOFSARUN_Rock_6_Z));
+      }
+
+    }
+    #endregion
     #region "アーサリウム工場跡地"
     if (map_data == Fix.MAPFILE_ARTHARIUM)
     {

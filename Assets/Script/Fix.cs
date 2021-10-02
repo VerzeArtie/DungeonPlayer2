@@ -897,6 +897,7 @@ public static partial class Fix
   public const string TOWN_PARMETYSIA = "パルメテイシア神殿";
   public const string TOWN_EDELGARZEN_CASTLE = "エデルガイゼン城";
 
+  public const string DUNGEON_CAVEOFSARUN = "サルンの洞窟";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";

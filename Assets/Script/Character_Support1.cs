@@ -1089,6 +1089,13 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      case Fix.SCREAMING_RAFFLESIA:
+        //SetupParameter(85, 50, 15, 300, 10, 10000, 3000, 2000);
+        SetupParameter(1, 50, 15, 1, 10, 0, 3000, 1200);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
     }
 
     this.MaxGain();
