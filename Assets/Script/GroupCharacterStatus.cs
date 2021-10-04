@@ -705,7 +705,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.MainWeapon);
       }
-      CurrentPlayer.MainWeapon = null;
+      CurrentPlayer.MainWeapon = new Item(string.Empty);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)
     {
@@ -714,7 +714,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.SubWeapon);
       }
-      CurrentPlayer.SubWeapon = null;
+      CurrentPlayer.SubWeapon = new Item(string.Empty);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ARMOR)
     {
@@ -723,7 +723,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.MainArmor);
       }
-      CurrentPlayer.MainArmor = null;
+      CurrentPlayer.MainArmor = new Item(string.Empty);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY1)
     {
@@ -732,7 +732,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.Accessory1);
       }
-      CurrentPlayer.Accessory1 = null;
+      CurrentPlayer.Accessory1 = new Item(string.Empty);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY2)
     {
@@ -741,7 +741,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.Accessory2);
       }
-      CurrentPlayer.Accessory2 = null;
+      CurrentPlayer.Accessory2 = new Item(string.Empty);
     }
     else if (CurrentItemType == Fix.ITEMTYPE_ARTIFACT)
     {
@@ -750,7 +750,7 @@ public class GroupCharacterStatus : MonoBehaviour
       {
         One.TF.AddBackPack(CurrentPlayer.Artifact);
       }
-      CurrentPlayer.Artifact = null;
+      CurrentPlayer.Artifact = new Item(string.Empty);
     }
     //CurrentPlayer.MaxGain();
 
