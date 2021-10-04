@@ -1734,15 +1734,31 @@ public partial class Character : MonoBehaviour
 
     if (equip_type == Fix.EquipType.Armor)
     {
-      if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Heavy_Armor) ||
-          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Middle_Armor) ||
-          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Light_Armor) ||
-          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Middle_Armor) ||
-          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Light_Armor) ||
-          (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Light_Armor))
+      if (this.FullName == Fix.NAME_EIN_WOLENCE)
       {
-        return true;
+        if (item.ItemType == Item.ItemTypes.Heavy_Armor)
+        {
+          return true;
+        }
       }
+
+      if (this.FullName == Fix.NAME_LANA_AMIRIA)
+      {
+        if (item.ItemType == Item.ItemTypes.Middle_Armor)
+        {
+          return true;
+        }
+      }
+
+      //if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Heavy_Armor) ||
+      //    (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Middle_Armor) ||
+      //    (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Light_Armor) ||
+      //    (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Middle_Armor) ||
+      //    (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Light_Armor) ||
+      //    (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Light_Armor))
+      //{
+      //  return true;
+      //}
       return false;
     }
 
@@ -1765,6 +1781,7 @@ public partial class Character : MonoBehaviour
       }
       return false;
     }
+
     return false;
   }
 
