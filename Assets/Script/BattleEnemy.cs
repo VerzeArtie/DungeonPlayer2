@@ -264,7 +264,14 @@ public partial class BattleEnemy : MotherBase
 
       NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
       node_charaExp.txtPlayerName.text = playerList[ii].FullName;
-      node_charaExp.txtPlayerExp.text = playerList[ii].Exp + " / " + playerList[ii].GetNextExp();
+      if (playerList[ii].Exp < playerList[ii].GetNextExp())
+      {
+        node_charaExp.txtPlayerExp.text = playerList[ii].Exp + " / " + playerList[ii].GetNextExp();
+      }
+      else
+      {
+        node_charaExp.txtPlayerExp.text = "Max";
+      }
       float dx = (float)playerList[ii].Exp / (float)playerList[ii].GetNextExp();
       node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
 
