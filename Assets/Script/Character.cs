@@ -297,7 +297,7 @@ public partial class Character : MonoBehaviour
   {
     get
     {
-      return _baseSoulPoint + TotalMind * 3;
+      return _baseSoulPoint + TotalMind * 2;
     }
   }
 
@@ -1505,15 +1505,17 @@ public partial class Character : MonoBehaviour
   public int GetNextExp()
   {
     int result = 0;
-    if (this.Level == 1) { result = 250; }
-    else if (this.Level == 2) { result = 600; }
-    else if (this.Level == 3) { result = 1000; }
-    else if (this.Level == 4) { result = 1500; }
-    else if (this.Level == 5) { result = 2000; }
-    else if (this.Level == 6) { result = 2600; }
-    else if (this.Level == 7) { result = 3200; }
-    else if (this.Level == 8) { result = 4000; }
-    else if (this.Level == 9) { result = 5000; }
+    if (this.Level == 1) { result = 50; }
+    else if (this.Level == 2) { result = 100; }
+    else if (this.Level == 3) { result = 250; }
+    else if (this.Level == 4) { result = 600; }
+    else if (this.Level == 5) { result = 1000; }
+    else if (this.Level == 6) { result = 1500; }
+    else if (this.Level == 7) { result = 2000; }
+    else if (this.Level == 8) { result = 2600; }
+    else if (this.Level == 9) { result = 3200; }
+    else if (this.Level == 10) { result = 4000; }
+    else if (this.Level == 11) { result = 5000; }
     else { result = 9999999; }
     return result;
   }
@@ -1611,25 +1613,9 @@ public partial class Character : MonoBehaviour
     if (this.GetNextExp() - this._exp > 0)
     {
       this._exp += gain_exp;
-
       if (this._exp >= this.GetNextExp())
       {
-        int gainRemainPoint = 0;
-        if (this.Level == 1) { gainRemainPoint = 3; }
-        else if (this.Level == 2) { gainRemainPoint = 4; }
-        else if (this.Level == 3) { gainRemainPoint = 5; }
-        else if (this.Level == 4) { gainRemainPoint = 6; }
-        else if (this.Level == 5) { gainRemainPoint = 7; }
-        else if (this.Level == 6) { gainRemainPoint = 8; }
-        else if (this.Level == 7) { gainRemainPoint = 10; }
-        else if (this.Level == 8) { gainRemainPoint = 12; }
-        else if (this.Level == 9) { gainRemainPoint = 14; }
-        else if (this.Level == 10) { gainRemainPoint = 16; }
-        else if (this.Level == 11) { gainRemainPoint = 18; }
-        else if (this.Level == 12) { gainRemainPoint = 20; }
-        else { gainRemainPoint = 20; }
-
-        this._remainPoint += gainRemainPoint;
+        this._exp = this.GetNextExp();
       }
     }
   }

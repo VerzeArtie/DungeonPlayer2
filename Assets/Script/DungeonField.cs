@@ -25,6 +25,7 @@ public class DungeonField : MotherBase
   }
 
   // developer-mode
+  public Text txtCurrentDevelopView;
   public GameObject GroupDevelop;
   public TileInformation SelectField;
   public Text txtSelectName;
@@ -465,6 +466,7 @@ public class DungeonField : MotherBase
     if (Input.GetKeyDown(KeyCode.Escape))
     {
       Debug.Log("Input getkeydown is escape");
+      txtCurrentDevelopView.text = "Develop Enable";
       GroupDevelop.SetActive(true);
     }
 

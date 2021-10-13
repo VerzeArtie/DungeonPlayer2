@@ -56257,7 +56257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.92941177}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -95174,6 +95174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Filter: {fileID: 0}
+  txtCurrentDevelopView: {fileID: 1566044041}
   GroupDevelop: {fileID: 778765529}
   SelectField: {fileID: 827424063}
   txtSelectName: {fileID: 1890244792}

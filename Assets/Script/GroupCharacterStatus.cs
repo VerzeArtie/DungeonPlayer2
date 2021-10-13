@@ -580,8 +580,10 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailIntelligence, CurrentPlayer.TotalIntelligence, ShadowPlayer.TotalIntelligence);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
-    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
-    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife, CurrentPlayer.CurrentLife);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint, CurrentPlayer.CurrentSoulPoint);
+    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
+    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));

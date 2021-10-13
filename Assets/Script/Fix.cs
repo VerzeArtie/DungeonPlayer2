@@ -969,4 +969,8 @@ public static partial class Fix
   public static int MAX_TEAM_MEMBER = 4;
   #endregion
 
+  #region "etc"
+  public const int BATTLEEND_AUTOEXIT = 200;
+  #endregion
+
 }

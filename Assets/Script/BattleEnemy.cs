@@ -20,6 +20,23 @@ public partial class BattleEnemy : MotherBase
   public NodeActionCommand prefab_InstantAction = null;
   public NodeActionCommand prefab_GlobalAction = null;
   public NodeActionCommand prefab_ImmediateAction = null;
+  public NodeCharaExp node_CharaExp = null;
+
+  // Level-UP Character
+  public GameObject GroupLvupCharacter;
+  public Text txtLvupTitle;
+  public Text txtLvupMaxLife;
+  public Text txtLvupMaxEP;
+  public Text txtLvupRemainPoint;
+  public Text txtLvupSoulEssence;
+  public Text txtLvupSpecial;
+  protected List<bool> DetectLvup = new List<bool>();
+  protected List<string> DetectLvupTitle = new List<string>();
+  protected List<string> DetectLvupMaxLife = new List<string>();
+  protected List<string> DetectLvupMaxEP = new List<string>();
+  protected List<string> DetectLvupRemainPoint = new List<string>();
+  protected List<string> DetectLvupSoulEssence = new List<string>();
+  protected List<string> DetectLvupSpecial = new List<string>();
 
   // GUI-BattleView
   public GameObject GroupGlobalAction;
@@ -28,6 +45,7 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupParentEnemy;
   public GameObject panelGameEnd;
   public Text txtGameEndMessage;
+  public GameObject panelGameEndExpList;
   public GameObject panelGameOver;
   public Text txtGameoverMessage;
 
@@ -88,6 +106,7 @@ public partial class BattleEnemy : MotherBase
   public List<Character> EnemyList;
   public List<Character> AllList;
   public List<BuffField> AllFieldList;
+  public List<NodeCharaExp> CharaExpList;
 
   //protected Character currentPlayer = null;
 
@@ -118,6 +137,8 @@ public partial class BattleEnemy : MotherBase
 
   protected bool DuelMode = true;
   protected bool NowStackInTheCommand = false;
+
+  protected int AutoExit = -1;
 
   private float BATTLE_GAUGE_WITDH = 0;
 
@@ -240,6 +261,25 @@ public partial class BattleEnemy : MotherBase
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
       AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii]);
+
+      NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
+      node_charaExp.txtPlayerName.text = playerList[ii].FullName;
+      node_charaExp.txtPlayerExp.text = playerList[ii].Exp + " / " + playerList[ii].GetNextExp();
+      float dx = (float)playerList[ii].Exp / (float)playerList[ii].GetNextExp();
+      node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+
+      if (playerList[ii].Exp < playerList[ii].GetNextExp())
+      {
+        node_charaExp.objCurrentExpBorder.gameObject.SetActive(true);
+      }
+      else
+      {
+        node_charaExp.objCurrentExpBorder.gameObject.SetActive(false);
+      }
+      node_charaExp.BeforeExp = playerList[ii].Exp;
+      node_charaExp.gameObject.SetActive(true);
+      node_charaExp.transform.SetParent(panelGameEndExpList.transform);
+      CharaExpList.Add(node_charaExp);
 
       // キャラクターグループのリストに追加
       playerList[ii].Ally = Fix.Ally.Ally;
@@ -522,6 +562,66 @@ public partial class BattleEnemy : MotherBase
     // バトルが完了している場合、時間を進めない。
     if (One.BattleEnd != Fix.GameEndType.None)
     {
+      if (One.BattleEnd == Fix.GameEndType.Success)
+      {
+        if (AutoExit > 0)
+        {
+          AutoExit--;
+          if (AutoExit == Fix.BATTLEEND_AUTOEXIT - 1)
+          {
+            for (int ii = 0; ii < CharaExpList.Count; ii++)
+            {
+              for (int jj = 0; jj < PlayerList.Count; jj++)
+              {
+                if (PlayerList[jj].FullName == CharaExpList[ii].txtPlayerName.text)
+                {
+                  CharaExpList[ii].AfterExp = PlayerList[jj].Exp;
+                  if (PlayerList[jj].Exp >= PlayerList[jj].GetNextExp())
+                  {
+                    CharaExpList[ii].AfterExp = PlayerList[jj].GetNextExp();
+                  }
+                  Debug.Log("after exp detect: " + CharaExpList[ii].AfterExp);
+                }
+              }
+            }
+          }
+
+          int start_time = Fix.BATTLEEND_AUTOEXIT - 50;
+          int end_time = Fix.BATTLEEND_AUTOEXIT - 100;
+          if (end_time <= AutoExit && AutoExit < start_time)
+          {
+            for (int ii = 0; ii < CharaExpList.Count; ii++)
+            {
+              for (int jj = 0; jj < PlayerList.Count; jj++)
+              {
+                if (PlayerList[jj].FullName == CharaExpList[ii].txtPlayerName.text)
+                {
+                  float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
+                  float current = (CharaExpList[ii].BeforeExp + div_value);
+                  float dx = current / (float)PlayerList[jj].GetNextExp();
+                  CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+                  if (dx < 1.0f)
+                  {
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
+                    CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
+                  }
+                  else
+                  {
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
+                    CharaExpList[ii].txtPlayerExp.text = "Max";
+                  }
+                }
+              }
+            }
+          }
+
+          if (AutoExit == 0)
+          {
+            AutoExit--;
+            TapEndScene();
+          }
+        }
+      }
       return;
     }
 
@@ -573,6 +673,22 @@ public partial class BattleEnemy : MotherBase
           if (PlayerList[ii].Exp < PlayerList[ii].GetNextExp())
           {
             PlayerList[ii].GainExp(gainExp);
+
+            if (PlayerList[ii].Exp >= PlayerList[ii].GetNextExp())
+            {
+              PlayerList[ii].BaseLife += 15;
+              PlayerList[ii].BaseSoulPoint += 6;
+              PlayerList[ii].RemainPoint += 3;
+              PlayerList[ii].SoulFragment += 1;
+
+              DetectLvup.Add(true);
+              DetectLvupTitle.Add( PlayerList[ii].FullName + "がレベルアップしました！");
+              DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
+              DetectLvupMaxEP.Add("最大エナジーポイントが 6 上昇した！");
+              DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
+              DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
+              DetectLvupSpecial.Add("");
+            }
           }
         }
         One.TF.Gold += gainGold;
@@ -598,6 +714,7 @@ public partial class BattleEnemy : MotherBase
           One.TF.DefeatYodirian = true;
         }
       }
+      AutoExit = Fix.BATTLEEND_AUTOEXIT;
       return;
     }
     // プレイヤー側が全滅した場合、ゲームエンドとする。
@@ -756,26 +873,34 @@ public partial class BattleEnemy : MotherBase
     UpdateTimerSpeed();
 
     // ポテンシャル・ポイントの更新
-    if (this.imgPotentialEnergy != null)
+    if (One.TF.AvailablePotentialGauge)
     {
-      float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
-      if (dx < 0.10f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_0"); }
-      if (0.10f <= dx && dx < 0.20f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_10"); }
-      if (0.20f <= dx && dx < 0.30f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_20"); }
-      if (0.30f <= dx && dx < 0.40f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_30"); }
-      if (0.40f <= dx && dx < 0.50f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_40"); }
-      if (0.50f <= dx && dx < 0.60f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_50"); }
-      if (0.60f <= dx && dx < 0.70f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_60"); }
-      if (0.70f <= dx && dx < 0.80f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_70"); }
-      if (0.80f <= dx && dx < 0.90f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_80"); }
-      if (0.90f <= dx && dx < 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_90"); }
-      if (dx >= 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_100"); }
+      groupPotentialEnergy.SetActive(true);
+      if (this.imgPotentialEnergy != null)
+      {
+        float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
+        if (dx < 0.10f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_0"); }
+        if (0.10f <= dx && dx < 0.20f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_10"); }
+        if (0.20f <= dx && dx < 0.30f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_20"); }
+        if (0.30f <= dx && dx < 0.40f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_30"); }
+        if (0.40f <= dx && dx < 0.50f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_40"); }
+        if (0.50f <= dx && dx < 0.60f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_50"); }
+        if (0.60f <= dx && dx < 0.70f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_60"); }
+        if (0.70f <= dx && dx < 0.80f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_70"); }
+        if (0.80f <= dx && dx < 0.90f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_80"); }
+        if (0.90f <= dx && dx < 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_90"); }
+        if (dx >= 1.00f) { this.imgPotentialEnergy.sprite = Resources.Load<Sprite>("Energy_100"); }
+      }
+      if (this.txtPotentialEnergy)
+      {
+        float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
+        int dx_percent = (int)(dx * 100.0f);
+        this.txtPotentialEnergy.text = dx_percent.ToString() + " %";
+      }
     }
-    if (this.txtPotentialEnergy)
+    else
     {
-      float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
-      int dx_percent = (int)(dx * 100.0f);
-      this.txtPotentialEnergy.text = dx_percent.ToString() + " %";
+      groupPotentialEnergy.SetActive(false);
     }
 
     // プレイヤー関連
@@ -1920,6 +2045,7 @@ public partial class BattleEnemy : MotherBase
         if (panelGameEnd.activeInHierarchy == false)
         {
           txtGameEndMessage.text = PlayerList[0].FullName + "達は逃げ出した・・・";
+          panelGameEndExpList.SetActive(false);
           panelGameEnd.SetActive(true);
         }
         break;
@@ -1946,8 +2072,38 @@ public partial class BattleEnemy : MotherBase
     ClearSelectFilterGroup();
   }
 
+  public void HideLvUpCharacterView()
+  {
+    GroupLvupCharacter.SetActive(false);
+    TapEndScene();
+  }
+
   public void TapEndScene()
   {
+    this.AutoExit = -1;
+
+    // シーンエンド前のレベルアップ報告フェーズ
+    if (DetectLvup.Count > 0)
+    {
+      txtLvupTitle.text = DetectLvupTitle[0];
+      txtLvupMaxLife.text = DetectLvupMaxLife[0];
+      txtLvupMaxEP.text = DetectLvupMaxEP[0];
+      txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
+      txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
+      txtLvupSpecial.text = DetectLvupSpecial[0];
+      GroupLvupCharacter.SetActive(true);
+
+      DetectLvup.RemoveAt(0);
+      DetectLvupTitle.RemoveAt(0);
+      DetectLvupMaxLife.RemoveAt(0);
+      DetectLvupMaxEP.RemoveAt(0);
+      DetectLvupRemainPoint.RemoveAt(0);
+      DetectLvupSoulEssence.RemoveAt(0);
+      DetectLvupSpecial.RemoveAt(0);
+      return;
+    }
+
+    // シーンエンド
     for (int ii = 0; ii < One.EnemyList.Count; ii++)
     {
       Destroy(One.EnemyList[ii].gameObject);

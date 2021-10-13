@@ -110,6 +110,12 @@ public class TeamFoundation : MonoBehaviour
     set { _availableTactics = value; }
     get { return _availableTactics; }
   }
+  [SerializeField] protected bool _availablePotentialGauge;
+  public bool AvailablePotentialGauge
+  {
+    set { _availablePotentialGauge = value; }
+    get { return _availablePotentialGauge; }
+  }
 
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
