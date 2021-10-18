@@ -2081,7 +2081,6 @@ public partial class BattleEnemy : MotherBase
 
   public void HideLvUpCharacterView()
   {
-    GroupLvupCharacter.SetActive(false);
     TapEndScene();
   }
 

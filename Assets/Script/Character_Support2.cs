@@ -55,6 +55,7 @@ public partial class Character : MonoBehaviour
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.MAGIC_ATTACK;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
+        this.StraightSmash = 1;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -68,7 +69,7 @@ public partial class Character : MonoBehaviour
         this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Rogue;
+        this.SecondCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
@@ -77,7 +78,8 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.CurrentImmediateCommand = Fix.SMALL_BLUE_POTION;
+        this.IceNeedle = 1;
+        this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         break;
 
       case Fix.NAME_EONE_FULNEA:

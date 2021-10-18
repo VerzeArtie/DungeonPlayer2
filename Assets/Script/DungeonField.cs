@@ -114,12 +114,14 @@ public class DungeonField : MotherBase
   public GameObject objCancelActionCommand;
   public Text txtCurrentName;
   public List<GameObject> objActionCommand;
+  public Text txtBattleSettingCharacterName;
 
   // Group
   public GameObject GroupPartyMenu;
   public GroupCharacterStatus groupPartyStatus;
   public GameObject groupPartyCommand;
   public GameObject groupPartyItem;
+  public GameObject groupPartyBattleSetting;
   // public GameObject groupPartyExit;
   public GroupCharacterStatus groupCharacterStatus;
   public SaveLoad groupSaveLoad;
@@ -201,6 +203,7 @@ public class DungeonField : MotherBase
 
   private bool FirstAction = false;
   private bool AlreadyDetectEncount = false;
+  private bool AlreadyCallBattleEnemy = false;
   bool ignoreCreateShadow = false;
 
   // Start is called before the first frame update
@@ -459,6 +462,16 @@ public class DungeonField : MotherBase
         }
       }
 
+      return;
+    }
+
+    if (this.AlreadyDetectEncount)
+    {
+      if (this.AlreadyCallBattleEnemy == false)
+      {
+        this.AlreadyCallBattleEnemy = true;
+        SceneDimension.CallBattleEnemy();
+      }
       return;
     }
 
@@ -2295,6 +2308,7 @@ public class DungeonField : MotherBase
     groupPartyStatus.gameObject.SetActive(true);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
+    groupPartyBattleSetting.SetActive(false);
   }
   public void TapCommand()
   {
@@ -2302,6 +2316,7 @@ public class DungeonField : MotherBase
     groupPartyStatus.gameObject.SetActive(false);
     groupPartyCommand.SetActive(true);
     groupPartyItem.SetActive(false);
+    groupPartyBattleSetting.SetActive(false);
   }
 
   public void TapItem()
@@ -2310,6 +2325,16 @@ public class DungeonField : MotherBase
     groupPartyStatus.gameObject.SetActive(false);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(true);
+    groupPartyBattleSetting.SetActive(false);
+  }
+
+  public void TapBattleSetting()
+  {
+    SetupStayList();
+    groupPartyStatus.gameObject.SetActive(false);
+    groupPartyCommand.SetActive(false);
+    groupPartyItem.SetActive(false);
+    groupPartyBattleSetting.SetActive(true);
   }
 
   public void TapExit()
@@ -2454,6 +2479,7 @@ public class DungeonField : MotherBase
     }
 
     txtCurrentName.text = txt_name.text;
+    txtBattleSettingCharacterName.text = txt_name.text;
     Character player2 = One.SelectCharacter(txt_name.text);
     if (player2 != null)
     {
@@ -4111,7 +4137,7 @@ public class DungeonField : MotherBase
     {
       UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
     }
-    SceneDimension.CallBattleEnemy();
+//    SceneDimension.CallBattleEnemy();
   }
 
   private void RemoveOneSentence()
