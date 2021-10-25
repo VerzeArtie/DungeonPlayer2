@@ -2021,5 +2021,21 @@ public partial class Character : MonoBehaviour
     }
     return false;
   }
+
+  public List<string> GetAvailableList()
+  {
+    // todo
+    List<string> list = new List<string>();
+    list.Add(Fix.NORMAL_ATTACK);
+    list.Add(Fix.DEFENSE);
+    if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
+    if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
+    if (this.FreshHeal > 0) { list.Add(Fix.FRESH_HEAL); }
+    if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
+    if (this.ShadowBlast > 0) { list.Add(Fix.SHADOW_BLAST); }
+    if (this.HunterShot > 0) { list.Add(Fix.HUNTER_SHOT); }
+
+    return list;
+  }
   #endregion
 }

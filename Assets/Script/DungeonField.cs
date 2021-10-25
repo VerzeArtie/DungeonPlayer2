@@ -122,6 +122,14 @@ public class DungeonField : MotherBase
   public GameObject groupPartyCommand;
   public GameObject groupPartyItem;
   public GameObject groupPartyBattleSetting;
+  public GameObject FilterForAll;
+  public GameObject FilterForActionCommand;
+  public GameObject FilterForAvailableList;
+  public List<NodeActionCommand> ListActionCommandSet;
+  public List<NodeActionCommand> ListAvailableCommand;
+  public List<Text> ListAvailableCommandText;
+  public NodeActionCommand CurrentSelectCommand;
+
   // public GameObject groupPartyExit;
   public GroupCharacterStatus groupCharacterStatus;
   public SaveLoad groupSaveLoad;
@@ -2403,6 +2411,52 @@ public class DungeonField : MotherBase
     objCancelActionCommand.SetActive(false);
   }
 
+  public void TapAvailableListButton(NodeActionCommand action_command)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (FilterForAll.activeInHierarchy == false)
+    {
+      this.CurrentSelectCommand = action_command;
+      FilterForAll.SetActive(true);
+      FilterForActionCommand.SetActive(false);
+      FilterForAvailableList.SetActive(true);
+      return;
+    }
+
+    TapCancelActionCommandSet();
+  }
+
+  public void TapActionCommandSetList(NodeActionCommand action_command)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (FilterForAll.activeInHierarchy == false)
+    {
+      FilterForAll.SetActive(true);
+      FilterForActionCommand.SetActive(true);
+      FilterForAvailableList.SetActive(false);
+      return;
+    }
+
+    action_command.CommandName = this.CurrentSelectCommand.CommandName;
+    action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
+    TapCancelActionCommandSet();
+
+    CurrentPlayer.ActionCommandList.Clear();
+    for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
+    {
+      CurrentPlayer.ActionCommandList.Add(ListActionCommandSet[ii].CommandName);
+    }
+  }
+
+  public void TapCancelActionCommandSet()
+  {
+    FilterForAll.SetActive(false);
+    FilterForActionCommand.SetActive(false);
+    FilterForAvailableList.SetActive(false);
+    this.CurrentSelectCommand = null;
+  }
+
   public void TapStayListCharacter(Text txt_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -2491,8 +2545,11 @@ public class DungeonField : MotherBase
 
       if (player2.LifeGrace > 0) { objActionCommand[2].SetActive(true); }
       else { objActionCommand[2].SetActive(false); }
-
     }
+
+    // コマンド設定画面への反映
+    Character player3 = One.SelectCharacter(txt_name.text);
+    SetupActionCommand(player3);
   }
 
   private void CallGroupPartyStatus(Character player)
@@ -2555,6 +2612,45 @@ public class DungeonField : MotherBase
       //  StayListLife[counter].text = One.PlayerList[ii].CurrentLife.ToString();
       //  counter++;
       //}
+    }
+  }
+
+  private void SetupActionCommand(Character player)
+  {
+    Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
+    for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
+    {
+      ListActionCommandSet[ii].BackColor.color = player.BattleForeColor;
+      ListActionCommandSet[ii].OwnerName = player.FullName;
+      if (ii >= player.ActionCommandList.Count)
+      {
+        ListActionCommandSet[ii].CommandName = Fix.STAY;
+        ListActionCommandSet[ii].name = Fix.STAY;
+        ListActionCommandSet[ii].ActionButton.name = Fix.STAY;
+        ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STAY);
+        continue;
+      }
+
+      ListActionCommandSet[ii].CommandName = player.ActionCommandList[ii];
+      ListActionCommandSet[ii].name = player.ActionCommandList[ii];
+      ListActionCommandSet[ii].ActionButton.name = player.ActionCommandList[ii];
+      ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandList[ii]);
+    }
+    List<string> currentList = player.GetAvailableList();
+    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
+    {
+      if (ii >= currentList.Count)
+      {
+        ListAvailableCommand[ii].CommandName = String.Empty;
+        ListAvailableCommand[ii].name = String.Empty;
+        ListAvailableCommand[ii].ActionButton.image.sprite = null;
+        ListAvailableCommandText[ii].text = String.Empty;
+        continue;
+      }
+      ListAvailableCommand[ii].CommandName = currentList[ii];
+      ListAvailableCommand[ii].name = currentList[ii];
+      ListAvailableCommand[ii].ActionButton.image.sprite = Resources.Load<Sprite>(currentList[ii]);
+      ListAvailableCommandText[ii].text = currentList[ii];
     }
   }
 
@@ -6615,6 +6711,9 @@ public class DungeonField : MotherBase
 
     // パーティステータス画面への反映
     SetupStayList();
+
+    // コマンド設定画面への反映
+    SetupActionCommand(PlayerList[0]);
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView();
