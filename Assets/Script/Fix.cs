@@ -623,6 +623,7 @@ public static partial class Fix
   public const string GO_BUTTON = "GoButton";
   public const string STOP_BUTTON = "StopButton";
   public const string RUNAWAY_BUTTON = "RunAwayButton";
+  public const string LOG_BUTTON = "LogButton";
 
   // ActionCommand
   public const string NORMAL_ATTACK = "Normal Attack";

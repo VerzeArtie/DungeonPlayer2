@@ -35,7 +35,9 @@ public partial class Character : MonoBehaviour
   public Image objCurrentSoulPointGauge = null;
   public Image objCurrentSoulPointBorder = null;
   public BuffField objBuffPanel = null;
-  public NodeActionCommand objImmediageCommand = null;
+  public NodeActionCommand objImmediateCommand = null;
+  public GameObject GroupActionCommand = null;
+  public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
 
   [SerializeField] protected string _fullName = string.Empty;
   public string FullName

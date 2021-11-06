@@ -87,6 +87,7 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupInstantAction;
 
   // GUI-Message
+  public GameObject GroupLogBox;
   public GameObject GroupMessage;
 
   public GameObject SelectFilter;
@@ -95,6 +96,9 @@ public partial class BattleEnemy : MotherBase
 
   public GameObject GroupStackInTheCommand;
   public GameObject GroupAnimation;
+
+  // debug
+  public Text debug1;
 
   public bool CannotRunAway = false;
 
@@ -151,6 +155,12 @@ public partial class BattleEnemy : MotherBase
     BATTLE_GAUGE_WITDH = (GroupBattleGauge.GetComponent<RectTransform>().rect.width - PlayerArrowList[0].GetComponent<RectTransform>().sizeDelta.x);
     Debug.Log("BATTLE_GAUGE_WIDTH: " + BATTLE_GAUGE_WITDH);
 
+    if (debug1 != null)
+    {
+      debug1.text = Screen.width + " " + Screen.height + " " + Screen.dpi;
+
+    }
+
     this.CannotRunAway = One.CannotRunAway;
 
     // 砂時計を生成する。
@@ -173,6 +183,7 @@ public partial class BattleEnemy : MotherBase
     //str_list0.Add(Fix.GLOBAL_ACTION_3);
     //str_list0.Add(Fix.GLOBAL_ACTION_4);
     //str_list0.Add(Fix.USE_RED_POTION);
+    str_list0.Add(Fix.LOG_BUTTON);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
     for (int ii = 0; ii < str_list0.Count; ii++)
@@ -258,6 +269,12 @@ public partial class BattleEnemy : MotherBase
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
       node.gameObject.SetActive(true);
       node.transform.SetParent(GroupParentPlayer.transform);
+      RectTransform rt = node.GetComponent<RectTransform>();
+      rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 0.5f);
+      rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+      rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+      rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
       AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii]);
@@ -391,17 +408,36 @@ public partial class BattleEnemy : MotherBase
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
 
     string command_name = character.CurrentImmediateCommand;
-    character.objImmediageCommand = node.objImmediateCommand;
-    character.objImmediageCommand.BackColor.color = new Color(0, 0, 0, 0);
-    character.objImmediageCommand.CommandName = command_name;
-    character.objImmediageCommand.name = command_name;
-    character.objImmediageCommand.OwnerName = character.FullName;
-    character.objImmediageCommand.ActionButton.name = command_name;
-    character.objImmediageCommand.ApplyImageIcon(command_name);
-    character.objImmediageCommand.gameObject.SetActive(true);
+    character.objImmediateCommand = node.objImmediateCommand;
+    character.objImmediateCommand.BackColor.color = new Color(0, 0, 0, 0);
+    character.objImmediateCommand.CommandName = command_name;
+    character.objImmediateCommand.name = command_name;
+    character.objImmediateCommand.OwnerName = character.FullName;
+    character.objImmediateCommand.ActionButton.name = command_name;
+    character.objImmediateCommand.ApplyImageIcon(command_name);
+    character.GroupActionCommand = node.GroupActionCommand;
+    // character.objImmediateCommand.gameObject.SetActive(true); // todo
+
+    Debug.Log("character.ActionCommandList count: " + character.FullName + " " + character.ActionCommandList.Count);
+    character.objActionCommandList.Clear();
+    for (int ii = 0; ii < node.ActionCommandList.Count; ii++)
+    {
+      Debug.Log("actioncommandlist: " + ii.ToString());
+      if (ii >= character.ActionCommandList.Count)
+      {
+        continue;
+      }
+      character.objActionCommandList.Add(node.ActionCommandList[ii]);
+      character.objActionCommandList[ii].CommandName = character.ActionCommandList[ii];
+      character.objActionCommandList[ii].name = character.ActionCommandList[ii];
+      character.objActionCommandList[ii].OwnerName = character.FullName;
+      character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandList[ii]);
+    }
+
     if (character.IsEnemy)
     {
-      character.objImmediageCommand.gameObject.SetActive(false);
+      character.objImmediateCommand.gameObject.SetActive(false);
+      character.GroupActionCommand.SetActive(false);
     }
 
     character.objParentActionPanel = group_parent_actionpanel;
@@ -2055,6 +2091,10 @@ public partial class BattleEnemy : MotherBase
           panelGameEndExpList.SetActive(false);
           panelGameEnd.SetActive(true);
         }
+        break;
+
+      case Fix.LOG_BUTTON:
+        GroupLogBox.SetActive(!GroupLogBox.activeInHierarchy);
         break;
 
       default:
