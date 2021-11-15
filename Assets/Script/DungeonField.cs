@@ -36,6 +36,7 @@ public class DungeonField : MotherBase
   public Text txtEditId;
   public GameObject ContentFieldObj;
   public NodeEditFieldObj NodeFieldObjView;
+  public Text txtDebugMainMessage;
 
   // prefab
   public TileInformation prefab_FieldNormal;
@@ -205,14 +206,28 @@ public class DungeonField : MotherBase
 
   private string currentDecision = String.Empty;
 
-  private float FieldDamage  = 1.0f;
+  private float FieldDamage = 1.0f;
 
   private Character CurrentPlayer = null;
 
   private bool FirstAction = false;
   private bool AlreadyDetectEncount = false;
-  private bool AlreadyCallBattleEnemy = false;
+  private bool AlreadyDetectEncounted = false;
+  private int MarginTimeForCallBattle = 100;
   bool ignoreCreateShadow = false;
+
+  private bool arrowDown = false; // add unity
+  private bool arrowUp = false; // add unity
+  private bool arrowLeft = false; // add unity
+  private bool arrowRight = false; // add unity
+  private bool keyDown = false;
+  private bool keyUp = false;
+  private bool keyLeft = false;
+  private bool keyRight = false;
+  private int MOVE_INTERVAL = 50;
+  private int interval = 0;
+  private bool detectKeyUp = false; // ２階、技の部屋Ｃでキーを離した事を示すフラグ
+  private int MovementInterval = 0; // ダンジョンマップ全体を見ている時のインターバル
 
   // Start is called before the first frame update
   public override void Start()
@@ -231,6 +246,21 @@ public class DungeonField : MotherBase
     //One.TF.Field_Y = 1;
     //One.TF.Field_Z = 2;
     // debug
+
+    if (Application.platform == RuntimePlatform.Android ||
+    Application.platform == RuntimePlatform.IPhonePlayer)
+    {
+      MOVE_INTERVAL = 10;
+      //this.groupArrow.SetActive(true);
+    }
+    else
+    {
+      MOVE_INTERVAL = 40;
+      //this.groupArrow.SetActive(true);
+    }
+    this.interval = MOVE_INTERVAL;
+    this.MovementInterval = MOVE_INTERVAL;
+
 
     One.TF.SaveByDungeon = true;
 
@@ -475,10 +505,14 @@ public class DungeonField : MotherBase
 
     if (this.AlreadyDetectEncount)
     {
-      if (this.AlreadyCallBattleEnemy == false)
+      MarginTimeForCallBattle--;
+      if (MarginTimeForCallBattle <= 0)
       {
-        this.AlreadyCallBattleEnemy = true;
-        SceneDimension.CallBattleEnemy();
+        if (AlreadyDetectEncounted == false)
+        {
+          AlreadyDetectEncounted = true;
+          SceneDimension.CallBattleEnemy();
+        }
       }
       return;
     }
@@ -494,7 +528,7 @@ public class DungeonField : MotherBase
     if (EditMode)
     {
       txtCurrentCursor.text = SelectField.transform.position.ToString();
-      
+
       if (Input.GetMouseButtonDown(0))
       {
         Debug.Log("time-1: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
@@ -779,8 +813,34 @@ public class DungeonField : MotherBase
     {
       direction = Direction.Bottom;
     }
+    
+    if (Input.GetKey(KeyCode.Keypad8) || Input.GetKey(KeyCode.UpArrow) || this.arrowUp)
+    {
+      this.keyUp = true;
+      this.keyDown = false;
+      movementTimer_Tick();
+    }
+    else if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow) || this.arrowDown)
+    {
+      this.keyDown = true;
+      this.keyUp = false;
+      movementTimer_Tick();
+    }
+    if (Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.LeftArrow) || this.arrowLeft)
+    {
+      this.keyLeft = true;
+      this.keyRight = false;
+      movementTimer_Tick();
+    }
+    if (Input.GetKey(KeyCode.Keypad6) || Input.GetKey(KeyCode.RightArrow) || this.arrowRight)
+    {
+      this.keyRight = true;
+      this.keyLeft = false;
+      movementTimer_Tick();
+    }
 
-    // 移動直前、ブロックチェック前にオーランの塔で出現する空中板のの検出および対応。
+
+    #region "移動直前、ブロックチェック前にオーランの塔で出現する空中板のの検出および対応。"
     Vector3 nextLocation = new Vector3(-99999, -99999, -99999); // 初期(0,0,0)はあり得るので、あり得ない位置をまず設定
     if (direction == Direction.Right)
     {
@@ -794,7 +854,7 @@ public class DungeonField : MotherBase
     }
     if (direction == Direction.Top)
     {
-      nextLocation = new Vector3(this.Player.transform.position.x,  this.Player.transform.position.y - 1.0f,  this.Player.transform.position.z + 1.0f);
+      nextLocation = new Vector3(this.Player.transform.position.x, this.Player.transform.position.y - 1.0f, this.Player.transform.position.z + 1.0f);
       Debug.Log("nextLocation: " + nextLocation.ToString());
     }
     if (direction == Direction.Bottom)
@@ -861,7 +921,7 @@ public class DungeonField : MotherBase
         return;
       }
       num++;
-      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_8_X -11.0f, Fix.OHRANTOWER_FloatingTile_8_Y, Fix.OHRANTOWER_FloatingTile_8_Z))
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_8_X - 11.0f, Fix.OHRANTOWER_FloatingTile_8_Y, Fix.OHRANTOWER_FloatingTile_8_Z))
       {
         One.TF.FieldObject_OhranTower_00004 = false;
         MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
@@ -952,7 +1012,7 @@ public class DungeonField : MotherBase
         return;
       }
       num++;
-      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_11_X -45.0f, Fix.OHRANTOWER_FloatingTile_11_Y, Fix.OHRANTOWER_FloatingTile_11_Z))
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_11_X - 45.0f, Fix.OHRANTOWER_FloatingTile_11_Y, Fix.OHRANTOWER_FloatingTile_11_Z))
       {
         One.TF.FieldObject_OhranTower_00010 = false;
         MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
@@ -1042,7 +1102,7 @@ public class DungeonField : MotherBase
         return;
       }
       num++;
-      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_16_X, Fix.OHRANTOWER_FloatingTile_16_Y , Fix.OHRANTOWER_FloatingTile_16_Z - 7.0f))
+      if (LocationFieldDetect(beforeFloatingTile, Fix.OHRANTOWER_FloatingTile_16_X, Fix.OHRANTOWER_FloatingTile_16_Y, Fix.OHRANTOWER_FloatingTile_16_Z - 7.0f))
       {
         One.TF.FieldObject_OhranTower_00016 = false;
         MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num); TapOK();
@@ -1446,8 +1506,9 @@ public class DungeonField : MotherBase
       }
       num2++;
     }
+    #endregion
 
-    // ブロックチェック
+    #region "ブロックチェック"
     if (Input.GetKeyDown(KeyCode.RightArrow))
     {
       tile = SearchNextTile(this.Player.transform.position, Direction.Right);
@@ -1492,7 +1553,9 @@ public class DungeonField : MotherBase
 
       detectKey = true;
     }
+    #endregion
 
+    #region "カメラ移動"
     if (Input.GetKey(KeyCode.Alpha2))
     {
       MainCamera.transform.position = new Vector3(MainCamera.transform.position.x,
@@ -1559,706 +1622,11 @@ public class DungeonField : MotherBase
       Quaternion q = Quaternion.AngleAxis(1, Vector3.back);
       MainCamera.transform.rotation = MainCamera.transform.rotation * q;
     }
+    #endregion
 
     if (detectKey)
     {
-      // 移動直前、フィールドオブジェクトの検出および対応。
-      FieldObject fieldObjBefore = SearchObject(new Vector3(tile.transform.position.x,
-                                                            tile.transform.position.y + 1.0f,
-                                                            tile.transform.position.z));
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
-      {
-        MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-
-      // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
-      {
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
-        {
-          Debug.Log("fieldObjBefore: " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
-          if (LocationFieldDetect(fieldObjBefore, 0, 1, 0))
-          {
-            MessagePack.Message000020(ref QuestMessageList, ref QuestEventList); TapOK();
-          }
-          else if (LocationFieldDetect(fieldObjBefore, 12, 1, -4))
-          {
-            MessagePack.Message000030(ref QuestMessageList, ref QuestEventList); TapOK();
-          }
-          else if (LocationFieldDetect(fieldObjBefore, -9, 1, 11))
-          {
-            MessagePack.Message000040(ref QuestMessageList, ref QuestEventList); TapOK();
-          }
-          else if (LocationFieldDetect(fieldObjBefore, -5, 1, -3))
-          {
-            MessagePack.Message000050(ref QuestMessageList, ref QuestEventList); TapOK();
-          }
-          else if (LocationFieldDetect(fieldObjBefore, 7, 1, -3))
-          {
-            MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
-          }
-        }
-        else
-        {
-          MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
-        }
-        return;
-      }
-
-      // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Door_Copper)
-      {
-        if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_4_0_X, Fix.MAPEVENT_ARTHARIUM_4_0_Y, Fix.MAPEVENT_ARTHARIUM_4_0_Z))
-        {
-          MessagePack.Message300110(ref QuestMessageList, ref QuestEventList); TapOK();
-        }
-        else if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_5_X, Fix.MAPEVENT_ARTHARIUM_5_Y, Fix.MAPEVENT_ARTHARIUM_5_Z))
-        {
-          MessagePack.Message300120(ref QuestMessageList, ref QuestEventList); TapOK();
-        }
-        else if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Door_Copper_3_X, Fix.ARTHARIUM_Door_Copper_3_Y, Fix.ARTHARIUM_Door_Copper_3_Z))
-        {
-          MessagePack.Message300170(ref QuestMessageList, ref QuestEventList); TapOK();
-        }
-        return;
-      }
-
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.DhalGate_Door)
-      {
-        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_1_X, Fix.EVENT_GATEDHAL_1_Y, Fix.EVENT_GATEDHAL_1_Z))
-        {
-          MessagePack.Message1400010(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_2_X, Fix.EVENT_GATEDHAL_2_Y, Fix.EVENT_GATEDHAL_2_Z))
-        {
-          MessagePack.Message1400020(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-        if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_3_X, Fix.EVENT_GATEDHAL_3_Y, Fix.EVENT_GATEDHAL_3_Z))
-        {
-          MessagePack.Message1400030(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-      }
-
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
-      {
-        if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_1_X, Fix.ARTHARIUM_Crystal_1_Y, Fix.ARTHARIUM_Crystal_1_Z))
-        {
-          MessagePack.Message300130(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-      }
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
-      {
-        if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_2_X, Fix.ARTHARIUM_Crystal_2_Y, Fix.ARTHARIUM_Crystal_2_Z))
-        {
-          MessagePack.Message300160(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-      }
-
-      if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.ObsidianStone)
-      {
-        if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z))
-        {
-          MessagePack.Message300210(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
-        }
-      }
-
-      // 移動する。
-      JumpToLocation(new Vector3(tile.transform.position.x,
-                                 tile.transform.position.y + 1.0f,
-                                 tile.transform.position.z));
-
-      // UnknownTileを更新する。
-      UpdateUnknownTile(Player.transform.position);
-
-      One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
-
-      // 移動直後、フィールドオブジェクトの検出および対応。
-      FieldObject fieldObj = SearchObject(this.Player.transform.position);
-
-      if (fieldObj != null && fieldObj.content == FieldObject.Content.Treasure)
-      {
-        Vector3 location = fieldObj.transform.position;
-        int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
-
-        #region "サルンの洞窟前"
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
-        {
-          string treasureName = String.Empty;
-
-          Debug.Log("Detect fieldObj: " + location);
-          // 宝箱１
-          if (One.TF.Treasure_CaveOfSarun_00001 == false && location.x == Fix.CAVEOFSARUN_Treasure_1_X && location.y == Fix.CAVEOFSARUN_Treasure_1_Y && location.z == Fix.CAVEOFSARUN_Treasure_1_Z)
-          {
-            treasureName = Fix.FINE_CROSS;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00002 == false && location.x == Fix.CAVEOFSARUN_Treasure_2_X && location.y == Fix.CAVEOFSARUN_Treasure_2_Y && location.z == Fix.CAVEOFSARUN_Treasure_2_Z)
-          {
-            treasureName = Fix.SMALL_BLUE_POTION;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00003 == false && location.x == Fix.CAVEOFSARUN_Treasure_3_X && location.y == Fix.CAVEOFSARUN_Treasure_3_Y && location.z == Fix.CAVEOFSARUN_Treasure_3_Z)
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00004 == false && location.x == Fix.CAVEOFSARUN_Treasure_4_X && location.y == Fix.CAVEOFSARUN_Treasure_4_Y && location.z == Fix.CAVEOFSARUN_Treasure_4_Z)
-          {
-            treasureName = Fix.COMPACT_EARRING;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00005 == false && location.x == Fix.CAVEOFSARUN_Treasure_5_X && location.y == Fix.CAVEOFSARUN_Treasure_5_Y && location.z == Fix.CAVEOFSARUN_Treasure_5_Z)
-          {
-            treasureName = Fix.FLAT_SHOES;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00006 == false && location.x == Fix.CAVEOFSARUN_Treasure_6_X && location.y == Fix.CAVEOFSARUN_Treasure_6_Y && location.z == Fix.CAVEOFSARUN_Treasure_6_Z)
-          {
-            treasureName = Fix.FINE_SHIELD;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00007 == false && location.x == Fix.CAVEOFSARUN_Treasure_7_X && location.y == Fix.CAVEOFSARUN_Treasure_7_Y && location.z == Fix.CAVEOFSARUN_Treasure_7_Z)
-          {
-            treasureName = Fix.SURVIVAL_CLAW;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00008 == false && location.x == Fix.CAVEOFSARUN_Treasure_8_X && location.y == Fix.CAVEOFSARUN_Treasure_8_Y && location.z == Fix.CAVEOFSARUN_Treasure_8_Z)
-          {
-            treasureName = Fix.GREEN_PENDANT;
-          }
-          if (One.TF.Treasure_CaveOfSarun_00009 == false && location.x == Fix.CAVEOFSARUN_Treasure_9_X && location.y == Fix.CAVEOFSARUN_Treasure_9_Y && location.z == Fix.CAVEOFSARUN_Treasure_9_Z)
-          {
-            treasureName = Fix.FINE_SWORD;
-          }
-
-          if (treasureName == String.Empty)
-          {
-            // 何もしない
-          }
-          else
-          {
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
-          }
-        }
-        #endregion
-        #region "アーサリウム工場跡地"
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
-        {
-          string treasureName = String.Empty;
-
-          Debug.Log("Detect fieldObj: " + location);
-          // 宝箱１
-          if (One.TF.Treasure_Artharium_00001 == false && location.x == Fix.ARTHARIUM_Treasure_2_X && location.y == Fix.ARTHARIUM_Treasure_2_Y && location.z == Fix.ARTHARIUM_Treasure_2_Z)
-          {
-            treasureName = Fix.FINE_SWORD;
-          }
-          // 宝箱２
-          if (One.TF.Treasure_Artharium_00002 == false && location.x == Fix.ARTHARIUM_Treasure_8_X && location.y == Fix.ARTHARIUM_Treasure_8_Y && location.z == Fix.ARTHARIUM_Treasure_8_Z)
-          {
-            treasureName = Fix.FINE_LANCE;
-          }
-          // 宝箱３
-          if (One.TF.Treasure_Artharium_00003 == false && location.x == Fix.ARTHARIUM_Treasure_9_X && location.y == Fix.ARTHARIUM_Treasure_9_Y && location.z == Fix.ARTHARIUM_Treasure_9_Z)
-          {
-            treasureName = Fix.FINE_ARMOR;
-          }
-          // 宝箱４
-          if (One.TF.Treasure_Artharium_00004 == false && location.x == Fix.ARTHARIUM_Treasure_10_X && location.y == Fix.ARTHARIUM_Treasure_10_Y && location.z == Fix.ARTHARIUM_Treasure_10_Z)
-          {
-            treasureName = Fix.FINE_CLAW;
-          }
-          // 宝箱５
-          if (One.TF.Treasure_Artharium_00005 == false && location.x == Fix.ARTHARIUM_Treasure_11_X && location.y == Fix.ARTHARIUM_Treasure_11_Y && location.z == Fix.ARTHARIUM_Treasure_11_Z)
-          {
-            treasureName = Fix.BLUE_PENDANT;
-          }
-          // 宝箱６
-          if (One.TF.Treasure_Artharium_00006 == false && location.x == Fix.ARTHARIUM_Treasure_12_X && location.y == Fix.ARTHARIUM_Treasure_12_Y && location.z == Fix.ARTHARIUM_Treasure_12_Z)
-          {
-            treasureName = Fix.YELLOW_PENDANT;
-          }
-          // 宝箱７
-          if (One.TF.Treasure_Artharium_00007 == false && location.x == Fix.ARTHARIUM_Treasure_13_X && location.y == Fix.ARTHARIUM_Treasure_13_Y && location.z == Fix.ARTHARIUM_Treasure_13_Z)
-          {
-            treasureName = Fix.GREEN_PENDANT;
-          }
-          // 宝箱８
-          if (One.TF.Treasure_Artharium_00008 == false && location.x == Fix.ARTHARIUM_Treasure_14_X && location.y == Fix.ARTHARIUM_Treasure_14_Y && location.z == Fix.ARTHARIUM_Treasure_14_Z)
-          {
-            treasureName = Fix.PURPLE_PENDANT;
-          }
-          // 宝箱９
-          if (One.TF.Treasure_Artharium_00009 == false && location.x == Fix.ARTHARIUM_Treasure_3_X && location.y == Fix.ARTHARIUM_Treasure_3_Y && location.z == Fix.ARTHARIUM_Treasure_3_Z)
-          {
-            treasureName = Fix.FINE_BOW;
-          }
-          // 宝箱１０
-          if (One.TF.Treasure_Artharium_00010 == false && location.x == Fix.ARTHARIUM_Treasure_15_X && location.y == Fix.ARTHARIUM_Treasure_15_Y && location.z == Fix.ARTHARIUM_Treasure_15_Z)
-          {
-            treasureName = Fix.SURVIVAL_CLAW;
-          }
-          // 宝箱１１
-          if (One.TF.Treasure_Artharium_00011 == false && location.x == Fix.ARTHARIUM_Treasure_16_X && location.y == Fix.ARTHARIUM_Treasure_16_Y && location.z == Fix.ARTHARIUM_Treasure_16_Z)
-          {
-            treasureName = Fix.BRONZE_SWORD;
-          }
-          // 宝箱１２
-          if (One.TF.Treasure_Artharium_00012 == false && location.x == Fix.ARTHARIUM_Treasure_17_X && location.y == Fix.ARTHARIUM_Treasure_17_Y && location.z == Fix.ARTHARIUM_Treasure_17_Z)
-          {
-            treasureName = Fix.SHARP_LANCE;
-          }
-          // 宝箱１３
-          if (One.TF.Treasure_Artharium_00013 == false && location.x == Fix.ARTHARIUM_Treasure_18_X && location.y == Fix.ARTHARIUM_Treasure_18_Y && location.z == Fix.ARTHARIUM_Treasure_18_Z)
-          {
-            treasureName = Fix.VIKING_AXE;
-          }
-          // 宝箱１４
-          if (One.TF.Treasure_Artharium_00014 == false && location.x == Fix.ARTHARIUM_Treasure_19_X && location.y == Fix.ARTHARIUM_Treasure_19_Y && location.z == Fix.ARTHARIUM_Treasure_19_Z)
-          {
-            treasureName = Fix.ENERGY_ORB;
-          }
-          // 宝箱１５
-          if (One.TF.Treasure_Artharium_00015 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_20_X, Fix.ARTHARIUM_Treasure_20_Y, Fix.ARTHARIUM_Treasure_20_Z))
-          {
-            treasureName = Fix.WOOD_ROD;
-          }
-          // 宝箱１６
-          if (One.TF.Treasure_Artharium_00016 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_21_X, Fix.ARTHARIUM_Treasure_21_Y, Fix.ARTHARIUM_Treasure_21_Z))
-          {
-            treasureName = Fix.KINDNESS_BOOK;
-          }
-          // 宝箱１７
-          if (One.TF.Treasure_Artharium_00017 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_22_X, Fix.ARTHARIUM_Treasure_22_Y, Fix.ARTHARIUM_Treasure_22_Z))
-          {
-            treasureName = Fix.ELVISH_BOW;
-          }
-          // 宝箱１８
-          if (One.TF.Treasure_Artharium_00018 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_23_X, Fix.ARTHARIUM_Treasure_23_Y, Fix.ARTHARIUM_Treasure_23_Z))
-          {
-            treasureName = Fix.KITE_SHIELD;
-          }
-          // 宝箱１９
-          if (One.TF.Treasure_Artharium_00019 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
-          {
-            treasureName = Fix.COMPACT_EARRING;
-          }
-          // 宝箱２０
-          if (One.TF.Treasure_Artharium_00020 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
-          {
-            treasureName = Fix.BLUE_WIZARD_HAT;
-          }
-          // 宝箱２１
-          if (One.TF.Treasure_Artharium_00021 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
-          {
-            treasureName = Fix.CHERRY_CHOKER;
-          }
-          // 宝箱２２
-          if (One.TF.Treasure_Artharium_00022 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
-          {
-            treasureName = Fix.ARTHARIUM_KEY;
-          }
-          // 宝箱２３
-          if (One.TF.Treasure_Artharium_00023 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
-          {
-            treasureName = Fix.PURPLE_PENDANT;
-          }
-          // 宝箱２４
-          if (One.TF.Treasure_Artharium_00024 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
-          {
-            treasureName = Fix.YELLOW_PENDANT;
-          }
-          // 宝箱２５
-          if (One.TF.Treasure_Artharium_00025 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
-          {
-            treasureName = Fix.FLAME_HAND_KEEPER;
-          }
-
-          if (treasureName == String.Empty)
-          {
-            // 何もしない
-          }
-          else
-          {
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
-          }
-          return;
-        }
-        #endregion
-        #region "オーランの塔"
-        // オーランの塔
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
-        {
-          string treasureName = String.Empty;
-          // 宝箱１
-          if (One.TF.Treasure_OhranTower_00001 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
-          {
-            treasureName = Fix.RED_PENDANT;
-          }
-          // 宝箱２
-          if (One.TF.Treasure_OhranTower_00002 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
-          {
-            treasureName = Fix.BLUE_PENDANT;
-          }
-          // 宝箱３
-          if (One.TF.Treasure_OhranTower_00003 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
-          {
-            treasureName = Fix.YELLOW_PENDANT;
-          }
-          // 宝箱４
-          if (One.TF.Treasure_OhranTower_00004 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
-          {
-            treasureName = Fix.GREEN_PENDANT;
-          }
-          // 宝箱５
-          if (One.TF.Treasure_OhranTower_00005 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
-          {
-            treasureName = Fix.SWORD_OF_LIFE;
-          }
-          // 宝箱６
-          if (One.TF.Treasure_OhranTower_00006 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
-          {
-            treasureName = Fix.EARTH_POWER_AXE;
-          }
-          // 宝箱７
-          if (One.TF.Treasure_OhranTower_00007== false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
-          {
-            treasureName = Fix.FROST_LANCE;
-          }
-          // 宝箱８
-          if (One.TF.Treasure_OhranTower_00008 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
-          {
-            treasureName = Fix.TOUGH_TREE_ROD;
-          }
-          // 宝箱９
-          if (One.TF.Treasure_OhranTower_00009 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
-          {
-            treasureName = Fix.LIVING_GROWTH_ORB;
-          }
-          // 宝箱１０
-          if (One.TF.Treasure_OhranTower_00010 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
-          {
-            treasureName = Fix.MUIN_BOOK;
-          }
-          // 宝箱１１
-          if (One.TF.Treasure_OhranTower_00011 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
-          {
-            treasureName = Fix.ICICLE_LONGBOW;
-          }
-          // 宝箱１２
-          if (One.TF.Treasure_OhranTower_00012 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
-          {
-            treasureName = Fix.KITE_SHIELD;
-          }
-          // 宝箱１３
-          if (One.TF.Treasure_OhranTower_00013 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
-          {
-            treasureName = Fix.FINE_ARMOR;
-          }
-          // 宝箱１４
-          if (One.TF.Treasure_OhranTower_00014 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
-          {
-            treasureName = Fix.FINE_CROSS;
-          }
-          // 宝箱１５
-          if (One.TF.Treasure_OhranTower_00015 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
-          {
-            treasureName = Fix.FINE_ROBE;
-          }
-          // 宝箱１６
-          if (One.TF.Treasure_OhranTower_00016 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
-          {
-            treasureName = Fix.FLAT_SHOES;
-          }
-          // 宝箱１７
-          if (One.TF.Treasure_OhranTower_00017 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
-          {
-            treasureName = Fix.COMPACT_EARRING;
-          }
-          // 宝箱１８
-          if (One.TF.Treasure_OhranTower_00018 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
-          {
-            treasureName = Fix.POWER_BANDANA;
-          }
-          // 宝箱１９
-          if (One.TF.Treasure_OhranTower_00019 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
-          {
-            treasureName = Fix.CHERRY_CHOKER;
-          }
-          // 宝箱２０
-          if (One.TF.Treasure_OhranTower_00020 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
-          {
-            treasureName = Fix.BLUE_WIZARD_HAT;
-          }
-          // 宝箱２１
-          if (One.TF.Treasure_OhranTower_00021 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
-          {
-            treasureName = Fix.FLAME_HAND_KEEPER;
-          }
-          // 宝箱２２
-          if (One.TF.Treasure_OhranTower_00022 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
-          {
-            treasureName = Fix.MUMYOU_BOW;
-          }
-          // 宝箱２３
-          if (One.TF.Treasure_OhranTower_00023 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-
-          if (treasureName == String.Empty)
-          {
-            // 何もしない
-          }
-          else
-          {
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
-          }
-          return;
-        }
-        #endregion
-        #region "ダルの門"
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
-        {
-          string treasureName = String.Empty;
-          if (One.TF.Treasure_GateDhal_00001 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
-          {
-            treasureName = Fix.RED_PENDANT;
-          }
-          if (One.TF.Treasure_GateDhal_00002 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
-          {
-            treasureName = Fix.BLUE_PENDANT;
-          }
-          if (One.TF.Treasure_GateDhal_00003 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
-          {
-            treasureName = Fix.YELLOW_PENDANT;
-          }
-          if (One.TF.Treasure_GateDhal_00004 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
-          {
-            treasureName = Fix.GREEN_PENDANT;
-          }
-          if (One.TF.Treasure_GateDhal_00005 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
-          {
-            treasureName = Fix.SWORD_OF_LIFE;
-          }
-          if (One.TF.Treasure_GateDhal_00006 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
-          {
-            treasureName = Fix.EARTH_POWER_AXE;
-          }
-          if (One.TF.Treasure_GateDhal_00007 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
-          {
-            treasureName = Fix.FROST_LANCE;
-          }
-          if (One.TF.Treasure_GateDhal_00008 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
-          {
-            treasureName = Fix.TOUGH_TREE_ROD;
-          }
-          if (One.TF.Treasure_GateDhal_00009 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
-          {
-            treasureName = Fix.LIVING_GROWTH_ORB;
-          }
-          if (One.TF.Treasure_GateDhal_00010 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
-          {
-            treasureName = Fix.MUIN_BOOK;
-          }
-          if (One.TF.Treasure_GateDhal_00011 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
-          {
-            treasureName = Fix.ICICLE_LONGBOW;
-          }
-          if (One.TF.Treasure_GateDhal_00012 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
-          {
-            treasureName = Fix.KITE_SHIELD;
-          }
-          if (One.TF.Treasure_GateDhal_00013 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
-          {
-            treasureName = Fix.FINE_ARMOR;
-          }
-          if (One.TF.Treasure_GateDhal_00014 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
-          {
-            treasureName = Fix.FINE_CROSS;
-          }
-          if (One.TF.Treasure_GateDhal_00015 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
-          {
-            treasureName = Fix.FINE_ROBE;
-          }
-          if (One.TF.Treasure_GateDhal_00016 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
-          {
-            treasureName = Fix.FLAT_SHOES;
-          }
-          if (One.TF.Treasure_GateDhal_00017 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
-          {
-            treasureName = Fix.COMPACT_EARRING;
-          }
-          if (One.TF.Treasure_GateDhal_00018 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
-          {
-            treasureName = Fix.POWER_BANDANA;
-          }
-          if (One.TF.Treasure_GateDhal_00019 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
-          {
-            treasureName = Fix.CHERRY_CHOKER;
-          }
-          if (One.TF.Treasure_GateDhal_00020 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
-          {
-            treasureName = Fix.BLUE_WIZARD_HAT;
-          }
-          if (One.TF.Treasure_GateDhal_00021 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
-          {
-            treasureName = Fix.FLAME_HAND_KEEPER;
-          }
-          if (One.TF.Treasure_GateDhal_00022 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
-          {
-            treasureName = Fix.MUMYOU_BOW;
-          }
-          if (One.TF.Treasure_GateDhal_00023 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00025 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00026 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00027 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00028 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00029 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00030 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00031 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00032 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00033 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00034 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00035 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00036 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00037 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00038 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00039 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00040 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00041 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00042 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00043 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00044 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00045 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00046 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00047 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00048 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00049 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00050 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-          if (One.TF.Treasure_GateDhal_00051 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
-          {
-            treasureName = Fix.SMALL_RED_POTION;
-          }
-
-          if (treasureName == String.Empty)
-          {
-            // 何もしない
-          }
-          else
-          {
-            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
-          }
-          return;
-        }
-        #endregion
-      }
-
-      // 各種イベント発生チェック。イベント発生時は下記の敵遭遇エンカウントには到達させない。
-      bool detectEvent = DetectEvent(tile);
-      if (detectEvent) { return; }
-
-      // フィールドダメージ
-      DetectDamage(tile);
-      bool result = JudgePartyDead();
-      if (result)
-      {
-        this.GameOver = true;
-        txtGameOver.text = "ダンジョン攻略に失敗しました・・・最後に出たホームタウンへ帰還します。";
-        panelGameOver.SetActive(true);
-        return;
-      }
-
-      // 敵遭遇エンカウント
-      DetectEncount();
+      UpdatePlayersKeyEvents(direction, tile);
     }
   }
 
@@ -2274,6 +1642,7 @@ public class DungeonField : MotherBase
   {
     ClearAllMapTile();
     One.TF.CurrentDungeonField = "MapData_" + txtMap.text + ".txt";
+    UpdateDebugMessage("MapData_" + txtMap.text + ".txt");
     // タイルを設置
     LoadTileMapping(One.TF.CurrentDungeonField);
 
@@ -2482,7 +1851,7 @@ public class DungeonField : MotherBase
       int result = (int)healValue;
       Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
       target.CurrentLife += result;
-      
+
       objCancelActionCommand.SetActive(false);
       ParentBackpackView.objBlockFilter.SetActive(false);
       SetupStayList();
@@ -2576,7 +1945,7 @@ public class DungeonField : MotherBase
       Debug.Log("PlayerList name: " + PlayerList[ii].FullName);
       StayListName[ii].text = PlayerList[ii].FullName;
       StayListLife[ii].text = PlayerList[ii].CurrentLife.ToString() + " / " + PlayerList[ii].MaxLife.ToString();
-      if (StayListLifeGauge[ii] != null) 
+      if (StayListLifeGauge[ii] != null)
       {
         float dx = (float)PlayerList[ii].CurrentLife / (float)PlayerList[ii].MaxLife;
         StayListLifeGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
@@ -2930,7 +2299,7 @@ public class DungeonField : MotherBase
   public void TapBattleConfig()
   {
   }
-  
+
   public void TapMapData()
   {
     SaveTileMapping(One.TF.CurrentDungeonField);
@@ -3141,7 +2510,7 @@ public class DungeonField : MotherBase
     One.SaveAndExit = false;
     this.groupSaveLoad.SceneLoading();
     this.groupSaveLoad.gameObject.SetActive(true);
-//    SceneDimension.CallSaveLoad(this, true, false);
+    //    SceneDimension.CallSaveLoad(this, true, false);
   }
 
   public void TapLoad()
@@ -3152,7 +2521,7 @@ public class DungeonField : MotherBase
     One.Parent.Add(this);
     this.groupSaveLoad.SceneLoading();
     this.groupSaveLoad.gameObject.SetActive(true);
-//    SceneDimension.CallSaveLoad(this, false, false);
+    //    SceneDimension.CallSaveLoad(this, false, false);
   }
 
   public void TapBacktoTown()
@@ -3175,9 +2544,906 @@ public class DungeonField : MotherBase
 
   }
 
+  public void PointerDownArrowTop()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowUp = true;
+    this.arrowDown = false;
+  }
+  public void PointerDownArrowBottom()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowUp = false;
+    this.arrowDown = true;
+  }
+  public void PointerDownArrowLeft()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowLeft = true;
+    this.arrowRight = false;
+  }
+  public void PointerDownArrowRight()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    this.arrowLeft = false;
+    this.arrowRight = true;
+  }
+  public void PointerUpArrow()
+  {
+    UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
+    detectKeyUp = true;
+    CancelKeyDownMovement();
+  }
+
+  public void CancelKeyDownMovement()
+  {
+    this.arrowUp = false;
+    this.arrowDown = false;
+    this.arrowLeft = false;
+    this.arrowRight = false;
+    this.keyUp = false;
+    this.keyDown = false;
+    this.keyLeft = false;
+    this.keyRight = false;
+    this.interval = MOVE_INTERVAL;
+  }
+
+  private void movementTimer_Tick()
+  {
+    if (this.interval < this.MovementInterval) { this.interval++; return; }
+    else { this.interval = 0; }
+
+    TileInformation tile = null;
+    if (this.keyUp)
+    {
+      tile = SearchNextTile(this.Player.transform.position, Direction.Top);
+      if (BlockCheck(Player, tile) == false)
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
+      UpdatePlayersKeyEvents(Direction.Top, tile);
+    }
+    else if (this.keyRight)
+    {
+      tile = SearchNextTile(this.Player.transform.position, Direction.Right);
+      if (BlockCheck(Player, tile) == false)
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
+      UpdatePlayersKeyEvents(Direction.Right, tile);
+    }
+    else if (this.keyDown)
+    {
+      tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
+      if (BlockCheck(Player, tile) == false)
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
+      UpdatePlayersKeyEvents(Direction.Bottom, tile);
+    }
+    else if (this.keyLeft)
+    {
+      tile = SearchNextTile(this.Player.transform.position, Direction.Left);
+      if (BlockCheck(Player, tile) == false)
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
+      UpdatePlayersKeyEvents(Direction.Left, tile);
+    }
+  }
+
+  private void UpdatePlayersKeyEvents(Direction direction, TileInformation tile)
+  {
+
+    // 移動直前、フィールドオブジェクトの検出および対応。
+    FieldObject fieldObjBefore = SearchObject(new Vector3(tile.transform.position.x,
+                                                          tile.transform.position.y + 1.0f,
+                                                          tile.transform.position.z));
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
+    {
+      MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
+    // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
+    {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+      {
+        Debug.Log("fieldObjBefore: " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
+        if (LocationFieldDetect(fieldObjBefore, 0, 1, 0))
+        {
+          MessagePack.Message000020(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else if (LocationFieldDetect(fieldObjBefore, 12, 1, -4))
+        {
+          MessagePack.Message000030(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else if (LocationFieldDetect(fieldObjBefore, -9, 1, 11))
+        {
+          MessagePack.Message000040(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else if (LocationFieldDetect(fieldObjBefore, -5, 1, -3))
+        {
+          MessagePack.Message000050(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else if (LocationFieldDetect(fieldObjBefore, 7, 1, -3))
+        {
+          MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
+      else
+      {
+        MessagePack.Message300100(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      return;
+    }
+
+    // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Door_Copper)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_4_0_X, Fix.MAPEVENT_ARTHARIUM_4_0_Y, Fix.MAPEVENT_ARTHARIUM_4_0_Z))
+      {
+        MessagePack.Message300110(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      else if (LocationFieldDetect(fieldObjBefore, Fix.MAPEVENT_ARTHARIUM_5_X, Fix.MAPEVENT_ARTHARIUM_5_Y, Fix.MAPEVENT_ARTHARIUM_5_Z))
+      {
+        MessagePack.Message300120(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      else if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Door_Copper_3_X, Fix.ARTHARIUM_Door_Copper_3_Y, Fix.ARTHARIUM_Door_Copper_3_Z))
+      {
+        MessagePack.Message300170(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      return;
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.DhalGate_Door)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_1_X, Fix.EVENT_GATEDHAL_1_Y, Fix.EVENT_GATEDHAL_1_Z))
+      {
+        MessagePack.Message1400010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_2_X, Fix.EVENT_GATEDHAL_2_Y, Fix.EVENT_GATEDHAL_2_Z))
+      {
+        MessagePack.Message1400020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(fieldObjBefore, Fix.EVENT_GATEDHAL_3_X, Fix.EVENT_GATEDHAL_3_Y, Fix.EVENT_GATEDHAL_3_Z))
+      {
+        MessagePack.Message1400030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_1_X, Fix.ARTHARIUM_Crystal_1_Y, Fix.ARTHARIUM_Crystal_1_Z))
+      {
+        MessagePack.Message300130(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Crystal)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_Crystal_2_X, Fix.ARTHARIUM_Crystal_2_Y, Fix.ARTHARIUM_Crystal_2_Z))
+      {
+        MessagePack.Message300160(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.ObsidianStone)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z))
+      {
+        MessagePack.Message300210(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
+    // 移動する。
+    JumpToLocation(new Vector3(tile.transform.position.x,
+                               tile.transform.position.y + 1.0f,
+                               tile.transform.position.z));
+
+    // UnknownTileを更新する。
+    UpdateUnknownTile(Player.transform.position);
+
+    One.PlaySoundEffect(Fix.SOUND_FOOT_STEP);
+
+    // 移動直後、フィールドオブジェクトの検出および対応。
+    FieldObject fieldObj = SearchObject(this.Player.transform.position);
+
+    if (fieldObj != null && fieldObj.content == FieldObject.Content.Treasure)
+    {
+      Vector3 location = fieldObj.transform.position;
+      int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+
+      #region "サルンの洞窟前"
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+      {
+        string treasureName = String.Empty;
+
+        Debug.Log("Detect fieldObj: " + location);
+        // 宝箱１
+        if (One.TF.Treasure_CaveOfSarun_00001 == false && location.x == Fix.CAVEOFSARUN_Treasure_1_X && location.y == Fix.CAVEOFSARUN_Treasure_1_Y && location.z == Fix.CAVEOFSARUN_Treasure_1_Z)
+        {
+          treasureName = Fix.FINE_CROSS;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00002 == false && location.x == Fix.CAVEOFSARUN_Treasure_2_X && location.y == Fix.CAVEOFSARUN_Treasure_2_Y && location.z == Fix.CAVEOFSARUN_Treasure_2_Z)
+        {
+          treasureName = Fix.SMALL_BLUE_POTION;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00003 == false && location.x == Fix.CAVEOFSARUN_Treasure_3_X && location.y == Fix.CAVEOFSARUN_Treasure_3_Y && location.z == Fix.CAVEOFSARUN_Treasure_3_Z)
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00004 == false && location.x == Fix.CAVEOFSARUN_Treasure_4_X && location.y == Fix.CAVEOFSARUN_Treasure_4_Y && location.z == Fix.CAVEOFSARUN_Treasure_4_Z)
+        {
+          treasureName = Fix.COMPACT_EARRING;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00005 == false && location.x == Fix.CAVEOFSARUN_Treasure_5_X && location.y == Fix.CAVEOFSARUN_Treasure_5_Y && location.z == Fix.CAVEOFSARUN_Treasure_5_Z)
+        {
+          treasureName = Fix.FLAT_SHOES;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00006 == false && location.x == Fix.CAVEOFSARUN_Treasure_6_X && location.y == Fix.CAVEOFSARUN_Treasure_6_Y && location.z == Fix.CAVEOFSARUN_Treasure_6_Z)
+        {
+          treasureName = Fix.FINE_SHIELD;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00007 == false && location.x == Fix.CAVEOFSARUN_Treasure_7_X && location.y == Fix.CAVEOFSARUN_Treasure_7_Y && location.z == Fix.CAVEOFSARUN_Treasure_7_Z)
+        {
+          treasureName = Fix.SURVIVAL_CLAW;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00008 == false && location.x == Fix.CAVEOFSARUN_Treasure_8_X && location.y == Fix.CAVEOFSARUN_Treasure_8_Y && location.z == Fix.CAVEOFSARUN_Treasure_8_Z)
+        {
+          treasureName = Fix.GREEN_PENDANT;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00009 == false && location.x == Fix.CAVEOFSARUN_Treasure_9_X && location.y == Fix.CAVEOFSARUN_Treasure_9_Y && location.z == Fix.CAVEOFSARUN_Treasure_9_Z)
+        {
+          treasureName = Fix.FINE_SWORD;
+        }
+
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+      }
+      #endregion
+      #region "アーサリウム工場跡地"
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
+      {
+        string treasureName = String.Empty;
+
+        Debug.Log("Detect fieldObj: " + location);
+        // 宝箱１
+        if (One.TF.Treasure_Artharium_00001 == false && location.x == Fix.ARTHARIUM_Treasure_2_X && location.y == Fix.ARTHARIUM_Treasure_2_Y && location.z == Fix.ARTHARIUM_Treasure_2_Z)
+        {
+          treasureName = Fix.FINE_SWORD;
+        }
+        // 宝箱２
+        if (One.TF.Treasure_Artharium_00002 == false && location.x == Fix.ARTHARIUM_Treasure_8_X && location.y == Fix.ARTHARIUM_Treasure_8_Y && location.z == Fix.ARTHARIUM_Treasure_8_Z)
+        {
+          treasureName = Fix.FINE_LANCE;
+        }
+        // 宝箱３
+        if (One.TF.Treasure_Artharium_00003 == false && location.x == Fix.ARTHARIUM_Treasure_9_X && location.y == Fix.ARTHARIUM_Treasure_9_Y && location.z == Fix.ARTHARIUM_Treasure_9_Z)
+        {
+          treasureName = Fix.FINE_ARMOR;
+        }
+        // 宝箱４
+        if (One.TF.Treasure_Artharium_00004 == false && location.x == Fix.ARTHARIUM_Treasure_10_X && location.y == Fix.ARTHARIUM_Treasure_10_Y && location.z == Fix.ARTHARIUM_Treasure_10_Z)
+        {
+          treasureName = Fix.FINE_CLAW;
+        }
+        // 宝箱５
+        if (One.TF.Treasure_Artharium_00005 == false && location.x == Fix.ARTHARIUM_Treasure_11_X && location.y == Fix.ARTHARIUM_Treasure_11_Y && location.z == Fix.ARTHARIUM_Treasure_11_Z)
+        {
+          treasureName = Fix.BLUE_PENDANT;
+        }
+        // 宝箱６
+        if (One.TF.Treasure_Artharium_00006 == false && location.x == Fix.ARTHARIUM_Treasure_12_X && location.y == Fix.ARTHARIUM_Treasure_12_Y && location.z == Fix.ARTHARIUM_Treasure_12_Z)
+        {
+          treasureName = Fix.YELLOW_PENDANT;
+        }
+        // 宝箱７
+        if (One.TF.Treasure_Artharium_00007 == false && location.x == Fix.ARTHARIUM_Treasure_13_X && location.y == Fix.ARTHARIUM_Treasure_13_Y && location.z == Fix.ARTHARIUM_Treasure_13_Z)
+        {
+          treasureName = Fix.GREEN_PENDANT;
+        }
+        // 宝箱８
+        if (One.TF.Treasure_Artharium_00008 == false && location.x == Fix.ARTHARIUM_Treasure_14_X && location.y == Fix.ARTHARIUM_Treasure_14_Y && location.z == Fix.ARTHARIUM_Treasure_14_Z)
+        {
+          treasureName = Fix.PURPLE_PENDANT;
+        }
+        // 宝箱９
+        if (One.TF.Treasure_Artharium_00009 == false && location.x == Fix.ARTHARIUM_Treasure_3_X && location.y == Fix.ARTHARIUM_Treasure_3_Y && location.z == Fix.ARTHARIUM_Treasure_3_Z)
+        {
+          treasureName = Fix.FINE_BOW;
+        }
+        // 宝箱１０
+        if (One.TF.Treasure_Artharium_00010 == false && location.x == Fix.ARTHARIUM_Treasure_15_X && location.y == Fix.ARTHARIUM_Treasure_15_Y && location.z == Fix.ARTHARIUM_Treasure_15_Z)
+        {
+          treasureName = Fix.SURVIVAL_CLAW;
+        }
+        // 宝箱１１
+        if (One.TF.Treasure_Artharium_00011 == false && location.x == Fix.ARTHARIUM_Treasure_16_X && location.y == Fix.ARTHARIUM_Treasure_16_Y && location.z == Fix.ARTHARIUM_Treasure_16_Z)
+        {
+          treasureName = Fix.BRONZE_SWORD;
+        }
+        // 宝箱１２
+        if (One.TF.Treasure_Artharium_00012 == false && location.x == Fix.ARTHARIUM_Treasure_17_X && location.y == Fix.ARTHARIUM_Treasure_17_Y && location.z == Fix.ARTHARIUM_Treasure_17_Z)
+        {
+          treasureName = Fix.SHARP_LANCE;
+        }
+        // 宝箱１３
+        if (One.TF.Treasure_Artharium_00013 == false && location.x == Fix.ARTHARIUM_Treasure_18_X && location.y == Fix.ARTHARIUM_Treasure_18_Y && location.z == Fix.ARTHARIUM_Treasure_18_Z)
+        {
+          treasureName = Fix.VIKING_AXE;
+        }
+        // 宝箱１４
+        if (One.TF.Treasure_Artharium_00014 == false && location.x == Fix.ARTHARIUM_Treasure_19_X && location.y == Fix.ARTHARIUM_Treasure_19_Y && location.z == Fix.ARTHARIUM_Treasure_19_Z)
+        {
+          treasureName = Fix.ENERGY_ORB;
+        }
+        // 宝箱１５
+        if (One.TF.Treasure_Artharium_00015 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_20_X, Fix.ARTHARIUM_Treasure_20_Y, Fix.ARTHARIUM_Treasure_20_Z))
+        {
+          treasureName = Fix.WOOD_ROD;
+        }
+        // 宝箱１６
+        if (One.TF.Treasure_Artharium_00016 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_21_X, Fix.ARTHARIUM_Treasure_21_Y, Fix.ARTHARIUM_Treasure_21_Z))
+        {
+          treasureName = Fix.KINDNESS_BOOK;
+        }
+        // 宝箱１７
+        if (One.TF.Treasure_Artharium_00017 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_22_X, Fix.ARTHARIUM_Treasure_22_Y, Fix.ARTHARIUM_Treasure_22_Z))
+        {
+          treasureName = Fix.ELVISH_BOW;
+        }
+        // 宝箱１８
+        if (One.TF.Treasure_Artharium_00018 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_23_X, Fix.ARTHARIUM_Treasure_23_Y, Fix.ARTHARIUM_Treasure_23_Z))
+        {
+          treasureName = Fix.KITE_SHIELD;
+        }
+        // 宝箱１９
+        if (One.TF.Treasure_Artharium_00019 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_24_X, Fix.ARTHARIUM_Treasure_24_Y, Fix.ARTHARIUM_Treasure_24_Z))
+        {
+          treasureName = Fix.COMPACT_EARRING;
+        }
+        // 宝箱２０
+        if (One.TF.Treasure_Artharium_00020 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_25_X, Fix.ARTHARIUM_Treasure_25_Y, Fix.ARTHARIUM_Treasure_25_Z))
+        {
+          treasureName = Fix.BLUE_WIZARD_HAT;
+        }
+        // 宝箱２１
+        if (One.TF.Treasure_Artharium_00021 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_26_X, Fix.ARTHARIUM_Treasure_26_Y, Fix.ARTHARIUM_Treasure_26_Z))
+        {
+          treasureName = Fix.CHERRY_CHOKER;
+        }
+        // 宝箱２２
+        if (One.TF.Treasure_Artharium_00022 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_27_X, Fix.ARTHARIUM_Treasure_27_Y, Fix.ARTHARIUM_Treasure_27_Z))
+        {
+          treasureName = Fix.ARTHARIUM_KEY;
+        }
+        // 宝箱２３
+        if (One.TF.Treasure_Artharium_00023 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_6_X, Fix.ARTHARIUM_Treasure_6_Y, Fix.ARTHARIUM_Treasure_6_Z))
+        {
+          treasureName = Fix.PURPLE_PENDANT;
+        }
+        // 宝箱２４
+        if (One.TF.Treasure_Artharium_00024 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_5_X, Fix.ARTHARIUM_Treasure_5_Y, Fix.ARTHARIUM_Treasure_5_Z))
+        {
+          treasureName = Fix.YELLOW_PENDANT;
+        }
+        // 宝箱２５
+        if (One.TF.Treasure_Artharium_00025 == false && LocationFieldDetect(fieldObj, Fix.ARTHARIUM_Treasure_7_X, Fix.ARTHARIUM_Treasure_7_Y, Fix.ARTHARIUM_Treasure_7_Z))
+        {
+          treasureName = Fix.FLAME_HAND_KEEPER;
+        }
+
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+        return;
+      }
+      #endregion
+      #region "オーランの塔"
+      // オーランの塔
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+      {
+        string treasureName = String.Empty;
+        // 宝箱１
+        if (One.TF.Treasure_OhranTower_00001 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
+        {
+          treasureName = Fix.RED_PENDANT;
+        }
+        // 宝箱２
+        if (One.TF.Treasure_OhranTower_00002 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
+        {
+          treasureName = Fix.BLUE_PENDANT;
+        }
+        // 宝箱３
+        if (One.TF.Treasure_OhranTower_00003 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
+        {
+          treasureName = Fix.YELLOW_PENDANT;
+        }
+        // 宝箱４
+        if (One.TF.Treasure_OhranTower_00004 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
+        {
+          treasureName = Fix.GREEN_PENDANT;
+        }
+        // 宝箱５
+        if (One.TF.Treasure_OhranTower_00005 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
+        {
+          treasureName = Fix.SWORD_OF_LIFE;
+        }
+        // 宝箱６
+        if (One.TF.Treasure_OhranTower_00006 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
+        {
+          treasureName = Fix.EARTH_POWER_AXE;
+        }
+        // 宝箱７
+        if (One.TF.Treasure_OhranTower_00007 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
+        {
+          treasureName = Fix.FROST_LANCE;
+        }
+        // 宝箱８
+        if (One.TF.Treasure_OhranTower_00008 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
+        {
+          treasureName = Fix.TOUGH_TREE_ROD;
+        }
+        // 宝箱９
+        if (One.TF.Treasure_OhranTower_00009 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
+        {
+          treasureName = Fix.LIVING_GROWTH_ORB;
+        }
+        // 宝箱１０
+        if (One.TF.Treasure_OhranTower_00010 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
+        {
+          treasureName = Fix.MUIN_BOOK;
+        }
+        // 宝箱１１
+        if (One.TF.Treasure_OhranTower_00011 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
+        {
+          treasureName = Fix.ICICLE_LONGBOW;
+        }
+        // 宝箱１２
+        if (One.TF.Treasure_OhranTower_00012 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
+        {
+          treasureName = Fix.KITE_SHIELD;
+        }
+        // 宝箱１３
+        if (One.TF.Treasure_OhranTower_00013 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
+        {
+          treasureName = Fix.FINE_ARMOR;
+        }
+        // 宝箱１４
+        if (One.TF.Treasure_OhranTower_00014 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
+        {
+          treasureName = Fix.FINE_CROSS;
+        }
+        // 宝箱１５
+        if (One.TF.Treasure_OhranTower_00015 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
+        {
+          treasureName = Fix.FINE_ROBE;
+        }
+        // 宝箱１６
+        if (One.TF.Treasure_OhranTower_00016 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
+        {
+          treasureName = Fix.FLAT_SHOES;
+        }
+        // 宝箱１７
+        if (One.TF.Treasure_OhranTower_00017 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
+        {
+          treasureName = Fix.COMPACT_EARRING;
+        }
+        // 宝箱１８
+        if (One.TF.Treasure_OhranTower_00018 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
+        {
+          treasureName = Fix.POWER_BANDANA;
+        }
+        // 宝箱１９
+        if (One.TF.Treasure_OhranTower_00019 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
+        {
+          treasureName = Fix.CHERRY_CHOKER;
+        }
+        // 宝箱２０
+        if (One.TF.Treasure_OhranTower_00020 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
+        {
+          treasureName = Fix.BLUE_WIZARD_HAT;
+        }
+        // 宝箱２１
+        if (One.TF.Treasure_OhranTower_00021 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
+        {
+          treasureName = Fix.FLAME_HAND_KEEPER;
+        }
+        // 宝箱２２
+        if (One.TF.Treasure_OhranTower_00022 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
+        {
+          treasureName = Fix.MUMYOU_BOW;
+        }
+        // 宝箱２３
+        if (One.TF.Treasure_OhranTower_00023 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+        return;
+      }
+      #endregion
+      #region "ダルの門"
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GATE_OF_DHAL)
+      {
+        string treasureName = String.Empty;
+        if (One.TF.Treasure_GateDhal_00001 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_1_X, Fix.GATEOFDHAL_Treasure_1_Y, Fix.GATEOFDHAL_Treasure_1_Z))
+        {
+          treasureName = Fix.RED_PENDANT;
+        }
+        if (One.TF.Treasure_GateDhal_00002 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_2_X, Fix.GATEOFDHAL_Treasure_2_Y, Fix.GATEOFDHAL_Treasure_2_Z))
+        {
+          treasureName = Fix.BLUE_PENDANT;
+        }
+        if (One.TF.Treasure_GateDhal_00003 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_3_X, Fix.GATEOFDHAL_Treasure_3_Y, Fix.GATEOFDHAL_Treasure_3_Z))
+        {
+          treasureName = Fix.YELLOW_PENDANT;
+        }
+        if (One.TF.Treasure_GateDhal_00004 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_4_X, Fix.GATEOFDHAL_Treasure_4_Y, Fix.GATEOFDHAL_Treasure_4_Z))
+        {
+          treasureName = Fix.GREEN_PENDANT;
+        }
+        if (One.TF.Treasure_GateDhal_00005 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_5_X, Fix.GATEOFDHAL_Treasure_5_Y, Fix.GATEOFDHAL_Treasure_5_Z))
+        {
+          treasureName = Fix.SWORD_OF_LIFE;
+        }
+        if (One.TF.Treasure_GateDhal_00006 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_6_X, Fix.GATEOFDHAL_Treasure_6_Y, Fix.GATEOFDHAL_Treasure_6_Z))
+        {
+          treasureName = Fix.EARTH_POWER_AXE;
+        }
+        if (One.TF.Treasure_GateDhal_00007 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_7_X, Fix.GATEOFDHAL_Treasure_7_Y, Fix.GATEOFDHAL_Treasure_7_Z))
+        {
+          treasureName = Fix.FROST_LANCE;
+        }
+        if (One.TF.Treasure_GateDhal_00008 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_8_X, Fix.GATEOFDHAL_Treasure_8_Y, Fix.GATEOFDHAL_Treasure_8_Z))
+        {
+          treasureName = Fix.TOUGH_TREE_ROD;
+        }
+        if (One.TF.Treasure_GateDhal_00009 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_9_X, Fix.GATEOFDHAL_Treasure_9_Y, Fix.GATEOFDHAL_Treasure_9_Z))
+        {
+          treasureName = Fix.LIVING_GROWTH_ORB;
+        }
+        if (One.TF.Treasure_GateDhal_00010 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_10_X, Fix.GATEOFDHAL_Treasure_10_Y, Fix.GATEOFDHAL_Treasure_10_Z))
+        {
+          treasureName = Fix.MUIN_BOOK;
+        }
+        if (One.TF.Treasure_GateDhal_00011 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_11_X, Fix.GATEOFDHAL_Treasure_11_Y, Fix.GATEOFDHAL_Treasure_11_Z))
+        {
+          treasureName = Fix.ICICLE_LONGBOW;
+        }
+        if (One.TF.Treasure_GateDhal_00012 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_12_X, Fix.GATEOFDHAL_Treasure_12_Y, Fix.GATEOFDHAL_Treasure_12_Z))
+        {
+          treasureName = Fix.KITE_SHIELD;
+        }
+        if (One.TF.Treasure_GateDhal_00013 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_13_X, Fix.GATEOFDHAL_Treasure_13_Y, Fix.GATEOFDHAL_Treasure_13_Z))
+        {
+          treasureName = Fix.FINE_ARMOR;
+        }
+        if (One.TF.Treasure_GateDhal_00014 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_14_X, Fix.GATEOFDHAL_Treasure_14_Y, Fix.GATEOFDHAL_Treasure_14_Z))
+        {
+          treasureName = Fix.FINE_CROSS;
+        }
+        if (One.TF.Treasure_GateDhal_00015 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_15_X, Fix.GATEOFDHAL_Treasure_15_Y, Fix.GATEOFDHAL_Treasure_15_Z))
+        {
+          treasureName = Fix.FINE_ROBE;
+        }
+        if (One.TF.Treasure_GateDhal_00016 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_16_X, Fix.GATEOFDHAL_Treasure_16_Y, Fix.GATEOFDHAL_Treasure_16_Z))
+        {
+          treasureName = Fix.FLAT_SHOES;
+        }
+        if (One.TF.Treasure_GateDhal_00017 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_17_X, Fix.GATEOFDHAL_Treasure_17_Y, Fix.GATEOFDHAL_Treasure_17_Z))
+        {
+          treasureName = Fix.COMPACT_EARRING;
+        }
+        if (One.TF.Treasure_GateDhal_00018 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_18_X, Fix.GATEOFDHAL_Treasure_18_Y, Fix.GATEOFDHAL_Treasure_18_Z))
+        {
+          treasureName = Fix.POWER_BANDANA;
+        }
+        if (One.TF.Treasure_GateDhal_00019 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_19_X, Fix.GATEOFDHAL_Treasure_19_Y, Fix.GATEOFDHAL_Treasure_19_Z))
+        {
+          treasureName = Fix.CHERRY_CHOKER;
+        }
+        if (One.TF.Treasure_GateDhal_00020 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_20_X, Fix.GATEOFDHAL_Treasure_20_Y, Fix.GATEOFDHAL_Treasure_20_Z))
+        {
+          treasureName = Fix.BLUE_WIZARD_HAT;
+        }
+        if (One.TF.Treasure_GateDhal_00021 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_21_X, Fix.GATEOFDHAL_Treasure_21_Y, Fix.GATEOFDHAL_Treasure_21_Z))
+        {
+          treasureName = Fix.FLAME_HAND_KEEPER;
+        }
+        if (One.TF.Treasure_GateDhal_00022 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_22_X, Fix.GATEOFDHAL_Treasure_22_Y, Fix.GATEOFDHAL_Treasure_22_Z))
+        {
+          treasureName = Fix.MUMYOU_BOW;
+        }
+        if (One.TF.Treasure_GateDhal_00023 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_23_X, Fix.GATEOFDHAL_Treasure_23_Y, Fix.GATEOFDHAL_Treasure_23_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00024 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_24_X, Fix.GATEOFDHAL_Treasure_24_Y, Fix.GATEOFDHAL_Treasure_24_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00025 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_25_X, Fix.GATEOFDHAL_Treasure_25_Y, Fix.GATEOFDHAL_Treasure_25_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00026 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_26_X, Fix.GATEOFDHAL_Treasure_26_Y, Fix.GATEOFDHAL_Treasure_26_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00027 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_27_X, Fix.GATEOFDHAL_Treasure_27_Y, Fix.GATEOFDHAL_Treasure_27_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00028 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_28_X, Fix.GATEOFDHAL_Treasure_28_Y, Fix.GATEOFDHAL_Treasure_28_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00029 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_29_X, Fix.GATEOFDHAL_Treasure_29_Y, Fix.GATEOFDHAL_Treasure_29_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00030 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_30_X, Fix.GATEOFDHAL_Treasure_30_Y, Fix.GATEOFDHAL_Treasure_30_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00031 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_31_X, Fix.GATEOFDHAL_Treasure_31_Y, Fix.GATEOFDHAL_Treasure_31_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00032 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_32_X, Fix.GATEOFDHAL_Treasure_32_Y, Fix.GATEOFDHAL_Treasure_32_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00033 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_33_X, Fix.GATEOFDHAL_Treasure_33_Y, Fix.GATEOFDHAL_Treasure_33_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00034 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_34_X, Fix.GATEOFDHAL_Treasure_34_Y, Fix.GATEOFDHAL_Treasure_34_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00035 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_35_X, Fix.GATEOFDHAL_Treasure_35_Y, Fix.GATEOFDHAL_Treasure_35_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00036 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_36_X, Fix.GATEOFDHAL_Treasure_36_Y, Fix.GATEOFDHAL_Treasure_36_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00037 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_37_X, Fix.GATEOFDHAL_Treasure_37_Y, Fix.GATEOFDHAL_Treasure_37_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00038 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_38_X, Fix.GATEOFDHAL_Treasure_38_Y, Fix.GATEOFDHAL_Treasure_38_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00039 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_39_X, Fix.GATEOFDHAL_Treasure_39_Y, Fix.GATEOFDHAL_Treasure_39_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00040 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_40_X, Fix.GATEOFDHAL_Treasure_40_Y, Fix.GATEOFDHAL_Treasure_40_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00041 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_41_X, Fix.GATEOFDHAL_Treasure_41_Y, Fix.GATEOFDHAL_Treasure_41_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00042 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_42_X, Fix.GATEOFDHAL_Treasure_42_Y, Fix.GATEOFDHAL_Treasure_42_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00043 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_43_X, Fix.GATEOFDHAL_Treasure_43_Y, Fix.GATEOFDHAL_Treasure_43_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00044 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_44_X, Fix.GATEOFDHAL_Treasure_44_Y, Fix.GATEOFDHAL_Treasure_44_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00045 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_45_X, Fix.GATEOFDHAL_Treasure_45_Y, Fix.GATEOFDHAL_Treasure_45_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00046 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_46_X, Fix.GATEOFDHAL_Treasure_46_Y, Fix.GATEOFDHAL_Treasure_46_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00047 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_47_X, Fix.GATEOFDHAL_Treasure_47_Y, Fix.GATEOFDHAL_Treasure_47_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00048 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_48_X, Fix.GATEOFDHAL_Treasure_48_Y, Fix.GATEOFDHAL_Treasure_48_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00049 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_49_X, Fix.GATEOFDHAL_Treasure_49_Y, Fix.GATEOFDHAL_Treasure_49_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00050 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_50_X, Fix.GATEOFDHAL_Treasure_50_Y, Fix.GATEOFDHAL_Treasure_50_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+        if (One.TF.Treasure_GateDhal_00051 == false && LocationFieldDetect(fieldObj, Fix.GATEOFDHAL_Treasure_51_X, Fix.GATEOFDHAL_Treasure_51_Y, Fix.GATEOFDHAL_Treasure_51_Z))
+        {
+          treasureName = Fix.SMALL_RED_POTION;
+        }
+
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+        return;
+      }
+      #endregion
+    }
+
+    // 各種イベント発生チェック。イベント発生時は下記の敵遭遇エンカウントには到達させない。
+    bool detectEvent = DetectEvent(tile);
+    if (detectEvent) { return; }
+
+    // フィールドダメージ
+    DetectDamage(tile);
+    bool result = JudgePartyDead();
+    if (result)
+    {
+      this.GameOver = true;
+      txtGameOver.text = "ダンジョン攻略に失敗しました・・・最後に出たホームタウンへ帰還します。";
+      panelGameOver.SetActive(true);
+      return;
+    }
+
+    // 敵遭遇エンカウント
+    DetectEncount();
+
+    //mainMessage.text = "";
+    //// 通常動作モード
+    //if (!this.DungeonViewMode)
+    //{
+    //  int moveX = 0;
+    //  int moveY = 0;
+
+    //  //    // [警告]：開発途中で戦闘終了後、イベント発生後などでキーダウンで効かない場合があった。押下しっぱなしだと進められるように仕様変更となるので、別の不具合が出た場合はまた再検討してください。
+    //  //    // [警告]：後編でキーダウン動作仕様を変更した。戦闘エンカウントやメッセージ表示、ホームタウン戻り、壁当たりなど随所にCancelKeyDownMovementを導入して検討中。
+    //  //    //keyDown = true;
+    //  if (CheckWall(direction))
+    //  {
+    //    keyDown = false;
+    //    keyUp = false;
+    //    keyLeft = false;
+    //    keyRight = false;
+    //    //System.Threading.Thread.Sleep(100);
+    //    //debug.text += "check wall end.";
+    //    return;
+    //  }
+
+    //  if (CheckBlueWall(direction))
+    //  {
+    //    System.Threading.Thread.Sleep(100);
+    //    return;
+    //  }
+
+    //  if (direction == 0) moveY = Database.DUNGEON_MOVE_LEN; // change unity
+    //  else if (direction == 1) moveX = -Database.DUNGEON_MOVE_LEN;
+    //  else if (direction == 2) moveX = Database.DUNGEON_MOVE_LEN;
+    //  else if (direction == 3) moveY = -Database.DUNGEON_MOVE_LEN; // change unity
+
+    //  JumpToLocation((int)this.Player.transform.position.x + moveX, (int)this.Player.transform.position.y + moveY, false);
+
+    //  // EPICアイテムEPIC_ORB_GROW_GREENの効果
+    //  for (int ii = 0; ii < 3; ii++)
+    //  {
+    //    MainCharacter player = null;
+    //    Image targetLabel = null;
+    //    Text targetText = null;
+    //    if (ii == 0) { player = GroundOne.MC; targetLabel = currentSkillPoint1; targetText = currentSkillValue1; }
+    //    else if (ii == 1) { player = GroundOne.SC; targetLabel = currentSkillPoint2; targetText = currentSkillValue2; }
+    //    else if (ii == 2) { player = GroundOne.TC; targetLabel = currentSkillPoint3; targetText = currentSkillValue3; }
+    //    if (player != null &&
+    //        player.Accessory != null &&
+    //        player.Accessory.Name == Database.EPIC_ORB_GROW_GREEN)
+    //    {
+    //      player.CurrentSkillPoint++;
+    //      UpdateSkill(player, targetLabel, targetText);
+    //    }
+    //    if (player != null &&
+    //        player.Accessory2 != null &&
+    //        player.Accessory2.Name == Database.EPIC_ORB_GROW_GREEN)
+    //    {
+    //      player.CurrentSkillPoint++;
+    //      UpdateSkill(player, targetLabel, targetText);
+    //    }
+    //  }
+
+    //  // 移動時のタイル更新
+    //  bool lowSpeed = UpdateUnknownTile();
+
+    //  // イベント発生
+    //  SearchSomeEvents();
+
+    //  if (lowSpeed)
+    //  {
+    //    this.MovementInterval = MOVE_INTERVAL;
+    //  }
+    //  else
+    //  {
+    //    this.MovementInterval = MOVE_INTERVAL / 2;
+    //  }
+    //  Method.GetTileNumber(Player.transform.position);
+    //}
+    //// View動作モード
+    //else
+    //{
+    //  int moveX = 0;
+    //  int moveY = 0;
+
+    //  if (direction == 0) moveY = Database.DUNGEON_MOVE_LEN;
+    //  else if (direction == 1) moveX = -Database.DUNGEON_MOVE_LEN;
+    //  else if (direction == 2) moveX = Database.DUNGEON_MOVE_LEN;
+    //  else if (direction == 3) moveY = -Database.DUNGEON_MOVE_LEN;
+
+    //  // 上端ダンジョン外を見せないようにする
+    //  // 左端ダンジョン外を見せないようにする
+    //  // 右端ダンジョン外を見せないようにする
+    //  // 下端ダンジョン外を見せないようにする
+    //  if ((direction == 0 && this.viewPoint.y >= Database.CAMERA_BORDER_Y_TOP + Database.CAMERA_WORLD_POINT_Y) ||
+    //      (direction == 1 && this.viewPoint.x <= Database.CAMERA_BORDER_X_LEFT + Database.CAMERA_WORLD_POINT_X) ||
+    //      (direction == 2 && this.viewPoint.x >= Database.CAMERA_BORDER_X_RIGHT + Database.CAMERA_WORLD_POINT_X) ||
+    //      (direction == 3 && this.viewPoint.y <= Database.CAMERA_BORDER_Y_BOTTOM + Database.CAMERA_WORLD_POINT_Y)
+    //      )
+    //  {
+    //    return;
+    //  }
+
+    //  UpdateViewPoint(GroundOne.WE.dungeonViewPointX + moveX, GroundOne.WE.dungeonViewPointY + moveY);
+    //}
+  }
   public void TapOK()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (MarginTimeForCallBattle >= 1) { MarginTimeForCallBattle = 1; }
 
     for (int ii = 0; ii < Fix.INFINITY; ii++)
     {
@@ -4233,7 +4499,11 @@ public class DungeonField : MotherBase
     {
       UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
     }
-//    SceneDimension.CallBattleEnemy();
+    //    SceneDimension.CallBattleEnemy();
+
+
+    this.txtQuestMessage.text = PlayerList[0].CharacterMessage(1000);
+    this.GroupQuestMessage.SetActive(true);
   }
 
   private void RemoveOneSentence()
@@ -4490,7 +4760,7 @@ public class DungeonField : MotherBase
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
         DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -109, 1.5f, 33);
-          return true;
+        return true;
       }
     }
 
@@ -4938,7 +5208,7 @@ public class DungeonField : MotherBase
     {
       return true;
     }
-    
+
     // オブジェクト（岩）の判定
     Vector3 vector = new Vector3(tile.transform.position.x, tile.transform.position.y + 1.0f, tile.transform.position.z);
     FieldObject field_obj = SearchObject(vector);
@@ -5037,7 +5307,7 @@ public class DungeonField : MotherBase
     //Debug.Log("Cannot get object...then NULL");
     return null;
   }
-  
+
   /// <summary>
   /// 対象位置のタイル情報を取得する。
   /// </summary>
@@ -5220,7 +5490,7 @@ public class DungeonField : MotherBase
       }
       if (position.x == 10.0f && position.y == 1 && position.z == -3)
       {
-        List<int> numbers = new List<int>() { 619, 620, 621, 622, 623, 624, 659, 660, 661, 662, 663, 664,  699, 700, 701, 702, 703, 704, 739, 740, 741, 742, 743, 744, 779, 780, 781, 782, 783, 784 };
+        List<int> numbers = new List<int>() { 619, 620, 621, 622, 623, 624, 659, 660, 661, 662, 663, 664, 699, 700, 701, 702, 703, 704, 739, 740, 741, 742, 743, 744, 779, 780, 781, 782, 783, 784 };
         for (int ii = 0; ii < numbers.Count; ii++)
         {
           UnknownTileList[numbers[ii]].gameObject.SetActive(false);
@@ -5573,6 +5843,11 @@ public class DungeonField : MotherBase
     }
   }
 
+  private void UpdateDebugMessage(string message)
+  {
+    txtDebugMainMessage.text = txtDebugMainMessage.text.Insert(0, message + "\r\n");
+  }
+
   /// <summary>
   /// タイルマップデータを読み込み、画面へ反映します。
   /// </summary>
@@ -5580,106 +5855,126 @@ public class DungeonField : MotherBase
   {
     Debug.Log("LoadTileMapping-1 " + DateTime.Now.ToString() + " " + map_data);
 
-    for (int ii = 0; ii < TileList.Count; ii++)
+    try
     {
-      Destroy(TileList[ii].gameObject);
-      TileList[ii] = null;
-    }
-    TileList.Clear();
-
-    for (int ii = 0; ii < FieldObjList.Count; ii++)
-    {
-      Destroy(FieldObjList[ii].gameObject);
-      FieldObjList[ii] = null;
-    }
-    FieldObjList.Clear();
-
-    XmlDocument xml = new XmlDocument();
-    DateTime now = DateTime.Now;
-    //xml.Load(map_data);
-
-    XmlReaderSettings settings = new XmlReaderSettings();
-    settings.IgnoreWhitespace = true;
-    settings.IgnoreComments = true;
-
-    using (XmlReader reader = XmlReader.Create(Application.dataPath + Fix.BaseMapFolder + map_data, settings))
-    {
-      int counter = 0;
-      List<Vector3> list = new List<Vector3>();
-      List<string> strList = new List<string>();
-      List<string> strIdList = new List<string>();
-
-      List<Vector3> objList = new List<Vector3>();
-      List<string> strObjList = new List<string>();
-      List<string> strObjIdList = new List<string>();
-      List<Quaternion> ObjQuaternionList = new List<Quaternion>();
-
-      for (; reader.Read();)
+      for (int ii = 0; ii < TileList.Count; ii++)
       {
-        if (reader.Name.Contains("Tile_"))
+        Destroy(TileList[ii].gameObject);
+        TileList[ii] = null;
+      }
+      TileList.Clear();
+
+      for (int ii = 0; ii < FieldObjList.Count; ii++)
+      {
+        Destroy(FieldObjList[ii].gameObject);
+        FieldObjList[ii] = null;
+      }
+      FieldObjList.Clear();
+
+      XmlDocument xml = new XmlDocument();
+      DateTime now = DateTime.Now;
+      //xml.Load(map_data);
+
+      XmlReaderSettings settings = new XmlReaderSettings();
+      settings.IgnoreWhitespace = true;
+      settings.IgnoreComments = true;
+
+     // UpdateDebugMessage(Application.dataPath + Fix.BaseMapFolder + map_data);
+//      UpdateDebugMessage("2: " + Resources.Load<TextAsset>(@"Map\" + map_data).text);
+      TextAsset txt = Resources.Load<TextAsset>(map_data.Replace(".txt", ""));
+      if (txt == null)
+      {
+        UpdateDebugMessage("cannot find map_data...");
+      }
+      else
+      {
+        UpdateDebugMessage("map_data found !");
+      }
+      UpdateDebugMessage("3: " + txt.name);
+      //using (XmlReader reader = XmlReader.Create(Environment.CurrentDirectory + "/" +  Fix.BaseMapFolder + map_data, settings))
+      Stream sw = new MemoryStream(txt.bytes);
+      using (XmlReader reader = XmlReader.Create(sw, settings))
+      {
+        int counter = 0;
+        List<Vector3> list = new List<Vector3>();
+        List<string> strList = new List<string>();
+        List<string> strIdList = new List<string>();
+
+        List<Vector3> objList = new List<Vector3>();
+        List<string> strObjList = new List<string>();
+        List<string> strObjIdList = new List<string>();
+        List<Quaternion> ObjQuaternionList = new List<Quaternion>();
+
+        for (; reader.Read();)
         {
-          string tile = reader.GetAttribute("T");
-          string id = reader.GetAttribute("O");
-          float x = Convert.ToSingle(reader.GetAttribute("X"));
-          float y = Convert.ToSingle(reader.GetAttribute("Y"));
-          float z = Convert.ToSingle(reader.GetAttribute("Z"));
-          //Debug.Log(reader.GetAttribute("T") + " " + reader.GetAttribute("X") + " " + reader.GetAttribute("Y") + " " + reader.GetAttribute("Z"));
-          list.Add(new Vector3(x, y, z));
-          strList.Add(tile);
-          strIdList.Add(id);
+          if (reader.Name.Contains("Tile_"))
+          {
+            string tile = reader.GetAttribute("T");
+            string id = reader.GetAttribute("O");
+            float x = Convert.ToSingle(reader.GetAttribute("X"));
+            float y = Convert.ToSingle(reader.GetAttribute("Y"));
+            float z = Convert.ToSingle(reader.GetAttribute("Z"));
+            //Debug.Log(reader.GetAttribute("T") + " " + reader.GetAttribute("X") + " " + reader.GetAttribute("Y") + " " + reader.GetAttribute("Z"));
+            list.Add(new Vector3(x, y, z));
+            strList.Add(tile);
+            strIdList.Add(id);
+          }
+          if (reader.Name.Contains("Field_"))
+          {
+            string obj = reader.GetAttribute("C");
+            string id = reader.GetAttribute("O");
+            float x = Convert.ToSingle(reader.GetAttribute("X"));
+            float y = Convert.ToSingle(reader.GetAttribute("Y"));
+            float z = Convert.ToSingle(reader.GetAttribute("Z"));
+            float qx = Convert.ToSingle(reader.GetAttribute("QX"));
+            float qy = Convert.ToSingle(reader.GetAttribute("QY"));
+            float qz = Convert.ToSingle(reader.GetAttribute("QZ"));
+            float qw = Convert.ToSingle(reader.GetAttribute("QW"));
+            objList.Add(new Vector3(x, y, z));
+            strObjList.Add(obj);
+            strObjIdList.Add(id);
+            ObjQuaternionList.Add(new Quaternion(qx, qy, qz, qw));
+          }
+          counter++;
         }
-        if (reader.Name.Contains("Field_"))
+        Debug.Log("counter : " + counter.ToString());
+
+        for (int ii = 0; ii < list.Count; ii++)
         {
-          string obj = reader.GetAttribute("C");
-          string id = reader.GetAttribute("O");
-          float x = Convert.ToSingle(reader.GetAttribute("X"));
-          float y = Convert.ToSingle(reader.GetAttribute("Y"));
-          float z = Convert.ToSingle(reader.GetAttribute("Z"));
-          float qx = Convert.ToSingle(reader.GetAttribute("QX"));
-          float qy = Convert.ToSingle(reader.GetAttribute("QY"));
-          float qz = Convert.ToSingle(reader.GetAttribute("QZ"));
-          float qw = Convert.ToSingle(reader.GetAttribute("QW"));
-          objList.Add(new Vector3(x, y, z));
-          strObjList.Add(obj);
-          strObjIdList.Add(id);
-          ObjQuaternionList.Add(new Quaternion(qx, qy, qz, qw));
+          AddTile(strList[ii], list[ii], strIdList[ii]);
         }
-        counter++;
-      }
-      Debug.Log("counter : " + counter.ToString());
 
-      for (int ii = 0; ii < list.Count; ii++)
-      {
-        AddTile(strList[ii], list[ii], strIdList[ii]);
-      }
+        for (int ii = 0; ii < objList.Count; ii++)
+        {
+          AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii], ObjQuaternionList[ii]);
 
-      for (int ii = 0; ii < objList.Count; ii++)
-      {
-        AddFieldObj(strObjList[ii], objList[ii], strObjIdList[ii], ObjQuaternionList[ii]);
-
-        // debug
-        NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
-        objView.transform.SetParent(ContentFieldObj.transform);
-        objView.txtType.text = strObjList[ii];
-        objView.txtLocation.text = objList[ii].ToString();
-        Debug.Log("currentObjView ID: " + strObjIdList[ii]);
-        objView.txtObjectId.text = strObjIdList[ii];
-        objView.x = objList[ii].x;
-        objView.y = objList[ii].y;
-        objView.z = objList[ii].z;
-        objView.gameObject.SetActive(true);
-        RectTransform rect = objView.GetComponent<RectTransform>();
-        int NODE_HEIGHT = 90;
-        rect.anchoredPosition = new Vector2(0, 0);
-        //rect.sizeDelta = new Vector2(0, 0);
-        rect.localPosition = new Vector3(0, -5 - ii * NODE_HEIGHT, 0);
-        const int HEIGHT = 110;
-        ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
-        Debug.Log("debug count: " + ii.ToString());
-        // debug
+          // debug
+          NodeEditFieldObj objView = Instantiate(NodeFieldObjView) as NodeEditFieldObj;
+          objView.transform.SetParent(ContentFieldObj.transform);
+          objView.txtType.text = strObjList[ii];
+          objView.txtLocation.text = objList[ii].ToString();
+          Debug.Log("currentObjView ID: " + strObjIdList[ii]);
+          objView.txtObjectId.text = strObjIdList[ii];
+          objView.x = objList[ii].x;
+          objView.y = objList[ii].y;
+          objView.z = objList[ii].z;
+          objView.gameObject.SetActive(true);
+          RectTransform rect = objView.GetComponent<RectTransform>();
+          int NODE_HEIGHT = 90;
+          rect.anchoredPosition = new Vector2(0, 0);
+          //rect.sizeDelta = new Vector2(0, 0);
+          rect.localPosition = new Vector3(0, -5 - ii * NODE_HEIGHT, 0);
+          const int HEIGHT = 110;
+          ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
+          Debug.Log("debug count: " + ii.ToString());
+          // debug
+        }
       }
     }
-
+    catch (Exception ex)
+    {
+      UpdateDebugMessage(ex.ToString());
+    }
     Debug.Log("LoadTileMapping-2 " + DateTime.Now.ToString());
   }
 
