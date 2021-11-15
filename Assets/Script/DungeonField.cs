@@ -838,6 +838,14 @@ public class DungeonField : MotherBase
       this.keyLeft = false;
       movementTimer_Tick();
     }
+    if (Input.GetKeyUp(KeyCode.Keypad8) || Input.GetKeyUp(KeyCode.UpArrow) ||
+        Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.DownArrow) ||
+        Input.GetKeyUp(KeyCode.Keypad4) || Input.GetKeyUp(KeyCode.LeftArrow) ||
+        Input.GetKeyUp(KeyCode.Keypad6) || Input.GetKeyUp(KeyCode.RightArrow))
+    {
+      detectKeyUp = true;
+      CancelKeyDownMovement();
+    }
 
 
     #region "移動直前、ブロックチェック前にオーランの塔で出現する空中板のの検出および対応。"
@@ -1623,11 +1631,6 @@ public class DungeonField : MotherBase
       MainCamera.transform.rotation = MainCamera.transform.rotation * q;
     }
     #endregion
-
-    if (detectKey)
-    {
-      UpdatePlayersKeyEvents(direction, tile);
-    }
   }
 
   public void TapQuestButton(Text txt)
