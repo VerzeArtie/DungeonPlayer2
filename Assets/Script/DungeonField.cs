@@ -3744,6 +3744,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           One.TF.AddBackPack(new Item(currentMessage));
+          ParentBackpackView.ConstructBackpackView();
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
@@ -3765,6 +3766,8 @@ public class DungeonField : MotherBase
           Debug.Log("GetTreasure 3");
 
           One.TF.AddBackPack(new Item(currentMessage));
+          ParentBackpackView.ConstructBackpackView();
+
           #region "サルンの洞窟前"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
           {
