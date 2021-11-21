@@ -4474,6 +4474,8 @@ public class DungeonField : MotherBase
     if (this.QuestMessageList.Count <= 0)
     {
       this.GroupQuestMessage.SetActive(false);
+      this.panelSystemMessage.SetActive(false);
+      this.txtSystemMessage.text = string.Empty;
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }

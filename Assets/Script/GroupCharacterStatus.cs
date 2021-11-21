@@ -690,6 +690,11 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateCharacterDetailView(CurrentPlayer);
     GroupChangeEquip.SetActive(false);
     GroupMainEquip.SetActive(true);
+    // 本来であれば親シーンのオブジェクトは不要である。
+    if (parentMotherBase != null)
+    {
+      parentMotherBase.RefreshAllView();
+    }
   }
 
   /// <summary>
@@ -762,6 +767,11 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateCharacterDetailView(CurrentPlayer);
     GroupChangeEquip.SetActive(false);
     GroupMainEquip.SetActive(true);
+    // 本来であれば親シーンのオブジェクトは不要である。
+    if (parentMotherBase != null)
+    {
+      parentMotherBase.RefreshAllView();
+    }
   }
 
   /// <summary>

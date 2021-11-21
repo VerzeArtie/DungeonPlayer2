@@ -49,10 +49,8 @@ public class Title : MotherBase
     One.TF.AvailableLanaAmiria = true;
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
-    One.TF.Field_X = 2;
-    One.TF.Field_Y = 1;
-    One.TF.Field_Z = 0;
-    SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
+    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+    SceneDimension.JumpToHomeTown();
   }
 
   public void TapGameLoad()

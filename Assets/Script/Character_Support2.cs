@@ -56,6 +56,7 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.MAGIC_ATTACK;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.StraightSmash = 1;
+        this.ActionCommandList[0] = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -80,6 +81,7 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.IceNeedle = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
+        this.ActionCommandList[0] = Fix.ICE_NEEDLE;
         break;
 
       case Fix.NAME_EONE_FULNEA:
