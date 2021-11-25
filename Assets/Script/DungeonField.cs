@@ -1872,14 +1872,14 @@ public class DungeonField : MotherBase
           if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION)
           {
             Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.RemoveItem(current);
+            One.TF.DeleteBackpack(current, 1);
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentLife += (int)effectValue;
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_BLUE_POTION)
           {
             Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.RemoveItem(current);
+            One.TF.DeleteBackpack(current, 1);
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentSoulPoint += (int)effectValue;
           }

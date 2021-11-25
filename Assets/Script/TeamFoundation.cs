@@ -1369,6 +1369,40 @@ public class TeamFoundation : MonoBehaviour
   }
 
   /// <summary>
+  /// バックパックのアイテムを指定した数だけ削除します。
+  /// </summary>
+  /// <param name="item"></param>
+  /// <param name="deleteValue">削除する数 ０：全て削除、正値：指定数だけ削除</param>
+  /// <returns></returns>
+  public void DeleteBackpack(Item item, int delete_value)
+  {
+    for (int ii = 0; ii < Fix.MAX_BACKPACK_SIZE; ii++) // 後編編集
+    {
+      if (this._backpackList[ii] != null)
+      {
+        if (this._backpackList[ii].ItemName == item.ItemName)
+        {
+          if (delete_value <= 0)
+          {
+            this._backpackList[ii] = null;
+            break;
+          }
+          else
+          {
+            // スタック量が正値の場合、指定されたスタック量を減らす。
+            this._backpackList[ii].StackValue -= delete_value;
+            if (this._backpackList[ii].StackValue <= 0) // 結果的にスタック量が０になった場合はオブジェクトを消す。
+            {
+              this._backpackList[ii] = null;
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  /// <summary>
   /// バックパックに対象のアイテムが含まれている数を示します。
   /// </summary>
   /// <param name="item"></param>
