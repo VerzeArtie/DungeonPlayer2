@@ -485,7 +485,7 @@ public partial class BattleEnemy : MotherBase
       character.objArrow.GetComponent<Image>().color = character.BattleForeColor;
     }
 
-    // アクションコマンドボタンの割当を設定する。
+    // メインコマンドボタンの割当を設定する。
     if (groupActionButton != null)
     {
       //character.ActionCommandList.Clear();
@@ -538,20 +538,29 @@ public partial class BattleEnemy : MotherBase
       //if (character.VoiceOfVigor > 0) { AddActionButton(character, groupActionButton, Fix.VOICE_OF_VIGOR); }
       //if (character.UnseenAid > 0) { AddActionButton(character, groupActionButton, Fix.UNSEEN_AID); }
 
-      //for (int ii = 0; ii < character.ActionCommandList.Count; ii++)
-      //{
-      //  string commandName = character.ActionCommandList[ii];
-      //  NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
-      //  instant.BackColor.color = character.BattleForeColor;
-      //  instant.CommandName = commandName;
-      //  instant.name = commandName;
-      //  instant.OwnerName = character.FullName;
-      //  instant.ActionButton.name = commandName;
-      //  instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+      // todo ここは本来それぞれキャラクター達が保持している情報に基づいて登録を構築すべきと思われる。
+      // 今は単なる並び順で並べているだけである。
+      List<string> mainActionList = new List<string>();
+      mainActionList.Add(Fix.NORMAL_ATTACK);
+      mainActionList.Add(Fix.MAGIC_ATTACK);
+      mainActionList.Add(Fix.DEFENSE);
+      if (character.StraightSmash > 0) { mainActionList.Add(Fix.STRAIGHT_SMASH); }
+      if (character.IceNeedle > 0) { mainActionList.Add(Fix.ICE_NEEDLE); }
 
-      //  instant.transform.SetParent(groupActionButton.transform);
-      //  instant.gameObject.SetActive(true);
-      //}
+      for (int ii = 0; ii < mainActionList.Count; ii++)
+      {
+        string commandName = mainActionList[ii];
+        NodeActionCommand mainAction = Instantiate(prefab_MainAction) as NodeActionCommand;
+        mainAction.BackColor.color = character.BattleForeColor;
+        mainAction.CommandName = commandName;
+        mainAction.name = commandName;
+        mainAction.OwnerName = character.FullName;
+        mainAction.ActionButton.name = commandName;
+        mainAction.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+
+        mainAction.transform.SetParent(groupActionButton.transform);
+        mainAction.gameObject.SetActive(true);
+      }
     }
 
     // アクションポイントのビュー割当を設定する。
