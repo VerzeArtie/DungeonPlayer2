@@ -421,8 +421,8 @@ public static class MessagePack
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】を獲得しました！", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "1000", ActionEvent.GetGold);
-    Message(ref m_list, ref e_list, "【 1000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "500", ActionEvent.GetGold);
+    Message(ref m_list, ref e_list, "【 500 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "ラナ：あと旅に出るわけじゃなくて、正式な調査依頼を受けて、任務遂行しに行くのよ。ちゃんと準備してよね、ホント。", ActionEvent.None);
 
