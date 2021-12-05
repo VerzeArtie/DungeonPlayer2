@@ -10,6 +10,7 @@ using System.Text;
 using System;
 using System.Reflection;
 using System.Xml.XPath;
+using TMPro;
 
 public class DungeonField : MotherBase
 {
@@ -31,6 +32,7 @@ public class DungeonField : MotherBase
   public Text txtSelectName;
   public Text txtSelectObjectName;
   public Text txtEditMode;
+  public Text txtEditArea;
   public Text txtCurrentCursor;
   public Text txtCurrentCursor2;
   public Text txtEditId;
@@ -67,6 +69,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Dhal_Wall;
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Unknown;
+  public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
   public FieldObject prefab_TreasureOpen;
@@ -171,6 +174,7 @@ public class DungeonField : MotherBase
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
+  private List<TextMeshPro> TileAreaList = new List<TextMeshPro>();
   private List<FieldObject> FieldObjList = new List<FieldObject>();
   private List<TileInformation> UnknownTileList = new List<TileInformation>();
   private List<Character> PlayerList = new List<Character>();
@@ -186,6 +190,7 @@ public class DungeonField : MotherBase
   protected List<MessagePack.ActionEvent> QuestEventList = new List<MessagePack.ActionEvent>();
 
   private bool EditMode = false;
+  private bool EditAreaMode = false;
   private bool IgnoreObjMode = false;
 
   List<string> PrefabList = new List<string>();
@@ -255,7 +260,7 @@ public class DungeonField : MotherBase
     }
     else
     {
-      MOVE_INTERVAL = 40;
+      MOVE_INTERVAL = 20;
       //this.groupArrow.SetActive(true);
     }
     this.interval = MOVE_INTERVAL;
@@ -557,19 +562,42 @@ public class DungeonField : MotherBase
         TileInformation objTile = GetTileInfo(SelectField.transform.position.x,
                                               SelectField.transform.position.y,
                                               SelectField.transform.position.z);
-        if (objTile != null)
+
+        // タイル配置モード
+        if (this.EditAreaMode == false)
         {
-          TileList.Remove(objTile);
-          //Debug.Log("objTile Remove");
-          Destroy(objTile.gameObject);
+          if (objTile != null)
+          {
+            TileList.Remove(objTile);
+            //Debug.Log("objTile Remove");
+            Destroy(objTile.gameObject);
+            return;
+          }
+
+          Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
+          // todo 第三引数のIDをどう入力させるか。
+          AddTile(txtSelectName.text, SelectField.transform.position, String.Empty, "None");
+          Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
           return;
         }
-
-        Debug.Log("time-4: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
-        // todo 第三引数のIDをどう入力させるか。
-        AddTile(txtSelectName.text, SelectField.transform.position, String.Empty);
-        Debug.Log("time-5: " + DateTime.Now.ToString() + " " + DateTime.Now.Millisecond.ToString());
-        return;
+        // タイルエリア設定モード
+        else
+        {
+          if (objTile != null)
+          {
+            for (int ii = 0; ii < TileList.Count; ii++)
+            {
+              if (TileList[ii].Equals(objTile))
+              {
+                TileList[ii].AreaInfo = (TileInformation.Area)Enum.Parse(typeof(TileInformation.Area), txtEditArea.text);
+                TileAreaList[ii].text = ((int)(TileList[ii].AreaInfo)).ToString();
+                break;
+              }
+            }
+            return;
+          }
+          return;
+        }
       }
 
       if (Input.GetMouseButtonDown(1))
@@ -1516,52 +1544,52 @@ public class DungeonField : MotherBase
     }
     #endregion
 
-    #region "ブロックチェック"
-    if (Input.GetKeyDown(KeyCode.RightArrow))
-    {
-      tile = SearchNextTile(this.Player.transform.position, Direction.Right);
-      if (BlockCheck(Player, tile) == false)
-      {
-        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
-        return;
-      }
+    //#region "ブロックチェック"
+    //if (Input.GetKeyDown(KeyCode.RightArrow))
+    //{
+    //  tile = SearchNextTile(this.Player.transform.position, Direction.Right);
+    //  if (BlockCheck(Player, tile) == false)
+    //  {
+    //    One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+    //    return;
+    //  }
 
-      detectKey = true;
-    }
-    if (Input.GetKeyDown(KeyCode.LeftArrow))
-    {
-      tile = SearchNextTile(this.Player.transform.position, Direction.Left);
-      if (BlockCheck(Player, tile) == false)
-      {
-        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
-        return;
-      }
+    //  detectKey = true;
+    //}
+    //if (Input.GetKeyDown(KeyCode.LeftArrow))
+    //{
+    //  tile = SearchNextTile(this.Player.transform.position, Direction.Left);
+    //  if (BlockCheck(Player, tile) == false)
+    //  {
+    //    One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+    //    return;
+    //  }
 
-      detectKey = true;
-    }
-    if (Input.GetKeyDown(KeyCode.UpArrow))
-    {
-      tile = SearchNextTile(this.Player.transform.position, Direction.Top);
-      if (BlockCheck(Player, tile) == false)
-      {
-        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
-        return;
-      }
+    //  detectKey = true;
+    //}
+    //if (Input.GetKeyDown(KeyCode.UpArrow))
+    //{
+    //  tile = SearchNextTile(this.Player.transform.position, Direction.Top);
+    //  if (BlockCheck(Player, tile) == false)
+    //  {
+    //    One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+    //    return;
+    //  }
 
-      detectKey = true;
-    }
-    if (Input.GetKeyDown(KeyCode.DownArrow))
-    {
-      tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
-      if (BlockCheck(Player, tile) == false)
-      {
-        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
-        return;
-      }
+    //  detectKey = true;
+    //}
+    //if (Input.GetKeyDown(KeyCode.DownArrow))
+    //{
+    //  tile = SearchNextTile(this.Player.transform.position, Direction.Bottom);
+    //  if (BlockCheck(Player, tile) == false)
+    //  {
+    //    One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+    //    return;
+    //  }
 
-      detectKey = true;
-    }
-    #endregion
+    //  detectKey = true;
+    //}
+    //#endregion
 
     #region "カメラ移動"
     if (Input.GetKey(KeyCode.Alpha2))
@@ -2493,6 +2521,60 @@ public class DungeonField : MotherBase
     else
     {
       txtEditMode.text = "Move";
+    }
+  }
+
+  public void TapEditArea()
+  {
+    if (txtEditArea.text == "AreaEdit-OFF")
+    {
+      txtEditArea.text = "AREA_1";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_1")
+    {
+      txtEditArea.text = "AREA_2";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_2")
+    {
+      txtEditArea.text = "AREA_3";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_3")
+    {
+      txtEditArea.text = "AREA_4";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_4")
+    {
+      txtEditArea.text = "AREA_5";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_5")
+    {
+      txtEditArea.text = "AREA_6";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_6")
+    {
+      txtEditArea.text = "AREA_7";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_7")
+    {
+      txtEditArea.text = "AREA_8";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_8")
+    {
+      txtEditArea.text = "AREA_9";
+      this.EditAreaMode = true;
+    }
+    else
+    {
+      txtEditArea.text = "AreaEdit-OFF";
+      this.EditAreaMode = false;
     }
   }
 
@@ -5111,6 +5193,8 @@ public class DungeonField : MotherBase
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
+        Debug.Log("detectenemy: location: " + this.Player.transform.position.x + " " + this.Player.transform.position.z);
+
         if (PlayerList[0].Level <= 1)
         {
           switch (AP.Math.RandomInteger(3))
@@ -5539,7 +5623,7 @@ public class DungeonField : MotherBase
   /// <summary>
   /// タイルを追加します。
   /// </summary>
-  private void AddTile(string tile_name, Vector3 position, string id)
+  private void AddTile(string tile_name, Vector3 position, string id, string area_info)
   {
     TileInformation current = null;
     if (tile_name == "Plain")
@@ -5650,9 +5734,21 @@ public class DungeonField : MotherBase
     if (current != null)
     {
       current.ObjectId = id;
+      Debug.Log("areainfo: " + area_info);
+      if (string.IsNullOrEmpty(area_info) == false)
+      {
+        current.AreaInfo = (TileInformation.Area)(Enum.Parse(typeof(TileInformation.Area), area_info));
+      }
       current.transform.SetParent(this.transform);
       //current.gameObject.SetActive(false);
       TileList.Add(current);
+
+      TextMeshPro instance = Instantiate(prefab_AreaText) as TextMeshPro;
+      instance.gameObject.transform.SetParent(TileList[TileList.Count - 1].transform);
+      instance.gameObject.transform.localPosition = new Vector3(0, 0.70f, 0);
+      instance.text = ((int)(current.AreaInfo)).ToString();
+      instance.gameObject.SetActive(true);
+      TileAreaList.Add(instance);
     }
   }
 
@@ -5814,6 +5910,7 @@ public class DungeonField : MotherBase
         xmlWriter.WriteAttributeString("X", TileList[ii].transform.position.x.ToString());
         xmlWriter.WriteAttributeString("Y", TileList[ii].transform.position.y.ToString());
         xmlWriter.WriteAttributeString("Z", TileList[ii].transform.position.z.ToString());
+        xmlWriter.WriteAttributeString("A", TileList[ii].AreaInfo.ToString());
         xmlWriter.WriteEndElement();
       }
       xmlWriter.WriteWhitespace("\r\n");
@@ -5911,6 +6008,7 @@ public class DungeonField : MotherBase
         List<Vector3> objList = new List<Vector3>();
         List<string> strObjList = new List<string>();
         List<string> strObjIdList = new List<string>();
+        List<string> strObjArea = new List<string>();
         List<Quaternion> ObjQuaternionList = new List<Quaternion>();
 
         for (; reader.Read();)
@@ -5922,10 +6020,12 @@ public class DungeonField : MotherBase
             float x = Convert.ToSingle(reader.GetAttribute("X"));
             float y = Convert.ToSingle(reader.GetAttribute("Y"));
             float z = Convert.ToSingle(reader.GetAttribute("Z"));
+            string a = Convert.ToString(reader.GetAttribute("A"));
             //Debug.Log(reader.GetAttribute("T") + " " + reader.GetAttribute("X") + " " + reader.GetAttribute("Y") + " " + reader.GetAttribute("Z"));
             list.Add(new Vector3(x, y, z));
             strList.Add(tile);
             strIdList.Add(id);
+            strObjArea.Add(a);
           }
           if (reader.Name.Contains("Field_"))
           {
@@ -5945,11 +6045,11 @@ public class DungeonField : MotherBase
           }
           counter++;
         }
-        Debug.Log("counter : " + counter.ToString());
+        Debug.Log(MethodBase.GetCurrentMethod() + " counter : " + counter.ToString());
 
         for (int ii = 0; ii < list.Count; ii++)
         {
-          AddTile(strList[ii], list[ii], strIdList[ii]);
+          AddTile(strList[ii], list[ii], strIdList[ii], strObjArea[ii]);
         }
 
         for (int ii = 0; ii < objList.Count; ii++)

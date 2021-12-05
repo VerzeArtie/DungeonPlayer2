@@ -53,6 +53,21 @@ public class TileInformation : MonoBehaviour
     Dhal_NormalObj = 4003,
     Dhal_WallObj = 4004,
   }
+  public enum Area
+  {
+    None = 0,
+    AREA_1 = 1,
+    AREA_2 = 2,
+    AREA_3 = 3,
+    AREA_4 = 4,
+    AREA_5 = 5,
+    AREA_6 = 6,
+    AREA_7 = 7,
+    AREA_8 = 8,
+    AREA_9 = 9,
+    AREA_10 = 10,
+  }
+
   public Field field = Field.Plain;
 
   public int MoveCost
@@ -107,6 +122,7 @@ public class TileInformation : MonoBehaviour
     }
   }
 
+  public Area AreaInfo = Area.None;
   public string ObjectId = String.Empty;
 
   public List<TileInformation> connectNode = new List<TileInformation>();
