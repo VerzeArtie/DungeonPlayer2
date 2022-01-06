@@ -2511,6 +2511,14 @@ public class DungeonField : MotherBase
     }
   }
 
+  public void TapHideAreaNumber()
+  {
+    for (int ii = 0; ii < TileAreaList.Count; ii++)
+    {
+      TileAreaList[ii].gameObject.SetActive(!TileAreaList[ii].gameObject.activeInHierarchy);
+    }
+  }
+
   public void TapEditMode()
   {
     this.EditMode = !this.EditMode;
@@ -2527,6 +2535,11 @@ public class DungeonField : MotherBase
   public void TapEditArea()
   {
     if (txtEditArea.text == "AreaEdit-OFF")
+    {
+      txtEditArea.text = "None";
+      this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "None")
     {
       txtEditArea.text = "AREA_1";
       this.EditAreaMode = true;
@@ -2570,6 +2583,41 @@ public class DungeonField : MotherBase
     {
       txtEditArea.text = "AREA_9";
       this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_9")
+    {
+        txtEditArea.text = "AREA_10";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_10")
+    {
+        txtEditArea.text = "AREA_11";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_11")
+    {
+        txtEditArea.text = "AREA_12";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_12")
+    {
+        txtEditArea.text = "AREA_13";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_13")
+    {
+        txtEditArea.text = "AREA_14";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_14")
+    {
+        txtEditArea.text = "AREA_15";
+        this.EditAreaMode = true;
+    }
+    else if (txtEditArea.text == "AREA_15")
+    {
+        txtEditArea.text = "AREA_16";
+        this.EditAreaMode = true;
     }
     else
     {
@@ -3420,7 +3468,7 @@ public class DungeonField : MotherBase
     }
 
     // 敵遭遇エンカウント
-    DetectEncount();
+    DetectEncount(tile.AreaInfo);
 
     //mainMessage.text = "";
     //// 通常動作モード
@@ -5102,7 +5150,7 @@ public class DungeonField : MotherBase
     return true;
   }
 
-  private void DetectEncount()
+  private void DetectEncount(TileInformation.Area area_info)
   {
     Debug.Log("DetectEncount(S)");
     if (this.AlreadyDetectEncount)
@@ -5131,54 +5179,58 @@ public class DungeonField : MotherBase
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
-        if (PlayerList[0].Level <= 1)
+        if (area_info == TileInformation.Area.AREA_1)
         {
-          switch (AP.Math.RandomInteger(2))
+          if (PlayerList[0].Level <= 2)
           {
-            case 0:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 1:
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
+            switch (AP.Math.RandomInteger(2))
+            {
+              case 0:
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                break;
+              case 1:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                break;
+            }
+          }
+          else
+          {
+            switch (AP.Math.RandomInteger(4))
+            {
+              case 0:
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                break;
+              case 1:
+                break;
+              case 2:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                break;
+              case 3:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                break;
+            }
           }
         }
-        else
+        else if (area_info == TileInformation.Area.AREA_2)
         {
-          switch (AP.Math.RandomInteger(9))
+          switch (AP.Math.RandomInteger(4))
           {
             case 0:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.MANDRAGORA);
               break;
             case 1:
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              One.BattleEnemyList.Add(Fix.WILD_ANT);
+              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
               break;
             case 2:
+              One.BattleEnemyList.Add(Fix.WILD_ANT);
               One.BattleEnemyList.Add(Fix.MANDRAGORA);
               break;
             case 3:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              break;
-            case 4:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 5:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
               One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
-            case 6:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 7:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-            case 8:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
               break;
           }
         }
@@ -5747,7 +5799,7 @@ public class DungeonField : MotherBase
       instance.gameObject.transform.SetParent(TileList[TileList.Count - 1].transform);
       instance.gameObject.transform.localPosition = new Vector3(0, 0.70f, 0);
       instance.text = ((int)(current.AreaInfo)).ToString();
-      instance.gameObject.SetActive(true);
+      instance.gameObject.SetActive(false);
       TileAreaList.Add(instance);
     }
   }

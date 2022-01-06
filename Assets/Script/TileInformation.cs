@@ -66,6 +66,12 @@ public class TileInformation : MonoBehaviour
     AREA_8 = 8,
     AREA_9 = 9,
     AREA_10 = 10,
+    AREA_11 = 11,
+    AREA_12 = 12,
+    AREA_13 = 13,
+    AREA_14 = 14,
+    AREA_15 = 15,
+    AREA_16 = 16,
   }
 
   public Field field = Field.Plain;
