@@ -266,6 +266,7 @@ public partial class HomeTown : MotherBase
   public Text txtLvupMaxMana;
   public Text txtLvupRemainPoint;
   public Text txtLvupSoulEssence;
+  public Text txtLvupSpecial;
 
   // AC Attribute
   public GameObject GroupActionCommandSetting;
@@ -305,6 +306,14 @@ public partial class HomeTown : MotherBase
   public SaveLoad groupSaveLoad;
 
   // Inner Value
+  protected List<bool> DetectLvup = new List<bool>();
+  protected List<string> DetectLvupTitle = new List<string>();
+  protected List<string> DetectLvupMaxLife = new List<string>();
+  protected List<string> DetectLvupMaxEP = new List<string>();
+  protected List<string> DetectLvupRemainPoint = new List<string>();
+  protected List<string> DetectLvupSoulEssence = new List<string>();
+  protected List<string> DetectLvupSpecial = new List<string>();
+
   protected List<NodeCharaView> CharaViewList = new List<NodeCharaView>();
   protected Character CurrentPlayer = null;
   protected Character ShadowPlayer = null;
@@ -919,6 +928,7 @@ public partial class HomeTown : MotherBase
 
   public void TapCharacterPanel(Text txtName)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
     // 現在選択しているキャラクターを設定
     for (int ii = 0; ii < One.PlayerList.Count; ii++)
     {
@@ -940,6 +950,7 @@ public partial class HomeTown : MotherBase
     GroupCharacterDetail.CurrentPlayer = this.CurrentPlayer;
     GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
     GroupCharacterDetail.gameObject.SetActive(true);
+    Debug.Log(MethodBase.GetCurrentMethod() + "(E)");
   }
 
   public void TapHideACAttributeButton(GameObject sender)
@@ -1281,8 +1292,11 @@ public partial class HomeTown : MotherBase
   {
     GroupQuestComplete.SetActive(false);
 
-    QuestMessageList.Add(Fix.NAME_EIN_WOLENCE);
-    QuestEventList.Add(MessagePack.ActionEvent.ViewLevelUpCharacter);
+    if (DetectLvup.Count > 0)
+    {
+      QuestMessageList.Add("");
+      QuestEventList.Add(MessagePack.ActionEvent.ViewLevelUpCharacter);
+    }
     TapOK();
   }
 
@@ -1290,6 +1304,11 @@ public partial class HomeTown : MotherBase
   {
     GroupLvupCharacter.SetActive(false);
 
+    if (DetectLvup.Count > 0)
+    {
+      QuestMessageList.Add("");
+      QuestEventList.Add(MessagePack.ActionEvent.ViewLevelUpCharacter);
+    }
     TapOK();
   }
 
@@ -1581,7 +1600,25 @@ public partial class HomeTown : MotherBase
             int gainSoulFragment = 1;
             for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
             {
-              One.AvailableCharacters[jj].GainExp(gainExp);
+              if (One.AvailableCharacters[jj].Exp < One.AvailableCharacters[jj].GetNextExp())
+              {
+                One.AvailableCharacters[jj].GainExp(gainExp);
+                if (One.AvailableCharacters[jj].Exp >= One.AvailableCharacters[jj].GetNextExp())
+                {
+                  One.AvailableCharacters[jj].BaseLife += 15;
+                  One.AvailableCharacters[jj].BaseSoulPoint += 6;
+                  One.AvailableCharacters[jj].RemainPoint += 3;
+                  One.AvailableCharacters[jj].SoulFragment += 1;
+
+                  DetectLvup.Add(true);
+                  DetectLvupTitle.Add(One.AvailableCharacters[jj].FullName + "がレベルアップしました！");
+                  DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
+                  DetectLvupMaxEP.Add("最大エナジーポイントが 6 上昇した！");
+                  DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
+                  DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
+                  DetectLvupSpecial.Add("");
+                }
+              }
               One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
             }
             One.TF.Gold += gainGold;
@@ -1612,13 +1649,31 @@ public partial class HomeTown : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.ViewLevelUpCharacter)
         {
-          this.txtLvupTitle.text = Fix.NAME_EIN_WOLENCE + "がレベルアップしました！";
-          this.txtLvupMaxLife.text = "最大ライフ 50 上昇！";
-          this.txtLvupMaxMana.text = "最大マナ 20 上昇！";
-          this.txtLvupRemainPoint.text = "コア・パラメタポイントを 3 獲得！";
-          this.txtLvupSoulEssence.text = "ソウル・エッセンスポイントを 1 獲得！";
-          this.GroupLvupCharacter.SetActive(true);
+
+          txtLvupTitle.text = DetectLvupTitle[0];
+          txtLvupMaxLife.text = DetectLvupMaxLife[0];
+          txtLvupMaxMana.text = DetectLvupMaxEP[0];
+          txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
+          txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
+          txtLvupSpecial.text = DetectLvupSpecial[0];
+          GroupLvupCharacter.SetActive(true);
+
+          DetectLvup.RemoveAt(0);
+          DetectLvupTitle.RemoveAt(0);
+          DetectLvupMaxLife.RemoveAt(0);
+          DetectLvupMaxEP.RemoveAt(0);
+          DetectLvupRemainPoint.RemoveAt(0);
+          DetectLvupSoulEssence.RemoveAt(0);
+          DetectLvupSpecial.RemoveAt(0);
           return;
+
+          //this.txtLvupTitle.text = Fix.NAME_EIN_WOLENCE + "がレベルアップしました！";
+          //this.txtLvupMaxLife.text = "最大ライフ 50 上昇！";
+          //this.txtLvupMaxMana.text = "最大マナ 20 上昇！";
+          //this.txtLvupRemainPoint.text = "コア・パラメタポイントを 3 獲得！";
+          //this.txtLvupSoulEssence.text = "ソウル・エッセンスポイントを 1 獲得！";
+          //this.GroupLvupCharacter.SetActive(true);
+          //return;
         }
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)
