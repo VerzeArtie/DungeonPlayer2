@@ -39,6 +39,7 @@ public partial class Character : MonoBehaviour
   public GameObject GroupActionCommand = null;
   public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
 
+  #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
   public string FullName
   {
@@ -46,6 +47,76 @@ public partial class Character : MonoBehaviour
     get { return _fullName; }
   }
 
+  [SerializeField] protected int _strengthFood = 0;
+  public int StrengthFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _strengthFood = value;
+    }
+    get { return _strengthFood; }
+  }
+
+  [SerializeField] protected int _agilityhFood = 0;
+  public int AgilityFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _agilityhFood = value;
+    }
+    get { return _agilityhFood; }
+  }
+
+  [SerializeField] protected int _intelligenceFood = 0;
+  public int IntelligenceFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _intelligenceFood = value;
+    }
+    get { return _intelligenceFood; }
+  }
+
+  [SerializeField] protected int _staminaFood = 0;
+  public int StaminaFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _staminaFood = value;
+    }
+    get { return _staminaFood; }
+  }
+
+  [SerializeField] protected int _mindFood = 0;
+  public int MindFood
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _mindFood = value;
+    }
+    get { return _mindFood; }
+  }
+  #endregion
 
   #region "Parameters (Core)"
   [SerializeField] protected int _strength = 0;
@@ -591,76 +662,6 @@ public partial class Character : MonoBehaviour
       _plusMind = value;
     }
     get { return _plusMind; }
-  }
-
-  [SerializeField] protected int _strengthFood = 0;
-  public int StrengthFood
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _strengthFood = value;
-    }
-    get { return _strengthFood; }
-  }
-
-  [SerializeField] protected int _agilityhFood = 0;
-  public int AgilityFood
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _agilityhFood = value;
-    }
-    get { return _agilityhFood; }
-  }
-
-  [SerializeField] protected int _intelligenceFood = 0;
-  public int IntelligenceFood
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _intelligenceFood = value;
-    }
-    get { return _intelligenceFood; }
-  }
-
-  [SerializeField] protected int _staminaFood = 0;
-  public int StaminaFood
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _staminaFood = value;
-    }
-    get { return _staminaFood; }
-  }
-
-  [SerializeField] protected int _mindFood = 0;
-  public int MindFood
-  {
-    set
-    {
-      if (value <= 0)
-      {
-        value = 0;
-      }
-      _mindFood = value;
-    }
-    get { return _mindFood; }
   }
 
   public int TotalStrength
