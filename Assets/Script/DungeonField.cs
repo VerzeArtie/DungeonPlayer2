@@ -218,7 +218,7 @@ public class DungeonField : MotherBase
   private bool FirstAction = false;
   private bool AlreadyDetectEncount = false;
   private bool AlreadyDetectEncounted = false;
-  private int MarginTimeForCallBattle = 100;
+  private int MarginTimeForCallBattle = 30;
   bool ignoreCreateShadow = false;
 
   private bool arrowDown = false; // add unity
@@ -5247,59 +5247,54 @@ public class DungeonField : MotherBase
       {
         Debug.Log("detectenemy: location: " + this.Player.transform.position.x + " " + this.Player.transform.position.z);
 
-        if (PlayerList[0].Level <= 1)
+        switch (area_info)
         {
-          switch (AP.Math.RandomInteger(3))
-          {
-            case 0:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 1:
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
-            case 2:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              break;
-          }
-        }
-        else
-        {
-          switch (AP.Math.RandomInteger(9))
-          {
-            case 0:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 1:
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
-            case 2:
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-            case 3:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              break;
-            case 4:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 5:
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              break;
-            case 6:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-              break;
-            case 7:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-            case 8:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
-              break;
-          }
+          case TileInformation.Area.AREA_1:
+            switch (AP.Math.RandomInteger(3))
+            {
+              case 0:
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                break;
+              case 1:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                break;
+              case 2:
+                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+                break;
+            }
+            break;
+          case TileInformation.Area.AREA_2:
+            switch (AP.Math.RandomInteger(5))
+            {
+              case 0:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.MANDRAGORA);
+                break;
+              case 1:
+                One.BattleEnemyList.Add(Fix.WILD_ANT);
+                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+                break;
+              case 2:
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+                One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
+                break;
+              case 3:
+                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+                break;
+              case 4:
+                One.BattleEnemyList.Add(Fix.WILD_ANT);
+                One.BattleEnemyList.Add(Fix.WILD_ANT);
+                One.BattleEnemyList.Add(Fix.MANDRAGORA);
+                One.BattleEnemyList.Add(Fix.MANDRAGORA);
+                break;
+            }
+            break;
         }
         One.CannotRunAway = false;
         PrepareCallTruthBattleEnemy();
