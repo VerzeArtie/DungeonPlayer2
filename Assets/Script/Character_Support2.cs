@@ -107,6 +107,7 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.FRESH_HEAL;
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
+        this.ActionCommandList[0] = Fix.FRESH_HEAL;
         break;
 
       case Fix.NAME_BILLY_RAKI:
