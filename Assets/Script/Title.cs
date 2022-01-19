@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Title : MotherBase
 {
   public SaveLoad groupSaveLoad;
+  public GameObject groupConfig;
 
   bool firstAction = false;
   // Start is called before the first frame update
@@ -62,5 +63,16 @@ public class Title : MotherBase
     this.groupSaveLoad.SceneLoading();
     this.groupSaveLoad.gameObject.SetActive(true);
     //SceneDimension.CallSaveLoad(this, false, false);
+  }
+
+  public void TapConfig()
+  {
+    groupConfig.SetActive(true);
+  }
+
+  public void TapClose()
+  {
+    groupConfig.SetActive(false);
+    groupSaveLoad.gameObject.SetActive(false);
   }
 }
