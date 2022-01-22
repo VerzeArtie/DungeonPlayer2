@@ -260,7 +260,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：助かるぜ。サンキューな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：よし、じゃあ行きますか！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぜ！", ActionEvent.None);
 
   }
 
