@@ -77,7 +77,7 @@ public partial class Character : MonoBehaviour
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableIce = true;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.IceNeedle = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
