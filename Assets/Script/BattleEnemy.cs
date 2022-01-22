@@ -15,6 +15,7 @@ public partial class BattleEnemy : MotherBase
   public StackObject prefab_Stack = null;
   public DamageObject prefab_Damage = null;
   public NodeBattleChara node_BattleChara = null;
+  public NodeBattleChara node_BattleChara_Enemy = null;
   public GameObject prefab_Message = null;
   public NodeActionCommand prefab_MainAction = null;
   public NodeActionCommand prefab_InstantAction = null;
@@ -340,7 +341,7 @@ public partial class BattleEnemy : MotherBase
     if (enemyBaseStart <= 0.0f) { enemyBaseStart = 0.0f; }
     for (int ii = 0; ii < One.EnemyList.Count; ii++)
     {
-      NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
+      NodeBattleChara node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
       node.gameObject.SetActive(true);
       node.transform.SetParent(GroupParentEnemy.transform);
       //GameObject objEC = new GameObject("objEC");
@@ -349,6 +350,8 @@ public partial class BattleEnemy : MotherBase
       //character.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
       //character.Construction(One.EnemyList[ii]);
       One.EnemyList[ii].IsEnemy = true;
+      if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
+      if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
       AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
       // debug
       //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
@@ -407,37 +410,46 @@ public partial class BattleEnemy : MotherBase
     character.txtTargetName = node.txtTargetName;
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
 
-    string command_name = character.CurrentImmediateCommand;
-    character.objImmediateCommand = node.objImmediateCommand;
-    character.objImmediateCommand.BackColor.color = new Color(0, 0, 0, 0);
-    character.objImmediateCommand.CommandName = command_name;
-    character.objImmediateCommand.name = command_name;
-    character.objImmediateCommand.OwnerName = character.FullName;
-    character.objImmediateCommand.ActionButton.name = command_name;
-    character.objImmediateCommand.ApplyImageIcon(command_name);
-    character.GroupActionCommand = node.GroupActionCommand;
-    // character.objImmediateCommand.gameObject.SetActive(true); // todo
-
-    Debug.Log("character.ActionCommandList count: " + character.FullName + " " + character.ActionCommandList.Count);
-    character.objActionCommandList.Clear();
-    for (int ii = 0; ii < node.ActionCommandList.Count; ii++)
+    if (node.objImmediateCommand != null)
     {
-      Debug.Log("actioncommandlist: " + ii.ToString());
-      if (ii >= character.ActionCommandList.Count)
+      string command_name = character.CurrentImmediateCommand;
+      character.objImmediateCommand = node.objImmediateCommand;
+      character.objImmediateCommand.BackColor.color = new Color(0, 0, 0, 0);
+      character.objImmediateCommand.CommandName = command_name;
+      character.objImmediateCommand.name = command_name;
+      character.objImmediateCommand.OwnerName = character.FullName;
+      character.objImmediateCommand.ActionButton.name = command_name;
+      character.objImmediateCommand.ApplyImageIcon(command_name);
+
+      if (character.IsEnemy)
       {
-        continue;
+        character.objImmediateCommand.gameObject.SetActive(false);
       }
-      character.objActionCommandList.Add(node.ActionCommandList[ii]);
-      character.objActionCommandList[ii].CommandName = character.ActionCommandList[ii];
-      character.objActionCommandList[ii].name = character.ActionCommandList[ii];
-      character.objActionCommandList[ii].OwnerName = character.FullName;
-      character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandList[ii]);
     }
 
-    if (character.IsEnemy)
+    if (node.GroupActionCommand != null)
     {
-      character.objImmediateCommand.gameObject.SetActive(false);
-      character.GroupActionCommand.SetActive(false);
+      character.GroupActionCommand = node.GroupActionCommand;
+      Debug.Log("character.ActionCommandList count: " + character.FullName + " " + character.ActionCommandList.Count);
+
+      character.objActionCommandList.Clear();
+      for (int ii = 0; ii < node.ActionCommandList.Count; ii++)
+      {
+        Debug.Log("actioncommandlist: " + ii.ToString() + character.ActionCommandList[ii]);
+        if (ii >= character.ActionCommandList.Count)
+        {
+          continue;
+        }
+        character.objActionCommandList.Add(node.ActionCommandList[ii]);
+        character.objActionCommandList[ii].CommandName = character.ActionCommandList[ii];
+        character.objActionCommandList[ii].name = character.ActionCommandList[ii];
+        character.objActionCommandList[ii].OwnerName = character.FullName;
+        character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandList[ii]);
+      }
+      if (character.IsEnemy)
+      {
+        character.GroupActionCommand.SetActive(false);
+      }
     }
 
     character.objParentActionPanel = group_parent_actionpanel;

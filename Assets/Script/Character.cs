@@ -2030,6 +2030,7 @@ public partial class Character : MonoBehaviour
     // todo
     List<string> list = new List<string>();
     list.Add(Fix.NORMAL_ATTACK);
+    list.Add(Fix.MAGIC_ATTACK);
     list.Add(Fix.DEFENSE);
     if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
     if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
