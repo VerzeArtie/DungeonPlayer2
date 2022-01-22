@@ -877,23 +877,29 @@ public partial class HomeTown : MotherBase
     // todo
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      One.TF.Field_X = -44.0f;
-      One.TF.Field_Y = 2.0f;
-      One.TF.Field_Z = 4.0f;
+      SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
+      One.TF.Field_X = 28.0f;
+      One.TF.Field_Y = 1.0f;
+      One.TF.Field_Z= 9.0f;
+      //One.TF.Field_X = -44.0f;
+      //One.TF.Field_Y = 2.0f;
+      //One.TF.Field_Z = 4.0f;
+      return;
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
       One.TF.Field_X = -49.0f;
       One.TF.Field_Y = 5.0f;
       One.TF.Field_Z = 17.0f;
+      SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
       One.TF.Field_X = 24.0f;
       One.TF.Field_Y = 1.0f;
       One.TF.Field_Z = 3.0f;
+      SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
     }
-    SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
   }
   //public void TapInn()
   //{

@@ -3680,7 +3680,31 @@ public class DungeonField : MotherBase
           // ダンジョン毎に特定領域を可視化
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "1")
           {
-            List<int> numbers = new List<int>() { 408, 409, 410, 411, 412, 448, 449, 450, 451, 452, 488, 489, 490, 491, 492, 528, 529, 530, 531, 532, 568, 569, 570, 571, 572 };
+            //List<int> numbers = new List<int>() { 408, 409, 410, 411, 412, 448, 449, 450, 451, 452, 488, 489, 490, 491, 492, 528, 529, 530, 531, 532, 568, 569, 570, 571, 572 };
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 3; jj++)
+            {
+              for (int kk = 0; kk < 3; kk++)
+              {
+                numbers.Add(117 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "2")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 7; jj++)
+            {
+              for (int kk = 0; kk < 6; kk++)
+              {
+                numbers.Add(32 + jj * 40 + kk);
+              }
+            }
             for (int jj = 0; jj < numbers.Count; jj++)
             {
               UnknownTileList[numbers[jj]].gameObject.SetActive(false);
@@ -4671,17 +4695,17 @@ public class DungeonField : MotherBase
     // field
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
     {
-      if (LocationDetect(tile, 21, 0, 9) && One.TF.Event_Message000100 == false)
-      {
-        One.TF.Event_Message000100 = true;
-        MessagePack.Message000100(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, 23, 0, 9) && One.TF.DefeatScreamingRafflesia == false)
-      {
-        MessagePack.Message000110(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
+      //if (LocationDetect(tile, 21, 0, 9) && One.TF.Event_Message000100 == false)
+      //{
+      //  One.TF.Event_Message000100 = true;
+      //  MessagePack.Message000100(ref QuestMessageList, ref QuestEventList); TapOK();
+      //  return true;
+      //}
+      //if (LocationDetect(tile, 23, 0, 9) && One.TF.DefeatScreamingRafflesia == false)
+      //{
+      //  MessagePack.Message000110(ref QuestMessageList, ref QuestEventList); TapOK();
+      //  return true;
+      //}
     }
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {

@@ -208,53 +208,59 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
 
-    Message(ref m_list, ref e_list, "アイン：っしゃ・・・ついに到着かな。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：さてと・・・道のりだが・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：で、どこに到着したっていうのよ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：この草原区域、安全とは言えモンスターが出る区域よ。十分注意して進んでよね", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：決まってるだろ。サルンの洞窟さ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：任せとけって。大丈夫さ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：どう見ても看板１つしか見あたらないけど。どの辺に洞窟があるのよ。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：まあ、見てなって。そこの看板に書いてある通りさ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "20", ActionEvent.MoveLeft);
 
     Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
 
+    Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、なんか看板があるな。", ActionEvent.None);
+
     Message(ref m_list, ref e_list, "ラナ：じゃ、読んでみるわね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "『　行き止まり。引き返すがよい　』", ActionEvent.None);
+    Message(ref m_list, ref e_list, "『　準備を怠るべからず、獣道には入るべからず　』", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：アーッハッハッハ！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：なるほど、さすがにこれは俺もわかる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：獣道に入れって事で合ってるよな？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのエレクトリカル・ブローがアインに炸裂）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ッグフオォ・・・、ラナ、お前もう少し加減しろよ・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：ハアアァァァ・・・骨折り損ね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：ハアアァァァ・・・ともかく、まずはファージル宮殿に向かいなさいよね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：マジかよ！　どう考えてもここが終着点でなんかあるはずだろ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：マジかよ！　どう考えてもこれは行っておくべきだろ？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：わざとらしい看板が１本ちゃんとあったじゃない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：ホンットに時間切れで遠征許可証もらえなくなっても知らないわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：いや・・・いやいやいや・・・きっと何かあるに違いない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：いやいやいや・・・それはマズいのは確かだが。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：さてと、引き返すわよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：だったらまずは最初の意気込み通りに進めてちょうだい、いいわね？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ラナ、マップ見せてくれ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：わ、分かった。まずはファージル宮殿へ向かおう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：アンタがここまで連れてきたんでしょうが、マップ作成してこなかったの？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ラナ、ところでマップ見せてくれないか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：わりぃ。。。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：アンタ自分でマップ作成しないつもりなわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：せっかくなんだし、頼むぜ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：ったく、しょうがないわね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：今度から私が取ってあげるから、ちゃんとマップ管理しなさいよね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：私が作成しておいてあげるから、ちゃんとマップ管理しなさいよね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：助かるぜ。サンキューな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：よし、じゃあひとまずここを出るとするか！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ行きますか！", ActionEvent.None);
 
   }
 
