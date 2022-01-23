@@ -53,7 +53,7 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
         this.AvailableSwordman = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.MAGIC_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.StraightSmash = 1;
         this.ActionCommandList[0] = Fix.STRAIGHT_SMASH;
@@ -61,7 +61,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.NAME_LANA_AMIRIA:
         this.Level = 1;
-        this.Strength = 3;
+        this.Strength = 4;
         this.Agility = 4;
         this.Intelligence = 4;
         this.Stamina = 2;
@@ -77,7 +77,7 @@ public partial class Character : MonoBehaviour
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
         this.MainArmor = new Item(Fix.BEGINNER_CROSS);
         this.AvailableIce = true;
-        this.GlobalAction1 = Fix.MAGIC_ATTACK;
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.IceNeedle = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
