@@ -5021,12 +5021,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 606787455}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6130,12 +6130,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1318763664}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20777,7 +20777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00017610905}
+  m_AnchoredPosition: {x: 0, y: 0.124413006}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &424182967
@@ -23063,7 +23063,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 584686475}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999813
+  m_Size: 0.9295909
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -26848,12 +26848,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1071344537}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -30609,12 +30609,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1281965025}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -47142,12 +47142,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1765872103}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -48536,12 +48536,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 2122992678}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -52321,12 +52321,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1167640438}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -79464,12 +79464,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1188928772}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -94618,12 +94618,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1416681297}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -106572,12 +106572,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapStayListCharacter
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1273391231}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
