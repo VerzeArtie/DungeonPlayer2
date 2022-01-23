@@ -2785,6 +2785,7 @@ public class DungeonField : MotherBase
     // todo 位置によってイベントが違う。位置による制御違いを実装する必要がある。
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MessageBoard)
     {
+      Debug.Log("MessageBoard detect: " + fieldObjBefore.ObjectId);
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
       {
         Debug.Log("fieldObjBefore: " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
@@ -2807,6 +2808,10 @@ public class DungeonField : MotherBase
         else if (LocationFieldDetect(fieldObjBefore, 7, 1, -3))
         {
           MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (LocationFieldDetect(fieldObjBefore, 25, 1, 9))
+        {
+          MessagePack.Message000070(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       else

@@ -370,6 +370,16 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "『　訪れし者よ。開かれし地へと進むが良い　』", ActionEvent.None);
     }
   }
+  public static void Message000070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　準備を怠るべからず、獣道には入るべからず　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：準備を怠ってなけりゃ・・・獣道に入っても・・・？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：遠征許可証の準備はできているのかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そ、そうだな・・・", ActionEvent.None);
+  }
 
   public static void Message000100(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
