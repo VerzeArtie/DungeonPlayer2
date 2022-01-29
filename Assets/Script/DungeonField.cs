@@ -68,6 +68,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Dhal_Normal;
   public TileInformation prefab_Dhal_Wall;
   public TileInformation prefab_Upstair;
+  public TileInformation prefab_Downstair;
   public TileInformation prefab_Unknown;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
@@ -297,6 +298,7 @@ public class DungeonField : MotherBase
     PrefabList.Add("Dhal_Normal");
     PrefabList.Add("Dhal_Wall");
     PrefabList.Add("Upstair");
+    PrefabList.Add("Downstair");
 
     // オブジェクトリストの設定
     ObjectList.Add("Treasure");
@@ -5802,6 +5804,10 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Downstair")
+    {
+      current = Instantiate(prefab_Downstair, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Unknown")
     {
       current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
@@ -5810,7 +5816,7 @@ public class DungeonField : MotherBase
     if (current != null)
     {
       current.ObjectId = id;
-      Debug.Log("areainfo: " + area_info);
+      //Debug.Log("areainfo: " + area_info);
       if (string.IsNullOrEmpty(area_info) == false)
       {
         current.AreaInfo = (TileInformation.Area)(Enum.Parse(typeof(TileInformation.Area), area_info));
@@ -5965,7 +5971,11 @@ public class DungeonField : MotherBase
   /// <param name="map_data"></param>
   private void SaveTileMapping(string map_data)
   {
-    XmlTextWriter xmlWriter = new XmlTextWriter(Application.dataPath + Fix.BaseMapFolder + map_data, Encoding.UTF8);
+    TextAsset txt = Resources.Load<TextAsset>(map_data.Replace(".txt", ""));
+
+    Debug.Log("map_data path: " + One.pathForRoot() + map_data);
+    //XmlTextWriter xmlWriter = new XmlTextWriter(Application.dataPath + Fix.BaseMapFolder + map_data, Encoding.UTF8);
+    XmlTextWriter xmlWriter = new XmlTextWriter(One.pathForRoot() + map_data, Encoding.UTF8);
     try
     {
       xmlWriter.WriteStartDocument();
@@ -6027,6 +6037,7 @@ public class DungeonField : MotherBase
   private void UpdateDebugMessage(string message)
   {
     txtDebugMainMessage.text = txtDebugMainMessage.text.Insert(0, message + "\r\n");
+    Debug.Log(message);
   }
 
   /// <summary>
@@ -6059,7 +6070,6 @@ public class DungeonField : MotherBase
       XmlReaderSettings settings = new XmlReaderSettings();
       settings.IgnoreWhitespace = true;
       settings.IgnoreComments = true;
-
      // UpdateDebugMessage(Application.dataPath + Fix.BaseMapFolder + map_data);
 //      UpdateDebugMessage("2: " + Resources.Load<TextAsset>(@"Map\" + map_data).text);
       TextAsset txt = Resources.Load<TextAsset>(map_data.Replace(".txt", ""));
@@ -6069,7 +6079,7 @@ public class DungeonField : MotherBase
       }
       else
       {
-        UpdateDebugMessage("map_data found !");
+        UpdateDebugMessage("map_data found! " + txt.name);
       }
       UpdateDebugMessage("3: " + txt.name);
       //using (XmlReader reader = XmlReader.Create(Environment.CurrentDirectory + "/" +  Fix.BaseMapFolder + map_data, settings))
@@ -6137,7 +6147,7 @@ public class DungeonField : MotherBase
           objView.transform.SetParent(ContentFieldObj.transform);
           objView.txtType.text = strObjList[ii];
           objView.txtLocation.text = objList[ii].ToString();
-          Debug.Log("currentObjView ID: " + strObjIdList[ii]);
+          //Debug.Log("currentObjView ID: " + strObjIdList[ii]);
           objView.txtObjectId.text = strObjIdList[ii];
           objView.x = objList[ii].x;
           objView.y = objList[ii].y;
@@ -6150,7 +6160,7 @@ public class DungeonField : MotherBase
           rect.localPosition = new Vector3(0, -5 - ii * NODE_HEIGHT, 0);
           const int HEIGHT = 110;
           ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
-          Debug.Log("debug count: " + ii.ToString());
+          //Debug.Log("debug count: " + ii.ToString());
           // debug
         }
       }

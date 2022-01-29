@@ -1279,6 +1279,21 @@ public static class One
   #endregion
 
   #region "セーブ・ロード関連"
+  public static string pathForRoot()
+  {
+    if (Application.platform == RuntimePlatform.IPhonePlayer)
+    {
+      return Application.persistentDataPath;
+    }
+    else if (Application.platform == RuntimePlatform.Android)
+    {
+      return Application.persistentDataPath;
+    }
+    else
+    {
+      return Environment.CurrentDirectory + @"/Assets/Resources/"; // Unity作業フォルダ限定の書き方
+    }
+  }
   public static string pathForDocumentsFile(string filename)
   {
     if (Application.platform == RuntimePlatform.IPhonePlayer)
