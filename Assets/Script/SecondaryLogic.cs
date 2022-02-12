@@ -62,6 +62,86 @@ public static class SecondaryLogic
     return 0.80f;
   }
 
+  public static double AirCutter(Character player)
+  {
+    return 1.60f;
+  }
+  public static int AirCutter_Turn(Character player)
+  {
+    return 5;
+  }
+  public static double AirCutter_Value(Character player)
+  {
+    return 0.02f;
+  }
+
+  public static double RockSlum(Character player)
+  {
+    return 1.70f;
+  }
+  public static double RockSlum_Value(Character player)
+  {
+    return 0.02f;
+  }
+
+  public static double StraightSmash(Character player)
+  {
+    return 2.00f;
+  }
+
+  public static double HunterShot(Character player)
+  {
+    return 1.50f;
+  }
+  public static int HunterShot_Turn(Character player)
+  {
+    return 9;
+  }
+  public static double HunterShot_Value(Character player)
+  {
+    return 0.80f;
+  }
+
+  public static double LegStrike(Character player)
+  {
+    return 1.80f;
+  }
+  public static int LegStrike_Turn(Character player)
+  {
+    return 5;
+  }
+  public static double LegStrike_Value(Character player)
+  {
+    return 0.90f;
+  }
+
+  public static double VenomSlash(Character player)
+  {
+    return 1.50f;
+  }
+  public static double VenomSlash_2(Character player)
+  {
+    return PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * 0.50f;
+  }
+  public static int VenomSlash_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double EnergyBolt(Character player)
+  {
+    return 1.40;
+  }
+
+  public static double ShieldBash(Character player)
+  {
+    return 1.00f;
+  }
+  public static int ShieldBash_Turn(Character player)
+  {
+    return 1;
+  }
+
   public static int AuraOfPower_Turn(Character player)
   {
     return Fix.INFINITY;
@@ -80,46 +160,6 @@ public static class SecondaryLogic
   public static double SkyShield_Value(Character player)
   {
     return 1.20f;
-  }
-
-  public static double StraightSmash(Character player)
-  {
-    return 2.00f;
-  }
-
-  public static double ShieldBash(Character player)
-  {
-    return 1.00f;
-  }
-  public static int ShieldBash_Turn(Character player)
-  {
-    return 1;
-  }
-
-  public static double HunterShot(Character player)
-  {
-    return 1.50f;
-  }
-  public static int HunterShot_Turn(Character player)
-  {
-    return 9;
-  }
-  public static double HunterShot_Value(Character player)
-  {
-    return 0.80f;
-  }
-
-  public static double VenomSlash(Character player)
-  {
-    return 1.50f;
-  }
-  public static double VenomSlash_2(Character player)
-  {
-    return PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * 0.50f;
-  }
-  public static int VenomSlash_Turn(Character player)
-  {
-    return 3;
   }
 
   public static double HeartOfLife(Character player)

@@ -559,13 +559,19 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return TimingType.Instant; }
     if (command_name == Fix.FRESH_HEAL) { return TimingType.Instant; }
     if (command_name == Fix.SHADOW_BLAST) { return TimingType.Instant; }
+    if (command_name == Fix.AIR_CUTTER) { return TimingType.Instant; }
+    if (command_name == Fix.ROCK_SLAM) { return TimingType.Instant; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return TimingType.Instant; }
+    if (command_name == Fix.HUNTER_SHOT) { return TimingType.Instant; }
+    if (command_name == Fix.LEG_STRIKE) { return TimingType.Instant; }
+    if (command_name == Fix.VENOM_SLASH) { return TimingType.Instant; }
+    if (command_name == Fix.ENERGY_BOLT) { return TimingType.Instant; }
+    if (command_name == Fix.SHIELD_BASH) { return TimingType.Normal; }
     if (command_name == Fix.AURA_OF_POWER) { return TimingType.Instant; }
     if (command_name == Fix.DISPEL_MAGIC) { return TimingType.Instant; }
-    if (command_name == Fix.STRAIGHT_SMASH) { return TimingType.Instant; }
-    if (command_name == Fix.SHIELD_BASH) { return TimingType.Instant; }
-    if (command_name == Fix.HUNTER_SHOT) { return TimingType.Instant; }
-    if (command_name == Fix.VENOM_SLASH) { return TimingType.Instant; }
     if (command_name == Fix.HEART_OF_LIFE) { return TimingType.Instant; }
+    if (command_name == Fix.DARK_AURA) { return TimingType.Normal; }
+    if (command_name == Fix.TRUE_SIGHT) { return TimingType.Instant; }
     if (command_name == Fix.ORACLE_COMMAND) { return TimingType.Instant; }
 
     if (command_name == Fix.FLAME_BLADE) { return TimingType.Instant; }
@@ -610,14 +616,22 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return TargetType.Enemy; }
     if (command_name == Fix.FRESH_HEAL) { return TargetType.Ally; }
     if (command_name == Fix.SHADOW_BLAST) { return TargetType.Enemy; }
-    if (command_name == Fix.AURA_OF_POWER) { return TargetType.Ally; }
-    if (command_name == Fix.DISPEL_MAGIC) { return TargetType.Enemy; }
+    if (command_name == Fix.AIR_CUTTER) { return TargetType.Enemy; }
+    if (command_name == Fix.ROCK_SLAM) { return TargetType.Enemy; }
     if (command_name == Fix.STRAIGHT_SMASH) { return TargetType.Enemy; }
-    if (command_name == Fix.SHIELD_BASH) { return TargetType.Enemy; }
     if (command_name == Fix.HUNTER_SHOT) { return TargetType.Enemy; }
+    if (command_name == Fix.LEG_STRIKE) { return TargetType.Enemy; }
     if (command_name == Fix.VENOM_SLASH) { return TargetType.Enemy; }
+    if (command_name == Fix.ENERGY_BOLT) { return TargetType.Enemy; }
+    if (command_name == Fix.SHIELD_BASH) { return TargetType.Enemy; }
+    if (command_name == Fix.AURA_OF_POWER) { return TargetType.Ally; }
+    if (command_name == Fix.DISPEL_MAGIC) { return TargetType.EnemyOrAlly; }
     if (command_name == Fix.HEART_OF_LIFE) { return TargetType.Ally; }
+    if (command_name == Fix.DARK_AURA) { return TargetType.Ally; }
+    if (command_name == Fix.TRUE_SIGHT) { return TargetType.Ally; }
     if (command_name == Fix.ORACLE_COMMAND) { return TargetType.Ally; }
+
+
     if (command_name == Fix.FLAME_BLADE) { return TargetType.Ally; }
     if (command_name == Fix.PURE_PURIFICATION) { return TargetType.Ally; }
     if (command_name == Fix.DIVINE_CIRCLE) { return TargetType.AllyGroup; }
@@ -675,15 +689,21 @@ public static class ActionCommand
 
     if (command_name == Fix.FIRE_BALL) { return 4; }
     if (command_name == Fix.ICE_NEEDLE) { return 3; }
-    if (command_name == Fix.FRESH_HEAL) { return 3; }
+    if (command_name == Fix.FRESH_HEAL) { return 4; }
     if (command_name == Fix.SHADOW_BLAST) { return 3; }
-    if (command_name == Fix.AURA_OF_POWER) { return 2; }
-    if (command_name == Fix.DISPEL_MAGIC) { return 4; }
+    if (command_name == Fix.AIR_CUTTER) { return 3; }
+    if (command_name == Fix.ROCK_SLAM) { return 5; }
     if (command_name == Fix.STRAIGHT_SMASH) { return 5; }
-    if (command_name == Fix.SHIELD_BASH) { return 3; }
     if (command_name == Fix.HUNTER_SHOT) { return 4; }
-    if (command_name == Fix.VENOM_SLASH) { return 3; }
-    if (command_name == Fix.HEART_OF_LIFE) { return 6; }
+    if (command_name == Fix.LEG_STRIKE) { return 4; }
+    if (command_name == Fix.VENOM_SLASH) { return 4; }
+    if (command_name == Fix.ENERGY_BOLT) { return 3; }
+    if (command_name == Fix.SHIELD_BASH) { return 4; }
+    if (command_name == Fix.AURA_OF_POWER) { return 3; }
+    if (command_name == Fix.DISPEL_MAGIC) { return 3; }
+    if (command_name == Fix.HEART_OF_LIFE) { return 3; }
+    if (command_name == Fix.DARK_AURA) { return 3; }
+    if (command_name == Fix.TRUE_SIGHT) { return 6; }
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
 
     if (command_name == Fix.FLAME_BLADE) { return 7; }
@@ -748,14 +768,21 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return BuffType.Negative; }
     if (command_name == Fix.FRESH_HEAL) { return BuffType.None; }
     if (command_name == Fix.SHADOW_BLAST) { return BuffType.Negative; }
+    if (command_name == Fix.AIR_CUTTER) { return BuffType.Positive; }
+    if (command_name == Fix.ROCK_SLAM) { return BuffType.None; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return BuffType.None; }
+    if (command_name == Fix.HUNTER_SHOT) { return BuffType.Positive; }
+    if (command_name == Fix.LEG_STRIKE) { return BuffType.Negative; }
+    if (command_name == Fix.VENOM_SLASH) { return BuffType.Negative; }
+    if (command_name == Fix.ENERGY_BOLT) { return BuffType.None; }
+    if (command_name == Fix.SHIELD_BASH) { return BuffType.Negative; }
     if (command_name == Fix.AURA_OF_POWER) { return BuffType.Positive; }
     if (command_name == Fix.DISPEL_MAGIC) { return BuffType.None; }
-    if (command_name == Fix.STRAIGHT_SMASH) { return BuffType.None; }
-    if (command_name == Fix.SHIELD_BASH) { return BuffType.Negative; }
-    if (command_name == Fix.HUNTER_SHOT) { return BuffType.Negative; }
-    if (command_name == Fix.VENOM_SLASH) { return BuffType.Negative; }
     if (command_name == Fix.HEART_OF_LIFE) { return BuffType.Positive; }
+    if (command_name == Fix.DARK_AURA) { return BuffType.Positive; }
+    if (command_name == Fix.TRUE_SIGHT) { return BuffType.Positive; }
     if (command_name == Fix.ORACLE_COMMAND) { return BuffType.None; }
+
 
     if (command_name == Fix.FLAME_BLADE) { return BuffType.Positive; }
     if (command_name == Fix.PURE_PURIFICATION) { return BuffType.None; }
@@ -811,13 +838,19 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return true; }
     if (command_name == Fix.FRESH_HEAL) { return false; }
     if (command_name == Fix.SHADOW_BLAST) { return true; }
+    if (command_name == Fix.AIR_CUTTER) { return true; }
+    if (command_name == Fix.ROCK_SLAM) { return true; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return true; }
+    if (command_name == Fix.HUNTER_SHOT) { return true; }
+    if (command_name == Fix.LEG_STRIKE) { return true; }
+    if (command_name == Fix.VENOM_SLASH) { return true; }
+    if (command_name == Fix.ENERGY_BOLT) { return true; }
+    if (command_name == Fix.SHIELD_BASH) { return true; }
     if (command_name == Fix.AURA_OF_POWER) { return false; }
     if (command_name == Fix.DISPEL_MAGIC) { return false; }
-    if (command_name == Fix.STRAIGHT_SMASH) { return true; }
-    if (command_name == Fix.SHIELD_BASH) { return true; }
-    if (command_name == Fix.HUNTER_SHOT) { return true; }
-    if (command_name == Fix.VENOM_SLASH) { return true; }
     if (command_name == Fix.HEART_OF_LIFE) { return false; }
+    if (command_name == Fix.DARK_AURA) { return false; }
+    if (command_name == Fix.TRUE_SIGHT) { return false; }
     if (command_name == Fix.ORACLE_COMMAND) { return false; }
 
     if (command_name == Fix.FLAME_BLADE) { return false; }

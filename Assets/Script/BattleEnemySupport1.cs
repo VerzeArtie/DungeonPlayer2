@@ -41,6 +41,10 @@ public partial class BattleEnemy : MotherBase
     {
       result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.StraightSmash(player);
     }
+    else if (command_name == Fix.LEG_STRIKE)
+    {
+      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.LegStrike(player);
+    }
     else if (command_name == Fix.SHIELD_BASH)
     {
       result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.ShieldBash(player);
@@ -72,7 +76,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した物理攻撃実行コマンド
   /// </summary>
-  private bool ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical)
+  private bool ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -117,13 +121,13 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
-    ApplyDamage(player, target, damageValue);
+    ApplyDamage(player, target, damageValue, animation_speed);
 
     // 追加効果
     if (player.IsFlameBlade && player.Dead == false)
     {
       double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, critical);
-      ApplyDamage(player, target, addDamageValue);
+      ApplyDamage(player, target, addDamageValue, animation_speed);
     }
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
     if (stanceOfTheBlade != null)
@@ -139,7 +143,7 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
+  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -184,13 +188,13 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
-    ApplyDamage(player, target, damageValue);
+    ApplyDamage(player, target, damageValue, animation_speed);
 
     // 追加効果
     if (player.IsStormArmor && player.Dead == false)
     {
       double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Colorless, critical); // todo 電撃がColorlessで良いのかどうか。
-      ApplyDamage(player, target, addDamageValue);
+      ApplyDamage(player, target, addDamageValue, animation_speed);
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
     if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
@@ -238,18 +242,27 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecAuraOfPower(Character player, Character target)
+  private void ExecAirCutter(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0);
-    StartAnimation(target.objGroup.gameObject, Fix.AURA_OF_POWER, Fix.COLOR_NORMAL);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, critical);
+
+    if (success)
+    {
+      player.objBuffPanel.AddBuff(prefab_Buff, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0);
+      StartAnimation(player.objGroup.gameObject, Fix.AIR_CUTTER, Fix.COLOR_NORMAL); //todo buff 戦闘速度2%上昇、最大3回累積をつけてね
+    }
   }
 
-  private void ExecDispelMagic(Character player, Character target)
+  private void ExecRockSlum(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.RemoveBuff(1, ActionCommand.BuffType.Positive);
-    StartAnimation(target.objGroup.gameObject, Fix.DISPEL_MAGIC, Fix.COLOR_NORMAL);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, critical);
+
+    if (success)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_GAUGE_BACK, Fix.COLOR_NORMAL); // todo 対象の行動ゲージを5%後方へ戻す。をつけてね
+    }
   }
 
   private void ExecStraightSmash(Character player, Character target, CriticalType critical)
@@ -257,6 +270,50 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
 
     ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), critical);
+  }
+
+  private void ExecHunterShot(Character player, Character target, CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
+
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0);
+      StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void ExecLegStrike(Character player, Character target, CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
+    // todo
+    // 【萎縮】が続く間、対象の戦闘反応値が減少する。
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0);
+      StartAnimation(target.objGroup.gameObject, Fix.LEG_STRIKE, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void ExecVenomSlash(Character player, Character target, CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
+
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0);
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void ExecEnergyBolt(Character player, Character target, CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), critical); // todo このダメージ量は【知】をベースとして算出される。
   }
 
   private void ExecShieldBash(Character player, Character target, CriticalType critical)
@@ -277,28 +334,26 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecHunterShot(Character player, Character target, CriticalType critical)
+  private void ExecAuraOfPower(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
-
-    if (success)
-    {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0);
-      StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
-    }
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0);
+    StartAnimation(target.objGroup.gameObject, Fix.AURA_OF_POWER, Fix.COLOR_NORMAL);
   }
 
-  private void ExecVenomSlash(Character player, Character target, CriticalType critical)
+  private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
+    target.RemoveBuff(1, ActionCommand.BuffType.Positive);
+    StartAnimation(target.objGroup.gameObject, Fix.DISPEL_MAGIC, Fix.COLOR_NORMAL);
+  }
 
-    if (success)
-    {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0);
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
-    }
+  private void ExecTrueSight(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    // todo
+    // 味方一体を対象とする。対象に【深層】のBUFFを付与する。
+    //【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。
   }
 
   private void ExecHeartOfLife(Character player, Character target)
@@ -306,6 +361,15 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random), 0);
     StartAnimation(target.objGroup.gameObject, Fix.HEART_OF_LIFE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecDarkAura(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    // todo
+    // 味方一体を対象とする。対象に【黒炎】のBUFFを付与する。
+    // ターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。
+    //【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。
   }
 
   private void ExecOracleCommand(Character player, Character target)
@@ -316,6 +380,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, "AP +" + effectValue.ToString(), Fix.COLOR_NORMAL);
   }
 
+  // Delve II
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -791,7 +856,7 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private void ApplyDamage(Character player, Character target, double damageValue)
+  private void ApplyDamage(Character player, Character target, double damageValue, int animation_speed)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -801,7 +866,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
     target.txtLife.text = target.CurrentLife.ToString();
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed);
   }
 
   private bool AbstractHealCommand(Character player, Character target, double healValue)

@@ -558,6 +558,7 @@ public partial class BattleEnemy : MotherBase
       mainActionList.Add(Fix.DEFENSE);
       if (character.StraightSmash > 0) { mainActionList.Add(Fix.STRAIGHT_SMASH); }
       if (character.IceNeedle > 0) { mainActionList.Add(Fix.ICE_NEEDLE); }
+      if (character.LegStrike > 0) { mainActionList.Add (Fix.LEG_STRIKE); }
 
       for (int ii = 0; ii < mainActionList.Count; ii++)
       {
@@ -1170,6 +1171,7 @@ public partial class BattleEnemy : MotherBase
         ExecUseRedPotion(target);
         break;
 
+      // Delve I
       case Fix.FIRE_BALL:
         ExecFireBall(player, target, critical);
         break;
@@ -1186,6 +1188,38 @@ public partial class BattleEnemy : MotherBase
         ExecShadowBlast(player, target, critical);
         break;
 
+      case Fix.AIR_CUTTER:
+        ExecAirCutter(player, target, critical);
+        break;
+
+      case Fix.ROCK_SLAM:
+        ExecRockSlum(player, target, critical);
+        break;
+
+      case Fix.STRAIGHT_SMASH:
+        ExecStraightSmash(player, target, critical);
+        break;
+
+      case Fix.HUNTER_SHOT:
+        ExecHunterShot(player, target, critical);
+        break;
+
+      case Fix.LEG_STRIKE:
+        ExecLegStrike(player, target, critical);
+        break;
+
+      case Fix.VENOM_SLASH:
+        ExecVenomSlash(player, target, critical);
+        break;
+
+      case Fix.ENERGY_BOLT:
+        ExecEnergyBolt(player, target, critical);
+        break;
+
+      case Fix.SHIELD_BASH:
+        ExecShieldBash(player, target, critical);
+        break;
+
       case Fix.AURA_OF_POWER:
         ExecAuraOfPower(player, target);
         break;
@@ -1194,30 +1228,23 @@ public partial class BattleEnemy : MotherBase
         ExecDispelMagic(player, target);
         break;
 
-      case Fix.STRAIGHT_SMASH:
-        ExecStraightSmash(player, target, critical);
-        break;
-
-      case Fix.SHIELD_BASH:
-        ExecShieldBash(player, target, critical);
-        break;
-
-      case Fix.HUNTER_SHOT:
-        ExecHunterShot(player, target, critical);
-        break;
-
-      case Fix.VENOM_SLASH:
-        ExecVenomSlash(player, target, critical);
+      case Fix.TRUE_SIGHT:
+        ExecTrueSight(player, target);
         break;
 
       case Fix.HEART_OF_LIFE:
         ExecHeartOfLife(player, target);
         break;
 
+      case Fix.DARK_AURA:
+        ExecDarkAura(player, target);
+        break;
+
       case Fix.ORACLE_COMMAND:
         ExecOracleCommand(player, target);
         break;
 
+      // Delve II
       case Fix.FLAME_BLADE:
         Debug.Log(Fix.FLAME_BLADE);
         ExecFlameBlade(player, target);
@@ -1369,7 +1396,13 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_YOUEN_FIRE:
-        ExecMagicAttack(player, target, 1.40f, Fix.DamageSource.Fire, critical);
+        for (int jj = 0; jj < 7; jj++)
+        {
+          // ランダムで対象を選んで当てる
+          // ダメージアニメーション速度を上げる。
+          List<Character> list = GetOpponentGroup(player);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 1.0f, Fix.DamageSource.Fire, critical, 20);
+        }
         break;
 
       case Fix.COMMAND_BLAZE_DANCE:
@@ -1479,7 +1512,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// アニメーションオブジェクトを生成します。
   /// </summary>
-  private void StartAnimation(GameObject targetObj, string message, Color color)
+  private void StartAnimation(GameObject targetObj, string message, Color color, int animation_speed = MAX_ANIMATION_TIME)
   {
     DamageObject damageObj = Instantiate(this.prefab_Damage, new Vector3(0, 0, 0), Quaternion.identity) as DamageObject;
     // 対象オブジェクトにリンクさせて位置を設定する。
@@ -1493,7 +1526,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    damageObj.Construct(message, color, MAX_ANIMATION_TIME);
+    damageObj.Construct(message, color, animation_speed);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -2396,28 +2429,42 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("SetupFirstCommand: " + player.FullName + " "  + command_name);
     player.CurrentActionCommand = command_name;
     SetupActionCommandButton(player.objMainButton, command_name);
+    Debug.Log("SetupFirstCommand: 2");
     player.txtActionCommand.text = command_name;
+    Debug.Log("SetupFirstCommand: 3");
     ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(command_name);
+    Debug.Log("SetupFirstCommand: 4");
     if (currentTargetType == ActionCommand.TargetType.Enemy || currentTargetType == ActionCommand.TargetType.EnemyGroup)
     {
+      Debug.Log("SetupFirstCommand: 5");
       player.Target = GetOpponentGroup(player)[0];
+      Debug.Log("SetupFirstCommand: 5-2");
     }
     else if (currentTargetType == ActionCommand.TargetType.Ally || currentTargetType == ActionCommand.TargetType.AllyGroup)
     {
+      Debug.Log("SetupFirstCommand: 6");
       player.Target = GetAllyGroup(player)[0];
+      Debug.Log("SetupFirstCommand: 6-2");
     }
     else if (currentTargetType == ActionCommand.TargetType.EnemyOrAlly || currentTargetType == ActionCommand.TargetType.AllMember)
     {
+      Debug.Log("SetupFirstCommand: 7");
       player.Target = GetOpponentGroup(player)[0];
+      Debug.Log("SetupFirstCommand: 7-2");
     }
     else if (currentTargetType == ActionCommand.TargetType.Own)
     {
+      Debug.Log("SetupFirstCommand: 8");
       player.Target = player;
+      Debug.Log("SetupFirstCommand: 8-2");
     }
     else
     {
+      Debug.Log("SetupFirstCommand: 9");
       player.Target = GetOpponentGroup(player)[0]; // Targetは基本NULLは入れない。何も考えない場合は相手側をターゲットとする。
+      Debug.Log("SetupFirstCommand: 9-2");
     }
+    Debug.Log("SetupFirstCommand: 10");
   }
   #endregion
 }

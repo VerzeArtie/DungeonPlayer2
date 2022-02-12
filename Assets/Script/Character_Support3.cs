@@ -42,6 +42,27 @@ public partial class Character : MonoBehaviour
     List<string> current = new List<string>();
     switch (this.FullName)
     {
+      case Fix.SCREAMING_RAFFLESIA:
+        int random = AP.Math.RandomInteger(4);
+        if (random == 0)
+        {
+          current.Add(Fix.COMMAND_YOUEN_FIRE);
+        }
+        else if (random == 1)
+        {
+          current.Add(Fix.COMMAND_POISON_RINPUN);
+        }
+        else if (random == 2)
+        {
+          current.Add(Fix.COMMAND_BLAZE_DANCE);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.MYSTIC_DRYAD:
         if (this.Target != null && this.Target.IsPoison == null)
         {

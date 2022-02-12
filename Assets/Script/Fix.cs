@@ -59,6 +59,13 @@ public static partial class Fix
     None,
   }
 
+  public enum DamageCore
+  {
+    None,
+    Physical,
+    Magic,
+  }
+
   public enum DamageSource
   {
     None,
@@ -66,6 +73,8 @@ public static partial class Fix
     Ice,
     HolyLight,
     DarkMagic,
+    Wind,
+    Earth,
     Physical, // 物理
     Colorless, // 無属性
   }
@@ -823,6 +832,7 @@ public static partial class Fix
   public const string EFFECT_SLEEP = "Sleep";
   public const string EFFECT_DIZZY = "Dizzy";
   public const string EFFECT_SILENT = "Silent";
+  public const string EFFECT_GAUGE_BACK = "Gauge Back";
   public const string EFFECT_PD_DOWN = "PD Down";
 
   public const string EFFECT_POWERUP_FIRE = "UP Fire";

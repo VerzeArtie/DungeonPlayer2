@@ -94,6 +94,12 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      case Fix.SCREAMING_RAFFLESIA:
+        SetupParameter(100, 50, 70, 500, 10, 1500, 3000, 2000);
+        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
       case Fix.NIMBLE_RABBIT:
       case Fix.NIMBLE_RABBIT_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
@@ -1083,13 +1089,6 @@ public partial class Character : MonoBehaviour
 
       case Fix.HELL_KERBEROS:
       case Fix.HELL_KERBEROS_JP:
-        //SetupParameter(85, 50, 15, 300, 10, 10000, 3000, 2000);
-        SetupParameter(1, 50, 15, 1, 10, 0, 3000, 1200);
-        this.ActionCommandList.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.SCREAMING_RAFFLESIA:
         //SetupParameter(85, 50, 15, 300, 10, 10000, 3000, 2000);
         SetupParameter(1, 50, 15, 1, 10, 0, 3000, 1200);
         this.ActionCommandList.Add(Fix.NORMAL_ATTACK);

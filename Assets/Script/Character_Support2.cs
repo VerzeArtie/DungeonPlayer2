@@ -46,7 +46,7 @@ public partial class Character : MonoBehaviour
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
@@ -54,24 +54,24 @@ public partial class Character : MonoBehaviour
         this.AvailableSwordman = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.StraightSmash = 1;
+        this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandList[0] = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
         this.Level = 1;
         this.Strength = 4;
-        this.Agility = 4;
-        this.Intelligence = 4;
+        this.Agility = 5;
+        this.Intelligence = 3;
         this.Stamina = 2;
         this.Mind = 3;
         this.BaseLife = 25;
         this.BaseSoulPoint = 15;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
-        this.SecondCommandAttribute = Fix.CommandAttribute.MartialArts;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
@@ -79,9 +79,9 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.IceNeedle = 1;
+        this.LegStrike = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
-        this.ActionCommandList[0] = Fix.ICE_NEEDLE;
+        this.ActionCommandList[0] = Fix.LEG_STRIKE;
         break;
 
       case Fix.NAME_EONE_FULNEA:

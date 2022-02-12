@@ -883,6 +883,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_CaveOfSarun_00007 = false;
   [SerializeField] protected bool _treasure_CaveOfSarun_00008 = false;
   [SerializeField] protected bool _treasure_CaveOfSarun_00009 = false;
+  [SerializeField] protected bool _treasure_CaveOfSarun_00010 = false;
 
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   [SerializeField] protected bool _treasure_artharium_00002 = false;
@@ -944,6 +945,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_CaveOfSarun_00007 { get { return _treasure_CaveOfSarun_00007; } set { _treasure_CaveOfSarun_00007 = value; } }
   public bool Treasure_CaveOfSarun_00008 { get { return _treasure_CaveOfSarun_00008; } set { _treasure_CaveOfSarun_00008 = value; } }
   public bool Treasure_CaveOfSarun_00009 { get { return _treasure_CaveOfSarun_00009; } set { _treasure_CaveOfSarun_00009 = value; } }
+  public bool Treasure_CaveOfSarun_00010 { get { return _treasure_CaveOfSarun_00010; } set { _treasure_CaveOfSarun_00010 = value; } }
 
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }
@@ -1001,9 +1003,15 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _fieldobject_caveofsarun_00001 = false;
   [SerializeField] protected bool _fieldobject_caveofsarun_00002 = false;
   [SerializeField] protected bool _fieldobject_caveofsarun_00003 = false;
-  public bool FieldObject_CaveofSarun_00001 {  get { return _fieldobject_caveofsarun_00001; } set { _fieldobject_caveofsarun_00001 = value; } }
-  public bool FieldObject_CaveofSarun_00002 {  get { return _fieldobject_caveofsarun_00002; } set { _fieldobject_caveofsarun_00002 = value; } }
-  public bool FieldObject_CaveofSarun_00003 {  get { return _fieldobject_caveofsarun_00003; } set { _fieldobject_caveofsarun_00003 = value; } }
+  [SerializeField] protected bool _fieldobject_caveofsarun_00007 = false;
+  [SerializeField] protected bool _fieldobject_caveofsarun_00008 = false;
+  [SerializeField] protected bool _fieldobject_caveofsarun_00009 = false;
+  public bool FieldObject_CaveofSarun_00001 { get { return _fieldobject_caveofsarun_00001; } set { _fieldobject_caveofsarun_00001 = value; } }
+  public bool FieldObject_CaveofSarun_00002 { get { return _fieldobject_caveofsarun_00002; } set { _fieldobject_caveofsarun_00002 = value; } }
+  public bool FieldObject_CaveofSarun_00003 { get { return _fieldobject_caveofsarun_00003; } set { _fieldobject_caveofsarun_00003 = value; } }
+  public bool FieldObject_CaveofSarun_00007 { get { return _fieldobject_caveofsarun_00007; } set { _fieldobject_caveofsarun_00007 = value; } }
+  public bool FieldObject_CaveofSarun_00008 { get { return _fieldobject_caveofsarun_00008; } set { _fieldobject_caveofsarun_00008 = value; } }
+  public bool FieldObject_CaveofSarun_00009 { get { return _fieldobject_caveofsarun_00009; } set { _fieldobject_caveofsarun_00009 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;

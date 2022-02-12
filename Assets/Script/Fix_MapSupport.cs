@@ -57,6 +57,12 @@ public partial class Fix
   public const float CAVEOFSARUN_Treasure_9_Y = 1.0f;
   public const float CAVEOFSARUN_Treasure_9_Z = 3.0f;
 
+  public const string CAVEOFSARUN_Treasure_10_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_10_O = "10";
+  public const float CAVEOFSARUN_Treasure_10_X = 27.0f;
+  public const float CAVEOFSARUN_Treasure_10_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_10_Z = -5.0f;
+
   public const string CAVEOFSARUN_Rock_1_C = "Rock";
   public const string CAVEOFSARUN_Rock_1_O = "1";
   public const float CAVEOFSARUN_Rock_1_X = -9.0f;
@@ -89,9 +95,21 @@ public partial class Fix
 
   public const string CAVEOFSARUN_Rock_6_C = "Rock";
   public const string CAVEOFSARUN_Rock_6_O = "6";
-  public const float CAVEOFSARUN_Rock_6_X = 15.0f;
+  public const float CAVEOFSARUN_Rock_6_X = 13.0f;
   public const float CAVEOFSARUN_Rock_6_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_6_Z = 1.0f;
+  public const float CAVEOFSARUN_Rock_6_Z = -1.0f;
+
+  public const string CAVEOFSARUN_Rock_7_C = "Rock";
+  public const string CAVEOFSARUN_Rock_7_O = "7";
+  public const float CAVEOFSARUN_Rock_7_X = 16.0f;
+  public const float CAVEOFSARUN_Rock_7_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_7_Z = -4.0f;
+
+  public const string CAVEOFSARUN_Rock_8_C = "Rock";
+  public const string CAVEOFSARUN_Rock_8_O = "8";
+  public const float CAVEOFSARUN_Rock_8_X = -6.0f;
+  public const float CAVEOFSARUN_Rock_8_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_8_Z = 2.0f;
 
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
   public const string ARTHARIUM_Treasure_3_O = "3";

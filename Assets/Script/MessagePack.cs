@@ -210,7 +210,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：さてと・・・道のりだが・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：この草原区域、安全とは言えモンスターが出る区域よ。十分注意して進んでよね", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：この草原区域、安全とは言えモンスターが出る区域よ。十分注意してよね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：任せとけって。大丈夫さ。", ActionEvent.None);
 
@@ -322,19 +322,36 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：看板だな、ええと・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "『　訪れし者よ。更に奥へと進むが良い　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：どういう意味だ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "2", ActionEvent.RemoveFieldObject);
+      if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+      {
+        Message(ref m_list, ref e_list, "ラナ：そこの宝箱の事を指しているんじゃないのかしら。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：音がしたみたいだけど。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：まあ、そうなんだが・・・", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：手に入れたマトックを使えって事じゃないの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、戻って確認してみようぜ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：まあ、そうなんだが・・・", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "ラナ：なんか気になるワケ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、何となく、なんかあるのかなと思っただけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：相変わらず、よく分からないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあそこまで重要な内容じゃなさそうだ。気になったところは調べて回ろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　訪れし者よ。更に奥へと進むが良い　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
     }
   }
 
@@ -343,31 +360,39 @@ public static class MessagePack
     if (One.TF.Event_Message000060 == false)
     {
       One.TF.Event_Message000060 = true;
-      One.TF.FieldObject_CaveofSarun_00003 = true;
 
-      Message(ref m_list, ref e_list, "アイン：よし、きっとこの看板だ。ラナ、読んでくれ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：看板だな、ええと・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：いいわよ。ええと・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "『　訪れし者よ。開かれし地へと進むが良い　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：どういう意味だ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.ITEM_MATOCK) == false)
+      {
+        Message(ref m_list, ref e_list, "ラナ：そこの宝箱の事を指しているんじゃないのかしら。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "3", ActionEvent.RemoveFieldObject);
+        Message(ref m_list, ref e_list, "アイン：まあ、そうなんだが・・・", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：手に入れたマトックを使えって事じゃないの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：開かれし地・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：まあ、そうなんだが・・・", ActionEvent.None);
+      }
 
-      Message(ref m_list, ref e_list, "ラナ：何か気になる事でも？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：なんか気になるワケ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや、何ってわけじゃないんだがな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや、何となく、なんかあるのかなと思っただけだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ひとまず岩は取り除かれたみたいだし、そこに行ってみよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：相変わらず、よく分からないわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ええ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあそこまで重要な内容じゃなさそうだ。気になったところは調べて回ろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　訪れし者よ。開かれし地へと進むが良い　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
     }
   }
   public static void Message000070(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -391,9 +416,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "10", ActionEvent.UpdateUnknownTile);
 
-    Message(ref m_list, ref e_list, "2", ActionEvent.MoveRight);
+    Message(ref m_list, ref e_list, "2", ActionEvent.MoveBottom);
 
-    Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveTop);
 
     Message(ref m_list, ref e_list, "ラナ：本当ね。また面倒そうなモンスターが出たわね。", ActionEvent.None);
 
@@ -413,6 +438,87 @@ public static class MessagePack
     Message(ref m_list, ref e_list, Fix.SCREAMING_RAFFLESIA, ActionEvent.EncountBoss);
 
   }
+
+  public static void Message000120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、看板だな。どれどれ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『　獣道。資格なき者、入るべからず　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：こっ・・・これは・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ほら、引き返すわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今はどうしても駄目か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：駄目に決まってるでしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：単なる獣道だろ？さくっとモンスター倒してお宝GETだろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：単なる獣道なら入る必要はないわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：通行許可証さえあれば資格を手に入れた事になるんだよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そう思えるのは、アンタのバカ脳ミソぐらいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ともかく、駄目なものは駄目よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しょうがねえ・・・ここは一つ引き下がるか・・・", ActionEvent.None);
+  }
+
+  public static void Message000130(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    // todo 資格があれば入れる事とする。
+    Message(ref m_list, ref e_list, "ラナ：っちょっと！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うわっ、そんな怒るなよ。分かった、分かった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
+
+    Message(ref m_list, ref e_list, "アイン：（しばらく、ここは無理そうだな・・・）", ActionEvent.None);
+  }
+
+  public static void Message000140(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FieldObject_CaveofSarun_00003 == false)
+    {
+      One.TF.FieldObject_CaveofSarun_00003 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_5_O);
+    }
+  }
+  public static void Message000150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FieldObject_CaveofSarun_00002 == false)
+    {
+      One.TF.FieldObject_CaveofSarun_00002 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_6_O);
+    }
+  }
+  public static void Message000160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FieldObject_CaveofSarun_00007 == false)
+    {
+      One.TF.FieldObject_CaveofSarun_00007 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_7_O);
+    }
+  }
+  public static void Message000170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FieldObject_CaveofSarun_00008 == false)
+    {
+      One.TF.FieldObject_CaveofSarun_00008 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_4_O);
+    }
+  }
+  public static void Message000180(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.FieldObject_CaveofSarun_00009 == false)
+    {
+      One.TF.FieldObject_CaveofSarun_00009 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_8_O);
+    }
+  }
+
   #endregion
 
   #region "アンシェットの街"
