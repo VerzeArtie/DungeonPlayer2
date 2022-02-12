@@ -210,6 +210,50 @@ public partial class Character : MonoBehaviour
   }
   #endregion
 
+  #region "Equip"
+  [SerializeField] protected Item _mainWeapon = null;
+  public Item MainWeapon
+  {
+    set { _mainWeapon = value; }
+    get { return _mainWeapon; }
+  }
+
+  [SerializeField] protected Item _subWeapon = null;
+  public Item SubWeapon
+  {
+    set { _subWeapon = value; }
+    get { return _subWeapon; }
+  }
+
+  [SerializeField] protected Item _mainArmor = null;
+  public Item MainArmor
+  {
+    set { _mainArmor = value; }
+    get { return _mainArmor; }
+  }
+
+  [SerializeField] protected Item _accessory1 = null;
+  public Item Accessory1
+  {
+    set { _accessory1 = value; }
+    get { return _accessory1; }
+  }
+
+  [SerializeField] protected Item _accessory2 = null;
+  public Item Accessory2
+  {
+    set { _accessory2 = value; }
+    get { return _accessory2; }
+  }
+
+  [SerializeField] protected Item _artifact = null;
+  public Item Artifact
+  {
+    set { _artifact = value; }
+    get { return _artifact; }
+  }
+  #endregion
+
   #region "Parameters (General)"
   [SerializeField] protected int _soulFragment = 0;
   public int SoulFragment
@@ -390,20 +434,6 @@ public partial class Character : MonoBehaviour
       _currentSoulPoint = value;
     }
     get { return _currentSoulPoint; }
-  }
-
-  //[SerializeField] protected int _maxLife = 0;
-  public int MaxLife
-  {
-    get
-    {
-      int result = _baseLife + TotalStamina * 10;
-      if (this.IsVoiceOfVigor)
-      {
-        result = (int)((double)result * (this.IsVoiceOfVigor.EffectValue));
-      }
-      return result;
-    }
   }
 
   [SerializeField] protected int _currentLife = 0;
@@ -803,48 +833,21 @@ public partial class Character : MonoBehaviour
   }
   #endregion
 
-  #region "Equip"
-  [SerializeField] protected Item _mainWeapon = null;
-  public Item MainWeapon
+  #region "Last Value"
+  //[SerializeField] protected int _maxLife = 0;
+  public int MaxLife
   {
-    set { _mainWeapon = value; }
-    get { return _mainWeapon; }
+    get
+    {
+      int result = _baseLife + TotalStamina * 10;
+      if (this.IsVoiceOfVigor)
+      {
+        result = (int)((double)result * (this.IsVoiceOfVigor.EffectValue));
+      }
+      return result;
+    }
   }
 
-  [SerializeField] protected Item _subWeapon = null;
-  public Item SubWeapon
-  {
-    set { _subWeapon = value; }
-    get { return _subWeapon; }
-  }
-
-  [SerializeField] protected Item _mainArmor = null;
-  public Item MainArmor
-  {
-    set { _mainArmor = value; }
-    get { return _mainArmor; }
-  }
-
-  [SerializeField] protected Item _accessory1 = null;
-  public Item Accessory1
-  {
-    set { _accessory1 = value; }
-    get { return _accessory1; }
-  }
-
-  [SerializeField] protected Item _accessory2 = null;
-  public Item Accessory2
-  {
-    set { _accessory2 = value; }
-    get { return _accessory2; }
-  }
-
-  [SerializeField] protected Item _artifact = null;
-  public Item Artifact
-  {
-    set { _artifact = value; }
-    get { return _artifact; }
-  }
   #endregion
 
   #region "ActionCommand"
@@ -2038,6 +2041,7 @@ public partial class Character : MonoBehaviour
     if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
     if (this.ShadowBlast > 0) { list.Add(Fix.SHADOW_BLAST); }
     if (this.HunterShot > 0) { list.Add(Fix.HUNTER_SHOT); }
+    if (this.LegStrike > 0) { list.Add(Fix.LEG_STRIKE); }
 
     return list;
   }
