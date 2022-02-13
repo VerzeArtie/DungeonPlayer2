@@ -643,23 +643,41 @@ public static partial class Fix
 
   // Delve I
   public const string FIRE_BALL = "Fire Ball";
+  public const string FIRE_BALL_JP = "ファイア・ボール";
   public const string ICE_NEEDLE = "Ice Needle";
+  public const string ICE_NEEDLE_JP = "アイス・ニードル";
   public const string FRESH_HEAL = "Fresh Heal";
+  public const string FRESH_HEAL_JP = "フレッシュ・ヒール";
   public const string SHADOW_BLAST = "Shadow Blast";
+  public const string SHADOW_BLAST_JP = "シャドウ・ブラスト";
   public const string AIR_CUTTER = "Air Cutter";
+  public const string AIR_CUTTER_JP = "エア・カッター";
   public const string ROCK_SLAM = "Rock Slam";
+  public const string ROCK_SLAM_JP = "ロック・スラム";
   public const string STRAIGHT_SMASH = "Straight Smash";
+  public const string STRAIGHT_SMASH_JP = "ストレート・スマッシュ";
   public const string HUNTER_SHOT = "Hunter Shot";
+  public const string HUNTER_SHOT_JP = "ハンター・ショット";
   public const string LEG_STRIKE = "Leg Strike";
+  public const string LEG_STRIKE_JP = "レッグ・ストライク";
   public const string VENOM_SLASH = "Venom Slash";
+  public const string VENOM_SLASH_JP = "ヴェノム・スラッシュ";
   public const string ENERGY_BOLT = "Energy Bolt";
+  public const string ENERGY_BOLT_JP = "エナジー・ボルト";
   public const string SHIELD_BASH = "Shield Bash";
+  public const string SHIELD_BASH_JP = "シールド・バッシュ";
   public const string AURA_OF_POWER = "Aura of Power";
+  public const string AURA_OF_POWER_JP = "オーラ・オブ・パワー";
   public const string DISPEL_MAGIC = "Dispel Magic";
+  public const string DISPEL_MAGIC_JP = "ディスペル・マジック";
   public const string TRUE_SIGHT = "True Sight";
+  public const string TRUE_SIGHT_JP = "トゥルー・サイト";
   public const string HEART_OF_LIFE = "Heart of Life";
+  public const string HEART_OF_LIFE_JP = "ハート・オブ・ライフ";
   public const string DARK_AURA = "Dark Aura";
+  public const string DARK_AURA_JP = "ダーク・オーラ";
   public const string ORACLE_COMMAND = "Oracle Command";
+  public const string ORACLE_COMMAND_JP = "オラクル・コマンド";
 
   // Devle II
   public const string FLAME_BLADE = "Flame Blade";

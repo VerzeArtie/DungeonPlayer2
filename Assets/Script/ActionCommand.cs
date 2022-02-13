@@ -890,4 +890,29 @@ public static class ActionCommand
 
     return false;
   }
+
+  public static string To_JP(string command_name)
+  {
+    if (command_name == Fix.FIRE_BALL) { return Fix.FIRE_BALL_JP; }
+    if (command_name == Fix.ICE_NEEDLE) { return Fix.ICE_NEEDLE_JP; }
+    if (command_name == Fix.FRESH_HEAL) { return Fix.FRESH_HEAL_JP; }
+    if (command_name == Fix.SHADOW_BLAST) { return Fix.SHADOW_BLAST_JP; }
+    if (command_name == Fix.AIR_CUTTER) { return Fix.AIR_CUTTER_JP; }
+    if (command_name == Fix.ROCK_SLAM) { return Fix.ROCK_SLAM_JP; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return Fix.STRAIGHT_SMASH_JP; }
+    if (command_name == Fix.HUNTER_SHOT) { return Fix.HUNTER_SHOT_JP; }
+    if (command_name == Fix.LEG_STRIKE) { return Fix.LEG_STRIKE_JP; }
+    if (command_name == Fix.VENOM_SLASH) { return Fix.VENOM_SLASH_JP; }
+    if (command_name == Fix.ENERGY_BOLT) { return Fix.ENERGY_BOLT_JP; }
+    if (command_name == Fix.SHIELD_BASH) { return Fix.SHIELD_BASH_JP; }
+    if (command_name == Fix.AURA_OF_POWER) { return Fix.AURA_OF_POWER_JP; }
+    if (command_name == Fix.DISPEL_MAGIC) { return Fix.DISPEL_MAGIC_JP; }
+    if (command_name == Fix.HEART_OF_LIFE) { return Fix.HEART_OF_LIFE_JP; }
+    if (command_name == Fix.DARK_AURA) { return Fix.DARK_AURA_JP; }
+    if (command_name == Fix.TRUE_SIGHT) { return Fix.TRUE_SIGHT_JP; }
+    if (command_name == Fix.ORACLE_COMMAND) { return Fix.ORACLE_COMMAND_JP; }
+
+
+    return command_name;
+  }
 }

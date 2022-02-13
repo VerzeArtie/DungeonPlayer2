@@ -442,6 +442,131 @@ public partial class Character : MonoBehaviour
     MaxGain();
   }
 
+  public int LevelupBaseLife()
+  {
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      if (Level == 2) { return 5; }
+      if (Level == 3) { return 5; }
+      if (Level == 4) { return 5; }
+      if (Level == 5) { return 5; }
+      if (Level == 6) { return 6; }
+      if (Level == 7) { return 6; }
+      if (Level == 8) { return 6; }
+      if (Level == 9) { return 7; }
+      if (Level == 10) { return 7; }
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (Level == 2) { return 4; }
+      if (Level == 3) { return 4; }
+      if (Level == 4) { return 4; }
+      if (Level == 5) { return 4; }
+      if (Level == 6) { return 4; }
+      if (Level == 7) { return 5; }
+      if (Level == 8) { return 5; }
+      if (Level == 9) { return 5; }
+      if (Level == 10) { return 5; }
+    }
+    return 5;
+  }
+
+  public int LevelupBaseSoulPoint()
+  {
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      if (Level == 2) { return 2; }
+      if (Level == 3) { return 2; }
+      if (Level == 4) { return 2; }
+      if (Level == 5) { return 2; }
+      if (Level == 6) { return 2; }
+      if (Level == 7) { return 2; }
+      if (Level == 8) { return 2; }
+      if (Level == 9) { return 3; }
+      if (Level == 10) { return 3; }
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (Level == 2) { return 3; }
+      if (Level == 3) { return 3; }
+      if (Level == 4) { return 3; }
+      if (Level == 5) { return 3; }
+      if (Level == 6) { return 3; }
+      if (Level == 7) { return 3; }
+      if (Level == 8) { return 3; }
+      if (Level == 9) { return 4; }
+      if (Level == 10) { return 4; }
+    }
+    return 2;
+  }
+
+  public int LevelupRemainPoint()
+  {
+    return 3;
+  }
+
+  public int LevelupSoulEssence()
+  {
+    return 1;
+  }
+
+  public string LevelupActionCommand()
+  {
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      if (Level == 2) { return Fix.FIRE_BALL; }
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (Level == 2) { return Fix.ICE_NEEDLE; }
+    }
+    return String.Empty;
+  }
+
+  public void AcceptLevelUp()
+  {
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      if (this.Level == 2)
+      {
+        this.BaseLife += this.LevelupBaseLife();
+        this.BaseSoulPoint += this.LevelupBaseSoulPoint();
+        this.RemainPoint += this.LevelupRemainPoint();
+        this.SoulFragment += this.LevelupSoulEssence();
+        this.AvailableFire = true;
+        this.FireBall++;
+        for (int ii = 0; ii < this.ActionCommandList.Count; ii++)
+        {
+          if (this.ActionCommandList[ii] == Fix.STAY || this.ActionCommandList[ii] == String.Empty)
+          {
+            this.ActionCommandList[ii] = Fix.FIRE_BALL;
+            break;
+          }
+        }
+      }
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (this.Level == 2)
+      {
+        this.BaseLife += this.LevelupBaseLife();
+        this.BaseSoulPoint += this.LevelupBaseSoulPoint();
+        this.RemainPoint += this.LevelupRemainPoint();
+        this.SoulFragment += this.LevelupSoulEssence();
+        this.AvailableIce = true;
+        this.IceNeedle++;
+        for (int ii = 0; ii < this.ActionCommandList.Count; ii++)
+        {
+          if (this.ActionCommandList[ii] == Fix.STAY || this.ActionCommandList[ii] == String.Empty)
+          {
+            this.ActionCommandList[ii] = Fix.ICE_NEEDLE;
+            break;
+          }
+        }
+      }
+    }
+  }
+
   public string CharacterMessage(int num)
   {
     string result = string.Empty;

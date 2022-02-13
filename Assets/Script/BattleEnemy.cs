@@ -556,9 +556,24 @@ public partial class BattleEnemy : MotherBase
       mainActionList.Add(Fix.NORMAL_ATTACK);
       mainActionList.Add(Fix.MAGIC_ATTACK);
       mainActionList.Add(Fix.DEFENSE);
-      if (character.StraightSmash > 0) { mainActionList.Add(Fix.STRAIGHT_SMASH); }
+      if (character.FireBall > 0) { mainActionList.Add(Fix.FIRE_BALL); }
       if (character.IceNeedle > 0) { mainActionList.Add(Fix.ICE_NEEDLE); }
+      if (character.ShadowBlast > 0) { mainActionList.Add(Fix.SHADOW_BLAST); }
+      if (character.FreshHeal > 0) { mainActionList.Add(Fix.FRESH_HEAL); }
+      if (character.AirCutter > 0) { mainActionList.Add(Fix.AIR_CUTTER); }
+      if (character.RockSlam > 0) { mainActionList.Add(Fix.ROCK_SLAM); }
+      if (character.StraightSmash > 0) { mainActionList.Add(Fix.STRAIGHT_SMASH); }
+      if (character.HunterShot > 0) { mainActionList.Add(Fix.HUNTER_SHOT); }
       if (character.LegStrike > 0) { mainActionList.Add (Fix.LEG_STRIKE); }
+      if (character.VenomSlash > 0) { mainActionList.Add(Fix.VENOM_SLASH); }
+      if (character.EnergyBolt > 0) { mainActionList.Add(Fix.ENERGY_BOLT); }
+      if (character.ShieldBash > 0) { mainActionList.Add(Fix.SHIELD_BASH); }
+      if (character.AuraOfPower > 0) { mainActionList.Add(Fix.AURA_OF_POWER); }
+      if (character.DispelMagic > 0) { mainActionList.Add(Fix.DISPEL_MAGIC); }
+      if (character.HeartOfLife > 0) { mainActionList.Add(Fix.HEART_OF_LIFE); }
+      if (character.DarkAura > 0) { mainActionList.Add(Fix.DARK_AURA); }
+      if (character.TrueSight > 0) { mainActionList.Add(Fix.TRUE_SIGHT); }
+      if (character.OracleCommand > 0) { mainActionList.Add(Fix.ORACLE_COMMAND); }
 
       for (int ii = 0; ii < mainActionList.Count; ii++)
       {
@@ -741,18 +756,21 @@ public partial class BattleEnemy : MotherBase
 
             if (PlayerList[ii].Exp >= PlayerList[ii].GetNextExp())
             {
-              PlayerList[ii].BaseLife += 15;
-              PlayerList[ii].BaseSoulPoint += 6;
-              PlayerList[ii].RemainPoint += 3;
-              PlayerList[ii].SoulFragment += 1;
+              PlayerList[ii].Level += 1;
+              PlayerList[ii].Exp = 0;
+
+              PlayerList[ii].AcceptLevelUp();
 
               DetectLvup.Add(true);
               DetectLvupTitle.Add( PlayerList[ii].FullName + "がレベルアップしました！");
-              DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
-              DetectLvupMaxEP.Add("最大エナジーポイントが 6 上昇した！");
-              DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
-              DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
-              DetectLvupSpecial.Add("");
+              DetectLvupMaxLife.Add("最大ライフが " + PlayerList[ii].LevelupBaseLife() + " 上昇した！");
+              DetectLvupMaxEP.Add("最大エナジーポイントが " + PlayerList[ii].LevelupBaseSoulPoint() + " 上昇した！");
+              DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
+              DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
+              if (PlayerList[ii].LevelupActionCommand() != String.Empty)
+              {
+                DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(PlayerList[ii].LevelupActionCommand()) + " 】を習得した！");
+              }
             }
           }
         }
