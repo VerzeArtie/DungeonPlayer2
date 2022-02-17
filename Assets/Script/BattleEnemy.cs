@@ -301,6 +301,7 @@ public partial class BattleEnemy : MotherBase
       {
         node_charaExp.objCurrentExpBorder.gameObject.SetActive(false);
       }
+      node_charaExp.BeforeExpThreshold = playerList[ii].GetNextExp();
       node_charaExp.BeforeExp = playerList[ii].Exp;
       node_charaExp.gameObject.SetActive(true);
       node_charaExp.transform.SetParent(panelGameEndExpList.transform);
@@ -312,9 +313,10 @@ public partial class BattleEnemy : MotherBase
       AllList.Add(playerList[ii]);
 
       // インスタント・アクションの作成
-      for (int jj = 0; jj < playerList[ii].ActionCommandList.Count; jj++)
+      List<string> actionCommandList = PlayerList[ii].GetActionCommandList();
+      for (int jj = 0; jj < actionCommandList.Count; jj++)
       {
-        string commandName = playerList[ii].ActionCommandList[jj];
+        string commandName = actionCommandList[jj];
         ActionCommand.TimingType timing = ActionCommand.GetTiming(commandName);
         if (timing == ActionCommand.TimingType.Instant)
         {
@@ -375,7 +377,7 @@ public partial class BattleEnemy : MotherBase
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
-      SetupFirstCommand(EnemyList[ii], EnemyList[ii].ActionCommandList[0]);
+      SetupFirstCommand(EnemyList[ii], EnemyList[ii].ActionCommandMain);
     }
 
     //this.currentPlayer = PlayerList[0];
@@ -430,21 +432,28 @@ public partial class BattleEnemy : MotherBase
     if (node.GroupActionCommand != null)
     {
       character.GroupActionCommand = node.GroupActionCommand;
-      Debug.Log("character.ActionCommandList count: " + character.FullName + " " + character.ActionCommandList.Count);
+      Debug.Log("character.ActionCommandList count: " + character.FullName + " " + character.GetActionCommandList().Count);
+
+      character.objMainButton = node.objMainButton;
+      character.objMainButton.CommandName = character.ActionCommandMain;
+      character.objMainButton.name = character.ActionCommandMain;
+      character.objMainButton.OwnerName = character.FullName;
+      character.objMainButton.ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandMain);
 
       character.objActionCommandList.Clear();
+      List<String> actionList = character.GetActionCommandList();
       for (int ii = 0; ii < node.ActionCommandList.Count; ii++)
       {
-        Debug.Log("actioncommandlist: " + ii.ToString() + character.ActionCommandList[ii]);
-        if (ii >= character.ActionCommandList.Count)
+        Debug.Log("actioncommandlist: " + ii.ToString() + actionList[ii]);
+        if (ii >= actionList.Count)
         {
           continue;
         }
         character.objActionCommandList.Add(node.ActionCommandList[ii]);
-        character.objActionCommandList[ii].CommandName = character.ActionCommandList[ii];
-        character.objActionCommandList[ii].name = character.ActionCommandList[ii];
+        character.objActionCommandList[ii].CommandName = actionList[ii];
+        character.objActionCommandList[ii].name = actionList[ii];
         character.objActionCommandList[ii].OwnerName = character.FullName;
-        character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandList[ii]);
+        character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
       }
       if (character.IsEnemy)
       {
@@ -676,19 +685,44 @@ public partial class BattleEnemy : MotherBase
               {
                 if (PlayerList[jj].FullName == CharaExpList[ii].txtPlayerName.text)
                 {
-                  float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
-                  float current = (CharaExpList[ii].BeforeExp + div_value);
-                  float dx = current / (float)PlayerList[jj].GetNextExp();
-                  CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
-                  if (dx < 1.0f)
+                  // レベルアップの場合MAXで止めるアニメーションにする。
+                  if (CharaExpList[ii].AfterExp <= CharaExpList[ii].BeforeExp)
                   {
-                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
-                    CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
+                    //Debug.Log("CharaExpList detect Levelup");
+                    float div_value = (float)((float)CharaExpList[ii].BeforeExpThreshold - (float)CharaExpList[ii].BeforeExp + CharaExpList[ii].AfterExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
+                    float current = (CharaExpList[ii].BeforeExp + div_value);
+                    float dx = current / (float)(CharaExpList[ii].BeforeExpThreshold); // (float)PlayerList[jj].GetNextExp();
+                    if (dx < 1.0f)
+                    {
+                      CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
+                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
+                    }
+                    else
+                    {
+                      CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(1.0f, 1.0f);
+                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
+                      CharaExpList[ii].txtPlayerExp.text = "Max";
+                    }
                   }
+                  // それ以外は通常のアニメーション
                   else
                   {
-                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
-                    CharaExpList[ii].txtPlayerExp.text = "Max";
+                    //Debug.Log("CharaExpList normal");
+                    float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
+                    float current = (CharaExpList[ii].BeforeExp + div_value);
+                    float dx = current / (float)PlayerList[jj].GetNextExp();
+                    CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+                    if (dx < 1.0f)
+                    {
+                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
+                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
+                    }
+                    else
+                    {
+                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
+                      CharaExpList[ii].txtPlayerExp.text = "Max";
+                    }
                   }
                 }
               }
@@ -756,10 +790,8 @@ public partial class BattleEnemy : MotherBase
 
             if (PlayerList[ii].Exp >= PlayerList[ii].GetNextExp())
             {
-              PlayerList[ii].Level += 1;
-              PlayerList[ii].Exp = 0;
-
-              PlayerList[ii].AcceptLevelUp();
+              PlayerList[ii].Exp = PlayerList[ii].Exp - PlayerList[ii].GetNextExp();
+              PlayerList[ii].UpdateLevelup();
 
               DetectLvup.Add(true);
               DetectLvupTitle.Add( PlayerList[ii].FullName + "がレベルアップしました！");
@@ -770,6 +802,10 @@ public partial class BattleEnemy : MotherBase
               if (PlayerList[ii].LevelupActionCommand() != String.Empty)
               {
                 DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(PlayerList[ii].LevelupActionCommand()) + " 】を習得した！");
+              }
+              else
+              {
+                DetectLvupSpecial.Add("");
               }
             }
           }
@@ -1038,7 +1074,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// アクションボタンのオブジェクト情報を設定します。
   /// </summary>
-  private void SetupActionCommandButton(Button button, string command_name)
+  private void SetupActionCommandButton(NodeActionCommand button, string command_name)
   {
     Image[] imageList = button.GetComponentsInChildren<Image>();
     for (int ii = 0; ii < imageList.Length; ii++)
@@ -1712,7 +1748,7 @@ public partial class BattleEnemy : MotherBase
       // 最初は敵をターゲットにできない。
       for (int ii = 0; ii < EnemyList.Count; ii++)
       {
-        if (sender.Equals(EnemyList[ii].objMainButton))
+        if (sender.Equals(EnemyList[ii].objMainButton.ActionButton))
         {
           Debug.Log("First target is enemy, then no action.");
           return;
@@ -1723,9 +1759,10 @@ public partial class BattleEnemy : MotherBase
       //bool detectChange = false;
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
-        Debug.Log(PlayerList[ii].objMainButton.name);
-        if (sender.Equals(PlayerList[ii].objMainButton))
+        Debug.Log("TapPlayerMainButton: Player is " + PlayerList[ii].FullName + " " + PlayerList[ii].objMainButton.name);
+        if (sender.Equals(PlayerList[ii].objMainButton.ActionButton))
         {
+          Debug.Log("TapPlayerMainButton: Detect src target: " + PlayerList[ii].FullName);
           //if (this.currentPlayer.Equals(PlayerList[ii]) == false)
           //{
           //  detectChange = true;
@@ -1772,12 +1809,12 @@ public partial class BattleEnemy : MotherBase
           {
             for (int jj = 0; jj < EnemyList.Count; jj++)
             {
-              if (this.NowSelectActionDstButton.Equals(EnemyList[jj].objMainButton))
+              if (this.NowSelectActionDstButton.Equals(EnemyList[jj].objMainButton.ActionButton))
               {
                 // アクションコマンドを更新
                 PlayerList[ii].CurrentActionCommand = this.NowSelectActionSrcButton.name;
                 PlayerList[ii].txtActionCommand.text = this.NowSelectActionSrcButton.name;
-                CopyActionButton(this.NowSelectActionSrcButton, PlayerList[ii].objMainButton);
+                CopyActionButton(this.NowSelectActionSrcButton, PlayerList[ii].objMainButton.ActionButton);
 
                 // ターゲット敵を更新
                 PlayerList[ii].Target = EnemyList[jj];
@@ -1789,7 +1826,7 @@ public partial class BattleEnemy : MotherBase
         {
           for (int ii = 0; ii < PlayerList.Count; ii++)
           {
-            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton))
+            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
             {
               ExecUseRedPotion(PlayerList[ii]);
             }
@@ -1828,12 +1865,12 @@ public partial class BattleEnemy : MotherBase
             // 新しいメインコマンドを反映する。
             for (int ii = 0; ii < PlayerList.Count; ii++)
             {
-              if (NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton))
+              if (NowSelectActionSrcButton.Equals(PlayerList[ii].objMainButton.ActionButton))
               {
                 // ターゲットを反映する。
                 for (int jj = 0; jj < AllList.Count; jj++)
                 {
-                  if (NowSelectActionDstButton.Equals(AllList[jj].objMainButton))
+                  if (NowSelectActionDstButton.Equals(AllList[jj].objMainButton.ActionButton))
                   {
                     // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
                     if (AllList[jj].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
@@ -1865,7 +1902,7 @@ public partial class BattleEnemy : MotherBase
             // コマンドを実行する。
             for (int ii = 0; ii < AllList.Count; ii++)
             {
-              if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton))
+              if (NowSelectActionDstButton.Equals(AllList[ii].objMainButton.ActionButton))
               {
                 // ターゲット指定とアクションコマンドのターゲット範囲が違う場合はブロックする。
                 if (AllList[ii].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
@@ -1924,7 +1961,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("current mainaction " + sender.CommandName + " targetType: " + targetType.ToString());
     if (targetType == ActionCommand.TargetType.Own)
     {
-      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectSrcPlayer.objMainButton, sender.CommandName);
+      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectSrcPlayer.objMainButton.ActionButton, sender.CommandName);
       //CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
       //this.NowSelectSrcPlayer.CurrentActionCommand = sender.CommandName;
       //this.NowSelectSrcPlayer.txtActionCommand.text = sender.CommandName;
@@ -2070,7 +2107,7 @@ public partial class BattleEnemy : MotherBase
         {
           PlayerList[ii].CurrentActionCommand = Fix.DEFENSE;
           PlayerList[ii].txtActionCommand.text = Fix.DEFENSE;
-          CopyActionButton(sender.ActionButton, PlayerList[ii].objMainButton);
+          CopyActionButton(sender.ActionButton, PlayerList[ii].objMainButton.ActionButton);
         }
         break;
 
@@ -2198,6 +2235,7 @@ public partial class BattleEnemy : MotherBase
 
   public void TapEndScene()
   {
+    Debug.Log(MethodBase.GetCurrentMethod()+"(S)");
     this.AutoExit = -1;
 
     // シーンエンド前のレベルアップ報告フェーズ
@@ -2420,32 +2458,34 @@ public partial class BattleEnemy : MotherBase
     rect.sizeDelta = new Vector2(rect.sizeDelta.x, rect.sizeDelta.y + rectMessage.sizeDelta.y);
   }
 
-  private void AddActionButton(Character character, GameObject group_action_button, string command_name)
-  {
-    character.ActionCommandList.Add(command_name);
+  //private void AddActionButton(Character character, GameObject group_action_button, string command_name)
+  //{
+  //  character.ActionCommandList.Add(command_name);
 
-    // インスタント限定でなければ、メインアクションに登録する。
-    if (ActionCommand.IsTarget(command_name) != ActionCommand.TargetType.InstantTarget)
-    {
-      NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
-      instant.BackColor.color = character.BattleForeColor;
-      instant.CommandName = command_name;
-      instant.name = command_name;
-      instant.OwnerName = character.FullName;
-      instant.ActionButton.name = command_name;
-      instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
+  //  // インスタント限定でなければ、メインアクションに登録する。
+  //  if (ActionCommand.IsTarget(command_name) != ActionCommand.TargetType.InstantTarget)
+  //  {
+  //    NodeActionCommand instant = Instantiate(prefab_MainAction) as NodeActionCommand;
+  //    instant.BackColor.color = character.BattleForeColor;
+  //    instant.CommandName = command_name;
+  //    instant.name = command_name;
+  //    instant.OwnerName = character.FullName;
+  //    instant.ActionButton.name = command_name;
+  //    instant.ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
 
-      instant.transform.SetParent(group_action_button.transform);
-      instant.gameObject.SetActive(true);
-    }
+  //    instant.transform.SetParent(group_action_button.transform);
+  //    instant.gameObject.SetActive(true);
+  //  }
 
-    Debug.Log("character AC add: " + character.ActionCommandList.Count);
-  }
+  //  Debug.Log("character AC add: " + character.ActionCommandList.Count);
+  //}
 
   private void SetupFirstCommand(Character player, string command_name)
   {
     Debug.Log("SetupFirstCommand: " + player.FullName + " "  + command_name);
     player.CurrentActionCommand = command_name;
+    if (player.objMainButton == null) { Debug.Log("ObjMainButton is null..."); }
+
     SetupActionCommandButton(player.objMainButton, command_name);
     Debug.Log("SetupFirstCommand: 2");
     player.txtActionCommand.text = command_name;

@@ -99,7 +99,7 @@ public partial class Character : MonoBehaviour
 
       default:
         // 雑魚はランダムでひとまずよい。
-        result = RandomChoice(this.ActionCommandList);
+        result = RandomChoice(GetActionCommandList());
         break;
     }
 
@@ -109,6 +109,7 @@ public partial class Character : MonoBehaviour
   private string RandomChoice(List<string> command_list)
   {
     string result = string.Empty;
+    command_list.RemoveAll(s => s.Contains(Fix.STAY));
     int random = AP.Math.RandomInteger(command_list.Count);
     return command_list[random];
   }

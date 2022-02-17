@@ -996,6 +996,7 @@ public static partial class Fix
   public static int MAX_BACKPACK_SIZE = 9999;
   public static int MAX_ITEM_STACK_SIZE = 10;
   public static int MAX_TEAM_MEMBER = 4;
+  public static int MAX_INSTANT_NUM = 9;
   #endregion
 
   #region "etc"

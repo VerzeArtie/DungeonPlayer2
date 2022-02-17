@@ -10,7 +10,7 @@ public partial class Character : MonoBehaviour
   // Battle GUI-View object
   public NodeBattleChara objGroup = null;
   public GameObject objArrow = null;
-  public Button objMainButton = null;
+  public NodeActionCommand objMainButton = null;
   public Text txtName = null;
   public Text txtLife = null;
   public Image objBackLifeGauge = null;
@@ -338,11 +338,71 @@ public partial class Character : MonoBehaviour
     get { return _currentImmediateCommand; }
   }
 
-  [SerializeField] protected List<string> _actionCommand = new List<string>();
-  public List<string> ActionCommandList
+  //[SerializeField] protected List<string> _actionCommand = new List<string>();
+  //public List<string> ActionCommandList
+  //{
+  //  set { _actionCommand = value; }
+  //  get { return _actionCommand; }
+  //}
+  protected string _actionCommandMain = string.Empty;
+  public string ActionCommandMain
   {
-    set { _actionCommand = value; }
-    get { return _actionCommand; }
+    get { return _actionCommandMain; }
+    set { _actionCommandMain = value; }
+  }
+  protected string _actionCommand1 = string.Empty;
+  public string ActionCommand1
+  {
+    get { return _actionCommand1; }
+    set { _actionCommand1 = value; }
+  }
+  protected string _actionCommand2 = string.Empty;
+  public string ActionCommand2
+  {
+    get { return _actionCommand2; }
+    set { _actionCommand2 = value; }
+  }
+  protected string _actionCommand3 = string.Empty;
+  public string ActionCommand3
+  {
+    get { return _actionCommand3; }
+    set { _actionCommand3 = value; }
+  }
+  protected string _actionCommand4 = string.Empty;
+  public string ActionCommand4
+  {
+    get { return _actionCommand4; }
+    set { _actionCommand4 = value; }
+  }
+  protected string _actionCommand5 = string.Empty;
+  public string ActionCommand5
+  {
+    get { return _actionCommand5; }
+    set { _actionCommand5 = value; }
+  }
+  protected string _actionCommand6 = string.Empty;
+  public string ActionCommand6
+  {
+    get { return _actionCommand6; }
+    set { _actionCommand6 = value; }
+  }
+  protected string _actionCommand7 = string.Empty;
+  public string ActionCommand7
+  {
+    get { return _actionCommand7; }
+    set { _actionCommand7 = value; }
+  }
+  protected string _actionCommand8 = string.Empty;
+  public string ActionCommand8
+  {
+    get { return _actionCommand8; }
+    set { _actionCommand8 = value; }
+  }
+  protected string _actionCommand9 = string.Empty;
+  public string ActionCommand9
+  {
+    get { return _actionCommand9; }
+    set { _actionCommand9 = value; }
   }
 
   [SerializeField] protected string _GlobalAction1 = string.Empty;
@@ -1619,10 +1679,10 @@ public partial class Character : MonoBehaviour
     if (this.GetNextExp() - this._exp > 0)
     {
       this._exp += gain_exp;
-      if (this._exp >= this.GetNextExp())
-      {
-        this._exp = this.GetNextExp();
-      }
+      //if (this._exp >= this.GetNextExp())
+      //{
+      //  this._exp = this.GetNextExp();
+      //}
     }
   }
 
@@ -2026,6 +2086,22 @@ public partial class Character : MonoBehaviour
       return true;
     }
     return false;
+  }
+
+  public List<string> GetActionCommandList()
+  {
+    // ここでは変換則は一切入れない。
+    List<string> list = new List<string>();
+    list.Add(this.ActionCommand1);
+    list.Add(this.ActionCommand2);
+    list.Add(this.ActionCommand3);
+    list.Add(this.ActionCommand4);
+    list.Add(this.ActionCommand5);
+    list.Add(this.ActionCommand6);
+    list.Add(this.ActionCommand7);
+    list.Add(this.ActionCommand8);
+    list.Add(this.ActionCommand9);
+    return list;
   }
 
   public List<string> GetAvailableList()

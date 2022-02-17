@@ -13,17 +13,16 @@ public partial class Character : MonoBehaviour
   {
     this.FullName = character_name;
     List<string> actionList = new List<string>();
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    actionList.Add(Fix.STAY);
-    this.ActionCommandList = actionList;
+    this.ActionCommandMain = Fix.STAY;
+    this.ActionCommand1 = Fix.STAY;
+    this.ActionCommand2 = Fix.STAY;
+    this.ActionCommand3 = Fix.STAY;
+    this.ActionCommand4 = Fix.STAY;
+    this.ActionCommand5 = Fix.STAY;
+    this.ActionCommand6 = Fix.STAY;
+    this.ActionCommand7 = Fix.STAY;
+    this.ActionCommand8 = Fix.STAY;
+    this.ActionCommand9 = Fix.STAY;
     this.CurrentActionCommand = String.Empty;
 
     this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
@@ -56,7 +55,8 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
-        this.ActionCommandList[0] = Fix.STRAIGHT_SMASH;
+        this.ActionCommandMain = Fix.NORMAL_ATTACK;
+        this.ActionCommand1 = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -81,7 +81,8 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.LegStrike = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
-        this.ActionCommandList[0] = Fix.LEG_STRIKE;
+        this.ActionCommandMain = Fix.NORMAL_ATTACK;
+        this.ActionCommand1 = Fix.LEG_STRIKE;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -107,7 +108,8 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.FRESH_HEAL;
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
-        this.ActionCommandList[0] = Fix.FRESH_HEAL;
+        this.ActionCommandMain = Fix.MAGIC_ATTACK;
+        this.ActionCommand1 = Fix.FRESH_HEAL;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -133,6 +135,8 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.STRAIGHT_SMASH;
         this.GlobalAction4 = Fix.DEFENSE;
+        this.ActionCommandMain = Fix.NORMAL_ATTACK;
+        this.ActionCommand1 = Fix.STRAIGHT_SMASH;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -463,7 +467,7 @@ public partial class Character : MonoBehaviour
       if (Level == 4) { return 4; }
       if (Level == 5) { return 4; }
       if (Level == 6) { return 4; }
-      if (Level == 7) { return 5; }
+      if (Level == 7) { return 4; }
       if (Level == 8) { return 5; }
       if (Level == 9) { return 5; }
       if (Level == 10) { return 5; }
@@ -523,25 +527,35 @@ public partial class Character : MonoBehaviour
     return String.Empty;
   }
 
-  public void AcceptLevelUp()
+  public bool CheckLevelupGain(int exp_plus)
   {
+    if (this.Exp + exp_plus >= this.GetNextExp())
+    {
+      return true;
+    }
+
+    return false;
+  }
+
+  public void UpdateLevelup()
+  {
+    this.Level += 1;
+
+    this.BaseLife += this.LevelupBaseLife();
+    this.BaseSoulPoint += this.LevelupBaseSoulPoint();
+    this.RemainPoint += this.LevelupRemainPoint();
+    this.SoulFragment += this.LevelupSoulEssence();
+
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
       if (this.Level == 2)
       {
-        this.BaseLife += this.LevelupBaseLife();
-        this.BaseSoulPoint += this.LevelupBaseSoulPoint();
-        this.RemainPoint += this.LevelupRemainPoint();
-        this.SoulFragment += this.LevelupSoulEssence();
         this.AvailableFire = true;
         this.FireBall++;
-        for (int ii = 0; ii < this.ActionCommandList.Count; ii++)
+        for (int ii = 0; ii < Fix.MAX_INSTANT_NUM; ii++)
         {
-          if (this.ActionCommandList[ii] == Fix.STAY || this.ActionCommandList[ii] == String.Empty)
-          {
-            this.ActionCommandList[ii] = Fix.FIRE_BALL;
-            break;
-          }
+          bool result = CheckToApply(ii, Fix.FIRE_BALL);
+          if (result) { break; }
         }
       }
     }
@@ -549,22 +563,57 @@ public partial class Character : MonoBehaviour
     {
       if (this.Level == 2)
       {
-        this.BaseLife += this.LevelupBaseLife();
-        this.BaseSoulPoint += this.LevelupBaseSoulPoint();
-        this.RemainPoint += this.LevelupRemainPoint();
-        this.SoulFragment += this.LevelupSoulEssence();
         this.AvailableIce = true;
         this.IceNeedle++;
-        for (int ii = 0; ii < this.ActionCommandList.Count; ii++)
+        for (int ii = 0; ii < Fix.MAX_INSTANT_NUM; ii++)
         {
-          if (this.ActionCommandList[ii] == Fix.STAY || this.ActionCommandList[ii] == String.Empty)
-          {
-            this.ActionCommandList[ii] = Fix.ICE_NEEDLE;
-            break;
-          }
+          bool result = CheckToApply(ii, Fix.ICE_NEEDLE);
+          if (result) { break; }
         }
       }
     }
+  }
+
+  public bool CheckToApply(int ii, string command_name)
+  {
+    if (ii == 0 && this.ActionCommand1 == string.Empty || this.ActionCommand1 == Fix.STAY)
+    {
+      this.ActionCommand1 = command_name;  return true;
+    }
+    if (ii == 1 && this.ActionCommand2 == string.Empty || this.ActionCommand2 == Fix.STAY)
+    {
+      this.ActionCommand2 = command_name; return true;
+    }
+    if (ii == 2 && this.ActionCommand3 == string.Empty || this.ActionCommand3 == Fix.STAY)
+    {
+      this.ActionCommand3 = command_name; return true;
+    }
+    if (ii == 3 && this.ActionCommand4 == string.Empty || this.ActionCommand4 == Fix.STAY)
+    {
+      this.ActionCommand4 = command_name; return true;
+    }
+    if (ii == 4 && this.ActionCommand5 == string.Empty || this.ActionCommand5 == Fix.STAY)
+    {
+      this.ActionCommand5 = command_name; return true;
+    }
+    if (ii == 5 && this.ActionCommand6 == string.Empty || this.ActionCommand6 == Fix.STAY)
+    {
+      this.ActionCommand6 = command_name; return true;
+    }
+    if (ii == 6 && this.ActionCommand7 == string.Empty || this.ActionCommand7 == Fix.STAY)
+    {
+      this.ActionCommand7 = command_name; return true;
+    }
+    if (ii == 7 && this.ActionCommand8 == string.Empty || this.ActionCommand8 == Fix.STAY)
+    {
+      this.ActionCommand8 = command_name; return true;
+    }
+    if (ii == 8 && this.ActionCommand9 == string.Empty || this.ActionCommand9 == Fix.STAY)
+    {
+      this.ActionCommand9 = command_name; return true;
+    }
+
+    return false;
   }
 
   public string CharacterMessage(int num)

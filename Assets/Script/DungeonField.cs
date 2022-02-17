@@ -130,6 +130,7 @@ public class DungeonField : MotherBase
   public GameObject FilterForAll;
   public GameObject FilterForActionCommand;
   public GameObject FilterForAvailableList;
+  public NodeActionCommand ActionCommandMain;
   public List<NodeActionCommand> ListActionCommandSet;
   public List<NodeActionCommand> ListAvailableCommand;
   public List<Text> ListAvailableCommandText;
@@ -1847,11 +1848,11 @@ public class DungeonField : MotherBase
     action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
     TapCancelActionCommandSet();
 
-    CurrentPlayer.ActionCommandList.Clear();
-    for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
-    {
-      CurrentPlayer.ActionCommandList.Add(ListActionCommandSet[ii].CommandName);
-    }
+    //CurrentPlayer.ActionCommandList.Clear();
+    //for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
+    //{
+    //  CurrentPlayer.ActionCommandList.Add(ListActionCommandSet[ii].CommandName);
+    //}
   }
 
   public void TapCancelActionCommandSet()
@@ -2023,11 +2024,20 @@ public class DungeonField : MotherBase
   private void SetupActionCommand(Character player)
   {
     Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
+
+    ActionCommandMain.BackColor.color = player.BattleForeColor;
+    ActionCommandMain.OwnerName = player.FullName;
+    ActionCommandMain.CommandName = player.ActionCommandMain;
+    ActionCommandMain.name = player.ActionCommandMain;
+    ActionCommandMain.ActionButton.name = player.ActionCommandMain;
+    ActionCommandMain.ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandMain);
+
+    List<String> actionList = player.GetActionCommandList();
     for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
     {
       ListActionCommandSet[ii].BackColor.color = player.BattleForeColor;
       ListActionCommandSet[ii].OwnerName = player.FullName;
-      if (ii >= player.ActionCommandList.Count)
+      if (actionList[ii] == Fix.STAY)
       {
         ListActionCommandSet[ii].CommandName = Fix.STAY;
         ListActionCommandSet[ii].name = Fix.STAY;
@@ -2036,10 +2046,10 @@ public class DungeonField : MotherBase
         continue;
       }
 
-      ListActionCommandSet[ii].CommandName = player.ActionCommandList[ii];
-      ListActionCommandSet[ii].name = player.ActionCommandList[ii];
-      ListActionCommandSet[ii].ActionButton.name = player.ActionCommandList[ii];
-      ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandList[ii]);
+      ListActionCommandSet[ii].CommandName = actionList[ii];
+      ListActionCommandSet[ii].name = actionList[ii];
+      ListActionCommandSet[ii].ActionButton.name = actionList[ii];
+      ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
     }
     List<string> currentList = player.GetAvailableList();
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)

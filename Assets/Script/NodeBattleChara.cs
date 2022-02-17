@@ -15,7 +15,7 @@ public class NodeBattleChara : MonoBehaviour
   public Image objCurrentLifeBorder;
   public Image objBackInstantGauge;
   public Image objCurrentInstantGauge;
-  public Button objMainButton;
+  public NodeActionCommand objMainButton;
   public Text txtActionCommand;
   public GameObject groupActionPoint;
   public BuffField groupBuff;

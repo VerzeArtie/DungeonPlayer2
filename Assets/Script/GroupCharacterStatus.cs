@@ -192,36 +192,29 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
     }
 
-    if (player.Exp < player.GetNextExp())
+    txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
+
+    Debug.Log("remain " + CurrentPlayer.FullName + " " + CurrentPlayer.RemainPoint);
+    if (CurrentPlayer.RemainPoint > 0)
     {
-      txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
+      GroupLevelUp?.SetActive(true);
+      for (int ii = 0; ii < btnPlus.Count; ii++)
+      {
+        btnPlus[ii].SetActive(true);
+      }
+    }
+    else
+    {
       GroupLevelUp?.SetActive(false);
       for (int ii = 0; ii < btnPlus.Count; ii++)
       {
         btnPlus[ii].SetActive(false);
       }
     }
-    else
-    {
-      txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
-      txtDetailExp.text = "MAX";
-      GroupLevelUp?.SetActive(true);
-      Debug.Log("remain " + CurrentPlayer.FullName + " " + CurrentPlayer.RemainPoint);
-      if (CurrentPlayer.RemainPoint > 0)
-      {
-        for (int ii = 0; ii < btnPlus.Count; ii++)
-        {
-          btnPlus[ii].SetActive(true);
-        }
-      }
-      else
-      {
-        for (int ii = 0; ii < btnPlus.Count; ii++)
-        {
-          btnPlus[ii].SetActive(false);
-        }
-      }
-    }
+
+    //txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
+    //txtDetailExp.text = "MAX";
+    //GroupLevelUp?.SetActive(true);
   }
 
   /// <summary>

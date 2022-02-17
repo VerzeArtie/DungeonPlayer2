@@ -1440,15 +1440,16 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
-    for (int ii = 0; ii < TacticsPickupCharacter.ActionCommandList.Count; ii++)
+    List<String> actionList = TacticsPickupCharacter.GetActionCommandList();
+    for (int ii = 0; ii < actionList.Count; ii++)
     {
       NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
       instant.BackColor.color = TacticsPickupCharacter.BattleForeColor;
-      instant.CommandName = TacticsPickupCharacter.ActionCommandList[ii];
-      instant.name = TacticsPickupCharacter.ActionCommandList[ii];
+      instant.CommandName = actionList[ii];
+      instant.name = actionList[ii];
       instant.OwnerName = TacticsPickupCharacter.FullName;
-      instant.ActionButton.name = TacticsPickupCharacter.ActionCommandList[ii];
-      instant.ActionButton.image.sprite = Resources.Load<Sprite>(TacticsPickupCharacter.ActionCommandList[ii]);
+      instant.ActionButton.name = actionList[ii];
+      instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
 
       //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[ii]);
       instant.transform.SetParent(GroupPartyList[num].transform);
@@ -1474,17 +1475,18 @@ public partial class HomeTown : MotherBase
       {
         GameObject.Destroy(n.gameObject);
       }
-      for (int ii = 0; ii < current.ActionCommandList.Count; ii++)
+      List<string> actionListCurrent = current.GetActionCommandList();
+      for (int ii = 0; ii < actionListCurrent.Count; ii++)
       {
         NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
         instant.BackColor.color = current.BattleForeColor;
-        instant.CommandName = current.ActionCommandList[ii];
-        instant.name = current.ActionCommandList[ii];
+        instant.CommandName = actionListCurrent[ii];
+        instant.name = actionListCurrent[ii];
         instant.OwnerName = current.FullName;
-        instant.ActionButton.name = current.ActionCommandList[ii];
-        instant.ActionButton.image.sprite = Resources.Load<Sprite>(current.ActionCommandList[ii]);
+        instant.ActionButton.name = actionListCurrent[ii];
+        instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionListCurrent[ii]);
 
-        Debug.Log("TapPartyPickChoose: " + current.ActionCommandList[ii]);
+        Debug.Log("TapPartyPickChoose: " + actionListCurrent[ii]);
         instant.transform.SetParent(GroupPartyList[TacticsPickupPartyNumber].transform);
         instant.gameObject.SetActive(true);
       }
@@ -2772,15 +2774,16 @@ public partial class HomeTown : MotherBase
           {
             GameObject.Destroy(n.gameObject);
           }
-          for (int jj = 0; jj < current.ActionCommandList.Count; jj++)
+          List<string> actionList = current.GetActionCommandList();
+          for (int jj = 0; jj < actionList.Count; jj++)
           {
             NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
             instant.BackColor.color = current.BattleForeColor;
-            instant.CommandName = current.ActionCommandList[jj];
-            instant.name = current.ActionCommandList[jj];
+            instant.CommandName = actionList[jj];
+            instant.name = actionList[jj];
             instant.OwnerName = current.FullName;
-            instant.ActionButton.name = current.ActionCommandList[jj];
-            instant.ActionButton.image.sprite = Resources.Load<Sprite>(current.ActionCommandList[jj]);
+            instant.ActionButton.name = actionList[jj];
+            instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[jj]);
 
             //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[jj]);
             instant.transform.SetParent(GroupPartyList[num].transform);
