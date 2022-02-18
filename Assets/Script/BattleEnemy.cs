@@ -696,7 +696,7 @@ public partial class BattleEnemy : MotherBase
                     {
                       CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
                       CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
-                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
+                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + CharaExpList[ii].BeforeExpThreshold;
                     }
                     else
                     {
