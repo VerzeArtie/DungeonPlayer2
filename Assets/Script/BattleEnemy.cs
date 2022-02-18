@@ -373,7 +373,7 @@ public partial class BattleEnemy : MotherBase
     // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
-      SetupFirstCommand(PlayerList[ii], PlayerList[ii].GlobalAction1);
+      SetupFirstCommand(PlayerList[ii], PlayerList[ii].ActionCommandMain);
     }
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {

@@ -2121,5 +2121,19 @@ public partial class Character : MonoBehaviour
 
     return list;
   }
+
+  public void UpdateActionCommandList(List<NodeActionCommand> action_command_list)
+  {
+    if (action_command_list.Count >= 1) { ActionCommand1 = action_command_list[0].CommandName; }
+    if (action_command_list.Count >= 2) { ActionCommand1 = action_command_list[1].CommandName; }
+    if (action_command_list.Count >= 3) { ActionCommand1 = action_command_list[2].CommandName; }
+    if (action_command_list.Count >= 4) { ActionCommand1 = action_command_list[3].CommandName; }
+    if (action_command_list.Count >= 5) { ActionCommand1 = action_command_list[4].CommandName; }
+    if (action_command_list.Count >= 6) { ActionCommand1 = action_command_list[5].CommandName; }
+    if (action_command_list.Count >= 7) { ActionCommand1 = action_command_list[6].CommandName; }
+    if (action_command_list.Count >= 8) { ActionCommand1 = action_command_list[7].CommandName; }
+    if (action_command_list.Count >= 9) { ActionCommand1 = action_command_list[8].CommandName; }
+
+  }
   #endregion
 }

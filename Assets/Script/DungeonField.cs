@@ -1848,11 +1848,14 @@ public class DungeonField : MotherBase
     action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
     TapCancelActionCommandSet();
 
-    //CurrentPlayer.ActionCommandList.Clear();
-    //for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
-    //{
-    //  CurrentPlayer.ActionCommandList.Add(ListActionCommandSet[ii].CommandName);
-    //}
+    if (ActionCommandMain.Equals(action_command))
+    {
+      CurrentPlayer.ActionCommandMain = action_command.CommandName;
+    }
+    else
+    {
+      CurrentPlayer.UpdateActionCommandList(ListActionCommandSet);
+    }
   }
 
   public void TapCancelActionCommandSet()
