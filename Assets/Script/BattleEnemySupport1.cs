@@ -653,6 +653,14 @@ public partial class BattleEnemy : MotherBase
   private bool ExecUseBluePotion(Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION) == false)
+    {
+      Debug.Log("Blue Potion is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
     if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION))
     {
       Item current = new Item(Fix.SMALL_BLUE_POTION);
