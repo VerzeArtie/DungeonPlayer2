@@ -322,6 +322,7 @@ public static partial class Fix
   public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
   public const string BATTLE_AP_LESS = "No AP";
   public const string BATTLE_SP_LESS = "No SP";
+  public const string BATTLE_NO_POTION = "No Potion";
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
   public const string BATTLE_SILENT = "Silent";
@@ -681,23 +682,41 @@ public static partial class Fix
 
   // Devle II
   public const string FLAME_BLADE = "Flame Blade";
+  public const string FLAME_BLADE_JP = "フレイム・ブレイド";
   public const string PURE_PURIFICATION = "Pure Purification";
+  public const string PURE_PURIFICATION_JP = "ピュア・ピュリファイケーション";
   public const string DIVINE_CIRCLE = "Divine Circle";
+  public const string DIVINE_CIRCLE_JP = "ディバイン・サークル";
   public const string BLOOD_SIGN = "Blood Sign";
+  public const string BLOOD_SIGN_JP = "ブラッド・サイン";
   public const string STORM_ARMOR = "Storm Armor";
+  public const string STORM_ARMOR_JP = "ストーム・アーマー";
   public const string SOLID_WALL = "Solid Wall";
+  public const string SOLID_WALL_JP = "ソリッド・ウォール";
   public const string STANCE_OF_THE_BLADE = "Stance of the Blade";
+  public const string STANCE_OF_THE_BLADE_JP = "スタンス・オブ・ブレイド";
   public const string MULTIPLE_SHOT = "Multiple Shot";
+  public const string MULTIPLE_SHOT_JP = "マルチプル・ショット";
   public const string SPEED_STEP = "Speed Step";
+  public const string SPEED_STEP_JP = "スピード・ステップ";
   public const string INVISIBLE_BIND = "Invisible Bind";
+  public const string INVISIBLE_BIND_JP = "インヴィジブル・バインド";
   public const string IDEOLOGY_OF_SOPHISTICATION = "Ideology of Sophistication";
+  public const string IDEOLOGY_OF_SOPHISTICATION_JP = "イデオロギー・洗練";
   public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
+  public const string STANCE_OF_THE_GUARD_JP = "スタンス・オブ・ガード";
   public const string SKY_SHIELD = "Sky Shield";
+  public const string SKY_SHIELD_JP = "スカイ・シールド";
   public const string FLASH_COUNTER = "Flash Counter";
+  public const string FLASH_COUNTER_JP = "フラッシュ・カウンター";
   public const string LAYLINE_SCHEMA = "Layline Schema";
+  public const string LAYLINE_SCHEMA_JP = "レイライン・スキーマ";
   public const string FORTUNE_SPIRIT = "Fortune Spirit";
+  public const string FORTUNE_SPIRIT_JP = "フォーチュン・スピリット";
   public const string STANCE_OF_THE_SHADE = "Stance of the Shade";
+  public const string STANCE_OF_THE_SHADE_JP = "スタンス・オブ・シェイド";
   public const string SPIRITUAL_REST = "Spiritual Rest";
+  public const string SPIRITUAL_REST_JP = "スピリチュアル・レスト";
 
   // Delve III
   public const string METEOR_BULLET = "Meteor Bullet";

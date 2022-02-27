@@ -406,6 +406,65 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：そ、そうだな・・・", ActionEvent.None);
   }
 
+  public static void Message000080(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+
+    Message(ref m_list, ref e_list, "アイン：・・・看板が２枚か。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：見てみましょうよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+  }
+
+  public static void Message000090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000090 == false)
+    {
+      One.TF.Event_Message000090 = true;
+      Message(ref m_list, ref e_list, "『　危険区域。立ち寄るべからず　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃ、入るとしますか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと。獣道に立ち寄ってる暇はないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なぜだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：理由がいるのかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：立ち寄るのに、理由は要らない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：遠征許可証が失効する理由にはなるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やめておくとするか・・・", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　危険区域。立ち寄るべからず　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かってるわよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、あぁ・・・", ActionEvent.None);
+    }
+  }
+
+  public static void Message000095(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000095 == false)
+    {
+      One.TF.Event_Message000095 = true;
+      Message(ref m_list, ref e_list, "『  ←　この先、ファージル宮殿　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、こっちみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：早く行きましょう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『  ←　この先、ファージル宮殿　』", ActionEvent.None);
+    }
+  }
+
   public static void Message000100(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：待て、なんかいるぞ。", ActionEvent.None);
@@ -519,6 +578,34 @@ public static class MessagePack
     }
   }
 
+  public static void Message000190(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.AvailableImmediateAction = true;
+
+    Message(ref m_list, ref e_list, "アイン：そういえば、ちょっと気になってんだが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナが用意してくれた赤ポーションや他のアイテムを使おうと思ってんだが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：これって普通に使って良いんだよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：良いと思うけど、何よ突然。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：戦闘中に使っても良いんだよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まあ、良いんじゃないかしら。バカアインにしては良い案ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は決してバカではない。ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ハイハイ。で、やるんだったら前準備は必要なんじゃないかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ！じゃあ、戦闘向けにどれを使うのか決めておくとするか！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　戦闘中にアイテム・アクションが使えるようになりました！　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【　バトルコマンド設定画面でアイテム・アクションを設定してみてください。　】", ActionEvent.MessageDisplay);
+  }
   #endregion
 
   #region "アンシェットの街"
@@ -534,14 +621,17 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：旅に出るんだ。荷物はこれぐらい軽くしておいたほうが良いだろ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：軽くしておいたらって・・・ほぼ手ぶら状態じゃないのよ、何考えてんのかしらホント・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：軽くしておいたって・・・最低限の装備以外は何も持ってないじゃない、何考えてんのかしらホント・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：はい、赤ポーションと軍資金。用意しておいたからね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：はい、ポーションと軍資金を用意しておいたからね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
-    Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】を獲得しました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】と【 " + Fix.SMALL_BLUE_POTION + " 】を取得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "500", ActionEvent.GetGold);
     Message(ref m_list, ref e_list, "【 500 gold 】を獲得しました！", ActionEvent.MessageDisplay);

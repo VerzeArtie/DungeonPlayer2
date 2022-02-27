@@ -134,6 +134,10 @@ public class DungeonField : MotherBase
   public List<NodeActionCommand> ListActionCommandSet;
   public List<NodeActionCommand> ListAvailableCommand;
   public List<Text> ListAvailableCommandText;
+  public GameObject groupCommandCategory;
+  public Button btnCommandCategoryAction;
+  public Button btnCommandCetegoryItem;
+
   public NodeActionCommand CurrentSelectCommand;
 
   // public GameObject groupPartyExit;
@@ -1756,6 +1760,16 @@ public class DungeonField : MotherBase
     GroupPartyMenu.gameObject.SetActive(false);
   }
 
+  public void TapCommandTypeAction()
+  {
+    SetupActionCommand(this.CurrentPlayer, 0);
+  }
+
+  public void TapCommandTypeItem()
+  {
+    SetupActionCommand(this.CurrentPlayer, 1);
+  }
+
   public void TapMenu()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -1845,7 +1859,8 @@ public class DungeonField : MotherBase
     }
 
     action_command.CommandName = this.CurrentSelectCommand.CommandName;
-    action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
+    action_command.ApplyImageIcon(this.CurrentSelectCommand.CommandName);
+    //action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
     TapCancelActionCommandSet();
 
     if (ActionCommandMain.Equals(action_command))
@@ -1958,7 +1973,7 @@ public class DungeonField : MotherBase
 
     // コマンド設定画面への反映
     Character player3 = One.SelectCharacter(txt_name.text);
-    SetupActionCommand(player3);
+    SetupActionCommand(player3, 0);
   }
 
   private void CallGroupPartyStatus(Character player)
@@ -2024,16 +2039,18 @@ public class DungeonField : MotherBase
     }
   }
 
-  private void SetupActionCommand(Character player)
+  private void SetupActionCommand(Character player, int category_type)
   {
     Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
 
+    // キャラクターのメインコマンド、アクションコマンドの設定
     ActionCommandMain.BackColor.color = player.BattleForeColor;
     ActionCommandMain.OwnerName = player.FullName;
     ActionCommandMain.CommandName = player.ActionCommandMain;
     ActionCommandMain.name = player.ActionCommandMain;
     ActionCommandMain.ActionButton.name = player.ActionCommandMain;
-    ActionCommandMain.ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandMain);
+    ActionCommandMain.ApplyImageIcon(player.ActionCommandMain);
+    //ActionCommandMain.ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandMain);
 
     List<String> actionList = player.GetActionCommandList();
     for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
@@ -2045,18 +2062,44 @@ public class DungeonField : MotherBase
         ListActionCommandSet[ii].CommandName = Fix.STAY;
         ListActionCommandSet[ii].name = Fix.STAY;
         ListActionCommandSet[ii].ActionButton.name = Fix.STAY;
-        ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STAY);
+        ListActionCommandSet[ii].ApplyImageIcon(Fix.STAY);
+        //ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STAY);
         continue;
       }
 
       ListActionCommandSet[ii].CommandName = actionList[ii];
       ListActionCommandSet[ii].name = actionList[ii];
       ListActionCommandSet[ii].ActionButton.name = actionList[ii];
-      ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
+      ListActionCommandSet[ii].ApplyImageIcon(actionList[ii]);
+      //ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
     }
-    List<string> currentList = player.GetAvailableList();
+
+    // アクション可能なコマンド一覧の設定
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
+      ListAvailableCommand[ii].CommandName = String.Empty;
+      ListAvailableCommand[ii].name = String.Empty;
+      ListAvailableCommand[ii].ActionButton.image.sprite = null;
+      ListAvailableCommandText[ii].text = String.Empty;
+    }
+
+    // todo (カテゴリが増えた場合、追加実装が必要）
+    groupCommandCategory.SetActive(One.TF.AvailableImmediateAction);
+    btnCommandCategoryAction.gameObject.SetActive(One.TF.AvailableImmediateAction);
+    btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
+
+    List<string> currentList = null;
+    if (category_type == 0) // action
+    {
+      currentList = player.GetAvailableList();
+    }
+    else // item
+    {
+      currentList = player.GetAvailableListItem();
+    }
+    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
+    {
+      Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
       if (ii >= currentList.Count)
       {
         ListAvailableCommand[ii].CommandName = String.Empty;
@@ -2067,7 +2110,8 @@ public class DungeonField : MotherBase
       }
       ListAvailableCommand[ii].CommandName = currentList[ii];
       ListAvailableCommand[ii].name = currentList[ii];
-      ListAvailableCommand[ii].ActionButton.image.sprite = Resources.Load<Sprite>(currentList[ii]);
+      ListAvailableCommand[ii].ApplyImageIcon(currentList[ii]);
+      //ListAvailableCommand[ii].ActionButton.image.sprite = Resources.Load<Sprite>(currentList[ii]);
       ListAvailableCommandText[ii].text = currentList[ii];
     }
   }
@@ -2833,6 +2877,14 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message000070(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+        if (LocationFieldDetect(fieldObjBefore, 5, 1, 4))
+        {
+          MessagePack.Message000090(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (LocationFieldDetect(fieldObjBefore, 3, 1, 7))
+        {
+          MessagePack.Message000095(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       else
       {
@@ -3008,6 +3060,10 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_CaveOfSarun_00010 == false && location.x == Fix.CAVEOFSARUN_Treasure_10_X && location.y == Fix.CAVEOFSARUN_Treasure_10_Y && location.z == Fix.CAVEOFSARUN_Treasure_10_Z)
         {
           treasureName = Fix.POWER_BANDANA;
+        }
+        if (One.TF.Treasure_CaveOfSarun_00011 == false && location.x == Fix.CAVEOFSARUN_Treasure_11_X && location.y == Fix.CAVEOFSARUN_Treasure_11_Y && location.z == Fix.CAVEOFSARUN_Treasure_11_Z)
+        {
+          treasureName = Fix.CHERRY_CHOKER;
         }
 
         if (treasureName == String.Empty)
@@ -3780,6 +3836,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "3")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 7; jj++)
+            {
+              for (int kk = 0; kk < 5; kk++)
+              {
+                numbers.Add(132 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
+            }
+          }
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN && currentMessage == "10")
           {
             List<int> numbers = new List<int>();
@@ -4045,6 +4117,11 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z))
             {
               One.TF.Treasure_CaveOfSarun_00009 = true;
+            }
+            // 宝箱１１
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_11_X, Fix.CAVEOFSARUN_Treasure_11_Y, Fix.CAVEOFSARUN_Treasure_11_Z))
+            {
+              One.TF.Treasure_CaveOfSarun_00011 = true;
             }
           }
           #endregion
@@ -4784,6 +4861,7 @@ public class DungeonField : MotherBase
 
     // todo town , castle, field, dungeonの属性分けが誤っている。
     // field
+    #region "CaveOfSarun"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
     {
       // todo 資格があれば入れる事とする。
@@ -4805,8 +4883,22 @@ public class DungeonField : MotherBase
         MessagePack.Message000110(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+
+      if (LocationDetect(tile, 5, 0, 6) && One.TF.Event_Message000080 == false)
+      {
+        One.TF.Event_Message000080 = true;
+        MessagePack.Message000080(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, 15, 0, 1) && One.TF.AvailableImmediateAction == false)
+      {
+        MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
     }
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    #endregion
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       if (LocationDetect(tile, -47, 3.5f, 17))
       {
@@ -5480,6 +5572,7 @@ public class DungeonField : MotherBase
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
       PlayerList[ii].MaxGain();
+      PlayerList[ii].Dead = false;
     }
     UpdateCharacterStatus();
   }
@@ -6423,6 +6516,11 @@ public class DungeonField : MotherBase
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z)));
       }
+      // 宝箱１１
+      if (One.TF.Treasure_CaveOfSarun_00011)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_11_X, Fix.CAVEOFSARUN_Treasure_11_Y, Fix.CAVEOFSARUN_Treasure_11_Z)));
+      }
 
       // 岩壁１
       if (One.TF.FieldObject_CaveofSarun_00001)
@@ -7344,7 +7442,7 @@ public class DungeonField : MotherBase
     SetupStayList();
 
     // コマンド設定画面への反映
-    SetupActionCommand(PlayerList[0]);
+    SetupActionCommand(PlayerList[0], 0);
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView();

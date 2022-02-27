@@ -96,7 +96,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.SCREAMING_RAFFLESIA:
-        SetupParameter(100, 50, 70, 500, 10, 1500, 3000, 2000);
+        SetupParameter(60, 15, 50, 250, 8, 0, 1000, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         break;

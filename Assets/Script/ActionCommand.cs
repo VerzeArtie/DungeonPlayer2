@@ -20,6 +20,7 @@ public static class ActionCommand
     None,
     Positive,
     Negative,
+    Neutral,
   }
 
   public enum TargetType
@@ -40,7 +41,8 @@ public static class ActionCommand
     None,
     Normal,
     Instant,
-    Sorcery
+    Sorcery,
+    StackCommand
   }
 
   public static List<string> GetCommandList(Fix.CommandAttribute attr)
@@ -521,13 +523,19 @@ public static class ActionCommand
     if (command_name == Fix.PURE_PURIFICATION) { return Attribute.Magic; }
     if (command_name == Fix.DIVINE_CIRCLE) { return Attribute.Magic; }
     if (command_name == Fix.BLOOD_SIGN) { return Attribute.Magic; }
+    if (command_name == Fix.STORM_ARMOR) { return Attribute.Magic; }
+    if (command_name == Fix.SOLID_WALL) { return Attribute.Magic; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return Attribute.Skill; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return Attribute.Skill; }
+    if (command_name == Fix.SPEED_STEP) { return Attribute.Skill; }
+    if (command_name == Fix.INVISIBLE_BIND) { return Attribute.Skill; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Attribute.Skill; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return Attribute.Skill; }
     if (command_name == Fix.SKY_SHIELD) { return Attribute.Magic; }
     if (command_name == Fix.FLASH_COUNTER) { return Attribute.Magic; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return Attribute.Skill; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return Attribute.Skill; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return Attribute.Skill; }
-    if (command_name == Fix.INVISIBLE_BIND) { return Attribute.Skill; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return Attribute.Skill; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Attribute.Skill; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return Attribute.Skill; }
     if (command_name == Fix.SPIRITUAL_REST) { return Attribute.Skill; }
 
     if (command_name == Fix.METEOR_BULLET) { return Attribute.Magic; }
@@ -578,13 +586,19 @@ public static class ActionCommand
     if (command_name == Fix.PURE_PURIFICATION) { return TimingType.Instant; }
     if (command_name == Fix.DIVINE_CIRCLE) { return TimingType.Normal; }
     if (command_name == Fix.BLOOD_SIGN) { return TimingType.Instant; }
-    if (command_name == Fix.SKY_SHIELD) { return TimingType.Instant; }
-    if (command_name == Fix.FLASH_COUNTER) { return TimingType.Instant; }
+    if (command_name == Fix.STORM_ARMOR) { return TimingType.Instant; }
+    if (command_name == Fix.SOLID_WALL) { return TimingType.Instant; }
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return TimingType.Normal; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TimingType.Normal; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return TimingType.Instant; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return TimingType.Normal; }
+    if (command_name == Fix.SPEED_STEP) { return TimingType.Instant; }
     if (command_name == Fix.INVISIBLE_BIND) { return TimingType.Instant; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TimingType.Normal; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TimingType.Normal; }
+    if (command_name == Fix.SKY_SHIELD) { return TimingType.Instant; }
+    if (command_name == Fix.FLASH_COUNTER) { return TimingType.StackCommand; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return TimingType.Instant; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return TimingType.Normal; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return TimingType.Normal; }
     if (command_name == Fix.SPIRITUAL_REST) { return TimingType.Instant; }
 
     if (command_name == Fix.METEOR_BULLET) { return TimingType.Instant; }
@@ -631,18 +645,23 @@ public static class ActionCommand
     if (command_name == Fix.TRUE_SIGHT) { return TargetType.Ally; }
     if (command_name == Fix.ORACLE_COMMAND) { return TargetType.Ally; }
 
-
     if (command_name == Fix.FLAME_BLADE) { return TargetType.Ally; }
     if (command_name == Fix.PURE_PURIFICATION) { return TargetType.Ally; }
     if (command_name == Fix.DIVINE_CIRCLE) { return TargetType.AllyGroup; }
     if (command_name == Fix.BLOOD_SIGN) { return TargetType.Enemy; }
+    if (command_name == Fix.STORM_ARMOR) { return TargetType.Ally; }
+    if (command_name == Fix.SOLID_WALL) { return TargetType.Ally; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Own; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.SPEED_STEP) { return TargetType.Ally; }
+    if (command_name == Fix.INVISIBLE_BIND) { return TargetType.Enemy; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TargetType.AllMember; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
     if (command_name == Fix.SKY_SHIELD) { return TargetType.Ally; }
     if (command_name == Fix.FLASH_COUNTER) { return TargetType.InstantTarget; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Own; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
-    if (command_name == Fix.INVISIBLE_BIND) { return TargetType.Enemy; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return TargetType.Ally; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return TargetType.Own; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return TargetType.AllyGroup; }
     if (command_name == Fix.SPIRITUAL_REST) { return TargetType.Ally; }
 
     if (command_name == Fix.METEOR_BULLET) { return TargetType.EnemyGroup; }
@@ -710,13 +729,19 @@ public static class ActionCommand
     if (command_name == Fix.PURE_PURIFICATION) { return 6; }
     if (command_name == Fix.DIVINE_CIRCLE) { return 8; }
     if (command_name == Fix.BLOOD_SIGN) { return 7; }
-    if (command_name == Fix.SKY_SHIELD) { return 6; }
-    if (command_name == Fix.FLASH_COUNTER) { return 7; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 7; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 7; }
+    if (command_name == Fix.STORM_ARMOR) { return 7; }
+    if (command_name == Fix.SOLID_WALL) { return 7; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 8; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 8; }
+    if (command_name == Fix.SPEED_STEP) { return 7; }
     if (command_name == Fix.INVISIBLE_BIND) { return 9; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return 11; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return 5; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 8; }
+    if (command_name == Fix.SKY_SHIELD) { return 7; }
+    if (command_name == Fix.FLASH_COUNTER) { return 7; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return 8; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return 11; }
     if (command_name == Fix.SPIRITUAL_REST) { return 11; }
 
     if (command_name == Fix.METEOR_BULLET) { return 14; }
@@ -752,6 +777,10 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_RUMBLE_MACHINEGUN) { return 0; }
     if (command_name == Fix.COMMAND_STRUGGLE_VOICE) { return 0; }
 
+    // アイテム使用は基本０とする。（例外は作るかもしれない）
+    if (command_name == Fix.SMALL_RED_POTION) { return 0; }
+    if (command_name == Fix.SMALL_BLUE_POTION) { return 0; }
+
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
@@ -783,18 +812,23 @@ public static class ActionCommand
     if (command_name == Fix.TRUE_SIGHT) { return BuffType.Positive; }
     if (command_name == Fix.ORACLE_COMMAND) { return BuffType.None; }
 
-
     if (command_name == Fix.FLAME_BLADE) { return BuffType.Positive; }
     if (command_name == Fix.PURE_PURIFICATION) { return BuffType.None; }
     if (command_name == Fix.DIVINE_CIRCLE) { return BuffType.Positive; }
     if (command_name == Fix.BLOOD_SIGN) { return BuffType.Negative; }
+    if (command_name == Fix.STORM_ARMOR) { return BuffType.Positive; }
+    if (command_name == Fix.SOLID_WALL) { return BuffType.Positive; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return BuffType.Positive; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return BuffType.None; }
+    if (command_name == Fix.SPEED_STEP) { return BuffType.Positive; }
+    if (command_name == Fix.INVISIBLE_BIND) { return BuffType.Negative; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return BuffType.Neutral; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return BuffType.Positive; }
     if (command_name == Fix.SKY_SHIELD) { return BuffType.Positive; }
     if (command_name == Fix.FLASH_COUNTER) { return BuffType.None; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return BuffType.Positive; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return BuffType.Positive; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return BuffType.None; }
-    if (command_name == Fix.INVISIBLE_BIND) { return BuffType.Negative; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return BuffType.Positive; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return BuffType.Positive; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return BuffType.Positive; }
     if (command_name == Fix.SPIRITUAL_REST) { return BuffType.None; }
 
     if (command_name == Fix.METEOR_BULLET) { return BuffType.None; }
@@ -857,13 +891,19 @@ public static class ActionCommand
     if (command_name == Fix.PURE_PURIFICATION) { return false; }
     if (command_name == Fix.DIVINE_CIRCLE) { return false; }
     if (command_name == Fix.BLOOD_SIGN) { return false; }
+    if (command_name == Fix.STORM_ARMOR) { return false; }
+    if (command_name == Fix.SOLID_WALL) { return false; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return false; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return true; }
+    if (command_name == Fix.SPEED_STEP) { return false; }
+    if (command_name == Fix.INVISIBLE_BIND) { return true; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return false; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return false; }
     if (command_name == Fix.SKY_SHIELD) { return false; }
     if (command_name == Fix.FLASH_COUNTER) { return false; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return false; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return false; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return true; }
-    if (command_name == Fix.INVISIBLE_BIND) { return false; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return false; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return false; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return false; }
     if (command_name == Fix.SPIRITUAL_REST) { return false; }
 
     if (command_name == Fix.METEOR_BULLET) { return true; }
@@ -893,6 +933,7 @@ public static class ActionCommand
 
   public static string To_JP(string command_name)
   {
+    // delve I
     if (command_name == Fix.FIRE_BALL) { return Fix.FIRE_BALL_JP; }
     if (command_name == Fix.ICE_NEEDLE) { return Fix.ICE_NEEDLE_JP; }
     if (command_name == Fix.FRESH_HEAL) { return Fix.FRESH_HEAL_JP; }
@@ -912,6 +953,25 @@ public static class ActionCommand
     if (command_name == Fix.TRUE_SIGHT) { return Fix.TRUE_SIGHT_JP; }
     if (command_name == Fix.ORACLE_COMMAND) { return Fix.ORACLE_COMMAND_JP; }
 
+    // Delve II
+    if (command_name == Fix.FLAME_BLADE) { return Fix.FLAME_BLADE_JP; }
+    if (command_name == Fix.PURE_PURIFICATION) { return Fix.PURE_PURIFICATION_JP; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return Fix.DIVINE_CIRCLE_JP; }
+    if (command_name == Fix.BLOOD_SIGN) { return Fix.BLOOD_SIGN_JP; }
+    if (command_name == Fix.STORM_ARMOR) { return Fix.STORM_ARMOR_JP; }
+    if (command_name == Fix.SOLID_WALL) { return Fix.SOLID_WALL_JP; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return Fix.STANCE_OF_THE_BLADE_JP; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return Fix.MULTIPLE_SHOT_JP; }
+    if (command_name == Fix.SPEED_STEP) { return Fix.SPEED_STEP_JP; }
+    if (command_name == Fix.INVISIBLE_BIND) { return Fix.INVISIBLE_BIND_JP; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Fix.IDEOLOGY_OF_SOPHISTICATION_JP; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return Fix.STANCE_OF_THE_GUARD_JP; }
+    if (command_name == Fix.SKY_SHIELD) { return Fix.SKY_SHIELD_JP; }
+    if (command_name == Fix.FLASH_COUNTER) { return Fix.FLASH_COUNTER_JP; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return Fix.FORTUNE_SPIRIT_JP; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Fix.STANCE_OF_THE_SHADE_JP; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return Fix.LAYLINE_SCHEMA_JP; }
+    if (command_name == Fix.SPIRITUAL_REST) { return Fix.SPIRITUAL_REST_JP; }
 
     return command_name;
   }

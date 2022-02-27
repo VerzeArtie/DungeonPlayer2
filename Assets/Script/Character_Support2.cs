@@ -519,10 +519,12 @@ public partial class Character : MonoBehaviour
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
       if (Level == 2) { return Fix.FIRE_BALL; }
+      if (Level == 4) { return Fix.STANCE_OF_THE_BLADE; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       if (Level == 2) { return Fix.ICE_NEEDLE; }
+      if (Level == 4) { return Fix.SPEED_STEP; }
     }
     return String.Empty;
   }
@@ -552,11 +554,12 @@ public partial class Character : MonoBehaviour
       {
         this.AvailableFire = true;
         this.FireBall++;
-        for (int ii = 0; ii < Fix.MAX_INSTANT_NUM; ii++)
-        {
-          bool result = CheckToApply(ii, Fix.FIRE_BALL);
-          if (result) { break; }
-        }
+        ApplyNewCommand(Fix.FIRE_BALL);
+      }
+      if (this.Level == 4)
+      {
+        this.StanceOfTheBlade++;
+        ApplyNewCommand(Fix.STANCE_OF_THE_BLADE);
       }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -565,14 +568,25 @@ public partial class Character : MonoBehaviour
       {
         this.AvailableIce = true;
         this.IceNeedle++;
-        for (int ii = 0; ii < Fix.MAX_INSTANT_NUM; ii++)
-        {
-          bool result = CheckToApply(ii, Fix.ICE_NEEDLE);
-          if (result) { break; }
-        }
+        ApplyNewCommand(Fix.ICE_NEEDLE);
+      }
+      if (this.Level == 4)
+      {
+        this.SpeedStep++;
+        ApplyNewCommand(Fix.SPEED_STEP);
       }
     }
   }
+
+  private void ApplyNewCommand(string command_name)
+  {
+    for (int ii = 0; ii < Fix.MAX_INSTANT_NUM; ii++)
+    {
+      bool result = CheckToApply(ii, command_name);
+      if (result) { break; }
+    }
+  }
+
 
   public bool CheckToApply(int ii, string command_name)
   {

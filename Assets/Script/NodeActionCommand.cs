@@ -20,5 +20,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("BluePotion");
     }
+    else
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
+    }
   }
 }

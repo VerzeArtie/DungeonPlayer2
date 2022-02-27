@@ -236,6 +236,10 @@ public static class PrimaryLogic
     {
       result *= player.IsStormArmor.EffectValue;
     }
+    if (player.IsSpeedStep)
+    {
+      result *= player.IsSpeedStep.EffectValue;
+    }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;

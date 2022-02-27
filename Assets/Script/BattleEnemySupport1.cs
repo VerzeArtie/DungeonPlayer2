@@ -150,7 +150,7 @@ public partial class BattleEnemy : MotherBase
     // ターゲットが既に死んでいる場合
     if (target.Dead)
     {
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL, animation_speed);
       this.NowAnimationMode = true;
       return false;
     }
@@ -160,7 +160,7 @@ public partial class BattleEnemy : MotherBase
     {
       if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
       {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL, animation_speed);
         this.NowAnimationMode = true;
         return false;
       }
@@ -437,11 +437,18 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecStanceOfTheBlade(Character player, Character target)
+  private void ExecStanceOfTheBlade(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0);
-    StartAnimation(target.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0);
+    StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecSpeedStep(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0);
+    StartAnimation(target.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
   }
 
   private void ExecStanceOfTheGuard(Character player, Character target)
@@ -623,6 +630,14 @@ public partial class BattleEnemy : MotherBase
   private bool ExecUseRedPotion(Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION) == false)
+    {
+      Debug.Log("Red Potion is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
     if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION))
     {
       Item current = new Item(Fix.SMALL_RED_POTION);
@@ -632,7 +647,6 @@ public partial class BattleEnemy : MotherBase
       return true;
     }
 
-    Debug.Log("Red Potion is nothing...then miss.");
     return false;
   }
 

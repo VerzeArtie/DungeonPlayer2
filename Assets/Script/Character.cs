@@ -1928,6 +1928,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.FLAME_BLADE); }
   }
 
+  public BuffImage IsSpeedStep
+  {
+    get {return SearchBuff(Fix.SPEED_STEP); }
+  }
+
   public BuffImage IsBloodSign
   {
     get { return SearchBuff(Fix.BLOOD_SIGN); }
@@ -2104,6 +2109,14 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
+  public List<string> GetAvailableListItem()
+  {
+    List<string> list = new List<string>();
+    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION)) { list.Add(Fix.SMALL_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION)) { list.Add(Fix.SMALL_BLUE_POTION); }
+    return list;
+  }
+
   public List<string> GetAvailableList()
   {
     // todo
@@ -2111,13 +2124,44 @@ public partial class Character : MonoBehaviour
     list.Add(Fix.NORMAL_ATTACK);
     list.Add(Fix.MAGIC_ATTACK);
     list.Add(Fix.DEFENSE);
-    if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
+
+    if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
     if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
     if (this.FreshHeal > 0) { list.Add(Fix.FRESH_HEAL); }
-    if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
     if (this.ShadowBlast > 0) { list.Add(Fix.SHADOW_BLAST); }
+    if (this.AirCutter > 0) { list.Add(Fix.AIR_CUTTER); }
+    if (this.RockSlam > 0) { list.Add(Fix.ROCK_SLAM); }
+    if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
     if (this.HunterShot > 0) { list.Add(Fix.HUNTER_SHOT); }
     if (this.LegStrike > 0) { list.Add(Fix.LEG_STRIKE); }
+    if (this.VenomSlash > 0) { list.Add(Fix.VENOM_SLASH); }
+    if (this.EnergyBolt > 0) { list.Add(Fix.ENERGY_BOLT); }
+    if (this.ShieldBash > 0 ) { list.Add(Fix.SHIELD_BASH); }
+    if (this.AuraBurn > 0) { list.Add(Fix.AURA_BURN); }
+    if (this.DispelMagic > 0) { list.Add(Fix.DISPEL_MAGIC); }
+    if (this.HeartOfLife > 0) { list.Add(Fix.HEART_OF_LIFE); }
+    if (this.DarkAura > 0) { list.Add(Fix.DARK_AURA); }
+    if (this.TrueSight > 0) { list.Add(Fix.TRUE_SIGHT); }
+    if (this.OracleCommand > 0) { list.Add(Fix.ORACLE_COMMAND); }
+
+    if (this.FlameBlade > 0) { list.Add(Fix.FLAME_BLADE); }
+    if (this.PurePurification > 0) { list.Add(Fix.PURE_PURIFICATION); }
+    if (this.DivineCircle > 0) { list.Add(Fix.DIVINE_CIRCLE); }
+    if (this.BloodSign > 0) { list.Add(Fix.BLOOD_SIGN); }
+    if (this.StormArmor > 0) { list.Add(Fix.STORM_ARMOR); }
+    if (this.SoldWall > 0) { list.Add(Fix.SOLID_WALL); }
+    if (this.StanceOfTheBlade > 0) { list.Add(Fix.STANCE_OF_THE_BLADE); }
+    if (this.MultipleShot > 0) { list.Add(Fix.MULTIPLE_SHOT); }
+    if (this.SpeedStep > 0) { list.Add(Fix.SPEED_STEP); }
+    if (this.InvisibleBind > 0) { list.Add(Fix.INVISIBLE_BIND); }
+    if (this.IdeologyOfSophistication > 0) { list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION); }
+    if (this.StanceOfTheGuard > 0){ list. Add(Fix.STANCE_OF_THE_GUARD); }
+    if (this.SkyShield > 0) { list.Add(Fix.SKY_SHIELD); }
+    if (this.FlashCounter > 0) { list.Add(Fix.FLASH_COUNTER); }
+    if (this.FortuneSpirit > 0) { list.Add(Fix.FORTUNE_SPIRIT); }
+    if (this.StanceOfTheShade > 0) { list.Add(Fix.STANCE_OF_THE_SHADE); }
+    if (this.LaylineSchema > 0) { list.Add(Fix.LAYLINE_SCHEMA); }
+    if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
     return list;
   }
@@ -2125,14 +2169,14 @@ public partial class Character : MonoBehaviour
   public void UpdateActionCommandList(List<NodeActionCommand> action_command_list)
   {
     if (action_command_list.Count >= 1) { ActionCommand1 = action_command_list[0].CommandName; }
-    if (action_command_list.Count >= 2) { ActionCommand1 = action_command_list[1].CommandName; }
-    if (action_command_list.Count >= 3) { ActionCommand1 = action_command_list[2].CommandName; }
-    if (action_command_list.Count >= 4) { ActionCommand1 = action_command_list[3].CommandName; }
-    if (action_command_list.Count >= 5) { ActionCommand1 = action_command_list[4].CommandName; }
-    if (action_command_list.Count >= 6) { ActionCommand1 = action_command_list[5].CommandName; }
-    if (action_command_list.Count >= 7) { ActionCommand1 = action_command_list[6].CommandName; }
-    if (action_command_list.Count >= 8) { ActionCommand1 = action_command_list[7].CommandName; }
-    if (action_command_list.Count >= 9) { ActionCommand1 = action_command_list[8].CommandName; }
+    if (action_command_list.Count >= 2) { ActionCommand2 = action_command_list[1].CommandName; }
+    if (action_command_list.Count >= 3) { ActionCommand3 = action_command_list[2].CommandName; }
+    if (action_command_list.Count >= 4) { ActionCommand4 = action_command_list[3].CommandName; }
+    if (action_command_list.Count >= 5) { ActionCommand5 = action_command_list[4].CommandName; }
+    if (action_command_list.Count >= 6) { ActionCommand6 = action_command_list[5].CommandName; }
+    if (action_command_list.Count >= 7) { ActionCommand7 = action_command_list[6].CommandName; }
+    if (action_command_list.Count >= 8) { ActionCommand8 = action_command_list[7].CommandName; }
+    if (action_command_list.Count >= 9) { ActionCommand9 = action_command_list[8].CommandName; }
 
   }
   #endregion

@@ -232,6 +232,15 @@ public static class SecondaryLogic
     return 5;
   }
 
+  public static double SpeedStep(Character player)
+  {
+    return 1.10f;
+  }
+  public static int SpeedStep_Turn(Character player)
+  {
+    return 5;
+  }
+
   public static double StanceOfTheGuard(Character player)
   {
     return 0.01f;

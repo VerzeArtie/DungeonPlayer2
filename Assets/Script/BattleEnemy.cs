@@ -195,7 +195,8 @@ public partial class BattleEnemy : MotherBase
       global.name = commandName;
       global.OwnerName = "Owner";
       global.ActionButton.name = commandName;
-      global.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+      global.ApplyImageIcon(commandName);
+      //global.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
       global.transform.SetParent(GroupGlobalAction.transform);
       global.gameObject.SetActive(true);
@@ -326,7 +327,8 @@ public partial class BattleEnemy : MotherBase
           instant.name = commandName;
           instant.OwnerName = playerList[ii].FullName;
           instant.ActionButton.name = commandName;
-          instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+          instant.ApplyImageIcon(commandName);
+          //instant.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
           instant.transform.SetParent(GroupInstantAction.transform);
           instant.gameObject.SetActive(true);
@@ -438,7 +440,8 @@ public partial class BattleEnemy : MotherBase
       character.objMainButton.CommandName = character.ActionCommandMain;
       character.objMainButton.name = character.ActionCommandMain;
       character.objMainButton.OwnerName = character.FullName;
-      character.objMainButton.ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandMain);
+      character.objMainButton.ApplyImageIcon(character.ActionCommandMain);
+      //character.objMainButton.ActionButton.image.sprite = Resources.Load<Sprite>(character.ActionCommandMain);
 
       character.objActionCommandList.Clear();
       List<String> actionList = character.GetActionCommandList();
@@ -453,7 +456,8 @@ public partial class BattleEnemy : MotherBase
         character.objActionCommandList[ii].CommandName = actionList[ii];
         character.objActionCommandList[ii].name = actionList[ii];
         character.objActionCommandList[ii].OwnerName = character.FullName;
-        character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
+        character.objActionCommandList[ii].ApplyImageIcon(actionList[ii]);
+        //character.objActionCommandList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
       }
       if (character.IsEnemy)
       {
@@ -562,27 +566,11 @@ public partial class BattleEnemy : MotherBase
       // todo ここは本来それぞれキャラクター達が保持している情報に基づいて登録を構築すべきと思われる。
       // 今は単なる並び順で並べているだけである。
       List<string> mainActionList = new List<string>();
-      mainActionList.Add(Fix.NORMAL_ATTACK);
-      mainActionList.Add(Fix.MAGIC_ATTACK);
-      mainActionList.Add(Fix.DEFENSE);
-      if (character.FireBall > 0) { mainActionList.Add(Fix.FIRE_BALL); }
-      if (character.IceNeedle > 0) { mainActionList.Add(Fix.ICE_NEEDLE); }
-      if (character.ShadowBlast > 0) { mainActionList.Add(Fix.SHADOW_BLAST); }
-      if (character.FreshHeal > 0) { mainActionList.Add(Fix.FRESH_HEAL); }
-      if (character.AirCutter > 0) { mainActionList.Add(Fix.AIR_CUTTER); }
-      if (character.RockSlam > 0) { mainActionList.Add(Fix.ROCK_SLAM); }
-      if (character.StraightSmash > 0) { mainActionList.Add(Fix.STRAIGHT_SMASH); }
-      if (character.HunterShot > 0) { mainActionList.Add(Fix.HUNTER_SHOT); }
-      if (character.LegStrike > 0) { mainActionList.Add (Fix.LEG_STRIKE); }
-      if (character.VenomSlash > 0) { mainActionList.Add(Fix.VENOM_SLASH); }
-      if (character.EnergyBolt > 0) { mainActionList.Add(Fix.ENERGY_BOLT); }
-      if (character.ShieldBash > 0) { mainActionList.Add(Fix.SHIELD_BASH); }
-      if (character.AuraOfPower > 0) { mainActionList.Add(Fix.AURA_OF_POWER); }
-      if (character.DispelMagic > 0) { mainActionList.Add(Fix.DISPEL_MAGIC); }
-      if (character.HeartOfLife > 0) { mainActionList.Add(Fix.HEART_OF_LIFE); }
-      if (character.DarkAura > 0) { mainActionList.Add(Fix.DARK_AURA); }
-      if (character.TrueSight > 0) { mainActionList.Add(Fix.TRUE_SIGHT); }
-      if (character.OracleCommand > 0) { mainActionList.Add(Fix.ORACLE_COMMAND); }
+      List<string> list = character.GetAvailableList();
+      for (int ii = 0; ii < list.Count; ii++)
+      {
+        mainActionList.Add(list[ii]);
+      }
 
       for (int ii = 0; ii < mainActionList.Count; ii++)
       {
@@ -593,7 +581,8 @@ public partial class BattleEnemy : MotherBase
         mainAction.name = commandName;
         mainAction.OwnerName = character.FullName;
         mainAction.ActionButton.name = commandName;
-        mainAction.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
+        mainAction.ApplyImageIcon(commandName);
+        //mainAction.ActionButton.image.sprite = Resources.Load<Sprite>(commandName);
 
         mainAction.transform.SetParent(groupActionButton.transform);
         mainAction.gameObject.SetActive(true);
@@ -1325,7 +1314,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.STANCE_OF_THE_BLADE:
-        ExecStanceOfTheBlade(player, target);
+        ExecStanceOfTheBlade(player);
+        break;
+
+      case Fix.SPEED_STEP:
+        ExecSpeedStep(player, target);
         break;
 
       case Fix.STANCE_OF_THE_GUARD:
@@ -1405,6 +1398,14 @@ public partial class BattleEnemy : MotherBase
         ExecUnseenAid(player, target_list);
         break;
 
+      // 以下、アイテム使用
+      case Fix.SMALL_RED_POTION:
+        ExecUseRedPotion(player);
+        break;
+
+      case Fix.SMALL_BLUE_POTION:
+        ExecUseBluePotion(player);
+        break;
 
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
@@ -1450,12 +1451,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_YOUEN_FIRE:
-        for (int jj = 0; jj < 7; jj++)
+        for (int jj = 0; jj < 5; jj++)
         {
           // ランダムで対象を選んで当てる
           // ダメージアニメーション速度を上げる。
           List<Character> list = GetOpponentGroup(player);
-          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 1.0f, Fix.DamageSource.Fire, critical, 20);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.8, Fix.DamageSource.Fire, critical, 25);
         }
         break;
 
@@ -1585,7 +1586,7 @@ public partial class BattleEnemy : MotherBase
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
   }
-  private void StartAnimationGroupPanel(GameObject targetObj, string message, Color color)
+  private void StartAnimationGroupPanel(GameObject targetObj, string message, Color color, int animation_speed = MAX_ANIMATION_TIME)
   {
     DamageObject damageObj = Instantiate(this.prefab_Damage, new Vector3(0, 0, 0), Quaternion.identity) as DamageObject;
     // 対象オブジェクトにリンクさせて位置を設定する。
@@ -1600,7 +1601,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    damageObj.Construct(message, color, MAX_ANIMATION_TIME);
+    damageObj.Construct(message, color, animation_speed);
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;

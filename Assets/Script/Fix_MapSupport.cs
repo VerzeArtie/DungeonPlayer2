@@ -63,6 +63,12 @@ public partial class Fix
   public const float CAVEOFSARUN_Treasure_10_Y = 1.0f;
   public const float CAVEOFSARUN_Treasure_10_Z = -5.0f;
 
+  public const string CAVEOFSARUN_Treasure_11_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_11_O = "11";
+  public const float CAVEOFSARUN_Treasure_11_X = -9.0f;
+  public const float CAVEOFSARUN_Treasure_11_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_11_Z = 11.0f;
+
   public const string CAVEOFSARUN_Rock_1_C = "Rock";
   public const string CAVEOFSARUN_Rock_1_O = "1";
   public const float CAVEOFSARUN_Rock_1_X = -9.0f;
