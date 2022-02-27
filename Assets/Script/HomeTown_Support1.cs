@@ -32,6 +32,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.GREEN_PENDANT));
       shopList.Add(new Item(Fix.YELLOW_PENDANT));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
+      shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
 
       //// todo
       //if (false)
