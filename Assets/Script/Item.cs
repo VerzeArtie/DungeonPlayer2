@@ -446,6 +446,89 @@ public partial class Item
   public Item SocketedItem4 { get { return _socketedItem4; } set { _socketedItem4 = value; } }
   public Item SocketedItem5 { get { return _socketedItem5; } set { _socketedItem5 = value; } }
 
+  public double _resistFire = 0.0f;
+  public double ResistFire
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistFire = value; 
+    }
+    get { return _resistFire; }
+  }
+
+  public double _resistIce = 0.0f;
+  public double ResistIce
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistIce = value;
+    }
+    get { return _resistIce; }
+  }
+
+  public double _resistLight = 0.0f;
+  public double ResistLight
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistLight = value;
+    }
+    get { return _resistLight; }
+  }
+
+  public double _resistShadow = 0.0f;
+  public double ResistShadow
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistShadow = value;
+    }
+    get { return _resistShadow; }
+  }
+
+  public double _resistWind = 0.0f;
+  public double ResistWind
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistWind = value;
+    }
+    get { return _resistWind; }
+  }
+
+  public double _resistEarth = 0.0f;
+  public double ResistEarth
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistEarth = value;
+    }
+    get { return _resistEarth; }
+  }
 
   public void SetupItemView(Text txtName, Image img)
   {
