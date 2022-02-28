@@ -48,7 +48,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WILD_ANT:
       case Fix.WILD_ANT_JP:
-        SetupParameter(22, 4, 2, 6, 3, 2, 26, 22);
+        SetupParameter(19, 4, 2, 6, 3, 2, 26, 22);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KAMITSUKI);
         this.CannotCritical = true;
@@ -56,7 +56,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.OLD_TREEFORK:
       case Fix.OLD_TREEFORK_JP:
-        SetupParameter(2, 4, 30, 7, 4, 4, 28, 24);
+        SetupParameter(2, 4, 20, 7, 4, 4, 28, 24);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_TREE_SONG);
         this.CannotCritical = true;
@@ -64,7 +64,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SUN_FLOWER:
       case Fix.SUN_FLOWER_JP:
-        SetupParameter(2, 6, 35, 4, 4, 3, 32, 28);
+        SetupParameter(2, 6, 25, 4, 4, 3, 32, 28);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SUN_FIRE);
         this.CannotCritical = true;
@@ -72,7 +72,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SOLID_BEETLE:
       case Fix.SOLID_BEETLE_JP:
-        SetupParameter(44, 6, 2, 9, 4, 6, 35, 29);
+        SetupParameter(34, 6, 2, 9, 4, 5, 35, 29);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TOSSHIN);
         this.CannotCritical = true;
@@ -80,7 +80,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SILENT_LADYBUG:
       case Fix.SILENT_LADYBUG_JP:
-        SetupParameter(2, 7, 49, 7, 4, 8, 37, 32);
+        SetupParameter(2, 7, 39, 7, 4, 5, 37, 32);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FEATHER_WING);
         this.CannotCritical = true;
@@ -88,7 +88,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MYSTIC_DRYAD:
       case Fix.MYSTIC_DRYAD_JP:
-        SetupParameter(55, 10, 60, 20, 5, 0, 80, 50);
+        SetupParameter(35, 10, 60, 20, 5, 0, 80, 50);
         list.Add(Fix.COMMAND_POISON_RINPUN);
         list.Add(Fix.COMMAND_YOUEN_FIRE);
         list.Add(Fix.COMMAND_BLAZE_DANCE);
@@ -96,7 +96,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.SCREAMING_RAFFLESIA:
-        SetupParameter(60, 15, 50, 250, 8, 0, 1000, 2000);
+        SetupParameter(40, 15, 40, 150, 7, 0, 1000, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         break;

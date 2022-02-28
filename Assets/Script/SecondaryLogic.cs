@@ -224,12 +224,12 @@ public static class SecondaryLogic
 
   public static double StanceOfTheBlade(Character player)
   {
-    return 0.02f;
+    return 0.10f;
   }
 
   public static int StanceOfTheBlade_Turn(Character player)
   {
-    return 5;
+    return 10;
   }
 
   public static double SpeedStep(Character player)

@@ -450,27 +450,27 @@ public partial class Character : MonoBehaviour
   {
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
-      if (Level == 2) { return 5; }
-      if (Level == 3) { return 5; }
-      if (Level == 4) { return 5; }
-      if (Level == 5) { return 5; }
-      if (Level == 6) { return 6; }
-      if (Level == 7) { return 6; }
-      if (Level == 8) { return 6; }
-      if (Level == 9) { return 7; }
-      if (Level == 10) { return 7; }
+      if (Level == 2) { return 7; }
+      if (Level == 3) { return 7; }
+      if (Level == 4) { return 7; }
+      if (Level == 5) { return 10; }
+      if (Level == 6) { return 10; }
+      if (Level == 7) { return 10; }
+      if (Level == 8) { return 14; }
+      if (Level == 9) { return 14; }
+      if (Level == 10) { return 14; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
-      if (Level == 2) { return 4; }
-      if (Level == 3) { return 4; }
-      if (Level == 4) { return 4; }
-      if (Level == 5) { return 4; }
-      if (Level == 6) { return 4; }
-      if (Level == 7) { return 4; }
-      if (Level == 8) { return 5; }
-      if (Level == 9) { return 5; }
-      if (Level == 10) { return 5; }
+      if (Level == 2) { return 6; }
+      if (Level == 3) { return 6; }
+      if (Level == 4) { return 6; }
+      if (Level == 5) { return 9; }
+      if (Level == 6) { return 9; }
+      if (Level == 7) { return 9; }
+      if (Level == 8) { return 12; }
+      if (Level == 9) { return 12; }
+      if (Level == 10) { return 12; }
     }
     return 5;
   }
@@ -506,7 +506,9 @@ public partial class Character : MonoBehaviour
 
   public int LevelupRemainPoint()
   {
-    return 3;
+    if (Level <= 5) { return 3; }
+    
+    return 4;
   }
 
   public int LevelupSoulEssence()
@@ -520,11 +522,13 @@ public partial class Character : MonoBehaviour
     {
       if (Level == 2) { return Fix.FIRE_BALL; }
       if (Level == 4) { return Fix.STANCE_OF_THE_BLADE; }
+      if (Level == 6) { return Fix.FLAME_BLADE; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       if (Level == 2) { return Fix.ICE_NEEDLE; }
       if (Level == 4) { return Fix.SPEED_STEP; }
+      if (Level == 6) { return Fix.PURE_PURIFICATION; }
     }
     return String.Empty;
   }
@@ -561,6 +565,11 @@ public partial class Character : MonoBehaviour
         this.StanceOfTheBlade++;
         ApplyNewCommand(Fix.STANCE_OF_THE_BLADE);
       }
+      if (this.Level == 6)
+      {
+        this.FlameBlade++;
+        ApplyNewCommand(Fix.FLAME_BLADE);
+      }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
@@ -574,6 +583,11 @@ public partial class Character : MonoBehaviour
       {
         this.SpeedStep++;
         ApplyNewCommand(Fix.SPEED_STEP);
+      }
+      if (this.Level == 6)
+      {
+        this.PurePurification++;
+        ApplyNewCommand(Fix.PURE_PURIFICATION);
       }
     }
   }

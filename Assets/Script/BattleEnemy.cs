@@ -1456,7 +1456,7 @@ public partial class BattleEnemy : MotherBase
           // ランダムで対象を選んで当てる
           // ダメージアニメーション速度を上げる。
           List<Character> list = GetOpponentGroup(player);
-          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.8, Fix.DamageSource.Fire, critical, 25);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, CriticalType.None, 25);
         }
         break;
 
