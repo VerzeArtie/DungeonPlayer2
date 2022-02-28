@@ -127,4 +127,5 @@ public static partial class Fix
   public const string ARTIFACT_MUSOU = "古代の宝珠：無双";
   public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
   public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
+  public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
 }

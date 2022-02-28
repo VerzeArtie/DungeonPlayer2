@@ -3453,6 +3453,35 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.FIRE_ANGEL_TALISMAN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 5;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Normal;
+        this._description = "炎授天使からの加護が得られる護符。魔法防御力が全体的に上がる事に加え、炎に特化した耐性が付く。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 0;
+        this._mind = 3;
+        this._resistFire = 0.30f;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
     }
 
     SetupLimitValue();
