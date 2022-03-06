@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Body><DateTime>2020/12/02 0:41:23</DateTime><Version>1.0</Version>
+<TileInformation>
+<Tile_0 T="Plain" O="" X="0" Y="0" Z="0" /><Tile_1 T="Plain" O="" X="0" Y="0" Z="1" /><Tile_2 T="Plain" O="" X="-1" Y="0" Z="1" /><Tile_3 T="Plain" O="" X="-1" Y="0" Z="0" /><Tile_4 T="Plain" O="" X="-1" Y="0" Z="-1" /><Tile_5 T="Plain" O="" X="0" Y="0" Z="-1" /><Tile_6 T="Plain" O="" X="1" Y="0" Z="-1" /><Tile_7 T="Plain" O="" X="1" Y="0" Z="0" /><Tile_8 T="Plain" O="" X="1" Y="0" Z="1" /><Tile_9 T="Upstair" O="" X="-2" Y="0" Z="0" /><Tile_10 T="Plain" O="" X="2" Y="0" Z="1" /><Tile_11 T="Plain" O="" X="2" Y="0" Z="0" /><Tile_12 T="Plain" O="" X="2" Y="0" Z="-1" /><Tile_13 T="Plain" O="" X="3" Y="0" Z="-1" /><Tile_14 T="Plain" O="" X="3" Y="0" Z="0" /><Tile_15 T="Plain" O="" X="3" Y="0" Z="1" />
+</TileInformation>
+
+<FieldObject>
+
+</FieldObject>
+
+</Body>

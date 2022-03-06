@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Body><DateTime>2022/03/06 1:06:55</DateTime><Version>1.0</Version>
+<TileInformation>
+<Tile_0 T="Waste" O="" X="-1" Y="0" Z="0" A="None" /><Tile_1 T="Waste" O="" X="0" Y="0" Z="0" A="None" /><Tile_2 T="Waste" O="" X="1" Y="0" Z="0" A="None" /><Tile_3 T="Waste" O="" X="1" Y="0" Z="-1" A="None" /><Tile_4 T="Waste" O="" X="0" Y="0" Z="-1" A="None" /><Tile_5 T="Waste" O="" X="-1" Y="0" Z="-1" A="None" /><Tile_6 T="Waste" O="" X="-1" Y="0" Z="1" A="None" /><Tile_7 T="Waste" O="" X="0" Y="0" Z="1" A="None" /><Tile_8 T="Waste" O="" X="1" Y="0" Z="1" A="None" /><Tile_9 T="Waste" O="" X="2" Y="0" Z="0" A="None" /><Tile_10 T="Waste" O="" X="2" Y="0" Z="1" A="None" /><Tile_11 T="Waste" O="" X="3" Y="0" Z="1" A="None" /><Tile_12 T="WasteWall" O="" X="2" Y="0.5" Z="2" A="None" /><Tile_13 T="WasteWall" O="" X="1" Y="0.5" Z="2" A="None" /><Tile_14 T="WasteWall" O="" X="0" Y="0.5" Z="2" A="None" /><Tile_15 T="WasteWall" O="" X="-1" Y="0.5" Z="2" A="None" /><Tile_16 T="WasteWall" O="" X="-2" Y="0.5" Z="2" A="None" /><Tile_17 T="WasteWall" O="" X="-2" Y="0.5" Z="1" A="None" /><Tile_18 T="WasteWall" O="" X="-2" Y="0.5" Z="-1" A="None" /><Tile_19 T="WasteWall" O="" X="-2" Y="0.5" Z="-2" A="None" /><Tile_20 T="WasteWall" O="" X="-1" Y="0.5" Z="-2" A="None" /><Tile_21 T="WasteWall" O="" X="0" Y="0.5" Z="-2" A="None" /><Tile_22 T="WasteWall" O="" X="1" Y="0.5" Z="-2" A="None" /><Tile_23 T="WasteWall" O="" X="2" Y="0.5" Z="-2" A="None" /><Tile_24 T="WasteWall" O="" X="2" Y="0.5" Z="-1" A="None" /><Tile_25 T="WasteWall" O="" X="3" Y="0.5" Z="-1" A="None" /><Tile_26 T="WasteWall" O="" X="3" Y="0.5" Z="0" A="None" /><Tile_27 T="WasteWall" O="" X="4" Y="0.5" Z="0" A="None" /><Tile_28 T="WasteWall" O="" X="4" Y="0.5" Z="1" A="None" /><Tile_29 T="WasteWall" O="" X="4" Y="0.5" Z="2" A="None" /><Tile_30 T="Waste" O="" X="3" Y="0" Z="2" A="None" /><Tile_31 T="Upstair" O="" X="-2" Y="0" Z="0" A="None" />
+</TileInformation>
+
+<FieldObject>
+
+</FieldObject>
+
+</Body>
