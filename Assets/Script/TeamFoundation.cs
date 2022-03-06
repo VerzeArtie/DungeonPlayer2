@@ -69,7 +69,7 @@ public class TeamFoundation : MonoBehaviour
     get { return _field_Z; }
   }
 
-  [SerializeField] protected bool _availableImmediateAction = true;
+  [SerializeField] protected bool _availableImmediateAction = false;
   public bool AvailableImmediateAction
   {
     set { _availableImmediateAction = value; }
