@@ -29,6 +29,10 @@ public partial class HomeTown : MotherBase
   public Image imgEventIcon;
   public Text txtEventTitle;
   public Text txtEventDescription;
+  public GameObject GroupSelectArea;
+  public GameObject contentSelectArea;
+  public NodeSelectAreaButton nodeSelectAreaButton;
+  public Text txtGoButton;
 
   // Character
   public GameObject GroupCharacter;
@@ -240,6 +244,8 @@ public partial class HomeTown : MotherBase
 
   // Quest Message
   public GameObject GroupQuestMessage;
+  public GameObject HidePanelMessage;
+  public GameObject PanelTapMessage;
   public Text txtQuestMessage;
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
@@ -507,6 +513,11 @@ public partial class HomeTown : MotherBase
 
   public void TapDungeonPlayer()
   {
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.QuestMain_00002 == false)
+    {
+      MessagePack.Message700040(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 && One.TF.Event_Message200050 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
     {
       MessagePack.Message200041(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -671,6 +682,11 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.Event_Message700020 == false)
+    {
+      MessagePack.Message700020(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
     if (One.TF.AlreadyRestInn)
     {
       MessagePack.MessageX00002(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -693,6 +709,19 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent1()
   {
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    {
+      if (One.TF.Event_Message700030 == false)
+      {
+        MessagePack.Message700030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.Message700031(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
       if (One.TF.Event_Message400020 == false)
@@ -864,11 +893,11 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    //if (One.TF.AlreadyDungeon)
-    //{
-    //  txtMessage.text = "アイン：今、外から入ったばかリだ。少しは休まないとな。";
-    //  return;
-    //}
+    if (One.TF.AlreadyDungeon)
+    {
+      MessagePack.MessageX00008(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
 
     One.TF.AlreadyDungeon = true;
     One.TF.AlreadyRestInn = false;
@@ -888,10 +917,24 @@ public partial class HomeTown : MotherBase
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
-      One.TF.Field_X = -49.0f;
-      One.TF.Field_Y = 5.0f;
-      One.TF.Field_Z = 17.0f;
-      SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
+      if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
+      {
+        SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
+        One.TF.Field_X = -9.0f;
+        One.TF.Field_Y = 1.0f;
+        One.TF.Field_Z = -4.0f;
+      }
+      else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
+      {
+        SceneDimension.JumpToDungeonField(Fix.MAPFILE_GORATRUM);
+        One.TF.Field_X = 0.0f;
+        One.TF.Field_Y = 1.0f;
+        One.TF.Field_Z = 0.0f;
+      }
+      // One.TF.Field_X = -49.0f;
+      // One.TF.Field_Y = 5.0f;
+      // One.TF.Field_Z = 17.0f;
+      // SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
@@ -1519,6 +1562,8 @@ public partial class HomeTown : MotherBase
         string currentMessage = QuestMessageList[0];
         RemoveOneSentence();
         GroupQuestMessage.SetActive(true);
+        HidePanelMessage.gameObject.SetActive(true);
+        PanelTapMessage.gameObject.SetActive(true);
 
         // ブラックアウトしている画面から元に戻す。
         if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
@@ -1848,6 +1893,10 @@ public partial class HomeTown : MotherBase
           Debug.Log("ActionEvent.None: " + currentMessage);
           return;
         }
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownExecRestInn)
+        {
+          
+        }
         else
         {
           Debug.Log("Error: unknown QuestEvent: " + currentEvent.ToString() + " " + currentMessage);
@@ -1864,7 +1913,11 @@ public partial class HomeTown : MotherBase
     // メッセージが無くなったら、元の画面に戻す。
     if (this.QuestMessageList.Count <= 0)
     {
-      this.GroupQuestMessage.SetActive(false);
+      //this.GroupQuestMessage.SetActive(false);
+      HidePanelMessage.gameObject.SetActive(false);
+      PanelTapMessage.gameObject.SetActive(false);
+      panelSystemMessage.SetActive(false);
+
       this.QuestMessageList.Clear();
       Debug.Log(MethodBase.GetCurrentMethod() + " Message Clear");
     }
@@ -2282,6 +2335,10 @@ public partial class HomeTown : MotherBase
 
     ViewQuestEvent(txt.text);
   }
+  public void TapSelectAreaButton(Text txt)
+  {
+    ViewSelectAreaEvent(txt.text);
+  }
 
   public void TapBackpackSelect(NodeBackpackItem backpack)
   {
@@ -2549,6 +2606,8 @@ public partial class HomeTown : MotherBase
 
     // DungeonPlayerのクエストリストを設定
     RefreshQuestList();
+    // DungeonPlayerの行き先リストを設定
+    RefreshSelectAreaList();
 
     // debug
     //for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
@@ -2587,6 +2646,11 @@ public partial class HomeTown : MotherBase
       txtSkillTree.text = string.Empty;
     }
 
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    {
+      btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "ファージル宮殿";
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
@@ -2823,6 +2887,19 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00024) { AddQuestEvent(Fix.QUEST_TITLE_24, One.TF.QuestMain_Complete_00024, counter); counter++; }
   }
 
+  private void RefreshSelectAreaList()
+  {
+    foreach (Transform n in contentSelectArea.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+    int counter = 0;
+    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_CAVEOFSARUN, true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
+  }
+
   private void AddQuestEvent(string quest_name, bool complete, int counter)
   {
     // same DungeonField, HomeTown
@@ -2843,10 +2920,47 @@ public partial class HomeTown : MotherBase
     rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
   }
 
+  private void AddSelectArea(string select_area_name, bool available, int counter)
+  {
+    // same DungeonField, HomeTown
+    NodeSelectAreaButton button = Instantiate(nodeSelectAreaButton) as NodeSelectAreaButton;
+    button.gameObject.transform.SetParent(contentSelectArea.transform);
+    button.txtName.text = select_area_name;
+    if (available)
+    {
+      button.gameObject.SetActive(true);
+    }
+    else
+    {
+      button.imgFilter.gameObject.SetActive(true);
+    }
+
+    contentSelectArea.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSelectArea.GetComponent<RectTransform>().sizeDelta.x, contentSelectArea.GetComponent<RectTransform>().sizeDelta.y + 100);
+
+    //ViewQuestEvent(select_area_name);
+
+    RectTransform rect = button.GetComponent<RectTransform>();
+    rect.anchoredPosition = new Vector2(0, 0);
+    rect.localPosition = new Vector3(0, -5 - counter * 100, 0);
+  }
+
+  public void ViewSelectAreaEvent(string select_area_name)
+  {    // same DungeonField, HomeTown
+    txtEventTitle.text = select_area_name;
+    txtGoButton.text = "【 " +select_area_name + " 】へ向かう";
+    this.DungeonMap = select_area_name;
+
+    if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。"; } 
+    if (select_area_name == Fix.DUNGEON_CAVEOFSARUN) { txtEventDescription.text = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。"; }
+    if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { txtEventDescription.text = "ファージル区域全土を統治する国王エルミ・ジョルジュが住まうファージル宮殿。ファージル宮殿の裏には数々のワープゲートが設置されており、国王であるエルミ・ジョルジュ、王妃ファラ・フローレ、魔道学院の長シニキア・カールハンツ、正義の暴君オル・ランディス、存在不可視のヴェルゼ・アーティが日々各エリアの状況把握に努めている。ファージル全土で犯罪発生率が低く、一般市民が平和に暮らせているのは彼らの加護があるからに他ならない。"; }
+    if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = "人々を魅了する鍾乳洞は、観光地として多くの旅行者をひきつけた場所である。今では鍾乳洞は僅かしか残っておらず、地の奥底からモンスターが出没するようになっているため、一般の人々がここを訪れる事は無い。探索に行くのであれば、入念な準備を怠らない事だ。"; }
+  }
+  
   private void ViewQuestEvent(string quest_name)
   {
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
+    //txtGoButton.text = "GO";
 
     if (quest_name == Fix.QUEST_TITLE_1) { txtEventDescription.text = Fix.QUEST_DESC_1; }
     if (quest_name == Fix.QUEST_TITLE_2) { txtEventDescription.text = Fix.QUEST_DESC_2; }

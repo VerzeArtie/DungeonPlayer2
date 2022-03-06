@@ -3059,7 +3059,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_CaveOfSarun_00010 == false && location.x == Fix.CAVEOFSARUN_Treasure_10_X && location.y == Fix.CAVEOFSARUN_Treasure_10_Y && location.z == Fix.CAVEOFSARUN_Treasure_10_Z)
         {
-          treasureName = Fix.POWER_BANDANA;
+          treasureName = Fix.FIRE_ANGEL_TALISMAN;
         }
         if (One.TF.Treasure_CaveOfSarun_00011 == false && location.x == Fix.CAVEOFSARUN_Treasure_11_X && location.y == Fix.CAVEOFSARUN_Treasure_11_Y && location.z == Fix.CAVEOFSARUN_Treasure_11_Z)
         {
@@ -5077,8 +5077,12 @@ public class DungeonField : MotherBase
     {
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
       {
-        DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -43, 2, -2);
-        return true;
+        if (LocationDetect(tile , - 10.0f, 0, -4.0f))
+        {
+          this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+          return true;
+          //DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -43, 2, -2);
+        }
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
