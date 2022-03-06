@@ -3020,50 +3020,46 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
 
         Debug.Log("Detect fieldObj: " + location);
-        // 宝箱１
+
         if (One.TF.Treasure_CaveOfSarun_00001 == false && location.x == Fix.CAVEOFSARUN_Treasure_1_X && location.y == Fix.CAVEOFSARUN_Treasure_1_Y && location.z == Fix.CAVEOFSARUN_Treasure_1_Z)
         {
-          treasureName = Fix.FINE_CROSS;
+          treasureName = Fix.FINE_SWORD;
         }
         if (One.TF.Treasure_CaveOfSarun_00002 == false && location.x == Fix.CAVEOFSARUN_Treasure_2_X && location.y == Fix.CAVEOFSARUN_Treasure_2_Y && location.z == Fix.CAVEOFSARUN_Treasure_2_Z)
         {
-          treasureName = Fix.FINE_CLAW;
+          treasureName = Fix.GREEN_PENDANT;
         }
         if (One.TF.Treasure_CaveOfSarun_00003 == false && location.x == Fix.CAVEOFSARUN_Treasure_3_X && location.y == Fix.CAVEOFSARUN_Treasure_3_Y && location.z == Fix.CAVEOFSARUN_Treasure_3_Z)
         {
-          treasureName = Fix.FINE_SHIELD;
+          treasureName = Fix.FINE_CLAW;
         }
         if (One.TF.Treasure_CaveOfSarun_00004 == false && location.x == Fix.CAVEOFSARUN_Treasure_4_X && location.y == Fix.CAVEOFSARUN_Treasure_4_Y && location.z == Fix.CAVEOFSARUN_Treasure_4_Z)
         {
-          treasureName = Fix.COMPACT_EARRING;
+          treasureName = Fix.FINE_CROSS;
         }
         if (One.TF.Treasure_CaveOfSarun_00005 == false && location.x == Fix.CAVEOFSARUN_Treasure_5_X && location.y == Fix.CAVEOFSARUN_Treasure_5_Y && location.z == Fix.CAVEOFSARUN_Treasure_5_Z)
         {
-          treasureName = Fix.FLAT_SHOES;
+          treasureName = Fix.COMPACT_EARRING;
         }
         if (One.TF.Treasure_CaveOfSarun_00006 == false && location.x == Fix.CAVEOFSARUN_Treasure_6_X && location.y == Fix.CAVEOFSARUN_Treasure_6_Y && location.z == Fix.CAVEOFSARUN_Treasure_6_Z)
         {
-          treasureName = Fix.ITEM_MATOCK;
+          treasureName = Fix.CHERRY_CHOKER;
         }
         if (One.TF.Treasure_CaveOfSarun_00007 == false && location.x == Fix.CAVEOFSARUN_Treasure_7_X && location.y == Fix.CAVEOFSARUN_Treasure_7_Y && location.z == Fix.CAVEOFSARUN_Treasure_7_Z)
         {
-          treasureName = Fix.FINE_ARMOR;
+          treasureName = Fix.ITEM_MATOCK;
         }
         if (One.TF.Treasure_CaveOfSarun_00008 == false && location.x == Fix.CAVEOFSARUN_Treasure_8_X && location.y == Fix.CAVEOFSARUN_Treasure_8_Y && location.z == Fix.CAVEOFSARUN_Treasure_8_Z)
         {
-          treasureName = Fix.GREEN_PENDANT;
+          treasureName = Fix.FINE_SHIELD;
         }
         if (One.TF.Treasure_CaveOfSarun_00009 == false && location.x == Fix.CAVEOFSARUN_Treasure_9_X && location.y == Fix.CAVEOFSARUN_Treasure_9_Y && location.z == Fix.CAVEOFSARUN_Treasure_9_Z)
         {
-          treasureName = Fix.FINE_SWORD;
+          treasureName = Fix.FINE_ARMOR;
         }
         if (One.TF.Treasure_CaveOfSarun_00010 == false && location.x == Fix.CAVEOFSARUN_Treasure_10_X && location.y == Fix.CAVEOFSARUN_Treasure_10_Y && location.z == Fix.CAVEOFSARUN_Treasure_10_Z)
         {
           treasureName = Fix.FIRE_ANGEL_TALISMAN;
-        }
-        if (One.TF.Treasure_CaveOfSarun_00011 == false && location.x == Fix.CAVEOFSARUN_Treasure_11_X && location.y == Fix.CAVEOFSARUN_Treasure_11_Y && location.z == Fix.CAVEOFSARUN_Treasure_11_Z)
-        {
-          treasureName = Fix.CHERRY_CHOKER;
         }
 
         if (treasureName == String.Empty)
@@ -4073,55 +4069,45 @@ public class DungeonField : MotherBase
           #region "サルンの洞窟前"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
           {
-            // 宝箱１
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_1_X, Fix.CAVEOFSARUN_Treasure_1_Y, Fix.CAVEOFSARUN_Treasure_1_Z))
             {
               One.TF.Treasure_CaveOfSarun_00001 = true;
             }
-            // 宝箱２
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_2_X, Fix.CAVEOFSARUN_Treasure_2_Y, Fix.CAVEOFSARUN_Treasure_2_Z))
             {
               One.TF.Treasure_CaveOfSarun_00002 = true;
             }
-            // 宝箱３
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_3_X, Fix.CAVEOFSARUN_Treasure_3_Y, Fix.CAVEOFSARUN_Treasure_3_Z))
             {
               One.TF.Treasure_CaveOfSarun_00003 = true;
             }
-            // 宝箱４
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_4_X, Fix.CAVEOFSARUN_Treasure_4_Y, Fix.CAVEOFSARUN_Treasure_4_Z))
             {
               One.TF.Treasure_CaveOfSarun_00004 = true;
             }
-            // 宝箱５
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_5_X, Fix.CAVEOFSARUN_Treasure_5_Y, Fix.CAVEOFSARUN_Treasure_5_Z))
             {
               One.TF.Treasure_CaveOfSarun_00005 = true;
             }
-            // 宝箱６
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_6_X, Fix.CAVEOFSARUN_Treasure_6_Y, Fix.CAVEOFSARUN_Treasure_6_Z))
             {
               One.TF.Treasure_CaveOfSarun_00006 = true;
             }
-            // 宝箱７
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_7_X, Fix.CAVEOFSARUN_Treasure_7_Y, Fix.CAVEOFSARUN_Treasure_7_Z))
             {
               One.TF.Treasure_CaveOfSarun_00007 = true;
             }
-            // 宝箱８
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_8_X, Fix.CAVEOFSARUN_Treasure_8_Y, Fix.CAVEOFSARUN_Treasure_8_Z))
             {
               One.TF.Treasure_CaveOfSarun_00008 = true;
             }
-            // 宝箱９
             if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z))
             {
               One.TF.Treasure_CaveOfSarun_00009 = true;
             }
-            // 宝箱１１
-            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_11_X, Fix.CAVEOFSARUN_Treasure_11_Y, Fix.CAVEOFSARUN_Treasure_11_Z))
+            if (this.Player.transform.position == new Vector3(Fix.CAVEOFSARUN_Treasure_10_X, Fix.CAVEOFSARUN_Treasure_10_Y, Fix.CAVEOFSARUN_Treasure_10_Z))
             {
-              One.TF.Treasure_CaveOfSarun_00011 = true;
+              One.TF.Treasure_CaveOfSarun_00010 = true;
             }
           }
           #endregion
@@ -6475,55 +6461,45 @@ public class DungeonField : MotherBase
     if (map_data == Fix.MAPFILE_CAVEOFSARUN)
     {
       Debug.Log("update " + map_data + " field");
-      // 宝箱１
       if (One.TF.Treasure_CaveOfSarun_00001)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_1_X, Fix.CAVEOFSARUN_Treasure_1_Y, Fix.CAVEOFSARUN_Treasure_1_Z)));
       }
-      // 宝箱２
       if (One.TF.Treasure_CaveOfSarun_00002)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_2_X, Fix.CAVEOFSARUN_Treasure_2_Y, Fix.CAVEOFSARUN_Treasure_2_Z)));
       }
-      // 宝箱３
       if (One.TF.Treasure_CaveOfSarun_00003)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_3_X, Fix.CAVEOFSARUN_Treasure_3_Y, Fix.CAVEOFSARUN_Treasure_3_Z)));
       }
-      // 宝箱４
       if (One.TF.Treasure_CaveOfSarun_00004)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_4_X, Fix.CAVEOFSARUN_Treasure_4_Y, Fix.CAVEOFSARUN_Treasure_4_Z)));
       }
-      // 宝箱５
       if (One.TF.Treasure_CaveOfSarun_00005)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_5_X, Fix.CAVEOFSARUN_Treasure_5_Y, Fix.CAVEOFSARUN_Treasure_5_Z)));
       }
-      // 宝箱６
       if (One.TF.Treasure_CaveOfSarun_00006)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_6_X, Fix.CAVEOFSARUN_Treasure_6_Y, Fix.CAVEOFSARUN_Treasure_6_Z)));
       }
-      // 宝箱７
       if (One.TF.Treasure_CaveOfSarun_00007)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_7_X, Fix.CAVEOFSARUN_Treasure_7_Y, Fix.CAVEOFSARUN_Treasure_7_Z)));
       }
-      // 宝箱８
       if (One.TF.Treasure_CaveOfSarun_00008)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_8_X, Fix.CAVEOFSARUN_Treasure_8_Y, Fix.CAVEOFSARUN_Treasure_8_Z)));
       }
-      // 宝箱９
       if (One.TF.Treasure_CaveOfSarun_00009)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_9_X, Fix.CAVEOFSARUN_Treasure_9_Y, Fix.CAVEOFSARUN_Treasure_9_Z)));
       }
-      // 宝箱１１
-      if (One.TF.Treasure_CaveOfSarun_00011)
+      if (One.TF.Treasure_CaveOfSarun_00010)
       {
-        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_11_X, Fix.CAVEOFSARUN_Treasure_11_Y, Fix.CAVEOFSARUN_Treasure_11_Z)));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.CAVEOFSARUN_Treasure_10_X, Fix.CAVEOFSARUN_Treasure_10_Y, Fix.CAVEOFSARUN_Treasure_10_Z)));
       }
 
       // 岩壁１
