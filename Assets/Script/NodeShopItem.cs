@@ -12,4 +12,5 @@ public class NodeShopItem : MonoBehaviour
   public Text txtName;
   public Image imgItem;
   public Image imgSelect;
+  public bool ItemSell;
 }

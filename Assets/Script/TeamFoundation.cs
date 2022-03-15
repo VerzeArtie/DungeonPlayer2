@@ -1427,7 +1427,8 @@ public class TeamFoundation : MonoBehaviour
         {
           if (delete_value <= 0)
           {
-            this._backpackList[ii] = null;
+            this._backpackList.RemoveAt(ii);
+            //this._backpackList[ii] = null;
             break;
           }
           else
@@ -1436,7 +1437,8 @@ public class TeamFoundation : MonoBehaviour
             this._backpackList[ii].StackValue -= delete_value;
             if (this._backpackList[ii].StackValue <= 0) // 結果的にスタック量が０になった場合はオブジェクトを消す。
             {
-              this._backpackList[ii] = null;
+              this._backpackList.RemoveAt(ii);
+              //this._backpackList[ii] = null;
             }
             break;
           }

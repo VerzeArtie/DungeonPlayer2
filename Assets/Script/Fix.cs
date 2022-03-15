@@ -993,6 +993,7 @@ public static partial class Fix
   public const string MAPFILE_CAVEOFSARUN = "MapData_CaveOfSarun.txt";
   public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
+  public const string MAPFILE_GORATRUM_2 = "MapData_Goratrum_2.txt";
   public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
   public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
   public const string MAPFILE_MYSTIC_FOREST = "MapData_MysticForest.txt";

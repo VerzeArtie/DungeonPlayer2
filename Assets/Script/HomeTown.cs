@@ -170,7 +170,10 @@ public partial class HomeTown : MotherBase
 
   // Shop Item
   public GameObject GroupShopItem;
+  public GameObject GroupShopBuy;
+  public GameObject GroupShopSell;
   public GameObject contentShopItem;
+  public GameObject contentSellBackpackItem;
   public NodeShopItem nodeShopItem;
   public Image imgItem;
   public Text txtItemName;
@@ -214,6 +217,16 @@ public partial class HomeTown : MotherBase
   public Button btnBuyAccept;
   public Button btnBuyCancel;
   public Button btnBuyOK;
+  public GameObject groupSellDecision;
+  public Image imgSell;
+  public Text txtSellTitle;
+  public Text txtSellMessage;
+  public Button btnSellAccept;
+  public Button btnSellCancel;
+  public Button btnSellOK;
+  public Button btnShopBuy;
+  public Button btnShopSell;
+  public Text txtShopCurrentType;
 
   // Tactics
   public GameObject GroupTactics;
@@ -329,6 +342,7 @@ public partial class HomeTown : MotherBase
   protected List<MessagePack.ActionEvent> QuestEventList = new List<MessagePack.ActionEvent>();
 
   List<NodeShopItem> ShopItemList = new List<NodeShopItem>();
+  List<NodeShopItem> ShopSellItemList = new List<NodeShopItem>();
   List<NodeBackpackItem> BackpackList = new List<NodeBackpackItem>();
   List<NodeBackpackItem> BackpackJewelSocketList = new List<NodeBackpackItem>();
 
@@ -1204,12 +1218,101 @@ public partial class HomeTown : MotherBase
   public void TapShopItem(NodeShopItem shopItem)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + shopItem.txtName.text);
-    SelectShopItem(shopItem);
+    if (shopItem.ItemSell == false)
+    {
+      SelectShopItem(shopItem, ShopItemList);
+    }
+    else
+    {
+      Debug.Log("ShopSellItemList count: " + ShopSellItemList.Count.ToString());
+      SelectShopItem(shopItem, ShopSellItemList);
+    }
+  }
+
+  public void TapShopTypeBuyItem()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    GroupShopBuy.SetActive(true);
+    GroupShopSell.SetActive(false);
+    btnShopBuy.gameObject.SetActive(true);
+    btnShopSell.gameObject.SetActive(false);
+    txtShopCurrentType.text = "Shop";
+    bool result = FindAndSelectedShopItem(ShopItemList);
+    if (result == false)
+    {
+      SetupItemDetailEmpty(null, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
+    }
+  }
+
+  public void TapShopTypeSellItem()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    GroupShopBuy.SetActive(false);
+    GroupShopSell.SetActive(true);
+    btnShopBuy.gameObject.SetActive(false);
+    btnShopSell.gameObject.SetActive(true);
+    txtShopCurrentType.text = "Backpack";
+    bool result = FindAndSelectedShopItem(ShopSellItemList);
+    if (result == false)
+    {
+      SetupItemDetailEmpty(null, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
+    }
+  }
+
+  public void TapSellItem(Text txt)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + txt.text);
+    if (txt == null) { MessagePack.MessageX00009(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
+    if (txt.text == String.Empty || txt.text == "" || txt.text == null) { MessagePack.MessageX00009(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
+
+    Item current = new Item(txt.text);
+    Debug.Log("itemSell ItemType: " + current.ItemType.ToString());
+    imgSell.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
+    imgSell.name = txt.text;
+    if (current.ImportantType == Item.Important.Precious)
+    {
+      txtSellTitle.text = txt.text + " は売却する事ができません。";
+      txtSellMessage.text = txt.text + " は貴重品のため、売却することができません。";
+      btnSellAccept.gameObject.SetActive(false);
+      btnSellCancel.gameObject.SetActive(false);
+      btnSellOK.gameObject.SetActive(true);
+    }
+    else
+    {
+      txtSellTitle.text = txt.text + " を売却しますか？";
+      txtSellMessage.text = "売却した後、 " + txt.text + " を手元に戻す事はできません。";
+      btnSellAccept.gameObject.SetActive(true);
+      btnSellCancel.gameObject.SetActive(true);
+      btnSellOK.gameObject.SetActive(false);
+    }
+    groupSellDecision.SetActive(true);
+  }
+
+  public void TapSellAccept()
+  {
+    Item current = new Item(imgSell.name);
+
+    One.TF.DeleteBackpack(current, 1);
+    One.TF.Gold += current.Gold / 2;
+    txtGold.text = One.TF.Gold.ToString();
+
+    RefreshAllView();
+    TapSellCancel();
+  }
+  public void TapSellCancel()
+  {
+    groupSellDecision.SetActive(false);
+    imgSell.sprite = null;
+    txtSellTitle.text = string.Empty;
+    txtSellMessage.text = string.Empty;
   }
 
   public void TapBuyItem(Text txt)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + txt.text);
+    if (txt == null) { MessagePack.MessageX00010(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
+    if (txt.text == String.Empty || txt.text == "" || txt.text == null) { MessagePack.MessageX00010(ref QuestMessageList, ref QuestEventList); TapOK(); return; }
+
     Item current = new Item(txt.text);
     Debug.Log("itemBuy ItemType: " + current.ItemType.ToString());
     imgBuy.sprite = Resources.Load<Sprite>("Icon_" + current.ItemType.ToString());
@@ -1232,12 +1335,10 @@ public partial class HomeTown : MotherBase
       btnBuyOK.gameObject.SetActive(false);
     }
     groupBuyDecision.SetActive(true);
-    RefreshAllView();
   }
 
   public void TapBuyAccept()
   {
-    // todo
     Item current = new Item(imgBuy.name);
 
     One.TF.AddBackPack(current);
@@ -1245,11 +1346,7 @@ public partial class HomeTown : MotherBase
     txtGold.text = One.TF.Gold.ToString();
 
     ConstructBackpackView();
-
-    groupBuyDecision.SetActive(false);
-    imgBuy.sprite = null;
-    txtBuyTitle.text = string.Empty;
-    txtBuyMessage.text = string.Empty;
+    TapBuyCancel();
   }
   public void TapBuyCancel()
   {
@@ -2211,14 +2308,14 @@ public partial class HomeTown : MotherBase
     content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x, content.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
   }
 
-  private NodeShopItem CreateShopItem(GameObject content, Item item, int num)
+  private NodeShopItem CreateShopItem(GameObject content, Item item, int num, bool item_sell)
   {
     NodeShopItem shopItem = Instantiate(nodeShopItem) as NodeShopItem;
 
     shopItem.transform.SetParent(content.transform);
     shopItem.txtName.text = item.ItemName;
     shopItem.imgItem.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
-
+    shopItem.ItemSell = item_sell;
     shopItem.imgbackground.color = item.GetRareColor;
     shopItem.gameObject.SetActive(true);
 
@@ -2230,6 +2327,46 @@ public partial class HomeTown : MotherBase
     content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x + WIDTH, content.GetComponent<RectTransform>().sizeDelta.y);
 
     return shopItem;
+  }
+
+  private void ConstructShopBuyView()
+  {
+    foreach (Transform n in contentShopItem.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+
+    ShopItemList.Clear();
+    List<Item> shopList = GetShopItem(One.TF.CurrentAreaName);
+    for (int ii = 0; ii < shopList.Count; ii++)
+    {
+      ShopItemList.Add(CreateShopItem(contentShopItem, shopList[ii], ii, false));
+    }
+    contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentShopItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
+    if (ShopItemList.Count > 0)
+    {
+      SelectShopItem(ShopItemList[0], ShopItemList);
+    }
+  }
+
+  private void ConstructShopSellView()
+  {
+    foreach (Transform n in contentSellBackpackItem.transform)
+    {
+      GameObject.Destroy(n.gameObject);
+    }
+
+    ShopSellItemList.Clear();
+    List<Item> sellList = One.TF.BackpackList;
+    for (int ii = 0; ii < sellList.Count; ii++)
+    {
+      ShopSellItemList.Add(CreateShopItem(contentSellBackpackItem, sellList[ii], ii, true));
+    }
+    contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.y);
+    if (ShopSellItemList.Count > 0)
+    {
+      SelectShopItem(ShopItemList[0], ShopSellItemList);
+    }
   }
 
   private void ConstructBackpackView()
@@ -2271,18 +2408,76 @@ public partial class HomeTown : MotherBase
     }
   }
 
-  private void SelectShopItem(NodeShopItem shopItem)
+  private bool FindAndSelectedShopItem(List<NodeShopItem> shop_item_list)
+  {
+    for (int ii = 0; ii < shop_item_list.Count; ii++)
+    {
+      if (shop_item_list[ii].imgSelect.gameObject.activeInHierarchy)
+      {
+        Item item = new Item(shop_item_list[ii].txtName.text);
+        SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
+        txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void SelectShopItem(NodeShopItem shopItem, List<NodeShopItem> shop_item_list)
   {
     Item item = new Item(shopItem.txtName.text);
 
-    for (int ii = 0; ii < ShopItemList.Count; ii++)
+    for (int ii = 0; ii < shop_item_list.Count; ii++)
     {
-      ShopItemList[ii].imgSelect.gameObject.SetActive(false);
+      shop_item_list[ii].imgSelect.gameObject.SetActive(false);
     }
     shopItem.imgSelect.gameObject.SetActive(true);
 
     SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
     txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+  }
+
+  private void SetupItemDetailEmpty(Item item, Image img_item,
+                               Text txt_name, Text txt_type, Text txt_desc, Text txt_str, Text txt_agl, Text txt_int, Text txt_stm, Text txt_mnd,
+                               Text txt_pa, Text txt_pa_max, Text txt_pd, Text txt_ma, Text txt_ma_max, Text txt_md, Text txt_acc, Text txt_spd, Text txt_rsp, Text txt_po,
+                               Image img_str, Image img_agl, Image img_int, Image img_stm, Image img_mnd,
+                               Image img_pa, Image img_pa_max, Image img_pd, Image img_ma, Image img_ma_max, Image img_md, Image img_acc, Image img_spd, Image img_rsp, Image img_po)
+  {
+    img_item.sprite = null;
+    txt_name.text = "";
+    txt_type.text = "";
+    txt_desc.text = "";
+    txt_str.text = "";
+    txt_agl.text = "";
+    txt_int.text = "";
+    txt_stm.text = "";
+    txt_mnd.text = "";
+    txt_pa.text = "";
+    txt_pa_max.text = "";
+    txt_pd.text = "";
+    txt_ma.text = "";
+    txt_ma_max.text = "";
+    txt_md.text = "";
+    txt_acc.text = "";
+    txt_spd.text = "";
+    txt_rsp.text = "";
+    txt_po.text = "";
+
+    img_str.color = new Color(0.5f, 0.5f, 0.5f);
+    img_agl.color = new Color(0.5f, 0.5f, 0.5f);
+    img_int.color = new Color(0.5f, 0.5f, 0.5f);
+    img_stm.color = new Color(0.5f, 0.5f, 0.5f);
+    img_mnd.color = new Color(0.5f, 0.5f, 0.5f);
+    img_pa.color = new Color(0.5f, 0.5f, 0.5f);
+    img_pa_max.color = new Color(0.5f, 0.5f, 0.5f);
+    img_pd.color = new Color(0.5f, 0.5f, 0.5f);
+    img_ma.color = new Color(0.5f, 0.5f, 0.5f);
+    img_ma_max.color = new Color(0.5f, 0.5f, 0.5f);
+    img_md.color = new Color(0.5f, 0.5f, 0.5f);
+    img_acc.color = new Color(0.5f, 0.5f, 0.5f);
+    img_spd.color = new Color(0.5f, 0.5f, 0.5f);
+    img_rsp.color = new Color(0.5f, 0.5f, 0.5f);
+    img_po.color = new Color(0.5f, 0.5f, 0.5f);
   }
 
   private void SetupItemDetail(Item item, Image img_item,
@@ -2735,18 +2930,14 @@ public partial class HomeTown : MotherBase
     }
     UpdateActionCommandSetting(this.CurrentPlayer);
 
-    // ショップアイテムを設定
-    ShopItemList.Clear();
-    List<Item> shopList = GetShopItem(One.TF.CurrentAreaName);
-    for (int ii = 0; ii < shopList.Count; ii++)
-    {
-      ShopItemList.Add(CreateShopItem(contentShopItem, shopList[ii], ii));
-    }
-    contentShopItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentShopItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentShopItem.GetComponent<RectTransform>().sizeDelta.y);
-    if (ShopItemList.Count > 0)
-    {
-      SelectShopItem(ShopItemList[0]);
-    }
+    // ショップ画面の購入アイテムを設定
+    ConstructShopBuyView();
+
+    // ショップ画面で売却アイテムを設定
+    ConstructShopSellView();
+
+    // ショップ初期画面は購入画面を設定
+    TapShopTypeBuyItem();
 
     // 食事メニュー
     List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);

@@ -61,6 +61,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Artharium_Bridge2;
   public TileInformation prefab_Artharium_Wall;
   public TileInformation prefab_Artharium_Gate;
+  public TileInformation prefab_Artharium_Hole;
   public TileInformation prefab_Ohran_Normal;
   public TileInformation prefab_Ohran_Wall;
   public TileInformation prefab_Ohran_FloatTile;
@@ -296,6 +297,7 @@ public class DungeonField : MotherBase
     PrefabList.Add("Artharium_Bridge1");
     PrefabList.Add("Artharium_Bridge2");
     PrefabList.Add("Artharium_Gate");
+    PrefabList.Add("Artharium_Hole");
     PrefabList.Add("Ohran_Normal");
     PrefabList.Add("Ohran_Wall");
     PrefabList.Add("Ohran_FloatTile");
@@ -5979,6 +5981,10 @@ public class DungeonField : MotherBase
     else if (tile_name == "Artharium_Wall")
     {
       current = Instantiate(prefab_Artharium_Wall, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Artharium_Hole")
+    {
+      current = Instantiate(prefab_Artharium_Hole, position, Quaternion.identity) as TileInformation;
     }
     else if (tile_name == "Artharium_Poison")
     {

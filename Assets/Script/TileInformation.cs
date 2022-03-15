@@ -41,6 +41,7 @@ public class TileInformation : MonoBehaviour
     Artharium_Bridge1 = 1005,
     Artharium_Bridge2 = 1006,
     Artharium_Gate = 1007,
+    Artharium_Hole = 1008,
     // オーランの塔
     Ohran_Normal = 2001,
     Ohran_Wall = 2002,
@@ -113,6 +114,7 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Artharium_Bridge2) { return 1; }
       if (field == Field.Artharium_Gate) { return 999; }
       if (field == Field.Artharium_Wall) { return 999; }
+      if (field == Field.Artharium_Hole) { return 999; }
 
       // オーランの塔
       if (field == Field.Ohran_Normal) { return 1; }
