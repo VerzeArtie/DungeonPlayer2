@@ -22,6 +22,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FINE_SWORD));
       shopList.Add(new Item(Fix.FINE_CLAW));
       shopList.Add(new Item(Fix.FINE_ORB));
+      shopList.Add(new Item(Fix.FINE_BOW));
       shopList.Add(new Item(Fix.FINE_ARMOR));
       shopList.Add(new Item(Fix.FINE_CROSS));
       shopList.Add(new Item(Fix.FINE_ROBE));
@@ -31,6 +32,8 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.PURPLE_PENDANT));
       shopList.Add(new Item(Fix.GREEN_PENDANT));
       shopList.Add(new Item(Fix.YELLOW_PENDANT));
+      shopList.Add(new Item(Fix.SWORD_OF_LIFE));
+      shopList.Add(new Item(Fix.FLAME_HAND_KEEPER));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
 

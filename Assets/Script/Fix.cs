@@ -854,7 +854,18 @@ public static partial class Fix
   public const string COMMAND_DRILL_CYCLONE = "ドリル・サイクロン";
   public const string COMMAND_RUMBLE_MACHINEGUN = "ランブル・マシンガン";
   public const string COMMAND_STRUGGLE_VOICE = "威圧する怒声";
-
+  public const string COMMAND_GAREKI_TSUBUTE = "ガレキの飛礫";
+  public const string COMMAND_SHADOW_SPEAR = "シャドウ・スピア";
+  public const string COMMAND_MIDARE_GIRI = "乱れ斬り";
+  public const string COMMAND_MIRROR_SHIELD = "ミラー・シールド";
+  public const string COMMAND_HAND_CANNON = "ハンド・キャノン";
+  public const string COMMAND_SAIMIN_DANCE = "催眠ダンス";
+  public const string COMMAND_POISON_NEEDLE = "毒針";
+  public const string COMMAND_SPIKE_SHOT = "スパイク・ショット";
+  public const string COMMAND_THUNDER_CLOUD = "サンダー・クラウド";
+  public const string COMMAND_SPAAAARK = "SPAAAARK!!";
+  public const string COMMAND_SUPER_RANDOM_CANNON = "超ランダム乱射";
+  public const string COMMAND_ELECTRO_RAILGUN = "電導レールガン";
   public const string COMMAND_NOTHING = "なし";
   #endregion
 
@@ -1009,6 +1020,8 @@ public static partial class Fix
   public const int MAPSIZE_X_CAVEOFSARUN = 40;
   public const int MAPSIZE_Z_CAVEOFSARUN = 20;
 
+  public const int MAPSIZE_X_GORATRUM = 40;
+  public const int MAPSIZE_Z_GORATRUM = 20;
 
   #endregion
 

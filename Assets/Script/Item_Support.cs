@@ -248,12 +248,14 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 2100;
         this._importantType = Important.None;
-        this._description = "アクションコマンドで使用した場合、自分自身のライフを回復する。";
+        this._description = "物理攻撃がヒットする毎に、自分自身のライフを回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
+        this.ItemValue1 = 12;
+        this.ItemValue2 = 30;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;

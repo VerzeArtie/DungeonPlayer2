@@ -86,17 +86,17 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_EONE_FULNEA:
-        this.Level = 1;
-        this.Strength = 4;
-        this.Agility = 6;
-        this.Intelligence = 9;
-        this.Stamina = 4;
-        this.Mind = 3;
-        this.BaseLife = 20;
-        this.BaseSoulPoint = 20;
+        this.Level = 4;
+        this.Strength = 7;
+        this.Agility = 8;
+        this.Intelligence = 11;
+        this.Stamina = 5;
+        this.Mind = 4;
+        this.BaseLife = 35;
+        this.BaseSoulPoint = 29;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Archer;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
         this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
         this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
@@ -104,12 +104,17 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
+        this.DivineCircle = 1;
+        this.AvailableArcher = true;
+        this.HunterShot = 1;
         this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.FRESH_HEAL;
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.FRESH_HEAL;
+        this.ActionCommand2 = Fix.HUNTER_SHOT;
+        this.ActionCommand3 = Fix.DIVINE_CIRCLE;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -472,6 +477,18 @@ public partial class Character : MonoBehaviour
       if (Level == 9) { return 12; }
       if (Level == 10) { return 12; }
     }
+    if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      if (Level == 2) { return 5; }
+      if (Level == 3) { return 5; }
+      if (Level == 4) { return 5; }
+      if (Level == 5) { return 7; }
+      if (Level == 6) { return 7; }
+      if (Level == 7) { return 7; }
+      if (Level == 8) { return 10; }
+      if (Level == 9) { return 10; }
+      if (Level == 10) { return 10; }
+    }
     return 5;
   }
 
@@ -501,6 +518,18 @@ public partial class Character : MonoBehaviour
       if (Level == 9) { return 4; }
       if (Level == 10) { return 4; }
     }
+    if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      if (Level == 2) { return 3; }
+      if (Level == 3) { return 3; }
+      if (Level == 4) { return 3; }
+      if (Level == 5) { return 3; }
+      if (Level == 6) { return 4; }
+      if (Level == 7) { return 4; }
+      if (Level == 8) { return 4; }
+      if (Level == 9) { return 4; }
+      if (Level == 10) { return 5; }
+    }
     return 2;
   }
 
@@ -529,6 +558,12 @@ public partial class Character : MonoBehaviour
       if (Level == 2) { return Fix.ICE_NEEDLE; }
       if (Level == 4) { return Fix.SPEED_STEP; }
       if (Level == 6) { return Fix.PURE_PURIFICATION; }
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (Level == 2) { return Fix.HUNTER_SHOT; }
+      if (Level == 4) { return Fix.DIVINE_CIRCLE; }
+      if (Level == 6) { return Fix.MULTIPLE_SHOT; }
     }
     return String.Empty;
   }
@@ -588,6 +623,25 @@ public partial class Character : MonoBehaviour
       {
         this.PurePurification++;
         ApplyNewCommand(Fix.PURE_PURIFICATION);
+      }
+    }
+    if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      if (this.Level == 2)
+      {
+        this.AvailableArcher = true;
+        this.HunterShot++;
+        ApplyNewCommand(Fix.HUNTER_SHOT);
+      }
+      if (this.Level == 4)
+      {
+        this.DivineCircle++;
+        ApplyNewCommand(Fix.DIVINE_CIRCLE);
+      }
+      if (this.Level == 6)
+      {
+        this.MultipleShot++;
+        ApplyNewCommand(Fix.MULTIPLE_SHOT);
       }
     }
   }

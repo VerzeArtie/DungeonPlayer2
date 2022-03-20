@@ -608,6 +608,16 @@ public class GroupCharacterStatus : MonoBehaviour
         }
         CurrentPlayer.MainWeapon = new Item(ShadowPlayer.MainWeapon.ItemName);
         One.TF.RemoveItem(ShadowPlayer.MainWeapon);
+
+        // メイン武器が両手持ちで、サブに装備がある場合、サブを外す。
+        if (ShadowPlayer.MainWeapon.GripType == Item.GripTypes.TwoHand)
+        {
+          if (CurrentPlayer.SubWeapon != null && CurrentPlayer.SubWeapon.ItemName != String.Empty)
+          {
+            One.TF.AddBackPack(CurrentPlayer.SubWeapon);
+            CurrentPlayer.SubWeapon = new Item(string.Empty);
+          }
+        }
       }
     }
     else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)

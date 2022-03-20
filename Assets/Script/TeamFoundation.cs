@@ -531,6 +531,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_CaveOfSarun = value; }
     get { return _knownTileList_CaveOfSarun; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_Goratrum = new List<bool>(Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM);
+  public List<bool> KnownTileList_Goratrum
+  {
+    set { _knownTileList_Goratrum = value; }
+    get { return _knownTileList_Goratrum; }
+  }
   #endregion
 
   #region "Event"

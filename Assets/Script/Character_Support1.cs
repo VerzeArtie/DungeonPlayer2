@@ -98,6 +98,9 @@ public partial class Character : MonoBehaviour
       case Fix.SCREAMING_RAFFLESIA:
         SetupParameter(40, 15, 40, 150, 7, 0, 1000, 2000);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_YOUEN_FIRE);
+        list.Add(Fix.COMMAND_BLAZE_DANCE);
+        list.Add(Fix.COMMAND_POISON_RINPUN);
         this.CannotCritical = false;
         break;
 
@@ -593,65 +596,84 @@ public partial class Character : MonoBehaviour
 
       case Fix.DEBRIS_SOLDIER:
       case Fix.DEBRIS_SOLDIER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(45, 12, 20, 25, 7, 5, 112, 65);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GAREKI_TSUBUTE);
         this.CannotCritical = true;
         break;
 
       case Fix.MAGICAL_AUTOMATA:
       case Fix.MAGICAL_AUTOMATA_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(15, 13, 48, 21, 7, 8, 126, 72);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SHADOW_SPEAR);
         this.CannotCritical = true;
         break;
 
       case Fix.KILLER_MACHINE:
       case Fix.KILLER_MACHINE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(49, 16, 16, 23, 7, 4, 137, 76);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_MIDARE_GIRI);
         this.CannotCritical = true;
         break;
 
       case Fix.ANTIQUE_MIRROR:
       case Fix.ANTIQUE_MIRROR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(22, 14, 52, 24, 7, 6, 145, 81);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_MIRROR_SHIELD);
         this.CannotCritical = true;
         break;
 
       case Fix.MECH_HAND:
       case Fix.MECH_HAND_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(54, 17, 29, 28, 7, 6, 145, 81);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_HAND_CANNON);
         this.CannotCritical = true;
         break;
 
       case Fix.ABSENCE_MOAI:
       case Fix.ABSENCE_MOAI_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(32, 13, 60, 31, 8, 2, 163, 99);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SAIMIN_DANCE);
         this.CannotCritical = true;
         break;
 
       case Fix.ACID_SCORPION:
       case Fix.ACID_SCORPION_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(62, 20, 14, 33, 8, 3, 169, 101);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_POISON_NEEDLE);
         this.CannotCritical = true;
         break;
 
       case Fix.AIMING_SHOOTER:
       case Fix.AIMING_SHOOTER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(67, 22, 25, 36, 8, 9, 178, 108);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SPIKE_SHOT);
         this.CannotCritical = true;
         break;
 
       case Fix.LIGHTNING_CLOUD:
       case Fix.LIGHTNING_CLOUD_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(40, 25, 75, 41, 9, 5, 196, 117);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_THUNDER_CLOUD);
         this.CannotCritical = true;
+        break;
+
+      case Fix.MAGICAL_HAIL_GUN:
+      case Fix.MAGICAL_HAIL_GUN_JP:
+        SetupParameter(125, 55, 160, 360, 12, 0, 2500, 4000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SPAAAARK);
+        list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
+        list.Add(Fix.COMMAND_ELECTRO_RAILGUN);
+        this.CannotCritical = false;
         break;
 
       case Fix.STONE_STATUE_SEIHITSU:
@@ -722,13 +744,6 @@ public partial class Character : MonoBehaviour
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
-        break;
-
-      case Fix.MAGICAL_HAIL_GUN:
-      case Fix.MAGICAL_HAIL_GUN_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
         break;
 
       case Fix.THE_GALVADAZER:

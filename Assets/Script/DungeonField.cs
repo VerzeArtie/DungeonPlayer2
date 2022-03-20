@@ -71,6 +71,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Downstair;
   public TileInformation prefab_Unknown;
+  public TileInformation prefab_Unknown_Goratrum;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -5065,11 +5066,19 @@ public class DungeonField : MotherBase
     {
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
       {
-        if (LocationDetect(tile , - 10.0f, 0, -4.0f))
+        if (LocationDetect(tile, -10.0f, 0, -4.0f))
         {
           this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
           return true;
           //DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -43, 2, -2);
+        }
+      }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+      {
+        if (LocationDetect(tile, 5, 0, -2))
+        {
+          this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
+          return true;
         }
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
@@ -5380,6 +5389,7 @@ public class DungeonField : MotherBase
     }
 
     // エリア毎にランダムで敵軍隊を生成する。
+    #region "サルン洞窟前"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
     {
       int random = 100 - CumulativeBattleCounter;
@@ -5492,6 +5502,63 @@ public class DungeonField : MotherBase
       }
       return;
     }
+    #endregion
+    #region "ゴラトラム洞窟"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+    {
+      int random = 100 - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        Debug.Log("area_info is " + area_info);
+        //if (area_info == TileInformation.Area.None) { return; }
+
+        if (area_info == TileInformation.Area.AREA_1|| area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_1");
+          int rand_data = AP.Math.RandomInteger(4);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.DEBRIS_SOLDIER);
+              One.BattleEnemyList.Add(Fix.DEBRIS_SOLDIER);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.DEBRIS_SOLDIER);
+              One.BattleEnemyList.Add(Fix.MAGICAL_AUTOMATA);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.KILLER_MACHINE);
+              One.BattleEnemyList.Add(Fix.DEBRIS_SOLDIER);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.KILLER_MACHINE);
+              One.BattleEnemyList.Add(Fix.MAGICAL_AUTOMATA);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_2)
+        {
+        }
+        else if (area_info == TileInformation.Area.AREA_3)
+        {
+        }
+        One.CannotRunAway = false;
+        if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+        else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+        PrepareCallTruthBattleEnemy();
+      }
+      return;
+    }
+    #endregion
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       int random = 100 - CumulativeBattleCounter;
@@ -6060,7 +6127,14 @@ public class DungeonField : MotherBase
     TileInformation current = null;
     if (tile_name == "Unknown")
     {
-      current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+      {
+        current = Instantiate(prefab_Unknown_Goratrum, position, Quaternion.identity) as TileInformation;
+      }
+      else
+      {
+        current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
+      }
     }
 
     if (current != null)
@@ -6403,15 +6477,7 @@ public class DungeonField : MotherBase
         {
           Vector3 position = new Vector3(jj - 10, 1.0f, 12 - ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
-          //if (7 < jj && jj < 14 && 9 < ii && ii < 15)
-          if (false)
-          {
-            UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(false);
-          }
-          else
-          {
-            UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
-          }
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
         }
       }
       for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
@@ -6421,6 +6487,26 @@ public class DungeonField : MotherBase
           UnknownTileList[ii].gameObject.SetActive(false);
         }
       }
+    }
+    if (map_data == Fix.MAPFILE_GORATRUM)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_GORATRUM; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_X_GORATRUM; jj++)
+        {
+          Vector3 position = new Vector3(jj, 1.0f, -ii);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+        }
+      }
+      Debug.Log("Goratrum KnownTileList_Goratrum count: " + One.TF.KnownTileList_Goratrum.Count);
+      //for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
+      //{
+      //  if (One.TF.KnownTileList_Goratrum[ii])
+      //  {
+      //    UnknownTileList[ii].gameObject.SetActive(false);
+      //  }
+      //}
     }
   }
 
@@ -7435,6 +7521,9 @@ public class DungeonField : MotherBase
 
     // フィールドオブジェクトの状態更新
     UpdateFieldObject(One.TF.CurrentDungeonField);
+
+    // 現在位置周辺の未探索タイル更新
+    UpdateUnknownTile(Player.transform.position);
   }
 
   private void RefreshQuestList()

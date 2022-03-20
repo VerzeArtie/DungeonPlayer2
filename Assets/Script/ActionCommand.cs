@@ -694,6 +694,18 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_DRILL_CYCLONE) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_RUMBLE_MACHINEGUN) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_STRUGGLE_VOICE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_GAREKI_TSUBUTE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SHADOW_SPEAR) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_MIDARE_GIRI) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_MIRROR_SHIELD) { return TargetType.AllyGroup; }
+    if (command_name == Fix.COMMAND_HAND_CANNON) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SAIMIN_DANCE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_POISON_NEEDLE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SPIKE_SHOT) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_THUNDER_CLOUD) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_SPAAAARK) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return TargetType.Enemy; }
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -776,6 +788,18 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_DRILL_CYCLONE) { return 0; }
     if (command_name == Fix.COMMAND_RUMBLE_MACHINEGUN) { return 0; }
     if (command_name == Fix.COMMAND_STRUGGLE_VOICE) { return 0; }
+    if (command_name == Fix.COMMAND_GAREKI_TSUBUTE) { return 0; }
+    if (command_name == Fix.COMMAND_SHADOW_SPEAR) { return 0; }
+    if (command_name == Fix.COMMAND_MIDARE_GIRI) { return 0; }
+    if (command_name == Fix.COMMAND_MIRROR_SHIELD) { return 0; }
+    if (command_name == Fix.COMMAND_HAND_CANNON) { return 0; }
+    if (command_name == Fix.COMMAND_SAIMIN_DANCE) { return 0; }
+    if (command_name == Fix.COMMAND_POISON_NEEDLE) { return 0; }
+    if (command_name == Fix.COMMAND_SPIKE_SHOT) { return 0; }
+    if (command_name == Fix.COMMAND_THUNDER_CLOUD) { return 0; }
+    if (command_name == Fix.COMMAND_SPAAAARK) { return 0; }
+    if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return 0; }
+    if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return 0; }
 
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }

@@ -216,6 +216,11 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：購入するアイテムをまず選ばないとな。", ActionEvent.None);
   }
+
+  public static void MessageX00011(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：まずは行き先を選択しないとな。", ActionEvent.None);
+  }
   #endregion
 
   #region "サルン洞窟入口前のフィールド"
@@ -1904,9 +1909,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：いやー、サンキューサンキュー。ありがとな！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "フルネア：あ、おめでとうございます。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あ、おめでとうございます。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：おお、フルネアも戦闘は助かったぜ、サンキューな！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おお、エオネも戦闘は助かったぜ、サンキューな！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：じゃあ、一旦" + Fix.TOWN_QVELTA_TOWN + "に戻って、ヴァスタおじさまに渡しに行きましょ。", ActionEvent.None);
 
@@ -2594,9 +2599,23 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：今まで通ってきた道でも、モンスターなら普通に出現してるけどな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：どこに潜んでるかも把握出来ていないんだし、まあ慎重に進んだ方がよさそうね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あの・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：確かにそうだな、了解！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ん？なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ぁ・・・いえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんか気になる事があれば、どしどし言ってくれ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、バカアインは変な誘導しないでくれる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：エオネさん、そこのバカは放っておいてくださいね。無視して良いですから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ハ、ハイ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあモンスターの位置は把握出来てないんだし、慎重に進んだ方がよさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ慎重に進めるとするか、了解！", ActionEvent.None);
     }
     else
     {

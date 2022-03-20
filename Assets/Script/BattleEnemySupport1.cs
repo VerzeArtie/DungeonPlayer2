@@ -139,7 +139,11 @@ public partial class BattleEnemy : MotherBase
     {
       stanceOfTheGuard.Cumulative++;
     }
-
+    if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
+    {
+      double effectValue = player.MainWeapon.ItemValue1 + AP.Math.RandomInteger(player.MainWeapon.ItemValue2 - player.MainWeapon.ItemValue1);
+      AbstractHealCommand(player, player, effectValue);
+    }
     return true;
   }
 

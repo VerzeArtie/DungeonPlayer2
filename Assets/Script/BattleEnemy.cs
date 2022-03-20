@@ -1496,6 +1496,24 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
+      case Fix.COMMAND_GAREKI_TSUBUTE:
+        ExecNormalAttack(player, target, 1.30f, CriticalType.None);
+        ExecBuffStun(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_SHADOW_SPEAR:
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, CriticalType.None);
+        ExecBuffSilent(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_MIDARE_GIRI:
+        List<Character> targetList = GetOpponentGroup(player);
+        for (int jj = 0; jj < targetList.Count; jj++)
+        {
+          ExecNormalAttack(player, targetList[jj], 0.9f, critical);
+        }
+        break;
+
       default:
         Debug.Log("Nothing Command: " + command_name);
         StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);

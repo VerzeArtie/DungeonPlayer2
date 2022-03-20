@@ -913,6 +913,12 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (this.DungeonMap == String.Empty)
+    {
+      MessagePack.MessageX00011(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     One.TF.AlreadyDungeon = true;
     One.TF.AlreadyRestInn = false;
     groupNowLoading.SetActive(true);
@@ -941,9 +947,9 @@ public partial class HomeTown : MotherBase
       else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
       {
         SceneDimension.JumpToDungeonField(Fix.MAPFILE_GORATRUM);
-        One.TF.Field_X = 0.0f;
+        One.TF.Field_X = 5.0f;
         One.TF.Field_Y = 1.0f;
-        One.TF.Field_Z = 0.0f;
+        One.TF.Field_Z = -1.0f;
       }
       // One.TF.Field_X = -49.0f;
       // One.TF.Field_Y = 5.0f;
@@ -1418,6 +1424,7 @@ public partial class HomeTown : MotherBase
     for (int ii = 0; ii < One.PlayerList.Count; ii++)
     {
       One.PlayerList[ii].MaxGain();
+      One.PlayerList[ii].Dead = false;
     }
     One.TF.AlreadyRestInn = true;
     One.TF.AlreadyDungeon = false;
@@ -1827,6 +1834,7 @@ public partial class HomeTown : MotherBase
           {
             One.TF.AvailableEoneFulnea = true;
             One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+            One.ReInitializeCharacter(Fix.NAME_EONE_FULNEA);
           }
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
           {
@@ -1961,6 +1969,7 @@ public partial class HomeTown : MotherBase
           for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
           {
             One.AvailableCharacters[jj].MaxGain();
+            One.AvailableCharacters[jj].Dead = false;
           }
           RefreshAllView();
           continue;
