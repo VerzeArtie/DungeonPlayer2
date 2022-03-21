@@ -2593,7 +2593,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：おっ、看板があるな。どれどれ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "『　本エリア奥にて凶暴な生物が発生。至急、本通路を封鎖する。　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　本エリア奥にて凶暴な生物が発生。全面的に通路を封鎖する。　』", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：穏やかな内容じゃないわね。", ActionEvent.None);
 
@@ -2619,7 +2619,7 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　廃坑奥に凶暴な生物が発生。至急、本通路を封鎖する。　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　本エリア奥にて凶暴な生物が発生。全面的に通路を封鎖する。　』", ActionEvent.None);
     }
   }
 
@@ -4356,6 +4356,7 @@ public static class MessagePack
   #region "ゴルトラム洞窟"
   public static void Message600010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
   }
   #endregion
 

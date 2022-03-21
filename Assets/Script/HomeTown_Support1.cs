@@ -21,12 +21,16 @@ public partial class HomeTown : MotherBase
     {
       shopList.Add(new Item(Fix.FINE_SWORD));
       shopList.Add(new Item(Fix.FINE_CLAW));
-      shopList.Add(new Item(Fix.FINE_ORB));
+      shopList.Add(new Item(Fix.FINE_LANCE));
+      shopList.Add(new Item(Fix.FINE_AXE));
       shopList.Add(new Item(Fix.FINE_BOW));
+      shopList.Add(new Item(Fix.FINE_ORB));
+      shopList.Add(new Item(Fix.FINE_BOOK));
+      shopList.Add(new Item(Fix.FINE_ROD));
+      shopList.Add(new Item(Fix.FINE_SHIELD));
       shopList.Add(new Item(Fix.FINE_ARMOR));
       shopList.Add(new Item(Fix.FINE_CROSS));
       shopList.Add(new Item(Fix.FINE_ROBE));
-      shopList.Add(new Item(Fix.FINE_SHIELD));
       shopList.Add(new Item(Fix.RED_PENDANT));
       shopList.Add(new Item(Fix.BLUE_PENDANT));
       shopList.Add(new Item(Fix.PURPLE_PENDANT));

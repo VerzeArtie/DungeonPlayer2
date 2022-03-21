@@ -592,6 +592,17 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
 
+      // ダンジョンKnownTileInfo ( Goratrum )
+      xmlWriter.WriteStartElement("Goratrum");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Goratrum.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_Goratrum_" + ii.ToString("D8"), One.TF.KnownTileList_Goratrum[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -1048,7 +1059,7 @@ public class SaveLoad : MotherBase
         //Debug.Log("ExecLoad current " + jj.ToString() + " " + current[jj].InnerText);
         if (current[jj].InnerText.Contains("True"))
         {
-          Debug.Log("ExecLoad KnownNumber: " + jj.ToString());
+          Debug.Log("ExecLoad KnownTileList_CaveOfSarun KnownNumber: " + jj.ToString());
           One.TF.KnownTileList_CaveOfSarun[jj] = true;
         }
         else
@@ -1057,6 +1068,24 @@ public class SaveLoad : MotherBase
         }
       }
     }
+    XmlNodeList parentGoratrum = xml.GetElementsByTagName("Goratrum");
+    for (int ii = 0; ii < parentGoratrum.Count; ii++)
+    {
+      XmlNodeList current = parentGoratrum[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          Debug.Log("ExecLoad KnownTileList_Goratrum KnownNumber: " + jj.ToString());
+          One.TF.KnownTileList_Goratrum[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Goratrum[jj] = false;
+        }
+      }
+    }
+
     Debug.Log("ExecLoad 9-2");
 
     if (forceLoad == false)

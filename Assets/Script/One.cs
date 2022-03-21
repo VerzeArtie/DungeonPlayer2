@@ -241,7 +241,11 @@ public static class One
     {
       TF.KnownTileList_CaveOfSarun.Add(false);
     }
-    
+    for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
+    {
+      TF.KnownTileList_Goratrum.Add(false);
+    }
+
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
       _characters.Add(objCharacterList[ii].AddComponent<Character>());

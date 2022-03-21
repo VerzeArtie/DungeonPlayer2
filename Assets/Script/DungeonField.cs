@@ -3867,6 +3867,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_CaveOfSarun[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 4; jj++)
+            {
+              for (int kk = 0; kk < 3; kk++)
+              {
+                numbers.Add(127 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_Goratrum[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -4887,6 +4903,14 @@ public class DungeonField : MotherBase
 
     }
     #endregion
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+    {
+      if (LocationDetect(tile, 8, 0, -3))
+      {
+        MessagePack.Message600010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       if (LocationDetect(tile, -47, 3.5f, 17))
@@ -5810,7 +5834,14 @@ public class DungeonField : MotherBase
        && position.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < position.z + 1.01f)
       {
         UnknownTileList[ii].gameObject.SetActive(false);
-        One.TF.KnownTileList_CaveOfSarun[ii] = true;
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+        {
+          One.TF.KnownTileList_CaveOfSarun[ii] = true;
+        }
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+        {
+          One.TF.KnownTileList_Goratrum[ii] = true;
+        }
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
@@ -5830,14 +5861,28 @@ public class DungeonField : MotherBase
            && rightPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < rightPos.z + 0.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
 
           if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
            && rightPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < rightPos.z + 1.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
         }
       }
@@ -5858,14 +5903,28 @@ public class DungeonField : MotherBase
            && leftPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < leftPos.z + 0.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
 
           if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
            && leftPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < leftPos.z + 1.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
         }
       }
@@ -5886,14 +5945,28 @@ public class DungeonField : MotherBase
            && topPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < topPos.z + 0.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
 
           if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
            && topPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < topPos.z + 1.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
         }
       }
@@ -5914,14 +5987,28 @@ public class DungeonField : MotherBase
            && bottomPos.z - 0.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < bottomPos.z + 0.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
 
           if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
            && bottomPos.z - 1.01f < UnknownTileList[ii].transform.position.z && UnknownTileList[ii].transform.position.z < bottomPos.z + 1.01f)
           {
             UnknownTileList[ii].gameObject.SetActive(false);
-            One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+            {
+              One.TF.KnownTileList_CaveOfSarun[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+            {
+              One.TF.KnownTileList_Goratrum[ii] = true;
+            }
           }
         }
       }
@@ -6500,13 +6587,13 @@ public class DungeonField : MotherBase
         }
       }
       Debug.Log("Goratrum KnownTileList_Goratrum count: " + One.TF.KnownTileList_Goratrum.Count);
-      //for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
-      //{
-      //  if (One.TF.KnownTileList_Goratrum[ii])
-      //  {
-      //    UnknownTileList[ii].gameObject.SetActive(false);
-      //  }
-      //}
+      for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
+      {
+        if (One.TF.KnownTileList_Goratrum[ii])
+        {
+          UnknownTileList[ii].gameObject.SetActive(false);
+        }
+      }
     }
   }
 
