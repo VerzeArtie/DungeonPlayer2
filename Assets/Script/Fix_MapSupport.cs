@@ -111,6 +111,30 @@ public partial class Fix
   public const float CAVEOFSARUN_Rock_8_Y = 1.0f;
   public const float CAVEOFSARUN_Rock_8_Z = 2.0f;
 
+  public const string GORATRUM_Treasure_1_C = "Treasure";
+  public const string GORATRUM_Treasure_1_O = "1";
+  public const float GORATRUM_Treasure_1_X = 12.0f;
+  public const float GORATRUM_Treasure_1_Y = 1.0f;
+  public const float GORATRUM_Treasure_1_Z = -1.0f;
+
+  public const string GORATRUM_Event_1_C = "Event";
+  public const string GORATRUM_Event_1_O = "1";
+  public const float GORATRUM_Event_1_X = 8;
+  public const float GORATRUM_Event_1_Y = 0;
+  public const float GORATRUM_Event_1_Z = -3;
+
+  public const string GORATRUM_Event_2_C = "Event";
+  public const string GORATRUM_Event_2_O = "2";
+  public const float GORATRUM_Event_2_X = 8;
+  public const float GORATRUM_Event_2_Y = 1;
+  public const float GORATRUM_Event_2_Z = -8;
+
+  public const string GORATRUM_Event_3_C = "Event";
+  public const string GORATRUM_Event_3_O = "3";
+  public const float GORATRUM_Event_3_X = 3;
+  public const float GORATRUM_Event_3_Y = 1;
+  public const float GORATRUM_Event_3_Z = -5;
+
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
   public const string ARTHARIUM_Treasure_3_O = "3";
   public const float ARTHARIUM_Treasure_3_X = 35f;

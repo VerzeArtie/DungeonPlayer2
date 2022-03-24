@@ -3119,6 +3119,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.ITEM_WALKING_ROPE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "ゴラトラム洞窟内で発見した綱渡り専用のロープ。大きな穴が開いており、少々飛んだだけでは渡れそうもない箇所でも、本アイテムをうまく駆使すれば、向こう側に渡る事が出来る。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.PURE_CLEAN_WATER:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Potion;

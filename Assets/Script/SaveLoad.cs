@@ -602,6 +602,16 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
+      // ダンジョンKnownTileInfo ( Goratrum_2 )
+      xmlWriter.WriteStartElement("Goratrum_2");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Goratrum_2.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_Goratrum_2_" + ii.ToString("D8"), One.TF.KnownTileList_Goratrum_2[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
 
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
@@ -1082,6 +1092,22 @@ public class SaveLoad : MotherBase
         else
         {
           One.TF.KnownTileList_Goratrum[jj] = false;
+        }
+      }
+    }
+    XmlNodeList parentGoratrum_2 = xml.GetElementsByTagName("Goratrum_2");
+    for (int ii = 0; ii < parentGoratrum_2.Count; ii++)
+    {
+      XmlNodeList current = parentGoratrum_2[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Goratrum_2[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Goratrum_2[jj] = false;
         }
       }
     }

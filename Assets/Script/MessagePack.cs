@@ -4358,6 +4358,70 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
   }
+
+  public static void Message600020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600010 == false)
+    {
+      One.TF.Event_Message600010 = true;
+      if (One.TF.Event_Message600020 == false)
+      {
+        Message(ref m_list, ref e_list, "アイン：ん、扉みたいだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：この扉、鍵がかかってるみたいね。封鎖っていうのはこの事かしら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：封鎖っていうからには、多分そうなのかもな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：ん、扉みたいだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：この扉もさっきと同じね。鍵がかかってるみたいだわ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message600030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600020 == false)
+    {
+      One.TF.Event_Message600020 = true;
+      if (One.TF.Event_Message600010 == false)
+      {
+        Message(ref m_list, ref e_list, "アイン：ん、扉みたいだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：この扉、鍵がかかってるみたいね。封鎖っていうのはこの事かしら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：封鎖っていうからには、多分そうなのかもな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：ん、扉みたいだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：この扉もさっきと同じね。鍵がかかってるみたいだわ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+    }
+  }
   #endregion
 
   #region "ファージル宮殿"
