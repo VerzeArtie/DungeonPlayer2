@@ -4422,6 +4422,58 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
     }
   }
+
+  public static void Message600040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600040 == false)
+    {
+      One.TF.Event_Message600040 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、これは何か使えそうなアイテムだな。", ActionEvent.None);
+
+      if (One.TF.Event_Message600030)
+      {
+        Message(ref m_list, ref e_list, "ラナ：結構しっかりした素材で出来てるわね。さっきの穴があった場所で上手く使えば、渡れるんじゃないかしら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：っしゃ、早速使ってみるとするか！　さっきの場所に行ってみるぞ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：結構しっかりした素材で出来てるわね。設置個所を誤らなければ、遠く離れた所へ渡れるかも知れないわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：遠く離れた地点か。ちょっと探してみるとするか。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・そ、その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうした？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：い、いえ・・・えっと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何かおかしな点があったら教えてね。私も分かってない事が沢山あるから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ、そうではないんです。大丈夫です。ただ・・・", ActionEvent.None);
+
+      if (One.TF.Event_Message600030)
+      {
+        Message(ref m_list, ref e_list, "エオネ：その穴の場所で使うのでしたら、設置は私に任せてもらっても良いでしょうか？", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "エオネ：使う場面がありましたら、設置は私に任せてもらっても良いでしょうか？", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：おお、マジか！設置してもらえるのは助かるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ、でも慎重に・・・やりますので・・・ちょっと時間かかりますが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こんな道具使った事ないから本当助かるわ。その時は、お願いしますね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、続けて探索開始と行きますか！", ActionEvent.None);
+    }
+  }
   #endregion
 
   #region "ファージル宮殿"

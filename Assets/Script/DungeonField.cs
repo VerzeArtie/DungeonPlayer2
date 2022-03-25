@@ -3094,6 +3094,10 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_Goratrum_00001 == false && location.x == Fix.GORATRUM_Treasure_1_X && location.y == Fix.GORATRUM_Treasure_1_Y && location.z == Fix.GORATRUM_Treasure_1_Z)
         {
           treasureName = Fix.ITEM_WALKING_ROPE;
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.Message600040(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
         }
 
         if (treasureName == String.Empty)

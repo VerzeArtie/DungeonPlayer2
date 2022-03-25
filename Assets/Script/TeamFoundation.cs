@@ -802,6 +802,20 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message600020 = value; }
   }
 
+  [SerializeField] protected bool _event_message600030 = false;
+  public bool Event_Message600030
+  {
+    get { return _event_message600030; }
+    set { _event_message600030 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600040 = false;
+  public bool Event_Message600040
+  {
+    get { return _event_message600040; }
+    set { _event_message600040 = value; }
+  }
+
   [SerializeField] protected bool _event_message700010 = false;
   public bool Event_Message700010
   {
