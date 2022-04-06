@@ -7,7 +7,7 @@ public class TileInformation : MonoBehaviour
 {
   public enum Field
   {
-    // Base-Field
+    // Base-Field / サルン洞窟前
     None = 0,
     Plain = 1,
     Forest = 2,
@@ -33,6 +33,9 @@ public class TileInformation : MonoBehaviour
     WasteWall = 22,
     Upstair = 23,
     Downstair = 24,
+    // ゴラトラム洞窟
+    Goratrum_Hole = 101,
+
     // アーサリウム工場跡地
     Artharium_Normal = 1001,
     Artharium_Wall = 1002,
@@ -105,6 +108,9 @@ public class TileInformation : MonoBehaviour
       if (field == Field.WasteWall) { return 999; }
       if (field == Field.Upstair) { return 1; }
       if (field == Field.Downstair) { return 1; }
+
+      // ゴラトラム洞窟
+      if (field == Field.Goratrum_Hole) { return 1; }
 
       // アーサリウム工場跡地
       if (field == Field.Artharium_Normal) { return 1; }

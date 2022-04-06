@@ -156,6 +156,12 @@ public class TeamFoundation : MonoBehaviour
     set { _currentDungeonField = value; }
     get { return _currentDungeonField; }
   }
+  [SerializeField] protected string _beforeAreaName = String.Empty;
+  public string BeforeAreaName
+  {
+    set { _beforeAreaName = value; }
+    get { return _beforeAreaName; }
+  }
 
   protected bool _escapeFromDungeon = false;
   public bool EscapeFromDungeon
@@ -816,6 +822,27 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message600040 = value; }
   }
 
+  [SerializeField] protected bool _event_message600050 = false;
+  public bool Event_Message600050
+  {
+    get { return _event_message600050; }
+    set { _event_message600050 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600060 = false;
+  public bool Event_Message600060
+  {
+    get { return _event_message600060; }
+    set { _event_message600060 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600070 = false;
+  public bool Event_Message600070
+  {
+    get { return _event_message600070; }
+    set { _event_message600070 = value; }
+  }
+
   [SerializeField] protected bool _event_message700010 = false;
   public bool Event_Message700010
   {
@@ -961,6 +988,20 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_CaveOfSarun_00011 = false;
 
   [SerializeField] protected bool _treasure_goratrum_00001 = false;
+  [SerializeField] protected bool _treasure_goratrum_00002 = false;
+  [SerializeField] protected bool _treasure_goratrum_00003 = false;
+  [SerializeField] protected bool _treasure_goratrum_00004 = false;
+  [SerializeField] protected bool _treasure_goratrum_00005 = false;
+  [SerializeField] protected bool _treasure_goratrum_00006 = false;
+  [SerializeField] protected bool _treasure_goratrum_00007 = false;
+  [SerializeField] protected bool _treasure_goratrum_00008 = false;
+  [SerializeField] protected bool _treasure_goratrum_00009 = false;
+  [SerializeField] protected bool _treasure_goratrum_00010 = false;
+  [SerializeField] protected bool _treasure_goratrum_00011 = false;
+  [SerializeField] protected bool _treasure_goratrum_00012 = false;
+  [SerializeField] protected bool _treasure_goratrum_00013 = false;
+  [SerializeField] protected bool _treasure_goratrum_00014 = false;
+  [SerializeField] protected bool _treasure_goratrum_00015 = false;
 
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   [SerializeField] protected bool _treasure_artharium_00002 = false;
@@ -1026,6 +1067,20 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_CaveOfSarun_00011 { get { return _treasure_CaveOfSarun_00011; } set { _treasure_CaveOfSarun_00011 = value; } }
 
   public bool Treasure_Goratrum_00001 { get { return _treasure_goratrum_00001; } set { _treasure_goratrum_00001 = value; } }
+  public bool Treasure_Goratrum_00002 { get { return _treasure_goratrum_00002; } set { _treasure_goratrum_00002 = value; } }
+  public bool Treasure_Goratrum_00003 { get { return _treasure_goratrum_00003; } set { _treasure_goratrum_00003 = value; } }
+  public bool Treasure_Goratrum_00004 { get { return _treasure_goratrum_00004; } set { _treasure_goratrum_00004 = value; } }
+  public bool Treasure_Goratrum_00005 { get { return _treasure_goratrum_00005; } set { _treasure_goratrum_00005 = value; } }
+  public bool Treasure_Goratrum_00006 { get { return _treasure_goratrum_00006; } set { _treasure_goratrum_00006 = value; } }
+  public bool Treasure_Goratrum_00007 { get { return _treasure_goratrum_00007; } set { _treasure_goratrum_00007 = value; } }
+  public bool Treasure_Goratrum_00008 { get { return _treasure_goratrum_00008; } set { _treasure_goratrum_00008 = value; } }
+  public bool Treasure_Goratrum_00009 { get { return _treasure_goratrum_00009; } set { _treasure_goratrum_00009 = value; } }
+  public bool Treasure_Goratrum_00010 { get { return _treasure_goratrum_00010; } set { _treasure_goratrum_00010 = value; } }
+  public bool Treasure_Goratrum_00011 { get { return _treasure_goratrum_00011; } set { _treasure_goratrum_00011 = value; } }
+  public bool Treasure_Goratrum_00012 { get { return _treasure_goratrum_00012; } set { _treasure_goratrum_00012 = value; } }
+  public bool Treasure_Goratrum_00013 { get { return _treasure_goratrum_00013; } set { _treasure_goratrum_00013 = value; } }
+  public bool Treasure_Goratrum_00014 { get { return _treasure_goratrum_00014; } set { _treasure_goratrum_00014 = value; } }
+  public bool Treasure_Goratrum_00015 { get { return _treasure_goratrum_00015; } set { _treasure_goratrum_00015 = value; } }
 
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }

@@ -51,6 +51,7 @@ public class Title : MotherBase
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
     One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+    One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
     SceneDimension.JumpToHomeTown();
   }
 

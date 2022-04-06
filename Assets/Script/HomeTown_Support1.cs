@@ -40,6 +40,8 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FLAME_HAND_KEEPER));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
+      shopList.Add(new Item(Fix.NORMAL_RED_POTION));
+      shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
 
       //// todo
       //if (false)

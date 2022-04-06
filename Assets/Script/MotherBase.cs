@@ -36,10 +36,12 @@ public class MotherBase : MonoBehaviour
     //Application.UnloadLevel(Fix.SaveLoad);
     if (One.TF.SaveByDungeon)
     {
+      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
       SceneDimension.JumpToDungeonField(One.TF.CurrentDungeonField);
     }
     else
     {
+      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
       SceneDimension.JumpToHomeTown();
     }
   }

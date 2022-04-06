@@ -4474,6 +4474,260 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：じゃあ、続けて探索開始と行きますか！", ActionEvent.None);
     }
   }
+
+  public static void Message600050(ref List<string> m_list, ref List<ActionEvent> e_list, string number)
+  {
+    One.TF.Event_Message600050 = true;
+
+    Message(ref m_list, ref e_list, "アイン：ゲッ！！足元が！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オワアアアアァァァ～～～・・・　（・・・・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, number, ActionEvent.DungeonGotoDownstair);
+  }
+
+  public static void Message600060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600060 == false)
+    {
+      One.TF.Event_Message600060 = true;
+
+      Message(ref m_list, ref e_list, "アイン：イデ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッツツツ・・・痛えなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私は大丈夫よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：特には・・・。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うっかり落ちてしまったな・・・次からはもう少し気を付けて探索するか・・・", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：イデ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッツツツ。またしても・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私は大丈夫よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少しは気を付けるとするか・・・", ActionEvent.None);
+    }
+  }
+
+  public static void Message600070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+  }
+
+  public static void Message600080(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+  }
+
+  public static void Message600090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+  }
+
+  public static void Message600100(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+  }
+
+  public static void Message600110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    }
+  }
+
+  public static void Message600120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600070 == false)
+    {
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+    else
+    {
+      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+    }
+  }
+
+  public static void Message600130(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+  }
+
+  public static void Message600140(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+  }
+
+  public static void Message600150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Right);
+  }
+
+  public static void Message600160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Left);
+  }
+
+  public static void GoratrumCrossHoleFirst(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction)
+  {
+    One.TF.Event_Message600070 = true;
+
+    Message(ref m_list, ref e_list, "アイン：ココだな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：では、設置しますね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、すまねえが頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ エオネは足元の床を入念に調べ、綱渡りロープを固定し始めた ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "エオネ：できました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あ、あとは・・・ちょっと・・・すみません・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん？なんだ？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：向こう側に投げてその先端のフックをひっかけるのよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：え、えぇ・・・それで・・・えぇと・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインがそこで突っ立って邪魔だから、どいてって事よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジかよ。悪い悪い。じゃあ、場所を空けるんで、頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～ エオネは向こう側の床に向かって綱渡りロープの先端を投げた ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "（ ッヒュ・・・　・・・　・・・　ッカ！）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：出来ました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うまいわね。正直驚いたわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：い、いえ・・・全然・・・なので・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、本当助かったぜ。ありがとな！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃ、早速わたってみましょ♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ、行ってみるぜ！", ActionEvent.None);
+
+    if (direction == DungeonField.Direction.Top)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+    }
+    else if (direction == DungeonField.Direction.Left)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+    }
+    else if (direction == DungeonField.Direction.Right)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+    }
+    else if (direction == DungeonField.Direction.Bottom)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "アイン：オーケー、渡れたみたいだな。みんなも無事か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：大丈夫よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃあ次の探索へと進むとするか！", ActionEvent.None);
+  }
+
+  public static void GoratrumCrossHole(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、渡るか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネ、よろしく頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ ッヒュ・・・　・・・　・・・　ッカ！）", ActionEvent.None);
+
+    if (direction == DungeonField.Direction.Top)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+    }
+    else if (direction == DungeonField.Direction.Left)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+    }
+    else if (direction == DungeonField.Direction.Right)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+    }
+    else if (direction == DungeonField.Direction.Bottom)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
+  }
+
   #endregion
 
   #region "ファージル宮殿"

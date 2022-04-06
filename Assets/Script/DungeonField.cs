@@ -478,6 +478,21 @@ public class DungeonField : MotherBase
         }
 
       }
+
+      if (One.GoratrumHoleFalling)
+      {
+        One.GoratrumHoleFalling = false;
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+        {
+          if (One.TF.Event_Message600050)
+          {
+            MessagePack.Message600060(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
+
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
@@ -820,6 +835,7 @@ public class DungeonField : MotherBase
     if (this.HomeTownCall != string.Empty && this.HomeTownComplete == false)
     {
       this.HomeTownComplete = true;
+      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
       One.TF.CurrentAreaName = this.HomeTownCall;
       SceneDimension.JumpToHomeTown();
       return;
@@ -829,6 +845,7 @@ public class DungeonField : MotherBase
       this.DungeonCallComplete = true;
       // todo
       Debug.Log("DungeonCallComplete: " + this.DungeonCall + " " + this.DungeonMap);
+      // One.TF.BeforeAreaName = One.TF.CurrentAreaName; // 更新しない
       SceneDimension.JumpToDungeonField(this.DungeonMap);
       return;
     }
@@ -2199,26 +2216,6 @@ public class DungeonField : MotherBase
     }
   }
 
-  public void TapFastTravel()
-  {
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
-    {
-      this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
-      GroupMapSelect.SetActive(true);
-    }
-    else
-    {
-      this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
-      txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
-      int cost = One.TF.Gold / 4;
-      txtDecisionMessage.text = "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。";
-      txtDecisionA.text = "Accept";
-      txtDecisionB.text = "Cancel";
-      txtDecisionC.text = "";
-      GroupDecision.SetActive(true);
-    }
-  }
-
   public void TapDungeonPlayer()
   {
     if (GroupDungeonPlayer.activeInHierarchy)
@@ -2247,14 +2244,30 @@ public class DungeonField : MotherBase
     ParentBackpackView.gameObject.SetActive(true);
   }
 
+  public void TapFastTravel()
+  {
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    {
+      this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
+      GroupMapSelect.SetActive(true);
+    }
+    else
+    {
+      this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
+      txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
+      txtDecisionMessage.text = "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。";
+      txtDecisionA.text = "Accept";
+      txtDecisionB.text = "Cancel";
+      txtDecisionC.text = "";
+      GroupDecision.SetActive(true);
+    }
+  }
+
   public void TapDecisionAccept()
   {
     if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
     {
-      // todo このペナルティは面白くない。他のペナルティを考えた方が良い。
-      // One.TF.Gold -= One.TF.Gold / 4;
-      One.TF.EscapeFromDungeon = true;
-      DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, 25, 3, 32);
+      this.HomeTownCall = One.TF.BeforeAreaName;
       return;
     }
     if (this.currentDecision == Fix.DECISION_TRANSFER_TOWN)
@@ -2727,6 +2740,7 @@ public class DungeonField : MotherBase
     Debug.Log("TapBacktoTown(S)");
     this.HomeTownComplete = true;
     One.TF.LocationPlayer2 = false;
+    One.TF.BeforeAreaName = One.TF.CurrentAreaName;
     SceneDimension.JumpToHomeTown();
   }
 
@@ -3011,6 +3025,94 @@ public class DungeonField : MotherBase
       return;
     }
 
+    TileInformation beforeTile = tile;
+    Debug.Log("beforeTile: " + beforeTile.transform.position.ToString());
+    if (beforeTile != null && beforeTile.field == TileInformation.Field.Goratrum_Hole)
+    {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+      {
+        if (One.TF.FindBackPackItem(Fix.ITEM_WALKING_ROPE))
+        {
+          if (LocationDetect(tile, Fix.GORATRUM_Event_4_X, Fix.GORATRUM_Event_4_Y, Fix.GORATRUM_Event_4_Z))
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_4_X, Fix.GORATRUM_Event_4_Y + 1.5f, Fix.GORATRUM_Event_4_Z + 1.0f))
+            {
+              MessagePack.Message600070(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_4_X, Fix.GORATRUM_Event_4_Y + 1.5f, Fix.GORATRUM_Event_4_Z - 1.0f))
+            {
+              MessagePack.Message600080(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            return;
+          }
+
+          if (LocationDetect(tile, Fix.GORATRUM_Event_5_X, Fix.GORATRUM_Event_5_Y, Fix.GORATRUM_Event_5_Z))
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_5_X, Fix.GORATRUM_Event_5_Y + 1.5f, Fix.GORATRUM_Event_5_Z + 1.0f))
+            {
+              MessagePack.Message600090(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_5_X, Fix.GORATRUM_Event_5_Y + 1.5f, Fix.GORATRUM_Event_5_Z - 1.0f))
+            {
+              MessagePack.Message600100(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            return;
+          }
+
+          if (LocationDetect(tile, Fix.GORATRUM_Event_6_X, Fix.GORATRUM_Event_6_Y, Fix.GORATRUM_Event_6_Z))
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_6_X, Fix.GORATRUM_Event_6_Y + 1.5f, Fix.GORATRUM_Event_6_Z + 1.0f))
+            {
+              MessagePack.Message600110(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_6_X, Fix.GORATRUM_Event_6_Y + 1.5f, Fix.GORATRUM_Event_6_Z - 1.0f))
+            {
+              MessagePack.Message600120(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            return;
+          }
+
+          if (LocationDetect(tile, Fix.GORATRUM_Event_7_X, Fix.GORATRUM_Event_7_Y, Fix.GORATRUM_Event_7_Z))
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_7_X, Fix.GORATRUM_Event_7_Y + 1.5f, Fix.GORATRUM_Event_7_Z + 1.0f))
+            {
+              MessagePack.Message600130(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_7_X, Fix.GORATRUM_Event_7_Y + 1.5f, Fix.GORATRUM_Event_7_Z - 1.0f))
+            {
+              MessagePack.Message600140(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            return;
+          }
+
+          if (LocationDetect(tile, Fix.GORATRUM_Event_8_X, Fix.GORATRUM_Event_8_Y, Fix.GORATRUM_Event_8_Z))
+          {
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_8_X - 1.0f, Fix.GORATRUM_Event_8_Y + 1.5f, Fix.GORATRUM_Event_8_Z))
+            {
+              MessagePack.Message600150(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_8_X + 1.0f, Fix.GORATRUM_Event_8_Y + 1.5f, Fix.GORATRUM_Event_8_Z))
+            {
+              MessagePack.Message600160(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            return;
+          }
+        }
+        else
+        {
+          // ロープを持たない場合、そのまま穴へ落ちる。
+
+          // 下記、ロープで渡れないため、記述不要
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_9_X, Fix.GORATRUM_Event_9_Y, Fix.GORATRUM_Event_9_Z)) { return; }
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_10_X, Fix.GORATRUM_Event_10_Y, Fix.GORATRUM_Event_10_Z)) { return; }
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_11_X, Fix.GORATRUM_Event_11_Y, Fix.GORATRUM_Event_11_Z)) { return; }
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_12_X, Fix.GORATRUM_Event_12_Y, Fix.GORATRUM_Event_12_Z)) { return; }
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_13_X, Fix.GORATRUM_Event_13_Y, Fix.GORATRUM_Event_13_Z)) { return; }
+          //if (LocationDetect(tile, Fix.GORATRUM_Event_14_X, Fix.GORATRUM_Event_14_Y, Fix.GORATRUM_Event_14_Z)) { return; }
+        }
+      }
+    }
+
     // 移動する。
     JumpToLocation(new Vector3(tile.transform.position.x,
                                tile.transform.position.y + 1.0f,
@@ -3098,6 +3200,63 @@ public class DungeonField : MotherBase
           MessagePack.Message600040(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
+        }
+
+        if (One.TF.Treasure_Goratrum_00002 == false && location.x == Fix.GORATRUM_Treasure_2_X && location.y == Fix.GORATRUM_Treasure_2_Y && location.z == Fix.GORATRUM_Treasure_2_Z)
+        {
+          treasureName = Fix.NORMAL_RED_POTION;
+        }
+        if (One.TF.Treasure_Goratrum_00003 == false && location.x == Fix.GORATRUM_Treasure_3_X && location.y == Fix.GORATRUM_Treasure_3_Y && location.z == Fix.GORATRUM_Treasure_3_Z)
+        {
+          treasureName = Fix.ELVISH_BOW;
+        }
+        if (One.TF.Treasure_Goratrum_00004 == false && location.x == Fix.GORATRUM_Treasure_4_X && location.y == Fix.GORATRUM_Treasure_4_Y && location.z == Fix.GORATRUM_Treasure_4_Z)
+        {
+          treasureName = Fix.ITEM_COPPER_KEY;
+        }
+        if (One.TF.Treasure_Goratrum_00005 == false && location.x == Fix.GORATRUM_Treasure_5_X && location.y == Fix.GORATRUM_Treasure_5_Y && location.z == Fix.GORATRUM_Treasure_5_Z)
+        {
+          treasureName = Fix.ENERGY_ORB;
+        }
+        if (One.TF.Treasure_Goratrum_00006 == false && location.x == Fix.GORATRUM_Treasure_6_X && location.y == Fix.GORATRUM_Treasure_6_Y && location.z == Fix.GORATRUM_Treasure_6_Z)
+        {
+          treasureName = Fix.RED_PENDANT;
+        }
+        if (One.TF.Treasure_Goratrum_00007 == false && location.x == Fix.GORATRUM_Treasure_7_X && location.y == Fix.GORATRUM_Treasure_7_Y && location.z == Fix.GORATRUM_Treasure_7_Z)
+        {
+          treasureName = Fix.KITE_SHIELD;
+        }
+        if (One.TF.Treasure_Goratrum_00008 == false && location.x == Fix.GORATRUM_Treasure_8_X && location.y == Fix.GORATRUM_Treasure_8_Y && location.z == Fix.GORATRUM_Treasure_8_Z)
+        {
+          treasureName = Fix.SMALL_BLUE_POTION;
+        }
+        if (One.TF.Treasure_Goratrum_00009 == false && location.x == Fix.GORATRUM_Treasure_9_X && location.y == Fix.GORATRUM_Treasure_9_Y && location.z == Fix.GORATRUM_Treasure_9_Z)
+        {
+          treasureName = Fix.KINDNESS_BOOK;
+        }
+        if (One.TF.Treasure_Goratrum_00010 == false && location.x == Fix.GORATRUM_Treasure_10_X && location.y == Fix.GORATRUM_Treasure_10_Y && location.z == Fix.GORATRUM_Treasure_10_Z)
+        {
+          treasureName = Fix.GREEN_PENDANT;
+        }
+        if (One.TF.Treasure_Goratrum_00011 == false && location.x == Fix.GORATRUM_Treasure_11_X && location.y == Fix.GORATRUM_Treasure_11_Y && location.z == Fix.GORATRUM_Treasure_11_Z)
+        {
+          treasureName = Fix.PURPLE_PENDANT;
+        }
+        if (One.TF.Treasure_Goratrum_00012 == false && location.x == Fix.GORATRUM_Treasure_12_X && location.y == Fix.GORATRUM_Treasure_12_Y && location.z == Fix.GORATRUM_Treasure_12_Z)
+        {
+          treasureName = Fix.YELLOW_PENDANT;
+        }
+        if (One.TF.Treasure_Goratrum_00013 == false && location.x == Fix.GORATRUM_Treasure_13_X && location.y == Fix.GORATRUM_Treasure_13_Y && location.z == Fix.GORATRUM_Treasure_13_Z)
+        {
+          treasureName = Fix.PURE_CLEAN_WATER;
+        }
+        if (One.TF.Treasure_Goratrum_00014 == false && location.x == Fix.GORATRUM_Treasure_14_X && location.y == Fix.GORATRUM_Treasure_14_Y && location.z == Fix.GORATRUM_Treasure_14_Z)
+        {
+          treasureName = Fix.LIGHTNING_CLAW;
+        }
+        if (One.TF.Treasure_Goratrum_00015 == false && location.x == Fix.GORATRUM_Treasure_15_X && location.y == Fix.GORATRUM_Treasure_15_Y && location.z == Fix.GORATRUM_Treasure_15_Z)
+        {
+          treasureName = Fix.ICE_SPIRIT_LANCE;
         }
 
         if (treasureName == String.Empty)
@@ -3837,6 +3996,103 @@ public class DungeonField : MotherBase
           RefreshQuestList();
           return;
         }
+        // 下階層に降りる
+        else if (currentEvent == MessagePack.ActionEvent.DungeonGotoDownstair)
+        {
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+          {
+            this.DungeonMap = Fix.MAPFILE_GORATRUM_2;
+            this.DungeonCall = Fix.DUNGEON_GORATRUM_CAVE;
+            if (currentMessage == "1")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_4_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_4_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "2")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_5_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_5_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "3")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_6_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_6_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "4")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_7_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_7_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "5")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_8_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_8_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "6")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_9_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_9_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "7")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_10_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_10_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "8")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_11_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_11_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "9")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_12_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_12_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "10")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_13_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_13_Z;
+              continue; // 継続
+            }
+            if (currentMessage == "11")
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_14_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_14_Z;
+              continue; // 継続
+            }
+          }
+        }
         // 未到達タイルを更新する。
         else if (currentEvent == MessagePack.ActionEvent.UpdateUnknownTile)
         {
@@ -3930,6 +4186,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3941,6 +4198,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3952,6 +4210,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3963,6 +4222,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(tile.transform.position.x,
                                      tile.transform.position.y + 1.0f,
                                      tile.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3973,6 +4233,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x + 1.0f,
                                      this.Player.transform.position.y,
                                      this.Player.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3983,6 +4244,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x - 1.0f,
                                      this.Player.transform.position.y,
                                      this.Player.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -3993,6 +4255,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x,
                                      this.Player.transform.position.y,
                                      this.Player.transform.position.z + 1.0f));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -4003,6 +4266,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x,
                                      this.Player.transform.position.y,
                                      this.Player.transform.position.z - 1.0f));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -4013,6 +4277,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x,
                                      this.Player.transform.position.y + 1.0f,
                                      this.Player.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -4023,6 +4288,7 @@ public class DungeonField : MotherBase
           JumpToLocation(new Vector3(this.Player.transform.position.x,
                                      this.Player.transform.position.y - 1.0f,
                                      this.Player.transform.position.z));
+          UpdateUnknownTile(Player.transform.position);
           this.NextTapOkSleep = Convert.ToSingle(currentMessage);
           this.NextTapOk = true;
           return; // 画面即時反映
@@ -4961,6 +5227,61 @@ public class DungeonField : MotherBase
         MessagePack.Message600010(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_4_X, Fix.GORATRUM_Event_4_Y, Fix.GORATRUM_Event_4_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "1"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_5_X, Fix.GORATRUM_Event_5_Y, Fix.GORATRUM_Event_5_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "2"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_6_X, Fix.GORATRUM_Event_6_Y, Fix.GORATRUM_Event_6_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "3"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_7_X, Fix.GORATRUM_Event_7_Y, Fix.GORATRUM_Event_7_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "4"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_8_X, Fix.GORATRUM_Event_8_Y, Fix.GORATRUM_Event_8_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "5"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_9_X, Fix.GORATRUM_Event_9_Y, Fix.GORATRUM_Event_9_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "6"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_10_X, Fix.GORATRUM_Event_10_Y, Fix.GORATRUM_Event_10_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "7"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_11_X, Fix.GORATRUM_Event_11_Y, Fix.GORATRUM_Event_11_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "8"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_12_X, Fix.GORATRUM_Event_12_Y, Fix.GORATRUM_Event_12_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "9"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_13_X, Fix.GORATRUM_Event_13_Y, Fix.GORATRUM_Event_13_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "10"); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_14_X, Fix.GORATRUM_Event_14_Y, Fix.GORATRUM_Event_14_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, "11"); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
@@ -5162,6 +5483,10 @@ public class DungeonField : MotherBase
         {
           DungeonCallSetup(Fix.MAPFILE_GORATRUM, 10, 1, -8);
           return true;
+        }
+        if (LocationDetect(tile, 25, 0, -7))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM, 25, 1, -7);
         }
       }
 
@@ -6243,7 +6568,8 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Artharium_Wall, position, Quaternion.identity) as TileInformation;
     }
-    else if (tile_name == "Artharium_Hole")
+    else if (tile_name == "Artharium_Hole" ||
+             tile_name == "Goratrum_Hole")
     {
       current = Instantiate(prefab_Artharium_Hole, position, Quaternion.identity) as TileInformation;
     }

@@ -63,6 +63,7 @@ public static partial class Fix
   public const string SMALL_RED_POTION = "小さい赤ポーション";
   public const string SMALL_BLUE_POTION = "小さい青ポーション";
   public const string NORMAL_RED_POTION = "普通の赤ポーション";
+  public const string NORMAL_BLUE_POTION = "普通の青ポーション";
   public const string LARGE_RED_POTION = "大きな赤ポーション";
   public const string SMART_CLAW = "スマート・クロー";
   public const string DANCING_CLAW = "ダンシング・クロー";
@@ -116,6 +117,7 @@ public static partial class Fix
   public const string ITEM_MATOCK = "マトック";
   public const string ITEM_TOOMI_AOSUISYOU = "遠見の青水晶";
   public const string ITEM_WALKING_ROPE = "綱渡りロープ";
+  public const string ITEM_COPPER_KEY = "銅製の鍵";
   public const string PURE_CLEAN_WATER = "清透水";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";

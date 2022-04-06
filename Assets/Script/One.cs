@@ -99,6 +99,7 @@ public static class One
   //public static string DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
   public static Fix.GameEndType BattleEnd = Fix.GameEndType.None;
   public static List<string> BattleEnemyList = new List<string>();
+  public static bool GoratrumHoleFalling = false;
 
   // BattleEnemy
   public static bool CannotRunAway = false;
@@ -266,6 +267,7 @@ public static class One
     TF.AvailableLanaAmiria = true;
 
     // debug
+    TF.BeforeAreaName = Fix.TOWN_ANSHET;
     //TF.AvailableTactics = true;
     //TF.AvailableSkillTree = true;
     //TF.AvailableAllCommand = true;
