@@ -300,6 +300,29 @@ public partial class Fix
   public const float GORATRUM_Event_14_Y = -0.5f;
   public const float GORATRUM_Event_14_Z = -6;
 
+  public const string GORATRUM_MessageBoard_15_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_15_O = "15";
+  public const float GORATRUM_MessageBoard_15_X = 6.0f;
+  public const float GORATRUM_MessageBoard_15_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_15_Z = -5.0f;
+
+  public const string GORATRUM_MessageBoard_16_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_16_O = "16";
+  public const float GORATRUM_MessageBoard_16_X = 32.0f;
+  public const float GORATRUM_MessageBoard_16_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_16_Z = -2.0f;
+
+  public const string GORATRUM_MessageBoard_17_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_17_O = "17";
+  public const float GORATRUM_MessageBoard_17_X = 25.0f;
+  public const float GORATRUM_MessageBoard_17_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_17_Z = -14.0f;
+
+  public const string GORATRUM_Copperdoor_18_C = "CopperDoor";
+  public const string GORATRUM_Copperdoor_18_O = "18";
+  public const float GORATRUM_CopperDoor_18_X = 25.0f;
+  public const float GORATRUM_CopperDoor_18_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_18_Z = -17.0f;
 
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
   public const string ARTHARIUM_Treasure_3_O = "3";

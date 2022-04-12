@@ -4359,6 +4359,44 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
   }
 
+  public static void Message600015(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600001 == false)
+    {
+      One.TF.Event_Message600001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、看板があるな。どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　本エリア奥にて凶暴な生物が発生。全面的に通路を封鎖する。　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：穏やかな内容じゃないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今まで通ってきた道でも、モンスターなら普通に出現してるけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あの・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ぁ・・・いえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんか気になる事があれば、どしどし言ってくれ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、バカアインは変な誘導しないでくれる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：エオネさん、そこのバカは放っておいてくださいね。無視して良いですから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ハ、ハイ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあモンスターの位置は把握出来てないんだし、慎重に進んだ方がよさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ慎重に進めるとするか、了解！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　本エリア奥にて凶暴な生物が発生。全面的に通路を封鎖する。　』", ActionEvent.None);
+    }
+  }
+
   public static void Message600020(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message600010 == false)
@@ -4372,9 +4410,30 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：封鎖っていうからには、多分そうなのかもな。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+        if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+        {
+          One.TF.FieldObject_Goratrum_00001 = true;
 
-        Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "ラナ：そういえば、さっき入手していた銅製の鍵は使えないのかしら？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：なるほど、さっそくで悪いがちょっと開錠を頼めるか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+
+          Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：サンキュー。じゃあ先に進むぞ！", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        }
       }
       else
       {
@@ -4382,12 +4441,52 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "ラナ：この扉もさっきと同じね。鍵がかかってるみたいだわ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+        {
+          One.TF.FieldObject_Goratrum_00001 = true;
+
+          Message(ref m_list, ref e_list, "アイン：そういや、さっき入手した銅製の鍵が役に立ちそうだな。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ラナ。さっそくで悪いがちょっと開錠を頼めるか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+
+          Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：サンキュー。じゃあ先に進むぞ！", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        }
       }
     }
     else
     {
-      Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+      {
+        One.TF.FieldObject_Goratrum_00001 = true;
+
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあラナ。開錠を頼む。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：サンキュー。じゃあ先に進むぞ！", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+      }
     }
   }
 
@@ -4404,9 +4503,34 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：封鎖っていうからには、多分そうなのかもな。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+        if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+        {
+          if (One.TF.Event_Message600110 == false)
+          {
+            One.TF.Event_Message600110 = true;
+          }
+          Message(ref m_list, ref e_list, "ラナ：そういえば、さっき入手していた銅製の鍵は使えないのかしら？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+          Message(ref m_list, ref e_list, "アイン：なるほど、さっそくで悪いがちょっと開錠を頼めるか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "（ カッ・・・　ッカリカリ・・・　ッカリ・・・　）", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：駄目ね。鍵穴の方がだいぶ破損しているみたい。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：この扉の構造上、向こう側からバカアインが適当に蹴ってくれれば開くと思うんだけど。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないって事か。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：分かった。他をあたろう。", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "ラナ：どこかしっくり来ないわけ？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：いや、何でもない。ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        }
       }
       else
       {
@@ -4414,12 +4538,77 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "ラナ：この扉もさっきと同じね。鍵がかかってるみたいだわ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+        {
+          if (One.TF.Event_Message600110 == false)
+          {
+            One.TF.Event_Message600110 = true;
+            Message(ref m_list, ref e_list, "ラナ：そういえば、さっき入手していた銅製の鍵は使えないのかしら？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：なるほど、さっそくで悪いがちょっと開錠を頼めるか？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "（ カッ・・・　ッカリカリ・・・　ッカリ・・・　）", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：駄目ね。鍵穴の方がだいぶ破損しているみたい。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：この扉の構造上、向こう側からバカアインが適当に蹴ってくれれば開くと思うんだけど。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないって事か。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：分かった。他をあたろう。", ActionEvent.None);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないな。他を当たろう。", ActionEvent.None);
+          }
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "アイン：ここはひとまず止めて別の通路を探そう。", ActionEvent.None);
+        }
       }
     }
     else
     {
-      Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.ITEM_COPPER_KEY))
+      {
+        if (One.TF.Event_Message600110 == false)
+        {
+          One.TF.Event_Message600110 = true;
+          Message(ref m_list, ref e_list, "ラナ：そういえば、さっき入手していた銅製の鍵は使えないのかしら？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：なるほど、さっそくで悪いがちょっと開錠を頼めるか？", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：任せておいて。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "（ カッ・・・　ッカリカリ・・・　ッカリ・・・　）", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：駄目ね。鍵穴の方がだいぶ破損しているみたい。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ラナ：この扉の構造上、向こう側からバカアインが適当に蹴ってくれれば開くと思うんだけど。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないって事か。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：分かった。他をあたろう。", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないな。他を当たろう。", ActionEvent.None);
+        }
+      }
+      else
+      {
+        if (One.TF.Event_Message600110)
+        {
+          Message(ref m_list, ref e_list, "アイン：こっちからじゃ開けられないな。他を当たろう。", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "アイン：鍵がかかってるな。他を当たろう。", ActionEvent.None);
+        }
+      }
     }
   }
 
@@ -4728,6 +4917,134 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
   }
 
+  public static void Message600170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600080 == false)
+    {
+      One.TF.Event_Message600080 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、看板だな。ええと、なになに・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　大きな断裂が発生。足元注意！！　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうやらここは渡らない方が良さそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：例の綱渡りロープは届きそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ううん、どうかしら・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：えっ・・・っと・・・届かないと思います・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここは、止めておくか。他をあたろう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　大きな断裂が発生。足元注意！！　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message600180(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600090 == false)
+    {
+      One.TF.Event_Message600090 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここで看板だな。どれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　聖堂へと向かい、地を経て、道を拓かん　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　っ　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そこまで考える必要はねえか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう、こいつは多分そんなに気にしなくて良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：行こうってどこを探索するつもりなのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最初の地点だろう。道なりに行けって事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：よく分かんないけど、行き先は分かったって事かしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だ。任せておけ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　聖堂へと向かい、地を経て、道を拓かん　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message600190(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600100 == false)
+    {
+      One.TF.Event_Message600100 = true;
+      Message(ref m_list, ref e_list, "アイン：おっと、扉だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：鍵穴は全くないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・っ・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：きっと、こっちからは開かないんだろう。他の箇所を探索しよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：なんでそう言い切れるわけ？", ActionEvent.None);
+
+      if (One.TF.Event_Message600090)
+      {
+        Message(ref m_list, ref e_list, "アイン：さっき見た看板の通りだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：もう少し解説が欲しい所だけど。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：さっきの看板には【聖堂】と書かれていただろ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：で、俺たちはまだその【聖堂】らしき場所には辿り着いていない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：【聖堂】を探して【地】を経てからだろうな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：というかココはそこまで重要な所じゃないのは確かだけどな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：微妙にベクトルが違うんだけど、まあバカアインらしい解釈ね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここは多分良い。一旦戻ろう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：さっきの看板。見てはいないがおそらくこの扉に関する内容が書かれているんだろう。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：もう少し解説が欲しい所だけど。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここは行き止まりって事さ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここから先に行くには別のルートを迂回する必要がある。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：おそらく最初の地点辺りなんじゃないかな。ちょっと予想的ではあるが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：というかココはそこまで重要な所じゃないのは確かだけどな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：微妙にベクトルが違うんだけど、まあバカアインらしい解釈ね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここは多分良い。一旦戻ろう。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：この扉は開かないみたいだ。他をあたろう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message600200(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よっしゃ、鍵をゲットだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これを使えば、鍵がかかった扉を開ける事が出来るかもしれないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さっそく使いに行ってみるとするか！", ActionEvent.None);
+  }
   #endregion
 
   #region "ファージル宮殿"

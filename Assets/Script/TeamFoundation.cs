@@ -794,6 +794,13 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message500024 = value; }
   }
 
+  [SerializeField] protected bool _event_message600001 = false;
+  public bool Event_Message600001
+  {
+    get { return _event_message600001; }
+    set { _event_message600001 = value; }
+  }
+
   [SerializeField] protected bool _event_message600010 = false;
   public bool Event_Message600010
   {
@@ -841,6 +848,34 @@ public class TeamFoundation : MonoBehaviour
   {
     get { return _event_message600070; }
     set { _event_message600070 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600080 = false;
+  public bool Event_Message600080
+  {
+    get { return _event_message600080; }
+    set { _event_message600080 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600090 = false;
+  public bool Event_Message600090
+  {
+    get { return _event_message600090; }
+    set { _event_message600090 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600100 = false;
+  public bool Event_Message600100
+  {
+    get { return _event_message600100; }
+    set { _event_message600100 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600110 = false;
+  public bool Event_Message600110
+  {
+    get { return _event_message600110; }
+    set { _event_message600110 = value; }
   }
 
   [SerializeField] protected bool _event_message700010 = false;
@@ -1147,6 +1182,9 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_CaveofSarun_00007 { get { return _fieldobject_caveofsarun_00007; } set { _fieldobject_caveofsarun_00007 = value; } }
   public bool FieldObject_CaveofSarun_00008 { get { return _fieldobject_caveofsarun_00008; } set { _fieldobject_caveofsarun_00008 = value; } }
   public bool FieldObject_CaveofSarun_00009 { get { return _fieldobject_caveofsarun_00009; } set { _fieldobject_caveofsarun_00009 = value; } }
+
+  [SerializeField] protected bool _fieldobject_goratrum_00001 = false;
+  public bool FieldObject_Goratrum_00001 { get { return _fieldobject_goratrum_00001; } set { _fieldobject_goratrum_00001 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;

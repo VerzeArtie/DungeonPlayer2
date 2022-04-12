@@ -11,6 +11,8 @@ public class NodeMiniChara : MonoBehaviour
   public Text txtName;
   public Text txtLife;
   public Image imgLifeGauge;
+  public Text txtSP;
+  public Image imgSPGauge;
 
   public void Refresh(Character character)
   {
@@ -28,6 +30,17 @@ public class NodeMiniChara : MonoBehaviour
     {
       float dx = (float)character.CurrentLife / (float)character.MaxLife;
       imgLifeGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+    }
+
+    if (txtSP != null)
+    {
+      txtSP.text = character.CurrentSoulPoint.ToString() + " / " + character.MaxSoulPoint.ToString();
+    }
+
+    if (imgSPGauge != null)
+    {
+      float dx = (float)character.CurrentSoulPoint / (float)character.MaxSoulPoint;
+      imgSPGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
     }
 
     GetComponent<Image>().color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
