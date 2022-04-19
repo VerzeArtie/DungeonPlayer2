@@ -100,6 +100,7 @@ public static class One
   public static Fix.GameEndType BattleEnd = Fix.GameEndType.None;
   public static List<string> BattleEnemyList = new List<string>();
   public static bool GoratrumHoleFalling = false;
+  public static bool GoratrumHoleFalling2 = false; // 多少芋プログラミングだが、良しとする。
 
   // BattleEnemy
   public static bool CannotRunAway = false;

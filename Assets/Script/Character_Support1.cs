@@ -628,7 +628,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MECH_HAND:
       case Fix.MECH_HAND_JP:
-        SetupParameter(54, 17, 29, 28, 7, 6, 145, 81);
+        SetupParameter(54, 17, 29, 38, 7, 6, 145, 81);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HAND_CANNON);
         this.CannotCritical = true;
@@ -636,15 +636,16 @@ public partial class Character : MonoBehaviour
 
       case Fix.ABSENCE_MOAI:
       case Fix.ABSENCE_MOAI_JP:
-        SetupParameter(32, 13, 60, 31, 8, 2, 163, 99);
+        SetupParameter(32, 13, 60, 41, 8, 2, 163, 99);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SAIMIN_DANCE);
+        list.Add(Fix.COMMAND_TOSSHIN);
         this.CannotCritical = true;
         break;
 
       case Fix.ACID_SCORPION:
       case Fix.ACID_SCORPION_JP:
-        SetupParameter(62, 20, 14, 33, 8, 3, 169, 101);
+        SetupParameter(62, 20, 14, 43, 8, 3, 169, 101);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POISON_NEEDLE);
         this.CannotCritical = true;
@@ -652,7 +653,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.AIMING_SHOOTER:
       case Fix.AIMING_SHOOTER_JP:
-        SetupParameter(67, 22, 25, 36, 8, 9, 178, 108);
+        SetupParameter(67, 22, 25, 46, 8, 9, 178, 108);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SPIKE_SHOT);
         this.CannotCritical = true;
@@ -660,7 +661,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.LIGHTNING_CLOUD:
       case Fix.LIGHTNING_CLOUD_JP:
-        SetupParameter(40, 25, 75, 41, 9, 5, 196, 117);
+        SetupParameter(40, 25, 75, 51, 9, 5, 196, 117);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_THUNDER_CLOUD);
         this.CannotCritical = true;

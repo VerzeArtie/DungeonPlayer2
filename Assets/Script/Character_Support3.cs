@@ -36,7 +36,10 @@ public partial class Character : MonoBehaviour
     this._exp = exp;
     this._gold = gold;
   }
-  public string ChooseCommand()
+
+  // 敵の行動コマンドを決定する。
+  // コマンド名のみではなくターゲット選定なども含める。
+  public void ChooseCommand(List<Character> ally_group, List<Character> opponent_group)
   {
     string result = string.Empty;
     List<string> current = new List<string>();
@@ -105,7 +108,26 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    return result;
+    // コマンド名によってターゲット選定を設定する。
+    // ランダムで対象を指定
+    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT)
+    {
+      int rand = AP.Math.RandomInteger(opponent_group.Count);
+      this.Target = opponent_group[rand];
+    }
+    // それ以外はグループの先頭を指定
+    else
+    {
+      this.Target = opponent_group[0];
+
+    }
+
+    this.Decision = true;
+    this.CurrentActionCommand = result;
+    if (this.txtActionCommand != null)
+    {
+      this.txtActionCommand.text = result;
+    }
   }
 
   private string RandomChoice(List<string> command_list)

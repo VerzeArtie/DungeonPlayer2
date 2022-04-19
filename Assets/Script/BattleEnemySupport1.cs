@@ -700,7 +700,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecSlipDamage(Character target, double effectValue)
   {
-    // todo Poisonと同じのままでは毒と出血を用意した意味がない。何か別の効果を考えるべきである。
+    // 毒と出血は効果は同じだが、毒はアップキープ、出血は行動時なので、効果は同じで良い。
     Debug.Log(MethodBase.GetCurrentMethod());
 
     if (target == null) { Debug.Log("target is null. then no effect."); return; }

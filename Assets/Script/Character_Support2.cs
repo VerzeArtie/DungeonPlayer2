@@ -559,7 +559,7 @@ public partial class Character : MonoBehaviour
       if (Level == 4) { return Fix.SPEED_STEP; }
       if (Level == 6) { return Fix.PURE_PURIFICATION; }
     }
-    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
       if (Level == 2) { return Fix.HUNTER_SHOT; }
       if (Level == 4) { return Fix.DIVINE_CIRCLE; }

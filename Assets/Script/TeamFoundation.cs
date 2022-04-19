@@ -878,6 +878,35 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message600110 = value; }
   }
 
+  [SerializeField] protected bool _event_message600120 = false;
+  public bool Event_Message600120
+  {
+    get { return _event_message600120; }
+    set { _event_message600120 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600130 = false;
+  public bool Event_Message600130
+  {
+    get { return _event_message600130; }
+    set { _event_message600130 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600140 = false;
+  public bool Event_Message600140
+  {
+    get { return _event_message600140; }
+    set { _event_message600140 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600150 = false;
+  public bool Event_Message600150
+  {
+    get { return _event_message600150; }
+    set { _event_message600150 = value; }
+  }
+
+
   [SerializeField] protected bool _event_message700010 = false;
   public bool Event_Message700010
   {
@@ -1184,7 +1213,9 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_CaveofSarun_00009 { get { return _fieldobject_caveofsarun_00009; } set { _fieldobject_caveofsarun_00009 = value; } }
 
   [SerializeField] protected bool _fieldobject_goratrum_00001 = false;
+  [SerializeField] protected bool _fieldobject_goratrum_00002 = false;
   public bool FieldObject_Goratrum_00001 { get { return _fieldobject_goratrum_00001; } set { _fieldobject_goratrum_00001 = value; } }
+  public bool FieldObject_Goratrum_00002 { get { return _fieldobject_goratrum_00002; } set { _fieldobject_goratrum_00002 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;

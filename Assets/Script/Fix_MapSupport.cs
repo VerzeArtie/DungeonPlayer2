@@ -300,6 +300,27 @@ public partial class Fix
   public const float GORATRUM_Event_14_Y = -0.5f;
   public const float GORATRUM_Event_14_Z = -6;
 
+  // 左下聖堂の穴：左
+  public const string GORATRUM_Event_15_C = "Event";
+  public const string GORATRUM_Event_15_O = "15";
+  public const float GORATRUM_Event_15_X = 6.0f;
+  public const float GORATRUM_Event_15_Y = -0.5f;
+  public const float GORATRUM_Event_15_Z = -14.0f;
+
+  // 左下聖堂の穴：右
+  public const string GORATRUM_Event_16_C = "Event";
+  public const string GORATRUM_Event_16_O = "16";
+  public const float GORATRUM_Event_16_X = 8.0f;
+  public const float GORATRUM_Event_16_Y = -0.5f;
+  public const float GORATRUM_Event_16_Z = -14.0f;
+
+  // 一番左下、聖堂通路先の穴
+  public const string GORATRUM_Event_17_C = "Event";
+  public const string GORATRUM_Event_17_O = "17";
+  public const float GORATRUM_Event_17_X = 1.0f;
+  public const float GORATRUM_Event_17_Y = -0.5f;
+  public const float GORATRUM_Event_17_Z = -18.0f;
+
   public const string GORATRUM_MessageBoard_15_C = "MessageBoard";
   public const string GORATRUM_MessageBoard_15_O = "15";
   public const float GORATRUM_MessageBoard_15_X = 6.0f;

@@ -4422,7 +4422,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+          Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
 
           Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -4453,7 +4453,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+          Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
 
           Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -4477,7 +4477,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
+        Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
 
         Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -5044,6 +5044,236 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：これを使えば、鍵がかかった扉を開ける事が出来るかもしれないわね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：さっそく使いに行ってみるとするか！", ActionEvent.None);
+  }
+
+  public static void Message600210(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  {
+    if (One.TF.Event_Message600120 == false)
+    {
+      One.TF.Event_Message600120 = true;
+      Message(ref m_list, ref e_list, "アイン：・・・待て。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたのよ、突然？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ アインは注意深く周辺を見回した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほどな。ココが聖堂か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・ッ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：なんでそう言い切れるのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず、そこの看板を見てみよう。", ActionEvent.None);
+
+      if (number == 0)
+      {
+        Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+
+        Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+      }
+      else if (number == 1)
+      {
+        Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+      }
+      else if (number == 2)
+      {
+        Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+
+        Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+      }
+
+      Message(ref m_list, ref e_list, "『　満たされるは精神と英知。語り継ぎし者よ、安らぎと平穏を。　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ビンゴの様だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この詩は、確かにそうみたいね。よく分かったわね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：部屋に２つ穴が開いているだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、看板のすぐ後ろにあるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：きっと元々は何かが祀られていたんじゃないのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そう・・・なのかしら。ちょっと分かりにくいけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ調べようがないからな。特に気にしなくてもいい所だが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、どうするわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの２つ穴。上手く降りられるかどうか、少し調べてみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message600220(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　満たされるは精神と英知。語り継ぎし者よ、安らぎと平穏を。　』", ActionEvent.None);
+  }
+
+  public static void Message600230(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  {
+    One.TF.Event_Message600130 = true;
+
+    if (One.TF.Event_Message600140 == false)
+    {
+      One.TF.Event_Message600140 = true;
+      Message(ref m_list, ref e_list, "アイン：ちょっと、深さを見てみるか・・・どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行けそうだな。二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はっ、はい・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に問題ないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあちょっと降りるぞ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。　　　ラナ：いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ降りるぞ。", ActionEvent.None);
+    }
+
+    if (number == 0)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+    }
+    else if (number == 1)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+    }
+    else if (number == 2)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+    }
+    else if (number == 3)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "12", ActionEvent.DungeonGotoDownstair);
+  }
+
+  public static void Message600240(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600150 == false)
+    {
+      One.TF.Event_Message600150 = true;
+      Message(ref m_list, ref e_list, "アイン：よっと。無事に着地っと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２人とも大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：狭い通路だな・・・元々今までも狭かったが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、このまま進めてみるとするか。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：着地っと。２人とも大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。　　　ラナ：ええ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。このまま進めよう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message600250(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  {
+    One.TF.Event_Message600130 = true;
+
+    if (One.TF.Event_Message600140 == false)
+    {
+      One.TF.Event_Message600140 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと、深さを見てみるか・・・どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行けそうだな。二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：えっ、ええ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に問題ないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあちょっと降りるぞ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ。　　ラナ：いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ降りるぞ。", ActionEvent.None);
+    }
+
+    if (number == 0)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+    }
+    else if (number == 1)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+    }
+    else if (number == 2)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+    }
+    else if (number == 3)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "13", ActionEvent.DungeonGotoDownstair);
+  }
+
+  public static void Message600260(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600140 == false)
+    {
+      One.TF.Event_Message600140 = true;
+      Message(ref m_list, ref e_list, "アイン：ここも深くはない。行けそうだな。二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：えっ、ええ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：特に問題ないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあちょっと降りるぞ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：二人とも準備はいいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ。　　ラナ：いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ降りるぞ。", ActionEvent.None);
+    }
+    Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+
+    Message(ref m_list, ref e_list, "14", ActionEvent.DungeonGotoDownstair);
+  }
+
+  public static void Message600270(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.FieldObject_Goratrum_00002 = true;
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、この扉はどうだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：見せてみて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・特に仕掛けはないみたい。こちらから押せば普通に開くわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ。じゃあ、この扉は開けておくぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.GORATRUM_Copperdoor_18_O, ActionEvent.RemoveFieldObject);
   }
   #endregion
 

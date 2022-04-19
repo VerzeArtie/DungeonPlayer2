@@ -367,9 +367,14 @@ public partial class BattleEnemy : MotherBase
 
       // キャラクターグループのリストに追加
       One.EnemyList[ii].Ally = Fix.Ally.Enemy;
-      One.EnemyList[ii].ChooseCommand();
       EnemyList.Add(One.EnemyList[ii]);
       AllList.Add(One.EnemyList[ii]);
+    }
+
+    // 敵コマンドの最初の設定を行う。
+    for (int ii = 0; ii < EnemyList.Count; ii++)
+    {
+      EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]));
     }
 
     // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
@@ -896,12 +901,9 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
       RectTransform rectX = EnemyList[ii].objArrow.GetComponent<RectTransform>();
-      if (rectX.position.x >= BATTLE_GAUGE_WITDH / 4.0f && EnemyList[ii].Decision == false)
+      if (rectX.position.x >= BATTLE_GAUGE_WITDH / 3.0f && EnemyList[ii].Decision == false)
       {
-        EnemyList[ii].Decision = true;
-        string decision = EnemyList[ii].ChooseCommand();
-        EnemyList[ii].CurrentActionCommand = decision;
-        EnemyList[ii].txtActionCommand.text = decision;
+        EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]));
       }
     }
 
@@ -1190,6 +1192,7 @@ public partial class BattleEnemy : MotherBase
 
     #region "コマンド実行"
     List<Character> target_list = null;
+    int rand = 0;
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
     switch (command_name)
     {
@@ -1472,7 +1475,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_RUMBLE_MACHINEGUN:
         for (int jj = 0; jj < 5; jj++)
         {
-          int rand = AP.Math.RandomInteger(PlayerList.Count);
+          rand = AP.Math.RandomInteger(PlayerList.Count);
           ExecNormalAttack(player, PlayerList[rand], 1.0f, CriticalType.Random);
         }
         break;
@@ -1480,7 +1483,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_STRUGGLE_VOICE:
         for (int jj = 0; jj < PlayerList.Count; jj++)
         {
-          int rand = AP.Math.RandomInteger(3);
+          rand = AP.Math.RandomInteger(3);
           if (rand == 0)
           {
             ExecBuffDizzy(player, PlayerList[jj], 2, 30.0f);
@@ -1506,12 +1509,35 @@ public partial class BattleEnemy : MotherBase
         ExecBuffSilent(player, target, 2, 0);
         break;
 
+      case Fix.COMMAND_MIRROR_SHIELD:
+        // todo
+        break;
+
       case Fix.COMMAND_MIDARE_GIRI:
-        List<Character> targetList = GetOpponentGroup(player);
-        for (int jj = 0; jj < targetList.Count; jj++)
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, targetList[jj], 0.9f, critical);
+          ExecNormalAttack(player, target_list[jj], 0.9f, critical);
         }
+        break;
+
+      case Fix.COMMAND_HAND_CANNON:
+        ExecNormalAttack(player, target, 1.20f, CriticalType.None);
+        ExecBuffDizzy(player, target, 2, 30.0f);
+        break;
+
+      case Fix.COMMAND_SAIMIN_DANCE:
+        ExecBuffSleep(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_POISON_NEEDLE:
+        ExecNormalAttack(player, target, 1.10f, CriticalType.None);
+        ExecBuffPoison(player, target, 3, 33);
+        break;
+
+      case Fix.COMMAND_SPIKE_SHOT:
+        ExecNormalAttack(player, target, 1.5f, critical);
+        ExecBuffStun(player, target, 1, 0);
         break;
 
       default:
@@ -2412,10 +2438,11 @@ public partial class BattleEnemy : MotherBase
         ExecPoisonDamage(AllList[ii], AllList[ii].IsPoison.EffectValue);
       }
 
-      if (AllList[ii].IsBloodSign)
-      {
-        ExecSlipDamage(AllList[ii], AllList[ii].IsBloodSign.EffectValue);
-      }
+      // ブラッド・サインの効果はアップキープではない。
+      //if (AllList[ii].IsBloodSign)
+      //{
+      //  ExecSlipDamage(AllList[ii], AllList[ii].IsBloodSign.EffectValue);
+      //}
 
       if (AllList[ii].IsBlackContract)
       {

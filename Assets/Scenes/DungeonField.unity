@@ -47180,12 +47180,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapActionCommand
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 815981061}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -83155,12 +83155,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapActionCommand
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1794935920}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -99609,12 +99609,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapActionCommand
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1268376833}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, Unity.ugui
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
