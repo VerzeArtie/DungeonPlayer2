@@ -2950,7 +2950,6 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message600170(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-
       }
       return;
     }
@@ -4342,6 +4341,31 @@ public class DungeonField : MotherBase
               One.TF.Field_Z = Fix.GORATRUM_Event_28_Z;
               continue; // 継続
             }
+
+            if (currentMessage == Fix.GORATRUM_Event_29_O)
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_29_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_29_Z;
+              continue; // 継続
+            }
+            if (currentMessage == Fix.GORATRUM_Event_30_O)
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_30_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_30_Z;
+              continue; // 継続
+            }
+            if (currentMessage == Fix.GORATRUM_Event_31_O)
+            {
+              One.GoratrumHoleFalling = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_31_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_31_Z;
+              continue; // 継続
+            }
           }
         }
         // 未到達タイルを更新する。
@@ -5686,6 +5710,22 @@ public class DungeonField : MotherBase
         MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, Fix.GORATRUM_Event_28_O); TapOK();
         return true;
       }
+
+      if (LocationDetect(tile, Fix.GORATRUM_Event_29_X, Fix.GORATRUM_Event_29_Y, Fix.GORATRUM_Event_29_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, Fix.GORATRUM_Event_29_O); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_30_X, Fix.GORATRUM_Event_30_Y, Fix.GORATRUM_Event_30_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, Fix.GORATRUM_Event_30_O); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_31_X, Fix.GORATRUM_Event_31_Y, Fix.GORATRUM_Event_31_Z))
+      {
+        MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, Fix.GORATRUM_Event_31_O); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
@@ -5912,6 +5952,10 @@ public class DungeonField : MotherBase
         {
           DungeonCallSetup(Fix.MAPFILE_GORATRUM, 38.0f, 1.0f, -1.0f);
         }
+        if (LocationDetect(tile, 38.0f, 0.0f, -18.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM, 38.0f, 1.0f, -18.0f);
+        }
       }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
@@ -5987,6 +6031,11 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, 38.0f, 0.0f, -1.0f))
         {
           DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 38.0f, 1.0f, -1.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 38.0f, 0.0f, -18.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 38.0f, 1.0f, -18.0f);
           return true;
         }
       }

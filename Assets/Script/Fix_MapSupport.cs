@@ -398,6 +398,27 @@ public partial class Fix
   public const float GORATRUM_Event_28_Y = -0.5f;
   public const float GORATRUM_Event_28_Z = -6.0f;
 
+  // ‰E‰º‚ÌŽOŠpŒŠ‚P
+  public const string GORATRUM_Event_29_C = "Event";
+  public const string GORATRUM_Event_29_O = "29";
+  public const float GORATRUM_Event_29_X = 36.0f;
+  public const float GORATRUM_Event_29_Y = -0.5f;
+  public const float GORATRUM_Event_29_Z = -16.0f;
+
+  // ‰E‰º‚ÌŽOŠpŒŠ‚Q
+  public const string GORATRUM_Event_30_C = "Event";
+  public const string GORATRUM_Event_30_O = "30";
+  public const float GORATRUM_Event_30_X = 37.0f;
+  public const float GORATRUM_Event_30_Y = -0.5f;
+  public const float GORATRUM_Event_30_Z = -16.0f;
+
+  // ‰E‰º‚ÌŽOŠpŒŠ‚R
+  public const string GORATRUM_Event_31_C = "Event";
+  public const string GORATRUM_Event_31_O = "31";
+  public const float GORATRUM_Event_31_X = 36.0f;
+  public const float GORATRUM_Event_31_Y = -0.5f;
+  public const float GORATRUM_Event_31_Z = -17.0f;
+
   public const string GORATRUM_MessageBoard_15_C = "MessageBoard";
   public const string GORATRUM_MessageBoard_15_O = "15";
   public const float GORATRUM_MessageBoard_15_X = 6.0f;
