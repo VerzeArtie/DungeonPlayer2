@@ -5275,6 +5275,72 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.GORATRUM_Copperdoor_18_O, ActionEvent.RemoveFieldObject);
   }
+
+  public static void Message600280(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  {
+    One.TF.Event_Message600160 = true;
+    Message(ref m_list, ref e_list, "アイン：ここも降りれそうな箇所だな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうしたのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、何でもねえ。おそらく、大丈夫だろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ちょっと降りてみるぞ。二人とも良いか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いつでも良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケー。じゃあ行くぞ。", ActionEvent.None);
+
+    if (number == 0)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+    }
+    else if (number == 1)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+    }
+    else if (number == 2)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
+    }
+    else if (number == 3)
+    {
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
+    }
+
+    Message(ref m_list, ref e_list, "15", ActionEvent.DungeonGotoDownstair);
+  }
+
+  public static void Message600290(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600170 == false)
+    {
+      One.TF.Event_Message600170 = true;
+      Message(ref m_list, ref e_list, "アイン：よっと。無事に着地っと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２人とも大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、このまま進めてみるとするか。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：着地っと。２人とも大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。　　　ラナ：ええ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。このまま進めよう。", ActionEvent.None);
+    }
+
+  }
+
   #endregion
 
   #region "ファージル宮殿"

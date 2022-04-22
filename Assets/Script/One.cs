@@ -101,6 +101,7 @@ public static class One
   public static List<string> BattleEnemyList = new List<string>();
   public static bool GoratrumHoleFalling = false;
   public static bool GoratrumHoleFalling2 = false; // 多少芋プログラミングだが、良しとする。
+  public static bool GoratrumHoleFalling3 = false; // 多少芋プログラミングだが、良しとする。
 
   // BattleEnemy
   public static bool CannotRunAway = false;
