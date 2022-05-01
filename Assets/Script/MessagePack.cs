@@ -5188,7 +5188,7 @@ public static class MessagePack
     }
   }
 
-  public static void Message600250(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  public static void Message600250(ref List<string> m_list, ref List<ActionEvent> e_list, int number, string event_number)
   {
     One.TF.Event_Message600130 = true;
 
@@ -5232,7 +5232,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
     }
 
-    Message(ref m_list, ref e_list, "13", ActionEvent.DungeonGotoDownstair);
+    Message(ref m_list, ref e_list, event_number, ActionEvent.DungeonGotoDownstair);
   }
 
   public static void Message600260(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -5338,6 +5338,249 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：オーケー。このまま進めよう。", ActionEvent.None);
     }
+  }
+
+  public static void Message600300(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600180 == false)
+    {
+      One.TF.Event_Message600180 = true;
+
+      Message(ref m_list, ref e_list, Fix.GORATRUM_Event_34_O, ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：こ、ここは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんでも、ねえ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこに、石が設置されているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：えっ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと待っててくれ。調査してくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：えっ、ちょっと？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+      Message(ref m_list, ref e_list, "　　（　俺はこの時どう考えていただろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　意味の追跡はここまで　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　おそらく考えていた事が重要なのではなく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　無限に連なる空間があった事が重要だったのだろう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　知らなかったというよりも　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　その概念の外側　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　あたかも始めから決められていたかのように　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　（　その石に触れた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：繰り返すは永劫の記憶", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：誰だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我は存在の定義から外れし者", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ヒトの子は我を支配竜と呼ぶ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：支配・・・竜・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：少年がこの石を選択する事に在らず", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：石が少年を選択する事に在らず", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：手にせしその石", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：少年が遥か太古から入手しているものである", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：遥か太古・・・から・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：石との接触は", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：一つの終わりを意味する", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：少年が進むは過去への道標", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：過去へ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GORATRUM_ObsidianPortal_35_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっとそこのバカアイン？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何ボサっと突っ立ってるのよ？どうかしたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：い、いや・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：汗を・・・だいぶ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何でもない。気のせいだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それはそうと、何か気になる物でもあったの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：い、いや・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何でもない。ただし良いものはゲットした。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これだ、見てくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何を見せているわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺の手元をよく見てくれ。石があるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：っえ・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・あの・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは自分の手元に目をやり・・・ 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：なっ、無い！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ウソだろ？正直な所、ラナとエオネはあの石を見なかったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：正直な所、私は見てないわよ。何の事かさっぱり。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、お前もか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：す、すみませんが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あんたが勝手に一人で何もない所にフラフラっと寄って行ったのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ、それで・・・そのまま・・・動かなくて・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハーッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すまないが、次へ進めよう。これは無かった事にしてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあいいけど。ホント、大丈夫なのかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。さて、次へ向かうとしよう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message600310(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message600190 == false)
+    {
+      One.TF.Event_Message600190 = true;
+
+      Message(ref m_list, ref e_list, Fix.GORATRUM_Event_37_O, ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・コイツは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ＧＯＡＡＨＨＨＨＨ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：キャッ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あぶねえ、ちょっと一旦退くぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
+
+      Message(ref m_list, ref e_list, "アイン：さて・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：見た感じ、巨大な砲台って感じのモンスターだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナは、今まで通りのスタイルで戦闘に挑んでくれ。ダメージは普通通り当たるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネも、基本的にはこれまで通り、聖魔法による後方支援を頼んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それから、敵へ影響を与える効果もおそらく大丈夫だ。余力があれば頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、ピンチな時は全員で徹底して防御も忘れないでくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：他は特に気にする事はないだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし。じゃ行くとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・あの・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうした？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：勝てる見込みって・・・あるんでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何でだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：え・・・ええっと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこのバカアインにそういう話しても無駄よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・そうなんですか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアイン、もう少し補足を付けてよね。エオネさんが不安がってるじゃない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：わ、悪い悪い・・・ええとだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、大技はあるかもしれないが、それまでって事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：深く詮索する必要はない。順当にやれば良いって事さ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・ッ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：エオネさん、ごめんなさい。後でゆっくり説明してもらうから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ハ、ハイ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ準備が出来次第突撃だ。行くぜ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message600320(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：ＳＰＡＡＡＡＡＫ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、エオネ。準備はいいか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いつでも良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ、行くぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.MAGICAL_HAIL_GUN, ActionEvent.EncountBoss);
 
   }
 

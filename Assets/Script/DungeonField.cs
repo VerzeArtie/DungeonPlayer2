@@ -179,6 +179,9 @@ public class DungeonField : MotherBase
   public Text txtEventTitle;
   public Text txtEventDescription;
 
+  // Blackout
+  public GameObject BlackoutPanel;
+
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -3191,19 +3194,19 @@ public class DungeonField : MotherBase
         {
           if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_16_X, Fix.GORATRUM_Event_16_Y + 1.5f, Fix.GORATRUM_Event_16_Z - 1.0f))
           {
-            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 0); TapOK();
+            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 0, "13"); TapOK();
           }
           else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_16_X - 1.0f, Fix.GORATRUM_Event_16_Y + 1.5f, Fix.GORATRUM_Event_16_Z))
           {
-            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 1); TapOK();
+            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 1, "13"); TapOK();
           }
           else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_16_X + 1.0f, Fix.GORATRUM_Event_16_Y + 1.5f, Fix.GORATRUM_Event_16_Z))
           {
-            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 2); TapOK();
+            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 2, "13"); TapOK();
           }
           else if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Event_16_X, Fix.GORATRUM_Event_16_Y + 1.5f, Fix.GORATRUM_Event_16_Z + 1.0f))
           {
-            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 3); TapOK();
+            MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 3, "13"); TapOK();
           }
           return;
         }
@@ -3234,6 +3237,23 @@ public class DungeonField : MotherBase
           }
           return;
         }
+
+        if (LocationDetect(tile, Fix.GORATRUM_Event_32_X, Fix.GORATRUM_Event_32_Y, Fix.GORATRUM_Event_32_Z))
+        {
+          MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 1, Fix.GORATRUM_Event_32_O); TapOK();
+          return;
+        }
+        if (LocationDetect(tile, Fix.GORATRUM_Event_33_X, Fix.GORATRUM_Event_33_Y, Fix.GORATRUM_Event_33_Z))
+        {
+          MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 1, Fix.GORATRUM_Event_33_O); TapOK();
+          return;
+        }
+        if (LocationDetect(tile, Fix.GORATRUM_Event_36_X, Fix.GORATRUM_Event_36_Y, Fix.GORATRUM_Event_36_Z))
+        {
+          MessagePack.Message600250(ref QuestMessageList, ref QuestEventList, 2, Fix.GORATRUM_Event_36_O); TapOK();
+          return;
+        }
+
       }
     }
 
@@ -4055,6 +4075,11 @@ public class DungeonField : MotherBase
           this.objBlackOut.SetActive(false);
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.TurnToBlack)
+        {
+          this.objBlackOut.SetActive(true);
+          continue; // 継続
+        }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
         {
           EventFountain();
@@ -4366,6 +4391,33 @@ public class DungeonField : MotherBase
               One.TF.Field_Z = Fix.GORATRUM_Event_31_Z;
               continue; // 継続
             }
+
+            if (currentMessage == Fix.GORATRUM_Event_32_O)
+            {
+              One.GoratrumHoleFalling2 = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_32_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_32_Z;
+              continue; // 継続
+            }
+
+            if (currentMessage == Fix.GORATRUM_Event_33_O)
+            {
+              One.GoratrumHoleFalling2 = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_33_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_33_Z;
+              continue; // 継続
+            }
+
+            if (currentMessage == Fix.GORATRUM_Event_36_O)
+            {
+              One.GoratrumHoleFalling2 = true;
+              One.TF.Field_X = Fix.GORATRUM_Event_36_X;
+              One.TF.Field_Y = 1;
+              One.TF.Field_Z = Fix.GORATRUM_Event_36_Z;
+              continue; // 継続
+            }
           }
         }
         // 未到達タイルを更新する。
@@ -4460,13 +4512,61 @@ public class DungeonField : MotherBase
             {
               for (int kk = 0; kk < 5; kk++)
               {
-                numbers.Add(13*40+5 + jj * 40 + kk);
+                numbers.Add(13 * 40 + 5 + jj * 40 + kk);
               }
             }
             for (int jj = 0; jj < numbers.Count; jj++)
             {
               UnknownTileList[numbers[jj]].gameObject.SetActive(false);
               One.TF.KnownTileList_Goratrum[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2 && currentMessage == Fix.GORATRUM_Event_34_O)
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 8; jj++)
+            {
+              for (int kk = 0; kk < 5; kk++)
+              {
+                numbers.Add(1 * 40 + 18 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_Goratrum_2[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2 && currentMessage == Fix.GORATRUM_Event_34_O)
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 8; jj++)
+            {
+              for (int kk = 0; kk < 5; kk++)
+              {
+                numbers.Add(1 * 40 + 18 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_Goratrum_2[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2 && currentMessage == Fix.GORATRUM_Event_37_O)
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 7; jj++)
+            {
+              for (int kk = 0; kk < 6; kk++)
+              {
+                numbers.Add(5 * 40 + 2 + jj * 40 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_Goratrum_2[numbers[jj]] = true;
             }
           }
         }
@@ -5308,6 +5408,15 @@ public class DungeonField : MotherBase
               RemoveFieldObject(FieldObjList, new Vector3(Fix.GORATRUM_CopperDoor_18_X, Fix.GORATRUM_CopperDoor_18_Y, Fix.GORATRUM_CopperDoor_18_Z));
             }
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+          {
+            if (currentMessage == Fix.GORATRUM_ObsidianPortal_35_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.GORATRUM_ObsidianPortal_35_X, Fix.GORATRUM_ObsidianPortal_35_Y, Fix.GORATRUM_ObsidianPortal_35_Z));
+            }
+          }
+
           // 岩壁１
           if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
           {
@@ -5579,7 +5688,6 @@ public class DungeonField : MotherBase
         MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-
     }
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
@@ -5724,6 +5832,24 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.GORATRUM_Event_31_X, Fix.GORATRUM_Event_31_Y, Fix.GORATRUM_Event_31_Z))
       {
         MessagePack.Message600050(ref QuestMessageList, ref QuestEventList, Fix.GORATRUM_Event_31_O); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+    {
+      if (LocationDetect(tile, Fix.GORATRUM_Event_34_X, Fix.GORATRUM_Event_34_Y, Fix.GORATRUM_Event_34_Z))
+      {
+        MessagePack.Message600300(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_37_X, Fix.GORATRUM_Event_37_Y, Fix.GORATRUM_Event_37_Z))
+      {
+        MessagePack.Message600310(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_Event_38_X, Fix.GORATRUM_Event_38_Y, Fix.GORATRUM_Event_38_Z) && One.TF.DefeatMagicalHailGun == false)
+      {
+        MessagePack.Message600320(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -5956,6 +6082,21 @@ public class DungeonField : MotherBase
         {
           DungeonCallSetup(Fix.MAPFILE_GORATRUM, 38.0f, 1.0f, -18.0f);
         }
+        if (LocationDetect(tile, 32.0f, 0.0f, -9.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM, 32.0f, 1.0f, -9.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 21.0f, 0.0f, -12.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM, 21.0f, 1.0f, -12.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 15.0f, 0.0f, -3.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM, 15.0f, 1.0f, -3.0f);
+          return true;
+        }
       }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
@@ -6036,6 +6177,21 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, 38.0f, 0.0f, -18.0f))
         {
           DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 38.0f, 1.0f, -18.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 32.0f, 0.0f, -9.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 32.0f, 1.0f, -9.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 21.0f, 0.0f, -12.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 21.0f, 1.0f, -12.0f);
+          return true;
+        }
+        if (LocationDetect(tile, 15.0f, 0.0f, -3.0f))
+        {
+          DungeonCallSetup(Fix.MAPFILE_GORATRUM_2, 15.0f, 1.0f, -3.0f);
           return true;
         }
       }
@@ -7780,6 +7936,11 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Goratrum_00015)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_Treasure_15_X, Fix.GORATRUM_Treasure_15_Y, Fix.GORATRUM_Treasure_15_Z)));
+      }
+
+      if (One.TF.Event_Message600180)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.GORATRUM_ObsidianPortal_35_X, Fix.GORATRUM_ObsidianPortal_35_Y, Fix.GORATRUM_ObsidianPortal_35_Z));
       }
     }
     #endregion

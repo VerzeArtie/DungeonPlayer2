@@ -419,6 +419,55 @@ public partial class Fix
   public const float GORATRUM_Event_31_Y = -0.5f;
   public const float GORATRUM_Event_31_Z = -17.0f;
 
+  // 中央一方通行ルート穴１
+  public const string GORATRUM_Event_32_C = "Event";
+  public const string GORATRUM_Event_32_O = "32";
+  public const float GORATRUM_Event_32_X = 28.0f;
+  public const float GORATRUM_Event_32_Y = -0.5f;
+  public const float GORATRUM_Event_32_Z = -10.0f;
+
+  // 中央一方通行ルート穴２
+  public const string GORATRUM_Event_33_C = "Event";
+  public const string GORATRUM_Event_33_O = "33";
+  public const float GORATRUM_Event_33_X = 17.0f;
+  public const float GORATRUM_Event_33_Y = -0.5f;
+  public const float GORATRUM_Event_33_Z = -15.0f;
+
+  // 中央の旧聖堂の入口タイル
+  public const string GORATRUM_Event_34_C = "Event";
+  public const string GORATRUM_Event_34_O = "34";
+  public const float GORATRUM_Event_34_X = 20.0f;
+  public const float GORATRUM_Event_34_Y = 0.0f;
+  public const float GORATRUM_Event_34_Z = -6.0f;
+
+  // Odsidian Portal
+  public const string GORATRUM_ObsidianPortal_35_C = "ObsidianPortal";
+  public const string GORATRUM_ObsidianPortal_35_O = "35";
+  public const float GORATRUM_ObsidianPortal_35_X = 20.0f;
+  public const float GORATRUM_ObsidianPortal_35_Y = 1.0f;
+  public const float GORATRUM_ObsidianPortal_35_Z = -3.0f;
+
+  // 中央一方通行ルート穴３
+  public const string GORATRUM_Event_36_C = "Event";
+  public const string GORATRUM_Event_36_O = "36";
+  public const float GORATRUM_Event_36_X = 11.0f;
+  public const float GORATRUM_Event_36_Y = -0.5f;
+  public const float GORATRUM_Event_36_Z = -3.0f;
+
+  // ボス手前
+  public const string GORATRUM_Event_37_C = "Event";
+  public const string GORATRUM_Event_37_O = "37";
+  public const float GORATRUM_Event_37_X = 7.0f;
+  public const float GORATRUM_Event_37_Y = -0.0f;
+  public const float GORATRUM_Event_37_Z = -8.0f;
+
+  // ボス
+  public const string GORATRUM_Event_38_C = "Event";
+  public const string GORATRUM_Event_38_O = "38";
+  public const float GORATRUM_Event_38_X = 6.0f;
+  public const float GORATRUM_Event_38_Y = -0.0f;
+  public const float GORATRUM_Event_38_Z = -8.0f;
+
   public const string GORATRUM_MessageBoard_15_C = "MessageBoard";
   public const string GORATRUM_MessageBoard_15_O = "15";
   public const float GORATRUM_MessageBoard_15_X = 6.0f;

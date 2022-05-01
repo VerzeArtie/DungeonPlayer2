@@ -920,6 +920,19 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message600170 = value; }
   }
 
+  [SerializeField] protected bool _event_message600180 = false;
+  public bool Event_Message600180
+  {
+    get { return _event_message600180; }
+    set { _event_message600180 = value; }
+  }
+
+  [SerializeField] protected bool _event_message600190 = false;
+  public bool Event_Message600190
+  {
+    get { return _event_message600190; }
+    set { _event_message600190 = value; }
+  }
 
   [SerializeField] protected bool _event_message700010 = false;
   public bool Event_Message700010
@@ -1254,6 +1267,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_screaming_rafflesia = false;
   public bool DefeatScreamingRafflesia { get { return _defeat_screaming_rafflesia; } set { _defeat_screaming_rafflesia = value; } }
+
+  protected bool _defeat_magical_hail_gun = false;
+  public bool DefeatMagicalHailGun { get { return _defeat_magical_hail_gun; } set { _defeat_magical_hail_gun = value; } }
 
   protected bool _defeat_hell_kerberos = false;
   public bool DefeatHellKerberos { get { return _defeat_hell_kerberos; } set { _defeat_hell_kerberos = value; } }
