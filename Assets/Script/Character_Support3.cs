@@ -81,6 +81,30 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.MAGICAL_HAIL_GUN:
+        this.AI_Phase++;
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_SPAAAARK);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_ELECTRO_RAILGUN);
+        }
+
+        result = RandomChoice(current);
+        break;
+
       case Fix.THE_GALVADAZER:
         this.AI_Phase++;
         if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
@@ -118,8 +142,14 @@ public partial class Character : MonoBehaviour
     // それ以外はグループの先頭を指定
     else
     {
-      this.Target = opponent_group[0];
-
+      for (int ii = 0; ii < opponent_group.Count; ii++)
+      {
+        if (opponent_group[ii].Dead == false)
+        {
+          this.Target = opponent_group[ii];
+          break;
+        }
+      }
     }
 
     this.Decision = true;

@@ -1540,6 +1540,18 @@ public partial class BattleEnemy : MotherBase
         ExecBuffStun(player, target, 1, 0);
         break;
 
+      case Fix.COMMAND_SPAAAARK:
+        ExecNormalAttack(player, target, 5.0f, critical);
+        break;
+
+      case Fix.COMMAND_SUPER_RANDOM_CANNON:
+        ExecNormalAttack(player, target, 5.0f, critical);
+        break;
+
+      case Fix.COMMAND_ELECTRO_RAILGUN:
+        ExecNormalAttack(player, target, 5.0f, critical);
+        break;
+
       default:
         Debug.Log("Nothing Command: " + command_name);
         StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
