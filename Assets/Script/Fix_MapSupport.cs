@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public partial class Fix
 {
+  #region "サルン洞窟前の草原区域"
   public const string CAVEOFSARUN_Treasure_1_C = "Treasure";
   public const string CAVEOFSARUN_Treasure_1_O = "1";
   public const float CAVEOFSARUN_Treasure_1_X = 28.0f;
@@ -110,7 +111,9 @@ public partial class Fix
   public const float CAVEOFSARUN_Rock_8_X = -6.0f;
   public const float CAVEOFSARUN_Rock_8_Y = 1.0f;
   public const float CAVEOFSARUN_Rock_8_Z = 2.0f;
+  #endregion
 
+  #region "ゴラトラム洞窟"
   public const string GORATRUM_Treasure_1_C = "Treasure";
   public const string GORATRUM_Treasure_1_O = "1";
   public const float GORATRUM_Treasure_1_X = 12.0f;
@@ -201,6 +204,425 @@ public partial class Fix
   public const float GORATRUM_Treasure_15_Y = 1.0f;
   public const float GORATRUM_Treasure_15_Z = -16.0f;
 
+  // 階段(上り)
+  // (1F)
+  public const string GORATRUM_Upstair_1_C = "Upstair";
+  public const string GORATRUM_Upstair_1_O = "1";
+  public const float GORATRUM_Upstair_1_X = 5.0f;
+  public const float GORATRUM_Upstair_1_Y = 0.0f;
+  public const float GORATRUM_Upstair_1_Z = -2.0f;
+
+  // (2F)
+  public const string GORATRUM_2_Upstair_1_C = "Upstair";
+  public const string GORATRUM_2_Upstair_1_O = "1";
+  public const float GORATRUM_2_Upstair_1_X = 10.0f;
+  public const float GORATRUM_2_Upstair_1_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_1_Z = -8.0f;
+
+  public const string GORATRUM_2_Upstair_2_C = "Upstair";
+  public const string GORATRUM_2_Upstair_2_O = "2";
+  public const float GORATRUM_2_Upstair_2_X = 25.0f;
+  public const float GORATRUM_2_Upstair_2_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_2_Z = -7.0f;
+
+  public const string GORATRUM_2_Upstair_3_C = "Upstair";
+  public const string GORATRUM_2_Upstair_3_O = "3";
+  public const float GORATRUM_2_Upstair_3_X = 32.0f; // todo
+  public const float GORATRUM_2_Upstair_3_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_3_Z = -5.0f;
+
+  public const string GORATRUM_2_Upstair_4_C = "Upstair";
+  public const string GORATRUM_2_Upstair_4_O = "4";
+  public const float GORATRUM_2_Upstair_4_X = 5.0f;
+  public const float GORATRUM_2_Upstair_4_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_4_Z = -16.0f;
+
+  public const string GORATRUM_2_Upstair_5_C = "Upstair";
+  public const string GORATRUM_2_Upstair_5_O = "5";
+  public const float GORATRUM_2_Upstair_5_X = 1.0f;
+  public const float GORATRUM_2_Upstair_5_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_5_Z = -14.0f;
+
+  public const string GORATRUM_2_Upstair_6_C = "Upstair";
+  public const string GORATRUM_2_Upstair_6_O = "6";
+  public const float GORATRUM_2_Upstair_6_X = 15.0f;
+  public const float GORATRUM_2_Upstair_6_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_6_Z = -18.0f;
+
+  public const string GORATRUM_2_Upstair_7_C = "Upstair";
+  public const string GORATRUM_2_Upstair_7_O = "7";
+  public const float GORATRUM_2_Upstair_7_X = 38.0f;
+  public const float GORATRUM_2_Upstair_7_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_7_Z = -1.0f;
+
+  public const string GORATRUM_2_Upstair_8_C = "Upstair";
+  public const string GORATRUM_2_Upstair_8_O = "8";
+  public const float GORATRUM_2_Upstair_8_X = 38.0f;
+  public const float GORATRUM_2_Upstair_8_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_8_Z = -18.0f;
+
+  public const string GORATRUM_2_Upstair_9_C = "Upstair";
+  public const string GORATRUM_2_Upstair_9_O = "9";
+  public const float GORATRUM_2_Upstair_9_X = 32.0f;
+  public const float GORATRUM_2_Upstair_9_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_9_Z = -9.0f;
+
+  public const string GORATRUM_2_Upstair_10_C = "Upstair";
+  public const string GORATRUM_2_Upstair_10_O = "10";
+  public const float GORATRUM_2_Upstair_10_X = 21.0f;
+  public const float GORATRUM_2_Upstair_10_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_10_Z = -12.0f;
+
+  public const string GORATRUM_2_Upstair_11_C = "Upstair";
+  public const string GORATRUM_2_Upstair_11_O = "11";
+  public const float GORATRUM_2_Upstair_11_X = 15.0f;
+  public const float GORATRUM_2_Upstair_11_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_11_Z = -3.0f;
+
+  public const string GORATRUM_2_Upstair_12_C = "Upstair";
+  public const string GORATRUM_2_Upstair_12_O = "12";
+  public const float GORATRUM_2_Upstair_12_X = 1.0f;
+  public const float GORATRUM_2_Upstair_12_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_12_Z = -1.0f;
+
+  // 階段(下り)
+  // (1F)
+  public const string GORATRUM_Downstair_1_C = "Downstair";
+  public const string GORATRUM_Downstair_1_O = "1";
+  public const float GORATRUM_Downstair_1_X = 10.0f;
+  public const float GORATRUM_Downstair_1_Y = 0.0f;
+  public const float GORATRUM_Downstair_1_Z = -8.0f;
+
+  public const string GORATRUM_Downstair_2_C = "Downstair";
+  public const string GORATRUM_Downstair_2_O = "2";
+  public const float GORATRUM_Downstair_2_X = 25.0f;
+  public const float GORATRUM_Downstair_2_Y = 0.0f;
+  public const float GORATRUM_Downstair_2_Z = -7.0f;
+
+  public const string GORATRUM_Downstair_3_C = "Downstair";
+  public const string GORATRUM_Downstair_3_O = "3";
+  public const float GORATRUM_Downstair_3_X = 32.0f; // todo
+  public const float GORATRUM_Downstair_3_Y = 0.0f;
+  public const float GORATRUM_Downstair_3_Z = -5.0f;
+
+  public const string GORATRUM_Downstair_4_C = "Downstair";
+  public const string GORATRUM_Downstair_4_O = "4";
+  public const float GORATRUM_Downstair_4_X = 5.0f;
+  public const float GORATRUM_Downstair_4_Y = 0.0f;
+  public const float GORATRUM_Downstair_4_Z = -16.0f;
+
+  public const string GORATRUM_Downstair_5_C = "Downstair";
+  public const string GORATRUM_Downstair_5_O = "5";
+  public const float GORATRUM_Downstair_5_X = 1.0f;
+  public const float GORATRUM_Downstair_5_Y = 0.0f;
+  public const float GORATRUM_Downstair_5_Z = -14.0f;
+
+  public const string GORATRUM_Downstair_6_C = "Downstair";
+  public const string GORATRUM_Downstair_6_O = "6";
+  public const float GORATRUM_Downstair_6_X = 15.0f;
+  public const float GORATRUM_Downstair_6_Y = 0.0f;
+  public const float GORATRUM_Downstair_6_Z = -18.0f;
+
+  public const string GORATRUM_Downstair_7_C = "Downstair";
+  public const string GORATRUM_Downstair_7_O = "7";
+  public const float GORATRUM_Downstair_7_X = 38.0f;
+  public const float GORATRUM_Downstair_7_Y = 0.0f;
+  public const float GORATRUM_Downstair_7_Z = -1.0f;
+
+  public const string GORATRUM_Downstair_8_C = "Downstair";
+  public const string GORATRUM_Downstair_8_O = "8";
+  public const float GORATRUM_Downstair_8_X = 38.0f;
+  public const float GORATRUM_Downstair_8_Y = 0.0f;
+  public const float GORATRUM_Downstair_8_Z = -18.0f;
+
+  public const string GORATRUM_Downstair_9_C = "Downstair";
+  public const string GORATRUM_Downstair_9_O = "9";
+  public const float GORATRUM_Downstair_9_X = 32.0f;
+  public const float GORATRUM_Downstair_9_Y = 0.0f;
+  public const float GORATRUM_Downstair_9_Z = -9.0f;
+
+  public const string GORATRUM_Downstair_10_C = "Downstair";
+  public const string GORATRUM_Downstair_10_O = "10";
+  public const float GORATRUM_Downstair_10_X = 21.0f;
+  public const float GORATRUM_Downstair_10_Y = 0.0f;
+  public const float GORATRUM_Downstair_10_Z = -12.0f;
+
+  public const string GORATRUM_Downstair_11_C = "Downstair";
+  public const string GORATRUM_Downstair_11_O = "11";
+  public const float GORATRUM_Downstair_11_X = 15.0f;
+  public const float GORATRUM_Downstair_11_Y = 0.0f;
+  public const float GORATRUM_Downstair_11_Z = -3.0f;
+
+  // 穴
+  // 入口広場右通路の穴１
+  public const string GORATRUM_Hole_1_C = "Hole";
+  public const string GORATRUM_Hole_1_O = "1";
+  public const float GORATRUM_Hole_1_X = 13.0f;
+  public const float GORATRUM_Hole_1_Y = -0.5f;
+  public const float GORATRUM_Hole_1_Z = -7.0f;
+
+  // 上部噴水広場の右（上の穴）２
+  public const string GORATRUM_Hole_2_C = "Hole";
+  public const string GORATRUM_Hole_2_O = "2";
+  public const float GORATRUM_Hole_2_X = 24.0f;
+  public const float GORATRUM_Hole_2_Y = -0.5f;
+  public const float GORATRUM_Hole_2_Z = -2.0f;
+
+  // 上部噴水広場の右（下の穴）３
+  public const string GORATRUM_Hole_3_C = "Hole";
+  public const string GORATRUM_Hole_3_O = "3";
+  public const float GORATRUM_Hole_3_X = 24.0f;
+  public const float GORATRUM_Hole_3_Y = -0.5f;
+  public const float GORATRUM_Hole_3_Z = -5.0f;
+
+  // 入口広場右通路の穴の下側４
+  public const string GORATRUM_Hole_4_C = "Hole";
+  public const string GORATRUM_Hole_4_O = "4";
+  public const float GORATRUM_Hole_4_X = 13.0f;
+  public const float GORATRUM_Hole_4_Y = -0.5f;
+  public const float GORATRUM_Hole_4_Z = -12.0f;
+
+  // 入口広場右通路の穴の右通路側５
+  public const string GORATRUM_Hole_5_C = "Hole";
+  public const string GORATRUM_Hole_5_O = "5";
+  public const float GORATRUM_Hole_5_X = 24.0f;
+  public const float GORATRUM_Hole_5_Y = -0.5f;
+  public const float GORATRUM_Hole_5_Z = -9.0f;
+
+  // 右上エル穴の左岸１
+  public const string GORATRUM_Hole_6_C = "Hole";
+  public const string GORATRUM_Hole_6_O = "6";
+  public const float GORATRUM_Hole_6_X = 33.0f;
+  public const float GORATRUM_Hole_6_Y = -0.5f;
+  public const float GORATRUM_Hole_6_Z = -1.0f;
+
+  // 右上エル穴の左岸２
+  public const string GORATRUM_Hole_7_C = "Hole";
+  public const string GORATRUM_Hole_7_O = "7";
+  public const float GORATRUM_Hole_7_X = 33.0f;
+  public const float GORATRUM_Hole_7_Y = -0.5f;
+  public const float GORATRUM_Hole_7_Z = -2.0f;
+
+  // 右上エル穴の左岸３
+  public const string GORATRUM_Hole_8_C = "Hole";
+  public const string GORATRUM_Hole_8_O = "8";
+  public const float GORATRUM_Hole_8_X = 33.0f;
+  public const float GORATRUM_Hole_8_Y = -0.5f;
+  public const float GORATRUM_Hole_8_Z = -3.0f;
+
+  // 右上エル穴の左岸４
+  public const string GORATRUM_Hole_9_C = "Hole";
+  public const string GORATRUM_Hole_9_O = "9";
+  public const float GORATRUM_Hole_9_X = 33.0f;
+  public const float GORATRUM_Hole_9_Y = -0.5f;
+  public const float GORATRUM_Hole_9_Z = -4.0f;
+
+  // 右上エル穴の左岸５
+  public const string GORATRUM_Hole_10_C = "Hole";
+  public const string GORATRUM_Hole_10_O = "10";
+  public const float GORATRUM_Hole_10_X = 33.0f;
+  public const float GORATRUM_Hole_10_Y = -0.5f;
+  public const float GORATRUM_Hole_10_Z = -5.0f;
+
+  // 右上エル穴の左岸６
+  public const string GORATRUM_Hole_11_C = "Hole";
+  public const string GORATRUM_Hole_11_O = "11";
+  public const float GORATRUM_Hole_11_X = 33.0f;
+  public const float GORATRUM_Hole_11_Y = -0.5f;
+  public const float GORATRUM_Hole_11_Z = -6.0f;
+
+  // 左下聖堂の穴：左
+  public const string GORATRUM_Hole_12_C = "Hole";
+  public const string GORATRUM_Hole_12_O = "12";
+  public const float GORATRUM_Hole_12_X = 6.0f;
+  public const float GORATRUM_Hole_12_Y = -0.5f;
+  public const float GORATRUM_Hole_12_Z = -14.0f;
+
+  // 左下聖堂の穴：右
+  public const string GORATRUM_Hole_13_C = "Hole";
+  public const string GORATRUM_Hole_13_O = "13";
+  public const float GORATRUM_Hole_13_X = 8.0f;
+  public const float GORATRUM_Hole_13_Y = -0.5f;
+  public const float GORATRUM_Hole_13_Z = -14.0f;
+
+  // 一番左下、聖堂通路先の穴
+  public const string GORATRUM_Hole_14_C = "Hole";
+  public const string GORATRUM_Hole_14_O = "14";
+  public const float GORATRUM_Hole_14_X = 1.0f;
+  public const float GORATRUM_Hole_14_Y = -0.5f;
+  public const float GORATRUM_Hole_14_Z = -18.0f;
+
+  // 右下中央の穴
+  public const string GORATRUM_Hole_15_C = "Hole";
+  public const string GORATRUM_Hole_15_O = "15";
+  public const float GORATRUM_Hole_15_X = 33.0f;
+  public const float GORATRUM_Hole_15_Y = -0.5f;
+  public const float GORATRUM_Hole_15_Z = -14.0f;
+
+  // 右上エル穴の右岸１
+  public const string GORATRUM_Hole_16_C = "Hole";
+  public const string GORATRUM_Hole_16_O = "16";
+  public const float GORATRUM_Hole_16_X = 34.0f;
+  public const float GORATRUM_Hole_16_Y = -0.5f;
+  public const float GORATRUM_Hole_16_Z = -1.0f;
+
+  // 右上エル穴の右岸２
+  public const string GORATRUM_Hole_17_C = "Hole";
+  public const string GORATRUM_Hole_17_O = "17";
+  public const float GORATRUM_Hole_17_X = 34.0f;
+  public const float GORATRUM_Hole_17_Y = -0.5f;
+  public const float GORATRUM_Hole_17_Z = -2.0f;
+
+  // 右上エル穴の右岸３
+  public const string GORATRUM_Hole_18_C = "Hole";
+  public const string GORATRUM_Hole_18_O = "18";
+  public const float GORATRUM_Hole_18_X = 34.0f;
+  public const float GORATRUM_Hole_18_Y = -0.5f;
+  public const float GORATRUM_Hole_18_Z = -3.0f;
+
+  // 右上エル穴の右岸４
+  public const string GORATRUM_Hole_19_C = "Hole";
+  public const string GORATRUM_Hole_19_O = "19";
+  public const float GORATRUM_Hole_19_X = 34.0f;
+  public const float GORATRUM_Hole_19_Y = -0.5f;
+  public const float GORATRUM_Hole_19_Z = -4.0f;
+
+  // 右上エル穴の右岸５
+  public const string GORATRUM_Hole_20_C = "Hole";
+  public const string GORATRUM_Hole_20_O = "20";
+  public const float GORATRUM_Hole_20_X = 34.0f;
+  public const float GORATRUM_Hole_20_Y = -0.5f;
+  public const float GORATRUM_Hole_20_Z = -5.0f;
+
+  // 右上エル穴の右岸６
+  public const string GORATRUM_Hole_21_C = "Hole";
+  public const string GORATRUM_Hole_21_O = "21";
+  public const float GORATRUM_Hole_21_X = 35.0f;
+  public const float GORATRUM_Hole_21_Y = -0.5f;
+  public const float GORATRUM_Hole_21_Z = -5.0f;
+
+  // 右上エル穴の右岸７
+  public const string GORATRUM_Hole_22_C = "Hole";
+  public const string GORATRUM_Hole_22_O = "22";
+  public const float GORATRUM_Hole_22_X = 36.0f;
+  public const float GORATRUM_Hole_22_Y = -0.5f;
+  public const float GORATRUM_Hole_22_Z = -5.0f;
+
+  // 右上エル穴の下岸１
+  public const string GORATRUM_Hole_23_C = "Hole";
+  public const string GORATRUM_Hole_23_O = "23";
+  public const float GORATRUM_Hole_23_X = 34.0f;
+  public const float GORATRUM_Hole_23_Y = -0.5f;
+  public const float GORATRUM_Hole_23_Z = -6.0f;
+
+  // 右上エル穴の下岸２
+  public const string GORATRUM_Hole_24_C = "Hole";
+  public const string GORATRUM_Hole_24_O = "24";
+  public const float GORATRUM_Hole_24_X = 35.0f;
+  public const float GORATRUM_Hole_24_Y = -0.5f;
+  public const float GORATRUM_Hole_24_Z = -6.0f;
+
+  // 右上エル穴の下岸３
+  public const string GORATRUM_Hole_25_C = "Hole";
+  public const string GORATRUM_Hole_25_O = "25";
+  public const float GORATRUM_Hole_25_X = 36.0f;
+  public const float GORATRUM_Hole_25_Y = -0.5f;
+  public const float GORATRUM_Hole_25_Z = -6.0f;
+
+  // 右下の三角穴１
+  public const string GORATRUM_Hole_26_C = "Hole";
+  public const string GORATRUM_Hole_26_O = "26";
+  public const float GORATRUM_Hole_26_X = 36.0f;
+  public const float GORATRUM_Hole_26_Y = -0.5f;
+  public const float GORATRUM_Hole_26_Z = -16.0f;
+
+  // 右下の三角穴２
+  public const string GORATRUM_Hole_27_C = "Hole";
+  public const string GORATRUM_Hole_27_O = "27";
+  public const float GORATRUM_Hole_27_X = 37.0f;
+  public const float GORATRUM_Hole_27_Y = -0.5f;
+  public const float GORATRUM_Hole_27_Z = -16.0f;
+
+  // 右下の三角穴３
+  public const string GORATRUM_Hole_28_C = "Hole";
+  public const string GORATRUM_Hole_28_O = "28";
+  public const float GORATRUM_Hole_28_X = 36.0f;
+  public const float GORATRUM_Hole_28_Y = -0.5f;
+  public const float GORATRUM_Hole_28_Z = -17.0f;
+
+  // 中央一方通行ルート穴１
+  public const string GORATRUM_Hole_29_C = "Hole";
+  public const string GORATRUM_Hole_29_O = "29";
+  public const float GORATRUM_Hole_29_X = 28.0f;
+  public const float GORATRUM_Hole_29_Y = -0.5f;
+  public const float GORATRUM_Hole_29_Z = -10.0f;
+
+  // 中央一方通行ルート穴２
+  public const string GORATRUM_Hole_30_C = "Hole";
+  public const string GORATRUM_Hole_30_O = "30";
+  public const float GORATRUM_Hole_30_X = 17.0f;
+  public const float GORATRUM_Hole_30_Y = -0.5f;
+  public const float GORATRUM_Hole_30_Z = -15.0f;
+
+  // 中央一方通行ルート穴３
+  public const string GORATRUM_Hole_31_C = "Hole";
+  public const string GORATRUM_Hole_31_O = "31";
+  public const float GORATRUM_Hole_31_X = 11.0f;
+  public const float GORATRUM_Hole_31_Y = -0.5f;
+  public const float GORATRUM_Hole_31_Z = -3.0f;
+
+  // ドア
+  // 入口広場の下扉
+  public const string GORATRUM_CopperDoor_1_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_1_O = "1";
+  public const float GORATRUM_CopperDoor_1_X = 8.0f;
+  public const float GORATRUM_CopperDoor_1_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_1_Z = -8.0f;
+
+  // 入口広場の左扉
+  public const string GORATRUM_CopperDoor_2_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_2_O = "2";
+  public const float GORATRUM_CopperDoor_2_X = 3.0f;
+  public const float GORATRUM_CopperDoor_2_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_2_Z = -5.0f;
+
+  // 中央通路を繋ぐドア
+  public const string GORATRUM_CopperDoor_3_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_3_O = "3";
+  public const float GORATRUM_CopperDoor_3_X = 25.0f;
+  public const float GORATRUM_CopperDoor_3_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_3_Z = -17.0f;
+
+  // 看板
+  public const string GORATRUM_MessageBoard_1_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_1_O = "1";
+  public const float GORATRUM_MessageBoard_1_X = 8.0f;
+  public const float GORATRUM_MessageBoard_1_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_1_Z = -5.0f;
+
+  public const string GORATRUM_MessageBoard_2_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_2_O = "2";
+  public const float GORATRUM_MessageBoard_2_X = 32.0f;
+  public const float GORATRUM_MessageBoard_2_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_2_Z = -2.0f;
+
+  public const string GORATRUM_MessageBoard_3_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_3_O = "3";
+  public const float GORATRUM_MessageBoard_3_X = 25.0f;
+  public const float GORATRUM_MessageBoard_3_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_3_Z = -14.0f;
+
+  public const string GORATRUM_MessageBoard_4_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_4_O = "4";
+  public const float GORATRUM_MessageBoard_4_X = 7.0f;
+  public const float GORATRUM_MessageBoard_4_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_4_Z = -15.0f;
+
+  public const string GORATRUM_MessageBoard_5_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_5_O = "5";
+  public const float GORATRUM_MessageBoard_5_X = 35.0f;
+  public const float GORATRUM_MessageBoard_5_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_5_Z = -7.0f;
 
   // 入口広場のエントリー地点
   public const string GORATRUM_Event_1_C = "Event";
@@ -208,230 +630,6 @@ public partial class Fix
   public const float GORATRUM_Event_1_X = 8;
   public const float GORATRUM_Event_1_Y = 0;
   public const float GORATRUM_Event_1_Z = -3;
-
-  // 入口広場の下扉
-  public const string GORATRUM_Event_2_C = "Event";
-  public const string GORATRUM_Event_2_O = "2";
-  public const float GORATRUM_Event_2_X = 8;
-  public const float GORATRUM_Event_2_Y = 1;
-  public const float GORATRUM_Event_2_Z = -8;
-
-  // 入口広場の左扉
-  public const string GORATRUM_Event_3_C = "Event";
-  public const string GORATRUM_Event_3_O = "3";
-  public const float GORATRUM_Event_3_X = 3;
-  public const float GORATRUM_Event_3_Y = 1;
-  public const float GORATRUM_Event_3_Z = -5;
-
-  // 入口広場右通路の穴１
-  public const string GORATRUM_Event_4_C = "Event";
-  public const string GORATRUM_Event_4_O = "4";
-  public const float GORATRUM_Event_4_X = 13;
-  public const float GORATRUM_Event_4_Y = -0.5f;
-  public const float GORATRUM_Event_4_Z = -7;
-
-  // 上部噴水広場の右（上の穴）２
-  public const string GORATRUM_Event_5_C = "Event";
-  public const string GORATRUM_Event_5_O = "5";
-  public const float GORATRUM_Event_5_X = 24;
-  public const float GORATRUM_Event_5_Y = -0.5f;
-  public const float GORATRUM_Event_5_Z = -2.0f;
-
-  // 上部噴水広場の右（下の穴）３
-  public const string GORATRUM_Event_6_C = "Event";
-  public const string GORATRUM_Event_6_O = "6";
-  public const float GORATRUM_Event_6_X = 24;
-  public const float GORATRUM_Event_6_Y = -0.5f;
-  public const float GORATRUM_Event_6_Z = -5.0f;
-
-  // 入口広場右通路の穴の下側４
-  public const string GORATRUM_Event_7_C = "Event";
-  public const string GORATRUM_Event_7_O = "7";
-  public const float GORATRUM_Event_7_X = 13;
-  public const float GORATRUM_Event_7_Y = -0.5f;
-  public const float GORATRUM_Event_7_Z = -12;
-
-  // 入口広場右通路の穴の右通路側５
-  public const string GORATRUM_Event_8_C = "Event";
-  public const string GORATRUM_Event_8_O = "8";
-  public const float GORATRUM_Event_8_X = 24;
-  public const float GORATRUM_Event_8_Y = -0.5f;
-  public const float GORATRUM_Event_8_Z = -9;
-
-  // 右上エル穴の左岸１
-  public const string GORATRUM_Event_9_C = "Event";
-  public const string GORATRUM_Event_9_O = "9";
-  public const float GORATRUM_Event_9_X = 33;
-  public const float GORATRUM_Event_9_Y = -0.5f;
-  public const float GORATRUM_Event_9_Z = -1;
-
-  // 右上エル穴の左岸２
-  public const string GORATRUM_Event_10_C = "Event";
-  public const string GORATRUM_Event_10_O = "10";
-  public const float GORATRUM_Event_10_X = 33;
-  public const float GORATRUM_Event_10_Y = -0.5f;
-  public const float GORATRUM_Event_10_Z = -2;
-
-  // 右上エル穴の左岸３
-  public const string GORATRUM_Event_11_C = "Event";
-  public const string GORATRUM_Event_11_O = "11";
-  public const float GORATRUM_Event_11_X = 33;
-  public const float GORATRUM_Event_11_Y = -0.5f;
-  public const float GORATRUM_Event_11_Z = -3;
-
-  // 右上エル穴の左岸４
-  public const string GORATRUM_Event_12_C = "Event";
-  public const string GORATRUM_Event_12_O = "12";
-  public const float GORATRUM_Event_12_X = 33;
-  public const float GORATRUM_Event_12_Y = -0.5f;
-  public const float GORATRUM_Event_12_Z = -4;
-
-  // 右上エル穴の左岸５
-  public const string GORATRUM_Event_13_C = "Event";
-  public const string GORATRUM_Event_13_O = "13";
-  public const float GORATRUM_Event_13_X = 33;
-  public const float GORATRUM_Event_13_Y = -0.5f;
-  public const float GORATRUM_Event_13_Z = -5;
-
-  // 右上エル穴の左岸６
-  public const string GORATRUM_Event_14_C = "Event";
-  public const string GORATRUM_Event_14_O = "14";
-  public const float GORATRUM_Event_14_X = 33;
-  public const float GORATRUM_Event_14_Y = -0.5f;
-  public const float GORATRUM_Event_14_Z = -6;
-
-  // 左下聖堂の穴：左
-  public const string GORATRUM_Event_15_C = "Event";
-  public const string GORATRUM_Event_15_O = "15";
-  public const float GORATRUM_Event_15_X = 6.0f;
-  public const float GORATRUM_Event_15_Y = -0.5f;
-  public const float GORATRUM_Event_15_Z = -14.0f;
-
-  // 左下聖堂の穴：右
-  public const string GORATRUM_Event_16_C = "Event";
-  public const string GORATRUM_Event_16_O = "16";
-  public const float GORATRUM_Event_16_X = 8.0f;
-  public const float GORATRUM_Event_16_Y = -0.5f;
-  public const float GORATRUM_Event_16_Z = -14.0f;
-
-  // 一番左下、聖堂通路先の穴
-  public const string GORATRUM_Event_17_C = "Event";
-  public const string GORATRUM_Event_17_O = "17";
-  public const float GORATRUM_Event_17_X = 1.0f;
-  public const float GORATRUM_Event_17_Y = -0.5f;
-  public const float GORATRUM_Event_17_Z = -18.0f;
-
-  // 右下中央の穴
-  public const string GORATRUM_Event_18_C = "Event";
-  public const string GORATRUM_Event_18_O = "18";
-  public const float GORATRUM_Event_18_X = 33.0f;
-  public const float GORATRUM_Event_18_Y = -0.5f;
-  public const float GORATRUM_Event_18_Z = -14.0f;
-
-  // 右上エル穴の右岸１
-  public const string GORATRUM_Event_19_C = "Event";
-  public const string GORATRUM_Event_19_O = "19";
-  public const float GORATRUM_Event_19_X = 34.0f;
-  public const float GORATRUM_Event_19_Y = -0.5f;
-  public const float GORATRUM_Event_19_Z = -1.0f;
-
-  // 右上エル穴の右岸２
-  public const string GORATRUM_Event_20_C = "Event";
-  public const string GORATRUM_Event_20_O = "20";
-  public const float GORATRUM_Event_20_X = 34.0f;
-  public const float GORATRUM_Event_20_Y = -0.5f;
-  public const float GORATRUM_Event_20_Z = -2.0f;
-
-  // 右上エル穴の右岸３
-  public const string GORATRUM_Event_21_C = "Event";
-  public const string GORATRUM_Event_21_O = "21";
-  public const float GORATRUM_Event_21_X = 34.0f;
-  public const float GORATRUM_Event_21_Y = -0.5f;
-  public const float GORATRUM_Event_21_Z = -3.0f;
-
-  // 右上エル穴の右岸４
-  public const string GORATRUM_Event_22_C = "Event";
-  public const string GORATRUM_Event_22_O = "22";
-  public const float GORATRUM_Event_22_X = 34.0f;
-  public const float GORATRUM_Event_22_Y = -0.5f;
-  public const float GORATRUM_Event_22_Z = -4.0f;
-
-  // 右上エル穴の右岸５
-  public const string GORATRUM_Event_23_C = "Event";
-  public const string GORATRUM_Event_23_O = "23";
-  public const float GORATRUM_Event_23_X = 34.0f;
-  public const float GORATRUM_Event_23_Y = -0.5f;
-  public const float GORATRUM_Event_23_Z = -5.0f;
-
-  // 右上エル穴の右岸６
-  public const string GORATRUM_Event_24_C = "Event";
-  public const string GORATRUM_Event_24_O = "24";
-  public const float GORATRUM_Event_24_X = 35.0f;
-  public const float GORATRUM_Event_24_Y = -0.5f;
-  public const float GORATRUM_Event_24_Z = -5.0f;
-
-  // 右上エル穴の右岸７
-  public const string GORATRUM_Event_25_C = "Event";
-  public const string GORATRUM_Event_25_O = "25";
-  public const float GORATRUM_Event_25_X = 36.0f;
-  public const float GORATRUM_Event_25_Y = -0.5f;
-  public const float GORATRUM_Event_25_Z = -5.0f;
-
-  // 右上エル穴の下岸１
-  public const string GORATRUM_Event_26_C = "Event";
-  public const string GORATRUM_Event_26_O = "26";
-  public const float GORATRUM_Event_26_X = 34.0f;
-  public const float GORATRUM_Event_26_Y = -0.5f;
-  public const float GORATRUM_Event_26_Z = -6.0f;
-
-  // 右上エル穴の下岸２
-  public const string GORATRUM_Event_27_C = "Event";
-  public const string GORATRUM_Event_27_O = "27";
-  public const float GORATRUM_Event_27_X = 35.0f;
-  public const float GORATRUM_Event_27_Y = -0.5f;
-  public const float GORATRUM_Event_27_Z = -6.0f;
-
-  // 右上エル穴の下岸３
-  public const string GORATRUM_Event_28_C = "Event";
-  public const string GORATRUM_Event_28_O = "28";
-  public const float GORATRUM_Event_28_X = 36.0f;
-  public const float GORATRUM_Event_28_Y = -0.5f;
-  public const float GORATRUM_Event_28_Z = -6.0f;
-
-  // 右下の三角穴１
-  public const string GORATRUM_Event_29_C = "Event";
-  public const string GORATRUM_Event_29_O = "29";
-  public const float GORATRUM_Event_29_X = 36.0f;
-  public const float GORATRUM_Event_29_Y = -0.5f;
-  public const float GORATRUM_Event_29_Z = -16.0f;
-
-  // 右下の三角穴２
-  public const string GORATRUM_Event_30_C = "Event";
-  public const string GORATRUM_Event_30_O = "30";
-  public const float GORATRUM_Event_30_X = 37.0f;
-  public const float GORATRUM_Event_30_Y = -0.5f;
-  public const float GORATRUM_Event_30_Z = -16.0f;
-
-  // 右下の三角穴３
-  public const string GORATRUM_Event_31_C = "Event";
-  public const string GORATRUM_Event_31_O = "31";
-  public const float GORATRUM_Event_31_X = 36.0f;
-  public const float GORATRUM_Event_31_Y = -0.5f;
-  public const float GORATRUM_Event_31_Z = -17.0f;
-
-  // 中央一方通行ルート穴１
-  public const string GORATRUM_Event_32_C = "Event";
-  public const string GORATRUM_Event_32_O = "32";
-  public const float GORATRUM_Event_32_X = 28.0f;
-  public const float GORATRUM_Event_32_Y = -0.5f;
-  public const float GORATRUM_Event_32_Z = -10.0f;
-
-  // 中央一方通行ルート穴２
-  public const string GORATRUM_Event_33_C = "Event";
-  public const string GORATRUM_Event_33_O = "33";
-  public const float GORATRUM_Event_33_X = 17.0f;
-  public const float GORATRUM_Event_33_Y = -0.5f;
-  public const float GORATRUM_Event_33_Z = -15.0f;
 
   // 中央の旧聖堂の入口タイル
   public const string GORATRUM_Event_34_C = "Event";
@@ -447,13 +645,6 @@ public partial class Fix
   public const float GORATRUM_ObsidianPortal_35_Y = 1.0f;
   public const float GORATRUM_ObsidianPortal_35_Z = -3.0f;
 
-  // 中央一方通行ルート穴３
-  public const string GORATRUM_Event_36_C = "Event";
-  public const string GORATRUM_Event_36_O = "36";
-  public const float GORATRUM_Event_36_X = 11.0f;
-  public const float GORATRUM_Event_36_Y = -0.5f;
-  public const float GORATRUM_Event_36_Z = -3.0f;
-
   // ボス手前
   public const string GORATRUM_Event_37_C = "Event";
   public const string GORATRUM_Event_37_O = "37";
@@ -467,36 +658,7 @@ public partial class Fix
   public const float GORATRUM_Event_38_X = 6.0f;
   public const float GORATRUM_Event_38_Y = -0.0f;
   public const float GORATRUM_Event_38_Z = -8.0f;
-
-  public const string GORATRUM_MessageBoard_15_C = "MessageBoard";
-  public const string GORATRUM_MessageBoard_15_O = "15";
-  public const float GORATRUM_MessageBoard_15_X = 6.0f;
-  public const float GORATRUM_MessageBoard_15_Y = 1.0f;
-  public const float GORATRUM_MessageBoard_15_Z = -5.0f;
-
-  public const string GORATRUM_MessageBoard_16_C = "MessageBoard";
-  public const string GORATRUM_MessageBoard_16_O = "16";
-  public const float GORATRUM_MessageBoard_16_X = 32.0f;
-  public const float GORATRUM_MessageBoard_16_Y = 1.0f;
-  public const float GORATRUM_MessageBoard_16_Z = -2.0f;
-
-  public const string GORATRUM_MessageBoard_17_C = "MessageBoard";
-  public const string GORATRUM_MessageBoard_17_O = "17";
-  public const float GORATRUM_MessageBoard_17_X = 25.0f;
-  public const float GORATRUM_MessageBoard_17_Y = 1.0f;
-  public const float GORATRUM_MessageBoard_17_Z = -14.0f;
-
-  public const string GORATRUM_MessageBoard_18_C = "MessageBoard";
-  public const string GORATRUM_MessageBoard_18_O = "18";
-  public const float GORATRUM_MessageBoard_18_X = 35.0f;
-  public const float GORATRUM_MessageBoard_18_Y = 1.0f;
-  public const float GORATRUM_MessageBoard_18_Z = -7.0f;
-
-  public const string GORATRUM_Copperdoor_18_C = "CopperDoor";
-  public const string GORATRUM_Copperdoor_18_O = "18";
-  public const float GORATRUM_CopperDoor_18_X = 25.0f;
-  public const float GORATRUM_CopperDoor_18_Y = 1.0f;
-  public const float GORATRUM_CopperDoor_18_Z = -17.0f;
+  #endregion
 
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
   public const string ARTHARIUM_Treasure_3_O = "3";

@@ -4422,7 +4422,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
+          Message(ref m_list, ref e_list, Fix.GORATRUM_CopperDoor_1_O, ActionEvent.RemoveFieldObject);
 
           Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -4453,7 +4453,7 @@ public static class MessagePack
 
           Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-          Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
+          Message(ref m_list, ref e_list, Fix.GORATRUM_CopperDoor_1_O, ActionEvent.RemoveFieldObject);
 
           Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -4477,7 +4477,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "（ カッ・・・　・・・　・・・　ッカチ！）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, Fix.GORATRUM_Event_2_O, ActionEvent.RemoveFieldObject);
+        Message(ref m_list, ref e_list, Fix.GORATRUM_CopperDoor_1_O, ActionEvent.RemoveFieldObject);
 
         Message(ref m_list, ref e_list, "ラナ：開いたわよ。", ActionEvent.None);
 
@@ -5273,7 +5273,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：っしゃ。じゃあ、この扉は開けておくぜ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.GORATRUM_Copperdoor_18_O, ActionEvent.RemoveFieldObject);
+    Message(ref m_list, ref e_list, Fix.GORATRUM_CopperDoor_3_O, ActionEvent.RemoveFieldObject);
   }
 
   public static void Message600280(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
