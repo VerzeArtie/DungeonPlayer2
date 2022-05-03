@@ -114,6 +114,7 @@ public partial class Fix
   #endregion
 
   #region "ƒSƒ‰ƒgƒ‰ƒ€“´ŒA"
+  #region "•ó” "
   public const string GORATRUM_Treasure_1_C = "Treasure";
   public const string GORATRUM_Treasure_1_O = "1";
   public const float GORATRUM_Treasure_1_X = 12.0f;
@@ -203,8 +204,9 @@ public partial class Fix
   public const float GORATRUM_Treasure_15_X = 29.0f;
   public const float GORATRUM_Treasure_15_Y = 1.0f;
   public const float GORATRUM_Treasure_15_Z = -16.0f;
+  #endregion
 
-  // ŠK’i(ã‚è)
+  #region "ŠK’i(ã‚è)"
   // (1F)
   public const string GORATRUM_Upstair_1_C = "Upstair";
   public const string GORATRUM_Upstair_1_O = "1";
@@ -284,8 +286,9 @@ public partial class Fix
   public const float GORATRUM_2_Upstair_12_X = 1.0f;
   public const float GORATRUM_2_Upstair_12_Y = 0.0f;
   public const float GORATRUM_2_Upstair_12_Z = -1.0f;
+  #endregion
 
-  // ŠK’i(‰º‚è)
+  #region "ŠK’i(‰º‚è)"
   // (1F)
   public const string GORATRUM_Downstair_1_C = "Downstair";
   public const string GORATRUM_Downstair_1_O = "1";
@@ -352,8 +355,9 @@ public partial class Fix
   public const float GORATRUM_Downstair_11_X = 15.0f;
   public const float GORATRUM_Downstair_11_Y = 0.0f;
   public const float GORATRUM_Downstair_11_Z = -3.0f;
+  #endregion
 
-  // ŒŠ
+  #region "ŒŠ"
   // “üŒûLê‰E’Ê˜H‚ÌŒŠ‚P
   public const string GORATRUM_Hole_1_C = "Hole";
   public const string GORATRUM_Hole_1_O = "1";
@@ -570,8 +574,9 @@ public partial class Fix
   public const float GORATRUM_Hole_31_X = 11.0f;
   public const float GORATRUM_Hole_31_Y = -0.5f;
   public const float GORATRUM_Hole_31_Z = -3.0f;
+  #endregion
 
-  // ƒhƒA
+  #region "”à"
   // “üŒûLê‚Ì‰º”à
   public const string GORATRUM_CopperDoor_1_C = "CopperDoor";
   public const string GORATRUM_CopperDoor_1_O = "1";
@@ -592,8 +597,9 @@ public partial class Fix
   public const float GORATRUM_CopperDoor_3_X = 25.0f;
   public const float GORATRUM_CopperDoor_3_Y = 1.0f;
   public const float GORATRUM_CopperDoor_3_Z = -17.0f;
+  #endregion
 
-  // ŠÅ”Â
+  #region "ŠÅ”Â"
   public const string GORATRUM_MessageBoard_1_C = "MessageBoard";
   public const string GORATRUM_MessageBoard_1_O = "1";
   public const float GORATRUM_MessageBoard_1_X = 8.0f;
@@ -623,6 +629,7 @@ public partial class Fix
   public const float GORATRUM_MessageBoard_5_X = 35.0f;
   public const float GORATRUM_MessageBoard_5_Y = 1.0f;
   public const float GORATRUM_MessageBoard_5_Z = -7.0f;
+  #endregion
 
   // “üŒûLê‚ÌƒGƒ“ƒgƒŠ[’n“_
   public const string GORATRUM_Event_1_C = "Event";

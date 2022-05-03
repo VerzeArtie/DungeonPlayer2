@@ -4524,25 +4524,9 @@ public class DungeonField : MotherBase
             List<int> numbers = new List<int>();
             for (int jj = 0; jj < 8; jj++)
             {
-              for (int kk = 0; kk < 5; kk++)
+              for (int kk = 0; kk < 7; kk++)
               {
-                numbers.Add(1 * 40 + 18 + jj * 40 + kk);
-              }
-            }
-            for (int jj = 0; jj < numbers.Count; jj++)
-            {
-              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
-              One.TF.KnownTileList_Goratrum_2[numbers[jj]] = true;
-            }
-          }
-          if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2 && currentMessage == Fix.GORATRUM_Event_34_O)
-          {
-            List<int> numbers = new List<int>();
-            for (int jj = 0; jj < 8; jj++)
-            {
-              for (int kk = 0; kk < 5; kk++)
-              {
-                numbers.Add(1 * 40 + 18 + jj * 40 + kk);
+                numbers.Add(0 * 40 + 17 + jj * 40 + kk);
               }
             }
             for (int jj = 0; jj < numbers.Count; jj++)
