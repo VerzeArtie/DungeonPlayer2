@@ -631,40 +631,67 @@ public partial class Fix
   public const float GORATRUM_MessageBoard_5_Z = -7.0f;
   #endregion
 
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string GORATRUM_2_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string GORATRUM_2_ObsidianPortal_1_O = "35";
+  public const float GORATRUM_2_ObsidianPortal_1_X = 20.0f;
+  public const float GORATRUM_2_ObsidianPortal_1_Y = 1.0f;
+  public const float GORATRUM_2_ObsidianPortal_1_Z = -3.0f;
+  #endregion
+
+  #region "イベント"
+  // 1F
   // 入口広場のエントリー地点
   public const string GORATRUM_Event_1_C = "Event";
   public const string GORATRUM_Event_1_O = "1";
-  public const float GORATRUM_Event_1_X = 8;
-  public const float GORATRUM_Event_1_Y = 0;
-  public const float GORATRUM_Event_1_Z = -3;
+  public const float GORATRUM_Event_1_X = 8.0f;
+  public const float GORATRUM_Event_1_Y = 0.0f;
+  public const float GORATRUM_Event_1_Z = -3.0f;
 
+  // 左下聖堂前の３タイル（左）
+  public const string GORATRUM_Event_2_C = "Event";
+  public const string GORATRUM_Event_2_O = "2";
+  public const float GORATRUM_Event_2_X = 6.0f;
+  public const float GORATRUM_Event_2_Y = 0.0f;
+  public const float GORATRUM_Event_2_Z = -17.0f;
+
+  // 左下聖堂前の３タイル（中央）
+  public const string GORATRUM_Event_3_C = "Event";
+  public const string GORATRUM_Event_3_O = "3";
+  public const float GORATRUM_Event_3_X = 7.0f;
+  public const float GORATRUM_Event_3_Y = 0.0f;
+  public const float GORATRUM_Event_3_Z = -17.0f;
+
+  // 左下聖堂前の３タイル（右）
+  public const string GORATRUM_Event_4_C = "Event";
+  public const string GORATRUM_Event_4_O = "4";
+  public const float GORATRUM_Event_4_X = 8.0f;
+  public const float GORATRUM_Event_4_Y = 0.0f;
+  public const float GORATRUM_Event_4_Z = -17.0f;
+
+  // 2F
   // 中央の旧聖堂の入口タイル
-  public const string GORATRUM_Event_34_C = "Event";
-  public const string GORATRUM_Event_34_O = "34";
-  public const float GORATRUM_Event_34_X = 20.0f;
-  public const float GORATRUM_Event_34_Y = 0.0f;
-  public const float GORATRUM_Event_34_Z = -6.0f;
-
-  // Odsidian Portal
-  public const string GORATRUM_ObsidianPortal_35_C = "ObsidianPortal";
-  public const string GORATRUM_ObsidianPortal_35_O = "35";
-  public const float GORATRUM_ObsidianPortal_35_X = 20.0f;
-  public const float GORATRUM_ObsidianPortal_35_Y = 1.0f;
-  public const float GORATRUM_ObsidianPortal_35_Z = -3.0f;
+  public const string GORATRUM_2_Event_1_C = "Event";
+  public const string GORATRUM_2_Event_1_O = "1";
+  public const float GORATRUM_2_Event_1_X = 20.0f;
+  public const float GORATRUM_2_Event_1_Y = 0.0f;
+  public const float GORATRUM_2_Event_1_Z = -6.0f;
 
   // ボス手前
-  public const string GORATRUM_Event_37_C = "Event";
-  public const string GORATRUM_Event_37_O = "37";
-  public const float GORATRUM_Event_37_X = 7.0f;
-  public const float GORATRUM_Event_37_Y = -0.0f;
-  public const float GORATRUM_Event_37_Z = -8.0f;
+  public const string GORATRUM_2_Event_2_C = "Event";
+  public const string GORATRUM_2_Event_2_O = "2";
+  public const float GORATRUM_2_Event_2_X = 7.0f;
+  public const float GORATRUM_2_Event_2_Y = -0.0f;
+  public const float GORATRUM_2_Event_2_Z = -8.0f;
+  #endregion
 
   // ボス
-  public const string GORATRUM_Event_38_C = "Event";
-  public const string GORATRUM_Event_38_O = "38";
-  public const float GORATRUM_Event_38_X = 6.0f;
-  public const float GORATRUM_Event_38_Y = -0.0f;
-  public const float GORATRUM_Event_38_Z = -8.0f;
+  public const string GORATRUM_2_Event_3_C = "Event";
+  public const string GORATRUM_2_Event_3_O = "38";
+  public const float GORATRUM_2_Event_3_X = 6.0f;
+  public const float GORATRUM_2_Event_3_Y = -0.0f;
+  public const float GORATRUM_2_Event_3_Z = -8.0f;
   #endregion
 
   public const string ARTHARIUM_Treasure_3_C = "Treasure";

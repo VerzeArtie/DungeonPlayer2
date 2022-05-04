@@ -4356,7 +4356,7 @@ public static class MessagePack
   #region "ゴルトラム洞窟"
   public static void Message600010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+    Message(ref m_list, ref e_list, Fix.GORATRUM_Event_1_O, ActionEvent.UpdateUnknownTile);
   }
 
   public static void Message600015(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -5346,7 +5346,7 @@ public static class MessagePack
     {
       One.TF.Event_Message600180 = true;
 
-      Message(ref m_list, ref e_list, Fix.GORATRUM_Event_34_O, ActionEvent.UpdateUnknownTile);
+      Message(ref m_list, ref e_list, Fix.GORATRUM_2_Event_1_O, ActionEvent.UpdateUnknownTile);
 
       Message(ref m_list, ref e_list, "アイン：こ、ここは・・・", ActionEvent.None);
 
@@ -5432,7 +5432,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.GORATRUM_ObsidianPortal_35_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.GORATRUM_2_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
@@ -5502,7 +5502,7 @@ public static class MessagePack
     {
       One.TF.Event_Message600190 = true;
 
-      Message(ref m_list, ref e_list, Fix.GORATRUM_Event_37_O, ActionEvent.UpdateUnknownTile);
+      Message(ref m_list, ref e_list, Fix.GORATRUM_2_Event_2_O, ActionEvent.UpdateUnknownTile);
 
       Message(ref m_list, ref e_list, "アイン：なるほど・・・コイツは・・・", ActionEvent.None);
 
