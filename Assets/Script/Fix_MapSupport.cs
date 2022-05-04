@@ -684,7 +684,6 @@ public partial class Fix
   public const float GORATRUM_2_Event_2_X = 7.0f;
   public const float GORATRUM_2_Event_2_Y = -0.0f;
   public const float GORATRUM_2_Event_2_Z = -8.0f;
-  #endregion
 
   // É{ÉX
   public const string GORATRUM_2_Event_3_C = "Event";
@@ -692,6 +691,7 @@ public partial class Fix
   public const float GORATRUM_2_Event_3_X = 6.0f;
   public const float GORATRUM_2_Event_3_Y = -0.0f;
   public const float GORATRUM_2_Event_3_Z = -8.0f;
+  #endregion
   #endregion
 
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
