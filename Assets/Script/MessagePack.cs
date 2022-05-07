@@ -5584,6 +5584,25 @@ public static class MessagePack
 
   }
 
+  public static void Message600330(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    // todo ボス討伐後のイベント
+  }
+
+  public static void Message600340(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.FieldObject_Goratrum_00003 = true;
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、この扉についてチェック頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・そうね。仕掛けはないみたい。こちらからなら普通に開くわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っしゃ。じゃあ、開けておくぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.GORATRUM_CopperDoor_2_O, ActionEvent.RemoveFieldObject);
+  }
   #endregion
 
   #region "ファージル宮殿"

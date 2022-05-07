@@ -355,6 +355,12 @@ public partial class Fix
   public const float GORATRUM_Downstair_11_X = 15.0f;
   public const float GORATRUM_Downstair_11_Y = 0.0f;
   public const float GORATRUM_Downstair_11_Z = -3.0f;
+
+  public const string GORATRUM_Downstair_12_C = "Downstair";
+  public const string GORATRUM_Downstair_12_O = "12";
+  public const float GORATRUM_Downstair_12_X = 1.0f;
+  public const float GORATRUM_Downstair_12_Y = 0.0f;
+  public const float GORATRUM_Downstair_12_Z = -1.0f;
   #endregion
 
   #region "ŒŠ"

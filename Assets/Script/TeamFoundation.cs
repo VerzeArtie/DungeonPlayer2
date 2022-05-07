@@ -1243,8 +1243,10 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _fieldobject_goratrum_00001 = false;
   [SerializeField] protected bool _fieldobject_goratrum_00002 = false;
+  [SerializeField] protected bool _fieldobject_goratrum_00003 = false;
   public bool FieldObject_Goratrum_00001 { get { return _fieldobject_goratrum_00001; } set { _fieldobject_goratrum_00001 = value; } }
   public bool FieldObject_Goratrum_00002 { get { return _fieldobject_goratrum_00002; } set { _fieldobject_goratrum_00002 = value; } }
+  public bool FieldObject_Goratrum_00003 { get { return _fieldobject_goratrum_00003; } set { _fieldobject_goratrum_00003 = value; } }
 
   [SerializeField] protected bool _fieldobject_artharium_00001 = false;
   [SerializeField] protected bool _fieldobject_artharium_00002 = false;
