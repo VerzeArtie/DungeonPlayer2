@@ -3401,19 +3401,19 @@ public class DungeonField : MotherBase
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
       {
         string treasureName = String.Empty;
-        if (One.TF.Treasure_Goratrum_00005 == false && location.x == Fix.GORATRUM_Treasure_5_X && location.y == Fix.GORATRUM_Treasure_5_Y && location.z == Fix.GORATRUM_Treasure_5_Z)
+        if (One.TF.Treasure_Goratrum2_00001 == false && location.x == Fix.GORATRUM_2_Treasure_1_X && location.y == Fix.GORATRUM_2_Treasure_1_Y && location.z == Fix.GORATRUM_2_Treasure_1_Z)
         {
           treasureName = Fix.ENERGY_ORB;
         }
-        if (One.TF.Treasure_Goratrum_00008 == false && location.x == Fix.GORATRUM_Treasure_8_X && location.y == Fix.GORATRUM_Treasure_8_Y && location.z == Fix.GORATRUM_Treasure_8_Z)
+        if (One.TF.Treasure_Goratrum2_00002 == false && location.x == Fix.GORATRUM_2_Treasure_2_X && location.y == Fix.GORATRUM_2_Treasure_2_Y && location.z == Fix.GORATRUM_2_Treasure_2_Z)
         {
           treasureName = Fix.NORMAL_BLUE_POTION;
         }
-        if (One.TF.Treasure_Goratrum_00014 == false && location.x == Fix.GORATRUM_Treasure_14_X && location.y == Fix.GORATRUM_Treasure_14_Y && location.z == Fix.GORATRUM_Treasure_14_Z)
+        if (One.TF.Treasure_Goratrum2_00003 == false && location.x == Fix.GORATRUM_2_Treasure_3_X && location.y == Fix.GORATRUM_2_Treasure_3_Y && location.z == Fix.GORATRUM_2_Treasure_3_Z)
         {
           treasureName = Fix.LIGHTNING_CLAW;
         }
-        if (One.TF.Treasure_Goratrum_00015 == false && location.x == Fix.GORATRUM_Treasure_15_X && location.y == Fix.GORATRUM_Treasure_15_Y && location.z == Fix.GORATRUM_Treasure_15_Z)
+        if (One.TF.Treasure_Goratrum2_00004 == false && location.x == Fix.GORATRUM_2_Treasure_4_X && location.y == Fix.GORATRUM_2_Treasure_4_Y && location.z == Fix.GORATRUM_2_Treasure_4_Z)
         {
           treasureName = Fix.ICE_SPIRIT_LANCE;
         }
@@ -4862,21 +4862,21 @@ public class DungeonField : MotherBase
           }
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
           {
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_5_X, Fix.GORATRUM_Treasure_5_Y, Fix.GORATRUM_Treasure_5_Z))
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_1_X, Fix.GORATRUM_2_Treasure_1_Y, Fix.GORATRUM_2_Treasure_1_Z))
             {
-              One.TF.Treasure_Goratrum_00005 = true;
+              One.TF.Treasure_Goratrum2_00001 = true;
             }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_8_X, Fix.GORATRUM_Treasure_8_Y, Fix.GORATRUM_Treasure_8_Z))
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_2_X, Fix.GORATRUM_2_Treasure_2_Y, Fix.GORATRUM_2_Treasure_2_Z))
             {
-              One.TF.Treasure_Goratrum_00008 = true;
+              One.TF.Treasure_Goratrum2_00002 = true;
             }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_14_X, Fix.GORATRUM_Treasure_13_Y, Fix.GORATRUM_Treasure_13_Z))
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_3_X, Fix.GORATRUM_2_Treasure_3_Y, Fix.GORATRUM_2_Treasure_3_Z))
             {
-              One.TF.Treasure_Goratrum_00014 = true;
+              One.TF.Treasure_Goratrum2_00003 = true;
             }
-            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_Treasure_15_X, Fix.GORATRUM_Treasure_15_Y, Fix.GORATRUM_Treasure_15_Z))
+            if (this.Player.transform.position == new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z))
             {
-              One.TF.Treasure_Goratrum_00015 = true;
+              One.TF.Treasure_Goratrum2_00004 = true;
             }
           }
           #endregion
@@ -7933,21 +7933,21 @@ public class DungeonField : MotherBase
     }
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
     {
-      if (One.TF.Treasure_Goratrum_00005)
+      if (One.TF.Treasure_Goratrum2_00001)
       {
-        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_Treasure_5_X, Fix.GORATRUM_Treasure_5_Y, Fix.GORATRUM_Treasure_5_Z)));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_1_X, Fix.GORATRUM_2_Treasure_1_Y, Fix.GORATRUM_2_Treasure_1_Z)));
       }
-      if (One.TF.Treasure_Goratrum_00008)
+      if (One.TF.Treasure_Goratrum2_00002)
       {
-        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_Treasure_8_X, Fix.GORATRUM_Treasure_8_Y, Fix.GORATRUM_Treasure_8_Z)));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_2_X, Fix.GORATRUM_2_Treasure_2_Y, Fix.GORATRUM_2_Treasure_2_Z)));
       }
-      if (One.TF.Treasure_Goratrum_00014)
+      if (One.TF.Treasure_Goratrum2_00003)
       {
-        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_Treasure_14_X, Fix.GORATRUM_Treasure_14_Y, Fix.GORATRUM_Treasure_14_Z)));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_3_X, Fix.GORATRUM_2_Treasure_3_Y, Fix.GORATRUM_2_Treasure_3_Z)));
       }
-      if (One.TF.Treasure_Goratrum_00015)
+      if (One.TF.Treasure_Goratrum2_00004)
       {
-        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_Treasure_15_X, Fix.GORATRUM_Treasure_15_Y, Fix.GORATRUM_Treasure_15_Z)));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z)));
       }
 
       if (One.TF.Event_Message600180)
