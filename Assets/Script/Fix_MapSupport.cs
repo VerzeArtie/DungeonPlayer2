@@ -139,47 +139,47 @@ public partial class Fix
   public const float GORATRUM_Treasure_4_Y = 1.0f;
   public const float GORATRUM_Treasure_4_Z = -14.0f;
 
+  public const string GORATRUM_Treasure_5_C = "Treasure";
+  public const string GORATRUM_Treasure_5_O = "5";
+  public const float GORATRUM_Treasure_5_X = 9.0f;
+  public const float GORATRUM_Treasure_5_Y = 1.0f;
+  public const float GORATRUM_Treasure_5_Z = -11.0f;
+
   public const string GORATRUM_Treasure_6_C = "Treasure";
   public const string GORATRUM_Treasure_6_O = "6";
-  public const float GORATRUM_Treasure_6_X = 9.0f;
+  public const float GORATRUM_Treasure_6_X = 1.0f;
   public const float GORATRUM_Treasure_6_Y = 1.0f;
-  public const float GORATRUM_Treasure_6_Z = -11.0f;
+  public const float GORATRUM_Treasure_6_Z = -16.0f;
 
   public const string GORATRUM_Treasure_7_C = "Treasure";
   public const string GORATRUM_Treasure_7_O = "7";
-  public const float GORATRUM_Treasure_7_X = 1.0f;
+  public const float GORATRUM_Treasure_7_X = 31.0f;
   public const float GORATRUM_Treasure_7_Y = 1.0f;
-  public const float GORATRUM_Treasure_7_Z = -16.0f;
+  public const float GORATRUM_Treasure_7_Z = -18.0f;
+
+  public const string GORATRUM_Treasure_8_C = "Treasure";
+  public const string GORATRUM_Treasure_8_O = "8";
+  public const float GORATRUM_Treasure_8_X = 30.0f;
+  public const float GORATRUM_Treasure_8_Y = 1.0f;
+  public const float GORATRUM_Treasure_8_Z = -11.0f;
 
   public const string GORATRUM_Treasure_9_C = "Treasure";
   public const string GORATRUM_Treasure_9_O = "9";
-  public const float GORATRUM_Treasure_9_X = 31.0f;
+  public const float GORATRUM_Treasure_9_X = 35.0f;
   public const float GORATRUM_Treasure_9_Y = 1.0f;
-  public const float GORATRUM_Treasure_9_Z = -18.0f;
+  public const float GORATRUM_Treasure_9_Z = -8.0f;
 
   public const string GORATRUM_Treasure_10_C = "Treasure";
   public const string GORATRUM_Treasure_10_O = "10";
-  public const float GORATRUM_Treasure_10_X = 30.0f;
+  public const float GORATRUM_Treasure_10_X = 38.0f;
   public const float GORATRUM_Treasure_10_Y = 1.0f;
-  public const float GORATRUM_Treasure_10_Z = -11.0f;
+  public const float GORATRUM_Treasure_10_Z = -6.0f;
 
   public const string GORATRUM_Treasure_11_C = "Treasure";
   public const string GORATRUM_Treasure_11_O = "11";
-  public const float GORATRUM_Treasure_11_X = 35.0f;
+  public const float GORATRUM_Treasure_11_X = 36.0f;
   public const float GORATRUM_Treasure_11_Y = 1.0f;
-  public const float GORATRUM_Treasure_11_Z = -8.0f;
-
-  public const string GORATRUM_Treasure_12_C = "Treasure";
-  public const string GORATRUM_Treasure_12_O = "12";
-  public const float GORATRUM_Treasure_12_X = 38.0f;
-  public const float GORATRUM_Treasure_12_Y = 1.0f;
-  public const float GORATRUM_Treasure_12_Z = -6.0f;
-
-  public const string GORATRUM_Treasure_13_C = "Treasure";
-  public const string GORATRUM_Treasure_13_O = "13";
-  public const float GORATRUM_Treasure_13_X = 36.0f;
-  public const float GORATRUM_Treasure_13_Y = 1.0f;
-  public const float GORATRUM_Treasure_13_Z = -3.0f;
+  public const float GORATRUM_Treasure_11_Z = -3.0f;
 
   public const string GORATRUM_2_Treasure_1_C = "Treasure";
   public const string GORATRUM_2_Treasure_1_O = "1";
