@@ -1869,6 +1869,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_SLEEP); }
   }
 
+  public BuffImage IsSlow
+  {
+    get { return SearchBuff(Fix.EFFECT_SLOW); }
+  }
+
   public BuffImage IsDizzy
   {
     get { return SearchBuff(Fix.EFFECT_DIZZY); }

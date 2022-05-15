@@ -32,6 +32,8 @@ public static partial class Fix
   public const string CREEPING_SPIDER_JP = "忍び寄るスパイダー";
   public const string BLOOD_MOSS = "Blood Moss";
   public const string BLOOD_MOSS_JP = "ブラッド モス";
+  public const string KILLER_BEE = "Killer Bee";
+  public const string KILLER_BEE_JP = "キラー ビー";
   public const string WOOD_ELF = "Wood Elf";
   public const string WOOD_ELF_JP = "ウッド エルフ";
   public const string RUDE_WATCHDOG = "Rude Watchdog";
@@ -78,8 +80,6 @@ public static partial class Fix
   public const string MIST_PYTHON_JP = "ミスト パイソン";
   public const string MUDDLED_PLANT = "Muddled Plant";
   public const string MUDDLED_PLANT_JP = "腐敗したプラント";
-  public const string KILLER_BEE = "Killer Bee";
-  public const string KILLER_BEE_JP = "キラー ビー";
   public const string POISON_MARY = "Poison Mary";
   public const string POISON_MARY_JP = "ポイズン マリー";
   public const string FLANSIS_OF_THE_FOREST_QUEEN = "Flansis, The Queen of Verdant";

@@ -1412,7 +1412,7 @@ public partial class BattleEnemy : MotherBase
 
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
-        ExecNormalAttack(player, target, 1.30f, critical);
+        ExecNormalAttack(player, target, 1.30f, CriticalType.None);
         break;
 
       case Fix.COMMAND_GREEN_NENEKI:
@@ -1424,29 +1424,67 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WILD_CLAW:
-        ExecNormalAttack(player, target, 1.35f, critical);
+        ExecNormalAttack(player, target, 1.35f, CriticalType.None);
         break;
 
       case Fix.COMMAND_KAMITSUKI:
-        ExecNormalAttack(player, target, 1.40f, critical);
+        ExecNormalAttack(player, target, 1.40f, CriticalType.None);
         break;
 
       case Fix.COMMAND_TREE_SONG:
-        ExecBuffSleep(player, target, 2, 0);
+        ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, CriticalType.None);
+        ExecBuffSleep(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_SUN_FIRE:
-        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, critical);
+        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, CriticalType.None);
         break;
 
       case Fix.COMMAND_TOSSHIN:
-        ExecNormalAttack(player, target, 1.10f, critical);
+        ExecNormalAttack(player, target, 1.10f, CriticalType.None);
         ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_FEATHER_WING:
-        ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, critical);
-        ExecBuffSleep(player, target, 2, 0);
+        ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, CriticalType.None);
+        ExecBuffSleep(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_DASH_KERI:
+        ExecNormalAttack(player, target, 1.1f, CriticalType.None);
+        ExecBuffDizzy(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_SUITSUKU_TSUTA:
+        ExecNormalAttack(player, target, 0.5f, CriticalType.None);
+        ExecBuffSlow(player, target, 2, 0.5f);
+        break;
+
+      case Fix.COMMAND_SPIDER_NET:
+        ExecNormalAttack(player, target, 0.5f, CriticalType.None);
+        ExecBuffBind(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_POISON_KOKE:
+        ExecBuffPoison(player, target, 3, 18);
+        break;
+
+      case Fix.COMMAND_CONTINUOUS_ATTACK:
+        for (int jj = 0; jj < 2; jj++)
+        {
+          // ランダムで対象を選んで当てる
+          List<Character> list = GetOpponentGroup(player);
+          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.85f, critical);
+        }
+        break;
+
+      case Fix.COMMAND_FIRE_EMISSION:
+        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, CriticalType.None);
+        break;
+
+      case Fix.COMMAND_SUPER_TOSSHIN:
+        ExecNormalAttack(player, target, 1.5f, CriticalType.None);
+        ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_POISON_RINPUN:

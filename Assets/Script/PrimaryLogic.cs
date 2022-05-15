@@ -240,6 +240,10 @@ public static class PrimaryLogic
     {
       result *= player.IsSpeedStep.EffectValue;
     }
+    if (player.IsSlow)
+    {
+      result *= player.IsSlow.EffectValue;
+    }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;

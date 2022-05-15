@@ -720,6 +720,12 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
   }
 
+  private void ExecBuffSlow(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLOW, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLOW, Fix.COLOR_NORMAL);
+  }
+
   private void ExecBuffSleep(Character player, Character target, int turn, double effect_value)
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLEEP, turn, effect_value, 0);

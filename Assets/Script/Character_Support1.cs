@@ -40,7 +40,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.YOUNG_WOLF:
       case Fix.YOUNG_WOLF_JP:
-        SetupParameter(19, 5, 2, 4, 3, 7, 23, 19);
+        SetupParameter(17, 5, 2, 4, 3, 7, 23, 19);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WILD_CLAW);
         this.CannotCritical = true;
@@ -72,7 +72,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SOLID_BEETLE:
       case Fix.SOLID_BEETLE_JP:
-        SetupParameter(34, 6, 2, 9, 4, 5, 35, 29);
+        SetupParameter(28, 6, 2, 9, 4, 6, 35, 29);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TOSSHIN);
         this.CannotCritical = true;
@@ -80,56 +80,75 @@ public partial class Character : MonoBehaviour
 
       case Fix.SILENT_LADYBUG:
       case Fix.SILENT_LADYBUG_JP:
-        SetupParameter(2, 7, 39, 7, 4, 5, 37, 32);
+        SetupParameter(2, 7, 27, 7, 4, 5, 37, 32);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FEATHER_WING);
         this.CannotCritical = true;
         break;
 
-      case Fix.MYSTIC_DRYAD:
-      case Fix.MYSTIC_DRYAD_JP:
-        SetupParameter(35, 10, 60, 20, 5, 0, 80, 50);
-        list.Add(Fix.COMMAND_POISON_RINPUN);
-        list.Add(Fix.COMMAND_YOUEN_FIRE);
-        list.Add(Fix.COMMAND_BLAZE_DANCE);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.SCREAMING_RAFFLESIA:
-        SetupParameter(40, 15, 40, 150, 7, 0, 1000, 2000);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_YOUEN_FIRE);
-        list.Add(Fix.COMMAND_BLAZE_DANCE);
-        list.Add(Fix.COMMAND_POISON_RINPUN);
-        this.CannotCritical = false;
-        break;
-
       case Fix.NIMBLE_RABBIT:
       case Fix.NIMBLE_RABBIT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(26, 9, 20, 8, 4, 1, 39, 34);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_DASH_KERI);
         this.CannotCritical = true;
         break;
 
       case Fix.ENTANGLED_VINE:
       case Fix.ENTANGLED_VINE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(37, 11, 15, 16, 5, 3, 42, 36);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SUITSUKU_TSUTA);
         this.CannotCritical = true;
         break;
 
       case Fix.CREEPING_SPIDER:
       case Fix.CREEPING_SPIDER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+        SetupParameter(34, 12, 27, 14, 5, 8, 44, 39);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SPIDER_NET);
         this.CannotCritical = true;
         break;
 
       case Fix.BLOOD_MOSS:
       case Fix.BLOOD_MOSS_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(12, 10, 39, 12, 5, 5, 48, 42);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_POISON_KOKE);
         this.CannotCritical = true;
+        break;
+
+      case Fix.KILLER_BEE:
+      case Fix.KILLER_BEE_JP:
+        SetupParameter(33, 18, 25, 12, 5, 9, 51, 45);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        // this.CannotCritical = true;
+        break;
+
+      case Fix.WONDER_SEED:
+      case Fix.WONDER_SEED_JP:
+        SetupParameter(26, 12, 37, 15, 5, 2, 54, 47);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_FIRE_EMISSION);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DAUNTLESS_HORSE:
+      case Fix.DAUNTLESS_HORSE_JP:
+        SetupParameter(40, 15, 10, 20, 5, 1, 58, 52);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SUPER_TOSSHIN);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SCREAMING_RAFFLESIA:
+        SetupParameter(55, 20, 55, 150, 8, 0, 1000, 2000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_YOUEN_FIRE);
+        list.Add(Fix.COMMAND_BLAZE_DANCE);
+        list.Add(Fix.COMMAND_POISON_RINPUN);
+        this.CannotCritical = false;
         break;
 
       case Fix.WOOD_ELF:
@@ -153,18 +172,13 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
-      case Fix.DAUNTLESS_HORSE:
-      case Fix.DAUNTLESS_HORSE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.WONDER_SEED:
-      case Fix.WONDER_SEED_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
+      case Fix.MYSTIC_DRYAD:
+      case Fix.MYSTIC_DRYAD_JP:
+        SetupParameter(35, 10, 60, 20, 5, 0, 80, 50);
+        list.Add(Fix.COMMAND_POISON_RINPUN);
+        list.Add(Fix.COMMAND_YOUEN_FIRE);
+        list.Add(Fix.COMMAND_BLAZE_DANCE);
+        this.CannotCritical = false;
         break;
 
       case Fix.SHOTGUN_HYUUI:
@@ -288,13 +302,6 @@ public partial class Character : MonoBehaviour
 
       case Fix.MUDDLED_PLANT:
       case Fix.MUDDLED_PLANT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.KILLER_BEE:
-      case Fix.KILLER_BEE_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;

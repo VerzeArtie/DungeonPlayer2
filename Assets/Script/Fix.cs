@@ -848,6 +848,14 @@ public static partial class Fix
   public const string COMMAND_SUN_FIRE = "サン・ファイア";
   public const string COMMAND_TOSSHIN = "突進";
   public const string COMMAND_FEATHER_WING = "はばたき";
+  public const string COMMAND_DASH_KERI = "ダッシュ蹴り";
+  public const string COMMAND_SUITSUKU_TSUTA = "吸い付くツタ";
+  public const string COMMAND_SPIDER_NET = "スパイダー・ネット";
+  public const string COMMAND_POISON_KOKE = "毒ゴケ";
+  public const string COMMAND_CONTINUOUS_ATTACK = "連続攻撃";
+  public const string COMMAND_FIRE_EMISSION = "炎の放射";
+  public const string COMMAND_SUPER_TOSSHIN = "猛突進";
+
   public const string COMMAND_POISON_RINPUN = "毒の鱗粉";
   public const string COMMAND_YOUEN_FIRE = "妖艶なる炎";
   public const string COMMAND_BLAZE_DANCE = "ブレイズ・ダンス";
@@ -880,6 +888,7 @@ public static partial class Fix
   public const string EFFECT_SLEEP = "Sleep";
   public const string EFFECT_DIZZY = "Dizzy";
   public const string EFFECT_SILENT = "Silent";
+  public const string EFFECT_SLOW = "Slow";
   public const string EFFECT_GAUGE_BACK = "Gauge Back";
   public const string EFFECT_PD_DOWN = "PD Down";
 

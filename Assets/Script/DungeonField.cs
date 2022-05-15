@@ -6505,14 +6505,16 @@ public class DungeonField : MotherBase
               case 1:
                 One.BattleEnemyList.Add(Fix.GREEN_SLIME);
                 break;
+              default:
+                Debug.Log("rand_data default...AREA_1(1)");
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                break;
             }
           }
           else
           {
             Debug.Log("PlayerList level is greater than 2");
-            int rand_data = AP.Math.RandomInteger(4);
-            Debug.Log("rand_data is " + random);
-            switch (rand_data)
+            switch (AP.Math.RandomInteger(4))
             {
               case 0:
                 Debug.Log("rand_data 0");
@@ -6533,58 +6535,104 @@ public class DungeonField : MotherBase
                 One.BattleEnemyList.Add(Fix.MANDRAGORA);
                 break;
               default:
-                Debug.Log("rand_data default...");
+                Debug.Log("rand_data default...AREA_1(2)");
+                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
+                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
                 break;
             }
           }
         }
         else if (area_info == TileInformation.Area.AREA_2)
         {
-          switch (AP.Math.RandomInteger(4))
+          switch (AP.Math.RandomInteger(9))
           {
             case 0:
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              One.BattleEnemyList.Add(Fix.WILD_ANT);
+              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
               break;
             case 1:
               One.BattleEnemyList.Add(Fix.WILD_ANT);
-              One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
+              One.BattleEnemyList.Add(Fix.SILENT_LADYBUG);
               break;
             case 2:
               One.BattleEnemyList.Add(Fix.WILD_ANT);
-              One.BattleEnemyList.Add(Fix.MANDRAGORA);
+              One.BattleEnemyList.Add(Fix.NIMBLE_RABBIT);
               break;
             case 3:
+              One.BattleEnemyList.Add(Fix.SOLID_BEETLE);
+              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.SOLID_BEETLE);
+              One.BattleEnemyList.Add(Fix.SILENT_LADYBUG);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.SOLID_BEETLE);
+              One.BattleEnemyList.Add(Fix.NIMBLE_RABBIT);
+              break;
+            case 6:
               One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
-              One.BattleEnemyList.Add(Fix.GREEN_SLIME);
+              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
+              One.BattleEnemyList.Add(Fix.SILENT_LADYBUG);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
+              One.BattleEnemyList.Add(Fix.NIMBLE_RABBIT);
               break;
             default:
               Debug.Log("rand_data default...AREA_2");
+              One.BattleEnemyList.Add(Fix.WILD_ANT);
+              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
               break;
           }
         }
         else if (area_info == TileInformation.Area.AREA_3)
         {
-          switch (AP.Math.RandomInteger(4))
+          switch (AP.Math.RandomInteger(9))
           {
             case 0:
-              One.BattleEnemyList.Add(Fix.WILD_ANT);
-              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
+              One.BattleEnemyList.Add(Fix.ENTANGLED_VINE);
+              One.BattleEnemyList.Add(Fix.CREEPING_SPIDER);
               break;
             case 1:
-              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
-              One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
-              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+              One.BattleEnemyList.Add(Fix.ENTANGLED_VINE);
+              One.BattleEnemyList.Add(Fix.BLOOD_MOSS);
               break;
             case 2:
-              One.BattleEnemyList.Add(Fix.SOLID_BEETLE);
-              One.BattleEnemyList.Add(Fix.WILD_ANT);
-              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+              One.BattleEnemyList.Add(Fix.ENTANGLED_VINE);
+              One.BattleEnemyList.Add(Fix.KILLER_BEE);
               break;
             case 3:
-              One.BattleEnemyList.Add(Fix.SOLID_BEETLE);
-              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
-              One.BattleEnemyList.Add(Fix.SUN_FLOWER);
+              One.BattleEnemyList.Add(Fix.DAUNTLESS_HORSE);
+              One.BattleEnemyList.Add(Fix.CREEPING_SPIDER);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.DAUNTLESS_HORSE);
+              One.BattleEnemyList.Add(Fix.BLOOD_MOSS);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.DAUNTLESS_HORSE);
+              One.BattleEnemyList.Add(Fix.KILLER_BEE);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.WONDER_SEED);
+              One.BattleEnemyList.Add(Fix.CREEPING_SPIDER);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.WONDER_SEED);
+              One.BattleEnemyList.Add(Fix.BLOOD_MOSS);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.WONDER_SEED);
+              One.BattleEnemyList.Add(Fix.KILLER_BEE);
+              break;
+            default:
+              Debug.Log("rand_data default...AREA_3");
+              One.BattleEnemyList.Add(Fix.ENTANGLED_VINE);
+              One.BattleEnemyList.Add(Fix.CREEPING_SPIDER);
               break;
           }
         }
@@ -6606,7 +6654,7 @@ public class DungeonField : MotherBase
         Debug.Log("area_info is " + area_info);
         //if (area_info == TileInformation.Area.None) { return; }
 
-        if (area_info == TileInformation.Area.AREA_1|| area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(4);
@@ -6677,6 +6725,38 @@ public class DungeonField : MotherBase
           }
         }
         else if (area_info == TileInformation.Area.AREA_3)
+        {
+          Debug.Log("area_info is AREA_3");
+          int rand_data = AP.Math.RandomInteger(4);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.STONE_GOLEM);
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.SILENT_GARGOYLE);
+              One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_4)
         {
         }
         One.CannotRunAway = false;

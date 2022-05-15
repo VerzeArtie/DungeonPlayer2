@@ -688,6 +688,14 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SUN_FIRE) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_TOSSHIN) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_FEATHER_WING) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_DASH_KERI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SUITSUKU_TSUTA) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SPIDER_NET) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_POISON_KOKE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_CONTINUOUS_ATTACK) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_FIRE_EMISSION) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SUPER_TOSSHIN) { return TargetType.Enemy; }
+
     if (command_name == Fix.COMMAND_POISON_RINPUN) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_YOUEN_FIRE) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_BLAZE_DANCE) { return TargetType.Enemy; }
@@ -782,6 +790,13 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SUN_FIRE) { return 0; }
     if (command_name == Fix.COMMAND_TOSSHIN) { return 0; }
     if (command_name == Fix.COMMAND_FEATHER_WING) { return 0; }
+    if (command_name == Fix.COMMAND_DASH_KERI) { return 0; }
+    if (command_name == Fix.COMMAND_SUITSUKU_TSUTA) { return 0; }
+    if (command_name == Fix.COMMAND_SPIDER_NET) { return 0; }
+    if (command_name == Fix.COMMAND_POISON_KOKE) { return 0; }
+    if (command_name == Fix.COMMAND_CONTINUOUS_ATTACK) { return 0; }
+    if (command_name == Fix.COMMAND_FIRE_EMISSION) { return 0; }
+    if (command_name == Fix.COMMAND_SUPER_TOSSHIN) { return 0; }
     if (command_name == Fix.COMMAND_POISON_RINPUN) { return 0; }
     if (command_name == Fix.COMMAND_YOUEN_FIRE) { return 0; }
     if (command_name == Fix.COMMAND_BLAZE_DANCE) { return 0; }
