@@ -960,6 +960,20 @@ public partial class Character : MonoBehaviour
     get { return _AvailableDarkMagic; }
   }
 
+  [SerializeField] protected bool _AvailableWind = false;
+  public bool AvailableWind
+  {
+    set { _AvailableWind = value; }
+    get { return _AvailableWind; }
+  }
+
+  [SerializeField] protected bool _AvailableEarth = false;
+  public bool AvailableEarth
+  {
+    set { _AvailableEarth = value; }
+    get { return _AvailableEarth; }
+  }
+
   [SerializeField] protected bool _AvailableSwordman = false;
   public bool AvailableSwordman
   {
@@ -988,6 +1002,20 @@ public partial class Character : MonoBehaviour
     get { return _AvailableRogue; }
   }
 
+  [SerializeField] protected bool _AvailableMartialArts = false;
+  public bool AvailableMartialArts
+  {
+    set { _AvailableMartialArts = value; }
+    get { return _AvailableMartialArts; }
+  }
+
+  [SerializeField] protected bool _AvailableWonderHermit = false;
+  public bool AvailableWonderHermit
+  {
+    set { _AvailableWonderHermit = value; }
+    get { return _AvailableWonderHermit; }
+  }
+
   [SerializeField] protected bool _AvailableEnhanceForm = false;
   public bool AvailableEnhanceForm
   {
@@ -1014,6 +1042,20 @@ public partial class Character : MonoBehaviour
   {
     set { _AvailableMindfulness = value; }
     get { return _AvailableMindfulness; }
+  }
+
+  [SerializeField] protected bool _AvailableTruth = false;
+  public bool AvailableTruth
+  {
+    set { _AvailableTruth = value; }
+    get { return _AvailableTruth; }
+  }
+
+  [SerializeField] protected bool _AvailableVengeance = false;
+  public bool AvailableVengeance
+  {
+    set { _AvailableVengeance = value; }
+    get { return _AvailableVengeance; }
   }
 
   // Delve I

@@ -44,7 +44,7 @@ public partial class Character : MonoBehaviour
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Armorer;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
@@ -61,28 +61,28 @@ public partial class Character : MonoBehaviour
 
       case Fix.NAME_LANA_AMIRIA:
         this.Level = 1;
-        this.Strength = 4;
+        this.Strength = 3;
         this.Agility = 5;
-        this.Intelligence = 3;
+        this.Intelligence = 4;
         this.Stamina = 2;
         this.Mind = 3;
         this.BaseLife = 25;
         this.BaseSoulPoint = 15;
-        this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Ice;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
+        this.Job = Fix.JobClass.Magician;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
+        this.SecondCommandAttribute = Fix.CommandAttribute.DarkMagic;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.MysticForm;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
-        this.MainWeapon = new Item(Fix.PRACTICE_CLAW);
-        this.MainArmor = new Item(Fix.BEGINNER_CROSS);
+        this.MainWeapon = new Item(Fix.PRACTICE_ORB);
+        this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableIce = true;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.LegStrike = 1;
+        this.IceNeedle = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
-        this.ActionCommandMain = Fix.NORMAL_ATTACK;
-        this.ActionCommand1 = Fix.LEG_STRIKE;
+        this.ActionCommandMain = Fix.MAGIC_ATTACK;
+        this.ActionCommand1 = Fix.ICE_NEEDLE;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -104,9 +104,10 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
-        this.DivineCircle = 1;
         this.AvailableArcher = true;
         this.HunterShot = 1;
+        this.AvailableEnhanceForm = true;
+        this.AuraOfPower = 1;
         this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.FRESH_HEAL;
@@ -114,7 +115,7 @@ public partial class Character : MonoBehaviour
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.FRESH_HEAL;
         this.ActionCommand2 = Fix.HUNTER_SHOT;
-        this.ActionCommand3 = Fix.DIVINE_CIRCLE;
+        this.ActionCommand3 = Fix.AURA_OF_POWER;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -549,21 +550,63 @@ public partial class Character : MonoBehaviour
   {
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
-      if (Level == 2) { return Fix.FIRE_BALL; }
-      if (Level == 4) { return Fix.STANCE_OF_THE_BLADE; }
-      if (Level == 6) { return Fix.FLAME_BLADE; }
+      // if (Level == 1) { return Fix.STRAIGHT_SMASH; }
+      if (Level == 2) { return Fix.SHIELD_BASH; }
+      if (Level == 4) { return Fix.TRUE_SIGHT; }
+      if (Level == 7) { return Fix.STANCE_OF_THE_BLADE; }
+      if (Level == 10) { return Fix.STANCE_OF_THE_GUARD; }
+      if (Level == 15) { return Fix.LAYLINE_SCHEMA; }
+      if (Level == 20) { return Fix.DOUBLE_SLASH; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
-      if (Level == 2) { return Fix.ICE_NEEDLE; }
-      if (Level == 4) { return Fix.SPEED_STEP; }
-      if (Level == 6) { return Fix.PURE_PURIFICATION; }
+      // if (Level == 1) { return Fix.ICE_NEEDLE; }
+      if (Level == 2) { return Fix.SHADOW_BLAST; }
+      if (Level == 4) { return Fix.DISPEL_MAGIC; }
+      if (Level == 7) { return Fix.PURE_PURIFICATION; }
+      if (Level >= 10) { return Fix.BLOOD_SIGN; }
+      if (Level == 15) { return Fix.FLASH_COUNTER; }
+      if (Level == 20) { return Fix.BLUE_BULLET; }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
+      // if (Level == 1) { return Fix.FRESH_HEAL; }
       if (Level == 2) { return Fix.HUNTER_SHOT; }
-      if (Level == 4) { return Fix.DIVINE_CIRCLE; }
-      if (Level == 6) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 4) { return Fix.AURA_OF_POWER; }
+      if (Level == 7) { return Fix.DIVINE_CIRCLE; }
+      if (Level == 10) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 15) { return Fix.SKY_SHIELD; }
+      if (Level == 20) { return Fix.HOLY_BREATH; }
+    }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      // if (Level == 1) { return Fix.LEG_STRIKE; }
+      if (Level == 2) { return Fix.FIRE_BALL; }
+      if (Level == 4) { return Fix.HEART_OF_LIFE; }
+      if (Level == 7) { return Fix.SPEED_STEP; }
+      if (Level == 10) { return Fix.FLAME_BLADE; }
+      if (Level == 15) { return Fix.FORTUNE_SPIRIT; }
+      if (Level == 20) { return Fix.BONE_CRUSH; }
+    }
+    if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+      // if (Level == 1) { return Fix.ENERGY_BOLT; }
+      if (Level == 2) { return Fix.ROCK_SLAM; }
+      if (Level == 4) { return Fix.ORACLE_COMMAND; }
+      if (Level == 7) { return Fix.IDEOLOGY_OF_SOPHISTICATION; }
+      if (Level == 10) { return Fix.SOLID_WALL; }
+      if (Level == 15) { return Fix.SPIRITUAL_REST; }
+      if (Level == 20) { return Fix.SIGIL_OF_THE_PENDING; }
+    }
+    if (this.FullName == Fix.NAME_SELMOI_RO)
+    {
+      // if (Level == 1) { return Fix.VENOM_SLASH; }
+      if (Level == 2) { return Fix.AIR_CUTTER; }
+      if (Level == 4) { return Fix.DARK_AURA; }
+      if (Level == 7) { return Fix.INVISIBLE_BIND; }
+      if (Level == 10) { return Fix.STORM_ARMOR; }
+      if (Level == 15) { return Fix.STANCE_OF_THE_SHADE; }
+      if (Level == 20) { return Fix.IRREGULAR_STEP; }
     }
     return String.Empty;
   }
@@ -591,38 +634,70 @@ public partial class Character : MonoBehaviour
     {
       if (this.Level == 2)
       {
-        this.AvailableFire = true;
-        this.FireBall++;
-        ApplyNewCommand(Fix.FIRE_BALL);
+        this.AvailableArmorer = true;
+        this.ShieldBash++;
+        ApplyNewCommand(Fix.SHIELD_BASH);
       }
       if (this.Level == 4)
+      {
+        this.AvailableTruth = true;
+        this.TrueSight++;
+        ApplyNewCommand(Fix.TRUE_SIGHT);
+      }
+      if (this.Level == 7)
       {
         this.StanceOfTheBlade++;
         ApplyNewCommand(Fix.STANCE_OF_THE_BLADE);
       }
-      if (this.Level == 6)
+      if (this.Level == 10)
       {
-        this.FlameBlade++;
-        ApplyNewCommand(Fix.FLAME_BLADE);
+        this.StanceOfTheGuard++;
+        ApplyNewCommand(Fix.STANCE_OF_THE_GUARD);
+      }
+      if (this.Level == 15)
+      {
+        this.LaylineSchema++;
+        ApplyNewCommand(Fix.LAYLINE_SCHEMA);
+      }
+      if (this.Level == 20)
+      {
+        this.DoubleSlash++;
+        ApplyNewCommand(Fix.DOUBLE_SLASH);
       }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       if (this.Level == 2)
       {
-        this.AvailableIce = true;
-        this.IceNeedle++;
-        ApplyNewCommand(Fix.ICE_NEEDLE);
+        this.AvailableDarkMagic = true;
+        this.ShadowBlast++;
+        ApplyNewCommand(Fix.SHADOW_BLAST);
       }
       if (this.Level == 4)
       {
-        this.SpeedStep++;
-        ApplyNewCommand(Fix.SPEED_STEP);
+        this.AvailableMysticForm = true;
+        this.DispelMagic++;
+        ApplyNewCommand(Fix.DISPEL_MAGIC);
       }
-      if (this.Level == 6)
+      if (this.Level == 7)
       {
         this.PurePurification++;
         ApplyNewCommand(Fix.PURE_PURIFICATION);
+      }
+      if (this.Level == 10)
+      {
+        this.BloodSign++;
+        ApplyNewCommand(Fix.BLOOD_SIGN);
+      }
+      if (this.Level == 15)
+      {
+        this.FlashCounter++;
+        ApplyNewCommand(Fix.FLASH_COUNTER);
+      }
+      if (this.Level == 20)
+      {
+        this.BlueBullet++;
+        ApplyNewCommand(Fix.BLUE_BULLET);
       }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
@@ -635,13 +710,29 @@ public partial class Character : MonoBehaviour
       }
       if (this.Level == 4)
       {
+        this.AvailableEnhanceForm = true;
+        this.AuraOfPower++;
+        ApplyNewCommand(Fix.AURA_OF_POWER);
+      }
+      if (this.Level == 7)
+      {
         this.DivineCircle++;
         ApplyNewCommand(Fix.DIVINE_CIRCLE);
       }
-      if (this.Level == 6)
+      if (this.Level == 10)
       {
         this.MultipleShot++;
         ApplyNewCommand(Fix.MULTIPLE_SHOT);
+      }
+      if (this.Level == 15)
+      {
+        this.SkyShield++;
+        ApplyNewCommand(Fix.SKY_SHIELD);
+      }
+      if (this.Level == 20)
+      {
+        this.HolyBreath++;
+        ApplyNewCommand(Fix.HOLY_BREATH);
       }
     }
   }
