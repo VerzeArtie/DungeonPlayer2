@@ -1180,6 +1180,11 @@ public partial class BattleEnemy : MotherBase
     {
       ExecSlipDamage(player, player.IsBloodSign.EffectValue);
     }
+    // スリップによる効果
+    if (player.IsSlip && (command_name != Fix.STAY && command_name != Fix.DEFENSE))
+    {
+      ExecSlipDamage(player, player.IsSlip.EffectValue);
+    }
 
     CriticalType critical = CriticalType.Random;
     BuffImage fortune = player.IsFortuneSpirit;
@@ -1538,7 +1543,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_GAREKI_TSUBUTE:
-        ExecNormalAttack(player, target, 1.30f, CriticalType.None);
+        ExecNormalAttack(player, target, 0.80f, CriticalType.None);
         ExecBuffStun(player, target, 1, 0);
         break;
 
@@ -1547,15 +1552,35 @@ public partial class BattleEnemy : MotherBase
         ExecBuffSilent(player, target, 2, 0);
         break;
 
-      case Fix.COMMAND_MIRROR_SHIELD:
-        // todo
-        break;
-
       case Fix.COMMAND_MIDARE_GIRI:
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
           ExecNormalAttack(player, target_list[jj], 0.9f, critical);
+        }
+        break;
+
+      case Fix.COMMAND_STINKY_BREATH:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          rand = AP.Math.RandomInteger(100);
+          if (rand >= 50)
+          {
+            ExecBuffBind(player, target_list[jj], 2, 0);
+          }
+          else
+          {
+            StartAnimation(target_list[jj].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_MIRROR_SHIELD:
+        target_list = GetAllyGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecBuffMagicDefenceUp(player, target_list[jj], 5, 1.25f);
         }
         break;
 
@@ -1573,9 +1598,132 @@ public partial class BattleEnemy : MotherBase
         ExecBuffPoison(player, target, 3, 33);
         break;
 
+      case Fix.COMMAND_CHARGE_LANCE:
+        ExecNormalAttack(player, target, 1.0f, CriticalType.Absolute);
+        break;
+
       case Fix.COMMAND_SPIKE_SHOT:
-        ExecNormalAttack(player, target, 1.5f, critical);
+        ExecNormalAttack(player, target, 1.4f, critical);
         ExecBuffStun(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_JUBAKU_ON:
+        ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, CriticalType.None);
+        ExecBuffPhysicalDefenseDown(player, target, 5, 0.75f);
+        break;
+
+      case Fix.COMMAND_ZINARI:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecNormalAttack(player, target_list[jj], 0.7f, CriticalType.None);
+        }
+        break;
+
+      case Fix.COMMAND_BOUHATSU:
+        ExecNormalAttack(player, player, 2.0f, CriticalType.None);
+        ExecNormalAttack(player, target, 2.0f, CriticalType.None);
+        break;
+
+      case Fix.COMMAND_THUNDER_CLOUD:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, CriticalType.None);
+        }
+        break;
+
+      case Fix.COMMAND_SURUDOI_HIKKAKI:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecNormalAttack(player, target_list[jj], 0.8f, CriticalType.None);
+
+          rand = AP.Math.RandomInteger(100);
+          if (rand >= 60)
+          {
+            ExecBuffSilent(player, target_list[jj], 2, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_HAGESHII_KAMITSUKI:
+        ExecNormalAttack(player, target, 0.8f, CriticalType.None);
+        ExecBuffSlip(player, target, 3, 25);
+        break;
+
+      case Fix.COMMAND_BOLT_FRAME:
+        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, CriticalType.None);
+        ExecBuffPhysicalAttackDown(player, target, 3, 0.75f);
+        break;
+
+      case Fix.COMMAND_BOOOOMB:
+        if (player.CurrentLife <= 1)
+        {
+          ApplyDamage(player, player, player.CurrentLife, false, MAX_ANIMATION_TIME);
+        }
+        else
+        {
+          ApplyDamage(player, player, player.CurrentLife - 1, false, MAX_ANIMATION_TIME);
+        }
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, CriticalType.None);
+        }
+        break;
+
+      case Fix.COMMAND_STONE_RAIN:
+        for (int jj = 0; jj < 3; jj++)
+        {
+          rand = AP.Math.RandomInteger(PlayerList.Count);
+          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, CriticalType.None);
+        }
+        break;
+
+      case Fix.COMMAND_TARGETTING_SHOT:
+        ExecNormalAttack(player, target, 1.0f, critical);
+        ExecBuffMagicDefenceDown(player, target, 3, 0.75f);
+        break;
+
+      case Fix.COMMAND_POWERED_ATTACK:
+        rand = AP.Math.RandomInteger(5);
+        if (rand == 0)
+        {
+          StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        }
+        else
+        {
+          ExecNormalAttack(player, target, 0.5f + (0.5f * rand), critical);
+        }
+        break;
+
+      case Fix.COMMAND_SUSPICIOUS_VIAL:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          rand = AP.Math.RandomInteger(5);
+          if (rand == 0)
+          {
+            ExecBuffDizzy(player, target_list[jj], 2, 30.0f);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffSilent(player, target_list[jj], 2, 0);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffSlow(player, target_list[jj], 2, 0.5f);
+          }
+          else if (rand == 3)
+          {
+            ExecBuffStun(player, target_list[jj], 1, 0);
+          }
+          else
+          {
+            ExecBuffSleep(player, target_list[jj], 1, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_SPAAAARK:

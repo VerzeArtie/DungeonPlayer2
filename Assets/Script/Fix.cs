@@ -865,12 +865,25 @@ public static partial class Fix
   public const string COMMAND_GAREKI_TSUBUTE = "ガレキの飛礫";
   public const string COMMAND_SHADOW_SPEAR = "シャドウ・スピア";
   public const string COMMAND_MIDARE_GIRI = "乱れ斬り";
+  public const string COMMAND_STINKY_BREATH = "くさい吐息";
   public const string COMMAND_MIRROR_SHIELD = "ミラー・シールド";
   public const string COMMAND_HAND_CANNON = "ハンド・キャノン";
   public const string COMMAND_SAIMIN_DANCE = "催眠ダンス";
   public const string COMMAND_POISON_NEEDLE = "毒針";
+  public const string COMMAND_CHARGE_LANCE = "チャージ・ランス";
   public const string COMMAND_SPIKE_SHOT = "スパイク・ショット";
+  public const string COMMAND_JUBAKU_ON = "呪縛の怨";
+  public const string COMMAND_ZINARI = "地鳴り";
+  public const string COMMAND_BOUHATSU = "暴発";
   public const string COMMAND_THUNDER_CLOUD = "サンダー・クラウド";
+  public const string COMMAND_SURUDOI_HIKKAKI = "するどい引掻き";
+  public const string COMMAND_HAGESHII_KAMITSUKI = "はげしい噛みつき";
+  public const string COMMAND_BOLT_FRAME = "ボルト・フレイム";
+  public const string COMMAND_BOOOOMB = "ボム投下";
+  public const string COMMAND_STONE_RAIN = "石の雨";
+  public const string COMMAND_TARGETTING_SHOT = "狙い撃ち";
+  public const string COMMAND_POWERED_ATTACK = "強襲";
+  public const string COMMAND_SUSPICIOUS_VIAL = "怪しい薬瓶";
   public const string COMMAND_SPAAAARK = "SPAAAARK!!";
   public const string COMMAND_SUPER_RANDOM_CANNON = "超ランダム乱射";
   public const string COMMAND_ELECTRO_RAILGUN = "電導レールガン";
@@ -890,7 +903,21 @@ public static partial class Fix
   public const string EFFECT_SILENT = "Silent";
   public const string EFFECT_SLOW = "Slow";
   public const string EFFECT_GAUGE_BACK = "Gauge Back";
+
+  public const string EFFECT_PA_UP = "PA Up";
+  public const string EFFECT_PA_DOWN = "PA Down";
+  public const string EFFECT_PD_UP = "PD Up";
   public const string EFFECT_PD_DOWN = "PD Down";
+  public const string EFFECT_MA_UP = "MA Up";
+  public const string EFFECT_MA_DOWN = "MA Down";
+  public const string EFFECT_MD_UP = "MD Up";
+  public const string EFFECT_MD_DOWN = "MD Down";
+  public const string EFFECT_BS_UP = "BS Up";
+  public const string EFFECT_BS_DOWN = "BS Down";
+  public const string EFFECT_BR_UP = "BR Up";
+  public const string EFFECT_BR_DOWN = "BR Down";
+  public const string EFFECT_PO_UP = "PO Up";
+  public const string EFFECT_PO_DOWN = "PO Down";
 
   public const string EFFECT_POWERUP_FIRE = "UP Fire";
   public const string EFFECT_POWERUP_ICE = "UP Ice";
@@ -901,7 +928,20 @@ public static partial class Fix
   public const string EFFECT_RESIST_STUN = "Stun耐性";
   public const string EFFECT_REMOVE_STUN = "Stun除去";
 
-  public const string BUFF_PD_DOWN = "PhysicalDefenseDown";
+  public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
+  public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
+  public const string BUFF_PD_UP = "BuffPhysicalDefenseUp";
+  public const string BUFF_PD_DOWN = "BuffPhysicalDefenseDown";
+  public const string BUFF_MA_UP = "BuffMagicAttackUp";
+  public const string BUFF_MA_DOWN = "BuffMagicAttackDown";
+  public const string BUFF_MD_UP = "BuffMagicDefenseUp";
+  public const string BUFF_MD_DOWN = "BuffMagicDefenseDown";
+  public const string BUFF_BS_UP = "BuffBattleSpeedUp";
+  public const string BUFF_BS_DOWN = "BuffBattleSpeedDown";
+  public const string BUFF_BR_UP = "BuffBattleResponseUp";
+  public const string BUFF_BR_DOWN = "BuffBattleResponseDown";
+  public const string BUFF_PO_UP = "BuffPotentialUp";
+  public const string BUFF_PO_DOWN = "BuffPotentialDown";
 
   public const string BUFF_REMOVE_ALL = "BUFF全除去";
   #endregion

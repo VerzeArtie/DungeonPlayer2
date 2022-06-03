@@ -3099,7 +3099,7 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     int counter = 0;
-    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (One.TF.AvailableFazilCastle) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
     if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_CAVEOFSARUN, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }

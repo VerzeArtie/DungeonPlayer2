@@ -134,7 +134,7 @@ public partial class Character : MonoBehaviour
 
     // コマンド名によってターゲット選定を設定する。
     // ランダムで対象を指定
-    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT)
+    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT)
     {
       int rand = AP.Math.RandomInteger(opponent_group.Count);
       this.Target = opponent_group[rand];

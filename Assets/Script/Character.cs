@@ -1921,6 +1921,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_DIZZY); }
   }
 
+  public BuffImage IsSlip
+  {
+    get {return SearchBuff(Fix.EFFECT_SLIP); }
+  }
+
   public BuffImage IsSkyShield
   {
     get { return SearchBuff(Fix.SKY_SHIELD); }
@@ -2026,9 +2031,67 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_POWERUP_SHADOW); }
   }
 
+  public BuffImage IsPhysicalAttackUp
+  {
+    get { return SearchBuff(Fix.BUFF_PA_UP); }
+  }
+  public BuffImage IsPhysicalAttackDown
+  {
+    get { return SearchBuff(Fix.BUFF_PA_DOWN); }
+  }
+
+  public BuffImage IsPhysicalDefenseUp
+  {
+    get { return SearchBuff(Fix.BUFF_PD_UP); }
+  }
   public BuffImage IsPhysicalDefenseDown
   {
     get { return SearchBuff(Fix.BUFF_PD_DOWN); }
+  }
+
+  public BuffImage IsMagicAttackUp
+  {
+    get { return SearchBuff(Fix.BUFF_MA_UP); }
+  }
+  public BuffImage IsMagicAttackDown
+  {
+    get { return SearchBuff(Fix.BUFF_MA_DOWN); }
+  }
+
+  public BuffImage IsMagicDefenseUp
+  {
+    get { return SearchBuff(Fix.BUFF_MD_UP); }
+  }
+  public BuffImage IsMagicDefenseDown
+  {
+    get { return SearchBuff(Fix.BUFF_MD_DOWN); }
+  }
+
+  public BuffImage IsBattleSpeedUp
+  {
+    get { return SearchBuff(Fix.BUFF_BS_UP); }
+  }
+  public BuffImage IsBattleSpeedDown
+  {
+    get { return SearchBuff(Fix.BUFF_BS_DOWN); }
+  }
+
+  public BuffImage IsBattleReponseUp
+  {
+    get { return SearchBuff(Fix.BUFF_BR_UP); }
+  }
+  public BuffImage IsBattleResponseDown
+  {
+    get { return SearchBuff(Fix.BUFF_BR_DOWN); }
+  }
+
+  public BuffImage IsPotentialUp
+  {
+    get { return SearchBuff(Fix.BUFF_PO_UP); }
+  }
+  public BuffImage IsPotentialDown
+  {
+    get { return SearchBuff(Fix.BUFF_PO_DOWN); }
   }
 
   public void RemoveStun()

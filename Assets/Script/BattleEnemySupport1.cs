@@ -100,7 +100,8 @@ public partial class BattleEnemy : MotherBase
     }
 
     // 攻撃コマンドのダメージを算出
-    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical);
+    bool resultCritical = false;
+    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
     BuffField panelField = GetPanelFieldFromPlayer(target);
@@ -121,13 +122,14 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
-    ApplyDamage(player, target, damageValue, animation_speed);
+    ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
     if (player.IsFlameBlade && player.Dead == false)
     {
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, critical);
-      ApplyDamage(player, target, addDamageValue, animation_speed);
+      bool resultCritical2 = false;
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, critical, ref resultCritical2);
+      ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
     }
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
     if (stanceOfTheBlade != null)
@@ -171,7 +173,8 @@ public partial class BattleEnemy : MotherBase
     }
 
     // 攻撃コマンドのダメージを算出
-    double damageValue = MagicDamageLogic(player, target, magnify, attr, critical);
+    bool resultCritical = false;
+    double damageValue = MagicDamageLogic(player, target, magnify, attr, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
     BuffField panelField = GetPanelFieldFromPlayer(target);
@@ -192,13 +195,14 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ダメージ適用
-    ApplyDamage(player, target, damageValue, animation_speed);
+    ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
     if (player.IsStormArmor && player.Dead == false)
     {
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Colorless, critical); // todo 電撃がColorlessで良いのかどうか。
-      ApplyDamage(player, target, addDamageValue, animation_speed);
+      bool resultCritical2 = false;
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, critical, ref resultCritical2);
+      ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
     if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
@@ -563,7 +567,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), critical);
     if (success)
     {
-      ExecBuffPhysicalDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
+      ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
     }
   }
 
@@ -756,10 +760,93 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
   }
 
-  private void ExecBuffPhysicalDown(Character player, Character target, int turn, double effect_value)
+  private void ExecBuffSlip(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLIP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLIP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffPhysicalAttackUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PA_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PA_UP, Fix.COLOR_NORMAL);
+  }
+  private void ExecBuffPhysicalAttackDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PA_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PA_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffPhysicalDefenseUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PD_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffPhysicalDefenseDown(Character player, Character target, int turn, double effect_value)
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PD_DOWN, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffMagicAttackUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MA_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MA_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffMagicAttackDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MA_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MA_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffMagicDefenceUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MD_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MD_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffMagicDefenceDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MD_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MD_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattleSpeedUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BS_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BS_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattleSpeedDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BS_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BS_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattleResponseUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BR_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BR_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattleResponseDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BR_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BR_DOWN, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattlePotentialUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PO_UP, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PO_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBattlePotentialDown(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PO_DOWN, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PO_DOWN, Fix.COLOR_NORMAL);
   }
 
   private void BuffUpFire(Character player, Character target, int turn, double effect_value)
@@ -769,7 +856,7 @@ public partial class BattleEnemy : MotherBase
   }
 
   #region "General"
-  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
+  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, ref bool result_critical)
   {
     // 攻撃コマンドのダメージを算出
     double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
@@ -779,16 +866,24 @@ public partial class BattleEnemy : MotherBase
     // Buff効果による増強（物理属性専用UPは現時点では存在しない）
 
     // クリティカル判定
+    result_critical = false;
     if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
+        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
        )
     {
-      if (critical == CriticalType.Absolute) { Debug.Log("PhysicalDamageLogic detect Critical! (Absolute)"); }
-      if (critical == CriticalType.Random) { Debug.Log("PhysicalDamageLogic detect Critical! (Random)"); }
       damageValue *= SecondaryLogic.CriticalFactor(player);
       debug1 = damageValue;
-      Debug.Log("PrimaryLogic.PhysicalAttack(Critical): " + debug1.ToString());
+      result_critical = true;
+      Debug.Log("PhysicalDamageLogic detect Critical! (Random) " + damageValue.ToString());
     }
+    if (critical == CriticalType.Absolute)
+    {
+      damageValue *= SecondaryLogic.CriticalFactor(player);
+      debug1 = damageValue;
+      result_critical = true;
+      Debug.Log("PhysicalDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
+    }
+
 
     // ターゲットの物理防御を差し引く
     double defenseValue = PrimaryLogic.PhysicalDefense(target);
@@ -821,7 +916,7 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical)
+  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, ref bool result_critical)
   {
     // 魔法コマンドのダメージを算出
     double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
@@ -858,13 +953,20 @@ public partial class BattleEnemy : MotherBase
     }
 
     // クリティカル判定
+    result_critical = false;
     if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5) || (critical == CriticalType.Absolute))
+        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
        )
     {
-      if (critical == CriticalType.Absolute) { Debug.Log("MagicDamageLogic detect Critical! (Absolute)"); }
-      if (critical == CriticalType.Random) { Debug.Log("MagicDamageLogic detect Critical! (Random)"); }
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      result_critical = true;
+      Debug.Log("MagicDamageLogic detect Critical! (Random) " + damageValue.ToString());
+    }
+    if (critical == CriticalType.Absolute)
+    {
+      damageValue *= SecondaryLogic.CriticalFactor(player);
+      result_critical = true;
+      Debug.Log("MagicDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
     }
 
     // 属性耐性の分だけ、減衰させる。
@@ -933,7 +1035,7 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private void ApplyDamage(Character player, Character target, double damageValue, int animation_speed)
+  private void ApplyDamage(Character player, Character target, double damageValue, bool critical, int animation_speed)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -943,7 +1045,14 @@ public partial class BattleEnemy : MotherBase
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
     target.txtLife.text = target.CurrentLife.ToString();
-    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed);
+    if (critical)
+    {
+      StartAnimation(target.objGroup.gameObject, result.ToString() + "\r\n Critial", Fix.COLOR_NORMAL, animation_speed);
+    }
+    else
+    {
+      StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed);
+    }
   }
 
   private bool AbstractHealCommand(Character player, Character target, double healValue)

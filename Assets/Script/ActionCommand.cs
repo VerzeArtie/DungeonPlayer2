@@ -715,6 +715,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return TargetType.Enemy; }
 
+    if (command_name == Fix.COMMAND_STINKY_BREATH) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_CHARGE_LANCE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_JUBAKU_ON) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_ZINARI) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_BOUHATSU) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SURUDOI_HIKKAKI) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_HAGESHII_KAMITSUKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_BOLT_FRAME) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_BOOOOMB) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_STONE_RAIN) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_TARGETTING_SHOT) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_POWERED_ATTACK) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return TargetType.EnemyGroup; }
+
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
@@ -815,6 +829,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SPAAAARK) { return 0; }
     if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return 0; }
     if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return 0; }
+
+    if (command_name == Fix.COMMAND_STINKY_BREATH) { return 0; }
+    if (command_name == Fix.COMMAND_CHARGE_LANCE) { return 0; }
+    if (command_name == Fix.COMMAND_JUBAKU_ON) { return 0; }
+    if (command_name == Fix.COMMAND_ZINARI) { return 0; }
+    if (command_name == Fix.COMMAND_BOUHATSU) { return 0; }
+    if (command_name == Fix.COMMAND_SURUDOI_HIKKAKI) { return 0; }
+    if (command_name == Fix.COMMAND_HAGESHII_KAMITSUKI) { return 0; }
+    if (command_name == Fix.COMMAND_BOLT_FRAME) { return 0; }
+    if (command_name == Fix.COMMAND_BOOOOMB) { return 0; }
+    if (command_name == Fix.COMMAND_STONE_RAIN) { return 0; }
+    if (command_name == Fix.COMMAND_TARGETTING_SHOT) { return 0; }
+    if (command_name == Fix.COMMAND_POWERED_ATTACK) { return 0; }
+    if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return 0; }
 
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }

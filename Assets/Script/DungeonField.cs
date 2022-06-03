@@ -6495,7 +6495,7 @@ public class DungeonField : MotherBase
         if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
-          if (PlayerList[0].Level <= 2)
+          if (PlayerList[0].Level < 2)
           {
             switch (AP.Math.RandomInteger(2))
             {

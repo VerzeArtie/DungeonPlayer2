@@ -106,6 +106,15 @@ public static class PrimaryLogic
       result = result * (1.00f + (player.IsStanceOfTheBlade.EffectValue * stanceOfTheBlade.Cumulative));
     }
 
+    if (player.IsPhysicalAttackUp)
+    {
+      result = result * player.IsPhysicalAttackUp.EffectValue;
+    }
+    if (player.IsPhysicalAttackDown)
+    {
+      result = result * player.IsPhysicalAttackDown.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -141,6 +150,15 @@ public static class PrimaryLogic
       result = result * (1.00f + player.IsStanceOfTheGuard.EffectValue * stanceOfTheShield.Cumulative);
     }
 
+    if (player.IsPhysicalDefenseUp)
+    {
+      result = result * player.IsPhysicalDefenseUp.EffectValue;
+    }
+    if (player.IsPhysicalDefenseDown)
+    {
+      result = result * player.IsPhysicalDefenseDown.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -169,6 +187,15 @@ public static class PrimaryLogic
 
     double result = CoreDamage(player, value_type, min, max);
 
+    if (player.IsMagicAttackUp)
+    {
+      result = result * player.IsMagicAttackUp.EffectValue;
+    }
+    if (player.IsMagicAttackDown)
+    {
+      result = result * player.IsMagicAttackDown.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -193,6 +220,15 @@ public static class PrimaryLogic
     if (player.IsShadowBlast)
     {
       result *= player.IsShadowBlast.EffectValue;
+    }
+
+    if (player.IsMagicDefenseUp)
+    {
+      result = result * player.IsMagicDefenseUp.EffectValue;
+    }
+    if (player.IsMagicDefenseDown)
+    {
+      result = result * player.IsMagicDefenseDown.EffectValue;
     }
 
     if (result <= 0.0f) { result = 0.0f; }
@@ -245,6 +281,15 @@ public static class PrimaryLogic
       result *= player.IsSlow.EffectValue;
     }
 
+    if (player.IsBattleSpeedUp)
+    {
+      result = result * player.IsBattleSpeedUp.EffectValue;
+    }
+    if (player.IsBattleSpeedDown)
+    {
+      result = result * player.IsBattleSpeedDown.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -262,6 +307,15 @@ public static class PrimaryLogic
     result += (player.Accessory2?.BattleResponse ?? 0);
     result += (player.Artifact?.BattleResponse ?? 0);
 
+    if (player.IsBattleReponseUp)
+    {
+      result = result * player.IsBattleReponseUp.EffectValue;
+    }
+    if (player.IsBattleResponseDown)
+    {
+      result = result * player.IsBattleResponseDown.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -278,6 +332,15 @@ public static class PrimaryLogic
     result += (player.Accessory1?.Potential ?? 0);
     result += (player.Accessory2?.Potential ?? 0);
     result += (player.Artifact?.Potential ?? 0);
+
+    if (player.IsPotentialUp)
+    {
+      result = result * player.IsPotentialUp.EffectValue;
+    }
+    if (player.IsPotentialDown)
+    {
+      result = result * player.IsPotentialDown.EffectValue;
+    }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;

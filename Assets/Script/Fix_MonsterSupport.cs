@@ -202,6 +202,16 @@ public static partial class Fix
   public const string STONE_GOLEM_JP = "ストーン ゴーレム";
   public const string DEATH_DRONE = "Death Drone";
   public const string DEATH_DRONE_JP = "デス ドローン";
+  public const string STINKY_BAT = "Stinky Bat";
+  public const string STINKY_BAT_JP = "泥臭いコウモリ";
+  public const string CULT_BLACK_MAGICIAN_JP = "教団の闇術師";
+  public const string CULT_BLACK_MAGICIAN = "Cult Black Magician";
+  public const string GATE_HOUND = "Gate Hound";
+  public const string GATE_HOUND_JP = "門番犬";
+  public const string PLAY_FIRE_IMP_JP = "炎遊びのインプ";
+  public const string PLAY_FIRE_IMP = "Play-Fire Imp";
+  public const string EARTH_ELEMENTAL = "Earth Elemental";
+  public const string EARTH_ELEMENTAL_JP = "アース・エレメンタル";
   public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
   public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";

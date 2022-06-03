@@ -14,6 +14,7 @@ public partial class Character : MonoBehaviour
     List<string> list = new List<string>();
     switch (character_name)
     {
+      #region "サルン洞窟前草原区域"
       case Fix.TINY_MANTIS:
       case Fix.TINY_MANTIS_JP:
         SetupParameter(15, 2, 1, 2, 3, 4, 16, 12);
@@ -123,7 +124,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(33, 18, 25, 12, 5, 9, 51, 45);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
-        // this.CannotCritical = true;
+        // this.CannotCritical = true; // クリティカルあり
         break;
 
       case Fix.WONDER_SEED:
@@ -150,6 +151,196 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_POISON_RINPUN);
         this.CannotCritical = false;
         break;
+      #endregion
+
+      #region "ゴラトラム洞窟"
+      case Fix.DEBRIS_SOLDIER:
+      case Fix.DEBRIS_SOLDIER_JP:
+        SetupParameter(45, 12, 20, 25, 7, 5, 112, 65);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GAREKI_TSUBUTE);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MAGICAL_AUTOMATA:
+      case Fix.MAGICAL_AUTOMATA_JP:
+        SetupParameter(15, 13, 48, 21, 7, 8, 126, 72);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SHADOW_SPEAR);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.KILLER_MACHINE:
+      case Fix.KILLER_MACHINE_JP:
+        SetupParameter(49, 15, 16, 23, 7, 4, 137, 76);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_MIDARE_GIRI);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.STINKY_BAT:
+      case Fix.STINKY_BAT_JP:
+        SetupParameter(47, 16, 23, 20, 7, 7, 140, 78);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_STINKY_BREATH);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.ANTIQUE_MIRROR:
+      case Fix.ANTIQUE_MIRROR_JP:
+        SetupParameter(22, 14, 52, 24, 7, 6, 145, 81);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_MIRROR_SHIELD);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MECH_HAND:
+      case Fix.MECH_HAND_JP:
+        SetupParameter(54, 17, 29, 38, 7, 6, 145, 86);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_HAND_CANNON);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.ABSENCE_MOAI:
+      case Fix.ABSENCE_MOAI_JP:
+        SetupParameter(55, 13, 55, 41, 7, 2, 163, 99);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SAIMIN_DANCE);
+        list.Add(Fix.COMMAND_TOSSHIN);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.ACID_SCORPION:
+      case Fix.ACID_SCORPION_JP:
+        SetupParameter(62, 20, 14, 43, 7, 3, 169, 101);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_POISON_NEEDLE);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.NEJIMAKI_KNIGHT:
+      case Fix.NEJIMAKI_KNIGHT_JP:
+        SetupParameter(59, 21, 28, 43, 7, 5, 174, 104);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CHARGE_LANCE);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.AIMING_SHOOTER:
+      case Fix.AIMING_SHOOTER_JP:
+        SetupParameter(67, 22, 25, 46, 7, 9, 178, 108);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SPIKE_SHOT);
+        //this.CannotCritical = true; // クリティカルあり
+        break;
+
+      case Fix.CULT_BLACK_MAGICIAN:
+      case Fix.CULT_BLACK_MAGICIAN_JP:
+        SetupParameter(33, 20, 62, 45, 7, 3, 181, 111);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_JUBAKU_ON);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.STONE_GOLEM:
+      case Fix.STONE_GOLEM_JP:
+        SetupParameter(78, 24, 30, 56, 8, 1, 186, 112);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ZINARI);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.JUNK_VULKAN:
+      case Fix.JUNK_VULKAN_JP:
+        SetupParameter(75, 28, 42, 50, 8, 8, 196, 117);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BOUHATSU);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LIGHTNING_CLOUD:
+      case Fix.LIGHTNING_CLOUD_JP:
+        SetupParameter(30, 25, 75, 52, 8, 5, 201, 123);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_THUNDER_CLOUD);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SILENT_GARGOYLE:
+      case Fix.SILENT_GARGOYLE_JP:
+        SetupParameter(75, 30, 55, 48, 8, 6, 205, 131);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SURUDOI_HIKKAKI);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.GATE_HOUND:
+      case Fix.GATE_HOUND_JP:
+        SetupParameter(66, 29, 15, 53, 8, 4, 207, 135);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_HAGESHII_KAMITSUKI);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.PLAY_FIRE_IMP:
+      case Fix.PLAY_FIRE_IMP_JP:
+        SetupParameter(32, 27, 72, 49, 8, 7, 208, 137);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_BOLT_FRAME);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WALKING_TIME_BOMB:
+      case Fix.WALKING_TIME_BOMB_JP:
+        SetupParameter(70, 31, 70, 55, 8, 5, 215, 139);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BOOOOMB);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.EARTH_ELEMENTAL:
+      case Fix.EARTH_ELEMENTAL_JP:
+        SetupParameter(55, 32, 82, 60, 8, 3, 217, 144);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_STONE_RAIN);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DEATH_DRONE:
+      case Fix.DEATH_DRONE_JP:
+        SetupParameter(81, 36, 32, 58, 8, 1, 220, 150);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_TARGETTING_SHOT);
+        // this.CannotCritical = true; // クリティカルあり
+        break;
+
+      case Fix.ASSULT_SCARECROW:
+      case Fix.ASSULT_SCARECROW_JP:
+        SetupParameter(86, 34, 37, 61, 8, 5, 224, 153);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_POWERED_ATTACK);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MAD_DOCTOR:
+      case Fix.MAD_DOCTOR_JP:
+        SetupParameter(35, 35, 80, 63, 8, 2, 229, 158);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SUSPICIOUS_VIAL);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MAGICAL_HAIL_GUN:
+      case Fix.MAGICAL_HAIL_GUN_JP:
+        SetupParameter(125, 55, 160, 360, 12, 0, 2500, 4000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SPAAAARK);
+        list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
+        list.Add(Fix.COMMAND_ELECTRO_RAILGUN);
+        this.CannotCritical = false;
+        break;
+      #endregion
 
       case Fix.WOOD_ELF:
       case Fix.WOOD_ELF_JP:
@@ -601,89 +792,6 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.DEBRIS_SOLDIER:
-      case Fix.DEBRIS_SOLDIER_JP:
-        SetupParameter(45, 12, 20, 25, 7, 5, 112, 65);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_GAREKI_TSUBUTE);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MAGICAL_AUTOMATA:
-      case Fix.MAGICAL_AUTOMATA_JP:
-        SetupParameter(15, 13, 48, 21, 7, 8, 126, 72);
-        list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_SHADOW_SPEAR);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.KILLER_MACHINE:
-      case Fix.KILLER_MACHINE_JP:
-        SetupParameter(49, 16, 16, 23, 7, 4, 137, 76);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_MIDARE_GIRI);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ANTIQUE_MIRROR:
-      case Fix.ANTIQUE_MIRROR_JP:
-        SetupParameter(22, 14, 52, 24, 7, 6, 145, 81);
-        list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_MIRROR_SHIELD);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MECH_HAND:
-      case Fix.MECH_HAND_JP:
-        SetupParameter(54, 17, 29, 38, 7, 6, 145, 81);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_HAND_CANNON);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ABSENCE_MOAI:
-      case Fix.ABSENCE_MOAI_JP:
-        SetupParameter(32, 13, 60, 41, 8, 2, 163, 99);
-        list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_SAIMIN_DANCE);
-        list.Add(Fix.COMMAND_TOSSHIN);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ACID_SCORPION:
-      case Fix.ACID_SCORPION_JP:
-        SetupParameter(62, 20, 14, 43, 8, 3, 169, 101);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_POISON_NEEDLE);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.AIMING_SHOOTER:
-      case Fix.AIMING_SHOOTER_JP:
-        SetupParameter(67, 22, 25, 46, 8, 9, 178, 108);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_SPIKE_SHOT);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.LIGHTNING_CLOUD:
-      case Fix.LIGHTNING_CLOUD_JP:
-        SetupParameter(40, 25, 75, 51, 9, 5, 196, 117);
-        list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_THUNDER_CLOUD);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MAGICAL_HAIL_GUN:
-      case Fix.MAGICAL_HAIL_GUN_JP:
-        SetupParameter(125, 55, 160, 360, 12, 0, 2500, 4000);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_SPAAAARK);
-        list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
-        list.Add(Fix.COMMAND_ELECTRO_RAILGUN);
-        this.CannotCritical = false;
-        break;
-
       case Fix.STONE_STATUE_SEIHITSU:
       case Fix.STONE_STATUE_SEIHITSU_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
@@ -691,64 +799,9 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.NEJIMAKI_KNIGHT:
-      case Fix.NEJIMAKI_KNIGHT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.WALKING_TIME_BOMB:
-      case Fix.WALKING_TIME_BOMB_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
 
       case Fix.DISTORTED_SENSOR:
       case Fix.DISTORTED_SENSOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.JUNK_VULKAN:
-      case Fix.JUNK_VULKAN_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ASSULT_SCARECROW:
-      case Fix.ASSULT_SCARECROW_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MAD_DOCTOR:
-      case Fix.MAD_DOCTOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SILENT_GARGOYLE:
-      case Fix.SILENT_GARGOYLE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.STONE_GOLEM:
-      case Fix.STONE_GOLEM_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.DEATH_DRONE:
-      case Fix.DEATH_DRONE_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
@@ -1120,6 +1173,11 @@ public partial class Character : MonoBehaviour
         break;
 
     }
+
+    // debug
+    //this.Strength = 1;
+    //this.Intelligence = 1;
+    // debug 
 
     this.MaxGain();
     this.CurrentActionCommand = list[0];

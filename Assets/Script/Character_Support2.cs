@@ -119,30 +119,38 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_BILLY_RAKI:
-        this.Level = 1;
-        this.Strength = 10;
-        this.Agility = 5;
-        this.Intelligence = 2;
-        this.Stamina = 7;
-        this.Mind = 3;
+        this.Level = 10; // 17 + 28
+        this.Strength = 17;
+        this.Agility = 8;
+        this.Intelligence = 5;
+        this.Stamina = 10;
+        this.Mind = 5;
         this.BaseLife = 30;
         this.BaseSoulPoint = 10;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
         this.BattleBackColor = Fix.COLOR_FOURTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FOURTH_CHARA;
-        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
-        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.AvailableSwordman = true;
-        this.StraightSmash = 1;
+        this.MainWeapon = new Item(Fix.SMART_CLAW);
+        this.MainArmor = new Item(Fix.SMART_CROSS);
+        this.AvailableMartialArts = true;
+        this.LegStrike = 1;
+        this.SpeedStep = 1;
+        this.AvailableFire = true;
+        this.FireBall = 1;
+        this.AvailableBrave = true;
+        this.HeartOfLife = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.STRAIGHT_SMASH;
+        this.GlobalAction3 = Fix.LEG_STRIKE;
         this.GlobalAction4 = Fix.DEFENSE;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
-        this.ActionCommand1 = Fix.STRAIGHT_SMASH;
+        this.ActionCommand1 = Fix.LEG_STRIKE;
+        this.ActionCommand2 = Fix.FIRE_BALL;
+        this.ActionCommand3 = Fix.HEART_OF_LIFE;
+        this.ActionCommand4 = Fix.SPEED_STEP;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -490,6 +498,18 @@ public partial class Character : MonoBehaviour
       if (Level == 9) { return 10; }
       if (Level == 10) { return 10; }
     }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      if (Level == 2) { return 7; }
+      if (Level == 3) { return 7; }
+      if (Level == 4) { return 7; }
+      if (Level == 5) { return 10; }
+      if (Level == 6) { return 10; }
+      if (Level == 7) { return 10; }
+      if (Level == 8) { return 14; }
+      if (Level == 9) { return 14; }
+      if (Level == 10) { return 14; }
+    }
     return 5;
   }
 
@@ -531,14 +551,29 @@ public partial class Character : MonoBehaviour
       if (Level == 9) { return 4; }
       if (Level == 10) { return 5; }
     }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      if (Level == 2) { return 2; }
+      if (Level == 3) { return 2; }
+      if (Level == 4) { return 2; }
+      if (Level == 5) { return 2; }
+      if (Level == 6) { return 2; }
+      if (Level == 7) { return 2; }
+      if (Level == 8) { return 2; }
+      if (Level == 9) { return 3; }
+      if (Level == 10) { return 3; }
+    }
     return 2;
   }
 
   public int LevelupRemainPoint()
   {
     if (Level <= 5) { return 3; }
-    
-    return 4;
+    if (Level <= 10) { return 4; }
+    if (Level <= 15) { return 5; }
+    if (Level <= 20) { return 6; }
+
+    return 7;
   }
 
   public int LevelupSoulEssence()
@@ -733,6 +768,41 @@ public partial class Character : MonoBehaviour
       {
         this.HolyBreath++;
         ApplyNewCommand(Fix.HOLY_BREATH);
+      }
+    }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      if (this.Level == 2)
+      {
+        this.AvailableFire = true;
+        this.FireBall++;
+        ApplyNewCommand(Fix.FIRE_BALL);
+      }
+      if (this.Level == 4)
+      {
+        this.AvailableBrave = true;
+        this.HeartOfLife++;
+        ApplyNewCommand(Fix.HEART_OF_LIFE);
+      }
+      if (this.Level == 7)
+      {
+        this.SpeedStep++;
+        ApplyNewCommand(Fix.SPEED_STEP);
+      }
+      if (this.Level == 10)
+      {
+        this.FlameBlade++;
+        ApplyNewCommand(Fix.FLAME_BLADE);
+      }
+      if (this.Level == 15)
+      {
+        this.FortuneSpirit++;
+        ApplyNewCommand(Fix.FORTUNE_SPIRIT);
+      }
+      if (this.Level == 20)
+      {
+        this.BoneCrush++;
+        ApplyNewCommand(Fix.BONE_CRUSH);
       }
     }
   }
