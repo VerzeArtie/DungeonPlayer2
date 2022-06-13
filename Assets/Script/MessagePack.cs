@@ -643,7 +643,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：軽くしておいたって・・・最低限の装備以外は何も持ってないじゃない、何考えてんのかしらホント・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：はい、ポーションと軍資金を用意しておいたからね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：はい、ポーションと軍資金、それから遠見の青水晶を用意しておいたからね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_RED_POTION, ActionEvent.GetItem);
@@ -651,7 +651,9 @@ public static class MessagePack
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】と【 " + Fix.SMALL_BLUE_POTION + " 】を取得しました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を取得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "500", ActionEvent.GetGold);
     Message(ref m_list, ref e_list, "【 500 gold 】を獲得しました！", ActionEvent.MessageDisplay);

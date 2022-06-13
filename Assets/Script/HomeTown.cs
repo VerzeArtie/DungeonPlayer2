@@ -530,6 +530,12 @@ public partial class HomeTown : MotherBase
     //SceneDimension.CallSaveLoad(this, false, false);
   }
 
+  public void TapHelp()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    SceneDimension.SceneAdd(Fix.SCENE_HELP_BOOK);
+  }
+
   public void TapDungeonPlayer()
   {
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.QuestMain_00002 == false)
@@ -689,7 +695,7 @@ public partial class HomeTown : MotherBase
 
   public void TapInn()
   {
-    if (One.TF.Event_Message100020 == false)
+    if (One.TF.Event_Message100020 == false && One.TF.Event_Message100001 == false)
     {
       MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -1375,6 +1381,13 @@ public partial class HomeTown : MotherBase
   public void TapSelectFood(Text sender)
   {
     this.txtFoodMenuTitle.text = sender.text;
+
+    if (sender.text == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01; }
+    if (sender.text == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02; }
+    if (sender.text == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03; }
+    if (sender.text == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04; }
+    if (sender.text == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05; }
+
     if (sender.text == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11; }
     if (sender.text == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12; }
     if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13; }
@@ -1886,6 +1899,27 @@ public partial class HomeTown : MotherBase
           List<Character> characters = One.AvailableCharacters;
           for (int jj = 0; jj < characters.Count; jj++)
           {
+            if (currentMessage == Fix.FOOD_BALANCE_SET)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_01_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_LARGE_GOHAN_SET)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_02_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_TSIKARA_UDON)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_03_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_ZUNOU_FLY_SET)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_04_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_SPEED_SOBA)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_05_VALUE);
+            }
+
             // エリア１
             if (currentMessage == Fix.FOOD_KATUCARRY)
             {
@@ -2956,6 +2990,10 @@ public partial class HomeTown : MotherBase
     // 食事メニュー
     List<string> listFoodMenu = GetFoodMenu(One.TF.CurrentAreaName);
     for (int ii = 0; ii < txtFoodMenuList.Count; ii++)
+    {
+      txtFoodMenuList[ii].text = String.Empty;
+    }
+    for (int ii = 0; ii < listFoodMenu.Count; ii++)
     {
       txtFoodMenuList[ii].text = listFoodMenu[ii];
     }

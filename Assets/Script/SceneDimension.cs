@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 
 public static class SceneDimension
 {
+  public static void SceneClose(string scene_name)
+  {
+    SceneManager.UnloadSceneAsync(scene_name);
+  }
+
+  public static void SceneAdd(string scene_name)
+  {
+    SceneManager.LoadSceneAsync(scene_name, LoadSceneMode.Additive);
+  }
+
   public static void JumpToHomeTown()
   {
     One.StopDungeonMusic();

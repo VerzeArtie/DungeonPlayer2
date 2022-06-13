@@ -1042,7 +1042,40 @@ public partial class BattleEnemy : MotherBase
     }
 
     // キャラクターの死亡判定をチェックする。
-    UpdateCharacterDead(this.AllList);
+    for (int ii = 0; ii < this.PlayerList.Count; ii++)
+    {
+      if (this.PlayerList[ii].CurrentLife <= 0)
+      {
+        this.PlayerList[ii].DeadPlayer();
+      }
+    }
+    bool detectEnemyDead = false;
+    for (int ii = 0; ii < this.EnemyList.Count; ii++)
+    {
+      if (this.EnemyList[ii].CurrentLife <= 0)
+      {
+        if (this.EnemyList[ii].Dead == false)
+        {
+          detectEnemyDead = true;
+        }
+        this.EnemyList[ii].DeadPlayer();
+      }
+    }
+
+    if (detectEnemyDead)
+    {
+      for (int ii = 0; ii <= PlayerList.Count; ii++)
+      {
+        for (int jj = 0; jj < this.EnemyList.Count; jj++)
+        {
+          if (this.EnemyList[jj].Dead == false)
+          {
+            PlayerList[ii].Target = this.EnemyList[jj];
+            break;
+          }
+        }
+      }
+    }
   }
 
   private Character SearchOpponentForEnemy(List<Character> player_list)
@@ -1727,15 +1760,36 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPAAAARK:
-        ExecNormalAttack(player, target, 5.0f, critical);
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, critical);
+        }
+        ExecBuffPhysicalAttackUp(player, player, Fix.INFINITY, 1.20f);
         break;
 
       case Fix.COMMAND_SUPER_RANDOM_CANNON:
-        ExecNormalAttack(player, target, 5.0f, critical);
+        for (int jj = 0; jj < 2; jj++)
+        {
+          ExecNormalAttack(player, target, 2.0f, critical);
+        }
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        ExecNormalAttack(player, target, 5.0f, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, critical);
+        rand = AP.Math.RandomInteger(100);
+        if (rand <= 25)
+        {
+          ExecBuffBind(player, target, 2, 0);
+        }
+        else if (rand <= 50)
+        {
+          ExecBuffStun(player, target, 1, 0);
+        }
+        else if (rand <= 75)
+        {
+          ExecBuffSilent(player, target, 2, 0);
+        }
         break;
 
       default:
@@ -2648,20 +2702,6 @@ public partial class BattleEnemy : MotherBase
       }
 
       AllList[ii].BuffCountdown();
-    }
-  }
-
-  /// <summary>
-  /// プレイヤーが死亡条件に合致した場合、死亡にします。
-  /// </summary>
-  private void UpdateCharacterDead(List<Character> group_list)
-  {
-    for (int ii = 0; ii < group_list.Count; ii++)
-    {
-      if (group_list[ii].CurrentLife <= 0)
-      {
-        group_list[ii].DeadPlayer();
-      }
     }
   }
 

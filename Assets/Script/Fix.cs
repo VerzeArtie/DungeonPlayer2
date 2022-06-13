@@ -163,6 +163,7 @@ public static partial class Fix
 
   public const string SCENE_DUNGEON_FIELD = @"DungeonField";
   public const string SCENE_HOME_TOWN = @"HomeTown";
+  public const string SCENE_HELP_BOOK = @"HelpBook";
   #endregion
 
   #region "効果音データファイル名"
@@ -528,6 +529,12 @@ public static partial class Fix
   #endregion
 
   #region "食事メニュー"
+  public const string FOOD_BALANCE_SET = "バランス定食";
+  public const string FOOD_LARGE_GOHAN_SET = "山盛りごはんセット";
+  public const string FOOD_TSIKARA_UDON = "タップリ 力うどん";
+  public const string FOOD_ZUNOU_FLY_SET = "頭脳フライ定食";
+  public const string FOOD_SPEED_SOBA = "おかわり蕎麦";
+
   // １階
   public const string FOOD_KATUCARRY = @"激辛カツカレー定食";
   public const string FOOD_OLIVE_AND_ONION = @"オリーブパンとオニオンスープ";
@@ -553,6 +560,12 @@ public static partial class Fix
   public const string FOOD_HUNWARI_ORANGE_TOAST = @"ふんわり・オレンジトースト";
   public const string FOOD_TRUTH_YAMINABE_2 = @"真実の闇鍋（パート２）";
 
+  public static string DESC_01 = DESC_01_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１\r\n  技＋１\r\n  知＋１\r\n  体    \r\n  心    ";
+  public static string DESC_02 = DESC_02_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知    \r\n  体＋３\r\n  心    ";
+  public static string DESC_03 = DESC_03_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技    \r\n  知    \r\n  体    \r\n  心    ";
+  public static string DESC_04 = DESC_04_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技    \r\n  知＋３\r\n  体    \r\n  心    ";
+  public static string DESC_05 = DESC_05_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力    \r\n  技＋３\r\n  知    \r\n  体    \r\n  心    ";
+
   public static string DESC_11 = DESC_11_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技\r\n  知\r\n  体＋５\r\n  心";
   public static string DESC_12 = DESC_12_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知\r\n  体＋５\r\n  心＋５";
   public static string DESC_13 = DESC_13_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋５\r\n  体\r\n  心＋５";
@@ -576,6 +589,12 @@ public static partial class Fix
   public static string DESC_43 = DESC_43_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知＋２５０\r\n  知\r\n  体＋２５０";
   public static string DESC_44 = DESC_44_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋２５０\r\n  心";
   public static string DESC_45 = DESC_45_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技＋２５０\r\n  知\r\n  体\r\n  心＋２５０";
+
+  public const string DESC_01_MINI = "体調を良くする事を意識して作られた定食。カロリーバランスが取れており、近隣の住人が良く食べに来る味付けとなっている。";
+  public const string DESC_02_MINI = "腹ごしらえに最適なごはんセット。当然のごとく山盛りとなったごはんに加え、スタミナが十分につくおかずも多く盛られており、一部の客に人気がある";
+  public const string DESC_03_MINI = "力を付けたければ、まずはこのうどんセットで決まり。特別な理由はないが、これを食べた次の日、非常にやる気が出ると好評。";
+  public const string DESC_04_MINI = "どこから仕入れてきたか分からない魚類をフライとして仕立てている。味は非常に濃厚で特徴的。食べると脳内が活性化して知力がＵＰするというもっぱらの噂。";
+  public const string DESC_05_MINI = "食べても食べても追加され続ける蕎麦。美味しくて飽きがこないが、途中でストップしないと・・・";
 
   public const string DESC_11_MINI = "か・・・辛い！！でもウマイ！！\r\n　実はハンナが客に応じて辛い配分を全調整してるとの事。";
   public const string DESC_12_MINI = "ほんのりとするオリーブの香りと、アッサリ味に仕立ててあるオニオン味のスープ。非常に好評のため定番メニューの一つとなっている。";
@@ -601,6 +620,12 @@ public static partial class Fix
   public const string DESC_44_MINI = "１番人気のトースト定食といえば、このオレンジトースト。\r\nふんだんに塗られたオレンジジャムとホワイトクリームを乗せたバカでかいトーストは男女問わず人気の一品である。";
   public const string DESC_45_MINI = "食物の匂いが全くしない闇の鍋\r\n　ハンナ叔母さん曰く、美味しいモノはちゃんと入っているとの事。それを信じて食べるしか選択肢は無い。";
 
+  public static int[] FOOD_01_VALUE = { 1, 1, 1, 0, 0 };
+  public static int[] FOOD_02_VALUE = { 0, 0, 0, 3, 0 };
+  public static int[] FOOD_03_VALUE = { 3, 0, 0, 0, 0 };
+  public static int[] FOOD_04_VALUE = { 0, 0, 3, 0, 0 };
+  public static int[] FOOD_05_VALUE = { 0, 3, 0, 0, 0 };
+
   public static int[] FOOD_11_VALUE = { 5, 0, 0, 5, 0 };
   public static int[] FOOD_12_VALUE = { 0, 0, 0, 5, 5 };
   public static int[] FOOD_13_VALUE = { 0, 0, 5, 0, 5 };
@@ -621,6 +646,50 @@ public static partial class Fix
   public static int[] FOOD_43_VALUE = { 250, 0, 250, 250, 0 };
   public static int[] FOOD_44_VALUE = { 0, 250, 250, 250, 0 };
   public static int[] FOOD_45_VALUE = { 250, 250, 0, 0, 250 };
+  #endregion
+
+  #region "クラス属性ラベル(JP)"
+  public const string CLASS_WARRIOR_JP = "戦士";
+  public const string CLASS_ARCHERY_JP = "弓術";
+  public const string CLASS_MARTIAL_ARTS_JP = "格闘";
+  public const string CLASS_COMBAT_TRICK_JP = "計略";
+  public const string CLASS_WONDER_HERMIT_JP = "仙術";
+  public const string CLASS_GUARDIAN_JP = "護衛";
+  public const string CLASS_FIRE_JP = "炎";
+  public const string CLASS_ICE_JP = "氷";
+  public const string CLASS_HOLYLIGHT = "聖";
+  public const string CLASS_DARK_MAGIC = "闇";
+  public const string CLASS_WIND = "風";
+  public const string CLASS_EARTH = "土";
+  public const string CLASS_ENHANCE = "進化";
+  public const string CLASS_MYSTIC = "神秘";
+  public const string CLASS_BRAVE = "勇敢";
+  public const string CLASS_VENGEANCE = "復讐";
+  public const string CLASS_TRUTH = "心眼";
+  public const string CLASS_MINDFULNESS = "無心";
+  #endregion
+
+  #region "コマンドタイミング属性ラベル(JP)"
+  public const string TIMING_TYPE_INSTANT = "インスタント";
+  public const string TIMING_TYPE_NORMAL = "ノーマル";
+  public const string TIMING_TYPE_SORCERY = "ソーサリー";
+  #endregion
+
+  #region "コマンド対象属性ラベル(JP)"
+  public const string TARGET_TYPE_ENEMY = "敵単体";
+  public const string TARGET_TYPE_ALLY = "味方単体";
+  public const string TARGET_TYPE_ENEMYGROUP = "敵全体";
+  public const string TARGET_TYPE_ALLYGROUP = "味方全体";
+  public const string TARGET_TYPE_ALLMEMBER = "敵味方全体";
+  public const string TARGET_TYPE_ENEMYORALLY = "敵単体 / 味方単体";
+  public const string TARGET_TYPE_INSTANTTARGET = "インスタント対象";
+  public const string TARGET_TYPE_OWN = "自分自身";
+  public const string TARGET_TYPE_NONE = "なし";
+  #endregion
+
+  #region "ヘルプメニューラベル(JP)"
+  public const string HELPMENU_ACTIONCOMMAND = "アクションコマンド";
+  public const string HELPMENUL_BATTLE = "バトル関連";
   #endregion
 
   #region "Action Command"
@@ -737,6 +806,8 @@ public static partial class Fix
   public const string VOICE_OF_VIGOR = "Voice of Vigor";
   public const string KILLING_WAVE = "Killing Wave";
   public const string UNSEEN_AID = "Unseen Aid";
+
+  public const string EYE_OF_THE_ISSHIN = "Eye of the Isshin";
 
   // Delve IV
   public const string VOLCANIC_BLAZE = "Volcanic Blaze";

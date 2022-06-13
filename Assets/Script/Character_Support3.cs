@@ -87,7 +87,7 @@ public partial class Character : MonoBehaviour
 
         if (this.AI_Phase == 0)
         {
-          current.Add(Fix.MAGIC_ATTACK);
+          current.Add(Fix.MAGIC_ATTACK);　
         }
         else if (this.AI_Phase == 1)
         {

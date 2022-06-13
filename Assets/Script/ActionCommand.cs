@@ -1042,4 +1042,30 @@ public static class ActionCommand
 
     return command_name;
   }
+
+  public static string GetDescription(string command_name)
+  {
+    // todo "対象に" + PowerResult("力", 1.0, 0, 0) + " ＋ " + PowerResult("技", 2.0, 0, 0) + " ＋ " + PowerResult("武器", 1.0, 0, 0) + "の物理ダメージを与える。";
+
+    if (command_name == Fix.FIRE_BALL) { return "敵一体を対象とする。対象に【炎】ダメージを与える。"; }
+    if (command_name == Fix.ICE_NEEDLE) { return "敵一体を対象とする。対象に【氷】ダメージを与えた後、【鈍化】のBUFFを付与する。\r\n【鈍化】が続く間、戦闘速度が減少する。"; }
+    if (command_name == Fix.FRESH_HEAL) { return "味方一体を対象とする。対象のライフを回復する。"; }
+    if (command_name == Fix.SHADOW_BLAST) { return "敵一体を対象とする。対象に【闇】ダメージを与えた後、【陰影】のBUFFを付与する。\r\n【陰影】が続く間、魔法防御が減少する。"; }
+    if (command_name == Fix.AIR_CUTTER) { return "敵一体を対象とする。対象に【風】ダメージを与えた後、自分自身に【俊敏】のBUFFを付与する。\r\n【俊敏】が続く間、戦闘反応値が2%上昇する。この効果は最大３回まで累積する。"; }
+    if (command_name == Fix.ROCK_SLAM) { return "敵一体を対象とする。対象に【土】ダメージを与えた後、対象の行動ゲージを5%後方へ戻す。"; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
+    if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【標的】のBUFFを付与する。\r\n【標的】が続く間、対象への命中率が20%上昇する。"; }
+    if (command_name == Fix.LEG_STRIKE) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【萎縮】のBUFFを付与する。\r\n【萎縮】が続く間、対象の戦闘反応値が減少する。"; }
+    if (command_name == Fix.VENOM_SLASH) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【毒】のBUFFを付与する。\r\n【毒】が続く間、ターン経過毎に毒ダメージを与える。"; }
+    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に【物理】ダメージを与える。\r\nダメージ量は【知】を根源として算出される。"; }
+    if (command_name == Fix.SHIELD_BASH) { return "敵一体を対象とする。対象を【物理】ダメージを与えた後、【スタン】のBUFFを付与する。\r\n【スタン】が続く間、戦闘ゲージ進行が停止する。"; }
+    if (command_name == Fix.AURA_OF_POWER) { return "味方一体を対象とする。対象に【パワー】を付与する。\r\n【パワー】が続く間、物理攻撃が上昇する。"; }
+    if (command_name == Fix.DISPEL_MAGIC) { return "敵一体を対象とする。対象にかかっている【有益】に属するBUFFを除去する。"; }
+    if (command_name == Fix.HEART_OF_LIFE) { return "味方全員に【生命】のBUFFを付与する。\r\n【生命】が続く間、ターン経過毎にライフを回復する。"; }
+    if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
+    if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
+
+    return String.Empty;
+  }
 }

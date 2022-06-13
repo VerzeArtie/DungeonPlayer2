@@ -11,9 +11,16 @@ public partial class HomeTown : MotherBase
     {
       shopList.Add(new Item(Fix.FINE_SWORD));
       shopList.Add(new Item(Fix.FINE_CLAW));
+      shopList.Add(new Item(Fix.FINE_LANCE));
+      shopList.Add(new Item(Fix.FINE_AXE));
+      shopList.Add(new Item(Fix.FINE_BOW));
+      shopList.Add(new Item(Fix.FINE_ORB));
+      shopList.Add(new Item(Fix.FINE_BOOK));
+      shopList.Add(new Item(Fix.FINE_ROD));
+      shopList.Add(new Item(Fix.FINE_SHIELD));
       shopList.Add(new Item(Fix.FINE_ARMOR));
       shopList.Add(new Item(Fix.FINE_CROSS));
-      shopList.Add(new Item(Fix.FINE_SHIELD));
+      shopList.Add(new Item(Fix.FINE_ROBE));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
     }
@@ -91,21 +98,29 @@ public partial class HomeTown : MotherBase
   public List<string> GetFoodMenu(string area_name)
   {
     List<string> foodList = new List<string>();
-    if (area_name == Fix.TOWN_ARCANEDINE)
+    if (area_name == Fix.TOWN_ANSHET)
     {
-      foodList.Add(Fix.FOOD_FISH_GURATAN);
-      foodList.Add(Fix.FOOD_SEA_TENPURA);
-      foodList.Add(Fix.FOOD_TRUTH_YAMINABE_1);
-      foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN);
-      foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI);
+      foodList.Add(Fix.FOOD_BALANCE_SET);
+      foodList.Add(Fix.FOOD_LARGE_GOHAN_SET);
+      foodList.Add(Fix.FOOD_TSIKARA_UDON);
+      foodList.Add(Fix.FOOD_ZUNOU_FLY_SET);
+      foodList.Add(Fix.FOOD_SPEED_SOBA);
     }
-    else
+    else if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
       foodList.Add(Fix.FOOD_KATUCARRY);
       foodList.Add(Fix.FOOD_OLIVE_AND_ONION);
       foodList.Add(Fix.FOOD_INAGO_AND_TAMAGO);
       foodList.Add(Fix.FOOD_USAGI);
       foodList.Add(Fix.FOOD_SANMA);
+    }
+    else if (area_name == Fix.TOWN_ARCANEDINE)
+    {
+      foodList.Add(Fix.FOOD_FISH_GURATAN);
+      foodList.Add(Fix.FOOD_SEA_TENPURA);
+      foodList.Add(Fix.FOOD_TRUTH_YAMINABE_1);
+      foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN);
+      foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI);
     }
     return foodList;
   }

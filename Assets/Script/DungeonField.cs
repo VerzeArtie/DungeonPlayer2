@@ -263,6 +263,8 @@ public class DungeonField : MotherBase
     //One.TF.Field_Z = 2;
     // debug
 
+    One.TF.Event_Message100001 = true;
+
     if (Application.platform == RuntimePlatform.Android ||
     Application.platform == RuntimePlatform.IPhonePlayer)
     {
@@ -2761,6 +2763,12 @@ public class DungeonField : MotherBase
     //    SceneDimension.CallSaveLoad(this, false, false);
   }
 
+  public void TapHelp()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    SceneDimension.SceneAdd(Fix.SCENE_HELP_BOOK);
+  }
+
   public void TapBacktoTown()
   {
     Debug.Log("TapBacktoTown(S)");
@@ -3297,11 +3305,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_CaveOfSarun_00003 == false && location.x == Fix.CAVEOFSARUN_Treasure_3_X && location.y == Fix.CAVEOFSARUN_Treasure_3_Y && location.z == Fix.CAVEOFSARUN_Treasure_3_Z)
         {
-          treasureName = Fix.FINE_CLAW;
+          treasureName = Fix.FINE_ORB;
         }
         if (One.TF.Treasure_CaveOfSarun_00004 == false && location.x == Fix.CAVEOFSARUN_Treasure_4_X && location.y == Fix.CAVEOFSARUN_Treasure_4_Y && location.z == Fix.CAVEOFSARUN_Treasure_4_Z)
         {
-          treasureName = Fix.FINE_CROSS;
+          treasureName = Fix.FLAT_SHOES;
         }
         if (One.TF.Treasure_CaveOfSarun_00005 == false && location.x == Fix.CAVEOFSARUN_Treasure_5_X && location.y == Fix.CAVEOFSARUN_Treasure_5_Y && location.z == Fix.CAVEOFSARUN_Treasure_5_Z)
         {
@@ -6636,6 +6644,8 @@ public class DungeonField : MotherBase
               break;
           }
         }
+        //One.BattleEnemyList.Clear();
+        //One.BattleEnemyList.Add(Fix.MAGICAL_HAIL_GUN);
         One.CannotRunAway = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
