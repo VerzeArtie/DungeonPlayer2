@@ -1088,12 +1088,12 @@ public partial class Character : MonoBehaviour
   [SerializeField] protected int _DispelMagic = 0;
   public int DispelMagic { set { if (value >= 0) { _DispelMagic = value; } } get { return _DispelMagic; } }
   [SerializeField] protected int _TrueSight = 0;
-  public int TrueSight { set { if (value >= 0) { _TrueSight = value; } } get { return _TrueSight; } }
-  [SerializeField] protected int _HeartOfLife = 0;
   public int HeartOfLife { set { if (value >= 0) { _HeartOfLife = value; } } get { return _HeartOfLife; } }
   [SerializeField] protected int _DarkAura = 0;
   public int DarkAura { set { if (value >= 0) { _DarkAura = value; } } get { return _DarkAura; } }
   [SerializeField] protected int _OracleCommand = 0;
+  public int TrueSight { set { if (value >= 0) { _TrueSight = value; } } get { return _TrueSight; } }
+  [SerializeField] protected int _HeartOfLife = 0;
   public int OracleCommand { set { if (value >= 0) { _OracleCommand = value; } } get { return _OracleCommand; } }
 
   // Delve II
@@ -1125,12 +1125,12 @@ public partial class Character : MonoBehaviour
   public int SkyShield { set { if (value >= 0) { _SkyShield = value; } } get { return _SkyShield; } }
   [SerializeField] protected int _FlashCounter = 0;
   public int FlashCounter { set { if (value >= 0) { _FlashCounter = value; } } get { return _FlashCounter; } }
-  [SerializeField] protected int _LaylineSchema = 0;
-  public int LaylineSchema { set { if (value >= 0) { _LaylineSchema = value; } } get { return _LaylineSchema; } }
   [SerializeField] protected int _FortuneSpirit = 0;
   public int FortuneSpirit { set { if (value >= 0) { _FortuneSpirit = value; } } get { return _FortuneSpirit; } }
   [SerializeField] protected int _StanceOfTheShade = 0;
   public int StanceOfTheShade { set { if (value >= 0) { _StanceOfTheShade = value; } } get { return _StanceOfTheShade; } }
+  [SerializeField] protected int _LaylineSchema = 0;
+  public int LaylineSchema { set { if (value >= 0) { _LaylineSchema = value; } } get { return _LaylineSchema; } }
   [SerializeField] protected int _SpiritualRest = 0;
   public int SpiritualRest { set { if (value >= 0) { _SpiritualRest = value; } } get { return _SpiritualRest; } }
 
@@ -1163,12 +1163,12 @@ public partial class Character : MonoBehaviour
   public int AetherDrive { set { if (value >= 0) { _AetherDrive = value; } } get { return _AetherDrive; } }
   [SerializeField] protected int _MuteImpulse = 0;
   public int MuteImpulse { set { if (value >= 0) { _MuteImpulse = value; } } get { return _MuteImpulse; } }
-  [SerializeField] protected int _WordOfPower = 0;
-  public int WordOfPower { set { if (value >= 0) { _WordOfPower = value; } } get { return _WordOfPower; } }
   [SerializeField] protected int _VoiceOfVigor = 0;
   public int VoiceOfVigor { set { if (value >= 0) { _VoiceOfVigor = value; } } get { return _VoiceOfVigor; } }
   [SerializeField] protected int _KillingWave = 0;
   public int KillingWave { set { if (value >= 0) { _KillingWave = value; } } get { return _KillingWave; } }
+  [SerializeField] protected int _WordOfPower = 0;
+  public int WordOfPower { set { if (value >= 0) { _WordOfPower = value; } } get { return _WordOfPower; } }
   [SerializeField] protected int _UnseenAid = 0;
   public int UnseenAid { set { if (value >= 0) { _UnseenAid = value; } } get { return _UnseenAid; } }
 
@@ -1201,12 +1201,12 @@ public partial class Character : MonoBehaviour
   public int CircleOfTheVigor { set { if (value >= 0) { _CircleOfTheVigor = value; } } get { return _CircleOfTheVigor; } }
   [SerializeField] protected int _DetachmentFault = 0;
   public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
-  [SerializeField] protected int _WillAwakening = 0;
-  public int WillAwakening { set { if (value >= 0) { _WillAwakening = value; } } get { return _WillAwakening; } }
   [SerializeField] protected int _AuraBurn = 0;
   public int AuraBurn { set { if (value >= 0) { _AuraBurn = value; } } get { return _AuraBurn; } }
   [SerializeField] protected int _LevelEater = 0;
   public int LevelEater { set { if (value >= 0) { _LevelEater = value; } } get { return _LevelEater; } }
+  [SerializeField] protected int _WillAwakening = 0;
+  public int WillAwakening { set { if (value >= 0) { _WillAwakening = value; } } get { return _WillAwakening; } }
   [SerializeField] protected int _ExactTime = 0;
   public int ExactTime { set { if (value >= 0) { _ExactTime = value; } } get { return _ExactTime; } }
 
@@ -1239,12 +1239,12 @@ public partial class Character : MonoBehaviour
   public int RevolutionAura { set { if (value >= 0) { _RevolutionAura = value; } } get { return _RevolutionAura; } }
   [SerializeField] protected int _OathOfAegis = 0;
   public int OathOfAegis { set { if (value >= 0) { _OathOfAegis = value; } } get { return _OathOfAegis; } }
-  [SerializeField] protected int _EagleEye = 0;
-  public int EagleEye { set { if (value >= 0) { _EagleEye = value; } } get { return _EagleEye; } }
   [SerializeField] protected int _EverflowMind = 0;
   public int EverflowMind { set { if (value >= 0) { _EverflowMind = value; } } get { return _EverflowMind; } }
   [SerializeField] protected int _AbyssEye = 0;
   public int AbyssEye { set { if (value >= 0) { _AbyssEye = value; } } get { return _AbyssEye; } }
+  [SerializeField] protected int _EagleEye = 0;
+  public int EagleEye { set { if (value >= 0) { _EagleEye = value; } } get { return _EagleEye; } }
   [SerializeField] protected int _InnerInspiration = 0;
   public int InnerInspiration { set { if (value >= 0) { _InnerInspiration = value; } } get { return _InnerInspiration; } }
 
@@ -1277,12 +1277,12 @@ public partial class Character : MonoBehaviour
   public int BrilliantForm { set { if (value >= 0) { _BrilliantForm = value; } } get { return _BrilliantForm; } }
   [SerializeField] protected int _FutureVision = 0;
   public int FutureVision { set { if (value >= 0) { _FutureVision = value; } } get { return _FutureVision; } }
-  [SerializeField] protected int _SigilOfTheFaith = 0;
-  public int SigilOfTheFaith { set { if (value >= 0) { _SigilOfTheFaith = value; } } get { return _SigilOfTheFaith; } }
   [SerializeField] protected int _SoulShout = 0;
   public int SoulShout { set { if (value >= 0) { _SoulShout = value; } } get { return _SoulShout; } }
   [SerializeField] protected int _AvengerPromise = 0;
   public int AvengerPromise { set { if (value >= 0) { _AvengerPromise = value; } } get { return _AvengerPromise; } }
+  [SerializeField] protected int _SigilOfTheFaith = 0;
+  public int SigilOfTheFaith { set { if (value >= 0) { _SigilOfTheFaith = value; } } get { return _SigilOfTheFaith; } }
   [SerializeField] protected int _ZeroImmunity = 0;
   public int ZeroImmunity { set { if (value >= 0) { _ZeroImmunity = value; } } get { return _ZeroImmunity; } }
 
@@ -1315,12 +1315,12 @@ public partial class Character : MonoBehaviour
   public int AusterityMatrix { set { if (value >= 0) { _AusterityMatrix = value; } } get { return _AusterityMatrix; } }
   [SerializeField] protected int _EssenceOverflow = 0;
   public int EssenceOverflow { set { if (value >= 0) { _EssenceOverflow = value; } } get { return _EssenceOverflow; } }
-  [SerializeField] protected int _StanceOfTheKokoroe = 0;
-  public int StanceOfTheKokoroe { set { if (value >= 0) { _StanceOfTheKokoroe = value; } } get { return _StanceOfTheKokoroe; } }
   [SerializeField] protected int _OverwhelmingDestiny = 0;
   public int OverwhelmingDestiny { set { if (value >= 0) { _OverwhelmingDestiny = value; } } get { return _OverwhelmingDestiny; } }
   [SerializeField] protected int _DemonContract = 0;
   public int DemonContract { set { if (value >= 0) { _DemonContract = value; } } get { return _DemonContract; } }
+  [SerializeField] protected int _StanceOfTheKokoroe = 0;
+  public int StanceOfTheKokoroe { set { if (value >= 0) { _StanceOfTheKokoroe = value; } } get { return _StanceOfTheKokoroe; } }
   [SerializeField] protected int _TimeSkip = 0;
   public int TimeSkip { set { if (value >= 0) { _TimeSkip = value; } } get { return _TimeSkip; } }
 
@@ -1374,19 +1374,6 @@ public partial class Character : MonoBehaviour
     }
     get { return _WarSwing; }
   }
-  [SerializeField] protected int _EyeOfTheTruth = 0;
-  public int EyeOfTheTruth
-  {
-    set
-    {
-      if (value >= 0)
-      {
-        _EyeOfTheTruth = value;
-      }
-    }
-    get { return _EyeOfTheTruth; }
-  }
-
   [SerializeField] protected int _ReachableTarget = 0;
   public int ReachableTarget
   {
@@ -1713,7 +1700,7 @@ public partial class Character : MonoBehaviour
     this._plusIntelligence = 0;
     this._plusStamina = 0;
     this._plusMind = 0;
-    this._exp = 0;
+    //this._exp = 0;
   }
 
   public void GainExp(int gain_exp)
@@ -1996,9 +1983,9 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BLACK_CONTRACT); }
   }
 
-  public BuffImage IsEyeOfTheTruth
+  public BuffImage IsEyeOfTheIsshin
   {
-    get { return SearchBuff(Fix.EYE_OF_THE_TRUTH); }
+    get { return SearchBuff(Fix.EYE_OF_THE_ISSHIN); }
   }
 
   public BuffImage IsStormArmor

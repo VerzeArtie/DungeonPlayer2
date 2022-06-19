@@ -182,6 +182,9 @@ public class DungeonField : MotherBase
   // Blackout
   public GameObject BlackoutPanel;
 
+  // Gold
+  public Text txtGold;
+
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -8939,6 +8942,9 @@ public class DungeonField : MotherBase
 
     // パーティステータス画面への反映
     SetupStayList();
+
+    // ゴールドへの反映
+    txtGold.text = One.TF.Gold.ToString();
 
     // コマンド設定画面への反映
     SetupActionCommand(PlayerList[0], 0);

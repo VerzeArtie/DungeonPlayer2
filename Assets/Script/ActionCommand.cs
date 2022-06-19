@@ -122,7 +122,7 @@ public static class ActionCommand
     {
       result.Add(Fix.HUNTER_SHOT);
       result.Add(Fix.MULTIPLE_SHOT);
-      result.Add(Fix.EYE_OF_THE_TRUTH);
+      result.Add(Fix.EYE_OF_THE_ISSHIN);
       result.Add(Fix.PENETRATION_ARROW);
       result.Add(Fix.PRECISION_RANGE);
       result.Add(Fix.ETERNAL_CONCENTRATION);
@@ -546,7 +546,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return Attribute.Magic; }
     if (command_name == Fix.DOUBLE_SLASH) { return Attribute.Skill; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return Attribute.Skill; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return Attribute.Skill; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return Attribute.Skill; }
     if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return Attribute.Skill; }
     if (command_name == Fix.UNSEEN_AID) { return Attribute.Skill; }
@@ -609,7 +609,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return TimingType.Instant; }
     if (command_name == Fix.DOUBLE_SLASH) { return TimingType.Instant; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return TimingType.Instant; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return TimingType.Instant; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TimingType.Instant; }
     if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return TimingType.Normal; }
     if (command_name == Fix.UNSEEN_AID) { return TimingType.Instant; }
@@ -672,7 +672,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return TargetType.Enemy; }
     if (command_name == Fix.DOUBLE_SLASH) { return TargetType.Enemy; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return TargetType.Enemy; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return TargetType.Own; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TargetType.Own; }
     if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return TargetType.AllyGroup; }
     if (command_name == Fix.UNSEEN_AID) { return TargetType.AllMember; }
@@ -786,7 +786,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return 15; }
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return 13; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 13; }
     if (command_name == Fix.IRREGULAR_STEP) { return 12; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
     if (command_name == Fix.UNSEEN_AID) { return 16; }
@@ -906,7 +906,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return BuffType.None; }
     if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return BuffType.Negative; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return BuffType.Positive; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return BuffType.Positive; }
     if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return BuffType.Positive; }
     if (command_name == Fix.UNSEEN_AID) { return BuffType.None; }
@@ -923,6 +923,8 @@ public static class ActionCommand
     if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.Positive; }
     if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
 
+    // モンスターコマンド
+    if (command_name == Fix.EFFECT_POWERUP_FIRE) { return BuffType.Positive; }
     return BuffType.None;
   }
 
@@ -981,7 +983,7 @@ public static class ActionCommand
     if (command_name == Fix.MUTE_IMPULSE) { return true; }
     if (command_name == Fix.DOUBLE_SLASH) { return true; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return true; }
-    if (command_name == Fix.EYE_OF_THE_TRUTH) { return false; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return false; }
     if (command_name == Fix.IRREGULAR_STEP) { return false; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     if (command_name == Fix.UNSEEN_AID) { return false; }
@@ -1065,6 +1067,120 @@ public static class ActionCommand
     if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
     if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
     if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
+
+    if (command_name == Fix.FLAME_BLADE) { return ""; }
+    if (command_name == Fix.PURE_PURIFICATION) { return ""; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return ""; }
+    if (command_name == Fix.BLOOD_SIGN) { return ""; }
+    if (command_name == Fix.STORM_ARMOR) { return ""; }
+    if (command_name == Fix.SOLID_WALL) { return ""; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return ""; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return ""; }
+    if (command_name == Fix.SPEED_STEP) { return ""; }
+    if (command_name == Fix.INVISIBLE_BIND) { return ""; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return ""; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return ""; }
+    if (command_name == Fix.SKY_SHIELD) { return ""; }
+    if (command_name == Fix.FLASH_COUNTER) { return ""; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return ""; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return ""; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return ""; }
+    if (command_name == Fix.SPIRITUAL_REST) { return ""; }
+
+    if (command_name == Fix.METEOR_BULLET) { return ""; }
+    if (command_name == Fix.BLUE_BULLET) { return ""; }
+    if (command_name == Fix.HOLY_BREATH) { return ""; }
+    if (command_name == Fix.BLACK_CONTRACT) { return ""; }
+    if (command_name == Fix.SONIC_PULSE) { return ""; }
+    if (command_name == Fix.EARTH_SURGE) { return ""; }
+    if (command_name == Fix.DOUBLE_SLASH) { return ""; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return ""; }
+    if (command_name == Fix.BONE_CRUSH) { return ""; }
+    if (command_name == Fix.IRREGULAR_STEP) { return ""; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return ""; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return ""; }
+    if (command_name == Fix.AETHER_DRIVE) { return ""; }
+    if (command_name == Fix.MUTE_IMPULSE) { return ""; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return ""; }
+    if (command_name == Fix.KILLING_WAVE) { return ""; }
+    if (command_name == Fix.WORD_OF_POWER) { return ""; }
+    if (command_name == Fix.UNSEEN_AID) { return ""; }
+
+    if (command_name == Fix.VOLCANIC_BLAZE) { return ""; }
+    if (command_name == Fix.FREEZING_CUBE) { return ""; }
+    if (command_name == Fix.ANGELIC_ECHO) { return ""; }
+    if (command_name == Fix.CURSED_EVANGEL) { return ""; }
+    if (command_name == Fix.GALE_WIND) { return ""; }
+    if (command_name == Fix.SAND_BURST) { return ""; }
+    if (command_name == Fix.IRON_BASTER) { return ""; }
+    if (command_name == Fix.PENETRATION_ARROW) { return ""; }
+    if (command_name == Fix.DEADLY_DRIVE) { return ""; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return ""; }
+    if (command_name == Fix.PHANTOM_OBORO) { return ""; }
+    if (command_name == Fix.DOMINATION_FIELD) { return ""; }
+    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return ""; }
+    if (command_name == Fix.DETACHMENT_FAULT) { return ""; }
+    if (command_name == Fix.AURA_BURN) { return ""; }
+    if (command_name == Fix.LEVEL_EATER) { return ""; }
+    if (command_name == Fix.WILL_AWAKENING) { return ""; }
+    if (command_name == Fix.EXACT_TIME) { return ""; }
+
+    if (command_name == Fix.FLAME_STRIKE) { return ""; }
+    if (command_name == Fix.FROST_LANCE) { return ""; }
+    if (command_name == Fix.SHINING_HEAL) { return ""; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return ""; }
+    if (command_name == Fix.ERRATIC_THUNDER) { return ""; }
+    if (command_name == Fix.PETRIFICATION) { return ""; }
+    if (command_name == Fix.RAGING_STORM) { return ""; }
+    if (command_name == Fix.PRECISION_RANGE) { return ""; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return ""; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return ""; }
+    if (command_name == Fix.SIGIL_OF_THE_HOMURA) { return ""; }
+    if (command_name == Fix.HARDEST_PARRY) { return ""; }
+    if (command_name == Fix.REVOLUTION_AURA) { return ""; }
+    if (command_name == Fix.OATH_OF_AEGIS) { return ""; }
+    if (command_name == Fix.EVERFLOW_MIND) { return ""; }
+    if (command_name == Fix.ABYSS_EYE) { return ""; }
+    if (command_name == Fix.EAGLE_EYE) { return ""; }
+    if (command_name == Fix.INNER_INSPIRATION) { return ""; }
+
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return ""; }
+    if (command_name == Fix.WATER_PRESENCE) { return ""; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return ""; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return ""; }
+    if (command_name == Fix.CYCLONE_FIELD) { return ""; }
+    if (command_name == Fix.LIFE_GRACE) { return ""; }
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return ""; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return ""; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return ""; }
+    if (command_name == Fix.DIRTY_WISDOM) { return ""; }
+    if (command_name == Fix.WORD_OF_PROPHECY) { return ""; }
+    if (command_name == Fix.WILD_SWING) { return ""; }
+    if (command_name == Fix.BRILLIANT_FORM) { return ""; }
+    if (command_name == Fix.FUTURE_VISION) { return ""; }
+    if (command_name == Fix.SOUL_SHOUT) { return ""; }
+    if (command_name == Fix.AVENGER_PROMISE) { return ""; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return ""; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return ""; }
+
+    if (command_name == Fix.LAVA_ANNIHILATION) { return ""; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return ""; }
+    if (command_name == Fix.RESURRECTION) { return ""; }
+    if (command_name == Fix.DEATH_SCYTHE) { return ""; }
+    if (command_name == Fix.LIGHTNING_SQUALL) { return ""; }
+    if (command_name == Fix.EARTH_QUAKE) { return ""; }
+    if (command_name == Fix.KINETIC_SMASH) { return ""; }
+    if (command_name == Fix.PIERCING_ARROW) { return ""; }
+    if (command_name == Fix.CARNAGE_RUSH) { return ""; }
+    if (command_name == Fix.AMBIDEXTERITY) { return ""; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; }
+    if (command_name == Fix.ONE_IMMUNITY) { return ""; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return ""; }
+    if (command_name == Fix.ESSENCE_OVERFLOW) { return ""; }
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return ""; }
+    if (command_name == Fix.DEMON_CONTRACT) { return ""; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
+    if (command_name == Fix.TIME_SKIP) { return ""; }
 
     return String.Empty;
   }

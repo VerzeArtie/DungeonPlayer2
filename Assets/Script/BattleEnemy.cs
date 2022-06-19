@@ -561,7 +561,6 @@ public partial class BattleEnemy : MotherBase
       //if (character.BlackContract > 0) { AddActionButton(character, groupActionButton, Fix.BLACK_CONTRACT); }
       //if (character.DoubleSlash > 0) { AddActionButton(character, groupActionButton, Fix.DOUBLE_SLASH); }
       //if (character.ConcussiveHit > 0) { AddActionButton(character, groupActionButton, Fix.CONCUSSIVE_HIT); }
-      //if (character.EyeOfTheTruth > 0) { AddActionButton(character, groupActionButton, Fix.EYE_OF_THE_TRUTH); }
       //if (character.IrregularStep > 0) { AddActionButton(character, groupActionButton, Fix.IRREGULAR_STEP); }
       //if (character.StormArmor > 0) { AddActionButton(character, groupActionButton, Fix.STORM_ARMOR); }
       //if (character.MuteImpulse > 0) { AddActionButton(character, groupActionButton, Fix.MUTE_IMPULSE); }
@@ -1413,8 +1412,8 @@ public partial class BattleEnemy : MotherBase
         ExecConcussiveHit(player, target, critical);
         break;
 
-      case Fix.EYE_OF_THE_TRUTH:
-        ExecEyeOfTheTruth(player, target);
+      case Fix.EYE_OF_THE_ISSHIN:
+        ExecEyeOfTheIsshin(player, target);
         break;
 
       case Fix.IRREGULAR_STEP:

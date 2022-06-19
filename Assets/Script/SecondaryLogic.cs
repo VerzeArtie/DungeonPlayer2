@@ -307,12 +307,12 @@ public static class SecondaryLogic
     return 9;
   }
 
-  public static double EyeOfTheTruth(Character player)
+  public static double EyeOfTheIsshin(Character player)
   {
     return 0.20f;
   }
 
-  public static int EyeOfTheTruth_Turn(Character player)
+  public static int EyeOfTheIsshin_Turn(Character player)
   {
     return 9;
   }

@@ -571,10 +571,10 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  public void ExecEyeOfTheTruth(Character player, Character target)
+  public void ExecEyeOfTheIsshin(Character player, Character target)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_TRUTH, SecondaryLogic.EyeOfTheTruth_Turn(player), SecondaryLogic.EyeOfTheTruth(player), 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_TRUTH, Fix.COLOR_NORMAL);
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin(player), 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_ISSHIN, Fix.COLOR_NORMAL);
   }
 
   public void ExecIrregularStep(Character player, Character target)
@@ -890,11 +890,11 @@ public partial class BattleEnemy : MotherBase
     double debug2 = defenseValue;
     Debug.Log("PrimaryLogic.PhysicalDefense: " + debug2.ToString());
 
-    if (player.IsEyeOfTheTruth)
+    if (player.IsEyeOfTheIsshin)
     {
-      double reduce = 1.00f - player.IsEyeOfTheTruth.EffectValue;
+      double reduce = 1.00f - player.IsEyeOfTheIsshin.EffectValue;
       if (reduce <= 0.0f) { reduce = 0.0f; }
-      Debug.Log("player.IsEyeOfTheTruth.EffectValue: " + reduce.ToString("F2"));
+      Debug.Log("player.IsEyeOfTheIsshin.EffectValue: " + reduce.ToString("F2"));
       defenseValue = defenseValue * reduce;
       debug2 = defenseValue;
       Debug.Log("PrimaryLogic.PhysicalDefense(EoT): " + debug2.ToString());

@@ -1182,7 +1182,7 @@ public partial class HomeTown : MotherBase
     else if (imgCurrentDecision.name == Fix.DOMINATION_FIELD) { CurrentPlayer.DominationField++; }
     else if (imgCurrentDecision.name == Fix.OATH_OF_AEGIS) { CurrentPlayer.OathOfAegis++; }
     else if (imgCurrentDecision.name == Fix.MULTIPLE_SHOT) { CurrentPlayer.MultipleShot++; }
-    else if (imgCurrentDecision.name == Fix.EYE_OF_THE_TRUTH) { CurrentPlayer.EyeOfTheTruth++; }
+    else if (imgCurrentDecision.name == Fix.EYE_OF_THE_ISSHIN) { CurrentPlayer.EyeOfTheIsshin++; }
     else if (imgCurrentDecision.name == Fix.PIERCING_ARROW) { CurrentPlayer.PiercingArrow++; }
     else if (imgCurrentDecision.name == Fix.INVISIBLE_BIND) { CurrentPlayer.InvisibleBind++; }
     else if (imgCurrentDecision.name == Fix.IRREGULAR_STEP) { CurrentPlayer.IrregularStep++; }
