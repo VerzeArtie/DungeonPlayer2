@@ -46,6 +46,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.GREEN_PENDANT));
       shopList.Add(new Item(Fix.YELLOW_PENDANT));
       shopList.Add(new Item(Fix.SWORD_OF_LIFE));
+      shopList.Add(new Item(Fix.BLUE_WIZARD_HAT));
       shopList.Add(new Item(Fix.FLAME_HAND_KEEPER));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
