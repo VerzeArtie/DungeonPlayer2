@@ -7046,12 +7046,14 @@ public class DungeonField : MotherBase
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
+      // ただし扉などで塞がれている場合は可視化しない。
       // 右
       if (currentRight != null && currentRight.MoveCost != 999)
       {
         Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
-        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
+            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper)
         {
           // 可視化しない
         }
@@ -7101,7 +7103,8 @@ public class DungeonField : MotherBase
       {
         Vector3 vector = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 1.0f, currentLeft.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
-        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
+            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper)
         {
           // 可視化しない
         }
@@ -7151,7 +7154,8 @@ public class DungeonField : MotherBase
       {
         Vector3 vector = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 1.0f, currentTop.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
-        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
+            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper)
         {
           // 可視化しない
         }
@@ -7201,7 +7205,8 @@ public class DungeonField : MotherBase
       {
         Vector3 vector = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 1.0f, currentBottom.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
-        if (field_obj != null && field_obj.content == FieldObject.Content.Rock)
+        if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
+            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper)
         {
           // 可視化しない
         }

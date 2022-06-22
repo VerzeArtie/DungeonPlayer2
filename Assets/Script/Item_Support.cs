@@ -3414,12 +3414,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "厳正の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。心＋1000、「宝玉ソケット埋め込み時：心＋500、力＋500」";
-        this._strength = 0;
+        this._description = "厳正の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。力+5、心＋10、「宝玉ソケット埋め込み時：力+10、心＋5」";
+        this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 1000;
+        this._mind = 10;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;

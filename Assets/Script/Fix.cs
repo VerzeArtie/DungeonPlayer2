@@ -469,7 +469,7 @@ public static partial class Fix
   public const string QUEST_DESC_1 = "ファージル宮殿へと向かい、遠征許可証を入手しよう。ファージル宮殿はアンシェットの町から川沿いに北へ進めば見えてくる。身支度が整い次第、すぐに出発しよう。";
 
   public const string QUEST_TITLE_2 = "国王エルミからの依頼";
-  public const string QUEST_DESC_2 = "国内外遠征許可証を受理した際、国王エルミよりファージルエリアの港町コチューシェへ赴き調査を行うように依頼された。港町コチューシェはファージル区域の東側の海沿いにある。まずは東方面へ遠征してみよう。";
+  public const string QUEST_DESC_2 = "国内外遠征許可証を受理した際、国王エルミよりファージルエリアの港町コチューシェへ赴き調査を行うように依頼された。港町コチューシェはファージル区域の東側の海沿いにあるが、その途中でゴラトラム洞窟を潜り抜ける必要がある。ゴラトラム洞窟を突破し、港町コチューシェへ辿り着こう。";
   public const string QUEST_DESC_2_2 = "港町コチューシェに着いたアイン達は【奇妙な物体】が何であるかを知るため、ツァルマンの里へ向かう事を決意した。ツァルマンの里の詳細な場所は把握出来ていないが、旅を続ける事で見つけられるとアインは直感していた。まずは、北方面のヴィンスガルデ王国に続く山道ルートの方へ歩を進める事にした。";
   public const string QUEST_DESC_2_3 = "ツァルマンの里にたどり着いたアイン達は、里の長老と話をしていたが、その途中で突如追い返されてしまった。その直後、使者からの伝令により一度ファージル宮殿へ戻るよう告げられた。行く先を失ったアインはひとまず使者の伝令に従いファージル宮殿へと戻り、事の顛末を国王に報告する事とした。";
 
@@ -690,6 +690,11 @@ public static partial class Fix
   #region "ヘルプメニューラベル(JP)"
   public const string HELPMENU_ACTIONCOMMAND = "アクションコマンド";
   public const string HELPMENUL_BATTLE = "バトル関連";
+  #endregion
+
+  #region "ホームタウンSHOPメニューラベル(JP)"
+  public const string SHOPMENU_BUY = "購入";
+  public const string SHOPMENU_SELL = "売却";
   #endregion
 
   #region "Action Command"

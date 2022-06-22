@@ -787,7 +787,7 @@ public partial class BattleEnemy : MotherBase
               PlayerList[ii].UpdateLevelup();
 
               DetectLvup.Add(true);
-              DetectLvupTitle.Add( PlayerList[ii].FullName + "がレベルアップしました！");
+              DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");
               DetectLvupMaxLife.Add("最大ライフが " + PlayerList[ii].LevelupBaseLife() + " 上昇した！");
               DetectLvupMaxEP.Add("最大エナジーポイントが " + PlayerList[ii].LevelupBaseSoulPoint() + " 上昇した！");
               DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
@@ -1063,7 +1063,7 @@ public partial class BattleEnemy : MotherBase
 
     if (detectEnemyDead)
     {
-      for (int ii = 0; ii <= PlayerList.Count; ii++)
+      for (int ii = 0; ii < PlayerList.Count; ii++)
       {
         for (int jj = 0; jj < this.EnemyList.Count; jj++)
         {

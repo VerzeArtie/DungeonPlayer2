@@ -363,7 +363,9 @@ public partial class HomeTown : MotherBase
   private RectTransform canvasRect;
   private Vector2 mousePosition;
   protected bool FirstAction = false;
-    
+
+  private bool HomeTownComplete = false;
+
   // Use this for initialization
   public override void Start()
   {
@@ -442,6 +444,11 @@ public partial class HomeTown : MotherBase
   // Update is called once per frame
   public void Update()
   {
+    if (this.HomeTownComplete)
+    {
+      return;
+    }
+
     if (this.FirstAction == false)
     {
       this.FirstAction = true;
@@ -930,27 +937,51 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    One.TF.AlreadyDungeon = true;
-    One.TF.AlreadyRestInn = false;
-    groupNowLoading.SetActive(true);
-
-    // todo
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    if (this.DungeonMap == One.TF.CurrentAreaName)
     {
-      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
-      One.TF.Field_X = 28.0f;
-      One.TF.Field_Y = 1.0f;
-      One.TF.Field_Z= 9.0f;
-      //One.TF.Field_X = -44.0f;
-      //One.TF.Field_Y = 2.0f;
-      //One.TF.Field_Z = 4.0f;
+      MessagePack.MessageX00012(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+
+    // todo
+    //if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    //{
+    //  One.TF.AlreadyDungeon = true;
+    //  One.TF.AlreadyRestInn = false;
+    //  One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+    //  SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
+    //  One.TF.Field_X = 28.0f;
+    //  One.TF.Field_Y = 1.0f;
+    //  One.TF.Field_Z = 9.0f;
+    //  One.TF.Field_X = -44.0f;
+    //  One.TF.Field_Y = 2.0f;
+    //  One.TF.Field_Z = 4.0f;
+    //  return;
+    //}
+    //if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
+      if (this.DungeonMap == Fix.TOWN_ANSHET)
+      {
+        One.TF.AlreadyDungeon = false;
+        One.TF.AlreadyRestInn = true;
+        this.HomeTownComplete = true;
+        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+        One.TF.CurrentAreaName = Fix.TOWN_ANSHET;// this.HomeTownCall;
+        SceneDimension.JumpToHomeTown();
+      }
+      else if (this.DungeonMap == Fix.TOWN_FAZIL_CASTLE)
+      {
+        One.TF.AlreadyDungeon = false;
+        One.TF.AlreadyRestInn = true;
+        this.HomeTownComplete = true;
+        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+        One.TF.CurrentAreaName = Fix.TOWN_FAZIL_CASTLE;// this.HomeTownCall;
+        SceneDimension.JumpToHomeTown();
+      }
       if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
       {
+        One.TF.AlreadyDungeon = true;
+        One.TF.AlreadyRestInn = false;
         One.TF.BeforeAreaName = One.TF.CurrentAreaName;
         SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
         One.TF.Field_X = -9.0f;
@@ -959,6 +990,8 @@ public partial class HomeTown : MotherBase
       }
       else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
       {
+        One.TF.AlreadyDungeon = true;
+        One.TF.AlreadyRestInn = false;
         One.TF.BeforeAreaName = One.TF.CurrentAreaName;
         SceneDimension.JumpToDungeonField(Fix.MAPFILE_GORATRUM);
         One.TF.Field_X = 5.0f;
@@ -966,14 +999,15 @@ public partial class HomeTown : MotherBase
         One.TF.Field_Z = -1.0f;
       }
     }
-    else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
-    {
-      One.TF.Field_X = 24.0f;
-      One.TF.Field_Y = 1.0f;
-      One.TF.Field_Z = 3.0f;
-      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
-    }
+    //else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
+    //{
+    //  One.TF.Field_X = 24.0f;
+    //  One.TF.Field_Y = 1.0f;
+    //  One.TF.Field_Z = 3.0f;
+    //  One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+    //  SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
+    //}
+    groupNowLoading.SetActive(true);
   }
   //public void TapInn()
   //{
@@ -1253,7 +1287,7 @@ public partial class HomeTown : MotherBase
     GroupShopSell.SetActive(false);
     btnShopBuy.gameObject.SetActive(true);
     btnShopSell.gameObject.SetActive(false);
-    txtShopCurrentType.text = "Shop";
+    txtShopCurrentType.text = Fix.SHOPMENU_BUY;
     bool result = FindAndSelectedShopItem(ShopItemList);
     if (result == false)
     {
@@ -1268,7 +1302,7 @@ public partial class HomeTown : MotherBase
     GroupShopSell.SetActive(true);
     btnShopBuy.gameObject.SetActive(false);
     btnShopSell.gameObject.SetActive(true);
-    txtShopCurrentType.text = "Backpack";
+    txtShopCurrentType.text = Fix.SHOPMENU_SELL;
     bool result = FindAndSelectedShopItem(ShopSellItemList);
     if (result == false)
     {
@@ -1739,6 +1773,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_00023 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_24)) { One.TF.QuestMain_00024 = true; }
           RefreshQuestList();
+          RefreshSelectAreaList();
           return;
         }
         // 画面にクエスト更新メッセージを表示する。
@@ -2464,7 +2499,14 @@ public partial class HomeTown : MotherBase
       {
         Item item = new Item(shop_item_list[ii].txtName.text);
         SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
-        txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+        if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
+        {
+          txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+        }
+        else
+        {
+          txtItemGoldCost.text = (item.Gold / 2 ).ToString() + " Gold";
+        }
         return true;
       }
     }
@@ -2482,7 +2524,14 @@ public partial class HomeTown : MotherBase
     shopItem.imgSelect.gameObject.SetActive(true);
 
     SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
-    txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+    if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
+    {
+      txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+    }
+    else
+    {
+      txtItemGoldCost.text = (item.Gold / 2).ToString() + " Gold";
+    }
   }
 
   private void SetupItemDetailEmpty(Item item, Image img_item,
@@ -3137,7 +3186,7 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     int counter = 0;
-    if (One.TF.AvailableFazilCastle) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
     if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_CAVEOFSARUN, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }

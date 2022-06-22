@@ -221,6 +221,11 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：まずは行き先を選択しないとな。", ActionEvent.None);
   }
+
+  public static void MessageX00012(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：今いるのがココだ。他を選ぼう。", ActionEvent.None);
+  }
   #endregion
 
   #region "サルン洞窟入口前のフィールド"
@@ -731,16 +736,6 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ああ、わかった。了解了解！", ActionEvent.None);
 
-    //Message(ref m_list, ref e_list, "アイン：って、おわぁ！！　なんで横に居るんだよ！？", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "ラナ：バカアインが迷子になるのは目に見えてるからよ。しょーがないから来てあげたんじゃない。", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "アイン：ま・・・まあ、正直なところ宮殿はほぼ歩いた事がねえ・・・助かるけどな。", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "ラナ：ホラ、そこの受付に早く行って頂戴。", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "アイン：ああ、わかった。", ActionEvent.None);
-
     Message(ref m_list, ref e_list, "～ " + Fix.TOWN_FAZIL_CASTLE + "、受付口にて ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "　　【受付嬢：" + Fix.TOWN_FAZIL_CASTLE + "へようこそ。】", ActionEvent.None);
@@ -813,7 +808,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：頼みたい事？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：国内外遠征先のヴィンスガルデ王国エリアで調査して欲しい案件があるんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：遠征先であるヴィンスガルデ王国エリアで調査して欲しい案件があるんだ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：案件の内容は王妃ファラから解説させようと思う。", ActionEvent.None);
 
@@ -871,7 +866,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：" + Fix.TOWN_COTUHSYE + "？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：ああ、沿岸沿いにある小さな港町だよ。色々な人たちが集う場所だから、何か情報が得られる事を期待している。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：ああ、沿岸沿いにある港町だよ。色々な人たちが集う場所だから、何か情報が得られる事を期待している。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：また、そこから船を使って" + Fix.AREA_VINSGARDE + "王国へ目指してもらいたい。", ActionEvent.None);
 
@@ -883,23 +878,21 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
 
-    Message(ref m_list, ref e_list, " 【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を手に入れました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, " 【 " + Fix.ARTIFACT_GENSEI + " 】を手に入れました！", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.ARTIFACT_GENSEI, ActionEvent.GetItem);
 
     Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！僭越ながら、拝受つかまつります！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：丁寧にどうもありがとう。固苦しい言葉は本当に気にしなくていいからね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：" + Fix.ITEM_TOOMI_AOSUISYOU + "は一旦立ち寄った場所に瞬時に辿り着くが出来る。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：さて、港町まで行くには途中にある" + Fix.DUNGEON_GORATRUM_CAVE + "を通過する必要があるだろう。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：１日１回使うと、次の日になるまでは使えなくなる。覚えておくと良いよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エルミ：アイン君なら、きっと通過できる。信じているよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：さて、港町までは少し距離がある。途中にある" + Fix.TOWN_QVELTA_TOWN + "に立ち寄ってみるのも良いだろう。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：えっと・・・分かりました！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：それでは、よろしく頼んだよ。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：えっと・・・すみませんが、到着したら何かやる事はありますか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：あと、すみませんが、港町コチューシェに到着したら何かやる事はありますか？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エルミ：いや、特に「何か」っていうのは気にしなくて良いよ。", ActionEvent.None);
 
@@ -918,17 +911,6 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ラナ：じゃあ、まずは" + Fix.TOWN_COTUHSYE + "へ向かえば良いみたいね。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ああ、遠征許可証も手に入れたし、それじゃ、そろそろ・・・", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "ラナ：私は別に良いけど、ひとまずショップに寄っておいた方が良いんじゃないの？", ActionEvent.None);
-
-    //Message(ref m_list, ref e_list, "アイン：オーケー！じゃあ、ショップに寄ってから出発とするか！", ActionEvent.None);
-
-    //  Message(ref m_list, ref e_list, "", ActionEvent.AutoSaveWorldEnvironment);
-    //}
-
-    //public static void Message100040(ref List<string> m_list, ref List<ActionEvent> e_list)
-    //{
-    //Message(ref m_list, ref e_list, "アイン：じゃあ、いざ出発！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：あら、ちょって待ってアイン。そこの出入り口に誰かいるみたいよ。", ActionEvent.None);
 
@@ -960,17 +942,17 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エオネ：あの！今日は、し、仕事の依頼があって参りました！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：私を" + Fix.TOWN_QVELTA_TOWN + "までお送りいただけないでしょうか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：私を" + Fix.TOWN_COTUHSYE + "までお送りいただけないでしょうか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：おお、俺たちもそこは通過するつもりだ。タイミングが良いな！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：おお、俺たちも今からそこに向かうつもりだ。タイミングが良いな！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：え、えっと、あの・・・その" + Fix.TOWN_QVELTA_TOWN + "まで・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：え、えっと、あの・・・その" + Fix.TOWN_COTUHSYE + "まで・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：（ちょっ、バカアイン出てくるとややこしいから、引っ込んでてよ）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：（あ、あぁ・・・）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：" + Fix.TOWN_QVELTA_TOWN + "まで護衛して欲しいって事よね、承るわよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：" + Fix.TOWN_COTUHSYE + "まで護衛して欲しいって事よね、承るわよ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！", ActionEvent.None);
 
@@ -982,7 +964,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エオネ：ハ、ハイ！喜んで！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：決まりみたいね♪　じゃあ、" + Fix.TOWN_QVELTA_TOWN + "まで、一緒に行きましょう♪", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：決まりみたいね♪　じゃあ、" + Fix.TOWN_COTUHSYE + "まで、一緒に行きましょう♪", ActionEvent.None);
 
     Message(ref m_list, ref e_list, " 【エオネ・フルネア】が仲間になりました！", ActionEvent.MessageDisplay);
 
@@ -5699,7 +5681,7 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "ラナ：ちょっと・・・遠征許可証は？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・もちろん、今から行くぜ！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・もちろん、今から取得しに行くぜ！", ActionEvent.None);
 
   }
 
