@@ -682,6 +682,29 @@ public partial class BattleEnemy : MotherBase
     return false;
   }
 
+  private bool ExecPureCleanWater(Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER) == false)
+    {
+      Debug.Log("PURE_CLEAN_WATER is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+    if (One.TF.AlreadyPureCleanWater)
+    {
+      Debug.Log("PURE_CLEAN_WATER is already used...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_ALREADY_USED, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    One.TF.AlreadyPureCleanWater = true;
+    double effectValue = target.MaxLife;
+    AbstractHealCommand(null, target, effectValue);
+    return true;
+  }
+
   private void ExecLifeGain(Character target, double effectValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -854,6 +877,44 @@ public partial class BattleEnemy : MotherBase
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_FIRE, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_FIRE, Fix.COLOR_NORMAL);
   }
+
+  private void ExecBuffSyutyuDanzetsu(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_SYUTYU_DANZETSU, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.BUFF_SYUTYU_DANZETSU, Fix.COLOR_NORMAL);
+  }
+
+  #region "元核"
+  private void ExecEinShutyuDanzetsu(Character player, Character target)
+  {
+    ExecBuffSyutyuDanzetsu(player, target, Fix.INFINITY, PrimaryLogic.Potential(player));
+  }
+
+  private void ExecLanaPerfectSpell(Character player, Character target)
+  {
+    // todo
+  }
+
+  private void ExecEoneMuinSong(Character player, Character target)
+  {
+    // todo
+  }
+
+  private void ExecBillyVictoryStyle(Character player, Character target)
+  {
+    // todo
+  }
+
+  private void ExecAdelEndlessMemory(Character player, Character target)
+  {
+    // todo
+  }
+
+  private void ExecRoStanceOfMuni(Character player, Character target)
+  {
+    // todo
+  }
+  #endregion
 
   #region "General"
   private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, ref bool result_critical)

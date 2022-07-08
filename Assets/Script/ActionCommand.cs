@@ -794,6 +794,8 @@ public static class ActionCommand
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
 
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
+
     // 以降、モンスターアクションは基本０とする。
     if (command_name == Fix.COMMAND_HIKKAKI) { return 0; }
     if (command_name == Fix.COMMAND_GREEN_NENEKI) { return 0; }
@@ -847,6 +849,9 @@ public static class ActionCommand
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return 0; }
+    if (command_name == Fix.NORMAL_RED_POTION) { return 0; }
+    if (command_name == Fix.NORMAL_BLUE_POTION) { return 0; }
+    if (command_name == Fix.PURE_CLEAN_WATER) { return 0; }
 
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -1068,24 +1073,24 @@ public static class ActionCommand
     if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
     if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
 
-    if (command_name == Fix.FLAME_BLADE) { return ""; }
-    if (command_name == Fix.PURE_PURIFICATION) { return ""; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return ""; }
-    if (command_name == Fix.BLOOD_SIGN) { return ""; }
-    if (command_name == Fix.STORM_ARMOR) { return ""; }
-    if (command_name == Fix.SOLID_WALL) { return ""; }
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return ""; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return ""; }
-    if (command_name == Fix.SPEED_STEP) { return ""; }
-    if (command_name == Fix.INVISIBLE_BIND) { return ""; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return ""; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return ""; }
-    if (command_name == Fix.SKY_SHIELD) { return ""; }
-    if (command_name == Fix.FLASH_COUNTER) { return ""; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return ""; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return ""; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return ""; }
-    if (command_name == Fix.SPIRITUAL_REST) { return ""; }
+    if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象にかかっている【有害】に属するBUFFを１つ除去する。"; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
+    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【出血】のBUFFを付与する。【出血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
+    if (command_name == Fix.STORM_ARMOR) { return "味方一体を対象とする。対象に【ストーム】のBUFFを付与する。【ストーム】が続く間、戦闘速度が上昇する。加えて、魔法攻撃を行う度に、【電撃】ダメージが追加発生する。"; }
+    if (command_name == Fix.SOLID_WALL) { return "味方フィールドに、【防壁】のフィールドを形成する。味方に与えられる物理属性のダメージは【防壁】のポイントに吸収される。【防壁】のポイントが0以下になった場合、【防壁】フィールドは消滅する。"; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
+    if (command_name == Fix.SPEED_STEP) { return "自分自身の行動ゲージを進める。行動ゲージが最大を超える場合、行動直前まで行動ゲージが進む。"; }
+    if (command_name == Fix.INVISIBLE_BIND) { return "敵一体を対象とする。対象に物理ダメージを与えた後、【麻痺】のBUFFを付与する。【麻痺】が続く間、スキル系のアクションコマンドが使用不可となる。"; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return "味方フィールドに【洗練】のフィールドを形成する。【洗練】が続く間、味方からのコマンド実行時、ダメージもしくはライフ回復を伴う場合、その威力を10%増強する。"; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
+    if (command_name == Fix.SKY_SHIELD) { return "味方一体を対象とする。対象に【魔法障壁】のBUFFを付与する。【魔法障壁】が続く間、魔法防御が上昇する。"; }
+    if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【スキル】の場合、そのインスタント行動を打ち消す。"; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return "自分自身に【幻闇】のBUFFを付与する。この効果が続く間、敵からダメージ発生を伴う攻撃を食らった場合、あたかも食らわなかったかの様に振る舞った後、このBUFFは除去される。"; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のソウルポイント回復量が＋１される。"; }
+    if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }
 
     if (command_name == Fix.METEOR_BULLET) { return ""; }
     if (command_name == Fix.BLUE_BULLET) { return ""; }

@@ -204,7 +204,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ABSENCE_MOAI:
       case Fix.ABSENCE_MOAI_JP:
-        SetupParameter(55, 13, 55, 41, 7, 2, 163, 99);
+        SetupParameter(55, 13, 55, 50, 7, 2, 163, 99);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SAIMIN_DANCE);
         list.Add(Fix.COMMAND_TOSSHIN);

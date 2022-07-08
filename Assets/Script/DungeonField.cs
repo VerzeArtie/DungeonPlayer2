@@ -6658,7 +6658,7 @@ public class DungeonField : MotherBase
     }
     #endregion
     #region "ゴラトラム洞窟"
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM || One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
     {
       int random = 100 - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
@@ -6702,35 +6702,59 @@ public class DungeonField : MotherBase
         else if (area_info == TileInformation.Area.AREA_2)
         {
           Debug.Log("area_info is AREA_2");
-          int rand_data = AP.Math.RandomInteger(4);
+          int rand_data = AP.Math.RandomInteger(10);
           Debug.Log("rand_data is " + random);
           switch (rand_data)
           {
             case 0:
-              Debug.Log("rand_data 0");
               One.BattleEnemyList.Add(Fix.MECH_HAND);
-              //One.BattleEnemyList.Add(Fix.MECH_HAND);
-              //One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
               break;
             case 1:
-              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
               One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
-              //One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
-              //One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              One.BattleEnemyList.Add(Fix.NEJIMAKI_KNIGHT);
               break;
             case 2:
-              Debug.Log("rand_data 2");
-              //One.BattleEnemyList.Add(Fix.MECH_HAND);
-              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
-              //One.BattleEnemyList.Add(Fix.ACID_SCORPION);
-              //One.BattleEnemyList.Add(Fix.KILLER_MACHINE);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
               break;
             case 3:
-              Debug.Log("rand_data 3");
-              //One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.CULT_BLACK_MAGICIAN);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
               One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
-              //One.BattleEnemyList.Add(Fix.ACID_SCORPION);
-              //One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.NEJIMAKI_KNIGHT);
+              One.BattleEnemyList.Add(Fix.NEJIMAKI_KNIGHT);
+              One.BattleEnemyList.Add(Fix.CULT_BLACK_MAGICIAN);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.NEJIMAKI_KNIGHT);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
+              One.BattleEnemyList.Add(Fix.CULT_BLACK_MAGICIAN);
+              One.BattleEnemyList.Add(Fix.CULT_BLACK_MAGICIAN);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              break;
+            case 9:
+              One.BattleEnemyList.Add(Fix.NEJIMAKI_KNIGHT);
+              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
               break;
             default:
               Debug.Log("rand_data default...");
@@ -6740,29 +6764,59 @@ public class DungeonField : MotherBase
         else if (area_info == TileInformation.Area.AREA_3)
         {
           Debug.Log("area_info is AREA_3");
-          int rand_data = AP.Math.RandomInteger(4);
+          int rand_data = AP.Math.RandomInteger(10);
           Debug.Log("rand_data is " + random);
           switch (rand_data)
           {
             case 0:
               One.BattleEnemyList.Add(Fix.STONE_GOLEM);
-              One.BattleEnemyList.Add(Fix.ABSENCE_MOAI);
-              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.SILENT_GARGOYLE);
               break;
             case 1:
+              One.BattleEnemyList.Add(Fix.STONE_GOLEM);
               One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
-              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
-              One.BattleEnemyList.Add(Fix.MECH_HAND);
+              One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
               break;
             case 2:
               One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
-              One.BattleEnemyList.Add(Fix.MECH_HAND);
-              One.BattleEnemyList.Add(Fix.AIMING_SHOOTER);
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.GATE_HOUND);
               break;
             case 3:
-              One.BattleEnemyList.Add(Fix.SILENT_GARGOYLE);
+              One.BattleEnemyList.Add(Fix.STONE_GOLEM);
               One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
-              One.BattleEnemyList.Add(Fix.ACID_SCORPION);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.GATE_HOUND);
+              One.BattleEnemyList.Add(Fix.GATE_HOUND);
+              One.BattleEnemyList.Add(Fix.SILENT_GARGOYLE);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
+              One.BattleEnemyList.Add(Fix.STONE_GOLEM);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.SILENT_GARGOYLE);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
+              break;
+            case 7:
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.LIGHTNING_CLOUD);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
+              break;
+            case 8:
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              One.BattleEnemyList.Add(Fix.JUNK_VULKAN);
+              break;
+            case 9:
+              One.BattleEnemyList.Add(Fix.GATE_HOUND);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
+              One.BattleEnemyList.Add(Fix.PLAY_FIRE_IMP);
               break;
             default:
               Debug.Log("rand_data default...");
@@ -6771,6 +6825,51 @@ public class DungeonField : MotherBase
         }
         else if (area_info == TileInformation.Area.AREA_4)
         {
+          Debug.Log("area_info is AREA_4");
+          int rand_data = AP.Math.RandomInteger(7);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
+              One.BattleEnemyList.Add(Fix.DEATH_DRONE);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.ASSULT_SCARECROW);
+              One.BattleEnemyList.Add(Fix.MAD_DOCTOR);
+              One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.ASSULT_SCARECROW);
+              One.BattleEnemyList.Add(Fix.DEATH_DRONE);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.MAD_DOCTOR);
+              One.BattleEnemyList.Add(Fix.DEATH_DRONE);
+              One.BattleEnemyList.Add(Fix.DEATH_DRONE);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.MAD_DOCTOR);
+              One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
+              One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.ASSULT_SCARECROW);
+              One.BattleEnemyList.Add(Fix.ASSULT_SCARECROW);
+              One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
+              break;
+            case 6:
+              One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.MAD_DOCTOR);
+              One.BattleEnemyList.Add(Fix.ASSULT_SCARECROW);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+
         }
         One.CannotRunAway = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }

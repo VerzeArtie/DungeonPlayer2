@@ -144,6 +144,14 @@ public class TeamFoundation : MonoBehaviour
     set { _alreadyDungeon = value; }
     get { return _alreadyDungeon; }
   }
+
+  [SerializeField] protected bool _alreadyPureCleanWater = false;
+  public bool AlreadyPureCleanWater
+  {
+    set { _alreadyPureCleanWater = value; }
+    get { return _alreadyPureCleanWater; }
+  }
+
   [SerializeField] protected string _currentAreaName = String.Empty;
   public string CurrentAreaName
   {

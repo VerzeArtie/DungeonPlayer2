@@ -1763,6 +1763,14 @@ public partial class Character : MonoBehaviour
       {
         return true;
       }
+
+      if (this.FullName == Fix.NAME_EONE_FULNEA)
+      {
+        if (item.ItemType == Item.ItemTypes.Twohand_Bow)
+        {
+          return true;
+        }
+      }
       // Seekerは両手持ちを装備できない。
       // if ((this.Job == Fix.JobClass.Seeker && ...)
 
@@ -2081,6 +2089,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BUFF_PO_DOWN); }
   }
 
+  public BuffImage IsSyutyuDanzetsu
+  {
+    get { return SearchBuff(Fix.BUFF_SYUTYU_DANZETSU); }
+  }
+
   public void RemoveStun()
   {
     BuffImage buffImage = SearchBuff(Fix.EFFECT_STUN);
@@ -2192,6 +2205,9 @@ public partial class Character : MonoBehaviour
     List<string> list = new List<string>();
     if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION)) { list.Add(Fix.SMALL_RED_POTION); }
     if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION)) { list.Add(Fix.SMALL_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.NORMAL_RED_POTION)) { list.Add(Fix.NORMAL_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.NORMAL_BLUE_POTION)) { list.Add(Fix.NORMAL_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
     return list;
   }
 

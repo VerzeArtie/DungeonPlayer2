@@ -95,6 +95,12 @@ public static class PrimaryLogic
 
     //    double result = CoreDamage(player, value_type, min, max);
 
+    if (player.IsSyutyuDanzetsu)
+    {
+      Debug.Log("IsSyutyuDanzetsu detect: " + player.IsSyutyuDanzetsu.EffectValue);
+      result *= player.IsSyutyuDanzetsu.EffectValue;
+    }
+
     if (player.IsAuraOfPower)
     {
       result *= player.IsAuraOfPower.EffectValue;

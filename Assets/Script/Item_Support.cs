@@ -3414,7 +3414,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "厳正の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。力+5、心＋10、「宝玉ソケット埋め込み時：力+10、心＋5」";
+        this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。ソケットに埋め込む事により、さらにその輝きは増す。力+5、心＋10、「宝玉ソケット埋め込み時：力+10、心＋5」";
         this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;

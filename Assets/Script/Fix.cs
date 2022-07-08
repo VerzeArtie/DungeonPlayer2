@@ -324,6 +324,7 @@ public static partial class Fix
   public const string BATTLE_AP_LESS = "No AP";
   public const string BATTLE_SP_LESS = "No SP";
   public const string BATTLE_NO_POTION = "No Potion";
+  public const string BATTLE_ALREADY_USED = "空っぽ";
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
   public const string BATTLE_SILENT = "Silent";
@@ -1002,6 +1003,19 @@ public static partial class Fix
   //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
   //public const string TRANQUILITY = "Tranquility";
 
+  // 元核
+  public const string ARCHETYPE_EIN_1 = "集中と断絶";
+  public const string ARCHETYPE_LANA_1 = "完全なる詠唱";
+  public const string ARCHETYPE_EONE_1 = "無感の讃歌";
+  public const string ARCHETYPE_BILLY_1 = "勝利を我が手に！";
+  public const string ARCHETYPE_ADEL_1 = "悠久なる記憶";
+  public const string ARCHETYPE_RO_1 = "無二の構え";
+
+  public const string ARCHETYPE_XXX_A = "循環の誓約"; // 旧ラナ
+  public const string ARCHETYPE_XXX_B = "真実の破壊"; // 旧ヴェルゼ
+  public const string ARCHETYPE_XXX_C = "オラオラオラァ！"; // 旧ランディス
+
+
   // Monster Action
   public const string COMMAND_HIKKAKI = "ひっかき";
   public const string COMMAND_GREEN_NENEKI = "緑色の粘液";
@@ -1108,6 +1122,8 @@ public static partial class Fix
   public const string BUFF_PO_DOWN = "BuffPotentialDown";
 
   public const string BUFF_REMOVE_ALL = "BUFF全除去";
+
+  public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
   #endregion
 
   #region "Item Name"

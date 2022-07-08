@@ -98,6 +98,11 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupStackInTheCommand;
   public GameObject GroupAnimation;
 
+  public GameObject GroupArchetectAnimation;
+  public GameObject ParentArchetectMessage;
+  public Text txtArchetectMessage_Name;
+  public Text txtArchetectMessage_Command;
+
   // debug
   public Text debug1;
 
@@ -142,6 +147,9 @@ public partial class BattleEnemy : MotherBase
 
   protected bool DuelMode = true;
   protected bool NowStackInTheCommand = false;
+
+  protected bool NowAnimationArchetect;
+  protected int AnimationArchetectProgress;
 
   protected int AutoExit = -1;
 
@@ -610,6 +618,32 @@ public partial class BattleEnemy : MotherBase
   {
     // todo 試験的に常に再描画を行うようにする。処理落ちの場合はコメントアウトする。
     LogicInvalidate();
+
+    // 元核発動中。この間、時間を進めない。通常アニメーションよりも優先的に処理する。
+    if (NowAnimationArchetect)
+    {
+      AnimationArchetectProgress--;
+      Vector3 move = this.ParentArchetectMessage.transform.localPosition;
+      if (AnimationArchetectProgress >= 87)
+      {
+        move.x = move.x + 100;
+      }
+      else if (AnimationArchetectProgress >= 20)
+      {
+        move.x = move.x + 2;
+      }
+      else
+      {
+        move.x = move.x + 100;
+      }
+      this.ParentArchetectMessage.transform.localPosition = new Vector3(move.x, move.y, move.z);
+      if (AnimationArchetectProgress <= 0)
+      {
+        NowAnimationArchetect = false;
+        this.GroupArchetectAnimation.SetActive(false);
+      }
+      return;
+    }
 
     // イレギュラー・ステップを実行する。この間、時間を進めずイレギュラー・ステップのゲージ進行を行う。
     if (NowIrregularStepMode)
@@ -1226,6 +1260,13 @@ public partial class BattleEnemy : MotherBase
       critical = CriticalType.Absolute;
       fortune.RemoveBuff();
     }
+    BuffImage syutyuDanzetsu = player.IsSyutyuDanzetsu;
+    if (ActionCommand.IsDamage(command_name) && syutyuDanzetsu)
+    {
+      Debug.Log("Detect IsSyutyuDanzetsu, then Absolute Critical.");
+      critical = CriticalType.Absolute;
+      //syutyuDanzetsu.RemoveBuff(); // ダメージ解決時まで待たないとカウンターされないなどの効果が発揮できないのでコメントアウト。
+    }
 
     #region "コマンド実行"
     List<Character> target_list = null;
@@ -1233,6 +1274,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
     switch (command_name)
     {
+      #region "一般"
       case Fix.NORMAL_ATTACK:
         ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
         break;
@@ -1253,8 +1295,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.USE_RED_POTION:
         ExecUseRedPotion(target);
         break;
+      #endregion
 
-      // Delve I
+      #region "アクションコマンド"
+      #region "Delve I"
       case Fix.FIRE_BALL:
         ExecFireBall(player, target, critical);
         break;
@@ -1326,8 +1370,9 @@ public partial class BattleEnemy : MotherBase
       case Fix.ORACLE_COMMAND:
         ExecOracleCommand(player, target);
         break;
+      #endregion
 
-      // Delve II
+      #region "Delve II"
       case Fix.FLAME_BLADE:
         Debug.Log(Fix.FLAME_BLADE);
         ExecFlameBlade(player, target);
@@ -1381,6 +1426,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.SPIRITUAL_REST:
         ExecSpiritualRest(player, target);
         break;
+      #endregion
 
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
@@ -1437,16 +1483,55 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllMember();
         ExecUnseenAid(player, target_list);
         break;
+      #endregion
 
-      // 以下、アイテム使用
+      #region "元核"
+      case Fix.ARCHETYPE_EIN_1:
+        this.AnimationArchetectProgress = 100;
+        this.NowAnimationArchetect = true;
+        this.GroupArchetectAnimation.SetActive(true);
+        ExecEinShutyuDanzetsu(player, target);
+        break;
+
+      case Fix.ARCHETYPE_LANA_1:
+        ExecLanaPerfectSpell(player, target);
+        break;
+
+      case Fix.ARCHETYPE_EONE_1:
+        ExecEoneMuinSong(player, target);
+        break;
+
+      case Fix.ARCHETYPE_BILLY_1:
+        ExecBillyVictoryStyle(player, target);
+        break;
+
+      case Fix.ARCHETYPE_ADEL_1:
+        ExecAdelEndlessMemory(player, target);
+        break;
+
+      case Fix.ARCHETYPE_RO_1:
+        ExecRoStanceOfMuni(player, target);
+        break;
+        
+      #endregion
+        
+      #region "アイテム使用"
       case Fix.SMALL_RED_POTION:
+      case Fix.NORMAL_RED_POTION:
         ExecUseRedPotion(player);
         break;
 
       case Fix.SMALL_BLUE_POTION:
+      case Fix.NORMAL_BLUE_POTION:
         ExecUseBluePotion(player);
         break;
 
+      case Fix.PURE_CLEAN_WATER:
+        ExecPureCleanWater(player);
+        break;
+      #endregion
+
+      #region "モンスターアクション"
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
         ExecNormalAttack(player, target, 1.30f, CriticalType.None);
@@ -1790,6 +1875,7 @@ public partial class BattleEnemy : MotherBase
           ExecBuffSilent(player, target, 2, 0);
         }
         break;
+      #endregion
 
       default:
         Debug.Log("Nothing Command: " + command_name);

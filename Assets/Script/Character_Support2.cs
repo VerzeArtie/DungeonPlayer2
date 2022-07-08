@@ -599,7 +599,7 @@ public partial class Character : MonoBehaviour
       if (Level == 2) { return Fix.SHADOW_BLAST; }
       if (Level == 4) { return Fix.DISPEL_MAGIC; }
       if (Level == 7) { return Fix.PURE_PURIFICATION; }
-      if (Level >= 10) { return Fix.BLOOD_SIGN; }
+      if (Level == 10) { return Fix.BLOOD_SIGN; }
       if (Level == 15) { return Fix.FLASH_COUNTER; }
       if (Level == 20) { return Fix.BLUE_BULLET; }
     }

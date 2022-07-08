@@ -5470,6 +5470,10 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "アイン：ハーッハッハッハ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：すまないが、次へ進めよう。これは無かった事にしてくれ。", ActionEvent.None);

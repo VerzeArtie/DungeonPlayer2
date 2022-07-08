@@ -1454,6 +1454,7 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyRestInn = true;
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
+    One.TF.AlreadyPureCleanWater = false;
 
     MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text);
     TapOK();
@@ -1481,6 +1482,7 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyRestInn = true;
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
+    One.TF.AlreadyPureCleanWater = false;
     RefreshAllView();
     this.GroupInn.SetActive(false);
 
