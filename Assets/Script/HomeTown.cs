@@ -825,7 +825,7 @@ public partial class HomeTown : MotherBase
       }
       else
       {
-        MessagePack.Message400021(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.Message400031(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -1936,6 +1936,7 @@ public partial class HomeTown : MotherBase
           List<Character> characters = One.AvailableCharacters;
           for (int jj = 0; jj < characters.Count; jj++)
           {
+            // エリア０
             if (currentMessage == Fix.FOOD_BALANCE_SET)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_01_VALUE);
@@ -1978,6 +1979,7 @@ public partial class HomeTown : MotherBase
             {
               CharacterEatFood(characters[jj], Fix.FOOD_15_VALUE);
             }
+
             // エリア２
             else if (currentMessage == Fix.FOOD_FISH_GURATAN)
             {
@@ -1999,6 +2001,7 @@ public partial class HomeTown : MotherBase
             {
               CharacterEatFood(characters[jj], Fix.FOOD_25_VALUE);
             }
+
             // エリア３
             else if (currentMessage == Fix.FOOD_HINYARI_YASAI)
             {
@@ -2020,6 +2023,7 @@ public partial class HomeTown : MotherBase
             {
               CharacterEatFood(characters[jj], Fix.FOOD_35_VALUE);
             }
+
             // エリア４
             else if (currentMessage == Fix.FOOD_BLACK_BUTTER_SPAGHETTI)
             {
@@ -3192,6 +3196,8 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_CAVEOFSARUN, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
+    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
+    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -3244,10 +3250,13 @@ public partial class HomeTown : MotherBase
     txtGoButton.text = "【 " +select_area_name + " 】へ向かう";
     this.DungeonMap = select_area_name;
 
-    if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。"; } 
-    if (select_area_name == Fix.DUNGEON_CAVEOFSARUN) { txtEventDescription.text = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。"; }
-    if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { txtEventDescription.text = "ファージル区域全土を統治する国王エルミ・ジョルジュが住まうファージル宮殿。ファージル宮殿の裏には数々のワープゲートが設置されており、国王であるエルミ・ジョルジュ、王妃ファラ・フローレ、魔道学院の長シニキア・カールハンツ、正義の暴君オル・ランディス、存在不可視のヴェルゼ・アーティが日々各エリアの状況把握に努めている。ファージル全土で犯罪発生率が低く、一般市民が平和に暮らせているのは彼らの加護があるからに他ならない。"; }
-    if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = "人々を魅了する鍾乳洞は、観光地として多くの旅行者をひきつけた場所である。今では鍾乳洞は僅かしか残っておらず、地の奥底からモンスターが出没するようになっているため、一般の人々がここを訪れる事は無い。探索に行くのであれば、入念な準備を怠らない事だ。"; }
+    if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = Fix.AREA_INFO_ANSHET; } 
+    if (select_area_name == Fix.DUNGEON_CAVEOFSARUN) { txtEventDescription.text = Fix.AREA_INFO_CAVEOFSARUN; }
+    if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { txtEventDescription.text = Fix.AREA_INFO_FAZIL_CASTLE; }
+    if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = Fix.AREA_INFO_GORATRUM_CAVE; }
+    if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
+    if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
+    // todo
   }
   
   private void ViewQuestEvent(string quest_name)

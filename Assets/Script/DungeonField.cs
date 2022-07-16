@@ -6046,6 +6046,11 @@ public class DungeonField : MotherBase
           this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
           return true;
         }
+        if (LocationDetect(tile, Fix.GORATRUM_Upstair_2_X, Fix.GORATRUM_Upstair_2_Y, Fix.GORATRUM_Upstair_2_Z))
+        {
+          this.HomeTownCall = Fix.TOWN_COTUHSYE;
+          return true;
+        }
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
       {

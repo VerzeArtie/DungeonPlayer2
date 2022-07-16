@@ -471,7 +471,7 @@ public static partial class Fix
 
   public const string QUEST_TITLE_2 = "国王エルミからの依頼";
   public const string QUEST_DESC_2 = "国内外遠征許可証を受理した際、国王エルミよりファージルエリアの港町コチューシェへ赴き調査を行うように依頼された。港町コチューシェはファージル区域の東側の海沿いにあるが、その途中でゴラトラム洞窟を潜り抜ける必要がある。ゴラトラム洞窟を突破し、港町コチューシェへ辿り着こう。";
-  public const string QUEST_DESC_2_2 = "港町コチューシェに着いたアイン達は【奇妙な物体】が何であるかを知るため、ツァルマンの里へ向かう事を決意した。ツァルマンの里の詳細な場所は把握出来ていないが、旅を続ける事で見つけられるとアインは直感していた。まずは、北方面のヴィンスガルデ王国に続く山道ルートの方へ歩を進める事にした。";
+  public const string QUEST_DESC_2_2 = "港町コチューシェに着いたアイン達は、傭兵ビリー・ラキと合流し、神秘の森へ向かう事を決意した。神秘の森に関する詳細な情報は入手できていないが、この旅を続ける事で見つけられるとアインは直感していた。";
   public const string QUEST_DESC_2_3 = "ツァルマンの里にたどり着いたアイン達は、里の長老と話をしていたが、その途中で突如追い返されてしまった。その直後、使者からの伝令により一度ファージル宮殿へ戻るよう告げられた。行く先を失ったアインはひとまず使者の伝令に従いファージル宮殿へと戻り、事の顛末を国王に報告する事とした。";
 
   public const string QUEST_TITLE_3 = "鍛冶屋ヴァスタと会話";
@@ -529,6 +529,15 @@ public static partial class Fix
   public const string DECISION_PARTY_JOIN_SELMOI_RO = "セルモイ・ロウを仲間に引き入れる";
   #endregion
 
+  #region "エリア説明"
+  public const string AREA_INFO_ANSHET = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。";
+  public const string AREA_INFO_CAVEOFSARUN = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。";
+  public const string AREA_INFO_FAZIL_CASTLE = "ファージル区域全土を統治する国王エルミ・ジョルジュが住まうファージル宮殿。ファージル宮殿の裏には数々のワープゲートが設置されており、国王であるエルミ・ジョルジュ、王妃ファラ・フローレ、魔道学院の長シニキア・カールハンツ、正義の暴君オル・ランディス、存在不可視のヴェルゼ・アーティが日々各エリアの状況把握に努めている。ファージル全土で犯罪発生率が低く、一般市民が平和に暮らせているのは彼らの加護があるからに他ならない。";
+  public const string AREA_INFO_GORATRUM_CAVE = "人々を魅了する鍾乳洞は、観光地として多くの旅行者をひきつけた場所である。今では鍾乳洞は僅かしか残っておらず、地の奥底からモンスターが出没するようになっているため、一般の人々がここを訪れる事は無い。探索に行くのであれば、入念な準備を怠らない事だ。";
+  public const string AREA_INFO_COTUHSYE = "この港町には様々な職業の者が行き来している。国王エルミは本エリアを交流の場の一つとして制定しており、出入りについて制限は設けていないため交易が盛んである。だが、現在は船の出航制限がかかっており、ここからヴィンスガルデ王国行きの船は出ていない。";
+  public const string AREA_INFO_MYSTIC_FOREST = "立ち入る人々を深淵なる濃霧へと誘う【神秘の森】。その場の見通しの悪さに加え、モンスターからの襲撃が繰り返し行われるため、方向感覚を失い、そのまま行方不明となる者が後を絶えない。進むためには入念なる準備が必要となるだろう。";
+  #endregion
+
   #region "食事メニュー"
   public const string FOOD_BALANCE_SET = "バランス定食";
   public const string FOOD_LARGE_GOHAN_SET = "山盛りごはんセット";
@@ -573,11 +582,11 @@ public static partial class Fix
   public static string DESC_14 = DESC_14_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技＋５\r\n  知\r\n  体\r\n  心";
   public static string DESC_15 = DESC_15_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋５\r\n  知＋５\r\n  体\r\n  心";
 
-  public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋３０\r\n  知\r\n  体＋２０\r\n  心";
-  public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２０\r\n  技\r\n  知\r\n  体＋３０\r\n  心";
-  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋２０\r\n  体\r\n  心＋３０";
-  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３０\r\n  技\r\n  知\r\n  体\r\n  心＋２０";
-  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋３０\r\n  体＋２０\r\n  心";
+  public static string DESC_21 = DESC_21_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　\r\n  技＋８\r\n  知＋５\r\n  体＋３\r\n  心　　";
+  public static string DESC_22 = DESC_22_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３\r\n  技　　\r\n  知＋８\r\n  体＋５\r\n  心　　";
+  public static string DESC_23 = DESC_23_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　\r\n  技　　\r\n  知＋３\r\n  体＋８\r\n  心＋５";
+  public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８\r\n  技＋５\r\n  知　　\r\n  体　　\r\n  心＋３";
+  public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技＋３\r\n  知　　\r\n  体　　\r\n  心＋８";
 
   public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋８０\r\n  体\r\n  心＋６０";
   public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋８０\r\n  知＋６０\r\n  体＋６０\r\n  心";
@@ -632,11 +641,13 @@ public static partial class Fix
   public static int[] FOOD_13_VALUE = { 0, 0, 5, 0, 5 };
   public static int[] FOOD_14_VALUE = { 5, 5, 0, 0, 0 };
   public static int[] FOOD_15_VALUE = { 0, 5, 5, 0, 0 };
-  public static int[] FOOD_21_VALUE = { 0, 30, 0, 20, 0 };
-  public static int[] FOOD_22_VALUE = { 20, 0, 0, 30, 0 };
-  public static int[] FOOD_23_VALUE = { 0, 0, 20, 0, 30 };
-  public static int[] FOOD_24_VALUE = { 30, 0, 0, 0, 20 };
-  public static int[] FOOD_25_VALUE = { 0, 0, 30, 20, 0 };
+
+  public static int[] FOOD_21_VALUE = { 0, 8, 5, 3, 0 };
+  public static int[] FOOD_22_VALUE = { 3, 0, 8, 5, 0 };
+  public static int[] FOOD_23_VALUE = { 0, 0, 3, 8, 5 };
+  public static int[] FOOD_24_VALUE = { 8, 5, 0, 0, 3 };
+  public static int[] FOOD_25_VALUE = { 5, 3, 0, 0, 8 };
+
   public static int[] FOOD_31_VALUE = { 0, 0, 80, 0, 60 };
   public static int[] FOOD_32_VALUE = { 0, 80, 60, 60, 0 };
   public static int[] FOOD_33_VALUE = { 80, 0, 0, 80, 40 };

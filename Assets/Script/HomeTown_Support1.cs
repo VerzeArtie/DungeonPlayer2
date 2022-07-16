@@ -71,14 +71,14 @@ public partial class HomeTown : MotherBase
       //  shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
       //}
     }
+    else if (area_name == Fix.TOWN_COTUHSYE)
+    {
+      shopList.Add(new Item(Fix.FINE_SWORD));
+    }
     else if (area_name == Fix.TOWN_QVELTA_TOWN)
     {
       shopList.Add(new Item(Fix.FINE_SWORD));
       shopList.Add(new Item(Fix.FINE_CLAW));
-    }
-    else if (area_name == Fix.TOWN_COTUHSYE)
-    {
-      shopList.Add(new Item(Fix.FINE_SWORD));
     }
     else if (area_name == Fix.TOWN_ARCANEDINE)
     {
@@ -117,7 +117,7 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_USAGI);
       foodList.Add(Fix.FOOD_SANMA);
     }
-    else if (area_name == Fix.TOWN_ARCANEDINE)
+    else if (area_name == Fix.TOWN_COTUHSYE)
     {
       foodList.Add(Fix.FOOD_FISH_GURATAN);
       foodList.Add(Fix.FOOD_SEA_TENPURA);

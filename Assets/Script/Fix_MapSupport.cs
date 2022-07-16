@@ -214,6 +214,12 @@ public partial class Fix
   public const float GORATRUM_Upstair_1_Y = 0.0f;
   public const float GORATRUM_Upstair_1_Z = -2.0f;
 
+  public const string GORATRUM_Upstair_2_C = "Upstair";
+  public const string GORATRUM_Upstair_2_O = "2";
+  public const float GORATRUM_Upstair_2_X = 0.0f;
+  public const float GORATRUM_Upstair_2_Y = 0.0f;
+  public const float GORATRUM_Upstair_2_Z = -5.0f;
+
   // (2F)
   public const string GORATRUM_2_Upstair_1_C = "Upstair";
   public const string GORATRUM_2_Upstair_1_O = "1";
