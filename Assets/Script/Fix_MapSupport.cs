@@ -713,6 +713,12 @@ public partial class Fix
   public const float MYSTICFOREST_MessageBoard_1_Y = 1.0f;
   public const float MYSTICFOREST_MessageBoard_1_Z = -9.0f;
 
+  public const string MYSTICFOREST_MessageBoard_2_C = "MessageBoard";
+  public const string MYSTICFOREST_MessageBoard_2_O = "1";
+  public const float MYSTICFOREST_MessageBoard_2_X = 35.0f;
+  public const float MYSTICFOREST_MessageBoard_2_Y = 1.0f;
+  public const float MYSTICFOREST_MessageBoard_2_Z = -14.0f;
+
   // 入口広場のエントリー地点
   public const string MYSTICFOREST_Event_1_C = "Event";
   public const string MYSTICFOREST_Event_1_O = "1";

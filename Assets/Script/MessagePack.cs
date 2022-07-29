@@ -7775,6 +7775,48 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "15:1:-22", ActionEvent.JumpToLocation);
   }
+
+  public static void Message900050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900030 == false)
+    {
+      One.TF.Event_Message900030 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみるか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　大自然を受諾し、森に選ばれし者のみ、過去と未来を繋ぐ権利が与えられる　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、オーケーオーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前、ほんっと適当だよな。どこがオーケーなんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これは明らかに示唆を提示している。十分だろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ええと、すまない。解説だったな、よし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらくだが、何らかをこの森から授かって、森の中を通れるようにならないといけないって事だろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最初は結構迷うのかもしれないが、きっと潜り抜けられる方法がある。そんな感じだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、過去と未来を繋ぐ権利の前に、重要な要素として【最初の迷い方】そのものについてだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ハイハイ、ありがとう。バカアインの奇妙奇天烈な解説はその辺りで結構よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか、悪いな。ちょっと説明は難しいんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ともかく探索を続けよう。きっと抜けられる道があるはずだ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　大自然を受諾し、森に選ばれし者のみ、過去と未来を繋ぐ権利が与えられる　』", ActionEvent.None);
+    }
+  }
   #endregion
 
   #region "ヴェルガスの海底神殿"

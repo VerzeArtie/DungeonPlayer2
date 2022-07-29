@@ -2983,6 +2983,10 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message900010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+        if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_MessageBoard_2_X, Fix.MYSTICFOREST_MessageBoard_2_Y, Fix.MYSTICFOREST_MessageBoard_2_Z))
+        {
+          MessagePack.Message900050(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
