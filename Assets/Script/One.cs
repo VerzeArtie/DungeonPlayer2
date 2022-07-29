@@ -252,6 +252,10 @@ public static class One
     {
       TF.KnownTileList_Goratrum_2.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_MYSTICFOREST * Fix.MAPSIZE_Z_MYSTICFOREST; ii++)
+    {
+      TF.KnownTileList_MysticForest.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {

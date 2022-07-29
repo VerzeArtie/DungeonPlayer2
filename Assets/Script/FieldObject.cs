@@ -23,6 +23,7 @@ public class FieldObject : MonoBehaviour
     DhalGate_Tile,
     DhalGate_Wall,
     DhalGate_Door,
+    Brushwood,
     Boss,
   }
 

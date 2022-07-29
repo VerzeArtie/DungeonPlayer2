@@ -613,6 +613,17 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
 
+      // ダンジョンKnownTileInfo ( MysticForest )
+      xmlWriter.WriteStartElement("MysticForest");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_MysticForest.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_MysticForest_" + ii.ToString("D8"), One.TF.KnownTileList_MysticForest[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -1108,6 +1119,23 @@ public class SaveLoad : MotherBase
         else
         {
           One.TF.KnownTileList_Goratrum_2[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentMysticForest = xml.GetElementsByTagName("MysticForest");
+    for (int ii = 0; ii < parentMysticForest.Count; ii++)
+    {
+      XmlNodeList current = parentMysticForest[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_MysticForest[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_MysticForest[jj] = false;
         }
       }
     }

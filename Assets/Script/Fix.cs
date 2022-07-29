@@ -1263,6 +1263,9 @@ public static partial class Fix
   public const int MAPSIZE_X_GORATRUM = 40;
   public const int MAPSIZE_Z_GORATRUM = 20;
 
+  public const int MAPSIZE_X_MYSTICFOREST = 50;
+  public const int MAPSIZE_Z_MYSTICFOREST = 30;
+
   #endregion
 
   #region "Limit"

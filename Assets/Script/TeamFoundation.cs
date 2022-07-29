@@ -558,6 +558,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_Goratrum_2 = value; }
     get { return _knownTileList_Goratrum_2; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_MysticForest = new List<bool>(Fix.MAPSIZE_X_MYSTICFOREST * Fix.MAPSIZE_Z_MYSTICFOREST);
+  public List<bool> KnownTileList_MysticForest
+  {
+    set { _knownTileList_MysticForest = value; }
+    get { return _knownTileList_MysticForest; }
+  }
   #endregion
 
   #region "Event"
@@ -974,6 +981,20 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
   public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } }
   public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } }
+
+
+  [SerializeField] protected bool _event_message900010 = false;
+  public bool Event_Message900010
+  {
+    get { return _event_message900010; }
+    set { _event_message900010 = value; }
+  }
+  [SerializeField] protected bool _event_message900020 = false;
+  public bool Event_Message900020
+  {
+    get { return _event_message900020; }
+    set { _event_message900020 = value; }
+  }
 
   [SerializeField] protected bool _event_message1100010 = false;
   public bool Event_Message1100010 { get { return _event_message1100010; } set { _event_message1100010 = value; } }

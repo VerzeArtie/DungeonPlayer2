@@ -57,6 +57,10 @@ public class TileInformation : MonoBehaviour
     Dhal_Wall = 4002,
     Dhal_NormalObj = 4003,
     Dhal_WallObj = 4004,
+    
+    // ê_îÈÇÃêX
+    MysticForest_Normal = 5001,
+    MysticForest_Wall = 5002,
   }
   public enum Area
   {
@@ -133,6 +137,10 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Dhal_Wall) { return 999; }
       if (field == Field.Dhal_NormalObj) { return 1; }
       if (field == Field.Dhal_WallObj) { return 999; }
+
+      // ê_îÈÇÃêX
+      if (field == Field.MysticForest_Normal) { return 1; }
+      if (field == Field.MysticForest_Wall) { return 999; }
 
       return 999;
     }

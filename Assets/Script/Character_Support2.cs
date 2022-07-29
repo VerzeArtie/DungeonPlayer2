@@ -34,7 +34,7 @@ public partial class Character : MonoBehaviour
     switch (character_name)
     {
       case Fix.NAME_EIN_WOLENCE:
-        this.Level = 1;
+        this.Level = 1; // 17 + 0
         this.Strength = 5;
         this.Agility = 3;
         this.Intelligence = 2;
@@ -60,7 +60,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_LANA_AMIRIA:
-        this.Level = 1;
+        this.Level = 1; // 17 + 0
         this.Strength = 3;
         this.Agility = 5;
         this.Intelligence = 4;
@@ -86,14 +86,14 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_EONE_FULNEA:
-        this.Level = 4;
+        this.Level = 4; // 17 + 9
         this.Strength = 7;
         this.Agility = 8;
         this.Intelligence = 11;
         this.Stamina = 5;
         this.Mind = 4;
-        this.BaseLife = 35;
-        this.BaseSoulPoint = 29;
+        this.BaseLife = 20 + 15; // level4スタートのため、LV2～LV4分を足し算。
+        this.BaseSoulPoint = 20 + 9; // level4スタートのため、LV2～LV4分を足し算。
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.SecondCommandAttribute = Fix.CommandAttribute.Archer;
@@ -125,8 +125,8 @@ public partial class Character : MonoBehaviour
         this.Intelligence = 5;
         this.Stamina = 10;
         this.Mind = 5;
-        this.BaseLife = 30;
-        this.BaseSoulPoint = 10;
+        this.BaseLife = 30+93; // level10スタートのため、LV2～LV10分を足し算。
+        this.BaseSoulPoint = 10 + 20; // level10スタートのため、LV2～LV10分を足し算。
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -140,6 +140,7 @@ public partial class Character : MonoBehaviour
         this.SpeedStep = 1;
         this.AvailableFire = true;
         this.FireBall = 1;
+        this.FlameBlade = 1;
         this.AvailableBrave = true;
         this.HeartOfLife = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;

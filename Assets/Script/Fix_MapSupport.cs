@@ -706,6 +706,40 @@ public partial class Fix
   #endregion
   #endregion
 
+  #region "神秘の森"
+  public const string MYSTICFOREST_MessageBoard_1_C = "MessageBoard";
+  public const string MYSTICFOREST_MessageBoard_1_O = "1";
+  public const float MYSTICFOREST_MessageBoard_1_X = 6.0f;
+  public const float MYSTICFOREST_MessageBoard_1_Y = 1.0f;
+  public const float MYSTICFOREST_MessageBoard_1_Z = -9.0f;
+
+  // 入口広場のエントリー地点
+  public const string MYSTICFOREST_Event_1_C = "Event";
+  public const string MYSTICFOREST_Event_1_O = "1";
+  public const float MYSTICFOREST_Event_1_X = 9.0f;
+  public const float MYSTICFOREST_Event_1_Y = 0.0f;
+  public const float MYSTICFOREST_Event_1_Z = -7.0f;
+
+  public const string MYSTICFOREST_Event_1_2_C = "Event";
+  public const string MYSTICFOREST_Event_1_2_O = "1-2";
+  public const float MYSTICFOREST_Event_1_2_X = 36.0f;
+  public const float MYSTICFOREST_Event_1_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_1_2_Z = -20.0f;
+
+  public const string MYSTICFOREST_Event_2_C = "Event";
+  public const string MYSTICFOREST_Event_2_O = "2";
+  public const float MYSTICFOREST_Event_2_X = 29.0f;
+  public const float MYSTICFOREST_Event_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_2_Z = -8.0f;
+
+  public const string MYSTICFOREST_Event_3_C = "Event";
+  public const string MYSTICFOREST_Event_3_O = "3";
+  public const float MYSTICFOREST_Event_3_X = 23.0f;
+  public const float MYSTICFOREST_Event_3_Y = 0.0f;
+  public const float MYSTICFOREST_Event_3_Z = -14.0f;
+
+  #endregion
+
   public const string ARTHARIUM_Treasure_3_C = "Treasure";
   public const string ARTHARIUM_Treasure_3_O = "3";
   public const float ARTHARIUM_Treasure_3_X = 35f;

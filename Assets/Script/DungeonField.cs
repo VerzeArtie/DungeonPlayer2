@@ -68,10 +68,13 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Ohran_WarpHole;
   public TileInformation prefab_Dhal_Normal;
   public TileInformation prefab_Dhal_Wall;
+  public TileInformation prefab_MysticForest_Normal;
+  public TileInformation prefab_MysticForest_Wall;
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Downstair;
   public TileInformation prefab_Unknown;
   public TileInformation prefab_Unknown_Goratrum;
+  public TileInformation prefab_Unknown_MysticForest;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -92,6 +95,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_DhalGateWall;
   public FieldObject prefab_DhalGateDoor;
   public FieldObject prefab_DhalGateDoorOpen;
+  public FieldObject prefab_Brushwood;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -313,6 +317,8 @@ public class DungeonField : MotherBase
     PrefabList.Add("Ohran_WarpHole");
     PrefabList.Add("Dhal_Normal");
     PrefabList.Add("Dhal_Wall");
+    PrefabList.Add("MysticForest_Normal");
+    PrefabList.Add("MysticForest_Wall");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -330,6 +336,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("DhalGate_Wall");
     ObjectList.Add("DhalGate_Door");
     ObjectList.Add("DhalGate_Door_Open");
+    ObjectList.Add("Brushwood");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -2893,6 +2900,13 @@ public class DungeonField : MotherBase
     FieldObject fieldObjBefore = SearchObject(new Vector3(tile.transform.position.x,
                                                           tile.transform.position.y + 1.0f,
                                                           tile.transform.position.z));
+    if (fieldObjBefore == null)
+    {
+      fieldObjBefore = SearchObject(new Vector3(tile.transform.position.x,
+                                                          tile.transform.position.y + 0.5f,
+                                                          tile.transform.position.z));
+    }
+
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
     {
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -2954,13 +2968,20 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message600180(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        if (LocationFieldDetect(fieldObjBefore, Fix.GORATRUM_MessageBoard_4_X, Fix.GORATRUM_MessageBoard_4_Y,Fix.GORATRUM_MessageBoard_4_Z))
+        if (LocationFieldDetect(fieldObjBefore, Fix.GORATRUM_MessageBoard_4_X, Fix.GORATRUM_MessageBoard_4_Y, Fix.GORATRUM_MessageBoard_4_Z))
         {
           MessagePack.Message600220(ref QuestMessageList, ref QuestEventList); TapOK();
         }
         if (LocationFieldDetect(fieldObjBefore, Fix.GORATRUM_MessageBoard_5_X, Fix.GORATRUM_MessageBoard_5_Y, Fix.GORATRUM_MessageBoard_5_Z))
         {
           MessagePack.Message600170(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_MessageBoard_1_X, Fix.MYSTICFOREST_MessageBoard_1_Y, Fix.MYSTICFOREST_MessageBoard_1_Z))
+        {
+          MessagePack.Message900010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -3095,6 +3116,13 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
     {
       Debug.Log("fieldObjBefore is rock, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    // オブジェクト（茂み）の判定
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Brushwood)
+    {
+      Debug.Log("fieldObjBefore is Brushwood, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -5575,6 +5603,18 @@ public class DungeonField : MotherBase
             this.PlayerList[jj].SoulFragment += Convert.ToInt32(currentMessage);
           }
         }
+        else if (currentEvent == MessagePack.ActionEvent.JumpToLocation)
+        {
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+          {
+            string[] locations = currentMessage.Split(':');
+            int jump_X = Convert.ToInt32(locations[0]);
+            int jump_Y = Convert.ToInt32(locations[1]);
+            int jump_Z = Convert.ToInt32(locations[2]);
+            JumpToLocation(new Vector3(jump_X, jump_Y, jump_Z));
+            UpdateUnknownTile(Player.transform.position);
+          }
+        }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
         {
@@ -5690,6 +5730,7 @@ public class DungeonField : MotherBase
       }
     }
     #endregion
+    #region "ゴラトラム洞窟"
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
     {
       if (LocationDetect(tile, Fix.GORATRUM_Event_1_X, Fix.GORATRUM_Event_1_Y, Fix.GORATRUM_Event_1_Z))
@@ -5853,6 +5894,28 @@ public class DungeonField : MotherBase
         return true;
       }
     }
+    #endregion
+    #region "神秘の森"
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+    {
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_1_X, Fix.MYSTICFOREST_Event_1_Y, Fix.MYSTICFOREST_Event_1_Z) ||
+          LocationDetect(tile, Fix.MYSTICFOREST_Event_1_2_X, Fix.MYSTICFOREST_Event_1_2_Y, Fix.MYSTICFOREST_Event_1_2_Z))
+      {
+        MessagePack.Message900020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_2_X, Fix.MYSTICFOREST_Event_2_Y, Fix.MYSTICFOREST_Event_2_Z))
+      {
+        MessagePack.Message900030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_3_X, Fix.MYSTICFOREST_Event_3_Y, Fix.MYSTICFOREST_Event_3_Z))
+      {
+        MessagePack.Message900040(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       if (LocationDetect(tile, -47, 3.5f, 17))
@@ -7147,6 +7210,10 @@ public class DungeonField : MotherBase
         {
           One.TF.KnownTileList_Goratrum_2[ii] = true;
         }
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+        {
+          One.TF.KnownTileList_MysticForest[ii] = true;
+        }
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
@@ -7157,7 +7224,8 @@ public class DungeonField : MotherBase
         Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
-            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper)
+            field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
+            field_obj != null && field_obj.content == FieldObject.Content.Brushwood)
         {
           // 可視化しない
         }
@@ -7180,6 +7248,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
+            }
           }
 
           if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
@@ -7197,6 +7269,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
             }
           }
         }
@@ -7231,6 +7307,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
+            }
           }
 
           if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
@@ -7248,6 +7328,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
             }
           }
         }
@@ -7282,6 +7366,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
+            }
           }
 
           if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
@@ -7299,6 +7387,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
             }
           }
         }
@@ -7333,6 +7425,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
+            }
           }
 
           if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
@@ -7350,6 +7446,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
             {
               One.TF.KnownTileList_Goratrum_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+            {
+              One.TF.KnownTileList_MysticForest[ii] = true;
             }
           }
         }
@@ -7515,6 +7615,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Dhal_Wall, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "MysticForest_Normal")
+    {
+      current = Instantiate(prefab_MysticForest_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "MysticForest_Wall")
+    {
+      current = Instantiate(prefab_MysticForest_Wall, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Upstair")
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
@@ -7557,10 +7665,18 @@ public class DungeonField : MotherBase
     TileInformation current = null;
     if (tile_name == "Unknown")
     {
-      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM ||
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
+      {
+        current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM ||
           One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
       {
         current = Instantiate(prefab_Unknown_Goratrum, position, Quaternion.identity) as TileInformation;
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+      {
+        current = Instantiate(prefab_Unknown_MysticForest, position, Quaternion.identity) as TileInformation;
       }
       else
       {
@@ -7672,6 +7788,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_DhalGateDoor, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.DhalGate_Door;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Brushwood")
+    {
+      current = Instantiate(prefab_Brushwood, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Brushwood;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -7954,6 +8078,27 @@ public class DungeonField : MotherBase
       for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
       {
         if (One.TF.KnownTileList_Goratrum_2[ii])
+        {
+          UnknownTileList[ii].gameObject.SetActive(false);
+        }
+      }
+    }
+
+    if (map_data == Fix.MAPFILE_MYSTIC_FOREST)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_MYSTICFOREST; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_X_MYSTICFOREST; jj++)
+        {
+          Vector3 position = new Vector3(jj, 1.0f, -ii);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+        }
+      }
+      Debug.Log("Goratrum KnownTileList_MysticForest count: " + One.TF.KnownTileList_MysticForest.Count);
+      for (int ii = 0; ii < Fix.MAPSIZE_X_MYSTICFOREST * Fix.MAPSIZE_Z_MYSTICFOREST; ii++)
+      {
+        if (One.TF.KnownTileList_MysticForest[ii])
         {
           UnknownTileList[ii].gameObject.SetActive(false);
         }

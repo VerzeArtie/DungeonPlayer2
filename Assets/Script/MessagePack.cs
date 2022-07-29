@@ -44,6 +44,7 @@ public static class MessagePack
     VisiblePlayer,
     ViewLevelUpCharacter,
     RefreshAllView,
+    JumpToLocation,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -7696,9 +7697,83 @@ public static class MessagePack
   }
   #endregion
 
-  #region "フィオーネの湖"
+  #region "神秘の森"
   public static void Message900010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message900010 == false)
+    {
+      One.TF.Event_Message900010 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。ええと、なになに・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　辿るべき道筋はなし。印無き者は通さずが掟　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・なるほど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なるほどって、てめぇ何か分かったのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もちろん、分からない。ただ、ある程度の雰囲気は掴んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：雰囲気ってなによ。もうちょっと詳しく解説。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・何て言うんだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大概こういうのは壁を辿って行けば、大方網羅はできるだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、この森はそれだけは進ませてくれない。って所だろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：後、印無き者と書いてあるが、これは進めていくうちに分かるレベルじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：入ってきた者はそのままの状態ではなく、何らかの経路を経て進む事を示しているんだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今の時点ではわからない。ただし、気に留めておけばそれで十分。って事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：って事だ。じゃねーよ、全然意味不明じゃねえか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：頭が痛くなってきたわ・・・やっぱり聞くんじゃなかったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まあ、看板は何度でも確認できる。気になったらまた見るとしよう！ッハッハッハ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　辿るべき道筋はなし。印無き者は通さずが掟　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message900020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "33:1:-13", ActionEvent.JumpToLocation);
+
+    if (One.TF.Event_Message900020 == false)
+    {
+      One.TF.Event_Message900020 = true;
+
+      Message(ref m_list, ref e_list, "アイン：なっ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：今・・・突然景色が変わったわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。大丈夫なんだろうな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：若干想定外だったが、まあ大丈夫さ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この手の仕掛けは何度か搔い潜った事はある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：気にせず、考えすぎず、注意しつつ、進めていこう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：わけわかんねぇ言い方だが、とにかく頼んだぜ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message900030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "5:1:-8", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "15:1:-22", ActionEvent.JumpToLocation);
   }
   #endregion
 

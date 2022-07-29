@@ -998,6 +998,16 @@ public partial class HomeTown : MotherBase
         One.TF.Field_Y = 1.0f;
         One.TF.Field_Z = -1.0f;
       }
+      else if (this.DungeonMap == Fix.DUNGEON_MYSTIC_FOREST)
+      {
+        One.TF.AlreadyDungeon = true;
+        One.TF.AlreadyRestInn = false;
+        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+        SceneDimension.JumpToDungeonField(Fix.MAPFILE_MYSTIC_FOREST);
+        One.TF.Field_X = 0.0f;
+        One.TF.Field_Y = 1.0f;
+        One.TF.Field_Z = -9.0f;
+      }
     }
     //else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     //{
