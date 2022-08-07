@@ -191,7 +191,6 @@ public partial class BattleEnemy : MotherBase
     //str_list0.Add(Fix.GLOBAL_ACTION_2);
     //str_list0.Add(Fix.GLOBAL_ACTION_3);
     //str_list0.Add(Fix.GLOBAL_ACTION_4);
-    //str_list0.Add(Fix.USE_RED_POTION);
     str_list0.Add(Fix.LOG_BUTTON);
     str_list0.Add(Fix.READY_BUTTON);
     str_list0.Add(Fix.RUNAWAY_BUTTON);
@@ -1291,10 +1290,6 @@ public partial class BattleEnemy : MotherBase
       case Fix.STAY:
         // 何もしない
         break;
-
-      case Fix.USE_RED_POTION:
-        ExecUseRedPotion(target);
-        break;
       #endregion
 
       #region "アクションコマンド"
@@ -1512,18 +1507,28 @@ public partial class BattleEnemy : MotherBase
       case Fix.ARCHETYPE_RO_1:
         ExecRoStanceOfMuni(player, target);
         break;
-        
+
       #endregion
-        
+
       #region "アイテム使用"
       case Fix.SMALL_RED_POTION:
       case Fix.NORMAL_RED_POTION:
-        ExecUseRedPotion(player);
+      case Fix.LARGE_RED_POTION:
+      case Fix.HUGE_RED_POTION:
+      case Fix.HQ_RED_POTION:
+      case Fix.THQ_RED_POTION:
+      case Fix.PERFECT_RED_POTION:
+        ExecUseRedPotion(player, command_name);
         break;
 
       case Fix.SMALL_BLUE_POTION:
       case Fix.NORMAL_BLUE_POTION:
-        ExecUseBluePotion(player);
+      case Fix.LARGE_BLUE_POTION:
+      case Fix.HUGE_BLUE_POTION:
+      case Fix.HQ_BLUE_POTION:
+      case Fix.THQ_BLUE_POTION:
+      case Fix.PERFECT_BLUE_POTION:
+        ExecUseBluePotion(player, command_name);
         break;
 
       case Fix.PURE_CLEAN_WATER:
@@ -2204,13 +2209,35 @@ public partial class BattleEnemy : MotherBase
             }
           }
         }
-        else if (this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION)
+        else if (this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_1 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_2 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_3 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_4 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_5 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_6 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_RED_POTION_7)
         {
           for (int ii = 0; ii < PlayerList.Count; ii++)
           {
             if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
             {
-              ExecUseRedPotion(PlayerList[ii]);
+              ExecUseRedPotion(PlayerList[ii], this.NowSelectActionSrcButton.name);
+            }
+          }
+        }
+        else if (this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_1 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_2 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_3 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_4 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_5 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_6 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_BLUE_POTION_7)
+        {
+          for (int ii = 0; ii < PlayerList.Count; ii++)
+          {
+            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
+            {
+              ExecUseBluePotion(PlayerList[ii], this.NowSelectActionSrcButton.name);
             }
           }
         }
@@ -2454,17 +2481,29 @@ public partial class BattleEnemy : MotherBase
         this.PlayerList[ii].CurrentInstantPoint = 0;
         this.PlayerList[ii].UpdateInstantPointGauge();
 
-        if (sender.CommandName == Fix.SMALL_RED_POTION)
+        if (sender.CommandName == Fix.SMALL_RED_POTION ||
+            sender.CommandName == Fix.NORMAL_RED_POTION ||
+            sender.CommandName == Fix.LARGE_RED_POTION ||
+            sender.CommandName == Fix.HUGE_RED_POTION ||
+            sender.CommandName == Fix.HQ_RED_POTION ||
+            sender.CommandName == Fix.THQ_RED_POTION ||
+            sender.CommandName == Fix.PERFECT_RED_POTION)
         {
-          bool result = ExecUseRedPotion(this.PlayerList[ii]);
+          bool result = ExecUseRedPotion(this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
           }
         }
-        else if (sender.CommandName == Fix.SMALL_BLUE_POTION)
+        else if (sender.CommandName == Fix.SMALL_BLUE_POTION ||
+                 sender.CommandName == Fix.NORMAL_BLUE_POTION ||
+                 sender.CommandName == Fix.LARGE_BLUE_POTION ||
+                 sender.CommandName == Fix.HUGE_BLUE_POTION ||
+                 sender.CommandName == Fix.HQ_BLUE_POTION ||
+                 sender.CommandName == Fix.THQ_BLUE_POTION ||
+                 sender.CommandName == Fix.PERFECT_BLUE_POTION)
         {
-          bool result = ExecUseBluePotion(this.PlayerList[ii]);
+          bool result = ExecUseBluePotion(this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -2525,7 +2564,13 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
-      case Fix.USE_RED_POTION:
+      case Fix.USE_RED_POTION_1:
+      case Fix.USE_RED_POTION_2:
+      case Fix.USE_RED_POTION_3:
+      case Fix.USE_RED_POTION_4:
+      case Fix.USE_RED_POTION_5:
+      case Fix.USE_RED_POTION_6:
+      case Fix.USE_RED_POTION_7:
         Debug.Log("Global USE_RED_POTION");
         if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
         {
@@ -2533,6 +2578,30 @@ public partial class BattleEnemy : MotherBase
           return;
         }
         Debug.Log("UsePotionRed");
+        if (this.NowSelectActionSrcButton == null)
+        {
+          this.NowSelectActionSrcButton = sender.ActionButton;
+          SelectFilter.SetActive(true);
+          //btnCancelSelect.SetActive(true);
+          this.NowSelectTarget = true;
+          this.NowSelectGlobal = true;
+        }
+        break;
+
+      case Fix.USE_BLUE_POTION_1:
+      case Fix.USE_BLUE_POTION_2:
+      case Fix.USE_BLUE_POTION_3:
+      case Fix.USE_BLUE_POTION_4:
+      case Fix.USE_BLUE_POTION_5:
+      case Fix.USE_BLUE_POTION_6:
+      case Fix.USE_BLUE_POTION_7:
+        Debug.Log("Global USE_BLUE_POTION");
+        if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
+        {
+          Debug.Log("Still not enough global gauge, then no action.");
+          return;
+        }
+        Debug.Log("UsePotionBLUE");
         if (this.NowSelectActionSrcButton == null)
         {
           this.NowSelectActionSrcButton = sender.ActionButton;

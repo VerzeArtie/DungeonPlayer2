@@ -1979,14 +1979,26 @@ public class DungeonField : MotherBase
       {
         if (txt_name.text == PlayerList[ii].FullName)
         {
-          if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION)
+          if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.NORMAL_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.LARGE_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HUGE_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HQ_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.THQ_RED_POTION ||
+              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PERFECT_RED_POTION)
           {
             Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
             One.TF.DeleteBackpack(current, 1);
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentLife += (int)effectValue;
           }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_BLUE_POTION)
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.NORMAL_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.LARGE_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HUGE_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HQ_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.THQ_BLUE_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PERFECT_BLUE_POTION)
           {
             Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
             One.TF.DeleteBackpack(current, 1);
@@ -6948,8 +6960,20 @@ public class DungeonField : MotherBase
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
       }
-      return;
     }
+    #endregion
+    #region "神秘の森"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+    {
+      //One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
+      //One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
+      //One.BattleEnemyList.Add(Fix.DEATH_DRONE);
+      //One.CannotRunAway = false;
+      //if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+      //else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+      //PrepareCallTruthBattleEnemy();
+    }
+    return;
     #endregion
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {

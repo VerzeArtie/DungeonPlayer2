@@ -498,7 +498,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return Attribute.Magic; } // 魔法としての基本攻撃である。
     if (command_name == Fix.DEFENSE) { return Attribute.Basic; }
     if (command_name == Fix.STAY) { return Attribute.Basic; }
-    if (command_name == Fix.USE_RED_POTION) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_1) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_2) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_3) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_4) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_5) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_6) { return Attribute.Basic; }
+    if (command_name == Fix.USE_RED_POTION_7) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return Attribute.Basic; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return Attribute.Basic; }
 
     if (command_name == Fix.FIRE_BALL) { return Attribute.Magic; }
     if (command_name == Fix.ICE_NEEDLE) { return Attribute.Magic; }
@@ -561,7 +574,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return TimingType.Normal; }
     if (command_name == Fix.DEFENSE) { return TimingType.Normal; }
     if (command_name == Fix.STAY) { return TimingType.Normal; }
-    if (command_name == Fix.USE_RED_POTION) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_1) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_2) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_3) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_4) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_5) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_6) { return TimingType.Instant; }
+    if (command_name == Fix.USE_RED_POTION_7) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return TimingType.Instant; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return TimingType.Instant; }
 
     if (command_name == Fix.FIRE_BALL) { return TimingType.Instant; }
     if (command_name == Fix.ICE_NEEDLE) { return TimingType.Instant; }
@@ -624,7 +650,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return TargetType.Enemy; }
     if (command_name == Fix.DEFENSE) { return TargetType.Own; }
     if (command_name == Fix.STAY) { return TargetType.Own; }
-    if (command_name == Fix.USE_RED_POTION) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_1) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_2) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_3) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_4) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_5) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_6) { return TargetType.Ally; }
+    if (command_name == Fix.USE_RED_POTION_7) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return TargetType.Ally; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return TargetType.Ally; }
 
     if (command_name == Fix.FIRE_BALL) { return TargetType.Enemy; }
     if (command_name == Fix.ICE_NEEDLE) { return TargetType.Enemy; }
@@ -738,7 +777,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return 0; }
     if (command_name == Fix.DEFENSE) { return 0; }
     if (command_name == Fix.STAY) { return 0; }
-    if (command_name == Fix.USE_RED_POTION) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_1) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_2) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_3) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_4) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_5) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_6) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_RED_POTION_7) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_1) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_2) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_3) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_4) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_5) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_6) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_BLUE_POTION_7) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
 
     if (command_name == Fix.FIRE_BALL) { return 4; }
     if (command_name == Fix.ICE_NEEDLE) { return 3; }
@@ -851,6 +903,16 @@ public static class ActionCommand
     if (command_name == Fix.SMALL_BLUE_POTION) { return 0; }
     if (command_name == Fix.NORMAL_RED_POTION) { return 0; }
     if (command_name == Fix.NORMAL_BLUE_POTION) { return 0; }
+    if (command_name == Fix.LARGE_RED_POTION) { return 0; }
+    if (command_name == Fix.LARGE_BLUE_POTION) { return 0; }
+    if (command_name == Fix.HUGE_RED_POTION) { return 0; }
+    if (command_name == Fix.HUGE_BLUE_POTION) { return 0; }
+    if (command_name == Fix.HQ_RED_POTION) { return 0; }
+    if (command_name == Fix.HQ_BLUE_POTION) { return 0; }
+    if (command_name == Fix.THQ_RED_POTION) { return 0; }
+    if (command_name == Fix.THQ_BLUE_POTION) { return 0; }
+    if (command_name == Fix.PERFECT_RED_POTION) { return 0; }
+    if (command_name == Fix.PERFECT_BLUE_POTION) { return 0; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return 0; }
 
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -862,7 +924,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return BuffType.None; }
     if (command_name == Fix.DEFENSE) { return BuffType.None; }
     if (command_name == Fix.STAY) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_1) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_2) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_3) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_4) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_5) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_6) { return BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_7) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return BuffType.None; }
 
     // コマンド別
     if (command_name == Fix.FIRE_BALL) { return BuffType.None; }
@@ -939,7 +1014,20 @@ public static class ActionCommand
     if (command_name == Fix.MAGIC_ATTACK) { return true; }
     if (command_name == Fix.DEFENSE) { return false; }
     if (command_name == Fix.STAY) { return false; }
-    if (command_name == Fix.USE_RED_POTION) { return false; }
+    if (command_name == Fix.USE_RED_POTION_1) { return false; }
+    if (command_name == Fix.USE_RED_POTION_2) { return false; }
+    if (command_name == Fix.USE_RED_POTION_3) { return false; }
+    if (command_name == Fix.USE_RED_POTION_4) { return false; }
+    if (command_name == Fix.USE_RED_POTION_5) { return false; }
+    if (command_name == Fix.USE_RED_POTION_6) { return false; }
+    if (command_name == Fix.USE_RED_POTION_7) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return false; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return false; }
 
     // コマンド別
     if (command_name == Fix.FIRE_BALL) { return true; }

@@ -2678,7 +2678,20 @@ public partial class HomeTown : MotherBase
   public void TapBackpackUse()
   {
     string current = (CurrentSelectBackpack?.ItemName ?? String.Empty);
-    if (current == Fix.SMALL_RED_POTION)
+    if (current == Fix.SMALL_RED_POTION || 
+        current == Fix.NORMAL_RED_POTION ||
+        current == Fix.LARGE_RED_POTION ||
+        current == Fix.HUGE_RED_POTION ||
+        current == Fix.HQ_RED_POTION ||
+        current == Fix.THQ_RED_POTION ||
+        current == Fix.PERFECT_RED_POTION ||
+        current == Fix.SMALL_BLUE_POTION ||
+        current == Fix.NORMAL_BLUE_POTION || 
+        current == Fix.LARGE_BLUE_POTION ||
+        current == Fix.HUGE_BLUE_POTION ||
+        current == Fix.HQ_BLUE_POTION ||
+        current == Fix.THQ_BLUE_POTION ||
+        current == Fix.PERFECT_BLUE_POTION)
     {
       Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
     }

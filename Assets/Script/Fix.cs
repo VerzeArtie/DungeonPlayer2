@@ -726,7 +726,20 @@ public static partial class Fix
   public const string MAGIC_ATTACK = "Magic Attack";
   public const string DEFENSE = "Defense";
   public const string STAY = "Stay";
-  public const string USE_RED_POTION = "RedPotion";
+  public const string USE_RED_POTION_1 = "RedPotion_1";
+  public const string USE_RED_POTION_2 = "RedPotion_2";
+  public const string USE_RED_POTION_3 = "RedPotion_3";
+  public const string USE_RED_POTION_4 = "RedPotion_4";
+  public const string USE_RED_POTION_5 = "RedPotion_5";
+  public const string USE_RED_POTION_6 = "RedPotion_6";
+  public const string USE_RED_POTION_7 = "RedPotion_7";
+  public const string USE_BLUE_POTION_1 = "BluePotion_1";
+  public const string USE_BLUE_POTION_2 = "BluePotion_2";
+  public const string USE_BLUE_POTION_3 = "BluePotion_3";
+  public const string USE_BLUE_POTION_4 = "BluePotion_4";
+  public const string USE_BLUE_POTION_5 = "BluePotion_5";
+  public const string USE_BLUE_POTION_6 = "BluePotion_6";
+  public const string USE_BLUE_POTION_7 = "BluePotion_7";
 
   // Delve I
   public const string FIRE_BALL = "Fire Ball";

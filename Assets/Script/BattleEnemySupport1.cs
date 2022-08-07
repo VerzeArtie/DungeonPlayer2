@@ -635,51 +635,72 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private bool ExecUseRedPotion(Character target)
+  private bool ExecUseRedPotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    string itemName = string.Empty;
 
-    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION) == false)
+    if (command_name == Fix.USE_RED_POTION_1 || command_name == Fix.SMALL_RED_POTION) { itemName = Fix.SMALL_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_2 || command_name == Fix.NORMAL_RED_POTION) { itemName = Fix.NORMAL_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_3 || command_name == Fix.LARGE_RED_POTION) { itemName = Fix.LARGE_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_4 || command_name == Fix.HUGE_RED_POTION) { itemName = Fix.HUGE_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_5 || command_name == Fix.HQ_RED_POTION) { itemName = Fix.HQ_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_6 || command_name == Fix.THQ_RED_POTION) { itemName = Fix.THQ_RED_POTION; }
+    if (command_name == Fix.USE_RED_POTION_7 || command_name == Fix.PERFECT_RED_POTION) { itemName = Fix.PERFECT_RED_POTION; }
+
+    if (itemName == string.Empty)
+    {
+      Debug.Log("Red Potion name is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    if (One.TF.FindBackPackItem(itemName) == false)
     {
       Debug.Log("Red Potion is nothing...then miss.");
       StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
       return false;
     }
 
-    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION))
-    {
-      Item current = new Item(Fix.SMALL_RED_POTION);
-      One.TF.DeleteBackpack(current, 1);
-      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-      AbstractHealCommand(null, target, effectValue);
-      return true;
-    }
-
-    return false;
+    Item current = new Item(itemName);
+    One.TF.DeleteBackpack(current, 1);
+    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+    AbstractHealCommand(null, target, effectValue);
+    return true;
   }
 
-  private bool ExecUseBluePotion(Character target)
+  private bool ExecUseBluePotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    string itemName = string.Empty;
 
-    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION) == false)
+    if (command_name == Fix.USE_BLUE_POTION_1 || command_name == Fix.SMALL_BLUE_POTION) { itemName = Fix.SMALL_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_2 || command_name == Fix.NORMAL_BLUE_POTION) { itemName = Fix.NORMAL_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_3 || command_name == Fix.LARGE_BLUE_POTION) { itemName = Fix.LARGE_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_4 || command_name == Fix.HUGE_BLUE_POTION) { itemName = Fix.HUGE_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_5 || command_name == Fix.HQ_BLUE_POTION) { itemName = Fix.HQ_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_6 || command_name == Fix.THQ_BLUE_POTION) { itemName = Fix.THQ_BLUE_POTION; }
+    if (command_name == Fix.USE_BLUE_POTION_7 || command_name == Fix.PERFECT_BLUE_POTION) { itemName = Fix.PERFECT_BLUE_POTION; }
+
+    if (itemName == string.Empty)
+    {
+      Debug.Log("Blue Potion name is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    if (One.TF.FindBackPackItem(itemName) == false)
     {
       Debug.Log("Blue Potion is nothing...then miss.");
       StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
       return false;
     }
 
-    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION))
-    {
-      Item current = new Item(Fix.SMALL_BLUE_POTION);
-      One.TF.DeleteBackpack(current, 1);
-      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-      AbstractGainSoulPoint(null, target, effectValue);
-      return true;
-    }
-
-    Debug.Log("Blue Potion is nothing...then miss.");
-    return false;
+    Item current = new Item(itemName);
+    One.TF.DeleteBackpack(current, 1);
+    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+    AbstractGainSoulPoint(null, target, effectValue);
+    return true;
   }
 
   private bool ExecPureCleanWater(Character target)
@@ -1133,7 +1154,7 @@ public partial class BattleEnemy : MotherBase
     if (healValue <= 0) { healValue = 0; }
 
     int result = (int)healValue;
-    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " life heal");
     target.CurrentLife += result;
     target.txtLife.text = target.CurrentLife.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_HEAL);
@@ -1155,7 +1176,7 @@ public partial class BattleEnemy : MotherBase
     if (gainValue <= 0) { gainValue = 0; }
 
     int result = (int)gainValue;
-    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " gain");
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " sp gain");
     target.CurrentSoulPoint += result;
     target.txtSoulPoint.text = target.CurrentSoulPoint.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
