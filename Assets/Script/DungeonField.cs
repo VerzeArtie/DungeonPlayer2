@@ -6965,15 +6965,63 @@ public class DungeonField : MotherBase
     #region "神秘の森"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
     {
-      //One.BattleEnemyList.Add(Fix.EARTH_ELEMENTAL);
-      //One.BattleEnemyList.Add(Fix.WALKING_TIME_BOMB);
-      //One.BattleEnemyList.Add(Fix.DEATH_DRONE);
-      //One.CannotRunAway = false;
-      //if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
-      //else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
-      //PrepareCallTruthBattleEnemy();
+      int random = 100 - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        Debug.Log("area_info is " + area_info);
+        //if (area_info == TileInformation.Area.None) { return; }
+
+        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_1");
+          int rand_data = AP.Math.RandomInteger(5);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.CHARGED_BOAR);
+              One.BattleEnemyList.Add(Fix.POISON_FLOG);
+              One.BattleEnemyList.Add(Fix.POISON_FLOG);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.CHARGED_BOAR);
+              One.BattleEnemyList.Add(Fix.WOOD_ELF);
+              One.BattleEnemyList.Add(Fix.STINKED_SPORE);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.GIANT_SNAKE);
+              One.BattleEnemyList.Add(Fix.WOOD_ELF);
+              One.BattleEnemyList.Add(Fix.WOOD_ELF);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.GIANT_SNAKE);
+              One.BattleEnemyList.Add(Fix.CHARGED_BOAR);
+              One.BattleEnemyList.Add(Fix.STINKED_SPORE);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.GIANT_SNAKE);
+              One.BattleEnemyList.Add(Fix.POISON_FLOG);
+              One.BattleEnemyList.Add(Fix.WOOD_ELF);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+
+        One.CannotRunAway = false;
+        if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+        else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+        PrepareCallTruthBattleEnemy();
+      }
+      return;
     }
-    return;
     #endregion
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
