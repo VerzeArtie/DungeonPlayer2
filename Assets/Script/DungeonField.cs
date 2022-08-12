@@ -143,6 +143,7 @@ public class DungeonField : MotherBase
   public GameObject groupCommandCategory;
   public Button btnCommandCategoryAction;
   public Button btnCommandCetegoryItem;
+  public Button btnCommandCetegoryArchetype;
 
   public NodeActionCommand CurrentSelectCommand;
 
@@ -1820,12 +1821,17 @@ public class DungeonField : MotherBase
 
   public void TapCommandTypeAction()
   {
-    SetupActionCommand(this.CurrentPlayer, 0);
+    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Action);
   }
 
   public void TapCommandTypeItem()
   {
-    SetupActionCommand(this.CurrentPlayer, 1);
+    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Item);
+  }
+
+  public void TapCommandTypeArchetype()
+  {
+    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Archetype);
   }
 
   public void TapMenu()
@@ -2109,7 +2115,7 @@ public class DungeonField : MotherBase
     }
   }
 
-  private void SetupActionCommand(Character player, int category_type)
+  private void SetupActionCommand(Character player, ActionCommand.CommandCategory category_type)
   {
     Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
 
@@ -2157,16 +2163,26 @@ public class DungeonField : MotherBase
     groupCommandCategory.SetActive(One.TF.AvailableImmediateAction);
     btnCommandCategoryAction.gameObject.SetActive(One.TF.AvailableImmediateAction);
     btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
+    btnCommandCetegoryArchetype.gameObject.SetActive(One.TF.AvailablePotentialGauge);
 
     List<string> currentList = null;
-    if (category_type == 0) // action
+    if (category_type == ActionCommand.CommandCategory.Action)
     {
       currentList = player.GetAvailableList();
     }
-    else // item
+    else if (category_type == ActionCommand.CommandCategory.Item)
     {
       currentList = player.GetAvailableListItem();
     }
+    else if (category_type == ActionCommand.CommandCategory.Archetype)
+    {
+      currentList = player.GetAvailableListArchetype();
+    }
+    else
+    {
+      currentList = player.GetAvailableList(); // 万が一見つからない場合はActionで表示
+    }
+
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);

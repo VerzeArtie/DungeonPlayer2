@@ -5332,6 +5332,8 @@ public static class MessagePack
     if (One.TF.Event_Message600180 == false)
     {
       One.TF.Event_Message600180 = true;
+      One.TF.AvailablePotentialGauge = true;
+      One.TF.PotentialEnergy = 0;
 
       Message(ref m_list, ref e_list, Fix.GORATRUM_2_Event_1_O, ActionEvent.UpdateUnknownTile);
 
@@ -5423,6 +5425,10 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　元核【集中と断絶】を習得 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
@@ -5441,15 +5447,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：それはそうと、何か気になる物でもあったの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：い、いや・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ！　とんでもない物をゲットしたぞ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：何でもない。ただし良いものはゲットした。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：これだ、見てくれ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：これだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：何を見せているわけ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：俺の手元をよく見てくれ。石があるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは、ラナとエオネに向けて、手を拡げて見せた 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "ラナ：っえ・・・？", ActionEvent.None);
 
@@ -5459,7 +5465,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：なっ、無い！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ウソだろ？正直な所、ラナとエオネはあの石を見なかったか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：マジかよ？　正直な所、ラナとエオネはあの石を見なかったか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：正直な所、私は見てないわよ。何の事かさっぱり。", ActionEvent.None);
 
@@ -5484,6 +5490,15 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：まあいいけど。ホント、大丈夫なのかしら。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。さて、次へ向かうとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　アイン・ウォーレンスが【元核】を使えるようになりました。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　【元核】はポテンシャル・ゲージが溜まる事で使用可能となります。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　ポテンシャル・ゲージは、アクションコマンドを使っていくことで溜まります。 ", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　ポテンシャル・ゲージが溜まったら【元核】を使ってみましょう。 ", ActionEvent.MessageDisplay);
+
     }
   }
 

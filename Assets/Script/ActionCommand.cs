@@ -13,6 +13,7 @@ public static class ActionCommand
     Basic,
     Skill,
     Magic,
+    Archetype,
   }
 
   public enum BuffType
@@ -44,7 +45,16 @@ public static class ActionCommand
     Normal,
     Instant,
     Sorcery,
-    StackCommand
+    StackCommand,
+    Archetype,
+  }
+
+  public enum CommandCategory
+  {
+    None,
+    Action,
+    Item,
+    Archetype,
   }
 
   public static List<string> GetCommandList(Fix.CommandAttribute attr)
@@ -567,6 +577,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return Attribute.Skill; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
 
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
+
     return Attribute.None;
   }
 
@@ -642,6 +654,8 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return TimingType.Normal; }
     if (command_name == Fix.UNSEEN_AID) { return TimingType.Instant; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
+
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -774,6 +788,8 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_TARGETTING_SHOT) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_POWERED_ATTACK) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return TargetType.EnemyGroup; }
+
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return TargetType.Own; }
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
@@ -927,6 +943,8 @@ public static class ActionCommand
     if (command_name == Fix.PERFECT_BLUE_POTION) { return 0; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return 0; }
 
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
+
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
@@ -1017,6 +1035,9 @@ public static class ActionCommand
 
     // モンスターコマンド
     if (command_name == Fix.EFFECT_POWERUP_FIRE) { return BuffType.Positive; }
+
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return BuffType.Neutral; }
+
     return BuffType.None;
   }
 
@@ -1102,6 +1123,8 @@ public static class ActionCommand
     if (command_name == Fix.EFFECT_FORTUNE) { return false; }
     if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return false; }
 
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return false; }
+
     return false;
   }
 
@@ -1146,6 +1169,8 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_SHADE) { return Fix.STANCE_OF_THE_SHADE_JP; }
     if (command_name == Fix.LAYLINE_SCHEMA) { return Fix.LAYLINE_SCHEMA_JP; }
     if (command_name == Fix.SPIRITUAL_REST) { return Fix.SPIRITUAL_REST_JP; }
+
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
     return command_name;
   }
@@ -1287,6 +1312,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
     if (command_name == Fix.TIME_SKIP) { return ""; }
 
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return "自分自身【集中と断絶】のBUFFを付与する。本BUFFが付与された状態で、次にダメージを伴う行動を行った場合、そのダメージ量をX倍したうえで、クリティカルとしてダメージを与える。その時の行動はカウンターされない。その時のダメージは軽減対象とならない。Xは【潜在能力】パラメタに依存する。行動完了後、本BUFFは消滅する。"; }
     return String.Empty;
   }
 }

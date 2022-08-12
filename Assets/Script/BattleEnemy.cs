@@ -640,6 +640,7 @@ public partial class BattleEnemy : MotherBase
       {
         NowAnimationArchetect = false;
         this.GroupArchetectAnimation.SetActive(false);
+        this.ParentArchetectMessage.transform.localPosition = new Vector3(-500.0f, 0, 0);
       }
       return;
     }
@@ -662,6 +663,21 @@ public partial class BattleEnemy : MotherBase
     {
       ExecStackInTheCommand();
       return;
+    }
+
+    // 集中と断絶のBUFFをリムーブ。この間、時間を進めない。
+    for (int ii = 0; ii < AllList.Count; ii++)
+    {
+      if (AllList[ii].NowExecSyutyuDanzetsu)
+      {
+        AllList[ii].NowExecSyutyuDanzetsu = false;
+        BuffImage syutyuDanzetsu = AllList[ii].IsSyutyuDanzetsu;
+        if (syutyuDanzetsu != null)
+        {
+          syutyuDanzetsu.RemoveBuff();
+        }
+        return;
+      }
     }
 
     // ターゲット選択中は、時間を進めない。
@@ -1017,7 +1033,10 @@ public partial class BattleEnemy : MotherBase
     // ポテンシャル・ポイントの更新
     if (One.TF.AvailablePotentialGauge)
     {
-      groupPotentialEnergy.SetActive(true);
+      if (groupPotentialEnergy.activeInHierarchy == false)
+      {
+        groupPotentialEnergy.SetActive(true);
+      }
       if (this.imgPotentialEnergy != null)
       {
         float dx = (float)One.TF.PotentialEnergy / (float)One.TF.MaxPotentialEnergy;
@@ -1279,7 +1298,7 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("Detect IsSyutyuDanzetsu, then Absolute Critical.");
       critical = CriticalType.Absolute;
-      //syutyuDanzetsu.RemoveBuff(); // ダメージ解決時まで待たないとカウンターされないなどの効果が発揮できないのでコメントアウト。
+      player.NowExecSyutyuDanzetsu = true;
     }
 
     #region "コマンド実行"
@@ -2388,8 +2407,17 @@ public partial class BattleEnemy : MotherBase
               }
             }
 
-            this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
-            this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+            if (ActionCommand.GetAttribute(NowSelectActionCommandButton.name) == ActionCommand.Attribute.Archetype)
+            {
+              // ポテンシャル・ゲージを消費。
+              One.TF.PotentialEnergy = 0;
+            }
+            else
+            {
+              // インスタント・ゲージを消費。
+              this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+              this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+            }
           }
           // 決定後、通常の戦闘モードに戻す。
           ClearSelectFilterGroup();
@@ -2478,10 +2506,19 @@ public partial class BattleEnemy : MotherBase
     }
 
     // インスタント値が不足している場合、行動できない。
-    if (this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint)
+    if ((this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint) &&
+        (ActionCommand.GetTiming(sender.CommandName) != ActionCommand.TimingType.Archetype)) // todo Archetypeではない場合、すべて使用不可能かどうかは決まっていない。
     {
       UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
-      Debug.Log("Still now instant point. then no action.");
+      Debug.Log("Still not enough instant point. then no action.");
+      return;
+    }
+
+    if ((ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Archetype) &&
+        (One.TF.PotentialEnergy < One.TF.MaxPotentialEnergy))
+    {
+      //UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+      Debug.Log("Still not enough PotentialEnergy point. then no action.");
       return;
     }
 

@@ -201,7 +201,7 @@ public class TeamFoundation : MonoBehaviour
     }
     set
     {
-      if (_potentialEnergy >= _maxPotentialEnergy)
+      if (value >= _maxPotentialEnergy)
       {
         _potentialEnergy = _maxPotentialEnergy;
       }

@@ -845,6 +845,15 @@ public partial class Character : MonoBehaviour
       return result;
     }
   }
+  #endregion
+
+  #region "戦闘中"
+  [SerializeField] protected bool _nowExecSyutyuDanzetsu;
+  public bool NowExecSyutyuDanzetsu
+  {
+    get { return _nowExecSyutyuDanzetsu; }
+    set { _nowExecSyutyuDanzetsu = value; }
+  }
 
   [SerializeField] protected int _powerUpFire = 0;
   public int PowerUpFire
@@ -2227,6 +2236,38 @@ public partial class Character : MonoBehaviour
     if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
     return list;
   }
+
+  public List<string> GetAvailableListArchetype()
+  {
+    // todo ストーリー進行 or レベルアップなどでリスト追加
+    List<string> list = new List<string>();
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      list.Add(Fix.ARCHETYPE_EIN_1);
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      list.Add(Fix.ARCHETYPE_LANA_1);
+    }
+    if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      list.Add(Fix.ARCHETYPE_EONE_1);
+    }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      list.Add(Fix.ARCHETYPE_BILLY_1);
+    }
+    if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+      list.Add(Fix.ARCHETYPE_ADEL_1);
+    }
+    if (this.FullName == Fix.NAME_SELMOI_RO)
+    {
+      list.Add(Fix.ARCHETYPE_RO_1);
+    }
+    return list;
+  }
+   
 
   public List<string> GetAvailableList()
   {

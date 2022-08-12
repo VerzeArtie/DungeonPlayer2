@@ -97,8 +97,8 @@ public static class PrimaryLogic
 
     if (player.IsSyutyuDanzetsu)
     {
-      Debug.Log("IsSyutyuDanzetsu detect: " + player.IsSyutyuDanzetsu.EffectValue);
-      result *= player.IsSyutyuDanzetsu.EffectValue;
+      Debug.Log("IsSyutyuDanzetsu detect: " + (1.00f + player.IsSyutyuDanzetsu.EffectValue));
+      result *= (1.00f + player.IsSyutyuDanzetsu.EffectValue);
     }
 
     if (player.IsAuraOfPower)
