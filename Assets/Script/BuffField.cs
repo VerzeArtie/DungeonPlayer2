@@ -40,12 +40,13 @@ public class BuffField : MonoBehaviour
     buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
     buff.gameObject.SetActive(true);
     buff.transform.SetParent(this.gameObject.transform);
-    RectTransform rect = buff.GetComponent<RectTransform>();
+    //RectTransform rect = buff.GetComponent<RectTransform>();
 
-    rect.transform.localPosition = new Vector3(0, 0);
-    rect.anchoredPosition = new Vector2(0, 0);
-    rect.anchorMin = new Vector2(0, 0);
-    rect.anchorMax = new Vector2(1, 1);
+    //rect.transform.localPosition = new Vector3(0, 0);
+    //rect.anchoredPosition = new Vector2(0, 0);
+    //rect.anchorMin = new Vector2(0, 0);
+    //rect.anchorMax = new Vector2(1, 1);
+    Canvas.ForceUpdateCanvases();
   }
 
   public void RemoveAll()
