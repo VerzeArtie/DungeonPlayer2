@@ -134,7 +134,7 @@ public partial class Character : MonoBehaviour
 
     // コマンド名によってターゲット選定を設定する。
     // ランダムで対象を指定
-    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT)
+    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT ||result == Fix.COMMAND_POISON_TONGUE)
     {
       int rand = AP.Math.RandomInteger(opponent_group.Count);
       this.Target = opponent_group[rand];
@@ -142,12 +142,26 @@ public partial class Character : MonoBehaviour
     // それ以外はグループの先頭を指定
     else
     {
-      for (int ii = 0; ii < opponent_group.Count; ii++)
+      if (this.TargetSelectType == Fix.TargetSelectType.Behind)
       {
-        if (opponent_group[ii].Dead == false)
+        for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
         {
-          this.Target = opponent_group[ii];
-          break;
+          if (opponent_group[ii].Dead == false)
+          {
+            this.Target = opponent_group[ii];
+            break;
+          }
+        }
+      }
+      else
+      {
+        for (int ii = 0; ii < opponent_group.Count; ii++)
+        {
+          if (opponent_group[ii].Dead == false)
+          {
+            this.Target = opponent_group[ii];
+            break;
+          }
         }
       }
     }

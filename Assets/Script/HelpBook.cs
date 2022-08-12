@@ -459,6 +459,14 @@ public class HelpBook : MotherBase
     {
       CurrentTarget.text = Fix.TARGET_TYPE_ALLYGROUP;
     }
+    else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.EnemyField)
+    {
+      CurrentTarget.text = Fix.TARGET_TYPE_ENEMYGROUP;
+    }
+    else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.AllyField)
+    {
+      CurrentTarget.text = Fix.TARGET_TYPE_ALLYGROUP;
+    }
     else if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.AllMember)
     {
       CurrentTarget.text = Fix.TARGET_TYPE_ALLMEMBER;

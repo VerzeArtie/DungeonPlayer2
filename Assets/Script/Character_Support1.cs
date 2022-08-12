@@ -342,22 +342,52 @@ public partial class Character : MonoBehaviour
         break;
       #endregion
 
-      case Fix.WOOD_ELF:
-      case Fix.WOOD_ELF_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
+      #region "ê_îÈÇÃêX"
+      case Fix.CHARGED_BOAR:
+      case Fix.CHARGED_BOAR_JP:
+        SetupParameter(106, 50, 30, 115, 10, 8, 460, 280);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SUPER_TOSSHIN);
         this.CannotCritical = true;
         break;
 
-      case Fix.RUDE_WATCHDOG:
-      case Fix.RUDE_WATCHDOG_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
+      case Fix.WOOD_ELF:
+      case Fix.WOOD_ELF_JP:
+        SetupParameter(95, 55, 102, 108, 10, 4, 476, 288);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_WILD_STORM);
         this.CannotCritical = true;
         break;
 
       case Fix.STINKED_SPORE:
       case Fix.STINKED_SPORE_JP:
+        SetupParameter(65, 47, 98, 120, 10, 3, 491, 296);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_YOUKAIEKI);
+        this.CannotCritical = true;
+        this.TargetSelectType = Fix.TargetSelectType.Behind;
+        break;
+
+      case Fix.POISON_FLOG:
+      case Fix.POISON_FLOG_JP:
+        SetupParameter(101, 53, 71, 112, 10, 9, 512, 302);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_POISON_TONGUE);
+        this.CannotCritical = true;
+        break;
+
+      case Fix.GIANT_SNAKE:
+      case Fix.GIANT_SNAKE_JP:
+        SetupParameter(109, 52, 68, 117, 10, 1, 527, 313);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CONSTRICT);
+        this.CannotCritical = true;
+        break;
+      #endregion
+
+
+      case Fix.RUDE_WATCHDOG:
+      case Fix.RUDE_WATCHDOG_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
@@ -379,20 +409,6 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.CHARGED_BOAR:
-      case Fix.CHARGED_BOAR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.POISON_FLOG:
-      case Fix.POISON_FLOG_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
       case Fix.SPEEDY_FALCON:
       case Fix.SPEEDY_FALCON_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
@@ -402,13 +418,6 @@ public partial class Character : MonoBehaviour
 
       case Fix.INNOCENT_FAIRY:
       case Fix.INNOCENT_FAIRY_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GIANT_SNAKE:
-      case Fix.GIANT_SNAKE_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;

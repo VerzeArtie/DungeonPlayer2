@@ -920,7 +920,7 @@ public partial class BattleEnemy : MotherBase
       {
         if (EnemyList[ii].Target != null && EnemyList[ii].Target.Dead && EnemyList[ii].Target.IsEnemy == false)
         {
-          Character current = SearchOpponentForEnemy(PlayerList);
+          Character current = SearchOpponentForEnemy(EnemyList[ii], PlayerList);
           if (current != null)
           {
             EnemyList[ii].Target = current;
@@ -1110,13 +1110,28 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private Character SearchOpponentForEnemy(List<Character> player_list)
+  private Character SearchOpponentForEnemy(Character player, List<Character> player_list)
   {
-    for (int ii = 0; ii < player_list.Count; ii++)
+    if (player.TargetSelectType == Fix.TargetSelectType.Behind)
     {
-      if (player_list[ii].Dead == false)
+      Debug.Log("Detect behind targetting");
+      for (int ii = player_list.Count - 1; ii >= 0; ii--)
       {
-        return player_list[ii];
+        if (player_list[ii].Dead == false)
+        {
+          return player_list[ii];
+        }
+      }
+    }
+    else
+    {
+      Debug.Log("Detect normal targetting");
+      for (int ii = 0; ii < player_list.Count; ii++)
+      {
+        if (player_list[ii].Dead == false)
+        {
+          return player_list[ii];
+        }
       }
     }
     return null;
@@ -1865,7 +1880,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, CriticalType.None);
         rand = AP.Math.RandomInteger(100);
         if (rand <= 25)
         {
@@ -1880,6 +1895,46 @@ public partial class BattleEnemy : MotherBase
           ExecBuffSilent(player, target, 2, 0);
         }
         break;
+
+      case Fix.COMMAND_WILD_STORM:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, critical);
+        }
+        break;
+
+      case Fix.COMMAND_YOUKAIEKI:
+        ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, CriticalType.None);
+        ExecBuffBattleSpeedDown(player, target, 2, 0.7f); 
+        ExecBuffBattleResponseDown(player, target, 2, 0.7f);
+        break;
+
+      case Fix.COMMAND_POISON_TONGUE:
+        ExecNormalAttack(player, target, 0.80f, CriticalType.None);
+        ExecBuffPoison(player, target, 3, 70);
+        break;
+
+      case Fix.COMMAND_CONSTRICT:
+        ExecNormalAttack(player, target, 0.7f, CriticalType.None);
+        rand = AP.Math.RandomInteger(100);
+        if (rand <= 20)
+        {
+          ExecBuffStun(player, target, 1, 0);
+          ExecBuffBind(player, target, 2, 0);
+          ExecBuffSlow(player, target, 3, 0.5f);
+        }
+        else if (rand <= 50)
+        {
+          ExecBuffBind(player, target, 1, 0);
+          ExecBuffSlow(player, target, 2, 0.5f);
+        }
+        else if (rand <= 100)
+        {
+          ExecBuffSlow(player, target, 1, 0.5f);
+        }
+        break;
+
       #endregion
 
       default:
@@ -2379,14 +2434,14 @@ public partial class BattleEnemy : MotherBase
       return;
     }
     // 味方全体の場合はその場で選択決定。（DivineCircleなど）
-    if (targetType == ActionCommand.TargetType.AllyGroup)
+    if (targetType == ActionCommand.TargetType.AllyGroup || targetType == ActionCommand.TargetType.AllyField)
     {
       ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectActionSrcButton, sender.name);
       ClearSelectFilterGroup();
       return;
     }
     // 敵全体の場合はその場で選択決定。（）
-    if (targetType == ActionCommand.TargetType.EnemyGroup)
+    if (targetType == ActionCommand.TargetType.EnemyGroup || targetType == ActionCommand.TargetType.EnemyField)
     {
       ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectActionSrcButton, sender.name);
       ClearSelectFilterGroup();
@@ -2930,13 +2985,21 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("SetupFirstCommand: 3");
     ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(command_name);
     Debug.Log("SetupFirstCommand: 4");
-    if (currentTargetType == ActionCommand.TargetType.Enemy || currentTargetType == ActionCommand.TargetType.EnemyGroup)
+    List<Character> opponentList = GetOpponentGroup(player);
+    if (currentTargetType == ActionCommand.TargetType.Enemy || currentTargetType == ActionCommand.TargetType.EnemyGroup || currentTargetType == ActionCommand.TargetType.EnemyField)
     {
       Debug.Log("SetupFirstCommand: 5");
-      player.Target = GetOpponentGroup(player)[0];
+      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
+      {
+        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
+      }
+      else
+      {
+        player.Target = GetOpponentGroup(player)[0];
+      }
       Debug.Log("SetupFirstCommand: 5-2");
     }
-    else if (currentTargetType == ActionCommand.TargetType.Ally || currentTargetType == ActionCommand.TargetType.AllyGroup)
+    else if (currentTargetType == ActionCommand.TargetType.Ally || currentTargetType == ActionCommand.TargetType.AllyGroup || currentTargetType == ActionCommand.TargetType.AllyField)
     {
       Debug.Log("SetupFirstCommand: 6");
       player.Target = GetAllyGroup(player)[0];
@@ -2945,7 +3008,14 @@ public partial class BattleEnemy : MotherBase
     else if (currentTargetType == ActionCommand.TargetType.EnemyOrAlly || currentTargetType == ActionCommand.TargetType.AllMember)
     {
       Debug.Log("SetupFirstCommand: 7");
-      player.Target = GetOpponentGroup(player)[0];
+      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
+      {
+        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
+      }
+      else
+      {
+        player.Target = GetOpponentGroup(player)[0];
+      }
       Debug.Log("SetupFirstCommand: 7-2");
     }
     else if (currentTargetType == ActionCommand.TargetType.Own)
@@ -2957,7 +3027,15 @@ public partial class BattleEnemy : MotherBase
     else
     {
       Debug.Log("SetupFirstCommand: 9");
-      player.Target = GetOpponentGroup(player)[0]; // Targetは基本NULLは入れない。何も考えない場合は相手側をターゲットとする。
+      // Targetは基本NULLは入れない。何も考えない場合は相手側をターゲットとする。
+      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
+      {
+        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
+      }
+      else
+      {
+        player.Target = GetOpponentGroup(player)[0];
+      }
       Debug.Log("SetupFirstCommand: 9-2");
     }
     Debug.Log("SetupFirstCommand: 10");

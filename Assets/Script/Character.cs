@@ -310,6 +310,13 @@ public partial class Character : MonoBehaviour
     get { return _battleGaugeArrow; }
   }
 
+  [SerializeField] protected Fix.TargetSelectType _targetSelectType = Fix.TargetSelectType.None;
+  public Fix.TargetSelectType TargetSelectType
+  {
+    set { _targetSelectType = value; }
+    get { return _targetSelectType; }
+  }
+
   [SerializeField] protected string _currentActionCommand = string.Empty;
   public string CurrentActionCommand
   {

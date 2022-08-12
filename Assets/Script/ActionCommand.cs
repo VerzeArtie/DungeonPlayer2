@@ -32,7 +32,9 @@ public static class ActionCommand
     EnemyOrAlly,
     EnemyGroup,
     AllyGroup,
-    AllMember,
+    EnemyField,
+    AllyField,
+    AllMember,  
     InstantTarget
   }
 
@@ -686,21 +688,21 @@ public static class ActionCommand
 
     if (command_name == Fix.FLAME_BLADE) { return TargetType.Ally; }
     if (command_name == Fix.PURE_PURIFICATION) { return TargetType.Ally; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return TargetType.AllyGroup; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return TargetType.AllyField; }
     if (command_name == Fix.BLOOD_SIGN) { return TargetType.Enemy; }
     if (command_name == Fix.STORM_ARMOR) { return TargetType.Ally; }
-    if (command_name == Fix.SOLID_WALL) { return TargetType.Ally; }
+    if (command_name == Fix.SOLID_WALL) { return TargetType.AllyField; }
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Own; }
     if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
     if (command_name == Fix.SPEED_STEP) { return TargetType.Ally; }
     if (command_name == Fix.INVISIBLE_BIND) { return TargetType.Enemy; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TargetType.AllMember; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return TargetType.AllyField; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
     if (command_name == Fix.SKY_SHIELD) { return TargetType.Ally; }
     if (command_name == Fix.FLASH_COUNTER) { return TargetType.InstantTarget; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return TargetType.Ally; }
     if (command_name == Fix.STANCE_OF_THE_SHADE) { return TargetType.Own; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return TargetType.AllyGroup; }
+    if (command_name == Fix.LAYLINE_SCHEMA) { return TargetType.AllyField; }
     if (command_name == Fix.SPIRITUAL_REST) { return TargetType.Ally; }
 
     if (command_name == Fix.METEOR_BULLET) { return TargetType.EnemyGroup; }
@@ -753,6 +755,11 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SPAAAARK) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return TargetType.Enemy; }
+
+    if (command_name == Fix.COMMAND_WILD_STORM) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_YOUKAIEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_POISON_TONGUE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_CONSTRICT) { return TargetType.Enemy; }
 
     if (command_name == Fix.COMMAND_STINKY_BREATH) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_CHARGE_LANCE) { return TargetType.Enemy; }
@@ -883,6 +890,11 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SPAAAARK) { return 0; }
     if (command_name == Fix.COMMAND_SUPER_RANDOM_CANNON) { return 0; }
     if (command_name == Fix.COMMAND_ELECTRO_RAILGUN) { return 0; }
+
+    if (command_name == Fix.COMMAND_WILD_STORM) { return 0; }
+    if (command_name == Fix.COMMAND_YOUKAIEKI) { return 0; }
+    if (command_name == Fix.COMMAND_POISON_TONGUE) { return 0; }
+    if (command_name == Fix.COMMAND_CONSTRICT) { return 0; }
 
     if (command_name == Fix.COMMAND_STINKY_BREATH) { return 0; }
     if (command_name == Fix.COMMAND_CHARGE_LANCE) { return 0; }

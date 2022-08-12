@@ -89,6 +89,14 @@ public static partial class Fix
     Artifact,
   }
 
+  public enum TargetSelectType
+  {
+    None,
+    Forward,
+    Behind,
+    Random,
+  }
+
   // Battle Gauge
   public const int BATTLE_CORE_SLEEP = 0;
   public const int BASE_TIMER_BAR_LENGTH = 30000;
@@ -692,6 +700,8 @@ public static partial class Fix
   public const string TARGET_TYPE_ALLY = "味方単体";
   public const string TARGET_TYPE_ENEMYGROUP = "敵全体";
   public const string TARGET_TYPE_ALLYGROUP = "味方全体";
+  public const string TARGET_TYPE_ENEMYFIELD = "敵フィールド";
+  public const string TARGET_TYPE_ALLYFIELD = "味方フィールド";
   public const string TARGET_TYPE_ALLMEMBER = "敵味方全体";
   public const string TARGET_TYPE_ENEMYORALLY = "敵単体 / 味方単体";
   public const string TARGET_TYPE_INSTANTTARGET = "インスタント対象";
@@ -1089,6 +1099,11 @@ public static partial class Fix
   public const string COMMAND_SPAAAARK = "SPAAAARK!!";
   public const string COMMAND_SUPER_RANDOM_CANNON = "超ランダム乱射";
   public const string COMMAND_ELECTRO_RAILGUN = "電導レールガン";
+
+  public const string COMMAND_WILD_STORM = "ワイルド・ストーム";
+  public const string COMMAND_YOUKAIEKI = "溶解液";
+  public const string COMMAND_POISON_TONGUE = "猛毒の舌";
+  public const string COMMAND_CONSTRICT = "締めつけ";
   public const string COMMAND_NOTHING = "なし";
   #endregion
 
