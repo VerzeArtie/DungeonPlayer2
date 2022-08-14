@@ -1099,6 +1099,7 @@ public static partial class Fix
   public const string COMMAND_SPAAAARK = "SPAAAARK!!";
   public const string COMMAND_SUPER_RANDOM_CANNON = "超ランダム乱射";
   public const string COMMAND_ELECTRO_RAILGUN = "電導レールガン";
+  public const string COMMAND_LIGHTNING_OUTBURST = "ライトニング・アウトバースト";
 
   public const string COMMAND_WILD_STORM = "ワイルド・ストーム";
   public const string COMMAND_YOUKAIEKI = "溶解液";
@@ -1163,6 +1164,8 @@ public static partial class Fix
   public const string BUFF_REMOVE_ALL = "BUFF全除去";
 
   public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
+
+  public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
   #endregion
 
   #region "Item Name"

@@ -333,7 +333,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAGICAL_HAIL_GUN:
       case Fix.MAGICAL_HAIL_GUN_JP:
-        SetupParameter(125, 55, 160, 360, 12, 0, 2500, 4000);
+        SetupParameter(125, 55, 160, 560, 12, 0, 2500, 4000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SPAAAARK);
         list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);

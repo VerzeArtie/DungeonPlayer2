@@ -115,7 +115,6 @@ public partial class BattleEnemy : MotherBase
   public List<Character> PlayerList;
   public List<Character> EnemyList;
   public List<Character> AllList;
-  public List<BuffField> AllFieldList;
   public List<NodeCharaExp> CharaExpList;
 
   //protected Character currentPlayer = null;
@@ -395,9 +394,6 @@ public partial class BattleEnemy : MotherBase
     }
 
     //this.currentPlayer = PlayerList[0];
-
-    this.AllFieldList.Add(this.PanelPlayerField);
-    this.AllFieldList.Add(this.PanelEnemyField);
 
     LogicInvalidate();
   }
@@ -960,6 +956,13 @@ public partial class BattleEnemy : MotherBase
     {
       if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
       {
+        if (EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii], Fix.COMMAND_LIGHTNING_OUTBURST, 100);
+        }
+
         if (EnemyList[ii].FullName == Fix.THE_GALVADAZER)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
@@ -1913,6 +1916,13 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffSilent(player, target, 2, 0);
         }
+        break;
+
+      case Fix.COMMAND_LIGHTNING_OUTBURST:
+        PanelEnemyField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0);
+        StartAnimation(PanelEnemyField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
+        PanelPlayerField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0);
+        StartAnimation(PanelPlayerField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
         break;
 
       case Fix.COMMAND_WILD_STORM:
@@ -2911,12 +2921,26 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   private void UpkeepStep()
   {
-    for (int ii = 0; ii < AllFieldList.Count; ii++)
+    BuffImage[] buffPlayerFieldList = PanelPlayerField.GetComponentsInChildren<BuffImage>();
+    for (int ii = 0; ii < buffPlayerFieldList.Length; ii++)
     {
-      BuffImage[] buffList = AllFieldList[ii].GetComponentsInChildren<BuffImage>();
-      for (int jj = 0; jj < buffList.Length; jj++)
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.BUFF_LIGHTNING_OUTBURST)
       {
-        buffList[jj].BuffCountDown();
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          ExecLightningDamage(PlayerList[jj], buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+        }
+      }
+    }
+    BuffImage[] buffEnemyFieldList = PanelEnemyField.GetComponentsInChildren<BuffImage>();
+    for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
+    {
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.BUFF_LIGHTNING_OUTBURST)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          ExecLightningDamage(EnemyList[jj], buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+        }
       }
     }
 

@@ -789,6 +789,8 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_POWERED_ATTACK) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return TargetType.EnemyGroup; }
 
+    if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return TargetType.AllyField; }
+
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TargetType.Own; }
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -925,6 +927,7 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_TARGETTING_SHOT) { return 0; }
     if (command_name == Fix.COMMAND_POWERED_ATTACK) { return 0; }
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return 0; }
+    if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return 0; }
 
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }

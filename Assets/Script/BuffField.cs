@@ -22,7 +22,7 @@ public class BuffField : MonoBehaviour
       if (buffList[ii].BuffName == buff_name)
       {
         detect = true;
-        if (buff_name == Fix.BUFF_PD_DOWN)
+        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.BUFF_LIGHTNING_OUTBURST) // todo ここで累積UPを分岐させているのは構造上おかしい。
         {
           buffList[ii].CumulativeUp(remain_counter, 1);
         }

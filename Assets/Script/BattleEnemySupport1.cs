@@ -746,6 +746,20 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
   }
 
+  private void ExecLightningDamage(Character target, double effect_value)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (target == null) { Debug.Log("target is null. then no effect."); return; }
+    if (target.Dead) { Debug.Log("target is dead. then no effect."); return; }
+
+    if (effect_value <= 0) { effect_value = 0; }
+    int result = (int)effect_value;
+    Debug.Log(target.FullName + " " + result.ToString() + " damage");
+    target.CurrentLife -= result;
+    target.txtLife.text = target.CurrentLife.ToString();
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
+  }
+
   private void ExecSlipDamage(Character target, double effectValue)
   {
     // 毒と出血は効果は同じだが、毒はアップキープ、出血は行動時なので、効果は同じで良い。
