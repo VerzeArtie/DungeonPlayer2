@@ -1615,19 +1615,14 @@ public partial class Character : MonoBehaviour
 
   public int GetNextExp()
   {
-    int result = 0;
-    if (this.Level == 1) { result = 50; }
-    else if (this.Level == 2) { result = 100; }
-    else if (this.Level == 3) { result = 250; }
-    else if (this.Level == 4) { result = 600; }
-    else if (this.Level == 5) { result = 1000; }
-    else if (this.Level == 6) { result = 1500; }
-    else if (this.Level == 7) { result = 2000; }
-    else if (this.Level == 8) { result = 2600; }
-    else if (this.Level == 9) { result = 3200; }
-    else if (this.Level == 10) { result = 4000; }
-    else if (this.Level == 11) { result = 5000; }
-    else { result = 9999999; }
+    int result = 100;
+    //if (this.Level == 1) { return result; }
+
+    for (int ii = 1 ; ii < 100; ii++)
+    {
+      if (this.Level >= ii) { result += (ii - 1) * 100; }
+      else { break; }
+    }
     return result;
   }
 
