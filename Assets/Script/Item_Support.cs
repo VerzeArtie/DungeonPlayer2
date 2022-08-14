@@ -1592,7 +1592,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 60;
         this._itemValue2 = 80;
-        this._gold = 400;
+        this._gold = 150;
         this._importantType = Important.None;
         this._description = "小さい赤ポーション。初心者の間は重宝する必需品。ライフ回復量60～80";
         this._strength = 0;
@@ -1620,7 +1620,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 300;
         this._itemValue2 = 450;
-        this._gold = 1400;
+        this._gold = 400;
         this._importantType = Important.None;
         this._description = "普通の赤ポーション。一般的な戦闘において重宝する必需品。ライフ回復量300～450";
         this._strength = 0;
@@ -1648,7 +1648,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 700;
         this._itemValue2 = 960;
-        this._gold = 5600;
+        this._gold = 1000;
         this._importantType = Important.None;
         this._description = "大きな赤ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ライフ回復700～960";
         this._strength = 0;
@@ -1676,7 +1676,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 1500;
         this._itemValue2 = 2300;
-        this._gold = 18000;
+        this._gold = 3200;
         this._importantType = Important.None;
         this._description = "巨大な赤ポーション。歴戦の強者達が好んで携帯する必需品。ライフ回復1500～2300";
         this._strength = 0;
@@ -1704,7 +1704,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 3600;
         this._itemValue2 = 4500;
-        this._gold = 40000;
+        this._gold = 5400;
         this._importantType = Important.None;
         this._description = "高品質の赤ポーション。上級戦では常識で使用される必需品。ライフ回復3600～4500";
         this._strength = 0;
@@ -1732,7 +1732,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 8000;
         this._itemValue2 = 12000;
-        this._gold = 85000;
+        this._gold = 8500;
         this._importantType = Important.None;
         this._description = "最高品質の赤ポーション。上位ランクを超えし者が手にする必需品。ライフ回復8000～12000";
         this._strength = 0;
@@ -1760,7 +1760,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 25000;
         this._itemValue2 = 30000;
-        this._gold = 200000;
+        this._gold = 15000;
         this._importantType = Important.None;
         this._description = "完全な赤ポーション。入手できた者はこの世に僅かしか存在しない。ライフ回復25000～30000";
         this._strength = 0;
@@ -1788,7 +1788,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 30;
         this._itemValue2 = 40;
-        this._gold = 400;
+        this._gold = 150;
         this._importantType = Important.None;
         this._description = "小さい青ポーション。初心者の間は重宝する必需品。ソウルポイント回復量30～40";
         this._strength = 0;
@@ -1816,7 +1816,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 160;
         this._itemValue2 = 240;
-        this._gold = 1400;
+        this._gold = 400;
         this._importantType = Important.None;
         this._description = "普通の青ポーション。一般的な戦闘において重宝する必需品。ソウルポイント回復量160～240";
         this._strength = 0;
@@ -1844,7 +1844,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 320;
         this._itemValue2 = 400;
-        this._gold = 5600;
+        this._gold = 1000;
         this._importantType = Important.None;
         this._description = "大きな青ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ソウルポイント回復320～400";
         this._strength = 0;
@@ -1872,7 +1872,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 600;
         this._itemValue2 = 1000;
-        this._gold = 18000;
+        this._gold = 3200;
         this._importantType = Important.None;
         this._description = "巨大な青ポーション。歴戦の強者達が好んで携帯する必需品。ソウルポイント回復600～1000";
         this._strength = 0;
@@ -1900,7 +1900,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 1500;
         this._itemValue2 = 2000;
-        this._gold = 40000;
+        this._gold = 5400;
         this._importantType = Important.None;
         this._description = "高品質の青ポーション。上級戦では常識で使用される必需品。ソウルポイント回復1500～2000";
         this._strength = 0;
@@ -1928,7 +1928,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 3500;
         this._itemValue2 = 5000;
-        this._gold = 85000;
+        this._gold = 8500;
         this._importantType = Important.None;
         this._description = "最高品質の青ポーション。上位ランクを超えし者が手にする必需品。ソウルポイント回復3500～5000";
         this._strength = 0;
@@ -1956,7 +1956,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 10000;
         this._itemValue2 = 12000;
-        this._gold = 200000;
+        this._gold = 15000;
         this._importantType = Important.None;
         this._description = "完全な青ポーション。入手出来た者はこの世に僅かしか存在しない。ソウルポイント回復10000～12000";
         this._strength = 0;
