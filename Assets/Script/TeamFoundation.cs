@@ -117,11 +117,48 @@ public class TeamFoundation : MonoBehaviour
     set { _availableTactics = value; }
     get { return _availableTactics; }
   }
-  [SerializeField] protected bool _availablePotentialGauge;
+  [SerializeField] protected bool _availablePotentialGauge = false;
   public bool AvailablePotentialGauge
   {
     set { _availablePotentialGauge = value; }
     get { return _availablePotentialGauge; }
+  }
+
+  [SerializeField] protected bool _availableArchetype_EinWolence = false;
+  public bool AvailableArchetype_EinWolence
+  {
+    set { _availableArchetype_EinWolence = value; }
+    get { return _availableArchetype_EinWolence; }
+  }
+  [SerializeField] protected bool _availableArchetype_LanaAmiria = false;
+  public bool AvailableArchetype_LanaAmiria
+  {
+    set { _availableArchetype_LanaAmiria = value; }
+    get { return _availableArchetype_LanaAmiria; }
+  }
+  [SerializeField] protected bool _availableArchetype_EoneFulnea = false;
+  public bool AvailableArchetype_EoneFulnea
+  {
+    set { _availableArchetype_EoneFulnea = value; }
+    get { return _availableArchetype_EoneFulnea; }
+  }
+  [SerializeField] protected bool _availableArchetype_BillyRaki = false;
+  public bool AvailableArchetype_BillyRaki
+  {
+    set { _availableArchetype_BillyRaki = value; }
+    get { return _availableArchetype_BillyRaki; }
+  }
+  [SerializeField] protected bool _availableArchetype_AdelBrigandy = false;
+  public bool AvailableArchetype_AdelBrigandy
+  {
+    set { _availableArchetype_AdelBrigandy = value; }
+    get { return _availableArchetype_AdelBrigandy; }
+  }
+  [SerializeField] protected bool _availableArchetype_SelmoiRo = false;
+  public bool AvailableArchetype_SelmoiRo
+  {
+    set { _availableArchetype_SelmoiRo = value; }
+    get { return _availableArchetype_SelmoiRo; }
   }
 
   [SerializeField] protected List<Item> _backpackList = new List<Item>();

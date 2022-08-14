@@ -52,7 +52,8 @@ public static class ActionCommand
   public enum CommandCategory
   {
     None,
-    Action,
+    Basic,
+    ActionCommand,
     Item,
     Archetype,
   }

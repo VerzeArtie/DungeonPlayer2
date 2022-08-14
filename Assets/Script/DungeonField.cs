@@ -1819,9 +1819,14 @@ public class DungeonField : MotherBase
     GroupPartyMenu.gameObject.SetActive(false);
   }
 
+  public void TapCommandTypeBasic()
+  {
+    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Basic);
+  }
+
   public void TapCommandTypeAction()
   {
-    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Action);
+    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.ActionCommand);
   }
 
   public void TapCommandTypeItem()
@@ -2049,7 +2054,7 @@ public class DungeonField : MotherBase
 
     // コマンド設定画面への反映
     Character player3 = One.SelectCharacter(txt_name.text);
-    SetupActionCommand(player3, 0);
+    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
   }
 
   private void CallGroupPartyStatus(Character player)
@@ -2166,7 +2171,11 @@ public class DungeonField : MotherBase
     btnCommandCetegoryArchetype.gameObject.SetActive(One.TF.AvailablePotentialGauge);
 
     List<string> currentList = null;
-    if (category_type == ActionCommand.CommandCategory.Action)
+    if (category_type == ActionCommand.CommandCategory.Basic)
+    {
+      currentList = player.GetAvailableBasicAction();
+    }
+    else if (category_type == ActionCommand.CommandCategory.ActionCommand)
     {
       currentList = player.GetAvailableList();
     }
@@ -2180,7 +2189,7 @@ public class DungeonField : MotherBase
     }
     else
     {
-      currentList = player.GetAvailableList(); // 万が一見つからない場合はActionで表示
+      currentList = player.GetAvailableBasicAction(); // 万が一見つからない場合はBasicで表示
     }
 
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
@@ -9293,7 +9302,7 @@ public class DungeonField : MotherBase
     txtGold.text = One.TF.Gold.ToString();
 
     // コマンド設定画面への反映
-    SetupActionCommand(PlayerList[0], 0);
+    SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView();

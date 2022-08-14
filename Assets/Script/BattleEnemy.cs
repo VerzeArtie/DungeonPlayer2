@@ -570,9 +570,13 @@ public partial class BattleEnemy : MotherBase
       //if (character.VoiceOfVigor > 0) { AddActionButton(character, groupActionButton, Fix.VOICE_OF_VIGOR); }
       //if (character.UnseenAid > 0) { AddActionButton(character, groupActionButton, Fix.UNSEEN_AID); }
 
-      // todo ここは本来それぞれキャラクター達が保持している情報に基づいて登録を構築すべきと思われる。
-      // 今は単なる並び順で並べているだけである。
+      // キャラクター達が保持している情報に基づいてアクションコマンドを登録。
       List<string> mainActionList = new List<string>();
+      List<string> basicActionList = character.GetAvailableBasicAction();
+      for (int ii = 0; ii < basicActionList.Count; ii++)
+      {
+        mainActionList.Add(basicActionList[ii]);
+      }
       List<string> list = character.GetAvailableList();
       for (int ii = 0; ii < list.Count; ii++)
       {
@@ -1274,7 +1278,14 @@ public partial class BattleEnemy : MotherBase
 
     if (player.Ally == Fix.Ally.Ally)
     {
-      One.TF.PotentialEnergy += player.GetPotentialEnergy();
+      if (command_name == Fix.STAY || command_name == Fix.DEFENSE)
+      {
+        // 待機と防御はポテンシャル・ゲージへ加算しない。通常攻撃は加算するので、カテゴリタイプ通常ではなく個別で記載。
+      }
+      else
+      {
+        One.TF.PotentialEnergy += player.GetPotentialEnergy();
+      }
     }
 
     // ブラッド・サインによる効果

@@ -5333,6 +5333,7 @@ public static class MessagePack
     {
       One.TF.Event_Message600180 = true;
       One.TF.AvailablePotentialGauge = true;
+      One.TF.AvailableArchetype_EinWolence = true;
       One.TF.PotentialEnergy = 0;
 
       Message(ref m_list, ref e_list, Fix.GORATRUM_2_Event_1_O, ActionEvent.UpdateUnknownTile);

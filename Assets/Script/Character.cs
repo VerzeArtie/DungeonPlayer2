@@ -2211,67 +2211,19 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
-  public List<string> GetAvailableListItem()
+  public List<string> GetAvailableBasicAction()
   {
     List<string> list = new List<string>();
-    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION)) { list.Add(Fix.SMALL_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.NORMAL_RED_POTION)) { list.Add(Fix.NORMAL_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.LARGE_RED_POTION)) { list.Add(Fix.LARGE_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HUGE_RED_POTION)) { list.Add(Fix.HUGE_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HQ_RED_POTION)) { list.Add(Fix.HQ_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.THQ_RED_POTION)) { list.Add(Fix.THQ_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PERFECT_RED_POTION)) { list.Add(Fix.PERFECT_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION)) { list.Add(Fix.SMALL_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.NORMAL_BLUE_POTION)) { list.Add(Fix.NORMAL_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.LARGE_BLUE_POTION)) { list.Add(Fix.LARGE_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HUGE_BLUE_POTION)) { list.Add(Fix.HUGE_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HQ_BLUE_POTION)) { list.Add(Fix.HQ_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.THQ_BLUE_POTION)) { list.Add(Fix.THQ_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PERFECT_BLUE_POTION)) { list.Add(Fix.PERFECT_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
+    list.Add(Fix.NORMAL_ATTACK);
+    list.Add(Fix.MAGIC_ATTACK);
+    list.Add(Fix.DEFENSE);
     return list;
   }
-
-  public List<string> GetAvailableListArchetype()
-  {
-    // todo ストーリー進行 or レベルアップなどでリスト追加
-    List<string> list = new List<string>();
-    if (this.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      list.Add(Fix.ARCHETYPE_EIN_1);
-    }
-    if (this.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      list.Add(Fix.ARCHETYPE_LANA_1);
-    }
-    if (this.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      list.Add(Fix.ARCHETYPE_EONE_1);
-    }
-    if (this.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      list.Add(Fix.ARCHETYPE_BILLY_1);
-    }
-    if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
-    {
-      list.Add(Fix.ARCHETYPE_ADEL_1);
-    }
-    if (this.FullName == Fix.NAME_SELMOI_RO)
-    {
-      list.Add(Fix.ARCHETYPE_RO_1);
-    }
-    return list;
-  }
-   
 
   public List<string> GetAvailableList()
   {
     // todo
     List<string> list = new List<string>();
-    list.Add(Fix.NORMAL_ATTACK);
-    list.Add(Fix.MAGIC_ATTACK);
-    list.Add(Fix.DEFENSE);
-
     if (this.FireBall > 0) { list.Add(Fix.FIRE_BALL); }
     if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
     if (this.FreshHeal > 0) { list.Add(Fix.FRESH_HEAL); }
@@ -2310,6 +2262,58 @@ public partial class Character : MonoBehaviour
     if (this.LaylineSchema > 0) { list.Add(Fix.LAYLINE_SCHEMA); }
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
+    return list;
+  }
+
+  public List<string> GetAvailableListItem()
+  {
+    List<string> list = new List<string>();
+    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION)) { list.Add(Fix.SMALL_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.NORMAL_RED_POTION)) { list.Add(Fix.NORMAL_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.LARGE_RED_POTION)) { list.Add(Fix.LARGE_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HUGE_RED_POTION)) { list.Add(Fix.HUGE_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HQ_RED_POTION)) { list.Add(Fix.HQ_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.THQ_RED_POTION)) { list.Add(Fix.THQ_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.PERFECT_RED_POTION)) { list.Add(Fix.PERFECT_RED_POTION); }
+    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION)) { list.Add(Fix.SMALL_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.NORMAL_BLUE_POTION)) { list.Add(Fix.NORMAL_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.LARGE_BLUE_POTION)) { list.Add(Fix.LARGE_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HUGE_BLUE_POTION)) { list.Add(Fix.HUGE_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HQ_BLUE_POTION)) { list.Add(Fix.HQ_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.THQ_BLUE_POTION)) { list.Add(Fix.THQ_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.PERFECT_BLUE_POTION)) { list.Add(Fix.PERFECT_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
+    return list;
+  }
+
+  public List<string> GetAvailableListArchetype()
+  {
+    // todo ストーリー進行 or レベルアップなどでリスト追加
+    List<string> list = new List<string>();
+    if (this.FullName == Fix.NAME_EIN_WOLENCE && One.TF.AvailableArchetype_EinWolence)
+    {
+      list.Add(Fix.ARCHETYPE_EIN_1);
+    }
+    if (this.FullName == Fix.NAME_LANA_AMIRIA && One.TF.AvailableArchetype_LanaAmiria)
+    {
+      list.Add(Fix.ARCHETYPE_LANA_1);
+    }
+    if (this.FullName == Fix.NAME_EONE_FULNEA && One.TF.AvailableArchetype_EoneFulnea)
+    {
+      list.Add(Fix.ARCHETYPE_EONE_1);
+    }
+    if (this.FullName == Fix.NAME_BILLY_RAKI && One.TF.AvailableArchetype_BillyRaki)
+    {
+      list.Add(Fix.ARCHETYPE_BILLY_1);
+    }
+    if (this.FullName == Fix.NAME_ADEL_BRIGANDY && One.TF.AvailableArchetype_AdelBrigandy)
+    {
+      list.Add(Fix.ARCHETYPE_ADEL_1);
+    }
+    if (this.FullName == Fix.NAME_SELMOI_RO && One.TF.AvailableArchetype_SelmoiRo)
+    {
+      list.Add(Fix.ARCHETYPE_RO_1);
+    }
     return list;
   }
 
