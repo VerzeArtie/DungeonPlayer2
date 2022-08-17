@@ -225,7 +225,9 @@ public static class PrimaryLogic
     }
     if (player.IsShadowBlast)
     {
+      //Debug.Log("MagicDefense (before): " + result.ToString("F2"));
       result *= player.IsShadowBlast.EffectValue;
+      //Debug.Log("MagicDefense (after): effect -> " + player.IsShadowBlast.EffectValue.ToString("F2") + " " + result.ToString("F2"));
     }
 
     if (player.IsMagicDefenseUp)

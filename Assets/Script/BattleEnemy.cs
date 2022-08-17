@@ -366,6 +366,7 @@ public partial class BattleEnemy : MotherBase
       // debug
       //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
       //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
+      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
 
       // 戦闘ゲージを設定
       One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
@@ -2436,7 +2437,7 @@ public partial class BattleEnemy : MotherBase
             else
             {
               // インスタント・ゲージを消費。
-              this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+              this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
               this.NowSelectSrcPlayer.UpdateInstantPointGauge();
             }
           }
@@ -2567,7 +2568,7 @@ public partial class BattleEnemy : MotherBase
     {
       if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
       {
-        this.NowSelectSrcPlayer.CurrentInstantPoint = 0;
+        this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
         this.NowSelectSrcPlayer.UpdateInstantPointGauge();
         CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
       }
@@ -2591,7 +2592,7 @@ public partial class BattleEnemy : MotherBase
           return;
         }
 
-        this.PlayerList[ii].CurrentInstantPoint = 0;
+        this.PlayerList[ii].CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
         this.PlayerList[ii].UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.SMALL_RED_POTION ||

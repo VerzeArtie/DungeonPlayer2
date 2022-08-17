@@ -71,6 +71,23 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtChangeEquipName;
   public Image imgChangeEquip;
 
+  // Character ( Detail - Essence )
+  public GameObject GroupSubViewStatus;
+  public GameObject GroupSubViewEssence;
+  public List<NodeActionCommand> imgEssenceList;
+  public List<Text> txtEssenceList;
+  public Text txtEssencePoint;
+  public Image imgEssenceCurrent;
+  public Text txtEssenceCurrentCategory;
+  public Text txtEssenceCurrentDescription;
+  public GameObject groupEssenceDecision;
+  public Image imgEssenceDecision;
+  public Text txtEssenceDecisionTitle;
+  public Text txtEssenceDecisionMessage;
+  public Button btnEssenceDecisionAccept;
+  public Button btnEssenceDecisionCancel;
+  public Button btnEssenceDecisionOK;
+
   public MotherBase parentMotherBase = null;
 
   /// <summary>
@@ -100,6 +117,8 @@ public class GroupCharacterStatus : MonoBehaviour
     Debug.Log(MethodBase.GetCurrentMethod());
     this.GroupMainEquip.SetActive(true);
     this.GroupChangeEquip.SetActive(false);
+    if (this.GroupSubViewStatus != null) { this.GroupSubViewStatus.SetActive(true); } // DungeonField側でNullアクセス。画面をAdditiveにしてソース統合化すべきである。
+    if (this.GroupSubViewEssence != null) { this.GroupSubViewEssence.SetActive(false); } // DungeonField側でNullアクセス。画面をAdditiveにしてソース統合化すべきである。
     //this.gameObject.SetActive(true);
 
     // シャドウデータを生成
@@ -175,6 +194,22 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       float dx = (float)player.CurrentLife / (float)player.MaxLife;
       imgDetailLife.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+
+    if (txtEssencePoint != null)
+    {
+      txtEssencePoint.text = player.SoulFragment.ToString();
+    }
+    if (imgEssenceList != null && imgEssenceList.Count > 0)
+    {
+      List<string> list = CurrentPlayer.GetEssenceTreeTitleList();
+      List<string> iconList = CurrentPlayer.GetEssenceTreeIconList();
+      for (int ii = 0; ii < list.Count; ii++)
+      {
+        imgEssenceList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(iconList[ii]);
+        txtEssenceList[ii].text = list[ii];
+      }
+      TapSelectEssence(txtEssenceList[0]); // 最初を選択しておく。
     }
 
     if (ShadowPlayer != null)
@@ -905,5 +940,72 @@ public class GroupCharacterStatus : MonoBehaviour
     this.UpdateCharacterDetailView(this.CurrentPlayer);
 
     //this.gameObject.SetActive(false);
+  }
+
+  public void TapCharacterStatus()
+  {
+    GroupSubViewStatus.SetActive(true);
+    GroupSubViewEssence.SetActive(false);
+  }
+  public void TapCharacterEssence()
+  {
+    GroupSubViewStatus.SetActive(false);
+    GroupSubViewEssence.SetActive(true);
+  }
+
+  public void TapSelectEssence(Text txt_title)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    txtEssenceCurrentCategory.text = txt_title.text;
+    List<string> titleList = CurrentPlayer.GetEssenceTreeTitleList();
+    List<string> descList = CurrentPlayer.GetEssenceTreeDescList();
+    List<string> iconList = CurrentPlayer.GetEssenceTreeIconList();
+    for (int ii = 0; ii < titleList.Count; ii++)
+    {
+      if (txt_title.text == titleList[ii])
+      {
+        txtEssenceCurrentDescription.text = descList[ii];
+        imgEssenceCurrent.sprite = Resources.Load<Sprite>(iconList[ii]);
+      }
+    }
+  }
+
+  public void TapDecisionEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    imgEssenceDecision.sprite = imgEssenceCurrent.sprite;
+    imgEssenceDecision.name = txtEssenceCurrentCategory.text;
+    if (CurrentPlayer.SoulFragment <= 0)
+    {
+      txtEssenceDecisionTitle.text = txtEssenceCurrentCategory.text + " を獲得する事ができません。";
+      txtEssenceDecisionMessage.text = "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。";
+      btnEssenceDecisionAccept.gameObject.SetActive(false);
+      btnEssenceDecisionCancel.gameObject.SetActive(false);
+      btnEssenceDecisionOK.gameObject.SetActive(true);
+      groupEssenceDecision.SetActive(true);
+      return;
+    }
+
+    txtEssenceDecisionTitle.text = txtEssenceCurrentCategory.text + "を獲得しますか？";
+    txtEssenceDecisionMessage.text = "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。";
+    btnEssenceDecisionAccept.gameObject.SetActive(true);
+    btnEssenceDecisionCancel.gameObject.SetActive(true);
+    btnEssenceDecisionOK.gameObject.SetActive(false);
+    groupEssenceDecision.SetActive(true);
+  }
+
+  public void TapAcceptEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + imgEssenceDecision.name);
+    CurrentPlayer.UpgradeEssenceTree(imgEssenceDecision.name);
+    txtEssencePoint.text = CurrentPlayer.SoulFragment.ToString();
+    groupEssenceDecision.SetActive(false);
+  }
+
+  public void TapCancelEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    groupEssenceDecision.SetActive(false);
   }
 }

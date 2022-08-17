@@ -1203,7 +1203,7 @@ public static class ActionCommand
     if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
 
     if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象にかかっている【有害】に属するBUFFを１つ除去する。"; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象にかかっている【有害】に属するBUFFを除去する。"; }
     if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
     if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【出血】のBUFFを付与する。【出血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
     if (command_name == Fix.STORM_ARMOR) { return "味方一体を対象とする。対象に【ストーム】のBUFFを付与する。【ストーム】が続く間、戦闘速度が上昇する。加えて、魔法攻撃を行う度に、【電撃】ダメージが追加発生する。"; }

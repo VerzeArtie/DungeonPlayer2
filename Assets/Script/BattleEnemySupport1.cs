@@ -352,16 +352,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.RemoveBuff(1, ActionCommand.BuffType.Positive);
+    target.RemoveBuff(SecondaryLogic.DispelMagic_Value(player), ActionCommand.BuffType.Positive);
     StartAnimation(target.objGroup.gameObject, Fix.DISPEL_MAGIC, Fix.COLOR_NORMAL);
   }
 
   private void ExecTrueSight(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.TRUE_SIGHT, Fix.COLOR_NORMAL);
     // todo
     // 味方一体を対象とする。対象に【深層】のBUFFを付与する。
-    //【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。
+    //【深層】が続く間、【沈黙】【鈍化】【暗闇】【毒】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。
   }
 
   private void ExecHeartOfLife(Character player, Character target)
@@ -997,13 +999,13 @@ public partial class BattleEnemy : MotherBase
     }
     damageValue -= defenseValue;
     double debug3 = damageValue;
-    Debug.Log("Physical-DamageValue: " + debug1.ToString() + " - " + debug2.ToString() + " = " + debug3.ToString());
+    Debug.Log("Physical-DamageValue: " + debug1.ToString("F2") + " - " + debug2.ToString("F2") + " = " + debug3.ToString("F2"));
 
     // ターゲットが防御姿勢であれば、ダメージを軽減する
     if (target.IsDefense)
     {
       damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
-      Debug.Log("Target is Defense mode: " + damageValue.ToString());
+      Debug.Log("Target is Defense mode: " + damageValue.ToString("F2"));
     }
 
     // ダメージ量が負の値になる場合は０とみなす。

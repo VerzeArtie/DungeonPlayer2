@@ -23,7 +23,18 @@ public static class SecondaryLogic
 
   public static double DefenseFactor(Character player)
   {
-    return 0.50f;
+    double result = 0.50f;
+    if (player.DefenseSkill <= 0) { return result; }
+
+    result -= player.DefenseSkill * 0.02f; // 軽減率なので、この値は減少させる。
+    if (result <= 0.00f) { result = 0.01f; } // 完全に0にはせず、最小値を設ける。
+    return result;
+  }
+
+  public static double MagicSpellFactor(Character player)
+  {
+    if (player.MagicSpell <= 0) { return 0.00f; }
+    return 0.00f + (player.MagicSpell * 0.05f);
   }
 
   public static double FireBall(Character player)
@@ -33,7 +44,9 @@ public static class SecondaryLogic
 
   public static double IceNeedle(Character player)
   {
-    return 1.80f;
+    if (player.IceNeedle <= 1) { return 1.80f; }
+
+    return 1.80f + (player.IceNeedle - 1) * 0.05f;
   }
   public static int IceNeedle_Turn(Character player)
   {
@@ -59,7 +72,9 @@ public static class SecondaryLogic
   }
   public static double ShadowBlast_Value(Character player)
   {
-    return 0.80f;
+    if (player.ShadowBlast <= 1) { return 0.80f; }
+
+    return 0.80f - (player.ShadowBlast - 1) * 0.05f;
   }
 
   public static double AirCutter(Character player)
@@ -86,7 +101,9 @@ public static class SecondaryLogic
 
   public static double StraightSmash(Character player)
   {
-    return 2.00f;
+    if (player.StraightSmash <= 1) { return 2.00f; }
+
+    return 2.00f + (player.StraightSmash - 1) * 0.05f;
   }
 
   public static double HunterShot(Character player)
@@ -139,7 +156,8 @@ public static class SecondaryLogic
   }
   public static int ShieldBash_Turn(Character player)
   {
-    return 1;
+    if (player.ShieldBash <= 1) { return 1; }
+    return 1 + (player.ShieldBash - 1); // todo ただし、強すぎると思われる。
   }
 
   public static int AuraOfPower_Turn(Character player)
@@ -150,6 +168,18 @@ public static class SecondaryLogic
   public static double AuraOfPower_Value(Character player)
   {
     return 1.20f;
+  }
+
+  public static int TrueSight_Turn(Character player)
+  {
+    if (player.TrueSight <= 1) { return 5; }
+    return 5 + (player.TrueSight - 1);
+  }
+
+  public static int DispelMagic_Value(Character player)
+  {
+    if (player.DispelMagic <= 1) { return 1; }
+    return 1 + (player.DispelMagic - 1);
   }
 
   public static int SkyShield_Turn(Character player)

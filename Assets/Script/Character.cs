@@ -1074,6 +1074,12 @@ public partial class Character : MonoBehaviour
     get { return _AvailableVengeance; }
   }
 
+  // Basic
+  [SerializeField] protected int _defenseSkill = 0;
+  public int DefenseSkill { set { if (value >= 0) { _defenseSkill = value; } } get { return _defenseSkill; } }
+  [SerializeField] protected int _magicSpell = 0;
+  public int MagicSpell { set { if (value >= 0) { _magicSpell = value; } } get { return _magicSpell; } }
+
   // Delve I
   [SerializeField] protected int _FireBall = 0;
   public int FireBall { set { if (value >= 0) { _FireBall = value; } } get { return _FireBall; } }
@@ -2315,6 +2321,149 @@ public partial class Character : MonoBehaviour
       list.Add(Fix.ARCHETYPE_RO_1);
     }
     return list;
+  }
+
+  public List<string> GetEssenceTreeTitleList()
+  {
+    List<string> list = new List<string>();
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      list.Add(Fix.STRAIGHT_SMASH_JP + "強化 Ｉ");
+      list.Add(Fix.TRUE_SIGHT_JP + "強化 Ｉ");
+      list.Add(Fix.SHIELD_BASH_JP + "強化 Ｉ");
+      list.Add("防御の構え Ｉ");
+    }
+    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      list.Add(Fix.ICE_NEEDLE_JP + "強化 Ｉ");
+      list.Add(Fix.SHADOW_BLAST_JP + "強化 Ｉ");
+      list.Add(Fix.DISPEL_MAGIC_JP + "強化 Ｉ");
+      list.Add("魔法詠唱の構え Ｉ");
+    }
+    else if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      list.Add(Fix.FRESH_HEAL_JP + "強化 Ｉ");
+      list.Add(Fix.HUNTER_SHOT_JP + "強化 Ｉ");
+      list.Add(Fix.AURA_OF_POWER_JP + "強化 Ｉ");
+      list.Add("見切りのセンス Ｉ");
+    }
+    else if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+    }
+    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+    }
+    else if (this.FullName == Fix.NAME_SELMOI_RO)
+    {
+    }
+    return list;
+  }
+
+  public List<string> GetEssenceTreeDescList()
+  {
+    List<string> list = new List<string>();
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      list.Add(Fix.STRAIGHT_SMASH_JP + "の威力が５％上昇する。");
+      list.Add(Fix.TRUE_SIGHT_JP + "の効果時間が１ターン長くなる。");
+      list.Add(Fix.SHIELD_BASH_JP + "によるスタン効果時間が１ターン長くなる。");
+      list.Add("防御姿勢時のダメージ軽減率が２％上昇する。");
+    }
+    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      list.Add(Fix.ICE_NEEDLE_JP + "の威力が５％上昇する。");
+      list.Add(Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減らす威力が５％上昇する。");
+      list.Add(Fix.DISPEL_MAGIC_JP + "による【有益】に属するBUFFを除去する数が１つ増える。");
+      list.Add("インスタントの行動が魔法の場合、インスタントゲージが５％残った状態で行動する。");
+    }
+    else if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      list.Add(Fix.FRESH_HEAL_JP + "の威力が５％上昇する。");
+      list.Add(Fix.HUNTER_SHOT_JP + "による【標的】効果からの命中率が１０％上昇する。");
+      list.Add(Fix.AURA_OF_POWER_JP + "による【パワー】効果からの物理攻撃を増強する威力が５％上昇する。");
+      list.Add("自分が現在ターゲットにしている相手から攻撃された場合、相手からの命中率を１０％減らす。");
+    }
+    else if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+    }
+    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+    }
+    else if (this.FullName == Fix.NAME_SELMOI_RO)
+    {
+    }
+    return list;
+  }
+
+  public List<string> GetEssenceTreeIconList()
+  {
+    List<string> list = new List<string>();
+    if (this.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      list.Add(Fix.STRAIGHT_SMASH);
+      list.Add(Fix.TRUE_SIGHT);
+      list.Add(Fix.SHIELD_BASH);
+      list.Add(Fix.DEFENSE);
+    }
+    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      list.Add(Fix.ICE_NEEDLE);
+      list.Add(Fix.SHADOW_BLAST);
+      list.Add(Fix.DISPEL_MAGIC);
+      list.Add(Fix.MAGIC_ATTACK);
+    }
+    else if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      list.Add(Fix.FRESH_HEAL);
+      list.Add(Fix.HUNTER_SHOT);
+      list.Add(Fix.AURA_OF_POWER);
+      list.Add(Fix.STAY); // todo STAYではない。
+    }
+    return list;
+  }
+
+  public void UpgradeEssenceTree(string essence_name)
+  {
+    if (essence_name == Fix.STRAIGHT_SMASH_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.StraightSmash++;
+    }
+    else if (essence_name == Fix.SHIELD_BASH_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.ShieldBash++;
+    }
+    else if (essence_name == Fix.TRUE_SIGHT_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.TrueSight++;
+    }
+    else if (essence_name == "防御の構え Ｉ")
+    {
+      this.SoulFragment--;
+      this.DefenseSkill++;
+    }
+    if (essence_name == Fix.ICE_NEEDLE_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.IceNeedle++;
+    }
+    else if (essence_name == Fix.SHADOW_BLAST_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.ShadowBlast++;
+    }
+    else if (essence_name == Fix.DISPEL_MAGIC_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.DispelMagic++;
+    }
+    else if (essence_name == "魔法詠唱の構え Ｉ")
+    {
+      this.SoulFragment--;
+      this.MagicSpell++;
+    }
   }
 
   public void UpdateActionCommandList(List<NodeActionCommand> action_command_list)
