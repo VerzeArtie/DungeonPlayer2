@@ -1904,10 +1904,13 @@ public partial class HomeTown : MotherBase
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
           {
             One.TF.AvailableBillyRaki = true;
+            One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
+            One.ReInitializeCharacter(Fix.NAME_BILLY_RAKI);
           }
           else if (currentMessage.Contains(Fix.NAME_ADEL_BRIGANDY))
           {
             One.TF.AvailableAdelBrigandy = true;
+            // todo 戦闘５人目、６人目とするかどうかを決める事。
           }
 
           List<Character> current = One.AvailableCharacters;
