@@ -6251,7 +6251,7 @@ public class DungeonField : MotherBase
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
       {
-        this.HomeTownCall = Fix.TOWN_ZHALMAN;
+        this.HomeTownCall = Fix.TOWN_COTUHSYE;
         return true;
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
