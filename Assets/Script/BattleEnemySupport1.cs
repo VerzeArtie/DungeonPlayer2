@@ -313,8 +313,11 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    // todo ２回攻撃
-    ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
+    // ２回攻撃
+    for (int ii = 0; ii < 2; ii++)
+    {
+      ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
+    }
   }
 
   private void ExecVenomSlash(Character player, Character target, CriticalType critical)
