@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class NodeBattleChara : MonoBehaviour
 {
+  public GameObject ParentPanel;
   public Text txtPlayerName;
   public Text txtPlayerLife;
   public Image objBackLifeGauge;

@@ -276,6 +276,7 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("playerList: " + ii.ToString() + " " + playerList[ii].FullName);
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
       node.gameObject.SetActive(true);
+      node.ParentPanel.SetActive(true);
       node.transform.SetParent(GroupParentPlayer.transform);
       RectTransform rt = node.GetComponent<RectTransform>();
       rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 0.5f);
@@ -344,6 +345,25 @@ public partial class BattleEnemy : MotherBase
       // 戦闘ゲージを設定
       playerList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (allyBaseStart - (10.0f * ii)));
       playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+    }
+
+    // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
+    if (playerList.Count < Fix.MAX_TEAM_MEMBER)
+    {
+      for (int ii = playerList.Count; ii < Fix.MAX_TEAM_MEMBER; ii++)
+      {
+        NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
+        node.gameObject.SetActive(true);
+        node.transform.SetParent(GroupParentPlayer.transform);
+        node.ParentPanel.SetActive(false);
+        node.objBackInstantGauge.gameObject.SetActive(false);
+        RectTransform rt = node.GetComponent<RectTransform>();
+        rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 0.5f);
+        rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+        rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+        rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+
+      }
     }
 
     // 敵グループの作成
