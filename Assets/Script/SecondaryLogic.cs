@@ -133,9 +133,9 @@ public static class SecondaryLogic
 
   public static double LegStrike(Character player)
   {
-    if (player.LegStrike <= 1) { return 1.80f; }
+    if (player.LegStrike <= 1) { return 0.90f; }
 
-    return 1.80f + (player.LegStrike - 1) * 0.05f;
+    return 0.90f + (player.LegStrike - 1) * 0.05f;
   }
   public static int LegStrike_Turn(Character player)
   {
