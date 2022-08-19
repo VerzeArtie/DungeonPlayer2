@@ -250,7 +250,7 @@ public static class PrimaryLogic
   {
     double result = 1.00 + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
 
-    result += (player.MainWeapon?.BattleAccuracy ?? 95.0f);
+    result += (player.MainWeapon?.BattleAccuracy ?? 90.0f);
 
     if (player.IsDizzy)
     {
