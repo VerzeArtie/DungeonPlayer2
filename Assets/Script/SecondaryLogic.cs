@@ -37,9 +37,21 @@ public static class SecondaryLogic
     return 0.00f + (player.MagicSpell * 0.05f);
   }
 
+  public static double EvadingSkill(Character player)
+  {
+    double result = 1.00f; // 1.00fは回避率に対する乗算であるため、1.00fは回避率へ影響しない値となる。
+    if (player.EvadingSkill <= 0) { return result; }
+
+    result = result - (player.EvadingSkill * 0.10f);
+    if (result <= 0.0f) { result = 0.0f; }
+    return result;
+  }
+
   public static double FireBall(Character player)
   {
-    return 2.00f;
+    if (player.FireBall <= 1) { return 2.00f; }
+
+    return 2.00f + (player.FireBall - 1) * 0.05f;
   }
 
   public static double IceNeedle(Character player)
@@ -121,7 +133,9 @@ public static class SecondaryLogic
 
   public static double LegStrike(Character player)
   {
-    return 1.80f;
+    if (player.LegStrike <= 1) { return 1.80f; }
+
+    return 1.80f + (player.LegStrike - 1) * 0.05f;
   }
   public static int LegStrike_Turn(Character player)
   {
@@ -194,7 +208,12 @@ public static class SecondaryLogic
 
   public static double HeartOfLife(Character player)
   {
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * 1.00f;
+    if (player.HeartOfLife <= 1)
+    {
+      return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random);
+    }
+
+    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * (1.00f + (player.HeartOfLife - 1) * 0.10f);
   }
 
   public static int HeartOfLife_Turn(Character player)

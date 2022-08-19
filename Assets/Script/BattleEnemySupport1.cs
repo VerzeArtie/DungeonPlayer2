@@ -88,15 +88,25 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    // ターゲットに対して命中していない場合
-    if (player.IsDizzy)
+    // 回避判定 (ターゲットへの命中率、ターゲットからの回避率、他効果などでaccuracyを決定)
+    // 0.0fなら必ず回避される。 100.0fなら必ず当たる。
+    double accuracy = PrimaryLogic.BattleAccuracy(player);
+    Debug.Log("PrimaryLogic.BattleAccuracy: " + accuracy.ToString("F2"));
+
+    if (target.EvadingSkill > 0)
     {
-      if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
-      {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
-        this.NowAnimationMode = true;
-        return false;
-      }
+      accuracy = accuracy * SecondaryLogic.EvadingSkill(target);
+    }
+    if (accuracy <= 0) accuracy = 0;
+
+    int accuracyValue = AP.Math.RandomInteger(100);
+    Debug.Log("Accuracy Value: " + accuracyValue.ToString() + " " + accuracy.ToString("F2"));
+    if (accuracyValue > (int)accuracy)
+    {
+      Debug.Log("Accuracy miss, then no ExecNormalAttack.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
     }
 
     // 攻撃コマンドのダメージを算出
@@ -149,6 +159,9 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
+  /// <summary>
+  /// 基本ロジックを内包した魔法攻撃実行コマンド
+  /// </summary>
   private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -161,15 +174,24 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    // ターゲットに対して命中していない場合
-    if (player.IsDizzy)
+    // 回避判定 (ターゲットへの命中率、ターゲットからの回避率、他効果などでaccuracyを決定)
+    // 0.0fなら必ず回避される。 100.0fなら必ず当たる。
+    double accuracy = PrimaryLogic.BattleAccuracy(player);
+    Debug.Log("PrimaryLogic.BattleAccuracy: " + accuracy.ToString("F2"));
+    if (target.EvadingSkill > 0)
     {
-      if (AP.Math.RandomInteger(100) > (int)player.IsDizzy.EffectValue)
-      {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL, animation_speed);
-        this.NowAnimationMode = true;
-        return false;
-      }
+      accuracy = accuracy * SecondaryLogic.EvadingSkill(target);
+    }
+    if (accuracy <= 0) accuracy = 0;
+
+    int accuracyValue = AP.Math.RandomInteger(100);
+    Debug.Log("Accuracy Value: " + accuracyValue.ToString() + " " + accuracy.ToString("F2"));
+    if (accuracyValue > (int)accuracy)
+    {
+      Debug.Log("Accuracy miss, then no ExecMagicAttack.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
     }
 
     // 攻撃コマンドのダメージを算出
@@ -223,7 +245,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, critical);
-
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0);
@@ -242,7 +263,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, critical);
-
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0);
@@ -254,7 +274,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, critical);
-
     if (success)
     {
       player.objBuffPanel.AddBuff(prefab_Buff, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0);
@@ -266,7 +285,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, critical);
-
     if (success)
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_GAUGE_BACK, Fix.COLOR_NORMAL); // todo 対象の行動ゲージを5%後方へ戻す。をつけてね
@@ -284,7 +302,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
-
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0);
@@ -296,21 +313,14 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
-    // todo
-    // 【萎縮】が続く間、対象の戦闘反応値が減少する。
-    if (success)
-    {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0);
-      StartAnimation(target.objGroup.gameObject, Fix.LEG_STRIKE, Fix.COLOR_NORMAL);
-    }
+    // todo ２回攻撃
+    ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
   }
 
   private void ExecVenomSlash(Character player, Character target, CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
-
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0);
@@ -328,7 +338,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
-
     if (success)
     {
       if (target.IsResistStun)
@@ -481,7 +490,6 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), critical);
-
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0);

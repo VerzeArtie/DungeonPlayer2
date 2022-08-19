@@ -252,6 +252,11 @@ public static class PrimaryLogic
 
     result += (player.MainWeapon?.BattleAccuracy ?? 95.0f);
 
+    if (player.IsDizzy)
+    {
+      result = result * player.IsDizzy.EffectValue;
+    }
+
     if (result <= 0.0f) { result = 0.0f; }
     if (result >= 100.0f) { result = 100.0f; }
     return result;

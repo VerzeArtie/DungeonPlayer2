@@ -1079,6 +1079,10 @@ public partial class Character : MonoBehaviour
   public int DefenseSkill { set { if (value >= 0) { _defenseSkill = value; } } get { return _defenseSkill; } }
   [SerializeField] protected int _magicSpell = 0;
   public int MagicSpell { set { if (value >= 0) { _magicSpell = value; } } get { return _magicSpell; } }
+  [SerializeField] protected int _evadingSkill = 0;
+  public int EvadingSkill { set { if (value >= 0) { _evadingSkill = value; } } get { return _evadingSkill; } }
+  [SerializeField] protected int _rushSkill = 0;
+  public int RushSkill { set { if (value >= 0) { _rushSkill = value; } } get { return _rushSkill; } }
 
   // Delve I
   [SerializeField] protected int _FireBall = 0;
@@ -2349,6 +2353,10 @@ public partial class Character : MonoBehaviour
     }
     else if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
+      list.Add(Fix.LEG_STRIKE_JP + "強化 Ｉ");
+      list.Add(Fix.FIRE_BALL_JP + "強化 Ｉ");
+      list.Add(Fix.HEART_OF_LIFE_JP + "強化 I");
+      list.Add("ラッシュの心構え Ｉ");
     }
     else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
@@ -2381,10 +2389,14 @@ public partial class Character : MonoBehaviour
       list.Add(Fix.FRESH_HEAL_JP + "の威力が５％上昇する。");
       list.Add(Fix.HUNTER_SHOT_JP + "による【標的】効果からの命中率が１０％上昇する。");
       list.Add(Fix.AURA_OF_POWER_JP + "による【パワー】効果からの物理攻撃を増強する威力が５％上昇する。");
-      list.Add("自分が現在ターゲットにしている相手から攻撃された場合、相手からの命中率を１０％減らす。");
+      list.Add("相手から自分に対しての命中率を１０％減らす。");
     }
     else if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
+      list.Add(Fix.LEG_STRIKE_JP + "の威力が５％上昇する。"); // todo 未検証
+      list.Add(Fix.FIRE_BALL_JP + "の威力が５％上昇する。"); // todo 未検証
+      list.Add(Fix.HEART_OF_LIFE_JP + "による【生命】効果からのライフ回復量が１０％上昇する。"); // todo 未検証
+      list.Add("１回の行動で連続してダメージを伴う攻撃を実行した場合、２回目またはそれ以降の威力が１０％上昇する。"); // todo 未実装
     }
     else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
@@ -2417,7 +2429,14 @@ public partial class Character : MonoBehaviour
       list.Add(Fix.FRESH_HEAL);
       list.Add(Fix.HUNTER_SHOT);
       list.Add(Fix.AURA_OF_POWER);
-      list.Add(Fix.STAY); // todo STAYではない。
+      list.Add("RunAwayButton"); // todo アイコンは改めて対応。
+    }
+    else if (this.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      list.Add(Fix.LEG_STRIKE);
+      list.Add(Fix.FIRE_BALL);
+      list.Add(Fix.HEART_OF_LIFE);
+      list.Add(Fix.STAY);
     }
     return list;
   }
@@ -2463,6 +2482,46 @@ public partial class Character : MonoBehaviour
     {
       this.SoulFragment--;
       this.MagicSpell++;
+    }
+    else if (essence_name == Fix.FRESH_HEAL_JP + "強化 I")
+    {
+      this.SoulFragment--;
+      this.FreshHeal++;
+    }
+    else if (essence_name == Fix.HUNTER_SHOT_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.HunterShot++;
+    }
+    else if (essence_name == Fix.AURA_OF_POWER_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.AuraOfPower++;
+    }
+    else if (essence_name == "見切りのセンス Ｉ")
+    {
+      this.SoulFragment--;
+      this.EvadingSkill++;
+    }
+    else if (essence_name == Fix.FIRE_BALL_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.FireBall++;
+    }
+    else if (essence_name == Fix.LEG_STRIKE_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.LegStrike++;
+    }
+    else if (essence_name == Fix.HEART_OF_LIFE_JP + "強化 Ｉ")
+    {
+      this.SoulFragment--;
+      this.HeartOfLife++;
+    }
+    else if (essence_name == "ラッシュの心構え Ｉ")
+    {
+      this.SoulFragment--;
+      this.RushSkill++;
     }
   }
 
