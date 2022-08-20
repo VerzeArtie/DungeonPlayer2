@@ -17455,7 +17455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a6e1f81e26ab994e9db81df79d5fc68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a12ad7685cf3f414fa1b77ab07e7fd8c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29127,8 +29127,8 @@ MonoBehaviour:
   - {fileID: 428138788}
   - {fileID: 1627441381}
   - {fileID: 868632595}
-  - {fileID: 868632595}
-  - {fileID: 868632595}
+  - {fileID: 90553125}
+  - {fileID: 1072224941}
   imgPlayerInstantGauge_AC:
   - {fileID: 1707922716}
   - {fileID: 1148118674}
