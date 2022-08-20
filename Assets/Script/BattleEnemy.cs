@@ -400,9 +400,9 @@ public partial class BattleEnemy : MotherBase
 
 
     // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
-    if (playerList.Count < Fix.MAX_ENEMY_MEMBER)
+    if (EnemyList.Count < Fix.MAX_ENEMY_MEMBER)
     {
-      for (int ii = playerList.Count; ii < Fix.MAX_ENEMY_MEMBER; ii++)
+      for (int ii = EnemyList.Count; ii < Fix.MAX_ENEMY_MEMBER; ii++)
       {
         NodeBattleChara node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
         node.gameObject.SetActive(true);
