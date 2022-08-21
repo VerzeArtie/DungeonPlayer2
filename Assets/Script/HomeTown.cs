@@ -1069,12 +1069,30 @@ public partial class HomeTown : MotherBase
     this.CurrentPlayer.GetReadyLevelUp();
 
     // キャラクター詳細画面を呼び出し
-    GroupCharacterDetail.parentMotherBase = this;
-    GroupCharacterDetail.ReleaseIt();
-    GroupCharacterDetail.CurrentPlayer = this.CurrentPlayer;
-    GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
-    GroupCharacterDetail.gameObject.SetActive(true);
+    // HomeTownシーン内でCharacterStatus画面は保持しない。UnityのCharacterStatusシーンで管理する。
+    // Dungeonfieldシーンからも同様。
+    //GroupCharacterDetail.parentMotherBase = this;
+    //GroupCharacterDetail.ReleaseIt();
+    //GroupCharacterDetail.CurrentPlayer = this.CurrentPlayer;
+    //GroupCharacterDetail.UpdateCharacterDetailView(this.CurrentPlayer);
+    //GroupCharacterDetail.gameObject.SetActive(true);
+
+    SceneManager.sceneLoaded += CharacterStatusLoadded;
+    SceneDimension.SceneAdd("CharacterStatus");
     Debug.Log(MethodBase.GetCurrentMethod() + "(E)");
+  }
+
+  private void CharacterStatusLoadded(Scene next, LoadSceneMode mode)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    SceneManager.sceneLoaded -= CharacterStatusLoadded;
+
+    var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
+
+    charaStatus.parentMotherBase = this;
+    charaStatus.ReleaseIt();
+    charaStatus.CurrentPlayer = this.CurrentPlayer;
+    charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
   public void TapHideACAttributeButton(GameObject sender)

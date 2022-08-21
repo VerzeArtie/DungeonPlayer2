@@ -107,6 +107,8 @@ public class GroupCharacterStatus : MonoBehaviour
     this.GroupChangeEquip.SetActive(false);
     this.gameObject.SetActive(false);
 
+    SceneDimension.SceneClose("CharacterStatus");
+
   }
 
   /// <summary>
@@ -568,6 +570,20 @@ public class GroupCharacterStatus : MonoBehaviour
   private void CreateBackpack(GameObject content, NodeBackpackItem node, string item_name, int item_num, int num, int counter)
   {
     Instantiate(node).Construct(content, item_name, item_num, num, counter);
+  }
+
+
+  public void TapBackpackSelect(NodeBackpackItem backpack)
+  {
+    Debug.Log("TapBackpackSelect(S)");
+    //this.CurrentSelectBackpack = One.TF.BackpackList[backpack.BackpackNumber];
+
+    //for (int ii = 0; ii < BackpackList.Count; ii++)
+    //{
+    //  Debug.Log("BackpackList: " + BackpackList[ii].txtName.text);
+    //  BackpackList[ii].imgSelect.gameObject.SetActive(false);
+    //}
+    backpack.imgSelect.gameObject.SetActive(true);
   }
 
   /// <summary>

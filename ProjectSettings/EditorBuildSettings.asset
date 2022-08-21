@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HelpBook.unity
     guid: 6b9526c8d8490ac48a3b150352c06168
+  - enabled: 1
+    path: Assets/Scenes/CharacterStatus.unity
+    guid: c05982c53022d9948b8998c1234188c5
   m_configObjects: {}
