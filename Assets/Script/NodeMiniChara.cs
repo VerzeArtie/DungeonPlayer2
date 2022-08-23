@@ -8,14 +8,20 @@ using UnityEngine.UI;
 
 public class NodeMiniChara : MonoBehaviour
 {
+  public GameObject groupParent;
   public Text txtName;
   public Text txtLife;
   public Image imgLifeGauge;
   public Text txtSP;
   public Image imgSPGauge;
+  public Image imgBackColor;
 
   public void Refresh(Character character)
   {
+    this.gameObject.SetActive(true);
+
+    if (character == null) { return; }
+
     if (txtName != null)
     {
       txtName.text = character.FullName;
@@ -43,7 +49,9 @@ public class NodeMiniChara : MonoBehaviour
       imgSPGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
     }
 
-    GetComponent<Image>().color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
-    this.gameObject.SetActive(true);
+    if (imgBackColor != null)
+    {
+      imgBackColor.color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
+    }
   }
 }

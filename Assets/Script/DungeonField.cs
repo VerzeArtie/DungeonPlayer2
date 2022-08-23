@@ -9308,6 +9308,17 @@ public class DungeonField : MotherBase
 
       PlayerList.Add(list[ii]);
     }
+    // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
+    if (list.Count < Fix.MAX_TEAM_MEMBER)
+    {
+      for (int ii = list.Count; ii < Fix.MAX_TEAM_MEMBER; ii++)
+      {
+        NodeMiniChara node = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        node.Refresh(null);
+        node.transform.SetParent(GroupCharacterList.transform);
+        node.groupParent.SetActive(false);
+      }
+    }
 
     // キャラクター情報を画面へ反映
     UpdateCharacterStatus();
