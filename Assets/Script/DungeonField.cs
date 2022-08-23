@@ -1772,9 +1772,9 @@ public class DungeonField : MotherBase
   {
     GroupPartyMenu.gameObject.SetActive(true);
     this.CurrentPlayer = PlayerList[0];
-    TapStayListCharacter(StayListName[0]);
-    CallGroupPartyStatus(this.CurrentPlayer);
-    TapStatus();
+    //TapStayListCharacter(StayListName[0]);
+    //CallGroupPartyStatus(this.CurrentPlayer);
+    //TapStatus();
   }
 
   public void TapStatus()
@@ -2059,10 +2059,27 @@ public class DungeonField : MotherBase
 
   private void CallGroupPartyStatus(Character player)
   {
-    groupPartyStatus.parentMotherBase = this;
-    groupPartyStatus.ReleaseIt();
-    groupPartyStatus.CurrentPlayer = player;
-    groupPartyStatus.UpdateCharacterDetailView(player);
+    //groupPartyStatus.parentMotherBase = this;
+    //groupPartyStatus.ReleaseIt();
+    //groupPartyStatus.CurrentPlayer = player;
+    //groupPartyStatus.UpdateCharacterDetailView(player);
+
+    SceneManager.sceneLoaded += CharacterStatusLoadded;
+    SceneDimension.SceneAdd("CharacterStatus");
+
+  }
+
+  private void CharacterStatusLoadded(Scene next, LoadSceneMode mode)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    SceneManager.sceneLoaded -= CharacterStatusLoadded;
+
+    var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
+
+    charaStatus.parentMotherBase = this;
+    charaStatus.ReleaseIt();
+    charaStatus.CurrentPlayer = this.CurrentPlayer;
+    charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
   private void SetupStayList()
