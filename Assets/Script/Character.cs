@@ -1745,6 +1745,7 @@ public partial class Character : MonoBehaviour
   ///           false: 装備不可
   public bool Equipable(Fix.EquipType equip_type, Item item)
   {
+    // todo Fighter, Magician, Seekerまで記述。それぞれMasterとHighについては追記が必要。
     if (equip_type == Fix.EquipType.MainWeapon)
     {
       Debug.Log("Equipable start : MainWeapon");
@@ -1752,13 +1753,17 @@ public partial class Character : MonoBehaviour
           (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Onehand_Lance && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Onehand_Axe && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Onehand_Claw && item.GripType == Item.GripTypes.OneHand) ||
-          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Onehand_Rod && item.GripType == Item.GripTypes.OneHand))
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Bow && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Sword && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Lance && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Axe && item.GripType == Item.GripTypes.TwoHand))
       {
         return true;
       }
       if ((this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Onehand_Rod && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Onehand_Book && item.GripType == Item.GripTypes.OneHand) ||
-          (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Onehand_Orb && item.GripType == Item.GripTypes.OneHand))
+          (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Onehand_Orb && item.GripType == Item.GripTypes.OneHand) ||
+          (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Twohand_Rod && item.GripType == Item.GripTypes.TwoHand))
       {
         return true;
       }
@@ -1766,90 +1771,44 @@ public partial class Character : MonoBehaviour
           (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Lance && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Axe && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Claw && item.GripType == Item.GripTypes.OneHand) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Twohand_Bow && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Twohand_Sword && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Twohand_Lance && item.GripType == Item.GripTypes.TwoHand) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Twohand_Axe && item.GripType == Item.GripTypes.TwoHand) ||
           (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Rod && item.GripType == Item.GripTypes.OneHand) ||
           (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Book && item.GripType == Item.GripTypes.OneHand) ||
-          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Orb && item.GripType == Item.GripTypes.OneHand))
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Onehand_Orb && item.GripType == Item.GripTypes.OneHand) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Twohand_Rod && item.GripType == Item.GripTypes.TwoHand))
       {
         return true;
       }
-
-      if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Sword) ||
-         (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Lance) ||
-         (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Axe) ||
-         (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Twohand_Bow))
-      {
-        return true;
-      }
-      if ((this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Twohand_Rod))
-      {
-        return true;
-      }
-
-      if (this.FullName == Fix.NAME_EONE_FULNEA)
-      {
-        if (item.ItemType == Item.ItemTypes.Twohand_Bow)
-        {
-          return true;
-        }
-      }
-      // Seekerは両手持ちを装備できない。
-      // if ((this.Job == Fix.JobClass.Seeker && ...)
 
       return false;
     }
 
     if (equip_type == Fix.EquipType.SubWeapon)
     {
-      // 両手持ちをメインに装備している場合、サブウェポンは装備できない。
-      if (this.MainWeapon != null && this.MainWeapon.GripType == Item.GripTypes.TwoHand)
-      {
-        return false;
-      }
-
       if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Shield) ||
           (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Shield))
       {
         return true;
       }
+
       return false;
     }
 
     if (equip_type == Fix.EquipType.Armor)
     {
-      // todo キャラクター毎に装備を決めるのであれば、記載すること。
-      if (this.FullName == Fix.NAME_EIN_WOLENCE)
+      if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Heavy_Armor) ||
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Middle_Armor) ||
+          (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Light_Armor) ||
+          (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Light_Armor) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Middle_Armor) ||
+          (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Light_Armor))
       {
-        if (item.ItemType == Item.ItemTypes.Heavy_Armor)
-        {
-          return true;
-        }
+        return true;
       }
 
-      if (this.FullName == Fix.NAME_LANA_AMIRIA)
-      {
-        if (item.ItemType == Item.ItemTypes.Middle_Armor)
-        {
-          return true;
-        }
-      }
-
-      if (this.FullName == Fix.NAME_EONE_FULNEA)
-      {
-        if (item.ItemType == Item.ItemTypes.Light_Armor)
-        {
-          return true;
-        }
-      }
-
-      //if ((this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Heavy_Armor) ||
-      //    (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Middle_Armor) ||
-      //    (this.Job == Fix.JobClass.Fighter && item.ItemType == Item.ItemTypes.Light_Armor) ||
-      //    (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Middle_Armor) ||
-      //    (this.Job == Fix.JobClass.Seeker && item.ItemType == Item.ItemTypes.Light_Armor) ||
-      //    (this.Job == Fix.JobClass.Magician && item.ItemType == Item.ItemTypes.Light_Armor))
-      //{
-      //  return true;
-      //}
       return false;
     }
 

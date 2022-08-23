@@ -34,6 +34,12 @@ public static partial class Fix
     Fighter,
     Magician,
     Seeker,
+    SwordMaster,
+    HighFighter,
+    MageMaster,
+    HighSorcerer,
+    WeaponMaster,
+    DualSeeker
   }
 
   public enum CommandAttribute
