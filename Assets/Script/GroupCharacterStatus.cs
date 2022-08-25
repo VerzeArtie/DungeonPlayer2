@@ -72,7 +72,6 @@ public class GroupCharacterStatus : MonoBehaviour
   public Image imgChangeEquip;
 
   // Character ( CommandSetting )
-  public GameObject groupPartyBattleSetting;
   public GameObject FilterForAll;
   public GameObject FilterForActionCommand;
   public GameObject FilterForAvailableList;
@@ -104,6 +103,8 @@ public class GroupCharacterStatus : MonoBehaviour
   public Button btnEssenceDecisionOK;
 
   public MotherBase parentMotherBase = null;
+
+  protected NodeActionCommand CurrentSelectCommand;
 
   /// <summary>
   /// トップ画面へ戻す。
@@ -1106,6 +1107,7 @@ public class GroupCharacterStatus : MonoBehaviour
     GroupSubViewEssence.SetActive(true);
   }
 
+  #region "エッセンス・ツリー設定"
   public void TapSelectEssence(Text txt_title)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -1161,4 +1163,60 @@ public class GroupCharacterStatus : MonoBehaviour
     Debug.Log(MethodBase.GetCurrentMethod());
     groupEssenceDecision.SetActive(false);
   }
+  #endregion
+
+  #region "アクションコマンド設定"
+
+  public void TapAvailableListButton(NodeActionCommand action_command)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (FilterForAll.activeInHierarchy == false)
+    {
+      this.CurrentSelectCommand = action_command;
+      FilterForAll.SetActive(true);
+      FilterForActionCommand.SetActive(false);
+      FilterForAvailableList.SetActive(true);
+      return;
+    }
+
+    TapCancelActionCommandSet();
+  }
+
+
+  public void TapActionCommandSetList(NodeActionCommand action_command)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (FilterForAll.activeInHierarchy == false)
+    {
+      FilterForAll.SetActive(true);
+      FilterForActionCommand.SetActive(true);
+      FilterForAvailableList.SetActive(false);
+      return;
+    }
+
+    action_command.CommandName = this.CurrentSelectCommand.CommandName;
+    action_command.ApplyImageIcon(this.CurrentSelectCommand.CommandName);
+    //action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
+    TapCancelActionCommandSet();
+
+    if (ActionCommandMain.Equals(action_command))
+    {
+      CurrentPlayer.ActionCommandMain = action_command.CommandName;
+    }
+    else
+    {
+      CurrentPlayer.UpdateActionCommandList(ListActionCommandSet);
+    }
+  }
+
+  public void TapCancelActionCommandSet()
+  {
+    FilterForAll.SetActive(false);
+    FilterForActionCommand.SetActive(false);
+    FilterForAvailableList.SetActive(false);
+    this.CurrentSelectCommand = null;
+  }
+
+  #endregion
 }
