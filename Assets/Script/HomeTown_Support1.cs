@@ -50,8 +50,6 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FLAME_HAND_KEEPER));
       shopList.Add(new Item(Fix.RED_PILLER_ORB));
       shopList.Add(new Item(Fix.MUIN_BOOK));
-      shopList.Add(new Item(Fix.SMALL_RED_POTION));
-      shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
       shopList.Add(new Item(Fix.NORMAL_RED_POTION));
       shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
 
@@ -75,7 +73,24 @@ public partial class HomeTown : MotherBase
     }
     else if (area_name == Fix.TOWN_COTUHSYE)
     {
-      shopList.Add(new Item(Fix.FINE_SWORD));
+      shopList.Add(new Item(Fix.SMART_SWORD));
+      shopList.Add(new Item(Fix.SMART_CLAW));
+      shopList.Add(new Item(Fix.SMART_LANCE));
+      shopList.Add(new Item(Fix.SMART_AXE));
+      shopList.Add(new Item(Fix.SMART_BOW));
+      shopList.Add(new Item(Fix.SMART_ORB));
+      shopList.Add(new Item(Fix.SMART_BOOK));
+      shopList.Add(new Item(Fix.SMART_ROD));
+      shopList.Add(new Item(Fix.SMART_SHIELD));
+      shopList.Add(new Item(Fix.SMART_ARMOR));
+      shopList.Add(new Item(Fix.SMART_CROSS));
+      shopList.Add(new Item(Fix.RED_AMULET));
+      shopList.Add(new Item(Fix.BLUE_AMULET));
+      shopList.Add(new Item(Fix.PURPLE_AMULET));
+      shopList.Add(new Item(Fix.GREEN_AMULET));
+      shopList.Add(new Item(Fix.YELLOW_AMULET));
+      shopList.Add(new Item(Fix.LARGE_RED_POTION));
+      shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
     }
     else if (area_name == Fix.TOWN_QVELTA_TOWN)
     {
