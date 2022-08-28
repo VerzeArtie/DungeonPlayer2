@@ -978,6 +978,15 @@ public partial class HomeTown : MotherBase
         One.TF.CurrentAreaName = Fix.TOWN_FAZIL_CASTLE;// this.HomeTownCall;
         SceneDimension.JumpToHomeTown();
       }
+      else if (this.DungeonMap == Fix.TOWN_COTUHSYE)
+      {
+        One.TF.AlreadyDungeon = false;
+        One.TF.AlreadyRestInn = true;
+        this.HomeTownComplete = true;
+        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+        One.TF.CurrentAreaName = Fix.TOWN_COTUHSYE;// this.HomeTownCall;
+        SceneDimension.JumpToHomeTown();
+      }
       if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
       {
         One.TF.AlreadyDungeon = true;
