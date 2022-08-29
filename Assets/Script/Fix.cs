@@ -1225,43 +1225,2589 @@ public static partial class Fix
   #endregion
 
   #region "Item Name"
+  #region "武具"
+  #region "１階：サルン洞窟前の草原"
+  public const string PRACTICE_CLAW = "練習用の爪";
+  public const string FINE_CLAW = "ファイン・クロー";
+  public const string SURVIVAL_CLAW = "サバイバル・クロー";
+  public const string RISING_FORCE_CLAW = "ライジング・フォース・クロー";
+  public const string LIGHTNING_CLAW = "電光の爪";
+  public const string PRACTICE_SWORD = "練習用の剣";
+  public const string FINE_SWORD = "ファイン・ソード";
+  public const string BRONZE_SWORD = "ブロンズ・ソード";
+  public const string SWORD_OF_LIFE = "ソード・オブ・ライフ";
+  public const string AERO_BLADE = "疾風の剣";
+  public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
+  public const string FINE_LANCE = "ファイン・ランス";
+  public const string SHARP_LANCE = "シャープ・ランス";
+  public const string WHITE_PARGE_LANCE = "ホワイトパージ・ランス";
+  public const string ICE_SPIRIT_LANCE = "氷魂の槍";
+  public const string FINE_BOW = "ファイン・ボウ";
+  public const string ELVISH_BOW = "エルヴィッシュ・ボウ";
+  public const string ICICLE_LONGBOW = "アイシクル・ロングボウ";
+  public const string MUMYOU_BOW = "無明の弓";
+  public const string FINE_AXE = "ファイン・アックス";
+  public const string VIKING_AXE = "バイキング・アックス";
+  public const string EARTH_POWER_AXE = "土力の斧";
+  public const string WARWOLF_AXE = "ワーウルフ・アックス";
+  public const string PRACTICE_ORB = "練習用のオーブ";
+  public const string FINE_ORB = "ファイン・オーブ";
+  public const string ENERGY_ORB = "エナジー・オーブ";
+  public const string LIVING_GROWTH_ORB = "リビング・グロース・オーブ";
+  public const string RED_PILLER_ORB = "炎柱の水晶玉";
+  public const string FINE_ROD = "ファイン・ロッド";
+  public const string WOOD_ROD = "ウッド・ロッド";
+  public const string TOUGH_TREE_ROD = "頑丈な樫の杖";
+  public const string BLACK_SORCERER_ROD = "ブラック・ソーサラー・ロッド";
+  public const string FINE_BOOK = "ファイン・ブック";
+  public const string KINDNESS_BOOK = "カインドネス・ブック";
+  public const string SAINT_FAITHFUL_BOOK = "セイント・フェイスフル・ブック";
+  public const string MUIN_BOOK = "無印の魔導書";
+  public const string FINE_SHIELD = "ファイン・シールド";
+  public const string KITE_SHIELD = "カイト・シールド";
+  public const string SUPERIOR_FLAME_SHIELD = "スペリオル・フレイム・シールド";
+  public const string BEGINNER_ARMOR = "初心者の鎧";
+  public const string FINE_ARMOR = "ファイン・アーマー";
+  public const string BEGINNER_CROSS = "初心者の舞踏衣";
+  public const string FINE_CROSS = "ファイン・クロス";
+  public const string BEGINNER_ROBE = "初心者のローブ";
+  public const string FINE_ROBE = "ファイン・ローブ";
+  public const string FLAT_SHOES = "フラット・シューズ";
+  public const string COMPACT_EARRING = "コンパクト・イヤリング";
+  public const string POWER_BANDANA = "パワー・バンダナ";
+  public const string CHERRY_CHOKER = "チェリー・チョーカー";
+  public const string RED_PENDANT = "レッド・ペンダント";
+  public const string BLUE_PENDANT = "ブルー・ペンダント";
+  public const string PURPLE_PENDANT = "パープル・ペンダント";
+  public const string GREEN_PENDANT = "グリーン・ペンダント";
+  public const string YELLOW_PENDANT = "イエロー・ペンダント";
+  public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
+  public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
+  #endregion
+  #region "２階：ゴラトラム洞窟"
+  #endregion
+  #region "３階：神秘の森"
+  public const string SMART_CLAW = "スマート・クロー";
+  public const string DANCING_CLAW = "ダンシング・クロー";
+  public const string SMART_SWORD = "スマート・ソード";
+  public const string CUTTING_BLADE = "カッティング・ブレード";
+  public const string SMART_LANCE = "スマート・ランス";
+  public const string SWIFT_SPEAR = "スウィフト・スピア";
+  public const string SMART_BOW = "スマート・ボウ";
+  public const string LONG_BOW = "ロング・ボウ";
+  public const string SMART_AXE = "スマート・アックス";
+  public const string POWERED_AXE = "パワード・アックス";
+  public const string SMART_ORB = "スマート・オーブ";
+  public const string FOCUS_ORB = "フォーカス・オーブ";
+  public const string SMART_ROD = "スマート・ロッド";
+  public const string AUTUMN_ROD = "オータムン・ロッド";
+  public const string SMART_BOOK = "スマート・ブック";
+  public const string BULKY_BOOK = "バルキー・ブック";
+  public const string SMART_SHIELD = "スマート・シールド";
+  public const string WIDE_BUCKLER = "ワイド・バックラー";
+  public const string SMART_ARMOR = "スマート・アーマー";
+  public const string GOTHIC_PLATE = "ゴシック・プレート";
+  public const string SMART_CROSS = "スマート・クロス";
+  public const string LETHER_CROSS = "レザー・クロス";
+  public const string SMART_ROBE = "スマート・ローブ";
+  public const string SILK_ROBE = "シルク・ローブ";
+  public const string WATERY_RING = "ウォータリー・リング";
+  public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
+  public const string HEAVYWEIGHT_SHOULDER = "ヘビーウェイト・ショルダー";
+  public const string TIGHT_BOOTS = "タイト・ブーツ";
+  public const string GORGEOUS_MANTLE = "ゴージャス・マント";
+  public const string SWEET_BANGLE = "スイート・バングル";
+  public const string NAMELESS_HAT = "ネームレス・ハット";
+  public const string WARM_LEGGUARD = "ウォーム・レッグガード";
+  public const string RED_AMULET = "レッド・アミュレット";
+  public const string BLUE_AMULET = "ブルー・アミュレット";
+  public const string PURPLE_AMULET = "パープル・アミュレット";
+  public const string GREEN_AMULET = "グリーン・アミュレット";
+  public const string YELLOW_AMULET = "イエロー・アミュレット";
+  public const string COPPERRING_TIGER = "銅の腕輪『虎』";
+  public const string COPPERRING_DORPHINE = "銅の腕輪『イルカ』";
+  public const string COPPERRING_HORSE = "銅の腕輪『馬』";
+  public const string COPPERRING_BEAR = "銅の腕輪『熊』";
+  public const string COPPERRING_HAYABUSA = "銅の腕輪『隼』";
+  public const string COPPERRING_OCTOPUS = "銅の腕輪『タコ』";
+  public const string COPPERRING_RABBIT = "銅の腕輪『兎』";
+  public const string COPPERRING_SPIDER = "銅の腕輪『蜘蛛』";
+  public const string COPPERRING_DEER = "銅の腕輪『鹿』";
+  public const string COPPERRING_ELEPHANT = "銅の腕輪『象』";
+  #endregion
+
+  public const string ZETANIUM_STONE = "ゼタニウム鉱石";
+  public const string FIELD_RESEARCH_LICENSE = "国内外遠征許可証";
+  public const string ITEM_MATOCK = "マトック";
+  public const string ITEM_TOOMI_AOSUISYOU = "遠見の青水晶";
+  public const string ITEM_WALKING_ROPE = "綱渡りロープ";
+  public const string ITEM_COPPER_KEY = "銅製の鍵";
+  public const string PURE_CLEAN_WATER = "清透水";
+  public const string RESIST_POISON_SUIT = "耐毒防護服";
+  public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
+  public const string UNKNOWN_OBJECT = "奇妙な物体";
+  public const string MARBLE_STAR = "マーブル・スター";
+  public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
+  public const string ZEMULGEARS = "極剣：ゼムルギアス";
+  public const string ARTIFACT_GENSEI = "古代の宝珠：厳正";
+  public const string ARTIFACT_ZIHI = "古代の宝珠：慈悲";
+  public const string ARTIFACT_MUSOU = "古代の宝珠：無双";
+  public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
+  public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
+  public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
+
+  public const string EPIC_RING_OF_OSCURETE = @"Ring of the Oscurete";
+  public const string EPIC_MERGIZD_SOL_BLADE = @"Mergizd Sol Blade";
+
+  public const string GEAR_GENSEI = "ギア【厳正】";
+  public const string MASTER_SWORD = "マスター・ソード";
+  public const string MASTER_SHIELD = "マスター・シールド";
+  public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";
+  #endregion
+  #region "無価値アイテム"
+  public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";
+  public const string POOR_BLACK_MATERIAL2 = @"ブラックマテリアル【改】";
+  public const string POOR_BLACK_MATERIAL3 = @"ブラックマテリアル【密】";
+  public const string POOR_BLACK_MATERIAL4 = @"ブラックマテリアル【試】";
+  public const string POOR_BLACK_MATERIAL5 = @"ブラックマテリアル【還】";
+  #endregion
+  #region "ポーション"
+  public const string SMALL_RED_POTION = "小さい赤ポーション";
+  public const string SMALL_BLUE_POTION = "小さい青ポーション";
+  public const string NORMAL_RED_POTION = "普通の赤ポーション";
+  public const string NORMAL_BLUE_POTION = "普通の青ポーション";
+  public const string LARGE_RED_POTION = "大きな赤ポーション";
+  public const string LARGE_BLUE_POTION = "大きな青ポーション";
+  public const string HUGE_RED_POTION = "巨大な赤ポーション";
+  public const string HUGE_BLUE_POTION = "巨大な青ポーション";
+  public const string HQ_RED_POTION = "高品質の赤ポーション";
+  public const string HQ_BLUE_POTION = "高品質の青ポーション";
+  public const string THQ_RED_POTION = "最高品質の赤ポーション";
+  public const string THQ_BLUE_POTION = "最高品質の青ポーション";
+  public const string PERFECT_RED_POTION = "完全な赤ポーション";
+  public const string PERFECT_BLUE_POTION = "完全な青ポーション";
+  #endregion
+  #region "成長剤"
+  // 成長剤（１階）
+  public const string GROWTH_LIQUID_STRENGTH = @"成長リキッド【力】";
+  public const string GROWTH_LIQUID_AGILITY = @"成長リキッド【技】";
+  public const string GROWTH_LIQUID_INTELLIGENCE = @"成長リキッド【知】";
+  public const string GROWTH_LIQUID_STAMINA = @"成長リキッド【体】";
+  public const string GROWTH_LIQUID_MIND = @"成長リキッド【心】";
+  // 成長剤（２階）
+  public const string GROWTH_LIQUID2_STRENGTH = @"成長リキッドⅡ【力】";
+  public const string GROWTH_LIQUID2_AGILITY = @"成長リキッドⅡ【技】";
+  public const string GROWTH_LIQUID2_INTELLIGENCE = @"成長リキッドⅡ【知】";
+  public const string GROWTH_LIQUID2_STAMINA = @"成長リキッドⅡ【体】";
+  public const string GROWTH_LIQUID2_MIND = @"成長リキッドⅡ【心】";
+  // 成長剤（３階）
+  public const string GROWTH_LIQUID3_STRENGTH = @"成長リキッドⅢ【力】";
+  public const string GROWTH_LIQUID3_AGILITY = @"成長リキッドⅢ【技】";
+  public const string GROWTH_LIQUID3_INTELLIGENCE = @"成長リキッドⅢ【知】";
+  public const string GROWTH_LIQUID3_STAMINA = @"成長リキッドⅢ【体】";
+  public const string GROWTH_LIQUID3_MIND = @"成長リキッドⅢ【心】";
+  // 成長剤（４階）
+  public const string GROWTH_LIQUID4_STRENGTH = @"成長リキッドⅣ【力】";
+  public const string GROWTH_LIQUID4_AGILITY = @"成長リキッドⅣ【技】";
+  public const string GROWTH_LIQUID4_INTELLIGENCE = @"成長リキッドⅣ【知】";
+  public const string GROWTH_LIQUID4_STAMINA = @"成長リキッドⅣ【体】";
+  public const string GROWTH_LIQUID4_MIND = @"成長リキッドⅣ【心】";
+  // 成長剤（５階）
+  public const string GROWTH_LIQUID5_STRENGTH = @"成長リキッドⅤ【力】";
+  public const string GROWTH_LIQUID5_AGILITY = @"成長リキッドⅤ【技】";
+  public const string GROWTH_LIQUID5_INTELLIGENCE = @"成長リキッドⅤ【知】";
+  public const string GROWTH_LIQUID5_STAMINA = @"成長リキッドⅤ【体】";
+  public const string GROWTH_LIQUID5_MIND = @"成長リキッドⅤ【心】";
+  #endregion
+  #endregion
+
+  #region "Monster Name"
+  public const string TINY_MANTIS = "Tiny Mantis";
+  public const string TINY_MANTIS_JP = "小さいカマキリ";
+  public const string GREEN_SLIME = "Green Slime";
+  public const string GREEN_SLIME_JP = "グリーン スライム";
+  public const string MANDRAGORA = "Mandragora";
+  public const string MANDRAGORA_JP = "マンドラゴラ";
+  public const string YOUNG_WOLF = "Young Wolf";
+  public const string YOUNG_WOLF_JP = "ヤング ウルフ";
+  public const string WILD_ANT = "Wild Ant";
+  public const string WILD_ANT_JP = "野生のアリ";
+  public const string OLD_TREEFORK = "Old Treefolk";
+  public const string OLD_TREEFORK_JP = "古びたツリーフォーク";
+  public const string SUN_FLOWER = "Sun Flower";
+  public const string SUN_FLOWER_JP = "サン フラワー";
+  public const string SOLID_BEETLE = "Solid Beetle";
+  public const string SOLID_BEETLE_JP = "甲殻ビートル";
+  public const string SILENT_LADYBUG = "Silent Ladybug";
+  public const string SILENT_LADYBUG_JP = "物静かなレディバグ";
+  public const string MYSTIC_DRYAD = "Mystic Dryad";
+  public const string MYSTIC_DRYAD_JP = "神秘的なドライアド";
+  public const string NIMBLE_RABBIT = "Nimble Rabbit";
+  public const string NIMBLE_RABBIT_JP = "軽快なラビット";
+  public const string ENTANGLED_VINE = "Entangled Vine";
+  public const string ENTANGLED_VINE_JP = "絡みつく蔦";
+  public const string CREEPING_SPIDER = "Creeping Spider";
+  public const string CREEPING_SPIDER_JP = "忍び寄るスパイダー";
+  public const string BLOOD_MOSS = "Blood Moss";
+  public const string BLOOD_MOSS_JP = "ブラッド モス";
+  public const string KILLER_BEE = "Killer Bee";
+  public const string KILLER_BEE_JP = "キラー ビー";
+  public const string WOOD_ELF = "Wood Elf";
+  public const string WOOD_ELF_JP = "ウッド エルフ";
+  public const string RUDE_WATCHDOG = "Rude Watchdog";
+  public const string RUDE_WATCHDOG_JP = "ルード ウォッチドッグ";
+  public const string STINKED_SPORE = "Stinked Spore";
+  public const string STINKED_SPORE_JP = "生臭いスポア";
+  public const string DAUNTLESS_HORSE = "Dauntless Horse";
+  public const string DAUNTLESS_HORSE_JP = "果敢な戦馬";
+  public const string WONDER_SEED = "Wonder Seed";
+  public const string WONDER_SEED_JP = "ワンダー シード";
+  public const string SHOTGUN_HYUUI = "Shotgun Hyuui";
+  public const string SHOTGUN_HYUUI_JP = "ショットガン ヒューイ";
+  public const string CHARGED_BOAR = "Charged Boar";
+  public const string CHARGED_BOAR_JP = "突撃ボア";
+  public const string POISON_FLOG = "Poison Flog";
+  public const string POISON_FLOG_JP = "ポイズン フロッグ";
+  public const string SPEEDY_FALCON = "Speedy Falcon";
+  public const string SPEEDY_FALCON_JP = "スピーディ ファルコン";
+  public const string INNOCENT_FAIRY = "Innocent Fairy";
+  public const string INNOCENT_FAIRY_JP = "イノセント フェアリー";
+  public const string GIANT_SNAKE = "Giant Snake";
+  public const string GIANT_SNAKE_JP = "ジャイアント スネーク";
+  public const string CALM_STAG = "Calm Stag";
+  public const string CALM_STAG_JP = "冷静な鹿";
+  public const string SAVAGE_BEAR = "Savage Bear";
+  public const string SAVAGE_BEAR_JP = "野蛮な熊";
+  public const string FOREST_ELEMENTAL = "Forest Elemental";
+  public const string FOREST_ELEMENTAL_JP = "フォレスト エレメンタル";
+  public const string EXCITED_ELEPHANT = "Excited Elephant";
+  public const string EXCITED_ELEPHANT_JP = "興奮するエレファント";
+  public const string FLANSIS_KNIGHT = "Flansis Knight";
+  public const string FLANSIS_KNIGHT_JP = "フランシスの騎士";
+  public const string GATHERING_LAPTOR = "Gathering Laptor";
+  public const string GATHERING_LAPTOR_JP = "ギャザリング ラプター";
+  public const string SYLPH_DANCER = "Sylph Dancer";
+  public const string SYLPH_DANCER_JP = "シルフ ダンサー";
+  public const string THORN_WARRIOR = "Thorn Warrior";
+  public const string THORN_WARRIOR_JP = "茨の戦士";
+  public const string TOWERING_ENT = "Towering Ent";
+  public const string TOWERING_ENT_JP = "そびえ立つエント";
+  public const string DISTURB_RHINO = "Disturb Rhino";
+  public const string DISTURB_RHINO_JP = "ディスターブ リノ";
+  public const string MIST_PYTHON = "Mist Python";
+  public const string MIST_PYTHON_JP = "ミスト パイソン";
+  public const string MUDDLED_PLANT = "Muddled Plant";
+  public const string MUDDLED_PLANT_JP = "腐敗したプラント";
+  public const string POISON_MARY = "Poison Mary";
+  public const string POISON_MARY_JP = "ポイズン マリー";
+  public const string FLANSIS_OF_THE_FOREST_QUEEN = "Flansis, The Queen of Verdant";
+  public const string FLANSIS_OF_THE_FOREST_QUEEN_JP = "新緑の女王：フランシス";
+  public const string DAGGER_FISH = "Dagger Fish";
+  public const string DAGGER_FISH_JP = "ダガー フィッシュ";
+  public const string FLOATING_MANTA = "Floating Manta";
+  public const string FLOATING_MANTA_JP = "浮遊するマンタ";
+  public const string SKYBLUE_BIRD = "Skyblue Bird";
+  public const string SKYBLUE_BIRD_JP = "スカイブルー バード";
+  public const string RAINBOW_CLIONE = "Rainbow Clione";
+  public const string RAINBOW_CLIONE_JP = "レインボー クリオネ";
+  public const string ROLLING_MAGURO = "Rolling Maguro";
+  public const string ROLLING_MAGURO_JP = "ローリング マグロ";
+  public const string LIMBER_SEAEAGLE = "Limber SeaEagle";
+  public const string LIMBER_SEAEAGLE_JP = "しなやかな海鷲";
+  public const string FLUFFY_CORAL = "Fluffy Coral";
+  public const string FLUFFY_CORAL_JP = "フラッフィ コーラル";
+  public const string BLACK_OCTOPUS = "Black Octopus";
+  public const string BLACK_OCTOPUS_JP = "ブラック オクトパス";
+  public const string STEAL_SQUID = "Steal Squid";
+  public const string STEAL_SQUID_JP = "忍び寄るスキッド";
+  public const string THE_HAND_OF_KRAKEN = "The Hand of Kraken";
+  public const string THE_HAND_OF_KRAKEN_JP = "クラーケンの大手";
+  public const string PROUD_VIKING = "Proud Viking";
+  public const string PROUD_VIKING_JP = "誇りあるバイキング";
+  public const string GAN_GAME = "GanGame";
+  public const string GAN_GAME_JP = "頑亀";
+  public const string JUMPING_KAMASU = "Jumping Kamasu";
+  public const string JUMPING_KAMASU_JP = "ジャンピング カマス";
+  public const string WRECHED_ANEMONE = "Wreched Anemone";
+  public const string WRECHED_ANEMONE_JP = "浅ましいアネモネ";
+  public const string DEEPSEA_HAND = "DeepSea Hand";
+  public const string DEEPSEA_HAND_JP = "深海の手";
+  public const string ASSULT_SERPENT = "Assult Serpent";
+  public const string ASSULT_SERPENT_JP = "襲いかかるサーペント";
+  public const string ESCORT_HERMIT_CLUB = "Escort Hermit-Club";
+  public const string ESCORT_HERMIT_CLUB_JP = "護衛隊 ハーミットクラブ";
+  public const string GLUTTONY_COELACANTH = "Gluttony Coelacanth";
+  public const string GLUTTONY_COELACANTH_JP = "大食いシーラカンス";
+  public const string GIANT_SEA_SPIDER = "Giant Sea-Spider";
+  public const string GIANT_SEA_SPIDER_JP = "巨大なウミグモ";
+  public const string SHELL_THE_SWORD_KNIGHT = "Shell the Sword-Knight";
+  public const string SHELL_THE_SWORD_KNIGHT_JP = "シェル ザ ソードナイト";
+  public const string MOGUL_MANTA = "Mogul Manta";
+  public const string MOGUL_MANTA_JP = "モーグル マンタ";
+  public const string WEEPING_MIST = "Weeping Mist";
+  public const string WEEPING_MIST_JP = "ウィーピング ミスト";
+  public const string AMBUSH_ANGLERFISH = "Ambush Anglerfish";
+  public const string AMBUSH_ANGLERFISH_JP = "待ち伏せアンコウ";
+  public const string EMERALD_LOBSTER = "Emerald Lobster";
+  public const string EMERALD_LOBSTER_JP = "エメラルドのエビ";
+  public const string BIGMOUSE_JOE = "Bigmouse Joe";
+  public const string BIGMOUSE_JOE_JP = "ビッグマウス ジョー";
+  public const string RAMPAGE_BIGSHARK = "Rampage BigShark";
+  public const string RAMPAGE_BIGSHARK_JP = "暴れ大ザメ";
+  public const string STICKY_STARFISH = "Sticky Starfish";
+  public const string STICKY_STARFISH_JP = "スティッキー スターフィッシュ";
+  public const string SEA_ELEMENTAL = "Sea Elemental";
+  public const string SEA_ELEMENTAL_JP = "シー エレメンタル";
+  public const string EDGED_HIGH_SHARK = "Edged High-Shark";
+  public const string EDGED_HIGH_SHARK_JP = "エッジド ハイシャーク";
+  public const string GUARDIAN_ROYAL_NAGA = "Guardian Royal Naga";
+  public const string GUARDIAN_ROYAL_NAGA_JP = "ガーディアン ロイヤル ナーガ";
+  public const string THOUGHTFUL_NAUTILUS = "Thoughtful Nautilus";
+  public const string THOUGHTFUL_NAUTILUS_JP = "思慮深いノーチラス";
+  public const string FEROCIOUS_WHALE = "Ferocious Whale";
+  public const string FEROCIOUS_WHALE_JP = "フェロシアス ホエール";
+  public const string GHOST_SHIP = "Ghost Ship";
+  public const string GHOST_SHIP_JP = "幽霊船";
+  public const string RECKLESS_WALRUS = "Reckless Walrus";
+  public const string RECKLESS_WALRUS_JP = "猛突進ウォーラス";
+  public const string BEAUTY_SEA_LILY = "Beauty Sea-Lily";
+  public const string BEAUTY_SEA_LILY_JP = "美しきウミユリ";
+  public const string DEFENSIVE_DATSU = "Defensive Datsu";
+  public const string DEFENSIVE_DATSU_JP = "身構えるダツ";
+  public const string SEA_STAR_KNIGHT = "Sea-Star Knight";
+  public const string SEA_STAR_KNIGHT_JP = "海星騎士";
+  public const string SEA_SONG_MARMAID = "Sea-Song Marmaid";
+  public const string SEA_SONG_MARMAID_JP = "海の歌姫マーメイド";
+  public const string BRILLIANT_SEA_PRINCE = "Brilliant Sea-Prince";
+  public const string BRILLIANT_SEA_PRINCE_JP = "輝ける海の王子";
+  public const string VELGAS_THE_KING_OF_SEA_STAR = "Velgas, The king of Sea-Star";
+  public const string VELGAS_THE_KING_OF_SEA_STAR_JP = "海星源の王：ヴェルガス";
+  public const string DEBRIS_SOLDIER = "Debris Soldier";
+  public const string DEBRIS_SOLDIER_JP = "ガラクタ機甲兵";
+  public const string MAGICAL_AUTOMATA = "Magical Automata";
+  public const string MAGICAL_AUTOMATA_JP = "魔道師団のオートマータ";
+  public const string KILLER_MACHINE = "Killer Machine";
+  public const string KILLER_MACHINE_JP = "キラー マシン";
+  public const string ANTIQUE_MIRROR = "Antique Mirror";
+  public const string ANTIQUE_MIRROR_JP = "アンティーク ミラー";
+  public const string MECH_HAND = "Mech Hand";
+  public const string MECH_HAND_JP = "メカ ハンド";
+  public const string ABSENCE_MOAI = "Absence Moai";
+  public const string ABSENCE_MOAI_JP = "無表情のモアイ";
+  public const string ACID_SCORPION = "Acid Scorpion";
+  public const string ACID_SCORPION_JP = "アシッド スコーピオン";
+  public const string AIMING_SHOOTER = "Aiming Shooter";
+  public const string AIMING_SHOOTER_JP = "エイミング シューター";
+  public const string LIGHTNING_CLOUD = "Lightning Cloud";
+  public const string LIGHTNING_CLOUD_JP = "ライトニング クラウド";
+  public const string STONE_STATUE_SEIHITSU = "Stone-Statue Seihitsu";
+  public const string STONE_STATUE_SEIHITSU_JP = "静謐な石像";
+  public const string NEJIMAKI_KNIGHT = "Nejimaki Knight";
+  public const string NEJIMAKI_KNIGHT_JP = "ネジマキ ナイト";
+  public const string WALKING_TIME_BOMB = "Walking Time-Bomb";
+  public const string WALKING_TIME_BOMB_JP = "歩行式時限爆弾";
+  public const string DISTORTED_SENSOR = "Distorted Sensor";
+  public const string DISTORTED_SENSOR_JP = "ディストーティッド センサー";
+  public const string JUNK_VULKAN = "Junk Vulkan";
+  public const string JUNK_VULKAN_JP = "ジャンク バルカン";
+  public const string ASSULT_SCARECROW = "Assult Scarecrow";
+  public const string ASSULT_SCARECROW_JP = "襲いかかるスケアクロウ";
+  public const string MAD_DOCTOR = "Mad Doctor";
+  public const string MAD_DOCTOR_JP = "マッド ドクター";
+  public const string SILENT_GARGOYLE = "Silent Gargoyle";
+  public const string SILENT_GARGOYLE_JP = "サイレント ガーゴイル";
+  public const string STONE_GOLEM = "Stone Golem";
+  public const string STONE_GOLEM_JP = "ストーン ゴーレム";
+  public const string DEATH_DRONE = "Death Drone";
+  public const string DEATH_DRONE_JP = "デス ドローン";
+  public const string STINKY_BAT = "Stinky Bat";
+  public const string STINKY_BAT_JP = "泥臭いコウモリ";
+  public const string CULT_BLACK_MAGICIAN_JP = "教団の闇術師";
+  public const string CULT_BLACK_MAGICIAN = "Cult Black Magician";
+  public const string GATE_HOUND = "Gate Hound";
+  public const string GATE_HOUND_JP = "門番犬";
+  public const string PLAY_FIRE_IMP_JP = "炎遊びのインプ";
+  public const string PLAY_FIRE_IMP = "Play-Fire Imp";
+  public const string EARTH_ELEMENTAL = "Earth Elemental";
+  public const string EARTH_ELEMENTAL_JP = "アース・エレメンタル";
+  public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
+  public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
+  public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
+  public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー";
+  public const string SWIFT_EAGLE = "Swift Eagle";
+  public const string SWIFT_EAGLE_JP = "スウィフト イーグル";
+  public const string EASTERN_GOLEM = "Eastern Golem";
+  public const string EASTERN_GOLEM_JP = "イースタン ゴーレム";
+  public const string WESTERN_GOLEM = "Western Golem";
+  public const string WESTERN_GOLEM_JP = "ウェスタン ゴーレム";
+  public const string WIND_ELEMENTAL = "Wind Elemental";
+  public const string WIND_ELEMENTAL_JP = "ウィンド エレメンタル";
+  public const string SKY_KNIGHT = "Sky Knight";
+  public const string SKY_KNIGHT_JP = "スカイ ナイト";
+  public const string THE_PURPLE_HIKARIGOKE = "The Purple Hikarigoke";
+  public const string THE_PURPLE_HIKARIGOKE_JP = "紫色のヒカリゴケ";
+  public const string MYSTICAL_UNICORN = "Mystical Unicorn";
+  public const string MYSTICAL_UNICORN_JP = "ミスティカル ユニコーン";
+  public const string TRIAL_HERMIT = "Trial Hermit";
+  public const string TRIAL_HERMIT_JP = "トライアル ハーミット";
+  public const string STORM_BIRDMAN = "Storm Birdman";
+  public const string STORM_BIRDMAN_JP = "疾風のバードマン";
+  public const string THE_BLUE_LAVA_EYE = "The Blue-Lava Eye";
+  public const string THE_BLUE_LAVA_EYE_JP = "ブルー ラーヴァ アイ";
+  public const string FLYING_CURTAIN = "Flying Curtain";
+  public const string FLYING_CURTAIN_JP = "浮遊するカーテン";
+  public const string LUMINOUS_HAWK = "Luminous Hawk";
+  public const string LUMINOUS_HAWK_JP = "ルミナス ホーク";
+  public const string AETHER_GUST = "Aether Gust";
+  public const string AETHER_GUST_JP = "エーテル ガスト";
+  public const string WHIRLWIND_KITSUNE = "Whirlwind Kitsune";
+  public const string WHIRLWIND_KITSUNE_JP = "風纏い狐";
+  public const string THUNDER_LION = "Thunder Lion";
+  public const string THUNDER_LION_JP = "サンダー ライオン";
+  public const string SAINT_PEGASUS = "Saint Pegasus";
+  public const string SAINT_PEGASUS_JP = "神聖なるペガサス";
+  public const string DREAM_WALKER = "Dream Walker";
+  public const string DREAM_WALKER_JP = "ドリーム ウォーカー";
+  public const string IVORY_STATUE = "Ivory Statue";
+  public const string IVORY_STATUE_JP = "アイボリー スタチュー";
+  public const string STUBBORN_SAGE = "Stubborn Sage";
+  public const string STUBBORN_SAGE_JP = "スタボーン セイジ";
+  public const string LIGHT_THUNDER_LANCEBOLTS = "Light-Thunder Lancebolts";
+  public const string LIGHT_THUNDER_LANCEBOLTS_JP = "雷光ランスボルツ";
+  public const string BOMB_BALLON = "Bomb Ballon";
+  public const string BOMB_BALLON_JP = "爆弾バルーン";
+  public const string OBSERVANT_HERALD = "Observant Herald";
+  public const string OBSERVANT_HERALD_JP = "用心深い伝令者";
+  public const string TOWER_SCOUT = "Tower Scout";
+  public const string TOWER_SCOUT_JP = "塔の監視者";
+  public const string MIST_SALVAGER = "Mist Salvager";
+  public const string MIST_SALVAGER_JP = "ミスト サルベージャー";
+  public const string WINGSPAN_RANGER = "Wingspan  Ranger";
+  public const string WINGSPAN_RANGER_JP = "ウィングスパン レンジャー";
+  public const string HARDENED_GRIFFIN = "Hardened Griffin";
+  public const string HARDENED_GRIFFIN_JP = "硬化体質のグリフィン";
+  public const string MAJESTIC_CLOUD = "Magiestic Cloud";
+  public const string MAJESTIC_CLOUD_JP = "マジェスティック クラウド";
+  public const string PRISMA_SPHERE = "Prisma Sphere";
+  public const string PRISMA_SPHERE_JP = "プリズマ スフィア";
+  public const string VEIL_FORTUNE_WIZARD = "Veil Fortune Wizard";
+  public const string VEIL_FORTUNE_WIZARD_JP = "ヴェイル フォーチュン ウィザード";
+  public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
+  public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
+  public const string IMPERIAL_KNIGHT = "Imperial Knight";
+  public const string IMPERIAL_KNIGHT_JP = "インペリアル・ナイト";
+  public const string VENERABLE_WIZARD = "Venerable Wizard";
+  public const string VENERABLE_WIZARD_JP = "ヴェネラブル・ウィザード";
+  public const string HOLLOW_SPECTOR = "Hollow Spector";
+  public const string HOLLOW_SPECTOR_JP = "ホロウ・スペクター";
+  public const string LIGHTNING_SPHERE = "Lightning Sphere";
+  public const string LIGHTNING_SPHERE_JP = "ライトニング・スフィア";
+  public const string DECEIVED_HUNTSMAN = "Deceived Huntsman";
+  public const string DECEIVED_HUNTSMAN_JP = "待ち伏せハンツマン";
+  public const string MOVING_CANNON = "Moving Cannon";
+  public const string MOVING_CANNON_JP = "動き回る砲台";
+  public const string DHAL_GUARDIAN = "Dhal Guardian";
+  public const string DHAL_GUARDIAN_JP = "ダルの守護人";
+  public const string PUPPET_MASTER = "Puppet Master";
+  public const string PUPPET_MASTER_JP = "パペット・マスター";
+  public const string DANCING_BLADE = "Dancing Blade";
+  public const string DANCING_BLADE_JP = "ダンシング・ブレード";
+  public const string MASCLEWARRIOR_HARDIL = "MuscleWarrior Hardil";
+  public const string MASCLEWARRIOR_HARDIL_JP = "屈強戦士：ハーディル";
+  public const string TRAPPED_DISK = "Trapped Disk";
+  public const string TRAPPED_DISK_JP = "トラップ仕掛けの円盤";
+  public const string WHISTLE_SENSOR = "Whistle Sensor";
+  public const string WHISTLE_SENSOR_JP = "笛吹きセンサー";
+  public const string DREAD_LANCER = "Dread Lancer";
+  public const string DREAD_LANCER_JP = "ドレッド・ランサー";
+  public const string RAGE_TIGER = "Rage Tiger";
+  public const string RAGE_TIGER_JP = "レイジ・タイガー";
+  public const string PEACEFUL_ANDANTINO = "Peaceful Andantino";
+  public const string PEACEFUL_ANDANTINO_JP = "ピースフル・アンダンティーノ";
+  public const string POISONED_CHALICE = "Poisoned Chalice";
+  public const string POISONED_CHALICE_JP = "猛毒聖杯";
+  public const string WISDOM_CENTAURUS = "Wisdom Centaurus";
+  public const string WISDOM_CENTAURUS_JP = "知的なケンタウロス";
+  public const string UNKNOWN_FLOATING_BALL = "Unknown Floating-Ball";
+  public const string UNKNOWN_FLOATING_BALL_JP = "正体不明の浮遊物";
+  public const string AURORA_SPIRIT = "Aurora Spirit";
+  public const string AURORA_SPIRIT_JP = "オーロラ・スピリット";
+  public const string HUGE_MAGICIAN_ZAGAN = "Huge Magician Zagan";
+  public const string HUGE_MAGICIAN_ZAGAN_JP = "巨体魔導士：ザガン";
+  public const string SCREAMING_RAFFLESIA = "叫喚のラフレシア";
+  #endregion
+
+  #region "Dungeon Event"
+  #region "サルン洞窟前の草原区域"
+  #region "宝箱"
+  public const string CAVEOFSARUN_Treasure_1_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_1_O = "1";
+  public const float CAVEOFSARUN_Treasure_1_X = 28.0f;
+  public const float CAVEOFSARUN_Treasure_1_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_1_Z = 3.0f;
+
+  public const string CAVEOFSARUN_Treasure_2_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_2_O = "2";
+  public const float CAVEOFSARUN_Treasure_2_X = 24.0f;
+  public const float CAVEOFSARUN_Treasure_2_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_2_Z = 0.0f;
+
+  public const string CAVEOFSARUN_Treasure_3_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_3_O = "3";
+  public const float CAVEOFSARUN_Treasure_3_X = 15.0f;
+  public const float CAVEOFSARUN_Treasure_3_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_3_Z = 8.0f;
+
+  public const string CAVEOFSARUN_Treasure_4_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_4_O = "4";
+  public const float CAVEOFSARUN_Treasure_4_X = 11.0f;
+  public const float CAVEOFSARUN_Treasure_4_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_4_Z = 2.0f;
+
+  public const string CAVEOFSARUN_Treasure_5_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_5_O = "5";
+  public const float CAVEOFSARUN_Treasure_5_X = 1.0f;
+  public const float CAVEOFSARUN_Treasure_5_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_5_Z = 9.0f;
+
+  public const string CAVEOFSARUN_Treasure_6_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_6_O = "6";
+  public const float CAVEOFSARUN_Treasure_6_X = -9.0f;
+  public const float CAVEOFSARUN_Treasure_6_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_6_Z = 11.0f;
+
+  public const string CAVEOFSARUN_Treasure_7_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_7_O = "7";
+  public const float CAVEOFSARUN_Treasure_7_X = 7.0f;
+  public const float CAVEOFSARUN_Treasure_7_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_7_Z = -5.0f;
+
+  public const string CAVEOFSARUN_Treasure_8_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_8_O = "8";
+  public const float CAVEOFSARUN_Treasure_8_X = 7.0f;
+  public const float CAVEOFSARUN_Treasure_8_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_8_Z = 1.0f;
+
+  public const string CAVEOFSARUN_Treasure_9_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_9_O = "9";
+  public const float CAVEOFSARUN_Treasure_9_X = -7.0f;
+  public const float CAVEOFSARUN_Treasure_9_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_9_Z = 5.0f;
+
+  public const string CAVEOFSARUN_Treasure_10_C = "Treasure";
+  public const string CAVEOFSARUN_Treasure_10_O = "10";
+  public const float CAVEOFSARUN_Treasure_10_X = 27.0f;
+  public const float CAVEOFSARUN_Treasure_10_Y = 1.0f;
+  public const float CAVEOFSARUN_Treasure_10_Z = -5.0f;
+  #endregion
+  #region "イベント"
+  public const string CAVEOFSARUN_Rock_1_C = "Rock";
+  public const string CAVEOFSARUN_Rock_1_O = "1";
+  public const float CAVEOFSARUN_Rock_1_X = -9.0f;
+  public const float CAVEOFSARUN_Rock_1_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_1_Z = 8.0f;
+
+  public const string CAVEOFSARUN_Rock_2_C = "Rock";
+  public const string CAVEOFSARUN_Rock_2_O = "2";
+  public const float CAVEOFSARUN_Rock_2_X = -5.0f;
+  public const float CAVEOFSARUN_Rock_2_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_2_Z = 10.0f;
+
+  public const string CAVEOFSARUN_Rock_3_C = "Rock";
+  public const string CAVEOFSARUN_Rock_3_O = "3";
+  public const float CAVEOFSARUN_Rock_3_X = -3.0f;
+  public const float CAVEOFSARUN_Rock_3_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_3_Z = 0.0f;
+
+  public const string CAVEOFSARUN_Rock_4_C = "Rock";
+  public const string CAVEOFSARUN_Rock_4_O = "4";
+  public const float CAVEOFSARUN_Rock_4_X = -7.0f;
+  public const float CAVEOFSARUN_Rock_4_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_4_Z = 4.0f;
+
+  public const string CAVEOFSARUN_Rock_5_C = "Rock";
+  public const string CAVEOFSARUN_Rock_5_O = "5";
+  public const float CAVEOFSARUN_Rock_5_X = 9.0f;
+  public const float CAVEOFSARUN_Rock_5_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_5_Z = -4.0f;
+
+  public const string CAVEOFSARUN_Rock_6_C = "Rock";
+  public const string CAVEOFSARUN_Rock_6_O = "6";
+  public const float CAVEOFSARUN_Rock_6_X = 13.0f;
+  public const float CAVEOFSARUN_Rock_6_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_6_Z = -1.0f;
+
+  public const string CAVEOFSARUN_Rock_7_C = "Rock";
+  public const string CAVEOFSARUN_Rock_7_O = "7";
+  public const float CAVEOFSARUN_Rock_7_X = 16.0f;
+  public const float CAVEOFSARUN_Rock_7_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_7_Z = -4.0f;
+
+  public const string CAVEOFSARUN_Rock_8_C = "Rock";
+  public const string CAVEOFSARUN_Rock_8_O = "8";
+  public const float CAVEOFSARUN_Rock_8_X = -6.0f;
+  public const float CAVEOFSARUN_Rock_8_Y = 1.0f;
+  public const float CAVEOFSARUN_Rock_8_Z = 2.0f;
+  #endregion
+  #endregion
+  #region "ゴラトラム洞窟"
+  #region "宝箱"
+  public const string GORATRUM_Treasure_1_C = "Treasure";
+  public const string GORATRUM_Treasure_1_O = "1";
+  public const float GORATRUM_Treasure_1_X = 12.0f;
+  public const float GORATRUM_Treasure_1_Y = 1.0f;
+  public const float GORATRUM_Treasure_1_Z = -1.0f;
+
+  public const string GORATRUM_Treasure_2_C = "Treasure";
+  public const string GORATRUM_Treasure_2_O = "2";
+  public const float GORATRUM_Treasure_2_X = 22.0f;
+  public const float GORATRUM_Treasure_2_Y = 1.0f;
+  public const float GORATRUM_Treasure_2_Z = -4.0f;
+
+  public const string GORATRUM_Treasure_3_C = "Treasure";
+  public const string GORATRUM_Treasure_3_O = "3";
+  public const float GORATRUM_Treasure_3_X = 13.0f;
+  public const float GORATRUM_Treasure_3_Y = 1.0f;
+  public const float GORATRUM_Treasure_3_Z = -16.0f;
+
+  public const string GORATRUM_Treasure_4_C = "Treasure";
+  public const string GORATRUM_Treasure_4_O = "4";
+  public const float GORATRUM_Treasure_4_X = 19.0f;
+  public const float GORATRUM_Treasure_4_Y = 1.0f;
+  public const float GORATRUM_Treasure_4_Z = -14.0f;
+
+  public const string GORATRUM_Treasure_5_C = "Treasure";
+  public const string GORATRUM_Treasure_5_O = "5";
+  public const float GORATRUM_Treasure_5_X = 9.0f;
+  public const float GORATRUM_Treasure_5_Y = 1.0f;
+  public const float GORATRUM_Treasure_5_Z = -11.0f;
+
+  public const string GORATRUM_Treasure_6_C = "Treasure";
+  public const string GORATRUM_Treasure_6_O = "6";
+  public const float GORATRUM_Treasure_6_X = 1.0f;
+  public const float GORATRUM_Treasure_6_Y = 1.0f;
+  public const float GORATRUM_Treasure_6_Z = -16.0f;
+
+  public const string GORATRUM_Treasure_7_C = "Treasure";
+  public const string GORATRUM_Treasure_7_O = "7";
+  public const float GORATRUM_Treasure_7_X = 31.0f;
+  public const float GORATRUM_Treasure_7_Y = 1.0f;
+  public const float GORATRUM_Treasure_7_Z = -18.0f;
+
+  public const string GORATRUM_Treasure_8_C = "Treasure";
+  public const string GORATRUM_Treasure_8_O = "8";
+  public const float GORATRUM_Treasure_8_X = 30.0f;
+  public const float GORATRUM_Treasure_8_Y = 1.0f;
+  public const float GORATRUM_Treasure_8_Z = -11.0f;
+
+  public const string GORATRUM_Treasure_9_C = "Treasure";
+  public const string GORATRUM_Treasure_9_O = "9";
+  public const float GORATRUM_Treasure_9_X = 35.0f;
+  public const float GORATRUM_Treasure_9_Y = 1.0f;
+  public const float GORATRUM_Treasure_9_Z = -8.0f;
+
+  public const string GORATRUM_Treasure_10_C = "Treasure";
+  public const string GORATRUM_Treasure_10_O = "10";
+  public const float GORATRUM_Treasure_10_X = 38.0f;
+  public const float GORATRUM_Treasure_10_Y = 1.0f;
+  public const float GORATRUM_Treasure_10_Z = -6.0f;
+
+  public const string GORATRUM_Treasure_11_C = "Treasure";
+  public const string GORATRUM_Treasure_11_O = "11";
+  public const float GORATRUM_Treasure_11_X = 36.0f;
+  public const float GORATRUM_Treasure_11_Y = 1.0f;
+  public const float GORATRUM_Treasure_11_Z = -3.0f;
+
+  public const string GORATRUM_2_Treasure_1_C = "Treasure";
+  public const string GORATRUM_2_Treasure_1_O = "1";
+  public const float GORATRUM_2_Treasure_1_X = 36.0f;
+  public const float GORATRUM_2_Treasure_1_Y = 1.0f;
+  public const float GORATRUM_2_Treasure_1_Z = -2.0f;
+
+  public const string GORATRUM_2_Treasure_2_C = "Treasure";
+  public const string GORATRUM_2_Treasure_2_O = "2";
+  public const float GORATRUM_2_Treasure_2_X = 7.0f;
+  public const float GORATRUM_2_Treasure_2_Y = 1.0f;
+  public const float GORATRUM_2_Treasure_2_Z = -16.0f;
+
+  public const string GORATRUM_2_Treasure_3_C = "Treasure";
+  public const string GORATRUM_2_Treasure_3_O = "3";
+  public const float GORATRUM_2_Treasure_3_X = 31.0f;
+  public const float GORATRUM_2_Treasure_3_Y = 1.0f;
+  public const float GORATRUM_2_Treasure_3_Z = -1.0f;
+
+  public const string GORATRUM_2_Treasure_4_C = "Treasure";
+  public const string GORATRUM_2_Treasure_4_O = "4";
+  public const float GORATRUM_2_Treasure_4_X = 29.0f;
+  public const float GORATRUM_2_Treasure_4_Y = 1.0f;
+  public const float GORATRUM_2_Treasure_4_Z = -16.0f;
+  #endregion
+  #region "階段(上り)"
+  // (1F)
+  public const string GORATRUM_Upstair_1_C = "Upstair";
+  public const string GORATRUM_Upstair_1_O = "1";
+  public const float GORATRUM_Upstair_1_X = 5.0f;
+  public const float GORATRUM_Upstair_1_Y = 0.0f;
+  public const float GORATRUM_Upstair_1_Z = -2.0f;
+
+  public const string GORATRUM_Upstair_2_C = "Upstair";
+  public const string GORATRUM_Upstair_2_O = "2";
+  public const float GORATRUM_Upstair_2_X = 0.0f;
+  public const float GORATRUM_Upstair_2_Y = 0.0f;
+  public const float GORATRUM_Upstair_2_Z = -5.0f;
+
+  // (2F)
+  public const string GORATRUM_2_Upstair_1_C = "Upstair";
+  public const string GORATRUM_2_Upstair_1_O = "1";
+  public const float GORATRUM_2_Upstair_1_X = 10.0f;
+  public const float GORATRUM_2_Upstair_1_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_1_Z = -8.0f;
+
+  public const string GORATRUM_2_Upstair_2_C = "Upstair";
+  public const string GORATRUM_2_Upstair_2_O = "2";
+  public const float GORATRUM_2_Upstair_2_X = 25.0f;
+  public const float GORATRUM_2_Upstair_2_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_2_Z = -7.0f;
+
+  public const string GORATRUM_2_Upstair_3_C = "Upstair";
+  public const string GORATRUM_2_Upstair_3_O = "3";
+  public const float GORATRUM_2_Upstair_3_X = 32.0f; // todo
+  public const float GORATRUM_2_Upstair_3_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_3_Z = -5.0f;
+
+  public const string GORATRUM_2_Upstair_4_C = "Upstair";
+  public const string GORATRUM_2_Upstair_4_O = "4";
+  public const float GORATRUM_2_Upstair_4_X = 5.0f;
+  public const float GORATRUM_2_Upstair_4_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_4_Z = -16.0f;
+
+  public const string GORATRUM_2_Upstair_5_C = "Upstair";
+  public const string GORATRUM_2_Upstair_5_O = "5";
+  public const float GORATRUM_2_Upstair_5_X = 1.0f;
+  public const float GORATRUM_2_Upstair_5_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_5_Z = -14.0f;
+
+  public const string GORATRUM_2_Upstair_6_C = "Upstair";
+  public const string GORATRUM_2_Upstair_6_O = "6";
+  public const float GORATRUM_2_Upstair_6_X = 15.0f;
+  public const float GORATRUM_2_Upstair_6_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_6_Z = -18.0f;
+
+  public const string GORATRUM_2_Upstair_7_C = "Upstair";
+  public const string GORATRUM_2_Upstair_7_O = "7";
+  public const float GORATRUM_2_Upstair_7_X = 38.0f;
+  public const float GORATRUM_2_Upstair_7_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_7_Z = -1.0f;
+
+  public const string GORATRUM_2_Upstair_8_C = "Upstair";
+  public const string GORATRUM_2_Upstair_8_O = "8";
+  public const float GORATRUM_2_Upstair_8_X = 38.0f;
+  public const float GORATRUM_2_Upstair_8_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_8_Z = -18.0f;
+
+  public const string GORATRUM_2_Upstair_9_C = "Upstair";
+  public const string GORATRUM_2_Upstair_9_O = "9";
+  public const float GORATRUM_2_Upstair_9_X = 32.0f;
+  public const float GORATRUM_2_Upstair_9_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_9_Z = -9.0f;
+
+  public const string GORATRUM_2_Upstair_10_C = "Upstair";
+  public const string GORATRUM_2_Upstair_10_O = "10";
+  public const float GORATRUM_2_Upstair_10_X = 21.0f;
+  public const float GORATRUM_2_Upstair_10_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_10_Z = -12.0f;
+
+  public const string GORATRUM_2_Upstair_11_C = "Upstair";
+  public const string GORATRUM_2_Upstair_11_O = "11";
+  public const float GORATRUM_2_Upstair_11_X = 15.0f;
+  public const float GORATRUM_2_Upstair_11_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_11_Z = -3.0f;
+
+  public const string GORATRUM_2_Upstair_12_C = "Upstair";
+  public const string GORATRUM_2_Upstair_12_O = "12";
+  public const float GORATRUM_2_Upstair_12_X = 1.0f;
+  public const float GORATRUM_2_Upstair_12_Y = 0.0f;
+  public const float GORATRUM_2_Upstair_12_Z = -1.0f;
+  #endregion
+  #region "階段(下り)"
+  // (1F)
+  public const string GORATRUM_Downstair_1_C = "Downstair";
+  public const string GORATRUM_Downstair_1_O = "1";
+  public const float GORATRUM_Downstair_1_X = 10.0f;
+  public const float GORATRUM_Downstair_1_Y = 0.0f;
+  public const float GORATRUM_Downstair_1_Z = -8.0f;
+
+  public const string GORATRUM_Downstair_2_C = "Downstair";
+  public const string GORATRUM_Downstair_2_O = "2";
+  public const float GORATRUM_Downstair_2_X = 25.0f;
+  public const float GORATRUM_Downstair_2_Y = 0.0f;
+  public const float GORATRUM_Downstair_2_Z = -7.0f;
+
+  public const string GORATRUM_Downstair_3_C = "Downstair";
+  public const string GORATRUM_Downstair_3_O = "3";
+  public const float GORATRUM_Downstair_3_X = 32.0f; // todo
+  public const float GORATRUM_Downstair_3_Y = 0.0f;
+  public const float GORATRUM_Downstair_3_Z = -5.0f;
+
+  public const string GORATRUM_Downstair_4_C = "Downstair";
+  public const string GORATRUM_Downstair_4_O = "4";
+  public const float GORATRUM_Downstair_4_X = 5.0f;
+  public const float GORATRUM_Downstair_4_Y = 0.0f;
+  public const float GORATRUM_Downstair_4_Z = -16.0f;
+
+  public const string GORATRUM_Downstair_5_C = "Downstair";
+  public const string GORATRUM_Downstair_5_O = "5";
+  public const float GORATRUM_Downstair_5_X = 1.0f;
+  public const float GORATRUM_Downstair_5_Y = 0.0f;
+  public const float GORATRUM_Downstair_5_Z = -14.0f;
+
+  public const string GORATRUM_Downstair_6_C = "Downstair";
+  public const string GORATRUM_Downstair_6_O = "6";
+  public const float GORATRUM_Downstair_6_X = 15.0f;
+  public const float GORATRUM_Downstair_6_Y = 0.0f;
+  public const float GORATRUM_Downstair_6_Z = -18.0f;
+
+  public const string GORATRUM_Downstair_7_C = "Downstair";
+  public const string GORATRUM_Downstair_7_O = "7";
+  public const float GORATRUM_Downstair_7_X = 38.0f;
+  public const float GORATRUM_Downstair_7_Y = 0.0f;
+  public const float GORATRUM_Downstair_7_Z = -1.0f;
+
+  public const string GORATRUM_Downstair_8_C = "Downstair";
+  public const string GORATRUM_Downstair_8_O = "8";
+  public const float GORATRUM_Downstair_8_X = 38.0f;
+  public const float GORATRUM_Downstair_8_Y = 0.0f;
+  public const float GORATRUM_Downstair_8_Z = -18.0f;
+
+  public const string GORATRUM_Downstair_9_C = "Downstair";
+  public const string GORATRUM_Downstair_9_O = "9";
+  public const float GORATRUM_Downstair_9_X = 32.0f;
+  public const float GORATRUM_Downstair_9_Y = 0.0f;
+  public const float GORATRUM_Downstair_9_Z = -9.0f;
+
+  public const string GORATRUM_Downstair_10_C = "Downstair";
+  public const string GORATRUM_Downstair_10_O = "10";
+  public const float GORATRUM_Downstair_10_X = 21.0f;
+  public const float GORATRUM_Downstair_10_Y = 0.0f;
+  public const float GORATRUM_Downstair_10_Z = -12.0f;
+
+  public const string GORATRUM_Downstair_11_C = "Downstair";
+  public const string GORATRUM_Downstair_11_O = "11";
+  public const float GORATRUM_Downstair_11_X = 15.0f;
+  public const float GORATRUM_Downstair_11_Y = 0.0f;
+  public const float GORATRUM_Downstair_11_Z = -3.0f;
+
+  public const string GORATRUM_Downstair_12_C = "Downstair";
+  public const string GORATRUM_Downstair_12_O = "12";
+  public const float GORATRUM_Downstair_12_X = 1.0f;
+  public const float GORATRUM_Downstair_12_Y = 0.0f;
+  public const float GORATRUM_Downstair_12_Z = -1.0f;
+  #endregion
+  #region "穴"
+  // 入口広場右通路の穴１
+  public const string GORATRUM_Hole_1_C = "Hole";
+  public const string GORATRUM_Hole_1_O = "1";
+  public const float GORATRUM_Hole_1_X = 13.0f;
+  public const float GORATRUM_Hole_1_Y = -0.5f;
+  public const float GORATRUM_Hole_1_Z = -7.0f;
+
+  // 上部噴水広場の右（上の穴）２
+  public const string GORATRUM_Hole_2_C = "Hole";
+  public const string GORATRUM_Hole_2_O = "2";
+  public const float GORATRUM_Hole_2_X = 24.0f;
+  public const float GORATRUM_Hole_2_Y = -0.5f;
+  public const float GORATRUM_Hole_2_Z = -2.0f;
+
+  // 上部噴水広場の右（下の穴）３
+  public const string GORATRUM_Hole_3_C = "Hole";
+  public const string GORATRUM_Hole_3_O = "3";
+  public const float GORATRUM_Hole_3_X = 24.0f;
+  public const float GORATRUM_Hole_3_Y = -0.5f;
+  public const float GORATRUM_Hole_3_Z = -5.0f;
+
+  // 入口広場右通路の穴の下側４
+  public const string GORATRUM_Hole_4_C = "Hole";
+  public const string GORATRUM_Hole_4_O = "4";
+  public const float GORATRUM_Hole_4_X = 13.0f;
+  public const float GORATRUM_Hole_4_Y = -0.5f;
+  public const float GORATRUM_Hole_4_Z = -12.0f;
+
+  // 入口広場右通路の穴の右通路側５
+  public const string GORATRUM_Hole_5_C = "Hole";
+  public const string GORATRUM_Hole_5_O = "5";
+  public const float GORATRUM_Hole_5_X = 24.0f;
+  public const float GORATRUM_Hole_5_Y = -0.5f;
+  public const float GORATRUM_Hole_5_Z = -9.0f;
+
+  // 右上エル穴の左岸１
+  public const string GORATRUM_Hole_6_C = "Hole";
+  public const string GORATRUM_Hole_6_O = "6";
+  public const float GORATRUM_Hole_6_X = 33.0f;
+  public const float GORATRUM_Hole_6_Y = -0.5f;
+  public const float GORATRUM_Hole_6_Z = -1.0f;
+
+  // 右上エル穴の左岸２
+  public const string GORATRUM_Hole_7_C = "Hole";
+  public const string GORATRUM_Hole_7_O = "7";
+  public const float GORATRUM_Hole_7_X = 33.0f;
+  public const float GORATRUM_Hole_7_Y = -0.5f;
+  public const float GORATRUM_Hole_7_Z = -2.0f;
+
+  // 右上エル穴の左岸３
+  public const string GORATRUM_Hole_8_C = "Hole";
+  public const string GORATRUM_Hole_8_O = "8";
+  public const float GORATRUM_Hole_8_X = 33.0f;
+  public const float GORATRUM_Hole_8_Y = -0.5f;
+  public const float GORATRUM_Hole_8_Z = -3.0f;
+
+  // 右上エル穴の左岸４
+  public const string GORATRUM_Hole_9_C = "Hole";
+  public const string GORATRUM_Hole_9_O = "9";
+  public const float GORATRUM_Hole_9_X = 33.0f;
+  public const float GORATRUM_Hole_9_Y = -0.5f;
+  public const float GORATRUM_Hole_9_Z = -4.0f;
+
+  // 右上エル穴の左岸５
+  public const string GORATRUM_Hole_10_C = "Hole";
+  public const string GORATRUM_Hole_10_O = "10";
+  public const float GORATRUM_Hole_10_X = 33.0f;
+  public const float GORATRUM_Hole_10_Y = -0.5f;
+  public const float GORATRUM_Hole_10_Z = -5.0f;
+
+  // 右上エル穴の左岸６
+  public const string GORATRUM_Hole_11_C = "Hole";
+  public const string GORATRUM_Hole_11_O = "11";
+  public const float GORATRUM_Hole_11_X = 33.0f;
+  public const float GORATRUM_Hole_11_Y = -0.5f;
+  public const float GORATRUM_Hole_11_Z = -6.0f;
+
+  // 左下聖堂の穴：左
+  public const string GORATRUM_Hole_12_C = "Hole";
+  public const string GORATRUM_Hole_12_O = "12";
+  public const float GORATRUM_Hole_12_X = 6.0f;
+  public const float GORATRUM_Hole_12_Y = -0.5f;
+  public const float GORATRUM_Hole_12_Z = -14.0f;
+
+  // 左下聖堂の穴：右
+  public const string GORATRUM_Hole_13_C = "Hole";
+  public const string GORATRUM_Hole_13_O = "13";
+  public const float GORATRUM_Hole_13_X = 8.0f;
+  public const float GORATRUM_Hole_13_Y = -0.5f;
+  public const float GORATRUM_Hole_13_Z = -14.0f;
+
+  // 一番左下、聖堂通路先の穴
+  public const string GORATRUM_Hole_14_C = "Hole";
+  public const string GORATRUM_Hole_14_O = "14";
+  public const float GORATRUM_Hole_14_X = 1.0f;
+  public const float GORATRUM_Hole_14_Y = -0.5f;
+  public const float GORATRUM_Hole_14_Z = -18.0f;
+
+  // 右下中央の穴
+  public const string GORATRUM_Hole_15_C = "Hole";
+  public const string GORATRUM_Hole_15_O = "15";
+  public const float GORATRUM_Hole_15_X = 33.0f;
+  public const float GORATRUM_Hole_15_Y = -0.5f;
+  public const float GORATRUM_Hole_15_Z = -14.0f;
+
+  // 右上エル穴の右岸１
+  public const string GORATRUM_Hole_16_C = "Hole";
+  public const string GORATRUM_Hole_16_O = "16";
+  public const float GORATRUM_Hole_16_X = 34.0f;
+  public const float GORATRUM_Hole_16_Y = -0.5f;
+  public const float GORATRUM_Hole_16_Z = -1.0f;
+
+  // 右上エル穴の右岸２
+  public const string GORATRUM_Hole_17_C = "Hole";
+  public const string GORATRUM_Hole_17_O = "17";
+  public const float GORATRUM_Hole_17_X = 34.0f;
+  public const float GORATRUM_Hole_17_Y = -0.5f;
+  public const float GORATRUM_Hole_17_Z = -2.0f;
+
+  // 右上エル穴の右岸３
+  public const string GORATRUM_Hole_18_C = "Hole";
+  public const string GORATRUM_Hole_18_O = "18";
+  public const float GORATRUM_Hole_18_X = 34.0f;
+  public const float GORATRUM_Hole_18_Y = -0.5f;
+  public const float GORATRUM_Hole_18_Z = -3.0f;
+
+  // 右上エル穴の右岸４
+  public const string GORATRUM_Hole_19_C = "Hole";
+  public const string GORATRUM_Hole_19_O = "19";
+  public const float GORATRUM_Hole_19_X = 34.0f;
+  public const float GORATRUM_Hole_19_Y = -0.5f;
+  public const float GORATRUM_Hole_19_Z = -4.0f;
+
+  // 右上エル穴の右岸５
+  public const string GORATRUM_Hole_20_C = "Hole";
+  public const string GORATRUM_Hole_20_O = "20";
+  public const float GORATRUM_Hole_20_X = 34.0f;
+  public const float GORATRUM_Hole_20_Y = -0.5f;
+  public const float GORATRUM_Hole_20_Z = -5.0f;
+
+  // 右上エル穴の右岸６
+  public const string GORATRUM_Hole_21_C = "Hole";
+  public const string GORATRUM_Hole_21_O = "21";
+  public const float GORATRUM_Hole_21_X = 35.0f;
+  public const float GORATRUM_Hole_21_Y = -0.5f;
+  public const float GORATRUM_Hole_21_Z = -5.0f;
+
+  // 右上エル穴の右岸７
+  public const string GORATRUM_Hole_22_C = "Hole";
+  public const string GORATRUM_Hole_22_O = "22";
+  public const float GORATRUM_Hole_22_X = 36.0f;
+  public const float GORATRUM_Hole_22_Y = -0.5f;
+  public const float GORATRUM_Hole_22_Z = -5.0f;
+
+  // 右上エル穴の下岸１
+  public const string GORATRUM_Hole_23_C = "Hole";
+  public const string GORATRUM_Hole_23_O = "23";
+  public const float GORATRUM_Hole_23_X = 34.0f;
+  public const float GORATRUM_Hole_23_Y = -0.5f;
+  public const float GORATRUM_Hole_23_Z = -6.0f;
+
+  // 右上エル穴の下岸２
+  public const string GORATRUM_Hole_24_C = "Hole";
+  public const string GORATRUM_Hole_24_O = "24";
+  public const float GORATRUM_Hole_24_X = 35.0f;
+  public const float GORATRUM_Hole_24_Y = -0.5f;
+  public const float GORATRUM_Hole_24_Z = -6.0f;
+
+  // 右上エル穴の下岸３
+  public const string GORATRUM_Hole_25_C = "Hole";
+  public const string GORATRUM_Hole_25_O = "25";
+  public const float GORATRUM_Hole_25_X = 36.0f;
+  public const float GORATRUM_Hole_25_Y = -0.5f;
+  public const float GORATRUM_Hole_25_Z = -6.0f;
+
+  // 右下の三角穴１
+  public const string GORATRUM_Hole_26_C = "Hole";
+  public const string GORATRUM_Hole_26_O = "26";
+  public const float GORATRUM_Hole_26_X = 36.0f;
+  public const float GORATRUM_Hole_26_Y = -0.5f;
+  public const float GORATRUM_Hole_26_Z = -16.0f;
+
+  // 右下の三角穴２
+  public const string GORATRUM_Hole_27_C = "Hole";
+  public const string GORATRUM_Hole_27_O = "27";
+  public const float GORATRUM_Hole_27_X = 37.0f;
+  public const float GORATRUM_Hole_27_Y = -0.5f;
+  public const float GORATRUM_Hole_27_Z = -16.0f;
+
+  // 右下の三角穴３
+  public const string GORATRUM_Hole_28_C = "Hole";
+  public const string GORATRUM_Hole_28_O = "28";
+  public const float GORATRUM_Hole_28_X = 36.0f;
+  public const float GORATRUM_Hole_28_Y = -0.5f;
+  public const float GORATRUM_Hole_28_Z = -17.0f;
+
+  // 中央一方通行ルート穴１
+  public const string GORATRUM_Hole_29_C = "Hole";
+  public const string GORATRUM_Hole_29_O = "29";
+  public const float GORATRUM_Hole_29_X = 28.0f;
+  public const float GORATRUM_Hole_29_Y = -0.5f;
+  public const float GORATRUM_Hole_29_Z = -10.0f;
+
+  // 中央一方通行ルート穴２
+  public const string GORATRUM_Hole_30_C = "Hole";
+  public const string GORATRUM_Hole_30_O = "30";
+  public const float GORATRUM_Hole_30_X = 17.0f;
+  public const float GORATRUM_Hole_30_Y = -0.5f;
+  public const float GORATRUM_Hole_30_Z = -15.0f;
+
+  // 中央一方通行ルート穴３
+  public const string GORATRUM_Hole_31_C = "Hole";
+  public const string GORATRUM_Hole_31_O = "31";
+  public const float GORATRUM_Hole_31_X = 11.0f;
+  public const float GORATRUM_Hole_31_Y = -0.5f;
+  public const float GORATRUM_Hole_31_Z = -3.0f;
+  #endregion
+  #region "扉"
+  // 入口広場の下扉
+  public const string GORATRUM_CopperDoor_1_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_1_O = "1";
+  public const float GORATRUM_CopperDoor_1_X = 8.0f;
+  public const float GORATRUM_CopperDoor_1_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_1_Z = -8.0f;
+
+  // 入口広場の左扉
+  public const string GORATRUM_CopperDoor_2_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_2_O = "2";
+  public const float GORATRUM_CopperDoor_2_X = 3.0f;
+  public const float GORATRUM_CopperDoor_2_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_2_Z = -5.0f;
+
+  // 中央通路を繋ぐドア
+  public const string GORATRUM_CopperDoor_3_C = "CopperDoor";
+  public const string GORATRUM_CopperDoor_3_O = "3";
+  public const float GORATRUM_CopperDoor_3_X = 25.0f;
+  public const float GORATRUM_CopperDoor_3_Y = 1.0f;
+  public const float GORATRUM_CopperDoor_3_Z = -17.0f;
+  #endregion
+  #region "看板"
+  public const string GORATRUM_MessageBoard_1_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_1_O = "1";
+  public const float GORATRUM_MessageBoard_1_X = 8.0f;
+  public const float GORATRUM_MessageBoard_1_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_1_Z = -5.0f;
+
+  public const string GORATRUM_MessageBoard_2_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_2_O = "2";
+  public const float GORATRUM_MessageBoard_2_X = 32.0f;
+  public const float GORATRUM_MessageBoard_2_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_2_Z = -2.0f;
+
+  public const string GORATRUM_MessageBoard_3_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_3_O = "3";
+  public const float GORATRUM_MessageBoard_3_X = 25.0f;
+  public const float GORATRUM_MessageBoard_3_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_3_Z = -14.0f;
+
+  public const string GORATRUM_MessageBoard_4_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_4_O = "4";
+  public const float GORATRUM_MessageBoard_4_X = 7.0f;
+  public const float GORATRUM_MessageBoard_4_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_4_Z = -15.0f;
+
+  public const string GORATRUM_MessageBoard_5_C = "MessageBoard";
+  public const string GORATRUM_MessageBoard_5_O = "5";
+  public const float GORATRUM_MessageBoard_5_X = 35.0f;
+  public const float GORATRUM_MessageBoard_5_Y = 1.0f;
+  public const float GORATRUM_MessageBoard_5_Z = -7.0f;
+  #endregion
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string GORATRUM_2_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string GORATRUM_2_ObsidianPortal_1_O = "35";
+  public const float GORATRUM_2_ObsidianPortal_1_X = 20.0f;
+  public const float GORATRUM_2_ObsidianPortal_1_Y = 1.0f;
+  public const float GORATRUM_2_ObsidianPortal_1_Z = -3.0f;
+  #endregion
+  #region "イベント"
+  // 1F
+  // 入口広場のエントリー地点
+  public const string GORATRUM_Event_1_C = "Event";
+  public const string GORATRUM_Event_1_O = "1";
+  public const float GORATRUM_Event_1_X = 8.0f;
+  public const float GORATRUM_Event_1_Y = 0.0f;
+  public const float GORATRUM_Event_1_Z = -3.0f;
+
+  // 左下聖堂前の３タイル（左）
+  public const string GORATRUM_Event_2_C = "Event";
+  public const string GORATRUM_Event_2_O = "2";
+  public const float GORATRUM_Event_2_X = 6.0f;
+  public const float GORATRUM_Event_2_Y = 0.0f;
+  public const float GORATRUM_Event_2_Z = -17.0f;
+
+  // 左下聖堂前の３タイル（中央）
+  public const string GORATRUM_Event_3_C = "Event";
+  public const string GORATRUM_Event_3_O = "3";
+  public const float GORATRUM_Event_3_X = 7.0f;
+  public const float GORATRUM_Event_3_Y = 0.0f;
+  public const float GORATRUM_Event_3_Z = -17.0f;
+
+  // 左下聖堂前の３タイル（右）
+  public const string GORATRUM_Event_4_C = "Event";
+  public const string GORATRUM_Event_4_O = "4";
+  public const float GORATRUM_Event_4_X = 8.0f;
+  public const float GORATRUM_Event_4_Y = 0.0f;
+  public const float GORATRUM_Event_4_Z = -17.0f;
+
+  // 2F
+  // 中央の旧聖堂の入口タイル
+  public const string GORATRUM_2_Event_1_C = "Event";
+  public const string GORATRUM_2_Event_1_O = "1";
+  public const float GORATRUM_2_Event_1_X = 20.0f;
+  public const float GORATRUM_2_Event_1_Y = 0.0f;
+  public const float GORATRUM_2_Event_1_Z = -6.0f;
+
+  // ボス手前
+  public const string GORATRUM_2_Event_2_C = "Event";
+  public const string GORATRUM_2_Event_2_O = "2";
+  public const float GORATRUM_2_Event_2_X = 7.0f;
+  public const float GORATRUM_2_Event_2_Y = -0.0f;
+  public const float GORATRUM_2_Event_2_Z = -8.0f;
+
+  // ボス
+  public const string GORATRUM_2_Event_3_C = "Event";
+  public const string GORATRUM_2_Event_3_O = "38";
+  public const float GORATRUM_2_Event_3_X = 6.0f;
+  public const float GORATRUM_2_Event_3_Y = -0.0f;
+  public const float GORATRUM_2_Event_3_Z = -8.0f;
+  #endregion
+  #endregion
+  #region "神秘の森"
+  #region "看板"
+  public const string MYSTICFOREST_MessageBoard_1_C = "MessageBoard";
+  public const string MYSTICFOREST_MessageBoard_1_O = "1";
+  public const float MYSTICFOREST_MessageBoard_1_X = 6.0f;
+  public const float MYSTICFOREST_MessageBoard_1_Y = 1.0f;
+  public const float MYSTICFOREST_MessageBoard_1_Z = -9.0f;
+
+  public const string MYSTICFOREST_MessageBoard_2_C = "MessageBoard";
+  public const string MYSTICFOREST_MessageBoard_2_O = "1";
+  public const float MYSTICFOREST_MessageBoard_2_X = 35.0f;
+  public const float MYSTICFOREST_MessageBoard_2_Y = 1.0f;
+  public const float MYSTICFOREST_MessageBoard_2_Z = -14.0f;
+  #endregion
+  #region "イベント"
+  // 入口広場のエントリー地点
+  public const string MYSTICFOREST_Event_1_C = "Event";
+  public const string MYSTICFOREST_Event_1_O = "1";
+  public const float MYSTICFOREST_Event_1_X = 9.0f;
+  public const float MYSTICFOREST_Event_1_Y = 0.0f;
+  public const float MYSTICFOREST_Event_1_Z = -7.0f;
+
+  public const string MYSTICFOREST_Event_1_2_C = "Event";
+  public const string MYSTICFOREST_Event_1_2_O = "1-2";
+  public const float MYSTICFOREST_Event_1_2_X = 36.0f;
+  public const float MYSTICFOREST_Event_1_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_1_2_Z = -20.0f;
+
+  public const string MYSTICFOREST_Event_2_C = "Event";
+  public const string MYSTICFOREST_Event_2_O = "2";
+  public const float MYSTICFOREST_Event_2_X = 29.0f;
+  public const float MYSTICFOREST_Event_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_2_Z = -8.0f;
+
+  public const string MYSTICFOREST_Event_3_C = "Event";
+  public const string MYSTICFOREST_Event_3_O = "3";
+  public const float MYSTICFOREST_Event_3_X = 23.0f;
+  public const float MYSTICFOREST_Event_3_Y = 0.0f;
+  public const float MYSTICFOREST_Event_3_Z = -14.0f;
+  #endregion
+  #endregion
+  #region "アーサリウム工場跡地 ( not used )"
+  // センター区画左側通路先、崖落ち
+  public const string MAPEVENT_ARTHARIUM_1_C = "MapEvent";
+  public const float MAPEVENT_ARTHARIUM_1_X = 28;
+  public const float MAPEVENT_ARTHARIUM_1_Y = -4;
+  public const float MAPEVENT_ARTHARIUM_1_Z = 48;
+
+  // 崖落ちマップから通常通路へと帰還
+  public const string MAPEVENT_ARTHARIUM_2_C = "MapEvent";
+  public const float MAPEVENT_ARTHARIUM_2_X = 8;
+  public const float MAPEVENT_ARTHARIUM_2_Y = -1;
+  public const float MAPEVENT_ARTHARIUM_2_Z = 49;
+
+  // 通常通路に戻り、ラナと合流
+  public const string MAPEVENT_ARTHARIUM_3_C = "MapEvent";
+  public const string MAPEVENT_ARTHARIUM_3_O = "MAPEVENT_ARTHARIUM_3";
+  public const float MAPEVENT_ARTHARIUM_3_X = 27;
+  public const float MAPEVENT_ARTHARIUM_3_Y = -4;
+  public const float MAPEVENT_ARTHARIUM_3_Z = 48;
+
+  // 右下、入口看板後の扉
+  public const string MAPEVENT_ARTHARIUM_4_0_O = "MAPEVENT_ARTHARIUM_4_0";
+  public const float MAPEVENT_ARTHARIUM_4_0_X = 38;
+  public const float MAPEVENT_ARTHARIUM_4_0_Y = -1;
+  public const float MAPEVENT_ARTHARIUM_4_0_Z = 18;
+
+  // 右下、強敵モンスター入口
+  public const string MAPEVENT_ARTHARIUM_4_O = "MAPEVENT_ARTHARIUM_4";
+
+  public const string MAPEVENT_ARTHARIUM_5_O = "MAPEVENT_ARTHARIUM_5";
+  public const float MAPEVENT_ARTHARIUM_5_X = 77;
+  public const float MAPEVENT_ARTHARIUM_5_Y = -1;
+  public const float MAPEVENT_ARTHARIUM_5_Z = 16;
+
+  public const string MAPEVENT_ARTHARIUM_6_O = "MAPEVENT_ARTHARIUM_6";
+  public const float MAPEVENT_ARTHARIUM_6_X = -34;
+  public const float MAPEVENT_ARTHARIUM_6_Y = 2.5f;
+  public const float MAPEVENT_ARTHARIUM_6_Z = 12;
+
+  public const string MAPEVENT_ARTHARIUM_6_2_O = "MAPEVENT_ARTHARIUM_6_2";
+  public const float MAPEVENT_ARTHARIUM_6_2_X = -35;
+  public const float MAPEVENT_ARTHARIUM_6_2_Y = 2.5f;
+  public const float MAPEVENT_ARTHARIUM_6_2_Z = 12;
+
+  public const string MAPEVENT_ARTHARIUM_7_O = "MAPEVENT_ARTHARIUM_7";
+  public const float MAPEVENT_ARTHARIUM_7_X = 15;
+  public const float MAPEVENT_ARTHARIUM_7_Y = -1.5f;
+  public const float MAPEVENT_ARTHARIUM_7_Z = 35;
+
+  public const string MAPEVENT_ARTHARIUM_8_O = "MAPEVENT_ARTHARIUM_8";
+  public const float MAPEVENT_ARTHARIUM_8_X = 15;
+  public const float MAPEVENT_ARTHARIUM_8_Y = -1.5f;
+  public const float MAPEVENT_ARTHARIUM_8_Z = 35;
+
+  public const string MAPEVENT_ARTHARIUM_9_O = "MAPEVENT_ARTHARIUM_9";
+
+  public const string MAPEVENT_ARTHARIUM_10_O = "MAPEVENT_ARTHARIUM_10";
+  public const float MAPEVENT_ARTHARIUM_10_1_X = -32;
+  public const float MAPEVENT_ARTHARIUM_10_1_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_1_Z = 48;
+
+  public const float MAPEVENT_ARTHARIUM_10_2_X = -31;
+  public const float MAPEVENT_ARTHARIUM_10_2_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_2_Z = 48;
+
+  public const float MAPEVENT_ARTHARIUM_10_3_X = -30;
+  public const float MAPEVENT_ARTHARIUM_10_3_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_10_3_Z = 48;
+
+  public const string MAPEVENT_ARTHARIUM_11_O = "MAPEVENT_ARTHARIUM_11";
+
+  // 山道ルート入口
+  public const string MAPEVENT_ARTHARIUM_12_O = "MAPEVENT_ARTHARIUM_12";
+  public const float MAPEVENT_ARTHARIUM_12_X = 56;
+  public const float MAPEVENT_ARTHARIUM_12_Y = 0;
+  public const float MAPEVENT_ARTHARIUM_12_Z = 2;
+
+  // 山道ルート、ツァルマンの里入口
+  public const string EVENT_BASEFIELD_10_O = "EVENT_BASEFIELD_10_O";
+  public const float EVENT_BASEFIELD_10_X = 52;
+  public const float EVENT_BASEFIELD_10_Y = 6.5f;
+  public const float EVENT_BASEFIELD_10_Z = 38;
+
+  public const string ARTHARIUM_Treasure_3_C = "Treasure";
+  public const string ARTHARIUM_Treasure_3_O = "3";
+  public const float ARTHARIUM_Treasure_3_X = 35f;
+  public const float ARTHARIUM_Treasure_3_Y = 0f;
+  public const float ARTHARIUM_Treasure_3_Z = 17f;
+
+  public const string ARTHARIUM_Treasure_2_C = "Treasure";
+  public const string ARTHARIUM_Treasure_2_O = "2";
+  public const float ARTHARIUM_Treasure_2_X = 26f;
+  public const float ARTHARIUM_Treasure_2_Y = 0f;
+  public const float ARTHARIUM_Treasure_2_Z = 18f;
+
+  public const string ARTHARIUM_Treasure_1_C = "Treasure";
+  public const string ARTHARIUM_Treasure_1_O = "1";
+  public const float ARTHARIUM_Treasure_1_X = 19f;
+  public const float ARTHARIUM_Treasure_1_Y = -0.5f;
+  public const float ARTHARIUM_Treasure_1_Z = 37f;
+
+  public const string ARTHARIUM_Treasure_6_C = "Treasure";
+  public const string ARTHARIUM_Treasure_6_O = "6";
+  public const float ARTHARIUM_Treasure_6_X = -15f;
+  public const float ARTHARIUM_Treasure_6_Y = 1f;
+  public const float ARTHARIUM_Treasure_6_Z = 33f;
+
+  public const string ARTHARIUM_Treasure_5_C = "Treasure";
+  public const string ARTHARIUM_Treasure_5_O = "5";
+  public const float ARTHARIUM_Treasure_5_X = -12f;
+  public const float ARTHARIUM_Treasure_5_Y = 1f;
+  public const float ARTHARIUM_Treasure_5_Z = 50f;
+
+  public const string ARTHARIUM_Treasure_7_C = "Treasure";
+  public const string ARTHARIUM_Treasure_7_O = "7";
+  public const float ARTHARIUM_Treasure_7_X = -42f;
+  public const float ARTHARIUM_Treasure_7_Y = 5f;
+  public const float ARTHARIUM_Treasure_7_Z = 39f;
+
+  public const string ARTHARIUM_Treasure_4_C = "Treasure";
+  public const string ARTHARIUM_Treasure_4_O = "4";
+  public const float ARTHARIUM_Treasure_4_X = 80f;
+  public const float ARTHARIUM_Treasure_4_Y = -4f;
+  public const float ARTHARIUM_Treasure_4_Z = 25f;
+
+  public const string ARTHARIUM_Rock_4_C = "Rock";
+  public const string ARTHARIUM_Rock_4_O = "4";
+  public const float ARTHARIUM_Rock_4_X = 26f;
+  public const float ARTHARIUM_Rock_4_Y = -0.5f;
+  public const float ARTHARIUM_Rock_4_Z = 30f;
+
+  public const string ARTHARIUM_Rock_5_C = "Rock";
+  public const string ARTHARIUM_Rock_5_O = "5";
+  public const float ARTHARIUM_Rock_5_X = 13f;
+  public const float ARTHARIUM_Rock_5_Y = -0.5f;
+  public const float ARTHARIUM_Rock_5_Z = 30f;
+
+  public const string ARTHARIUM_Rock_3_C = "Rock";
+  public const string ARTHARIUM_Rock_3_O = "3";
+  public const float ARTHARIUM_Rock_3_X = 22f;
+  public const float ARTHARIUM_Rock_3_Y = -0.5f;
+  public const float ARTHARIUM_Rock_3_Z = 19f;
+
+  public const string ARTHARIUM_Rock_2_C = "Rock";
+  public const string ARTHARIUM_Rock_2_O = "2";
+  public const float ARTHARIUM_Rock_2_X = 11f;
+  public const float ARTHARIUM_Rock_2_Y = 1f;
+  public const float ARTHARIUM_Rock_2_Z = 9f;
+
+  public const string ARTHARIUM_Rock_1_C = "Rock";
+  public const string ARTHARIUM_Rock_1_O = "1";
+  public const float ARTHARIUM_Rock_1_X = -5f;
+  public const float ARTHARIUM_Rock_1_Y = 1f;
+  public const float ARTHARIUM_Rock_1_Z = 19f;
+
+  public const string ARTHARIUM_Treasure_8_C = "Treasure";
+  public const string ARTHARIUM_Treasure_8_O = "8";
+  public const float ARTHARIUM_Treasure_8_X = 28f;
+  public const float ARTHARIUM_Treasure_8_Y = -6.5f;
+  public const float ARTHARIUM_Treasure_8_Z = 42f;
+
+  public const string ARTHARIUM_Treasure_9_C = "Treasure";
+  public const string ARTHARIUM_Treasure_9_O = "9";
+  public const float ARTHARIUM_Treasure_9_X = 34f;
+  public const float ARTHARIUM_Treasure_9_Y = -6f;
+  public const float ARTHARIUM_Treasure_9_Z = 43f;
+
+  public const string ARTHARIUM_Treasure_10_C = "Treasure";
+  public const string ARTHARIUM_Treasure_10_O = "10";
+  public const float ARTHARIUM_Treasure_10_X = 55f;
+  public const float ARTHARIUM_Treasure_10_Y = -5f;
+  public const float ARTHARIUM_Treasure_10_Z = 60f;
+
+  public const string ARTHARIUM_Treasure_11_C = "Treasure";
+  public const string ARTHARIUM_Treasure_11_O = "11";
+  public const float ARTHARIUM_Treasure_11_X = 63f;
+  public const float ARTHARIUM_Treasure_11_Y = -4f;
+  public const float ARTHARIUM_Treasure_11_Z = 49f;
+
+  public const string ARTHARIUM_Treasure_12_C = "Treasure";
+  public const string ARTHARIUM_Treasure_12_O = "12";
+  public const float ARTHARIUM_Treasure_12_X = 38f;
+  public const float ARTHARIUM_Treasure_12_Y = -4.5f;
+  public const float ARTHARIUM_Treasure_12_Z = 64f;
+
+  public const string ARTHARIUM_Treasure_13_C = "Treasure";
+  public const string ARTHARIUM_Treasure_13_O = "13";
+  public const float ARTHARIUM_Treasure_13_X = 48f;
+  public const float ARTHARIUM_Treasure_13_Y = -4.5f;
+  public const float ARTHARIUM_Treasure_13_Z = 74f;
+
+  public const string ARTHARIUM_Treasure_14_C = "Treasure";
+  public const string ARTHARIUM_Treasure_14_O = "14";
+  public const float ARTHARIUM_Treasure_14_X = 15f;
+  public const float ARTHARIUM_Treasure_14_Y = -0.5f;
+  public const float ARTHARIUM_Treasure_14_Z = 74f;
+
+  public const string ARTHARIUM_Fountain_1_C = "Fountain";
+  public const string ARTHARIUM_Fountain_1_O = "1";
+  public const float ARTHARIUM_Fountain_1_X = 33f;
+  public const float ARTHARIUM_Fountain_1_Y = -0.5f;
+  public const float ARTHARIUM_Fountain_1_Z = 30f;
+
+  public const string ARTHARIUM_MessageBoard_1_C = "MessageBoard";
+  public const string ARTHARIUM_MessageBoard_1_O = "1";
+  public const float ARTHARIUM_MessageBoard_1_X = 37f;
+  public const float ARTHARIUM_MessageBoard_1_Y = -1f;
+  public const float ARTHARIUM_MessageBoard_1_Z = 21f;
+
+  public const string ARTHARIUM_Door_Copper_1_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_1_O = "1";
+  public const float ARTHARIUM_Door_Copper_1_X = 38f;
+  public const float ARTHARIUM_Door_Copper_1_Y = -1f;
+  public const float ARTHARIUM_Door_Copper_1_Z = 18f;
+
+  public const string ARTHARIUM_Treasure_15_C = "Treasure";
+  public const string ARTHARIUM_Treasure_15_O = "15";
+  public const float ARTHARIUM_Treasure_15_X = 40f;
+  public const float ARTHARIUM_Treasure_15_Y = -1f;
+  public const float ARTHARIUM_Treasure_15_Z = 9f;
+
+  public const string ARTHARIUM_Treasure_16_C = "Treasure";
+  public const string ARTHARIUM_Treasure_16_O = "16";
+  public const float ARTHARIUM_Treasure_16_X = 49f;
+  public const float ARTHARIUM_Treasure_16_Y = -1f;
+  public const float ARTHARIUM_Treasure_16_Z = 5f;
+
+  public const string ARTHARIUM_Treasure_17_C = "Treasure";
+  public const string ARTHARIUM_Treasure_17_O = "17";
+  public const float ARTHARIUM_Treasure_17_X = 60f;
+  public const float ARTHARIUM_Treasure_17_Y = -1f;
+  public const float ARTHARIUM_Treasure_17_Z = 16f;
+
+  public const string ARTHARIUM_Treasure_18_C = "Treasure";
+  public const string ARTHARIUM_Treasure_18_O = "18";
+  public const float ARTHARIUM_Treasure_18_X = 55f;
+  public const float ARTHARIUM_Treasure_18_Y = -1f;
+  public const float ARTHARIUM_Treasure_18_Z = 11f;
+
+  public const string ARTHARIUM_Fountain_2_C = "Fountain";
+  public const string ARTHARIUM_Fountain_2_O = "2";
+  public const float ARTHARIUM_Fountain_2_X = 66f;
+  public const float ARTHARIUM_Fountain_2_Y = -1f;
+  public const float ARTHARIUM_Fountain_2_Z = 18f;
+
+  public const string ARTHARIUM_Treasure_19_C = "Treasure";
+  public const string ARTHARIUM_Treasure_19_O = "19";
+  public const float ARTHARIUM_Treasure_19_X = 78f;
+  public const float ARTHARIUM_Treasure_19_Y = -1f;
+  public const float ARTHARIUM_Treasure_19_Z = 19f;
+
+  public const string ARTHARIUM_Door_Copper_2_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_2_O = "2";
+  public const float ARTHARIUM_Door_Copper_2_X = 77f;
+  public const float ARTHARIUM_Door_Copper_2_Y = -1f;
+  public const float ARTHARIUM_Door_Copper_2_Z = 16f;
+
+  public const string ARTHARIUM_Crystal_1_C = "Crystal";
+  public const string ARTHARIUM_Crystal_1_O = "1";
+  public const float ARTHARIUM_Crystal_1_X = 76f;
+  public const float ARTHARIUM_Crystal_1_Y = -3.5f;
+  public const float ARTHARIUM_Crystal_1_Z = 14f;
+
+  public const string ARTHARIUM_Treasure_20_C = "Treasure";
+  public const string ARTHARIUM_Treasure_20_O = "20";
+  public const float ARTHARIUM_Treasure_20_X = -25f;
+  public const float ARTHARIUM_Treasure_20_Y = 2f;
+  public const float ARTHARIUM_Treasure_20_Z = 11f;
+
+  public const string ARTHARIUM_Treasure_21_C = "Treasure";
+  public const string ARTHARIUM_Treasure_21_O = "21";
+  public const float ARTHARIUM_Treasure_21_X = -45f;
+  public const float ARTHARIUM_Treasure_21_Y = 4.5f;
+  public const float ARTHARIUM_Treasure_21_Z = 31f;
+
+  public const string ARTHARIUM_Treasure_22_C = "Treasure";
+  public const string ARTHARIUM_Treasure_22_O = "22";
+  public const float ARTHARIUM_Treasure_22_X = -58f;
+  public const float ARTHARIUM_Treasure_22_Y = 4.5f;
+  public const float ARTHARIUM_Treasure_22_Z = 25f;
+
+  public const string ARTHARIUM_Treasure_23_C = "Treasure";
+  public const string ARTHARIUM_Treasure_23_O = "23";
+  public const float ARTHARIUM_Treasure_23_X = -62f;
+  public const float ARTHARIUM_Treasure_23_Y = 4.5f;
+  public const float ARTHARIUM_Treasure_23_Z = 10f;
+
+  public const string ARTHARIUM_Treasure_24_C = "Treasure";
+  public const string ARTHARIUM_Treasure_24_O = "24";
+  public const float ARTHARIUM_Treasure_24_X = -32f;
+  public const float ARTHARIUM_Treasure_24_Y = 3.5f;
+  public const float ARTHARIUM_Treasure_24_Z = 17f;
+
+  public const string ARTHARIUM_Treasure_25_C = "Treasure";
+  public const string ARTHARIUM_Treasure_25_O = "25";
+  public const float ARTHARIUM_Treasure_25_X = -11f;
+  public const float ARTHARIUM_Treasure_25_Y = 2.5f;
+  public const float ARTHARIUM_Treasure_25_Z = 12f;
+
+  public const string ARTHARIUM_Fountain_3_C = "Fountain";
+  public const string ARTHARIUM_Fountain_3_O = "3";
+  public const float ARTHARIUM_Fountain_3_X = -20f;
+  public const float ARTHARIUM_Fountain_3_Y = 1.5f;
+  public const float ARTHARIUM_Fountain_3_Z = 10f;
+
+  public const string ARTHARIUM_Fountain_4_C = "Fountain";
+  public const string ARTHARIUM_Fountain_4_O = "4";
+  public const float ARTHARIUM_Fountain_4_X = -53f;
+  public const float ARTHARIUM_Fountain_4_Y = 4.5f;
+  public const float ARTHARIUM_Fountain_4_Z = 15f;
+
+  public const string ARTHARIUM_Treasure_26_C = "Treasure";
+  public const string ARTHARIUM_Treasure_26_O = "26";
+  public const float ARTHARIUM_Treasure_26_X = -64f;
+  public const float ARTHARIUM_Treasure_26_Y = 4.5f;
+  public const float ARTHARIUM_Treasure_26_Z = 1f;
+
+  public const string ARTHARIUM_Treasure_27_C = "Treasure";
+  public const string ARTHARIUM_Treasure_27_O = "27";
+  public const float ARTHARIUM_Treasure_27_X = -71f;
+  public const float ARTHARIUM_Treasure_27_Y = -2f;
+  public const float ARTHARIUM_Treasure_27_Z = 12f;
+
+  public const string ARTHARIUM_Fountain_5_C = "Fountain";
+  public const string ARTHARIUM_Fountain_5_O = "5";
+  public const float ARTHARIUM_Fountain_5_X = -67f;
+  public const float ARTHARIUM_Fountain_5_Y = -2f;
+  public const float ARTHARIUM_Fountain_5_Z = 12f;
+
+  public const string ARTHARIUM_Crystal_2_C = "Crystal";
+  public const string ARTHARIUM_Crystal_2_O = "2";
+  public const float ARTHARIUM_Crystal_2_X = -69f;
+  public const float ARTHARIUM_Crystal_2_Y = -4f;
+  public const float ARTHARIUM_Crystal_2_Z = 24f;
+
+  public const string ARTHARIUM_Door_Copper_3_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_3_O = "3";
+  public const float ARTHARIUM_Door_Copper_3_X = -11f;
+  public const float ARTHARIUM_Door_Copper_3_Y = 2.5f;
+  public const float ARTHARIUM_Door_Copper_3_Z = 9f;
+
+  public const string ARTHARIUM_Rock_6_C = "Rock";
+  public const string ARTHARIUM_Rock_6_O = "6";
+  public const float ARTHARIUM_Rock_6_X = -11f;
+  public const float ARTHARIUM_Rock_6_Y = 2.5f;
+  public const float ARTHARIUM_Rock_6_Z = 11f;
+
+  public const string ARTHARIUM_Door_Copper_4_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_4_O = "4";
+  public const float ARTHARIUM_Door_Copper_4_X = -1f;
+  public const float ARTHARIUM_Door_Copper_4_Y = 1f;
+  public const float ARTHARIUM_Door_Copper_4_Z = 33f;
+
+  public const string ARTHARIUM_Door_Copper_5_C = "Door_Copper";
+  public const string ARTHARIUM_Door_Copper_5_O = "5";
+  public const float ARTHARIUM_Door_Copper_5_X = 0f;
+  public const float ARTHARIUM_Door_Copper_5_Y = 1f;
+  public const float ARTHARIUM_Door_Copper_5_Z = 33f;
+
+  public const string ARTHARIUM_Fountain_6_C = "Fountain";
+  public const string ARTHARIUM_Fountain_6_O = "6";
+  public const float ARTHARIUM_Fountain_6_X = -31f;
+  public const float ARTHARIUM_Fountain_6_Y = 1f;
+  public const float ARTHARIUM_Fountain_6_Z = 44f;
+
+  public const string ARTHARIUM_ObsidianStone_1_C = "ObsidianStone";
+  public const string ARTHARIUM_ObsidianStone_1_O = "1";
+  public const float ARTHARIUM_ObsidianStone_1_X = -31f;
+  public const float ARTHARIUM_ObsidianStone_1_Y = 3.5f;
+  public const float ARTHARIUM_ObsidianStone_1_Z = 66f;
+  #endregion
+  #region "オーランの塔 ( not used )"
+  //// オーランの塔、一層、右側（下）
+  //public const string EVENT_OHRANTOWER_1_O = "EVENT_OHRANTOWER_1_O";
+  //public const float EVENT_OHRANTOWER_1_X = 10;
+  //public const float EVENT_OHRANTOWER_1_Y = 0;
+  //public const float EVENT_OHRANTOWER_1_Z = 1;
+
+  //// オーランの塔、二層、右側（上）
+  //public const string EVENT_OHRANTOWER_2_O = "EVENT_OHRANTOWER_2_O";
+  //public const float EVENT_OHRANTOWER_2_X = 10;
+  //public const float EVENT_OHRANTOWER_2_Y = 8;
+  //public const float EVENT_OHRANTOWER_2_Z = 1;
+
+  //// オーランの塔、一層、左側（下）
+  //public const string EVENT_OHRANTOWER_3_O = "EVENT_OHRANTOWER_3_O";
+  //public const float EVENT_OHRANTOWER_3_X = -16;
+  //public const float EVENT_OHRANTOWER_3_Y = 0;
+  //public const float EVENT_OHRANTOWER_3_Z = 1;
+
+  //// オーランの塔、一層、左側（上）
+  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
+  //public const float EVENT_OHRANTOWER_4_X = -16;
+  //public const float EVENT_OHRANTOWER_4_Y = 12;
+  //public const float EVENT_OHRANTOWER_4_Z = 1;
+
+  //// オーランの塔、二層、中央左岸（入口）
+  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
+  //public const float EVENT_OHRANTOWER_4_X = -16;
+  //public const float EVENT_OHRANTOWER_4_Y = 12;
+  //public const float EVENT_OHRANTOWER_4_Z = 1;
+
+  // オーランの塔、ボス前の察知
+  public const float EVENT_OHRANTOWER_9_X = 5.0f;
+  public const float EVENT_OHRANTOWER_9_Y = 55.5f;
+  public const float EVENT_OHRANTOWER_9_Z = 27.0f;
+
+  // オーランの塔、ボス戦
+  public const float EVENT_OHRANTOWER_10_X = 1.0f;
+  public const float EVENT_OHRANTOWER_10_Y = 64.0f;
+  public const float EVENT_OHRANTOWER_10_Z = 25.0f;
+
+  // オーランの塔、展望台箇所
+  public const float EVENT_OHRANTOWER_11_X = 1.0f;
+  public const float EVENT_OHRANTOWER_11_Y = 65.0f;
+  public const float EVENT_OHRANTOWER_11_Z = 32.0f;
+
+  public const string OHRANTOWER_Treasure_1_C = "Treasure";
+  public const string OHRANTOWER_Treasure_1_O = "1";
+  public const float OHRANTOWER_Treasure_1_X = 17f;
+  public const float OHRANTOWER_Treasure_1_Y = 9f;
+  public const float OHRANTOWER_Treasure_1_Z = 7f;
+
+  public const string OHRANTOWER_Treasure_2_C = "Treasure";
+  public const string OHRANTOWER_Treasure_2_O = "2";
+  public const float OHRANTOWER_Treasure_2_X = -13f;
+  public const float OHRANTOWER_Treasure_2_Y = 9f;
+  public const float OHRANTOWER_Treasure_2_Z = 25f;
+
+  public const string OHRANTOWER_FloatingTile_1_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_1_O = "1";
+  public const float OHRANTOWER_FloatingTile_1_X = 10f;
+  public const float OHRANTOWER_FloatingTile_1_Y = 0f;
+  public const float OHRANTOWER_FloatingTile_1_Z = 1f;
+
+  public const string OHRANTOWER_FloatingTile_2_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_2_O = "2";
+  public const float OHRANTOWER_FloatingTile_2_X = -16f;
+  public const float OHRANTOWER_FloatingTile_2_Y = 0f;
+  public const float OHRANTOWER_FloatingTile_2_Z = 1f;
+
+  public const string OHRANTOWER_FloatingTile_3_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_3_O = "3";
+  public const float OHRANTOWER_FloatingTile_3_X = -16f;
+  public const float OHRANTOWER_FloatingTile_3_Y = 12f;
+  public const float OHRANTOWER_FloatingTile_3_Z = 23f;
+
+  public const string OHRANTOWER_FloatingTile_4_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_4_O = "4";
+  public const float OHRANTOWER_FloatingTile_4_X = -5f;
+  public const float OHRANTOWER_FloatingTile_4_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_4_Z = 13f;
+
+  public const string OHRANTOWER_FloatingTile_5_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_5_O = "5";
+  public const float OHRANTOWER_FloatingTile_5_X = 5f;
+  public const float OHRANTOWER_FloatingTile_5_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_5_Z = 13f;
+
+  public const string OHRANTOWER_FloatingTile_6_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_6_O = "6";
+  public const float OHRANTOWER_FloatingTile_6_X = 16f;
+  public const float OHRANTOWER_FloatingTile_6_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_6_Z = 24f;
+
+  public const string OHRANTOWER_Treasure_4_C = "Treasure";
+  public const string OHRANTOWER_Treasure_4_O = "4";
+  public const float OHRANTOWER_Treasure_4_X = 27f;
+  public const float OHRANTOWER_Treasure_4_Y = 9f;
+  public const float OHRANTOWER_Treasure_4_Z = 25f;
+
+  public const string OHRANTOWER_FloatingTile_7_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_7_O = "7";
+  public const float OHRANTOWER_FloatingTile_7_X = 13f;
+  public const float OHRANTOWER_FloatingTile_7_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_7_Z = 22f;
+
+  public const string OHRANTOWER_FloatingTile_8_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_8_O = "8";
+  public const float OHRANTOWER_FloatingTile_8_X = 3f;
+  public const float OHRANTOWER_FloatingTile_8_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_8_Z = 25f;
+
+  public const string OHRANTOWER_FloatingTile_9_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_9_O = "9";
+  public const float OHRANTOWER_FloatingTile_9_X = -10f;
+  public const float OHRANTOWER_FloatingTile_9_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_9_Z = 23f;
+
+  public const string OHRANTOWER_FloatingTile_10_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_10_O = "10";
+  public const float OHRANTOWER_FloatingTile_10_X = 14f;
+  public const float OHRANTOWER_FloatingTile_10_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_10_Z = 7f;
+
+  public const string OHRANTOWER_FloatingTile_11_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_11_O = "11";
+  public const float OHRANTOWER_FloatingTile_11_X = 20f;
+  public const float OHRANTOWER_FloatingTile_11_Y = 8f;
+  public const float OHRANTOWER_FloatingTile_11_Z = 17f;
+
+  public const string OHRANTOWER_ObsidianStone_2_C = "ObsidianStone";
+  public const string OHRANTOWER_ObsidianStone_2_O = "2";
+  public const float OHRANTOWER_ObsidianStone_2_X = -29f;
+  public const float OHRANTOWER_ObsidianStone_2_Y = 9f;
+  public const float OHRANTOWER_ObsidianStone_2_Z = 17f;
+
+  public const string OHRANTOWER_Treasure_3_C = "Treasure";
+  public const string OHRANTOWER_Treasure_3_O = "3";
+  public const float OHRANTOWER_Treasure_3_X = -21f;
+  public const float OHRANTOWER_Treasure_3_Y = 11f;
+  public const float OHRANTOWER_Treasure_3_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_1_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_1_O = "1";
+  public const float OHRANTOWER_WarpHole_1_X = -8f;
+  public const float OHRANTOWER_WarpHole_1_Y = 20f;
+  public const float OHRANTOWER_WarpHole_1_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_2_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_2_O = "2";
+  public const float OHRANTOWER_WarpHole_2_X = 5f;
+  public const float OHRANTOWER_WarpHole_2_Y = 12f;
+  public const float OHRANTOWER_WarpHole_2_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_3_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_3_O = "3";
+  public const float OHRANTOWER_WarpHole_3_X = -6f;
+  public const float OHRANTOWER_WarpHole_3_Y = 12f;
+  public const float OHRANTOWER_WarpHole_3_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_4_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_4_O = "4";
+  public const float OHRANTOWER_WarpHole_4_X = 7f;
+  public const float OHRANTOWER_WarpHole_4_Y = 20f;
+  public const float OHRANTOWER_WarpHole_4_Z = 23f;
+
+  public const string OHRANTOWER_FloatingTile_12_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_12_O = "12";
+  public const float OHRANTOWER_FloatingTile_12_X = 17f;
+  public const float OHRANTOWER_FloatingTile_12_Y = 20f;
+  public const float OHRANTOWER_FloatingTile_12_Z = 12f;
+
+  public const string OHRANTOWER_WarpHole_5_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_5_O = "5";
+  public const float OHRANTOWER_WarpHole_5_X = -16f;
+  public const float OHRANTOWER_WarpHole_5_Y = 28f;
+  public const float OHRANTOWER_WarpHole_5_Z = 12f;
+
+  public const string OHRANTOWER_WarpHole_6_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_6_O = "6";
+  public const float OHRANTOWER_WarpHole_6_X = 17f;
+  public const float OHRANTOWER_WarpHole_6_Y = 28f;
+  public const float OHRANTOWER_WarpHole_6_Z = 2f;
+
+  public const string OHRANTOWER_Treasure_5_C = "Treasure";
+  public const string OHRANTOWER_Treasure_5_O = "5";
+  public const float OHRANTOWER_Treasure_5_X = 2f;
+  public const float OHRANTOWER_Treasure_5_Y = 29f;
+  public const float OHRANTOWER_Treasure_5_Z = 8f;
+
+  public const string OHRANTOWER_Treasure_6_C = "Treasure";
+  public const string OHRANTOWER_Treasure_6_O = "6";
+  public const float OHRANTOWER_Treasure_6_X = -2f;
+  public const float OHRANTOWER_Treasure_6_Y = 29f;
+  public const float OHRANTOWER_Treasure_6_Z = 8f;
+
+  public const string OHRANTOWER_FloatingTile_13_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_13_O = "13";
+  public const float OHRANTOWER_FloatingTile_13_X = -10f;
+  public const float OHRANTOWER_FloatingTile_13_Y = 28f;
+  public const float OHRANTOWER_FloatingTile_13_Z = 21f;
+
+  public const string OHRANTOWER_FloatingTile_14_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_14_O = "14";
+  public const float OHRANTOWER_FloatingTile_14_X = 2f;
+  public const float OHRANTOWER_FloatingTile_14_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_14_Z = 31f;
+
+  public const string OHRANTOWER_FloatingTile_15_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_15_O = "15";
+  public const float OHRANTOWER_FloatingTile_15_X = 10f;
+  public const float OHRANTOWER_FloatingTile_15_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_15_Z = 30f;
+
+  public const string OHRANTOWER_FloatingTile_16_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_16_O = "16";
+  public const float OHRANTOWER_FloatingTile_16_X = 10f;
+  public const float OHRANTOWER_FloatingTile_16_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_16_Z = 19f;
+
+  public const string OHRANTOWER_FloatingTile_17_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_17_O = "17";
+  public const float OHRANTOWER_FloatingTile_17_X = 9f;
+  public const float OHRANTOWER_FloatingTile_17_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_17_Z = 11f;
+
+  public const string OHRANTOWER_FloatingTile_18_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_18_O = "18";
+  public const float OHRANTOWER_FloatingTile_18_X = -2f;
+  public const float OHRANTOWER_FloatingTile_18_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_18_Z = 11f;
+
+  public const string OHRANTOWER_FloatingTile_19_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_19_O = "19";
+  public const float OHRANTOWER_FloatingTile_19_X = -10f;
+  public const float OHRANTOWER_FloatingTile_19_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_19_Z = 12f;
+
+  public const string OHRANTOWER_FloatingTile_20_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_20_O = "20";
+  public const float OHRANTOWER_FloatingTile_20_X = -9f;
+  public const float OHRANTOWER_FloatingTile_20_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_20_Z = 18f;
+
+  public const string OHRANTOWER_FloatingTile_21_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_21_O = "21";
+  public const float OHRANTOWER_FloatingTile_21_X = -2f;
+  public const float OHRANTOWER_FloatingTile_21_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_21_Z = 17f;
+
+  public const string OHRANTOWER_FloatingTile_22_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_22_O = "22";
+  public const float OHRANTOWER_FloatingTile_22_X = 4f;
+  public const float OHRANTOWER_FloatingTile_22_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_22_Z = 18f;
+
+  public const string OHRANTOWER_FloatingTile_23_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_23_O = "23";
+  public const float OHRANTOWER_FloatingTile_23_X = 3f;
+  public const float OHRANTOWER_FloatingTile_23_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_23_Z = 35f;
+
+  public const string OHRANTOWER_FloatingTile_24_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_24_O = "24";
+  public const float OHRANTOWER_FloatingTile_24_X = -4f;
+  public const float OHRANTOWER_FloatingTile_24_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_24_Z = 34f;
+
+  public const string OHRANTOWER_FloatingTile_25_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_25_O = "25";
+  public const float OHRANTOWER_FloatingTile_25_X = -5f;
+  public const float OHRANTOWER_FloatingTile_25_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_25_Z = 31f;
+
+  public const string OHRANTOWER_FloatingTile_26_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_26_O = "26";
+  public const float OHRANTOWER_FloatingTile_26_X = -10f;
+  public const float OHRANTOWER_FloatingTile_26_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_26_Z = 30f;
+
+  public const string OHRANTOWER_FloatingTile_27_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_27_O = "27";
+  public const float OHRANTOWER_FloatingTile_27_X = -9f;
+  public const float OHRANTOWER_FloatingTile_27_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_27_Z = 25f;
+
+  public const string OHRANTOWER_FloatingTile_28_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_28_O = "28";
+  public const float OHRANTOWER_FloatingTile_28_X = -3f;
+  public const float OHRANTOWER_FloatingTile_28_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_28_Z = 23f;
+
+  public const string OHRANTOWER_FloatingTile_29_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_29_O = "29";
+  public const float OHRANTOWER_FloatingTile_29_X = 10f;
+  public const float OHRANTOWER_FloatingTile_29_Y = 36f;
+  public const float OHRANTOWER_FloatingTile_29_Z = 21f;
+
+  public const string OHRANTOWER_Treasure_7_C = "Treasure";
+  public const string OHRANTOWER_Treasure_7_O = "7";
+  public const float OHRANTOWER_Treasure_7_X = 2f;
+  public const float OHRANTOWER_Treasure_7_Y = 29f;
+  public const float OHRANTOWER_Treasure_7_Z = 22f;
+
+  public const string OHRANTOWER_Treasure_8_C = "Treasure";
+  public const string OHRANTOWER_Treasure_8_O = "8";
+  public const float OHRANTOWER_Treasure_8_X = -2f;
+  public const float OHRANTOWER_Treasure_8_Y = 29f;
+  public const float OHRANTOWER_Treasure_8_Z = 22f;
+
+  public const string OHRANTOWER_WarpHole_7_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_7_O = "7";
+  public const float OHRANTOWER_WarpHole_7_X = 0f;
+  public const float OHRANTOWER_WarpHole_7_Y = 36f;
+  public const float OHRANTOWER_WarpHole_7_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_8_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_8_O = "8";
+  public const float OHRANTOWER_WarpHole_8_X = 0f;
+  public const float OHRANTOWER_WarpHole_8_Y = 44f;
+  public const float OHRANTOWER_WarpHole_8_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_9_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_9_O = "9";
+  public const float OHRANTOWER_WarpHole_9_X = 4f;
+  public const float OHRANTOWER_WarpHole_9_Y = 44f;
+  public const float OHRANTOWER_WarpHole_9_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_10_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_10_O = "10";
+  public const float OHRANTOWER_WarpHole_10_X = 7f;
+  public const float OHRANTOWER_WarpHole_10_Y = 44f;
+  public const float OHRANTOWER_WarpHole_10_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_11_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_11_O = "11";
+  public const float OHRANTOWER_WarpHole_11_X = 0f;
+  public const float OHRANTOWER_WarpHole_11_Y = 44f;
+  public const float OHRANTOWER_WarpHole_11_Z = 14f;
+
+  public const string OHRANTOWER_WarpHole_12_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_12_O = "12";
+  public const float OHRANTOWER_WarpHole_12_X = -7f;
+  public const float OHRANTOWER_WarpHole_12_Y = 44f;
+  public const float OHRANTOWER_WarpHole_12_Z = 18f;
+
+  public const string OHRANTOWER_WarpHole_13_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_13_O = "13";
+  public const float OHRANTOWER_WarpHole_13_X = -4f;
+  public const float OHRANTOWER_WarpHole_13_Y = 44f;
+  public const float OHRANTOWER_WarpHole_13_Z = 21f;
+
+  public const string OHRANTOWER_WarpHole_14_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_14_O = "14";
+  public const float OHRANTOWER_WarpHole_14_X = -4f;
+  public const float OHRANTOWER_WarpHole_14_Y = 44f;
+  public const float OHRANTOWER_WarpHole_14_Z = 25f;
+
+  public const string OHRANTOWER_WarpHole_15_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_15_O = "15";
+  public const float OHRANTOWER_WarpHole_15_X = -7f;
+  public const float OHRANTOWER_WarpHole_15_Y = 44f;
+  public const float OHRANTOWER_WarpHole_15_Z = 28f;
+
+  public const string OHRANTOWER_WarpHole_16_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_16_O = "16";
+  public const float OHRANTOWER_WarpHole_16_X = -2f;
+  public const float OHRANTOWER_WarpHole_16_Y = 44f;
+  public const float OHRANTOWER_WarpHole_16_Z = 33f;
+
+  public const string OHRANTOWER_WarpHole_17_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_17_O = "17";
+  public const float OHRANTOWER_WarpHole_17_X = 2f;
+  public const float OHRANTOWER_WarpHole_17_Y = 44f;
+  public const float OHRANTOWER_WarpHole_17_Z = 33f;
+
+  public const string OHRANTOWER_WarpHole_18_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_18_O = "18";
+  public const float OHRANTOWER_WarpHole_18_X = 7f;
+  public const float OHRANTOWER_WarpHole_18_Y = 44f;
+  public const float OHRANTOWER_WarpHole_18_Z = 28f;
+
+  public const string OHRANTOWER_WarpHole_19_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_19_O = "19";
+  public const float OHRANTOWER_WarpHole_19_X = 4f;
+  public const float OHRANTOWER_WarpHole_19_Y = 44f;
+  public const float OHRANTOWER_WarpHole_19_Z = 25f;
+
+  public const string OHRANTOWER_WarpHole_20_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_20_O = "20";
+  public const float OHRANTOWER_WarpHole_20_X = 6f;
+  public const float OHRANTOWER_WarpHole_20_Y = 44f;
+  public const float OHRANTOWER_WarpHole_20_Z = 32f;
+
+  public const string OHRANTOWER_WarpHole_21_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_21_O = "21";
+  public const float OHRANTOWER_WarpHole_21_X = 6f;
+  public const float OHRANTOWER_WarpHole_21_Y = 44f;
+  public const float OHRANTOWER_WarpHole_21_Z = 15f;
+
+  public const string OHRANTOWER_WarpHole_22_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_22_O = "22";
+  public const float OHRANTOWER_WarpHole_22_X = -7f;
+  public const float OHRANTOWER_WarpHole_22_Y = 44f;
+  public const float OHRANTOWER_WarpHole_22_Z = 23f;
+
+  public const string OHRANTOWER_WarpHole_23_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_23_O = "23";
+  public const float OHRANTOWER_WarpHole_23_X = -2f;
+  public const float OHRANTOWER_WarpHole_23_Y = 44f;
+  public const float OHRANTOWER_WarpHole_23_Z = 35f;
+
+  public const string OHRANTOWER_WarpHole_24_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_24_O = "24";
+  public const float OHRANTOWER_WarpHole_24_X = -4f;
+  public const float OHRANTOWER_WarpHole_24_Y = 44f;
+  public const float OHRANTOWER_WarpHole_24_Z = 14f;
+
+  public const string OHRANTOWER_WarpHole_25_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_25_O = "25";
+  public const float OHRANTOWER_WarpHole_25_X = 0f;
+  public const float OHRANTOWER_WarpHole_25_Y = 44f;
+  public const float OHRANTOWER_WarpHole_25_Z = 28f;
+
+  public const string OHRANTOWER_FloatingTile_30_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_30_O = "30";
+  public const float OHRANTOWER_FloatingTile_30_X = 9f;
+  public const float OHRANTOWER_FloatingTile_30_Y = 44f;
+  public const float OHRANTOWER_FloatingTile_30_Z = 23f;
+
+  public const string OHRANTOWER_Fountain_1_C = "Fountain";
+  public const string OHRANTOWER_Fountain_1_O = "1";
+  public const float OHRANTOWER_Fountain_1_X = 4f;
+  public const float OHRANTOWER_Fountain_1_Y = 64f;
+  public const float OHRANTOWER_Fountain_1_Z = 22f;
+
+  public const string OHRANTOWER_FloatingTile_31_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_31_O = "31";
+  public const float OHRANTOWER_FloatingTile_31_X = -1f;
+  public const float OHRANTOWER_FloatingTile_31_Y = 64f;
+  public const float OHRANTOWER_FloatingTile_31_Z = 26f;
+
+  public const string OHRANTOWER_FloatingTile_32_C = "FloatingTile";
+  public const string OHRANTOWER_FloatingTile_32_O = "32";
+  public const float OHRANTOWER_FloatingTile_32_X = -1f;
+  public const float OHRANTOWER_FloatingTile_32_Y = 1f;
+  public const float OHRANTOWER_FloatingTile_32_Z = 24f;
+
+  public const string OHRANTOWER_Treasure_9_C = "Treasure";
+  public const string OHRANTOWER_Treasure_9_O = "9";
+  public const float OHRANTOWER_Treasure_9_X = -6f;
+  public const float OHRANTOWER_Treasure_9_Y = 37f;
+  public const float OHRANTOWER_Treasure_9_Z = 26f;
+
+  public const string OHRANTOWER_Treasure_10_C = "Treasure";
+  public const string OHRANTOWER_Treasure_10_O = "10";
+  public const float OHRANTOWER_Treasure_10_X = 5f;
+  public const float OHRANTOWER_Treasure_10_Y = 37f;
+  public const float OHRANTOWER_Treasure_10_Z = 27f;
+
+  public const string OHRANTOWER_Treasure_11_C = "Treasure";
+  public const string OHRANTOWER_Treasure_11_O = "11";
+  public const float OHRANTOWER_Treasure_11_X = -1f;
+  public const float OHRANTOWER_Treasure_11_Y = 37f;
+  public const float OHRANTOWER_Treasure_11_Z = 15f;
+
+  public const string OHRANTOWER_Treasure_12_C = "Treasure";
+  public const string OHRANTOWER_Treasure_12_O = "12";
+  public const float OHRANTOWER_Treasure_12_X = -2f;
+  public const float OHRANTOWER_Treasure_12_Y = 37f;
+  public const float OHRANTOWER_Treasure_12_Z = 25f;
+
+  public const string OHRANTOWER_Treasure_13_C = "Treasure";
+  public const string OHRANTOWER_Treasure_13_O = "13";
+  public const float OHRANTOWER_Treasure_13_X = 0f;
+  public const float OHRANTOWER_Treasure_13_Y = 45f;
+  public const float OHRANTOWER_Treasure_13_Z = 32f;
+
+  public const string OHRANTOWER_Treasure_14_C = "Treasure";
+  public const string OHRANTOWER_Treasure_14_O = "14";
+  public const float OHRANTOWER_Treasure_14_X = -8f;
+  public const float OHRANTOWER_Treasure_14_Y = 45f;
+  public const float OHRANTOWER_Treasure_14_Z = 12f;
+
+  public const string OHRANTOWER_Treasure_15_C = "Treasure";
+  public const string OHRANTOWER_Treasure_15_O = "15";
+  public const float OHRANTOWER_Treasure_15_X = -8f;
+  public const float OHRANTOWER_Treasure_15_Y = 45f;
+  public const float OHRANTOWER_Treasure_15_Z = 16f;
+
+  public const string OHRANTOWER_Treasure_16_C = "Treasure";
+  public const string OHRANTOWER_Treasure_16_O = "16";
+  public const float OHRANTOWER_Treasure_16_X = -7f;
+  public const float OHRANTOWER_Treasure_16_Y = 45f;
+  public const float OHRANTOWER_Treasure_16_Z = 35f;
+
+  public const string OHRANTOWER_Treasure_17_C = "Treasure";
+  public const string OHRANTOWER_Treasure_17_O = "17";
+  public const float OHRANTOWER_Treasure_17_X = -6f;
+  public const float OHRANTOWER_Treasure_17_Y = 62.5f;
+  public const float OHRANTOWER_Treasure_17_Z = 22f;
+
+  public const string OHRANTOWER_Treasure_18_C = "Treasure";
+  public const string OHRANTOWER_Treasure_18_O = "18";
+  public const float OHRANTOWER_Treasure_18_X = 5f;
+  public const float OHRANTOWER_Treasure_18_Y = 8f;
+  public const float OHRANTOWER_Treasure_18_Z = 18f;
+
+  public const string OHRANTOWER_Treasure_19_C = "Treasure";
+  public const string OHRANTOWER_Treasure_19_O = "19";
+  public const float OHRANTOWER_Treasure_19_X = 5f;
+  public const float OHRANTOWER_Treasure_19_Y = 9f;
+  public const float OHRANTOWER_Treasure_19_Z = 9f;
+
+  public const string OHRANTOWER_Treasure_20_C = "Treasure";
+  public const string OHRANTOWER_Treasure_20_O = "20";
+  public const float OHRANTOWER_Treasure_20_X = -16f;
+  public const float OHRANTOWER_Treasure_20_Y = 13f;
+  public const float OHRANTOWER_Treasure_20_Z = 10f;
+
+  public const string OHRANTOWER_Treasure_21_C = "Treasure";
+  public const string OHRANTOWER_Treasure_21_O = "21";
+  public const float OHRANTOWER_Treasure_21_X = -2f;
+  public const float OHRANTOWER_Treasure_21_Y = 13f;
+  public const float OHRANTOWER_Treasure_21_Z = 21f;
+
+  public const string OHRANTOWER_Treasure_22_C = "Treasure";
+  public const string OHRANTOWER_Treasure_22_O = "22";
+  public const float OHRANTOWER_Treasure_22_X = 1f;
+  public const float OHRANTOWER_Treasure_22_Y = 29f;
+  public const float OHRANTOWER_Treasure_22_Z = 18f;
+
+  public const string OHRANTOWER_Treasure_23_C = "Treasure";
+  public const string OHRANTOWER_Treasure_23_O = "23";
+  public const float OHRANTOWER_Treasure_23_X = -1f;
+  public const float OHRANTOWER_Treasure_23_Y = 45f;
+  public const float OHRANTOWER_Treasure_23_Z = 20f;
+
+  public const string OHRANTOWER_WarpHole_26_C = "WarpHole";
+  public const string OHRANTOWER_WarpHole_26_O = "26";
+  public const float OHRANTOWER_WarpHole_26_X = 1f;
+  public const float OHRANTOWER_WarpHole_26_Y = 44f;
+  public const float OHRANTOWER_WarpHole_26_Z = 20f;
+  #endregion
+  #region "ダルの門 ( not used )"
+  // ダルの門、右エリア入口
+  public const string EVENT_GATEDHAL_1 = "EVENT_GATEDHAL_1";
+  public const float EVENT_GATEDHAL_1_X = 44.0f;
+  public const float EVENT_GATEDHAL_1_Y = 1.0f;
+  public const float EVENT_GATEDHAL_1_Z = 3.0f;
+
+  // ダルの門、左エリア入口
+  public const string EVENT_GATEDHAL_2 = "EVENT_GATEDHAL_2";
+  public const float EVENT_GATEDHAL_2_X = -44.0f;
+  public const float EVENT_GATEDHAL_2_Y = 1.0f;
+  public const float EVENT_GATEDHAL_2_Z = 3.0f;
+
+  // ダルの門、中央通路入口
+  public const string EVENT_GATEDHAL_3 = "EVENT_GATEDHAL_3";
+  public const float EVENT_GATEDHAL_3_X = 0;
+  public const float EVENT_GATEDHAL_3_Y = 1.0f;
+  public const float EVENT_GATEDHAL_3_Z = 2.0f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_1_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_1_O = "1";
+  public const float GATEOFDHAL_DhalGate_Tile_1_X = 20f;
+  public const float GATEOFDHAL_DhalGate_Tile_1_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_1_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_2_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_2_O = "2";
+  public const float GATEOFDHAL_DhalGate_Tile_2_X = 18f;
+  public const float GATEOFDHAL_DhalGate_Tile_2_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_2_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_3_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_3_O = "3";
+  public const float GATEOFDHAL_DhalGate_Tile_3_X = 16f;
+  public const float GATEOFDHAL_DhalGate_Tile_3_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_3_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_4_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_4_O = "4";
+  public const float GATEOFDHAL_DhalGate_Tile_4_X = 14f;
+  public const float GATEOFDHAL_DhalGate_Tile_4_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_4_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_5_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_5_O = "5";
+  public const float GATEOFDHAL_DhalGate_Tile_5_X = 12f;
+  public const float GATEOFDHAL_DhalGate_Tile_5_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_5_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_6_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_6_O = "6";
+  public const float GATEOFDHAL_DhalGate_Tile_6_X = -19f;
+  public const float GATEOFDHAL_DhalGate_Tile_6_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_6_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_7_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_7_O = "7";
+  public const float GATEOFDHAL_DhalGate_Tile_7_X = -21f;
+  public const float GATEOFDHAL_DhalGate_Tile_7_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_7_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_8_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_8_O = "8";
+  public const float GATEOFDHAL_DhalGate_Tile_8_X = -23f;
+  public const float GATEOFDHAL_DhalGate_Tile_8_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_8_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_9_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_9_O = "9";
+  public const float GATEOFDHAL_DhalGate_Tile_9_X = -25f;
+  public const float GATEOFDHAL_DhalGate_Tile_9_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_9_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_10_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_10_O = "10";
+  public const float GATEOFDHAL_DhalGate_Tile_10_X = -27f;
+  public const float GATEOFDHAL_DhalGate_Tile_10_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_10_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Tile_11_C = "DhalGate_Tile";
+  public const string GATEOFDHAL_DhalGate_Tile_11_O = "11";
+  public const float GATEOFDHAL_DhalGate_Tile_11_X = -29f;
+  public const float GATEOFDHAL_DhalGate_Tile_11_Y = 0f;
+  public const float GATEOFDHAL_DhalGate_Tile_11_Z = 5f;
+
+  public const string GATEOFDHAL_DhalGate_Door_1_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_1_O = "1";
+  public const float GATEOFDHAL_DhalGate_Door_1_X = 44f;
+  public const float GATEOFDHAL_DhalGate_Door_1_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_1_Z = 3f;
+
+  public const string GATEOFDHAL_DhalGate_Door_2_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_2_O = "2";
+  public const float GATEOFDHAL_DhalGate_Door_2_X = -44f;
+  public const float GATEOFDHAL_DhalGate_Door_2_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_2_Z = 3f;
+
+  public const string GATEOFDHAL_DhalGate_Door_3_C = "DhalGate_Door";
+  public const string GATEOFDHAL_DhalGate_Door_3_O = "3";
+  public const float GATEOFDHAL_DhalGate_Door_3_X = 0f;
+  public const float GATEOFDHAL_DhalGate_Door_3_Y = 1f;
+  public const float GATEOFDHAL_DhalGate_Door_3_Z = 2f;
+
+  public const string GATEOFDHAL_Treasure_1_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_1_O = "1";
+  public const float GATEOFDHAL_Treasure_1_X = 42f;
+  public const float GATEOFDHAL_Treasure_1_Y = 1f;
+  public const float GATEOFDHAL_Treasure_1_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_2_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_2_O = "2";
+  public const float GATEOFDHAL_Treasure_2_X = 38f;
+  public const float GATEOFDHAL_Treasure_2_Y = 1f;
+  public const float GATEOFDHAL_Treasure_2_Z = 6f;
+
+  public const string GATEOFDHAL_Treasure_3_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_3_O = "3";
+  public const float GATEOFDHAL_Treasure_3_X = 20f;
+  public const float GATEOFDHAL_Treasure_3_Y = 4f;
+  public const float GATEOFDHAL_Treasure_3_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_4_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_4_O = "4";
+  public const float GATEOFDHAL_Treasure_4_X = 8f;
+  public const float GATEOFDHAL_Treasure_4_Y = 4f;
+  public const float GATEOFDHAL_Treasure_4_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_5_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_5_O = "5";
+  public const float GATEOFDHAL_Treasure_5_X = 20f;
+  public const float GATEOFDHAL_Treasure_5_Y = 4f;
+  public const float GATEOFDHAL_Treasure_5_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_6_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_6_O = "6";
+  public const float GATEOFDHAL_Treasure_6_X = 19f;
+  public const float GATEOFDHAL_Treasure_6_Y = 4f;
+  public const float GATEOFDHAL_Treasure_6_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_7_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_7_O = "7";
+  public const float GATEOFDHAL_Treasure_7_X = 31f;
+  public const float GATEOFDHAL_Treasure_7_Y = 4f;
+  public const float GATEOFDHAL_Treasure_7_Z = 24f;
+
+  public const string GATEOFDHAL_Treasure_8_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_8_O = "8";
+  public const float GATEOFDHAL_Treasure_8_X = -39f;
+  public const float GATEOFDHAL_Treasure_8_Y = 1f;
+  public const float GATEOFDHAL_Treasure_8_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_9_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_9_O = "9";
+  public const float GATEOFDHAL_Treasure_9_X = -33f;
+  public const float GATEOFDHAL_Treasure_9_Y = 1f;
+  public const float GATEOFDHAL_Treasure_9_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_10_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_10_O = "10";
+  public const float GATEOFDHAL_Treasure_10_X = -33f;
+  public const float GATEOFDHAL_Treasure_10_Y = 1f;
+  public const float GATEOFDHAL_Treasure_10_Z = 9f;
+
+  public const string GATEOFDHAL_Treasure_11_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_11_O = "11";
+  public const float GATEOFDHAL_Treasure_11_X = -39f;
+  public const float GATEOFDHAL_Treasure_11_Y = 1f;
+  public const float GATEOFDHAL_Treasure_11_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_12_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_12_O = "12";
+  public const float GATEOFDHAL_Treasure_12_X = -39f;
+  public const float GATEOFDHAL_Treasure_12_Y = 1f;
+  public const float GATEOFDHAL_Treasure_12_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_13_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_13_O = "13";
+  public const float GATEOFDHAL_Treasure_13_X = -23f;
+  public const float GATEOFDHAL_Treasure_13_Y = 4f;
+  public const float GATEOFDHAL_Treasure_13_Z = 16f;
+
+  public const string GATEOFDHAL_Treasure_14_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_14_O = "14";
+  public const float GATEOFDHAL_Treasure_14_X = -16f;
+  public const float GATEOFDHAL_Treasure_14_Y = 4f;
+  public const float GATEOFDHAL_Treasure_14_Z = 12f;
+
+  public const string GATEOFDHAL_Treasure_15_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_15_O = "15";
+  public const float GATEOFDHAL_Treasure_15_X = -9f;
+  public const float GATEOFDHAL_Treasure_15_Y = 4f;
+  public const float GATEOFDHAL_Treasure_15_Z = 13f;
+
+  public const string GATEOFDHAL_Treasure_16_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_16_O = "16";
+  public const float GATEOFDHAL_Treasure_16_X = -6f;
+  public const float GATEOFDHAL_Treasure_16_Y = 4f;
+  public const float GATEOFDHAL_Treasure_16_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_17_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_17_O = "17";
+  public const float GATEOFDHAL_Treasure_17_X = -17f;
+  public const float GATEOFDHAL_Treasure_17_Y = 4f;
+  public const float GATEOFDHAL_Treasure_17_Z = 23f;
+
+  public const string GATEOFDHAL_Treasure_18_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_18_O = "18";
+  public const float GATEOFDHAL_Treasure_18_X = -15f;
+  public const float GATEOFDHAL_Treasure_18_Y = 4f;
+  public const float GATEOFDHAL_Treasure_18_Z = 24f;
+
+  public const string GATEOFDHAL_Treasure_19_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_19_O = "19";
+  public const float GATEOFDHAL_Treasure_19_X = 27f;
+  public const float GATEOFDHAL_Treasure_19_Y = 10f;
+  public const float GATEOFDHAL_Treasure_19_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_20_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_20_O = "20";
+  public const float GATEOFDHAL_Treasure_20_X = 42f;
+  public const float GATEOFDHAL_Treasure_20_Y = 10f;
+  public const float GATEOFDHAL_Treasure_20_Z = 7f;
+
+  public const string GATEOFDHAL_Treasure_21_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_21_O = "21";
+  public const float GATEOFDHAL_Treasure_21_X = 45f;
+  public const float GATEOFDHAL_Treasure_21_Y = 10f;
+  public const float GATEOFDHAL_Treasure_21_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_22_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_22_O = "22";
+  public const float GATEOFDHAL_Treasure_22_X = 13f;
+  public const float GATEOFDHAL_Treasure_22_Y = 10f;
+  public const float GATEOFDHAL_Treasure_22_Z = 13f;
+
+  public const string GATEOFDHAL_Treasure_23_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_23_O = "23";
+  public const float GATEOFDHAL_Treasure_23_X = 5f;
+  public const float GATEOFDHAL_Treasure_23_Y = 10f;
+  public const float GATEOFDHAL_Treasure_23_Z = 11f;
+
+  public const string GATEOFDHAL_Treasure_24_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_24_O = "24";
+  public const float GATEOFDHAL_Treasure_24_X = 6f;
+  public const float GATEOFDHAL_Treasure_24_Y = 10f;
+  public const float GATEOFDHAL_Treasure_24_Z = 18f;
+
+  public const string GATEOFDHAL_Treasure_25_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_25_O = "25";
+  public const float GATEOFDHAL_Treasure_25_X = 7f;
+  public const float GATEOFDHAL_Treasure_25_Y = 10f;
+  public const float GATEOFDHAL_Treasure_25_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_26_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_26_O = "26";
+  public const float GATEOFDHAL_Treasure_26_X = 4f;
+  public const float GATEOFDHAL_Treasure_26_Y = 10f;
+  public const float GATEOFDHAL_Treasure_26_Z = 31f;
+
+  public const string GATEOFDHAL_Treasure_27_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_27_O = "27";
+  public const float GATEOFDHAL_Treasure_27_X = 23f;
+  public const float GATEOFDHAL_Treasure_27_Y = 10f;
+  public const float GATEOFDHAL_Treasure_27_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_28_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_28_O = "28";
+  public const float GATEOFDHAL_Treasure_28_X = 29f;
+  public const float GATEOFDHAL_Treasure_28_Y = 10f;
+  public const float GATEOFDHAL_Treasure_28_Z = 27f;
+
+  public const string GATEOFDHAL_Treasure_29_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_29_O = "29";
+  public const float GATEOFDHAL_Treasure_29_X = 29f;
+  public const float GATEOFDHAL_Treasure_29_Y = 10f;
+  public const float GATEOFDHAL_Treasure_29_Z = 23f;
+
+  public const string GATEOFDHAL_Treasure_30_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_30_O = "30";
+  public const float GATEOFDHAL_Treasure_30_X = 39f;
+  public const float GATEOFDHAL_Treasure_30_Y = 10f;
+  public const float GATEOFDHAL_Treasure_30_Z = 29f;
+
+  public const string GATEOFDHAL_Treasure_31_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_31_O = "31";
+  public const float GATEOFDHAL_Treasure_31_X = 44f;
+  public const float GATEOFDHAL_Treasure_31_Y = 10f;
+  public const float GATEOFDHAL_Treasure_31_Z = 21f;
+
+  public const string GATEOFDHAL_Treasure_32_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_32_O = "32";
+  public const float GATEOFDHAL_Treasure_32_X = 37f;
+  public const float GATEOFDHAL_Treasure_32_Y = 10f;
+  public const float GATEOFDHAL_Treasure_32_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_33_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_33_O = "33";
+  public const float GATEOFDHAL_Treasure_33_X = -5f;
+  public const float GATEOFDHAL_Treasure_33_Y = 10f;
+  public const float GATEOFDHAL_Treasure_33_Z = 16f;
+
+  public const string GATEOFDHAL_Treasure_34_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_34_O = "34";
+  public const float GATEOFDHAL_Treasure_34_X = -12f;
+  public const float GATEOFDHAL_Treasure_34_Y = 10f;
+  public const float GATEOFDHAL_Treasure_34_Z = 8f;
+
+  public const string GATEOFDHAL_Treasure_35_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_35_O = "35";
+  public const float GATEOFDHAL_Treasure_35_X = -17f;
+  public const float GATEOFDHAL_Treasure_35_Y = 10f;
+  public const float GATEOFDHAL_Treasure_35_Z = 9f;
+
+  public const string GATEOFDHAL_Treasure_36_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_36_O = "36";
+  public const float GATEOFDHAL_Treasure_36_X = -13f;
+  public const float GATEOFDHAL_Treasure_36_Y = 10f;
+  public const float GATEOFDHAL_Treasure_36_Z = 3f;
+
+  public const string GATEOFDHAL_Treasure_37_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_37_O = "37";
+  public const float GATEOFDHAL_Treasure_37_X = -44f;
+  public const float GATEOFDHAL_Treasure_37_Y = 10f;
+  public const float GATEOFDHAL_Treasure_37_Z = 5f;
+
+  public const string GATEOFDHAL_Treasure_38_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_38_O = "38";
+  public const float GATEOFDHAL_Treasure_38_X = -45f;
+  public const float GATEOFDHAL_Treasure_38_Y = 10f;
+  public const float GATEOFDHAL_Treasure_38_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_39_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_39_O = "39";
+  public const float GATEOFDHAL_Treasure_39_X = -41f;
+  public const float GATEOFDHAL_Treasure_39_Y = 10f;
+  public const float GATEOFDHAL_Treasure_39_Z = 17f;
+
+  public const string GATEOFDHAL_Treasure_40_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_40_O = "40";
+  public const float GATEOFDHAL_Treasure_40_X = -39f;
+  public const float GATEOFDHAL_Treasure_40_Y = 10f;
+  public const float GATEOFDHAL_Treasure_40_Z = 5f;
+
+  public const string GATEOFDHAL_Treasure_41_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_41_O = "41";
+  public const float GATEOFDHAL_Treasure_41_X = -27f;
+  public const float GATEOFDHAL_Treasure_41_Y = 10f;
+  public const float GATEOFDHAL_Treasure_41_Z = 14f;
+
+  public const string GATEOFDHAL_Treasure_42_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_42_O = "42";
+  public const float GATEOFDHAL_Treasure_42_X = -4f;
+  public const float GATEOFDHAL_Treasure_42_Y = 10f;
+  public const float GATEOFDHAL_Treasure_42_Z = 20f;
+
+  public const string GATEOFDHAL_Treasure_43_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_43_O = "43";
+  public const float GATEOFDHAL_Treasure_43_X = -7f;
+  public const float GATEOFDHAL_Treasure_43_Y = 10f;
+  public const float GATEOFDHAL_Treasure_43_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_44_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_44_O = "44";
+  public const float GATEOFDHAL_Treasure_44_X = -4f;
+  public const float GATEOFDHAL_Treasure_44_Y = 10f;
+  public const float GATEOFDHAL_Treasure_44_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_45_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_45_O = "45";
+  public const float GATEOFDHAL_Treasure_45_X = -13f;
+  public const float GATEOFDHAL_Treasure_45_Y = 10f;
+  public const float GATEOFDHAL_Treasure_45_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_46_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_46_O = "46";
+  public const float GATEOFDHAL_Treasure_46_X = -23f;
+  public const float GATEOFDHAL_Treasure_46_Y = 10f;
+  public const float GATEOFDHAL_Treasure_46_Z = 28f;
+
+  public const string GATEOFDHAL_Treasure_47_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_47_O = "47";
+  public const float GATEOFDHAL_Treasure_47_X = -30f;
+  public const float GATEOFDHAL_Treasure_47_Y = 10f;
+  public const float GATEOFDHAL_Treasure_47_Z = 30f;
+
+  public const string GATEOFDHAL_Treasure_48_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_48_O = "48";
+  public const float GATEOFDHAL_Treasure_48_X = -44f;
+  public const float GATEOFDHAL_Treasure_48_Y = 10f;
+  public const float GATEOFDHAL_Treasure_48_Z = 22f;
+
+  public const string GATEOFDHAL_Treasure_49_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_49_O = "49";
+  public const float GATEOFDHAL_Treasure_49_X = -37f;
+  public const float GATEOFDHAL_Treasure_49_Y = 10f;
+  public const float GATEOFDHAL_Treasure_49_Z = 19f;
+
+  public const string GATEOFDHAL_Treasure_50_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_50_O = "50";
+  public const float GATEOFDHAL_Treasure_50_X = -8f;
+  public const float GATEOFDHAL_Treasure_50_Y = 13f;
+  public const float GATEOFDHAL_Treasure_50_Z = 25f;
+
+  public const string GATEOFDHAL_Treasure_51_C = "Treasure";
+  public const string GATEOFDHAL_Treasure_51_O = "51";
+  public const float GATEOFDHAL_Treasure_51_X = 29f;
+  public const float GATEOFDHAL_Treasure_51_Y = 13f;
+  public const float GATEOFDHAL_Treasure_51_Z = 11f;
+  #endregion
+  #endregion
+
   public const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
   public const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
   public const string ITEMTYPE_ARMOR = "Armor";
   public const string ITEMTYPE_ACCESSORY1 = "Accessory-1";
   public const string ITEMTYPE_ACCESSORY2 = "Accessory-2";
   public const string ITEMTYPE_ARTIFACT = "Artifact";
-
-  //// Normal
-  ////public const string FINE_SWORD = "ファイン・ソード";
-  ////public const string FINE_LANCE = "ファイン・ランス";
-  ////public const string FINE_AXE = "ファイン・アクス";
-  ////public const string FINE_CLAW = "ファイン・クロー";
-  ////public const string FINE_BOW = "ファイン・ボウ";
-  ////public const string FINE_ROD = "ファイン・ロッド";
-  ////public const string FINE_ORB = "ファイン・オーブ";
-  ////public const string FINE_BOOK = "ファイン・ブック";
-  ////public const string FINE_SHIELD = "ファイン・シールド";
-  ////public const string BASTARD_SWORD = "バスタード・ソード";
-  ////public const string FINE_ARMOR = "ファイン・アーマー";
-  ////public const string FINE_CROSS = "ファイン・クロス";
-  ////public const string FINE_ROBE = "ファイン・ローブ";
-  //// Uncommon
-  ////public const string RED_PENDANT = "レッド・ペンダント";
-  ////public const string BLUE_PENDANT = "ブルー・ペンダント";
-  ////public const string PURPLE_PENDANT = "パープル・ペンダント";
-  ////public const string GREEN_PENDANT = "グリーン・ペンダント";
-  ////public const string YELLOW_PENDANT = "イエロー・ペンダント";
-  ////public const string ELVISH_BOW = @"エルヴィッシュ・ボウ";
-
-  ////public const string AERO_BLADE = "エアロ・ブレード";
-  //public const string WINGED_LONG_BOW = @"ウィングド・ロング・ボウ";
-  public const string GEAR_GENSEI = "ギア【厳正】";
-  public const string MASTER_SWORD = "マスター・ソード";
-  public const string MASTER_SHIELD = "マスター・シールド";
-  public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";
-  //public const string SMALL_RED_POTION = "小さい赤ポーション";
-  #endregion
 
   #region "Area"
   public const string AREA_FAZIL = "ファージル";
