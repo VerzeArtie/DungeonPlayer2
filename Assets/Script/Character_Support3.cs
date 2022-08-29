@@ -25,6 +25,18 @@ public partial class Character : MonoBehaviour
     }
   }
 
+  protected Fix.RareString _rare = Fix.RareString.Black;
+  public Fix.RareString Rare
+  {
+    set { _rare = value; } get { return _rare; } 
+  }
+
+  protected Fix.MonsterArea _area = Fix.MonsterArea.None;
+  public Fix.MonsterArea Area
+  {
+    set { _area = value; } get { return _area; } 
+  }
+
   private void SetupParameter(int strength, int agility, int intelligence, int stamina, int mind, int base_life, int exp, int gold)
   {
     this._strength = strength;

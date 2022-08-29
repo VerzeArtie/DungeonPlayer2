@@ -42,6 +42,7 @@ public partial class Item
     Artifact,
     Potion,
     EventItem,
+    SellOnly,
   }
   public enum GripTypes
   {
@@ -53,7 +54,7 @@ public partial class Item
   public enum Rarity
   {
     None,
-    Normal,
+    Poor,
     Common,
     Uncommon,
     Rare,
@@ -543,7 +544,7 @@ public partial class Item
     get
     {
 
-      if (this._rarity == Item.Rarity.Normal)
+      if (this._rarity == Item.Rarity.Poor)
       {
         return Color.gray;
       }
@@ -579,7 +580,7 @@ public partial class Item
     get
     {
 
-      if (this._rarity == Item.Rarity.Normal)
+      if (this._rarity == Item.Rarity.Poor)
       {
         return Color.black;
       }

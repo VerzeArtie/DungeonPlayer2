@@ -1,16 +1,40 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public partial class Character : MonoBehaviour
 {
+  public string[] DropItem { get; set; }
+
+  public static int MAX_DROPITEM_SIZE = 10;
+
+  public bool AddDropItem(string dropitem)
+  {
+    for (int ii = 0; ii < MAX_DROPITEM_SIZE; ii++)
+    {
+      if (this.DropItem[ii] == string.Empty)
+      {
+        this.DropItem[ii] = dropitem;
+        return true;
+      }
+    }
+    return false;
+  }
+
   public void Construction(string character_name)
   {
     this.name = character_name;
     this.FullName = character_name;
     this.BattleBackColor = Fix.COLOR_ENEMY_CHARA;
     this.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
-    
+   
+    this.DropItem = new String[MAX_DROPITEM_SIZE];
+    for (int ii = 0; ii < MAX_DROPITEM_SIZE; ii++)
+    {
+      this.DropItem[ii] = String.Empty;
+    }
+
     List<string> list = new List<string>();
     switch (character_name)
     {
@@ -20,6 +44,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(15, 2, 1, 2, 3, 4, 16, 12);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HIKKAKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
         break;
 
@@ -28,6 +54,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(2, 2, 15, 2, 3, 8, 19, 14);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_GREEN_NENEKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
         break;
 
@@ -36,6 +64,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(2, 4, 18, 3, 3, 5, 21, 17);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_KANAKIRI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
         break;
 
@@ -44,6 +74,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(17, 5, 2, 4, 3, 7, 23, 19);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WILD_CLAW);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
         break;
 
@@ -52,6 +84,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(19, 4, 2, 6, 3, 2, 26, 22);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KAMITSUKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -60,6 +94,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(2, 4, 20, 7, 4, 4, 28, 24);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_TREE_SONG);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -68,6 +104,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(2, 6, 25, 4, 4, 3, 32, 28);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SUN_FIRE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -76,6 +114,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(28, 6, 2, 9, 4, 6, 35, 29);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TOSSHIN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -84,6 +124,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(2, 7, 27, 7, 4, 5, 37, 32);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FEATHER_WING);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -92,6 +134,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(26, 9, 20, 8, 4, 1, 39, 34);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DASH_KERI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
         break;
 
@@ -100,6 +144,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(37, 11, 15, 16, 5, 3, 42, 36);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUITSUKU_TSUTA);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
         break;
 
@@ -108,6 +154,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(34, 12, 27, 14, 5, 8, 44, 39);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SPIDER_NET);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
         break;
 
@@ -116,6 +164,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(12, 10, 39, 12, 5, 5, 48, 42);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_POISON_KOKE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
         break;
 
@@ -124,6 +174,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(33, 18, 25, 12, 5, 9, 51, 45);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         // this.CannotCritical = true; // クリティカルあり
         break;
 
@@ -132,6 +184,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(26, 12, 37, 15, 5, 2, 54, 47);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FIRE_EMISSION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
         break;
 
@@ -140,6 +194,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(40, 15, 10, 20, 5, 1, 58, 52);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPER_TOSSHIN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
         break;
 
@@ -149,6 +205,8 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_YOUEN_FIRE);
         list.Add(Fix.COMMAND_BLAZE_DANCE);
         list.Add(Fix.COMMAND_POISON_RINPUN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss1;
         this.CannotCritical = false;
         break;
       #endregion

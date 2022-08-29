@@ -1383,6 +1383,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.POOR_BLACK_MATERIAL:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 200;
+        this._importantType = Important.None;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルのため、使い道はない。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.RED_PENDANT:
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Accessory;

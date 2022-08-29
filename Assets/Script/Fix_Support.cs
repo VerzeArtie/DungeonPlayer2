@@ -140,4 +140,48 @@ public static partial class Fix
   public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
   public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
   public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
+  #region "無価値アイテム"
+  public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";
+  public const string POOR_BLACK_MATERIAL2 = @"ブラックマテリアル【改】";
+  public const string POOR_BLACK_MATERIAL3 = @"ブラックマテリアル【密】";
+  public const string POOR_BLACK_MATERIAL4 = @"ブラックマテリアル【試】";
+  public const string POOR_BLACK_MATERIAL5 = @"ブラックマテリアル【還】";
+  #endregion
+  #region "成長剤"
+  // 成長剤（１階）
+  public const string GROWTH_LIQUID_STRENGTH = @"成長リキッド【力】";
+  public const string GROWTH_LIQUID_AGILITY = @"成長リキッド【技】";
+  public const string GROWTH_LIQUID_INTELLIGENCE = @"成長リキッド【知】";
+  public const string GROWTH_LIQUID_STAMINA = @"成長リキッド【体】";
+  public const string GROWTH_LIQUID_MIND = @"成長リキッド【心】";
+  // 成長剤（２階）
+  public const string GROWTH_LIQUID2_STRENGTH = @"成長リキッドⅡ【力】";
+  public const string GROWTH_LIQUID2_AGILITY = @"成長リキッドⅡ【技】";
+  public const string GROWTH_LIQUID2_INTELLIGENCE = @"成長リキッドⅡ【知】";
+  public const string GROWTH_LIQUID2_STAMINA = @"成長リキッドⅡ【体】";
+  public const string GROWTH_LIQUID2_MIND = @"成長リキッドⅡ【心】";
+  // 成長剤（３階）
+  public const string GROWTH_LIQUID3_STRENGTH = @"成長リキッドⅢ【力】";
+  public const string GROWTH_LIQUID3_AGILITY = @"成長リキッドⅢ【技】";
+  public const string GROWTH_LIQUID3_INTELLIGENCE = @"成長リキッドⅢ【知】";
+  public const string GROWTH_LIQUID3_STAMINA = @"成長リキッドⅢ【体】";
+  public const string GROWTH_LIQUID3_MIND = @"成長リキッドⅢ【心】";
+  // 成長剤（４階）
+  public const string GROWTH_LIQUID4_STRENGTH = @"成長リキッドⅣ【力】";
+  public const string GROWTH_LIQUID4_AGILITY = @"成長リキッドⅣ【技】";
+  public const string GROWTH_LIQUID4_INTELLIGENCE = @"成長リキッドⅣ【知】";
+  public const string GROWTH_LIQUID4_STAMINA = @"成長リキッドⅣ【体】";
+  public const string GROWTH_LIQUID4_MIND = @"成長リキッドⅣ【心】";
+  // 成長剤（５階）
+  public const string GROWTH_LIQUID5_STRENGTH = @"成長リキッドⅤ【力】";
+  public const string GROWTH_LIQUID5_AGILITY = @"成長リキッドⅤ【技】";
+  public const string GROWTH_LIQUID5_INTELLIGENCE = @"成長リキッドⅤ【知】";
+  public const string GROWTH_LIQUID5_STAMINA = @"成長リキッドⅤ【体】";
+  public const string GROWTH_LIQUID5_MIND = @"成長リキッドⅤ【心】";
+  #endregion
+
+  public const string EPIC_RING_OF_OSCURETE = @"Ring of the Oscurete";
+  public const string EPIC_MERGIZD_SOL_BLADE = @"Mergizd Sol Blade";
+
+
 }

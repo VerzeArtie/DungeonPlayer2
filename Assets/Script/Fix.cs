@@ -103,6 +103,56 @@ public static partial class Fix
     Random,
   }
 
+  public enum MonsterArea
+  {
+    None,
+    Area11,
+    Area12,
+    Area13,
+    Area14,
+    Boss1,
+    TruthBoss1,
+    Area21,
+    Area22,
+    Area23,
+    Area24,
+    Boss21,
+    Boss22,
+    Boss23,
+    Boss24,
+    Boss25,
+    Boss2,
+    TruthBoss2,
+    Area31,
+    Area32,
+    Area33,
+    Area34,
+    Boss3,
+    TruthBoss3,
+    Area41,
+    Area42,
+    Area43,
+    Area44,
+    Boss4,
+    TruthBoss4,
+    Area51,
+    Boss5,
+    TruthBoss5,
+    Area46,
+    Duel,
+    LastBoss,
+  }
+
+  public enum RareString
+  {
+    Legendary,
+    Purple,
+    Gold,
+    Red,
+    Blue,
+    Black
+  }
+
   // Battle Gauge
   public const int BATTLE_CORE_SLEEP = 0;
   public const int BASE_TIMER_BAR_LENGTH = 30000;

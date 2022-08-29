@@ -1547,14 +1547,17 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _first_soulfragment = false;
   public bool FirstSoulFragment { get { return _first_soulfragment; } set { _first_soulfragment = value; } }
 
+  [SerializeField] protected int _killing_enemy = 0;
+  public int KillingEnemy { get { return _killing_enemy; } set { _killing_enemy = value; } }
+
+  #endregion
+
   #region ソウル・フラグメント"
   [SerializeField] protected bool _soul_fragment_00001 = false;
   public bool SoulFragment_00001 { get { return _soul_fragment_00001; } set { _soul_fragment_00001 = value; } }
 
   [SerializeField] protected bool _soul_fragment_00002 = false;
   public bool SoulFragment_00002 { get { return _soul_fragment_00002; } set { _soul_fragment_00002 = value; } }
-  #endregion
-
   #endregion
 
   #region "Backpack Control"
