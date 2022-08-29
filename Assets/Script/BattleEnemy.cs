@@ -901,7 +901,7 @@ public partial class BattleEnemy : MotherBase
         panelGameEnd.SetActive(true);
 
         // アイテムドロップ
-        string targetItemName = GetNewItem(NewItemCategory.Battle, PlayerList[0], EnemyList[0], 1);
+        string targetItemName = GetNewItem(Fix.DropItemCategory.Battle, PlayerList[0], EnemyList[0], 1);
         if (targetItemName != String.Empty)
         {
           this.DetectItemDrop = true;
@@ -3263,15 +3263,9 @@ public partial class BattleEnemy : MotherBase
     Debug.Log("SetupFirstCommand: 10");
   }
 
-  public enum NewItemCategory
-  {
-    Battle,
-    Lottery,
-  }
-
   // 戦闘終了後のアイテムゲット、ファージル宮殿お楽しみ抽選券のアイテムゲットを統合
   //public static string GetNewItem(NewItemCategory category, Character mc, Character ec1 = null, int dungeonArea = 0)
-  public string GetNewItem(NewItemCategory category, Character mc, Character ec1, int dungeonArea)
+  public string GetNewItem(Fix.DropItemCategory category, Character mc, Character ec1, int dungeonArea)
   {
     string targetItemName = String.Empty;
     int debugCounter1 = 0;
@@ -3347,8 +3341,8 @@ public partial class BattleEnemy : MotherBase
               break;
           }
 
-          if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51))
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51))
           {
             param1 = 0;
             param2 = 0;
@@ -3359,7 +3353,7 @@ public partial class BattleEnemy : MotherBase
             param7 = 0;
           }
         }
-        else if (category == NewItemCategory.Lottery)
+        else if (category == Fix.DropItemCategory.Lottery)
         {
           param1 = 0; // 抽選券、モンスター素材ではない。
           param2 = 0; // 抽選券、POORは無しとする
@@ -3385,11 +3379,11 @@ public partial class BattleEnemy : MotherBase
 
         #region "エリア毎のアイテム総数に応じた値を設定"
         // 1階は上述宣言時の値そのもの
-        if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-            (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-            (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-            (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-            (category == NewItemCategory.Lottery && dungeonArea == 1))
+        if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+            (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+            (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+            (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+            (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
         {
           randomValue21 = rd.Next(1, 5);
           randomValue22 = rd.Next(1, 2);
@@ -3450,10 +3444,10 @@ public partial class BattleEnemy : MotherBase
           if (1 <= randomValue2 && randomValue2 <= param2) // Poor 60.00%
           {
             #region "１階エリア１－２　３－４"
-            if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-                (category == NewItemCategory.Lottery && dungeonArea == 1))
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue21)
               {
@@ -3471,8 +3465,8 @@ public partial class BattleEnemy : MotherBase
                   break;
               }
             }
-            else if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == NewItemCategory.Lottery && dungeonArea == 1))
+            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue22)
               {
@@ -3488,10 +3482,10 @@ public partial class BattleEnemy : MotherBase
           else if (param2 < randomValue2 && randomValue2 <= (param2 + param3)) // Common 35.00%
           {
             #region "１階エリア１－２　３－４"
-            if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-                (category == NewItemCategory.Lottery && dungeonArea == 1))
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue3)
               {
@@ -3539,8 +3533,8 @@ public partial class BattleEnemy : MotherBase
                   break;
               }
             }
-            else if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == NewItemCategory.Lottery && dungeonArea == 1))
+            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue32)
               {
@@ -3556,10 +3550,10 @@ public partial class BattleEnemy : MotherBase
           else if ((param2 + param3) < randomValue2 && randomValue2 <= (param2 + param3 + param4)) // Rare 5.00%
           {
             #region "１階エリア１－２　３－４"
-            if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-                (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-                (category == NewItemCategory.Lottery && dungeonArea == 1))
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue4)
               {
@@ -3625,8 +3619,8 @@ public partial class BattleEnemy : MotherBase
                   break;
               }
             }
-            else if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == NewItemCategory.Lottery && dungeonArea == 1))
+            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               switch (randomValue42)
               {
@@ -3644,11 +3638,11 @@ public partial class BattleEnemy : MotherBase
         else if ((param1 + param2 + param3 + param4) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5)) // Rare Use Item 0.90%
         {
           #region "１階全エリア"
-          if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-              (category == NewItemCategory.Lottery && dungeonArea == 1))
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
             switch (randomValue5)
             {
@@ -3677,11 +3671,11 @@ public partial class BattleEnemy : MotherBase
         else if ((param1 + param2 + param3 + param4 + param5) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6)) // EPIC 0.45%
         {
           #region "１階全エリア"
-          if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-              (category == NewItemCategory.Lottery && dungeonArea == 1))
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
             // 低レベルの間に取得できてしまうのは、逆に拍子抜けしてしまうため、ブロックする。
             if (mc.Level <= 10)
@@ -3721,9 +3715,9 @@ public partial class BattleEnemy : MotherBase
           }
           #endregion
           //#region "５階エリア or 現実世界ラスト４階"
-          //else if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
-          //         (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
-          //         (category == NewItemCategory.Lottery && dungeonArea == 5))
+          //else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+          //         (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
+          //         (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
           //{
           //  // 低レベル制限はかけない。
           //  switch (randomValue6)
@@ -3764,11 +3758,11 @@ public partial class BattleEnemy : MotherBase
         #region "ハズレは、不用品をランダムドロップ"
         if (targetItemName == string.Empty)
         {
-          if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
-              (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-              (category == NewItemCategory.Lottery && dungeonArea == 1))
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
             if (1 <= randomValue7 && randomValue7 <= 50)
             {
@@ -3789,7 +3783,7 @@ public partial class BattleEnemy : MotherBase
                       debugCounter8.ToString() + "\r\n");
 
       #region "ボス撃破、固定ドロップアイテム"
-      if (category == NewItemCategory.Battle && ec1 != null && (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP))
+      if (category == Fix.DropItemCategory.Battle && ec1 != null && (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP))
       {
         targetItemName = ec1.DropItem[0];
       }

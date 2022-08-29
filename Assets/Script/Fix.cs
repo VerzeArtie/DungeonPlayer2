@@ -153,6 +153,12 @@ public static partial class Fix
     Blue,
     Black
   }
+
+  public enum DropItemCategory
+  {
+    Battle,
+    Lottery,
+  }
   #endregion
 
   #region "Battle"
