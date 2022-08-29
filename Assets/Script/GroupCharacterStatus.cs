@@ -106,6 +106,13 @@ public class GroupCharacterStatus : MonoBehaviour
 
   protected NodeActionCommand CurrentSelectCommand;
 
+  protected const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
+  protected const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
+  protected const string ITEMTYPE_ARMOR = "Armor";
+  protected const string ITEMTYPE_ACCESSORY1 = "Accessory-1";
+  protected const string ITEMTYPE_ACCESSORY2 = "Accessory-2";
+  protected const string ITEMTYPE_ARTIFACT = "Artifact";
+
   /// <summary>
   /// トップ画面へ戻す。
   /// </summary>
@@ -450,8 +457,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_MAIN_WEAPON;
-    lblChangeEquipType.text = Fix.ITEMTYPE_MAIN_WEAPON;
+    this.CurrentItemType = ITEMTYPE_MAIN_WEAPON;
+    lblChangeEquipType.text = ITEMTYPE_MAIN_WEAPON;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
@@ -483,8 +490,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_SUB_WEAPON;
-    lblChangeEquipType.text = Fix.ITEMTYPE_SUB_WEAPON;
+    this.CurrentItemType = ITEMTYPE_SUB_WEAPON;
+    lblChangeEquipType.text = ITEMTYPE_SUB_WEAPON;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
@@ -516,8 +523,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_ARMOR;
-    lblChangeEquipType.text = Fix.ITEMTYPE_ARMOR;
+    this.CurrentItemType = ITEMTYPE_ARMOR;
+    lblChangeEquipType.text = ITEMTYPE_ARMOR;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
@@ -549,8 +556,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_ACCESSORY1;
-    lblChangeEquipType.text = Fix.ITEMTYPE_ACCESSORY1;
+    this.CurrentItemType = ITEMTYPE_ACCESSORY1;
+    lblChangeEquipType.text = ITEMTYPE_ACCESSORY1;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
@@ -582,8 +589,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_ACCESSORY2;
-    lblChangeEquipType.text = Fix.ITEMTYPE_ACCESSORY2;
+    this.CurrentItemType = ITEMTYPE_ACCESSORY2;
+    lblChangeEquipType.text = ITEMTYPE_ACCESSORY2;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
@@ -615,8 +622,8 @@ public class GroupCharacterStatus : MonoBehaviour
     CreateShadowData(this.CurrentPlayer);
 
     // 変更対象のメインアイテムを設定
-    this.CurrentItemType = Fix.ITEMTYPE_ARTIFACT;
-    lblChangeEquipType.text = Fix.ITEMTYPE_ARTIFACT;
+    this.CurrentItemType = ITEMTYPE_ARTIFACT;
+    lblChangeEquipType.text = ITEMTYPE_ARTIFACT;
     txtChangeEquipName.text = sender.text;
     Item temp = new Item(sender.text);
     imgChangeEquip.sprite = Resources.Load<Sprite>("Icon_" + temp.ItemType.ToString() ?? "");
@@ -724,32 +731,32 @@ public class GroupCharacterStatus : MonoBehaviour
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + sender.text);
 
-    if (CurrentItemType == Fix.ITEMTYPE_MAIN_WEAPON)
+    if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       this.ShadowPlayer.MainWeapon = null;
       this.ShadowPlayer.MainWeapon = new Item(sender.text);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)
+    else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
       this.ShadowPlayer.SubWeapon = null;
       this.ShadowPlayer.SubWeapon = new Item(sender.text);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARMOR)
+    else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
       this.ShadowPlayer.MainArmor = null;
       this.ShadowPlayer.MainArmor = new Item(sender.text);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY1)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
       this.ShadowPlayer.Accessory1 = null;
       this.ShadowPlayer.Accessory1 = new Item(sender.text);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY2)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
       this.ShadowPlayer.Accessory2 = null;
       this.ShadowPlayer.Accessory2 = new Item(sender.text);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARTIFACT)
+    else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
       this.ShadowPlayer.Artifact = null;
       this.ShadowPlayer.Artifact = new Item(sender.text);
@@ -784,7 +791,7 @@ public class GroupCharacterStatus : MonoBehaviour
     // ・現在装備アイテムをバックパックに戻す。
     // ・選択アイテムを装備する。
     // ・選択アイテムをバックパックから削除する。
-    if (CurrentItemType == Fix.ITEMTYPE_MAIN_WEAPON)
+    if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -807,7 +814,7 @@ public class GroupCharacterStatus : MonoBehaviour
         }
       }
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)
+    else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -820,7 +827,7 @@ public class GroupCharacterStatus : MonoBehaviour
         One.TF.RemoveItem(ShadowPlayer.SubWeapon);
       }
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARMOR)
+    else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -833,7 +840,7 @@ public class GroupCharacterStatus : MonoBehaviour
         One.TF.RemoveItem(ShadowPlayer.MainArmor);
       }
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY1)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -846,7 +853,7 @@ public class GroupCharacterStatus : MonoBehaviour
         One.TF.RemoveItem(ShadowPlayer.Accessory1);
       }
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY2)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -859,7 +866,7 @@ public class GroupCharacterStatus : MonoBehaviour
         One.TF.RemoveItem(ShadowPlayer.Accessory2);
       }
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARTIFACT)
+    else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
       if (ShadowPlayer.MainWeapon != null)
       {
@@ -895,7 +902,7 @@ public class GroupCharacterStatus : MonoBehaviour
     // ・現在装備アイテムをバックパックに戻す。
     // ・現在装備を「装備なし」にする。
     // ・ターゲットプレイヤーを全快にする。
-    if (CurrentItemType == Fix.ITEMTYPE_MAIN_WEAPON)
+    if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
     {
       Item current = new Item((CurrentPlayer.MainWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
@@ -904,7 +911,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.MainWeapon = new Item(string.Empty);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_SUB_WEAPON)
+    else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
     {
       Item current = new Item((CurrentPlayer.SubWeapon?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
@@ -913,7 +920,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.SubWeapon = new Item(string.Empty);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARMOR)
+    else if (CurrentItemType == ITEMTYPE_ARMOR)
     {
       Item current = new Item((CurrentPlayer.MainArmor?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
@@ -922,7 +929,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.MainArmor = new Item(string.Empty);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY1)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
     {
       Item current = new Item((CurrentPlayer.Accessory1?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
@@ -931,7 +938,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.Accessory1 = new Item(string.Empty);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ACCESSORY2)
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
     {
       Item current = new Item((CurrentPlayer.Accessory2?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)
@@ -940,7 +947,7 @@ public class GroupCharacterStatus : MonoBehaviour
       }
       CurrentPlayer.Accessory2 = new Item(string.Empty);
     }
-    else if (CurrentItemType == Fix.ITEMTYPE_ARTIFACT)
+    else if (CurrentItemType == ITEMTYPE_ARTIFACT)
     {
       Item current = new Item((CurrentPlayer.Artifact?.ItemName ?? string.Empty));
       if (current.ItemType != Item.ItemTypes.None)

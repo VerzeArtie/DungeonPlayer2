@@ -5,6 +5,7 @@ using UnityEngine;
 
 public static partial class Fix
 {
+  #region "enum"
   public enum Ally
   {
     None,
@@ -152,8 +153,10 @@ public static partial class Fix
     Blue,
     Black
   }
+  #endregion
 
-  // Battle Gauge
+  #region "Battle"
+  #region "Battle Gauge"
   public const int BATTLE_CORE_SLEEP = 0;
   public const int BASE_TIMER_BAR_LENGTH = 30000;
   public const int BASE_TIMER_DIV = 36;
@@ -161,9 +164,19 @@ public static partial class Fix
   public const int MAX_INSTANT_POINT = 1000;
   public const int GLOBAL_INSTANT_MAX = 1000;
   public const int AP_BASE = 100;
-  public const int INFINITY = 9999999;
-
-  // Color
+  #endregion
+  #region "Battle Effect Message"
+  public const string BATTLE_MISS = "Miss";
+  public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
+  public const string BATTLE_AP_LESS = "No AP";
+  public const string BATTLE_SP_LESS = "No SP";
+  public const string BATTLE_NO_POTION = "No Potion";
+  public const string BATTLE_ALREADY_USED = "空っぽ";
+  public const string BATTLE_BIND = "Bind";
+  public const string BATTLE_DIVINE = "Divine";
+  public const string BATTLE_SILENT = "Silent";
+  #endregion
+  #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;
   public static Color COLOR_HEAL = Color.green;
   public static Color COLOR_GAIN_SP = Color.blue;
@@ -185,52 +198,115 @@ public static partial class Fix
 
   public static Color COLOR_ENEMY_CHARA = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f);
   public static Color COLORFORE_ENEMY_CHARA = new Color(226.0f / 255.0f, 58.0f / 255.0f, 0 / 255.0f);
+  #endregion
+  #region "Buff Effect"
+  public const string EFFECT_POISON = "Poison";
+  public const string EFFECT_HEART_OF_LIFE = "Life Gain";
+  public const string EFFECT_SHADOW_BLAST = "Blind Effect";
+  public const string EFFECT_FORTUNE = "Fortune";
+  public const string EFFECT_SLIP = "Slip";
+  public const string EFFECT_STUN = "Stun";
+  public const string EFFECT_BIND = "Bind";
+  public const string EFFECT_SLEEP = "Sleep";
+  public const string EFFECT_DIZZY = "Dizzy";
+  public const string EFFECT_SILENT = "Silent";
+  public const string EFFECT_SLOW = "Slow";
+  public const string EFFECT_GAUGE_BACK = "Gauge Back";
 
-  #region "Unityシーン名"
-  public const string Title = @"Title";
-  public const string Tutorial = @"Tutorial";
-  public const string GameSetting = @"GameSetting";
-  public const string DungeonTicket = @"DungeonTicket";
-  public const string TruthAnswer = @"TruthAnswer";
-  public const string TruthBattleEnemy = @"TruthBattleEnemy";
-  public const string TruthBattleSetting = @"TruthBattleSetting";
-  public const string TruthChoiceStatue = @"TruthChoiceStatue";
-  public const string TruthChooseCommand = @"TruthChooseCommand";
-  public const string TruthDecision = @"TruthDecision";
-  public const string TruthDecision2 = @"TruthDecision2";
-  public const string TruthDecision3 = @"TruthDecision3";
-  public const string TruthDuelPlayerStatus = @"TruthDuelPlayerStatus";
-  public const string TruthDuelRule = @"TruthDuelRule";
-  public const string TruthDuelSelect = @"TruthDuelSelect";
-  public const string TruthDungeon = @"TruthDungeon";
-  public const string TruthEquipmentShop = @"TruthEquipmentShop";
-  public const string TruthHomeTown = @"HomeTown";
-  public const string TruthInformation = @"TruthInformation";
-  public const string TruthItemBank = @"TruthItemBank";
-  public const string TruthItemDesc = @"TruthItemDesc";
-  public const string TruthPlayback = @"TruthPlayback";
-  public const string TruthAchievement = @"TruthAchievement";
-  public const string TruthPlayerInformation = @"TruthPlayerInformation";
-  public const string TruthPotionShop = @"TruthPotionShop";
-  public const string TruthRequestFood = @"TruthRequestFood";
-  public const string TruthMonsterQuest = @"TruthMonsterQuest";
-  public const string TruthSelectCharacter = @"TruthSelectCharacter";
-  public const string TruthSelectEquipment = @"TruthSelectEquipment";
-  public const string TruthSkillSpellDesc = @"TruthSkillSpellDesc";
-  public const string TruthStatusPlayer = @"TruthStatusPlayer";
-  public const string TruthWill = @"TruthWill";
-  public const string TruthRequestInput = @"TruthInputRequest";
-  public const string SaveLoad = @"SaveLoad";
-  public const string SingleHomeTown = @"SingleHomeTown";
-  public const string SingleDungeon = @"SingleDungeon";
-  public const string SingleBattleEnemy = @"SingleBattleEnemy";
+  public const string EFFECT_PA_UP = "PA Up";
+  public const string EFFECT_PA_DOWN = "PA Down";
+  public const string EFFECT_PD_UP = "PD Up";
+  public const string EFFECT_PD_DOWN = "PD Down";
+  public const string EFFECT_MA_UP = "MA Up";
+  public const string EFFECT_MA_DOWN = "MA Down";
+  public const string EFFECT_MD_UP = "MD Up";
+  public const string EFFECT_MD_DOWN = "MD Down";
+  public const string EFFECT_BS_UP = "BS Up";
+  public const string EFFECT_BS_DOWN = "BS Down";
+  public const string EFFECT_BR_UP = "BR Up";
+  public const string EFFECT_BR_DOWN = "BR Down";
+  public const string EFFECT_PO_UP = "PO Up";
+  public const string EFFECT_PO_DOWN = "PO Down";
 
-  public const string SCENE_DUNGEON_FIELD = @"DungeonField";
-  public const string SCENE_HOME_TOWN = @"HomeTown";
-  public const string SCENE_HELP_BOOK = @"HelpBook";
+  public const string EFFECT_POWERUP_FIRE = "UP Fire";
+  public const string EFFECT_POWERUP_ICE = "UP Ice";
+  public const string EFFECT_POWERUP_LIGHT = "UP Light";
+  public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
+
+  public const string BUFF_RESIST_STUN = "Resist Stun";
+  public const string EFFECT_RESIST_STUN = "Stun耐性";
+  public const string EFFECT_REMOVE_STUN = "Stun除去";
+
+  public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
+  public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
+  public const string BUFF_PD_UP = "BuffPhysicalDefenseUp";
+  public const string BUFF_PD_DOWN = "BuffPhysicalDefenseDown";
+  public const string BUFF_MA_UP = "BuffMagicAttackUp";
+  public const string BUFF_MA_DOWN = "BuffMagicAttackDown";
+  public const string BUFF_MD_UP = "BuffMagicDefenseUp";
+  public const string BUFF_MD_DOWN = "BuffMagicDefenseDown";
+  public const string BUFF_BS_UP = "BuffBattleSpeedUp";
+  public const string BUFF_BS_DOWN = "BuffBattleSpeedDown";
+  public const string BUFF_BR_UP = "BuffBattleResponseUp";
+  public const string BUFF_BR_DOWN = "BuffBattleResponseDown";
+  public const string BUFF_PO_UP = "BuffPotentialUp";
+  public const string BUFF_PO_DOWN = "BuffPotentialDown";
+
+  public const string BUFF_REMOVE_ALL = "BUFF全除去";
+
+  public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
+
+  public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
+  #endregion
+  #region "Timer"
+  public const int BATTLEEND_AUTOEXIT = 200;
+  #endregion
   #endregion
 
-  #region "効果音データファイル名"
+  #region "Environment"
+  #region "Program Data"
+  public static string BaseMapFolder = @"\Map\";
+  public static string BaseSoundFolder = @"Sounds/";
+  public static string BaseSaveFolder = Environment.CurrentDirectory + @"\Save\";
+  public static string BaseMusicFolder = @"BGM\";
+  public const string TF_SAVE = @"TeamFoundationSave.xml";
+  public static string WorldSaveNum = "999_";
+  public static int WORLD_SAVE_NUM = 999;
+  public static string AutoSaveNum = "210_";
+  public static int AUTOSAVE_PAGE_NUM = 21;
+  public static string SAVELOAD_NEW = "SaveLoadNew2";
+  public static string SAVELOAD_NEW_AUTO = "SaveLoadNewAuto";
+  public static int VERSION = 2;
+  #endregion
+  #region "DungeonMapFile"
+  public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";
+  public const string MAPFILE_CAVEOFSARUN = "MapData_CaveOfSarun.txt";
+  public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
+  public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
+  public const string MAPFILE_GORATRUM_2 = "MapData_Goratrum_2.txt";
+  public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
+  public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
+  public const string MAPFILE_MYSTIC_FOREST = "MapData_MysticForest.txt";
+  public const string MAPFILE_GATE_OF_DHAL = "MapData_GateOfDhal.txt";
+  public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
+  public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
+  public const string MAPFILE_DISKEL = "MapData_Diskel.txt";
+  public const string MAPFILE_GANRO = "MapData_Ganro.txt";
+  public const string MAPFILE_LOSLON = "MapData_Loslon.txt";
+  public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
+  public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
+
+  public const int MAPSIZE_X_CAVEOFSARUN = 40;
+  public const int MAPSIZE_Z_CAVEOFSARUN = 20;
+
+  public const int MAPSIZE_X_GORATRUM = 40;
+  public const int MAPSIZE_Z_GORATRUM = 20;
+
+  public const int MAPSIZE_X_MYSTICFOREST = 50;
+  public const int MAPSIZE_Z_MYSTICFOREST = 30;
+
+  #endregion
+  #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
   public const string SOUND_ICENEEDLE = @"IceNeedle";
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
@@ -381,76 +457,61 @@ public static partial class Fix
   public const string SOUND_MQ_BEGIN = "MonsterQuestBegin";
   public const string SOUND_MQ_REWARD = "MonsterQuestReward";
   #endregion
+  #region "Unity Scene"
+  public const string Title = @"Title";
+  public const string Tutorial = @"Tutorial";
+  public const string GameSetting = @"GameSetting";
+  public const string DungeonTicket = @"DungeonTicket";
+  public const string TruthAnswer = @"TruthAnswer";
+  public const string TruthBattleEnemy = @"TruthBattleEnemy";
+  public const string TruthBattleSetting = @"TruthBattleSetting";
+  public const string TruthChoiceStatue = @"TruthChoiceStatue";
+  public const string TruthChooseCommand = @"TruthChooseCommand";
+  public const string TruthDecision = @"TruthDecision";
+  public const string TruthDecision2 = @"TruthDecision2";
+  public const string TruthDecision3 = @"TruthDecision3";
+  public const string TruthDuelPlayerStatus = @"TruthDuelPlayerStatus";
+  public const string TruthDuelRule = @"TruthDuelRule";
+  public const string TruthDuelSelect = @"TruthDuelSelect";
+  public const string TruthDungeon = @"TruthDungeon";
+  public const string TruthEquipmentShop = @"TruthEquipmentShop";
+  public const string TruthHomeTown = @"HomeTown";
+  public const string TruthInformation = @"TruthInformation";
+  public const string TruthItemBank = @"TruthItemBank";
+  public const string TruthItemDesc = @"TruthItemDesc";
+  public const string TruthPlayback = @"TruthPlayback";
+  public const string TruthAchievement = @"TruthAchievement";
+  public const string TruthPlayerInformation = @"TruthPlayerInformation";
+  public const string TruthPotionShop = @"TruthPotionShop";
+  public const string TruthRequestFood = @"TruthRequestFood";
+  public const string TruthMonsterQuest = @"TruthMonsterQuest";
+  public const string TruthSelectCharacter = @"TruthSelectCharacter";
+  public const string TruthSelectEquipment = @"TruthSelectEquipment";
+  public const string TruthSkillSpellDesc = @"TruthSkillSpellDesc";
+  public const string TruthStatusPlayer = @"TruthStatusPlayer";
+  public const string TruthWill = @"TruthWill";
+  public const string TruthRequestInput = @"TruthInputRequest";
+  public const string SaveLoad = @"SaveLoad";
+  public const string SingleHomeTown = @"SingleHomeTown";
+  public const string SingleDungeon = @"SingleDungeon";
+  public const string SingleBattleEnemy = @"SingleBattleEnemy";
 
-  // Battle Effect Message
-  public const string BATTLE_MISS = "Miss";
-  public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
-  public const string BATTLE_AP_LESS = "No AP";
-  public const string BATTLE_SP_LESS = "No SP";
-  public const string BATTLE_NO_POTION = "No Potion";
-  public const string BATTLE_ALREADY_USED = "空っぽ";
-  public const string BATTLE_BIND = "Bind";
-  public const string BATTLE_DIVINE = "Divine";
-  public const string BATTLE_SILENT = "Silent";
-
-  #region "Environment"
-  public static string BaseMapFolder = @"\Map\";
-  public static string BaseSoundFolder = @"Sounds/";
-  public static string BaseSaveFolder = Environment.CurrentDirectory + @"\Save\";
-  public static string BaseMusicFolder = @"BGM\";
-  public const string TF_SAVE = @"TeamFoundationSave.xml";
-  public static string WorldSaveNum = "999_";
-  public static int WORLD_SAVE_NUM = 999;
-  public static string AutoSaveNum = "210_";
-  public static int AUTOSAVE_PAGE_NUM = 21;
-  public static string SAVELOAD_NEW = "SaveLoadNew2";
-  public static string SAVELOAD_NEW_AUTO = "SaveLoadNewAuto";
-  public static int VERSION = 2;
+  public const string SCENE_DUNGEON_FIELD = @"DungeonField";
+  public const string SCENE_HOME_TOWN = @"HomeTown";
+  public const string SCENE_HELP_BOOK = @"HelpBook";
+  #endregion
+  #region "Limit"
+  public const int INFINITY = 9999999;
+  public static int MAX_BACKPACK_SIZE = 9999;
+  public static int MAX_ITEM_STACK_SIZE = 10;
+  public static int MAX_TEAM_MEMBER = 4;
+  public static int MAX_ENEMY_MEMBER = 6;
+  public static int MAX_INSTANT_NUM = 9;
+  #endregion
   #endregion
 
-  #region "Player Name"
-  public const int CHARACTER_LIST_NUM = 24;
-  public const string NAME_EIN_WOLENCE = @"アイン ウォーレンス";
-  public const string NAME_LANA_AMIRIA = @"ラナ アミリア";
-  public const string NAME_EONE_FULNEA = @"エオネ フルネア";
-  public const string NAME_BILLY_RAKI = @"ビリー ラキ";
-  public const string NAME_ADEL_BRIGANDY = @"アデル ブリガンディ";
-  public const string NAME_CALMANS_OHN = @"カルマンズ オーン";
-  public const string NAME_ANNA_HAMILTON = @"アンナ ハミルトン";
-  public const string NAME_SELMOI_RO = @"セルモイ ロウ";
-  public const string NAME_MAGI_ZELKIS = @"マーギ ゼルキス";
-  public const string NAME_LENE_COLTOS = @"レネ コルトス";
-  public const string NAME_SHUVALTZ_FLORE = @"シュヴァルツェ フローレ";
-  public const string NAME_KARTIN_MAI = @"カーティン マイ";
-  public const string NAME_JEDA_ARUS = @"ジェダ アルス";
-  public const string NAME_ILZINA_MELDIETE = @"イルジナ メルディート";
-  public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
-  public const string NAME_DELVA_TRECKINO = @"デルバ トレッキーノ";
-
-  public const string NAME_SINIKIA_VEILHANZ = @"シニキア ヴェイルハンツ";
-  public const string NAME_PERMA_WARAMY = @"ペルマ ワラミィ";
-  public const string NAME_KILT_JORJU = @"キルト ジョルジュ";
-  public const string NAME_SUN_YU = @"サン ユウ";
-  public const string NAME_RVEL_ZELKIS = @"ルベル ゼルキス";
-  public const string NAME_VAN_HEHGUSTEL = @"ヴァン ヘーグステル";
-  public const string NAME_LADA_MYSTORUS = @"ラダ ミストゥルス";
-  public const string NAME_SIN_OSCURETE = @"シン オスキュレーテ";
-  public static string[] NAME_LIST = { NAME_EIN_WOLENCE, NAME_LANA_AMIRIA, NAME_EONE_FULNEA, NAME_BILLY_RAKI, NAME_ADEL_BRIGANDY, NAME_CALMANS_OHN,
-                                       NAME_ANNA_HAMILTON, NAME_SELMOI_RO, NAME_MAGI_ZELKIS, NAME_LENE_COLTOS, NAME_SHUVALTZ_FLORE, NAME_KARTIN_MAI,
-                                       NAME_JEDA_ARUS, NAME_ILZINA_MELDIETE, NAME_OHRYU_GENMA, NAME_DELVA_TRECKINO };
-  #endregion
-
-  #region "Enemy Name"
-  public const string HELL_KERBEROS = "Hell Kerberos";
-  public const string HELL_KERBEROS_JP = "地獄のケルベロス";
-
-  // オーランの塔
-
-  public const string _ = "";
-  public const string _JP = "";
-  #endregion
-
-  #region "Event"
+  #region "Quest Event"
+  #region "Quest List ( not used )"
   //public static List<string> QUEST_EVENT_TITLE = new List<string>() {
   //  "国内外遠征許可証の入手",
   //  "国王エルミからの依頼",
@@ -592,8 +653,7 @@ public static partial class Fix
   public const string DECISION_ARTHARIUM_CRASH_DOOR2 = "アーサリウム工場跡地：扉を蹴破れ！（２）";
   public const string DECISION_PARTY_JOIN_SELMOI_RO = "セルモイ・ロウを仲間に引き入れる";
   #endregion
-
-  #region "エリア説明"
+  #region "Area Description"
   public const string AREA_INFO_ANSHET = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。";
   public const string AREA_INFO_CAVEOFSARUN = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。";
   public const string AREA_INFO_FAZIL_CASTLE = "ファージル区域全土を統治する国王エルミ・ジョルジュが住まうファージル宮殿。ファージル宮殿の裏には数々のワープゲートが設置されており、国王であるエルミ・ジョルジュ、王妃ファラ・フローレ、魔道学院の長シニキア・カールハンツ、正義の暴君オル・ランディス、存在不可視のヴェルゼ・アーティが日々各エリアの状況把握に努めている。ファージル全土で犯罪発生率が低く、一般市民が平和に暮らせているのは彼らの加護があるからに他ならない。";
@@ -601,8 +661,9 @@ public static partial class Fix
   public const string AREA_INFO_COTUHSYE = "この港町には様々な職業の者が行き来している。国王エルミは本エリアを交流の場の一つとして制定しており、出入りについて制限は設けていないため交易が盛んである。だが、現在は船の出航制限がかかっており、ここからヴィンスガルデ王国行きの船は出ていない。";
   public const string AREA_INFO_MYSTIC_FOREST = "立ち入る人々を深淵なる濃霧へと誘う【神秘の森】。その場の見通しの悪さに加え、モンスターからの襲撃が繰り返し行われるため、方向感覚を失い、そのまま行方不明となる者が後を絶えない。進むためには入念なる準備が必要となるだろう。";
   #endregion
+  #endregion
 
-  #region "食事メニュー"
+  #region "Food Menu"
   public const string FOOD_BALANCE_SET = "バランス定食";
   public const string FOOD_LARGE_GOHAN_SET = "山盛りごはんセット";
   public const string FOOD_TSIKARA_UDON = "タップリ 力うどん";
@@ -724,6 +785,7 @@ public static partial class Fix
   public static int[] FOOD_45_VALUE = { 250, 250, 0, 0, 250 };
   #endregion
 
+  #region "GUI Label"
   #region "クラス属性ラベル(JP)"
   public const string CLASS_WARRIOR_JP = "戦士";
   public const string CLASS_ARCHERY_JP = "弓術";
@@ -773,6 +835,7 @@ public static partial class Fix
   #region "ホームタウンSHOPメニューラベル(JP)"
   public const string SHOPMENU_BUY = "購入";
   public const string SHOPMENU_SELL = "売却";
+  #endregion
   #endregion
 
   #region "Action Command"
@@ -1162,66 +1225,6 @@ public static partial class Fix
   public const string COMMAND_POISON_TONGUE = "猛毒の舌";
   public const string COMMAND_CONSTRICT = "締めつけ";
   public const string COMMAND_NOTHING = "なし";
-  #endregion
-
-  #region "Effect"
-  public const string EFFECT_POISON = "Poison";
-  public const string EFFECT_HEART_OF_LIFE = "Life Gain";
-  public const string EFFECT_SHADOW_BLAST = "Blind Effect";
-  public const string EFFECT_FORTUNE = "Fortune";
-  public const string EFFECT_SLIP = "Slip";
-  public const string EFFECT_STUN = "Stun";
-  public const string EFFECT_BIND = "Bind";
-  public const string EFFECT_SLEEP = "Sleep";
-  public const string EFFECT_DIZZY = "Dizzy";
-  public const string EFFECT_SILENT = "Silent";
-  public const string EFFECT_SLOW = "Slow";
-  public const string EFFECT_GAUGE_BACK = "Gauge Back";
-
-  public const string EFFECT_PA_UP = "PA Up";
-  public const string EFFECT_PA_DOWN = "PA Down";
-  public const string EFFECT_PD_UP = "PD Up";
-  public const string EFFECT_PD_DOWN = "PD Down";
-  public const string EFFECT_MA_UP = "MA Up";
-  public const string EFFECT_MA_DOWN = "MA Down";
-  public const string EFFECT_MD_UP = "MD Up";
-  public const string EFFECT_MD_DOWN = "MD Down";
-  public const string EFFECT_BS_UP = "BS Up";
-  public const string EFFECT_BS_DOWN = "BS Down";
-  public const string EFFECT_BR_UP = "BR Up";
-  public const string EFFECT_BR_DOWN = "BR Down";
-  public const string EFFECT_PO_UP = "PO Up";
-  public const string EFFECT_PO_DOWN = "PO Down";
-
-  public const string EFFECT_POWERUP_FIRE = "UP Fire";
-  public const string EFFECT_POWERUP_ICE = "UP Ice";
-  public const string EFFECT_POWERUP_LIGHT = "UP Light";
-  public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
-
-  public const string BUFF_RESIST_STUN = "Resist Stun";
-  public const string EFFECT_RESIST_STUN = "Stun耐性";
-  public const string EFFECT_REMOVE_STUN = "Stun除去";
-
-  public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
-  public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
-  public const string BUFF_PD_UP = "BuffPhysicalDefenseUp";
-  public const string BUFF_PD_DOWN = "BuffPhysicalDefenseDown";
-  public const string BUFF_MA_UP = "BuffMagicAttackUp";
-  public const string BUFF_MA_DOWN = "BuffMagicAttackDown";
-  public const string BUFF_MD_UP = "BuffMagicDefenseUp";
-  public const string BUFF_MD_DOWN = "BuffMagicDefenseDown";
-  public const string BUFF_BS_UP = "BuffBattleSpeedUp";
-  public const string BUFF_BS_DOWN = "BuffBattleSpeedDown";
-  public const string BUFF_BR_UP = "BuffBattleResponseUp";
-  public const string BUFF_BR_DOWN = "BuffBattleResponseDown";
-  public const string BUFF_PO_UP = "BuffPotentialUp";
-  public const string BUFF_PO_DOWN = "BuffPotentialDown";
-
-  public const string BUFF_REMOVE_ALL = "BUFF全除去";
-
-  public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
-
-  public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
   #endregion
 
   #region "Item Name"
@@ -1735,6 +1738,8 @@ public static partial class Fix
   public const string HUGE_MAGICIAN_ZAGAN = "Huge Magician Zagan";
   public const string HUGE_MAGICIAN_ZAGAN_JP = "巨体魔導士：ザガン";
   public const string SCREAMING_RAFFLESIA = "叫喚のラフレシア";
+  public const string HELL_KERBEROS = "Hell Kerberos";
+  public const string HELL_KERBEROS_JP = "地獄のケルベロス";
   #endregion
 
   #region "Dungeon Event"
@@ -3802,18 +3807,44 @@ public static partial class Fix
   #endregion
   #endregion
 
-  public const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
-  public const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
-  public const string ITEMTYPE_ARMOR = "Armor";
-  public const string ITEMTYPE_ACCESSORY1 = "Accessory-1";
-  public const string ITEMTYPE_ACCESSORY2 = "Accessory-2";
-  public const string ITEMTYPE_ARTIFACT = "Artifact";
+  #region "World Keyword"
+  #region "Player Name"
+  public const int CHARACTER_LIST_NUM = 24;
+  public const string NAME_EIN_WOLENCE = @"アイン ウォーレンス";
+  public const string NAME_LANA_AMIRIA = @"ラナ アミリア";
+  public const string NAME_EONE_FULNEA = @"エオネ フルネア";
+  public const string NAME_BILLY_RAKI = @"ビリー ラキ";
+  public const string NAME_ADEL_BRIGANDY = @"アデル ブリガンディ";
+  public const string NAME_CALMANS_OHN = @"カルマンズ オーン";
+  public const string NAME_ANNA_HAMILTON = @"アンナ ハミルトン";
+  public const string NAME_SELMOI_RO = @"セルモイ ロウ";
+  public const string NAME_MAGI_ZELKIS = @"マーギ ゼルキス";
+  public const string NAME_LENE_COLTOS = @"レネ コルトス";
+  public const string NAME_SHUVALTZ_FLORE = @"シュヴァルツェ フローレ";
+  public const string NAME_KARTIN_MAI = @"カーティン マイ";
+  public const string NAME_JEDA_ARUS = @"ジェダ アルス";
+  public const string NAME_ILZINA_MELDIETE = @"イルジナ メルディート";
+  public const string NAME_OHRYU_GENMA = @"オウリュウ ゲンマ";
+  public const string NAME_DELVA_TRECKINO = @"デルバ トレッキーノ";
 
+  public const string NAME_SINIKIA_VEILHANZ = @"シニキア ヴェイルハンツ";
+  public const string NAME_PERMA_WARAMY = @"ペルマ ワラミィ";
+  public const string NAME_KILT_JORJU = @"キルト ジョルジュ";
+  public const string NAME_SUN_YU = @"サン ユウ";
+  public const string NAME_RVEL_ZELKIS = @"ルベル ゼルキス";
+  public const string NAME_VAN_HEHGUSTEL = @"ヴァン ヘーグステル";
+  public const string NAME_LADA_MYSTORUS = @"ラダ ミストゥルス";
+  public const string NAME_SIN_OSCURETE = @"シン オスキュレーテ";
+  public static string[] NAME_LIST = { NAME_EIN_WOLENCE, NAME_LANA_AMIRIA, NAME_EONE_FULNEA, NAME_BILLY_RAKI, NAME_ADEL_BRIGANDY, NAME_CALMANS_OHN,
+                                       NAME_ANNA_HAMILTON, NAME_SELMOI_RO, NAME_MAGI_ZELKIS, NAME_LENE_COLTOS, NAME_SHUVALTZ_FLORE, NAME_KARTIN_MAI,
+                                       NAME_JEDA_ARUS, NAME_ILZINA_MELDIETE, NAME_OHRYU_GENMA, NAME_DELVA_TRECKINO };
+  #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";
   public const string AREA_VINSGARDE = "ヴィンスガルデ";
   public const string AREA_MOONFORDER = "ムーンフォーダー";
-
+  #endregion
+  #region "Hometown"
   public const string TOWN_ANSHET = "アンシェット街";
   public const string TOWN_QVELTA_TOWN = "クヴェルタ街";
   public const string TOWN_COTUHSYE = "港町コチューシェ";
@@ -3828,7 +3859,8 @@ public static partial class Fix
   public const string TOWN_FAZIL_CASTLE = "ファージル宮殿";
   public const string TOWN_PARMETYSIA = "パルメテイシア神殿";
   public const string TOWN_EDELGARZEN_CASTLE = "エデルガイゼン城";
-
+  #endregion
+  #region "Dungeon"
   public const string DUNGEON_CAVEOFSARUN = "サルンの洞窟";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
@@ -3843,8 +3875,8 @@ public static partial class Fix
   public const string DUNGEON_GANRO_FORTRESS = "ガンロー要塞";
   public const string DUNGEON_LOSLON_CAVE = "ロスロンの洞窟";
   public const string DUNGEON_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
-  // todo ダルの門
-
+  #endregion
+  #region "Field"
   public const string FIELD_ESMILIA_GRASS_AREA = "エスミリア草原区域";
   public const string FIELD_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string FIELD_GORATRUM_DUNGEON = "ゴラトルムの洞窟";
@@ -3866,51 +3898,12 @@ public static partial class Fix
   public const string FIELD_KILCOOD_MOUNTAIN_AREA = "キルクード山岳地帯";
   public const string FIELD_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
   #endregion
-
+  #region "Guardian Angel"
   public const string GUARDIAN_ANGEL_RED = "炎授天使";
   public const string GUARDIAN_ANGEL_BLUE = "蒼授天使";
   public const string GUARDIAN_ANGEL_BLACK = "断罪天使";
   public const string GUARDIAN_ANGEL_WHITE = "珀流天使";
-
-  #region "DungeonMapFile"
-  public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";
-  public const string MAPFILE_CAVEOFSARUN = "MapData_CaveOfSarun.txt";
-  public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
-  public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
-  public const string MAPFILE_GORATRUM_2 = "MapData_Goratrum_2.txt";
-  public const string MAPFILE_VELGUS = "MapData_Velgus.txt";
-  public const string MAPFILE_OHRAN_TOWER = "MapData_OhranTower.txt";
-  public const string MAPFILE_MYSTIC_FOREST = "MapData_MysticForest.txt";
-  public const string MAPFILE_GATE_OF_DHAL = "MapData_GateOfDhal.txt";
-  public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
-  public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
-  public const string MAPFILE_DISKEL = "MapData_Diskel.txt";
-  public const string MAPFILE_GANRO = "MapData_Ganro.txt";
-  public const string MAPFILE_LOSLON = "MapData_Loslon.txt";
-  public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
-  public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
-
-  public const int MAPSIZE_X_CAVEOFSARUN = 40;
-  public const int MAPSIZE_Z_CAVEOFSARUN = 20;
-
-  public const int MAPSIZE_X_GORATRUM = 40;
-  public const int MAPSIZE_Z_GORATRUM = 20;
-
-  public const int MAPSIZE_X_MYSTICFOREST = 50;
-  public const int MAPSIZE_Z_MYSTICFOREST = 30;
-
   #endregion
-
-  #region "Limit"
-  public static int MAX_BACKPACK_SIZE = 9999;
-  public static int MAX_ITEM_STACK_SIZE = 10;
-  public static int MAX_TEAM_MEMBER = 4;
-  public static int MAX_ENEMY_MEMBER = 6;
-  public static int MAX_INSTANT_NUM = 9;
-  #endregion
-
-  #region "etc"
-  public const int BATTLEEND_AUTOEXIT = 200;
   #endregion
 
 }
