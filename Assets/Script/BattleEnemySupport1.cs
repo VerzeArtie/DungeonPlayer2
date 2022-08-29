@@ -7,13 +7,6 @@ using UnityEngine;
 
 public partial class BattleEnemy : MotherBase
 {
-  public enum CriticalType
-  {
-    None,
-    Random,
-    Absolute,
-  }
-
   private double DamageFromCommand(Character player, string command_name)
   {
     double result = 0;
@@ -76,7 +69,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した物理攻撃実行コマンド
   /// </summary>
-  private bool ExecNormalAttack(Character player, Character target, double magnify, CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecNormalAttack(Character player, Character target, double magnify, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -162,7 +155,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した魔法攻撃実行コマンド
   /// </summary>
-  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -235,13 +228,13 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private void ExecFireBall(Character player, Character target, CriticalType critical)
+  private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, critical);
   }
 
-  private void ExecIceNeedle(Character player, Character target, CriticalType critical)
+  private void ExecIceNeedle(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, critical);
@@ -259,7 +252,7 @@ public partial class BattleEnemy : MotherBase
     AbstractHealCommand(player, target, healValue);
   }
 
-  private void ExecShadowBlast(Character player, Character target, CriticalType critical)
+  private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, critical);
@@ -270,7 +263,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecAirCutter(Character player, Character target, CriticalType critical)
+  private void ExecAirCutter(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, critical);
@@ -281,7 +274,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecRockSlum(Character player, Character target, CriticalType critical)
+  private void ExecRockSlum(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, critical);
@@ -291,14 +284,14 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecStraightSmash(Character player, Character target, CriticalType critical)
+  private void ExecStraightSmash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
     ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), critical);
   }
 
-  private void ExecHunterShot(Character player, Character target, CriticalType critical)
+  private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
@@ -309,7 +302,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecLegStrike(Character player, Character target, CriticalType critical)
+  private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -320,7 +313,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecVenomSlash(Character player, Character target, CriticalType critical)
+  private void ExecVenomSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
@@ -331,13 +324,13 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecEnergyBolt(Character player, Character target, CriticalType critical)
+  private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), critical); // todo このダメージ量は【知】をベースとして算出される。
   }
 
-  private void ExecShieldBash(Character player, Character target, CriticalType critical)
+  private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
@@ -480,7 +473,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.STANCE_OF_THE_GUARD, Fix.COLOR_NORMAL);
   }
 
-  private void ExecMultipleShot(Character player, List<Character> target_list, CriticalType critical)
+  private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
@@ -489,7 +482,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecInvisibleBind(Character player, Character target, CriticalType critical)
+  private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), critical);
@@ -524,7 +517,7 @@ public partial class BattleEnemy : MotherBase
     // todo
   }
 
-  private void ExecCircleSlash(Character player, List<Character> target_list, CriticalType critical)
+  private void ExecCircleSlash(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
@@ -533,7 +526,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecDoubleSlash(Character player, Character target, CriticalType critical)
+  private void ExecDoubleSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < 2; ii++)
@@ -542,7 +535,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecMeteorBullet(Character player, List<Character> target_list, CriticalType critical)
+  private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     for (int ii = 0; ii < 3; ii++)
     {
@@ -551,7 +544,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecBlueBullet(Character player, Character target, CriticalType critical)
+  private void ExecBlueBullet(Character player, Character target, Fix.CriticalType critical)
   {
     for (int ii = 0; ii < 3; ii++)
     {
@@ -575,7 +568,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.BLACK_CONTRACT, Fix.COLOR_NORMAL);
   }
 
-  public void ExecConcussiveHit(Character player, Character target, CriticalType critical)
+  public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), critical);
     if (success)
@@ -608,7 +601,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowIrregularStepCounter <= 0.0f)
     {
-      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), CriticalType.Random);
+      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.CriticalType.Random);
       this.NowIrregularStepPlayer = null;
       this.NowIrregularStepTarget = null;
       this.NowIrregularStepCounter = 0;
@@ -622,7 +615,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.STORM_ARMOR, Fix.COLOR_NORMAL);
   }
 
-  public void ExecMuteImpulse(Character player, Character target, CriticalType critical)
+  public void ExecMuteImpulse(Character player, Character target, Fix.CriticalType critical)
   {
     int positiveCount = target.GetPositiveBuff() + 1;
     ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, critical);
@@ -965,7 +958,7 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "General"
-  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, ref bool result_critical)
+  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, ref bool result_critical)
   {
     // 攻撃コマンドのダメージを算出
     double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
@@ -977,7 +970,7 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
+        ((critical == Fix.CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
@@ -985,7 +978,7 @@ public partial class BattleEnemy : MotherBase
       result_critical = true;
       Debug.Log("PhysicalDamageLogic detect Critical! (Random) " + damageValue.ToString());
     }
-    if (critical == CriticalType.Absolute)
+    if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       debug1 = damageValue;
@@ -1025,7 +1018,7 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, CriticalType critical, ref bool result_critical)
+  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, ref bool result_critical)
   {
     // 魔法コマンドのダメージを算出
     double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
@@ -1064,14 +1057,14 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     if (player.CannotCritical == false &&
-        ((critical == CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
+        ((critical == Fix.CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Random) " + damageValue.ToString());
     }
-    if (critical == CriticalType.Absolute)
+    if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       result_critical = true;

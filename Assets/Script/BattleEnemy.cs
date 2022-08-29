@@ -1385,19 +1385,19 @@ public partial class BattleEnemy : MotherBase
       ExecSlipDamage(player, player.IsSlip.EffectValue);
     }
 
-    CriticalType critical = CriticalType.Random;
+    Fix.CriticalType critical = Fix.CriticalType.Random;
     BuffImage fortune = player.IsFortuneSpirit;
     if (ActionCommand.IsDamage(command_name) && fortune != null)
     {
       Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
-      critical = CriticalType.Absolute;
+      critical = Fix.CriticalType.Absolute;
       fortune.RemoveBuff();
     }
     BuffImage syutyuDanzetsu = player.IsSyutyuDanzetsu;
     if (ActionCommand.IsDamage(command_name) && syutyuDanzetsu)
     {
       Debug.Log("Detect IsSyutyuDanzetsu, then Absolute Critical.");
-      critical = CriticalType.Absolute;
+      critical = Fix.CriticalType.Absolute;
       player.NowExecSyutyuDanzetsu = true;
     }
 
@@ -1674,7 +1674,7 @@ public partial class BattleEnemy : MotherBase
       #region "モンスターアクション"
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
-        ExecNormalAttack(player, target, 1.30f, CriticalType.None);
+        ExecNormalAttack(player, target, 1.30f, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_GREEN_NENEKI:
@@ -1686,15 +1686,15 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WILD_CLAW:
-        ExecNormalAttack(player, target, 1.35f, CriticalType.None);
+        ExecNormalAttack(player, target, 1.35f, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_KAMITSUKI:
-        ExecNormalAttack(player, target, 1.40f, CriticalType.None);
+        ExecNormalAttack(player, target, 1.40f, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TREE_SONG:
-        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -1702,11 +1702,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUN_FIRE:
-        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, CriticalType.None);
+        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.10f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1714,7 +1714,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FEATHER_WING:
-        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -1722,7 +1722,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DASH_KERI:
-        success = ExecNormalAttack(player, target, 1.1f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.1f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 1, 0.30f);
@@ -1730,7 +1730,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUITSUKU_TSUTA:
-        success = ExecNormalAttack(player, target, 0.5f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlow(player, target, 2, 0.5f);
@@ -1738,7 +1738,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPIDER_NET:
-        success = ExecNormalAttack(player, target, 0.5f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBind(player, target, 2, 0);
@@ -1759,11 +1759,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FIRE_EMISSION:
-        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, CriticalType.None);
+        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_SUPER_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.5f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.5f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1780,7 +1780,7 @@ public partial class BattleEnemy : MotherBase
           // ランダムで対象を選んで当てる
           // ダメージアニメーション速度を上げる。
           List<Character> list = GetOpponentGroup(player);
-          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, CriticalType.None, 25);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, Fix.CriticalType.None, 25);
         }
         break;
 
@@ -1789,7 +1789,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DRILL_CYCLONE:
-        success = ExecNormalAttack(player, target, 1.50f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.50f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1800,7 +1800,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 5; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecNormalAttack(player, PlayerList[rand], 1.0f, CriticalType.Random);
+          ExecNormalAttack(player, PlayerList[rand], 1.0f, Fix.CriticalType.Random);
         }
         break;
 
@@ -1824,7 +1824,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_GAREKI_TSUBUTE:
-        success = ExecNormalAttack(player, target, 0.80f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.80f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1832,7 +1832,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SHADOW_SPEAR:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
@@ -1872,7 +1872,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAND_CANNON:
-        success = ExecNormalAttack(player, target, 1.20f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.20f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 2, 0.30f);
@@ -1884,7 +1884,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_NEEDLE:
-        success = ExecNormalAttack(player, target, 1.10f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPoison(player, target, 3, 33);
@@ -1892,7 +1892,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CHARGE_LANCE:
-        ExecNormalAttack(player, target, 1.0f, CriticalType.Absolute);
+        ExecNormalAttack(player, target, 1.0f, Fix.CriticalType.Absolute);
         break;
 
       case Fix.COMMAND_SPIKE_SHOT:
@@ -1904,7 +1904,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_JUBAKU_ON:
-        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalDefenseDown(player, target, 5, 0.75f);
@@ -1915,20 +1915,20 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target_list[jj], 0.7f, CriticalType.None);
+          ExecNormalAttack(player, target_list[jj], 0.7f, Fix.CriticalType.None);
         }
         break;
 
       case Fix.COMMAND_BOUHATSU:
-        ExecNormalAttack(player, player, 2.0f, CriticalType.None);
-        ExecNormalAttack(player, target, 2.0f, CriticalType.None);
+        ExecNormalAttack(player, player, 2.0f, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 2.0f, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_THUNDER_CLOUD:
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, Fix.CriticalType.None);
         }
         break;
 
@@ -1936,7 +1936,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          success = ExecNormalAttack(player, target_list[jj], 0.8f, CriticalType.None);
+          success = ExecNormalAttack(player, target_list[jj], 0.8f, Fix.CriticalType.None);
           if (success)
           {
             rand = AP.Math.RandomInteger(100);
@@ -1949,7 +1949,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAGESHII_KAMITSUKI:
-        success = ExecNormalAttack(player, target, 0.8f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.8f, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlip(player, target, 3, 25);
@@ -1957,7 +1957,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BOLT_FRAME:
-        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalAttackDown(player, target, 3, 0.75f);
@@ -1976,7 +1976,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, Fix.CriticalType.None);
         }
         break;
 
@@ -1984,7 +1984,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 3; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, CriticalType.None);
+          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, Fix.CriticalType.None);
         }
         break;
 
@@ -2054,7 +2054,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -2089,7 +2089,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_YOUKAIEKI:
-        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBattleSpeedDown(player, target, 2, 0.7f);
@@ -2098,12 +2098,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_TONGUE:
-        ExecNormalAttack(player, target, 0.80f, CriticalType.None);
+        ExecNormalAttack(player, target, 0.80f, Fix.CriticalType.None);
         ExecBuffPoison(player, target, 3, 70);
         break;
 
       case Fix.COMMAND_CONSTRICT:
-        success = ExecNormalAttack(player, target, 0.7f, CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.7f, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);

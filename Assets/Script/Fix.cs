@@ -86,6 +86,13 @@ public static partial class Fix
     Colorless, // 無属性
   }
 
+  public enum CriticalType
+  {
+    None,
+    Random,
+    Absolute,
+  }
+
   public enum EquipType
   {
     MainWeapon,
