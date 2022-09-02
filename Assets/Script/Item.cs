@@ -710,7 +710,7 @@ public partial class Item
     switch (item_name)
     {
       case Fix.PRACTICE_CLAW:
-        this._rarity = Rarity.Common;
+        this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
@@ -724,7 +724,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 180;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "練習用の爪。実践ではあまり用いられず、訓練の時に使用する。物理攻撃力１～３";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -850,7 +850,7 @@ public partial class Item
         break;
 
       case Fix.PRACTICE_SWORD:
-        this._rarity = Rarity.Common;
+        this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Onehand_Sword;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 95;
@@ -1019,11 +1019,39 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.PRACTICE_LANCE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._physicalAttack = 2;
+        this._physicalAttackMax = 6;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 220;
+        this._importantType = Important.None;
+        this._description = "練習用の槍。実践ではあまり用いられず、訓練の時に使用する。物理攻撃力２～６";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.FINE_LANCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 5;
         this._physicalAttackMax = 9;
         this._magicAttack = 0;
@@ -1051,7 +1079,7 @@ public partial class Item
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 8;
         this._physicalAttackMax = 12;
         this._magicAttack = 0;
@@ -1079,7 +1107,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 16;
         this._physicalAttackMax = 23;
         this._magicAttack = 0;
@@ -1107,7 +1135,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Lance;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 19;
         this._physicalAttackMax = 26;
         this._magicAttack = 0;
@@ -1243,11 +1271,39 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.PRACTICE_AXE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 90;
+        this._physicalAttack = 6;
+        this._physicalAttackMax = 11;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "練習用の斧。実践ではあまり用いられず、訓練の時に使用する。物理攻撃力６～１１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.FINE_AXE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 85;
+        this._battleAccuracy = 90;
         this._physicalAttack = 10;
         this._physicalAttackMax = 15;
         this._magicAttack = 0;
@@ -1275,7 +1331,7 @@ public partial class Item
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 85;
+        this._battleAccuracy = 90;
         this._physicalAttack = 14;
         this._physicalAttackMax = 19;
         this._magicAttack = 0;
@@ -1303,7 +1359,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 85;
+        this._battleAccuracy = 90;
         this._physicalAttack = 26;
         this._physicalAttackMax = 31;
         this._magicAttack = 0;
@@ -1331,7 +1387,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 85;
+        this._battleAccuracy = 90;
         this._physicalAttack = 29;
         this._physicalAttackMax = 34;
         this._magicAttack = 0;
@@ -1356,7 +1412,7 @@ public partial class Item
         break;
 
       case Fix.PRACTICE_ORB:
-        this._rarity = Rarity.Common;
+        this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Onehand_Orb;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
@@ -1370,7 +1426,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 180;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "練習用の水晶。実践ではあまり用いられず、訓練の時に使用する。魔法攻撃力１～３";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1495,6 +1551,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.PRACTICE_ROD:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 2;
+        this._magicAttackMax = 4;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 200;
+        this._importantType = Important.None;
+        this._description = "練習用の杖。実践ではあまり用いられず、訓練の時に使用する。魔法攻撃力２～４";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.FINE_ROD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Rod;
@@ -1607,11 +1691,39 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.PRACTICE_BOOK:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 2;
+        this._magicAttackMax = 6;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 220;
+        this._importantType = Important.None;
+        this._description = "練習用の本。実践ではあまり用いられず、訓練の時に使用する。魔法攻撃力２～６";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.FINE_BOOK:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Book;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
         this._magicAttack = 5;
@@ -1639,7 +1751,7 @@ public partial class Item
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.Onehand_Book;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
         this._magicAttack = 8;
@@ -1667,7 +1779,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Book;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
         this._magicAttack = 16;
@@ -1695,7 +1807,7 @@ public partial class Item
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Book;
         this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 92;
+        this._battleAccuracy = 93;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
         this._magicAttack = 19;
@@ -1707,6 +1819,34 @@ public partial class Item
         this._gold = 2400;
         this._importantType = Important.None;
         this._description = "魔法攻撃がヒットした後、自分自身の物理攻撃を＋５する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.PRACTICE_SHIELD:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 1;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 200;
+        this._importantType = Important.None;
+        this._description = "練習用の盾。実践ではあまり用いられず、訓練の時に使用する。物理防御力１";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1971,6 +2111,286 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.HINJAKU_RING:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "ほんのりパワーを感じ取れる腕輪。力＋１";
+        this._strength = 1;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.USUYOGORETA_FEATHER:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "みすぼらしい付け羽。少しだけ軽さを感じ取れる。技＋１";
+        this._strength = 0;
+        this._agility = 1;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.NON_BRIGHT_ORB:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "知性が枯渇してしまった丸い水晶玉。知＋１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 1;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.KUKEI_BANGLE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "丸みを帯びていないため、装着しにくいバングル。体＋１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 1;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SUTERARESHI_EMBLEM:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 240;
+        this._importantType = Important.None;
+        this._description = "惨敗した者が捨てていった名もなき紋章。心＋１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 1;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.ADJUSTABLE_BELT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "付け心地の良いベルト。力＋２、技＋１";
+        this._strength = 2;
+        this._agility = 1;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.BIRD_STATUE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "鳥の形をした彫像。技＋２、心＋１";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 1;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SHAPED_FINGERRING:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "壊れていいたが整形され、再び使えるようになった指輪。技＋１、知＋２";
+        this._strength = 0;
+        this._agility = 1;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.REFRESHED_MANTLE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "手入れが施されたマント。僅かな何かを感じられる。知＋１、心＋２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 1;
+        this._stamina = 0;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.COOL_CROWN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "付けているつ少しカッコよさが上がる王冠、ほんのりパワーを感じられる。力＋１、技＋１、知＋１";
+        this._strength = 1;
+        this._agility = 1;
+        this._intelligence = 1;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.FLAT_SHOES:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;
@@ -1986,11 +2406,11 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
-        this._description = "軽快なシューズ。これを履いた瞬間から、身体全体が軽くなった様な感覚を得ることができる。";
+        this._description = "軽快なシューズ。これを履いた瞬間から、身体全体が軽くなった様な感覚を得ることができる。技＋２、体＋１";
         this._strength = 0;
         this._agility = 2;
-        this._intelligence = 1;
-        this._stamina = 0;
+        this._intelligence = 0;
+        this._stamina = 1;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -2014,12 +2434,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
-        this._description = "控え目なサイズのイヤリング。身に着けているとほのかに安定感が生まれてくる。";
+        this._description = "控え目なサイズのイヤリング。身に着けているとほのかに安定感が生まれてくる。知＋２、心＋１";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 1;
+        this._intelligence = 2;
         this._stamina = 0;
-        this._mind = 2;
+        this._mind = 1;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -2042,7 +2462,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
-        this._description = "力が湧いてくるバンダナ。しっかりとした結び目がやる気を引き立たせてくれる。";
+        this._description = "力が湧いてくるバンダナ。しっかりとした結び目がやる気を引き立たせてくれる。力＋２、心＋１";
         this._strength = 2;
         this._agility = 0;
         this._intelligence = 0;
@@ -2070,12 +2490,68 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 550;
         this._importantType = Important.None;
-        this._description = "紺碧色の可愛らしいチョーカー。装着している者の精神を向上させてくれる。";
+        this._description = "紺碧色の可愛らしいチョーカー。装着している者の精神を向上させてくれる。力＋１、知＋２";
         this._strength = 1;
         this._agility = 0;
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.FIT_BANGLE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "弾力があり、フィットしやすいバングル。力＋１、体＋２";
+        this._strength = 1;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 2;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.PRISM_EMBLEM:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 550;
+        this._importantType = Important.None;
+        this._description = "特徴は無いが、ほど良い形をしたエムブレム。力＋１、技＋１、知＋１、体＋１、心＋１";
+        this._strength = 1;
+        this._agility = 1;
+        this._intelligence = 1;
+        this._stamina = 1;
+        this._mind = 1;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -2126,8 +2602,8 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
-        this._description = "赤色のペンダント。僅かな【力】を感じ取る事が出来る。";
-        this._strength = 4;
+        this._description = "赤色のペンダント。僅かな【力】を感じ取る事が出来る。力＋５";
+        this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
@@ -2154,9 +2630,9 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
-        this._description = "青色のペンダント。僅かな【技】を感じ取る事が出来る。";
+        this._description = "青色のペンダント。僅かな【技】を感じ取る事が出来る。技＋５";
         this._strength = 0;
-        this._agility = 4;
+        this._agility = 5;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -2182,10 +2658,10 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
-        this._description = "紫色のペンダント。僅かな【知】を感じ取る事が出来る。";
+        this._description = "紫色のペンダント。僅かな【知】を感じ取る事が出来る。知＋５";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 4;
+        this._intelligence = 5;
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
@@ -2210,11 +2686,11 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
-        this._description = "緑色のペンダント。僅かな【体】を感じ取る事が出来る。";
+        this._description = "緑色のペンダント。僅かな【体】を感じ取る事が出来る。体＋５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 4;
+        this._stamina = 5;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -2238,12 +2714,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1200;
         this._importantType = Important.None;
-        this._description = "黄色のペンダント。僅かな【心】を感じ取る事が出来る。";
+        this._description = "黄色のペンダント。僅かな【心】を感じ取る事が出来る。心＋５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 4;
+        this._mind = 5;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;

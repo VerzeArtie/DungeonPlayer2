@@ -2002,8 +2002,11 @@ public static class One
     int debugCounter5 = 0;
     int debugCounter6 = 0;
     int debugCounter7 = 0;
-
     int debugCounter8 = 0;
+    int debugCounter9 = 0;
+
+    int debugCounter_L = 0;
+    int debugCounterE = 0;
 
     try
     {
@@ -2013,96 +2016,88 @@ public static class One
 
         // ドロップアイテムを出現させる
         System.Random rd = new System.Random(Environment.TickCount * DateTime.Now.Millisecond);
-        int param1 = 1000; // 素材
-        int param2 = 600; // 武具POOR
-        int param3 = 350; // 武具COMMON
-        int param4 = 50; // 武具RARE
-        int param5 = 20; // パラメタUP
-        int param6 = 10; // EPIC
-        int param7 = 200; // ハズレ
+        int param1 = 0; // 素材
+        int param2 = 0; // POOR
+        int param3 = 0; // COMMON
+        int param4 = 0; // UNCOMMON
+        int param5 = 0; // RARE
+        int param6 = 0; // パラメタUP
+        int param7 = 0; // EPIC
+        int param8 = 0; // ハズレ
 
         // param1 は固定でいくこと
-        // param2 + param3 + param4 は1000とすること
-        // param7はBlack以外は0とすること
+        // param2 + param3 + param4+param5 は1000とすること
+        // param8はBlack以外は0とすること
         if (ec1 != null)
         {
           switch (ec1.Rare)
           {
             case Fix.RareString.Black:
-              param1 = 1000;
-              param2 = 600;
-              param3 = 350;
-              param4 = 50;
-              param5 = 20;
-              param6 = 10 + One.TF.KillingEnemy; // EPICを少し出しやすくする味付け
-              param7 = 200;
+              param1 = 1000;                     // Material 44.73 %
+              param2 = 400;                      //     Poor 22.13 %
+              param3 = 300;                      //   Common 13.73 %
+              param4 = 200;                      // Uncommon  6.79 %
+              param5 = 100;                      //     Rare  2.27 %
+              param6 = 20;                       //  PowerUp  0.74 %
+              param7 = 10 + One.TF.KillingEnemy; //     Epic  0.49 %  EPICを少し出しやすくする味付け
+              param8 = 200;                      //     Lost  9.12 %
               break;
             case Fix.RareString.Blue:
               param1 = 1000;
               param2 = 100;
-              param3 = 700;
-              param4 = 200;
-              param5 = 60;
-              param6 = 20 + One.TF.KillingEnemy * 3; // EPICを少し出しやすくする味付け
-              param7 = 0;
+              param3 = 250;
+              param4 = 450;
+              param5 = 200;
+              param6 = 60;
+              param7 = 20 + One.TF.KillingEnemy * 3; // EPICを少し出しやすくする味付け
+              param8 = 0;
               break;
             case Fix.RareString.Red:
               param1 = 1000;
               param2 = 0;
-              param3 = 500;
-              param4 = 500;
-              param5 = 120;
-              param6 = 40 + One.TF.KillingEnemy * 5; // EPICを少し出しやすくする味付け
-              param7 = 0;
+              param3 = 100;
+              param4 = 300;
+              param5 = 600;
+              param6 = 120;
+              param7 = 40 + One.TF.KillingEnemy * 5; // EPICを少し出しやすくする味付け
+              param8 = 0;
               break;
             case Fix.RareString.Gold: // 階層ボスは固定ドロップアイテムだが、通常ボスはランダム扱い
               param1 = 0; // ボスレベルで素材は無い事とする。
               param2 = 0;
-              param3 = 600;
-              param4 = 1200;
-              param5 = 400;
-              param6 = 80 + One.TF.KillingEnemy * 5; // EPICを少し出しやすくする味付け
-              param7 = 0;
+              param3 = 0;
+              param4 = 600;
+              param5 = 1200;
+              param6 = 400;
+              param7 = 80 + One.TF.KillingEnemy * 5; // EPICを少し出しやすくする味付け
+              param8 = 0;
               break;
             case Fix.RareString.Purple: // 支配竜は固定ドロップアイテム
               break;
-          }
-
-          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
-              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51))
-          {
-            param1 = 0;
-            param2 = 0;
-            param3 = 500;
-            param4 = 400;
-            param5 = 300;
-            param6 = 15 + One.TF.KillingEnemy * 5; // EPICを少し出しやすくする味付け
-            param7 = 0;
           }
         }
         else if (category == Fix.DropItemCategory.Lottery)
         {
           param1 = 0; // 抽選券、モンスター素材ではない。
           param2 = 0; // 抽選券、POORは無しとする
-          param3 = 600;
+          param3 = 400;
           param4 = 240;
-          param5 = 100;
-          param6 = 7;
-          param7 = 0; // 抽選券、ハズレは無しとする
-          debugCounter8++;
+          param5 = 200;
+          param6 = 100;
+          param7 = 7;
+          param8 = 0; // 抽選券、ハズレは無しとする
+          debugCounter_L++;
         }
 
-        int randomValue = rd.Next(1, param1 + param2 + param3 + param4 + param5 + param6 + param7 + 1);
-        int randomValue2 = rd.Next(1, 1 + param1 + param2 + param3 + param4);
-        int randomValue21 = rd.Next(1, 19);
-        int randomValue22 = rd.Next(1, 11);
-        int randomValue3 = rd.Next(1, 17);
-        int randomValue32 = rd.Next(1, 26);
-        int randomValue4 = rd.Next(1, 6);
-        int randomValue42 = rd.Next(1, 9);
-        int randomValue5 = rd.Next(1, 6);
-        int randomValue6 = rd.Next(1, 3);
-        int randomValue7 = rd.Next(1, 101);
+        int randomValue = rd.Next(1, param1 + param2 + param3 + param4 + param5 + param6 + param7 + param8 + 1);
+        int randomValue2 = rd.Next(1, 1 + param2 + param3 + param4 + param5);
+        int randomValue22 = rd.Next(1, 2);
+        int randomValue32 = rd.Next(1, 2);
+        int randomValue42 = rd.Next(1, 2);
+        int randomValue52 = rd.Next(1, 2);
+        int randomValue6 = rd.Next(1, 2);
+        int randomValue7 = rd.Next(1, 2);
+        int randomValue8 = rd.Next(1, 2);
 
         #region "エリア毎のアイテム総数に応じた値を設定"
         // 1階は上述宣言時の値そのもの
@@ -2112,33 +2107,14 @@ public static class One
             (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
             (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
         {
-          randomValue21 = rd.Next(1, 5);
           randomValue22 = rd.Next(1, 2);
-          randomValue3 = rd.Next(1, 15);
           randomValue32 = rd.Next(1, 2);
-          randomValue4 = rd.Next(1, 21);
           randomValue42 = rd.Next(1, 2);
-          randomValue5 = rd.Next(1, 6);
-          randomValue6 = rd.Next(1, 3);
-          randomValue7 = rd.Next(1, 101);
+          randomValue52 = rd.Next(1, 2);
+          randomValue6 = rd.Next(1, 6);
+          randomValue7 = rd.Next(1, 3);
+          randomValue8 = rd.Next(1, 101);
         }
-        //// 現実世界４層ラスト
-        //else if ((category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
-        //         (category == NewItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51))
-        //{
-        //  param1 = 0;
-        //  param2 = 0;
-
-        //  randomValue21 = 0;
-        //  randomValue22 = 0;
-        //  randomValue3 = rd.Next(1, 16);
-        //  randomValue32 = 0;
-        //  randomValue4 = rd.Next(1, 6);
-        //  randomValue42 = 0;
-        //  randomValue5 = rd.Next(1, 6);
-        //  randomValue6 = rd.Next(1, 6);
-        //  randomValue7 = 0;
-        //}
         #endregion
 
         #region "モンスター毎の素材ドロップ"
@@ -2166,9 +2142,9 @@ public static class One
         }
         #endregion
         #region "ダンジョンエリア毎の汎用装備品"
-        else if (param1 < randomValue && randomValue <= (param1 + param2 + param3 + param4)) // 44.84%
+        else if (param1 < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5)) // 44.74%
         {
-          if (1 <= randomValue2 && randomValue2 <= param2) // Poor 60.00%
+          if (1 <= randomValue2 && randomValue2 <= param2) // Poor 22.75%
           {
             #region "１階エリア１－２　３－４"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
@@ -2176,19 +2152,48 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
+              int randomValue21 = rd.Next(1, 14);
+              Debug.Log("randomValue21: " + randomValue21);
               switch (randomValue21)
               {
                 case 1:
-                  targetItemName = Fix.FLAT_SHOES;
+                  targetItemName = Fix.HINJAKU_RING;
                   break;
                 case 2:
-                  targetItemName = Fix.COMPACT_EARRING;
+                  targetItemName = Fix.USUYOGORETA_FEATHER;
                   break;
                 case 3:
-                  targetItemName = Fix.POWER_BANDANA;
+                  targetItemName = Fix.NON_BRIGHT_ORB;
                   break;
                 case 4:
-                  targetItemName = Fix.CHERRY_CHOKER;
+                  targetItemName = Fix.KUKEI_BANGLE;
+                  break;
+                case 5:
+                  targetItemName = Fix.SUTERARESHI_EMBLEM;
+                  break;
+                case 6:
+                  targetItemName = Fix.PRACTICE_SWORD;
+                  break;
+                case 7:
+                  targetItemName = Fix.PRACTICE_LANCE;
+                  break;
+                case 8:
+                  targetItemName = Fix.PRACTICE_AXE;
+                  break;
+                case 9:
+                  targetItemName = Fix.PRACTICE_CLAW;
+                  break;
+                case 10:
+                  targetItemName = Fix.PRACTICE_ROD;
+                  break;
+                case 11:
+                  targetItemName = Fix.PRACTICE_BOOK;
+                  break;
+                case 12:
+                  targetItemName = Fix.PRACTICE_ORB;
+                  break;
+                case 13:
+                  targetItemName = Fix.PRACTICE_SHIELD;
                   break;
               }
             }
@@ -2198,7 +2203,7 @@ public static class One
               switch (randomValue22)
               {
                 default:
-                  targetItemName = Fix.CHERRY_CHOKER;
+                  targetItemName = Fix.HINJAKU_RING;
                   break;
               }
             }
@@ -2206,7 +2211,7 @@ public static class One
             debugCounter2++;
           }
           // ダンジョンエリア毎のコモン汎用装備品
-          else if (param2 < randomValue2 && randomValue2 <= (param2 + param3)) // Common 35.00%
+          else if (param2 < randomValue2 && randomValue2 <= (param2 + param3)) // Common 13.44%
           {
             #region "１階エリア１－２　３－４"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
@@ -2214,7 +2219,106 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
+              int randomValue3 = rd.Next(1, 24);
+              Debug.Log("randomValue3: " + randomValue3);
               switch (randomValue3)
+              {
+                case 1:
+                  targetItemName = Fix.ADJUSTABLE_BELT;
+                  break;
+                case 2:
+                  targetItemName = Fix.BIRD_STATUE;
+                  break;
+                case 3:
+                  targetItemName = Fix.SHAPED_FINGERRING;
+                  break;
+                case 4:
+                  targetItemName = Fix.REFRESHED_MANTLE;
+                  break;
+                case 5:
+                  targetItemName = Fix.COOL_CROWN;
+                  break;
+                case 6:
+                  targetItemName = Fix.FLAT_SHOES;
+                  break;
+                case 7:
+                  targetItemName = Fix.COMPACT_EARRING;
+                  break;
+                case 8:
+                  targetItemName = Fix.POWER_BANDANA;
+                  break;
+                case 9:
+                  targetItemName = Fix.CHERRY_CHOKER;
+                  break;
+                case 10:
+                  targetItemName = Fix.FIT_BANGLE;
+                  break;
+                case 11:
+                  targetItemName = Fix.PRISM_EMBLEM;
+                  break;
+                case 12:
+                  targetItemName = Fix.FINE_SWORD;
+                  break;
+                case 13:
+                  targetItemName = Fix.FINE_LANCE;
+                  break;
+                case 14:
+                  targetItemName = Fix.FINE_AXE;
+                  break;
+                case 15:
+                  targetItemName = Fix.FINE_CLAW;
+                  break;
+                case 16:
+                  targetItemName = Fix.FINE_ROD;
+                  break;
+                case 17:
+                  targetItemName = Fix.FINE_BOOK;
+                  break;
+                case 18:
+                  targetItemName = Fix.FINE_ORB;
+                  break;
+                case 19:
+                  targetItemName = Fix.FINE_SHIELD;
+                  break;
+                case 20:
+                  targetItemName = Fix.FINE_ARMOR;
+                  break;
+                case 21:
+                  targetItemName = Fix.FINE_CROSS;
+                  break;
+                case 22:
+                  targetItemName = Fix.FINE_ROBE;
+                  break;
+                case 23:
+                  targetItemName = Fix.ENERGY_ORB;
+                  break;
+              }
+            }
+            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
+                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
+            {
+              switch (randomValue32)
+              {
+                default:
+                  targetItemName = Fix.ENERGY_ORB;
+                  break;
+              }
+            }
+            #endregion
+            debugCounter3++;
+          }
+          // ダンジョンエリア毎のアンコモン汎用装備品
+          else if ((param2 + param3) < randomValue2 && randomValue2 <= (param2 + param3 + param4)) // Uncommon 6.7%
+          {
+            #region "１階エリア１－２　３－４"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
+            {
+              int randomValue4 = rd.Next(1, 14);
+              Debug.Log("randomValue4: " + randomValue4);
+              switch (randomValue4)
               {
                 case 1:
                   targetItemName = Fix.RED_PENDANT;
@@ -2232,49 +2336,36 @@ public static class One
                   targetItemName = Fix.YELLOW_PENDANT;
                   break;
                 case 6:
-                  targetItemName = Fix.SURVIVAL_CLAW;
-                  break;
-                case 7:
                   targetItemName = Fix.BRONZE_SWORD;
                   break;
-                case 8:
+                case 7:
                   targetItemName = Fix.SHARP_LANCE;
                   break;
-                case 9:
-                  targetItemName = Fix.ELVISH_BOW;
-                  break;
-                case 10:
+                case 8:
                   targetItemName = Fix.VIKING_AXE;
                   break;
-                case 11:
-                  targetItemName = Fix.ENERGY_ORB;
+                case 9:
+                  targetItemName = Fix.SURVIVAL_CLAW;
                   break;
-                case 12:
+                case 10:
                   targetItemName = Fix.WOOD_ROD;
                   break;
-                case 13:
+                case 11:
                   targetItemName = Fix.KINDNESS_BOOK;
                   break;
-                case 14:
-                  targetItemName = Fix.KITE_SHIELD;
+                case 12:
+                  targetItemName = Fix.ENERGY_ORB;
                   break;
-              }
-            }
-            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
-            {
-              switch (randomValue32)
-              {
-                default:
+                case 13:
                   targetItemName = Fix.KITE_SHIELD;
                   break;
               }
             }
             #endregion
-            debugCounter3++;
+            debugCounter4++;
           }
           // ダンジョンエリア毎のレア汎用装備品
-          else if ((param2 + param3) < randomValue2 && randomValue2 <= (param2 + param3 + param4)) // Rare 5.00%
+          else if ((param2 + param3 + param4) < randomValue2 && randomValue2 <= (param2 + param3 + param4 + param5)) // Rare 2.49%
           {
             #region "１階エリア１－２　３－４"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
@@ -2282,7 +2373,9 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              switch (randomValue4)
+              int randomValue5 = rd.Next(1, 21);
+              Debug.Log("randomValue5: " + randomValue5);
+              switch (randomValue5)
               {
                 case 1:
                   targetItemName = Fix.RISING_FORCE_CLAW;
@@ -2349,7 +2442,7 @@ public static class One
             else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
                      (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
-              switch (randomValue42)
+              switch (randomValue52)
               {
                 case 1:
                   targetItemName = Fix.FLAME_HAND_KEEPER;
@@ -2357,12 +2450,16 @@ public static class One
               }
             }
             #endregion
-            debugCounter4++;
+            debugCounter5++;
+          }
+          else
+          {
+            debugCounterE++;
           }
         }
         #endregion
         #region "ダンジョン階層依存のパワーアップアイテム"
-        else if ((param1 + param2 + param3 + param4) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5)) // Rare Use Item 0.90%
+        else if ((param1 + param2 + param3 + param4 + param5) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6)) // Rare Use Item 0.90%
         {
           #region "１階全エリア"
           if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
@@ -2371,7 +2468,7 @@ public static class One
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
               (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
-            switch (randomValue5)
+            switch (randomValue6)
             {
               case 1:
                 targetItemName = Fix.GROWTH_LIQUID_STRENGTH;
@@ -2391,11 +2488,11 @@ public static class One
             }
           }
           #endregion
-          debugCounter5++;
+          debugCounter6++;
         }
         #endregion
         #region "ダンジョン階層依存の高級装備品"
-        else if ((param1 + param2 + param3 + param4 + param5) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6)) // EPIC 0.45%
+        else if ((param1 + param2 + param3 + param4 + param5 + param6) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6 + param7)) // EPIC 0.31%
         {
           #region "１階全エリア"
           if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
@@ -2407,7 +2504,7 @@ public static class One
             // 低レベルの間に取得できてしまうのは、逆に拍子抜けしてしまうため、ブロックする。
             if (mc.Level <= 10)
             {
-              switch (randomValue5)
+              switch (randomValue6)
               {
                 case 1:
                   targetItemName = Fix.GROWTH_LIQUID_STRENGTH;
@@ -2428,7 +2525,7 @@ public static class One
             }
             else
             {
-              switch (randomValue6)
+              switch (randomValue7)
               {
                 case 1:
                   targetItemName = Fix.EPIC_RING_OF_OSCURETE;
@@ -2441,44 +2538,19 @@ public static class One
             }
           }
           #endregion
-          //#region "５階エリア or 現実世界ラスト４階"
-          //else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
-          //         (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area46) ||
-          //         (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
-          //{
-          //  // 低レベル制限はかけない。
-          //  switch (randomValue6)
-          //  {
-          //    case 1:
-          //      targetItemName = Database.EPIC_ETERNAL_HOMURA_RING;
-          //      break;
-          //    case 2:
-          //      targetItemName = Database.EPIC_EZEKRIEL_ARMOR_SIGIL;
-          //      break;
-          //    case 3:
-          //      targetItemName = Database.EPIC_SHEZL_THE_MIRAGE_LANCER;
-          //      break;
-          //    case 4:
-          //      targetItemName = Database.LEGENDARY_ZVELDOSE_DEVIL_FIRE_RING_2;
-          //      break;
-          //    case 5:
-          //      targetItemName = Database.EPIC_ADILRING_OF_BLUE_BURN;
-          //      break;
-          //  }
-          //}
-          //#endregion
-          debugCounter6++;
+          debugCounter7++;
         }
         #endregion
         #region "ハズレ"
-        else if ((param1 + param2 + param3 + param4 + param5 + param6) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6 + param7)) // ハズレ 8.97 %
+        else if ((param1 + param2 + param3 + param4 + param5 + param6 + param7) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6 + param7 + param8)) // ハズレ 8.7 %
         {
           targetItemName = String.Empty;
-          debugCounter7++;
+          debugCounter8++;
         }
-        else // 万が一規定外の値はハズレ
+        else // 万が一規定外の値はハズレ 0.0%
         {
           targetItemName = String.Empty;
+          debugCounter9++;
         }
         #endregion
 
@@ -2491,7 +2563,7 @@ public static class One
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
               (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
-            if (1 <= randomValue7 && randomValue7 <= 50)
+            if (1 <= randomValue8 && randomValue8 <= 50)
             {
               targetItemName = Fix.POOR_BLACK_MATERIAL;
             }
@@ -2500,14 +2572,18 @@ public static class One
         #endregion
       }
 
-      Debug.Log(debugCounter1.ToString() + "(" + Convert.ToString((double)(((double)debugCounter1 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter2.ToString() + "(" + Convert.ToString((double)(((double)debugCounter2 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter3.ToString() + "(" + Convert.ToString((double)(((double)debugCounter3 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter4.ToString() + "(" + Convert.ToString((double)(((double)debugCounter4 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter5.ToString() + "(" + Convert.ToString((double)(((double)debugCounter5 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter6.ToString() + "(" + Convert.ToString((double)(((double)debugCounter6 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter7.ToString() + "(" + Convert.ToString((double)(((double)debugCounter7 / 10000.0f) * 100.0f)) + "\r\n" +
-                      debugCounter8.ToString() + "\r\n");
+      Debug.Log("1:Material  " + String.Format("{0, 4}", debugCounter1) + " (" + Convert.ToString((double)(((double)debugCounter1 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "2:Poor      " + String.Format("{0, 4}", debugCounter2) + " (" + Convert.ToString((double)(((double)debugCounter2 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "3:Common    " + String.Format("{0, 4}", debugCounter3) + " (" + Convert.ToString((double)(((double)debugCounter3 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "4:Uncommon  " + String.Format("{0, 4}", debugCounter4) + " (" + Convert.ToString((double)(((double)debugCounter4 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "5:Rare      " + String.Format("{0, 4}", debugCounter5) + " (" + Convert.ToString((double)(((double)debugCounter5 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "6:PowerUp   " + String.Format("{0, 4}", debugCounter6) + " (" + Convert.ToString((double)(((double)debugCounter6 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "7:Epic      " + String.Format("{0, 4}", debugCounter7) + " (" + Convert.ToString((double)(((double)debugCounter7 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "8:Lose      " + String.Format("{0, 4}", debugCounter8) + " (" + Convert.ToString((double)(((double)debugCounter8 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "9:Unknown   " + String.Format("{0, 4}", debugCounter9) + " (" + Convert.ToString((double)(((double)debugCounter9 / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "E: " + String.Format("{0, 4}", debugCounterE) + " (" + Convert.ToString((double)(((double)debugCounterE / 10000.0f) * 100.0f)) + " %)\r\n" +
+                "Total: " + (debugCounter1 + debugCounter2 + debugCounter3 + debugCounter4 + debugCounter5 + debugCounter6 + debugCounter7 + debugCounter8 + debugCounter9 + debugCounterE).ToString() + "\r\n" +
+                "L: " + debugCounter_L.ToString() + "\r\n");
 
       #region "ボス撃破、固定ドロップアイテム"
       if (category == Fix.DropItemCategory.Battle && ec1 != null && (ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || ec1.FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP))

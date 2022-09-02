@@ -1254,6 +1254,7 @@ public static partial class Fix
   public const string SWORD_OF_LIFE = "ソード・オブ・ライフ";
   public const string AERO_BLADE = "疾風の剣";
   public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
+  public const string PRACTICE_LANCE = "練習用の槍";
   public const string FINE_LANCE = "ファイン・ランス";
   public const string SHARP_LANCE = "シャープ・ランス";
   public const string WHITE_PARGE_LANCE = "ホワイトパージ・ランス";
@@ -1262,6 +1263,7 @@ public static partial class Fix
   public const string ELVISH_BOW = "エルヴィッシュ・ボウ";
   public const string ICICLE_LONGBOW = "アイシクル・ロングボウ";
   public const string MUMYOU_BOW = "無明の弓";
+  public const string PRACTICE_AXE = "練習用の斧";
   public const string FINE_AXE = "ファイン・アックス";
   public const string VIKING_AXE = "バイキング・アックス";
   public const string EARTH_POWER_AXE = "土力の斧";
@@ -1271,14 +1273,17 @@ public static partial class Fix
   public const string ENERGY_ORB = "エナジー・オーブ";
   public const string LIVING_GROWTH_ORB = "リビング・グロース・オーブ";
   public const string RED_PILLER_ORB = "炎柱の水晶玉";
+  public const string PRACTICE_ROD = "練習用の杖";
   public const string FINE_ROD = "ファイン・ロッド";
   public const string WOOD_ROD = "ウッド・ロッド";
   public const string TOUGH_TREE_ROD = "頑丈な樫の杖";
   public const string BLACK_SORCERER_ROD = "ブラック・ソーサラー・ロッド";
+  public const string PRACTICE_BOOK = "練習用の本";
   public const string FINE_BOOK = "ファイン・ブック";
   public const string KINDNESS_BOOK = "カインドネス・ブック";
   public const string SAINT_FAITHFUL_BOOK = "セイント・フェイスフル・ブック";
   public const string MUIN_BOOK = "無印の魔導書";
+  public const string PRACTICE_SHIELD = "練習用の盾";
   public const string FINE_SHIELD = "ファイン・シールド";
   public const string KITE_SHIELD = "カイト・シールド";
   public const string SUPERIOR_FLAME_SHIELD = "スペリオル・フレイム・シールド";
@@ -1288,10 +1293,25 @@ public static partial class Fix
   public const string FINE_CROSS = "ファイン・クロス";
   public const string BEGINNER_ROBE = "初心者のローブ";
   public const string FINE_ROBE = "ファイン・ローブ";
+
+  public const string HINJAKU_RING = "貧弱な腕輪";
+  public const string USUYOGORETA_FEATHER = "薄汚れた付け羽";
+  public const string NON_BRIGHT_ORB = "輝きの無い丸い球";
+  public const string KUKEI_BANGLE = "矩形のバングル";
+  public const string SUTERARESHI_EMBLEM = "捨てられし紋章";
+
+  public const string ADJUSTABLE_BELT = "調整されたベルト";
+  public const string BIRD_STATUE = "鳥の彫像";
+  public const string SHAPED_FINGERRING = "整った形の指輪";
+  public const string REFRESHED_MANTLE = "スッキリしたマント";
+  public const string COOL_CROWN = "品性ある王冠";
   public const string FLAT_SHOES = "フラット・シューズ";
   public const string COMPACT_EARRING = "コンパクト・イヤリング";
   public const string POWER_BANDANA = "パワー・バンダナ";
   public const string CHERRY_CHOKER = "チェリー・チョーカー";
+  public const string FIT_BANGLE = "フィット・バングル";
+  public const string PRISM_EMBLEM = "プリズム・エムブレム";
+
   public const string RED_PENDANT = "レッド・ペンダント";
   public const string BLUE_PENDANT = "ブルー・ペンダント";
   public const string PURPLE_PENDANT = "パープル・ペンダント";
