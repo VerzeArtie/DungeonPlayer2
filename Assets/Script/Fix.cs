@@ -246,7 +246,19 @@ public static partial class Fix
   public const string EFFECT_POWERUP_LIGHT = "UP Light";
   public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
 
+  public const string BUFF_RESIST_POISON = "Resist Poison";
+  public const string BUFF_RESIST_SILENCE = "Resist Silence";
+  public const string BUFF_RESIST_SLEEP = "Resist Sleep";
   public const string BUFF_RESIST_STUN = "Resist Stun";
+  public const string BUFF_RESIST_PARALYZE = "Resist Paralyze";
+  public const string BUFF_RESIST_FREEZE = "Resist Freeze";
+  public const string BUFF_RESIST_FEAR = "Resist Fear";
+  public const string BUFF_RESIST_TEMPTATION = "Resist Temptation";
+  public const string BUFF_RESIST_SLOW = "Resist Slow";
+  public const string BUFF_RESIST_DIZZY = "Resist Dizzy";
+  public const string BUFF_RESIST_SLIP = "Resist Slip";
+  public const string BUFF_RESIST_CANNOT_RESURRECT = "Resist Cannot-Resurrect";
+
   public const string EFFECT_RESIST_STUN = "Stun耐性";
   public const string EFFECT_REMOVE_STUN = "Stun除去";
 
@@ -1317,6 +1329,10 @@ public static partial class Fix
   public const string PURPLE_PENDANT = "パープル・ペンダント";
   public const string GREEN_PENDANT = "グリーン・ペンダント";
   public const string YELLOW_PENDANT = "イエロー・ペンダント";
+  public const string WARRIOR_BRACER = "ウォーリア・ブレーサー";
+  public const string STARDUST_CHARM = "星屑のお守り";
+  public const string BOLT_STONE = "電流石";
+
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
   #endregion

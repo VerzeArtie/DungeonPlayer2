@@ -1453,6 +1453,188 @@ public partial class Character : MonoBehaviour
   #endregion
 
   #region "Method"
+  // もう少し抽象化した書き方がありそうが、芋プログラミングで良しとする。
+  public bool GetResistPoisonLogic()
+  {
+    if ((this.IsResistPoison) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistPoison) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistPoison) ||
+     (this.MainArmor != null && this.MainArmor.ResistPoison) ||
+     (this.Accessory1 != null && this.Accessory1.ResistPoison) ||
+     (this.Accessory2 != null && this.Accessory2.ResistPoison) ||
+     (this.Artifact != null && this.Artifact.ResistPoison))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistSilence()
+  {
+    if ((this.IsResistSilence) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistSilence) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistSilence) ||
+     (this.MainArmor != null && this.MainArmor.ResistSilence) ||
+     (this.Accessory1 != null && this.Accessory1.ResistSilence) ||
+     (this.Accessory2 != null && this.Accessory2.ResistSilence) ||
+     (this.Artifact != null && this.Artifact.ResistSilence))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistSleep()
+  {
+    if ((this.IsResistSleep) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistSleep) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistSleep) ||
+     (this.MainArmor != null && this.MainArmor.ResistSleep) ||
+     (this.Accessory1 != null && this.Accessory1.ResistSleep) ||
+     (this.Accessory2 != null && this.Accessory2.ResistSleep) ||
+     (this.Artifact != null && this.Artifact.ResistSleep))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistStunLogic()
+  {
+    if ((this.IsResistStun) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistStun) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistStun) ||
+     (this.MainArmor != null && this.MainArmor.ResistStun) ||
+     (this.Accessory1 != null && this.Accessory1.ResistStun) ||
+     (this.Accessory2 != null && this.Accessory2.ResistStun) ||
+     (this.Artifact != null && this.Artifact.ResistStun))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistParalyzeLogic()
+  {
+    if ((this.IsResistParalyze) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistParalyze) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistParalyze) ||
+     (this.MainArmor != null && this.MainArmor.ResistParalyze) ||
+     (this.Accessory1 != null && this.Accessory1.ResistParalyze) ||
+     (this.Accessory2 != null && this.Accessory2.ResistParalyze) ||
+     (this.Artifact != null && this.Artifact.ResistParalyze))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistFreezeLogic()
+  {
+    if ((this.IsResistFreeze) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistFreeze) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistFreeze) ||
+     (this.MainArmor != null && this.MainArmor.ResistFreeze) ||
+     (this.Accessory1 != null && this.Accessory1.ResistFreeze) ||
+     (this.Accessory2 != null && this.Accessory2.ResistFreeze) ||
+     (this.Artifact != null && this.Artifact.ResistFreeze))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistFearLogic()
+  {
+    if ((this.IsResistFear) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistFear) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistFear) ||
+     (this.MainArmor != null && this.MainArmor.ResistFear) ||
+     (this.Accessory1 != null && this.Accessory1.ResistFear) ||
+     (this.Accessory2 != null && this.Accessory2.ResistFear) ||
+     (this.Artifact != null && this.Artifact.ResistFear))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistTemptationLogic()
+  {
+    if ((this.IsResistTemptation) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistTemptation) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistTemptation) ||
+     (this.MainArmor != null && this.MainArmor.ResistTemptation) ||
+     (this.Accessory1 != null && this.Accessory1.ResistTemptation) ||
+     (this.Accessory2 != null && this.Accessory2.ResistTemptation) ||
+     (this.Artifact != null && this.Artifact.ResistTemptation))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistSlowLogic()
+  {
+    if ((this.IsResistSlow) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistSlow) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistSlow) ||
+     (this.MainArmor != null && this.MainArmor.ResistSlow) ||
+     (this.Accessory1 != null && this.Accessory1.ResistSlow) ||
+     (this.Accessory2 != null && this.Accessory2.ResistSlow) ||
+     (this.Artifact != null && this.Artifact.ResistSlow))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistDizzyLogic()
+  {
+    if ((this.IsResistDizzy) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistDizzy) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistDizzy) ||
+     (this.MainArmor != null && this.MainArmor.ResistDizzy) ||
+     (this.Accessory1 != null && this.Accessory1.ResistDizzy) ||
+     (this.Accessory2 != null && this.Accessory2.ResistDizzy) ||
+     (this.Artifact != null && this.Artifact.ResistDizzy))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistSlipLogic()
+  {
+    if ((this.IsResistSlip) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistSlip) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistSlip) ||
+     (this.MainArmor != null && this.MainArmor.ResistSlip) ||
+     (this.Accessory1 != null && this.Accessory1.ResistSlip) ||
+     (this.Accessory2 != null && this.Accessory2.ResistSlip) ||
+     (this.Artifact != null && this.Artifact.ResistSlip))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistCannotResurrectLogic()
+  {
+    if ((this.IsResistCannotResurrect) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistCannotResurrect) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistCannotResurrect) ||
+     (this.MainArmor != null && this.MainArmor.ResistCannotResurrect) ||
+     (this.Accessory1 != null && this.Accessory1.ResistCannotResurrect) ||
+     (this.Accessory2 != null && this.Accessory2.ResistCannotResurrect) ||
+     (this.Artifact != null && this.Artifact.ResistCannotResurrect))
+    {
+      return true;
+    }
+    return false;
+  }
+
+
   public int GetPotentialEnergy()
   {
     return 100; // todo 係数化して変化があると良い。
@@ -1858,10 +2040,67 @@ public partial class Character : MonoBehaviour
     this.CurrentSoulPoint += 1;
   }
 
+
+  public BuffImage IsResistPoison
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_POISON); }
+  }
+
+  public BuffImage IsResistSilence
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_SILENCE); }
+  }
+
+  public BuffImage IsResistSleep
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_SLEEP); }
+  }
+
   public BuffImage IsResistStun
   {
     get { return SearchBuff(Fix.BUFF_RESIST_STUN); }
   }
+
+  public BuffImage IsResistParalyze
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_PARALYZE); }
+  }
+
+  public BuffImage IsResistFreeze
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_FREEZE); }
+  }
+
+  public BuffImage IsResistFear
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_FEAR); }
+  }
+
+  public BuffImage IsResistTemptation
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_TEMPTATION); }
+  }
+
+  public BuffImage IsResistSlow
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_SLOW); }
+  }
+
+  public BuffImage IsResistDizzy
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_DIZZY); }
+  }
+
+  public BuffImage IsResistSlip
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_SLIP); }
+  }
+
+  public BuffImage IsResistCannotResurrect
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_CANNOT_RESURRECT); }
+  }
+
 
   public BuffImage IsPoison
   {

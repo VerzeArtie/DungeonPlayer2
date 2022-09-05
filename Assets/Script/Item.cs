@@ -374,13 +374,13 @@ public partial class Item
   protected int _itemValue1 = 0;
   public int ItemValue1
   {
-    set 
+    set
     {
       if (value <= 0)
       {
         value = 0;
       }
-      _itemValue1 = value; 
+      _itemValue1 = value;
     }
     get { return _itemValue1; }
   }
@@ -399,7 +399,7 @@ public partial class Item
     get { return _itemValue2; }
   }
 
-  protected int _limitValue = 1; 
+  protected int _limitValue = 1;
   public int LimitValue
   {
     set
@@ -408,7 +408,7 @@ public partial class Item
       {
         value = 0;
       }
-      _limitValue = value; 
+      _limitValue = value;
     }
     get { return _limitValue; }
   }
@@ -459,7 +459,7 @@ public partial class Item
       {
         value = 0;
       }
-      _resistFire = value; 
+      _resistFire = value;
     }
     get { return _resistFire; }
   }
@@ -532,6 +532,102 @@ public partial class Item
       _resistEarth = value;
     }
     get { return _resistEarth; }
+  }
+
+  // 猛毒への耐性
+  protected bool _resistPoison = false;
+  public bool ResistPoison
+  {
+    set { _resistPoison = value; }
+    get { return _resistPoison; }
+  }
+
+  // 沈黙への耐性
+  protected bool _resistSilence = false;
+  public bool ResistSilence
+  {
+    set { _resistSilence = value; }
+    get { return _resistSilence; }
+  }
+
+  // 睡眠への耐性
+  protected bool _resistSleep = false;
+  public bool ResistSleep
+  {
+    set { _resistSleep = value; }
+    get { return _resistSleep; }
+  }
+
+  // スタンへの耐性
+  protected bool _resistStun = false;
+  public bool ResistStun
+  {
+    set { _resistStun = value; }
+    get { return _resistStun; }
+  }
+
+  // 麻痺への耐性
+  protected bool _resistParalyze = false;
+  public bool ResistParalyze
+  {
+    set { _resistParalyze = value; }
+    get { return _resistParalyze; }
+  }
+
+  // 凍結への耐性
+  protected bool _resistFreeze = false;
+  public bool ResistFreeze
+  {
+    set { _resistFreeze = value; }
+    get { return _resistFreeze; }
+  }
+
+  // 恐怖への耐性
+  protected bool _resistFear = false;
+  public bool ResistFear
+  {
+    set { _resistFear = value; }
+    get { return _resistFear; }
+  }
+
+  // 誘惑への耐性
+  protected bool _resistTemptation = false;
+  public bool ResistTemptation
+  {
+    set { _resistTemptation = value; }
+    get { return _resistTemptation; }
+  }
+
+  // 鈍化への耐性
+  protected bool _resistSlow = false;
+  public bool ResistSlow
+  {
+    set { _resistSlow = value; }
+    get { return _resistSlow; }
+  }
+
+  // 眩暈への耐性
+  protected bool _resistDizzy = false;
+  public bool ResistDizzy
+  {
+    set { _resistDizzy = value; }
+    get { return _resistDizzy; }
+  }
+
+  // 出血への耐性
+  protected bool _resistSlip = false;
+  public bool ResistSlip
+  {
+    set { _resistSlip = value; }
+    get { return _resistSlip; }
+  }
+
+  // 復活不可への耐性
+  protected bool _resistCannotResurrect = false;
+  public bool ResistCannotResurrect
+  {
+    set { _resistCannotResurrect = value; }
+    get { return _resistCannotResurrect; }
   }
 
   public void SetupItemView(Text txtName, Image img)
@@ -2725,6 +2821,93 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
+        break;
+
+      case Fix.WARRIOR_BRACER:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "戦士系が好んで装備する籠手。力がみなぎってくるのを感じる。力＋３、心＋１\r\nスタン耐性";
+        this._strength = 3;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 1;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistStun = true;
+        break;
+
+      case Fix.STARDUST_CHARM:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "魔法使い系が好んで使うストラップ型の魔除け。精神が統一されていくのを感じる。知＋３、心＋１\r\n猛毒耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 0;
+        this._mind = 1;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistPoison = true;
+        break;
+
+      case Fix.BOLT_STONE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1600;
+        this._importantType = Important.None;
+        this._description = "求道者系が好んで使う電流タイプの魔道石。持っていると、ほとばしる感覚が宿る。力＋２、知＋２\r\n眩暈耐性";
+        this._strength = 2;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistDizzy = true;
         break;
 
       case Fix.BLUE_WIZARD_HAT:
