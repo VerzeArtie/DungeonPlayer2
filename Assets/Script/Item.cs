@@ -550,6 +550,14 @@ public partial class Item
     get { return _resistSilence; }
   }
 
+  // 束縛への耐性
+  protected bool _resistBind = false;
+  public bool ResistBind
+  {
+    set { _resistBind = value; }
+    get { return _resistBind; }
+  }
+
   // 睡眠への耐性
   protected bool _resistSleep = false;
   public bool ResistSleep

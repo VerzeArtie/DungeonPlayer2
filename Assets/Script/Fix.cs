@@ -213,17 +213,10 @@ public static partial class Fix
   public static Color COLORFORE_ENEMY_CHARA = new Color(226.0f / 255.0f, 58.0f / 255.0f, 0 / 255.0f);
   #endregion
   #region "Buff Effect"
-  public const string EFFECT_POISON = "Poison";
   public const string EFFECT_HEART_OF_LIFE = "Life Gain";
   public const string EFFECT_SHADOW_BLAST = "Blind Effect";
   public const string EFFECT_FORTUNE = "Fortune";
-  public const string EFFECT_SLIP = "Slip";
-  public const string EFFECT_STUN = "Stun";
-  public const string EFFECT_BIND = "Bind";
-  public const string EFFECT_SLEEP = "Sleep";
-  public const string EFFECT_DIZZY = "Dizzy";
-  public const string EFFECT_SILENT = "Silent";
-  public const string EFFECT_SLOW = "Slow";
+
   public const string EFFECT_GAUGE_BACK = "Gauge Back";
 
   public const string EFFECT_PA_UP = "PA Up";
@@ -246,8 +239,23 @@ public static partial class Fix
   public const string EFFECT_POWERUP_LIGHT = "UP Light";
   public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
 
+  public const string EFFECT_POISON = "Poison";
+  public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
+  public const string EFFECT_BIND = "Bind";
+  public const string EFFECT_SLEEP = "Sleep";
+  public const string EFFECT_STUN = "Stun";
+  public const string EFFECT_PARALYZE = "Paralyze";
+  public const string EFFECT_FREEZE = "Freeze";
+  public const string EFFECT_FEAR = "Fear";
+  public const string EFFECT_TEMPTATION = "Temptation";
+  public const string EFFECT_SLOW = "Slow";
+  public const string EFFECT_DIZZY = "Dizzy";
+  public const string EFFECT_SLIP = "Slip";
+  public const string EFFECT_CANNOT_RESURRECT = "Cannot Resurrect";
+
   public const string BUFF_RESIST_POISON = "Resist Poison";
   public const string BUFF_RESIST_SILENCE = "Resist Silence";
+  public const string BUFF_RESIST_BIND = "Resist Bind";
   public const string BUFF_RESIST_SLEEP = "Resist Sleep";
   public const string BUFF_RESIST_STUN = "Resist Stun";
   public const string BUFF_RESIST_PARALYZE = "Resist Paralyze";
@@ -259,8 +267,32 @@ public static partial class Fix
   public const string BUFF_RESIST_SLIP = "Resist Slip";
   public const string BUFF_RESIST_CANNOT_RESURRECT = "Resist Cannot-Resurrect";
 
+  public const string EFFECT_RESIST_POISON = "Poison耐性";
+  public const string EFFECT_REMOVE_POISON = "Poison除去";
+  public const string EFFECT_RESIST_SILENCE = "Silence耐性";
+  public const string EFFECT_REMOVE_SILENCE = "Silence除去";
+  public const string EFFECT_RESIST_BIND = "Bind耐性";
+  public const string EFFECT_REMOVE_BIND = "Bind除去";
+  public const string EFFECT_RESIST_SLEEP = "Sleep耐性";
+  public const string EFFECT_REMOVE_SLEEP = "Sleep除去";
   public const string EFFECT_RESIST_STUN = "Stun耐性";
   public const string EFFECT_REMOVE_STUN = "Stun除去";
+  public const string EFFECT_RESIST_PARALYZE = "Paralyze耐性";
+  public const string EFFECT_REMOVE_PARALYZE = "Paralyze除去";
+  public const string EFFECT_RESIST_FREEZE = "Freeze耐性";
+  public const string EFFECT_REMOVE_FREEZE = "Freeze除去";
+  public const string EFFECT_RESIST_FEAR = "Fear耐性";
+  public const string EFFECT_REMOVE_FEAR = "Fear除去";
+  public const string EFFECT_RESIST_TEMPTATION = "Temptation耐性";
+  public const string EFFECT_REMOVE_TEMPTATION = "Temptation除去";
+  public const string EFFECT_RESIST_SLOW = "Slow耐性";
+  public const string EFFECT_REMOVE_SLOW = "Slow除去";
+  public const string EFFECT_RESIST_DIZZY = "Dizzy耐性";
+  public const string EFFECT_REMOVE_DIZZY = "Dizzy除去";
+  public const string EFFECT_RESIST_SLIP = "Slip耐性";
+  public const string EFFECT_REMOVE_SLIP = "Slip除去";
+  public const string EFFECT_RESIST_CANNOT_RESURRECT = "CannotResurrect耐性";
+  public const string EFFECT_REMOVE_CANNOT_RESURRECT = "CannotResurrect除去";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";

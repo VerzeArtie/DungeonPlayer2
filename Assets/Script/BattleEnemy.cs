@@ -3596,7 +3596,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
     if (success)
     {
-      if (target.IsResistStun)
+      if (target.GetResistStunLogic())
       {
         StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_STUN, Fix.COLOR_NORMAL);
         return;
@@ -4044,50 +4044,158 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecBuffPoison(Character player, Character target, int turn, double effect_value)
   {
+    if (target.GetResistPoisonLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_POISON, Fix.COLOR_NORMAL);
+      return;
+    }
+
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
   }
 
-  private void ExecBuffSlow(Character player, Character target, int turn, double effect_value)
+  private void ExecBuffSilent(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLOW, turn, effect_value, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLOW, Fix.COLOR_NORMAL);
+    if (target.GetResistSilenceLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SILENCE, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SILENT, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffBind(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistBindLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_BIND, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffSleep(Character player, Character target, int turn, double effect_value)
   {
+    if (target.GetResistSleepLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLEEP, Fix.COLOR_NORMAL);
+      return;
+    }
+
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLEEP, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLEEP, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffStun(Character player, Character target, int turn, double effect_value)
   {
+    if (target.GetResistStunLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_STUN, Fix.COLOR_NORMAL);
+      return;
+    }
+
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_STUN, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
   }
 
+  private void ExecBuffParalyze(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistParalyzeLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_PARALYZE, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_PARALYZE, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PARALYZE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffFreeze(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistFreezeLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FREEZE, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_FREEZE, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FREEZE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffFear(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistFearLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FEAR, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_FEAR, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FEAR, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffTemptation(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistTemptationLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_TEMPTATION, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_TEMPTATION, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_TEMPTATION, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffSlow(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistSlowLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLOW, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLOW, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLOW, Fix.COLOR_NORMAL);
+  }
+
   private void ExecBuffDizzy(Character player, Character target, int turn, double effect_value)
   {
+    if (target.GetResistDizzyLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_DIZZY, Fix.COLOR_NORMAL);
+      return;
+    }
+
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_DIZZY, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DIZZY, Fix.COLOR_NORMAL);
   }
 
-  private void ExecBuffBind(Character player, Character target, int turn, double effect_value)
-  {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, turn, effect_value, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
-  }
-
-  private void ExecBuffSilent(Character player, Character target, int turn, double effect_value)
-  {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SILENT, turn, effect_value, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
-  }
-
   private void ExecBuffSlip(Character player, Character target, int turn, double effect_value)
   {
+    if (target.GetResistSlipLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLIP, Fix.COLOR_NORMAL);
+      return;
+    }
+
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLIP, turn, effect_value, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLIP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecBuffCannotResurrect(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistCannotResurrectLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_CANNOT_RESURRECT, turn, effect_value, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffPhysicalAttackUp(Character player, Character target, int turn, double effect_value)

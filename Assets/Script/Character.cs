@@ -1469,7 +1469,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public bool GetResistSilence()
+  public bool GetResistSilenceLogic()
   {
     if ((this.IsResistSilence) ||
      (this.MainWeapon != null && this.MainWeapon.ResistSilence) ||
@@ -1484,7 +1484,22 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public bool GetResistSleep()
+  public bool GetResistBindLogic()
+  {
+    if ((this.IsResistBind) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistBind) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistBind) ||
+     (this.MainArmor != null && this.MainArmor.ResistBind) ||
+     (this.Accessory1 != null && this.Accessory1.ResistBind) ||
+     (this.Accessory2 != null && this.Accessory2.ResistBind) ||
+     (this.Artifact != null && this.Artifact.ResistBind))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool GetResistSleepLogic()
   {
     if ((this.IsResistSleep) ||
      (this.MainWeapon != null && this.MainWeapon.ResistSleep) ||
@@ -2049,6 +2064,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsResistSilence
   {
     get { return SearchBuff(Fix.BUFF_RESIST_SILENCE); }
+  }
+
+  public BuffImage IsResistBind
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_BIND); }
   }
 
   public BuffImage IsResistSleep
