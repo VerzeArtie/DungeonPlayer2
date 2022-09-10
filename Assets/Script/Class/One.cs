@@ -2091,13 +2091,6 @@ public static class One
 
         int randomValue = rd.Next(1, param1 + param2 + param3 + param4 + param5 + param6 + param7 + param8 + 1);
         int randomValue2 = rd.Next(1, 1 + param2 + param3 + param4 + param5);
-        int randomValue22 = rd.Next(1, 2);
-        int randomValue32 = rd.Next(1, 2);
-        int randomValue42 = rd.Next(1, 2);
-        int randomValue52 = rd.Next(1, 2);
-        int randomValue6 = rd.Next(1, 2);
-        int randomValue7 = rd.Next(1, 2);
-        int randomValue8 = rd.Next(1, 2);
 
         #region "エリア毎のアイテム総数に応じた値を設定"
         // 1階は上述宣言時の値そのもの
@@ -2107,13 +2100,6 @@ public static class One
             (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
             (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
         {
-          randomValue22 = rd.Next(1, 2);
-          randomValue32 = rd.Next(1, 2);
-          randomValue42 = rd.Next(1, 2);
-          randomValue52 = rd.Next(1, 2);
-          randomValue6 = rd.Next(1, 6);
-          randomValue7 = rd.Next(1, 3);
-          randomValue8 = rd.Next(1, 101);
         }
         #endregion
 
@@ -2150,6 +2136,7 @@ public static class One
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
             {
               int randomValue21 = rd.Next(1, 14);
@@ -2194,16 +2181,6 @@ public static class One
                   break;
                 case 13:
                   targetItemName = Fix.PRACTICE_SHIELD;
-                  break;
-              }
-            }
-            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
-            {
-              switch (randomValue22)
-              {
-                default:
-                  targetItemName = Fix.HINJAKU_RING;
                   break;
               }
             }
@@ -2290,16 +2267,6 @@ public static class One
                   targetItemName = Fix.FINE_ROBE;
                   break;
                 case 23:
-                  targetItemName = Fix.ENERGY_ORB;
-                  break;
-              }
-            }
-            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
-            {
-              switch (randomValue32)
-              {
-                default:
                   targetItemName = Fix.ENERGY_ORB;
                   break;
               }
@@ -2439,16 +2406,6 @@ public static class One
                   break;
               }
             }
-            else if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
-                     (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
-            {
-              switch (randomValue52)
-              {
-                case 1:
-                  targetItemName = Fix.FLAME_HAND_KEEPER;
-                  break;
-              }
-            }
             #endregion
             debugCounter5++;
           }
@@ -2468,6 +2425,8 @@ public static class One
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
               (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
+            int randomValue6 = rd.Next(1, 6);
+            Debug.Log("randomValue6: " + randomValue6);
             switch (randomValue6)
             {
               case 1:
@@ -2504,7 +2463,9 @@ public static class One
             // 低レベルの間に取得できてしまうのは、逆に拍子抜けしてしまうため、ブロックする。
             if (mc.Level <= 10)
             {
-              switch (randomValue6)
+              int randomValue7_1 = rd.Next(1, 6);
+              Debug.Log("randomValue7_1: " + randomValue7_1);
+              switch (randomValue7_1)
               {
                 case 1:
                   targetItemName = Fix.GROWTH_LIQUID_STRENGTH;
@@ -2525,7 +2486,9 @@ public static class One
             }
             else
             {
-              switch (randomValue7)
+              int randomValue7_2 = rd.Next(1, 3);
+              Debug.Log("randomValue7_2: " + randomValue7_2);
+              switch (randomValue7_2)
               {
                 case 1:
                   targetItemName = Fix.EPIC_RING_OF_OSCURETE;
@@ -2563,6 +2526,8 @@ public static class One
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area14) ||
               (category == Fix.DropItemCategory.Lottery && dungeonArea == 1))
           {
+            int randomValue8 = rd.Next(1, 101);
+            Debug.Log("randomValue8: " + randomValue8);
             if (1 <= randomValue8 && randomValue8 <= 50)
             {
               targetItemName = Fix.POOR_BLACK_MATERIAL;
