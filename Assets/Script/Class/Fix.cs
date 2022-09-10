@@ -3934,12 +3934,13 @@ public static partial class Fix
   public const string TOWN_ARCANEDINE = "アーケンダイン街";
   public const string TOWN_DALE = "ディルの街";
   public const string TOWER_OHRAN = "オーランの塔";
-  public const string TOWN_LATA_HOSE = "ラタの小屋";
+  public const string TOWN_LATA_HOUSE = "ラタの小屋";
   public const string TOWN_ZELMAN = "ゼールマンの里";
   public const string TOWER_FRAN = "フーランの塔";
   public const string TOWN_FAZIL_CASTLE = "ファージル宮殿";
   public const string TOWN_PARMETYSIA = "パルメテイシア神殿";
   public const string TOWN_EDELGARZEN_CASTLE = "エデルガイゼン城";
+  public const string TOWN_FAZIL_UNDERGROUND = "ファージル宮殿地下";
   #endregion
   #region "Dungeon"
   public const string DUNGEON_CAVEOFSARUN = "サルンの洞窟";
@@ -3952,6 +3953,7 @@ public static partial class Fix
   public const string DUNGEON_RUINS_OF_SARITAN = "廃墟サリタン";
   public const string DUNGEON_SNOWTREE_LATA = "雪原の大樹ラタ";
   public const string DUNGEON_DISKEL_BATTLE_FIELD = "ディスケル戦場跡地";
+  public const string DUNGEON_EDELGARZEN_CASTLE = "エデルガイゼン城";
   public const string DUNGEON_SITH_GRAVEYARD = "シスの墓標";
   public const string DUNGEON_GANRO_FORTRESS = "ガンロー要塞";
   public const string DUNGEON_LOSLON_CAVE = "ロスロンの洞窟";

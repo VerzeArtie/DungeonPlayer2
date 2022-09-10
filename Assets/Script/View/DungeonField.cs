@@ -384,7 +384,7 @@ public class DungeonField : MotherBase
     counter++;
     if (One.TF.AvailableZelman) { txtMapSelect[counter].text = Fix.TOWN_ZELMAN; }
     counter++;
-    if (One.TF.AvailableLataHouse) { txtMapSelect[counter].text = Fix.TOWN_LATA_HOSE; }
+    if (One.TF.AvailableLataHouse) { txtMapSelect[counter].text = Fix.TOWN_LATA_HOUSE; }
     counter++;
     if (One.TF.AvailableSithGraveyard) { txtMapSelect[counter].text = Fix.DUNGEON_SITH_GRAVEYARD; }
     counter++;
@@ -6394,7 +6394,7 @@ public class DungeonField : MotherBase
       }
       else if (tile.transform.position.x == 59 && tile.transform.position.y == 0.5 && tile.transform.position.z == 92)
       {
-        this.HomeTownCall = Fix.TOWN_LATA_HOSE;
+        this.HomeTownCall = Fix.TOWN_LATA_HOUSE;
         return true;
       }
       else if (tile.transform.position.x == 52 && tile.transform.position.y == 6.5 && tile.transform.position.z == 49)

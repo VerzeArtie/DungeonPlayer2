@@ -944,89 +944,154 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    // todo
-    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    // 行き先がホームタウンの場合
+    if (this.DungeonMap == Fix.TOWN_ANSHET ||
+        this.DungeonMap == Fix.TOWN_FAZIL_CASTLE ||
+        this.DungeonMap == Fix.TOWN_COTUHSYE ||
+        this.DungeonMap == Fix.TOWN_ARCANEDINE ||
+        this.DungeonMap == Fix.TOWN_PARMETYSIA ||
+        this.DungeonMap == Fix.TOWN_DALE ||
+        this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
+        this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
     {
-      One.TF.AlreadyDungeon = true;
-      One.TF.AlreadyRestInn = false;
-      this.HomeTownComplete = true;
-      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
-      One.TF.Field_X = 28.0f;
-      One.TF.Field_Y = 1.0f;
-      One.TF.Field_Z = 9.0f;
-      return;
+      ChangeHometown(One.TF.CurrentAreaName, this.DungeonMap);
     }
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+    // 行き先がダンジョンの場合
+    else if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
     {
-      if (this.DungeonMap == Fix.TOWN_ANSHET)
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
       {
-        One.TF.AlreadyDungeon = false;
-        One.TF.AlreadyRestInn = true;
-        this.HomeTownComplete = true;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        One.TF.CurrentAreaName = Fix.TOWN_ANSHET;// this.HomeTownCall;
-        SceneDimension.JumpToHomeTown();
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_CAVEOFSARUN, 28.0f, 1.0f, 9.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
-      else if (this.DungeonMap == Fix.TOWN_FAZIL_CASTLE)
+      else
       {
-        One.TF.AlreadyDungeon = false;
-        One.TF.AlreadyRestInn = true;
-        this.HomeTownComplete = true;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        One.TF.CurrentAreaName = Fix.TOWN_FAZIL_CASTLE;// this.HomeTownCall;
-        SceneDimension.JumpToHomeTown();
-      }
-      else if (this.DungeonMap == Fix.TOWN_COTUHSYE)
-      {
-        One.TF.AlreadyDungeon = false;
-        One.TF.AlreadyRestInn = true;
-        this.HomeTownComplete = true;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        One.TF.CurrentAreaName = Fix.TOWN_COTUHSYE;// this.HomeTownCall;
-        SceneDimension.JumpToHomeTown();
-      }
-      if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
-      {
-        One.TF.AlreadyDungeon = true;
-        One.TF.AlreadyRestInn = false;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        SceneDimension.JumpToDungeonField(Fix.MAPFILE_CAVEOFSARUN);
-        One.TF.Field_X = -9.0f;
-        One.TF.Field_Y = 1.0f;
-        One.TF.Field_Z = -4.0f;
-      }
-      else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
-      {
-        One.TF.AlreadyDungeon = true;
-        One.TF.AlreadyRestInn = false;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        SceneDimension.JumpToDungeonField(Fix.MAPFILE_GORATRUM);
-        One.TF.Field_X = 5.0f;
-        One.TF.Field_Y = 1.0f;
-        One.TF.Field_Z = -1.0f;
-      }
-      else if (this.DungeonMap == Fix.DUNGEON_MYSTIC_FOREST)
-      {
-        One.TF.AlreadyDungeon = true;
-        One.TF.AlreadyRestInn = false;
-        One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-        SceneDimension.JumpToDungeonField(Fix.MAPFILE_MYSTIC_FOREST);
-        One.TF.Field_X = 0.0f;
-        One.TF.Field_Y = 1.0f;
-        One.TF.Field_Z = -9.0f;
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_CAVEOFSARUN, -9.0f, 1.0f, -4.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
     }
-    //else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
-    //{
-    //  One.TF.Field_X = 24.0f;
-    //  One.TF.Field_Y = 1.0f;
-    //  One.TF.Field_Z = 3.0f;
-    //  One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-    //  SceneDimension.JumpToDungeonField(Fix.MAPFILE_BASE_FIELD);
-    //}
+    else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
+      {
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 5.0f, 1.0f, -1.0f);
+      }
+      else
+      {
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 1.0f, 5.0f, -1.0f);
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_MYSTIC_FOREST)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+      {
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_MYSTIC_FOREST, 0.0f, 1.0f, -9.0f);
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_OHRAN_TOWER)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
+          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
+      {
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_VELGUS_SEA_TEMPLE)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
+          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+      {
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_GATE_OF_DHAL)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
+          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+      {
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_DISKEL_BATTLE_FIELD)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
+          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA ||
+          One.TF.CurrentAreaName == Fix.TOWN_DALE)
+      {
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE)
+    {
+      if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET ||
+          One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE ||
+          One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
+          One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
+          One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA ||
+          One.TF.CurrentAreaName == Fix.TOWN_DALE)
+      {
+      }
+      else
+      {
+      }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_SNOWTREE_LATA)
+    {
+      // 入口・出口の分岐はない
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_HEAVENS_GENESIS_GATE)
+    {
+      // 入口・出口の分岐はない
+    }
+  }
+
+  private void CallDungeon(string source, string destination, float x, float y, float z)
+  {
+    Debug.Log("CallDungeon -> " + source + " " + destination);
+    One.TF.AlreadyDungeon = true;
+    One.TF.AlreadyRestInn = false;
+    One.TF.Field_X = x;
+    One.TF.Field_Y = y;
+    One.TF.Field_Z = z;
+    One.TF.BeforeAreaName = source;
+    SceneDimension.JumpToDungeonField(destination);
     groupNowLoading.SetActive(true);
   }
+
+  private void ChangeHometown(string source, string destination)
+  {
+    One.TF.AlreadyDungeon = false;
+    One.TF.AlreadyRestInn = true;
+    this.HomeTownComplete = true;
+    One.TF.BeforeAreaName = source;
+    One.TF.CurrentAreaName = destination;
+    SceneDimension.JumpToHomeTown();
+    groupNowLoading.SetActive(true);
+  }
+
   //public void TapInn()
   //{
   //  Debug.Log(MethodBase.GetCurrentMethod().Name);
