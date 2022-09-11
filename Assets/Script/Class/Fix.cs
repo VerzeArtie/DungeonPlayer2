@@ -1286,57 +1286,63 @@ public static partial class Fix
 
   #region "Item Name"
   #region "武具"
-  #region "１階：サルン洞窟前の草原"
+  #region "フェーズ【 Iー１ 】：サルン洞窟前の草原区域"
+  public const string PRACTICE_SWORD = "練習用の剣";
+  public const string PRACTICE_LANCE = "練習用の槍";
+  public const string PRACTICE_AXE = "練習用の斧";
   public const string PRACTICE_CLAW = "練習用の爪";
+  public const string PRACTICE_ROD = "練習用の杖";
+  public const string PRACTICE_BOOK = "練習用の本";
+  public const string PRACTICE_ORB = "練習用のオーブ";
+  public const string PRACTICE_SHIELD = "練習用の盾";
+
+  public const string FINE_SWORD = "ファイン・ソード";
+  public const string FINE_LANCE = "ファイン・ランス";
+  public const string FINE_AXE = "ファイン・アックス";
   public const string FINE_CLAW = "ファイン・クロー";
+  public const string FINE_ROD = "ファイン・ロッド";
+  public const string FINE_BOOK = "ファイン・ブック";
+  public const string FINE_ORB = "ファイン・オーブ";
+  public const string FINE_LARGE_SWORD = "ファイン・ラージ・ソード";
+  public const string FINE_LARGE_LANCE = "ファイン・ラージ・ランス";
+  public const string FINE_LARGE_AXE = "ファイン・ラージ・アックス";
+  public const string FINE_BOW = "ファイン・ボウ";
+  public const string FINE_LARGE_STAFF = "ファイン・ラージ・スタッフ";
+  public const string FINE_SHIELD = "ファイン・シールド";
+  public const string FINE_ARMOR = "ファイン・アーマー";
+  public const string FINE_CROSS = "ファイン・クロス";
+  public const string FINE_ROBE = "ファイン・ローブ";
+
   public const string SURVIVAL_CLAW = "サバイバル・クロー";
   public const string RISING_FORCE_CLAW = "ライジング・フォース・クロー";
   public const string LIGHTNING_CLAW = "電光の爪";
-  public const string PRACTICE_SWORD = "練習用の剣";
-  public const string FINE_SWORD = "ファイン・ソード";
   public const string BRONZE_SWORD = "ブロンズ・ソード";
   public const string SWORD_OF_LIFE = "ソード・オブ・ライフ";
   public const string AERO_BLADE = "疾風の剣";
   public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
-  public const string PRACTICE_LANCE = "練習用の槍";
-  public const string FINE_LANCE = "ファイン・ランス";
   public const string SHARP_LANCE = "シャープ・ランス";
   public const string WHITE_PARGE_LANCE = "ホワイトパージ・ランス";
   public const string ICE_SPIRIT_LANCE = "氷魂の槍";
-  public const string FINE_BOW = "ファイン・ボウ";
   public const string ELVISH_BOW = "エルヴィッシュ・ボウ";
   public const string ICICLE_LONGBOW = "アイシクル・ロングボウ";
   public const string MUMYOU_BOW = "無明の弓";
-  public const string PRACTICE_AXE = "練習用の斧";
-  public const string FINE_AXE = "ファイン・アックス";
   public const string VIKING_AXE = "バイキング・アックス";
   public const string EARTH_POWER_AXE = "土力の斧";
   public const string WARWOLF_AXE = "ワーウルフ・アックス";
-  public const string PRACTICE_ORB = "練習用のオーブ";
-  public const string FINE_ORB = "ファイン・オーブ";
   public const string ENERGY_ORB = "エナジー・オーブ";
   public const string LIVING_GROWTH_ORB = "リビング・グロース・オーブ";
   public const string RED_PILLER_ORB = "炎柱の水晶玉";
-  public const string PRACTICE_ROD = "練習用の杖";
-  public const string FINE_ROD = "ファイン・ロッド";
   public const string WOOD_ROD = "ウッド・ロッド";
   public const string TOUGH_TREE_ROD = "頑丈な樫の杖";
   public const string BLACK_SORCERER_ROD = "ブラック・ソーサラー・ロッド";
-  public const string PRACTICE_BOOK = "練習用の本";
-  public const string FINE_BOOK = "ファイン・ブック";
   public const string KINDNESS_BOOK = "カインドネス・ブック";
   public const string SAINT_FAITHFUL_BOOK = "セイント・フェイスフル・ブック";
   public const string MUIN_BOOK = "無印の魔導書";
-  public const string PRACTICE_SHIELD = "練習用の盾";
-  public const string FINE_SHIELD = "ファイン・シールド";
   public const string KITE_SHIELD = "カイト・シールド";
   public const string SUPERIOR_FLAME_SHIELD = "スペリオル・フレイム・シールド";
   public const string BEGINNER_ARMOR = "初心者の鎧";
-  public const string FINE_ARMOR = "ファイン・アーマー";
   public const string BEGINNER_CROSS = "初心者の舞踏衣";
-  public const string FINE_CROSS = "ファイン・クロス";
   public const string BEGINNER_ROBE = "初心者のローブ";
-  public const string FINE_ROBE = "ファイン・ローブ";
 
   public const string HINJAKU_RING = "貧弱な腕輪";
   public const string USUYOGORETA_FEATHER = "薄汚れた付け羽";
@@ -1368,32 +1374,54 @@ public static partial class Fix
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
   #endregion
-  #region "２階：ゴラトラム洞窟"
+  #region "フェーズ【 Iー２ 】：サルン洞窟前の草原区域"
+  public const string CLASSICAL_SWORD = "クラシカル・ソード";
+  public const string CLASSICAL_LANCE = "クラシカル・ランス";
+  public const string CLASSICAL_AXE = "クラシカル・アックス";
+  public const string CLASSICAL_CLAW = "クラシカル・クロー";
+  public const string CLASSICAL_ROD = "クラシカル・ロッド";
+  public const string CLASSICAL_BOOK = "クラシカル・ブック";
+  public const string CLASSICAL_ORB = "クラシカル・オーブ";
+  public const string CLASSICAL_LARGE_SWORD = "クラシカル・ラージ・ソード";
+  public const string CLASSICAL_LARGE_LANCE = "クラシカル・ラージ・ランス";
+  public const string CLASSICAL_LARGE_AXE = "クラシカル・ラージ・アックス";
+  public const string CLASSICAL_BOW = "クラシカル・ボウ";
+  public const string CLASSICAL_LARGE_STAFF = "クラシカル・ラージ・スタッフ";
+  public const string CLASSICAL_SHIELD = "クラシカル・シールド";
+  public const string CLASSICAL_ARMOR = "クラシカル・アーマー";
+  public const string CLASSICAL_CROSS = "クラシカル・クロス";
+  public const string CLASSICAL_ROBE = "クラシカル・ローブ";
+
   #endregion
-  #region "３階：神秘の森"
-  public const string SMART_CLAW = "スマート・クロー";
-  public const string DANCING_CLAW = "ダンシング・クロー";
+  #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
-  public const string CUTTING_BLADE = "カッティング・ブレード";
   public const string SMART_LANCE = "スマート・ランス";
-  public const string SWIFT_SPEAR = "スウィフト・スピア";
-  public const string SMART_BOW = "スマート・ボウ";
-  public const string LONG_BOW = "ロング・ボウ";
   public const string SMART_AXE = "スマート・アックス";
-  public const string POWERED_AXE = "パワード・アックス";
-  public const string SMART_ORB = "スマート・オーブ";
-  public const string FOCUS_ORB = "フォーカス・オーブ";
+  public const string SMART_CLAW = "スマート・クロー";
   public const string SMART_ROD = "スマート・ロッド";
-  public const string AUTUMN_ROD = "オータムン・ロッド";
   public const string SMART_BOOK = "スマート・ブック";
-  public const string BULKY_BOOK = "バルキー・ブック";
+  public const string SMART_ORB = "スマート・オーブ";
+  public const string SMART_LARGE_SWORD = "スマート・ラージ・ソード";
+  public const string SMART_LARGE_LANCE = "スマート・ラージ・ランス";
+  public const string SMART_LARGE_AXE = "スマート・ラージ・アックス";
+  public const string SMART_BOW = "スマート・ボウ";
+  public const string SMART_LARGE_STAFF = "スマート・ラージ・スタッフ";
   public const string SMART_SHIELD = "スマート・シールド";
-  public const string WIDE_BUCKLER = "ワイド・バックラー";
   public const string SMART_ARMOR = "スマート・アーマー";
-  public const string GOTHIC_PLATE = "ゴシック・プレート";
   public const string SMART_CROSS = "スマート・クロス";
-  public const string LETHER_CROSS = "レザー・クロス";
   public const string SMART_ROBE = "スマート・ローブ";
+
+  public const string DANCING_CLAW = "ダンシング・クロー";
+  public const string CUTTING_BLADE = "カッティング・ブレード";
+  public const string SWIFT_SPEAR = "スウィフト・スピア";
+  public const string POWERED_AXE = "パワード・アックス";
+  public const string LONG_BOW = "ロング・ボウ";
+  public const string AUTUMN_ROD = "オータムン・ロッド";
+  public const string BULKY_BOOK = "バルキー・ブック";
+  public const string FOCUS_ORB = "フォーカス・オーブ";
+  public const string WIDE_BUCKLER = "ワイド・バックラー";
+  public const string GOTHIC_PLATE = "ゴシック・プレート";
+  public const string LETHER_CROSS = "レザー・クロス";
   public const string SILK_ROBE = "シルク・ローブ";
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
@@ -1418,6 +1446,114 @@ public static partial class Fix
   public const string COPPERRING_SPIDER = "銅の腕輪『蜘蛛』";
   public const string COPPERRING_DEER = "銅の腕輪『鹿』";
   public const string COPPERRING_ELEPHANT = "銅の腕輪『象』";
+  #endregion
+  #region "フェーズ【 IIー２ 】：オーランの塔"
+  public const string SUPERIOR_SWORD = "スペリオル・ソード";
+  public const string SUPERIOR_LANCE = "スペリオル・ランス";
+  public const string SUPERIOR_AXE = "スペリオル・アックス";
+  public const string SUPERIOR_CLAW = "スペリオル・クロー";
+  public const string SUPERIOR_ROD = "スペリオル・ロッド";
+  public const string SUPERIOR_BOOK = "スペリオル・ブック";
+  public const string SUPERIOR_ORB = "スペリオル・オーブ";
+  public const string SUPERIOR_LARGE_SWORD = "スペリオル・ラージ・ソード";
+  public const string SUPERIOR_LARGE_LANCE = "スペリオル・ラージ・ランス";
+  public const string SUPERIOR_LARGE_AXE = "スペリオル・ラージ・アックス";
+  public const string SUPERIOR_BOW = "スペリオル・ボウ";
+  public const string SUPERIOR_LARGE_STAFF = "スペリオル・ラージ・スタッフ";
+  public const string SUPERIOR_SHIELD = "スペリオル・シールド";
+  public const string SUPERIOR_ARMOR = "スペリオル・アーマー";
+  public const string SUPERIOR_CROSS = "スペリオル・クロス";
+  public const string SUPERIOR_ROBE = "スペリオル・ローブ";
+  #endregion
+  #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
+  public const string EXCELLENT_SWORD = "エクセレント・ソード";
+  public const string EXCELLENT_LANCE = "エクセレント・ランス";
+  public const string EXCELLENT_AXE = "エクセレント・アックス";
+  public const string EXCELLENT_CLAW = "エクセレント・クロー";
+  public const string EXCELLENT_ROD = "エクセレント・ロッド";
+  public const string EXCELLENT_BOOK = "エクセレント・ブック";
+  public const string EXCELLENT_ORB = "エクセレント・オーブ";
+  public const string EXCELLENT_LARGE_SWORD = "エクセレント・ラージ・ソード";
+  public const string EXCELLENT_LARGE_LANCE = "エクセレント・ラージ・ランス";
+  public const string EXCELLENT_LARGE_AXE = "エクセレント・ラージ・アックス";
+  public const string EXCELLENT_BOW = "エクセレント・ボウ";
+  public const string EXCELLENT_LARGE_STAFF = "エクセレント・ラージ・スタッフ";
+  public const string EXCELLENT_SHIELD = "エクセレント・シールド";
+  public const string EXCELLENT_ARMOR = "エクセレント・アーマー";
+  public const string EXCELLENT_CROSS = "エクセレント・クロス";
+  public const string EXCELLENT_ROBE = "エクセレント・ローブ";
+  #endregion
+  #region "フェーズ【 IIIー２ 】：ダルの門"
+  public const string MARVELOUS_SWORD = "マーベラス・ソード";
+  public const string MARVELOUS_LANCE = "マーベラス・ランス";
+  public const string MARVELOUS_AXE = "マーベラス・アックス";
+  public const string MARVELOUS_CLAW = "マーベラス・クロー";
+  public const string MARVELOUS_ROD = "マーベラス・ロッド";
+  public const string MARVELOUS_BOOK = "マーベラス・ブック";
+  public const string MARVELOUS_ORB = "マーベラス・オーブ";
+  public const string MARVELOUS_LARGE_SWORD = "マーベラス・ラージ・ソード";
+  public const string MARVELOUS_LARGE_LANCE = "マーベラス・ラージ・ランス";
+  public const string MARVELOUS_LARGE_AXE = "マーベラス・ラージ・アックス";
+  public const string MARVELOUS_BOW = "マーベラス・ボウ";
+  public const string MARVELOUS_LARGE_STAFF = "マーベラス・ラージ・スタッフ";
+  public const string MARVELOUS_SHIELD = "マーベラス・シールド";
+  public const string MARVELOUS_ARMOR = "マーベラス・アーマー";
+  public const string MARVELOUS_CROSS = "マーベラス・クロス";
+  public const string MARVELOUS_ROBE = "マーベラス・ローブ";
+  #endregion
+  #region "フェーズ【 IVー１ 】：ディスケル戦場跡地"
+  public const string MASTER_SWORD = "マスター・ソード";
+  public const string MASTER_LANCE = "マスター・ランス";
+  public const string MASTER_AXE = "マスター・アックス";
+  public const string MASTER_CLAW = "マスター・クロー";
+  public const string MASTER_ROD = "マスター・ロッド";
+  public const string MASTER_BOOK = "マスター・ブック";
+  public const string MASTER_ORB = "マスター・オーブ";
+  public const string MASTER_LARGE_SWORD = "マスター・ラージ・ソード";
+  public const string MASTER_LARGE_LANCE = "マスター・ラージ・ランス";
+  public const string MASTER_LARGE_AXE = "マスター・ラージ・アックス";
+  public const string MASTER_BOW = "マスター・ボウ";
+  public const string MASTER_LARGE_STAFF = "マスター・ラージ・スタッフ";
+  public const string MASTER_SHIELD = "マスター・シールド";
+  public const string MASTER_ARMOR = "マスター・アーマー";
+  public const string MASTER_CROSS = "マスター・クロス";
+  public const string MASTER_ROBE = "マスター・ローブ";
+  #endregion
+  #region "フェーズ【 IVー２ 】：エデルガイゼン城"
+  public const string EXTREME_SWORD = "エクストリーム・ソード";
+  public const string EXTREME_LANCE = "エクストリーム・ランス";
+  public const string EXTREME_AXE = "エクストリーム・アックス";
+  public const string EXTREME_CLAW = "エクストリーム・クロー";
+  public const string EXTREME_ROD = "エクストリーム・ロッド";
+  public const string EXTREME_BOOK = "エクストリーム・ブック";
+  public const string EXTREME_ORB = "エクストリーム・オーブ";
+  public const string EXTREME_LARGE_SWORD = "エクストリーム・ラージ・ソード";
+  public const string EXTREME_LARGE_LANCE = "エクストリーム・ラージ・ランス";
+  public const string EXTREME_LARGE_AXE = "エクストリーム・ラージ・アックス";
+  public const string EXTREME_BOW = "エクストリーム・ボウ";
+  public const string EXTREME_LARGE_STAFF = "エクストリーム・ラージ・スタッフ";
+  public const string EXTREME_SHIELD = "エクストリーム・シールド";
+  public const string EXTREME_ARMOR = "エクストリーム・アーマー";
+  public const string EXTREME_CROSS = "エクストリーム・クロス";
+  public const string EXTREME_ROBE = "エクストリーム・ローブ";
+  #endregion
+  #region "フェーズ【 Vー１ 】：雪原の大樹ラタ"
+  public const string INCREDIBLE_SWORD = "インクレディブル・ソード";
+  public const string INCREDIBLE_LANCE = "インクレディブル・ランス";
+  public const string INCREDIBLE_AXE = "インクレディブル・アックス";
+  public const string INCREDIBLE_CLAW = "インクレディブル・クロー";
+  public const string INCREDIBLE_ROD = "インクレディブル・ロッド";
+  public const string INCREDIBLE_BOOK = "インクレディブル・ブック";
+  public const string INCREDIBLE_ORB = "インクレディブル・オーブ";
+  public const string INCREDIBLE_LARGE_SWORD = "インクレディブル・ラージ・ソード";
+  public const string INCREDIBLE_LARGE_LANCE = "インクレディブル・ラージ・ランス";
+  public const string INCREDIBLE_LARGE_AXE = "インクレディブル・ラージ・アックス";
+  public const string INCREDIBLE_BOW = "インクレディブル・ボウ";
+  public const string INCREDIBLE_LARGE_STAFF = "インクレディブル・ラージ・スタッフ";
+  public const string INCREDIBLE_SHIELD = "インクレディブル・シールド";
+  public const string INCREDIBLE_ARMOR = "インクレディブル・アーマー";
+  public const string INCREDIBLE_CROSS = "インクレディブル・クロス";
+  public const string INCREDIBLE_ROBE = "インクレディブル・ローブ";
   #endregion
 
   public const string ZETANIUM_STONE = "ゼタニウム鉱石";
@@ -1444,8 +1580,6 @@ public static partial class Fix
   public const string EPIC_MERGIZD_SOL_BLADE = @"Mergizd Sol Blade";
 
   public const string GEAR_GENSEI = "ギア【厳正】";
-  public const string MASTER_SWORD = "マスター・ソード";
-  public const string MASTER_SHIELD = "マスター・シールド";
   public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";
   #endregion
   #region "無価値アイテム"
