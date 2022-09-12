@@ -1313,6 +1313,10 @@ public static partial class Fix
   public const string FINE_CROSS = "ファイン・クロス";
   public const string FINE_ROBE = "ファイン・ローブ";
 
+  public const string HEAVY_ARMOR = "ヘヴィ・アーマー";
+  public const string LEATHER_CROSS = "レザー・クロス";
+  public const string COTTON_ROBE = "コットン・ローブ";
+
   public const string SURVIVAL_CLAW = "サバイバル・クロー";
   public const string RISING_FORCE_CLAW = "ライジング・フォース・クロー";
   public const string LIGHTNING_CLAW = "電光の爪";
@@ -1421,7 +1425,6 @@ public static partial class Fix
   public const string FOCUS_ORB = "フォーカス・オーブ";
   public const string WIDE_BUCKLER = "ワイド・バックラー";
   public const string GOTHIC_PLATE = "ゴシック・プレート";
-  public const string LETHER_CROSS = "レザー・クロス";
   public const string SILK_ROBE = "シルク・ローブ";
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
