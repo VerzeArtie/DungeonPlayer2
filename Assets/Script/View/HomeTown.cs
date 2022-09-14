@@ -977,7 +977,7 @@ public partial class HomeTown : MotherBase
       }
       else
       {
-        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 1.0f, 5.0f, -1.0f);
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_GORATRUM, 1.0f, 1.0f, -5.0f);
       }
     }
     else if (this.DungeonMap == Fix.DUNGEON_MYSTIC_FOREST)
