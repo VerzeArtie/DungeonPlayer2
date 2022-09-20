@@ -1327,7 +1327,6 @@ public static partial class Fix
   public const string SHARP_LANCE = "シャープ・ランス";
   public const string WHITE_PARGE_LANCE = "ホワイトパージ・ランス";
   public const string ICE_SPIRIT_LANCE = "氷魂の槍";
-  public const string ELVISH_BOW = "エルヴィッシュ・ボウ";
   public const string ICICLE_LONGBOW = "アイシクル・ロングボウ";
   public const string MUMYOU_BOW = "無明の弓";
   public const string VIKING_AXE = "バイキング・アックス";
@@ -1378,7 +1377,7 @@ public static partial class Fix
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
   #endregion
-  #region "フェーズ【 Iー２ 】：サルン洞窟前の草原区域"
+  #region "フェーズ【 Iー２ 】：ゴラトラム洞窟"
   public const string CLASSICAL_SWORD = "クラシカル・ソード";
   public const string CLASSICAL_LANCE = "クラシカル・ランス";
   public const string CLASSICAL_AXE = "クラシカル・アックス";
@@ -1396,6 +1395,65 @@ public static partial class Fix
   public const string CLASSICAL_CROSS = "クラシカル・クロス";
   public const string CLASSICAL_ROBE = "クラシカル・ローブ";
 
+  public const string SMASH_BLADE = "スマッシュ・ブレード";
+  public const string STYLISH_LANCE = "スタイリッシュ・ランス";
+  public const string LAND_AXE = "ランド・アックス";
+  public const string SAVAGE_CLAW = "サベージ・クロー";
+  public const string WINGED_ROD = "ウィングド・ロッド";
+  public const string EXPERT_BOOK = "エキスパート・ブック";
+  public const string FLOATING_ORB = "フローティング・オーブ";
+  public const string ELVISH_BOW = "エルヴィッシュ・ボウ";
+  public const string IRON_SHIELD = "アイアン・シールド";
+  public const string IRON_ARMOR = "アイアン・アーマー";
+  public const string CROSSCHAIN_MAIL = "クロスチェイン・メイル";
+  public const string CHIFFON_ROBE = "シフォン・ローブ";
+
+  public const string BLUE_LIGHTNING_SWORD = "ブルー・ライトニング・ソード";
+  public const string ASH_EXCLUDE_LANCE = "アッシュ・エクスクルード・ランス";
+  public const string BONE_CRUSH_AXE = "ボーン・クラッシュ・アックス";
+  public const string COLD_SPLASH_CLAW = "コールド・スプラッシュ・クロー";
+  public const string SEKISOUJU_ROD = "赤双授の杖";
+  public const string GORGON_EYES_BOOK = "ゴルゴン・アイズ・ブック";
+  public const string STAR_FUSION_ORB = "スター・フュージョン・オーブ";
+  public const string MADAN_SHOOTING_STAR = "魔弾・シューティング・スター";
+  public const string SILVER_EARTH_SHIELD = "シルバー・アース・シールド";
+  public const string ROIZ_IMPERIAL_ARMOR = "ロイズ・インペリアル・アーマー";
+  public const string SWIFT_THUNDER_CROSS = "スウィフト・サンダー・クロス";
+  public const string CROWD_DIRGE_ROBE = "クラウド・ダージェ・ローブ";
+
+  public const string HUANTEI_RING = "不安定なリング";
+  public const string DEPRESS_FEATHER = "デプレス・フェザー";
+  public const string STIFF_BELT = "窮屈なベルト";
+  public const string LOST_NAME_EMBLEM = "名を失った紋章";
+  public const string DAMAGED_STATUE = "傷アリの彫像";
+  public const string USED_HQ_BOOTS = "古びた高級ブーツ";
+  public const string MAGICLIGHT_FIRE = "マジックライト【炎】";
+  public const string MAGICLIGHT_ICE = "マジックライト【氷】";
+  public const string MAGICLIGHT_SHADOW = "マジックライト【闇】";
+  public const string MAGICLIGHT_LIGHT = "マジックライト【聖】";
+  public const string MAGICLIGHT_WIND = "マジックライト【風】";
+  public const string MAGICLIGHT_EARTH = "マジックライト【土】";
+
+  public const string COPPERRING_TIGER = "銅の腕輪『虎』";
+  public const string COPPERRING_DORPHINE = "銅の腕輪『イルカ』";
+  public const string COPPERRING_HORSE = "銅の腕輪『馬』";
+  public const string COPPERRING_BEAR = "銅の腕輪『熊』";
+  public const string COPPERRING_HAYABUSA = "銅の腕輪『隼』";
+  public const string COPPERRING_OCTOPUS = "銅の腕輪『タコ』";
+  public const string COPPERRING_RABBIT = "銅の腕輪『兎』";
+  public const string COPPERRING_SPIDER = "銅の腕輪『蜘蛛』";
+  public const string COPPERRING_DEER = "銅の腕輪『鹿』";
+  public const string COPPERRING_ELEPHANT = "銅の腕輪『象』";
+
+  public const string STEEL_ANKLET = "鋼鉄のアンクレット";
+  public const string CLEAN_HEARBAND = "清潔な髪飾り";
+  public const string TRUTH_GLASSES = "真実メガネ";
+  public const string FIVECOLOR_COMPASS = "５色のコンパス";
+  public const string ZEPHYR_FEATHER_BLUE = "ゼフィール・フェザー・蒼";
+  public const string CRIMSON_GAUNTLET = "深紅のガントレット";
+  public const string BURIED_DANZAIANGEL_STATUE = "闇に埋もれし断罪天使の偶像";
+  public const string LIGHT_HAKURUANGEL_STATUE = "輝ける珀流天使の偶像";
+  public const string JADE_NOBLE_CIRCLET = "翡翠色の高貴なサークレット";
   #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
@@ -1439,16 +1497,6 @@ public static partial class Fix
   public const string PURPLE_AMULET = "パープル・アミュレット";
   public const string GREEN_AMULET = "グリーン・アミュレット";
   public const string YELLOW_AMULET = "イエロー・アミュレット";
-  public const string COPPERRING_TIGER = "銅の腕輪『虎』";
-  public const string COPPERRING_DORPHINE = "銅の腕輪『イルカ』";
-  public const string COPPERRING_HORSE = "銅の腕輪『馬』";
-  public const string COPPERRING_BEAR = "銅の腕輪『熊』";
-  public const string COPPERRING_HAYABUSA = "銅の腕輪『隼』";
-  public const string COPPERRING_OCTOPUS = "銅の腕輪『タコ』";
-  public const string COPPERRING_RABBIT = "銅の腕輪『兎』";
-  public const string COPPERRING_SPIDER = "銅の腕輪『蜘蛛』";
-  public const string COPPERRING_DEER = "銅の腕輪『鹿』";
-  public const string COPPERRING_ELEPHANT = "銅の腕輪『象』";
   #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";

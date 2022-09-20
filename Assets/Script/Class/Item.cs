@@ -811,8 +811,12 @@ public partial class Item
   {
     this._itemName = item_name;
     this._stackValue = 1; // 必ず１つ存在する。
+    this._gripType = GripTypes.None;
+    this._importantType = Important.None;
+
     switch (item_name)
     {
+      #region "サルン洞窟前の草原区域"
       case Fix.PRACTICE_CLAW:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Onehand_Claw;
@@ -1279,34 +1283,6 @@ public partial class Item
         this._gold = 800;
         this._importantType = Important.None;
         this._description = "標準的な弓。一般的な冒険者にとっては安心して使える。物理攻撃力７～１２";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.ELVISH_BOW:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Twohand_Bow;
-        this._gripType = GripTypes.TwoHand;
-        this._battleAccuracy = 88;
-        this._physicalAttack = 11;
-        this._physicalAttackMax = 17;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 1150;
-        this._importantType = Important.None;
-        this._description = "";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -3057,399 +3033,8 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         break;
-
-      case Fix.SMALL_RED_POTION:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 60;
-        this._itemValue2 = 80;
-        this._gold = 150;
-        this._importantType = Important.None;
-        this._description = "小さい赤ポーション。初心者の間は重宝する必需品。ライフ回復量60～80";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.NORMAL_RED_POTION:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 300;
-        this._itemValue2 = 450;
-        this._gold = 400;
-        this._importantType = Important.None;
-        this._description = "普通の赤ポーション。一般的な戦闘において重宝する必需品。ライフ回復量300～450";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.LARGE_RED_POTION:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 700;
-        this._itemValue2 = 960;
-        this._gold = 1000;
-        this._importantType = Important.None;
-        this._description = "大きな赤ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ライフ回復700～960";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.HUGE_RED_POTION:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 1500;
-        this._itemValue2 = 2300;
-        this._gold = 3200;
-        this._importantType = Important.None;
-        this._description = "巨大な赤ポーション。歴戦の強者達が好んで携帯する必需品。ライフ回復1500～2300";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.HQ_RED_POTION:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 3600;
-        this._itemValue2 = 4500;
-        this._gold = 5400;
-        this._importantType = Important.None;
-        this._description = "高品質の赤ポーション。上級戦では常識で使用される必需品。ライフ回復3600～4500";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.THQ_RED_POTION:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 8000;
-        this._itemValue2 = 12000;
-        this._gold = 8500;
-        this._importantType = Important.None;
-        this._description = "最高品質の赤ポーション。上位ランクを超えし者が手にする必需品。ライフ回復8000～12000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.PERFECT_RED_POTION:
-        this._rarity = Rarity.Epic;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 25000;
-        this._itemValue2 = 30000;
-        this._gold = 15000;
-        this._importantType = Important.None;
-        this._description = "完全な赤ポーション。入手できた者はこの世に僅かしか存在しない。ライフ回復25000～30000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.SMALL_BLUE_POTION:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 30;
-        this._itemValue2 = 40;
-        this._gold = 150;
-        this._importantType = Important.None;
-        this._description = "小さい青ポーション。初心者の間は重宝する必需品。ソウルポイント回復量30～40";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.NORMAL_BLUE_POTION:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 160;
-        this._itemValue2 = 240;
-        this._gold = 400;
-        this._importantType = Important.None;
-        this._description = "普通の青ポーション。一般的な戦闘において重宝する必需品。ソウルポイント回復量160～240";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.LARGE_BLUE_POTION:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 320;
-        this._itemValue2 = 400;
-        this._gold = 1000;
-        this._importantType = Important.None;
-        this._description = "大きな青ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ソウルポイント回復320～400";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.HUGE_BLUE_POTION:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 600;
-        this._itemValue2 = 1000;
-        this._gold = 3200;
-        this._importantType = Important.None;
-        this._description = "巨大な青ポーション。歴戦の強者達が好んで携帯する必需品。ソウルポイント回復600～1000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.HQ_BLUE_POTION:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 1500;
-        this._itemValue2 = 2000;
-        this._gold = 5400;
-        this._importantType = Important.None;
-        this._description = "高品質の青ポーション。上級戦では常識で使用される必需品。ソウルポイント回復1500～2000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.THQ_BLUE_POTION:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 3500;
-        this._itemValue2 = 5000;
-        this._gold = 8500;
-        this._importantType = Important.None;
-        this._description = "最高品質の青ポーション。上位ランクを超えし者が手にする必需品。ソウルポイント回復3500～5000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.PERFECT_BLUE_POTION:
-        this._rarity = Rarity.Epic;
-        this._itemType = ItemTypes.Potion;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 10000;
-        this._itemValue2 = 12000;
-        this._gold = 15000;
-        this._importantType = Important.None;
-        this._description = "完全な青ポーション。入手出来た者はこの世に僅かしか存在しない。ソウルポイント回復10000～12000";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
+      #endregion
+      #region "ゴラトラム洞窟"
       case Fix.CLASSICAL_SWORD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Sword;
@@ -3457,25 +3042,43 @@ public partial class Item
         this._battleAccuracy = 95;
         this._physicalAttack = 25;
         this._physicalAttackMax = 35;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 4000;
         this._importantType = Important.None;
         this._description = "伝統的な剣。威力、使いやすさと共に申し分はない。物理攻撃力２５～３５";
-        this._strength = 0;
+        break;
+
+      case Fix.SMASH_BLADE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 32;
+        this._physicalAttackMax = 38;
+        this._gold = 5000;
+        this._importantType = Important.None;
+        this._description = "グリップが良く、切れ味も良い。安定以上の使い心地があり、振るのが楽しくなる。物理攻撃力３２～３８、力＋２、心＋２";
+        this._strength = 2;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        this._mind = 2;
+        break;
+
+      case Fix.BLUE_LIGHTNING_SWORD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 45;
+        this._physicalAttackMax = 62;
+        this._gold = 9000;
+        this._importantType = Important.None;
+        this._description = "青い閃光が剣の中に埋め込まれている。剣を振るうたびに、青光の残影がのこるため、青い稲妻が走ったように見える。物理攻撃力４５～６２、力＋３、心＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【電撃】ダメージが追加で発生する。";
+        this._strength = 3;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 3;
         break;
 
       case Fix.CLASSICAL_LANCE:
@@ -3485,25 +3088,43 @@ public partial class Item
         this._battleAccuracy = 93;
         this._physicalAttack = 30;
         this._physicalAttackMax = 42;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 4200;
         this._importantType = Important.None;
         this._description = "伝統的な槍。威力、使いやすさと共に申し分はない。物理攻撃力３０～４２";
-        this._strength = 0;
-        this._agility = 0;
+        break;
+
+      case Fix.STYLISH_LANCE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._physicalAttack = 35;
+        this._physicalAttackMax = 48;
+        this._gold = 5200;
+        this._importantType = Important.None;
+        this._description = "軽さと威力を両立している槍。構えた時の見栄えも良く愛好者は多い。物理攻撃力３５～４８、力＋２、技＋２";
+        this._strength = 2;
+        this._agility = 2;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.ASH_EXCLUDE_LANCE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._physicalAttack = 52;
+        this._physicalAttackMax = 75;
+        this._gold = 9200;
+        this._importantType = Important.None;
+        this._description = "粉塵を薙ぎ払う事を連想させる槍。比較的大きめで、槍の形も特殊な形状をしており、見ている者を恐れさせる。物理攻撃力５２～７５、力＋３、技＋３\r\n　【特殊能力】物理攻撃が対象にヒットした場合、【出血】のBUFFを付与する。";
+        this._strength = 3;
+        this._agility = 3;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
         break;
 
       case Fix.CLASSICAL_AXE:
@@ -3513,25 +3134,43 @@ public partial class Item
         this._battleAccuracy = 90;
         this._physicalAttack = 35;
         this._physicalAttackMax = 50;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 4400;
         this._importantType = Important.None;
         this._description = "伝統的な斧。威力、使いやすさと共に申し分はない。物理攻撃力３５～５０";
-        this._strength = 0;
+        break;
+
+      case Fix.LAND_AXE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 90;
+        this._physicalAttack = 37;
+        this._physicalAttackMax = 59;
+        this._gold = 5400;
+        this._importantType = Important.None;
+        this._description = "ズッシリとした重みとフルスイングした時の爽快さが戦闘意欲を引き立たせる。物理攻撃力３７～５９、力＋２、体＋２";
+        this._strength = 2;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 2;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.BONE_CRUSH_AXE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 90;
+        this._physicalAttack = 60;
+        this._physicalAttackMax = 97;
+        this._gold = 9400;
+        this._importantType = Important.None;
+        this._description = "骨を粉砕するぐらいの威力で猛威を振るう斧。全体的に大きめだが片手で振り回せ、かつ、打撃力も高い。物理攻撃力６０～９７、力＋３、体＋３\r\n　【特殊能力】物理攻撃が対象にヒットした場合、対象の物理防御力を５％減少させる。";
+        this._strength = 3;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
         break;
 
       case Fix.CLASSICAL_CLAW:
@@ -3541,25 +3180,43 @@ public partial class Item
         this._battleAccuracy = 98;
         this._physicalAttack = 23;
         this._physicalAttackMax = 28;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 3800;
         this._importantType = Important.None;
         this._description = "伝統的な爪。威力、使いやすさと共に申し分はない。物理攻撃力２３～２８";
+        break;
+
+      case Fix.SAVAGE_CLAW:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 27;
+        this._physicalAttackMax = 35;
+        this._gold = 4800;
+        this._importantType = Important.None;
+        this._description = "爪の先端を意図的に荒れた状態にして仕上げられた作品。攻撃スタイルは野蛮な方が威力は上がる。物理攻撃力２７～３５、技＋２、心＋２";
         this._strength = 0;
-        this._agility = 0;
+        this._agility = 2;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        this._mind = 2;
+        break;
+
+      case Fix.COLD_SPLASH_CLAW:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 42;
+        this._physicalAttackMax = 55;
+        this._gold = 8900;
+        this._importantType = Important.None;
+        this._description = "武具全体が凍結した状態で固形化されており、非常に鋭い切れ味の爪に仕上がっている。物理攻撃力４２～５５、技＋３、心＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
+        this._strength = 0;
+        this._agility = 3;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 3;
         break;
 
       case Fix.CLASSICAL_ROD:
@@ -3567,27 +3224,45 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Rod;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 95;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
         this._magicAttack = 25;
         this._magicAttackMax = 35;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 4000;
         this._importantType = Important.None;
         this._description = "伝統的な杖。威力、使いやすさと共に申し分はない。魔法攻撃力２５～３５";
+        break;
+
+      case Fix.WINGED_ROD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._magicAttack = 32;
+        this._magicAttackMax = 38;
+        this._gold = 5000;
+        this._importantType = Important.None;
+        this._description = "持ち手の所に小さな羽が装飾されている杖。手元へ魔力が集約されるのを感じ取れる。魔法攻撃力３２～３８、知＋２、心＋２";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 2;
         this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        this._mind = 2;
+        break;
+
+      case Fix.SEKISOUJU_ROD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._magicAttack = 45;
+        this._magicAttackMax = 62;
+        this._gold = 8400;
+        this._importantType = Important.None;
+        this._description = "炎の力を増幅させるため、炎を２つの球体に分離した形で杖の取っ手に宿した大杖。魔法攻撃力４５～６２、知＋３、心＋３\r\n　【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で発生する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 0;
+        this._mind = 3;
         break;
 
       case Fix.CLASSICAL_BOOK:
@@ -3595,27 +3270,45 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Book;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 93;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
         this._magicAttack = 30;
         this._magicAttackMax = 42;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 4200;
         this._importantType = Important.None;
         this._description = "伝統的な本。威力、使いやすさと共に申し分はない。魔法攻撃力３０～４２";
+        break;
+
+      case Fix.EXPERT_BOOK:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._magicAttack = 35;
+        this._magicAttackMax = 48;
+        this._gold = 5200;
+        this._importantType = Important.None;
+        this._description = "一人前になった冒険者が良く持ち歩く本。本書の読み解きを経て詠唱すれば自ずと威力は上がる。魔法攻撃力３5～４８、知＋２、体＋２";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
+        this._intelligence = 2;
+        this._stamina = 2;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.GORGON_EYES_BOOK:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 93;
+        this._magicAttack = 52;
+        this._magicAttackMax = 75;
+        this._gold = 8600;
+        this._importantType = Important.None;
+        this._description = "ゴルゴンの目玉が描かれている魔道の書物。持っているだけでも禍々しさがあるが、魔法を放つ時その目が光りだす。魔法攻撃力５２～７５、知＋３、体＋３\r\n　【特殊能力】魔法攻撃が対象にヒットした場合、【猛毒】のBUFFを付与する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 3;
+        this._mind = 0;
         break;
 
       case Fix.CLASSICAL_ORB:
@@ -3623,28 +3316,47 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Orb;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 35;
-        this._magicAttackMax = 50;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4400;
+        this._magicAttack = 23;
+        this._magicAttackMax = 28;
+        this._gold = 3800;
         this._importantType = Important.None;
-        this._description = "伝統的な水晶。威力、使いやすさと共に申し分はない。魔法攻撃力３５～５０";
+        this._description = "伝統的な水晶。威力、使いやすさと共に申し分はない。魔法攻撃力２３～２８";
+        break;
+
+      case Fix.FLOATING_ORB:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._magicAttack = 27;
+        this._magicAttackMax = 35;
+        this._gold = 4800;
+        this._importantType = Important.None;
+        this._description = "一人前が扱う水晶は基本的な魔力が備えられており、常に浮いた状態となる。魔法攻撃力２７～３５、技＋２、知＋２";
         this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
+        this._agility = 2;
+        this._intelligence = 2;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
+
+      case Fix.STAR_FUSION_ORB:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._magicAttack = 42;
+        this._magicAttackMax = 55;
+        this._gold = 8500;
+        this._importantType = Important.None;
+        this._description = "星型と丸形を融合させた形状のオーブ。白く輝いており、見ているものを惑わせる。魔法攻撃力４２～５５、技＋３、知＋３　【特殊能力】魔法攻撃が対象にヒットした場合、【聖】ダメージが追加で発生する。";
+        this._strength = 0;
+        this._agility = 3;
+        this._intelligence = 3;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
 
       case Fix.CLASSICAL_LARGE_SWORD:
         this._rarity = Rarity.Common;
@@ -3737,12 +3449,6 @@ public partial class Item
         this._battleAccuracy = 88;
         this._physicalAttack = 50;
         this._physicalAttackMax = 70;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 7200;
         this._importantType = Important.None;
         this._description = "伝統的な弓。威力、使いやすさと共に申し分はない。物理攻撃力５０～７０";
@@ -3751,11 +3457,40 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.ELVISH_BOW:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 55;
+        this._physicalAttackMax = 74;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "過去の時代に繁栄していたエルフ族が作った弓。射やすく作られており飛距離がある。物理攻撃力５５～７４、力＋２、知＋２";
+        this._strength = 2;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.MADAN_SHOOTING_STAR:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 75;
+        this._physicalAttackMax = 100;
+        this._gold = 8500;
+        this._importantType = Important.None;
+        this._description = "禍々しい魔力がこめられた魔道弾丸が矢として放たれる。通常の物理攻撃とは異なる何かを受けた者は食らう。物理攻撃力７５～１００、力＋３、知＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
+        this._strength = 3;
+        this._agility = 0;
+        this._intelligence = 3;
+        this._stamina = 0;
+        this._mind = 0;
         break;
 
       case Fix.CLASSICAL_LARGE_STAFF:
@@ -3790,56 +3525,87 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Shield;
         this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
         this._physicalDefense = 10;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 3200;
         this._importantType = Important.None;
         this._description = "伝統的な盾。持ちやすさと防御のしやすさ、共に申し分はない。物理防御力１０";
+        break;
+
+      case Fix.IRON_SHIELD:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 16;
+        this._gold = 3900;
+        this._importantType = Important.None;
+        this._description = "ゴツくて重たい鉄製の盾。使いにくさはあるが、ガッチリ防衛するのには適している。物理防御力１６、体＋２";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 2;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SILVER_EARTH_SHIELD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 25;
+        this._magicDefense = 15;
+        this._gold = 3900;
+        this._importantType = Important.None;
+        this._description = "土属性のエッセンスをシルバー素材に埋め込んで作成された盾。物理防御はもちろんの事、魔法耐性も幾ばくか付与されている。物理防御力２５、魔法防御力１５、体＋３、土耐性＋１５０、沈黙耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistEarth = 150;
+        this._resistSilence = true;
         break;
 
       case Fix.CLASSICAL_ARMOR:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Heavy_Armor;
         this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
         this._physicalDefense = 16;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 3600;
         this._importantType = Important.None;
         this._description = "伝統的な鎧。重量感、防御力共に申し分はない。物理防御力１６";
+        break;
+
+      case Fix.IRON_ARMOR:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 16;
+        this._gold = 3600;
+        this._importantType = Important.None;
+        this._description = "暑苦しいが硬さを保証してくれる鉄製の鎧。物理防御力２８、体＋２";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 2;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.ROIZ_IMPERIAL_ARMOR:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 52;
+        this._gold = 7000;
+        this._importantType = Important.None;
+        this._description = "ロイズ社が皇族向けに制作した鎧。護衛を示す印が刻まれており装着者は様々な恩恵を受けられる。物理防御力５２、体＋４、土耐性１５０、風耐性１５０、スタン耐性、沈黙耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 4;
+        this._mind = 0;
+        this._resistEarth = 150;
+        this._resistWind = 150;
+        this._resistStun = true;
+        this._resistSilence = true;
         break;
 
       case Fix.CLASSICAL_CROSS:
@@ -3870,27 +3636,110 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.CROSSCHAIN_MAIL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 18;
+        this._magicDefense = 10;
+        this._gold = 4300;
+        this._importantType = Important.None;
+        this._description = "通常の舞踏衣を意識したものではなく、素早さを求めつつある程度の防御力も兼ね備えている。物理防御力１８、魔法防御力１０、体＋１、心＋１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 1;
+        this._mind = 1;
+        break;
+
+      case Fix.SWIFT_THUNDER_CROSS:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 30;
+        this._magicDefense = 22;
+        this._gold = 6800;
+        this._importantType = Important.None;
+        this._description = "重さを全く感じさせない稲妻紋様が入った舞踏衣。攻守を兼ね備えた防護服として仕上がっている。物理防御力３０、魔法防御力２２、体＋２、心＋２、炎耐性＋１５０、氷耐性＋１５０、猛毒耐性、鈍化耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 2;
+        this._mind = 2;
+        this._resistFire = 150;
+        this._resistIce = 150;
+        this._resistPoison = true;
+        this._resistSlow = true;
+        break;
+
       case Fix.CLASSICAL_ROBE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 4;
+        this._magicDefense = 12;
+        this._gold = 4200;
+        this._importantType = Important.None;
+        this._description = "伝統的なローブ。薄さと魔法防御共に申し分はない。物理防御力４、魔法防御力１２";
+        break;
+
+      case Fix.CHIFFON_ROBE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 8;
+        this._magicDefense = 20;
+        this._gold = 4700;
+        this._importantType = Important.None;
+        this._description = "シフォン製で製作された高級感が漂うローブ。見た目とは裏腹に戦闘特化型の形態となっており動きやすい。物理防御力８、魔法防御力２０、心＋２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 2;
+        break;
+
+      case Fix.CROWD_DIRGE_ROBE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 15;
+        this._magicDefense = 37;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "ローブにしては重量感を伴うが、通常の魔法耐性以外にも聖・闇に対する特化能力がこめられている。物理防御力１５、魔法防御力３７、心＋４、聖耐性＋１５０、闇耐性＋１５０、束縛耐性、恐怖耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 4;
+        this._resistLight = 150;
+        this._resistShadow = 150;
+        this._resistBind = true;
+        this._resistFear = true;
+        break;
+
+      case Fix.HUANTEI_RING:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 4;
-        this._magicDefense = 12;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 4200;
+        this._gold = 1000;
         this._importantType = Important.None;
-        this._description = "伝統的なローブ。薄さと魔法防御共に申し分はない。物理防御力４、魔法防御力１２";
-        this._strength = 0;
+        this._description = "パワーを感じる事はあるが、安定しない感触がある指輪。力＋２、知＋２、心＋２";
+        this._strength = 2;
         this._agility = 0;
-        this._intelligence = 0;
+        this._intelligence = 2;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 2;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -3898,6 +3747,547 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.DEPRESS_FEATHER:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "軽快な感触は得られず、不運な感情がつきまとう羽飾り。技＋２、知＋２、心＋２";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 2;
+        this._stamina = 0;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.STIFF_BELT:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "しっかりした形で頑丈なのだが、窮屈すぎるベルト。力＋２、体＋２、心＋２";
+        this._strength = 2;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 2;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.LOST_NAME_EMBLEM:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "由緒正しき家系を示す紋様に見えるが、原型を留めておらず、活力は感じられない。知＋２、体＋２、心＋２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 2;
+        this._stamina = 2;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.DAMAGED_STATUE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "何か象徴的なものを司る彫像だったようだが、破損がひどく容が見えない。力＋２、技＋２、心＋２";
+        this._strength = 2;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.USED_HQ_BOOTS:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "元々は高品質素材で作られたブーツの様だが、かなり使用されたもので履き心地が良くない。技＋２、体＋２、心＋２";
+        this._strength = 0;
+        this._agility = 2;
+        this._intelligence = 0;
+        this._stamina = 2;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+        // todo 炎耐性以外は記述不要なパラメタ。全switch-caseで不要パラメタを明記するのは不要である。
+      case Fix.MAGICLIGHT_FIRE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "炎の残影を宿しているマジックライト。僅かに炎のイメージが入り込んでくる。体＋３、炎耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistFire = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.MAGICLIGHT_ICE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "氷の残影を宿しているマジックライト。僅かに氷のイメージが入り込んでくる。体＋３、氷耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistIce = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.MAGICLIGHT_SHADOW:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "闇の残影を宿しているマジックライト。僅かに闇のイメージが入り込んでくる。体＋３、闇耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistShadow = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.MAGICLIGHT_LIGHT:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "聖の残影を宿しているマジックライト。僅かに聖のイメージが入り込んでくる。体＋３、聖耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistLight = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.MAGICLIGHT_WIND:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "風の残影を宿しているマジックライト。僅かに風のイメージが入り込んでくる。体＋３、風耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistWind = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.MAGICLIGHT_EARTH:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 1200;
+        this._description = "土の残影を宿しているマジックライト。僅かに土のイメージが入り込んでくる。体＋３、土耐性５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 3;
+        this._mind = 0;
+        this._resistEarth = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        break;
+
+      case Fix.COPPERRING_TIGER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "虎の刻印が施された銅の腕輪。力＋５、技＋５";
+        this._strength = 5;
+        this._agility = 5;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_DORPHINE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "イルカの刻印が施された銅の腕輪。力＋５、知＋５";
+        this._strength = 5;
+        this._agility = 0;
+        this._intelligence = 5;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_HORSE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "馬の刻印が施された銅の腕輪。力＋５、体＋５";
+        this._strength = 5;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_BEAR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "熊の刻印が施された銅の腕輪。力＋５、心＋５";
+        this._strength = 5;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 5;
+        break;
+
+      case Fix.COPPERRING_HAYABUSA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "隼の刻印が施された銅の腕輪。技＋５、知＋５";
+        this._strength = 0;
+        this._agility = 5;
+        this._intelligence = 5;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_OCTOPUS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "タコの刻印が施された銅の腕輪。技＋５、体＋５";
+        this._strength = 0;
+        this._agility = 5;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_RABBIT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "兎の刻印が施された銅の腕輪。技＋５、心＋５";
+        this._strength = 0;
+        this._agility = 5;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 5;
+        break;
+
+      case Fix.COPPERRING_SPIDER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "蜘蛛の刻印が施された銅の腕輪。知＋５、体＋５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 5;
+        this._stamina = 5;
+        this._mind = 0;
+        break;
+
+      case Fix.COPPERRING_DEER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "鹿の刻印が施された銅の腕輪。知＋５、心＋５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 5;
+        this._stamina = 0;
+        this._mind = 5;
+        break;
+
+      case Fix.COPPERRING_ELEPHANT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gold = 2000;
+        this._description = "象の刻印が施された銅の腕輪。体＋５、心＋５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 5;
+        break;
+
+      case Fix.RED_AMULET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500;
+        this._description = "純赤色を司るアミュレット。確かな力のエッセンスを感じ取れる。力＋１５";
+        this._strength = 15;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.BLUE_AMULET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500;
+        this._description = "純青色を司るアミュレット。確かな技のエッセンスを感じ取れる。技＋１５";
+        this._strength = 0;
+        this._agility = 15;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.PURPLE_AMULET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500;
+        this._description = "純紫色を司るアミュレット。確かな知のエッセンスを感じ取れる。知＋１５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 15;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.GREEN_AMULET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500;
+        this._description = "純緑色を司るアミュレット。確かな体のエッセンスを感じ取れる。体＋１５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 15;
+        this._mind = 0;
+        break;
+
+      case Fix.YELLOW_AMULET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500;
+        this._description = "純黄色を司るアミュレット。確かな心のエッセンスを感じ取れる。心＋１５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 15;
+        break;
+
+      case Fix.STEEL_ANKLET:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3800;
+        this._description = "鋼鉄製のアンクレット。安定感を生む脚力を引き出してくれる。力＋７、体＋５、麻痺耐性";
+        this._strength = 7;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 5;
+        this._mind = 0;
+        this._resistParalyze = true;
+        break;
+
+      case Fix.CLEAN_HEARBAND:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3800;
+        this._description = "清潔感のある髪飾り。安らぎと闘争心を同時にもたらしてくれる。技＋５、知＋７、睡眠耐性";
+        this._strength = 0;
+        this._agility = 5;
+        this._intelligence = 7;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistSleep = true;
+        break;
+
+      case Fix.TRUTH_GLASSES:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3800;
+        this._description = "真実が見えると噂されているメガネ。しかし装着自体に意味はなく、パワーアップを感じるかどうかは本人の心得次第である。技＋５、心＋７、誘惑耐性";
+        this._strength = 0;
+        this._agility = 5;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 7;
+        this._resistTemptation = true;
+        break;
+
+      case Fix.FIVECOLOR_COMPASS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 4000;
+        this._description = "カラフルな色で構成されたコンパス。暗い中でもこれがあれば安心できる上、色彩が活力を与えてくれる。力＋４、技＋４、知＋４、体＋４、心＋４";
+        this._strength = 4;
+        this._agility = 4;
+        this._intelligence = 4;
+        this._stamina = 4;
+        this._mind = 4;
+        break;
+
+      case Fix.ZEPHYR_FEATHER_BLUE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 7200;
+        this._description = "ゼフィールの羽は装着者に研ぎ澄まされた高速の感覚を与えてくる。また、ワンテンポ上位の戦闘感覚が身体に流れ込んでくる。技＋２２、知＋８、鈍化耐性、スタン耐性、氷属性の攻撃ダメージ＋５％";
+        this._strength = 0;
+        this._agility = 22;
+        this._intelligence = 8;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistSlow = true;
+        this._resistStun = true;
+        // this._amplifyIce = 1.05; // todo 属性毎の増幅プロパティが無い。
+        break;
+
+      case Fix.CRIMSON_GAUNTLET:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 7500;
+        this._description = "深紅に染まった重厚なガントレットは装着者に武器を振るう時の手元のグリップ力を増強してくれる。また、ワンテンポ上位の攻撃する意志を伝導させてくる。力＋２２、技＋８、沈黙耐性、束縛耐性、炎属性の攻撃ダメージ＋５％";
+        this._strength =22;
+        this._agility = 8;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistSilence = true;
+        this._resistBind = true;
+        // this._amplifyFire = 1.05; // todo 属性毎の増幅プロパティが無い。
+        break;
+
+      case Fix.BURIED_DANZAIANGEL_STATUE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 8000;
+        this._description = "闇を司る断罪天使を形容させた偶像。これを持っているだけで、闇からの恩恵を受けている感覚が発生する。知＋２２、体＋８、恐怖耐性、誘惑耐性、闇属性の攻撃ダメージ＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 22;
+        this._stamina = 8;
+        this._mind = 0;
+        this._resistFear = true;
+        this._resistTemptation = true;
+        // this._amplifyShadow = 1.05; // todo 属性毎の増幅プロパティが無い。
+        break;
+
+      case Fix.LIGHT_HAKURUANGEL_STATUE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 8000;
+        this._description = "聖を司る琥珀天使を形容させた偶像。偶像から放たれる聖なるオーラは保持者に対して勇気を護衛の意志を与える。体＋２２、心＋８、猛毒耐性、スタン耐性、聖属性の攻撃ダメージ＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 22;
+        this._stamina = 0;
+        this._mind = 8;
+        this._resistPoison = true;
+        this._resistStun = true;
+        // this._amplifyLight = 1.05; // todo 属性毎の増幅プロパティが無い。
+        break;
+
+      case Fix.JADE_NOBLE_CIRCLET:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 8500;
+        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、宝玉ソケット１、風耐性１００、風属性の攻撃ダメージ＋５％";
+        this._strength = 10;
+        this._agility = 10;
+        this._intelligence = 10;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistWind = 100;
+        // this._amplifyWind = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this.CanbeSocket1 = true;
+        break;
+
+      #endregion
+      #region "神秘の森"
       case Fix.SMART_CLAW:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Claw;
@@ -4766,9 +5156,11 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.RED_AMULET:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      #endregion
+      #region "ポーション"
+      case Fix.SMALL_RED_POTION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -4777,12 +5169,12 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 7500;
+        this._itemValue1 = 60;
+        this._itemValue2 = 80;
+        this._gold = 150;
         this._importantType = Important.None;
-        this._description = "";
-        this._strength = 10;
+        this._description = "小さい赤ポーション。初心者の間は重宝する必需品。ライフ回復量60～80";
+        this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
@@ -4794,9 +5186,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.BLUE_AMULET:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      case Fix.NORMAL_RED_POTION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -4805,13 +5197,13 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 7500;
+        this._itemValue1 = 300;
+        this._itemValue2 = 450;
+        this._gold = 400;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "普通の赤ポーション。一般的な戦闘において重宝する必需品。ライフ回復量300～450";
         this._strength = 0;
-        this._agility = 10;
+        this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -4822,9 +5214,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.PURPLE_AMULET:
+      case Fix.LARGE_RED_POTION:
         this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -4833,97 +5225,13 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 7500;
+        this._itemValue1 = 700;
+        this._itemValue2 = 960;
+        this._gold = 1000;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "大きな赤ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ライフ回復700～960";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 10;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.GREEN_AMULET:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 7500;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 10;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.YELLOW_AMULET:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 7500;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.COPPERRING_TIGER:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 7;
-        this._agility = 7;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -4934,9 +5242,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.COPPERRING_DORPHINE:
+      case Fix.HUGE_RED_POTION:
         this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -4945,14 +5253,14 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
+        this._itemValue1 = 1500;
+        this._itemValue2 = 2300;
+        this._gold = 3200;
         this._importantType = Important.None;
-        this._description = "";
-        this._strength = 7;
+        this._description = "巨大な赤ポーション。歴戦の強者達が好んで携帯する必需品。ライフ回復1500～2300";
+        this._strength = 0;
         this._agility = 0;
-        this._intelligence = 7;
+        this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
@@ -4962,9 +5270,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.COPPERRING_HORSE:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      case Fix.HQ_RED_POTION:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -4973,70 +5281,14 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
+        this._itemValue1 = 3600;
+        this._itemValue2 = 4500;
+        this._gold = 5400;
         this._importantType = Important.None;
-        this._description = "";
-        this._strength = 7;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 7;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.COPPERRING_BEAR:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 7;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 7;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.COPPERRING_HAYABUSA:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "";
+        this._description = "高品質の赤ポーション。上級戦では常識で使用される必需品。ライフ回復3600～4500";
         this._strength = 0;
-        this._agility = 7;
-        this._intelligence = 7;
+        this._agility = 0;
+        this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
@@ -5046,9 +5298,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.COPPERRING_OCTOPUS:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      case Fix.THQ_RED_POTION:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -5057,15 +5309,15 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
+        this._itemValue1 = 8000;
+        this._itemValue2 = 12000;
+        this._gold = 8500;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "最高品質の赤ポーション。上位ランクを超えし者が手にする必需品。ライフ回復8000～12000";
         this._strength = 0;
-        this._agility = 7;
+        this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 7;
+        this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -5074,9 +5326,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.COPPERRING_RABBIT:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      case Fix.PERFECT_RED_POTION:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -5085,43 +5337,15 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
+        this._itemValue1 = 25000;
+        this._itemValue2 = 30000;
+        this._gold = 15000;
         this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 7;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 7;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.COPPERRING_SPIDER:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "";
+        this._description = "完全な赤ポーション。入手できた者はこの世に僅かしか存在しない。ライフ回復25000～30000";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 7;
-        this._stamina = 7;
+        this._intelligence = 0;
+        this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -5130,9 +5354,9 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.COPPERRING_DEER:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
+      case Fix.SMALL_BLUE_POTION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
         this._physicalAttack = 0;
@@ -5141,44 +5365,16 @@ public partial class Item
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
+        this._itemValue1 = 30;
+        this._itemValue2 = 40;
+        this._gold = 150;
         this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 7;
-        this._stamina = 0;
-        this._mind = 7;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.COPPERRING_ELEPHANT:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "";
+        this._description = "小さい青ポーション。初心者の間は重宝する必需品。ソウルポイント回復量30～40";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 7;
-        this._mind = 7;
+        this._stamina = 0;
+        this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -5186,6 +5382,175 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.NORMAL_BLUE_POTION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 160;
+        this._itemValue2 = 240;
+        this._gold = 400;
+        this._importantType = Important.None;
+        this._description = "普通の青ポーション。一般的な戦闘において重宝する必需品。ソウルポイント回復量160～240";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.LARGE_BLUE_POTION:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 320;
+        this._itemValue2 = 400;
+        this._gold = 1000;
+        this._importantType = Important.None;
+        this._description = "大きな青ポーション。ある程度戦闘経験を積んだ者にとっては重宝する必需品。ソウルポイント回復320～400";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.HUGE_BLUE_POTION:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 600;
+        this._itemValue2 = 1000;
+        this._gold = 3200;
+        this._importantType = Important.None;
+        this._description = "巨大な青ポーション。歴戦の強者達が好んで携帯する必需品。ソウルポイント回復600～1000";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.HQ_BLUE_POTION:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 1500;
+        this._itemValue2 = 2000;
+        this._gold = 5400;
+        this._importantType = Important.None;
+        this._description = "高品質の青ポーション。上級戦では常識で使用される必需品。ソウルポイント回復1500～2000";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.THQ_BLUE_POTION:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 3500;
+        this._itemValue2 = 5000;
+        this._gold = 8500;
+        this._importantType = Important.None;
+        this._description = "最高品質の青ポーション。上位ランクを超えし者が手にする必需品。ソウルポイント回復3500～5000";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.PERFECT_BLUE_POTION:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 10000;
+        this._itemValue2 = 12000;
+        this._gold = 15000;
+        this._importantType = Important.None;
+        this._description = "完全な青ポーション。入手出来た者はこの世に僅かしか存在しない。ソウルポイント回復10000～12000";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+      #endregion
+      #region "other"
       case Fix.ZETANIUM_STONE:
         this._rarity = Rarity.Uncommon;
         this._itemType = ItemTypes.EventItem;
@@ -5718,6 +6083,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         break;
+        #endregion
 
     }
 
