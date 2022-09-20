@@ -1454,6 +1454,8 @@ public static partial class Fix
   public const string BURIED_DANZAIANGEL_STATUE = "闇に埋もれし断罪天使の偶像";
   public const string LIGHT_HAKURUANGEL_STATUE = "輝ける珀流天使の偶像";
   public const string JADE_NOBLE_CIRCLET = "翡翠色の高貴なサークレット";
+
+  public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
   #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
@@ -1636,9 +1638,13 @@ public static partial class Fix
   #region "無価値アイテム"
   public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";
   public const string POOR_BLACK_MATERIAL2 = @"ブラックマテリアル【改】";
-  public const string POOR_BLACK_MATERIAL3 = @"ブラックマテリアル【密】";
-  public const string POOR_BLACK_MATERIAL4 = @"ブラックマテリアル【試】";
-  public const string POOR_BLACK_MATERIAL5 = @"ブラックマテリアル【還】";
+  public const string POOR_BLACK_MATERIAL3 = @"ブラックマテリアル【灰】";
+  public const string POOR_BLACK_MATERIAL4 = @"ブラックマテリアル【密】";
+  public const string POOR_BLACK_MATERIAL5 = @"ブラックマテリアル【塵】";
+  public const string POOR_BLACK_MATERIAL6 = @"ブラックマテリアル【試】";
+  public const string POOR_BLACK_MATERIAL7 = @"ブラックマテリアル【滅】";
+  public const string POOR_BLACK_MATERIAL8 = @"ブラックマテリアル【還】";
+  public const string POOR_BLACK_MATERIAL9 = @"ブラックマテリアル【空】";
   #endregion
   #region "ポーション"
   public const string SMALL_RED_POTION = "小さい赤ポーション";

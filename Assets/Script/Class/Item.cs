@@ -2726,29 +2726,64 @@ public partial class Item
       case Fix.POOR_BLACK_MATERIAL:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.SellOnly;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
         this._gold = 200;
-        this._importantType = Important.None;
         this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルのため、使い道はない。";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL2:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 800;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルに対して改良が施されているが、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL3:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 1400;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルが時間経過で灰と化しており、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL4:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 2500;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルを幾つか圧縮させてみたが、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL5:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 4000;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルが塵となったものを集約してみたが、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL6:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 7500;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルに対して素材性質の変化を試みたが、使い道はない。";
+        break;
+        
+      case Fix.POOR_BLACK_MATERIAL7:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 10000;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルが消滅する寸前に形成維持させたものだが、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL8:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 16000;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルから元素還元を行ってみたが、使い道はない。";
+        break;
+
+      case Fix.POOR_BLACK_MATERIAL9:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.SellOnly;
+        this._gold = 30000;
+        this._description = "【売却専用品】\r\n　純黒色の立方体。使用済みマテリアルを使用済みマテリアルとして再構築したが、使い道はない。";
         break;
 
       case Fix.RED_PENDANT:
@@ -4283,6 +4318,26 @@ public partial class Item
         this._mind = 0;
         this._resistWind = 100;
         // this._amplifyWind = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this.CanbeSocket1 = true;
+        break;
+
+      case Fix.ADILORB_OF_THE_GARVANDI:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 30000;
+        this._description = "古代賢者エーディルが少年時代に身に着けていた水晶型のアクセサリ。装着者には無限にも等しき魔力が流れ込むと言われている。魔法攻撃力５６～８３、技＋２３、知＋４５、体＋３１、沈黙耐性、スタン耐性、恐怖耐性、炎耐性５００、氷属性の攻撃ダメージ＋７％、戦速率＋３％、宝玉ソケット＋１";
+        this._strength = 0;
+        this._agility = 23;
+        this._intelligence = 45;
+        this._stamina = 31;
+        this._mind = 0;
+        this._resistSilence = true;
+        this._resistStun = true;
+        this._resistFear = true;
+        this._resistFire = 500;
+        // this._amplifyIce = 1.07; // todo 属性毎の増幅プロパティが無い。
+        // this._amplifyBattleSpeed = 1.03; // todo 戦闘パラメタの増幅プロパティがない。
         this.CanbeSocket1 = true;
         break;
 
