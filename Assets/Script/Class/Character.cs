@@ -2267,6 +2267,16 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_POWERUP_SHADOW); }
   }
 
+  public BuffImage IsUpWind
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERUP_WIND); }
+  }
+
+  public BuffImage IsUpEarth
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERUP_EARTH); }
+  }
+
   public BuffImage IsPhysicalAttackUp
   {
     get { return SearchBuff(Fix.BUFF_PA_UP); }
