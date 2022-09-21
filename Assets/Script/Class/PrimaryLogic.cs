@@ -121,6 +121,13 @@ public static class PrimaryLogic
       result = result * player.IsPhysicalAttackDown.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * player.MainWeapon.AmplifyPhysicalAttack; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * player.SubWeapon.AmplifyPhysicalAttack; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyPhysicalAttack > 1.00f) { result = result * player.MainArmor.AmplifyPhysicalAttack; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyPhysicalAttack > 1.00f) { result = result * player.Accessory1.AmplifyPhysicalAttack; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyPhysicalAttack > 1.00f) { result = result * player.Accessory2.AmplifyPhysicalAttack; }
+    if (player.Artifact != null && player.Artifact.AmplifyPhysicalAttack > 1.00f) { result = result * player.Artifact.AmplifyPhysicalAttack; }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -165,6 +172,13 @@ public static class PrimaryLogic
       result = result * player.IsPhysicalDefenseDown.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyPhysicalDefense > 1.00f) { result = result * player.MainWeapon.AmplifyPhysicalDefense; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyPhysicalDefense > 1.00f) { result = result * player.SubWeapon.AmplifyPhysicalDefense; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyPhysicalDefense > 1.00f) { result = result * player.MainArmor.AmplifyPhysicalDefense; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyPhysicalDefense > 1.00f) { result = result * player.Accessory1.AmplifyPhysicalDefense; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyPhysicalDefense > 1.00f) { result = result * player.Accessory2.AmplifyPhysicalDefense; }
+    if (player.Artifact != null && player.Artifact.AmplifyPhysicalDefense > 1.00f) { result = result * player.Artifact.AmplifyPhysicalDefense; }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -201,6 +215,13 @@ public static class PrimaryLogic
     {
       result = result * player.IsMagicAttackDown.EffectValue;
     }
+
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyMagicAttack > 1.00f) { result = result * player.MainWeapon.AmplifyMagicAttack; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyMagicAttack > 1.00f) { result = result * player.SubWeapon.AmplifyMagicAttack; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyMagicAttack > 1.00f) { result = result * player.MainArmor.AmplifyMagicAttack; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyMagicAttack > 1.00f) { result = result * player.Accessory1.AmplifyMagicAttack; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyMagicAttack > 1.00f) { result = result * player.Accessory2.AmplifyMagicAttack; }
+    if (player.Artifact != null && player.Artifact.AmplifyMagicAttack > 1.00f) { result = result * player.Artifact.AmplifyMagicAttack; }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;
@@ -239,6 +260,13 @@ public static class PrimaryLogic
       result = result * player.IsMagicDefenseDown.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyMagicDefense > 1.00f) { result = result * player.MainWeapon.AmplifyMagicDefense; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyMagicDefense > 1.00f) { result = result * player.SubWeapon.AmplifyMagicDefense; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyMagicDefense > 1.00f) { result = result * player.MainArmor.AmplifyMagicDefense; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyMagicDefense > 1.00f) { result = result * player.Accessory1.AmplifyMagicDefense; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyMagicDefense > 1.00f) { result = result * player.Accessory2.AmplifyMagicDefense; }
+    if (player.Artifact != null && player.Artifact.AmplifyMagicDefense > 1.00f) { result = result * player.Artifact.AmplifyMagicDefense; }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -257,10 +285,16 @@ public static class PrimaryLogic
       result = result * player.IsDizzy.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleAccuracy > 1.00f) { result = result * player.MainWeapon.AmplifyBattleAccuracy; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyBattleAccuracy > 1.00f) { result = result * player.SubWeapon.AmplifyBattleAccuracy; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyBattleAccuracy > 1.00f) { result = result * player.MainArmor.AmplifyBattleAccuracy; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyBattleAccuracy > 1.00f) { result = result * player.Accessory1.AmplifyBattleAccuracy; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyBattleAccuracy > 1.00f) { result = result * player.Accessory2.AmplifyBattleAccuracy; }
+    if (player.Artifact != null && player.Artifact.AmplifyBattleAccuracy > 1.00f) { result = result * player.Artifact.AmplifyBattleAccuracy; }
+
     if (result <= 0.0f) { result = 0.0f; }
     if (result >= 100.0f) { result = 100.0f; }
     return result;
-
   }
 
   /// <summary>
@@ -303,6 +337,13 @@ public static class PrimaryLogic
       result = result * player.IsBattleSpeedDown.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.MainWeapon.AmplifyBattleSpeed; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.SubWeapon.AmplifyBattleSpeed; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyBattleSpeed > 1.00f) { result = result * player.MainArmor.AmplifyBattleSpeed; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyBattleSpeed > 1.00f) { result = result * player.Accessory1.AmplifyBattleSpeed; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyBattleSpeed > 1.00f) { result = result * player.Accessory2.AmplifyBattleSpeed; }
+    if (player.Artifact != null && player.Artifact.AmplifyBattleSpeed > 1.00f) { result = result * player.Artifact.AmplifyBattleSpeed; }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -329,6 +370,13 @@ public static class PrimaryLogic
       result = result * player.IsBattleResponseDown.EffectValue;
     }
 
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleResponse > 1.00f) { result = result * player.MainWeapon.AmplifyBattleResponse; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyBattleResponse > 1.00f) { result = result * player.SubWeapon.AmplifyBattleResponse; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyBattleResponse > 1.00f) { result = result * player.MainArmor.AmplifyBattleResponse; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyBattleResponse > 1.00f) { result = result * player.Accessory1.AmplifyBattleResponse; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyBattleResponse > 1.00f) { result = result * player.Accessory2.AmplifyBattleResponse; }
+    if (player.Artifact != null && player.Artifact.AmplifyBattleResponse > 1.00f) { result = result * player.Artifact.AmplifyBattleResponse; }
+
     if (result <= 0.0f) { result = 0.0f; }
     return result;
   }
@@ -354,6 +402,13 @@ public static class PrimaryLogic
     {
       result = result * player.IsPotentialDown.EffectValue;
     }
+
+    if (player.MainWeapon != null && player.MainWeapon.AmplifyPotential > 1.00f) { result = result * player.MainWeapon.AmplifyPotential; }
+    if (player.SubWeapon != null && player.SubWeapon.AmplifyPotential > 1.00f) { result = result * player.SubWeapon.AmplifyPotential; }
+    if (player.MainArmor != null && player.MainArmor.AmplifyPotential > 1.00f) { result = result * player.MainArmor.AmplifyPotential; }
+    if (player.Accessory1 != null && player.Accessory1.AmplifyPotential > 1.00f) { result = result * player.Accessory1.AmplifyPotential; }
+    if (player.Accessory2 != null && player.Accessory2.AmplifyPotential > 1.00f) { result = result * player.Accessory2.AmplifyPotential; }
+    if (player.Artifact != null && player.Artifact.AmplifyPotential > 1.00f) { result = result * player.Artifact.AmplifyPotential; }
 
     if (result <= 0.0f) { result = 0.0f; }
     return result;

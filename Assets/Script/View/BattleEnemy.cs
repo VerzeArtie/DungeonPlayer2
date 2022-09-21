@@ -4388,31 +4388,96 @@ public partial class BattleEnemy : MotherBase
 
   private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, ref bool result_critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + " player: " + player.FullName + " target: " + target.FullName + " magnify: " + magnify + " attr: " + attr + " critical: " + critical);
     // 魔法コマンドのダメージを算出
     double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
     double debug0 = damageValue;
     Debug.Log("PrimaryLogic.MagicDamage: " + debug0.ToString());
 
     // Buff効果による増強
-    if (attr == Fix.DamageSource.Fire && player.IsUpFire)
+    if (attr == Fix.DamageSource.Fire)
     {
-      Debug.Log("damageValue UpFire: " + player.IsUpFire.EffectValue.ToString());
-      damageValue = damageValue * player.IsUpFire.EffectValue;
+      if (player.IsUpFire)
+      {
+        Debug.Log("damageValue UpFire: " + player.IsUpFire.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpFire.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyFire > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyFire; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyFire > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyFire; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyFire > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyFire; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyFire > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyFire; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyFire > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyFire; }
+      if (player.Artifact != null && player.Artifact.AmplifyFire > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyFire; }
     }
-    if (attr == Fix.DamageSource.Ice && player.IsUpIce)
+    if (attr == Fix.DamageSource.Ice)
     {
-      Debug.Log("damageValue IsUpIce: " + player.IsUpIce.EffectValue.ToString());
-      damageValue = damageValue * player.IsUpIce.EffectValue;
+      if (player.IsUpIce)
+      {
+        Debug.Log("damageValue IsUpIce: " + player.IsUpIce.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpIce.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyIce > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyIce; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyIce > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyIce; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyIce > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyIce; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyIce > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyIce; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyIce > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyIce; }
+      if (player.Artifact != null && player.Artifact.AmplifyIce > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyIce; }
     }
-    if (attr == Fix.DamageSource.HolyLight && player.IsUpLight)
+    if (attr == Fix.DamageSource.HolyLight)
     {
-      Debug.Log("damageValue IsUpLight: " + player.IsUpLight.EffectValue.ToString());
-      damageValue = damageValue * player.IsUpLight.EffectValue;
+      if (player.IsUpLight)
+      {
+        Debug.Log("damageValue IsUpLight: " + player.IsUpLight.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpLight.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyLight > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyLight; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyLight > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyLight; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyLight > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyLight; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyLight > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyLight; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyLight > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyLight; }
+      if (player.Artifact != null && player.Artifact.AmplifyLight > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyLight; }
     }
-    if (attr == Fix.DamageSource.DarkMagic && player.IsUpShadow)
+    if (attr == Fix.DamageSource.DarkMagic)
     {
-      Debug.Log("damageValue IsUpShadow: " + player.IsUpShadow.EffectValue.ToString());
-      damageValue = damageValue * player.IsUpShadow.EffectValue;
+      if (player.IsUpShadow)
+      {
+        Debug.Log("damageValue IsUpShadow: " + player.IsUpShadow.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpShadow.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyShadow > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyShadow; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyShadow > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyShadow; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyShadow > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyShadow; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyShadow > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyShadow; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyShadow > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyShadow; }
+      if (player.Artifact != null && player.Artifact.AmplifyShadow > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyShadow; }
+    }
+    if (attr == Fix.DamageSource.Wind)
+    {
+      if (player.IsUpWind)
+      {
+        Debug.Log("damageValue IsUpWind: " + player.IsUpWind.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpWind.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyWind > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyWind; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyWind > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyWind; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyWind > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyWind; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyWind > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyWind; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyWind > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyWind; }
+      if (player.Artifact != null && player.Artifact.AmplifyWind > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyWind; }
+    }
+    if (attr == Fix.DamageSource.Earth)
+    {
+      if (player.IsUpEarth)
+      {
+        Debug.Log("damageValue IsUpEarth: " + player.IsUpEarth.EffectValue.ToString());
+        damageValue = damageValue * player.IsUpEarth.EffectValue;
+      }
+      if (player.MainWeapon != null && player.MainWeapon.AmplifyEarth > 1.00f) { damageValue = damageValue * player.MainWeapon.AmplifyEarth; }
+      if (player.SubWeapon != null && player.SubWeapon.AmplifyEarth > 1.00f) { damageValue = damageValue * player.SubWeapon.AmplifyEarth; }
+      if (player.MainArmor != null && player.MainArmor.AmplifyEarth > 1.00f) { damageValue = damageValue * player.MainArmor.AmplifyEarth; }
+      if (player.Accessory1 != null && player.Accessory1.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyEarth; }
+      if (player.Accessory2 != null && player.Accessory2.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyEarth; }
+      if (player.Artifact != null && player.Artifact.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyEarth; }
     }
 
     // ストーム・アーマーによる効果

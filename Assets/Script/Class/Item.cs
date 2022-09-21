@@ -638,6 +638,104 @@ public partial class Item
     get { return _resistCannotResurrect; }
   }
 
+  protected double _amplifyFire = 1.00f;
+  public double AmplifyFire
+  {
+    set { _amplifyFire = value; }
+    get { return _amplifyFire; }
+  }
+
+  protected double _amplifyIce = 1.00f;
+  public double AmplifyIce
+  {
+    set { _amplifyIce = value; }
+    get { return _amplifyIce; }
+  }
+
+  protected double _amplifyLight = 1.00f;
+  public double AmplifyLight
+  {
+    set { _amplifyLight = value; }
+    get { return _amplifyLight; }
+  }
+
+  protected double _amplifyShadow = 1.00f;
+  public double AmplifyShadow
+  {
+    set { _amplifyShadow = value; }
+    get { return _amplifyShadow; }
+  }
+
+  protected double _amplifyWind = 1.00f;
+  public double AmplifyWind
+  {
+    set { _amplifyWind = value; }
+    get { return _amplifyWind; }
+  }
+
+  protected double _amplifyEarth = 1.00f;
+  public double AmplifyEarth
+  {
+    set { _amplifyEarth = value; }
+    get { return _amplifyEarth; }
+  }
+
+  protected double _amplifyPhysicalAttack = 1.00f;
+  public double AmplifyPhysicalAttack
+  {
+    set { _amplifyPhysicalAttack = value; }
+    get { return _amplifyPhysicalAttack; }
+  }
+
+  protected double _amplifyPhysicalDefense = 1.00f;
+  public double AmplifyPhysicalDefense
+  {
+    set { _amplifyPhysicalDefense = value; }
+    get { return _amplifyPhysicalDefense; }
+  }
+
+  protected double _amplifyMagicAttack = 1.00f;
+  public double AmplifyMagicAttack
+  {
+    set { _amplifyMagicAttack = value; }
+    get { return _amplifyMagicAttack; }
+  }
+
+  protected double _amplifyMagicDefense = 1.00f;
+  public double AmplifyMagicDefense
+  {
+    set { _amplifyMagicDefense = value; }
+    get { return _amplifyMagicDefense; }
+  }
+
+  protected double _amplifyBattleAccuracy = 1.00f;
+  public double AmplifyBattleAccuracy
+  {
+    set { _amplifyBattleAccuracy = value; }
+    get { return _amplifyBattleAccuracy; }
+  }
+
+  protected double _amplifyBattleSpeed = 1.00f;
+  public double AmplifyBattleSpeed
+  {
+    set { _amplifyBattleSpeed = value; }
+    get { return _amplifyBattleSpeed; }
+  }
+
+  protected double _amplifyBattleResponse = 1.00f;
+  public double AmplifyBattleResponse
+  {
+    set { _amplifyBattleResponse = value; }
+    get { return _amplifyBattleResponse; }
+  }
+
+  protected double _amplifyPotential = 1.00f;
+  public double AmplifyPotential
+  {
+    set { _amplifyPotential = value; }
+    get { return _amplifyPotential; }
+  }
+
   public void SetupItemView(Text txtName, Image img)
   {
     if (txtName != null)
@@ -4254,7 +4352,7 @@ public partial class Item
         this._mind = 0;
         this._resistSlow = true;
         this._resistStun = true;
-        // this._amplifyIce = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this._amplifyIce = 1.05f;
         break;
 
       case Fix.CRIMSON_GAUNTLET:
@@ -4270,7 +4368,7 @@ public partial class Item
         this._mind = 0;
         this._resistSilence = true;
         this._resistBind = true;
-        // this._amplifyFire = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this._amplifyFire = 1.05f;
         break;
 
       case Fix.BURIED_DANZAIANGEL_STATUE:
@@ -4286,7 +4384,7 @@ public partial class Item
         this._mind = 0;
         this._resistFear = true;
         this._resistTemptation = true;
-        // this._amplifyShadow = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this._amplifyShadow = 1.05f;
         break;
 
       case Fix.LIGHT_HAKURUANGEL_STATUE:
@@ -4302,7 +4400,7 @@ public partial class Item
         this._mind = 8;
         this._resistPoison = true;
         this._resistStun = true;
-        // this._amplifyLight = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this._amplifyLight = 1.05f;
         break;
 
       case Fix.JADE_NOBLE_CIRCLET:
@@ -4317,7 +4415,7 @@ public partial class Item
         this._stamina = 0;
         this._mind = 0;
         this._resistWind = 100;
-        // this._amplifyWind = 1.05; // todo 属性毎の増幅プロパティが無い。
+        this._amplifyWind = 1.05f;
         this.CanbeSocket1 = true;
         break;
 
@@ -4325,6 +4423,8 @@ public partial class Item
         this._rarity = Rarity.Epic;
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
+        this._magicAttack = 56;
+        this._magicAttackMax = 83;
         this._gold = 30000;
         this._description = "古代賢者エーディルが少年時代に身に着けていた水晶型のアクセサリ。装着者には無限にも等しき魔力が流れ込むと言われている。魔法攻撃力５６～８３、技＋２３、知＋４５、体＋３１、沈黙耐性、スタン耐性、恐怖耐性、炎耐性５００、氷属性の攻撃ダメージ＋７％、戦速率＋３％、宝玉ソケット＋１";
         this._strength = 0;
@@ -4336,8 +4436,8 @@ public partial class Item
         this._resistStun = true;
         this._resistFear = true;
         this._resistFire = 500;
-        // this._amplifyIce = 1.07; // todo 属性毎の増幅プロパティが無い。
-        // this._amplifyBattleSpeed = 1.03; // todo 戦闘パラメタの増幅プロパティがない。
+        this._amplifyIce = 1.07f;
+        this._amplifyBattleSpeed = 1.03f;
         this.CanbeSocket1 = true;
         break;
 

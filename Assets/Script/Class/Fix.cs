@@ -238,6 +238,8 @@ public static partial class Fix
   public const string EFFECT_POWERUP_ICE = "UP Ice";
   public const string EFFECT_POWERUP_LIGHT = "UP Light";
   public const string EFFECT_POWERUP_SHADOW = "UP Shadow";
+  public const string EFFECT_POWERUP_WIND = "UP Wind";
+  public const string EFFECT_POWERUP_EARTH = "UP Earth";
 
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
