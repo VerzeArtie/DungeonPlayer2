@@ -38876,7 +38876,6 @@ MonoBehaviour:
   lblChangeEquipType: {fileID: 507076448}
   txtChangeEquipName: {fileID: 697402296}
   imgChangeEquip: {fileID: 1646325052}
-  groupPartyBattleSetting: {fileID: 0}
   FilterForAll: {fileID: 0}
   FilterForActionCommand: {fileID: 0}
   FilterForAvailableList: {fileID: 0}
@@ -104287,7 +104286,7 @@ Transform:
   m_GameObject: {fileID: 1783769130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 1447036989}
   m_RootOrder: 2
