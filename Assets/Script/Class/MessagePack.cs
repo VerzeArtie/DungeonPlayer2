@@ -7833,6 +7833,47 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "『　大自然を受諾し、森に選ばれし者のみ、過去と未来を繋ぐ権利が与えられる　』", ActionEvent.None);
     }
   }
+
+  public static void Message900060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "5:1:-8", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "18:1:-6", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900080(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "1:1:-28", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3:1:-28", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900100(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "5:1:-28", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "48:1:-1", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "46:1:-1", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900130(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "44:1:-1", ActionEvent.JumpToLocation);
+  }
+
   #endregion
 
   #region "ヴェルガスの海底神殿"

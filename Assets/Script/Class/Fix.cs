@@ -1458,6 +1458,10 @@ public static partial class Fix
   public const string JADE_NOBLE_CIRCLET = "翡翠色の高貴なサークレット";
 
   public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
+
+  public const string KODAIEIJU_EDA = "古代栄樹の枝";
+  public const string SINSEISUI = "神聖水";
+
   #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
@@ -2715,6 +2719,115 @@ public static partial class Fix
   #endregion
   #endregion
   #region "神秘の森"
+  #region "宝箱"
+  public const string MYSTICFOREST_Treasure_1_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_1_O = "1";
+  public const float MYSTICFOREST_Treasure_1_X = 32.0f;
+  public const float MYSTICFOREST_Treasure_1_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_1_Z = -9.0f;
+
+  public const string MYSTICFOREST_Treasure_2_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_2_O = "2";
+  public const float MYSTICFOREST_Treasure_2_X = 33.0f;
+  public const float MYSTICFOREST_Treasure_2_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_2_Z = -19.0f;
+
+  public const string MYSTICFOREST_Treasure_3_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_3_O = "3";
+  public const float MYSTICFOREST_Treasure_3_X = 22.0f;
+  public const float MYSTICFOREST_Treasure_3_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_3_Z = -8.0f;
+
+  public const string MYSTICFOREST_Treasure_4_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_4_O = "4";
+  public const float MYSTICFOREST_Treasure_4_X = 44.0f;
+  public const float MYSTICFOREST_Treasure_4_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_4_Z = -3.0f;
+
+  public const string MYSTICFOREST_Treasure_5_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_5_O = "5";
+  public const float MYSTICFOREST_Treasure_5_X = 3.0f;
+  public const float MYSTICFOREST_Treasure_5_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_5_Z = -2.0f;
+
+  public const string MYSTICFOREST_Treasure_6_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_6_O = "6";
+  public const float MYSTICFOREST_Treasure_6_X = 41.0f;
+  public const float MYSTICFOREST_Treasure_6_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_6_Z = -19.0f;
+
+  public const string MYSTICFOREST_Treasure_7_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_7_O = "7";
+  public const float MYSTICFOREST_Treasure_7_X = 13.0f;
+  public const float MYSTICFOREST_Treasure_7_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_7_Z = -18.0f;
+
+  public const string MYSTICFOREST_Treasure_8_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_8_O = "8";
+  public const float MYSTICFOREST_Treasure_8_X = 7.0f;
+  public const float MYSTICFOREST_Treasure_8_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_8_Z = -24.0f;
+
+  public const string MYSTICFOREST_Treasure_9_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_9_O = "9";
+  public const float MYSTICFOREST_Treasure_9_X = 9.0f;
+  public const float MYSTICFOREST_Treasure_9_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_9_Z = -28.0f;
+
+  public const string MYSTICFOREST_Treasure_10_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_10_O = "10";
+  public const float MYSTICFOREST_Treasure_10_X = 1.0f;
+  public const float MYSTICFOREST_Treasure_10_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_10_Z = -22.0f;
+
+  public const string MYSTICFOREST_Treasure_11_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_11_O = "11";
+  public const float MYSTICFOREST_Treasure_11_X = 40.0f;
+  public const float MYSTICFOREST_Treasure_11_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_11_Z = -5.0f;
+
+  public const string MYSTICFOREST_Treasure_12_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_12_O = "12";
+  public const float MYSTICFOREST_Treasure_12_X = 12.0f;
+  public const float MYSTICFOREST_Treasure_12_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_12_Z = -11.0f;
+
+  public const string MYSTICFOREST_Treasure_13_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_13_O = "13";
+  public const float MYSTICFOREST_Treasure_13_X = 36.0f;
+  public const float MYSTICFOREST_Treasure_13_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_13_Z = -1.0f;
+
+  public const string MYSTICFOREST_Treasure_14_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_14_O = "14";
+  public const float MYSTICFOREST_Treasure_14_X = 30.0f;
+  public const float MYSTICFOREST_Treasure_14_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_14_Z = -22.0f;
+
+  public const string MYSTICFOREST_Treasure_15_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_15_O = "15";
+  public const float MYSTICFOREST_Treasure_15_X = 33.0f;
+  public const float MYSTICFOREST_Treasure_15_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_15_Z = -23.0f;
+
+  public const string MYSTICFOREST_Treasure_16_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_16_O = "16";
+  public const float MYSTICFOREST_Treasure_16_X = 40.0f;
+  public const float MYSTICFOREST_Treasure_16_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_16_Z = -10.0f;
+
+  public const string MYSTICFOREST_Treasure_17_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_17_O = "17";
+  public const float MYSTICFOREST_Treasure_17_X = 22.0f;
+  public const float MYSTICFOREST_Treasure_17_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_17_Z = -4.0f;
+
+  public const string MYSTICFOREST_Treasure_18_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_18_O = "18";
+  public const float MYSTICFOREST_Treasure_18_X = 19.0f;
+  public const float MYSTICFOREST_Treasure_18_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_18_Z = -14.0f;
+  #endregion
   #region "看板"
   public const string MYSTICFOREST_MessageBoard_1_C = "MessageBoard";
   public const string MYSTICFOREST_MessageBoard_1_O = "1";
@@ -2748,11 +2861,77 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_2_Y = 0.0f;
   public const float MYSTICFOREST_Event_2_Z = -8.0f;
 
+  public const string MYSTICFOREST_Event_2_2_C = "Event";
+  public const string MYSTICFOREST_Event_2_2_O = "2-2";
+  public const float MYSTICFOREST_Event_2_2_X = 21.0f;
+  public const float MYSTICFOREST_Event_2_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_2_2_Z = -22.0f;
+
+  public const string MYSTICFOREST_Event_2_3_C = "Event";
+  public const string MYSTICFOREST_Event_2_3_O = "2-3";
+  public const float MYSTICFOREST_Event_2_3_X = 44.0f;
+  public const float MYSTICFOREST_Event_2_3_Y = 0.0f;
+  public const float MYSTICFOREST_Event_2_3_Z = -5.0f;
+
   public const string MYSTICFOREST_Event_3_C = "Event";
   public const string MYSTICFOREST_Event_3_O = "3";
   public const float MYSTICFOREST_Event_3_X = 23.0f;
   public const float MYSTICFOREST_Event_3_Y = 0.0f;
   public const float MYSTICFOREST_Event_3_Z = -14.0f;
+
+  public const string MYSTICFOREST_Event_4_C = "Event";
+  public const string MYSTICFOREST_Event_4_O = "4";
+  public const float MYSTICFOREST_Event_4_X = 18.0f;
+  public const float MYSTICFOREST_Event_4_Y = 0.0f;
+  public const float MYSTICFOREST_Event_4_Z = -18.0f;
+
+  public const string MYSTICFOREST_Event_4_2_C = "Event";
+  public const string MYSTICFOREST_Event_4_2_O = "4-2";
+  public const float MYSTICFOREST_Event_4_2_X = 22.0f;
+  public const float MYSTICFOREST_Event_4_2_Y = 0.0f;
+  public const float MYSTICFOREST_Event_4_2_Z = -3.0f;
+
+  public const string MYSTICFOREST_Event_4_3_C = "Event";
+  public const string MYSTICFOREST_Event_4_3_O = "4-3";
+  public const float MYSTICFOREST_Event_4_3_X = 22.0f;
+  public const float MYSTICFOREST_Event_4_3_Y = 0.0f;
+  public const float MYSTICFOREST_Event_4_3_Z = -5.0f;
+
+  public const string MYSTICFOREST_Event_5_C = "Event";
+  public const string MYSTICFOREST_Event_5_O = "5";
+  public const float MYSTICFOREST_Event_5_X = 21.0f;
+  public const float MYSTICFOREST_Event_5_Y = 0.0f;
+  public const float MYSTICFOREST_Event_5_Z = -4.0f;
+
+  public const string MYSTICFOREST_Event_6_C = "Event";
+  public const string MYSTICFOREST_Event_6_O = "6";
+  public const float MYSTICFOREST_Event_6_X = 1.0f;
+  public const float MYSTICFOREST_Event_6_Y = 0.0f;
+  public const float MYSTICFOREST_Event_6_Z = -24.0f;
+
+  public const string MYSTICFOREST_Event_7_C = "Event";
+  public const string MYSTICFOREST_Event_7_O = "7";
+  public const float MYSTICFOREST_Event_7_X = 3.0f;
+  public const float MYSTICFOREST_Event_7_Y = 0.0f;
+  public const float MYSTICFOREST_Event_7_Z = -24.0f;
+
+  public const string MYSTICFOREST_Event_8_C = "Event";
+  public const string MYSTICFOREST_Event_8_O = "8";
+  public const float MYSTICFOREST_Event_8_X = 5.0f;
+  public const float MYSTICFOREST_Event_8_Y = 0.0f;
+  public const float MYSTICFOREST_Event_8_Z = -24.0f;
+
+  public const string MYSTICFOREST_Event_9_C = "Event";
+  public const string MYSTICFOREST_Event_9_O = "9";
+  public const float MYSTICFOREST_Event_9_X = 48.0f;
+  public const float MYSTICFOREST_Event_9_Y = 0.0f;
+  public const float MYSTICFOREST_Event_9_Z = -5.0f;
+
+  public const string MYSTICFOREST_Event_10_C = "Event";
+  public const string MYSTICFOREST_Event_10_O = "10";
+  public const float MYSTICFOREST_Event_10_X = 46.0f;
+  public const float MYSTICFOREST_Event_10_Y = 0.0f;
+  public const float MYSTICFOREST_Event_10_Z = -5.0f;
   #endregion
   #endregion
   #region "アーサリウム工場跡地 ( not used )"
