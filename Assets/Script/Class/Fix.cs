@@ -3336,6 +3336,16 @@ public static partial class Fix
   public const float MYSTICFOREST_STEPBACK_1_X = 23.0f;
   public const float MYSTICFOREST_STEPBACK_1_Y = 0.0f;
   public const float MYSTICFOREST_STEPBACK_1_Z = -23.0f;
+
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string MYSTICFOREST_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string MYSTICFOREST_ObsidianPortal_1_O = "1";
+  public const float MYSTICFOREST_ObsidianPortal_1_X = 43.0f;
+  public const float MYSTICFOREST_ObsidianPortal_1_Y = 1.0f;
+  public const float MYSTICFOREST_ObsidianPortal_1_Z = -13.0f;
+  #endregion
+
   #endregion
   #region "アーサリウム工場跡地 ( not used )"
   // センター区画左側通路先、崖落ち

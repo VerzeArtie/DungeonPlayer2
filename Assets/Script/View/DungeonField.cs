@@ -3237,6 +3237,12 @@ public class DungeonField : MotherBase
         MessagePack.Message300210(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_ObsidianPortal_1_X, Fix.MYSTICFOREST_ObsidianPortal_1_Y, Fix.MYSTICFOREST_ObsidianPortal_1_Z))
+      {
+        MessagePack.Message900720(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
     // オブジェクト（岩）の判定
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
@@ -5791,6 +5797,11 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_12_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_12_X, Fix.MYSTICFOREST_BRUSHWOOD_12_Y, Fix.MYSTICFOREST_BRUSHWOOD_12_Z));
+            }
+
+            if (currentMessage == Fix.MYSTICFOREST_ObsidianPortal_1_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_ObsidianPortal_1_X, Fix.MYSTICFOREST_ObsidianPortal_1_Y, Fix.MYSTICFOREST_ObsidianPortal_1_Z));
             }
           }
 
@@ -9175,6 +9186,12 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_12_X, Fix.MYSTICFOREST_BRUSHWOOD_12_Y, Fix.MYSTICFOREST_BRUSHWOOD_12_Z));
       }
+
+      if (One.TF.Event_Message900090)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_ObsidianPortal_1_X, Fix.MYSTICFOREST_ObsidianPortal_1_Y, Fix.MYSTICFOREST_ObsidianPortal_1_Z));
+      }
+
     }
     #endregion
     #region "アーサリウム工場跡地"
