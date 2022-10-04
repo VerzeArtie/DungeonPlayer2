@@ -2610,7 +2610,7 @@ public partial class Character : MonoBehaviour
     else if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       list.Add(Fix.ICE_NEEDLE_JP + "の威力が５％上昇する。");
-      list.Add(Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減らす威力が５％上昇する。");
+      list.Add(Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減少させる効果が５％上昇する。");
       list.Add(Fix.DISPEL_MAGIC_JP + "による【有益】に属するBUFFを除去する数が１つ増える。");
       list.Add("インスタントの行動が魔法の場合、インスタントゲージが５％残った状態で行動する。");
     }

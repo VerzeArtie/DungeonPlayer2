@@ -90,6 +90,12 @@ public class GroupCharacterStatus : MonoBehaviour
   public GameObject GroupSubViewEssence;
   public List<NodeActionCommand> imgEssenceList;
   public List<Text> txtEssenceList;
+  public List<NodeActionCommand> imgEssenceList2;
+  public List<Text> txtEssenceList2;
+  public List<NodeActionCommand> imgEssenceList3;
+  public List<Text> txtEssenceList3;
+  public List<NodeActionCommand> imgEssenceList4;
+  public List<Text> txtEssenceList4;
   public Text txtEssencePoint;
   public Image imgEssenceCurrent;
   public Text txtEssenceCurrentCategory;
@@ -103,6 +109,16 @@ public class GroupCharacterStatus : MonoBehaviour
   public Button btnEssenceDecisionOK;
 
   public MotherBase parentMotherBase = null;
+
+  public GameObject GroupEssenceCategory;
+  public Button btnEssence_First;
+  public Button btnEssence_Second;
+  public Button btnEssence_Third;
+  public Button btnEssence_Fourth;
+  public GameObject GroupEssenceList1;
+  public GameObject GroupEssenceList2;
+  public GameObject GroupEssenceList3;
+  public GameObject GroupEssenceList4;
 
   protected NodeActionCommand CurrentSelectCommand;
 
@@ -280,6 +296,31 @@ public class GroupCharacterStatus : MonoBehaviour
         btnPlus[ii].SetActive(false);
       }
     }
+
+    GroupEssenceCategory.SetActive(false);
+    btnEssence_First.gameObject.SetActive(false);
+    btnEssence_Second.gameObject.SetActive(false);
+    btnEssence_Third.gameObject.SetActive(false);
+    btnEssence_Fourth.gameObject.SetActive(false);
+    if (One.TF.AvailableSecondEssence)
+    {
+      GroupEssenceCategory.SetActive(true);
+      btnEssence_First.gameObject.SetActive(true);
+      btnEssence_Second.gameObject.SetActive(true);
+      if (One.TF.AvailableThirdEssence)
+      {
+        btnEssence_Third.gameObject.SetActive(true);
+        if (One.TF.AvailableFourthEssence)
+        {
+          btnEssence_Fourth.gameObject.SetActive(true);
+        }
+      }
+    }
+
+    GroupEssenceList1.SetActive(true);
+    GroupEssenceList2.SetActive(false);
+    GroupEssenceList3.SetActive(false);
+    GroupEssenceList4.SetActive(false);
 
     //txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
     //txtDetailExp.text = "MAX";
@@ -1115,6 +1156,15 @@ public class GroupCharacterStatus : MonoBehaviour
   }
 
   #region "エッセンス・ツリー設定"
+  public void TapEssenceCategory(int number)
+  {
+    // 属性番号との類似性を考慮して、一番目は０ではなく１とする。
+    if (number == 1) { GroupEssenceList1.SetActive(true);  GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
+    else if (number == 2) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(true); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
+    else if (number == 3) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(true); GroupEssenceList4.SetActive(false); }
+    else if (number == 4) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(true); }
+  }
+
   public void TapSelectEssence(Text txt_title)
   {
     Debug.Log(MethodBase.GetCurrentMethod());

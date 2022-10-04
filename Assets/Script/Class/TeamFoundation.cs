@@ -161,6 +161,27 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableArchetype_SelmoiRo; }
   }
 
+  [SerializeField] protected bool _availableSecondEssence = false;
+  public bool AvailableSecondEssence
+  {
+    set { _availableSecondEssence = value; }
+    get { return _availableSecondEssence; }
+  }
+
+  [SerializeField] protected bool _availableThirdEssence = false;
+  public bool AvailableThirdEssence
+  {
+    set { _availableThirdEssence = value; }
+    get { return _availableThirdEssence; }
+  }
+
+  [SerializeField] protected bool _availableFourthEssence = false;
+  public bool AvailableFourthEssence
+  {
+    set { _availableFourthEssence = value; }
+    get { return _availableFourthEssence; }
+  }
+
   [SerializeField] protected List<Item> _backpackList = new List<Item>();
   public List<Item> BackpackList
   {

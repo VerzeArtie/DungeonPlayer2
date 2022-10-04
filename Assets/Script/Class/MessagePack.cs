@@ -8563,7 +8563,7 @@ public static class MessagePack
     if (One.TF.Event_Message900090 == false)
     {
       One.TF.Event_Message900090 = true;
-      //One.TF.xxxxx = true;
+      One.TF.AvailableSecondEssence = true;
 
       Message(ref m_list, ref e_list, "アイン：こ、この石は！！", ActionEvent.None);
 
@@ -8601,7 +8601,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：未来への・・・記憶・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：我は概念の領域に属せぬ者", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：我は概念の領域に属さぬ者", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：ヒトの子は我を支配竜と呼ぶ", ActionEvent.None);
 
@@ -8643,7 +8643,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　スキル・ツリー【無心】を習得 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -8675,9 +8675,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：どうみても何もないわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：アインさんとしては、何かに接触された様な形跡があるんでしょうか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：アインさんとしては、何かに接触された様な感覚があったんでしょうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アインは自分の手元に目をやり、視線を全体へと向けた 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 アインは自分の手元に目をやり、同時に、視線を全体へと向けた 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -8703,13 +8703,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：うん。この件についてはすまない。忘れてくれ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：皆、この一件は保留だ。次の探索を行くとしよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：皆、この一件は保留だ。次の探索へ行くとするか。", ActionEvent.None);
 
-      // todo 何かスキル向上が無いと面白くない。
+      Message(ref m_list, ref e_list, "ラナ：別に行くのは良いけど、どこかで突然ぶっ倒れたりしないでよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　ｘｘｘを使えるようになりました。", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。行こう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　ｘｘｘを使ってみましょう。 ", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "　各キャラクターのエッセンス・ツリー＜第二属性＞が開放されました。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　キャラクターのエッセンス・ツリーを開いて確認してみましょう。 ", ActionEvent.MessageDisplay);
 
     }
   }
