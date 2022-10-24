@@ -229,7 +229,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MULTIPLE_SHOT); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EYE_OF_THE_ISSHIN); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PENETRATION_ARROW); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PRECISION_RANGE); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PRECISION_STRIKE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ETERNAL_CONCENTRATION); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PIERCING_ARROW); counter++;
     }

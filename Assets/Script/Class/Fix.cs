@@ -1096,8 +1096,8 @@ public static partial class Fix
   public const string PETRIFICATION_JP = "ペトリフィケーション";
   public const string RAGING_STORM = "Raging Storm";
   public const string RAGING_STORM_JP = "レイジング・ストーム";
-  public const string PRECISION_RANGE = "Precision Range";
-  public const string PRECISION_RANGE_JP = "プレシジョン・レンジ";
+  public const string PRECISION_STRIKE = "Precision Strike";
+  public const string PRECISION_STRIKE_JP = "プレシジョン・ストライク";
   public const string UNINTENTIONAL_HIT = "Unintentional Hit";
   public const string UNINTENTIONAL_HIT_JP = "アンインテンショナル・ヒット";
   public const string COUNTER_DISALLOW = "Counter Disallow";
@@ -1284,6 +1284,71 @@ public static partial class Fix
   public const string COMMAND_POISON_TONGUE = "猛毒の舌";
   public const string COMMAND_CONSTRICT = "締めつけ";
   public const string COMMAND_NOTHING = "なし";
+  #endregion
+
+  #region "Essence Tree"
+  public const string SWORD_TRAINING = "剣の基礎訓練";
+  public const string LANCE_TRAINING = "槍の基礎訓練";
+  public const string AXE_TRAINING = "斧の基礎訓練";
+  public const string CLAW_TRAINING = "爪の基礎訓練";
+  public const string ROD_TRAINING = "杖の基礎訓練";
+  public const string BOOK_TRAINING = "本の基礎訓練";
+  public const string ORB_TRAINING = "水晶の基礎訓練";
+  public const string BOW_TRAINING = "弓の基礎訓練";
+  public const string SHIELD_TRAINING = "盾の基礎訓練";
+  public const string WAY_OF_POTENTIAL = "潜在能力への意志";
+  public const string GIFT_OF_TWIN = "双律の開眼";
+  public const string BREATHING_DANCE = "舞踏の呼吸";
+  public const string MAGIC_SPELL_STANCE = "魔法詠唱の構え";
+  public const string MIKIRI_SENSE = "見切りのセンス";
+  public const string WAY_OF_SWORD = "剣への憧れ";
+  public const string NEED_MORE_POWER = "パワーへの欲求";
+  public const string RUSH_STANCE = "ラッシュの構え";
+  public const string MASTER_TEACHING = "師範の教え";
+  public const string TWIN_OFFENSIVE_STANCE = "双勢の構え";
+
+  public const string STYLE_GLADIATOR = "Gladiator";
+  public const string STYLE_GLADIATOR_JP = "グラディエーター";
+  public const string STYLE_DEFENDER = "Defender";
+  public const string STYLE_DEFENDER_JP = "ディフェンダー";
+  public const string STYLE_BRAVE_SEEKER = "Brave Seeker";
+  public const string STYLE_BRAVE_SEEKER_JP = "ブレイブ・シーカー";
+  public const string STYLE_SWORD_DANCER = "Sword Dancer";
+  public const string STYLE_SWORD_DANCER_JP = "ソード・ダンサー";
+  public const string STYLE_ELEMENTAL_WIZARD = "Elemental Wizard";
+  public const string STYLE_ELEMENTAL_WIZARD_JP = "エレメンタル・ウィザード";
+  public const string STYLE_MYSTIC_ENHANCER = "Mystic Enhancer";
+  public const string STYLE_MYSTIC_ENHANCER_JP = "ミスティック・エンハンサー";
+  public const string STYLE_AERIAL_HUNTER = "Aerial Hunter";
+  public const string STYLE_AERIAL_HUNTER_JP = "エアリアル・ハンター";
+  public const string STYLE_HIGH_PRIEST = "High Priest";
+  public const string STYLE_HIGH_PRIEST_JP = "ハイ・プリースト";
+  public const string STYLE_ROYAL_KNIGHT = "Royal Knight";
+  public const string STYLE_ROYAL_KNIGHT_JP = "ロイヤル・ナイト";
+  public const string STYLE_VOICE_CALLER = "Voice Caller";
+  public const string STYLE_VOICE_CALLER_JP = "ヴォイス・コーラー";
+  public const string STYLE_WAR_MASTER = "War Master";
+  public const string STYLE_WAR_MASTER_JP = "ウォー・マスター";
+  public const string STYLE_DRAGON_SLAYER = "Dragon Slayer";
+  public const string STYLE_DRAGON_SLAYER_JP = "ドラゴン・スレイヤー";
+  public const string STYLE_BARD_RANGER = "Bird Ranger";
+  public const string STYLE_BARD_RANGER_JP = "バード・レンジャー";
+  public const string STYLE_BATTLE_SAGE = "Battle Sage";
+  public const string STYLE_BATTLE_SAGE_JP = "バトル・セイジ";
+  public const string STYLE_ORACLE_COMMANDER = "Oracle Commander";
+  public const string STYLE_ORACLE_COMMANDER_JP = "オラクル・コマンダー";
+  public const string STYLE_MAGE_BREAKER = "Mage Breaker";
+  public const string STYLE_MAGE_BREAKER_JP = "メイジ・ブレイカー";
+  public const string STYLE_SHADOW_ROGUE = "Shadow Rogue";
+  public const string STYLE_SHADOW_ROGUE_JP = "シャドウ・ローグ";
+  public const string STYLE_DEMON_LOAD = "Demon Lord";
+  public const string STYLE_DEMON_LOAD_JP = "デーモン・ロード";
+
+  public const string ESSENCE_RANK_1 = "【 I 】";
+  public const string ESSENCE_RANK_2 = "【 II 】";
+  public const string ESSENCE_RANK_3 = "【 III 】";
+  public const string ESSENCE_RANK_4 = "【 IV 】";
+  public const string ESSENCE_RANK_5 = "【 V 】";
   #endregion
 
   #region "Item Name"

@@ -2557,87 +2557,216 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
-  public List<string> GetEssenceTreeTitleList()
+  public List<string> GetEssenceTreeTitleList(int level)
   {
     List<string> list = new List<string>();
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
-      list.Add(Fix.STRAIGHT_SMASH_JP + "強化 Ｉ");
-      list.Add(Fix.TRUE_SIGHT_JP + "強化 Ｉ");
-      list.Add(Fix.SHIELD_BASH_JP + "強化 Ｉ");
-      list.Add("防御の構え Ｉ");
+      if (level == 1)
+      {
+        list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
+        list.Add(Fix.TRUE_SIGHT_JP + "強化");
+        list.Add(Fix.SHIELD_BASH_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.SWORD_TRAINING);
+        list.Add(Fix.LANCE_TRAINING);
+        list.Add(Fix.SHIELD_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.STYLE_GLADIATOR);
+        list.Add(Fix.STYLE_DEFENDER);
+        list.Add(Fix.STYLE_BRAVE_SEEKER);
+      }
+      else if (level == 4)
+      {
+        list.Add(Fix.GIFT_OF_TWIN);
+        list.Add(Fix.WAY_OF_POTENTIAL);
+      }
     }
     else if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
-      list.Add(Fix.ICE_NEEDLE_JP + "強化 Ｉ");
-      list.Add(Fix.SHADOW_BLAST_JP + "強化 Ｉ");
-      list.Add(Fix.DISPEL_MAGIC_JP + "強化 Ｉ");
-      list.Add("魔法詠唱の構え Ｉ");
+      if (level == 1)
+      {
+        list.Add(Fix.ICE_NEEDLE_JP + "強化");
+        list.Add(Fix.SHADOW_BLAST_JP + "強化");
+        list.Add(Fix.DISPEL_MAGIC_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.ROD_TRAINING);
+        list.Add(Fix.BOOK_TRAINING);
+        list.Add(Fix.CLAW_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.STYLE_SWORD_DANCER);
+        list.Add(Fix.STYLE_ELEMENTAL_WIZARD);
+        list.Add(Fix.STYLE_MYSTIC_ENHANCER);
+      }
+      else if (level == 4)
+      {
+        list.Add(Fix.BREATHING_DANCE);
+        list.Add(Fix.MAGIC_SPELL_STANCE);
+      }
     }
     else if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
-      list.Add(Fix.FRESH_HEAL_JP + "強化 Ｉ");
-      list.Add(Fix.HUNTER_SHOT_JP + "強化 Ｉ");
-      list.Add(Fix.AURA_OF_POWER_JP + "強化 Ｉ");
-      list.Add("見切りのセンス Ｉ");
+      if (level == 1)
+      {
+        list.Add(Fix.FRESH_HEAL_JP + "強化");
+        list.Add(Fix.HUNTER_SHOT_JP + "強化");
+        list.Add(Fix.AURA_OF_POWER_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.BOW_TRAINING);
+        list.Add(Fix.ORB_TRAINING);
+        list.Add(Fix.BOOK_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.STYLE_AERIAL_HUNTER);
+        list.Add(Fix.STYLE_HIGH_PRIEST);
+        list.Add(Fix.STYLE_ROYAL_KNIGHT);
+      }
+      else if (level == 4)
+      {
+        list.Add(Fix.MIKIRI_SENSE);
+      }
     }
     else if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
-      list.Add(Fix.LEG_STRIKE_JP + "強化 Ｉ");
-      list.Add(Fix.FIRE_BALL_JP + "強化 Ｉ");
-      list.Add(Fix.HEART_OF_LIFE_JP + "強化 I");
-      list.Add("ラッシュの心構え Ｉ");
+      if (level == 1)
+      {
+        list.Add(Fix.LEG_STRIKE_JP + "強化");
+        list.Add(Fix.FIRE_BALL_JP + "強化");
+        list.Add(Fix.HEART_OF_LIFE_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.CLAW_TRAINING);
+        list.Add(Fix.AXE_TRAINING);
+        list.Add(Fix.SWORD_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.WAY_OF_SWORD);
+        list.Add(Fix.NEED_MORE_POWER);
+        list.Add(Fix.RUSH_STANCE);
+      }
+      else if (level == 4)
+      {
+      }
     }
     else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
+      if (level == 1)
+      {
+        list.Add(Fix.ENERGY_BOLT_JP + "強化");
+        list.Add(Fix.ROCK_SLAM_JP + "強化");
+        list.Add(Fix.ORACLE_COMMAND_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.ROD_TRAINING);
+        list.Add(Fix.AXE_TRAINING);
+        list.Add(Fix.SHIELD_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.MASTER_TEACHING);
+      }
+      else if (level == 4)
+      {
+      }
     }
     else if (this.FullName == Fix.NAME_SELMOI_RO)
     {
+      if (level == 1)
+      {
+        list.Add(Fix.VENOM_SLASH_JP + "強化");
+        list.Add(Fix.AIR_CUTTER_JP + "強化");
+        list.Add(Fix.DARK_AURA_JP + "強化");
+      }
+      else if (level == 2)
+      {
+        list.Add(Fix.BOW_TRAINING);
+        list.Add(Fix.ORB_TRAINING);
+        list.Add(Fix.LANCE_TRAINING);
+      }
+      else if (level == 3)
+      {
+        list.Add(Fix.TWIN_OFFENSIVE_STANCE);
+      }
+      else if (level == 4)
+      {
+      }
     }
     return list;
   }
 
-  public List<string> GetEssenceTreeDescList()
+  public string GetEssenceTreeDescList(string essence_name)
   {
-    List<string> list = new List<string>();
-    if (this.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      list.Add(Fix.STRAIGHT_SMASH_JP + "の威力が５％上昇する。");
-      list.Add(Fix.TRUE_SIGHT_JP + "の効果時間が１ターン長くなる。");
-      list.Add(Fix.SHIELD_BASH_JP + "によるスタン効果時間が１ターン長くなる。");
-      list.Add("防御姿勢時のダメージ軽減率が２％上昇する。");
-    }
-    else if (this.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      list.Add(Fix.ICE_NEEDLE_JP + "の威力が５％上昇する。");
-      list.Add(Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減少させる効果が５％上昇する。");
-      list.Add(Fix.DISPEL_MAGIC_JP + "による【有益】に属するBUFFを除去する数が１つ増える。");
-      list.Add("インスタントの行動が魔法の場合、インスタントゲージが５％残った状態で行動する。");
-    }
-    else if (this.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      list.Add(Fix.FRESH_HEAL_JP + "の威力が５％上昇する。");
-      list.Add(Fix.HUNTER_SHOT_JP + "による【標的】効果からの命中率が１０％上昇する。");
-      list.Add(Fix.AURA_OF_POWER_JP + "による【パワー】効果からの物理攻撃を増強する威力が５％上昇する。");
-      list.Add("相手から自分に対しての命中率を１０％減らす。");
-    }
-    else if (this.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      list.Add(Fix.LEG_STRIKE_JP + "の威力が５％上昇する。"); // todo 未検証
-      list.Add(Fix.FIRE_BALL_JP + "の威力が５％上昇する。"); // todo 未検証
-      list.Add(Fix.HEART_OF_LIFE_JP + "による【生命】効果からのライフ回復量が１０％上昇する。"); // todo 未検証
-      list.Add("１回の行動で連続してダメージを伴う攻撃を実行した場合、２回目またはそれ以降の威力が１０％上昇する。"); // todo 未実装
-    }
-    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
-    {
-    }
-    else if (this.FullName == Fix.NAME_SELMOI_RO)
-    {
-    }
-    return list;
+    if (essence_name == Fix.STRAIGHT_SMASH_JP + "強化") { return Fix.STRAIGHT_SMASH_JP + "の威力が５％上昇する。"; }
+    else if (essence_name == Fix.TRUE_SIGHT_JP + "強化") { return Fix.TRUE_SIGHT_JP + "の効果時間が１ターン長くなる。"; }
+    else if (essence_name == Fix.SHIELD_BASH_JP + "強化") { return Fix.SHIELD_BASH_JP + "によるスタン効果時間が１ターン長くなる。"; }
+    else if (essence_name == Fix.ICE_NEEDLE_JP + "強化") { return Fix.ICE_NEEDLE_JP + "の威力が５％上昇する。"; }
+    else if (essence_name == Fix.SHADOW_BLAST_JP + "強化") { return Fix.SHADOW_BLAST_JP + "による【陰影】効果からの魔法防御を減少させる効果が５％上昇する。"; }
+    else if (essence_name == Fix.DISPEL_MAGIC_JP + "強化") { return Fix.DISPEL_MAGIC_JP + "による【有益】に属するBUFFを除去する数が１つ増える。"; }
+    else if (essence_name == Fix.FRESH_HEAL_JP + "強化") { return Fix.FRESH_HEAL_JP + "の威力が５％上昇する。"; }
+    else if (essence_name == Fix.HUNTER_SHOT_JP + "強化") { return Fix.HUNTER_SHOT_JP + "による【標的】効果からの命中率が１０％上昇する。"; }
+    else if (essence_name == Fix.AURA_OF_POWER_JP + "強化") { return Fix.AURA_OF_POWER_JP + "による【パワー】効果からの物理攻撃を増強する威力が５％上昇する。"; }
+    else if (essence_name == Fix.LEG_STRIKE_JP + "強化") { return Fix.LEG_STRIKE_JP + "の威力が５％上昇する。"; }
+    else if (essence_name == Fix.FIRE_BALL_JP + "強化") { return Fix.FIRE_BALL_JP + "の威力が５％上昇する。"; }
+    else if (essence_name == Fix.HEART_OF_LIFE_JP + "強化") { return Fix.HEART_OF_LIFE_JP + "による【生命】効果からのライフ回復量が１０％上昇する。"; }
+    else if (essence_name == Fix.ENERGY_BOLT_JP + "強化") { return "エナジー・ボルトの威力が５％上昇する。"; }
+    else if (essence_name == Fix.ROCK_SLAM_JP + "強化") { return "ロック・スラムの威力が５％上昇する。"; }
+    else if (essence_name == Fix.ORACLE_COMMAND_JP + "強化") { return "オラクル・コマンドによるインスタント・ゲージ進行が10%増加する。"; }
+    else if (essence_name == Fix.VENOM_SLASH_JP + "強化") { return "ヴェノム・スラッシュの威力が５％上昇する。"; }
+    else if (essence_name == Fix.AIR_CUTTER_JP + "強化") { return "エア・カッターの威力が５％上昇する。"; }
+    else if (essence_name == Fix.DARK_AURA_JP + "強化") { return "ダーク・オーラによる【黒炎】の累積カウントに対する最大上限が＋１される。"; }
+
+    else if (essence_name == Fix.SWORD_TRAINING) { return "剣を装備しているとき、物理攻撃力が３％上昇する。"; }
+    else if (essence_name == Fix.LANCE_TRAINING) { return "槍を装備しているとき、物理攻撃力が３％上昇する。"; }
+    else if (essence_name == Fix.AXE_TRAINING) { return "斧を装備しているとき、物理攻撃力が３％上昇する。"; }
+    else if (essence_name == Fix.CLAW_TRAINING) { return "爪を装備をしている時、物理攻撃力が3％上昇する。"; }
+    else if (essence_name == Fix.ROD_TRAINING) { return "杖を装備をしている時、魔法攻撃力が3％上昇する。"; }
+    else if (essence_name == Fix.BOOK_TRAINING) { return "本を装備をしている時、魔法攻撃力が3％上昇する。"; }
+    else if (essence_name == Fix.ORB_TRAINING) { return "水晶を装備をしている時、魔法攻撃力が3％上昇する。"; }
+    else if (essence_name == Fix.BOW_TRAINING) { return "弓を装備をしている時、物理攻撃力が3％上昇する。"; }
+    else if (essence_name == Fix.SHIELD_TRAINING) { return "防御姿勢時のダメージ軽減率が２％上昇する。"; }
+
+    else if (essence_name == Fix.STYLE_GLADIATOR_JP) { return "両手を使う武器の命中率が100%となる。"; }
+    else if (essence_name == Fix.STYLE_DEFENDER_JP) { return "「防衛」のコマンドを使用可能となる。また物理防御力が１％上昇する。"; }
+    else if (essence_name == Fix.STYLE_BRAVE_SEEKER_JP) { return "味方フィールドに「勇敢」のBUFFを形成する事が可能になる。"; }
+    else if (essence_name == Fix.STYLE_SWORD_DANCER_JP) { return "「二刀流」が使用可能となる。武器の命中率が上昇する。"; }
+    else if (essence_name == Fix.STYLE_ELEMENTAL_WIZARD_JP) { return "両手杖装備時、魔法攻撃力が３％上昇する。また、炎、氷、風、土の魔法耐性が１０％上昇する。"; }
+    else if (essence_name == Fix.STYLE_MYSTIC_ENHANCER_JP) { return "ターン制BUFFのターン永続数が＋１ターンされる。また、威力を示す要素が含まれるBUFFを付与する時、威力の値が５％上昇する。"; }
+    else if (essence_name == Fix.STYLE_AERIAL_HUNTER_JP) { return "弓装備時、命中率が100%になり、「ためる」コマンドを使用可能となる。"; }
+    else if (essence_name == Fix.STYLE_HIGH_PRIEST_JP) { return "回復魔法の威力が5%上昇する。"; }
+    else if (essence_name == Fix.STYLE_ROYAL_KNIGHT_JP) { return "【力】パラメタから物理防御への変換比率、【知】パラメタからの魔法防御への変換比率が0.2から0.3に上昇する。"; }
+    else if (essence_name == Fix.STYLE_VOICE_CALLER_JP) { return "「シャウト」コマンドが使用可能となる。"; }
+    else if (essence_name == Fix.STYLE_WAR_MASTER_JP) { return "「二刀流」が使用可能となる。武器による攻撃力が上昇する。"; }
+    else if (essence_name == Fix.STYLE_DRAGON_SLAYER_JP) { return ""; }
+    else if (essence_name == Fix.STYLE_BARD_RANGER_JP) { return "味方のフィールドBUFFから影響を受ける効果が増強される。"; }
+    else if (essence_name == Fix.STYLE_BATTLE_SAGE_JP) { return ""; }
+    else if (essence_name == Fix.STYLE_ORACLE_COMMANDER_JP) { return ""; }
+    else if (essence_name == Fix.STYLE_MAGE_BREAKER_JP) { return ""; }
+    else if (essence_name == Fix.STYLE_SHADOW_ROGUE_JP) { return ""; }
+    else if (essence_name == Fix.STYLE_DEMON_LOAD_JP) { return ""; }
+
+    else if (essence_name == Fix.MAGIC_SPELL_STANCE) { return "インスタントの行動が魔法の場合、インスタントゲージが５％残った状態で行動する。"; }
+    else if (essence_name == Fix.MIKIRI_SENSE) { return "相手から自分に対しての命中率を１０％減らす。"; }
+    else if (essence_name == Fix.RUSH_STANCE) { return "１回の行動で連続してダメージを伴う攻撃を実行した場合、２回目またはそれ以降の威力が１０％上昇する。"; }
+    else if (essence_name == Fix.TWIN_OFFENSIVE_STANCE) { return "二刀流の装備形態の場合、物理ダメージがそれぞれ２％上昇する。"; }
+
+    return String.Empty;
   }
 
-  public List<string> GetEssenceTreeIconList()
+  public List<string> GetEssenceTreeIconList(int level)
   {
     List<string> list = new List<string>();
     if (this.FullName == Fix.NAME_EIN_WOLENCE)

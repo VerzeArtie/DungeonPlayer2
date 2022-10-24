@@ -137,7 +137,7 @@ public static class ActionCommand
       result.Add(Fix.MULTIPLE_SHOT);
       result.Add(Fix.EYE_OF_THE_ISSHIN);
       result.Add(Fix.PENETRATION_ARROW);
-      result.Add(Fix.PRECISION_RANGE);
+      result.Add(Fix.PRECISION_STRIKE);
       result.Add(Fix.ETERNAL_CONCENTRATION);
       result.Add(Fix.PIERCING_ARROW);
     }
@@ -860,7 +860,7 @@ public static class ActionCommand
     if (command_name == Fix.BLUE_BULLET) { return 13; }
     if (command_name == Fix.HOLY_BREATH) { return 11; }
     if (command_name == Fix.BLACK_CONTRACT) { return 12; }
-    if (command_name == Fix.STORM_ARMOR) { return 16; }
+    if (command_name == Fix.SONIC_PULSE) { return 16; }
     if (command_name == Fix.MUTE_IMPULSE) { return 15; }
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
@@ -1215,7 +1215,7 @@ public static class ActionCommand
     if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return "味方フィールドに【洗練】のフィールドを形成する。【洗練】が続く間、味方からのコマンド実行時、ダメージもしくはライフ回復を伴う場合、その威力を10%増強する。"; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.SKY_SHIELD) { return "味方一体を対象とする。対象に【魔法障壁】のBUFFを付与する。【魔法障壁】が続く間、魔法防御が上昇する。"; }
-    if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【スキル】の場合、そのインスタント行動を打ち消す。"; }
+    if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
     if (command_name == Fix.STANCE_OF_THE_SHADE) { return "自分自身に【幻闇】のBUFFを付与する。この効果が続く間、敵からダメージ発生を伴う攻撃を食らった場合、あたかも食らわなかったかの様に振る舞った後、このBUFFは除去される。"; }
     if (command_name == Fix.LAYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のソウルポイント回復量が＋１される。"; }
@@ -1266,7 +1266,7 @@ public static class ActionCommand
     if (command_name == Fix.ERRATIC_THUNDER) { return ""; }
     if (command_name == Fix.PETRIFICATION) { return ""; }
     if (command_name == Fix.RAGING_STORM) { return ""; }
-    if (command_name == Fix.PRECISION_RANGE) { return ""; }
+    if (command_name == Fix.PRECISION_STRIKE) { return ""; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return ""; }
     if (command_name == Fix.COUNTER_DISALLOW) { return ""; }
     if (command_name == Fix.SIGIL_OF_THE_HOMURA) { return ""; }

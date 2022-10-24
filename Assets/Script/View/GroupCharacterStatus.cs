@@ -96,6 +96,31 @@ public class GroupCharacterStatus : MonoBehaviour
   public List<Text> txtEssenceList3;
   public List<NodeActionCommand> imgEssenceList4;
   public List<Text> txtEssenceList4;
+  public List<NodeActionCommand> imgEssenceListB_1;
+  public List<Text> txtEssenceListB_1;
+  public List<NodeActionCommand> imgEssenceListB_2;
+  public List<Text> txtEssenceListB_2;
+  public List<NodeActionCommand> imgEssenceListB_3;
+  public List<Text> txtEssenceListB_3;
+  public List<NodeActionCommand> imgEssenceListB_4;
+  public List<Text> txtEssenceListB_4;
+  public List<NodeActionCommand> imgEssenceListC_1;
+  public List<Text> txtEssenceListC_1;
+  public List<NodeActionCommand> imgEssenceListC_2;
+  public List<Text> txtEssenceListC_2;
+  public List<NodeActionCommand> imgEssenceListC_3;
+  public List<Text> txtEssenceListC_3;
+  public List<NodeActionCommand> imgEssenceListC_4;
+  public List<Text> txtEssenceListC_4;
+  public List<NodeActionCommand> imgEssenceListD_1;
+  public List<Text> txtEssenceListD_1;
+  public List<NodeActionCommand> imgEssenceListD_2;
+  public List<Text> txtEssenceListD_2;
+  public List<NodeActionCommand> imgEssenceListD_3;
+  public List<Text> txtEssenceListD_3;
+  public List<NodeActionCommand> imgEssenceListD_4;
+  public List<Text> txtEssenceListD_4;
+
   public Text txtEssencePoint;
   public Image imgEssenceCurrent;
   public Text txtEssenceCurrentCategory;
@@ -243,8 +268,8 @@ public class GroupCharacterStatus : MonoBehaviour
     }
     if (imgEssenceList != null && imgEssenceList.Count > 0)
     {
-      List<string> list = CurrentPlayer.GetEssenceTreeTitleList();
-      List<string> iconList = CurrentPlayer.GetEssenceTreeIconList();
+      List<string> list = CurrentPlayer.GetEssenceTreeTitleList(1);
+      List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
       for (int ii = 0; ii < list.Count; ii++)
       {
         imgEssenceList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(iconList[ii]);
@@ -1169,14 +1194,13 @@ public class GroupCharacterStatus : MonoBehaviour
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentCategory.text = txt_title.text;
-    List<string> titleList = CurrentPlayer.GetEssenceTreeTitleList();
-    List<string> descList = CurrentPlayer.GetEssenceTreeDescList();
-    List<string> iconList = CurrentPlayer.GetEssenceTreeIconList();
+    List<string> titleList = CurrentPlayer.GetEssenceTreeTitleList(1);
+    List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
     for (int ii = 0; ii < titleList.Count; ii++)
     {
       if (txt_title.text == titleList[ii])
       {
-        txtEssenceCurrentDescription.text = descList[ii];
+        txtEssenceCurrentDescription.text = CurrentPlayer.GetEssenceTreeDescList(titleList[ii]);
         imgEssenceCurrent.sprite = Resources.Load<Sprite>(iconList[ii]);
       }
     }

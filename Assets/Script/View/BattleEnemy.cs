@@ -3699,7 +3699,8 @@ public partial class BattleEnemy : MotherBase
       // FLASH_COUNTERがスタック先頭なので、一つ前を削除する。
       int num = stack_list.Length - 2;
 
-      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
+      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Magic &&
+          (ActionCommand.GetBuffType(stack_list[num].StackName) == ActionCommand.BuffType.Negative || ActionCommand.GetBuffType(stack_list[num].StackName) == ActionCommand.BuffType.Positive))
       {
         StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
         Destroy(stack_list[num].gameObject);
