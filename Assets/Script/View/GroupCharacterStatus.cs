@@ -96,33 +96,35 @@ public class GroupCharacterStatus : MonoBehaviour
   public List<Text> txtEssenceList3;
   public List<NodeActionCommand> imgEssenceList4;
   public List<Text> txtEssenceList4;
-  public List<NodeActionCommand> imgEssenceListB_1;
-  public List<Text> txtEssenceListB_1;
-  public List<NodeActionCommand> imgEssenceListB_2;
-  public List<Text> txtEssenceListB_2;
-  public List<NodeActionCommand> imgEssenceListB_3;
-  public List<Text> txtEssenceListB_3;
-  public List<NodeActionCommand> imgEssenceListB_4;
-  public List<Text> txtEssenceListB_4;
-  public List<NodeActionCommand> imgEssenceListC_1;
-  public List<Text> txtEssenceListC_1;
-  public List<NodeActionCommand> imgEssenceListC_2;
-  public List<Text> txtEssenceListC_2;
-  public List<NodeActionCommand> imgEssenceListC_3;
-  public List<Text> txtEssenceListC_3;
-  public List<NodeActionCommand> imgEssenceListC_4;
-  public List<Text> txtEssenceListC_4;
-  public List<NodeActionCommand> imgEssenceListD_1;
-  public List<Text> txtEssenceListD_1;
-  public List<NodeActionCommand> imgEssenceListD_2;
-  public List<Text> txtEssenceListD_2;
-  public List<NodeActionCommand> imgEssenceListD_3;
-  public List<Text> txtEssenceListD_3;
-  public List<NodeActionCommand> imgEssenceListD_4;
-  public List<Text> txtEssenceListD_4;
+
+  public List<NodeActionCommand> imgEssenceList1_1;
+  public List<Text> txtEssenceList1_1;
+  public List<NodeActionCommand> imgEssenceList1_2;
+  public List<Text> txtEssenceList1_2;
+  public List<NodeActionCommand> imgEssenceList1_3;
+  public List<Text> txtEssenceList1_3;
+  public List<NodeActionCommand> imgEssenceList2_1;
+  public List<Text> txtEssenceList2_1;
+  public List<NodeActionCommand> imgEssenceList2_2;
+  public List<Text> txtEssenceList2_2;
+  public List<NodeActionCommand> imgEssenceList2_3;
+  public List<Text> txtEssenceList2_3;
+  public List<NodeActionCommand> imgEssenceList3_1;
+  public List<Text> txtEssenceList3_1;
+  public List<NodeActionCommand> imgEssenceList3_2;
+  public List<Text> txtEssenceList3_2;
+  public List<NodeActionCommand> imgEssenceList3_3;
+  public List<Text> txtEssenceList3_3;
+  public List<NodeActionCommand> imgEssenceList4_1;
+  public List<Text> txtEssenceList4_1;
+  public List<NodeActionCommand> imgEssenceList4_2;
+  public List<Text> txtEssenceList4_2;
+  public List<NodeActionCommand> imgEssenceList4_3;
+  public List<Text> txtEssenceList4_3;
 
   public Text txtEssencePoint;
-  public Image imgEssenceCurrent;
+  //public Image imgEssenceCurrent;
+  public NodeActionCommand imgEssenceCurrent;
   public Text txtEssenceCurrentCategory;
   public Text txtEssenceCurrentDescription;
   public GameObject groupEssenceDecision;
@@ -266,17 +268,70 @@ public class GroupCharacterStatus : MonoBehaviour
     {
       txtEssencePoint.text = player.SoulFragment.ToString();
     }
-    if (imgEssenceList != null && imgEssenceList.Count > 0)
+
+    //if (imgEssenceList != null && imgEssenceList.Count > 0)
+    //{
+    //  List<string> list = CurrentPlayer.GetEssenceTreeTitleList(1);
+    //  List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
+    //  for (int ii = 0; ii < list.Count; ii++)
+    //  {
+    //    imgEssenceList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(iconList[ii]);
+    //    txtEssenceList[ii].text = list[ii];
+    //  }
+    //  TapSelectEssence(txtEssenceList[0]); // 最初を選択しておく。
+    //}
+
+    // 芋プログラミングだが、良しとする。
+    // 壱なる属性（１）
+    List<string> list_1_1 = CurrentPlayer.GetEssenceTreeTitleList(0, 0);
+    for (int ii = 0; ii < list_1_1.Count; ii++)
     {
-      List<string> list = CurrentPlayer.GetEssenceTreeTitleList(1);
-      List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
-      for (int ii = 0; ii < list.Count; ii++)
-      {
-        imgEssenceList[ii].ActionButton.image.sprite = Resources.Load<Sprite>(iconList[ii]);
-        txtEssenceList[ii].text = list[ii];
-      }
-      TapSelectEssence(txtEssenceList[0]); // 最初を選択しておく。
+      imgEssenceList1_1[ii].ApplyImageIcon(list_1_1[ii]);
+      txtEssenceList1_1[ii].text = list_1_1[ii];
     }
+    List<string> list_1_2 = CurrentPlayer.GetEssenceTreeTitleList(0, 1);
+    for (int ii = 0; ii < list_1_2.Count; ii++)
+    {
+      imgEssenceList1_2[ii].ApplyImageIcon(list_1_2[ii]);
+      txtEssenceList1_2[ii].text = list_1_2[ii];
+    }
+    List<string> list_1_3 = CurrentPlayer.GetEssenceTreeTitleList(0, 2);
+    for (int ii = 0; ii < list_1_3.Count; ii++)
+    {
+      imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
+      txtEssenceList1_3[ii].text = list_1_3[ii];
+    }
+    // 弐なる属性（１）
+    List<string> list_2_1 = CurrentPlayer.GetEssenceTreeTitleList(1, 0);
+    for (int ii = 0; ii < list_2_1.Count; ii++)
+    {
+      imgEssenceList2_1[ii].ApplyImageIcon(list_2_1[ii]);
+      txtEssenceList2_1[ii].text = list_2_1[ii];
+    }
+    List<string> list_2_2 = CurrentPlayer.GetEssenceTreeTitleList(1, 1);
+    for (int ii = 0; ii < list_2_2.Count; ii++)
+    {
+      imgEssenceList2_2[ii].ApplyImageIcon(list_2_2[ii]);
+      txtEssenceList2_2[ii].text = list_2_2[ii];
+    }
+    List<string> list_2_3 = CurrentPlayer.GetEssenceTreeTitleList(1, 2);
+    for (int ii = 0; ii < list_2_3.Count; ii++)
+    {
+      imgEssenceList2_3[ii].ApplyImageIcon(list_2_3[ii]);
+      txtEssenceList2_3[ii].text = list_2_3[ii];
+    }
+    //// 参なる属性（１）
+    //List<string> list_3 = CurrentPlayer.GetEssenceTreeTitleList(2, 0);
+    //for (int ii = 0; ii < list_3.Count; ii++)
+    //{
+    //  imgEssenceListC_1[ii].ApplyImageIcon(list_3[ii]);
+    //}
+    //// 背反属性（１）
+    //List<string> list_4 = CurrentPlayer.GetEssenceTreeTitleList(3, 0);
+    //for (int ii = 0; ii < list_4.Count; ii++)
+    //{
+    //  imgEssenceListD_1[ii].ApplyImageIcon(list_4[ii]);
+    //}
 
     if (ShadowPlayer != null)
     {
@@ -1183,34 +1238,25 @@ public class GroupCharacterStatus : MonoBehaviour
   #region "エッセンス・ツリー設定"
   public void TapEssenceCategory(int number)
   {
-    // 属性番号との類似性を考慮して、一番目は０ではなく１とする。
-    if (number == 1) { GroupEssenceList1.SetActive(true);  GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
-    else if (number == 2) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(true); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
-    else if (number == 3) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(true); GroupEssenceList4.SetActive(false); }
-    else if (number == 4) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(true); }
+    if (number == 0) { GroupEssenceList1.SetActive(true);  GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
+    else if (number == 1) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(true); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(false); }
+    else if (number == 2) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(true); GroupEssenceList4.SetActive(false); }
+    else if (number == 3) { GroupEssenceList1.SetActive(false); GroupEssenceList2.SetActive(false); GroupEssenceList3.SetActive(false); GroupEssenceList4.SetActive(true); }
   }
 
   public void TapSelectEssence(Text txt_title)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentCategory.text = txt_title.text;
-    List<string> titleList = CurrentPlayer.GetEssenceTreeTitleList(1);
-    List<string> iconList = CurrentPlayer.GetEssenceTreeIconList(1);
-    for (int ii = 0; ii < titleList.Count; ii++)
-    {
-      if (txt_title.text == titleList[ii])
-      {
-        txtEssenceCurrentDescription.text = CurrentPlayer.GetEssenceTreeDescList(titleList[ii]);
-        imgEssenceCurrent.sprite = Resources.Load<Sprite>(iconList[ii]);
-      }
-    }
+    txtEssenceCurrentDescription.text = CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
+    imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
 
   public void TapDecisionEssence()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    imgEssenceDecision.sprite = imgEssenceCurrent.sprite;
+    imgEssenceDecision.sprite = imgEssenceCurrent.ActionButton.image.sprite;
     imgEssenceDecision.name = txtEssenceCurrentCategory.text;
     if (CurrentPlayer.SoulFragment <= 0)
     {

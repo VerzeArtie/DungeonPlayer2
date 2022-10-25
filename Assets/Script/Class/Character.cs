@@ -2557,152 +2557,385 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
-  public List<string> GetEssenceTreeTitleList(int level)
+  public List<string> GetEssenceTreeTitleList(int attr, int type)
   {
     List<string> list = new List<string>();
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
-        list.Add(Fix.TRUE_SIGHT_JP + "強化");
-        list.Add(Fix.SHIELD_BASH_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.TRUE_SIGHT_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.SHIELD_BASH_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.SWORD_TRAINING);
-        list.Add(Fix.LANCE_TRAINING);
-        list.Add(Fix.SHIELD_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.SWORD_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.LANCE_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.SHIELD_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.STYLE_GLADIATOR);
-        list.Add(Fix.STYLE_DEFENDER);
-        list.Add(Fix.STYLE_BRAVE_SEEKER);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_GLADIATOR);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_DEFENDER);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_BRAVE_SEEKER);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
-        list.Add(Fix.GIFT_OF_TWIN);
-        list.Add(Fix.WAY_OF_POTENTIAL);
+        if (type == 0)
+        {
+          list.Add(Fix.GIFT_OF_TWIN);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.WAY_OF_POTENTIAL);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.TIME_EXPANSION);
+        }
       }
     }
     else if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.ICE_NEEDLE_JP + "強化");
-        list.Add(Fix.SHADOW_BLAST_JP + "強化");
-        list.Add(Fix.DISPEL_MAGIC_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.ICE_NEEDLE_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.SHADOW_BLAST_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.DISPEL_MAGIC_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.ROD_TRAINING);
-        list.Add(Fix.BOOK_TRAINING);
-        list.Add(Fix.CLAW_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.ROD_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.BOOK_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.CLAW_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.STYLE_SWORD_DANCER);
-        list.Add(Fix.STYLE_ELEMENTAL_WIZARD);
-        list.Add(Fix.STYLE_MYSTIC_ENHANCER);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_SWORD_DANCER);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_ELEMENTAL_WIZARD);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_MYSTIC_ENHANCER);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
-        list.Add(Fix.BREATHING_DANCE);
-        list.Add(Fix.MAGIC_SPELL_STANCE);
+        if (type == 0)
+        {
+          list.Add(Fix.BREATHING_DANCE);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.MAGIC_SPELL_STANCE);
+        }
+        else if (type == 2)
+        {
+          list.Add(""); // todo
+        }
       }
     }
     else if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.FRESH_HEAL_JP + "強化");
-        list.Add(Fix.HUNTER_SHOT_JP + "強化");
-        list.Add(Fix.AURA_OF_POWER_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.FRESH_HEAL_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.HUNTER_SHOT_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.AURA_OF_POWER_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.BOW_TRAINING);
-        list.Add(Fix.ORB_TRAINING);
-        list.Add(Fix.BOOK_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.BOW_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.ORB_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.BOOK_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.STYLE_AERIAL_HUNTER);
-        list.Add(Fix.STYLE_HIGH_PRIEST);
-        list.Add(Fix.STYLE_ROYAL_KNIGHT);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_AERIAL_HUNTER);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_HIGH_PRIEST);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_ROYAL_KNIGHT);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
-        list.Add(Fix.MIKIRI_SENSE);
+        if (type == 0)
+        {
+          list.Add(Fix.MIKIRI_SENSE);
+        }
+        else if (type == 1)
+        {
+          list.Add(""); // todo
+        }
+        else if (type == 2)
+        {
+          list.Add(""); // todo
+        }
       }
     }
-    else if (this.FullName == Fix.NAME_BILLY_RAKI)
+    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)//NAME_BILLY_RAKI)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.LEG_STRIKE_JP + "強化");
-        list.Add(Fix.FIRE_BALL_JP + "強化");
-        list.Add(Fix.HEART_OF_LIFE_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.LEG_STRIKE_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.FIRE_BALL_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.HEART_OF_LIFE_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.CLAW_TRAINING);
-        list.Add(Fix.AXE_TRAINING);
-        list.Add(Fix.SWORD_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.CLAW_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.AXE_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.SWORD_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.WAY_OF_SWORD);
-        list.Add(Fix.NEED_MORE_POWER);
-        list.Add(Fix.RUSH_STANCE);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_VOICE_CALLER);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_WAR_MASTER);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_DRAGON_SLAYER);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
+        if (type == 0)
+        {
+          list.Add(Fix.WAY_OF_SWORD);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.NEED_MORE_POWER);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.RUSH_STANCE);
+        }
       }
     }
-    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+    else if (this.FullName == Fix.NAME_BILLY_RAKI)//NAME_ADEL_BRIGANDY)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.ENERGY_BOLT_JP + "強化");
-        list.Add(Fix.ROCK_SLAM_JP + "強化");
-        list.Add(Fix.ORACLE_COMMAND_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.ENERGY_BOLT_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.ROCK_SLAM_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.ORACLE_COMMAND_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.ROD_TRAINING);
-        list.Add(Fix.AXE_TRAINING);
-        list.Add(Fix.SHIELD_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.ROD_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.AXE_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.SHIELD_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.MASTER_TEACHING);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_BARD_RANGER);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_BATTLE_SAGE);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_ORACLE_COMMANDER);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
+        if (type == 0)
+        {
+          list.Add(Fix.MASTER_TEACHING);
+        }
+        else if (type == 1)
+        {
+          list.Add(""); // todo
+        }
+        else if (type == 2)
+        {
+          list.Add(""); // todo
+        }
       }
     }
     else if (this.FullName == Fix.NAME_SELMOI_RO)
     {
-      if (level == 1)
+      if (attr == 0)
       {
-        list.Add(Fix.VENOM_SLASH_JP + "強化");
-        list.Add(Fix.AIR_CUTTER_JP + "強化");
-        list.Add(Fix.DARK_AURA_JP + "強化");
+        if (type == 0)
+        {
+          list.Add(Fix.VENOM_SLASH_JP + "強化");
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.AIR_CUTTER_JP + "強化");
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.DARK_AURA_JP + "強化");
+        }
       }
-      else if (level == 2)
+      else if (attr == 1)
       {
-        list.Add(Fix.BOW_TRAINING);
-        list.Add(Fix.ORB_TRAINING);
-        list.Add(Fix.LANCE_TRAINING);
+        if (type == 0)
+        {
+          list.Add(Fix.BOW_TRAINING);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.ORB_TRAINING);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.LANCE_TRAINING);
+        }
       }
-      else if (level == 3)
+      else if (attr == 2)
       {
-        list.Add(Fix.TWIN_OFFENSIVE_STANCE);
+        if (type == 0)
+        {
+          list.Add(Fix.STYLE_MAGE_BREAKER);
+        }
+        else if (type == 1)
+        {
+          list.Add(Fix.STYLE_SHADOW_ROGUE);
+        }
+        else if (type == 2)
+        {
+          list.Add(Fix.STYLE_DEMON_LOAD);
+        }
       }
-      else if (level == 4)
+      else if (attr == 3)
       {
+        if (type == 0)
+        {
+          list.Add(Fix.TWIN_OFFENSIVE_STANCE);
+        }
+        else if (type == 1)
+        {
+          list.Add(""); // todo
+        }
+        else if (type == 2)
+        {
+          list.Add(""); // todo
+        }
       }
     }
     return list;

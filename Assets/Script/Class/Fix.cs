@@ -1298,6 +1298,7 @@ public static partial class Fix
   public const string SHIELD_TRAINING = "盾の基礎訓練";
   public const string WAY_OF_POTENTIAL = "潜在能力への意志";
   public const string GIFT_OF_TWIN = "双律の開眼";
+  public const string TIME_EXPANSION = "時間律への干渉";
   public const string BREATHING_DANCE = "舞踏の呼吸";
   public const string MAGIC_SPELL_STANCE = "魔法詠唱の構え";
   public const string MIKIRI_SENSE = "見切りのセンス";
