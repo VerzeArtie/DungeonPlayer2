@@ -286,18 +286,21 @@ public class GroupCharacterStatus : MonoBehaviour
     List<string> list_1_1 = CurrentPlayer.GetEssenceTreeTitleList(0, 0);
     for (int ii = 0; ii < list_1_1.Count; ii++)
     {
+      if (ii >= imgEssenceList1_1.Count) { break; }
       imgEssenceList1_1[ii].ApplyImageIcon(list_1_1[ii]);
       txtEssenceList1_1[ii].text = list_1_1[ii];
     }
     List<string> list_1_2 = CurrentPlayer.GetEssenceTreeTitleList(0, 1);
     for (int ii = 0; ii < list_1_2.Count; ii++)
     {
+      if (ii >= imgEssenceList1_2.Count) { break; }
       imgEssenceList1_2[ii].ApplyImageIcon(list_1_2[ii]);
       txtEssenceList1_2[ii].text = list_1_2[ii];
     }
     List<string> list_1_3 = CurrentPlayer.GetEssenceTreeTitleList(0, 2);
     for (int ii = 0; ii < list_1_3.Count; ii++)
     {
+      if (ii >= imgEssenceList1_3.Count) { break; }
       imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
       txtEssenceList1_3[ii].text = list_1_3[ii];
     }

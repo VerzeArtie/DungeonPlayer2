@@ -2567,14 +2567,32 @@ public partial class Character : MonoBehaviour
         if (type == 0)
         {
           list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
+          list.Add(Fix.STANCE_OF_THE_BLADE_JP + "強化");
+          list.Add(Fix.DOUBLE_SLASH_JP + "強化");
+          list.Add(Fix.IRON_BASTER_JP + "強化");
+          list.Add(Fix.RAGING_STORM_JP + "強化");
+          list.Add(Fix.STANCE_OF_THE_IAI_JP + "強化");
+          list.Add(Fix.KINETIC_SMASH_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.TRUE_SIGHT_JP + "強化");
+          list.Add(Fix.LAYLINE_SCHEMA_JP + "強化");
+          list.Add(Fix.WORD_OF_POWER_JP + "強化");
+          list.Add(Fix.WILL_AWAKENING_JP + "強化");
+          list.Add(Fix.MIND_FORCE_JP + "強化");
+          list.Add(Fix.SIGIL_OF_THE_FAITH_JP + "強化");
+          list.Add(Fix.STANCE_OF_THE_KOKOROE_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.SHIELD_BASH_JP + "強化");
+          list.Add(Fix.STANCE_OF_THE_GUARD_JP + "強化");
+          list.Add(Fix.CONCUSSIVE_HIT_JP + "強化");
+          list.Add(Fix.DOMINATION_FIELD_JP + "強化");
+          list.Add(Fix.HARDEST_PARRY_JP + "強化");
+          list.Add(Fix.WILD_SWING_JP + "強化");
+          list.Add(Fix.ONE_IMMUNITY_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -2630,14 +2648,32 @@ public partial class Character : MonoBehaviour
         if (type == 0)
         {
           list.Add(Fix.ICE_NEEDLE_JP + "強化");
+          list.Add(Fix.PURE_PURIFICATION_JP + "強化");
+          list.Add(Fix.BLUE_BULLET_JP + "強化");
+          list.Add(Fix.FREEZING_CUBE_JP + "強化");
+          list.Add(Fix.FROST_LANCE_JP + "強化");
+          list.Add(Fix.WATER_PRESENCE_JP + "強化");
+          list.Add(Fix.ABSOLUTE_ZERO_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.SHADOW_BLAST_JP + "強化");
+          list.Add(Fix.BLOOD_SIGN_JP + "強化");
+          list.Add(Fix.BLACK_CONTRACT_JP + "強化");
+          list.Add(Fix.CURSED_EVANGEL_JP + "強化");
+          list.Add(Fix.CIRCLE_OF_THE_DESPAIR_JP + "強化");
+          list.Add(Fix.THE_DARK_INTENSITY_JP + "強化");
+          list.Add(Fix.DEATH_SCYTHE_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.DISPEL_MAGIC_JP + "強化");
+          list.Add(Fix.FLASH_COUNTER_JP + "強化");
+          list.Add(Fix.MUTE_IMPULSE_JP + "強化");
+          list.Add(Fix.DETACHMENT_FAULT_JP + "強化");
+          list.Add(Fix.OATH_OF_AEGIS_JP + "強化");
+          list.Add(Fix.FUTURE_VISION_JP + "強化");
+          list.Add(Fix.ESSENCE_OVERFLOW_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -2693,14 +2729,32 @@ public partial class Character : MonoBehaviour
         if (type == 0)
         {
           list.Add(Fix.FRESH_HEAL_JP + "強化");
+          list.Add(Fix.DIVINE_CIRCLE_JP + "強化");
+          list.Add(Fix.HOLY_BREATH_JP + "強化");
+          list.Add(Fix.ANGELIC_ECHO_JP + "強化");
+          list.Add(Fix.SHINING_HEAL_JP + "強化");
+          list.Add(Fix.VALKYRIE_BLADE_JP + "強化");
+          list.Add(Fix.RESURRECTION_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.HUNTER_SHOT_JP + "強化");
+          list.Add(Fix.MULTIPLE_SHOT_JP + "強化");
+          list.Add(Fix.EYE_OF_THE_ISSHIN_JP + "強化");
+          list.Add(Fix.PENETRATION_ARROW_JP + "強化");
+          list.Add(Fix.PRECISION_STRIKE_JP + "強化");
+          list.Add(Fix.ETERNAL_CONCENTRATION_JP + "強化");
+          list.Add(Fix.PIERCING_ARROW_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.AURA_OF_POWER_JP + "強化");
+          list.Add(Fix.SKY_SHIELD_JP + "強化");
+          list.Add(Fix.AETHER_DRIVE_JP + "強化");
+          list.Add(Fix.CIRCLE_OF_THE_VIGOR_JP + "強化");
+          list.Add(Fix.REVOLUTION_AURA_JP + "強化");
+          list.Add(Fix.BRILLIANT_FORM_JP + "強化");
+          list.Add(Fix.AUSTERITY_MATRIX_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -2749,21 +2803,39 @@ public partial class Character : MonoBehaviour
         }
       }
     }
-    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)//NAME_BILLY_RAKI)
+    else if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
       if (attr == 0)
       {
         if (type == 0)
         {
           list.Add(Fix.LEG_STRIKE_JP + "強化");
+          list.Add(Fix.SPEED_STEP_JP + "強化");
+          list.Add(Fix.BONE_CRUSH_JP + "強化");
+          list.Add(Fix.DEADLY_DRIVE_JP + "強化");
+          list.Add(Fix.UNINTENTIONAL_HIT_JP + "強化");
+          list.Add(Fix.STANCE_OF_MUIN_JP + "強化");
+          list.Add(Fix.CARNAGE_RUSH_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.FIRE_BALL_JP + "強化");
+          list.Add(Fix.FLAME_BLADE_JP + "強化");
+          list.Add(Fix.METEOR_BULLET_JP + "強化");
+          list.Add(Fix.VOLCANIC_BLAZE_JP + "強化");
+          list.Add(Fix.FLAME_STRIKE_JP + "強化");
+          list.Add(Fix.CIRCLE_OF_THE_IGNITE_JP + "強化");
+          list.Add(Fix.LAVA_ANNIHILATION_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.HEART_OF_LIFE_JP + "強化");
+          list.Add(Fix.FORTUNE_SPIRIT_JP + "強化");
+          list.Add(Fix.VOICE_OF_VIGOR_JP + "強化");
+          list.Add(Fix.AURA_BURN_JP + "強化");
+          list.Add(Fix.EVERFLOW_MIND_JP + "強化");
+          list.Add(Fix.SOUL_SHOUT_JP + "強化");
+          list.Add(Fix.OVERWHELMING_DESTINY_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -2812,21 +2884,39 @@ public partial class Character : MonoBehaviour
         }
       }
     }
-    else if (this.FullName == Fix.NAME_BILLY_RAKI)//NAME_ADEL_BRIGANDY)
+    else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
       if (attr == 0)
       {
         if (type == 0)
         {
           list.Add(Fix.ENERGY_BOLT_JP + "強化");
+          list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION_JP + "強化");
+          list.Add(Fix.SIGIL_OF_THE_PENDING_JP + "強化");
+          list.Add(Fix.PHANTOM_OBORO_JP + "強化");
+          list.Add(Fix.SIGIL_OF_THE_HOMURA_JP + "強化");
+          list.Add(Fix.WORD_OF_PROPHECY_JP + "強化");
+          list.Add(Fix.TRANSCENDENCE_REACHED_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.ROCK_SLAM_JP + "強化");
+          list.Add(Fix.SOLID_WALL_JP + "強化");
+          list.Add(Fix.LAND_SHATTER_JP + "強化");
+          list.Add(Fix.SAND_BURST_JP + "強化");
+          list.Add(Fix.PETRIFICATION_JP + "強化");
+          list.Add(Fix.LIFE_GRACE_JP + "強化");
+          list.Add(Fix.EARTH_QUAKE_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.ORACLE_COMMAND_JP + "強化");
+          list.Add(Fix.SPIRITUAL_REST_JP + "強化");
+          list.Add(Fix.UNSEEN_AID_JP + "強化");
+          list.Add(Fix.EXACT_TIME_JP + "強化");
+          list.Add(Fix.INNER_INSPIRATION_JP + "強化");
+          list.Add(Fix.ZERO_IMMUNITY_JP + "強化");
+          list.Add(Fix.TIME_SKIP_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -2882,14 +2972,32 @@ public partial class Character : MonoBehaviour
         if (type == 0)
         {
           list.Add(Fix.VENOM_SLASH_JP + "強化");
+          list.Add(Fix.INVISIBLE_BIND_JP + "強化");
+          list.Add(Fix.IRREGULAR_STEP_JP + "強化");
+          list.Add(Fix.ASSASSINATION_HIT_JP + "強化");
+          list.Add(Fix.COUNTER_DISALLOW_JP + "強化");
+          list.Add(Fix.DIRTY_WISDOM_JP + "強化");
+          list.Add(Fix.AMBIDEXTERITY_JP + "強化");
         }
         else if (type == 1)
         {
           list.Add(Fix.AIR_CUTTER_JP + "強化");
+          list.Add(Fix.STORM_ARMOR_JP + "強化");
+          list.Add(Fix.SONIC_PULSE_JP + "強化");
+          list.Add(Fix.GALE_WIND_JP + "強化");
+          list.Add(Fix.ERRATIC_THUNDER_JP + "強化");
+          list.Add(Fix.CYCLONE_FIELD_JP + "強化");
+          list.Add(Fix.LIGHTNING_SQUALL_JP + "強化");
         }
         else if (type == 2)
         {
           list.Add(Fix.DARK_AURA_JP + "強化");
+          list.Add(Fix.STANCE_OF_THE_SHADE_JP + "強化");
+          list.Add(Fix.KILLING_WAVE_JP + "強化");
+          list.Add(Fix.LEVEL_EATER_JP + "強化");
+          list.Add(Fix.ABYSS_EYE_JP + "強化");
+          list.Add(Fix.AVENGER_PROMISE_JP + "強化");
+          list.Add(Fix.DEMON_CONTRACT_JP + "強化");
         }
       }
       else if (attr == 1)

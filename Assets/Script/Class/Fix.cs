@@ -914,6 +914,7 @@ public static partial class Fix
   public const string MAGIC_ATTACK = "Magic Attack";
   public const string DEFENSE = "Defense";
   public const string STAY = "Stay";
+  public const string STAY_2 = "Stay_2";
   public const string USE_RED_POTION_1 = "RedPotion_1";
   public const string USE_RED_POTION_2 = "RedPotion_2";
   public const string USE_RED_POTION_3 = "RedPotion_3";
@@ -1016,10 +1017,10 @@ public static partial class Fix
   public const string BLACK_CONTRACT_JP = "ブラック・コントラクト";
   public const string SONIC_PULSE = "Sonic Pulse";
   public const string SONIC_PULSE_JP = "ソニック・パルス";
-  public const string EARTH_SURGE = "Earth Surge";
-  public const string EARTH_SURGE_JP = "アース・サージ";
+  public const string LAND_SHATTER = "Land Shatter";
+  public const string LAND_SHATTER_JP = "ランド・シャッター";
   public const string DOUBLE_SLASH = "Double Slash";
-  public const string DOUBLE_SlASH_JP = "ダブル・スラッシュ";
+  public const string DOUBLE_SLASH_JP = "ダブル・スラッシュ";
   public const string EYE_OF_THE_ISSHIN = "Eye of the Isshin";
   public const string EYE_OF_THE_ISSHIN_JP = "一心の眼";
   public const string BONE_CRUSH = "Bone Crush";
@@ -1114,8 +1115,8 @@ public static partial class Fix
   public const string EVERFLOW_MIND_JP = "エバーフロー・マインド";
   public const string ABYSS_EYE = "Abyss Eye";
   public const string ABYSS_EYE_JP = "アビス・アイ";
-  public const string EAGLE_EYE = "Eagle Eye";
-  public const string EAGLE_EYE_JP = "イーグル・アイ";
+  public const string MIND_FORCE = "Mind Force";
+  public const string MIND_FORCE_JP = "精神の波動";
   public const string INNER_INSPIRATION = "Inner Inspiration";
   public const string INNER_INSPIRATION_JP = "インナー・インスピレーション";
 
@@ -1143,7 +1144,7 @@ public static partial class Fix
   public const string WORD_OF_PROPHECY = "Word of Prophecy";
   public const string WORD_OF_PROPHECY_JP = "ワード・オブ・プロフェシー";
   public const string WILD_SWING = "Wild Swing";
-  public const string WILD_SWING_JP = "ワイルド・スゥイング";
+  public const string WILD_SWING_JP = "ワイルド・スウィング";
   public const string BRILLIANT_FORM = "Brilliant Form";
   public const string BRILLIANT_FORM_JP = "ブリリアント・フォーム";
   public const string FUTURE_VISION = "Future Vision";

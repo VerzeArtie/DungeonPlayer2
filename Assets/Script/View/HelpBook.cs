@@ -327,7 +327,7 @@ public class HelpBook : MotherBase
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ROCK_SLAM); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SOLID_WALL); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EARTH_SURGE); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LAND_SHATTER); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SAND_BURST); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.PETRIFICATION); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LIFE_GRACE); counter++;
@@ -379,7 +379,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LAYLINE_SCHEMA); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.WORD_OF_POWER); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.WILL_AWAKENING); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EAGLE_EYE); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MIND_FORCE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SIGIL_OF_THE_FAITH); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_KOKOROE); counter++;
     }

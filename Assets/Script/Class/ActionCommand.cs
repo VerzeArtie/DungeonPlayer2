@@ -115,7 +115,7 @@ public static class ActionCommand
     {
       result.Add(Fix.ROCK_SLAM);
       result.Add(Fix.SOLID_WALL);
-      result.Add(Fix.EARTH_SURGE);
+      result.Add(Fix.LAND_SHATTER);
       result.Add(Fix.SAND_BURST);
       result.Add(Fix.PETRIFICATION);
       result.Add(Fix.LIFE_GRACE);
@@ -207,7 +207,7 @@ public static class ActionCommand
       result.Add(Fix.LAYLINE_SCHEMA);
       result.Add(Fix.WORD_OF_POWER);
       result.Add(Fix.WILL_AWAKENING);
-      result.Add(Fix.EAGLE_EYE);
+      result.Add(Fix.MIND_FORCE);
       result.Add(Fix.SIGIL_OF_THE_FAITH);
       result.Add(Fix.STANCE_OF_THE_KOKOROE);
     }
@@ -1226,7 +1226,7 @@ public static class ActionCommand
     if (command_name == Fix.HOLY_BREATH) { return ""; }
     if (command_name == Fix.BLACK_CONTRACT) { return ""; }
     if (command_name == Fix.SONIC_PULSE) { return ""; }
-    if (command_name == Fix.EARTH_SURGE) { return ""; }
+    if (command_name == Fix.LAND_SHATTER) { return ""; }
     if (command_name == Fix.DOUBLE_SLASH) { return ""; }
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return ""; }
     if (command_name == Fix.BONE_CRUSH) { return ""; }
@@ -1275,7 +1275,7 @@ public static class ActionCommand
     if (command_name == Fix.OATH_OF_AEGIS) { return ""; }
     if (command_name == Fix.EVERFLOW_MIND) { return ""; }
     if (command_name == Fix.ABYSS_EYE) { return ""; }
-    if (command_name == Fix.EAGLE_EYE) { return ""; }
+    if (command_name == Fix.MIND_FORCE) { return ""; }
     if (command_name == Fix.INNER_INSPIRATION) { return ""; }
 
     if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return ""; }
