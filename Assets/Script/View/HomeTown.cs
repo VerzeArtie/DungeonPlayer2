@@ -2556,9 +2556,12 @@ public partial class HomeTown : MotherBase
       ShopSellItemList.Add(CreateShopItem(contentSellBackpackItem, sellList[ii], ii, true));
     }
     contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.x + 20, contentSellBackpackItem.GetComponent<RectTransform>().sizeDelta.y);
+
+    Debug.Log("ShopSellItemList.Count: " + ShopSellItemList.Count);
+
     if (ShopSellItemList.Count > 0)
     {
-      SelectShopItem(ShopItemList[0], ShopSellItemList);
+      SelectShopItem(ShopSellItemList[0], ShopSellItemList);
     }
   }
 
