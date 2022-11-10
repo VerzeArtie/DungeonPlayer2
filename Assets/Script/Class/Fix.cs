@@ -3324,6 +3324,12 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_52_X = 18.0f;
   public const float MYSTICFOREST_Event_52_Y = 0.0f;
   public const float MYSTICFOREST_Event_52_Z = -13.0f;
+
+  public const string MYSTICFOREST_Event_53_C = "Event";
+  public const string MYSTICFOREST_Event_53_O = "53";
+  public const float MYSTICFOREST_Event_53_X = 42.0f;
+  public const float MYSTICFOREST_Event_53_Y = 0.0f;
+  public const float MYSTICFOREST_Event_53_Z = -26.0f;
   #endregion
   #region "BrushWood"
   public const string MYSTICFOREST_BRUSHWOOD_1_C = "BrushWood";
@@ -3413,6 +3419,27 @@ public static partial class Fix
   public const float MYSTICFOREST_ObsidianPortal_1_Z = -13.0f;
   #endregion
 
+  #region "Boss"
+  public const string MYSTICFOREST_Boss_1_C = "Boss";
+  public const string MYSTICFOREST_Boss_1_O = "1";
+  public const float MYSTICFOREST_Boss_1_X = 44.0f;
+  public const float MYSTICFOREST_Boss_1_Y = 0.0f;
+  public const float MYSTICFOREST_Boss_1_Z = -26.0f;
+  #endregion
+
+  #region "階段"
+  public const string MYSTICFOREST_UPSTAIR_1_C = "Upstair";
+  public const string MYSTICFOREST_UPSTAIR_1_O = "1";
+  public const float MYSTICFOREST_UPSTAIR_1_X = 0.0f;
+  public const float MYSTICFOREST_UPSTAIR_1_Y = 0.0f;
+  public const float MYSTICFOREST_UPSTAIR_1_Z = -9.0f;
+
+  public const string MYSTICFOREST_UPSTAIR_2_C = "Upstair";
+  public const string MYSTICFOREST_UPSTAIR_2_O = "2";
+  public const float MYSTICFOREST_UPSTAIR_2_X = 49.0f;
+  public const float MYSTICFOREST_UPSTAIR_2_Y = 0.0f;
+  public const float MYSTICFOREST_UPSTAIR_2_Z = -26.0f;
+  #endregion
   #endregion
   #region "アーサリウム工場跡地 ( not used )"
   // センター区画左側通路先、崖落ち

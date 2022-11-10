@@ -961,6 +961,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatYodirian = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
+        {
+          One.TF.DefeatFlansisQueenOfVerdant = true;
+        }
       }
       AutoExit = Fix.BATTLEEND_AUTOEXIT;
       return;

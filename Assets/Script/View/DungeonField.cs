@@ -560,6 +560,12 @@ public class DungeonField : MotherBase
           One.TF.Event_EntryMysticForest = true;
           return;
         }
+
+        if (One.TF.DefeatFlansisQueenOfVerdant && One.TF.Event_Message900110 == false)
+        {
+          MessagePack.Message900750(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
       }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
@@ -4823,6 +4829,23 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_Goratrum_2[numbers[jj]] = true;
             }
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 5; jj++)
+            {
+              for (int kk = 0; kk < 5; kk++)
+              {
+                numbers.Add(24 * 50 + 44 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_MysticForest[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6590,6 +6613,18 @@ public class DungeonField : MotherBase
         MessagePack.Message900710(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_53_X, Fix.MYSTICFOREST_Event_53_Y, Fix.MYSTICFOREST_Event_53_Z) && One.TF.DefeatFlansisQueenOfVerdant == false)
+      {
+        MessagePack.Message900730(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Boss_1_X, Fix.MYSTICFOREST_Boss_1_Y, Fix.MYSTICFOREST_Boss_1_Z) && One.TF.DefeatFlansisQueenOfVerdant == false)
+      {
+        MessagePack.Message900740(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }     
     }
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
@@ -6886,8 +6921,16 @@ public class DungeonField : MotherBase
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
       {
-        this.HomeTownCall = Fix.TOWN_COTUHSYE;
-        return true;
+        if (LocationDetect(tile, Fix.MYSTICFOREST_UPSTAIR_1_X, Fix.MYSTICFOREST_UPSTAIR_1_Y, Fix.MYSTICFOREST_UPSTAIR_1_Z))
+        {
+          this.HomeTownCall = Fix.TOWN_COTUHSYE;
+          return true;
+        }
+        if (LocationDetect(tile, Fix.MYSTICFOREST_UPSTAIR_2_X, Fix.MYSTICFOREST_UPSTAIR_2_Y, Fix.MYSTICFOREST_UPSTAIR_2_Z))
+        {
+          this.HomeTownCall = Fix.TOWN_ZHALMAN;
+          return true;
+        }
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {

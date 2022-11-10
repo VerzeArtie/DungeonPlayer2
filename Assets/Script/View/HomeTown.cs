@@ -571,6 +571,11 @@ public partial class HomeTown : MotherBase
       MessagePack.Message500019(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500030 == false)
+    {
+      MessagePack.Message500030(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE && (One.TF.Event_Message1100020 == false || One.TF.Event_Message1100030 == false || One.TF.Event_Message1100040 == false))
     {
       MessagePack.Message1100011(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1830,6 +1835,12 @@ public partial class HomeTown : MotherBase
           this.objBlackOut.SetActive(false);
           continue; // 継続
         }
+        // ブラックアウトする。
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownBlackOut)
+        {
+          this.objBlackOut.SetActive(true);
+          continue; // 継続
+        }
         // 画面の情報をクリアする。
         else if (currentEvent == MessagePack.ActionEvent.MessageClear)
         {
@@ -2001,7 +2012,12 @@ public partial class HomeTown : MotherBase
           else if (currentMessage.Contains(Fix.NAME_ADEL_BRIGANDY))
           {
             One.TF.AvailableAdelBrigandy = true;
-            // todo 戦闘５人目、６人目とするかどうかを決める事。
+            One.ReInitializeCharacter(Fix.NAME_ADEL_BRIGANDY);
+          }
+          else if (currentMessage.Contains(Fix.NAME_SELMOI_RO))
+          {
+            One.TF.AvailableSelmoiRo = true;
+            One.ReInitializeCharacter(Fix.NAME_SELMOI_RO);
           }
 
           List<Character> current = One.AvailableCharacters;
@@ -2185,7 +2201,7 @@ public partial class HomeTown : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.HomeTownExecRestInn)
         {
-          
+
         }
         else
         {
@@ -3680,10 +3696,9 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.LARGE_RED_POTION));
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
     }
-    else if (area_name == Fix.TOWN_QVELTA_TOWN)
+    else if (area_name == Fix.TOWN_ZHALMAN)
     {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-      shopList.Add(new Item(Fix.FINE_CLAW));
+      shopList.Add(new Item(Fix.AERO_BLADE));
     }
     else if (area_name == Fix.TOWN_ARCANEDINE)
     {

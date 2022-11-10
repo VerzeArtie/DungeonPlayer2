@@ -874,6 +874,13 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message500024 = value; }
   }
 
+  [SerializeField] protected bool _event_message500030 = false;
+  public bool Event_Message500030
+  {
+    get { return _event_message500030; }
+    set { _event_message500030 = value; }
+  }
+
   [SerializeField] protected bool _event_message600001 = false;
   public bool Event_Message600001
   {
@@ -1100,6 +1107,20 @@ public class TeamFoundation : MonoBehaviour
   {
     get { return _event_message900090; }
     set { _event_message900090 = value; }
+  }
+
+  [SerializeField] protected bool _event_message900100 = false;
+  public bool Event_Message900100
+  {
+    get { return _event_message900100; }
+    set { _event_message900100 = value; }
+  }
+
+  [SerializeField] protected bool _event_message900110 = false;
+  public bool Event_Message900110
+  {
+    get { return _event_message900110; }
+    set { _event_message900110 = value; }
   }
 
   [SerializeField] protected bool _event_message1100010 = false;
@@ -1487,6 +1508,9 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_yodirian = false;
   public bool DefeatGalvadazer { get { return _defeat_galvadazer; } set { _defeat_galvadazer = value; } }
   public bool DefeatYodirian { get { return _defeat_yodirian; } set { _defeat_yodirian = value; } }
+
+  protected bool _defeat_flansis_queen_of_verdant = false;
+  public bool DefeatFlansisQueenOfVerdant { get { return _defeat_flansis_queen_of_verdant; } set { _defeat_flansis_queen_of_verdant = value; } }
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
