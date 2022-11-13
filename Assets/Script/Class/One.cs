@@ -41,13 +41,6 @@ public static class One
   {
     get { return _characters; }
   }
-  public static Character P1 = null;
-  //public static Character P2 = null;
-  //public static Character TC = null;
-  //public static Character FC = null;
-  //public static Character P5 = null;
-  //public static WorldEnvironment WE = null;
-  //public static TruthWorldEnvironment WE2 = null; // ゲームストーリー全体のワールド環境フラグ
   //public static ControlSQL SQL = null;
   public static TeamFoundation TF = null;
   public static AkashicRecord AR = null;
@@ -120,20 +113,6 @@ public static class One
     }
     _characters.Clear();
     _characters = new List<Character>();
-    //UnityEngine.Object.Destroy(P1);
-    //P1 = null;
-    //UnityEngine.Object.Destroy(P2);
-    //P2 = null;
-    //UnityEngine.Object.Destroy(TC);
-    //TC = null;
-    //UnityEngine.Object.Destroy(FC);
-    //FC = null;
-    //UnityEngine.Object.Destroy(WE);
-    //WE = null;
-    //UnityEngine.Object.Destroy(WE2);
-    //WE2 = null;
-    //UnityEngine.Object.Destroy(WE3);
-    //WE3 = null;
     //UnityEngine.Object.Destroy(SQL);
     //SQL = null;
     UnityEngine.Object.Destroy(TF);
@@ -148,20 +127,6 @@ public static class One
     }
     objCharacterList.Clear();
     objCharacterList = new List<GameObject>();
-    //UnityEngine.Object.Destroy(objP1);
-    //objP1 = null;
-    //UnityEngine.Object.Destroy(objP2);
-    //objP2 = null;
-    //UnityEngine.Object.Destroy(objTC);
-    //objTC = null;
-    //UnityEngine.Object.Destroy(objFC);
-    //objFC = null;
-    //UnityEngine.Object.Destroy(objWE);
-    //objWE = null;
-    //UnityEngine.Object.Destroy(objWE2);
-    //objWE2 = null;
-    //UnityEngine.Object.Destroy(objWE3);
-    //objWE3 = null;
     //UnityEngine.Object.Destroy(objSQL);
     //objSQL = null;
     UnityEngine.Object.Destroy(objTF);
@@ -218,15 +183,9 @@ public static class One
     {
       objCharacterList.Add(new GameObject("obj_C" + (ii + 1).ToString("D2")));
     }
-    //objP1 = new GameObject("objP1");
-    //objP2 = new GameObject("objSC");
-    //objTC = new GameObject("objTC");
-    //objFC = new GameObject("objFC");
-    //objWE = new GameObject("objWE");
-    //objWE2 = new GameObject("objWE2");
-    //objSQL = new GameObject("objSQL");
     objTF = new GameObject("objTF");
     objAR = new GameObject("objAR");
+    //objSQL = new GameObject("objSQL");
 
     if (FromGameLoad == false)
     {
@@ -244,7 +203,6 @@ public static class One
     //WE = objWE.AddComponent<WorldEnvironment>();
     //WE.DungeonArea = 1;
     //WE.AvailableFirstCharacter = true;
-    //WE2 = objWE2.AddComponent<TruthWorldEnvironment>();
     TF = objTF.AddComponent<TeamFoundation>();
     AR = objAR.AddComponent<AkashicRecord>();
 
@@ -269,10 +227,6 @@ public static class One
     {
       _characters.Add(objCharacterList[ii].AddComponent<Character>());
     }
-    //P1 = objP1.AddComponent<Character>();
-    //P2 = objP2.AddComponent<Character>();
-    //TC = objTC.AddComponent<Character>();
-    //FC = objFC.AddComponent<Character>();
 
     //SQL = objSQL.AddComponent<ControlSQL>();
     //SQL.SetupSql();
@@ -707,12 +661,6 @@ public static class One
     {
       UnityEngine.Object.DontDestroyOnLoad(_characters[ii]);
     }
-    //UnityEngine.Object.DontDestroyOnLoad(P1);
-    //UnityEngine.Object.DontDestroyOnLoad(P2);
-    //UnityEngine.Object.DontDestroyOnLoad(TC);
-    //UnityEngine.Object.DontDestroyOnLoad(FC);
-    //UnityEngine.Object.DontDestroyOnLoad(WE);
-    //UnityEngine.Object.DontDestroyOnLoad(WE2);
     UnityEngine.Object.DontDestroyOnLoad(TF);
     UnityEngine.Object.DontDestroyOnLoad(AR);
     UnityEngine.Object.DontDestroyOnLoad(sound);
@@ -1540,16 +1488,6 @@ public static class One
     }
   }
 
-  //// 現実世界の自動セーブ
-  //public static void AutoSaveRealWorld()
-  //{
-  //    SceneDimension.CallSaveLoadWithSaveOnly();
-  //}
-  //public static void AutoSaveRealWorld(MainCharacter MC, MainCharacter SC, MainCharacter TC, WorldEnvironment WE, bool[] knownTileInfo, bool[] knownTileInfo2, bool[] knownTileInfo3, bool[] knownTileInfo4, bool[] knownTileInfo5, bool[] Truth_KnownTileInfo, bool[] Truth_KnownTileInfo2, bool[] Truth_KnownTileInfo3, bool[] Truth_KnownTileInfo4, bool[] Truth_KnownTileInfo5)
-  //{
-  //    SceneDimension.CallSaveLoadWithSaveOnly();
-  //}
-
   //// 街でオル・ランディスが外れる、４階最初でヴェルゼが外れる、４階エリア３でラナが外れるのを統合
   //public static void RemoveParty(MainCharacter player, bool initializeBank)
   //{
@@ -1678,8 +1616,9 @@ public static class One
   //}
   #endregion
 
-  // 戦闘終了後のアイテムゲット、ファージル宮殿お楽しみ抽選券のアイテムゲットを統合
-  //public static string GetNewItem(NewItemCategory category, Character mc, Character ec1 = null, int dungeonArea = 0)
+  /// <summary>
+  /// 戦闘終了後のアイテムゲット、ファージル宮殿お楽しみ抽選券のアイテムゲットを統合
+  /// </summary>
   public static string GetNewItem(Fix.DropItemCategory category, Character mc, Character ec1, int dungeonArea)
   {
     string targetItemName = String.Empty;
