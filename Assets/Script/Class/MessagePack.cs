@@ -11,6 +11,7 @@ public static class MessagePack
   public enum ActionEvent
   {
     None,
+    LastMessage,
     MessageClear,
     GetItem,
     GetGold,
@@ -4074,7 +4075,7 @@ public static class MessagePack
 
   public static void Message500021(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：（いや、今は長老に直談判するのは止めておこう）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（いや、今は長老の所に行くのは止めておこう）", ActionEvent.None);
   }
 
   public static void Message500022(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -5886,6 +5887,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
 
+      if (One.AR.InscribeObsidianStone_1 == false)
       {
         Message(ref m_list, ref e_list, "（　何か重要な事を忘れている気がする。　）", ActionEvent.None);
 
@@ -5914,6 +5916,66 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "～　THE　END　～　（過去からの欠落）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "（　国王エルミ・ジョルジュ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　ラナに託されていた宝剣　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　エオネ・フルネアの存在　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　偶然出くわしたビリー・ラキ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　調停者、アデル・ブリガンディ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そして・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　Obsidian Stone　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　違和感というよりは　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　一貫した何かを感じる　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　国王は俺達に何を依頼しているのか　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　分からない・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　あのObsidianStoneについては、とにかく辻褄が合わない　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　いや、辻褄とかそういう以前に　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　色々とおかしな点が多い　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　ただ、この”おかしな点”という感覚そのものが　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　明らかに視点がズレているから、とも思える　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　ツァルマンの里から託されたObsidianStone　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　元々どこの誰のものだったのか　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　いいや、その考え方も既におかしいんだろう　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　国王と何を話すべきだろう　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　決めて・・・おかないとな　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+        Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.LastMessage);
       }
     }
   }

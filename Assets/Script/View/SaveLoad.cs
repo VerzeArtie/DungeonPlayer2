@@ -1069,6 +1069,53 @@ public class SaveLoad : MotherBase
     Debug.Log(DateTime.Now.ToString());
     Debug.Log("ExecLoad 8-1 " + DateTime.Now + DateTime.Now.Millisecond);
 
+    XmlDocument xml2 = new XmlDocument();
+    xml2.Load(One.PathForRootFile(Fix.AR_FILE));
+    Type typeAR = One.AR.GetType();
+    foreach (PropertyInfo pi in typeAR.GetProperties())
+    {
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Double))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+    }
+
     Debug.Log("ExecLoad 9-1");
     // KnownTileInfo
     XmlNodeList parentCaveOfSarun = xml.GetElementsByTagName("CaveOfSarun");

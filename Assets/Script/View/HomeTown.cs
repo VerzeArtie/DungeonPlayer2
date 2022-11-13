@@ -1580,6 +1580,14 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    ExecRestInn();
+
+    MessagePack.MessageX00001(ref QuestMessageList, ref QuestEventList);
+    TapOK();
+  }
+
+  private void ExecRestInn()
+  {
     for (int ii = 0; ii < One.PlayerList.Count; ii++)
     {
       One.PlayerList[ii].MaxGain();
@@ -1591,9 +1599,6 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyPureCleanWater = false;
     RefreshAllView();
     this.GroupInn.SetActive(false);
-
-    MessagePack.MessageX00001(ref QuestMessageList, ref QuestEventList);
-    TapOK();
   }
 
   public void TapQuestCompleted()
@@ -1840,6 +1845,11 @@ public partial class HomeTown : MotherBase
         {
           this.objBlackOut.SetActive(true);
           continue; // 継続
+        }
+        // ゲームオーバー、タイトルへ
+        else if (currentEvent == MessagePack.ActionEvent.DungeonBadEnd)
+        {
+          SceneDimension.JumpToTitle();
         }
         // 画面の情報をクリアする。
         else if (currentEvent == MessagePack.ActionEvent.MessageClear)
@@ -2199,9 +2209,17 @@ public partial class HomeTown : MotherBase
           Debug.Log("ActionEvent.None: " + currentMessage);
           return;
         }
+        // 最後のメッセージ表示。その後は即時終了。
+        else if (currentEvent == MessagePack.ActionEvent.LastMessage)
+        {
+          this.panelSystemMessage.SetActive(false);
+          this.txtQuestMessage.text = currentMessage;
+          Debug.Log("ActionEvent.None: " + currentMessage);
+        }
+        // 宿屋による休憩だけを実行する。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownExecRestInn)
         {
-
+          ExecRestInn();
         }
         else
         {
@@ -3745,6 +3763,15 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_OSAKANA_ZINGISKAN);
       foodList.Add(Fix.FOOD_RED_HOT_SPAGHETTI);
     }
+    else if (area_name == Fix.TOWN_ZHALMAN)
+    {
+      foodList.Add(Fix.FOOD_TOBIUSAGI_ROAST);
+      foodList.Add(Fix.FOOD_WATARI_KAMONABE);
+      foodList.Add(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI);
+      foodList.Add(Fix.FOOD_NEGIYAKI_DON);
+      foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE);
+    }
+
     return foodList;
   }
   #endregion

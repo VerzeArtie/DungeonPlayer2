@@ -34,6 +34,7 @@ public static class One
   //private static GameObject objWE2 = null;
   //private static GameObject objSQL = null;
   private static GameObject objTF = null;
+  private static GameObject objAR = null;
 
   [SerializeField] private static List<Character> _characters = new List<Character>();
   public static List<Character> Characters
@@ -49,6 +50,7 @@ public static class One
   //public static TruthWorldEnvironment WE2 = null; // ゲームストーリー全体のワールド環境フラグ
   //public static ControlSQL SQL = null;
   public static TeamFoundation TF = null;
+  public static AkashicRecord AR = null;
 
   //public static bool[] Truth_KnownTileInfo = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
   //public static bool[] Truth_KnownTileInfo2 = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
@@ -58,7 +60,7 @@ public static class One
 
   public static List<Character> ShadowPlayerList = new List<Character>();
   public static TeamFoundation ShadowTF = null;
-  //public static TeamFoundation shadowWE2 = null; // todo 世界セーブはDungeonPlayer2でも必要
+  public static AkashicRecord ShadowAR = null;
 
   public static GameObject sound = null; // サウンド音源
   public static AudioSource soundSource = null; // サウンドソース
@@ -136,6 +138,8 @@ public static class One
     //SQL = null;
     UnityEngine.Object.Destroy(TF);
     TF = null;
+    UnityEngine.Object.Destroy(AR);
+    AR = null;
 
     for (int ii = 0; ii < objCharacterList.Count; ii++)
     {
@@ -162,6 +166,8 @@ public static class One
     //objSQL = null;
     UnityEngine.Object.Destroy(objTF);
     objTF = null;
+    UnityEngine.Object.Destroy(objAR);
+    objAR = null;
     //UnityEngine.Object.Destroy(ShadowMC);
     //ShadowMC = null;
     //UnityEngine.Object.Destroy(ShadowSC);
@@ -220,6 +226,7 @@ public static class One
     //objWE2 = new GameObject("objWE2");
     //objSQL = new GameObject("objSQL");
     objTF = new GameObject("objTF");
+    objAR = new GameObject("objAR");
 
     if (FromGameLoad == false)
     {
@@ -239,6 +246,7 @@ public static class One
     //WE.AvailableFirstCharacter = true;
     //WE2 = objWE2.AddComponent<TruthWorldEnvironment>();
     TF = objTF.AddComponent<TeamFoundation>();
+    AR = objAR.AddComponent<AkashicRecord>();
 
     for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
     {
@@ -706,6 +714,7 @@ public static class One
     //UnityEngine.Object.DontDestroyOnLoad(WE);
     //UnityEngine.Object.DontDestroyOnLoad(WE2);
     UnityEngine.Object.DontDestroyOnLoad(TF);
+    UnityEngine.Object.DontDestroyOnLoad(AR);
     UnityEngine.Object.DontDestroyOnLoad(sound);
     UnityEngine.Object.DontDestroyOnLoad(soundSource);
     UnityEngine.Object.DontDestroyOnLoad(bgm);
@@ -975,35 +984,52 @@ public static class One
     }
 
 
-    //Type type3 = WE2.GetType();
-    //foreach (PropertyInfo pi in type3.GetProperties())
-    //{
-    //  // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
-    //  if (pi.PropertyType == typeof(System.Int32))
-    //  {
-    //    try
-    //    {
-    //      pi.SetValue(ShadowTF2, (System.Int32)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
-    //    }
-    //    catch { }
-    //  }
-    //  else if (pi.PropertyType == typeof(System.String))
-    //  {
-    //    try
-    //    {
-    //      pi.SetValue(ShadowTF2, (string)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
-    //    }
-    //    catch { }
-    //  }
-    //  else if (pi.PropertyType == typeof(System.Boolean))
-    //  {
-    //    try
-    //    {
-    //      pi.SetValue(ShadowTF2, (System.Boolean)(type3.GetProperty(pi.Name).GetValue(WE2, null)), null);
-    //    }
-    //    catch { }
-    //  }
-    //}
+    GameObject objAR = new GameObject("ShadowAR");
+    ShadowAR = objAR.AddComponent<AkashicRecord>();
+    Type type3 = AR.GetType();
+    foreach (PropertyInfo pi in type3.GetProperties())
+    {
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          pi.SetValue(ShadowAR, (System.Int32)(type3.GetProperty(pi.Name).GetValue(AR, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          pi.SetValue(ShadowAR, (string)(type3.GetProperty(pi.Name).GetValue(AR, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Double))
+      {
+        try
+        {
+          pi.SetValue(ShadowAR, (System.Double)(type3.GetProperty(pi.Name).GetValue(AR, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          pi.SetValue(ShadowAR, (System.Single)(type3.GetProperty(pi.Name).GetValue(AR, null)), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          pi.SetValue(ShadowAR, (System.Boolean)(type3.GetProperty(pi.Name).GetValue(AR, null)), null);
+        }
+        catch { }
+      }
+    }
   }
 
   public static void CopyShadowToMain()
@@ -1513,345 +1539,7 @@ public static class One
       xmlWriter.Close();
     }
   }
-  public static void ExecLoad(string targetFileName)
-  {
-    //        GroundOne.ReInitializeGroundOne(true);
 
-    XmlDocument xml = new XmlDocument();
-    DateTime now = DateTime.Now;
-    string yearData = String.Empty;
-    string monthData = String.Empty;
-    string dayData = String.Empty;
-    string hourData = String.Empty;
-    string minuteData = String.Empty;
-    string secondData = String.Empty;
-    string gamedayData = String.Empty;
-    string completeareaData = String.Empty;
-
-    Debug.Log("ExecLoad 1 " + DateTime.Now + "." + DateTime.Now.Minute);
-    xml.Load(One.pathForDocumentsFile(targetFileName));
-
-    Debug.Log("ExecLoad 2 " + DateTime.Now + "." + DateTime.Now.Minute);
-    //try
-    //{
-    //    XmlNodeList currentList = xml.GetElementsByTagName("MainWeapon");
-    //    foreach (XmlNode node in currentList)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            GroundOne.MC.MainWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            GroundOne.SC.MainWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            GroundOne.TC.MainWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //    }
-    //}
-    //catch { }
-    //// s 後編追加
-    //try
-    //{
-    //    XmlNodeList currentList = xml.GetElementsByTagName("SubWeapon");
-    //    foreach (XmlNode node in currentList)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            GroundOne.MC.SubWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            GroundOne.SC.SubWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            GroundOne.TC.SubWeapon = new ItemBackPack(node.InnerText);
-    //        }
-    //    }
-    //}
-    //catch { }
-    //// e 後編追加
-    //try
-    //{
-    //    XmlNodeList currentList = xml.GetElementsByTagName("MainArmor");
-    //    foreach (XmlNode node in currentList)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            GroundOne.MC.MainArmor = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            GroundOne.SC.MainArmor = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            GroundOne.TC.MainArmor = new ItemBackPack(node.InnerText);
-    //        }
-    //    }
-    //}
-    //catch { }
-    //try
-    //{
-    //    XmlNodeList currentList = xml.GetElementsByTagName("Accessory");
-    //    foreach (XmlNode node in currentList)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            GroundOne.MC.Accessory = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            GroundOne.SC.Accessory = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            GroundOne.TC.Accessory = new ItemBackPack(node.InnerText);
-    //        }
-    //    }
-    //}
-    //catch { }
-    //// s 後編追加
-    //try
-    //{
-    //    XmlNodeList currentList = xml.GetElementsByTagName("Accessory2");
-    //    foreach (XmlNode node in currentList)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            GroundOne.MC.Accessory2 = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            GroundOne.SC.Accessory2 = new ItemBackPack(node.InnerText);
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            GroundOne.TC.Accessory2 = new ItemBackPack(node.InnerText);
-    //        }
-    //    }
-    //}
-    //catch { }
-    // e 後編追加
-    Debug.Log("ExecLoad 3 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-
-    //for (int ii = 0; ii < Database.MAX_BACKPACK_SIZE; ii++)
-    //{
-    //    XmlNodeList temp = xml.GetElementsByTagName("BackPack" + ii.ToString());
-    //    foreach (XmlNode node in temp)
-    //    {
-    //        if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //        {
-    //            XmlNodeList temp2 = xml.GetElementsByTagName("BackPackStack" + ii.ToString());
-    //            if (temp2.Count <= 0) // 旧互換の場合、必ずスタック量は１つである。
-    //            {
-    //                GroundOne.MC.AddBackPack(new ItemBackPack(node.InnerText));
-    //            }
-    //            else
-    //            {
-    //                foreach (XmlNode node2 in temp2)
-    //                {
-    //                    if (node2.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //                    {
-    //                        for (int kk = 0; kk < Convert.ToInt32(node2.InnerText); kk++)
-    //                        {
-    //                            GroundOne.MC.AddBackPack(new ItemBackPack(node.InnerText));
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //        {
-    //            XmlNodeList temp2 = xml.GetElementsByTagName("BackPackStack" + ii.ToString());
-    //            if (temp2.Count <= 0) // 旧互換の場合、必ずスタック量は１つである。
-    //            {
-    //                GroundOne.SC.AddBackPack(new ItemBackPack(node.InnerText));
-    //            }
-    //            else
-    //            {
-    //                foreach (XmlNode node2 in temp2)
-    //                {
-    //                    if (node2.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //                    {
-    //                        for (int kk = 0; kk < Convert.ToInt32(node2.InnerText); kk++)
-    //                        {
-    //                            GroundOne.SC.AddBackPack(new ItemBackPack(node.InnerText));
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //        else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //        {
-    //            XmlNodeList temp2 = xml.GetElementsByTagName("BackPackStack" + ii.ToString());
-    //            if (temp2.Count <= 0) // 旧互換の場合、必ずスタック量は１つである。
-    //            {
-    //                GroundOne.TC.AddBackPack(new ItemBackPack(node.InnerText));
-    //            }
-    //            else
-    //            {
-    //                foreach (XmlNode node2 in temp2)
-    //                {
-    //                    if (node2.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //                    {
-    //                        for (int kk = 0; kk < Convert.ToInt32(node2.InnerText); kk++)
-    //                        {
-    //                            GroundOne.TC.AddBackPack(new ItemBackPack(node.InnerText));
-    //                        }
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-    // e 後編編集
-    Debug.Log("ExecLoad 4 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-    //Type type = GroundOne.MC.GetType();
-    //foreach (PropertyInfo pi in type.GetProperties())
-    //{
-    //    // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
-    //    if (pi.PropertyType == typeof(System.Int32))
-    //    {
-    //        try { pi.SetValue(GroundOne.MC, Convert.ToInt32(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_MAINPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.SC, Convert.ToInt32(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_SECONDPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.TC, Convert.ToInt32(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_THIRDPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //    }
-    //    else if (pi.PropertyType == typeof(System.String))
-    //    {
-    //        try { pi.SetValue(GroundOne.MC, xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_MAINPLAYERSTATUS + "/" + pi.Name).InnerText, null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.SC, xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_SECONDPLAYERSTATUS + "/" + pi.Name).InnerText, null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.TC, xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_THIRDPLAYERSTATUS + "/" + pi.Name).InnerText, null); }
-    //        catch { }
-    //    }
-    //    else if (pi.PropertyType == typeof(System.Boolean))
-    //    {
-    //        try { pi.SetValue(GroundOne.MC, Convert.ToBoolean(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_MAINPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.SC, Convert.ToBoolean(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_SECONDPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //        try { pi.SetValue(GroundOne.TC, Convert.ToBoolean(xml.DocumentElement.SelectSingleNode(@"/Body/" + Database.NODE_THIRDPLAYERSTATUS + "/" + pi.Name).InnerText), null); }
-    //        catch { }
-    //    }
-    //    // s 後編追加
-    //    else if (pi.PropertyType == typeof(MainCharacter.AdditionalSpellType))
-    //    {
-    //        try
-    //        {
-    //            XmlNodeList currentList = xml.GetElementsByTagName(pi.Name);
-    //            foreach (XmlNode node in currentList)
-    //            {
-    //                if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.MC, (MainCharacter.AdditionalSpellType)Enum.Parse(typeof(MainCharacter.AdditionalSpellType), node.InnerText), null);
-    //                }
-    //                else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.SC, (MainCharacter.AdditionalSpellType)Enum.Parse(typeof(MainCharacter.AdditionalSpellType), node.InnerText), null);
-    //                }
-    //                else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.TC, (MainCharacter.AdditionalSpellType)Enum.Parse(typeof(MainCharacter.AdditionalSpellType), node.InnerText), null);
-    //                }
-    //            }
-    //        }
-    //        catch { }
-    //    }
-    //    else if (pi.PropertyType == typeof(MainCharacter.AdditionalSkillType))
-    //    {
-    //        try
-    //        {
-    //            XmlNodeList currentList = xml.GetElementsByTagName(pi.Name);
-    //            foreach (XmlNode node in currentList)
-    //            {
-    //                if (node.ParentNode.Name == Database.NODE_MAINPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.MC, (MainCharacter.AdditionalSkillType)Enum.Parse(typeof(MainCharacter.AdditionalSkillType), node.InnerText), null);
-    //                }
-    //                else if (node.ParentNode.Name == Database.NODE_SECONDPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.SC, (MainCharacter.AdditionalSkillType)Enum.Parse(typeof(MainCharacter.AdditionalSkillType), node.InnerText), null);
-    //                }
-    //                else if (node.ParentNode.Name == Database.NODE_THIRDPLAYERSTATUS)
-    //                {
-    //                    pi.SetValue(GroundOne.TC, (MainCharacter.AdditionalSkillType)Enum.Parse(typeof(MainCharacter.AdditionalSkillType), node.InnerText), null);
-    //                }
-    //            }
-    //        }
-    //        catch { }
-    //    }
-    //    // e 後編追加
-    //}
-    Debug.Log("ExecLoad 5 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-    Debug.Log("ExecLoad 6 " + DateTime.Now + "." + DateTime.Now.Minute);
-    Type typeTF = One.TF.GetType();
-
-
-    PropertyInfo[] tempWE = typeTF.GetProperties();
-    Debug.Log(tempWE.Length.ToString());
-
-    foreach (PropertyInfo pi in tempWE)
-    {
-      if (pi.PropertyType == typeof(System.Int32))
-      {
-        Debug.Log("Int32 " + pi.Name + " " + pi.PropertyType.ToString());
-        try
-        {
-          Debug.Log(xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText);
-          pi.SetValue(One.TF, Convert.ToInt32(xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText), null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.String))
-      {
-        Debug.Log("String " + pi.Name + " " + pi.PropertyType.ToString());
-        try
-        {
-          Debug.Log(xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText);
-          pi.SetValue(One.TF, xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText, null);
-        }
-        catch { }
-      }
-      else if (pi.PropertyType == typeof(System.Boolean))
-      {
-        Debug.Log("Boolean " + pi.Name + " " + pi.PropertyType.ToString());
-        try
-        {
-          Debug.Log(xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText);
-          pi.SetValue(One.TF, Convert.ToBoolean(xml.DocumentElement.SelectSingleNode(@"/Body/TeamFoundation/" + (pi.Name)).InnerText), null);
-        }
-        catch { }
-      }
-      else
-      {
-        Debug.Log("else " + pi.Name + " " + pi.PropertyType.ToString());
-      }
-    }
-    Debug.Log("ExecLoad 7 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-    //        Method.ReloadTruthWorldEnvironment();
-    Debug.Log("ExecLoad 75 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-    //        Method.LoadKnownTileInfo();
-    Debug.Log("ExecLoad 8-1 " + DateTime.Now + "." + DateTime.Now.Minute);
-
-
-    Debug.Log("ExecLoad end");
-  }
   //// 現実世界の自動セーブ
   //public static void AutoSaveRealWorld()
   //{
@@ -2932,6 +2620,66 @@ public static class One
     }
 
     return targetItemName;
+  }
+
+  public static void UpdateAkashicRecord()
+  {
+    XmlTextWriter xmlWriter2 = new XmlTextWriter(PathForRootFile(Fix.AR_FILE), Encoding.UTF8);
+    try
+    {
+      xmlWriter2.WriteStartDocument();
+      xmlWriter2.WriteWhitespace("\r\n");
+
+      xmlWriter2.WriteStartElement("Body");
+      xmlWriter2.WriteElementString("DateTime", DateTime.Now.ToString());
+      xmlWriter2.WriteWhitespace("\r\n");
+
+      // アカシックレコード
+      xmlWriter2.WriteStartElement("AkashicRecord");
+      xmlWriter2.WriteWhitespace("\r\n");
+      if (AR != null)
+      {
+        Type typeAR = AR.GetType();
+        foreach (PropertyInfo pi in typeAR.GetProperties())
+        {
+          if (pi.PropertyType == typeof(System.Int32))
+          {
+            xmlWriter2.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(AR, null))).ToString());
+            xmlWriter2.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.String))
+          {
+            xmlWriter2.WriteElementString(pi.Name, (string)(pi.GetValue(AR, null)));
+            xmlWriter2.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            xmlWriter2.WriteElementString(pi.Name, ((System.Double)pi.GetValue(AR, null)).ToString());
+            xmlWriter2.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter2.WriteElementString(pi.Name, ((System.Single)pi.GetValue(AR, null)).ToString());
+            xmlWriter2.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Boolean))
+          {
+            xmlWriter2.WriteElementString(pi.Name, ((System.Boolean)pi.GetValue(AR, null)).ToString());
+            xmlWriter2.WriteWhitespace("\r\n");
+          }
+        }
+      }
+      xmlWriter2.WriteEndElement();
+      xmlWriter2.WriteWhitespace("\r\n");
+
+      xmlWriter2.WriteEndElement();
+      xmlWriter2.WriteWhitespace("\r\n");
+      xmlWriter2.WriteEndDocument();
+    }
+    finally
+    {
+      xmlWriter2.Close();
+    }
   }
 
 }

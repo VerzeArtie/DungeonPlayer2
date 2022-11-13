@@ -329,6 +329,7 @@ public static partial class Fix
   public static string BaseSaveFolder = Environment.CurrentDirectory + @"\Save\";
   public static string BaseMusicFolder = @"BGM\";
   public const string TF_SAVE = @"TeamFoundationSave.xml";
+  public const string AR_FILE = @"AkashicRecord.xml";
   public static string WorldSaveNum = "999_";
   public static int WORLD_SAVE_NUM = 999;
   public static string AutoSaveNum = "210_";
@@ -728,6 +729,12 @@ public static partial class Fix
   public const string FOOD_TSIKARA_UDON = "タップリ 力うどん";
   public const string FOOD_ZUNOU_FLY_SET = "頭脳フライ定食";
   public const string FOOD_SPEED_SOBA = "おかわり蕎麦";
+
+  public const string FOOD_TOBIUSAGI_ROAST = "トビウサギのロースト定食";
+  public const string FOOD_WATARI_KAMONABE = "渡り鴨鍋";
+  public const string FOOD_SYOI_KINOKO_SUGATAYAKI = "背負いキノコの姿焼";
+  public const string FOOD_NEGIYAKI_DON = "ネギ焼き丼";
+  public const string FOOD_NANAIRO_BUNA_NITSUKE = "七色ブナの煮つけ";
 
   // １階
   public const string FOOD_KATUCARRY = @"激辛カツカレー定食";

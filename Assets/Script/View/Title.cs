@@ -32,19 +32,15 @@ public class Title : MotherBase
   {
     Debug.Log("TapGameStart ok");
 
-    //if (System.IO.File.Exists(One.pathForDocumentsFile(Fix.TF_SAVE)) == false)
-    //{
-    //    Debug.Log("File exist: " + One.pathForDocumentsFile(Fix.TF_SAVE));
-    //    One.AutoSaveTruthWorldEnvironment();
-    //}
-    //else
-    //{
-    //    // セーブデータをロード
-    //    Debug.Log("found it, then load");
-    //    Debug.Log("One.TF.Event_Message100010: " + One.TF.Event_Message100010.ToString());
-    //    One.ExecLoad("TeamFoundationSave.xml");
-    //    Debug.Log("One.TF.Event_Message100010: " + One.TF.Event_Message100010.ToString());
-    //}
+    if (System.IO.File.Exists(One.PathForRootFile(Fix.AR_FILE)) == false)
+    {
+      Debug.Log("PathForRootFile(Fix.AR_FILE no exist, then create it.: " + One.PathForRootFile(Fix.AR_FILE));
+      One.UpdateAkashicRecord();
+    }
+    else
+    {
+      Debug.Log("PathForRootFile(Fix.AR_FILE exist, then no action.: " + One.PathForRootFile(Fix.AR_FILE));
+    }
 
     One.TF.AvailableEinWolence = true;
     One.TF.AvailableLanaAmiria = true;
