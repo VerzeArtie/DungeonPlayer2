@@ -850,9 +850,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ファラ：その伝承には一つのキーワードが示されています。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ファラ：その名は【ObisidianStone】", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ファラ：その名は【Obsidian Stone】", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：Obisidian・・・Stone・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：Obsidian・・・Stone・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ファラ：アインさんには、そのObsidianStoneの調査を秘密裏に遂行していただきたいの。", ActionEvent.None);
 
@@ -3708,7 +3708,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～～～　ファラ：その伝承には一つのキーワードが示されています　～～～", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～～～　ファラ：その名は【ObisidianStone】　～～～", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～～～　ファラ：その名は【Obsidian Stone】　～～～", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：え！？何それ、全然聞いてないんだけど！？", ActionEvent.None);
 
