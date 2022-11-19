@@ -756,7 +756,14 @@ public partial class HomeTown : MotherBase
       }
       else
       {
-        MessagePack.Message700031(ref QuestMessageList, ref QuestEventList); TapOK();
+        if (One.TF.Event_Message700010 && One.TF.Event_Message700050 == false)
+        {
+          MessagePack.Message700050(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else
+        {
+          MessagePack.Message700031(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
         return;
       }
     }
