@@ -1011,6 +1011,7 @@ public partial class HomeTown : MotherBase
           One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
           One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
       {
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 0.0f, -0.5f, -4.0f);
       }
       else
       {
@@ -3359,6 +3360,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
     if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
     if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
+    if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -3417,7 +3419,9 @@ public partial class HomeTown : MotherBase
     if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = Fix.AREA_INFO_GORATRUM_CAVE; }
     if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
     if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
+    if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
     // todo
+    else { txtEventDescription.text = ""; }
   }
   
   private void ViewQuestEvent(string quest_name)
