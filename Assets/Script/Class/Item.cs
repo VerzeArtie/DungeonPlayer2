@@ -3496,7 +3496,7 @@ public partial class Item
         this._itemType = ItemTypes.Twohand_Sword;
         this._gripType = GripTypes.TwoHand;
         this._battleAccuracy = 87;
-        this._physicalAttack = 20;
+        this._physicalAttack = 25;
         this._physicalAttackMax = 60;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
@@ -3506,7 +3506,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6200;
         this._importantType = Important.None;
-        this._description = "伝統的な両手剣。威力、使いやすさと共に申し分はない。物理攻撃力２０～６０";
+        this._description = "伝統的な両手剣。威力、使いやすさと共に申し分はない。物理攻撃力２５～６０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -3524,8 +3524,8 @@ public partial class Item
         this._itemType = ItemTypes.Twohand_Lance;
         this._gripType = GripTypes.TwoHand;
         this._battleAccuracy = 85;
-        this._physicalAttack = 23;
-        this._physicalAttackMax = 73;
+        this._physicalAttack = 30;
+        this._physicalAttackMax = 75;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
@@ -3534,7 +3534,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6500;
         this._importantType = Important.None;
-        this._description = "伝統的な両手槍。威力、使いやすさと共に申し分はない。物理攻撃力２３～７３";
+        this._description = "伝統的な両手槍。威力、使いやすさと共に申し分はない。物理攻撃力３０～７５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -3552,7 +3552,7 @@ public partial class Item
         this._itemType = ItemTypes.Twohand_Axe;
         this._gripType = GripTypes.TwoHand;
         this._battleAccuracy = 83;
-        this._physicalAttack = 25;
+        this._physicalAttack = 35;
         this._physicalAttackMax = 90;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
@@ -3562,7 +3562,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 6800;
         this._importantType = Important.None;
-        this._description = "伝統的な両手斧。威力、使いやすさと共に申し分はない。物理攻撃力２５～９０";
+        this._description = "伝統的な両手斧。威力、使いやすさと共に申し分はない。物理攻撃力３５～９０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
