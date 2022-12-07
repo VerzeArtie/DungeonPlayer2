@@ -1567,6 +1567,7 @@ public static partial class Fix
   public const string FOCUS_ORB = "フォーカス・オーブ";
   public const string WIDE_BUCKLER = "ワイド・バックラー";
   public const string GOTHIC_PLATE = "ゴシック・プレート";
+  public const string FITNESS_CROSS = "フィットネス・クロス";
   public const string SILK_ROBE = "シルク・ローブ";
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
