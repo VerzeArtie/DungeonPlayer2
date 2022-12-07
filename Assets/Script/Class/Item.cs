@@ -1070,7 +1070,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "練習用の剣。実践ではあまり用いられず、訓練の時に使用する。物理攻撃力２～４";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -2186,13 +2186,13 @@ public partial class Item
         this._physicalAttackMax = 0;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
-        this._physicalDefense = 9;
+        this._physicalDefense = 10;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 900;
         this._importantType = Important.None;
-        this._description = "重量感を意識して作られた鎧。か弱い攻撃であれば食らっても支障はない。物理防御力９";
+        this._description = "重量感を意識して作られた鎧。か弱い攻撃であれば食らっても支障はない。物理防御力１０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
