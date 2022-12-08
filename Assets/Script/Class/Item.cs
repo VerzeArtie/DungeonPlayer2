@@ -4443,90 +4443,6 @@ public partial class Item
 
       #endregion
       #region "神秘の森"
-      case Fix.SMART_CLAW:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Onehand_Claw;
-        this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 98;
-        this._physicalAttack = 45;
-        this._physicalAttackMax = 50;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 5000;
-        this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた爪。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４５～５０";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.DANCING_CLAW:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Onehand_Claw;
-        this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 98;
-        this._physicalAttack = 52;
-        this._physicalAttackMax = 57;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 5250;
-        this._importantType = Important.None;
-        this._description = "舞踏術を好む者から定評がある爪。使い勝手が良く、手に馴染みやすい。物理攻撃力５２～５７";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.WRATH_SABEL_CLAW:
-        this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Onehand_Claw;
-        this._gripType = GripTypes.OneHand;
-        this._battleAccuracy = 98;
-        this._physicalAttack = 81;
-        this._physicalAttackMax = 99;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 0; // todo
-        this._importantType = Important.None;
-        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
-        this._strength = 0;
-        this._agility = 10;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
       case Fix.SMART_SWORD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Sword;
@@ -4695,62 +4611,6 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.SMART_BOW:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Twohand_Bow;
-        this._gripType = GripTypes.TwoHand;
-        this._battleAccuracy = 88;
-        this._physicalAttack = 83;
-        this._physicalAttackMax = 127;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6500;
-        this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた弓。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力８３～１２７";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.LONG_BOW:
-        this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Twohand_Bow;
-        this._gripType = GripTypes.TwoHand;
-        this._battleAccuracy = 88;
-        this._physicalAttack = 65;
-        this._physicalAttackMax = 73;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 6750;
-        this._importantType = Important.None;
-        this._description = "手を添える箇所が遠めに設定されており、使うためには少々の訓練が必要。物理攻撃力６５～７３";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
       case Fix.SMART_AXE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Axe;
@@ -4835,22 +4695,22 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.SMART_ORB:
+      case Fix.SMART_CLAW:
         this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Onehand_Orb;
+        this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 45;
-        this._magicAttackMax = 55;
+        this._physicalAttack = 45;
+        this._physicalAttackMax = 50;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 5000;
         this._importantType = Important.None;
-        this._description = "標準よりも研ぎ澄まされた水晶。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力４５～５５";
+        this._description = "標準よりも研ぎ澄まされた爪。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４５～５０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -4863,22 +4723,22 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.FOCUS_ORB:
+      case Fix.DANCING_CLAW:
         this._rarity = Rarity.Uncommon;
-        this._itemType = ItemTypes.Onehand_Orb;
+        this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 54;
-        this._magicAttackMax = 66;
+        this._physicalAttack = 52;
+        this._physicalAttackMax = 57;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 5250;
         this._importantType = Important.None;
-        this._description = "一点集中する事のために作られた水晶。安定感ある威力のため、一定の層から人気がある。魔法攻撃力５４～６６";
+        this._description = "舞踏術を好む者から定評がある爪。使い勝手が良く、手に馴染みやすい。物理攻撃力５２～５７";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -4891,27 +4751,27 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.INTRINSIC_FROZEN_ORB:
+      case Fix.WRATH_SABEL_CLAW:
         this._rarity = Rarity.Rare;
-        this._itemType = ItemTypes.Onehand_Orb;
+        this._itemType = ItemTypes.Onehand_Claw;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 98;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 81;
-        this._magicAttackMax = 99;
+        this._physicalAttack = 81;
+        this._physicalAttackMax = 99;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
         this._physicalDefense = 0;
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
         this._gold = 0; // todo
         this._importantType = Important.None;
-        this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊能力】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
+        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
         this._strength = 0;
         this._agility = 10;
-        this._intelligence = 10;
+        this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 10;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -5079,6 +4939,147 @@ public partial class Item
         this._agility = 0;
         this._intelligence = 10;
         this._stamina = 10;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SMART_ORB:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 45;
+        this._magicAttackMax = 55;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5000;
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた水晶。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力４５～５５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.FOCUS_ORB:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 54;
+        this._magicAttackMax = 66;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5250;
+        this._importantType = Important.None;
+        this._description = "一点集中する事のために作られた水晶。安定感ある威力のため、一定の層から人気がある。魔法攻撃力５４～６６";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.INTRINSIC_FROZEN_ORB:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 81;
+        this._magicAttackMax = 99;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊能力】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
+        this._strength = 0;
+        this._agility = 10;
+        this._intelligence = 10;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+
+      case Fix.SMART_BOW:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 83;
+        this._physicalAttackMax = 127;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 6500;
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた弓。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力８３～１２７";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.LONG_BOW:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 65;
+        this._physicalAttackMax = 73;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 6750;
+        this._importantType = Important.None;
+        this._description = "手を添える箇所が遠めに設定されており、使うためには少々の訓練が必要。物理攻撃力６５～７３";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
