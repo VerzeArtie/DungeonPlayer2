@@ -1569,6 +1569,15 @@ public static partial class Fix
   public const string GOTHIC_PLATE = "ゴシック・プレート";
   public const string FITNESS_CROSS = "フィットネス・クロス";
   public const string SILK_ROBE = "シルク・ローブ";
+
+  public const string ENSHOUTOU = "炎翔刀";
+  public const string GALLANT_FEATHER_LANCE = "ガーラント・フェザー・ランス";
+  public const string THUNDER_BREAK_AXE = "サンダー・ブレイク・アックス";
+  public const string WRATH_SABEL_CLAW = "ラス・サーヴェル・クロー";
+  public const string DORN_NAMELESS_ROD = "ドルン・ネームレス・ロッド";
+  public const string FINESSE_IMPERIAL_BOOK = "フィネッセ・インペリアル・ブック";
+  public const string INTRINSIC_FROZEN_ORB = "イントリンシック・フローズン・オーブ";
+
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
   public const string HEAVYWEIGHT_SHOULDER = "ヘビーウェイト・ショルダー";
