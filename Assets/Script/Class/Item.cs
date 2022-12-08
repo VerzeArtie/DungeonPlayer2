@@ -4499,6 +4499,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.WRATH_SABEL_CLAW:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 81;
+        this._physicalAttackMax = 99;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
+        this._strength = 0;
+        this._agility = 10;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 10;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_SWORD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Sword;
@@ -4555,6 +4583,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.ENSHOUTOU:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 77;
+        this._physicalAttackMax = 102;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "炎の残痕が宿り続けている刀。刀は振るわれる度に、炎の飛礫が周囲へと飛翔する。物理攻撃力７７～１０２、力＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
+        this._strength = 10;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 10;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_LANCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Lance;
@@ -4601,6 +4657,34 @@ public partial class Item
         this._description = "突きに行く構えから実際に繰り出されるまでの速度が非常に早く感じられる槍。物理攻撃力６７～９１";
         this._strength = 0;
         this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.GALLANT_FEATHER_LANCE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 92;
+        this._physicalAttack = 90;
+        this._physicalAttackMax = 122;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊能力】物理攻撃がヒットする度に、【風】ダメージが追加で発生する。";
+        this._strength = 10;
+        this._agility = 10;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
@@ -4723,6 +4807,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.THUNDER_BREAK_AXE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 90;
+        this._physicalAttack = 102;
+        this._physicalAttackMax = 141;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊能力】物理攻撃がヒットする度に、20%の確率で対象に【麻痺】のBUFFを付与する。";
+        this._strength = 10;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 10;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_ORB:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Orb;
@@ -4770,6 +4882,34 @@ public partial class Item
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.INTRINSIC_FROZEN_ORB:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 81;
+        this._magicAttackMax = 99;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊能力】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
+        this._strength = 0;
+        this._agility = 10;
+        this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
@@ -4835,6 +4975,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.DORN_NAMELESS_ROD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 95;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 77;
+        this._magicAttackMax = 102;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "遥か西に存在する大地の王国ドルンで重宝された杖。威力と効果が非常に良いのだが名称があまり伝承されていない。魔法攻撃力７７～１０２、知＋１０、心＋１０　【特殊能力】魔法攻撃がヒットする時、クリティカル発生率が10%上昇する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 10;
+        this._stamina = 0;
+        this._mind = 10;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_BOOK:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Book;
@@ -4883,6 +5051,34 @@ public partial class Item
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.FINESSE_IMPERIAL_BOOK:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 92;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 90;
+        this._magicAttackMax = 122;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "玉座には常にその一冊が置かれており、その威力が減る事はない。魔法攻撃力９０～１２２、知＋１０、体＋１０　【特殊能力】味方を対象にする魔法を唱える度に、自分自身のライフが回復する。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 10;
+        this._stamina = 10;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
