@@ -5031,6 +5031,89 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.SMART_LARGE_SWORD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Sword;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 87;
+        this._physicalAttack = 48;
+        this._physicalAttackMax = 115;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた両手剣。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４８～１１５";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SMART_LARGE_LANCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 85;
+        this._physicalAttack = 56;
+        this._physicalAttackMax = 137;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた両手槍。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力５６～１３７";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SMART_LARGE_AXE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 83;
+        this._physicalAttack = 64;
+        this._physicalAttackMax = 158;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた両手斧。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力６４～１５８";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
 
       case Fix.SMART_BOW:
         this._rarity = Rarity.Common;
@@ -5076,6 +5159,34 @@ public partial class Item
         this._gold = 6750;
         this._importantType = Important.None;
         this._description = "手を添える箇所が遠めに設定されており、使うためには少々の訓練が必要。物理攻撃力６５～７３";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SMART_LARGE_STAFF:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 75;
+        this._magicAttackMax = 114;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "標準よりも研ぎ澄まされた両手杖。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力７５～１１４";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
