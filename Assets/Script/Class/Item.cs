@@ -986,7 +986,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 860;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "サバイバル用の爪。戦闘用を意識されており形状が少し尖っている。物理攻撃力４～７";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1126,7 +1126,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 900;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "青銅の素材で製作された剣。標準的な剣よりも少しだけ重量感がある。物理攻撃力６～１０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1296,7 +1296,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1100;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "細身の槍。持ち方は少々特殊であるが、一般品より威力は高い。物理攻撃力８～１４";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1520,7 +1520,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1500;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "海賊の斧。使いづらい側面はあるが一般的な斧より少々ダメージは出る。物理攻撃力１１～１８";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1660,7 +1660,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 860;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "エネルギーが充填されている水晶。これをもって詠唱すると魔力放出力が上がる。魔法攻撃力４～７";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1800,7 +1800,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 900;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "木製の杖。一般品よりも先端の形状が自然な形で出来ており、魔力が宿っている。魔法攻撃力６～１０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -1940,7 +1940,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1100;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "所持者に安心感を与える本。詠唱する時の持ちやすさが重視されている。魔法攻撃力８～１４";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -2080,7 +2080,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 1020;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "上部が丸みを帯びている盾。重さが軽量化されているが防御力は一般品よりも高い。物理防御力５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
