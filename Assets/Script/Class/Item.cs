@@ -4456,7 +4456,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5500;
+        this._gold = 9000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた剣。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４８～６４";
         this._strength = 0;
@@ -4484,7 +4484,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5750;
+        this._gold = 11000;
         this._importantType = Important.None;
         this._description = "切れ味が良く、振るう者にとって負担の少ない剣。軽さのわりに威力は大きい。物理攻撃力５８～７７、力＋６、心＋６";
         this._strength = 6;
@@ -4512,7 +4512,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 18000;
         this._importantType = Important.None;
         this._description = "炎の残痕が宿り続けている刀。刀は振るわれる度に、炎の飛礫が周囲へと飛翔する。物理攻撃力７７～１０２、力＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
         this._strength = 10;
@@ -4540,7 +4540,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6000;
+        this._gold = 10000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた槍。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力５６～７６";
         this._strength = 0;
@@ -4568,7 +4568,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6250;
+        this._gold = 12000;
         this._importantType = Important.None;
         this._description = "突きに行く構えから実際に繰り出されるまでの速度が非常に早く感じられる槍。物理攻撃力６７～９１、力＋６、技＋６";
         this._strength = 6;
@@ -4596,7 +4596,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 20000;
         this._importantType = Important.None;
         this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊能力】物理攻撃がヒットする度に、【風】ダメージが追加で発生する。";
         this._strength = 10;
@@ -4624,7 +4624,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 7000;
+        this._gold = 11000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた斧。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力６４～８８";
         this._strength = 0;
@@ -4652,7 +4652,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 7250;
+        this._gold = 13000;
         this._importantType = Important.None;
         this._description = "力強く振り回した時、それに呼応する形で威力の出る斧。つかうためには少々の訓練が必要。物理攻撃力７７～１０６、力＋６、体＋６";
         this._strength = 6;
@@ -4680,7 +4680,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 24000;
         this._importantType = Important.None;
         this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊能力】物理攻撃がヒットする度に、20%の確率で対象に【麻痺】のBUFFを付与する。";
         this._strength = 10;
@@ -4708,7 +4708,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5000;
+        this._gold = 8500;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた爪。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４５～５０";
         this._strength = 0;
@@ -4736,7 +4736,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5250;
+        this._gold = 10000;
         this._importantType = Important.None;
         this._description = "舞踏術を好む者から定評がある爪。使い勝手が良く、手に馴染みやすい。物理攻撃力５４～６６、技＋６、心＋６";
         this._strength = 0;
@@ -4764,7 +4764,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 16000;
         this._importantType = Important.None;
         this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
         this._strength = 0;
@@ -4792,7 +4792,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5500;
+        this._gold = 9000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた杖。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力４８～６４";
         this._strength = 0;
@@ -4820,7 +4820,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5750;
+        this._gold = 11000;
         this._importantType = Important.None;
         this._description = "見た目とは裏腹に振りかざすと一般的な杖よりも威力を弾き出す。魔法攻撃力５８～７７、知＋６、心＋６";
         this._strength = 0;
@@ -4848,7 +4848,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 18000;
         this._importantType = Important.None;
         this._description = "遥か西に存在する大地の王国ドルンで重宝された杖。威力と効果が非常に良いのだが名称があまり伝承されていない。魔法攻撃力７７～１０２、知＋１０、心＋１０　【特殊能力】魔法攻撃がヒットする時、クリティカル発生率が10%上昇する。";
         this._strength = 0;
@@ -4876,7 +4876,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6000;
+        this._gold = 10000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた本。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力５６～７６";
         this._strength = 0;
@@ -4904,7 +4904,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6250;
+        this._gold = 12000;
         this._importantType = Important.None;
         this._description = "通常のサイズよりも大き目に誤って作成された本。扱いは難しい感じがするが、威力に申し分はない。魔法攻撃力６７～９１、知＋６、体＋６";
         this._strength = 0;
@@ -4932,7 +4932,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 20000;
         this._importantType = Important.None;
         this._description = "玉座には常にその一冊が置かれており、その威力が減る事はない。魔法攻撃力９０～１２２、知＋１０、体＋１０　【特殊能力】味方を対象にする魔法を唱える度に、自分自身のライフが回復する。";
         this._strength = 0;
@@ -4960,7 +4960,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5000;
+        this._gold = 8500;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた水晶。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力４５～５５";
         this._strength = 0;
@@ -4988,7 +4988,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 5250;
+        this._gold = 10000;
         this._importantType = Important.None;
         this._description = "一点集中する事のために作られた水晶。安定感ある威力のため、一定の層から人気がある。魔法攻撃力５４～６６、技＋６、知＋６";
         this._strength = 0;
@@ -5016,7 +5016,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 16000;
         this._importantType = Important.None;
         this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊能力】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
         this._strength = 0;
@@ -5044,7 +5044,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 14000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた両手剣。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力４８～１１５";
         this._strength = 0;
@@ -5072,7 +5072,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 26000;
         this._importantType = Important.None;
         this._description = "洗練された鋭気を持って作製された巨大な剣。持ち手を選ぶが、誤りなく振るう事で真の効果を発揮する。物理攻撃力７７～１８４、力＋１５、心＋１５、ジュエルソケット１";
         this._strength = 15;
@@ -5100,7 +5100,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 16000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた両手槍。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力５６～１３７";
         this._strength = 0;
@@ -5128,7 +5128,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 29000;
         this._importantType = Important.None;
         this._description = "鋭い切っ先と、螺旋状に巻きついている物体がその強さを物語る。物理攻撃力９０～２１９、力＋１５、技＋１５、ジュエルソケット１";
         this._strength = 15;
@@ -5156,7 +5156,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 18000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた両手斧。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力６４～１５８";
         this._strength = 0;
@@ -5184,7 +5184,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 32000;
         this._importantType = Important.None;
         this._description = "各地を支配しているオーガ軍勢を一刀両断できる豪快な両手斧。その強さはオーガ達をひるませる。物理攻撃力１０２～２５３、力＋１５、体＋１５、ジュエルソケット１";
         this._strength = 15;
@@ -5212,7 +5212,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6500;
+        this._gold = 21000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた弓。戦闘に少々馴染んできた者が好んでこれを使用する。物理攻撃力８３～１２７";
         this._strength = 0;
@@ -5240,7 +5240,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 6750;
+        this._gold = 23000;
         this._importantType = Important.None;
         this._description = "手を添える箇所が遠めに設定されており、使うためには少々の訓練が必要。物理攻撃力６５～７３";
         this._strength = 0;
@@ -5268,7 +5268,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 38000;
         this._importantType = Important.None;
         this._description = "弓を射たその瞬間、手元が爆発の炎に包まれた状態で矢が放たれる。対象者はその威力を身を持って知る事となる。物理攻撃力１３３～２０３、力＋１５、知＋１５、ジュエルソケット１";
         this._strength = 15;
@@ -5296,7 +5296,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 20000;
         this._importantType = Important.None;
         this._description = "標準よりも研ぎ澄まされた両手杖。戦闘に少々馴染んできた者が好んでこれを使用する。魔法攻撃力７５～１１４";
         this._strength = 0;
@@ -5324,7 +5324,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 36000;
         this._importantType = Important.None;
         this._description = "地母神による教えが授けられし巨大な杖。両手で持つのがやっとであり、威力を出すためのモーションにはそれなりの技量が必要。魔法攻撃力１２０～１８２、知＋１５、心＋１５、ジュエルソケット１";
         this._strength = 0;
@@ -5352,7 +5352,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 3200;
+        this._gold = 7500;
         this._importantType = Important.None;
         this._description = "標準よりもしっかりした造りの盾。戦闘に少々馴染んできた者が好んでこれを使用する。物理防御力２５";
         this._strength = 0;
@@ -5380,7 +5380,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 9000;
         this._importantType = Important.None;
         this._description = "攻撃的視点をある程度犠牲にして、防衛に特化した盾。物理防御力３８、体＋６";
         this._strength = 0;
@@ -5408,7 +5408,7 @@ public partial class Item
         this._magicDefense = 37;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 15000;
         this._importantType = Important.None;
         this._description = "黒い装飾で容取られたシールド。その光沢は一定の魔法反射率を帯びており、魔法攻撃を主とする対象者からは恐れられている。物理防御５３、魔法防御３７、体＋１０　【特殊能力】自分自身へダメージを伴う魔法が行われた場合、５％の確率でその魔法を詠唱者に向けて弾き返す。";
         this._strength = 0;
@@ -5436,7 +5436,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 3600;
+        this._gold = 8500;
         this._importantType = Important.None;
         this._description = "標準よりもしっかりした造りの鎧。戦闘に少々馴染んできた者が好んでこれを使用する。物理防御力４５";
         this._strength = 0;
@@ -5464,7 +5464,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 10500;
         this._importantType = Important.None;
         this._description = "遥か古代の様式をモチーフにした鎧。気品と頑丈さを兼ね備えている。物理防御力６８、体＋６";
         this._strength = 0;
@@ -5492,7 +5492,7 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 17000;
         this._importantType = Important.None;
         this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、風耐性３００、氷耐性３００、凍結耐性、沈黙耐性";
         this._strength = 0;
@@ -5520,7 +5520,7 @@ public partial class Item
         this._magicDefense = 17;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 4000;
+        this._gold = 8000;
         this._importantType = Important.None;
         this._description = "標準よりもしっかりした造りの舞踏衣。戦闘に少々馴染んできた者が好んでこれを使用する。物理防御力２８、魔法防御力１７";
         this._strength = 0;
@@ -5548,7 +5548,7 @@ public partial class Item
         this._magicDefense = 25;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 10000;
         this._importantType = Important.None;
         this._description = "身体に密着しやすい素材で作られており、俊敏な動きをするのに適している。物理防御力４２、魔法防御力２５、体＋４、心＋２";
         this._strength = 0;
@@ -5576,7 +5576,7 @@ public partial class Item
         this._magicDefense = 35;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 0; // todo
+        this._gold = 17000;
         this._importantType = Important.None;
         this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性＋３００、土耐性＋３００、スリップ耐性、スタン耐性";
         this._strength = 0;
@@ -5604,7 +5604,7 @@ public partial class Item
         this._magicDefense = 34;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 4400;
+        this._gold = 9200;
         this._importantType = Important.None;
         this._description = "標準よりもしっかりした造りのローブ。戦闘に少々馴染んできた者が好んでこれを使用する。物理防御力１１、魔法防御力３４";
         this._strength = 0;
@@ -5632,7 +5632,7 @@ public partial class Item
         this._magicDefense = 51;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 4600;
+        this._gold = 11600;
         this._importantType = Important.None;
         this._description = "シルク製の素材で作製されたローブ。着こなしが良く愛用者は多い。物理防御力１７、魔法防御力５１、心＋６";
         this._strength = 0;
@@ -5660,7 +5660,7 @@ public partial class Item
         this._magicDefense = 71;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 4600;
+        this._gold = 19000;
         this._importantType = Important.None;
         this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性＋３００、風耐性＋３００、誘惑耐性、眩暈耐性";
         this._strength = 0;
