@@ -1577,6 +1577,15 @@ public static partial class Fix
   public const string DORN_NAMELESS_ROD = "ドルン・ネームレス・ロッド";
   public const string FINESSE_IMPERIAL_BOOK = "フィネッセ・インペリアル・ブック";
   public const string INTRINSIC_FROZEN_ORB = "イントリンシック・フローズン・オーブ";
+  public const string FORCEFUL_BASTARD_SWORD = "フォースフル・バスタード・ソード";
+  public const string SHARPNEL_ARC_LANCER = "シャープネル・アーク・ランサー";
+  public const string OGRE_KILL_BASTER = "オーガ・キル・バスター";
+  public const string EXPLODING_ASH_BOW = "エクスプローディング・アッシュ・ボウ";
+  public const string EARTH_POWERED_STAFF = "アース・パワード・スタッフ";
+  public const string BLACK_REFLECTOR_SHIELD = "ブラック・リフレクター・シールド";
+  public const string ARANDEL_FORCE_ARMOR = "アランデル・フォース・アーマー";
+  public const string WONDERING_BLESSED_CROSS = "ワンダリング・ブレスド・クロス";
+  public const string SERANA_BRILLIANT_ROBE = "セラーナ・ブリリアント・ローブ";
 
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";

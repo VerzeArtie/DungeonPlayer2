@@ -5059,6 +5059,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.FORCEFUL_BASTARD_SWORD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Sword;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 87;
+        this._physicalAttack = 77;
+        this._physicalAttackMax = 184;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "洗練された鋭気を持って作製された巨大な剣。持ち手を選ぶが、誤りなく振るう事で真の効果を発揮する。物理攻撃力７７～１８４、力＋１５、心＋１５、ジュエルソケット１";
+        this._strength = 15;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 15;
+        this.CanbeSocket1 = true;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_LARGE_LANCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Lance;
@@ -5087,6 +5115,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.SHARPNEL_ARC_LANCER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Lance;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 85;
+        this._physicalAttack = 90;
+        this._physicalAttackMax = 219;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "鋭い切っ先と、螺旋状に巻きついている物体がその強さを物語る。物理攻撃力９０～２１９、力＋１５、技＋１５、ジュエルソケット１";
+        this._strength = 15;
+        this._agility = 15;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = true;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_LARGE_AXE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Axe;
@@ -5109,6 +5165,34 @@ public partial class Item
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.OGRE_KILL_BASTER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 83;
+        this._physicalAttack = 102;
+        this._physicalAttackMax = 253;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "各地を支配しているオーガ軍勢を一刀両断できる豪快な両手斧。その強さはオーガ達をひるませる。物理攻撃力１０２～２５３、力＋１５、体＋１５、ジュエルソケット１";
+        this._strength = 15;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 15;
+        this._mind = 0;
+        this.CanbeSocket1 = true;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
@@ -5171,6 +5255,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.EXPLODING_ASH_BOW:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 133;
+        this._physicalAttackMax = 203;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "弓を射たその瞬間、手元が爆発の炎に包まれた状態で矢が放たれる。対象者はその威力を身を持って知る事となる。物理攻撃力１３３～２０３、力＋１５、知＋１５、ジュエルソケット１";
+        this._strength = 15;
+        this._agility = 0;
+        this._intelligence = 15;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = true;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.SMART_LARGE_STAFF:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Rod;
@@ -5193,6 +5305,34 @@ public partial class Item
         this._stamina = 0;
         this._mind = 0;
         this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.EARTH_POWERED_STAFF:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 120;
+        this._magicAttackMax = 182;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "地母神による教えが授けられし巨大な杖。両手で持つのがやっとであり、威力を出すためのモーションにはそれなりの技量が必要。魔法攻撃力１２０～１８２、知＋１５、心＋１５、ジュエルソケット１";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 15;
+        this._stamina = 0;
+        this._mind = 15;
+        this.CanbeSocket1 = true;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
@@ -5240,13 +5380,41 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 3800;
+        this._gold = 0; // todo
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "攻撃的視点をある程度犠牲にして、防衛に特化した盾。物理防御力３８、体＋６";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 6;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.BLACK_REFLECTOR_SHIELD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 53;
+        this._magicDefense = 37;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "黒い装飾で容取られたシールド。その光沢は一定の魔法反射率を帯びており、魔法攻撃を主とする対象者からは恐れられている。物理防御５３、魔法防御３７、体＋１０　【特殊能力】自分自身へダメージを伴う魔法が行われた場合、５％の確率でその魔法を詠唱者に向けて弾き返す。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 10;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -5296,13 +5464,41 @@ public partial class Item
         this._magicDefense = 0;
         this._itemValue1 = 0;
         this._itemValue2 = 0;
-        this._gold = 3800;
+        this._gold = 0; // todo
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "遥か古代の様式をモチーフにした鎧。気品と頑丈さを兼ね備えている。物理防御力６８、体＋６";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
+        this._stamina = 6;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.ARANDEL_FORCE_ARMOR:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 95;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、風耐性３００、氷耐性３００、凍結耐性、沈黙耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 10;
         this._mind = 0;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
@@ -5354,12 +5550,40 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0; // todo
         this._importantType = Important.None;
-        this._description = "標準よりもしっかりした造りの舞踏衣。戦闘に少々馴染んできた者が好んでこれを使用する。物理防御力４２、魔法防御力２５";
+        this._description = "身体に密着しやすい素材で作られており、俊敏な動きをするのに適している。物理防御力４２、魔法防御力２５、体＋４、心＋２";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
+        this._stamina = 4;
+        this._mind = 2;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.WONDERING_BLESSED_CROSS:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 59;
+        this._magicDefense = 35;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0; // todo
+        this._importantType = Important.None;
+        this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性＋３００、土耐性＋３００、スリップ耐性、スタン耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 6;
+        this._mind = 4;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -5410,12 +5634,40 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 4600;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "シルク製の素材で作製されたローブ。着こなしが良く愛用者は多い。物理防御力１７、魔法防御力５１、心＋６";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 6;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SERANA_BRILLIANT_ROBE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 24;
+        this._magicDefense = 71;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 4600;
+        this._importantType = Important.None;
+        this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性＋３００、風耐性＋３００、誘惑耐性、眩暈耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 10;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
