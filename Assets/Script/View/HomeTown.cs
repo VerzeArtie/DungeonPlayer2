@@ -1011,7 +1011,7 @@ public partial class HomeTown : MotherBase
           One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE ||
           One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE)
       {
-        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 0.0f, -0.5f, -4.0f);
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 15.0f, 1.0f, -30.0f);
       }
       else
       {
