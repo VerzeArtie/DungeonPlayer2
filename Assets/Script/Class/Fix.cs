@@ -4155,6 +4155,84 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_44_Y = 24.0f;
   public const float OHRANTOWER_FLOATINGTILE_44_Z = -8.0f;
 
+  // ４層、左上4K、次の地点
+  public const string OHRANTOWER_FLOATINGTILE_45_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_45_O = "45";
+  public const float OHRANTOWER_FLOATINGTILE_45_X = 21.0f;
+  public const float OHRANTOWER_FLOATINGTILE_45_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_45_Z = -8.0f;
+
+  // ４層、中央4L
+  public const string OHRANTOWER_FLOATINGTILE_46_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_46_O = "46";
+  public const float OHRANTOWER_FLOATINGTILE_46_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_46_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_46_Z = -7.0f;
+
+  // ４層、左上4L、戻り
+  public const string OHRANTOWER_FLOATINGTILE_47_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_47_O = "47";
+  public const float OHRANTOWER_FLOATINGTILE_47_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_47_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_47_Z = -11.0f;
+
+  // ４層、中央4M
+  public const string OHRANTOWER_FLOATINGTILE_48_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_48_O = "48";
+  public const float OHRANTOWER_FLOATINGTILE_48_X = 22.0f;
+  public const float OHRANTOWER_FLOATINGTILE_48_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_48_Z = -11.0f;
+
+  // ４層、左上4L、戻り
+  public const string OHRANTOWER_FLOATINGTILE_49_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_49_O = "49";
+  public const float OHRANTOWER_FLOATINGTILE_49_X = 22.0f;
+  public const float OHRANTOWER_FLOATINGTILE_49_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_49_Z = -21.0f;
+
+  // ４層、中央4N
+  public const string OHRANTOWER_FLOATINGTILE_50_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_50_O = "50";
+  public const float OHRANTOWER_FLOATINGTILE_50_X = 20.0f;
+  public const float OHRANTOWER_FLOATINGTILE_50_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_50_Z = -23.0f;
+
+  // ４層、左上4N、戻り
+  public const string OHRANTOWER_FLOATINGTILE_51_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_51_O = "51";
+  public const float OHRANTOWER_FLOATINGTILE_51_X = 4.0f;
+  public const float OHRANTOWER_FLOATINGTILE_51_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_51_Z = -23.0f;
+
+  // ４層、下り４
+  public const string OHRANTOWER_FLOATINGTILE_52_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_52_O = "52";
+  public const float OHRANTOWER_FLOATINGTILE_52_X = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_52_Y = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_52_Z = -9.0f;
+
+  // ４層、下り４、戻り
+  public const string OHRANTOWER_FLOATINGTILE_53_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_53_O = "53";
+  public const float OHRANTOWER_FLOATINGTILE_53_X = 24.0f;
+  public const float OHRANTOWER_FLOATINGTILE_53_Y = 16.0f;
+  public const float OHRANTOWER_FLOATINGTILE_53_Z = -9.0f;
+
+  // ３層、上部11
+  public const string OHRANTOWER_FLOATINGTILE_54_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_54_O = "54";
+  public const float OHRANTOWER_FLOATINGTILE_54_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_54_Y = 16.0f;
+  public const float OHRANTOWER_FLOATINGTILE_54_Z = -2.0f;
+
+  // ３層、上部11、戻り
+  public const string OHRANTOWER_FLOATINGTILE_55_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_55_O = "55";
+  public const float OHRANTOWER_FLOATINGTILE_55_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_55_Y = 0.0f;
+  public const float OHRANTOWER_FLOATINGTILE_55_Z = -2.0f;
+
+
   //// オーランの塔、一層、右側（下）
   //public const string EVENT_OHRANTOWER_1_O = "EVENT_OHRANTOWER_1_O";
   //public const float EVENT_OHRANTOWER_1_X = 10;

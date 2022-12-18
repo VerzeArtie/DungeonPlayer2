@@ -7328,13 +7328,23 @@ public static class MessagePack
     }
     else if (num == 44)
     {
-      for (int ii = 0; ii < move; ii++)
+      if (direction == DungeonField.Direction.Bottom)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
       }
     }
-
     else if (num == 45)
     {
       for (int ii = 0; ii < move; ii++)
@@ -7347,82 +7357,83 @@ public static class MessagePack
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 47)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 48)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 49)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 50)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 51)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 52)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
       }
     }
     else if (num == 53)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
       }
     }
     else if (num == 54)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
       }
     }
     else if (num == 55)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
       }
     }
+
     else if (num == 56)
     {
       for (int ii = 0; ii < move; ii++)
@@ -7672,53 +7683,60 @@ public static class MessagePack
     }
     else if (num == 44)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
     }
-
     else if (num == 45)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
     else if (num == 46)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
     else if (num == 47)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
     else if (num == 48)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
     else if (num == 49)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
     else if (num == 50)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
     else if (num == 51)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
     }
     else if (num == 52)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
     else if (num == 53)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
     else if (num == 54)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
     else if (num == 55)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
+
     else if (num == 56)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
