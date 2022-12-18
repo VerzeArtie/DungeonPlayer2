@@ -7433,13 +7433,12 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
       }
     }
-
     else if (num == 56)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
       }
     }
     else if (num == 57)
@@ -7454,43 +7453,62 @@ public static class MessagePack
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 59)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 60)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 61)
     {
-      for (int ii = 0; ii < move; ii++)
+      if (direction == DungeonField.Direction.Bottom)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
       }
     }
     else if (num == 62)
     {
       for (int ii = 0; ii < move; ii++)
       {
-        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
-        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 63)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 64)
     {
       for (int ii = 0; ii < move; ii++)
       {
@@ -7498,12 +7516,52 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
       }
     }
-    else if (num == 64)
+    else if (num == 65)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 66)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 67)
     {
       for (int ii = 0; ii < move; ii++)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 68)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 69)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 70)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
       }
     }
 
@@ -7736,30 +7794,36 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
-
     else if (num == 56)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
     }
     else if (num == 57)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
     else if (num == 58)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
     else if (num == 59)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
     else if (num == 60)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
     else if (num == 61)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
     }
     else if (num == 62)
     {
@@ -7767,11 +7831,35 @@ public static class MessagePack
     }
     else if (num == 63)
     {
-      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
     else if (num == 64)
     {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 65)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 66)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 67)
+    {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 68)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 69)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 70)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);

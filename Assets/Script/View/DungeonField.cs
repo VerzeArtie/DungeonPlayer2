@@ -2951,6 +2951,119 @@ public class DungeonField : MotherBase
           return;
         }
         num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_56_X, Fix.OHRANTOWER_FLOATINGTILE_56_Y, Fix.OHRANTOWER_FLOATINGTILE_56_Z))
+        {
+          One.TF.FieldObject_OhranTower_00029 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 16); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_57_X, Fix.OHRANTOWER_FLOATINGTILE_57_Y, Fix.OHRANTOWER_FLOATINGTILE_57_Z))
+        {
+          One.TF.FieldObject_OhranTower_00029 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 16); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_58_X, Fix.OHRANTOWER_FLOATINGTILE_58_Y, Fix.OHRANTOWER_FLOATINGTILE_58_Z))
+        {
+          One.TF.FieldObject_OhranTower_00030 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 5); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_59_X, Fix.OHRANTOWER_FLOATINGTILE_59_Y, Fix.OHRANTOWER_FLOATINGTILE_59_Z))
+        {
+          One.TF.FieldObject_OhranTower_00030 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 5); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_60_X, Fix.OHRANTOWER_FLOATINGTILE_60_Y, Fix.OHRANTOWER_FLOATINGTILE_60_Z))
+        {
+          One.TF.FieldObject_OhranTower_00031 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_61_X, Fix.OHRANTOWER_FLOATINGTILE_61_Y, Fix.OHRANTOWER_FLOATINGTILE_61_Z))
+        {
+          if (direction == Direction.Bottom)
+          {
+            One.TF.FieldObject_OhranTower_00031 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+          }
+          else if (direction == Direction.Left)
+          {
+            One.TF.FieldObject_OhranTower_00032 = true;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+          }
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_62_X, Fix.OHRANTOWER_FLOATINGTILE_62_Y, Fix.OHRANTOWER_FLOATINGTILE_62_Z))
+        {
+          One.TF.FieldObject_OhranTower_00032 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_63_X, Fix.OHRANTOWER_FLOATINGTILE_63_Y, Fix.OHRANTOWER_FLOATINGTILE_63_Z))
+        {
+          One.TF.FieldObject_OhranTower_00033 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_64_X, Fix.OHRANTOWER_FLOATINGTILE_64_Y, Fix.OHRANTOWER_FLOATINGTILE_64_Z))
+        {
+          One.TF.FieldObject_OhranTower_00033 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_65_X, Fix.OHRANTOWER_FLOATINGTILE_65_Y, Fix.OHRANTOWER_FLOATINGTILE_65_Z))
+        {
+          One.TF.FieldObject_OhranTower_00034 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_66_X, Fix.OHRANTOWER_FLOATINGTILE_66_Y, Fix.OHRANTOWER_FLOATINGTILE_66_Z))
+        {
+          One.TF.FieldObject_OhranTower_00034 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_67_X, Fix.OHRANTOWER_FLOATINGTILE_67_Y, Fix.OHRANTOWER_FLOATINGTILE_67_Z))
+        {
+          One.TF.FieldObject_OhranTower_00035 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 4); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_68_X, Fix.OHRANTOWER_FLOATINGTILE_68_Y, Fix.OHRANTOWER_FLOATINGTILE_68_Z))
+        {
+          One.TF.FieldObject_OhranTower_00035 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 4); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_69_X, Fix.OHRANTOWER_FLOATINGTILE_69_Y, Fix.OHRANTOWER_FLOATINGTILE_69_Z))
+        {
+          One.TF.FieldObject_OhranTower_00036 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_70_X, Fix.OHRANTOWER_FLOATINGTILE_70_Y, Fix.OHRANTOWER_FLOATINGTILE_70_Z))
+        {
+          One.TF.FieldObject_OhranTower_00036 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 2); TapOK();
+          return;
+        }
+        num++;
 
       }
     }
@@ -9278,6 +9391,38 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_OhranTower_00028)
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_54_X, Fix.OHRANTOWER_FLOATINGTILE_54_Y, Fix.OHRANTOWER_FLOATINGTILE_54_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_55_X, Fix.OHRANTOWER_FLOATINGTILE_55_Y, Fix.OHRANTOWER_FLOATINGTILE_55_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00029)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_56_X, Fix.OHRANTOWER_FLOATINGTILE_56_Y, Fix.OHRANTOWER_FLOATINGTILE_56_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_57_X, Fix.OHRANTOWER_FLOATINGTILE_57_Y, Fix.OHRANTOWER_FLOATINGTILE_57_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00030)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_58_X, Fix.OHRANTOWER_FLOATINGTILE_58_Y, Fix.OHRANTOWER_FLOATINGTILE_58_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_59_X, Fix.OHRANTOWER_FLOATINGTILE_59_Y, Fix.OHRANTOWER_FLOATINGTILE_59_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00031 && One.TF.FieldObject_OhranTower_00032 == false)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_60_X, Fix.OHRANTOWER_FLOATINGTILE_60_Y, Fix.OHRANTOWER_FLOATINGTILE_60_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_61_X, Fix.OHRANTOWER_FLOATINGTILE_61_Y, Fix.OHRANTOWER_FLOATINGTILE_61_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00032)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_60_X, Fix.OHRANTOWER_FLOATINGTILE_60_Y, Fix.OHRANTOWER_FLOATINGTILE_60_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_62_X, Fix.OHRANTOWER_FLOATINGTILE_62_Y, Fix.OHRANTOWER_FLOATINGTILE_62_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00033)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_63_X, Fix.OHRANTOWER_FLOATINGTILE_63_Y, Fix.OHRANTOWER_FLOATINGTILE_63_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_64_X, Fix.OHRANTOWER_FLOATINGTILE_64_Y, Fix.OHRANTOWER_FLOATINGTILE_64_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00034)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_65_X, Fix.OHRANTOWER_FLOATINGTILE_65_Y, Fix.OHRANTOWER_FLOATINGTILE_65_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_66_X, Fix.OHRANTOWER_FLOATINGTILE_66_Y, Fix.OHRANTOWER_FLOATINGTILE_66_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00035)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_67_X, Fix.OHRANTOWER_FLOATINGTILE_67_Y, Fix.OHRANTOWER_FLOATINGTILE_67_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_68_X, Fix.OHRANTOWER_FLOATINGTILE_68_Y, Fix.OHRANTOWER_FLOATINGTILE_68_Z));
+      }
+      if (One.TF.FieldObject_OhranTower_00036)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_69_X, Fix.OHRANTOWER_FLOATINGTILE_69_Y, Fix.OHRANTOWER_FLOATINGTILE_69_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_70_X, Fix.OHRANTOWER_FLOATINGTILE_70_Y, Fix.OHRANTOWER_FLOATINGTILE_70_Z));
       }
 
 
