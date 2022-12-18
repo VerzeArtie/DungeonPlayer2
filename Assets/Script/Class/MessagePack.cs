@@ -37,6 +37,7 @@ public static class MessagePack
     ForceMoveObjBottom,
     ForceMoveObjRise,
     ForceMoveObjFall,
+    ForceMoveObjRiseWithoutPlayer,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -7863,6 +7864,60 @@ public static class MessagePack
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
+  }
+
+  public static void CallbackFloatingtile(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800120 == false)
+    {
+      One.TF.Event_Message800120 = true;
+
+      Message(ref m_list, ref e_list, "アイン：そうか・・・ここのタイルはもう下に行ってるんだったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：待って。足元をよく見ると何か小さいスイッチがあるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：本当だな。これはおそらくあのタイルを元に戻してくれるヤツだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：見た所トラップはなさそうよ。私が慎重に押すから、アンタはそこにいなさい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハイ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：よし、行くわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      for (int ii = 0; ii < 16; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveObjRiseWithoutPlayer);
+      }
+
+      Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、助かったぜ。サンキューな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：トラップ系が無いとは限らないから。今後もこういうのは私がやるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー、頼んだぜ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：ラナ、タイル移動のスイッチを頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      for (int ii = 0; ii < 16; ii++)
+      {
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveObjRiseWithoutPlayer);
+      }
+
+      Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー。じゃあ、行くとしよう。", ActionEvent.None);
+    }
   }
 
   public static void MoveWarpHoleTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)

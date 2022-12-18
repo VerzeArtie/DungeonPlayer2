@@ -3068,6 +3068,18 @@ public class DungeonField : MotherBase
       }
     }
 
+    // オーランの塔、フローティングタイルがない場合でも、指定箇所については、フローティングタイルを引き戻せる事とする。
+    if (direction == Direction.Top && nextLocation.x == Fix.OHRANTOWER_FLOATINGTILE_54_X && nextLocation.y == Fix.OHRANTOWER_FLOATINGTILE_54_Y && nextLocation.z == Fix.OHRANTOWER_FLOATINGTILE_54_Z)
+    {
+      CurrentEventObject = SearchObject(new Vector3(Fix.OHRANTOWER_FLOATINGTILE_55_X, Fix.OHRANTOWER_FLOATINGTILE_55_Y, Fix.OHRANTOWER_FLOATINGTILE_55_Z));
+      if (CurrentEventObject != null)
+      {
+        One.TF.FieldObject_OhranTower_00028 = false;
+        MessagePack.CallbackFloatingtile(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
     tile = SearchNextTile(this.Player.transform.position, direction);
     TileInformation beforeTile = tile;
 
@@ -4836,6 +4848,19 @@ public class DungeonField : MotherBase
                                                                      this.CurrentEventObject.transform.position.z);
           }
           continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjRiseWithoutPlayer)
+        {
+          if (this.CurrentEventObject != null)
+          {
+            this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
+                                                                     this.CurrentEventObject.transform.position.y + 1.0f,
+                                                                     this.CurrentEventObject.transform.position.z);
+
+            this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+            this.NextTapOk = true;
+          }
+          return; // 画面即時反映
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
         {
