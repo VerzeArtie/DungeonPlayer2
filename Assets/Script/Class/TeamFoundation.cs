@@ -1561,6 +1561,16 @@ public class TeamFoundation : MonoBehaviour
   protected bool _fieldobject_ohrantower_00036 = false;
   protected bool _fieldobject_ohrantower_00037 = false;
   protected bool _fieldobject_ohrantower_00038 = false;
+  protected bool _fieldobject_ohrantower_00039 = false;
+  protected bool _fieldobject_ohrantower_00040 = false;
+  protected bool _fieldobject_ohrantower_00041 = false;
+  protected bool _fieldobject_ohrantower_00042 = false;
+  protected bool _fieldobject_ohrantower_00043 = false;
+  protected bool _fieldobject_ohrantower_00044 = false;
+  protected bool _fieldobject_ohrantower_00045 = false;
+  protected bool _fieldobject_ohrantower_00046 = false;
+  protected bool _fieldobject_ohrantower_00047 = false;
+  protected bool _fieldobject_ohrantower_00048 = false;
   public bool FieldObject_OhranTower_00001 { get { return _fieldobject_ohrantower_00001; } set { _fieldobject_ohrantower_00001 = value; } }
   public bool FieldObject_OhranTower_00002 { get { return _fieldobject_ohrantower_00002; } set { _fieldobject_ohrantower_00002 = value; } }
   public bool FieldObject_OhranTower_00003 { get { return _fieldobject_ohrantower_00003; } set { _fieldobject_ohrantower_00003 = value; } }
@@ -1599,6 +1609,16 @@ public class TeamFoundation : MonoBehaviour
   public bool FieldObject_OhranTower_00036 { get { return _fieldobject_ohrantower_00036; } set { _fieldobject_ohrantower_00036 = value; } }
   public bool FieldObject_OhranTower_00037 { get { return _fieldobject_ohrantower_00037; } set { _fieldobject_ohrantower_00037 = value; } }
   public bool FieldObject_OhranTower_00038 { get { return _fieldobject_ohrantower_00038; } set { _fieldobject_ohrantower_00038 = value; } }
+  public bool FieldObject_OhranTower_00039 { get { return _fieldobject_ohrantower_00039; } set { _fieldobject_ohrantower_00039 = value; } }
+  public bool FieldObject_OhranTower_00040 { get { return _fieldobject_ohrantower_00040; } set { _fieldobject_ohrantower_00040 = value; } }
+  public bool FieldObject_OhranTower_00041 { get { return _fieldobject_ohrantower_00041; } set { _fieldobject_ohrantower_00041 = value; } }
+  public bool FieldObject_OhranTower_00042 { get { return _fieldobject_ohrantower_00042; } set { _fieldobject_ohrantower_00042 = value; } }
+  public bool FieldObject_OhranTower_00043 { get { return _fieldobject_ohrantower_00043; } set { _fieldobject_ohrantower_00043 = value; } }
+  public bool FieldObject_OhranTower_00044 { get { return _fieldobject_ohrantower_00044; } set { _fieldobject_ohrantower_00044 = value; } }
+  public bool FieldObject_OhranTower_00045 { get { return _fieldobject_ohrantower_00045; } set { _fieldobject_ohrantower_00045 = value; } }
+  public bool FieldObject_OhranTower_00046 { get { return _fieldobject_ohrantower_00046; } set { _fieldobject_ohrantower_00046 = value; } }
+  public bool FieldObject_OhranTower_00047 { get { return _fieldobject_ohrantower_00047; } set { _fieldobject_ohrantower_00047 = value; } }
+  public bool FieldObject_OhranTower_00048 { get { return _fieldobject_ohrantower_00048; } set { _fieldobject_ohrantower_00048 = value; } }
 
   protected bool _fieldobject_gatedhal_00001 = false;
   protected bool _fieldobject_gatedhal_00002 = false;
