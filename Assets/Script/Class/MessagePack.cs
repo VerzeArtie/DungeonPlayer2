@@ -7689,6 +7689,86 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
       }
     }
+    else if (num == 81)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 82)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 83)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 84)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 85)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 86)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 87)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 88)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 89)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 90)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
 
     Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
 
@@ -8053,6 +8133,46 @@ public static class MessagePack
     else if (num == 80)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 81)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 82)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 83)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 84)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 85)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 86)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 87)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 88)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 89)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 90)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
