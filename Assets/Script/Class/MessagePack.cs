@@ -8524,6 +8524,517 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
       }
     }
+    else if (num == 140)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 141)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 142)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 143)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 144)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 145)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+    }
+    else if (num == 146)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 147)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+    }
+    else if (num == 148)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+    }
+    else if (num == 149)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+    }
+    else if (num == 150)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+    }
+    else if (num == 151)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+    }
+    else if (num == 152)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+    }
+    else if (num == 153)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+    }
+    else if (num == 154)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 155)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      } 
+    }
+    else if (num == 156)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 157)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+    }
+    else if (num == 158)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 159)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+    }
+    else if (num == 160)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 161)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+    }
+    else if (num == 162)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+    }
+    else if (num == 163)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 164)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveFall);
+      }
+    }
+    else if (num == 165)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      }
+    }
+    else if (num == 166)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 167)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 168)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+    }
+    else if (num == 169)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+        }
+      }
+    }
+    else if (num == 170)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+        }
+      }
+    }
+    else if (num == 171)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRight);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
+        }
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        for (int ii = 0; ii < move; ii++)
+        {
+          Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+          Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+        }
+      }
+    }
+    else if (num == 172)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 173)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 174)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
 
     Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
 
@@ -9355,6 +9866,293 @@ public static class MessagePack
     else if (num == 139)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 140)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 141)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+    }
+    else if (num == 142)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 143)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 144)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 145)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 146)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 147)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 148)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 149)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 150)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 151)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 152)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 153)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 154)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 155)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 156)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 157)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 158)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 159)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 160)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 161)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+    }
+    else if (num == 162)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 163)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 164)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 165)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 166)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 167)
+    {
+      if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 168)
+    {
+      if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 169)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+      else if (direction == DungeonField.Direction.Bottom)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 170)
+    {
+      if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+      else if (direction == DungeonField.Direction.Left)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+      }
+    }
+    else if (num == 171)
+    {
+      if (direction == DungeonField.Direction.Right)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+      }
+      else if (direction == DungeonField.Direction.Top)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+      }
+    }
+    else if (num == 172)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 173)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
+    }
+    else if (num == 174)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
