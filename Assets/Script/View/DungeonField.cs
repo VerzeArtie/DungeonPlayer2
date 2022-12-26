@@ -3977,8 +3977,15 @@ public class DungeonField : MotherBase
           }
           else if (direction == Direction.Right)
           {
-            One.TF.FieldObject_OhranTower_00099 = true;
-            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 8); TapOK();
+            if (One.TF.FieldObject_OhranTower_00091 == false)
+            {
+              MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 2); TapOK();
+            }
+            else
+            {
+              One.TF.FieldObject_OhranTower_00099 = true;
+              MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 8); TapOK();
+            }
           }
           return;
         }
@@ -3987,8 +3994,15 @@ public class DungeonField : MotherBase
         {
           if (direction == Direction.Left)
           {
-            One.TF.FieldObject_OhranTower_00099 = false;
-            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 8); TapOK();
+            if (One.TF.FieldObject_OhranTower_00091 == false)
+            {
+              MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 2); TapOK();
+            }
+            else
+            {
+              One.TF.FieldObject_OhranTower_00099 = false;
+              MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 8); TapOK();
+            }
           }
           else if (direction == Direction.Bottom)
           {
@@ -4251,15 +4265,29 @@ public class DungeonField : MotherBase
           }
           else if (direction == Direction.Left)
           {
-            One.TF.FieldObject_OhranTower_00119 = true;
-            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 18); TapOK();
+            if (One.TF.FieldObject_OhranTower_00117 == false)
+            {
+              MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 1); TapOK();
+            }
+            else
+            {
+              One.TF.FieldObject_OhranTower_00119 = true;
+              MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 18); TapOK();
+            }
           }
         }
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_177_X, Fix.OHRANTOWER_FLOATINGTILE_177_Y, Fix.OHRANTOWER_FLOATINGTILE_177_Z))
         {
-          One.TF.FieldObject_OhranTower_00119 = false;
-          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 18); TapOK();
+          if (One.TF.FieldObject_OhranTower_00117 == false)
+          {
+            MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 1); TapOK();
+          }
+          else
+          {
+            One.TF.FieldObject_OhranTower_00119 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 18); TapOK();
+          }
         }
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_178_X, Fix.OHRANTOWER_FLOATINGTILE_178_Y, Fix.OHRANTOWER_FLOATINGTILE_178_Z))
@@ -4303,8 +4331,15 @@ public class DungeonField : MotherBase
           }
           else if (direction == Direction.Right)
           {
-            One.TF.FieldObject_OhranTower_00123 = true;
-            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 11); TapOK();
+            if (One.TF.FieldObject_OhranTower_00093 == false)
+            {
+              MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 3); TapOK();
+            }
+            else
+            {
+              One.TF.FieldObject_OhranTower_00123 = true;
+              MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 11); TapOK();
+            }
           }
         }
         num++;
@@ -4312,8 +4347,15 @@ public class DungeonField : MotherBase
         {
           if (direction == Direction.Left)
           {
-            One.TF.FieldObject_OhranTower_00123 = false;
-            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 11); TapOK();
+            if (One.TF.FieldObject_OhranTower_00093 == false)
+            {
+              MessagePack.MoveFloatingTileFail(ref QuestMessageList, ref QuestEventList, direction, 3); TapOK();
+            }
+            else
+            {
+              One.TF.FieldObject_OhranTower_00123 = false;
+              MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 11); TapOK();
+            }
           }
           else if (direction == Direction.Top)
           {

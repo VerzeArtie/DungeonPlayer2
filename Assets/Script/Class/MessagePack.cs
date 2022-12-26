@@ -10443,6 +10443,118 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
   }
 
+  public static void MoveFloatingTileFail(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
+  {
+    Message(ref m_list, ref e_list, "アイン：さてと、このタイルで移動するか。", ActionEvent.None);
+
+    if (direction == DungeonField.Direction.Right)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+    }
+    else if (direction == DungeonField.Direction.Left)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+    }
+    else if (direction == DungeonField.Direction.Top)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+    }
+    else if (direction == DungeonField.Direction.Bottom)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+    }
+
+    if (num == 1)
+    {
+      if (One.TF.Event_Message800130 == false)
+      {
+        One.TF.Event_Message800130 = true;
+        Message(ref m_list, ref e_list, "アイン：・・・あれ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：おい、動かねーぞ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ちょっと待てよ。何らかの前提条件が整ってないのかもな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件？　そんなもんが、あるってのかよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、おそらくな。他を当たってみよう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：やっぱり駄目か。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件なんだろ？早く探そーぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+      }
+    }
+    else if (num == 2)
+    {
+      if (One.TF.Event_Message800140 == false)
+      {
+        One.TF.Event_Message800140 = true;
+        Message(ref m_list, ref e_list, "アイン：・・・あれ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：おい、動かねーぞ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ちょっと待てよ。何らかの前提条件が整ってないのかもな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件？　そんなもんが、あるってのかよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、おそらくな。他を当たってみよう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：やっぱり駄目か。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件なんだろ？早く探そーぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+      }
+    }
+    else if (num == 3)
+    {
+      if (One.TF.Event_Message800150 == false)
+      {
+        One.TF.Event_Message800150 = true;
+        Message(ref m_list, ref e_list, "アイン：・・・あれ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：おい、動かねーぞ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ちょっと待てよ。何らかの前提条件が整ってないのかもな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件？　そんなもんが、あるってのかよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、おそらくな。他を当たってみよう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：やっぱり駄目か。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：条件なんだろ？早く探そーぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+      }
+    }
+
+    if (direction == DungeonField.Direction.Right)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+    }
+    else if (direction == DungeonField.Direction.Left)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+    }
+    else if (direction == DungeonField.Direction.Top)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+    }
+    else if (direction == DungeonField.Direction.Bottom)
+    {
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+    }
+  }
+
   public static void CallbackFloatingtile(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800120 == false)
