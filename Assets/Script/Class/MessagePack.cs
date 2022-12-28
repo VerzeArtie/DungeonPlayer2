@@ -6722,23 +6722,23 @@ public static class MessagePack
     {
       One.TF.Event_Message800090 = true;
 
+      Message(ref m_list, ref e_list, "（・・・ォ・・・ッゴオオオオォオォォ・・・ン！！", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "アイン：んっ・・・何か今・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：大きく風が吹き抜けていったわね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ:この塔の最上階から流れてきた感じですね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：突風みたいなのが吹き抜けていったわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：まあ、こんな作りなんだし、風ぐらいあんじゃねえの？何か気になるってのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：気のせいならそれで良いんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：気になるというか、ちょっと引っかかる感じだな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ただし、ある程度警戒はしておいて損はしないだろ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：エオネ、この通路の構造上、突風は起きやすいと思うか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ:この塔の構造は通路形状ではないので、対流による風は起きにくいお思います。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ:この階層の通路は対流の方向性を制御しているので、不規則な突風は考え難いと思います。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：という事は・・・やっぱり要警戒かしら。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：という事は・・・やっぱり何か居るって事かしら。要警戒ね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：この塔の最上階はおそらくもうすぐだ。ともかく、気をつけて行こう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：この塔、おそらくもうすぐだ。ともかく、気をつけて行こう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が開始されました！", ActionEvent.GetNewQuest);
     }
@@ -6748,47 +6748,60 @@ public static class MessagePack
   {
     if (One.TF.DefeatYodirian == false && One.TF.QuestMain_Complete_00020 == false)
     {
-      Message(ref m_list, ref e_list, "アイン：おっと、出たみたいだな。", ActionEvent.None);
+      if (One.TF.Event_Message800160 == false)
+      {
+        One.TF.Event_Message800160 = true;
+        Message(ref m_list, ref e_list, "？？？：ッフウウゥゥゥ・・・ッシュアアァァ！！！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：空中に浮いてますね・・・何の生物なんでしょうか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：おっと、出たみたいだな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：鳥類にしては形態がちょっと異質よね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：常に空中に浮いてますね。何らかの生物な様ですが。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：行動パターンもちょっと読みにくそうだけど・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：鳥類にしては形態がちょっと異質よね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：アインはどう思う？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：行動パターンもちょっと読みにくそうだけど・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：アインはどう思う？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：正直言って、殺気の様なものは感じられない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：生物である以上、攻撃意志がないわけじゃない。実際の戦闘になってから本領発揮する感じだろうな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：正直言って、この距離からだと殺気の様なものは感じられない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あまり無理に急ぎ過ぎず、着々と戦闘を行おう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：守護者的な印象があるな。ガンガン攻めてくる様なタイプでは無いんだろう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：で、相手が何かやらかしそうだったら、一旦防御に徹するのも手の一つだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ただ守護者とはいえ、実際に戦闘になればいよいよ本領発揮するって感じだろうな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：後方が安全とは限らない。この狭さではエリア全体攻撃もやってくると見た方が良いだろう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：攻守を兼ね備えていそうだ。あまり無理に急ぎ過ぎず、持久戦前提で戦闘を行おう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：各自で防ぎ切るか、または誰かが全体防御をできるように準備しておいた方が良いかもな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：で、相手が何かやらかしそうだったら、一旦防御に徹するのも手の一つだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：大体分かったわ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：後方が安全とは限らない。この狭さでは後方まで届く様なエリア全体攻撃もやってくると見た方が良いだろう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。エオネ、ラナ、ビリー、準備は良いか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：各自で防ぎ切るか、または誰かが全体防御をできるように準備しておいた方が良いかもな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：大体分かったわ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：私はいつでも良いわよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。エオネ、ラナ、ビリー、準備は良いか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：任せとけや！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、じゃあ戦闘開始だ、行くぞ！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：私はいつでも良いわよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.THE_YODIRIAN, ActionEvent.EncountBoss);
+        Message(ref m_list, ref e_list, "ビリー：任せとけや！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ！！", ActionEvent.None);
+      }
     }
   }
 
+  public static void Message800105(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：戦闘だ！みんな、構えろ！！", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, Fix.THE_YODIRIAN, ActionEvent.EncountBoss);
+  }
+
+  文章を２つに分ける（展望台は少し先に進んだところ）
   public static void Message800110(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false && One.TF.Event_Message800100 == false)
@@ -6801,7 +6814,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ヨーディリアン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：何事もなく終わったみたいね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：だ、大丈夫みたいね・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ふう、相変わらずこういう系統は疲れるな。", ActionEvent.None);
 
@@ -6817,17 +6830,17 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：グッ・・・そりゃまあ・・・まあ無視はできねえな・・・グッ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：ビリーさん、怖いんですか？下を見るのが。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：ビリーさん、そろそろ怖いのでしょうか？下を見るのが。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：ばっ、そんなわけねーだろーが！女子供は引っ込んでな！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：あ、じゃあ私は怖いので、ビリーさんお願いします・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あ、じゃあ私は怖いので、ビリーさん、この先の展望台はお願いします・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：なにーーーーーーー！！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ビリーさん、私もちょっと高い所から見下ろすのは苦手なんで、お願いします♪", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ビリーさん♪私もちょっと高い所から見下ろすのは苦手なんで、お願いします♪", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：なにーーーーーーー！！！", ActionEvent.None);
 
@@ -6911,13 +6924,23 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン；ん？どうかしたか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：この部屋の横。通路を見つけたわ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：この展望台の端。何か無かった？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン；マジかよ？って事は。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン；マジかよ？良く分かったな。これがあったぜ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ええ、おそらく初めの入口に戻れる仕組みになってるわよ。きっと。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～ アインは【忘却の鍵】をラナに見せた ～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン；助かるぜ、戻る時はそれを使えばいいって事だな。", ActionEvent.None);
+      //中央最下層への扉チェックしたかどうかで会話分岐。
+      if (true)
+      {
+
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：ええ、おそらくそれでさっきの扉が開ける仕組みになってるわよ。きっと。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン；助かるぜ、じゃあこれをその扉に使えばいいって事だな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン；よし、エオネ、ラナ、ビリー。みんなありがとう。", ActionEvent.None);
 
@@ -6927,7 +6950,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：どうって事ないわよ♪", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン；じゃあ、ここは一旦戻って国王エルミに報告するとしよう！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン；じゃあ、最後にその扉の先を拝見するといたしますか！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
 

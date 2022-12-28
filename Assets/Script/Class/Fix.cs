@@ -5223,19 +5223,24 @@ public static partial class Fix
   //public const float EVENT_OHRANTOWER_4_Z = 1;
 
   // オーランの塔、ボス前の察知
-  public const float EVENT_OHRANTOWER_9_X = 5.0f;
-  public const float EVENT_OHRANTOWER_9_Y = 55.5f;
-  public const float EVENT_OHRANTOWER_9_Z = 27.0f;
+  public const float EVENT_OHRANTOWER_9_X = 15.0f;
+  public const float EVENT_OHRANTOWER_9_Y = 56.0f;
+  public const float EVENT_OHRANTOWER_9_Z = -2.0f;
 
-  // オーランの塔、ボス戦
-  public const float EVENT_OHRANTOWER_10_X = 1.0f;
-  public const float EVENT_OHRANTOWER_10_Y = 64.0f;
-  public const float EVENT_OHRANTOWER_10_Z = 25.0f;
+  // オーランの塔、ボス戦前の会話
+  public const float EVENT_OHRANTOWER_10_X = 15.0f;
+  public const float EVENT_OHRANTOWER_10_Y = 56.0f;
+  public const float EVENT_OHRANTOWER_10_Z = -24.0f;
+
+  // オーランの塔、ボス戦前の会話
+  public const float EVENT_OHRANTOWER_11_X = 15.0f;
+  public const float EVENT_OHRANTOWER_11_Y = 56.0f;
+  public const float EVENT_OHRANTOWER_11_Z = -22.0f;
 
   // オーランの塔、展望台箇所
-  public const float EVENT_OHRANTOWER_11_X = 1.0f;
-  public const float EVENT_OHRANTOWER_11_Y = 65.0f;
-  public const float EVENT_OHRANTOWER_11_Z = 32.0f;
+  public const float EVENT_OHRANTOWER_12_X = 1.0f;
+  public const float EVENT_OHRANTOWER_12_Y = 65.0f;
+  public const float EVENT_OHRANTOWER_12_Z = 32.0f;
 
   public const string OHRANTOWER_Treasure_1_C = "Treasure";
   public const string OHRANTOWER_Treasure_1_O = "1";

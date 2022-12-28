@@ -545,7 +545,10 @@ public class DungeonField : MotherBase
           MessagePack.Message300200(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+      }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+      {
         if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
         {
           MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -7982,6 +7985,11 @@ public class DungeonField : MotherBase
         return true;
       }
       if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z))
+      {
+        MessagePack.Message800105(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_12_X, Fix.EVENT_OHRANTOWER_12_Y, Fix.EVENT_OHRANTOWER_12_Z))
       {
         MessagePack.Message800120(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
