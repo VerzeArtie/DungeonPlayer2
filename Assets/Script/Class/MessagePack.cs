@@ -6990,13 +6990,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：やっぱり展望台にあったのね。おそらくそれでさっきの扉が開けられるはずよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン；助かるぜ、じゃあこれをその扉に使って見るとするか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン；助かるぜ、じゃあこれをその扉に使ってみるとするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン；よし、エオネ、ラナ、ビリー。みんなありがとう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：どうって事ないわよ♪", ActionEvent.None);
 
