@@ -5558,6 +5558,13 @@ public class DungeonField : MotherBase
           this.panelSystemMessage.SetActive(true);
           return;
         }
+        // システムメッセージを非表示する。
+        else if (currentEvent == MessagePack.ActionEvent.HideMessageDisplay)
+        {
+          this.panelSystemMessage.SetActive(false);
+          this.txtSystemMessage.text = string.Empty;
+          continue; // 継続
+        }
         // 画面にクエスト開始メッセージを表示する。
         else if (currentEvent == MessagePack.ActionEvent.GetNewQuest)
         {
@@ -7992,6 +7999,16 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_12_X, Fix.EVENT_OHRANTOWER_12_Y, Fix.EVENT_OHRANTOWER_12_Z))
       {
         MessagePack.Message800120(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_13_X, Fix.EVENT_OHRANTOWER_13_Y, Fix.EVENT_OHRANTOWER_13_Z))
+      {
+        MessagePack.Message800130(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_14_X, Fix.EVENT_OHRANTOWER_14_Y, Fix.EVENT_OHRANTOWER_14_Z))
+      {
+        MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
