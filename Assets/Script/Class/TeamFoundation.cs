@@ -1347,6 +1347,19 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_ohrantower_00021 = false;
   [SerializeField] protected bool _treasure_ohrantower_00022 = false;
   [SerializeField] protected bool _treasure_ohrantower_00023 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00024 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00025 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00026 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00027 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00028 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00029 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00030 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00031 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00032 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00033 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00034 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00035 = false;
+  [SerializeField] protected bool _treasure_ohrantower_00036 = false;
 
   public bool Treasure_CaveOfSarun_00001 { get { return _treasure_CaveOfSarun_00001; } set { _treasure_CaveOfSarun_00001 = value; } }
   public bool Treasure_CaveOfSarun_00002 { get { return _treasure_CaveOfSarun_00002; } set { _treasure_CaveOfSarun_00002 = value; } }
@@ -1446,6 +1459,19 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_OhranTower_00021 { get { return _treasure_ohrantower_00021; } set { _treasure_ohrantower_00021 = value; } }
   public bool Treasure_OhranTower_00022 { get { return _treasure_ohrantower_00022; } set { _treasure_ohrantower_00022 = value; } }
   public bool Treasure_OhranTower_00023 { get { return _treasure_ohrantower_00023; } set { _treasure_ohrantower_00023 = value; } }
+  public bool Treasure_OhranTower_00024 { get { return _treasure_ohrantower_00024; } set { _treasure_ohrantower_00024 = value; } }
+  public bool Treasure_OhranTower_00025 { get { return _treasure_ohrantower_00025; } set { _treasure_ohrantower_00025 = value; } }
+  public bool Treasure_OhranTower_00026 { get { return _treasure_ohrantower_00026; } set { _treasure_ohrantower_00026 = value; } }
+  public bool Treasure_OhranTower_00027 { get { return _treasure_ohrantower_00027; } set { _treasure_ohrantower_00027 = value; } }
+  public bool Treasure_OhranTower_00028 { get { return _treasure_ohrantower_00028; } set { _treasure_ohrantower_00028 = value; } }
+  public bool Treasure_OhranTower_00029 { get { return _treasure_ohrantower_00029; } set { _treasure_ohrantower_00029 = value; } }
+  public bool Treasure_OhranTower_00030 { get { return _treasure_ohrantower_00030; } set { _treasure_ohrantower_00030 = value; } }
+  public bool Treasure_OhranTower_00031 { get { return _treasure_ohrantower_00031; } set { _treasure_ohrantower_00031 = value; } }
+  public bool Treasure_OhranTower_00032 { get { return _treasure_ohrantower_00032; } set { _treasure_ohrantower_00032 = value; } }
+  public bool Treasure_OhranTower_00033 { get { return _treasure_ohrantower_00033; } set { _treasure_ohrantower_00033 = value; } }
+  public bool Treasure_OhranTower_00034 { get { return _treasure_ohrantower_00034; } set { _treasure_ohrantower_00034 = value; } }
+  public bool Treasure_OhranTower_00035 { get { return _treasure_ohrantower_00035; } set { _treasure_ohrantower_00035 = value; } }
+  public bool Treasure_OhranTower_00036 { get { return _treasure_ohrantower_00036; } set { _treasure_ohrantower_00036 = value; } }
   #endregion
 
   #region "etc"
