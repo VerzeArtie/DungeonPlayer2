@@ -349,7 +349,7 @@ public static partial class Fix
   public const string MAPFILE_MYSTIC_FOREST = "MapData_MysticForest.txt";
   public const string MAPFILE_GATE_OF_DHAL = "MapData_GateOfDhal.txt";
   public const string MAPFILE_SARITAN = "MapData_Saritan.txt";
-  public const string MAPFILE_SNOWTREELATA = "MapData_SnowTreeLata.txt";
+  public const string MAPFILE_SNOWTREE_LATA = "MapData_SnowTreeLata.txt";
   public const string MAPFILE_DISKEL = "MapData_Diskel.txt";
   public const string MAPFILE_GANRO = "MapData_Ganro.txt";
   public const string MAPFILE_LOSLON = "MapData_Loslon.txt";

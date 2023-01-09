@@ -26,6 +26,7 @@ public class SaveLoad : MotherBase
   private string archiveAreaString = @"到達階層：";
   private string archiveAreaString2 = @"階";
   private string archiveAreaString3 = @"制覇";
+  private string saveDungeonAreaString = @"到達地点：";
 
   private string MESSAGE_1 = @"DungeonPlayerクリアデータです。本編ではロードできません。";
   private string MESSAGE_2 = @"保存が完了しました。";
@@ -190,8 +191,14 @@ public class SaveLoad : MotherBase
         if (targetString.Contains(((jj + 1) + ((this.pageNumber - 1) * buttonText.Length)).ToString("D3") + "_"))
         {
           targetButton = buttonText[jj];
-          targetButton.text = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2) + this.gameDayString + targetString.Substring(18, 3) + this.gameDayString2 + archiveAreaString;
 
+          // todo セーブファイル名が、画面上のテキストに連動してしまっている。
+          // セーブデータが示す表示文字はセーブファイルの中に埋め込んである
+          // ダンジョン名、ホームタウン名を取り出すしかない。
+          // 処理が重たくなる点は改善はしたい所ではあるが、現状このままとする。
+          // targetButton.text = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2) + this.gameDayString + targetString.Substring(18, 3) + this.gameDayString2 + archiveAreaString;
+          targetButton.text = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2) + this.gameDayString + targetString.Substring(18, 3) + this.gameDayString2;
+          
           string DateTimeString = targetString.Substring(4, 4) + "/" + targetString.Substring(8, 2) + "/" + targetString.Substring(10, 2) + " " + targetString.Substring(12, 2) + ":" + targetString.Substring(14, 2) + ":" + targetString.Substring(16, 2);
           DateTime targetDateTime = DateTime.Parse(DateTimeString);
           if (targetDateTime.Equals(this.newDateTime))
@@ -204,13 +211,30 @@ public class SaveLoad : MotherBase
           }
 
 
-          if (targetString.Substring(21, 1) == "6")
+          //if (targetString.Substring(21, 1) == "6")
+          //{
+          //  targetButton.text += this.archiveAreaString3;
+          //}
+          //else
+          //{
+          //  targetButton.text += targetString.Substring(21, 1) + this.archiveAreaString2;
+          //}
+
+          string displayDungeonName = string.Empty;
+          string displayAreaName = string.Empty;
+          bool displaySaveByDungeon = false;
+          ReadDisplaySaveString(targetString, ref displayDungeonName, ref displayAreaName, ref displaySaveByDungeon);
+          if (displayDungeonName != string.Empty)
           {
-            targetButton.text += this.archiveAreaString3;
-          }
-          else
-          {
-            targetButton.text += targetString.Substring(21, 1) + this.archiveAreaString2;
+            Debug.Log("displaySaveString: " + displayDungeonName + " " + displayAreaName + " " + displaySaveByDungeon);
+            if (displaySaveByDungeon)
+            {
+              targetButton.text += displayDungeonName;
+            }
+            else
+            {
+              targetButton.text += displayAreaName;
+            }
           }
 
           //if (One.WE2.RealWorld && !One.WE2.SeekerEnd && One.WE2.SelectFalseStatue)
@@ -637,8 +661,14 @@ public class SaveLoad : MotherBase
       if ((Text)sender != null) // if 後編追加
       {
         ((Text)sender).text = DateTime.Now.ToString() + "\r\n経過日数：" + One.TF.GameDay.ToString("D3") + "日 ";
-        // todo
-        ((Text)sender).text += archiveAreaString + "1" + archiveAreaString2;
+        if (One.TF.SaveByDungeon)
+        {
+          ((Text)sender).text = ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
+        }
+        else
+        {
+          ((Text)sender).text += saveDungeonAreaString + One.TF.CurrentAreaName;
+        }
 
         if (!((Text)sender).Equals(buttonText[0])) back_button[0].GetComponent<Image>().sprite = null;
         if (!((Text)sender).Equals(buttonText[1])) back_button[1].GetComponent<Image>().sprite = null;
@@ -689,6 +719,89 @@ public class SaveLoad : MotherBase
 
   }
 
+  private void ReadDisplaySaveString(string targetFileName, ref string currentDungeonName, ref string currentAreaName, ref bool saveByDungeon)
+  {
+    XmlDocument xml = new XmlDocument();
+    xml.Load(One.pathForDocumentsFile(targetFileName));
+
+    List<string> listDSDName = new List<string>();
+    List<string> listDSDValue = new List<string>();
+    XmlNodeList parent = xml.GetElementsByTagName("TeamFoundation");
+    for (int ii = 0; ii < parent.Count; ii++)
+    {
+      //Debug.Log("node: " + parent[ii].Name.ToString());
+      XmlNodeList current = parent[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        //Debug.Log("DSD child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
+        listDSDName.Add(current[jj].Name);
+        listDSDValue.Add(current[jj].InnerText);
+      }
+    }
+
+    Type typeDSD = One.TF.GetType();
+    PropertyInfo[] tempDSD = typeDSD.GetProperties();
+    Debug.Log(tempDSD.Length.ToString());
+    for (int ii = 0; ii < tempDSD.Length; ii++)
+    {
+      //Debug.Log("DSD: " + tempDSD[ii].Name);
+      PropertyInfo pi = tempDSD[ii];
+      // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+      if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          for (int jj = 0; jj < listDSDName.Count; jj++)
+          {
+            if (listDSDName[jj] == pi.Name)
+            {
+              if (listDSDName[jj] == "CurrentDungeonField")
+              {
+                if (listDSDName[jj] != string.Empty)
+                {
+                  currentDungeonName = ConvertMapFileToDungeonName(listDSDValue[jj]);
+                }
+                else
+                {
+                  currentDungeonName = string.Empty;
+                }
+              }
+              else if (listDSDName[jj] == "CurrentAreaName")
+              {
+                if (listDSDName[jj] != string.Empty)
+                {
+                  currentAreaName = listDSDValue[jj];
+                }
+                else
+                {
+                  currentAreaName = string.Empty;
+                }
+              }
+            }
+          }
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          for (int jj = 0; jj < listDSDName.Count; jj++)
+          {
+            if (listDSDName[jj] == pi.Name)
+            {
+              if (listDSDName[jj] == "SaveByDungeon")
+              {
+                saveByDungeon = Convert.ToBoolean(listDSDValue[jj]);
+              }
+            }
+          }
+        }
+        catch { }
+      }
+    }
+  }
+
   private void ExecLoad(Text sender, string targetFileName, bool forceLoad)
   {
     if (this.nowAutoKill) { return; }
@@ -705,7 +818,7 @@ public class SaveLoad : MotherBase
     string minuteData = String.Empty;
     string secondData = String.Empty;
     string gamedayData = String.Empty;
-    string completeareaData = String.Empty;
+    //string completeareaData = String.Empty;
 
     Debug.Log("ExecLoad 1 " + DateTime.Now);
     if (((Text)sender) != null)
@@ -717,16 +830,16 @@ public class SaveLoad : MotherBase
       minuteData = ((Text)sender).text.Substring(14, 2);
       secondData = ((Text)sender).text.Substring(17, 2);
       gamedayData = ((Text)sender).text.Substring(this.gameDayString.Length + 19, 3);
-      completeareaData = ((Text)sender).text.Substring(this.gameDayString.Length + this.gameDayString2.Length + this.archiveAreaString.Length + 22, 1);
+      //completeareaData = ((Text)sender).text.Substring(this.gameDayString.Length + this.gameDayString2.Length + this.archiveAreaString.Length + 22, 1);
 
-      if (completeareaData == "制")
-      {
-        this.systemMessage.text = MESSAGE_1;
-        this.back_SystemMessage.SetActive(true);
-        this.Filter.SetActive(true);
-        return;
-      }
-      targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + completeareaData + ".xml";
+      //if (completeareaData == "制")
+      //{
+      //  this.systemMessage.text = MESSAGE_1;
+      //  this.back_SystemMessage.SetActive(true);
+      //  this.Filter.SetActive(true);
+      //  return;
+      //}
+      targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + /* completeareaData + */ "1.xml";
     }
     else
     {
@@ -1247,5 +1360,22 @@ public class SaveLoad : MotherBase
   {
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
     this.gameObject.SetActive(false);
+  }
+
+  private string ConvertMapFileToDungeonName(string map_file)
+  {
+    if (map_file == Fix.MAPFILE_CAVEOFSARUN) { return saveDungeonAreaString + Fix.DUNGEON_CAVEOFSARUN; }
+    else if (map_file == Fix.MAPFILE_GORATRUM) { return saveDungeonAreaString + Fix.DUNGEON_GORATRUM_CAVE + "(１層)"; }
+    else if (map_file == Fix.MAPFILE_GORATRUM_2) { return saveDungeonAreaString + Fix.DUNGEON_GORATRUM_CAVE + "(２層)"; }
+    else if (map_file == Fix.MAPFILE_MYSTIC_FOREST) { return saveDungeonAreaString + Fix.DUNGEON_MYSTIC_FOREST; }
+    else if (map_file == Fix.MAPFILE_OHRAN_TOWER) { return saveDungeonAreaString + Fix.DUNGEON_OHRAN_TOWER; }
+    else if (map_file == Fix.MAPFILE_VELGUS) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE; }
+    else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return saveDungeonAreaString + Fix.DUNGEON_GATE_OF_DHAL; }
+    else if (map_file == Fix.MAPFILE_DISKEL) { return saveDungeonAreaString + Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_SNOWTREE_LATA) { return saveDungeonAreaString + Fix.DUNGEON_SNOWTREE_LATA; }
+    else if (map_file == Fix.MAPFILE_GENESISGATE) { return saveDungeonAreaString + Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
+
+    return map_file;
   }
 }
