@@ -663,7 +663,7 @@ public class SaveLoad : MotherBase
         ((Text)sender).text = DateTime.Now.ToString() + "\r\n経過日数：" + One.TF.GameDay.ToString("D3") + "日 ";
         if (One.TF.SaveByDungeon)
         {
-          ((Text)sender).text = ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
+          ((Text)sender).text += ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
         }
         else
         {
