@@ -3420,8 +3420,6 @@ public partial class HomeTown : MotherBase
     if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
     if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
     if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
-    // todo
-    else { txtEventDescription.text = ""; }
   }
   
   private void ViewQuestEvent(string quest_name)
