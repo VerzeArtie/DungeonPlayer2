@@ -696,12 +696,6 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    // アニメーションを実行する。この間、時間を進めない。
-    if (NowAnimationMode)
-    {
-      ExecAnimation();
-      return;
-    }
     // スタックインザコマンドを実行中。この間、時間を進めない。
     if (NowStackInTheCommand)
     {
@@ -734,6 +728,23 @@ public partial class BattleEnemy : MotherBase
     {
       return;
     }
+
+    // アニメーションを実行する。通常は、時間を進める事とする。
+    if (NowAnimationMode)
+    {
+      ExecAnimation();
+      // 敵側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
+      if (CheckGroupAlive(EnemyList) == false)
+      {
+        return;
+      }
+      // プレイヤー側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
+      if (CheckGroupAlive(PlayerList) == false)
+      {
+        return;
+      }
+    }
+
     // バトルが完了している場合、時間を進めない。
     if (One.BattleEnd != Fix.GameEndType.None)
     {
@@ -2214,7 +2225,7 @@ public partial class BattleEnemy : MotherBase
     rect.anchorMin = new Vector2(0, 1);
     rect.anchorMax = new Vector2(0, 1);
     rect.pivot = new Vector2(0, 1);
-    rect.anchoredPosition = new Vector2(0, 0);
+    rect.anchoredPosition = new Vector2(0, -AP.Math.RandomInteger(5) * 20.0f);
 
     // アニメーショングループに再設定してアニメーション表示する。
     damageObj.Construct(message, color, animation_speed);
@@ -2276,7 +2287,7 @@ public partial class BattleEnemy : MotherBase
           Destroy(damageObj[ii].gameObject);
           damageObj[ii] = null;
         }
-        break;
+        //break;
       }
     }
 
