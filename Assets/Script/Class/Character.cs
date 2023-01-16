@@ -2232,6 +2232,12 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BLACK_CONTRACT); }
   }
 
+  public BuffImage IsSonicPulse
+  {
+    //get { return SearchBuff(Fix.SITSUON, Fix.SITSUON_JP); }
+    get { return SearchBuff(Fix.SONIC_PULSE, Fix.SONIC_PULSE_JP); }
+  }
+
   public BuffImage IsEyeOfTheIsshin
   {
     get { return SearchBuff(Fix.EYE_OF_THE_ISSHIN); }
@@ -2417,6 +2423,25 @@ public partial class Character : MonoBehaviour
     for (int ii = 0; ii < buffList.Length; ii++)
     {
       if (buffList[ii].BuffName == buff_name)
+      {
+        return buffList[ii];
+      }
+    }
+    return null;
+  }
+  private BuffImage SearchBuff(string buff_name, string buff_name_jp)
+  {
+    if (this.objBuffPanel == null) { return null; }
+
+    // unity潜在バグの可能性。null合体演算子、厳密にはnull判定かどうかを行おうとした時、
+    // missing exceptionが発生するので、null合体演算子はここでは使わない。
+    //BuffImage[] buffList = this.objBuffPanel?.GetComponentsInChildren<BuffImage>() ?? null;
+    BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return null; }
+
+    for (int ii = 0; ii < buffList.Length; ii++)
+    {
+      if (buffList[ii].BuffName == buff_name || buffList[ii].BuffName == buff_name_jp)
       {
         return buffList[ii];
       }
@@ -4614,6 +4639,11 @@ public partial class Character : MonoBehaviour
         break;
       #endregion
 
+      case Fix.DUMMY_SUBURI:
+        SetupParameter(1, 1, 1, 1, 100, 9999999, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = true;
+        break;
 
       case Fix.RUDE_WATCHDOG:
       case Fix.RUDE_WATCHDOG_JP:
@@ -5047,6 +5077,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_GALVADAZER:
       case Fix.THE_GALVADAZER_JP:
+      case Fix.THE_GALVADAZER_JP_VIEW:
         SetupParameter(150, 120, 60, 420, 100, 10, 7500, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
@@ -5501,7 +5532,7 @@ public partial class Character : MonoBehaviour
 
   // 敵の行動コマンドを決定する。
   // コマンド名のみではなくターゲット選定なども含める。
-  public void ChooseCommand(List<Character> ally_group, List<Character> opponent_group)
+  public void ChooseCommand(List<Character> ally_group, List<Character> opponent_group, bool skip_decision)
   {
     string result = string.Empty;
     List<string> current = new List<string>();
@@ -5568,6 +5599,8 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.THE_GALVADAZER:
+      case Fix.THE_GALVADAZER_JP:
+      case Fix.THE_GALVADAZER_JP_VIEW:
         this.AI_Phase++;
         if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
 
@@ -5584,6 +5617,10 @@ public partial class Character : MonoBehaviour
           current.Add(Fix.COMMAND_STRUGGLE_VOICE);
         }
         result = RandomChoice(current);
+        break;
+
+      case Fix.DUMMY_SUBURI:
+        result = Fix.SONIC_PULSE;
         break;
 
       default:
@@ -5628,7 +5665,10 @@ public partial class Character : MonoBehaviour
       }
     }
 
-    this.Decision = true;
+    if (skip_decision == false)
+    {
+      this.Decision = true;
+    }
     this.CurrentActionCommand = result;
     if (this.txtActionCommand != null)
     {

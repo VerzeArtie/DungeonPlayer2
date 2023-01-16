@@ -100,6 +100,7 @@ public static class One
 
   // BattleEnemy
   public static bool CannotRunAway = false;
+  public static Fix.BattleMode BattleMode = Fix.BattleMode.None;
   #endregion
 
   public static void ReInitializeGroundOne(bool FromGameLoad)

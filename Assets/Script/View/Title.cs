@@ -72,4 +72,46 @@ public class Title : MotherBase
     groupConfig.SetActive(false);
     groupSaveLoad.gameObject.SetActive(false);
   }
+
+  public void TapBattleTest()
+  {
+    One.BattleEnd = Fix.GameEndType.None;
+
+    One.TF.AvailableEoneFulnea = true;
+
+    Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
+    ein.Agility = 1;
+    Character lana = One.SelectCharacter(Fix.NAME_LANA_AMIRIA);
+    lana.Agility = 1;
+    Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
+    eone.AgilityFood = 1;
+
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
+    One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+
+    One.CreateShadowData();
+
+    One.EnemyList.Clear();
+    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
+
+
+    for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
+    {
+      GameObject objEC = new GameObject("objEC_" + ii.ToString());
+      Character character = objEC.AddComponent<Character>();
+      character.Construction(One.BattleEnemyList[ii]);
+      character.Agility = 10;
+      One.EnemyList.Add(character);
+    }
+
+    for (int ii = 0; ii < One.EnemyList.Count; ii++)
+    {
+      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
+    }
+    //    SceneDimension.CallBattleEnemy();
+
+    One.BattleMode = Fix.BattleMode.Boss;
+    SceneDimension.CallBattleEnemy();
+  }
 }

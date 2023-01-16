@@ -29,6 +29,14 @@ public static partial class Fix
     Retry,
   }
 
+  public enum BattleMode
+  {
+    None,
+    Normal,
+    Boss,
+    Duel,
+  }
+
   public enum JobClass
   {
     None,
@@ -213,6 +221,9 @@ public static partial class Fix
   public static Color COLORFORE_ENEMY_CHARA = new Color(226.0f / 255.0f, 58.0f / 255.0f, 0 / 255.0f);
   #endregion
   #region "Buff Effect"
+  public const string SITSUON = "Lost Sound";
+  public const string SITSUON_JP = "失音";
+
   public const string EFFECT_HEART_OF_LIFE = "Life Gain";
   public const string EFFECT_SHADOW_BLAST = "Blind Effect";
   public const string EFFECT_FORTUNE = "Fortune";
@@ -2010,6 +2021,7 @@ public static partial class Fix
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
   public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
   public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー";
+  public const string THE_GALVADAZER_JP_VIEW = "【　暴走破壊者　】\r\nガルヴァデイザー";
   public const string SWIFT_EAGLE = "Swift Eagle";
   public const string SWIFT_EAGLE_JP = "スウィフト イーグル";
   public const string EASTERN_GOLEM = "Eastern Golem";
@@ -2113,6 +2125,8 @@ public static partial class Fix
   public const string SCREAMING_RAFFLESIA = "叫喚のラフレシア";
   public const string HELL_KERBEROS = "Hell Kerberos";
   public const string HELL_KERBEROS_JP = "地獄のケルベロス";
+
+  public const string DUMMY_SUBURI = "ダミー素振り君";
   #endregion
 
   #region "Dungeon Event"

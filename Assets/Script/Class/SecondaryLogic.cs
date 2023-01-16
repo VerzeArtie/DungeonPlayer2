@@ -346,6 +346,21 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static double SonicPulse(Character player)
+  {
+    return 2.00f;
+  }
+
+  public static int SonicPulse_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double SonicPulse_Value(Character player)
+  {
+    return 0.70f;
+  }
+
   public static double ConcussiveHit(Character player)
   {
     return 0.05f;

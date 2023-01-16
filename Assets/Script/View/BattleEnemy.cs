@@ -17,6 +17,7 @@ public partial class BattleEnemy : MotherBase
   public DamageObject prefab_Damage = null;
   public NodeBattleChara node_BattleChara = null;
   public NodeBattleChara node_BattleChara_Enemy = null;
+  public NodeBattleChara node_BattleChara_EnemyBoss = null;
   public GameObject prefab_Message = null;
   public NodeActionCommand prefab_MainAction = null;
   public NodeActionCommand prefab_InstantAction = null;
@@ -159,6 +160,13 @@ public partial class BattleEnemy : MotherBase
 
   protected bool DetectItemDrop = false;
 
+  protected Fix.BattleMode _battleType = Fix.BattleMode.None;
+  public Fix.BattleMode BattleType
+  {
+    set { _battleType = value; }
+    get { return _battleType; }
+  }
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -175,6 +183,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     this.CannotRunAway = One.CannotRunAway;
+    this.BattleType = One.BattleMode;
 
     // 砂時計を生成する。
     Texture2D textureSandGlass = Resources.Load<Texture2D>("SandGlassIcon");
@@ -373,58 +382,82 @@ public partial class BattleEnemy : MotherBase
     // 敵グループの作成
     float enemyBaseStart = AP.Math.RandomInteger(0) + (One.EnemyList.Count - 1) * 10.0f;
     if (enemyBaseStart <= 0.0f) { enemyBaseStart = 0.0f; }
-    for (int ii = 0; ii < One.EnemyList.Count; ii++)
+
+    if (BattleType == Fix.BattleMode.Normal || BattleType == Fix.BattleMode.Duel)
     {
-      NodeBattleChara node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
-      node.gameObject.SetActive(true);
-      node.ParentPanel.SetActive(true);
-      node.transform.SetParent(GroupParentEnemy.transform);
-      //GameObject objEC = new GameObject("objEC");
-      //Character character = objEC.AddComponent<Character>();
-      //character.BattleBackColor = Fix.COLOR_ENEMY_CHARA;
-      //character.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
-      //character.Construction(One.EnemyList[ii]);
-      One.EnemyList[ii].IsEnemy = true;
-      if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
-      if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
-      AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
-      // debug
-      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
-      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
-      //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
-
-      // 戦闘ゲージを設定
-      One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
-      One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
-
-      // キャラクターグループのリストに追加
-      One.EnemyList[ii].Ally = Fix.Ally.Enemy;
-      EnemyList.Add(One.EnemyList[ii]);
-      AllList.Add(One.EnemyList[ii]);
-    }
-
-
-    // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
-    if (EnemyList.Count < Fix.MAX_ENEMY_MEMBER)
-    {
-      for (int ii = EnemyList.Count; ii < Fix.MAX_ENEMY_MEMBER; ii++)
+      for (int ii = 0; ii < One.EnemyList.Count; ii++)
       {
         NodeBattleChara node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
         node.gameObject.SetActive(true);
-        node.ParentPanel.SetActive(false);
+        node.ParentPanel.SetActive(true);
         node.transform.SetParent(GroupParentEnemy.transform);
-        RectTransform rt = node.GetComponent<RectTransform>();
-        rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 0.5f);
-        rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-        rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
-        rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+        //GameObject objEC = new GameObject("objEC");
+        //Character character = objEC.AddComponent<Character>();
+        //character.BattleBackColor = Fix.COLOR_ENEMY_CHARA;
+        //character.BattleForeColor = Fix.COLORFORE_ENEMY_CHARA;
+        //character.Construction(One.EnemyList[ii]);
+        One.EnemyList[ii].IsEnemy = true;
+        if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
+        if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
+        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
+        // debug
+        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
+        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
+        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
+
+        // 戦闘ゲージを設定
+        One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * ii)));
+        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+        // キャラクターグループのリストに追加
+        One.EnemyList[ii].Ally = Fix.Ally.Enemy;
+        EnemyList.Add(One.EnemyList[ii]);
+        AllList.Add(One.EnemyList[ii]);
       }
+
+
+      // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
+      if (EnemyList.Count < Fix.MAX_ENEMY_MEMBER)
+      {
+        for (int ii = EnemyList.Count; ii < Fix.MAX_ENEMY_MEMBER; ii++)
+        {
+          NodeBattleChara node = Instantiate(node_BattleChara_Enemy) as NodeBattleChara;
+          node.gameObject.SetActive(true);
+          node.ParentPanel.SetActive(false);
+          node.transform.SetParent(GroupParentEnemy.transform);
+          RectTransform rt = node.GetComponent<RectTransform>();
+          rt.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 0.5f);
+          rt.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+          rt.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+          rt.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1);
+        }
+      }
+    }
+    else if (BattleType == Fix.BattleMode.Boss)
+    {
+      NodeBattleChara node = Instantiate(node_BattleChara_EnemyBoss) as NodeBattleChara;
+      node.gameObject.SetActive(true);
+      node.ParentPanel.SetActive(true);
+      node.transform.SetParent(GroupParentEnemy.transform);
+      One.EnemyList[0].IsEnemy = true;
+      if (One.EnemyList[0] == null) { Debug.Log("null enemylist"); }
+      if (EnemyArrowList[0] == null) { Debug.Log("enemyarrowlist null"); }
+      AddPlayerFromOne(One.EnemyList[0], node, EnemyArrowList[0], null, null, null, null);
+
+      // 戦闘ゲージを設定
+      One.EnemyList[0].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
+      One.EnemyList[0].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+      // キャラクターグループのリストに追加
+      One.EnemyList[0].Ally = Fix.Ally.Enemy;
+      EnemyList.Add(One.EnemyList[0]);
+      AllList.Add(One.EnemyList[0]);
     }
 
     // 敵コマンドの最初の設定を行う。
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
-      EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]));
+      EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]), true);
     }
 
     // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
@@ -733,6 +766,7 @@ public partial class BattleEnemy : MotherBase
     if (NowAnimationMode)
     {
       ExecAnimation();
+      return;
       // 敵側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
       if (CheckGroupAlive(EnemyList) == false)
       {
@@ -1053,7 +1087,7 @@ public partial class BattleEnemy : MotherBase
       RectTransform rectX = EnemyList[ii].objArrow.GetComponent<RectTransform>();
       if (rectX.position.x >= BATTLE_GAUGE_WITDH / 3.0f && EnemyList[ii].Decision == false)
       {
-        EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]));
+        EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]), false);
       }
     }
 
@@ -1069,7 +1103,7 @@ public partial class BattleEnemy : MotherBase
           CreateStackObject(EnemyList[ii], EnemyList[ii], Fix.COMMAND_LIGHTNING_OUTBURST, 100);
         }
 
-        if (EnemyList[ii].FullName == Fix.THE_GALVADAZER)
+        if (EnemyList[ii].FullName == Fix.THE_GALVADAZER || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP_VIEW)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
@@ -1574,6 +1608,12 @@ public partial class BattleEnemy : MotherBase
         break;
       #endregion
 
+      #region "Delve III"
+      case Fix.SONIC_PULSE:
+      case Fix.SONIC_PULSE_JP:
+        ExecSonicPulse(player, target, critical);
+        break;
+      #endregion
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
         break;
@@ -3377,6 +3417,21 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    if (player.IsSonicPulse)
+    {
+      Debug.Log("Detect SonicPulse phase");
+      double rand = AP.Math.RandomReal();
+      Debug.Log("result: " + rand.ToString() + " " + player.IsSonicPulse.EffectValue.ToString());
+      if (rand <= player.IsSonicPulse.EffectValue)
+      {
+        Debug.Log("SonicPulse effect, then no ExecNormalAttack.");
+        player.CurrentInstantPoint = 0;
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        this.NowAnimationMode = true;
+        return false;
+      }
+    }
+
     // 攻撃コマンドのダメージを算出
     bool resultCritical = false;
     double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical, ref resultCritical);
@@ -3842,6 +3897,12 @@ public partial class BattleEnemy : MotherBase
   {
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0);
     StartAnimation(player.objGroup.gameObject, Fix.BLACK_CONTRACT, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
+  {
+    ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, critical);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0);
   }
 
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
