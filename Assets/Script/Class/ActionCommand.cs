@@ -867,6 +867,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 13; }
+    if (command_name == Fix.BONE_CRUSH) { return 13; }
     if (command_name == Fix.IRREGULAR_STEP) { return 12; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
     if (command_name == Fix.UNSEEN_AID) { return 16; }

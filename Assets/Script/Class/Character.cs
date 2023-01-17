@@ -2235,7 +2235,6 @@ public partial class Character : MonoBehaviour
 
   public BuffImage IsSonicPulse
   {
-    //get { return SearchBuff(Fix.SITSUON, Fix.SITSUON_JP); }
     get { return SearchBuff(Fix.SONIC_PULSE, Fix.SONIC_PULSE_JP); }
   }
 
@@ -2247,6 +2246,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsEyeOfTheIsshin
   {
     get { return SearchBuff(Fix.EYE_OF_THE_ISSHIN); }
+  }
+
+  public BuffImage IsBoneCrush
+  {
+    get { return SearchBuff(Fix.BONE_CRUSH, Fix.BONE_CRUSH_JP); }
   }
 
   public BuffImage IsStormArmor
@@ -4646,7 +4650,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(1, 1, 1, 1, 100, 9999999, 0, 0);
+        SetupParameter(1, 1, 1, 1, 20, 9999999, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -5626,7 +5630,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        result = Fix.LAND_SHATTER;
+        result = Fix.BONE_CRUSH;
         break;
 
       default:

@@ -1655,6 +1655,11 @@ public partial class BattleEnemy : MotherBase
         ExecEyeOfTheIsshin(player, target);
         break;
 
+      case Fix.BONE_CRUSH:
+      case Fix.BONE_CRUSH_JP:
+        ExecBoneCrush(player, target, critical);
+        break;
+
       case Fix.IRREGULAR_STEP:
         ExecIrregularStep(player, target);
         break;
@@ -3972,6 +3977,15 @@ public partial class BattleEnemy : MotherBase
   {
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_ISSHIN, Fix.COLOR_NORMAL);
+  }
+
+  public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
+  {
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0);
+    }
   }
 
   public void ExecIrregularStep(Character player, Character target)

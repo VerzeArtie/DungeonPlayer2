@@ -120,6 +120,11 @@ public static class PrimaryLogic
     {
       result = result * player.IsPhysicalAttackDown.EffectValue;
     }
+    BuffImage boneCrush = player.IsBoneCrush;
+    if (boneCrush)
+    {
+      result = result * boneCrush.EffectValue;
+    }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * player.MainWeapon.AmplifyPhysicalAttack; }
     if (player.SubWeapon != null && player.SubWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * player.SubWeapon.AmplifyPhysicalAttack; }

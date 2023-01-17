@@ -391,6 +391,21 @@ public static class SecondaryLogic
     return 9;
   }
 
+  public static double BoneCrush(Character player)
+  {
+    return 1.20;
+  }
+
+  public static int BoneCrush_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double BoneCrush_Value(Character player)
+  {
+    return 0.80f;
+  }
+
   public static double IrregularStep_Damage(Character player)
   {
     return 2.00f;
