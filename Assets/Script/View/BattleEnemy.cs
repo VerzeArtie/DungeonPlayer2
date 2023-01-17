@@ -1664,6 +1664,11 @@ public partial class BattleEnemy : MotherBase
         ExecIrregularStep(player, target);
         break;
 
+      case Fix.SIGIL_OF_THE_PENDING:
+      case Fix.SIGIL_OF_THE_PENDING_JP:
+        ExecSigilOfThePending(player, target);
+        break;
+
       case Fix.STORM_ARMOR:
         ExecStormArmor(player, target);
         break;
@@ -3186,7 +3191,10 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < PlayerList.Count; jj++)
         {
-          ExecLightningDamage(PlayerList[jj], buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+          if (PlayerList[ii].IsSigilOfThePending == null)
+          {
+            ExecLightningDamage(PlayerList[jj], buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+          }
         }
       }
     }
@@ -3197,7 +3205,10 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < EnemyList.Count; jj++)
         {
-          ExecLightningDamage(EnemyList[jj], buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+          if (EnemyList[ii].IsSigilOfThePending == null)
+          {
+            ExecLightningDamage(EnemyList[jj], buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+          }
         }
       }
     }
@@ -3207,6 +3218,15 @@ public partial class BattleEnemy : MotherBase
       AllList[ii].CurrentActionPoint += Fix.AP_BASE;
       AllList[ii].GainSoulPoint();
       AllList[ii].UpdateActionPoint();
+
+      BuffImage sigilOfThePending = AllList[ii].IsSigilOfThePending;
+
+      // シギル・オブ・ザ・ペンディングがある場合、効果を発揮しない。
+      if (sigilOfThePending != null) 
+      {
+        Debug.Log("Upkeep phase, but sigilOfThePending is enabled, then no effect");
+        continue; 
+      }
 
       if (AllList[ii].IsHeartOfLife)
       {
@@ -4012,6 +4032,11 @@ public partial class BattleEnemy : MotherBase
       this.NowIrregularStepCounter = 0;
       this.NowIrregularStepMode = false;
     }
+  }
+
+  public void ExecSigilOfThePending(Character player, Character target)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0);
   }
 
   public void ExecStormArmor(Character player, Character target)

@@ -415,7 +415,12 @@ public static class SecondaryLogic
   {
     return 0.30f;
   }
-     
+
+  public static int SigilOfThePending_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
   public static double StormArmor_SpeedUp(Character player)
   {
     return 1.10f;

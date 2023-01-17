@@ -2253,6 +2253,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BONE_CRUSH, Fix.BONE_CRUSH_JP); }
   }
 
+  public BuffImage IsSigilOfThePending
+  {
+    get { return SearchBuff(Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING_JP); }
+  }
+
   public BuffImage IsStormArmor
   {
     get { return SearchBuff(Fix.STORM_ARMOR); }
@@ -5630,7 +5635,14 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        result = Fix.BONE_CRUSH;
+        if (Target != null && Target.IsSigilOfThePending == null)
+        {
+          result = Fix.SIGIL_OF_THE_PENDING;
+        }
+        else
+        {
+          result = Fix.VENOM_SLASH;
+        }
         break;
 
       default:
