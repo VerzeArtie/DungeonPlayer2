@@ -361,6 +361,16 @@ public static class SecondaryLogic
     return 0.70f;
   }
 
+  public static double LandShatter(Character player)
+  {
+    return 2.20f;
+  }
+
+  public static int LandShatter_Turn(Character player)
+  {
+    return 2;
+  }
+
   public static double ConcussiveHit(Character player)
   {
     return 0.05f;

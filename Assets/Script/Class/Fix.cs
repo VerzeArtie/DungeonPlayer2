@@ -932,6 +932,7 @@ public static partial class Fix
   public const string NORMAL_ATTACK = "Normal Attack";
   public const string MAGIC_ATTACK = "Magic Attack";
   public const string DEFENSE = "Defense";
+  public const string DEFENSE_JP = "防御";
   public const string STAY = "Stay";
   public const string STAY_2 = "Stay_2";
   public const string USE_RED_POTION_1 = "RedPotion_1";
@@ -948,6 +949,8 @@ public static partial class Fix
   public const string USE_BLUE_POTION_5 = "BluePotion_5";
   public const string USE_BLUE_POTION_6 = "BluePotion_6";
   public const string USE_BLUE_POTION_7 = "BluePotion_7";
+
+  public const string DEFENSE_DISABLE = "Defense_Disable";
 
   // Delve I
   public const string FIRE_BALL = "Fire Ball";

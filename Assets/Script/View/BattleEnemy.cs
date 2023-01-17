@@ -674,6 +674,7 @@ public partial class BattleEnemy : MotherBase
 
         mainAction.transform.SetParent(groupActionButton.transform);
         mainAction.gameObject.SetActive(true);
+        character.objMainActionList.Add(mainAction);
       }
     }
 
@@ -1613,6 +1614,12 @@ public partial class BattleEnemy : MotherBase
       case Fix.SONIC_PULSE_JP:
         ExecSonicPulse(player, target, critical);
         break;
+
+      case Fix.LAND_SHATTER:
+      case Fix.LAND_SHATTER_JP:
+        ExecLandShatter(player, target, critical);
+        break;
+
       #endregion
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
@@ -2460,6 +2467,22 @@ public partial class BattleEnemy : MotherBase
           ////this.txtCurrentPlayerName.text = PlayerList[ii].FullName;
           ////this.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleColor;
 
+          for (int jj = 0; jj < PlayerList[ii].objMainActionList.Count; jj++)
+          {
+            if (PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE || PlayerList[ii].objMainActionList[jj].CommandName == Fix.DEFENSE_JP)
+            {
+              if (PlayerList[ii].IsLandShatter)
+              {
+                Debug.Log("PlayerList[ii].IsLandShatter phase, CommandName is Defense_Disable");
+                PlayerList[ii].objMainActionList[jj].ApplyImageIcon(Fix.DEFENSE_DISABLE);
+              }
+              else
+              {
+                Debug.Log("PlayerList[ii].IsLandShatter phase, CommandName is Defense");
+                PlayerList[ii].objMainActionList[jj].ApplyImageIcon(PlayerList[ii].objMainActionList[jj].CommandName);
+              }
+            }
+          }
           PlayerList[ii].objParentActionPanel.imgBackGauge.color = PlayerList[ii].BattleBackColor;
           PlayerList[ii].objParentActionPanel.imgCurrentPlayerActionButton.color = PlayerList[ii].BattleForeColor;
           PlayerList[ii].objParentActionPanel.gameObject.SetActive(true);
@@ -2673,6 +2696,19 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("selectedPlayer is null, then no action.");
       return;
+    }
+
+    // LandShatter効果が続いている間は、防御を選択できない。
+    if (sender.CommandName == Fix.DEFENSE || sender.CommandName == Fix.DEFENSE_JP)
+    {
+      for (int ii = 0; ii < this.NowSelectSrcPlayer.objMainActionList.Count; ii++)
+      {
+        if (this.NowSelectSrcPlayer.objMainActionList[ii].CommandName == sender.CommandName &&
+            this.NowSelectSrcPlayer.IsLandShatter)
+        {
+          return;
+        }
+      }
     }
 
     // 自分自身の場合はその場で選択決定。（防御など）
@@ -3901,8 +3937,26 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
   {
-    ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, critical);
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0);
+    }
+  }
+
+  private void ExecLandShatter(Character player, Character target, Fix.CriticalType critical)
+  {
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0);
+      if (target.CurrentActionCommand == Fix.DEFENSE || target.CurrentActionCommand == Fix.DEFENSE_JP)
+      {
+        target.CurrentActionCommand = Fix.STAY;
+        target.txtActionCommand.text = Fix.STAY;
+        SetupActionCommandButton(target.objMainButton, Fix.STAY);
+      }
+    }
   }
 
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)

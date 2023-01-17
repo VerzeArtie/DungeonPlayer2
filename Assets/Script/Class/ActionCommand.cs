@@ -861,6 +861,8 @@ public static class ActionCommand
     if (command_name == Fix.HOLY_BREATH) { return 11; }
     if (command_name == Fix.BLACK_CONTRACT) { return 12; }
     if (command_name == Fix.SONIC_PULSE) { return 16; }
+    if (command_name == Fix.LAND_SHATTER) { return 15; }
+
     if (command_name == Fix.MUTE_IMPULSE) { return 15; }
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }

@@ -40,6 +40,7 @@ public partial class Character : MonoBehaviour
   public NodeActionCommand objImmediateCommand = null;
   public GameObject GroupActionCommand = null;
   public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
+  public List<NodeActionCommand> objMainActionList = new List<NodeActionCommand>();
 
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
@@ -2236,6 +2237,11 @@ public partial class Character : MonoBehaviour
   {
     //get { return SearchBuff(Fix.SITSUON, Fix.SITSUON_JP); }
     get { return SearchBuff(Fix.SONIC_PULSE, Fix.SONIC_PULSE_JP); }
+  }
+
+  public BuffImage IsLandShatter
+  {
+    get { return SearchBuff(Fix.LAND_SHATTER, Fix.LAND_SHATTER_JP); }
   }
 
   public BuffImage IsEyeOfTheIsshin
@@ -5620,7 +5626,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        result = Fix.SONIC_PULSE;
+        result = Fix.LAND_SHATTER;
         break;
 
       default:
