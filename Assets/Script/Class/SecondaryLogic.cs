@@ -421,6 +421,16 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
+  public static int AetherDrive_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double AetherDrive_Effect(Character player)
+  {
+    return 1.10f;
+  }
+
   public static double StormArmor_SpeedUp(Character player)
   {
     return 1.10f;

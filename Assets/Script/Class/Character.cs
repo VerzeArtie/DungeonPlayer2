@@ -41,6 +41,7 @@ public partial class Character : MonoBehaviour
   public GameObject GroupActionCommand = null;
   public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
   public List<NodeActionCommand> objMainActionList = new List<NodeActionCommand>();
+  public BuffField objFieldPanel = null;
 
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
@@ -4655,7 +4656,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(1, 1, 1, 1, 20, 9999999, 0, 0);
+        SetupParameter(10, 10, 10, 10, 20, 9999999, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -5590,7 +5591,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.MAGICAL_HAIL_GUN:
-        this.AI_Phase++;
+        if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
 
         if (this.AI_Phase == 0)
@@ -5616,7 +5617,7 @@ public partial class Character : MonoBehaviour
       case Fix.THE_GALVADAZER:
       case Fix.THE_GALVADAZER_JP:
       case Fix.THE_GALVADAZER_JP_VIEW:
-        this.AI_Phase++;
+        if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
 
         if (this.AI_Phase == 0)
@@ -5635,13 +5636,22 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        if (Target != null && Target.IsSigilOfThePending == null)
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase == 1)
         {
-          result = Fix.SIGIL_OF_THE_PENDING;
+          result = Fix.AETHER_DRIVE;
         }
-        else
+        else if (this.AI_Phase >= 2)
         {
-          result = Fix.VENOM_SLASH;
+          result = Fix.NORMAL_ATTACK;
+          //if (Target != null && Target.IsSigilOfThePending == null)
+          //{
+          //  result = Fix.SIGIL_OF_THE_PENDING;
+          //}
+          //else
+          //{
+          //  result = Fix.VENOM_SLASH;
+          //}
         }
         break;
 

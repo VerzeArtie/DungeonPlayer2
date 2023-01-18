@@ -300,7 +300,7 @@ public partial class BattleEnemy : MotherBase
 
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
-      AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii]);
+      AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii], this.PanelPlayerField);
 
       NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
       node_charaExp.txtPlayerName.text = playerList[ii].FullName;
@@ -399,7 +399,7 @@ public partial class BattleEnemy : MotherBase
         One.EnemyList[ii].IsEnemy = true;
         if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
         if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
-        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null);
+        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
         // debug
         //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
         //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
@@ -442,7 +442,7 @@ public partial class BattleEnemy : MotherBase
       One.EnemyList[0].IsEnemy = true;
       if (One.EnemyList[0] == null) { Debug.Log("null enemylist"); }
       if (EnemyArrowList[0] == null) { Debug.Log("enemyarrowlist null"); }
-      AddPlayerFromOne(One.EnemyList[0], node, EnemyArrowList[0], null, null, null, null);
+      AddPlayerFromOne(One.EnemyList[0], node, EnemyArrowList[0], null, null, null, null, this.PanelEnemyField);
 
       // 戦闘ゲージを設定
       One.EnemyList[0].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
@@ -475,7 +475,7 @@ public partial class BattleEnemy : MotherBase
     LogicInvalidate();
   }
 
-  private void AddPlayerFromOne(Character character, NodeBattleChara node, GameObject arrow, NodeActionPanel group_parent_actionpanel, GameObject groupActionButton, Image instant_gauge_ac, Image potential_energy)
+  private void AddPlayerFromOne(Character character, NodeBattleChara node, GameObject arrow, NodeActionPanel group_parent_actionpanel, GameObject groupActionButton, Image instant_gauge_ac, Image potential_energy, BuffField field_panel)
   {
     character.objGroup = node;
     character.objArrow = arrow;
@@ -498,6 +498,7 @@ public partial class BattleEnemy : MotherBase
     character.objBuffPanel = node.groupBuff;
     character.txtTargetName = node.txtTargetName;
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
+    character.objFieldPanel = field_panel;
 
     if (node.objImmediateCommand != null)
     {
@@ -1568,7 +1569,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DIVINE_CIRCLE:
-        ExecDivineCircle(player, target, GetPanelFieldFromPlayer(player));
+        ExecDivineCircle(player, target, player.objFieldPanel);
         break;
 
       case Fix.SKY_SHIELD:
@@ -1667,6 +1668,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.SIGIL_OF_THE_PENDING:
       case Fix.SIGIL_OF_THE_PENDING_JP:
         ExecSigilOfThePending(player, target);
+        break;
+
+      case Fix.AETHER_DRIVE:
+      case Fix.AETHER_DRIVE_JP:
+        ExecAetherDrive(player, target, player.objFieldPanel);
         break;
 
       case Fix.STORM_ARMOR:
@@ -2238,21 +2244,6 @@ public partial class BattleEnemy : MotherBase
       return PlayerList;
     }
 
-  }
-
-  private BuffField GetPanelFieldFromPlayer(Character player)
-  {
-    if (player == null) { return null; }
-
-    if (player.Ally == Fix.Ally.Ally)
-    {
-      return this.PanelPlayerField;
-    }
-    if (player.Ally == Fix.Ally.Enemy)
-    {
-      return this.PanelEnemyField;
-    }
-    return null;
   }
 
   private BuffImage PreCheckFieldEffect(GameObject field_panel, string field_name)
@@ -3498,7 +3489,7 @@ public partial class BattleEnemy : MotherBase
     double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
-    BuffField panelField = GetPanelFieldFromPlayer(target);
+    BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
     if (panelField != null)
     {
       BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.DIVINE_CIRCLE);
@@ -3583,7 +3574,7 @@ public partial class BattleEnemy : MotherBase
     double damageValue = MagicDamageLogic(player, target, magnify, attr, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
-    BuffField panelField = GetPanelFieldFromPlayer(target);
+    BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
     if (panelField != null)
     {
       BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.DIVINE_CIRCLE);
@@ -3991,6 +3982,14 @@ public partial class BattleEnemy : MotherBase
     {
       ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
     }
+  }
+
+  public void ExecAetherDrive(Character player, Character target, BuffField target_field_obj)
+  {
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+
+    target_field_obj.AddBuff(prefab_Buff, Fix.AETHER_DRIVE, SecondaryLogic.AetherDrive_Turn(player), SecondaryLogic.AetherDrive_Effect(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.AETHER_DRIVE, Fix.COLOR_NORMAL);
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
