@@ -433,12 +433,12 @@ public static class SecondaryLogic
 
   public static int KillingWave_Turn(Character player)
   {
-    return 1; // 9;
+    return 9;
   }
 
   public static double KillingWave_Effect(Character player)
   {
-    return 0.05;// 0.95f;
+    return 0.95f;
   }
 
   public static double StormArmor_SpeedUp(Character player)
