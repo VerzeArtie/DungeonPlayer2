@@ -924,6 +924,20 @@ public partial class Character : MonoBehaviour
       {
         result = (int)((double)result * (this.IsVoiceOfVigor.EffectValue));
       }
+      if (this.objFieldPanel != null)
+      {
+        BuffImage[] buffList = this.objFieldPanel.GetComponentsInChildren<BuffImage>();
+        for (int ii = 0; ii < buffList.Length; ii++)
+        {
+          if (buffList[ii].BuffName == Fix.KILLING_WAVE)
+          {
+            Debug.Log("MaxLife Value down cause KillingWave(before): " + result);
+            result = (int)((double)result * buffList[ii].EffectValue);
+            Debug.Log("Potential Value down cause KillingWave(after ): " + result);
+            break;
+          }
+        }
+      }
       return result;
     }
   }
@@ -5639,7 +5653,7 @@ public partial class Character : MonoBehaviour
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase == 1)
         {
-          result = Fix.AETHER_DRIVE;
+          result = Fix.KILLING_WAVE;
         }
         else if (this.AI_Phase >= 2)
         {

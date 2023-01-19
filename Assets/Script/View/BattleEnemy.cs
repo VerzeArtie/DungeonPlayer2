@@ -1675,6 +1675,11 @@ public partial class BattleEnemy : MotherBase
         ExecAetherDrive(player, target, player.objFieldPanel);
         break;
 
+      case Fix.KILLING_WAVE:
+      case Fix.KILLING_WAVE_JP:
+        ExecKillingWave(player, target_list, target.objFieldPanel);
+        break;
+
       case Fix.STORM_ARMOR:
         ExecStormArmor(player, target);
         break;
@@ -3242,6 +3247,15 @@ public partial class BattleEnemy : MotherBase
 
       AllList[ii].BuffCountdown();
     }
+
+    for (int ii = 0; ii < buffPlayerFieldList.Length; ii++)
+    {
+      buffPlayerFieldList[ii].BuffCountDown();
+    }
+    for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
+    {
+      buffEnemyFieldList[ii].BuffCountDown();
+    }
   }
 
   /// <summary>
@@ -3990,6 +4004,21 @@ public partial class BattleEnemy : MotherBase
 
     target_field_obj.AddBuff(prefab_Buff, Fix.AETHER_DRIVE, SecondaryLogic.AetherDrive_Turn(player), SecondaryLogic.AetherDrive_Effect(player), 0);
     StartAnimation(target_field_obj.gameObject, Fix.AETHER_DRIVE, Fix.COLOR_NORMAL);
+  }
+
+  public void ExecKillingWave(Character player, List<Character> target_list, BuffField target_field_obj)
+  {
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+
+    target_field_obj.AddBuff(prefab_Buff, Fix.KILLING_WAVE, SecondaryLogic.KillingWave_Turn(player), SecondaryLogic.KillingWave_Effect(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.KILLING_WAVE, Fix.COLOR_NORMAL);
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      if (target_list[ii].CurrentLife > target_list[ii].MaxLife)
+      {
+        target_list[ii].CurrentLife = target_list[ii].MaxLife;
+      }
+    }
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)

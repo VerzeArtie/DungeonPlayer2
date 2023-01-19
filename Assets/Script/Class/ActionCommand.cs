@@ -573,6 +573,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return Attribute.Skill; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return Attribute.Skill; }
     if (command_name == Fix.AETHER_DRIVE) { return Attribute.Skill; }
+    if (command_name == Fix.KILLING_WAVE) { return Attribute.Skill; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return Attribute.Skill; }
     if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
@@ -653,6 +654,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return TimingType.Instant; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return TimingType.Instant; }
     if (command_name == Fix.AETHER_DRIVE) { return TimingType.Normal; }
+    if (command_name == Fix.KILLING_WAVE) { return TimingType.Normal; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TimingType.Instant; }
     if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
@@ -733,6 +735,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return TargetType.Enemy; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return TargetType.Enemy; }
     if (command_name == Fix.AETHER_DRIVE) { return TargetType.AllyField; }
+    if (command_name == Fix.KILLING_WAVE) { return TargetType.EnemyField; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TargetType.Own; }
     if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
@@ -873,7 +876,8 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return 14; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
     if (command_name == Fix.AETHER_DRIVE) { return 18; }
-    
+    if (command_name == Fix.KILLING_WAVE) { return 19; }
+
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 13; }
     if (command_name == Fix.BONE_CRUSH) { return 13; }
     if (command_name == Fix.IRREGULAR_STEP) { return 12; }
@@ -1033,6 +1037,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return BuffType.Negative; }
     if (command_name == Fix.AETHER_DRIVE) { return BuffType.Positive; }
+    if (command_name == Fix.KILLING_WAVE) { return BuffType.Negative; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return BuffType.Positive; }
     if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
@@ -1128,6 +1133,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return true; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return true; }
     if (command_name == Fix.AETHER_DRIVE) { return false; }
+    if (command_name == Fix.KILLING_WAVE) { return false; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return false; }
     if (command_name == Fix.IRREGULAR_STEP) { return false; }
@@ -1191,6 +1197,7 @@ public static class ActionCommand
     if (command_name == Fix.SPIRITUAL_REST) { return Fix.SPIRITUAL_REST_JP; }
 
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
+    if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
