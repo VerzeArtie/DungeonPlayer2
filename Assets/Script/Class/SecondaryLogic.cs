@@ -441,6 +441,11 @@ public static class SecondaryLogic
     return 0.95f;
   }
 
+  public static double WordOfPower(Character player)
+  {
+    return 2.40;
+  }
+
   public static double StormArmor_SpeedUp(Character player)
   {
     return 1.10f;

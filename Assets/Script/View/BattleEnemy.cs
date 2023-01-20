@@ -1466,7 +1466,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.MAGIC_ATTACK:
-        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, critical);
+        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, false, critical);
         break;
 
       case Fix.DEFENSE:
@@ -1680,6 +1680,11 @@ public partial class BattleEnemy : MotherBase
         ExecKillingWave(player, target_list, target.objFieldPanel);
         break;
 
+      case Fix.WORD_OF_POWER:
+      case Fix.WORD_OF_POWER_JP:
+        ExecWordOfPower(player, target, critical);
+        break;
+
       case Fix.STORM_ARMOR:
         ExecStormArmor(player, target);
         break;
@@ -1778,7 +1783,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_TREE_SONG:
-        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -1786,7 +1791,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUN_FIRE:
-        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, Fix.CriticalType.None);
+        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TOSSHIN:
@@ -1798,7 +1803,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FEATHER_WING:
-        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -1843,7 +1848,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FIRE_EMISSION:
-        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.CriticalType.None);
+        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_SUPER_TOSSHIN:
@@ -1864,7 +1869,7 @@ public partial class BattleEnemy : MotherBase
           // ランダムで対象を選んで当てる
           // ダメージアニメーション速度を上げる。
           List<Character> list = GetOpponentGroup(player);
-          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, Fix.CriticalType.None, 25);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, false, Fix.CriticalType.None, 25);
         }
         break;
 
@@ -1916,7 +1921,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SHADOW_SPEAR:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
@@ -1988,7 +1993,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_JUBAKU_ON:
-        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalDefenseDown(player, target, 5, 0.75f);
@@ -2012,7 +2017,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, Fix.CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
         }
         break;
 
@@ -2041,7 +2046,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BOLT_FRAME:
-        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalAttackDown(player, target, 3, 0.75f);
@@ -2060,7 +2065,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, Fix.CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
         }
         break;
 
@@ -2068,7 +2073,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 3; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, Fix.CriticalType.None);
+          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
         }
         break;
 
@@ -2124,7 +2129,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, false, critical);
         }
         // 相手に魔法攻撃が当たったかどうかに関係なく、自分自身へのBUFFは適用される。
         ExecBuffPhysicalAttackUp(player, player, Fix.INFINITY, 1.20f);
@@ -2138,7 +2143,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -2168,12 +2173,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, false, critical);
         }
         break;
 
       case Fix.COMMAND_YOUKAIEKI:
-        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBattleSpeedDown(player, target, 2, 0.7f);
@@ -3527,7 +3532,7 @@ public partial class BattleEnemy : MotherBase
     if (player.IsFlameBlade && player.Dead == false)
     {
       bool resultCritical2 = false;
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, critical, ref resultCritical2);
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, false, critical, ref resultCritical2);
       ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
     }
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
@@ -3551,7 +3556,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した魔法攻撃実行コマンド
   /// </summary>
-  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -3585,7 +3590,7 @@ public partial class BattleEnemy : MotherBase
 
     // 攻撃コマンドのダメージを算出
     bool resultCritical = false;
-    double damageValue = MagicDamageLogic(player, target, magnify, attr, critical, ref resultCritical);
+    double damageValue = MagicDamageLogic(player, target, magnify, attr, ignore_target_defense, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
     BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
@@ -3612,7 +3617,7 @@ public partial class BattleEnemy : MotherBase
     if (player.IsStormArmor && player.Dead == false)
     {
       bool resultCritical2 = false;
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, critical, ref resultCritical2);
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, false, critical, ref resultCritical2);
       ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
@@ -3627,13 +3632,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, false, critical);
   }
 
   private void ExecIceNeedle(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0);
@@ -3651,7 +3656,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0);
@@ -3662,7 +3667,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecAirCutter(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, false, critical);
     if (success)
     {
       player.objBuffPanel.AddBuff(prefab_Buff, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0);
@@ -3673,7 +3678,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecRockSlum(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, false, critical);
     if (success)
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_GAUGE_BACK, Fix.COLOR_NORMAL); // todo 対象の行動ゲージを5%後方へ戻す。をつけてね
@@ -3937,7 +3942,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < 3; ii++)
     {
       int rand = AP.Math.RandomInteger(target_list.Count);
-      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, critical);
+      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, false, critical);
     }
   }
 
@@ -3945,7 +3950,7 @@ public partial class BattleEnemy : MotherBase
   {
     for (int ii = 0; ii < 3; ii++)
     {
-      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, critical);
+      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, false, critical);
     }
   }
 
@@ -3967,7 +3972,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0);
@@ -3976,7 +3981,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecLandShatter(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0);
@@ -4019,6 +4024,12 @@ public partial class BattleEnemy : MotherBase
         target_list[ii].CurrentLife = target_list[ii].MaxLife;
       }
     }
+  }
+
+  public void ExecWordOfPower(Character player, Character target, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    ExecMagicAttack(player, target, SecondaryLogic.WordOfPower(player), Fix.DamageSource.Physical, true, critical);
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
@@ -4076,7 +4087,7 @@ public partial class BattleEnemy : MotherBase
   public void ExecMuteImpulse(Character player, Character target, Fix.CriticalType critical)
   {
     int positiveCount = target.GetPositiveBuff() + 1;
-    ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, false, critical);
   }
 
   public void ExecVoiceOfVigor(Character player, List<Character> target_list)
@@ -4584,11 +4595,20 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, ref bool result_critical)
+  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " player: " + player.FullName + " target: " + target.FullName + " magnify: " + magnify + " attr: " + attr + " critical: " + critical);
     // 魔法コマンドのダメージを算出
-    double damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    double damageValue = 0.0f;
+    if (attr == Fix.DamageSource.Physical)
+    {
+      damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    }
+    else
+    {
+      damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    }
+
     double debug0 = damageValue;
     Debug.Log("PrimaryLogic.MagicDamage: " + debug0.ToString());
 
@@ -4747,16 +4767,15 @@ public partial class BattleEnemy : MotherBase
 
     double debug1 = damageValue;
 
-    // ターゲットの魔法防御を差し引く
+    // ターゲットの魔法防御を差し引く。
     double defenseValue = PrimaryLogic.MagicDefense(target);
     double debug2 = defenseValue;
     damageValue -= defenseValue;
     double debug3 = damageValue;
 
     Debug.Log("Magic-DamageValue: " + debug0.ToString("F2") + " -> " + debug1.ToString("F2") + " - " + debug2.ToString("F2") + " = " + debug3.ToString("F2"));
-
-    // ターゲットが防御姿勢であれば、ダメージを軽減する
-    if (target.IsDefense)
+    // ターゲットが防御姿勢であれば、ダメージを軽減する。ただし防御無効の場合は差し引かない。
+    if (target.IsDefense && ignore_target_defense == false)
     {
       damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
       Debug.Log("Target is Defense mode: " + damageValue.ToString());

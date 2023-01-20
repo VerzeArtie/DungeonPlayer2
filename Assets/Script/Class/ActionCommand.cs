@@ -574,6 +574,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return Attribute.Skill; }
     if (command_name == Fix.AETHER_DRIVE) { return Attribute.Skill; }
     if (command_name == Fix.KILLING_WAVE) { return Attribute.Skill; }
+    if (command_name == Fix.WORD_OF_POWER) { return Attribute.Skill; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return Attribute.Skill; }
     if (command_name == Fix.IRREGULAR_STEP) { return Attribute.Skill; }
@@ -655,6 +656,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return TimingType.Instant; }
     if (command_name == Fix.AETHER_DRIVE) { return TimingType.Normal; }
     if (command_name == Fix.KILLING_WAVE) { return TimingType.Normal; }
+    if (command_name == Fix.WORD_OF_POWER) { return TimingType.Instant; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TimingType.Instant; }
     if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
@@ -736,6 +738,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return TargetType.Enemy; }
     if (command_name == Fix.AETHER_DRIVE) { return TargetType.AllyField; }
     if (command_name == Fix.KILLING_WAVE) { return TargetType.EnemyField; }
+    if (command_name == Fix.WORD_OF_POWER) { return TargetType.Enemy; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return TargetType.Own; }
     if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
@@ -877,6 +880,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
     if (command_name == Fix.AETHER_DRIVE) { return 18; }
     if (command_name == Fix.KILLING_WAVE) { return 19; }
+    if (command_name == Fix.WORD_OF_POWER) { return 15; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 13; }
     if (command_name == Fix.BONE_CRUSH) { return 13; }
@@ -1038,6 +1042,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return BuffType.Negative; }
     if (command_name == Fix.AETHER_DRIVE) { return BuffType.Positive; }
     if (command_name == Fix.KILLING_WAVE) { return BuffType.Negative; }
+    if (command_name == Fix.WORD_OF_POWER) { return BuffType.None; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return BuffType.Positive; }
     if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
@@ -1134,6 +1139,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return true; }
     if (command_name == Fix.AETHER_DRIVE) { return false; }
     if (command_name == Fix.KILLING_WAVE) { return false; }
+    if (command_name == Fix.WORD_OF_POWER) { return true; }
 
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return false; }
     if (command_name == Fix.IRREGULAR_STEP) { return false; }
@@ -1198,6 +1204,7 @@ public static class ActionCommand
 
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
+    if (command_name == Fix.WORD_OF_POWER) { return Fix.WORD_OF_POWER_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1218,7 +1225,7 @@ public static class ActionCommand
     if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【標的】のBUFFを付与する。\r\n【標的】が続く間、対象への命中率が20%上昇する。"; }
     if (command_name == Fix.LEG_STRIKE) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【萎縮】のBUFFを付与する。\r\n【萎縮】が続く間、対象の戦闘反応値が減少する。"; }
     if (command_name == Fix.VENOM_SLASH) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【毒】のBUFFを付与する。\r\n【毒】が続く間、ターン経過毎に毒ダメージを与える。"; }
-    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に【物理】ダメージを与える。\r\nダメージ量は【知】を根源として算出される。"; }
+    if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に無属性のダメージを与える。\r\nこのダメージは魔法属性として扱われる。\r\nダメージ量は【知】を根源として算出される。"; }
     if (command_name == Fix.SHIELD_BASH) { return "敵一体を対象とする。対象を【物理】ダメージを与えた後、【スタン】のBUFFを付与する。\r\n【スタン】が続く間、戦闘ゲージ進行が停止する。"; }
     if (command_name == Fix.AURA_OF_POWER) { return "味方一体を対象とする。対象に【パワー】を付与する。\r\n【パワー】が続く間、物理攻撃が上昇する。"; }
     if (command_name == Fix.DISPEL_MAGIC) { return "敵一体を対象とする。対象にかかっている【有益】に属するBUFFを除去する。"; }
