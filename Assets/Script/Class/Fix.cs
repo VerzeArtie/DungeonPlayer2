@@ -1238,6 +1238,9 @@ public static partial class Fix
   //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
   //public const string TRANQUILITY = "Tranquility";
 
+  public const string COUNTER_ATTACK = "Counter Attack";
+  public const string COUNTER_ATTACK_JP = "カウンター・アタック";
+
   // 元核
   public const string ARCHETYPE_EIN_1 = "集中と断絶";
   public const string ARCHETYPE_LANA_1 = "完全なる詠唱";

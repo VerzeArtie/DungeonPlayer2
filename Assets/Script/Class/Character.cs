@@ -1368,6 +1368,8 @@ public partial class Character : MonoBehaviour
   [SerializeField] protected int _TimeSkip = 0;
   public int TimeSkip { set { if (value >= 0) { _TimeSkip = value; } } get { return _TimeSkip; } }
 
+  [SerializeField] protected int _CounterAttack = 0;
+  public int CounterAttack { set { if (value >= 0) { _CounterAttack = value; } } get { return _CounterAttack; } }
 
   [SerializeField] protected int _SanctionField = 0;
   public int SanctionField
@@ -2557,6 +2559,8 @@ public partial class Character : MonoBehaviour
     if (this.LaylineSchema > 0) { list.Add(Fix.LAYLINE_SCHEMA); }
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
+    if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
+
     return list;
   }
 
@@ -3342,9 +3346,11 @@ public partial class Character : MonoBehaviour
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
+        this.CounterAttack = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
+        this.ActionCommand2 = Fix.COUNTER_ATTACK;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -4670,7 +4676,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(10, 10, 10, 10, 20, 9999999, 0, 0);
+        SetupParameter(10, 10, 10, 10, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -5651,22 +5657,23 @@ public partial class Character : MonoBehaviour
 
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
-        if (this.AI_Phase == 1)
-        {
-          result = Fix.KILLING_WAVE;
-        }
-        else if (this.AI_Phase >= 2)
-        {
-          result = Fix.NORMAL_ATTACK;
-          //if (Target != null && Target.IsSigilOfThePending == null)
-          //{
-          //  result = Fix.SIGIL_OF_THE_PENDING;
-          //}
-          //else
-          //{
-          //  result = Fix.VENOM_SLASH;
-          //}
-        }
+        result = Fix.NORMAL_ATTACK;
+        //if (this.AI_Phase == 1)
+        //{
+        //  result = Fix.KILLING_WAVE;
+        //}
+        //else if (this.AI_Phase >= 2)
+        //{
+        //  result = Fix.NORMAL_ATTACK;
+        //  //if (Target != null && Target.IsSigilOfThePending == null)
+        //  //{
+        //  //  result = Fix.SIGIL_OF_THE_PENDING;
+        //  //}
+        //  //else
+        //  //{
+        //  //  result = Fix.VENOM_SLASH;
+        //  //}
+        //}
         break;
 
       default:

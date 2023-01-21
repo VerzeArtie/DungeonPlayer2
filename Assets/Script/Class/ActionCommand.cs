@@ -891,6 +891,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
+    if (command_name == Fix.COUNTER_ATTACK) { return 3; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
 

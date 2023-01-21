@@ -731,6 +731,23 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // アニメーションを実行する。通常は、時間を進める事とする。
+    if (NowAnimationMode)
+    {
+      ExecAnimation();
+      return;
+      // 敵側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
+      if (CheckGroupAlive(EnemyList) == false)
+      {
+        return;
+      }
+      // プレイヤー側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
+      if (CheckGroupAlive(PlayerList) == false)
+      {
+        return;
+      }
+    }
+
     // スタックインザコマンドを実行中。この間、時間を進めない。
     if (NowStackInTheCommand)
     {
@@ -762,23 +779,6 @@ public partial class BattleEnemy : MotherBase
     if (TimeStatus == Fix.BattleStatus.Ready || TimeStatus == Fix.BattleStatus.Stop)
     {
       return;
-    }
-
-    // アニメーションを実行する。通常は、時間を進める事とする。
-    if (NowAnimationMode)
-    {
-      ExecAnimation();
-      return;
-      // 敵側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
-      if (CheckGroupAlive(EnemyList) == false)
-      {
-        return;
-      }
-      // プレイヤー側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
-      if (CheckGroupAlive(PlayerList) == false)
-      {
-        return;
-      }
     }
 
     // バトルが完了している場合、時間を進めない。
@@ -1123,14 +1123,17 @@ public partial class BattleEnemy : MotherBase
     {
       for (int ii = 0; ii < EnemyList.Count; ii++)
       {
-        //if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
-        //{
-        //    EnemyList[ii].CurrentInstantPoint = 0;
-        //    EnemyList[ii].UpdateInstantPointGauge();
+        if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
+        {
+          if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
+          {
+            EnemyList[ii].CurrentInstantPoint = 0;
+            EnemyList[ii].UpdateInstantPointGauge();
 
-        //    CreateStackObject(EnemyList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, 100);
-        //    return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
-        //}
+            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.WORD_OF_POWER, 100);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+        }
       }
     }
 
@@ -1574,6 +1577,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.SKY_SHIELD:
         ExecSkyShield(player, target);
+        break;
+
+      case Fix.COUNTER_ATTACK:
+        ExecCounterAttack(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
 
       case Fix.FLASH_COUNTER:
@@ -3772,6 +3779,33 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.SKY_SHIELD, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecCounterAttack(Character player, StackObject[] stack_list)
+  {
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+
+      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
+      {
+        // WordOfPowerはカウンターできない。
+        if (stack_list[num].StackName == Fix.WORD_OF_POWER)
+        {
+          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
+        }
+        else
+        {
+          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+          Destroy(stack_list[num].gameObject);
+          stack_list[num] = null;
+        }
+      }
+      else
+      {
+        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      }
+    }
   }
 
   private void ExecFlashCounter(Character player, StackObject[] stack_list)
