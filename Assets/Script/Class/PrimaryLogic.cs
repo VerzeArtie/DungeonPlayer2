@@ -15,6 +15,13 @@ public static class PrimaryLogic
     Random,
   }
 
+  public enum SpellSkillType
+  {
+    None,
+    Strength,
+    Intelligence,
+  }
+
   /// <summary>
   /// コア・ダメージの算出
   /// </summary>
@@ -56,10 +63,25 @@ public static class PrimaryLogic
   /// <summary>
   /// 物理攻撃の算出
   /// </summary>
-  public static double PhysicalAttack(Character player, ValueType value_type)
+  public static double PhysicalAttack(Character player, ValueType value_type, SpellSkillType spell_skill_type)
   {
-    double min = 1 + player.TotalStrength * Potential(player) * 1.00f;
-    double max = 1 + player.TotalStrength * Potential(player) * 1.00f;
+    double min = 1;
+    double max = 1;
+    if (spell_skill_type == SpellSkillType.Strength)
+    {
+      min += player.TotalStrength * Potential(player) * 1.00f;
+      max += player.TotalStrength * Potential(player) * 1.00f;
+    }
+    else if (spell_skill_type == SpellSkillType.Intelligence)
+    {
+      min += player.TotalIntelligence * Potential(player) * 1.00f;
+      max += player.TotalIntelligence * Potential(player) * 1.00f;
+    }
+    else
+    {
+      min += player.TotalStrength * Potential(player) * 1.00f;
+      max += player.TotalStrength * Potential(player) * 1.00f;
+    }
 
     min += (player.MainWeapon?.PhysicalAttack ?? 0);
     min += (player.SubWeapon?.PhysicalAttack ?? 0);
@@ -191,10 +213,25 @@ public static class PrimaryLogic
   /// <summary>
   /// 魔法攻撃の算出
   /// </summary>
-  public static double MagicAttack(Character player, ValueType value_type)
+  public static double MagicAttack(Character player, ValueType value_type, SpellSkillType spell_skill_type)
   {
-    double min = 1 + player.TotalIntelligence * Potential(player) * 1.00f;
-    double max = 1 + player.TotalIntelligence * Potential(player) * 1.00f;
+    double min = 1;
+    double max = 1;
+    if (spell_skill_type == SpellSkillType.Intelligence)
+    {
+      min += player.TotalIntelligence * Potential(player) * 1.00f;
+      max += player.TotalIntelligence * Potential(player) * 1.00f;
+    }
+    else if (spell_skill_type == SpellSkillType.Strength)
+    {
+      min += player.TotalStrength * Potential(player) * 1.00f;
+      max += player.TotalStrength * Potential(player) * 1.00f;
+    }
+    else
+    {
+      min += player.TotalIntelligence * Potential(player) * 1.00f;
+      max += player.TotalIntelligence * Potential(player) * 1.00f;
+    }
 
     min += (player.MainWeapon?.MagicAttack ?? 0);
     min += (player.SubWeapon?.MagicAttack ?? 0);

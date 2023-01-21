@@ -1173,7 +1173,7 @@ public class DungeonField : MotherBase
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
-        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.ShiningHeal(player);
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal(player);
         Character target = PlayerList[ii];
         if (target.Dead)
         {
@@ -1252,7 +1252,7 @@ public class DungeonField : MotherBase
       Character player = One.SelectCharacter(txtCurrentName.text);
       Character target = One.SelectCharacter(txt_name.text);
 
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FreshHeal(player);
+      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
       Debug.Log(MethodBase.GetCurrentMethod());
       if (target.Dead)
       {

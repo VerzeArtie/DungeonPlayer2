@@ -1462,7 +1462,7 @@ public partial class BattleEnemy : MotherBase
     {
       #region "一般"
       case Fix.NORMAL_ATTACK:
-        ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
+        ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
         break;
 
       case Fix.MAGIC_ATTACK:
@@ -1763,7 +1763,7 @@ public partial class BattleEnemy : MotherBase
       #region "モンスターアクション"
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
-        ExecNormalAttack(player, target, 1.30f, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_GREEN_NENEKI:
@@ -1775,11 +1775,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WILD_CLAW:
-        ExecNormalAttack(player, target, 1.35f, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.35f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_KAMITSUKI:
-        ExecNormalAttack(player, target, 1.40f, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TREE_SONG:
@@ -1795,7 +1795,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.10f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1811,7 +1811,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DASH_KERI:
-        success = ExecNormalAttack(player, target, 1.1f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.1f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 1, 0.30f);
@@ -1819,7 +1819,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUITSUKU_TSUTA:
-        success = ExecNormalAttack(player, target, 0.5f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlow(player, target, 2, 0.5f);
@@ -1827,7 +1827,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPIDER_NET:
-        success = ExecNormalAttack(player, target, 0.5f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBind(player, target, 2, 0);
@@ -1843,7 +1843,7 @@ public partial class BattleEnemy : MotherBase
         {
           // ランダムで対象を選んで当てる
           List<Character> list = GetOpponentGroup(player);
-          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.85f, critical);
+          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.85f, Fix.DamageSource.Physical, false, critical);
         }
         break;
 
@@ -1852,7 +1852,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUPER_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.5f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1878,7 +1878,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DRILL_CYCLONE:
-        success = ExecNormalAttack(player, target, 1.50f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1889,7 +1889,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 5; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecNormalAttack(player, PlayerList[rand], 1.0f, Fix.CriticalType.Random);
+          ExecNormalAttack(player, PlayerList[rand], 1.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
         }
         break;
 
@@ -1913,7 +1913,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_GAREKI_TSUBUTE:
-        success = ExecNormalAttack(player, target, 0.80f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -1932,7 +1932,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target_list[jj], 0.9f, critical);
+          ExecNormalAttack(player, target_list[jj], 0.9f, Fix.DamageSource.Physical, false, critical);
         }
         break;
 
@@ -1961,7 +1961,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAND_CANNON:
-        success = ExecNormalAttack(player, target, 1.20f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 2, 0.30f);
@@ -1973,7 +1973,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_NEEDLE:
-        success = ExecNormalAttack(player, target, 1.10f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPoison(player, target, 3, 33);
@@ -1981,11 +1981,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CHARGE_LANCE:
-        ExecNormalAttack(player, target, 1.0f, Fix.CriticalType.Absolute);
+        ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
         break;
 
       case Fix.COMMAND_SPIKE_SHOT:
-        success = ExecNormalAttack(player, target, 1.4f, critical);
+        success = ExecNormalAttack(player, target, 1.4f, Fix.DamageSource.Physical, false, critical);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2004,13 +2004,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target_list[jj], 0.7f, Fix.CriticalType.None);
+          ExecNormalAttack(player, target_list[jj], 0.7f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         }
         break;
 
       case Fix.COMMAND_BOUHATSU:
-        ExecNormalAttack(player, player, 2.0f, Fix.CriticalType.None);
-        ExecNormalAttack(player, target, 2.0f, Fix.CriticalType.None);
+        ExecNormalAttack(player, player, 2.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_THUNDER_CLOUD:
@@ -2025,7 +2025,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          success = ExecNormalAttack(player, target_list[jj], 0.8f, Fix.CriticalType.None);
+          success = ExecNormalAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
           if (success)
           {
             rand = AP.Math.RandomInteger(100);
@@ -2038,7 +2038,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAGESHII_KAMITSUKI:
-        success = ExecNormalAttack(player, target, 0.8f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlip(player, target, 3, 25);
@@ -2078,7 +2078,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_TARGETTING_SHOT:
-        success = ExecNormalAttack(player, target, 1.0f, critical);
+        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, critical);
         if (success)
         {
           ExecBuffMagicDefenceDown(player, target, 3, 0.75f);
@@ -2093,7 +2093,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          ExecNormalAttack(player, target, 0.5f + (0.5f * rand), critical);
+          ExecNormalAttack(player, target, 0.5f + (0.5f * rand), Fix.DamageSource.Physical, false, critical);
         }
         break;
 
@@ -2138,7 +2138,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_SUPER_RANDOM_CANNON:
         for (int jj = 0; jj < 2; jj++)
         {
-          ExecNormalAttack(player, target, 2.0f, critical);
+          ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, false, critical);
         }
         break;
 
@@ -2187,12 +2187,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_TONGUE:
-        ExecNormalAttack(player, target, 0.80f, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         ExecBuffPoison(player, target, 3, 70);
         break;
 
       case Fix.COMMAND_CONSTRICT:
-        success = ExecNormalAttack(player, target, 0.7f, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -3393,69 +3393,10 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "Exec Action Command"
-  private double DamageFromCommand(Character player, string command_name)
-  {
-    double result = 0;
-    if (command_name == Fix.NORMAL_ATTACK)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.NormalAttack(player);
-    }
-    else if (command_name == Fix.MAGIC_ATTACK)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.MagicAttack(player);
-    }
-    else if (command_name == Fix.FIRE_BALL)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FireBall(player);
-    }
-    else if (command_name == Fix.ICE_NEEDLE)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.IceNeedle(player);
-    }
-    else if (command_name == Fix.SHADOW_BLAST)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.ShadowBlast(player);
-    }
-    else if (command_name == Fix.STRAIGHT_SMASH)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.StraightSmash(player);
-    }
-    else if (command_name == Fix.LEG_STRIKE)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.LegStrike(player);
-    }
-    else if (command_name == Fix.SHIELD_BASH)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.ShieldBash(player);
-    }
-    else if (command_name == Fix.HUNTER_SHOT)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.HunterShot(player);
-    }
-    else if (command_name == Fix.VENOM_SLASH)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.VenomSlash(player);
-    }
-    else if (command_name == Fix.MULTIPLE_SHOT)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.MultipleShot(player);
-    }
-    //else if (command_name == Fix.CIRCLE_SLASH)
-    //{
-    //  result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.CircleSlash(player);
-    //}
-    else if (command_name == Fix.DOUBLE_SLASH)
-    {
-      result = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.NormalAttack(player);
-    }
-
-    return result;
-  }
-
   /// <summary>
   /// 基本ロジックを内包した物理攻撃実行コマンド
   /// </summary>
-  private bool ExecNormalAttack(Character player, Character target, double magnify, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecNormalAttack(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -3505,7 +3446,7 @@ public partial class BattleEnemy : MotherBase
 
     // 攻撃コマンドのダメージを算出
     bool resultCritical = false;
-    double damageValue = PhysicalDamageLogic(player, target, magnify, Fix.DamageSource.Physical, critical, ref resultCritical);
+    double damageValue = PhysicalDamageLogic(player, target, magnify, attr, ignore_target_defense, critical, ref resultCritical);
 
     // ディバイン・フィールドによる効果
     BuffField panelField = target.objFieldPanel; // GetPanelFieldFromPlayer(target);
@@ -3649,7 +3590,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecFreshHeal(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.FreshHeal(player);
+    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
     AbstractHealCommand(player, target, healValue);
   }
 
@@ -3689,13 +3630,13 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), critical);
+    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), Fix.DamageSource.Physical, false, critical);
   }
 
   private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0);
@@ -3710,14 +3651,14 @@ public partial class BattleEnemy : MotherBase
     // ２回攻撃
     for (int ii = 0; ii < 2; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), critical);
+      ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, false, critical);
     }
   }
 
   private void ExecVenomSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0);
@@ -3728,13 +3669,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), critical); // todo このダメージ量は【知】をベースとして算出される。
+    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), Fix.DamageSource.Colorless, false, critical);
   }
 
   private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       if (target.GetResistStunLogic())
@@ -3775,7 +3716,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecHeartOfLife(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random), 0);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0);
     StartAnimation(target.objGroup.gameObject, Fix.HEART_OF_LIFE, Fix.COLOR_NORMAL);
   }
 
@@ -3880,14 +3821,14 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), critical);
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, false, critical);
     }
   }
 
   private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0);
@@ -3924,7 +3865,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), critical);
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
     }
   }
 
@@ -3933,7 +3874,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < 2; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
+      ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
     }
   }
 
@@ -3959,7 +3900,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * SecondaryLogic.HolyBreath(player);
+      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
       AbstractHealCommand(player, target_list[ii], healValue);
     }
   }
@@ -3996,7 +3937,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
@@ -4040,7 +3981,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0);
@@ -4065,7 +4006,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowIrregularStepCounter <= 0.0f)
     {
-      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.CriticalType.Random);
+      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
       this.NowIrregularStepPlayer = null;
       this.NowIrregularStepTarget = null;
       this.NowIrregularStepCounter = 0;
@@ -4535,10 +4476,19 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "General"
-  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.CriticalType critical, ref bool result_critical)
+  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
   {
     // 攻撃コマンドのダメージを算出
-    double damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+    double damageValue = 0.0f;
+    if (attr == Fix.DamageSource.Colorless)
+    {
+      damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * magnify;
+    }
+    else
+    {
+      damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * magnify;
+    }
+
     double debug1 = damageValue;
     Debug.Log("PrimaryLogic.PhysicalAttack: " + debug1.ToString());
 
@@ -4602,11 +4552,11 @@ public partial class BattleEnemy : MotherBase
     double damageValue = 0.0f;
     if (attr == Fix.DamageSource.Physical)
     {
-      damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+      damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * magnify;
     }
     else
     {
-      damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * magnify;
+      damageValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * magnify;
     }
 
     double debug0 = damageValue;

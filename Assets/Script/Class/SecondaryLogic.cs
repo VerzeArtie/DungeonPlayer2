@@ -152,7 +152,7 @@ public static class SecondaryLogic
   }
   public static double VenomSlash_2(Character player)
   {
-    return PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random) * 0.50f;
+    return PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * 0.50f;
   }
   public static int VenomSlash_Turn(Character player)
   {
@@ -210,10 +210,10 @@ public static class SecondaryLogic
   {
     if (player.HeartOfLife <= 1)
     {
-      return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random);
+      return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence);
     }
 
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * (1.00f + (player.HeartOfLife - 1) * 0.10f);
+    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.HeartOfLife - 1) * 0.10f);
   }
 
   public static int HeartOfLife_Turn(Character player)
@@ -233,7 +233,7 @@ public static class SecondaryLogic
 
   public static double FlameBlade(Character player)
   {
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * 1.00f;
+    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
   }
 
   public static int FlameBlade_Turn(Character player)
@@ -243,7 +243,7 @@ public static class SecondaryLogic
 
   public static double BloodSign(Character player)
   {
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random) * 1.00f;
+    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
   }
 
   public static int BloodSign_Turn(Character player)
