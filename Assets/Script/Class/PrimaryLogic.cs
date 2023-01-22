@@ -482,6 +482,11 @@ public static class PrimaryLogic
       }
     }
 
+    if (player.IsTrueSight)
+    {
+      result *= player.IsTrueSight.EffectValue;
+    }
+
     if (player.IsPotentialUp)
     {
       result = result * player.IsPotentialUp.EffectValue;

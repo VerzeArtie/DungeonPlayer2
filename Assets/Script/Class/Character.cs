@@ -2227,6 +2227,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.HEART_OF_LIFE); }
   }
 
+  public BuffImage IsTrueSight
+  {
+    get { return SearchBuff(Fix.TRUE_SIGHT); }
+  }
+
   public BuffImage IsFlameBlade
   {
     get { return SearchBuff(Fix.FLAME_BLADE); }
@@ -3364,12 +3369,14 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
         this.CounterAttack = 1;
+        this.TrueSight = 1;
         this.FireBall = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
         this.ActionCommand2 = Fix.COUNTER_ATTACK;
         this.ActionCommand3 = Fix.FIRE_BALL;
+        this.ActionCommand4 = Fix.TRUE_SIGHT;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -5591,6 +5598,41 @@ public partial class Character : MonoBehaviour
   {
     string result = string.Empty;
     List<string> current = new List<string>();
+
+    // コマンド名によってターゲット選定を設定する。
+    // ランダムで対象を指定
+    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT || result == Fix.COMMAND_POISON_TONGUE)
+    {
+      int rand = AP.Math.RandomInteger(opponent_group.Count);
+      this.Target = opponent_group[rand];
+    }
+    // それ以外はグループの先頭を指定
+    else
+    {
+      if (this.TargetSelectType == Fix.TargetSelectType.Behind)
+      {
+        for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
+        {
+          if (opponent_group[ii].Dead == false)
+          {
+            this.Target = opponent_group[ii];
+            break;
+          }
+        }
+      }
+      else
+      {
+        for (int ii = 0; ii < opponent_group.Count; ii++)
+        {
+          if (opponent_group[ii].Dead == false)
+          {
+            this.Target = opponent_group[ii];
+            break;
+          }
+        }
+      }
+    }
+
     switch (this.FullName)
     {
       case Fix.SCREAMING_RAFFLESIA:
@@ -5677,7 +5719,12 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (this.IsLegStrike == null)
+        if (this.IsTrueSight == null)
+        {
+          result = Fix.TRUE_SIGHT;
+          this.Target = this;
+        }
+        else if (this.IsLegStrike == null)
         {
           result = Fix.LEG_STRIKE;
         }
@@ -5721,40 +5768,6 @@ public partial class Character : MonoBehaviour
         currentList.Add(this.ActionCommandMain);
         result = RandomChoice(currentList);
         break;
-    }
-
-    // コマンド名によってターゲット選定を設定する。
-    // ランダムで対象を指定
-    if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT || result == Fix.COMMAND_POISON_TONGUE)
-    {
-      int rand = AP.Math.RandomInteger(opponent_group.Count);
-      this.Target = opponent_group[rand];
-    }
-    // それ以外はグループの先頭を指定
-    else
-    {
-      if (this.TargetSelectType == Fix.TargetSelectType.Behind)
-      {
-        for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
-        {
-          if (opponent_group[ii].Dead == false)
-          {
-            this.Target = opponent_group[ii];
-            break;
-          }
-        }
-      }
-      else
-      {
-        for (int ii = 0; ii < opponent_group.Count; ii++)
-        {
-          if (opponent_group[ii].Dead == false)
-          {
-            this.Target = opponent_group[ii];
-            break;
-          }
-        }
-      }
     }
 
     if (skip_decision == false)

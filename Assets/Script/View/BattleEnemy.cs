@@ -3718,11 +3718,8 @@ public partial class BattleEnemy : MotherBase
   private void ExecTrueSight(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), 0, 0);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), SecondaryLogic.TrueSight_Value(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.TRUE_SIGHT, Fix.COLOR_NORMAL);
-    // todo
-    // 味方一体を対象とする。対象に【深層】のBUFFを付与する。
-    //【深層】が続く間、【沈黙】【鈍化】【暗闇】【毒】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。
   }
 
   private void ExecHeartOfLife(Character player, Character target)

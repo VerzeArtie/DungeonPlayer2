@@ -189,8 +189,11 @@ public static class SecondaryLogic
 
   public static int TrueSight_Turn(Character player)
   {
-    if (player.TrueSight <= 1) { return 5; }
-    return 5 + (player.TrueSight - 1);
+    return Fix.INFINITY;
+  }
+  public static double TrueSight_Value(Character player)
+  {
+    return 1.10f;
   }
 
   public static int DispelMagic_Value(Character player)
