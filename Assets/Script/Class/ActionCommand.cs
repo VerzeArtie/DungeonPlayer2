@@ -1000,7 +1000,7 @@ public static class ActionCommand
     if (command_name == Fix.FRESH_HEAL) { return BuffType.None; }
     if (command_name == Fix.SHADOW_BLAST) { return BuffType.Negative; }
     if (command_name == Fix.AIR_CUTTER) { return BuffType.Positive; }
-    if (command_name == Fix.ROCK_SLAM) { return BuffType.None; }
+    if (command_name == Fix.ROCK_SLAM) { return BuffType.Negative; }
     if (command_name == Fix.STRAIGHT_SMASH) { return BuffType.None; }
     if (command_name == Fix.HUNTER_SHOT) { return BuffType.Positive; }
     if (command_name == Fix.LEG_STRIKE) { return BuffType.Negative; }
@@ -1220,8 +1220,8 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return "敵一体を対象とする。対象に【氷】ダメージを与えた後、【鈍化】のBUFFを付与する。\r\n【鈍化】が続く間、戦闘速度が減少する。"; }
     if (command_name == Fix.FRESH_HEAL) { return "味方一体を対象とする。対象のライフを回復する。"; }
     if (command_name == Fix.SHADOW_BLAST) { return "敵一体を対象とする。対象に【闇】ダメージを与えた後、【陰影】のBUFFを付与する。\r\n【陰影】が続く間、魔法防御が減少する。"; }
-    if (command_name == Fix.AIR_CUTTER) { return "敵一体を対象とする。対象に【風】ダメージを与えた後、自分自身に【俊敏】のBUFFを付与する。\r\n【俊敏】が続く間、戦闘反応値が2%上昇する。この効果は最大３回まで累積する。"; }
-    if (command_name == Fix.ROCK_SLAM) { return "敵一体を対象とする。対象に【土】ダメージを与えた後、対象の行動ゲージを5%後方へ戻す。"; }
+    if (command_name == Fix.AIR_CUTTER) { return "敵一体を対象とする。対象に【風】ダメージを与えた後、自分自身に【俊敏】のBUFFを付与する。\r\n【俊敏】が続く間、戦闘反応値が上昇する。"; }
+    if (command_name == Fix.ROCK_SLAM) { return "敵一体を対象とする。対象に【土】ダメージを与えた後、【破損】のBUFFを付与する。【破損】が続く間、物理防御が減少する。"; }
     if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
     if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【標的】のBUFFを付与する。\r\n【標的】が続く間、対象への命中率が20%上昇する。"; }
     if (command_name == Fix.LEG_STRIKE) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【萎縮】のBUFFを付与する。\r\n【萎縮】が続く間、対象の戦闘反応値が減少する。"; }

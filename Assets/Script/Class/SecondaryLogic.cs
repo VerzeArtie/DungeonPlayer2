@@ -106,9 +106,13 @@ public static class SecondaryLogic
   {
     return 1.70f;
   }
+  public static int RockSlum_Turn(Character player)
+  {
+    return 5;
+  }
   public static double RockSlum_Value(Character player)
   {
-    return 0.02f;
+    return 0.80f;
   }
 
   public static double StraightSmash(Character player)

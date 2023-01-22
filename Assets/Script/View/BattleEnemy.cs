@@ -3629,7 +3629,8 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, false, critical);
     if (success)
     {
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_GAUGE_BACK, Fix.COLOR_NORMAL); // todo 対象の行動ゲージを5%後方へ戻す。をつけてね
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.ROCK_SLAM, SecondaryLogic.RockSlum_Turn(player), SecondaryLogic.RockSlum_Value(player), 0);
+      StartAnimation(target.objGroup.gameObject, Fix.ROCK_SLAM, Fix.COLOR_NORMAL);
     }
   }
 

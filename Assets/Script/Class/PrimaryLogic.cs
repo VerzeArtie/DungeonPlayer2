@@ -176,6 +176,12 @@ public static class PrimaryLogic
     {
       result *= player.IsHunterShot.EffectValue;
     }
+
+    if (player.IsRockSlum)
+    {
+      result *= player.IsRockSlum.EffectValue;
+    }
+
     if (player.IsPhysicalDefenseDown)
     {
       double decrease = (1.00f - player.IsPhysicalDefenseDown.EffectValue * player.IsPhysicalDefenseDown.Cumulative);

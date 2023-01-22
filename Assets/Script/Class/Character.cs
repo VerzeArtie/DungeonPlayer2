@@ -2200,6 +2200,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.AIR_CUTTER); }
   }
 
+  public BuffImage IsRockSlum
+  {
+    get { return SearchBuff(Fix.ROCK_SLAM); }
+  }
+
   public BuffImage IsShadowBlast
   {
     get { return SearchBuff(Fix.SHADOW_BLAST); }
@@ -5663,10 +5668,14 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (this.IsAirCutter == null)
+        if (Target != null &&  Target.IsRockSlum == null)
         {
-          result = Fix.AIR_CUTTER;
+          result = Fix.ROCK_SLAM;
         }
+        //else if (this.IsAirCutter == null)
+        //{
+        //  result = Fix.AIR_CUTTER;
+        //}
         else
         {
           result = Fix.NORMAL_ATTACK;
