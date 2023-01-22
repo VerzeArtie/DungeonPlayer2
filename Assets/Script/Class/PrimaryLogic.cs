@@ -376,6 +376,10 @@ public static class PrimaryLogic
     result += (player.Accessory2?.BattleSpeed ?? 0);
     result += (player.Artifact?.BattleSpeed ?? 0);
 
+    if (player.IsLegStrike)
+    {
+      result *= player.IsLegStrike.EffectValue;
+    }
     if (player.IsIceNeedle)
     {
       result *= player.IsIceNeedle.EffectValue;

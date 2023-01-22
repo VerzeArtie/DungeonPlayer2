@@ -3659,11 +3659,11 @@ public partial class BattleEnemy : MotherBase
   private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-
-    // ２回攻撃
-    for (int ii = 0; ii < 2; ii++)
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, false, critical);
+    if (success)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, false, critical);
+      player.objBuffPanel.AddBuff(prefab_Buff, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0);
+      StartAnimation(player.objGroup.gameObject, Fix.LEG_STRIKE, Fix.COLOR_NORMAL);
     }
   }
 

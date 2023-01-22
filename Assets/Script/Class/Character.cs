@@ -2217,6 +2217,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.HUNTER_SHOT); }
   }
 
+  public BuffImage IsLegStrike
+  {
+    get { return SearchBuff(Fix.LEG_STRIKE); }
+  }
+
   public BuffImage IsHeartOfLife
   {
     get { return SearchBuff(Fix.HEART_OF_LIFE); }
@@ -5672,7 +5677,11 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (this.AI_Phase == 1)
+        if (this.IsLegStrike == null)
+        {
+          result = Fix.LEG_STRIKE;
+        }
+        else if (this.AI_Phase == 1)
         {
           result = Fix.DARKNESS_CIRCLE;
         }

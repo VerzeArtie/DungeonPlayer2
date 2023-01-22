@@ -137,17 +137,16 @@ public static class SecondaryLogic
 
   public static double LegStrike(Character player)
   {
-    if (player.LegStrike <= 1) { return 0.90f; }
-
-    return 0.90f + (player.LegStrike - 1) * 0.05f;
+    if (player.LegStrike <= 1) { return 1.80f; }
+    return 1.80f + (player.LegStrike - 1) * 0.05f;
   }
   public static int LegStrike_Turn(Character player)
   {
-    return 5;
+    return 9;
   }
   public static double LegStrike_Value(Character player)
   {
-    return 0.90f;
+    return 1.20f;
   }
 
   public static double VenomSlash(Character player)
