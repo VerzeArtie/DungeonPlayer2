@@ -2195,6 +2195,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.ICE_NEEDLE); }
   }
 
+  public BuffImage IsAirCutter
+  {
+    get { return SearchBuff(Fix.AIR_CUTTER); }
+  }
+
   public BuffImage IsShadowBlast
   {
     get { return SearchBuff(Fix.SHADOW_BLAST); }
@@ -5657,7 +5662,15 @@ public partial class Character : MonoBehaviour
 
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
-        result = Fix.NORMAL_ATTACK;
+
+        if (this.IsAirCutter == null)
+        {
+          result = Fix.AIR_CUTTER;
+        }
+        else
+        {
+          result = Fix.NORMAL_ATTACK;
+        }
         //if (this.AI_Phase == 1)
         //{
         //  result = Fix.KILLING_WAVE;

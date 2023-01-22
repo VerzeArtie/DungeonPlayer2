@@ -95,11 +95,11 @@ public static class SecondaryLogic
   }
   public static int AirCutter_Turn(Character player)
   {
-    return 5;
+    return 9;
   }
   public static double AirCutter_Value(Character player)
   {
-    return 0.02f;
+    return 0.20f;
   }
 
   public static double RockSlum(Character player)

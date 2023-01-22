@@ -357,6 +357,11 @@ public static class PrimaryLogic
     {
       result *= player.IsIceNeedle.EffectValue;
     }
+    if (player.IsAirCutter)
+    {
+      result += player.IsAirCutter.EffectValue;
+    }
+
     if (player.IsStormArmor)
     {
       result *= player.IsStormArmor.EffectValue;

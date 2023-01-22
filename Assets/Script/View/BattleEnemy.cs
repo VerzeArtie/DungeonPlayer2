@@ -3619,7 +3619,7 @@ public partial class BattleEnemy : MotherBase
     if (success)
     {
       player.objBuffPanel.AddBuff(prefab_Buff, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0);
-      StartAnimation(player.objGroup.gameObject, Fix.AIR_CUTTER, Fix.COLOR_NORMAL); //todo buff 戦闘速度2%上昇、最大3回累積をつけてね
+      StartAnimation(player.objGroup.gameObject, Fix.AIR_CUTTER, Fix.COLOR_NORMAL);
     }
   }
 
