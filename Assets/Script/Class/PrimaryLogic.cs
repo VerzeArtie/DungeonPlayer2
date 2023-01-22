@@ -259,6 +259,23 @@ public static class PrimaryLogic
     {
       result = result * player.IsMagicAttackUp.EffectValue;
     }
+
+
+    if (player.objFieldPanel != null)
+    {
+      BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
+      for (int ii = 0; ii < buffList.Length; ii++)
+      {
+        if (buffList[ii].BuffName == Fix.DARKNESS_CIRCLE)
+        {
+          Debug.Log("Potential Value up cause DarknessCircle(before): " + result);
+          result = result * buffList[ii].EffectValue;
+          Debug.Log("Potential Value up cause DarknessCircle(after ): " + result);
+          break;
+        }
+      }
+    }
+
     if (player.IsMagicAttackDown)
     {
       result = result * player.IsMagicAttackDown.EffectValue;

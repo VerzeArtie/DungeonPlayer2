@@ -983,8 +983,8 @@ public static partial class Fix
   public const string DISPEL_MAGIC_JP = "ディスペル・マジック";
   public const string HEART_OF_LIFE = "Heart of Life";
   public const string HEART_OF_LIFE_JP = "ハート・オブ・ライフ";
-  public const string DARK_AURA = "Dark Aura";
-  public const string DARK_AURA_JP = "ダーク・オーラ";
+  public const string DARKNESS_CIRCLE = "Darkness Circle";
+  public const string DARKNESS_CIRCLE_JP = "ダークネス・サークル";
   public const string TRUE_SIGHT = "True Sight";
   public const string TRUE_SIGHT_JP = "トゥルー・サイト";
   public const string ORACLE_COMMAND = "Oracle Command";
@@ -1237,6 +1237,9 @@ public static partial class Fix
   //public const string WATER_SPLASH = "Water Splash";
   //public const string WORD_OF_THE_REVOLUTION = "Word of the Revolution";
   //public const string TRANQUILITY = "Tranquility";
+
+  public const string DARK_AURA = "Dark Aura";
+  public const string DARK_AURA_JP = "ダーク・オーラ";
 
   public const string COUNTER_ATTACK = "Counter Attack";
   public const string COUNTER_ATTACK_JP = "カウンター・アタック";

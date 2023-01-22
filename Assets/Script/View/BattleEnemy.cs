@@ -1548,8 +1548,8 @@ public partial class BattleEnemy : MotherBase
         ExecHeartOfLife(player, target);
         break;
 
-      case Fix.DARK_AURA:
-        ExecDarkAura(player, target);
+      case Fix.DARKNESS_CIRCLE:
+        ExecDarknessCircle(player, target, target.objFieldPanel);
         break;
 
       case Fix.ORACLE_COMMAND:
@@ -1710,6 +1710,10 @@ public partial class BattleEnemy : MotherBase
         ExecUnseenAid(player, target_list);
         break;
       #endregion
+
+      case Fix.DARK_AURA:
+        ExecDarkAura(player, target);
+        break;
 
       #region "元核"
       case Fix.ARCHETYPE_EIN_1:
@@ -3726,6 +3730,14 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0);
     StartAnimation(target.objGroup.gameObject, Fix.HEART_OF_LIFE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecDarknessCircle(Character player, Character target, BuffField target_field_obj)
+  {
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+
+    target_field_obj.AddBuff(prefab_Buff, Fix.DARKNESS_CIRCLE, SecondaryLogic.DarknessCircle_Turn(player), SecondaryLogic.DarknessCircle_Value(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.DARKNESS_CIRCLE, Fix.COLOR_NORMAL);
   }
 
   private void ExecDarkAura(Character player, Character target)

@@ -223,7 +223,7 @@ public static class ActionCommand
     }
     else if (attr == Fix.CommandAttribute.Vengeance)
     {
-      result.Add(Fix.DARK_AURA);
+      result.Add(Fix.DARKNESS_CIRCLE);
       result.Add(Fix.STANCE_OF_THE_SHADE);
       result.Add(Fix.KILLING_WAVE);
       result.Add(Fix.LEVEL_EATER);
@@ -398,7 +398,7 @@ public static class ActionCommand
     }
     else if (attr == Fix.CommandAttribute.Vengeance)
     {
-      result.Add(player.DarkAura);
+      result.Add(player.DarknessCircle);
       result.Add(player.StanceOfTheShade);
       result.Add(player.KillingWave);
       result.Add(player.LevelEater);
@@ -541,7 +541,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return Attribute.Magic; }
     if (command_name == Fix.DISPEL_MAGIC) { return Attribute.Magic; }
     if (command_name == Fix.HEART_OF_LIFE) { return Attribute.Skill; }
-    if (command_name == Fix.DARK_AURA) { return Attribute.Skill; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return Attribute.Skill; }
     if (command_name == Fix.TRUE_SIGHT) { return Attribute.Magic; }
     if (command_name == Fix.ORACLE_COMMAND) { return Attribute.Skill; }
 
@@ -623,7 +623,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return TimingType.Instant; }
     if (command_name == Fix.DISPEL_MAGIC) { return TimingType.Instant; }
     if (command_name == Fix.HEART_OF_LIFE) { return TimingType.Instant; }
-    if (command_name == Fix.DARK_AURA) { return TimingType.Normal; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return TimingType.Normal; }
     if (command_name == Fix.TRUE_SIGHT) { return TimingType.Instant; }
     if (command_name == Fix.ORACLE_COMMAND) { return TimingType.Instant; }
 
@@ -705,7 +705,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return TargetType.Ally; }
     if (command_name == Fix.DISPEL_MAGIC) { return TargetType.EnemyOrAlly; }
     if (command_name == Fix.HEART_OF_LIFE) { return TargetType.Ally; }
-    if (command_name == Fix.DARK_AURA) { return TargetType.Ally; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return TargetType.EnemyField; }
     if (command_name == Fix.TRUE_SIGHT) { return TargetType.Ally; }
     if (command_name == Fix.ORACLE_COMMAND) { return TargetType.Ally; }
 
@@ -845,7 +845,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return 3; }
     if (command_name == Fix.DISPEL_MAGIC) { return 3; }
     if (command_name == Fix.HEART_OF_LIFE) { return 3; }
-    if (command_name == Fix.DARK_AURA) { return 3; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return 5; }
     if (command_name == Fix.TRUE_SIGHT) { return 6; }
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
 
@@ -1010,7 +1010,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return BuffType.Positive; }
     if (command_name == Fix.DISPEL_MAGIC) { return BuffType.None; }
     if (command_name == Fix.HEART_OF_LIFE) { return BuffType.Positive; }
-    if (command_name == Fix.DARK_AURA) { return BuffType.Positive; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return BuffType.Negative; }
     if (command_name == Fix.TRUE_SIGHT) { return BuffType.Positive; }
     if (command_name == Fix.ORACLE_COMMAND) { return BuffType.None; }
 
@@ -1107,7 +1107,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return false; }
     if (command_name == Fix.DISPEL_MAGIC) { return false; }
     if (command_name == Fix.HEART_OF_LIFE) { return false; }
-    if (command_name == Fix.DARK_AURA) { return false; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return false; }
     if (command_name == Fix.TRUE_SIGHT) { return false; }
     if (command_name == Fix.ORACLE_COMMAND) { return false; }
 
@@ -1179,7 +1179,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return Fix.AURA_OF_POWER_JP; }
     if (command_name == Fix.DISPEL_MAGIC) { return Fix.DISPEL_MAGIC_JP; }
     if (command_name == Fix.HEART_OF_LIFE) { return Fix.HEART_OF_LIFE_JP; }
-    if (command_name == Fix.DARK_AURA) { return Fix.DARK_AURA_JP; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return Fix.DARKNESS_CIRCLE_JP; }
     if (command_name == Fix.TRUE_SIGHT) { return Fix.TRUE_SIGHT_JP; }
     if (command_name == Fix.ORACLE_COMMAND) { return Fix.ORACLE_COMMAND_JP; }
 
@@ -1231,7 +1231,7 @@ public static class ActionCommand
     if (command_name == Fix.AURA_OF_POWER) { return "味方一体を対象とする。対象に【パワー】を付与する。\r\n【パワー】が続く間、物理攻撃が上昇する。"; }
     if (command_name == Fix.DISPEL_MAGIC) { return "敵一体を対象とする。対象にかかっている【有益】に属するBUFFを除去する。"; }
     if (command_name == Fix.HEART_OF_LIFE) { return "味方全員に【生命】のBUFFを付与する。\r\n【生命】が続く間、ターン経過毎にライフを回復する。"; }
-    if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return "敵フィールドに、【黒炎】のフィールドを形成する。\r\n【黒炎】が続く間、敵の魔法攻撃力が減少する。"; }
     if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
     if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
 
@@ -1348,6 +1348,8 @@ public static class ActionCommand
     if (command_name == Fix.DEMON_CONTRACT) { return ""; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
     if (command_name == Fix.TIME_SKIP) { return ""; }
+
+    if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return "自分自身【集中と断絶】のBUFFを付与する。本BUFFが付与された状態で、次にダメージを伴う行動を行った場合、そのダメージ量をX倍したうえで、クリティカルとしてダメージを与える。その時の行動はカウンターされない。その時のダメージは軽減対象とならない。Xは【潜在能力】パラメタに依存する。行動完了後、本BUFFは消滅する。"; }
     return String.Empty;

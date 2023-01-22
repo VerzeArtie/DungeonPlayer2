@@ -1133,6 +1133,8 @@ public partial class Character : MonoBehaviour
   public int DispelMagic { set { if (value >= 0) { _DispelMagic = value; } } get { return _DispelMagic; } }
   [SerializeField] protected int _TrueSight = 0;
   public int HeartOfLife { set { if (value >= 0) { _HeartOfLife = value; } } get { return _HeartOfLife; } }
+  [SerializeField] protected int _DarknessCircle = 0;
+  public int DarknessCircle { set { if (value >= 0) { _DarknessCircle = value; } } get { return _DarknessCircle; } }
   [SerializeField] protected int _DarkAura = 0;
   public int DarkAura { set { if (value >= 0) { _DarkAura = value; } } get { return _DarkAura; } }
   [SerializeField] protected int _OracleCommand = 0;
@@ -3357,10 +3359,12 @@ public partial class Character : MonoBehaviour
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
         this.CounterAttack = 1;
+        this.FireBall = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
         this.ActionCommand2 = Fix.COUNTER_ATTACK;
+        this.ActionCommand3 = Fix.FIRE_BALL;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -5668,7 +5672,11 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (Target != null &&  Target.IsRockSlum == null)
+        if (this.AI_Phase == 1)
+        {
+          result = Fix.DARKNESS_CIRCLE;
+        }
+        else if (Target != null &&  Target.IsRockSlum == null)
         {
           result = Fix.ROCK_SLAM;
         }

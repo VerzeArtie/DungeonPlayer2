@@ -225,6 +225,16 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static int DarknessCircle_Turn(Character player)
+  {
+    return 5;
+  }
+
+  public static double DarknessCircle_Value(Character player)
+  {
+    return 0.80f;
+  }
+
   public static int OracleCommand(Character player)
   {
     return 100;
