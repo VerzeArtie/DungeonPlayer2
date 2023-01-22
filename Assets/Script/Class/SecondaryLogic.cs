@@ -99,7 +99,7 @@ public static class SecondaryLogic
   }
   public static double AirCutter_Value(Character player)
   {
-    return 0.20f;
+    return 1.20f;
   }
 
   public static double RockSlum(Character player)

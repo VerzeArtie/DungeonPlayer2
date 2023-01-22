@@ -357,11 +357,6 @@ public static class PrimaryLogic
     {
       result *= player.IsIceNeedle.EffectValue;
     }
-    if (player.IsAirCutter)
-    {
-      result += player.IsAirCutter.EffectValue;
-    }
-
     if (player.IsStormArmor)
     {
       result *= player.IsStormArmor.EffectValue;
@@ -408,6 +403,10 @@ public static class PrimaryLogic
     result += (player.Accessory2?.BattleResponse ?? 0);
     result += (player.Artifact?.BattleResponse ?? 0);
 
+    if (player.IsAirCutter)
+    {
+      result = result * player.IsAirCutter.EffectValue;
+    }
     if (player.IsBattleReponseUp)
     {
       result = result * player.IsBattleReponseUp.EffectValue;
