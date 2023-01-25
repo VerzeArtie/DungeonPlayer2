@@ -3421,7 +3421,7 @@ public partial class BattleEnemy : MotherBase
 
     // 回避判定 (ターゲットへの命中率、ターゲットからの回避率、他効果などでaccuracyを決定)
     // 0.0fなら必ず回避される。 100.0fなら必ず当たる。
-    double accuracy = PrimaryLogic.BattleAccuracy(player);
+    double accuracy = 100.0f; //  PrimaryLogic.BattleAccuracy(player); // 命中率は原則100%とする。シリーズ１と同様。
     Debug.Log("PrimaryLogic.BattleAccuracy: " + accuracy.ToString("F2"));
 
     if (target.EvadingSkill > 0)
@@ -3522,7 +3522,7 @@ public partial class BattleEnemy : MotherBase
 
     // 回避判定 (ターゲットへの命中率、ターゲットからの回避率、他効果などでaccuracyを決定)
     // 0.0fなら必ず回避される。 100.0fなら必ず当たる。
-    double accuracy = PrimaryLogic.BattleAccuracy(player);
+    double accuracy = 100.0f; // PrimaryLogic.BattleAccuracy(player); // 命中率は原則100%とする。シリーズ１と同様。
     Debug.Log("PrimaryLogic.BattleAccuracy: " + accuracy.ToString("F2"));
     if (target.EvadingSkill > 0)
     {
