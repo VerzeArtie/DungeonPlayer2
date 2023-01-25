@@ -98,6 +98,7 @@ public class NodeBackpackView : MonoBehaviour
 
   public void TapBackpackUse()
   {
+    // todo Nodeコンポーネントに実装処理を入れるのはマズいので抽象化が必須。
     string current = (CurrentSelectBackpack?.ItemName ?? String.Empty);
     if (current == Fix.SMALL_RED_POTION ||
         current == Fix.NORMAL_RED_POTION ||
@@ -112,7 +113,43 @@ public class NodeBackpackView : MonoBehaviour
         current == Fix.HUGE_BLUE_POTION || 
         current == Fix.HQ_BLUE_POTION || 
         current == Fix.THQ_BLUE_POTION ||
-        current == Fix.PERFECT_BLUE_POTION)
+        current == Fix.PERFECT_BLUE_POTION ||
+        current == Fix.GROWTH_LIQUID_STRENGTH ||
+        current == Fix.GROWTH_LIQUID2_STRENGTH ||
+        current == Fix.GROWTH_LIQUID3_STRENGTH ||
+        current == Fix.GROWTH_LIQUID4_STRENGTH ||
+        current == Fix.GROWTH_LIQUID5_STRENGTH ||
+        current == Fix.GROWTH_LIQUID6_STRENGTH ||
+        current == Fix.GROWTH_LIQUID7_STRENGTH ||
+        current == Fix.GROWTH_LIQUID_AGILITY ||
+        current == Fix.GROWTH_LIQUID2_AGILITY ||
+        current == Fix.GROWTH_LIQUID3_AGILITY ||
+        current == Fix.GROWTH_LIQUID4_AGILITY ||
+        current == Fix.GROWTH_LIQUID5_AGILITY ||
+        current == Fix.GROWTH_LIQUID6_AGILITY ||
+        current == Fix.GROWTH_LIQUID7_AGILITY ||
+        current == Fix.GROWTH_LIQUID_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID3_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID4_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID5_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID6_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID7_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID_STAMINA ||
+        current == Fix.GROWTH_LIQUID2_STAMINA ||
+        current == Fix.GROWTH_LIQUID3_STAMINA ||
+        current == Fix.GROWTH_LIQUID4_STAMINA ||
+        current == Fix.GROWTH_LIQUID5_STAMINA ||
+        current == Fix.GROWTH_LIQUID6_STAMINA ||
+        current == Fix.GROWTH_LIQUID7_STAMINA ||
+        current == Fix.GROWTH_LIQUID_MIND ||
+        current == Fix.GROWTH_LIQUID2_MIND ||
+        current == Fix.GROWTH_LIQUID3_MIND ||
+        current == Fix.GROWTH_LIQUID4_MIND ||
+        current == Fix.GROWTH_LIQUID5_MIND ||
+        current == Fix.GROWTH_LIQUID6_MIND ||
+        current == Fix.GROWTH_LIQUID7_MIND
+        )
     {
       objBlockFilter.SetActive(true);
     }

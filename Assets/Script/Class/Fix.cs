@@ -1814,6 +1814,31 @@ public static partial class Fix
   public const string GROWTH_LIQUID5_INTELLIGENCE = @"成長リキッドⅤ【知】";
   public const string GROWTH_LIQUID5_STAMINA = @"成長リキッドⅤ【体】";
   public const string GROWTH_LIQUID5_MIND = @"成長リキッドⅤ【心】";
+  // 成長剤（６階）
+  public const string GROWTH_LIQUID6_STRENGTH = @"成長リキッドⅥ【力】";
+  public const string GROWTH_LIQUID6_AGILITY = @"成長リキッドⅥ【技】";
+  public const string GROWTH_LIQUID6_INTELLIGENCE = @"成長リキッドⅥ【知】";
+  public const string GROWTH_LIQUID6_STAMINA = @"成長リキッドⅥ【体】";
+  public const string GROWTH_LIQUID6_MIND = @"成長リキッドⅥ【心】";
+  // 成長剤（７階）
+  public const string GROWTH_LIQUID7_STRENGTH = @"成長リキッドⅦ【力】";
+  public const string GROWTH_LIQUID7_AGILITY = @"成長リキッドⅦ【技】";
+  public const string GROWTH_LIQUID7_INTELLIGENCE = @"成長リキッドⅦ【知】";
+  public const string GROWTH_LIQUID7_STAMINA = @"成長リキッドⅦ【体】";
+  public const string GROWTH_LIQUID7_MIND = @"成長リキッドⅦ【心】";
+  #endregion
+  #region "ラベル"
+  // 素材判別文字
+  public const string DESCRIPTION_SELL_ONLY = @"【売却専用品】" + "\r\n";
+  public const string DESCRIPTION_EQUIP_MATERIAL = @"【武具素材】" + "\r\n";
+  public const string DESCRIPTION_POTION_MATERIAL = @"【ポーション素材】" + "\r\n";
+  public const string DESCRIPTION_FOOD_MATERIAL = @"【食材】" + "\r\n";
+  public const string DESCRIPTION_WEAPON = @"【武器】";
+  public const string DESCRIPTION_SHIELD = @"【盾】";
+  public const string DESCRIPTION_ARMOR = @"【防具】";
+  public const string DESCRIPTION_ACCESSORY = @"【アクセサリ】";
+  public const string DESCRIPTION_POTION = @"【消耗品】";
+  public const string DESCRIPTION_BLUEORB = @"【専用品】";
   #endregion
   #endregion
 

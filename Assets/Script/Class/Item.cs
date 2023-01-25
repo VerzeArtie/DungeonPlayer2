@@ -44,6 +44,13 @@ public partial class Item
     Potion,
     EventItem,
     SellOnly,
+    Material_Equip,
+    Material_Potion,
+    Material_Food,
+    Use_Potion,
+    Use_Item,
+    Use_BlueOrb,
+    Useless,
   }
   public enum GripTypes
   {
@@ -63,6 +70,14 @@ public partial class Item
     Legendary,
   }
   #endregion
+
+  // [comment] アイテム消耗品より、RARE_EPICだった場合はスタック１とすること。
+  //           装備品はRARE_EPICと同等で気にしなくて良い。
+  public const int USING_ITEM_STACK_SIZE = 5;
+  public const int RARE_EPIC_ITEM_STACK_SIZE = 1;
+  public const int EQUIP_ITEM_STACK_SIZE = 1;
+  public const int MATERIAL_ITEM_STACK_SIZE = 10;
+  public const int OTHER_ITEM_STACK_SIZE = 10;
 
   #region "Property"
   public Text txtItemName = null;
@@ -6293,6 +6308,330 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
       #endregion
+      #region "成長リキッド"
+      case Fix.GROWTH_LIQUID_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが１～３ＵＰする。";
+        this._itemValue1 = 1;
+        this._itemValue2 = 3;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが１～３ＵＰする。";
+        this._itemValue1 = 1;
+        this._itemValue2 = 3;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが１～３ＵＰする。";
+        this._itemValue1 = 1;
+        this._itemValue2 = 3;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが１～３ＵＰする。";
+        this._itemValue1 = 1;
+        this._itemValue2 = 3;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが１～３ＵＰする。";
+        this._itemValue1 = 1;
+        this._itemValue2 = 3;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+      case Fix.GROWTH_LIQUID2_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが５～１０ＵＰする。";
+        this._itemValue1 = 5;
+        this._itemValue2 = 10;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID2_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが５～１０ＵＰする。";
+        this._itemValue1 = 5;
+        this._itemValue2 = 10;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID2_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが５～１０ＵＰする。";
+        this._itemValue1 = 5;
+        this._itemValue2 = 10;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID2_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが５～１０ＵＰする。";
+        this._itemValue1 = 5;
+        this._itemValue2 = 10;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID2_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが５～１０ＵＰする。";
+        this._itemValue1 = 5;
+        this._itemValue2 = 10;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+      case Fix.GROWTH_LIQUID3_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが２０～３０ＵＰする。";
+        this._itemValue1 = 20;
+        this._itemValue2 = 30;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID3_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが２０～３０ＵＰする。";
+        this._itemValue1 = 20;
+        this._itemValue2 = 30;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID3_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが２０～３０ＵＰする。";
+        this._itemValue1 = 20;
+        this._itemValue2 = 30;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID3_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが２０～３０ＵＰする。";
+        this._itemValue1 = 20;
+        this._itemValue2 = 30;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID3_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが２０～３０ＵＰする。";
+        this._itemValue1 = 20;
+        this._itemValue2 = 30;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+      case Fix.GROWTH_LIQUID4_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが４５～６０ＵＰする。";
+        this._itemValue1 = 45;
+        this._itemValue2 = 60;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID4_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが４５～６０ＵＰする。";
+        this._itemValue1 = 45;
+        this._itemValue2 = 60;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID4_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが４５～６０ＵＰする。";
+        this._itemValue1 = 45;
+        this._itemValue2 = 60;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID4_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが４５～６０ＵＰする。";
+        this._itemValue1 = 45;
+        this._itemValue2 = 60;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID4_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが４５～６０ＵＰする。";
+        this._itemValue1 = 45;
+        this._itemValue2 = 60;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+      case Fix.GROWTH_LIQUID5_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが８０～１００ＵＰする。";
+        this._itemValue1 = 80;
+        this._itemValue2 = 100;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID5_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが８０～１００ＵＰする。";
+        this._itemValue1 = 80;
+        this._itemValue2 = 100;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID5_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが８０～１００ＵＰする。";
+        this._itemValue1 = 80;
+        this._itemValue2 = 100;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID5_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが８０～１００ＵＰする。";
+        this._itemValue1 = 80;
+        this._itemValue2 = 100;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID5_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが８０～１００ＵＰする。";
+        this._itemValue1 = 80;
+        this._itemValue2 = 100;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+      case Fix.GROWTH_LIQUID6_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが１３０～１６０ＵＰする。";
+        this._itemValue1 = 130;
+        this._itemValue2 = 160;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID6_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが１３０～１６０ＵＰする。";
+        this._itemValue1 = 130;
+        this._itemValue2 = 160;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID6_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが１３０～１６０ＵＰする。";
+        this._itemValue1 = 130;
+        this._itemValue2 = 160;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID6_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが１３０～１６０ＵＰする。";
+        this._itemValue1 = 130;
+        this._itemValue2 = 160;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID6_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが１３０～１６０ＵＰする。";
+        this._itemValue1 = 130;
+        this._itemValue2 = 160;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+
+
+      case Fix.GROWTH_LIQUID7_STRENGTH:
+        this._description = "能力の一部を成長促進させる薬。力パラメタが２００～２４０ＵＰする。";
+        this._itemValue1 = 200;
+        this._itemValue2 = 240;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID7_AGILITY:
+        this._description = "能力の一部を成長促進させる薬。技パラメタが２００～２４０ＵＰする。";
+        this._itemValue1 = 200;
+        this._itemValue2 = 240;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID7_INTELLIGENCE:
+        this._description = "能力の一部を成長促進させる薬。知パラメタが２００～２４０ＵＰする。";
+        this._itemValue1 = 200;
+        this._itemValue2 = 240;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID7_STAMINA:
+        this._description = "能力の一部を成長促進させる薬。体パラメタが２００～２４０ＵＰする。";
+        this._itemValue1 = 200;
+        this._itemValue2 = 240;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      case Fix.GROWTH_LIQUID7_MIND:
+        this._description = "能力の一部を成長促進させる薬。心パラメタが２００～２４０ＵＰする。";
+        this._itemValue1 = 200;
+        this._itemValue2 = 240;
+        this._gold = 0;
+        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        this._rarity = Rarity.Rare;
+        this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
+        break;
+      #endregion
       #region "other"
       case Fix.ZETANIUM_STONE:
         this._rarity = Rarity.Uncommon;
@@ -6831,6 +7170,28 @@ public partial class Item
     }
 
     SetupLimitValue();
+  }
+
+
+  protected void AdditionalDescription(Item.ItemTypes s_type)
+  {
+    this._itemType = s_type;
+    if (s_type == Item.ItemTypes.Material_Equip)
+    {
+      this._description = this._description.Insert(0, Fix.DESCRIPTION_EQUIP_MATERIAL);
+    }
+    else if (s_type == Item.ItemTypes.Material_Food)
+    {
+      this._description = this._description.Insert(0, Fix.DESCRIPTION_FOOD_MATERIAL);
+    }
+    else if (s_type == Item.ItemTypes.Material_Potion)
+    {
+      this._description = this._description.Insert(0, Fix.DESCRIPTION_POTION_MATERIAL);
+    }
+    else if (s_type == Item.ItemTypes.Useless || s_type == Item.ItemTypes.None)
+    {
+      this._description = this._description.Insert(0, Fix.DESCRIPTION_SELL_ONLY);
+    }
   }
   #endregion
 }

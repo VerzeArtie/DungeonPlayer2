@@ -1844,7 +1844,7 @@ public partial class Character : MonoBehaviour
 
   public int GetNextExp()
   {
-    int result = 100;
+    int result = 50;
     //if (this.Level == 1) { return result; }
 
     for (int ii = 1 ; ii < 100; ii++)
@@ -4840,6 +4840,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
+        this.Area = Fix.MonsterArea.Boss3;
         break;
 
       case Fix.DAGGER_FISH:
@@ -5143,6 +5144,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(150, 120, 60, 420, 100, 10, 7500, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
+        this.Area = Fix.MonsterArea.Boss1;
         break;
 
       case Fix.SWIFT_EAGLE:
@@ -5353,6 +5355,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(1, 1, 1, 1, 1, 10, 7500, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
+        this.Area = Fix.MonsterArea.Boss4;
         break;
 
       case Fix.IMPERIAL_KNIGHT:

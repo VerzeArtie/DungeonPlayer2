@@ -1309,6 +1309,72 @@ public class DungeonField : MotherBase
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentSoulPoint += (int)effectValue;
           }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_STRENGTH ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_STRENGTH)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].Strength += effectValue;
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_AGILITY ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_AGILITY)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].Agility += effectValue;
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_INTELLIGENCE ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_INTELLIGENCE)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].Intelligence += effectValue;
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_STAMINA ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_STAMINA)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].Stamina += effectValue;
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_MIND ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_MIND)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].Mind += effectValue;
+          }
+
           objCancelActionCommand.SetActive(false);
           ParentBackpackView.objBlockFilter.SetActive(false);
           SetupStayList();
@@ -7374,6 +7440,19 @@ public class DungeonField : MotherBase
       Character character = objEC.AddComponent<Character>();
       character.Construction(One.BattleEnemyList[ii]);
       One.EnemyList.Add(character);
+
+      if (One.EnemyList[0].Area == Fix.MonsterArea.Boss1 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss2 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss5)
+      {
+        One.BattleMode = Fix.BattleMode.Boss;
+      }
+      else
+      {
+        One.BattleMode = Fix.BattleMode.Normal;
+      }
     }
 
     for (int ii = 0; ii < One.EnemyList.Count; ii++)
