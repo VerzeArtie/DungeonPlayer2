@@ -9,7 +9,7 @@ using System.Text;
 
 public class PartyMenu : MotherBase
 {
-  public GroupCharacterStatus groupPartyStatus;
+  public GroupCharacterStatus groupCharacterStatus;
   public GameObject groupPartyBattleSetting;
   public GameObject groupPartyCommand;
   public GameObject groupPartyItem;
@@ -57,6 +57,7 @@ public class PartyMenu : MotherBase
     RefreshAllView();
 
     this.CurrentPlayer = PlayerList[0];
+    TapStatus();
     TapStayListCharacter(StayListName[0]);
   }
 
@@ -68,9 +69,9 @@ public class PartyMenu : MotherBase
   public void TapStatus()
   {
     SetupStayList();
-//    CallGroupPartyStatus(this.CurrentPlayer); // 移行前はコメントアウトしていない。要精査
+    //    CallGroupPartyStatus(this.CurrentPlayer); // 移行前はコメントアウトしていない。要精査
 
-    groupPartyStatus.gameObject.SetActive(true);
+    groupCharacterStatus.gameObject.SetActive(true);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(false);
@@ -78,7 +79,7 @@ public class PartyMenu : MotherBase
   public void TapCommand()
   {
     SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
+    groupCharacterStatus.gameObject.SetActive(false);
     groupPartyCommand.SetActive(true);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(false);
@@ -87,7 +88,7 @@ public class PartyMenu : MotherBase
   public void TapItem()
   {
     SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
+    groupCharacterStatus.gameObject.SetActive(false);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(true);
     groupPartyBattleSetting.SetActive(false);
@@ -96,7 +97,7 @@ public class PartyMenu : MotherBase
   public void TapBattleSetting()
   {
     SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
+    groupCharacterStatus.gameObject.SetActive(false);
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(true);
@@ -268,7 +269,7 @@ public class PartyMenu : MotherBase
       if (txt_name.text == PlayerList[ii].FullName)
       {
         this.CurrentPlayer = PlayerList[ii];
-        if (this.groupPartyStatus.gameObject.activeInHierarchy)
+        if (this.groupCharacterStatus.gameObject.activeInHierarchy)
         {
           CallGroupPartyStatus(PlayerList[ii]); // 移行前はコメントアウトしていない。要精査
         }
@@ -298,13 +299,13 @@ public class PartyMenu : MotherBase
 
   private void CallGroupPartyStatus(Character player)
   {
-    //groupPartyStatus.parentMotherBase = this;
-    //groupPartyStatus.ReleaseIt();
-    //groupPartyStatus.CurrentPlayer = player;
-    //groupPartyStatus.UpdateCharacterDetailView(player);
+    groupCharacterStatus.parentMotherBase = this;
+    groupCharacterStatus.ReleaseIt();
+    groupCharacterStatus.CurrentPlayer = player;
+    groupCharacterStatus.UpdateCharacterDetailView(player);
 
-    SceneManager.sceneLoaded += CharacterStatusLoadded;
-    SceneDimension.SceneAdd("CharacterStatus");
+    //SceneManager.sceneLoaded += CharacterStatusLoadded;
+    //SceneDimension.SceneAdd("CharacterStatus");
   }
 
   private void CharacterStatusLoadded(Scene next, LoadSceneMode mode)
@@ -498,7 +499,7 @@ public class PartyMenu : MotherBase
         if (healValue <= 0) { healValue = 0; }
         PlayerList[ii].CurrentLife += (int)healValue;
       }
-      groupPartyStatus.UpdateCharacterDetailView(groupPartyStatus.CurrentPlayer);
+      groupCharacterStatus.UpdateCharacterDetailView(groupCharacterStatus.CurrentPlayer);
     }
     SetupStayList();
   }

@@ -304,25 +304,30 @@ public class GroupCharacterStatus : MonoBehaviour
       imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
       txtEssenceList1_3[ii].text = list_1_3[ii];
     }
+
     // 弐なる属性（１）
     List<string> list_2_1 = CurrentPlayer.GetEssenceTreeTitleList(1, 0);
     for (int ii = 0; ii < list_2_1.Count; ii++)
     {
+      if (ii >= imgEssenceList2_1.Count) { break; }
       imgEssenceList2_1[ii].ApplyImageIcon(list_2_1[ii]);
       txtEssenceList2_1[ii].text = list_2_1[ii];
     }
     List<string> list_2_2 = CurrentPlayer.GetEssenceTreeTitleList(1, 1);
     for (int ii = 0; ii < list_2_2.Count; ii++)
     {
+      if (ii >= imgEssenceList2_2.Count) { break; }
       imgEssenceList2_2[ii].ApplyImageIcon(list_2_2[ii]);
       txtEssenceList2_2[ii].text = list_2_2[ii];
     }
     List<string> list_2_3 = CurrentPlayer.GetEssenceTreeTitleList(1, 2);
     for (int ii = 0; ii < list_2_3.Count; ii++)
     {
+      if (ii >= imgEssenceList2_3.Count) { break; }
       imgEssenceList2_3[ii].ApplyImageIcon(list_2_3[ii]);
       txtEssenceList2_3[ii].text = list_2_3[ii];
     }
+
     //// 参なる属性（１）
     //List<string> list_3 = CurrentPlayer.GetEssenceTreeTitleList(2, 0);
     //for (int ii = 0; ii < list_3.Count; ii++)
@@ -358,8 +363,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // コマンド設定画面への反映
-    SetupActionCommand(CurrentPlayer, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
-
+    //SetupActionCommand(CurrentPlayer, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
     txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
 
     Debug.Log("remain " + CurrentPlayer.FullName + " " + CurrentPlayer.RemainPoint);
@@ -380,30 +384,31 @@ public class GroupCharacterStatus : MonoBehaviour
       }
     }
 
-    GroupEssenceCategory.SetActive(false);
-    btnEssence_First.gameObject.SetActive(false);
-    btnEssence_Second.gameObject.SetActive(false);
-    btnEssence_Third.gameObject.SetActive(false);
-    btnEssence_Fourth.gameObject.SetActive(false);
-    if (One.TF.AvailableSecondEssence)
-    {
-      GroupEssenceCategory.SetActive(true);
-      btnEssence_First.gameObject.SetActive(true);
-      btnEssence_Second.gameObject.SetActive(true);
-      if (One.TF.AvailableThirdEssence)
-      {
-        btnEssence_Third.gameObject.SetActive(true);
-        if (One.TF.AvailableFourthEssence)
-        {
-          btnEssence_Fourth.gameObject.SetActive(true);
-        }
-      }
-    }
+    // エッセンス設定は次回エンハンスに対応する。
+    //GroupEssenceCategory.SetActive(false);
+    //btnEssence_First.gameObject.SetActive(false);
+    //btnEssence_Second.gameObject.SetActive(false);
+    //btnEssence_Third.gameObject.SetActive(false);
+    //btnEssence_Fourth.gameObject.SetActive(false);
+    //if (One.TF.AvailableSecondEssence)
+    //{
+    //  GroupEssenceCategory.SetActive(true);
+    //  btnEssence_First.gameObject.SetActive(true);
+    //  btnEssence_Second.gameObject.SetActive(true);
+    //  if (One.TF.AvailableThirdEssence)
+    //  {
+    //    btnEssence_Third.gameObject.SetActive(true);
+    //    if (One.TF.AvailableFourthEssence)
+    //    {
+    //      btnEssence_Fourth.gameObject.SetActive(true);
+    //    }
+    //  }
+    //}
 
-    GroupEssenceList1.SetActive(true);
-    GroupEssenceList2.SetActive(false);
-    GroupEssenceList3.SetActive(false);
-    GroupEssenceList4.SetActive(false);
+    //GroupEssenceList1.SetActive(true);
+    //GroupEssenceList2.SetActive(false);
+    //GroupEssenceList3.SetActive(false);
+    //GroupEssenceList4.SetActive(false);
 
     //txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
     //txtDetailExp.text = "MAX";
