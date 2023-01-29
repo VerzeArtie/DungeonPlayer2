@@ -47,7 +47,6 @@ public partial class Item
     Material_Equip,
     Material_Potion,
     Material_Food,
-    Use_Potion,
     Use_Item,
     Use_BlueOrb,
     Useless,
@@ -6314,7 +6313,7 @@ public partial class Item
         this._itemValue1 = 1;
         this._itemValue2 = 3;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6323,7 +6322,7 @@ public partial class Item
         this._itemValue1 = 1;
         this._itemValue2 = 3;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6332,7 +6331,7 @@ public partial class Item
         this._itemValue1 = 1;
         this._itemValue2 = 3;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6341,7 +6340,7 @@ public partial class Item
         this._itemValue1 = 1;
         this._itemValue2 = 3;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6350,7 +6349,7 @@ public partial class Item
         this._itemValue1 = 1;
         this._itemValue2 = 3;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6360,7 +6359,7 @@ public partial class Item
         this._itemValue1 = 5;
         this._itemValue2 = 10;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6369,7 +6368,7 @@ public partial class Item
         this._itemValue1 = 5;
         this._itemValue2 = 10;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6378,7 +6377,7 @@ public partial class Item
         this._itemValue1 = 5;
         this._itemValue2 = 10;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6387,7 +6386,7 @@ public partial class Item
         this._itemValue1 = 5;
         this._itemValue2 = 10;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6396,7 +6395,7 @@ public partial class Item
         this._itemValue1 = 5;
         this._itemValue2 = 10;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6406,7 +6405,7 @@ public partial class Item
         this._itemValue1 = 20;
         this._itemValue2 = 30;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6415,7 +6414,7 @@ public partial class Item
         this._itemValue1 = 20;
         this._itemValue2 = 30;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6424,7 +6423,7 @@ public partial class Item
         this._itemValue1 = 20;
         this._itemValue2 = 30;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6433,7 +6432,7 @@ public partial class Item
         this._itemValue1 = 20;
         this._itemValue2 = 30;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6442,7 +6441,7 @@ public partial class Item
         this._itemValue1 = 20;
         this._itemValue2 = 30;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6452,7 +6451,7 @@ public partial class Item
         this._itemValue1 = 45;
         this._itemValue2 = 60;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6461,7 +6460,7 @@ public partial class Item
         this._itemValue1 = 45;
         this._itemValue2 = 60;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6470,7 +6469,7 @@ public partial class Item
         this._itemValue1 = 45;
         this._itemValue2 = 60;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6479,7 +6478,7 @@ public partial class Item
         this._itemValue1 = 45;
         this._itemValue2 = 60;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6488,7 +6487,7 @@ public partial class Item
         this._itemValue1 = 45;
         this._itemValue2 = 60;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6498,7 +6497,7 @@ public partial class Item
         this._itemValue1 = 80;
         this._itemValue2 = 100;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6507,7 +6506,7 @@ public partial class Item
         this._itemValue1 = 80;
         this._itemValue2 = 100;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6516,7 +6515,7 @@ public partial class Item
         this._itemValue1 = 80;
         this._itemValue2 = 100;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6525,7 +6524,7 @@ public partial class Item
         this._itemValue1 = 80;
         this._itemValue2 = 100;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6534,7 +6533,7 @@ public partial class Item
         this._itemValue1 = 80;
         this._itemValue2 = 100;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6544,7 +6543,7 @@ public partial class Item
         this._itemValue1 = 130;
         this._itemValue2 = 160;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6553,7 +6552,7 @@ public partial class Item
         this._itemValue1 = 130;
         this._itemValue2 = 160;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6562,7 +6561,7 @@ public partial class Item
         this._itemValue1 = 130;
         this._itemValue2 = 160;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6571,7 +6570,7 @@ public partial class Item
         this._itemValue1 = 130;
         this._itemValue2 = 160;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6580,7 +6579,7 @@ public partial class Item
         this._itemValue1 = 130;
         this._itemValue2 = 160;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6591,7 +6590,7 @@ public partial class Item
         this._itemValue1 = 200;
         this._itemValue2 = 240;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6600,7 +6599,7 @@ public partial class Item
         this._itemValue1 = 200;
         this._itemValue2 = 240;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6609,7 +6608,7 @@ public partial class Item
         this._itemValue1 = 200;
         this._itemValue2 = 240;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6618,7 +6617,7 @@ public partial class Item
         this._itemValue1 = 200;
         this._itemValue2 = 240;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
@@ -6627,7 +6626,7 @@ public partial class Item
         this._itemValue1 = 200;
         this._itemValue2 = 240;
         this._gold = 0;
-        AdditionalDescription(Item.ItemTypes.Use_Potion);
+        AdditionalDescription(Item.ItemTypes.Potion);
         this._rarity = Rarity.Rare;
         this._limitValue = RARE_EPIC_ITEM_STACK_SIZE;
         break;
