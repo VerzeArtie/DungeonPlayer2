@@ -281,52 +281,53 @@ public class GroupCharacterStatus : MonoBehaviour
     //  TapSelectEssence(txtEssenceList[0]); // 最初を選択しておく。
     //}
 
+    // エッセンス設定は次回エンハンスに対応する。
     // 芋プログラミングだが、良しとする。
     // 壱なる属性（１）
-    List<string> list_1_1 = CurrentPlayer.GetEssenceTreeTitleList(0, 0);
-    for (int ii = 0; ii < list_1_1.Count; ii++)
-    {
-      if (ii >= imgEssenceList1_1.Count) { break; }
-      imgEssenceList1_1[ii].ApplyImageIcon(list_1_1[ii]);
-      txtEssenceList1_1[ii].text = list_1_1[ii];
-    }
-    List<string> list_1_2 = CurrentPlayer.GetEssenceTreeTitleList(0, 1);
-    for (int ii = 0; ii < list_1_2.Count; ii++)
-    {
-      if (ii >= imgEssenceList1_2.Count) { break; }
-      imgEssenceList1_2[ii].ApplyImageIcon(list_1_2[ii]);
-      txtEssenceList1_2[ii].text = list_1_2[ii];
-    }
-    List<string> list_1_3 = CurrentPlayer.GetEssenceTreeTitleList(0, 2);
-    for (int ii = 0; ii < list_1_3.Count; ii++)
-    {
-      if (ii >= imgEssenceList1_3.Count) { break; }
-      imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
-      txtEssenceList1_3[ii].text = list_1_3[ii];
-    }
+    //List<string> list_1_1 = CurrentPlayer.GetEssenceTreeTitleList(0, 0);
+    //for (int ii = 0; ii < list_1_1.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList1_1.Count) { break; }
+    //  imgEssenceList1_1[ii].ApplyImageIcon(list_1_1[ii]);
+    //  txtEssenceList1_1[ii].text = list_1_1[ii];
+    //}
+    //List<string> list_1_2 = CurrentPlayer.GetEssenceTreeTitleList(0, 1);
+    //for (int ii = 0; ii < list_1_2.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList1_2.Count) { break; }
+    //  imgEssenceList1_2[ii].ApplyImageIcon(list_1_2[ii]);
+    //  txtEssenceList1_2[ii].text = list_1_2[ii];
+    //}
+    //List<string> list_1_3 = CurrentPlayer.GetEssenceTreeTitleList(0, 2);
+    //for (int ii = 0; ii < list_1_3.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList1_3.Count) { break; }
+    //  imgEssenceList1_3[ii].ApplyImageIcon(list_1_3[ii]);
+    //  txtEssenceList1_3[ii].text = list_1_3[ii];
+    //}
 
-    // 弐なる属性（１）
-    List<string> list_2_1 = CurrentPlayer.GetEssenceTreeTitleList(1, 0);
-    for (int ii = 0; ii < list_2_1.Count; ii++)
-    {
-      if (ii >= imgEssenceList2_1.Count) { break; }
-      imgEssenceList2_1[ii].ApplyImageIcon(list_2_1[ii]);
-      txtEssenceList2_1[ii].text = list_2_1[ii];
-    }
-    List<string> list_2_2 = CurrentPlayer.GetEssenceTreeTitleList(1, 1);
-    for (int ii = 0; ii < list_2_2.Count; ii++)
-    {
-      if (ii >= imgEssenceList2_2.Count) { break; }
-      imgEssenceList2_2[ii].ApplyImageIcon(list_2_2[ii]);
-      txtEssenceList2_2[ii].text = list_2_2[ii];
-    }
-    List<string> list_2_3 = CurrentPlayer.GetEssenceTreeTitleList(1, 2);
-    for (int ii = 0; ii < list_2_3.Count; ii++)
-    {
-      if (ii >= imgEssenceList2_3.Count) { break; }
-      imgEssenceList2_3[ii].ApplyImageIcon(list_2_3[ii]);
-      txtEssenceList2_3[ii].text = list_2_3[ii];
-    }
+    //// 弐なる属性（１）
+    //List<string> list_2_1 = CurrentPlayer.GetEssenceTreeTitleList(1, 0);
+    //for (int ii = 0; ii < list_2_1.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList2_1.Count) { break; }
+    //  imgEssenceList2_1[ii].ApplyImageIcon(list_2_1[ii]);
+    //  txtEssenceList2_1[ii].text = list_2_1[ii];
+    //}
+    //List<string> list_2_2 = CurrentPlayer.GetEssenceTreeTitleList(1, 1);
+    //for (int ii = 0; ii < list_2_2.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList2_2.Count) { break; }
+    //  imgEssenceList2_2[ii].ApplyImageIcon(list_2_2[ii]);
+    //  txtEssenceList2_2[ii].text = list_2_2[ii];
+    //}
+    //List<string> list_2_3 = CurrentPlayer.GetEssenceTreeTitleList(1, 2);
+    //for (int ii = 0; ii < list_2_3.Count; ii++)
+    //{
+    //  if (ii >= imgEssenceList2_3.Count) { break; }
+    //  imgEssenceList2_3[ii].ApplyImageIcon(list_2_3[ii]);
+    //  txtEssenceList2_3[ii].text = list_2_3[ii];
+    //}
 
     //// 参なる属性（１）
     //List<string> list_3 = CurrentPlayer.GetEssenceTreeTitleList(2, 0);
@@ -361,10 +362,6 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
     }
-
-    // コマンド設定画面への反映
-    //SetupActionCommand(CurrentPlayer, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
-    txtDetailLevel.text = this.CurrentPlayer.Level.ToString();
 
     Debug.Log("remain " + CurrentPlayer.FullName + " " + CurrentPlayer.RemainPoint);
     if (CurrentPlayer.RemainPoint > 0)
@@ -413,117 +410,6 @@ public class GroupCharacterStatus : MonoBehaviour
     //txtDetailLevel.text = this.CurrentPlayer.Level.ToString() + " -> <color=blue>" + (this.CurrentPlayer.Level + 1).ToString() + "</color>";
     //txtDetailExp.text = "MAX";
     //GroupLevelUp?.SetActive(true);
-  }
-
-  private void SetupActionCommand(Character player, ActionCommand.CommandCategory category_type)
-  {
-    Debug.Log("ListActionCommandSet.Count: " + ListActionCommandSet.Count);
-
-    // キャラクターのメインコマンド、アクションコマンドの設定
-    ActionCommandMain.BackColor.color = player.BattleForeColor;
-    ActionCommandMain.OwnerName = player.FullName;
-    ActionCommandMain.CommandName = player.ActionCommandMain;
-    ActionCommandMain.name = player.ActionCommandMain;
-    ActionCommandMain.ActionButton.name = player.ActionCommandMain;
-    ActionCommandMain.ApplyImageIcon(player.ActionCommandMain);
-    //ActionCommandMain.ActionButton.image.sprite = Resources.Load<Sprite>(player.ActionCommandMain);
-
-    List<String> actionList = player.GetActionCommandList();
-    for (int ii = 0; ii < ListActionCommandSet.Count; ii++)
-    {
-      ListActionCommandSet[ii].BackColor.color = player.BattleForeColor;
-      ListActionCommandSet[ii].OwnerName = player.FullName;
-      if (actionList[ii] == Fix.STAY)
-      {
-        ListActionCommandSet[ii].CommandName = Fix.STAY;
-        ListActionCommandSet[ii].name = Fix.STAY;
-        ListActionCommandSet[ii].ActionButton.name = Fix.STAY;
-        ListActionCommandSet[ii].ApplyImageIcon(Fix.STAY);
-        //ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STAY);
-        continue;
-      }
-
-      ListActionCommandSet[ii].CommandName = actionList[ii];
-      ListActionCommandSet[ii].name = actionList[ii];
-      ListActionCommandSet[ii].ActionButton.name = actionList[ii];
-      ListActionCommandSet[ii].ApplyImageIcon(actionList[ii]);
-      //ListActionCommandSet[ii].ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
-    }
-
-    // アクション可能なコマンド一覧の設定
-    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
-    {
-      ListAvailableCommand[ii].CommandName = String.Empty;
-      ListAvailableCommand[ii].name = String.Empty;
-      ListAvailableCommand[ii].ActionButton.image.sprite = null;
-      ListAvailableCommandText[ii].text = String.Empty;
-    }
-
-    // todo (カテゴリが増えた場合、追加実装が必要）
-    groupCommandCategory.SetActive(One.TF.AvailableImmediateAction);
-    btnCommandCategoryAction.gameObject.SetActive(One.TF.AvailableImmediateAction);
-    btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
-    btnCommandCetegoryArchetype.gameObject.SetActive(One.TF.AvailablePotentialGauge);
-
-    List<string> currentList = null;
-    if (category_type == ActionCommand.CommandCategory.Basic)
-    {
-      currentList = player.GetAvailableBasicAction();
-    }
-    else if (category_type == ActionCommand.CommandCategory.ActionCommand)
-    {
-      currentList = player.GetAvailableList();
-    }
-    else if (category_type == ActionCommand.CommandCategory.Item)
-    {
-      currentList = player.GetAvailableListItem();
-    }
-    else if (category_type == ActionCommand.CommandCategory.Archetype)
-    {
-      currentList = player.GetAvailableListArchetype();
-    }
-    else
-    {
-      currentList = player.GetAvailableBasicAction(); // 万が一見つからない場合はBasicで表示
-    }
-
-    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
-    {
-      Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
-      if (ii >= currentList.Count)
-      {
-        ListAvailableCommand[ii].CommandName = String.Empty;
-        ListAvailableCommand[ii].name = String.Empty;
-        ListAvailableCommand[ii].ActionButton.image.sprite = null;
-        ListAvailableCommandText[ii].text = String.Empty;
-        continue;
-      }
-      ListAvailableCommand[ii].CommandName = currentList[ii];
-      ListAvailableCommand[ii].name = currentList[ii];
-      ListAvailableCommand[ii].ApplyImageIcon(currentList[ii]);
-      //ListAvailableCommand[ii].ActionButton.image.sprite = Resources.Load<Sprite>(currentList[ii]);
-      ListAvailableCommandText[ii].text = currentList[ii];
-    }
-  }
-
-  public void TapCommandTypeBasic()
-  {
-    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Basic);
-  }
-
-  public void TapCommandTypeAction()
-  {
-    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.ActionCommand);
-  }
-
-  public void TapCommandTypeItem()
-  {
-    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Item);
-  }
-
-  public void TapCommandTypeArchetype()
-  {
-    SetupActionCommand(this.CurrentPlayer, ActionCommand.CommandCategory.Archetype);
   }
 
   /// <summary>
@@ -1298,60 +1184,5 @@ public class GroupCharacterStatus : MonoBehaviour
     Debug.Log(MethodBase.GetCurrentMethod());
     groupEssenceDecision.SetActive(false);
   }
-  #endregion
-
-  #region "アクションコマンド設定"
-
-  public void TapAvailableListButton(NodeActionCommand action_command)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    if (FilterForAll.activeInHierarchy == false)
-    {
-      this.CurrentSelectCommand = action_command;
-      FilterForAll.SetActive(true);
-      FilterForActionCommand.SetActive(false);
-      FilterForAvailableList.SetActive(true);
-      return;
-    }
-
-    TapCancelActionCommandSet();
-  }
-
-
-  public void TapActionCommandSetList(NodeActionCommand action_command)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-
-    if (FilterForAll.activeInHierarchy == false)
-    {
-      FilterForAll.SetActive(true);
-      FilterForActionCommand.SetActive(true);
-      FilterForAvailableList.SetActive(false);
-      return;
-    }
-
-    action_command.CommandName = this.CurrentSelectCommand.CommandName;
-    action_command.ApplyImageIcon(this.CurrentSelectCommand.CommandName);
-    //action_command.ActionButton.image.sprite = Resources.Load<Sprite>(this.CurrentSelectCommand.CommandName);
-    TapCancelActionCommandSet();
-
-    if (ActionCommandMain.Equals(action_command))
-    {
-      CurrentPlayer.ActionCommandMain = action_command.CommandName;
-    }
-    else
-    {
-      CurrentPlayer.UpdateActionCommandList(ListActionCommandSet);
-    }
-  }
-
-  public void TapCancelActionCommandSet()
-  {
-    FilterForAll.SetActive(false);
-    FilterForActionCommand.SetActive(false);
-    FilterForAvailableList.SetActive(false);
-    this.CurrentSelectCommand = null;
-  }
-
   #endregion
 }
