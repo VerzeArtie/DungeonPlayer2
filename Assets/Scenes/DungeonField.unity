@@ -3467,8 +3467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1324.7999, y: -30}
-  m_SizeDelta: {x: 294.4, y: 60}
+  m_AnchoredPosition: {x: 1308.6, y: -30}
+  m_SizeDelta: {x: 290.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &60625581
 MonoBehaviour:
@@ -28519,6 +28519,7 @@ GameObject:
   - component: {fileID: 490430667}
   - component: {fileID: 490430669}
   - component: {fileID: 490430668}
+  - component: {fileID: 490430670}
   m_Layer: 5
   m_Name: objBlockFilter
   m_TagString: Untagged
@@ -28583,6 +28584,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490430666}
   m_CullTransparentMesh: 0
+--- !u!114 &490430670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490430666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 490430668}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1965409545}
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
+        m_MethodName: TapBackpackCancelAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &491223255
 GameObject:
   m_ObjectHideFlags: 0
@@ -33757,8 +33814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 802, y: -50}
-  m_SizeDelta: {x: 524.6667, y: 80}
+  m_AnchoredPosition: {x: 612, y: -50}
+  m_SizeDelta: {x: 398, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574697868
 MonoBehaviour:
@@ -33804,8 +33861,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111067313}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1965409545}
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapBackpackDetail
         m_Mode: 1
         m_Arguments:
@@ -47007,8 +47064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 736, y: -30}
-  m_SizeDelta: {x: 294.4, y: 60}
+  m_AnchoredPosition: {x: 727, y: -30}
+  m_SizeDelta: {x: 290.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802774789
 MonoBehaviour:
@@ -63399,7 +63456,6 @@ GameObject:
   - component: {fileID: 1101896043}
   - component: {fileID: 1101896046}
   - component: {fileID: 1101896045}
-  - component: {fileID: 1101896044}
   - component: {fileID: 1101896047}
   m_Layer: 5
   m_Name: nodeCharaPanel
@@ -63428,62 +63484,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: 150}
   m_SizeDelta: {x: 308, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1101896044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101896042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1101896045}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1965409545}
-        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
-        m_MethodName: TapStayListCharacter
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1165708133}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1101896045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65818,8 +65818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1030.3999, y: -30}
-  m_SizeDelta: {x: 294.4, y: 60}
+  m_AnchoredPosition: {x: 1017.7999, y: -30}
+  m_SizeDelta: {x: 290.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1139636732
 MonoBehaviour:
@@ -92298,7 +92298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310, y: -278.66666}
+  m_AnchoredPosition: {x: 310, y: -271}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597451032
@@ -103664,8 +103664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1336.6667, y: -50}
-  m_SizeDelta: {x: 524.6667, y: 80}
+  m_AnchoredPosition: {x: 1020, y: -50}
+  m_SizeDelta: {x: 398, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774032777
 MonoBehaviour:
@@ -103711,8 +103711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111067313}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1965409545}
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapBackpackDelete
         m_Mode: 1
         m_Arguments:
@@ -110749,7 +110749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310, y: -497.3333}
+  m_AnchoredPosition: {x: 310, y: -482}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876489376
@@ -116496,8 +116496,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 147.2, y: -30}
-  m_SizeDelta: {x: 294.4, y: 60}
+  m_AnchoredPosition: {x: 145.4, y: -30}
+  m_SizeDelta: {x: 290.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972087574
 MonoBehaviour:
@@ -118065,8 +118065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 441.59998, y: -30}
-  m_SizeDelta: {x: 294.4, y: 60}
+  m_AnchoredPosition: {x: 436.19998, y: -30}
+  m_SizeDelta: {x: 290.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998701601
 MonoBehaviour:
@@ -123130,15 +123130,16 @@ MonoBehaviour:
   imgItemDetailSPD: {fileID: 675474827}
   imgItemDetailRSP: {fileID: 1227930907}
   imgItemDetailPO: {fileID: 76734374}
-  GroupDeleteDecision: {fileID: 0}
-  imgDeleteItem: {fileID: 0}
-  txtDeleteTitle: {fileID: 0}
-  txtDeleteMessage: {fileID: 0}
-  btnDelete: {fileID: 0}
-  btnCancel: {fileID: 0}
-  btnOK: {fileID: 0}
+  GroupDeleteDecision: {fileID: 1242323508}
+  imgDeleteItem: {fileID: 1404943067}
+  txtDeleteTitle: {fileID: 765394181}
+  txtDeleteMessage: {fileID: 1604277592}
+  btnDelete: {fileID: 409798777}
+  btnCancel: {fileID: 1735304478}
+  btnOK: {fileID: 132337864}
   BackpackList: []
   objBlockFilter: {fileID: 490430666}
+  ParentView: {fileID: 0}
 --- !u!1 &2111144356
 GameObject:
   m_ObjectHideFlags: 0
@@ -123455,8 +123456,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 267.33334, y: -50}
-  m_SizeDelta: {x: 524.6667, y: 80}
+  m_AnchoredPosition: {x: 204, y: -50}
+  m_SizeDelta: {x: 398, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114297322
 MonoBehaviour:
@@ -123502,8 +123503,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111067313}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 1965409545}
+        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
         m_MethodName: TapBackpackUse
         m_Mode: 1
         m_Arguments:

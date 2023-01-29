@@ -187,9 +187,6 @@ public class DungeonField : MotherBase
   // Blackout
   public GameObject BlackoutPanel;
 
-  // Gold
-  public Text txtGold;
-
   // Inner Value
   private GameObject Player;
   private List<TileInformation> TileList = new List<TileInformation>();
@@ -410,9 +407,6 @@ public class DungeonField : MotherBase
 
     // プレイヤー位置を設定
     JumpToLocation(new Vector3(One.TF.Field_X, One.TF.Field_Y, One.TF.Field_Z));
-
-    // バックパック情報を画面へ反映
-    ParentBackpackView.ConstructBackpackView();
 
     // タイルおよびフィールドオブジェクトの設置
     LoadTileMapping(One.TF.CurrentDungeonField);
@@ -851,7 +845,7 @@ public class DungeonField : MotherBase
     }
 
     // 通常モード
-    txtCurrentCursor2.text = this.Player.transform.position.ToString();
+//    txtCurrentCursor2.text = this.Player.transform.position.ToString();
 
     // 次のTapOKを即時反映する。
     if (this.NextTapOk)
@@ -1063,48 +1057,11 @@ public class DungeonField : MotherBase
 
   public void TapPartyMenu()
   {
-    GroupPartyMenu.gameObject.SetActive(true);
-    this.CurrentPlayer = PlayerList[0];
-    //TapStayListCharacter(StayListName[0]);
-    //CallGroupPartyStatus(this.CurrentPlayer);
-    //TapStatus();
-  }
+    //GroupPartyMenu.gameObject.SetActive(true);
+    //this.CurrentPlayer = PlayerList[0];
 
-  public void TapStatus()
-  {
-    SetupStayList();
-    CallGroupPartyStatus(this.CurrentPlayer);
-
-    groupPartyStatus.gameObject.SetActive(true);
-    groupPartyCommand.SetActive(false);
-    groupPartyItem.SetActive(false);
-    groupPartyBattleSetting.SetActive(false);
-  }
-  public void TapCommand()
-  {
-    SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
-    groupPartyCommand.SetActive(true);
-    groupPartyItem.SetActive(false);
-    groupPartyBattleSetting.SetActive(false);
-  }
-
-  public void TapItem()
-  {
-    SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
-    groupPartyCommand.SetActive(false);
-    groupPartyItem.SetActive(true);
-    groupPartyBattleSetting.SetActive(false);
-  }
-
-  public void TapBattleSetting()
-  {
-    SetupStayList();
-    groupPartyStatus.gameObject.SetActive(false);
-    groupPartyCommand.SetActive(false);
-    groupPartyItem.SetActive(false);
-    groupPartyBattleSetting.SetActive(true);
+    SceneManager.sceneLoaded += PartyMenuLoadded;
+    SceneDimension.SceneAdd(Fix.SCENE_PARTY_MENU);
   }
 
   public void TapExit()
@@ -1241,191 +1198,6 @@ public class DungeonField : MotherBase
     FilterForActionCommand.SetActive(false);
     FilterForAvailableList.SetActive(false);
     this.CurrentSelectCommand = null;
-  }
-
-  public void TapStayListCharacter(Text txt_name)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    // コマンド実行
-    if (objCancelActionCommand.activeInHierarchy)
-    {
-      Character player = One.SelectCharacter(txtCurrentName.text);
-      Character target = One.SelectCharacter(txt_name.text);
-
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
-      Debug.Log(MethodBase.GetCurrentMethod());
-      if (target.Dead)
-      {
-        return;
-      }
-      if (player.CurrentSoulPoint < ActionCommand.CostSP(Fix.FRESH_HEAL))
-      {
-        return;
-      }
-      player.CurrentSoulPoint -= ActionCommand.CostSP(Fix.FRESH_HEAL);
-
-      if (healValue <= 0) { healValue = 0; }
-      int result = (int)healValue;
-      Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
-      target.CurrentLife += result;
-
-      objCancelActionCommand.SetActive(false);
-      ParentBackpackView.objBlockFilter.SetActive(false);
-      SetupStayList();
-      RefreshAllView();
-      return;
-    }
-
-    // アイテム実行
-    if (ParentBackpackView.objBlockFilter.activeInHierarchy)
-    {
-      for (int ii = 0; ii < PlayerList.Count; ii++)
-      {
-        if (txt_name.text == PlayerList[ii].FullName)
-        {
-          if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.NORMAL_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.LARGE_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HUGE_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HQ_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.THQ_RED_POTION ||
-              ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PERFECT_RED_POTION)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].CurrentLife += (int)effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.NORMAL_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.LARGE_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HUGE_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HQ_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.THQ_BLUE_POTION ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PERFECT_BLUE_POTION)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].CurrentSoulPoint += (int)effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_STRENGTH ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_STRENGTH)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].Strength += effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_AGILITY ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_AGILITY)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].Agility += effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_INTELLIGENCE ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_INTELLIGENCE)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].Intelligence += effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_STAMINA ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_STAMINA)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].Stamina += effectValue;
-          }
-          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID4_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID5_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID6_MIND ||
-                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID7_MIND)
-          {
-            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
-            One.TF.DeleteBackpack(current, 1);
-            int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].Mind += effectValue;
-          }
-
-          objCancelActionCommand.SetActive(false);
-          ParentBackpackView.objBlockFilter.SetActive(false);
-          SetupStayList();
-          RefreshAllView();
-          break;
-        }
-      }
-      return;
-    }
-
-    // 通常選択
-    for (int ii = 0; ii < PlayerList.Count; ii++)
-    {
-      if (txt_name.text == PlayerList[ii].FullName)
-      {
-        this.CurrentPlayer = PlayerList[ii];
-        CallGroupPartyStatus(PlayerList[ii]);
-        break;
-      }
-    }
-
-    txtCurrentName.text = txt_name.text;
-    txtBattleSettingCharacterName.text = txt_name.text;
-    Character player2 = One.SelectCharacter(txt_name.text);
-    if (player2 != null)
-    {
-      if (player2.FreshHeal > 0) { objActionCommand[0].SetActive(true); }
-      else { objActionCommand[0].SetActive(false); }
-
-      if (player2.ShiningHeal > 0) { objActionCommand[1].SetActive(true); }
-      else { objActionCommand[1].SetActive(false); }
-
-      if (player2.LifeGrace > 0) { objActionCommand[2].SetActive(true); }
-      else { objActionCommand[2].SetActive(false); }
-    }
-
-    // コマンド設定画面への反映
-    Character player3 = One.SelectCharacter(txt_name.text);
-    SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
-  }
-
-  private void CallGroupPartyStatus(Character player)
-  {
-    //groupPartyStatus.parentMotherBase = this;
-    //groupPartyStatus.ReleaseIt();
-    //groupPartyStatus.CurrentPlayer = player;
-    //groupPartyStatus.UpdateCharacterDetailView(player);
-
-    SceneManager.sceneLoaded += CharacterStatusLoadded;
-    SceneDimension.SceneAdd("CharacterStatus");
-
   }
 
   private void CharacterStatusLoadded(Scene next, LoadSceneMode mode)
@@ -1691,8 +1463,95 @@ public class DungeonField : MotherBase
       return;
     }
 
-    ParentBackpackView.ConstructBackpackView();
+    ParentBackpackView.ConstructBackpackView(this);
     ParentBackpackView.gameObject.SetActive(true);
+  }
+
+  private void PartyMenuLoadded(Scene next, LoadSceneMode mode)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    SceneManager.sceneLoaded -= PartyMenuLoadded;
+
+    //var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
+
+    //charaStatus.parentMotherBase = this;
+    //charaStatus.ReleaseIt();
+    //charaStatus.CurrentPlayer = this.CurrentPlayer;
+    //charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
+  }
+
+  public void TapBackpackUse()
+  {
+    // todo Nodeコンポーネントに実装処理を入れるのはマズいので抽象化が必須。
+    string current = (ParentBackpackView.CurrentSelectBackpack?.ItemName ?? String.Empty);
+    if (current == Fix.SMALL_RED_POTION ||
+        current == Fix.NORMAL_RED_POTION ||
+        current == Fix.LARGE_RED_POTION ||
+        current == Fix.HUGE_RED_POTION ||
+        current == Fix.HQ_RED_POTION ||
+        current == Fix.THQ_RED_POTION ||
+        current == Fix.PERFECT_RED_POTION ||
+        current == Fix.SMALL_BLUE_POTION ||
+        current == Fix.NORMAL_BLUE_POTION ||
+        current == Fix.LARGE_BLUE_POTION ||
+        current == Fix.HUGE_BLUE_POTION ||
+        current == Fix.HQ_BLUE_POTION ||
+        current == Fix.THQ_BLUE_POTION ||
+        current == Fix.PERFECT_BLUE_POTION ||
+        current == Fix.GROWTH_LIQUID_STRENGTH ||
+        current == Fix.GROWTH_LIQUID2_STRENGTH ||
+        current == Fix.GROWTH_LIQUID3_STRENGTH ||
+        current == Fix.GROWTH_LIQUID4_STRENGTH ||
+        current == Fix.GROWTH_LIQUID5_STRENGTH ||
+        current == Fix.GROWTH_LIQUID6_STRENGTH ||
+        current == Fix.GROWTH_LIQUID7_STRENGTH ||
+        current == Fix.GROWTH_LIQUID_AGILITY ||
+        current == Fix.GROWTH_LIQUID2_AGILITY ||
+        current == Fix.GROWTH_LIQUID3_AGILITY ||
+        current == Fix.GROWTH_LIQUID4_AGILITY ||
+        current == Fix.GROWTH_LIQUID5_AGILITY ||
+        current == Fix.GROWTH_LIQUID6_AGILITY ||
+        current == Fix.GROWTH_LIQUID7_AGILITY ||
+        current == Fix.GROWTH_LIQUID_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID3_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID4_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID5_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID6_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID7_INTELLIGENCE ||
+        current == Fix.GROWTH_LIQUID_STAMINA ||
+        current == Fix.GROWTH_LIQUID2_STAMINA ||
+        current == Fix.GROWTH_LIQUID3_STAMINA ||
+        current == Fix.GROWTH_LIQUID4_STAMINA ||
+        current == Fix.GROWTH_LIQUID5_STAMINA ||
+        current == Fix.GROWTH_LIQUID6_STAMINA ||
+        current == Fix.GROWTH_LIQUID7_STAMINA ||
+        current == Fix.GROWTH_LIQUID_MIND ||
+        current == Fix.GROWTH_LIQUID2_MIND ||
+        current == Fix.GROWTH_LIQUID3_MIND ||
+        current == Fix.GROWTH_LIQUID4_MIND ||
+        current == Fix.GROWTH_LIQUID5_MIND ||
+        current == Fix.GROWTH_LIQUID6_MIND ||
+        current == Fix.GROWTH_LIQUID7_MIND
+        )
+    {
+      ParentBackpackView.objBlockFilter.SetActive(true);
+    }
+  }
+
+  public void TapBackpackDetail()
+  {
+    ParentBackpackView.TapBackpackDetail();
+  }
+
+  public void TapBackpackDelete()
+  {
+    ParentBackpackView.TapBackpackDelete();
+  }
+
+  public void TapBackpackCancelAction()
+  {
+    ParentBackpackView.objBlockFilter.SetActive(false);
   }
 
   public void TapFastTravel()
@@ -6370,7 +6229,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           One.TF.AddBackPack(new Item(currentMessage));
-          ParentBackpackView.ConstructBackpackView();
+          ParentBackpackView.ConstructBackpackView(this);
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
@@ -6392,7 +6251,7 @@ public class DungeonField : MotherBase
           Debug.Log("GetTreasure 3");
 
           One.TF.AddBackPack(new Item(currentMessage));
-          ParentBackpackView.ConstructBackpackView();
+          ParentBackpackView.ConstructBackpackView(this);
 
           #region "サルンの洞窟前"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_CAVEOFSARUN)
@@ -12035,14 +11894,11 @@ public class DungeonField : MotherBase
     // パーティステータス画面への反映
     SetupStayList();
 
-    // ゴールドへの反映
-    txtGold.text = One.TF.Gold.ToString();
-
     // コマンド設定画面への反映
     SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
     // バックパック情報を画面へ反映
-    ParentBackpackView.ConstructBackpackView();
+    ParentBackpackView.ConstructBackpackView(this);
 
     // フィールドオブジェクトの状態更新
     UpdateFieldObject(One.TF.CurrentDungeonField);

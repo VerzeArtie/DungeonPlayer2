@@ -570,6 +570,7 @@ public static partial class Fix
   public const string SCENE_DUNGEON_FIELD = @"DungeonField";
   public const string SCENE_HOME_TOWN = @"HomeTown";
   public const string SCENE_HELP_BOOK = @"HelpBook";
+  public const string SCENE_PARTY_MENU = @"PartyMenu";
   #endregion
   #region "Limit"
   public const int INFINITY = 9999999;

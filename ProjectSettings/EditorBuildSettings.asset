@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DungeonField.unity
     guid: 86d88a09825897049bf1e858cab3e069
   - enabled: 1
+    path: Assets/Scenes/PartyMenu.unity
+    guid: a09e815004f57f348babf62e689abe31
+  - enabled: 1
     path: Assets/Scenes/HelpBook.unity
     guid: 6b9526c8d8490ac48a3b150352c06168
   - enabled: 1

@@ -63,10 +63,17 @@ public class NodeBackpackView : MonoBehaviour
 
   public GameObject objBlockFilter;
 
+  public MotherBase ParentView;
+
   public Item CurrentSelectBackpack;
 
-  public void ConstructBackpackView()
+  public void ConstructBackpackView(MotherBase parent_view)
   {
+    if (parent_view != null)
+    {
+      this.ParentView = parent_view;
+    }
+
     foreach (Transform n in ContentBackpack.transform)
     {
       GameObject.Destroy(n.gameObject);
@@ -94,65 +101,6 @@ public class NodeBackpackView : MonoBehaviour
       BackpackList[ii].imgSelect.gameObject.SetActive(false);
     }
     backpack.imgSelect.gameObject.SetActive(true);
-  }
-
-  public void TapBackpackUse()
-  {
-    // todo Nodeコンポーネントに実装処理を入れるのはマズいので抽象化が必須。
-    string current = (CurrentSelectBackpack?.ItemName ?? String.Empty);
-    if (current == Fix.SMALL_RED_POTION ||
-        current == Fix.NORMAL_RED_POTION ||
-        current == Fix.LARGE_RED_POTION ||
-        current == Fix.HUGE_RED_POTION ||
-        current == Fix.HQ_RED_POTION ||
-        current == Fix.THQ_RED_POTION ||
-        current == Fix.PERFECT_RED_POTION ||
-        current == Fix.SMALL_BLUE_POTION ||
-        current == Fix.NORMAL_BLUE_POTION ||
-        current == Fix.LARGE_BLUE_POTION ||
-        current == Fix.HUGE_BLUE_POTION || 
-        current == Fix.HQ_BLUE_POTION || 
-        current == Fix.THQ_BLUE_POTION ||
-        current == Fix.PERFECT_BLUE_POTION ||
-        current == Fix.GROWTH_LIQUID_STRENGTH ||
-        current == Fix.GROWTH_LIQUID2_STRENGTH ||
-        current == Fix.GROWTH_LIQUID3_STRENGTH ||
-        current == Fix.GROWTH_LIQUID4_STRENGTH ||
-        current == Fix.GROWTH_LIQUID5_STRENGTH ||
-        current == Fix.GROWTH_LIQUID6_STRENGTH ||
-        current == Fix.GROWTH_LIQUID7_STRENGTH ||
-        current == Fix.GROWTH_LIQUID_AGILITY ||
-        current == Fix.GROWTH_LIQUID2_AGILITY ||
-        current == Fix.GROWTH_LIQUID3_AGILITY ||
-        current == Fix.GROWTH_LIQUID4_AGILITY ||
-        current == Fix.GROWTH_LIQUID5_AGILITY ||
-        current == Fix.GROWTH_LIQUID6_AGILITY ||
-        current == Fix.GROWTH_LIQUID7_AGILITY ||
-        current == Fix.GROWTH_LIQUID_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID3_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID4_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID5_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID6_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID7_INTELLIGENCE ||
-        current == Fix.GROWTH_LIQUID_STAMINA ||
-        current == Fix.GROWTH_LIQUID2_STAMINA ||
-        current == Fix.GROWTH_LIQUID3_STAMINA ||
-        current == Fix.GROWTH_LIQUID4_STAMINA ||
-        current == Fix.GROWTH_LIQUID5_STAMINA ||
-        current == Fix.GROWTH_LIQUID6_STAMINA ||
-        current == Fix.GROWTH_LIQUID7_STAMINA ||
-        current == Fix.GROWTH_LIQUID_MIND ||
-        current == Fix.GROWTH_LIQUID2_MIND ||
-        current == Fix.GROWTH_LIQUID3_MIND ||
-        current == Fix.GROWTH_LIQUID4_MIND ||
-        current == Fix.GROWTH_LIQUID5_MIND ||
-        current == Fix.GROWTH_LIQUID6_MIND ||
-        current == Fix.GROWTH_LIQUID7_MIND
-        )
-    {
-      objBlockFilter.SetActive(true);
-    }
   }
 
   public void TapCancelUse()
@@ -218,7 +166,12 @@ public class NodeBackpackView : MonoBehaviour
 
   public void TapBackpackDelete()
   {
+    Debug.Log("TapBackpackDelete(S)");
+    if (this.CurrentSelectBackpack == null) { Debug.Log("CurrentSelectBackpack is null..."); }
+    if (this.imgDeleteItem == null) { Debug.Log("imgDeleteItem is null..."); }
+
     imgDeleteItem.sprite = Resources.Load<Sprite>("Icon_" + this.CurrentSelectBackpack?.ItemType.ToString() ?? "");
+
     if (this.CurrentSelectBackpack.ImportantType == Item.Important.Precious)
     {
       txtDeleteTitle.text = this.CurrentSelectBackpack.ItemName + "は捨てる事が出来ません。";
@@ -247,7 +200,7 @@ public class NodeBackpackView : MonoBehaviour
     {
       One.TF.RemoveItem(this.CurrentSelectBackpack);
     }
-    ConstructBackpackView();
+    ConstructBackpackView(null);
   }
 
   public void TapDeleteCancel()
