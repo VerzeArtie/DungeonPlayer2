@@ -127,7 +127,7 @@ public class SaveLoad : MotherBase
     for (int ii = 0; ii < filenameList.Length; ii++)
     {
       string targetString = System.IO.Path.GetFileName(filenameList[ii]);
-      Debug.Log("targetString: " + targetString);
+      //Debug.Log("targetString: " + targetString);
       if (targetString.Contains("TeamFoundationSave.xml")) { continue; } // todo ちょっとタイム
       if (targetString.Contains("TruthWorldEnvironment.xml")) { continue; } // todo ちょっとタイム
       if (Convert.ToInt32(targetString.Substring(0, 3)) >= Fix.WORLD_SAVE_NUM) { continue; } // オートセーブは検査対象外
@@ -226,7 +226,7 @@ public class SaveLoad : MotherBase
           ReadDisplaySaveString(targetString, ref displayDungeonName, ref displayAreaName, ref displaySaveByDungeon);
           if (displayDungeonName != string.Empty)
           {
-            Debug.Log("displaySaveString: " + displayDungeonName + " " + displayAreaName + " " + displaySaveByDungeon);
+            // Debug.Log("displaySaveString: " + displayDungeonName + " " + displayAreaName + " " + displaySaveByDungeon);
             if (displaySaveByDungeon)
             {
               targetButton.text += displayDungeonName;
@@ -264,7 +264,7 @@ public class SaveLoad : MotherBase
 
   public void tapButton(Text sender)
   {
-    Debug.Log(sender.text);
+    // Debug.Log(sender.text);
     //One.SQL.UpdateOwner(Fix.LOG_SAVELOAD_NUMBER, sender.text, String.Empty);
     One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
 
@@ -741,7 +741,7 @@ public class SaveLoad : MotherBase
 
     Type typeDSD = One.TF.GetType();
     PropertyInfo[] tempDSD = typeDSD.GetProperties();
-    Debug.Log(tempDSD.Length.ToString());
+    // Debug.Log(tempDSD.Length.ToString());
     for (int ii = 0; ii < tempDSD.Length; ii++)
     {
       //Debug.Log("DSD: " + tempDSD[ii].Name);
@@ -867,7 +867,7 @@ public class SaveLoad : MotherBase
       XmlNodeList current = parent[ii].ChildNodes;
       for (int jj = 0; jj < current.Count; jj++)
       {
-        Debug.Log("TF child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
+        // Debug.Log("TF child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
         listTFName.Add(current[jj].Name);
         listTFValue.Add(current[jj].InnerText);
       }
@@ -881,7 +881,7 @@ public class SaveLoad : MotherBase
     Debug.Log(tempTF.Length.ToString());
     for (int ii = 0; ii < tempTF.Length; ii++)
     {
-      Debug.Log("TF: " + tempTF[ii].Name);
+      // Debug.Log("TF: " + tempTF[ii].Name);
       PropertyInfo pi = tempTF[ii];
       // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
       if (pi.PropertyType == typeof(System.Int32))
@@ -1035,7 +1035,7 @@ public class SaveLoad : MotherBase
       XmlNodeList current = character[0].ChildNodes;
       for (int jj = 0; jj < current.Count; jj++)
       {
-        Debug.Log("character child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
+        // Debug.Log("character child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
         listName.Add(current[jj].Name);
         listValue.Add(current[jj].InnerText);
       }
@@ -1046,7 +1046,7 @@ public class SaveLoad : MotherBase
       PropertyInfo[] tempCharacter = typeCharacter.GetProperties();
       for (int jj = 0; jj < tempCharacter.Length; jj++)
       {
-        Debug.Log("character: " + tempCharacter[jj].Name);
+        // Debug.Log("character: " + tempCharacter[jj].Name);
         PropertyInfo pi = tempCharacter[jj];
         // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
         if (pi.PropertyType == typeof(System.Int32))
@@ -1097,7 +1097,7 @@ public class SaveLoad : MotherBase
         else if (pi.PropertyType == typeof(Item))
         {
 
-          Debug.Log("Detect Item: " + pi.Name);
+          // Debug.Log("Detect Item: " + pi.Name);
           if (pi.Name == "MainWeapon")
           {
             for (int kk = 0; kk < listName.Count; kk++)
@@ -1240,7 +1240,7 @@ public class SaveLoad : MotherBase
         //Debug.Log("ExecLoad current " + jj.ToString() + " " + current[jj].InnerText);
         if (current[jj].InnerText.Contains("True"))
         {
-          Debug.Log("ExecLoad KnownTileList_CaveOfSarun KnownNumber: " + jj.ToString());
+          //Debug.Log("ExecLoad KnownTileList_CaveOfSarun KnownNumber: " + jj.ToString());
           One.TF.KnownTileList_CaveOfSarun[jj] = true;
         }
         else
@@ -1257,7 +1257,7 @@ public class SaveLoad : MotherBase
       {
         if (current[jj].InnerText.Contains("True"))
         {
-          Debug.Log("ExecLoad KnownTileList_Goratrum KnownNumber: " + jj.ToString());
+          //Debug.Log("ExecLoad KnownTileList_Goratrum KnownNumber: " + jj.ToString());
           One.TF.KnownTileList_Goratrum[jj] = true;
         }
         else
