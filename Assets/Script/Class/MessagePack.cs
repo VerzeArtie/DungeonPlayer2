@@ -230,6 +230,12 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：今いるのがココだ。他を選ぼう。", ActionEvent.None);
   }
+
+  public static void MessageX00013(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：いや、今これを使う必要はないだろう。", ActionEvent.None);
+  }
+
   #endregion
 
   #region "サルン洞窟入口前のフィールド"

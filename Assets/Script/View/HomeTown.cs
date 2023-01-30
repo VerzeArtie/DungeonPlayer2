@@ -503,7 +503,7 @@ public partial class HomeTown : MotherBase
       RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
                         Input.mousePosition, canvas.worldCamera, out this.mousePosition);
       RectTransform objRect = objSelectCursor.GetComponent<RectTransform>();
-      objSelectCursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(mousePosition.x + objRect.sizeDelta.x+10, mousePosition.y + objRect.sizeDelta.y+10);
+      objSelectCursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(mousePosition.x + objRect.sizeDelta.x + 10, mousePosition.y + objRect.sizeDelta.y + 10);
     }
   }
 
@@ -542,6 +542,35 @@ public partial class HomeTown : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     SceneDimension.SceneAdd(Fix.SCENE_HELP_BOOK);
+  }
+
+  public void TapPartyMenu()
+  {
+    //GroupPartyMenu.gameObject.SetActive(true);
+    //this.CurrentPlayer = PlayerList[0];
+
+    SceneManager.sceneLoaded += PartyMenuLoadded;
+    SceneDimension.SceneAdd(Fix.SCENE_PARTY_MENU);
+  }
+
+  private void PartyMenuLoadded(Scene next, LoadSceneMode mode)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    SceneManager.sceneLoaded -= PartyMenuLoadded;
+
+    //var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
+
+    //charaStatus.parentMotherBase = this;
+    //charaStatus.ReleaseIt();
+    //charaStatus.CurrentPlayer = this.CurrentPlayer;
+    //charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
+  }
+
+  public void TapFastTravel()
+  {
+    // todo 何らかのイベントでホームタウンで使えるシナリオを構築すること。
+    MessagePack.MessageX00013(ref QuestMessageList, ref QuestEventList);
+    TapOK();
   }
 
   public void TapDungeonPlayer()
