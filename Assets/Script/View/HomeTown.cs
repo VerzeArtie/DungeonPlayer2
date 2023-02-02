@@ -12,6 +12,8 @@ public partial class HomeTown : MotherBase
 {
   #region "Core"
   // HomeTown
+  public Image backgroundData;
+  public Text dayLabel;
   public GameObject objBlackOut;
   public Text txtDate;
   public Text txtArea;
@@ -367,6 +369,8 @@ public partial class HomeTown : MotherBase
 
   private bool HomeTownComplete = false;
 
+  private int firstDay = 1;
+
   // Use this for initialization
   public override void Start()
   {
@@ -386,6 +390,8 @@ public partial class HomeTown : MotherBase
       if (One.TF.Event_Message100010 == false)
       {
         One.TF.Event_Message100010 = true;
+        One.TF.AlreadyRestInn = true;
+        UpdateBackgroundData(Fix.BACKGROUND_MORNING);
         MessagePack.Message100010(ref QuestMessageList, ref QuestEventList);
         TapOK();
 
@@ -1634,6 +1640,10 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
+
+    One.TF.GameDay += 1;
+    dayLabel.text = One.TF.GameDay.ToString() + "日目";
+
     RefreshAllView();
     this.GroupInn.SetActive(false);
   }
@@ -3266,6 +3276,33 @@ public partial class HomeTown : MotherBase
     UpdateTacticsPartyMember(One.TF.BattlePlayer3, num); num++;
     UpdateTacticsPartyMember(One.TF.BattlePlayer4, num); num++;
     UpdateStayListCheckMark();
+
+    // 背景と日数
+    this.dayLabel.text = One.TF.GameDay.ToString() + "日目";
+    if (One.TF.AlreadyRestInn)
+    {
+      this.firstDay = One.TF.GameDay - 1; // 休息したかどうかのフラグに関わらず町に訪れた最初の日を記憶します。
+      if (this.firstDay <= 0) this.firstDay = 1; // [警告] 後編初日のロジック崩れによる回避手段。あまり良い直し方ではありません。
+    }
+    else
+    {
+      this.firstDay = One.TF.GameDay; // 休息したかどうかのフラグに関わらず町に訪れた最初の日を記憶します。
+    }
+
+    //if (GroundOne.DuelMode && GroundOne.enemyName1 == Database.VERZE_ARTIE)
+    //{
+    //  BlackOut();
+    //  UpdateBackgroundData(Database.BaseResourceFolder + Database.BACKGROUND_FIELD_OF_FIRSTPLACE);
+    //}
+    if (One.TF.AlreadyRestInn == false)
+    {
+      UpdateBackgroundData(Fix.BACKGROUND_EVENING);
+    }
+    else
+    {
+      UpdateBackgroundData(Fix.BACKGROUND_MORNING);
+    }
+
   }
 
   private void UpdateStayListCheckMark()
@@ -3813,4 +3850,37 @@ public partial class HomeTown : MotherBase
     return foodList;
   }
   #endregion
+
+  private void UpdateBackgroundData(string filename)
+  {
+    if (filename == null || filename == string.Empty || filename == "")
+    {
+      Debug.Log("filename == null || filename == string.Empty");
+      return;
+    }
+    if (filename == Fix.BACKGROUND_MORNING)
+    {
+      this.backgroundData.sprite = Resources.Load<Sprite>( Fix.BACKGROUND_MORNING);
+      this.backgroundData.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+      this.backgroundData.gameObject.SetActive(true);
+    }
+    else if (filename == Fix.BACKGROUND_EVENING)
+    {
+      this.backgroundData.sprite = Resources.Load<Sprite>(Fix.BACKGROUND_MORNING);
+      this.backgroundData.color = new Color(191.0f / 255.0f, 139.0f / 255.0f, 25.0f / 255.0f, 1.0f);
+      this.backgroundData.gameObject.SetActive(true);
+    }
+    else if (filename == Fix.BACKGROUND_NIGHT)
+    {
+      this.backgroundData.sprite = Resources.Load<Sprite>(Fix.BACKGROUND_MORNING);
+      this.backgroundData.color = new Color(33.0f / 255.0f, 53.0f / 255.0f, 132.0f / 255.0f, 1.0f);
+      this.backgroundData.gameObject.SetActive(true);
+    }
+    else
+    {
+      this.backgroundData.sprite = Resources.Load<Sprite>(filename);
+      this.backgroundData.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+      this.backgroundData.gameObject.SetActive(true);
+    }
+  }
 }

@@ -198,6 +198,8 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
     Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
   }
 

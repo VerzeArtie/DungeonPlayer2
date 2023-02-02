@@ -6252,6 +6252,12 @@ public static partial class Fix
   #endregion
   #endregion
 
+  #region "Hometown"
+  public const string BACKGROUND_MORNING = @"hometown"; // ".jpg"; // change unity
+  public const string BACKGROUND_EVENING = @"hometown_evening"; // ".jpg"; // change unity
+  public const string BACKGROUND_NIGHT = @"hometown2"; // ".jpg"; // change unity
+  #endregion
+
   #region "World Keyword"
   #region "Player Name"
   public const int CHARACTER_LIST_NUM = 24;
