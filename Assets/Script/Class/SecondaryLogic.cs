@@ -496,4 +496,9 @@ public static class SecondaryLogic
   {
     return 4.00f;
   }
+
+  public static int GaleWind_Turn(Character player)
+  {
+    return 3;
+  }
 }

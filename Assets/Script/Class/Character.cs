@@ -2307,6 +2307,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.VOICE_OF_VIGOR); }
   }
 
+  public BuffImage IsGaleWind
+  {
+    get { return SearchBuff(Fix.GALE_WIND); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }

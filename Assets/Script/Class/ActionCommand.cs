@@ -582,6 +582,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return Attribute.Skill; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
 
+    if (command_name == Fix.GALE_WIND) { return Attribute.Magic; }
+
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
 
     return Attribute.None;
@@ -664,6 +666,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return TimingType.Instant; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
 
+    if (command_name == Fix.GALE_WIND) { return TimingType.Instant; }
+
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -745,6 +749,8 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return TargetType.AllyGroup; }
     if (command_name == Fix.UNSEEN_AID) { return TargetType.AllMember; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
+
+    if (command_name == Fix.GALE_WIND) { return TargetType.Own; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -889,6 +895,8 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
     if (command_name == Fix.UNSEEN_AID) { return 16; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
+
+    if (command_name == Fix.GALE_WIND) { return 28; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1051,6 +1059,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return BuffType.None; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
 
+    if (command_name == Fix.GALE_WIND) { return BuffType.Positive; }
+
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
     if (command_name == Fix.EFFECT_SLIP) { return BuffType.Negative; }
@@ -1148,6 +1158,8 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return false; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
 
+    if (command_name == Fix.GALE_WIND) { return false; }
+
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
     if (command_name == Fix.EFFECT_SLIP) { return true; }
@@ -1206,6 +1218,8 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
     if (command_name == Fix.WORD_OF_POWER) { return Fix.WORD_OF_POWER_JP; }
+
+    if (command_name == Fix.GALE_WIND) { return Fix.GALE_WIND_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1277,7 +1291,7 @@ public static class ActionCommand
     if (command_name == Fix.FREEZING_CUBE) { return ""; }
     if (command_name == Fix.ANGELIC_ECHO) { return ""; }
     if (command_name == Fix.CURSED_EVANGEL) { return ""; }
-    if (command_name == Fix.GALE_WIND) { return ""; }
+    if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
     if (command_name == Fix.SAND_BURST) { return ""; }
     if (command_name == Fix.IRON_BASTER) { return ""; }
     if (command_name == Fix.PENETRATION_ARROW) { return ""; }

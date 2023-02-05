@@ -1338,10 +1338,21 @@ public partial class BattleEnemy : MotherBase
     return false;
   }
 
+  private void ExecPlayerCommand(Character player, Character target, string command_name)
+  {
+    ExecPlayerCommand_Origin(player, target, command_name);
+
+    // GaleWindなら２回行動。GaleWind自体は２度掛けしない。
+    if (player.IsGaleWind && command_name != Fix.GALE_WIND)
+    {
+      ExecPlayerCommand_Origin(player, target, command_name);
+    }
+  }
+
   /// <summary>
   /// プレイヤーコマンドを実行します。
   /// </summary>
-  private void ExecPlayerCommand(Character player, Character target, string command_name)
+  private void ExecPlayerCommand_Origin(Character player, Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + player?.FullName);
 
@@ -1629,6 +1640,13 @@ public partial class BattleEnemy : MotherBase
         break;
 
       #endregion
+
+      #region "Delve IV"
+      case Fix.GALE_WIND:
+        ExecGaleWind(player);
+        break;
+      #endregion
+
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
         break;
@@ -4093,6 +4111,12 @@ public partial class BattleEnemy : MotherBase
       target_list[ii].objBuffPanel.RemoveAll();
       StartAnimation(target_list[ii].objGroup.gameObject, Fix.BUFF_REMOVE_ALL, Fix.COLOR_NORMAL);
     }
+  }
+
+  public void ExecGaleWind(Character player)
+  {
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0);
+    StartAnimation(player.objGroup.gameObject, Fix.GALE_WIND, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)
