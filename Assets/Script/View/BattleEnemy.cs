@@ -1646,6 +1646,11 @@ public partial class BattleEnemy : MotherBase
         ExecGaleWind(player);
         break;
 
+      case Fix.VOLCANIC_BLAZE:
+        target_list = GetOpponentGroup(player);
+        ExecVolcanicBlaze(player, target_list, target.objFieldPanel, critical);
+        break;
+
       case Fix.FREEZING_CUBE:
         ExecFreezingCube(player, target, target.objFieldPanel, critical);
         break;
@@ -3226,7 +3231,7 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < PlayerList.Count; jj++)
         {
-          if (PlayerList[ii].IsSigilOfThePending == null)
+          if (PlayerList[jj].IsSigilOfThePending == null)
           {
             ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Wind, buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
           }
@@ -3236,9 +3241,19 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < PlayerList.Count; jj++)
         {
-          if (PlayerList[ii].IsSigilOfThePending == null)
+          if (PlayerList[jj].IsSigilOfThePending == null)
           {
             ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Ice, buffPlayerFieldList[ii].EffectValue2);
+          }
+        }
+      }
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.VOLCANIC_BLAZE)
+      {
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          if (PlayerList[jj].IsSigilOfThePending == null)
+          {
+            ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Fire, buffPlayerFieldList[ii].EffectValue2);
           }
         }
       }
@@ -3251,7 +3266,7 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < EnemyList.Count; jj++)
         {
-          if (EnemyList[ii].IsSigilOfThePending == null)
+          if (EnemyList[jj].IsSigilOfThePending == null)
           {
             ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Wind, buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
           }
@@ -3261,9 +3276,19 @@ public partial class BattleEnemy : MotherBase
       {
         for (int jj = 0; jj < EnemyList.Count; jj++)
         {
-          if (EnemyList[ii].IsSigilOfThePending == null)
+          if (EnemyList[jj].IsSigilOfThePending == null)
           {
             ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Ice, buffEnemyFieldList[ii].EffectValue2);
+          }
+        }
+      }
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.VOLCANIC_BLAZE)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          if (EnemyList[jj].IsSigilOfThePending == null)
+          {
+            ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Fire, buffEnemyFieldList[ii].EffectValue2);
           }
         }
       }
@@ -4159,6 +4184,17 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  private void ExecVolcanicBlaze(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
+    }
+    target_field_obj.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player));
+    StartAnimation(target_field_obj.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
+  }
+
   private bool ExecUseRedPotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -4756,13 +4792,19 @@ public partial class BattleEnemy : MotherBase
       if (player.Artifact != null && player.Artifact.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyEarth; }
     }
 
-    // フリージング・キューブによる効果
     if (target.objFieldPanel != null)
     {
       BuffImage[] buffList = target.objFieldPanel.GetComponentsInChildren<BuffImage>();
       for (int ii = 0; ii < buffList.Length; ii++)
       {
-        if (buffList[ii].BuffName == Fix.FREEZING_CUBE)
+        // フリージング・キューブによる効果
+        if (buffList[ii].BuffName == Fix.FREEZING_CUBE && attr == Fix.DamageSource.Ice)
+        {
+          damageValue = damageValue * buffList[ii].EffectValue;
+        }
+
+        // ヴォルカニック・ウェイヴによる効果
+        if (buffList[ii].BuffName == Fix.VOLCANIC_BLAZE && attr == Fix.DamageSource.Fire)
         {
           damageValue = damageValue * buffList[ii].EffectValue;
         }

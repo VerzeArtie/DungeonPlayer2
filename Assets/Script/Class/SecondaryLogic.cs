@@ -522,4 +522,23 @@ public static class SecondaryLogic
     return 1.60f;
   }
 
+  public static double VolcanicBlaze(Character player)
+  {
+    return 1.80f;
+  }
+
+  public static int VolcanicBlaze_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double VolcanicBlaze_Effect(Character player)
+  {
+    return 1.20f;
+  }
+  public static double VolcanicBlaze_Effect2(Character player)
+  {
+    return 1.80f;
+  }
+
 }
