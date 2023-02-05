@@ -583,6 +583,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return Attribute.Skill; }
 
     if (command_name == Fix.GALE_WIND) { return Attribute.Magic; }
+    if (command_name == Fix.FREEZING_CUBE) { return Attribute.Magic; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
 
@@ -667,6 +668,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
 
     if (command_name == Fix.GALE_WIND) { return TimingType.Instant; }
+    if (command_name == Fix.FREEZING_CUBE) { return TimingType.Normal; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -751,6 +753,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
 
     if (command_name == Fix.GALE_WIND) { return TargetType.Own; }
+    if (command_name == Fix.FREEZING_CUBE) { return TargetType.EnemyField; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -897,6 +900,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
 
     if (command_name == Fix.GALE_WIND) { return 28; }
+    if (command_name == Fix.FREEZING_CUBE) { return 20; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1060,6 +1064,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
 
     if (command_name == Fix.GALE_WIND) { return BuffType.Positive; }
+    if (command_name == Fix.FREEZING_CUBE) { return BuffType.Negative; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1159,6 +1164,7 @@ public static class ActionCommand
     //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
 
     if (command_name == Fix.GALE_WIND) { return false; }
+    if (command_name == Fix.FREEZING_CUBE) { return true; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1288,7 +1294,7 @@ public static class ActionCommand
     if (command_name == Fix.UNSEEN_AID) { return ""; }
 
     if (command_name == Fix.VOLCANIC_BLAZE) { return ""; }
-    if (command_name == Fix.FREEZING_CUBE) { return ""; }
+    if (command_name == Fix.FREEZING_CUBE) { return "敵一体に対して【氷】ダメージを与える。加えて、敵フィールドに、【結晶】のフィールドを形成する。\r\n【結晶】が続く間、敵全体に対して毎ターン【氷】ダメージを与える。加えて氷属性の魔法ダメージを食らう場合、２０％増加された形でダメージを食らう。"; }
     if (command_name == Fix.ANGELIC_ECHO) { return ""; }
     if (command_name == Fix.CURSED_EVANGEL) { return ""; }
     if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }

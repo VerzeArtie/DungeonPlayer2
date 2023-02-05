@@ -1645,6 +1645,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.GALE_WIND:
         ExecGaleWind(player);
         break;
+
+      case Fix.FREEZING_CUBE:
+        ExecFreezingCube(player, target, target.objFieldPanel, critical);
+        break;
       #endregion
 
       case Fix.ZERO_IMMUNITY:
@@ -3217,13 +3221,24 @@ public partial class BattleEnemy : MotherBase
     BuffImage[] buffPlayerFieldList = PanelPlayerField.GetComponentsInChildren<BuffImage>();
     for (int ii = 0; ii < buffPlayerFieldList.Length; ii++)
     {
+      // ライトニング・アウトバーストによる効果
       if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.BUFF_LIGHTNING_OUTBURST)
       {
         for (int jj = 0; jj < PlayerList.Count; jj++)
         {
           if (PlayerList[ii].IsSigilOfThePending == null)
           {
-            ExecLightningDamage(PlayerList[jj], buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+            ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Wind, buffPlayerFieldList[ii].EffectValue * buffPlayerFieldList[ii].Cumulative);
+          }
+        }
+      }
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.FREEZING_CUBE)
+      {
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          if (PlayerList[ii].IsSigilOfThePending == null)
+          {
+            ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Ice, buffPlayerFieldList[ii].EffectValue2);
           }
         }
       }
@@ -3231,18 +3246,30 @@ public partial class BattleEnemy : MotherBase
     BuffImage[] buffEnemyFieldList = PanelEnemyField.GetComponentsInChildren<BuffImage>();
     for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
     {
+      // ライトニング・アウトバーストによる効果
       if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.BUFF_LIGHTNING_OUTBURST)
       {
         for (int jj = 0; jj < EnemyList.Count; jj++)
         {
           if (EnemyList[ii].IsSigilOfThePending == null)
           {
-            ExecLightningDamage(EnemyList[jj], buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+            ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Wind, buffEnemyFieldList[ii].EffectValue * buffEnemyFieldList[ii].Cumulative);
+          }
+        }
+      }
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.FREEZING_CUBE)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          if (EnemyList[ii].IsSigilOfThePending == null)
+          {
+            ExecElementalDamage(EnemyList[jj], Fix.DamageSource.Ice, buffEnemyFieldList[ii].EffectValue2);
           }
         }
       }
     }
 
+    // 各BUFFによる効果
     for (int ii = 0; ii < AllList.Count; ii++)
     {
       AllList[ii].CurrentActionPoint += Fix.AP_BASE;
@@ -4119,6 +4146,19 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.GALE_WIND, Fix.COLOR_NORMAL);
   }
 
+  public void ExecFreezingCube(Character player, Character target, BuffField target_field_obj, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, false, critical);
+    if (success)
+    {
+      target_field_obj.AddBuff(prefab_Buff, Fix.FREEZING_CUBE, SecondaryLogic.FreezingCube_Turn(player), SecondaryLogic.FreezingCube_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player));
+      StartAnimation(target_field_obj.gameObject, Fix.FREEZING_CUBE, Fix.COLOR_NORMAL);
+    }
+  }
+
   private bool ExecUseRedPotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -4230,7 +4270,7 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
   }
 
-  private void ExecLightningDamage(Character target, double effect_value)
+  private void ExecElementalDamage(Character target, Fix.DamageSource damage_source, double effect_value)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     if (target == null) { Debug.Log("target is null. then no effect."); return; }
@@ -4714,6 +4754,19 @@ public partial class BattleEnemy : MotherBase
       if (player.Accessory1 != null && player.Accessory1.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory1.AmplifyEarth; }
       if (player.Accessory2 != null && player.Accessory2.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Accessory2.AmplifyEarth; }
       if (player.Artifact != null && player.Artifact.AmplifyEarth > 1.00f) { damageValue = damageValue * player.Artifact.AmplifyEarth; }
+    }
+
+    // フリージング・キューブによる効果
+    if (target.objFieldPanel != null)
+    {
+      BuffImage[] buffList = target.objFieldPanel.GetComponentsInChildren<BuffImage>();
+      for (int ii = 0; ii < buffList.Length; ii++)
+      {
+        if (buffList[ii].BuffName == Fix.FREEZING_CUBE)
+        {
+          damageValue = damageValue * buffList[ii].EffectValue;
+        }
+      }
     }
 
     // ストーム・アーマーによる効果

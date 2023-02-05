@@ -271,10 +271,25 @@ public static class PrimaryLogic
           Debug.Log("Potential Value up cause DarknessCircle(before): " + result);
           result = result * buffList[ii].EffectValue;
           Debug.Log("Potential Value up cause DarknessCircle(after ): " + result);
+        }
+      }
+    }
+
+    if (player.objFieldPanel != null)
+    {
+      BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
+      for (int ii = 0; ii < buffList.Length; ii++)
+      {
+        if (buffList[ii].BuffName == Fix.AETHER_DRIVE)
+        {
+          Debug.Log("Potential Value up cause AetherDrive(before): " + result);
+          result = result * buffList[ii].EffectValue;
+          Debug.Log("Potential Value up cause AetherDrive(after ): " + result);
           break;
         }
       }
     }
+
 
     if (player.IsMagicAttackDown)
     {

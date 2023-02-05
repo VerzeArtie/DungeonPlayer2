@@ -501,4 +501,25 @@ public static class SecondaryLogic
   {
     return 3;
   }
+
+  public static double FreezingCube(Character player)
+  {
+    return 1.60f;
+  }
+
+  public static int FreezingCube_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double FreezingCube_Effect(Character player)
+  {
+    return 1.20F;
+  }
+
+  public static double FreezingCube_Effect2(Character player)
+  {
+    return 1.60f;
+  }
+
 }
