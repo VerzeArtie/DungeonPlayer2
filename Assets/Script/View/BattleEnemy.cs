@@ -2374,7 +2374,7 @@ public partial class BattleEnemy : MotherBase
           Destroy(damageObj[ii].gameObject);
           damageObj[ii] = null;
         }
-        //break;
+        break;
       }
     }
 
