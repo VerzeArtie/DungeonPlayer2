@@ -17,7 +17,6 @@ public partial class HomeTown : MotherBase
   public GameObject objBlackOut;
   public Text txtDate;
   public Text txtArea;
-  public Text txtGold;
   public Text txtSoulFragment;
   public Text txtObsidianStone;
   public Text txtMessage;
@@ -1480,7 +1479,7 @@ public partial class HomeTown : MotherBase
     else
     {
       txtSellTitle.text = txt.text + " を売却しますか？";
-      txtSellMessage.text = "売却した後、 " + txt.text + " を手元に戻す事はできません。";
+      txtSellMessage.text = (current.Gold / 2).ToString()  + " Goldで売却した後、 " + txt.text + " を手元に戻す事はできません。";
       btnSellAccept.gameObject.SetActive(true);
       btnSellCancel.gameObject.SetActive(true);
       btnSellOK.gameObject.SetActive(false);
@@ -1494,7 +1493,6 @@ public partial class HomeTown : MotherBase
 
     One.TF.DeleteBackpack(current, 1);
     One.TF.Gold += current.Gold / 2;
-    txtGold.text = One.TF.Gold.ToString();
 
     RefreshAllView();
     TapSellCancel();
@@ -1543,7 +1541,6 @@ public partial class HomeTown : MotherBase
 
     One.TF.AddBackPack(current);
     One.TF.Gold -= current.Gold;
-    txtGold.text = One.TF.Gold.ToString();
 
     ConstructBackpackView();
     TapBuyCancel();
@@ -2104,7 +2101,7 @@ public partial class HomeTown : MotherBase
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           One.TF.Gold += Convert.ToInt32(currentMessage);
-          txtGold.text = One.TF.Gold.ToString();
+          RefreshAllView();
           continue; // 継続
         }
         // 食事によるパラメタUP対象の更新
@@ -2590,6 +2587,14 @@ public partial class HomeTown : MotherBase
     shopItem.txtName.text = item.ItemName;
     shopItem.imgItem.sprite = Resources.Load<Sprite>("Icon_" + item?.ItemType.ToString() ?? "");
     shopItem.ItemSell = item_sell;
+    if (item_sell)
+    {
+      shopItem.txtGold.text = (item.Gold / 2).ToString() + " Gold";
+    }
+    else
+    {
+      shopItem.txtGold.text = item.Gold.ToString() + " Gold";
+    }
     shopItem.imgbackground.color = item.GetRareColor;
     shopItem.gameObject.SetActive(true);
 
@@ -2693,14 +2698,15 @@ public partial class HomeTown : MotherBase
       {
         Item item = new Item(shop_item_list[ii].txtName.text);
         SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
-        if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
-        {
-          txtItemGoldCost.text = item.Gold.ToString() + " Gold";
-        }
-        else
-        {
-          txtItemGoldCost.text = (item.Gold / 2 ).ToString() + " Gold";
-        }
+        txtItemGoldCost.text = One.TF.Gold.ToString();
+        //if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
+        //{
+        //  txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+        //}
+        //else
+        //{
+        //  txtItemGoldCost.text = (item.Gold / 2 ).ToString() + " Gold";
+        //}
         return true;
       }
     }
@@ -2718,14 +2724,15 @@ public partial class HomeTown : MotherBase
     shopItem.imgSelect.gameObject.SetActive(true);
 
     SetupItemDetail(item, imgItem, txtItemName, txtItemType, txtItemDesc, txtItemSTR, txtItemAGL, txtItemINT, txtItemSTM, txtItemMND, txtItemPA, txtItemPAMax, txtItemPD, txtItemMA, txtItemMAMax, txtItemMD, txtItemACC, txtItemSPD, txtItemRSP, txtItemPO, imgItemSTR, imgItemAGL, imgItemINT, imgItemSTM, imgItemMND, imgItemPA, imgItemPAMax, imgItemPD, imgItemMA, imgItemMAMax, imgItemMD, imgItemACC, imgItemSPD, imgItemRSP, imgItemPO);
-    if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
-    {
-      txtItemGoldCost.text = item.Gold.ToString() + " Gold";
-    }
-    else
-    {
-      txtItemGoldCost.text = (item.Gold / 2).ToString() + " Gold";
-    }
+    txtItemGoldCost.text = One.TF.Gold.ToString();
+    //if (txtShopCurrentType.text == Fix.SHOPMENU_BUY)
+    //{
+    //  txtItemGoldCost.text = item.Gold.ToString() + " Gold";
+    //}
+    //else
+    //{
+    //  txtItemGoldCost.text = (item.Gold / 2).ToString() + " Gold";
+    //}
   }
 
   private void SetupItemDetailEmpty(Item item, Image img_item,
@@ -3213,8 +3220,6 @@ public partial class HomeTown : MotherBase
     }
 
     // チームのリソース(GoldやObsidianStone)を画面へ反映
-    txtGold.text = One.TF.Gold.ToString();
-    //txtSoulFragment.text = One.TF.SoulFragment.ToString();
     txtObsidianStone.text = One.TF.ObsidianStone.ToString();
 
     // バックパック情報を画面へ反映
