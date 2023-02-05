@@ -3373,15 +3373,9 @@ public partial class Character : MonoBehaviour
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
-        this.CounterAttack = 1;
-        this.TrueSight = 1;
-        this.FireBall = 1;
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
-        this.ActionCommand2 = Fix.COUNTER_ATTACK;
-        this.ActionCommand3 = Fix.FIRE_BALL;
-        this.ActionCommand4 = Fix.TRUE_SIGHT;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
