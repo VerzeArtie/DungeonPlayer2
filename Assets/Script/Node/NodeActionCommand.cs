@@ -47,9 +47,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DOUBLE_SLASH);
     }
-    else if (command_name == Fix.IRON_BASTER_JP + "強化")
+    else if (command_name == Fix.IRON_BUSTER_JP + "強化")
     {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.IRON_BASTER);
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.IRON_BUSTER);
     }
     else if (command_name == Fix.RAGING_STORM_JP + "強化")
     {

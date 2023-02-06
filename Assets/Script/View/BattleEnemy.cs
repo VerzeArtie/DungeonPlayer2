@@ -1130,7 +1130,7 @@ public partial class BattleEnemy : MotherBase
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
 
-            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.WORD_OF_POWER, 100);
+            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.IRON_BUSTER, 100);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
         }
@@ -1653,6 +1653,11 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.FREEZING_CUBE:
         ExecFreezingCube(player, target, target.objFieldPanel, critical);
+        break;
+
+      case Fix.IRON_BUSTER:
+        target_list = GetOpponentGroup(player);
+        ExecIronBuster(player, target, target_list, critical);
         break;
       #endregion
 
@@ -3869,8 +3874,9 @@ public partial class BattleEnemy : MotherBase
 
       if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
       {
-        // WordOfPowerはカウンターできない。
-        if (stack_list[num].StackName == Fix.WORD_OF_POWER)
+        // カウンターできない。
+        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+            stack_list[num].StackName == Fix.IRON_BUSTER)
         {
           StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
         }
@@ -4193,6 +4199,17 @@ public partial class BattleEnemy : MotherBase
     }
     target_field_obj.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player));
     StartAnimation(target_field_obj.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    ExecNormalAttack(player, target, SecondaryLogic.IronBuster(player), Fix.DamageSource.Physical, false, critical);
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      if (target_list[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.IronBuster_2(player), Fix.DamageSource.Physical, false, critical);
+    }
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

@@ -218,7 +218,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STRAIGHT_SMASH); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_BLADE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DOUBLE_SLASH); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.IRON_BASTER); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.IRON_BUSTER); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.RAGING_STORM); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_IAI); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.KINETIC_SMASH); counter++;

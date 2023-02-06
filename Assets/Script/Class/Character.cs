@@ -1231,8 +1231,8 @@ public partial class Character : MonoBehaviour
   public int GaleWind { set { if (value >= 0) { _GaleWind = value; } } get { return _GaleWind; } }
   [SerializeField] protected int _SandBurst = 0;
   public int SandBurst { set { if (value >= 0) { _SandBurst = value; } } get { return _SandBurst; } }
-  [SerializeField] protected int _IronBaster = 0;
-  public int IronBaster { set { if (value >= 0) { _IronBaster = value; } } get { return _IronBaster; } }
+  [SerializeField] protected int _IronBuster = 0;
+  public int IronBuster { set { if (value >= 0) { _IronBuster = value; } } get { return _IronBuster; } }
   [SerializeField] protected int _PenetrationArrow = 0;
   public int PenetrationArrow { set { if (value >= 0) { _PenetrationArrow = value; } } get { return _PenetrationArrow; } }
   [SerializeField] protected int _DeadlyDrive = 0;
@@ -2655,7 +2655,7 @@ public partial class Character : MonoBehaviour
           list.Add(Fix.STRAIGHT_SMASH_JP + "強化");
           list.Add(Fix.STANCE_OF_THE_BLADE_JP + "強化");
           list.Add(Fix.DOUBLE_SLASH_JP + "強化");
-          list.Add(Fix.IRON_BASTER_JP + "強化");
+          list.Add(Fix.IRON_BUSTER_JP + "強化");
           list.Add(Fix.RAGING_STORM_JP + "強化");
           list.Add(Fix.STANCE_OF_THE_IAI_JP + "強化");
           list.Add(Fix.KINETIC_SMASH_JP + "強化");

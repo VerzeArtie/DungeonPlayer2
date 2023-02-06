@@ -126,7 +126,7 @@ public static class ActionCommand
       result.Add(Fix.STRAIGHT_SMASH);
       result.Add(Fix.STANCE_OF_THE_BLADE);
       result.Add(Fix.DOUBLE_SLASH);
-      result.Add(Fix.IRON_BASTER);
+      result.Add(Fix.IRON_BUSTER);
       result.Add(Fix.RAGING_STORM);
       result.Add(Fix.STANCE_OF_THE_IAI);
       result.Add(Fix.KINETIC_SMASH);
@@ -311,7 +311,7 @@ public static class ActionCommand
       result.Add(player.StraightSmash);
       result.Add(player.StanceOfTheBlade);
       result.Add(player.DoubleSlash);
-      result.Add(player.IronBaster);
+      result.Add(player.IronBuster);
       result.Add(player.RagingStorm);
       result.Add(player.StanceOfTheIai);
       result.Add(player.KineticSmash);
@@ -585,6 +585,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return Attribute.Magic; }
     if (command_name == Fix.FREEZING_CUBE) { return Attribute.Magic; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return Attribute.Magic; }
+    if (command_name == Fix.IRON_BUSTER) { return Attribute.Skill; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
 
@@ -671,6 +672,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return TimingType.Instant; }
     if (command_name == Fix.FREEZING_CUBE) { return TimingType.Normal; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return TimingType.Instant; }
+    if (command_name == Fix.IRON_BUSTER) { return TimingType.Instant; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -757,6 +759,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return TargetType.Own; }
     if (command_name == Fix.FREEZING_CUBE) { return TargetType.EnemyField; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return TargetType.EnemyField; }
+    if (command_name == Fix.IRON_BUSTER) { return TargetType.Enemy; } // todo 敵単体＋敵全員といったように、複数入るケースがあり、一概に定められない。
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -905,6 +908,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return 28; }
     if (command_name == Fix.FREEZING_CUBE) { return 20; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return 22; }
+    if (command_name == Fix.IRON_BUSTER) { return 25; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1070,6 +1074,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return BuffType.Positive; }
     if (command_name == Fix.FREEZING_CUBE) { return BuffType.Negative; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return BuffType.Negative; }
+    if (command_name == Fix.IRON_BUSTER) { return BuffType.None; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1171,6 +1176,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return false; }
     if (command_name == Fix.FREEZING_CUBE) { return true; }
     if (command_name == Fix.VOLCANIC_BLAZE) { return true; }
+    if (command_name == Fix.IRON_BUSTER) { return true; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1232,6 +1238,7 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_POWER) { return Fix.WORD_OF_POWER_JP; }
 
     if (command_name == Fix.GALE_WIND) { return Fix.GALE_WIND_JP; }
+    if (command_name == Fix.IRON_BUSTER) { return Fix.IRON_BUSTER_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1305,7 +1312,7 @@ public static class ActionCommand
     if (command_name == Fix.CURSED_EVANGEL) { return ""; }
     if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
     if (command_name == Fix.SAND_BURST) { return ""; }
-    if (command_name == Fix.IRON_BASTER) { return ""; }
+    if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、敵全体に対して【物理】ダメージを与える。\r\nこのコマンドはカウンターされない。"; }
     if (command_name == Fix.PENETRATION_ARROW) { return ""; }
     if (command_name == Fix.DEADLY_DRIVE) { return ""; }
     if (command_name == Fix.ASSASSINATION_HIT) { return ""; }

@@ -1080,8 +1080,8 @@ public static partial class Fix
   public const string GALE_WIND_JP = "ゲイル・ウィンド";
   public const string SAND_BURST = "Sand Burst";
   public const string SAND_BURST_JP = "サンド・バースト";
-  public const string IRON_BASTER = "Iron Baster";
-  public const string IRON_BASTER_JP = "アイアン・バスター";
+  public const string IRON_BUSTER = "Iron Buster";
+  public const string IRON_BUSTER_JP = "アイアン・バスター";
   public const string PENETRATION_ARROW = "Penetration Arrow";
   public const string PENETRATION_ARROW_JP = "ペネトレーション・アロー";
   public const string DEADLY_DRIVE = "Deadly Drive";
@@ -1600,7 +1600,7 @@ public static partial class Fix
   public const string INTRINSIC_FROZEN_ORB = "イントリンシック・フローズン・オーブ";
   public const string FORCEFUL_BASTARD_SWORD = "フォースフル・バスタード・ソード";
   public const string SHARPNEL_ARC_LANCER = "シャープネル・アーク・ランサー";
-  public const string OGRE_KILL_BASTER = "オーガ・キル・バスター";
+  public const string OGRE_KILL_BUSTER = "オーガ・キル・バスター";
   public const string EXPLODING_ASH_BOW = "エクスプローディング・アッシュ・ボウ";
   public const string EARTH_POWERED_STAFF = "アース・パワード・スタッフ";
   public const string BLACK_REFLECTOR_SHIELD = "ブラック・リフレクター・シールド";

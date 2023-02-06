@@ -5185,7 +5185,7 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.OGRE_KILL_BASTER:
+      case Fix.OGRE_KILL_BUSTER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Axe;
         this._gripType = GripTypes.TwoHand;

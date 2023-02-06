@@ -541,4 +541,13 @@ public static class SecondaryLogic
     return 1.80f;
   }
 
+  public static double IronBuster(Character player)
+  {
+    return 2.50f;
+  }
+  public static double IronBuster_2(Character player)
+  {
+    return 1.50f;
+  }
+
 }
