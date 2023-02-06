@@ -1659,6 +1659,11 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         ExecIronBuster(player, target, target_list, critical);
         break;
+
+      case Fix.ANGELIC_ECHO:
+        target_list = GetAllyGroup(player);
+        ExecAngelicEcho(player, target_list, player.objFieldPanel);
+        break;
       #endregion
 
       case Fix.ZERO_IMMUNITY:
@@ -3339,13 +3344,63 @@ public partial class BattleEnemy : MotherBase
       AllList[ii].BuffCountdown();
     }
 
+    bool detectAngelicEchoEffectAlly = false;
+    bool detectAngelicEchoEffectEnemy = false;
+
     for (int ii = 0; ii < buffPlayerFieldList.Length; ii++)
     {
-      buffPlayerFieldList[ii].BuffCountDown();
+      // エンジェリック・エコーによる効果
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.ANGELIC_ECHO)
+      {
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          if (PlayerList[jj].IsSigilOfThePending == null)
+          {
+            AbstractHealCommand(PlayerList[jj], PlayerList[jj], buffPlayerFieldList[ii].EffectValue);
+            BuffImage[] buffList = PlayerList[jj].GetNegativeBuffList();
+            if (buffList != null && buffList.Length > 0) 
+            {
+              PlayerList[jj].RemoveBuff(1, ActionCommand.BuffType.Negative);
+              detectAngelicEchoEffectAlly = true;
+            }
+          }
+        }
+      }
     }
     for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
     {
-      buffEnemyFieldList[ii].BuffCountDown();
+      // エンジェリック・エコーによる効果
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.ANGELIC_ECHO)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          if (EnemyList[jj].IsSigilOfThePending == null)
+          {
+            AbstractHealCommand(EnemyList[jj], EnemyList[jj], buffEnemyFieldList[ii].EffectValue);
+            BuffImage[] buffList = EnemyList[jj].GetNegativeBuffList();
+            if (buffList != null && buffList.Length > 0)
+            {
+              EnemyList[jj].RemoveBuff(1, ActionCommand.BuffType.Negative);
+              detectAngelicEchoEffectEnemy = true;
+            }
+          }
+        }
+      }
+    }
+
+    if (detectAngelicEchoEffectAlly == false)
+    {
+      for (int ii = 0; ii < buffPlayerFieldList.Length; ii++)
+      {
+        buffPlayerFieldList[ii].BuffCountDown();
+      }
+    }
+    if (detectAngelicEchoEffectEnemy == false)
+    {
+      for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
+      {
+        buffEnemyFieldList[ii].BuffCountDown();
+      }
     }
   }
 
@@ -4210,6 +4265,20 @@ public partial class BattleEnemy : MotherBase
       if (target_list[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
       ExecNormalAttack(player, target_list[ii], SecondaryLogic.IronBuster_2(player), Fix.DamageSource.Physical, false, critical);
     }
+  }
+
+  private void ExecAngelicEcho(Character player, List<Character> target_list, BuffField target_field_obj)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho(player);
+      AbstractHealCommand(player, target_list[ii], healValue);
+    }
+
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+    target_field_obj.AddBuff(prefab_Buff, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.ANGELIC_ECHO, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

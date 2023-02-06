@@ -2466,6 +2466,22 @@ public partial class Character : MonoBehaviour
     return result;
   }
 
+  public BuffImage[] GetNegativeBuffList()
+  {
+    BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return null; }
+
+    int result = 0;
+    for (int ii = 0; ii < buffList.Length; ii++)
+    {
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == ActionCommand.BuffType.Negative)
+      {
+        result++;
+      }
+    }
+    return buffList;
+  }
+
   /// <summary>
   /// 指定されたBUFFが存在するかどうかを確認します。
   /// </summary>

@@ -550,4 +550,17 @@ public static class SecondaryLogic
     return 1.50f;
   }
 
+  public static double AngelicEcho(Character player)
+  {
+    return 1.50f;
+  }
+  public static int AngelicEcho_Turn(Character player)
+  {
+    return 9;
+  }
+  public static double AngelicEcho_Effect(Character player)
+  {
+    return 1.50f;
+  }
+
 }
