@@ -96,7 +96,7 @@ public static class ActionCommand
       result.Add(Fix.SHADOW_BLAST);
       result.Add(Fix.BLOOD_SIGN);
       result.Add(Fix.BLACK_CONTRACT);
-      result.Add(Fix.CURSED_EVANGEL);
+      result.Add(Fix.CURSED_EVANGILE);
       result.Add(Fix.CIRCLE_OF_THE_DESPAIR);
       result.Add(Fix.THE_DARK_INTENSITY);
       result.Add(Fix.DEATH_SCYTHE);
@@ -281,7 +281,7 @@ public static class ActionCommand
       result.Add(player.ShadowBlast);
       result.Add(player.BloodSign);
       result.Add(player.BlackContract);
-      result.Add(player.CursedEvangel);
+      result.Add(player.CursedEvangile);
       result.Add(player.CircleOfTheDespair);
       result.Add(player.TheDarkIntensity);
       result.Add(player.DeathScythe);
@@ -587,6 +587,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return Attribute.Magic; }
     if (command_name == Fix.IRON_BUSTER) { return Attribute.Skill; }
     if (command_name == Fix.ANGELIC_ECHO) { return Attribute.Magic; }
+    if (command_name == Fix.CURSED_EVANGILE) { return Attribute.Magic; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
 
@@ -675,6 +676,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return TimingType.Instant; }
     if (command_name == Fix.IRON_BUSTER) { return TimingType.Instant; }
     if (command_name == Fix.ANGELIC_ECHO) { return TimingType.Normal; }
+    if (command_name == Fix.CURSED_EVANGILE) { return TimingType.Instant; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -763,6 +765,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return TargetType.EnemyField; }
     if (command_name == Fix.IRON_BUSTER) { return TargetType.Enemy; } // todo 敵単体＋敵全員といったように、複数入るケースがあり、一概に定められない。
     if (command_name == Fix.ANGELIC_ECHO) { return TargetType.EnemyField; } // 味方全員＋味方フィールド
+    if (command_name == Fix.CURSED_EVANGILE) { return TargetType.Enemy; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -913,6 +916,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return 22; }
     if (command_name == Fix.IRON_BUSTER) { return 25; }
     if (command_name == Fix.ANGELIC_ECHO) { return 27; }
+    if (command_name == Fix.CURSED_EVANGILE) { return 26; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1080,6 +1084,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return BuffType.Negative; }
     if (command_name == Fix.IRON_BUSTER) { return BuffType.None; }
     if (command_name == Fix.ANGELIC_ECHO) { return BuffType.Positive; }
+    if (command_name == Fix.CURSED_EVANGILE) { return BuffType.Negative; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1316,7 +1321,7 @@ public static class ActionCommand
     if (command_name == Fix.VOLCANIC_BLAZE) { return "敵全体に対して【炎】ダメージを与える。加えて、敵フィールドに、【業炎】のフィールドを形成する。\r\n【業炎】が続く間、敵全体に対して毎ターン【炎】ダメージを与える。加えて炎属性の魔法ダメージを食らう場合、２０％増加された形でダメージを食らう。"; }
     if (command_name == Fix.FREEZING_CUBE) { return "敵一体に対して【氷】ダメージを与える。加えて、敵フィールドに、【結晶】のフィールドを形成する。\r\n【結晶】が続く間、敵全体に対して毎ターン【氷】ダメージを与える。加えて氷属性の魔法ダメージを食らう場合、２０％増加された形でダメージを食らう。"; }
     if (command_name == Fix.ANGELIC_ECHO) { return "味方全員のライフを回復し、味方フィールドに【賛美】のフィールドを形成する。【賛美】が続く間、味方全体はターン経過毎にライフを回復し、負のBUFFを除去する。【賛美】は味方全体のうちいずれかに負のBUFFが残っている場合はBUFFカウントが減少せず継続される。いずれにも負のBUFFが残ってない場合はBUFFカウントが減少する。"; }
-    if (command_name == Fix.CURSED_EVANGEL) { return ""; }
+    if (command_name == Fix.CURSED_EVANGILE) { return "敵一体に対して【闇】ダメージを与える。加えて、【呪い】を付与する。【呪い】が続く間、ターンが経過するごとに【束縛】【出血】【沈黙】のいずれかが付与される。【束縛】【出血】【沈黙】が全て付与されている場合は、対象者に【闇】ダメージを与える。"; }
     if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
     if (command_name == Fix.SAND_BURST) { return ""; }
     if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、敵全体に対して【物理】ダメージを与える。\r\nこのコマンドはカウンターされない。"; }

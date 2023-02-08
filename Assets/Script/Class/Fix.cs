@@ -1074,8 +1074,8 @@ public static partial class Fix
   public const string FREEZING_CUBE_JP = "フリージング・キューブ";
   public const string ANGELIC_ECHO = "Angelic Echo";
   public const string ANGELIC_ECHO_JP = "エンジェリック・エコー";
-  public const string CURSED_EVANGEL = "Cursed Evangel";
-  public const string CURSED_EVANGEL_JP = "カーズド・エヴァンジール";
+  public const string CURSED_EVANGILE = "Cursed Evangile";
+  public const string CURSED_EVANGILE_JP = "カーズド・エヴァンジール";
   public const string GALE_WIND = "Gale Wind";
   public const string GALE_WIND_JP = "ゲイル・ウィンド";
   public const string SAND_BURST = "Sand Burst";

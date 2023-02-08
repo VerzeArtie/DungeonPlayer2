@@ -308,7 +308,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SHADOW_BLAST); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BLOOD_SIGN); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BLACK_CONTRACT); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CURSED_EVANGEL); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CURSED_EVANGILE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_THE_DESPAIR); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.THE_DARK_INTENSITY); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DEATH_SCYTHE); counter++;

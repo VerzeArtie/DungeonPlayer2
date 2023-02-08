@@ -1225,8 +1225,8 @@ public partial class Character : MonoBehaviour
   public int FreezingCube { set { if (value >= 0) { _FreezingCube = value; } } get { return _FreezingCube; } }
   [SerializeField] protected int _AngelicEcho = 0;
   public int AngelicEcho { set { if (value >= 0) { _AngelicEcho = value; } } get { return _AngelicEcho; } }
-  [SerializeField] protected int _CursedEvangel = 0;
-  public int CursedEvangel { set { if (value >= 0) { _CursedEvangel = value; } } get { return _CursedEvangel; } }
+  [SerializeField] protected int _CursedEvangile = 0;
+  public int CursedEvangile { set { if (value >= 0) { _CursedEvangile = value; } } get { return _CursedEvangile; } }
   [SerializeField] protected int _GaleWind = 0;
   public int GaleWind { set { if (value >= 0) { _GaleWind = value; } } get { return _GaleWind; } }
   [SerializeField] protected int _SandBurst = 0;
@@ -2312,6 +2312,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.GALE_WIND); }
   }
 
+  public BuffImage IsCursedEvangile
+  {
+    get { return SearchBuff(Fix.CURSED_EVANGILE); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
@@ -2762,7 +2767,7 @@ public partial class Character : MonoBehaviour
           list.Add(Fix.SHADOW_BLAST_JP + "強化");
           list.Add(Fix.BLOOD_SIGN_JP + "強化");
           list.Add(Fix.BLACK_CONTRACT_JP + "強化");
-          list.Add(Fix.CURSED_EVANGEL_JP + "強化");
+          list.Add(Fix.CURSED_EVANGILE_JP + "強化");
           list.Add(Fix.CIRCLE_OF_THE_DESPAIR_JP + "強化");
           list.Add(Fix.THE_DARK_INTENSITY_JP + "強化");
           list.Add(Fix.DEATH_SCYTHE_JP + "強化");

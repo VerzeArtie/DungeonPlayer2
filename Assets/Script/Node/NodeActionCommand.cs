@@ -159,9 +159,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.BLACK_CONTRACT);
     }
-    else if (command_name == Fix.CURSED_EVANGEL_JP + "強化")
+    else if (command_name == Fix.CURSED_EVANGILE_JP + "強化")
     {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CURSED_EVANGEL);
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CURSED_EVANGILE);
     }
     else if (command_name == Fix.CIRCLE_OF_THE_DESPAIR_JP + "強化")
     {

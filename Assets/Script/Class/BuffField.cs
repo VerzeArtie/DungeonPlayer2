@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuffField : MonoBehaviour
 {
-  public void AddBuff(BuffImage prefab, string buff_name, int remain_counter, double effect_value, double effect_value2)
+  public void AddBuff(BuffImage prefab, string buff_name, int remain_counter, double effect_value, double effect_value2, double effect_value3)
   {
     bool detect = false;
 
@@ -28,7 +28,7 @@ public class BuffField : MonoBehaviour
         }
         else
         {
-          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
+          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value, effect_value2, effect_value3);
         }
         break;
       }
@@ -37,7 +37,7 @@ public class BuffField : MonoBehaviour
 
     // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
     BuffImage buff = Instantiate(prefab) as BuffImage;
-    buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2);
+    buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2, effect_value3);
     buff.gameObject.SetActive(true);
     buff.transform.SetParent(this.gameObject.transform);
     //RectTransform rect = buff.GetComponent<RectTransform>();

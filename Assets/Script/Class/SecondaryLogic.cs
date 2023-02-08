@@ -563,4 +563,28 @@ public static class SecondaryLogic
     return 1.50f;
   }
 
+  public static double CursedEvangile(Character player)
+  {
+    return 1.20f;
+  }
+
+  public static int CursedEvangile_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double CursedEvangile_Effect(Character player)
+  {
+    return 4.44f;
+  }
+
+  public static int CursedEvangile_SlepTurn(Character player)
+  {
+    return 9;
+  }
+
+  public static double CursedEvangile_SlipFactor(Character player)
+  {
+    return 1.50f;
+  }
 }
