@@ -1473,6 +1473,23 @@ public partial class Character : MonoBehaviour
   #endregion
 
   #region "Method"
+  public BuffImage SearchFieldBuff(string field_buff_name)
+  {
+    if (this.objFieldPanel == null) { return null; }
+
+    BuffImage[] buffList = this.objFieldPanel.GetComponentsInChildren<BuffImage>();
+    for (int ii = 0; ii < buffList.Length; ii++)
+    {
+      if (buffList[ii].BuffName == field_buff_name)
+      {
+        Debug.Log("Detect field_buff_name: " + field_buff_name);
+        return buffList[ii];
+      }
+    }
+
+    return null;
+  }
+
   // もう少し抽象化した書き方がありそうが、芋プログラミングで良しとする。
   public bool GetResistPoisonLogic()
   {
@@ -1501,6 +1518,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+
+    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
+    {
+      return true;
+    }
     return false;
   }
 
@@ -1513,6 +1535,10 @@ public partial class Character : MonoBehaviour
      (this.Accessory1 != null && this.Accessory1.ResistBind) ||
      (this.Accessory2 != null && this.Accessory2.ResistBind) ||
      (this.Artifact != null && this.Artifact.ResistBind))
+    {
+      return true;
+    }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
     {
       return true;
     }
@@ -1618,6 +1644,10 @@ public partial class Character : MonoBehaviour
      (this.Accessory1 != null && this.Accessory1.ResistSlow) ||
      (this.Accessory2 != null && this.Accessory2.ResistSlow) ||
      (this.Artifact != null && this.Artifact.ResistSlow))
+    {
+      return true;
+    }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
     {
       return true;
     }
@@ -2420,9 +2450,9 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BUFF_SYUTYU_DANZETSU); }
   }
 
-  public void RemoveStun()
+  public void RemoveTargetBuff(string buff_name)
   {
-    BuffImage buffImage = SearchBuff(Fix.EFFECT_STUN);
+    BuffImage buffImage = SearchBuff(buff_name);
     if (buffImage != null)
     {
       buffImage.RemoveBuff();
