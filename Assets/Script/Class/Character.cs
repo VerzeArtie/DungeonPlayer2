@@ -2317,6 +2317,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.CURSED_EVANGILE); }
   }
 
+  public BuffImage IsPenetrationArrow
+  {
+    get { return SearchBuff(Fix.PENETRATION_ARROW); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }

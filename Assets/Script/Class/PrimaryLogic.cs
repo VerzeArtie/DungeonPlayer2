@@ -172,14 +172,18 @@ public static class PrimaryLogic
     result += (player.Accessory2?.PhysicalDefense ?? 0);
     result += (player.Artifact?.PhysicalDefense ?? 0);
 
-    if (player.IsHunterShot)
-    {
-      result *= player.IsHunterShot.EffectValue;
-    }
+    //if (player.IsHunterShot)
+    //{
+    //  result *= player.IsHunterShot.EffectValue;
+    //}
 
     if (player.IsRockSlum)
     {
       result *= player.IsRockSlum.EffectValue;
+    }
+    if (player.IsPenetrationArrow)
+    {
+      result *= player.IsPenetrationArrow.EffectValue2;
     }
 
     if (player.IsPhysicalDefenseDown)

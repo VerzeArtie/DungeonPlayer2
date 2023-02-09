@@ -587,4 +587,24 @@ public static class SecondaryLogic
   {
     return 1.50f;
   }
+
+  public static double PenetrationArrow(Character player)
+  {
+    return 2.20f;
+  }
+
+  public static int PenetrationArrow_Turn(Character player)
+  {
+    return 5;
+  }
+
+  public static double PenetrationArrow_Effect(Character player)
+  {
+    return 1.5f;
+  }
+
+  public static double PenetrationArrow_Effect2(Character player)
+  {
+    return 0.70f;
+  }
 }

@@ -1450,6 +1450,10 @@ public partial class BattleEnemy : MotherBase
     {
       ExecSlipDamage(player, player.IsSlip.EffectValue);
     }
+    if (player.IsPenetrationArrow && (command_name != Fix.STAY && command_name != Fix.DEFENSE))
+    {
+      ExecSlipDamage(player, player.IsPenetrationArrow.EffectValue);
+    }
 
     Fix.CriticalType critical = Fix.CriticalType.Random;
     BuffImage fortune = player.IsFortuneSpirit;
@@ -1667,6 +1671,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.CURSED_EVANGILE:
         ExecCursedEvangile(player, target, critical);
+        break;
+
+      case Fix.PENETRATION_ARROW:
+        ExecPenetrationArrow(player, target, critical);
         break;
       #endregion
 
@@ -4323,6 +4331,17 @@ public partial class BattleEnemy : MotherBase
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.CURSED_EVANGILE, SecondaryLogic.CursedEvangile_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_Effect(player), SecondaryLogic.CursedEvangile_SlepTurn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_SlipFactor(player));
       StartAnimation(target.objGroup.gameObject, Fix.CURSED_EVANGILE, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void ExecPenetrationArrow(Character player, Character target, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, true, critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
+      StartAnimation(target.objGroup.gameObject, Fix.PENETRATION_ARROW, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
     }
   }
 
