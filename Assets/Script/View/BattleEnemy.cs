@@ -1390,8 +1390,16 @@ public partial class BattleEnemy : MotherBase
 
     if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
     {
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_BIND, Fix.COLOR_NORMAL);
-      return;
+      // CircleOfTheVigorは対象外。
+      if (command_name == Fix.CIRCLE_OF_THE_VIGOR)
+      {
+        // skip
+      }
+      else
+      {
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_BIND, Fix.COLOR_NORMAL);
+        return;
+      }
     }
 
     if (player.IsSilent && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
@@ -1675,6 +1683,11 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.PENETRATION_ARROW:
         ExecPenetrationArrow(player, target, critical);
+        break;
+
+      case Fix.CIRCLE_OF_THE_VIGOR:
+        target_list = GetAllyGroup(player);
+        ExecCircleOfTheVigor(player, target_list, player.objFieldPanel); 
         break;
       #endregion
 
@@ -4064,7 +4077,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     if (target.IsStun)
     {
-      target.RemoveStun();
+      target.RemoveTargetBuff(Fix.EFFECT_STUN);
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_REMOVE_STUN, Fix.COLOR_NORMAL);
     }
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
@@ -4343,6 +4356,19 @@ public partial class BattleEnemy : MotherBase
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
       StartAnimation(target.objGroup.gameObject, Fix.PENETRATION_ARROW, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
     }
+  }
+
+  private void ExecCircleOfTheVigor(Character player, List<Character> target_list, BuffField target_field_obj)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_BIND);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SILENT);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLOW);
+    }
+    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_VIGOR, SecondaryLogic.CircleOfTheVigor_Turn(player), SecondaryLogic.CircleOfTheVigor_Effect(player), SecondaryLogic.CircleOfTheVigor_Effect2(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_VIGOR, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)
