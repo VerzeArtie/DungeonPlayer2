@@ -620,4 +620,9 @@ public static class SecondaryLogic
   {
     return 1.05f;
   }
+
+  public static int WillAwakening_Turn(Character player)
+  {
+    return 3;
+  }
 }

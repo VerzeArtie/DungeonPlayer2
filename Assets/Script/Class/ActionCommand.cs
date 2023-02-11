@@ -681,6 +681,7 @@ public static class ActionCommand
     if (command_name == Fix.CURSED_EVANGILE) { return TimingType.Instant; }
     if (command_name == Fix.PENETRATION_ARROW) { return TimingType.Normal; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TimingType.Instant; }
+    if (command_name == Fix.WILL_AWAKENING) { return TimingType.Instant; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -772,6 +773,7 @@ public static class ActionCommand
     if (command_name == Fix.CURSED_EVANGILE) { return TargetType.Enemy; }
     if (command_name == Fix.PENETRATION_ARROW) { return TargetType.Enemy; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TargetType.AllyGroup; } // 味方全員＋味方フィールド
+    if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -925,6 +927,7 @@ public static class ActionCommand
     if (command_name == Fix.CURSED_EVANGILE) { return 26; }
     if (command_name == Fix.PENETRATION_ARROW) { return 25; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return 30; }
+    if (command_name == Fix.WILL_AWAKENING) { return 34; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1095,6 +1098,7 @@ public static class ActionCommand
     if (command_name == Fix.CURSED_EVANGILE) { return BuffType.Negative; }
     if (command_name == Fix.PENETRATION_ARROW) { return BuffType.Negative; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return BuffType.Positive; }
+    if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1201,6 +1205,7 @@ public static class ActionCommand
 
     if (command_name == Fix.PENETRATION_ARROW) { return true; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
+    if (command_name == Fix.WILL_AWAKENING) { return false; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1266,6 +1271,7 @@ public static class ActionCommand
     if (command_name == Fix.ANGELIC_ECHO) { return Fix.ANGELIC_ECHO_JP; }
 
     if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.VOICE_OF_VIGOR_JP; }
+    if (command_name == Fix.WILL_AWAKENING) { return Fix.WILL_AWAKENING_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1349,7 +1355,7 @@ public static class ActionCommand
     if (command_name == Fix.DETACHMENT_FAULT) { return ""; }
     if (command_name == Fix.AURA_BURN) { return ""; }
     if (command_name == Fix.LEVEL_EATER) { return ""; }
-    if (command_name == Fix.WILL_AWAKENING) { return ""; }
+    if (command_name == Fix.WILL_AWAKENING) { return "このコマンドはカウンターされない。\r\n味方一体を対象とする。対象に【覚醒】のBUFFを付与する。【覚醒】が続く間、NormalタイミングのコマンドをInstantタイミングで使用可能となる。また、発動コマンドがカウンターされなくなる。"; }
     if (command_name == Fix.EXACT_TIME) { return ""; }
 
     if (command_name == Fix.FLAME_STRIKE) { return ""; }

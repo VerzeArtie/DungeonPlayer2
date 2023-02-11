@@ -1689,6 +1689,10 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroup(player);
         ExecCircleOfTheVigor(player, target_list, player.objFieldPanel); 
         break;
+
+      case Fix.WILL_AWAKENING:
+        ExecWillAwakening(player, target);
+        break;
       #endregion
 
       case Fix.ZERO_IMMUNITY:
@@ -2877,6 +2881,20 @@ public partial class BattleEnemy : MotherBase
         return;
       }
 
+      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
+      {
+        if (this.NowSelectSrcPlayer.IsWillAwakening)
+        {
+          Debug.Log("IsWillAwakening detect, possible action.");
+          // 通過
+        }
+        else
+        {
+          Debug.Log("Command Timing is Normal, then no action.");
+          return;
+        }
+      }
+
       if (this.NowSelectTarget == false)
       {
         Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
@@ -2891,6 +2909,20 @@ public partial class BattleEnemy : MotherBase
     }
     else
     {
+      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
+      {
+        if (this.NowSelectSrcPlayer.IsWillAwakening)
+        {
+          Debug.Log("IsWillAwakening detect, possible action.");
+          // 通過
+        }
+        else
+        {
+          Debug.Log("ActionCommand.TimingType.Normal, then no action.");
+          return;
+        }
+      }
+
       if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
       {
         this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
@@ -3985,7 +4017,8 @@ public partial class BattleEnemy : MotherBase
       {
         // カウンターできない。
         if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
-            stack_list[num].StackName == Fix.IRON_BUSTER)
+            stack_list[num].StackName == Fix.IRON_BUSTER ||
+            stack_list[num].Player.IsWillAwakening != null)
         {
           StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
         }
@@ -4369,6 +4402,12 @@ public partial class BattleEnemy : MotherBase
     }
     target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_VIGOR, SecondaryLogic.CircleOfTheVigor_Turn(player), SecondaryLogic.CircleOfTheVigor_Effect(player), SecondaryLogic.CircleOfTheVigor_Effect2(player), 0);
     StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_VIGOR, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecWillAwakening(Character player, Character target)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WILL_AWAKENING, SecondaryLogic.WillAwakening_Turn(player), 0, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.WILL_AWAKENING, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

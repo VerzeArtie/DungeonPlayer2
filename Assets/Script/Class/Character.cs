@@ -2352,6 +2352,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.PENETRATION_ARROW); }
   }
 
+  public BuffImage IsWillAwakening
+  {
+    get { return SearchBuff(Fix.WILL_AWAKENING); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
@@ -5818,6 +5823,11 @@ public partial class Character : MonoBehaviour
         //  //  result = Fix.VENOM_SLASH;
         //  //}
         //}
+        if (this.IsWillAwakening == null)
+        {
+          result = Fix.WILL_AWAKENING;
+          this.Target = this;
+        }
         break;
 
       default:
