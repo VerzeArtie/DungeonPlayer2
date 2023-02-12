@@ -637,14 +637,14 @@ public static class SecondaryLogic
   }
   public static double DeadlyDrive_Effect1(Character player)
   {
-    return 2.0f;// 1.05f;
+    return 1.05f;
   }
   public static double DeadlyDrive_Effect2(Character player)
   {
-    return 5.0f;// 1.10f;
+    return 1.10f;
   }
   public static double DeadlyDrive_Effect3(Character player)
   {
-    return 10.0f;// 1.15f;
+    return 1.15f;
   }
 }
