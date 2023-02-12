@@ -683,6 +683,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TimingType.Instant; }
     if (command_name == Fix.WILL_AWAKENING) { return TimingType.Instant; }
     if (command_name == Fix.PHANTOM_OBORO) { return TimingType.Instant; }
+    if (command_name == Fix.DEADLY_DRIVE) { return TimingType.Instant; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -776,6 +777,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TargetType.AllyGroup; } // 味方全員＋味方フィールド
     if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
     if (command_name == Fix.PHANTOM_OBORO) { return TargetType.Own; }
+    if (command_name == Fix.DEADLY_DRIVE) { return TargetType.Own; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -931,6 +933,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return 30; }
     if (command_name == Fix.WILL_AWAKENING) { return 34; }
     if (command_name == Fix.PHANTOM_OBORO) { return 36; }
+    if (command_name == Fix.DEADLY_DRIVE) { return 24; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1103,6 +1106,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return BuffType.Positive; }
     if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
     if (command_name == Fix.PHANTOM_OBORO) { return BuffType.Positive; }
+    if (command_name == Fix.DEADLY_DRIVE) { return BuffType.Positive; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1211,6 +1215,7 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     if (command_name == Fix.WILL_AWAKENING) { return false; }
     if (command_name == Fix.PHANTOM_OBORO) { return false; }
+    if (command_name == Fix.PHANTOM_OBORO) { return false; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1278,6 +1283,7 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.VOICE_OF_VIGOR_JP; }
     if (command_name == Fix.WILL_AWAKENING) { return Fix.WILL_AWAKENING_JP; }
     if (command_name == Fix.PHANTOM_OBORO) { return Fix.PHANTOM_OBORO_JP; }
+    if (command_name == Fix.DEADLY_DRIVE) { return Fix.DEADLY_DRIVE_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1353,7 +1359,7 @@ public static class ActionCommand
     if (command_name == Fix.SAND_BURST) { return ""; }
     if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、敵全体に対して【物理】ダメージを与える。\r\nこのコマンドはカウンターされない。"; }
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
-    if (command_name == Fix.DEADLY_DRIVE) { return ""; }
+    if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
     if (command_name == Fix.ASSASSINATION_HIT) { return ""; }
     if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
     if (command_name == Fix.DOMINATION_FIELD) { return ""; }

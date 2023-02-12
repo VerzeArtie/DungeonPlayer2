@@ -2362,6 +2362,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.PHANTOM_OBORO); }
   }
 
+  public BuffImage IsDeadlyDrive
+  {
+    get { return SearchBuff(Fix.DEADLY_DRIVE); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
@@ -5832,6 +5837,11 @@ public partial class Character : MonoBehaviour
         {
           result = Fix.WILL_AWAKENING;
           this.Target = this;
+        }
+        if (this.IsPhantomOboro == null)
+        {
+          result = Fix.PHANTOM_OBORO;
+          break;
         }
         break;
 

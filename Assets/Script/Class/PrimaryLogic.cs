@@ -134,6 +134,30 @@ public static class PrimaryLogic
       result = result * (1.00f + (player.IsStanceOfTheBlade.EffectValue * stanceOfTheBlade.Cumulative));
     }
 
+    BuffImage deadlyDrive = player.IsDeadlyDrive;
+    if (deadlyDrive)
+    {
+      double diffLife = (double)(player.CurrentLife) / (double)(player.MaxLife);
+      if (diffLife <= 0.10f)
+      {
+        Debug.Log("DeadlyDrive under 10% effect before: " + diffLife.ToString() + " " + result);
+        result = result * player.IsDeadlyDrive.EffectValue3;
+        Debug.Log("DeadlyDrive under 10% effect after : " + diffLife.ToString() + " " + result);
+      }
+      else if (diffLife <= 0.20f)
+      {
+        Debug.Log("DeadlyDrive under 20% effect before: " + diffLife.ToString() + " " + result);
+        result = result * player.IsDeadlyDrive.EffectValue2;
+        Debug.Log("DeadlyDrive under 20% effect after: " + diffLife.ToString() + " " + result);
+      }
+      else if (diffLife <= 0.30f)
+      {
+        Debug.Log("DeadlyDrive under 30% effect before: " + diffLife.ToString() + " " + result);
+        result = result * player.IsDeadlyDrive.EffectValue3;
+        Debug.Log("DeadlyDrive under 30% effect after: " + diffLife.ToString() + " " + result);
+      }
+    }
+
     if (player.IsPhysicalAttackUp)
     {
       result = result * player.IsPhysicalAttackUp.EffectValue;

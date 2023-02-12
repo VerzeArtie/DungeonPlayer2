@@ -1130,7 +1130,7 @@ public partial class BattleEnemy : MotherBase
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
 
-            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.BLUE_BULLET, 100);
+            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.IRON_BUSTER, 100);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
         }
@@ -1696,6 +1696,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.PHANTOM_OBORO:
         ExecPhantomOboro(player);
+        break;
+
+      case Fix.DEADLY_DRIVE:
+        ExecDeadlyDrive(player);
         break;
       #endregion
 
@@ -4453,6 +4457,12 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.PHANTOM_OBORO, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
   }
 
+  private void ExecDeadlyDrive(Character player)
+  {
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
+    StartAnimation(player.objGroup.gameObject, Fix.DEADLY_DRIVE, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+  }
+
   private bool ExecUseRedPotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -5161,6 +5171,7 @@ public partial class BattleEnemy : MotherBase
   private void ApplyDamage(Character player, Character target, double damageValue, bool critical, int animation_speed)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    int beforeTargetLife = target.CurrentLife;
 
     if (damageValue <= 0) { damageValue = 0; }
 
@@ -5175,6 +5186,12 @@ public partial class BattleEnemy : MotherBase
     else
     {
       StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL, animation_speed);
+    }
+
+    if (target.IsDeadlyDrive != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
+    {
+      target.CurrentLife = 1;
+      StartAnimation(target.objGroup.gameObject, "決死　ライフ１", Fix.COLOR_NORMAL, animation_speed);
     }
   }
 
