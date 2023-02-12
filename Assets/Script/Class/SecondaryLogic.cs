@@ -625,4 +625,9 @@ public static class SecondaryLogic
   {
     return 3;
   }
+
+  public static int PhantomOboro_Turn(Character player)
+  {
+    return 2;
+  }
 }

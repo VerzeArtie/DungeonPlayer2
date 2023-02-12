@@ -682,6 +682,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return TimingType.Normal; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TimingType.Instant; }
     if (command_name == Fix.WILL_AWAKENING) { return TimingType.Instant; }
+    if (command_name == Fix.PHANTOM_OBORO) { return TimingType.Instant; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -774,6 +775,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return TargetType.Enemy; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TargetType.AllyGroup; } // 味方全員＋味方フィールド
     if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
+    if (command_name == Fix.PHANTOM_OBORO) { return TargetType.Own; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -928,6 +930,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return 25; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return 30; }
     if (command_name == Fix.WILL_AWAKENING) { return 34; }
+    if (command_name == Fix.PHANTOM_OBORO) { return 36; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1099,6 +1102,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return BuffType.Negative; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return BuffType.Positive; }
     if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
+    if (command_name == Fix.PHANTOM_OBORO) { return BuffType.Positive; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1206,6 +1210,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return true; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     if (command_name == Fix.WILL_AWAKENING) { return false; }
+    if (command_name == Fix.PHANTOM_OBORO) { return false; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1272,6 +1277,7 @@ public static class ActionCommand
 
     if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.VOICE_OF_VIGOR_JP; }
     if (command_name == Fix.WILL_AWAKENING) { return Fix.WILL_AWAKENING_JP; }
+    if (command_name == Fix.PHANTOM_OBORO) { return Fix.PHANTOM_OBORO_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1349,7 +1355,7 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
     if (command_name == Fix.DEADLY_DRIVE) { return ""; }
     if (command_name == Fix.ASSASSINATION_HIT) { return ""; }
-    if (command_name == Fix.PHANTOM_OBORO) { return ""; }
+    if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
     if (command_name == Fix.DOMINATION_FIELD) { return ""; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return "このコマンドは【束縛】状態であっても発動する。味方全体に対して【鈍足】【束縛】【沈黙】のBUFFを解除し、味方フィールドに【迅速】のフィールドを形成する。【迅速】が続く間、【鈍足】【束縛】【沈黙】のBUFFは付与されない。また、戦闘速度および戦闘反応が１０％上昇する。"; }
     if (command_name == Fix.DETACHMENT_FAULT) { return ""; }
