@@ -591,6 +591,9 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return Attribute.Skill; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return Attribute.Skill; }
 
+
+    if (command_name == Fix.DOMINATION_FIELD) { return Attribute.Skill; }
+
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
 
     return Attribute.None;
@@ -684,6 +687,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return TimingType.Instant; }
     if (command_name == Fix.PHANTOM_OBORO) { return TimingType.Instant; }
     if (command_name == Fix.DEADLY_DRIVE) { return TimingType.Instant; }
+    if (command_name == Fix.DOMINATION_FIELD) { return TimingType.Normal; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
 
@@ -778,6 +782,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
     if (command_name == Fix.PHANTOM_OBORO) { return TargetType.Own; }
     if (command_name == Fix.DEADLY_DRIVE) { return TargetType.Own; }
+    if (command_name == Fix.DOMINATION_FIELD) { return TargetType.AllyField; }
 
     // 以降、モンスターアクション
     if (command_name == Fix.COMMAND_HIKKAKI) { return TargetType.Enemy; }
@@ -934,6 +939,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return 34; }
     if (command_name == Fix.PHANTOM_OBORO) { return 36; }
     if (command_name == Fix.DEADLY_DRIVE) { return 24; }
+    if (command_name == Fix.DOMINATION_FIELD) { return 38; }
 
     if (command_name == Fix.SHINING_HEAL) { return 7; }
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -1107,6 +1113,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
     if (command_name == Fix.PHANTOM_OBORO) { return BuffType.Positive; }
     if (command_name == Fix.DEADLY_DRIVE) { return BuffType.Positive; }
+    if (command_name == Fix.DOMINATION_FIELD) { return BuffType.Positive; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
@@ -1216,6 +1223,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return false; }
     if (command_name == Fix.PHANTOM_OBORO) { return false; }
     if (command_name == Fix.DEADLY_DRIVE) { return false; }
+    if (command_name == Fix.DOMINATION_FIELD) { return false; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
@@ -1284,6 +1292,7 @@ public static class ActionCommand
     if (command_name == Fix.WILL_AWAKENING) { return Fix.WILL_AWAKENING_JP; }
     if (command_name == Fix.PHANTOM_OBORO) { return Fix.PHANTOM_OBORO_JP; }
     if (command_name == Fix.DEADLY_DRIVE) { return Fix.DEADLY_DRIVE_JP; }
+    if (command_name == Fix.DOMINATION_FIELD) { return Fix.DOMINATION_FIELD_JP; }
 
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
 
@@ -1362,7 +1371,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
     if (command_name == Fix.ASSASSINATION_HIT) { return ""; }
     if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
-    if (command_name == Fix.DOMINATION_FIELD) { return ""; }
+    if (command_name == Fix.DOMINATION_FIELD) { return "味方フィールドに【鉄壁】のBUFFを形成する。【鉄壁】が続く間、物理防御力および魔法防御力が１０％上昇する。また、各味方が【防御】姿勢を行っている場合のダメージ軽減率が20%上昇する。"; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return "このコマンドは【束縛】状態であっても発動する。味方全体に対して【鈍足】【束縛】【沈黙】のBUFFを解除し、味方フィールドに【迅速】のフィールドを形成する。【迅速】が続く間、【鈍足】【束縛】【沈黙】のBUFFは付与されない。また、戦闘速度および戦闘反応が１０％上昇する。"; }
     if (command_name == Fix.DETACHMENT_FAULT) { return ""; }
     if (command_name == Fix.AURA_BURN) { return ""; }

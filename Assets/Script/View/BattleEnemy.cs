@@ -1701,6 +1701,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.DEADLY_DRIVE:
         ExecDeadlyDrive(player);
         break;
+
+      case Fix.DOMINATION_FIELD:
+        ExecDominationField(player, player.objFieldPanel);
+        break;
       #endregion
 
       case Fix.ZERO_IMMUNITY:
@@ -4461,6 +4465,12 @@ public partial class BattleEnemy : MotherBase
   {
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
     StartAnimation(player.objGroup.gameObject, Fix.DEADLY_DRIVE, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+  }
+
+  private void ExecDominationField(Character player, BuffField target_field_obj)
+  {
+    target_field_obj.AddBuff(prefab_Buff, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
+    StartAnimation(target_field_obj.gameObject, Fix.DOMINATION_FIELD, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

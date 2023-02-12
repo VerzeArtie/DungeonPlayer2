@@ -201,6 +201,12 @@ public static class PrimaryLogic
     //  result *= player.IsHunterShot.EffectValue;
     //}
 
+    BuffImage dominationField = player.SearchFieldBuff(Fix.DOMINATION_FIELD);
+    if (dominationField != null)
+    {
+      result *= dominationField.EffectValue;
+    }
+
     if (player.IsRockSlum)
     {
       result *= player.IsRockSlum.EffectValue;
@@ -352,6 +358,13 @@ public static class PrimaryLogic
     {
       result *= player.IsSkyShield.EffectValue;
     }
+
+    BuffImage dominationField = player.SearchFieldBuff(Fix.DOMINATION_FIELD);
+    if (dominationField != null)
+    {
+      result *= dominationField.EffectValue;
+    }
+
     if (player.IsShadowBlast)
     {
       //Debug.Log("MagicDefense (before): " + result.ToString("F2"));

@@ -2657,6 +2657,8 @@ public partial class Character : MonoBehaviour
     if (this.LaylineSchema > 0) { list.Add(Fix.LAYLINE_SCHEMA); }
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
+    if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
+
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
     return list;

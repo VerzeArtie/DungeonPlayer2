@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public static class SecondaryLogic
 {
@@ -24,7 +25,19 @@ public static class SecondaryLogic
   public static double DefenseFactor(Character player)
   {
     double result = 0.50f;
-    if (player.DefenseSkill <= 0) { return result; }
+    // if (player.DefenseSkill <= 0) { return result; }
+
+    BuffImage dominationField = player.SearchFieldBuff(Fix.DOMINATION_FIELD);
+    if (dominationField)
+    {
+      Debug.Log("DefenseFactor by dominationField(before): " + result.ToString());
+      result -= dominationField.EffectValue2;
+      Debug.Log("DefenseFactor by dominationField(after ): " + result.ToString());
+    }
+    else
+    {
+      Debug.Log("DefenseFactor by dominationField, no effect...");
+    }
 
     result -= player.DefenseSkill * 0.02f; // 軽減率なので、この値は減少させる。
     if (result <= 0.00f) { result = 0.01f; } // 完全に0にはせず、最小値を設ける。
@@ -646,5 +659,18 @@ public static class SecondaryLogic
   public static double DeadlyDrive_Effect3(Character player)
   {
     return 1.15f;
+  }
+
+  public static int DominationField_Turn(Character player)
+  {
+    return 9;
+  }
+  public static double DominationField_Effect1(Character player)
+  {
+    return 1.10f;
+  }
+  public static double DominationField_Effect2(Character player)
+  {
+    return 0.10f;
   }
 }
