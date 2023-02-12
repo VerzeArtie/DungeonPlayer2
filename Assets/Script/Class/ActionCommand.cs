@@ -1215,7 +1215,7 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     if (command_name == Fix.WILL_AWAKENING) { return false; }
     if (command_name == Fix.PHANTOM_OBORO) { return false; }
-    if (command_name == Fix.PHANTOM_OBORO) { return false; }
+    if (command_name == Fix.DEADLY_DRIVE) { return false; }
 
     // 一般系統
     if (command_name == Fix.EFFECT_POISON) { return true; }
