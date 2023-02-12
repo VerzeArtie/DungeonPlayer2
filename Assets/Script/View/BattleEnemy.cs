@@ -1130,7 +1130,7 @@ public partial class BattleEnemy : MotherBase
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
 
-            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.IRON_BUSTER, 100);
+            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.BLUE_BULLET, 100);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
         }
@@ -2137,23 +2137,13 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_BOOOOMB:
         if (player.CurrentLife <= 1)
         {
-          double damageValue = player.CurrentLife;
-          // ファントム・朧による効果
-          if (this.NowStackInTheCommand)
-          {
-            damageValue = 0;
-          }
-          ApplyDamage(player, player, damageValue, false, MAX_ANIMATION_TIME);
+          // モンスター行動なので、ファントム・朧による効果はやらなくて良い。
+          ApplyDamage(player, player, player.CurrentLife, false, MAX_ANIMATION_TIME);
         }
         else
         {
-          double damageValue = player.CurrentLife - 1;
-          // ファントム・朧による効果
-          if (this.NowStackInTheCommand)
-          {
-            damageValue = 0;
-          }
-          ApplyDamage(player, player, damageValue - 1, false, MAX_ANIMATION_TIME);
+          // モンスター行動なので、ファントム・朧による効果はやらなくて良い。
+          ApplyDamage(player, player, player.CurrentLife - 1, false, MAX_ANIMATION_TIME);
         }
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
@@ -2916,12 +2906,24 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
       }
 
-      this.NowSelectTarget = true;
-      SelectFilter.SetActive(true);
-      this.NowInstantTarget = true;
-      lblInstantAction.SetActive(true);
+      if (this.DuelMode)
+      {
+        if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
+        {
+          this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+          this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 100);
+        }
+      }
+      else
+      {
+        this.NowSelectTarget = true;
+        SelectFilter.SetActive(true);
+        this.NowInstantTarget = true;
+        lblInstantAction.SetActive(true);
 
-      this.NowSelectActionCommandButton = sender.ActionButton;
+        this.NowSelectActionCommandButton = sender.ActionButton;
+      }
     }
     else
     {
@@ -3709,7 +3711,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
     // ファントム・朧による効果
-    if (this.NowStackInTheCommand)
+    if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
       damageValue = 0;
     }
@@ -3722,7 +3724,7 @@ public partial class BattleEnemy : MotherBase
       bool resultCritical2 = false;
       double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, false, critical, ref resultCritical2);
       // ファントム・朧による効果
-      if (this.NowStackInTheCommand)
+      if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
       {
         addDamageValue = 0;
       }
@@ -3804,7 +3806,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ファントム・朧による効果
-    if (this.NowStackInTheCommand)
+    if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
       damageValue = 0;
     }
@@ -3817,6 +3819,10 @@ public partial class BattleEnemy : MotherBase
     {
       bool resultCritical2 = false;
       double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, false, critical, ref resultCritical2);
+      if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
+      {
+        addDamageValue = 0;
+      }
       ApplyDamage(player, target, addDamageValue, resultCritical2, animation_speed);
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
