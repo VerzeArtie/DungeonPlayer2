@@ -2357,6 +2357,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.WILL_AWAKENING); }
   }
 
+  public BuffImage IsPhantomOboro
+  {
+    get { return SearchBuff(Fix.PHANTOM_OBORO); }
+  }
+
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
