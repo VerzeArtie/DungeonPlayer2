@@ -931,10 +931,13 @@ public static partial class Fix
 
   // ActionCommand
   public const string NORMAL_ATTACK = "Normal Attack";
+  public const string NORMAL_ATTACK_JP = "通常攻撃";
   public const string MAGIC_ATTACK = "Magic Attack";
+  public const string MAGIC_ATTACK_JP = "魔法攻撃";
   public const string DEFENSE = "Defense";
   public const string DEFENSE_JP = "防御";
   public const string STAY = "Stay";
+  public const string STAY_JP = "待機";
   public const string STAY_2 = "Stay_2";
   public const string USE_RED_POTION_1 = "RedPotion_1";
   public const string USE_RED_POTION_2 = "RedPotion_2";
