@@ -7,7 +7,7 @@ public class TileInformation : MonoBehaviour
 {
   public enum Field
   {
-    // Base-Field / ƒTƒ‹ƒ““´ŒA‘O
+    // Base-Field
     None = 0,
     Plain = 1,
     Forest = 2,

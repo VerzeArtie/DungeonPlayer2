@@ -353,7 +353,7 @@ public static partial class Fix
   #endregion
   #region "DungeonMapFile"
   public const string MAPFILE_BASE_FIELD = "MapData_BaseField.txt";
-  public const string MAPFILE_CAVEOFSARUN = "MapData_CaveOfSarun.txt";
+  public const string MAPFILE_ESMILIA_GRASSFIELD = "MapData_EsmiliaGrassField.txt";
   public const string MAPFILE_ARTHARIUM = "MapData_Artharium.txt";
   public const string MAPFILE_GORATRUM = "MapData_Goratrum.txt";
   public const string MAPFILE_GORATRUM_2 = "MapData_Goratrum_2.txt";
@@ -369,8 +369,8 @@ public static partial class Fix
   public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
 
-  public const int MAPSIZE_X_CAVEOFSARUN = 40;
-  public const int MAPSIZE_Z_CAVEOFSARUN = 20;
+  public const int MAPSIZE_X_ESMILIA_GRASSFIELD = 40;
+  public const int MAPSIZE_Z_ESMILIA_GRASSFIELD = 20;
 
   public const int MAPSIZE_X_GORATRUM = 40;
   public const int MAPSIZE_Z_GORATRUM = 20;
@@ -729,7 +729,7 @@ public static partial class Fix
   #endregion
   #region "Area Description"
   public const string AREA_INFO_ANSHET = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。";
-  public const string AREA_INFO_CAVEOFSARUN = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。";
+  public const string AREA_INFO_ESMILIA_GRASSFIELD = "エスミリア草原区域にある獣道。ファージル宮殿とアンシェットの町はこの通路で行き来が行われる。モンスターが出現するが危険度【高】のモンスターが出現する事はなく、道なりに進めば、危険に見舞われる事は少ない。";
   public const string AREA_INFO_FAZIL_CASTLE = "ファージル区域全土を統治する国王エルミ・ジョルジュが住まうファージル宮殿。ファージル宮殿の裏には数々のワープゲートが設置されており、国王であるエルミ・ジョルジュ、王妃ファラ・フローレ、魔道学院の長シニキア・カールハンツ、正義の暴君オル・ランディス、存在不可視のヴェルゼ・アーティが日々各エリアの状況把握に努めている。ファージル全土で犯罪発生率が低く、一般市民が平和に暮らせているのは彼らの加護があるからに他ならない。";
   public const string AREA_INFO_GORATRUM_CAVE = "人々を魅了する鍾乳洞は、観光地として多くの旅行者をひきつけた場所である。今では鍾乳洞は僅かしか残っておらず、地の奥底からモンスターが出没するようになっているため、一般の人々がここを訪れる事は無い。探索に行くのであれば、入念な準備を怠らない事だ。";
   public const string AREA_INFO_COTUHSYE = "この港町には様々な職業の者が行き来している。国王エルミは本エリアを交流の場の一つとして制定しており、出入りについて制限は設けていないため交易が盛んである。だが、現在は船の出航制限がかかっており、ここからヴィンスガルデ王国行きの船は出ていない。";
@@ -1389,7 +1389,7 @@ public static partial class Fix
 
   #region "Item Name"
   #region "武具"
-  #region "フェーズ【 Iー１ 】：サルン洞窟前の草原区域"
+  #region "フェーズ【 Iー１ 】：エスミリア草原区域"
   public const string PRACTICE_SWORD = "練習用の剣";
   public const string PRACTICE_LANCE = "練習用の槍";
   public const string PRACTICE_AXE = "練習用の斧";
@@ -2175,116 +2175,116 @@ public static partial class Fix
   #endregion
 
   #region "Dungeon Event"
-  #region "サルン洞窟前の草原区域"
+  #region "エスミリア草原"
   #region "宝箱"
-  public const string CAVEOFSARUN_Treasure_1_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_1_O = "1";
-  public const float CAVEOFSARUN_Treasure_1_X = 28.0f;
-  public const float CAVEOFSARUN_Treasure_1_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_1_Z = 3.0f;
+  public const string ESMILIA_Treasure_1_C = "Treasure";
+  public const string ESMILIA_Treasure_1_O = "1";
+  public const float ESMILIA_Treasure_1_X = 28.0f;
+  public const float ESMILIA_Treasure_1_Y = 1.0f;
+  public const float ESMILIA_Treasure_1_Z = 3.0f;
 
-  public const string CAVEOFSARUN_Treasure_2_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_2_O = "2";
-  public const float CAVEOFSARUN_Treasure_2_X = 24.0f;
-  public const float CAVEOFSARUN_Treasure_2_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_2_Z = 0.0f;
+  public const string ESMILIA_Treasure_2_C = "Treasure";
+  public const string ESMILIA_Treasure_2_O = "2";
+  public const float ESMILIA_Treasure_2_X = 24.0f;
+  public const float ESMILIA_Treasure_2_Y = 1.0f;
+  public const float ESMILIA_Treasure_2_Z = 0.0f;
 
-  public const string CAVEOFSARUN_Treasure_3_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_3_O = "3";
-  public const float CAVEOFSARUN_Treasure_3_X = 15.0f;
-  public const float CAVEOFSARUN_Treasure_3_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_3_Z = 8.0f;
+  public const string ESMILIA_Treasure_3_C = "Treasure";
+  public const string ESMILIA_Treasure_3_O = "3";
+  public const float ESMILIA_Treasure_3_X = 15.0f;
+  public const float ESMILIA_Treasure_3_Y = 1.0f;
+  public const float ESMILIA_Treasure_3_Z = 8.0f;
 
-  public const string CAVEOFSARUN_Treasure_4_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_4_O = "4";
-  public const float CAVEOFSARUN_Treasure_4_X = 11.0f;
-  public const float CAVEOFSARUN_Treasure_4_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_4_Z = 2.0f;
+  public const string ESMILIA_Treasure_4_C = "Treasure";
+  public const string ESMILIA_Treasure_4_O = "4";
+  public const float ESMILIA_Treasure_4_X = 11.0f;
+  public const float ESMILIA_Treasure_4_Y = 1.0f;
+  public const float ESMILIA_Treasure_4_Z = 2.0f;
 
-  public const string CAVEOFSARUN_Treasure_5_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_5_O = "5";
-  public const float CAVEOFSARUN_Treasure_5_X = 1.0f;
-  public const float CAVEOFSARUN_Treasure_5_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_5_Z = 9.0f;
+  public const string ESMILIA_Treasure_5_C = "Treasure";
+  public const string ESMILIA_Treasure_5_O = "5";
+  public const float ESMILIA_Treasure_5_X = 1.0f;
+  public const float ESMILIA_Treasure_5_Y = 1.0f;
+  public const float ESMILIA_Treasure_5_Z = 9.0f;
 
-  public const string CAVEOFSARUN_Treasure_6_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_6_O = "6";
-  public const float CAVEOFSARUN_Treasure_6_X = -9.0f;
-  public const float CAVEOFSARUN_Treasure_6_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_6_Z = 11.0f;
+  public const string ESMILIA_Treasure_6_C = "Treasure";
+  public const string ESMILIA_Treasure_6_O = "6";
+  public const float ESMILIA_Treasure_6_X = -9.0f;
+  public const float ESMILIA_Treasure_6_Y = 1.0f;
+  public const float ESMILIA_Treasure_6_Z = 11.0f;
 
-  public const string CAVEOFSARUN_Treasure_7_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_7_O = "7";
-  public const float CAVEOFSARUN_Treasure_7_X = 7.0f;
-  public const float CAVEOFSARUN_Treasure_7_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_7_Z = -5.0f;
+  public const string ESMILIA_Treasure_7_C = "Treasure";
+  public const string ESMILIA_Treasure_7_O = "7";
+  public const float ESMILIA_Treasure_7_X = 7.0f;
+  public const float ESMILIA_Treasure_7_Y = 1.0f;
+  public const float ESMILIA_Treasure_7_Z = -5.0f;
 
-  public const string CAVEOFSARUN_Treasure_8_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_8_O = "8";
-  public const float CAVEOFSARUN_Treasure_8_X = 7.0f;
-  public const float CAVEOFSARUN_Treasure_8_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_8_Z = 1.0f;
+  public const string ESMILIA_Treasure_8_C = "Treasure";
+  public const string ESMILIA_Treasure_8_O = "8";
+  public const float ESMILIA_Treasure_8_X = 7.0f;
+  public const float ESMILIA_Treasure_8_Y = 1.0f;
+  public const float ESMILIA_Treasure_8_Z = 1.0f;
 
-  public const string CAVEOFSARUN_Treasure_9_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_9_O = "9";
-  public const float CAVEOFSARUN_Treasure_9_X = -7.0f;
-  public const float CAVEOFSARUN_Treasure_9_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_9_Z = 5.0f;
+  public const string ESMILIA_Treasure_9_C = "Treasure";
+  public const string ESMILIA_Treasure_9_O = "9";
+  public const float ESMILIA_Treasure_9_X = -7.0f;
+  public const float ESMILIA_Treasure_9_Y = 1.0f;
+  public const float ESMILIA_Treasure_9_Z = 5.0f;
 
-  public const string CAVEOFSARUN_Treasure_10_C = "Treasure";
-  public const string CAVEOFSARUN_Treasure_10_O = "10";
-  public const float CAVEOFSARUN_Treasure_10_X = 27.0f;
-  public const float CAVEOFSARUN_Treasure_10_Y = 1.0f;
-  public const float CAVEOFSARUN_Treasure_10_Z = -5.0f;
+  public const string ESMILIA_Treasure_10_C = "Treasure";
+  public const string ESMILIA_Treasure_10_O = "10";
+  public const float ESMILIA_Treasure_10_X = 27.0f;
+  public const float ESMILIA_Treasure_10_Y = 1.0f;
+  public const float ESMILIA_Treasure_10_Z = -5.0f;
   #endregion
   #region "イベント"
-  public const string CAVEOFSARUN_Rock_1_C = "Rock";
-  public const string CAVEOFSARUN_Rock_1_O = "1";
-  public const float CAVEOFSARUN_Rock_1_X = -9.0f;
-  public const float CAVEOFSARUN_Rock_1_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_1_Z = 8.0f;
+  public const string ESMILIA_Rock_1_C = "Rock";
+  public const string ESMILIA_Rock_1_O = "1";
+  public const float ESMILIA_Rock_1_X = -9.0f;
+  public const float ESMILIA_Rock_1_Y = 1.0f;
+  public const float ESMILIA_Rock_1_Z = 8.0f;
 
-  public const string CAVEOFSARUN_Rock_2_C = "Rock";
-  public const string CAVEOFSARUN_Rock_2_O = "2";
-  public const float CAVEOFSARUN_Rock_2_X = -5.0f;
-  public const float CAVEOFSARUN_Rock_2_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_2_Z = 10.0f;
+  public const string ESMILIA_Rock_2_C = "Rock";
+  public const string ESMILIA_Rock_2_O = "2";
+  public const float ESMILIA_Rock_2_X = -5.0f;
+  public const float ESMILIA_Rock_2_Y = 1.0f;
+  public const float ESMILIA_Rock_2_Z = 10.0f;
 
-  public const string CAVEOFSARUN_Rock_3_C = "Rock";
-  public const string CAVEOFSARUN_Rock_3_O = "3";
-  public const float CAVEOFSARUN_Rock_3_X = -3.0f;
-  public const float CAVEOFSARUN_Rock_3_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_3_Z = 0.0f;
+  public const string ESMILIA_Rock_3_C = "Rock";
+  public const string ESMILIA_Rock_3_O = "3";
+  public const float ESMILIA_Rock_3_X = -3.0f;
+  public const float ESMILIA_Rock_3_Y = 1.0f;
+  public const float ESMILIA_Rock_3_Z = 0.0f;
 
-  public const string CAVEOFSARUN_Rock_4_C = "Rock";
-  public const string CAVEOFSARUN_Rock_4_O = "4";
-  public const float CAVEOFSARUN_Rock_4_X = -7.0f;
-  public const float CAVEOFSARUN_Rock_4_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_4_Z = 4.0f;
+  public const string ESMILIA_Rock_4_C = "Rock";
+  public const string ESMILIA_Rock_4_O = "4";
+  public const float ESMILIA_Rock_4_X = -7.0f;
+  public const float ESMILIA_Rock_4_Y = 1.0f;
+  public const float ESMILIA_Rock_4_Z = 4.0f;
 
-  public const string CAVEOFSARUN_Rock_5_C = "Rock";
-  public const string CAVEOFSARUN_Rock_5_O = "5";
-  public const float CAVEOFSARUN_Rock_5_X = 9.0f;
-  public const float CAVEOFSARUN_Rock_5_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_5_Z = -4.0f;
+  public const string ESMILIA_Rock_5_C = "Rock";
+  public const string ESMILIA_Rock_5_O = "5";
+  public const float ESMILIA_Rock_5_X = 9.0f;
+  public const float ESMILIA_Rock_5_Y = 1.0f;
+  public const float ESMILIA_Rock_5_Z = -4.0f;
 
-  public const string CAVEOFSARUN_Rock_6_C = "Rock";
-  public const string CAVEOFSARUN_Rock_6_O = "6";
-  public const float CAVEOFSARUN_Rock_6_X = 13.0f;
-  public const float CAVEOFSARUN_Rock_6_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_6_Z = -1.0f;
+  public const string ESMILIA_Rock_6_C = "Rock";
+  public const string ESMILIA_Rock_6_O = "6";
+  public const float ESMILIA_Rock_6_X = 13.0f;
+  public const float ESMILIA_Rock_6_Y = 1.0f;
+  public const float ESMILIA_Rock_6_Z = -1.0f;
 
-  public const string CAVEOFSARUN_Rock_7_C = "Rock";
-  public const string CAVEOFSARUN_Rock_7_O = "7";
-  public const float CAVEOFSARUN_Rock_7_X = 16.0f;
-  public const float CAVEOFSARUN_Rock_7_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_7_Z = -4.0f;
+  public const string ESMILIA_Rock_7_C = "Rock";
+  public const string ESMILIA_Rock_7_O = "7";
+  public const float ESMILIA_Rock_7_X = 16.0f;
+  public const float ESMILIA_Rock_7_Y = 1.0f;
+  public const float ESMILIA_Rock_7_Z = -4.0f;
 
-  public const string CAVEOFSARUN_Rock_8_C = "Rock";
-  public const string CAVEOFSARUN_Rock_8_O = "8";
-  public const float CAVEOFSARUN_Rock_8_X = -6.0f;
-  public const float CAVEOFSARUN_Rock_8_Y = 1.0f;
-  public const float CAVEOFSARUN_Rock_8_Z = 2.0f;
+  public const string ESMILIA_Rock_8_C = "Rock";
+  public const string ESMILIA_Rock_8_O = "8";
+  public const float ESMILIA_Rock_8_X = -6.0f;
+  public const float ESMILIA_Rock_8_Y = 1.0f;
+  public const float ESMILIA_Rock_8_Z = 2.0f;
   #endregion
   #endregion
   #region "ゴラトラム洞窟"
@@ -6323,7 +6323,7 @@ public static partial class Fix
   public const string TOWN_FAZIL_UNDERGROUND = "ファージル宮殿地下";
   #endregion
   #region "Dungeon"
-  public const string DUNGEON_CAVEOFSARUN = "サルンの洞窟";
+  public const string DUNGEON_ESMILIA_GRASSFIELD = "エスミリア草原区域";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";

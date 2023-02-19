@@ -240,7 +240,7 @@ public static class MessagePack
 
   #endregion
 
-  #region "サルン洞窟入口前のフィールド"
+  #region "エスミリア草原区域"
   public static void Message000010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
@@ -330,7 +330,7 @@ public static class MessagePack
     if (One.TF.Event_Message000040 == false)
     {
       One.TF.Event_Message000040 = true;
-      One.TF.FieldObject_CaveofSarun_00001 = true;
+      One.TF.FieldObject_EsmiliaGrassField_00001 = true;
 
       Message(ref m_list, ref e_list, "アイン：看板だな。読んでみるぞ。", ActionEvent.None);
 
@@ -355,7 +355,7 @@ public static class MessagePack
     if (One.TF.Event_Message000050 == false)
     {
       One.TF.Event_Message000050 = true;
-      One.TF.FieldObject_CaveofSarun_00002 = true;
+      One.TF.FieldObject_EsmiliaGrassField_00002 = true;
 
       Message(ref m_list, ref e_list, "アイン：看板だな、ええと・・・", ActionEvent.None);
 
@@ -576,42 +576,42 @@ public static class MessagePack
 
   public static void Message000140(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_CaveofSarun_00003 == false)
+    if (One.TF.FieldObject_EsmiliaGrassField_00003 == false)
     {
-      One.TF.FieldObject_CaveofSarun_00003 = true;
-      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_5_O);
+      One.TF.FieldObject_EsmiliaGrassField_00003 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.ESMILIA_Rock_5_O);
     }
   }
   public static void Message000150(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_CaveofSarun_00002 == false)
+    if (One.TF.FieldObject_EsmiliaGrassField_00002 == false)
     {
-      One.TF.FieldObject_CaveofSarun_00002 = true;
-      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_6_O);
+      One.TF.FieldObject_EsmiliaGrassField_00002 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.ESMILIA_Rock_6_O);
     }
   }
   public static void Message000160(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_CaveofSarun_00007 == false)
+    if (One.TF.FieldObject_EsmiliaGrassField_00007 == false)
     {
-      One.TF.FieldObject_CaveofSarun_00007 = true;
-      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_7_O);
+      One.TF.FieldObject_EsmiliaGrassField_00007 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.ESMILIA_Rock_7_O);
     }
   }
   public static void Message000170(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_CaveofSarun_00008 == false)
+    if (One.TF.FieldObject_EsmiliaGrassField_00008 == false)
     {
-      One.TF.FieldObject_CaveofSarun_00008 = true;
-      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_4_O);
+      One.TF.FieldObject_EsmiliaGrassField_00008 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.ESMILIA_Rock_4_O);
     }
   }
   public static void Message000180(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_CaveofSarun_00009 == false)
+    if (One.TF.FieldObject_EsmiliaGrassField_00009 == false)
     {
-      One.TF.FieldObject_CaveofSarun_00009 = true;
-      UseMatockForRock(ref m_list, ref e_list, Fix.CAVEOFSARUN_Rock_8_O);
+      One.TF.FieldObject_EsmiliaGrassField_00009 = true;
+      UseMatockForRock(ref m_list, ref e_list, Fix.ESMILIA_Rock_8_O);
     }
   }
 

@@ -928,7 +928,7 @@ public partial class Item
 
     switch (item_name)
     {
-      #region "サルン洞窟前の草原区域"
+      #region "エスミリア草原区域"
       case Fix.PRACTICE_CLAW:
         this._rarity = Rarity.Poor;
         this._itemType = ItemTypes.Onehand_Claw;

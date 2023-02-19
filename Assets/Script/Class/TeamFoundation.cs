@@ -597,11 +597,11 @@ public class TeamFoundation : MonoBehaviour
   #endregion
 
   #region "Map KnownTileInfo"
-  [SerializeField] protected List<bool> _knownTileList_CaveOfSarun = new List<bool>(Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN);
-  public List<bool> KnownTileList_CaveOfSarun
+  [SerializeField] protected List<bool> _knownTileList_EsmiliaGrassField = new List<bool>(Fix.MAPSIZE_X_ESMILIA_GRASSFIELD * Fix.MAPSIZE_Z_ESMILIA_GRASSFIELD);
+  public List<bool> KnownTileList_EsmiliaGrassField
   {
-    set { _knownTileList_CaveOfSarun = value; }
-    get { return _knownTileList_CaveOfSarun; }
+    set { _knownTileList_EsmiliaGrassField = value; }
+    get { return _knownTileList_EsmiliaGrassField; }
   }
 
   [SerializeField] protected List<bool> _knownTileList_Goratrum = new List<bool>(Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM);
@@ -1249,17 +1249,17 @@ public class TeamFoundation : MonoBehaviour
   #endregion
 
   #region "Treasure"
-  [SerializeField] protected bool _treasure_CaveOfSarun_00001 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00002 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00003 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00004 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00005 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00006 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00007 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00008 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00009 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00010 = false;
-  [SerializeField] protected bool _treasure_CaveOfSarun_00011 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00001 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00002 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00003 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00004 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00005 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00006 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00007 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00008 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00009 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00010 = false;
+  [SerializeField] protected bool _treasure_EsmiliaGrassField_00011 = false;
 
   [SerializeField] protected bool _treasure_goratrum_00001 = false;
   [SerializeField] protected bool _treasure_goratrum_00002 = false;
@@ -1361,17 +1361,17 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_ohrantower_00035 = false;
   [SerializeField] protected bool _treasure_ohrantower_00036 = false;
 
-  public bool Treasure_CaveOfSarun_00001 { get { return _treasure_CaveOfSarun_00001; } set { _treasure_CaveOfSarun_00001 = value; } }
-  public bool Treasure_CaveOfSarun_00002 { get { return _treasure_CaveOfSarun_00002; } set { _treasure_CaveOfSarun_00002 = value; } }
-  public bool Treasure_CaveOfSarun_00003 { get { return _treasure_CaveOfSarun_00003; } set { _treasure_CaveOfSarun_00003 = value; } }
-  public bool Treasure_CaveOfSarun_00004 { get { return _treasure_CaveOfSarun_00004; } set { _treasure_CaveOfSarun_00004 = value; } }
-  public bool Treasure_CaveOfSarun_00005 { get { return _treasure_CaveOfSarun_00005; } set { _treasure_CaveOfSarun_00005 = value; } }
-  public bool Treasure_CaveOfSarun_00006 { get { return _treasure_CaveOfSarun_00006; } set { _treasure_CaveOfSarun_00006 = value; } }
-  public bool Treasure_CaveOfSarun_00007 { get { return _treasure_CaveOfSarun_00007; } set { _treasure_CaveOfSarun_00007 = value; } }
-  public bool Treasure_CaveOfSarun_00008 { get { return _treasure_CaveOfSarun_00008; } set { _treasure_CaveOfSarun_00008 = value; } }
-  public bool Treasure_CaveOfSarun_00009 { get { return _treasure_CaveOfSarun_00009; } set { _treasure_CaveOfSarun_00009 = value; } }
-  public bool Treasure_CaveOfSarun_00010 { get { return _treasure_CaveOfSarun_00010; } set { _treasure_CaveOfSarun_00010 = value; } }
-  public bool Treasure_CaveOfSarun_00011 { get { return _treasure_CaveOfSarun_00011; } set { _treasure_CaveOfSarun_00011 = value; } }
+  public bool Treasure_EsmiliaGrassField_00001 { get { return _treasure_EsmiliaGrassField_00001; } set { _treasure_EsmiliaGrassField_00001 = value; } }
+  public bool Treasure_EsmiliaGrassField_00002 { get { return _treasure_EsmiliaGrassField_00002; } set { _treasure_EsmiliaGrassField_00002 = value; } }
+  public bool Treasure_EsmiliaGrassField_00003 { get { return _treasure_EsmiliaGrassField_00003; } set { _treasure_EsmiliaGrassField_00003 = value; } }
+  public bool Treasure_EsmiliaGrassField_00004 { get { return _treasure_EsmiliaGrassField_00004; } set { _treasure_EsmiliaGrassField_00004 = value; } }
+  public bool Treasure_EsmiliaGrassField_00005 { get { return _treasure_EsmiliaGrassField_00005; } set { _treasure_EsmiliaGrassField_00005 = value; } }
+  public bool Treasure_EsmiliaGrassField_00006 { get { return _treasure_EsmiliaGrassField_00006; } set { _treasure_EsmiliaGrassField_00006 = value; } }
+  public bool Treasure_EsmiliaGrassField_00007 { get { return _treasure_EsmiliaGrassField_00007; } set { _treasure_EsmiliaGrassField_00007 = value; } }
+  public bool Treasure_EsmiliaGrassField_00008 { get { return _treasure_EsmiliaGrassField_00008; } set { _treasure_EsmiliaGrassField_00008 = value; } }
+  public bool Treasure_EsmiliaGrassField_00009 { get { return _treasure_EsmiliaGrassField_00009; } set { _treasure_EsmiliaGrassField_00009 = value; } }
+  public bool Treasure_EsmiliaGrassField_00010 { get { return _treasure_EsmiliaGrassField_00010; } set { _treasure_EsmiliaGrassField_00010 = value; } }
+  public bool Treasure_EsmiliaGrassField_00011 { get { return _treasure_EsmiliaGrassField_00011; } set { _treasure_EsmiliaGrassField_00011 = value; } }
 
   public bool Treasure_Goratrum_00001 { get { return _treasure_goratrum_00001; } set { _treasure_goratrum_00001 = value; } }
   public bool Treasure_Goratrum_00002 { get { return _treasure_goratrum_00002; } set { _treasure_goratrum_00002 = value; } }
@@ -1475,18 +1475,18 @@ public class TeamFoundation : MonoBehaviour
   #endregion
 
   #region "etc"
-  [SerializeField] protected bool _fieldobject_caveofsarun_00001 = false;
-  [SerializeField] protected bool _fieldobject_caveofsarun_00002 = false;
-  [SerializeField] protected bool _fieldobject_caveofsarun_00003 = false;
-  [SerializeField] protected bool _fieldobject_caveofsarun_00007 = false;
-  [SerializeField] protected bool _fieldobject_caveofsarun_00008 = false;
-  [SerializeField] protected bool _fieldobject_caveofsarun_00009 = false;
-  public bool FieldObject_CaveofSarun_00001 { get { return _fieldobject_caveofsarun_00001; } set { _fieldobject_caveofsarun_00001 = value; } }
-  public bool FieldObject_CaveofSarun_00002 { get { return _fieldobject_caveofsarun_00002; } set { _fieldobject_caveofsarun_00002 = value; } }
-  public bool FieldObject_CaveofSarun_00003 { get { return _fieldobject_caveofsarun_00003; } set { _fieldobject_caveofsarun_00003 = value; } }
-  public bool FieldObject_CaveofSarun_00007 { get { return _fieldobject_caveofsarun_00007; } set { _fieldobject_caveofsarun_00007 = value; } }
-  public bool FieldObject_CaveofSarun_00008 { get { return _fieldobject_caveofsarun_00008; } set { _fieldobject_caveofsarun_00008 = value; } }
-  public bool FieldObject_CaveofSarun_00009 { get { return _fieldobject_caveofsarun_00009; } set { _fieldobject_caveofsarun_00009 = value; } }
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00001 = false;
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00002 = false;
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00003 = false;
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00007 = false;
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00008 = false;
+  [SerializeField] protected bool _fieldobject_EsmiliaGrassField_00009 = false;
+  public bool FieldObject_EsmiliaGrassField_00001 { get { return _fieldobject_EsmiliaGrassField_00001; } set { _fieldobject_EsmiliaGrassField_00001 = value; } }
+  public bool FieldObject_EsmiliaGrassField_00002 { get { return _fieldobject_EsmiliaGrassField_00002; } set { _fieldobject_EsmiliaGrassField_00002 = value; } }
+  public bool FieldObject_EsmiliaGrassField_00003 { get { return _fieldobject_EsmiliaGrassField_00003; } set { _fieldobject_EsmiliaGrassField_00003 = value; } }
+  public bool FieldObject_EsmiliaGrassField_00007 { get { return _fieldobject_EsmiliaGrassField_00007; } set { _fieldobject_EsmiliaGrassField_00007 = value; } }
+  public bool FieldObject_EsmiliaGrassField_00008 { get { return _fieldobject_EsmiliaGrassField_00008; } set { _fieldobject_EsmiliaGrassField_00008 = value; } }
+  public bool FieldObject_EsmiliaGrassField_00009 { get { return _fieldobject_EsmiliaGrassField_00009; } set { _fieldobject_EsmiliaGrassField_00009 = value; } }
 
   [SerializeField] protected bool _fieldobject_goratrum_00001 = false;
   [SerializeField] protected bool _fieldobject_goratrum_00002 = false;

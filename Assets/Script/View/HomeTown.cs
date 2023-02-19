@@ -1011,15 +1011,15 @@ public partial class HomeTown : MotherBase
       ChangeHometown(One.TF.CurrentAreaName, this.DungeonMap);
     }
     // 行き先がダンジョンの場合
-    else if (this.DungeonMap == Fix.DUNGEON_CAVEOFSARUN)
+    else if (this.DungeonMap == Fix.DUNGEON_ESMILIA_GRASSFIELD)
     {
       if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
       {
-        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_CAVEOFSARUN, 28.0f, 1.0f, 9.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_ESMILIA_GRASSFIELD, 28.0f, 1.0f, 9.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
       else
       {
-        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_CAVEOFSARUN, -9.0f, 1.0f, -4.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_ESMILIA_GRASSFIELD, -9.0f, 1.0f, -4.0f); // todo 後でX,Yの基点が0,0ではないので分かりにくい。
       }
     }
     else if (this.DungeonMap == Fix.DUNGEON_GORATRUM_CAVE)
@@ -3433,11 +3433,11 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     int counter = 0;
-    if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
-    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_CAVEOFSARUN, true, counter); counter++; }
-    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
+    //if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, counter); counter++; }
+    //if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
-    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
+    //if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
     if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
     if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
   }
@@ -3493,7 +3493,7 @@ public partial class HomeTown : MotherBase
     this.DungeonMap = select_area_name;
 
     if (select_area_name == Fix.TOWN_ANSHET) { txtEventDescription.text = Fix.AREA_INFO_ANSHET; } 
-    if (select_area_name == Fix.DUNGEON_CAVEOFSARUN) { txtEventDescription.text = Fix.AREA_INFO_CAVEOFSARUN; }
+    if (select_area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD) { txtEventDescription.text = Fix.AREA_INFO_ESMILIA_GRASSFIELD; }
     if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { txtEventDescription.text = Fix.AREA_INFO_FAZIL_CASTLE; }
     if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { txtEventDescription.text = Fix.AREA_INFO_GORATRUM_CAVE; }
     if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }

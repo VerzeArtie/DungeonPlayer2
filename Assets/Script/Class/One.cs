@@ -207,9 +207,9 @@ public static class One
     TF = objTF.AddComponent<TeamFoundation>();
     AR = objAR.AddComponent<AkashicRecord>();
 
-    for (int ii = 0; ii < Fix.MAPSIZE_X_CAVEOFSARUN * Fix.MAPSIZE_Z_CAVEOFSARUN; ii++)
+    for (int ii = 0; ii < Fix.MAPSIZE_X_ESMILIA_GRASSFIELD * Fix.MAPSIZE_Z_ESMILIA_GRASSFIELD; ii++)
     {
-      TF.KnownTileList_CaveOfSarun.Add(false);
+      TF.KnownTileList_EsmiliaGrassField.Add(false);
     }
     for (int ii = 0; ii < Fix.MAPSIZE_X_GORATRUM * Fix.MAPSIZE_Z_GORATRUM; ii++)
     {
@@ -655,7 +655,7 @@ public static class One
 
     // DungeonFieldName = Fix.MAPFILE_ARTHARIUM;
     //DungeonFieldName = Fix.MAPFILE_BASE_FIELD;
-    //TF.CurrentDungeonField = Fix.MAPFILE_CAVEOFSARUN;
+    //TF.CurrentDungeonField = Fix.MAPFILE_ESMILIA_GRASSFIELD;
     // debug-end
 
     for (int ii = 0; ii < _characters.Count; ii++)
@@ -1763,7 +1763,7 @@ public static class One
           if (1 <= randomValue2 && randomValue2 <= param2) // Poor 22.75%
           {
             Debug.Log("ItemDrop: category: Poor");
-            #region "サルン洞窟前の草原区域"
+            #region "エスミリア草原区域"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -1872,7 +1872,7 @@ public static class One
           else if (param2 < randomValue2 && randomValue2 <= (param2 + param3)) // Common 13.44%
           {
             Debug.Log("ItemDrop: category: Common");
-            #region "サルン洞窟前の草原区域"
+            #region "エスミリア草原区域"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -2037,7 +2037,7 @@ public static class One
           else if ((param2 + param3) < randomValue2 && randomValue2 <= (param2 + param3 + param4)) // Uncommon 6.7%
           {
             Debug.Log("ItemDrop: category: Uncommon");
-            #region "サルン洞窟前の草原区域"
+            #region "エスミリア草原区域"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -2172,7 +2172,7 @@ public static class One
           else if ((param2 + param3 + param4) < randomValue2 && randomValue2 <= (param2 + param3 + param4 + param5)) // Rare 2.49%
           {
             Debug.Log("ItemDrop: category: Rare");
-            #region "サルン洞窟前の草原区域"
+            #region "エスミリア草原区域"
             if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -2321,7 +2321,7 @@ public static class One
         #region "ダンジョン階層依存のパワーアップアイテム"
         else if ((param1 + param2 + param3 + param4 + param5) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6)) // Rare Use Item 0.90%
         {
-          #region "サルン洞窟前の草原区域"
+          #region "エスミリア草原区域"
           if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -2385,7 +2385,7 @@ public static class One
         #region "ダンジョン階層依存の高級装備品"
         else if ((param1 + param2 + param3 + param4 + param5 + param6) < randomValue && randomValue <= (param1 + param2 + param3 + param4 + param5 + param6 + param7)) // EPIC 0.31%
         {
-          #region "サルン洞窟前の草原区域"
+          #region "エスミリア草原区域"
           if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||
@@ -2498,7 +2498,7 @@ public static class One
         #region "ハズレは、不用品をランダムドロップ"
         if (targetItemName == string.Empty)
         {
-          #region "サルン洞窟前の草原区域"
+          #region "エスミリア草原区域"
           if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area11) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area12) ||
               (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area13) ||

@@ -4339,7 +4339,7 @@ public partial class Character : MonoBehaviour
     List<string> list = new List<string>();
     switch (character_name)
     {
-      #region "サルン洞窟前草原区域"
+      #region "エスミリア草原区域"
       case Fix.TINY_MANTIS:
       case Fix.TINY_MANTIS_JP:
         SetupParameter(15, 2, 1, 2, 3, 4, 16, 12);
