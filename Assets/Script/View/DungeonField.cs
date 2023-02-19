@@ -6983,11 +6983,11 @@ public class DungeonField : MotherBase
         MessagePack.Message000080(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      if (LocationDetect(tile, 15, 0, 1) && One.TF.AvailableImmediateAction == false)
-      {
-        MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
+      //if (LocationDetect(tile, 15, 0, 1) && One.TF.AvailableImmediateAction == false)
+      //{
+      //  MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
+      //  return true;
+      //}
     }
     #endregion
     #region "ゴラトラム洞窟"

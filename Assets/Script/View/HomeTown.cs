@@ -458,6 +458,14 @@ public partial class HomeTown : MotherBase
     if (this.FirstAction == false)
     {
       this.FirstAction = true;
+
+      // １日目終了時
+      if (this.firstDay >= 1 && One.TF.AlreadyDungeon && One.TF.AvailableImmediateAction == false)
+      {
+        MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       // クヴェルタ街、奇妙な物体の調査
       if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
       {
