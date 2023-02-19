@@ -217,7 +217,7 @@ public static partial class Fix
   public static Color COLOR_FIFTH_CHARA = new Color(1.0f, 0.8f, 0.8f);
   public static Color COLORFORE_FIFTH_CHARA = new Color(200 / 255.0f, 0.3f, 0.3f);
 
-  public static Color COLOR_ENEMY_CHARA = new Color(200.0f / 255.0f, 200.0f / 255.0f, 200.0f / 255.0f);
+  public static Color COLOR_ENEMY_CHARA = new Color(230.0f / 255.0f, 180.0f / 255.0f, 150.0f / 255.0f);
   public static Color COLORFORE_ENEMY_CHARA = new Color(226.0f / 255.0f, 58.0f / 255.0f, 0 / 255.0f);
   #endregion
   #region "Buff Effect"

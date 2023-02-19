@@ -600,6 +600,14 @@ public partial class BattleEnemy : MotherBase
     if (character.objCurrentInstantGauge != null)
     {
       character.objCurrentInstantGauge.color = character.BattleForeColor;
+      if (character.IsEnemy && this.BattleType == Fix.BattleMode.Normal)
+      {
+        character.objCurrentInstantGauge.gameObject.SetActive(false);
+      }
+      else
+      {
+        character.objCurrentInstantGauge.gameObject.SetActive(true);
+      }
     }
     if (character.objBackInstantGauge)
     {
