@@ -1813,6 +1813,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &47483560
@@ -2104,6 +2105,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &74002446
@@ -3839,6 +3841,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &126100475
@@ -3923,6 +3926,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &129444568
@@ -4283,6 +4287,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &154632769
@@ -5179,6 +5184,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GroupSoulPoint: {fileID: 0}
 --- !u!1 &218063941
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,6 +5985,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &263067406
@@ -6236,6 +6243,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &269905055
@@ -6320,6 +6328,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &271599469
@@ -8592,6 +8601,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &401591312
@@ -9152,6 +9162,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &425528696
@@ -9716,7 +9727,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 136}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &439278949
 MonoBehaviour:
@@ -9768,11 +9779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d429f14039e682440a6fd0e7617295fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _suddenTimer: 0
   _stackTimer: 0
   _stackName: 
   _player: {fileID: 0}
   _target: {fileID: 0}
+  background: {fileID: 439278949}
   txtStackName: {fileID: 547274590}
+  txtStackTarget: {fileID: 1774664339}
   txtStackTime: {fileID: 833311267}
   imgStackIcon: {fileID: 653689393}
 --- !u!1 &442179011
@@ -10542,6 +10556,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &490155070
@@ -11537,7 +11552,7 @@ GameObject:
   - component: {fileID: 547274591}
   - component: {fileID: 547274590}
   m_Layer: 5
-  m_Name: txtStackInTheCommandName
+  m_Name: txtStackName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11559,8 +11574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 669.5, y: -35.25}
-  m_SizeDelta: {x: 1339, y: 70.5}
+  m_AnchoredPosition: {x: 699, y: -25.833334}
+  m_SizeDelta: {x: 1398, y: 51.666668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547274590
 MonoBehaviour:
@@ -12076,6 +12091,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &567828727
@@ -12654,6 +12670,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &592903082
@@ -12814,6 +12831,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &612939741
@@ -12898,6 +12916,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &614150909
@@ -13257,6 +13276,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &637481858
@@ -14897,6 +14917,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &765872457
@@ -15369,6 +15390,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &787554934
@@ -15491,6 +15513,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &792206945
@@ -16058,6 +16081,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &808057339
@@ -16217,6 +16241,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &822903840
@@ -16376,6 +16401,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &832535765
@@ -16398,7 +16424,7 @@ GameObject:
   - component: {fileID: 833311268}
   - component: {fileID: 833311267}
   m_Layer: 5
-  m_Name: txtStackInTheCommandTime
+  m_Name: txtStackTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16416,12 +16442,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1203166538}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 669.5, y: -103.25}
-  m_SizeDelta: {x: 1339, y: 65.5}
+  m_AnchoredPosition: {x: 699, y: -126.66667}
+  m_SizeDelta: {x: 1398, y: 46.666668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833311267
 MonoBehaviour:
@@ -17078,6 +17104,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &868357937
@@ -17734,6 +17761,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &926588341
@@ -17818,6 +17846,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &926852580
@@ -18510,6 +18539,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &952306269
@@ -18752,6 +18782,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &974277810
@@ -19124,6 +19155,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &996224338
@@ -19607,6 +19639,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1034544461
@@ -19691,6 +19724,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1035403043
@@ -19775,6 +19809,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1038031507
@@ -19938,6 +19973,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1040105035
@@ -20229,6 +20265,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1053475015
@@ -21534,6 +21571,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1096208638
@@ -22008,6 +22046,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1113132515
@@ -22464,6 +22503,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1145399843
@@ -22548,6 +22588,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1147582180
@@ -23301,7 +23342,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 116, y: -20}
+  m_SizeDelta: {x: 130, y: -20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1189618597
 MonoBehaviour:
@@ -23509,6 +23550,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 547274589}
+  - {fileID: 1774664337}
   - {fileID: 833311266}
   m_Father: {fileID: 439278948}
   m_RootOrder: 1
@@ -24216,6 +24258,7 @@ MonoBehaviour:
   - {fileID: 1520047053}
   - {fileID: 561778604}
   - {fileID: 935530512}
+  GroupSoulPoint: {fileID: 0}
 --- !u!1 &1227718018
 GameObject:
   m_ObjectHideFlags: 0
@@ -24290,6 +24333,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1227718021
@@ -24637,6 +24681,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1240138514
@@ -24758,6 +24803,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1242434648
@@ -25583,6 +25629,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1299651797
@@ -26323,6 +26370,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1336579633
@@ -26392,6 +26440,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GroupSoulPoint: {fileID: 723428200}
 --- !u!224 &1337777123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26486,6 +26535,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1341126046
@@ -27097,6 +27147,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1365786001
@@ -28065,6 +28116,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1403922966
@@ -28417,6 +28469,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1435354082
@@ -28612,6 +28665,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1445460507
@@ -29598,6 +29652,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1480525762
@@ -29758,6 +29813,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1486286757
@@ -30049,6 +30105,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1503802050
@@ -31521,6 +31578,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1552847955
@@ -31605,6 +31663,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1568100722
@@ -32241,6 +32300,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1618022867
@@ -33614,6 +33674,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1709317763
@@ -33698,6 +33759,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1714543381
@@ -34753,6 +34815,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1731698615
@@ -34913,6 +34976,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1737671885
@@ -35450,6 +35514,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773059037}
   m_CullTransparentMesh: 1
+--- !u!1 &1774664336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774664337}
+  - component: {fileID: 1774664338}
+  - component: {fileID: 1774664339}
+  m_Layer: 5
+  m_Name: txtStackTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1774664337
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774664336}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1203166538}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 699, y: -77.5}
+  m_SizeDelta: {x: 1398, y: 51.666668}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1774664338
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774664336}
+  m_CullTransparentMesh: 0
+--- !u!114 &1774664339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774664336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 3
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Instant Command Target
 --- !u!1 &1775657961
 GameObject:
   m_ObjectHideFlags: 0
@@ -35771,6 +35914,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1786408440
@@ -35855,6 +35999,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1789269293
@@ -36254,6 +36399,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1804539065
@@ -37470,6 +37616,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1904820260
@@ -38241,6 +38388,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1959787664
@@ -38363,6 +38511,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1982383024
@@ -38764,6 +38913,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &1998962962
@@ -40177,6 +40327,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2047796664
@@ -40343,6 +40494,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2059094275
@@ -40823,6 +40975,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2084986959
@@ -41390,6 +41543,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2103591534
@@ -41474,6 +41628,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2106562700
@@ -41767,6 +41922,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2121418780
@@ -41851,6 +42007,7 @@ MonoBehaviour:
   _buffName: 
   _effectValue: 0
   _effectValue2: 0
+  _effectValue3: 0
   _cumulative: 0
   _remainCounter: 0
 --- !u!222 &2130861534
