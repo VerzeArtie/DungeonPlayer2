@@ -330,6 +330,8 @@ public static partial class Fix
   #endregion
   #region "Timer"
   public const int BATTLEEND_AUTOEXIT = 200;
+  public const int STACKCOMMAND_NORMAL_TIMER = 150;
+  public const int STACKCOMMAND_SUDDEN_TIMER = 50;
   #endregion
   #endregion
 
@@ -2165,6 +2167,11 @@ public static partial class Fix
   public const string HELL_KERBEROS_JP = "地獄のケルベロス";
 
   public const string DUMMY_SUBURI = "ダミー素振り君";
+  #endregion
+
+  #region "Duel闘技場"
+  public const string DUEL_JEDA_ARUS = @"ジェダ・アルス";
+  public const string DUEL_JEDA_ARUS_DB = @"jeda_arus";
   #endregion
 
   #region "Dungeon Event"

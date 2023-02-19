@@ -8,6 +8,13 @@ using UnityEngine.UI;
 
 public class StackObject : MonoBehaviour
 {
+  [SerializeField] protected int _suddenTimer = 0;
+  public int SuddenTimer
+  {
+    get { return _suddenTimer; }
+    set { _suddenTimer = value; }
+  }
+
   [SerializeField] protected int _stackTimer = 0;
   public int StackTimer
   {
@@ -36,12 +43,15 @@ public class StackObject : MonoBehaviour
     set { _target = value; }
   }
 
+  public Image background;
   public Text txtStackName;
+  public Text txtStackTarget;
   public Text txtStackTime;
   public Image imgStackIcon;
 
-  public void ConstructStack(Character player, Character target, string stack_name, int stack_timer)
+  public void ConstructStack(Character player, Character target, string stack_name, int stack_timer, int sudden_timer)
   {
+    _suddenTimer = sudden_timer;
     _stackName = stack_name;
     _stackTimer = stack_timer;
     _player = player;
@@ -49,5 +59,22 @@ public class StackObject : MonoBehaviour
     txtStackName.text = stack_name;
     txtStackTime.text = stack_timer.ToString();
     imgStackIcon.sprite = Resources.Load<Sprite>(stack_name);
+
+    if (ActionCommand.IsTarget(stack_name) == ActionCommand.TargetType.Own)
+    {
+      txtStackTarget.text = player.FullName;
+    }
+    else
+    {
+      txtStackTarget.text = player.FullName + " --> " + target.FullName;
+    }
+
+    if (sudden_timer > 0)
+    {
+      background.color = Color.black;
+      txtStackName.color = Color.white;
+      txtStackTarget.color = Color.white;
+      txtStackTime.color = Color.white;      
+    }
   }
 }

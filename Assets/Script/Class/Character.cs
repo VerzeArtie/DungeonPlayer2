@@ -42,6 +42,7 @@ public partial class Character : MonoBehaviour
   public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
   public List<NodeActionCommand> objMainActionList = new List<NodeActionCommand>();
   public BuffField objFieldPanel = null;
+  public GameObject groupSoulPoint = null;
 
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
@@ -1710,6 +1711,22 @@ public partial class Character : MonoBehaviour
     _currentSoulPoint = MaxSoulPoint;
     //_currentActionPoint = MaxActionPoint;
     //_currentEnergyPoint = MaxEnergyPoint;
+  }
+
+  public void DecisionDefense()
+  {
+    Debug.Log("DecisionDefense");
+    CurrentActionCommand = Fix.DEFENSE;
+    if (txtActionCommand != null)
+    {
+      txtActionCommand.text = Fix.DEFENSE;
+    }
+    if (objMainButton != null)
+    {
+      Debug.Log("DecisionDefense: objMainButton detect");
+      objMainButton.ApplyImageIcon(Fix.DEFENSE);
+    }
+    Debug.Log("DecisionDefense(E)");
   }
 
   public void DeadPlayer()
@@ -4779,6 +4796,20 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.DUEL_JEDA_ARUS:
+        this.Level = 16;
+        SetupParameter(48, 20, 30, 35, 12, 0, 0, 0);//(48, 20, 7, 35, 8, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        this.CannotCritical = false;
+        this.MainWeapon = new Item(Fix.AERO_BLADE);
+        this.SubWeapon = new Item(Fix.AERO_BLADE);
+        this.MainArmor = new Item(Fix.CLASSICAL_ARMOR); //SUN_BRAVE_ARMOR);
+        this.Accessory1 = new Item(Fix.BLUE_WIZARD_HAT); // SINTYUU_RING_KUROHEBI);
+        this.Accessory2 = new Item(Fix.WARRIOR_BRACER); // SINTYUU_RING_AKAHYOU);
+        this.Artifact = new Item(Fix.YELLOW_PENDANT);
+        // todo Item保持リストが必要。回復ポーションなど
+        break;
+
       case Fix.RUDE_WATCHDOG:
       case Fix.RUDE_WATCHDOG_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
@@ -5789,6 +5820,41 @@ public partial class Character : MonoBehaviour
           current.Add(Fix.COMMAND_STRUGGLE_VOICE);
         }
         result = RandomChoice(current);
+        break;
+
+      case Fix.DUEL_JEDA_ARUS:
+        switch (AP.Math.RandomInteger(2))
+        {
+          case 0:
+            if (this.SearchFieldBuff(Fix.DIVINE_CIRCLE) == null)
+            {
+              result = Fix.DIVINE_CIRCLE;
+            }
+            else if (this.CurrentSoulPoint >= ActionCommand.CostSP(Fix.DOUBLE_SLASH))
+            {
+              result = Fix.DOUBLE_SLASH;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+            break;
+
+          case 1:
+            if (this.SearchBuff(Fix.STANCE_OF_THE_BLADE) == null)
+            {
+              result = Fix.STANCE_OF_THE_BLADE;
+            }
+            else if (this.CurrentSoulPoint >= ActionCommand.CostSP(Fix.DOUBLE_SLASH))
+            {
+              result = Fix.DOUBLE_SLASH;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+            break;
+        }
         break;
 
       case Fix.DUMMY_SUBURI:

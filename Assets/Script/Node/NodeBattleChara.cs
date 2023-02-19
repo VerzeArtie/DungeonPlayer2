@@ -29,4 +29,5 @@ public class NodeBattleChara : MonoBehaviour
   public NodeActionCommand objImmediateCommand;
   public GameObject GroupActionCommand;
   public List<NodeActionCommand> ActionCommandList;
+  public GameObject GroupSoulPoint;
 }

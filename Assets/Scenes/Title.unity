@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 26055678}
   - component: {fileID: 26055677}
   m_Layer: 5
-  m_Name: btnGameStart
+  m_Name: btnBattleTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2764,7 +2764,7 @@ GameObject:
   - component: {fileID: 497369139}
   - component: {fileID: 497369138}
   m_Layer: 5
-  m_Name: btnGameLoad
+  m_Name: btnDuelTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2835,8 +2835,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1234823282}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: TapGameLoad
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: TapDuelTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9252,7 +9252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Start
+  m_Text: Battle Test
 --- !u!222 &1577258548
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9477,7 +9477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load Game
+  m_Text: Duel Test
 --- !u!222 &1588299344
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10350,7 +10350,7 @@ GameObject:
   - component: {fileID: 1677628956}
   - component: {fileID: 1677628955}
   m_Layer: 5
-  m_Name: btnGameConfig
+  m_Name: btnBossTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10422,7 +10422,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1234823282}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: TapConfig
+        m_MethodName: TapBossTest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12085,7 +12085,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Config
+  m_Text: Boss Test
 --- !u!222 &1940621107
 CanvasRenderer:
   m_ObjectHideFlags: 0
