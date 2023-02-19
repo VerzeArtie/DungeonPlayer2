@@ -425,6 +425,10 @@ public class PartyMenu : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     if (FilterForAll.activeInHierarchy == false)
     {
+      if (action_command.CommandName == "" || action_command.CommandName == Fix.STAY)
+      {
+        return;
+      }
       this.CurrentSelectCommand = action_command;
       FilterForAll.SetActive(true);
       FilterForActionCommand.SetActive(false);
@@ -615,8 +619,8 @@ public class PartyMenu : MotherBase
     }
 
     // todo (カテゴリが増えた場合、追加実装が必要）
-    groupCommandCategory.SetActive(One.TF.AvailableImmediateAction);
-    btnCommandCategoryAction.gameObject.SetActive(One.TF.AvailableImmediateAction);
+    groupCommandCategory.SetActive(true);
+    btnCommandCategoryAction.gameObject.SetActive(true);
     btnCommandCetegoryItem.gameObject.SetActive(One.TF.AvailableImmediateAction);
     btnCommandCetegoryArchetype.gameObject.SetActive(One.TF.AvailablePotentialGauge);
 
