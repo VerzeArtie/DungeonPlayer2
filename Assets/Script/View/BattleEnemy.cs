@@ -530,7 +530,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
-    if (character.IsEnemy && this.BattleType != Fix.BattleMode.Duel)
+    if (character.IsEnemy && this.BattleType == Fix.BattleMode.Duel)
     {
       character.groupSoulPoint.SetActive(true);
     }
