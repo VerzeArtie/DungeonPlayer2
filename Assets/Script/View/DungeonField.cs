@@ -70,6 +70,9 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Dhal_Wall;
   public TileInformation prefab_MysticForest_Normal;
   public TileInformation prefab_MysticForest_Wall;
+  public TileInformation prefab_Velgus_Normal;
+  public TileInformation prefab_Velgus_Wall;
+  public TileInformation prefab_Velgus_Sea;
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Downstair;
   public TileInformation prefab_Unknown;
@@ -96,6 +99,8 @@ public class DungeonField : MotherBase
   public FieldObject prefab_DhalGateDoor;
   public FieldObject prefab_DhalGateDoorOpen;
   public FieldObject prefab_Brushwood;
+  public FieldObject prefab_Velgus_WallDoor;
+  public FieldObject prefab_Velgus_SecretWall;
 
   // BackpackView
   public NodeBackpackView ParentBackpackView;
@@ -317,6 +322,9 @@ public class DungeonField : MotherBase
     PrefabList.Add("Dhal_Wall");
     PrefabList.Add("MysticForest_Normal");
     PrefabList.Add("MysticForest_Wall");
+    PrefabList.Add("Velgus_Normal");
+    PrefabList.Add("Velgus_Wall");
+    PrefabList.Add("Velgus_Sea");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -335,6 +343,8 @@ public class DungeonField : MotherBase
     ObjectList.Add("DhalGate_Door");
     ObjectList.Add("DhalGate_Door_Open");
     ObjectList.Add("Brushwood");
+    ObjectList.Add("Velgus_WallDoor");
+    ObjectList.Add("Velgus_SecretWall");
 
     // マップセレクトを設定
     for (int ii = 0; ii < txtMapSelect.Count; ii++)
@@ -9307,6 +9317,18 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_MysticForest_Wall, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Velgus_Normal")
+    {
+      current = Instantiate(prefab_Velgus_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Velgus_Wall")
+    {
+      current = Instantiate(prefab_Velgus_Wall, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Velgus_Sea")
+    {
+      current = Instantiate(prefab_Velgus_Sea, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Upstair")
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
@@ -9480,6 +9502,22 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Brushwood, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Brushwood;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_WallDoor")
+    {
+      current = Instantiate(prefab_Velgus_WallDoor, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_WallDoor;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_SecretWall")
+    {
+      current = Instantiate(prefab_Velgus_SecretWall, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_SecretWall;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

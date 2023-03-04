@@ -51,6 +51,9 @@ public class TileInformation : MonoBehaviour
     Ohran_FloatTile = 2003,
     Ohran_WarpHole = 2004,
     // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“a
+    Velgus_Normal = 3001,
+    Velgus_Wall = 3002,
+    Velgus_Sea = 3003,
     // 3000
     // ƒ_ƒ‹‚Ì–å
     Dhal_Normal = 4001,
@@ -141,6 +144,11 @@ public class TileInformation : MonoBehaviour
       // _”é‚ÌX
       if (field == Field.MysticForest_Normal) { return 1; }
       if (field == Field.MysticForest_Wall) { return 999; }
+
+      // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“a
+      if (field == Field.Velgus_Normal) { return 1; }
+      if (field == Field.Velgus_Wall) { return 999; }
+      if (field == Field.Velgus_Sea) { return 999; }
 
       return 999;
     }

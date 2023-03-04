@@ -24,6 +24,8 @@ public class FieldObject : MonoBehaviour
     DhalGate_Wall,
     DhalGate_Door,
     Brushwood,
+    Velgus_WallDoor,
+    Velgus_SecretWall,
     Boss,
   }
 
