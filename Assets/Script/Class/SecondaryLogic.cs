@@ -17,6 +17,17 @@ public static class SecondaryLogic
     return 1.00f;
   }
 
+  public static int CriticalRate(Character player)
+  {
+    int result = 5;
+    BuffImage hunterShot = player.IsHunterShot;
+    if (hunterShot != null)
+    {
+      result += (int)(hunterShot.EffectValue);
+    }
+    return result;
+  }
+
   public static double CriticalFactor(Character player)
   {
     return 2.00f;
@@ -145,7 +156,7 @@ public static class SecondaryLogic
   }
   public static double HunterShot_Value(Character player)
   {
-    return 0.80f;
+    return 10.0f;
   }
 
   public static double LegStrike(Character player)

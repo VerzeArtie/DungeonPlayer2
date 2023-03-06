@@ -3964,8 +3964,8 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
+      player.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
+      StartAnimation(player.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
     }
   }
 
@@ -4970,14 +4970,17 @@ public partial class BattleEnemy : MotherBase
 
     // クリティカル判定
     result_critical = false;
+    int rand = AP.Math.RandomInteger(100);
+    int current = SecondaryLogic.CriticalRate(player);
+    Debug.Log("PhysicalDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
     if (player.CannotCritical == false &&
-        ((critical == Fix.CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
+        ((critical == Fix.CriticalType.Random && rand <= current))
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       debug1 = damageValue;
       result_critical = true;
-      Debug.Log("PhysicalDamageLogic detect Critical! (Random) " + damageValue.ToString());
+      Debug.Log("PhysicalDamageLogic detect Critical! (Random) ( " + rand.ToString() + " / " + current + " ) " + damageValue.ToString());
     }
     if (critical == Fix.CriticalType.Absolute)
     {
@@ -5150,19 +5153,24 @@ public partial class BattleEnemy : MotherBase
 
     // クリティカル判定
     result_critical = false;
+    int rand = AP.Math.RandomInteger(100);
+    int current = SecondaryLogic.CriticalRate(player);
+    Debug.Log("MagicDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
     if (player.CannotCritical == false &&
-        ((critical == Fix.CriticalType.Random && AP.Math.RandomInteger(100) <= 5))
+        ((critical == Fix.CriticalType.Random && rand <= current))
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       result_critical = true;
-      Debug.Log("MagicDamageLogic detect Critical! (Random) " + damageValue.ToString());
+      Debug.Log("MagicDamageLogic detect Critical! (Random) ( " + rand.ToString() + " / " + current + " ) " + damageValue.ToString());
+      UpdateMessage("クリティカル発生！");
     }
     if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
+      UpdateMessage("クリティカル発生！");
     }
 
     // 属性耐性の分だけ、減衰させる。
@@ -5239,6 +5247,7 @@ public partial class BattleEnemy : MotherBase
 
     int result = (int)damageValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " のダメージ");
     target.CurrentLife -= result;
     target.txtLife.text = target.CurrentLife.ToString();
     if (critical)
@@ -5275,6 +5284,7 @@ public partial class BattleEnemy : MotherBase
 
     int result = (int)healValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " life heal");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " ライフ回復");
     target.CurrentLife += result;
     target.txtLife.text = target.CurrentLife.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_HEAL);
@@ -5297,6 +5307,7 @@ public partial class BattleEnemy : MotherBase
 
     int result = (int)gainValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " sp gain");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " SP回復");
     target.CurrentSoulPoint += result;
     target.txtSoulPoint.text = target.CurrentSoulPoint.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
