@@ -1670,16 +1670,57 @@ public partial class BattleEnemy : MotherBase
       #endregion
 
       #region "Delve III"
-      case Fix.SONIC_PULSE:
-      case Fix.SONIC_PULSE_JP:
-        ExecSonicPulse(player, target, critical);
+      case Fix.METEOR_BULLET:
+        target_list = GetOpponentGroup(player);
+        ExecMeteorBullet(player, target_list, critical);
         break;
 
-      case Fix.LAND_SHATTER:
-      case Fix.LAND_SHATTER_JP:
-        ExecLandShatter(player, target, critical);
+      case Fix.BLUE_BULLET:
+        ExecBlueBullet(player, target, critical);
         break;
 
+      case Fix.HOLY_BREATH:
+        target_list = GetAllyGroup(player);
+        ExecHolyBreath(player, target_list);
+        break;
+
+      case Fix.BLACK_CONTRACT:
+        ExecBlackContract(player);
+        break;
+
+      case Fix.WORD_OF_POWER:
+        ExecWordOfPower(player, target, critical);
+        break;
+
+      case Fix.SIGIL_OF_THE_PENDING:
+        ExecSigilOfThePending(player, target);
+        break;
+
+      case Fix.DOUBLE_SLASH:
+        ExecDoubleSlash(player, target, critical);
+        break;
+
+      case Fix.CONCUSSIVE_HIT:
+        ExecConcussiveHit(player, target, critical);
+        break;
+
+      case Fix.BONE_CRUSH:
+        ExecBoneCrush(player, target, critical);
+        break;
+
+      case Fix.EYE_OF_THE_ISSHIN:
+        ExecEyeOfTheIsshin(player, target);
+        break;
+
+      case Fix.VOICE_OF_VIGOR:
+        target_list = GetAllyGroup(player);
+        ExecVoiceOfVigor(player, target_list);
+        break;
+
+      case Fix.UNSEEN_AID:
+        target_list = GetAllMember();
+        ExecUnseenAid(player, target_list);
+        break;
       #endregion
 
       #region "Delve IV"
@@ -1736,52 +1777,13 @@ public partial class BattleEnemy : MotherBase
         break;
       #endregion
 
+      #region "Other"
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
         break;
 
-      case Fix.METEOR_BULLET:
-        target_list = GetOpponentGroup(player);
-        ExecMeteorBullet(player, target_list, critical);
-        break;
-
-      case Fix.BLUE_BULLET:
-        ExecBlueBullet(player, target, critical);
-        break;
-
-      case Fix.HOLY_BREATH:
-        target_list = GetAllyGroup(player);
-        ExecHolyBreath(player, target_list);
-        break;
-
-      case Fix.BLACK_CONTRACT:
-        ExecBlackContract(player);
-        break;
-
-      case Fix.DOUBLE_SLASH:
-        ExecDoubleSlash(player, target, critical);
-        break;
-
-      case Fix.CONCUSSIVE_HIT:
-        ExecConcussiveHit(player, target, critical);
-        break;
-
-      case Fix.EYE_OF_THE_ISSHIN:
-        ExecEyeOfTheIsshin(player, target);
-        break;
-
-      case Fix.BONE_CRUSH:
-      case Fix.BONE_CRUSH_JP:
-        ExecBoneCrush(player, target, critical);
-        break;
-
       case Fix.IRREGULAR_STEP:
         ExecIrregularStep(player, target);
-        break;
-
-      case Fix.SIGIL_OF_THE_PENDING:
-      case Fix.SIGIL_OF_THE_PENDING_JP:
-        ExecSigilOfThePending(player, target);
         break;
 
       case Fix.AETHER_DRIVE:
@@ -1794,11 +1796,6 @@ public partial class BattleEnemy : MotherBase
         ExecKillingWave(player, target_list, target.objFieldPanel);
         break;
 
-      case Fix.WORD_OF_POWER:
-      case Fix.WORD_OF_POWER_JP:
-        ExecWordOfPower(player, target, critical);
-        break;
-
       case Fix.STORM_ARMOR:
         ExecStormArmor(player, target);
         break;
@@ -1806,20 +1803,21 @@ public partial class BattleEnemy : MotherBase
       case Fix.MUTE_IMPULSE:
         ExecMuteImpulse(player, target, critical);
         break;
-
-      case Fix.VOICE_OF_VIGOR:
-        target_list = GetAllyGroup(player);
-        ExecVoiceOfVigor(player, target_list);
-        break;
-
-      case Fix.UNSEEN_AID:
-        target_list = GetAllMember();
-        ExecUnseenAid(player, target_list);
-        break;
+      #endregion
       #endregion
 
       case Fix.DARK_AURA:
         ExecDarkAura(player, target);
+        break;
+
+      case Fix.SONIC_PULSE:
+      case Fix.SONIC_PULSE_JP:
+        ExecSonicPulse(player, target, critical);
+        break;
+
+      case Fix.LAND_SHATTER:
+      case Fix.LAND_SHATTER_JP:
+        ExecLandShatter(player, target, critical);
         break;
 
       #region "元核"
