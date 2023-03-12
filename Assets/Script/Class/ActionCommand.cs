@@ -596,6 +596,12 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return Attribute.Skill; }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return Attribute.Magic; }
+
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
     #endregion
@@ -716,6 +722,12 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TimingType.Instant; }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return TimingType.Normal; }
+
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
     #endregion
@@ -834,6 +846,11 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return TargetType.Enemy; }
     if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TargetType.AllyGroup; } // + AllyField
+    #endregion
+
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return TargetType.Enemy; }
     #endregion
 
     #region "Archetype"
@@ -1031,6 +1048,12 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return 30; }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return 55; }
+
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
     #endregion
@@ -1226,6 +1249,10 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return BuffType.Negative; }
     if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return BuffType.Positive; }
+    #endregion
+
+    #region "Delve V"
+    if (command_name == Fix.FLAME_STRIKE) { return BuffType.Negative; }
     #endregion
 
     #region "Archetype"
@@ -1434,6 +1461,12 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return true; }
+
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return false; }
     #endregion
@@ -1550,6 +1583,12 @@ public static class ActionCommand
     if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.VOICE_OF_VIGOR_JP; }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return Fix.FLAME_STRIKE_JP; }
+
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
     #endregion
@@ -1657,6 +1696,12 @@ public static class ActionCommand
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
     if (command_name == Fix.WILL_AWAKENING) { return "このコマンドはカウンターされない。\r\n味方一体を対象とする。対象に【覚醒】のBUFFを付与する。【覚醒】が続く間、NormalタイミングのコマンドをInstantタイミングで使用可能となる。また、発動コマンドがカウンターされなくなる。"; }
     if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return "このコマンドは【束縛】状態であっても発動する。味方全体に対して【鈍足】【束縛】【沈黙】のBUFFを解除し、味方フィールドに【迅速】のフィールドを形成する。【迅速】が続く間、【鈍足】【束縛】【沈黙】のBUFFは付与されない。また、戦闘速度および戦闘反応が１０％上昇する。"; }
+    #endregion
+
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return "敵一体に対して【炎】ダメージを与える。加えて、【炎痕】のBUFFを付与する。【炎痕】が続く間、対象に【炎】属性のダメージが与えられる場合、対象が【防御】の姿勢を取っていても、それを無視して【炎】ダメージが適用される。"; }
+
     #endregion
 
     #region "Archetype"

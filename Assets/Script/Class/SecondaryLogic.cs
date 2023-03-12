@@ -684,4 +684,15 @@ public static class SecondaryLogic
   {
     return 0.10f;
   }
+
+  public static double FlameStrike(Character player)
+  {
+    return 3.50f;
+  }
+
+  public static int FlameStrike_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
 }

@@ -1777,6 +1777,12 @@ public partial class BattleEnemy : MotherBase
         break;
       #endregion
 
+      #region "Delve  V"
+      case Fix.FLAME_STRIKE:
+        ExecFlameStrike(player, target, critical);
+        break;
+      #endregion
+
       #region "Other"
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
@@ -4523,6 +4529,16 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target_field_obj.gameObject, Fix.DOMINATION_FIELD, Fix.COLOR_NORMAL);
   }
 
+  private void ExecFlameStrike(Character player, Character target, Fix.CriticalType critical)
+  {
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, false, critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
+      StartAnimation(target.objGroup.gameObject, Fix.FLAME_STRIKE, Fix.COLOR_NORMAL);
+    }
+  }
+
   private bool ExecUseRedPotion(Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -5223,11 +5239,25 @@ public partial class BattleEnemy : MotherBase
     double debug3 = damageValue;
 
     Debug.Log("Magic-DamageValue: " + debug0.ToString("F2") + " -> " + debug1.ToString("F2") + " - " + debug2.ToString("F2") + " = " + debug3.ToString("F2"));
-    // ターゲットが防御姿勢であれば、ダメージを軽減する。ただし防御無効の場合は差し引かない。
-    if (target.IsDefense && ignore_target_defense == false)
+
+    // 防御判定
+    if (target.IsDefense)
     {
-      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
-      Debug.Log("Target is Defense mode: " + damageValue.ToString());
+      // ターゲットが防御姿勢であれば、ダメージを軽減する。ただし防御無効の場合は差し引かない。
+      if (ignore_target_defense)
+      {
+        Debug.Log("Target is Defense, but ignore_target_defense is true, then cannot Defense");
+      }
+      // フレイム・ストライク効果があり、【炎】属性の場合は防御できない。
+      else if (attr == Fix.DamageSource.Fire && target.IsFlameStrike != null)
+      {
+        Debug.Log("Target is Defense, but Fire Damage cannot be Defensed, cause FlameStrike !!");
+      }
+      else
+      {
+        damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
+        Debug.Log("Target is Defense mode: " + damageValue.ToString());
+      }
     }
 
     // ダメージ量が負の値になる場合は０とみなす。

@@ -1111,7 +1111,7 @@ public static partial class Fix
   public const string EXACT_TIME_JP = "イグザクト・タイム";
 
   // Delve V
-  public const string FLAME_STRIKE = "Frame Strike";
+  public const string FLAME_STRIKE = "Flame Strike";
   public const string FLAME_STRIKE_JP = "フレイム・ストライク";
   public const string FROST_LANCE = "Frost Lance";
   public const string FROST_LANCE_JP = "フロスト・ランス";
@@ -5851,6 +5851,15 @@ public static partial class Fix
   public const float OHRANTOWER_WarpHole_26_Y = 44f;
   public const float OHRANTOWER_WarpHole_26_Z = 20f;
   #endregion
+  #region "ヴェルガスの海底神殿"
+  #region "看板"
+  public const string VELGUS_MessageBoard_1_C = "MessageBoard";
+  public const string VELGUS_MessageBoard_1_O = "1";
+  public const float VELGUS_MessageBoard_1_X = 14.0f;
+  public const float VELGUS_MessageBoard_1_Y = 1.0f;
+  public const float VELGUS_MessageBoard_1_Z = -9.0f;
+  #endregion
+  #endregion
   #region "ダルの門 ( not used )"
   // ダルの門、右エリア入口
   public const string EVENT_GATEDHAL_1 = "EVENT_GATEDHAL_1";
@@ -6299,6 +6308,9 @@ public static partial class Fix
   public static string[] NAME_LIST = { NAME_EIN_WOLENCE, NAME_LANA_AMIRIA, NAME_EONE_FULNEA, NAME_BILLY_RAKI, NAME_ADEL_BRIGANDY, NAME_CALMANS_OHN,
                                        NAME_ANNA_HAMILTON, NAME_SELMOI_RO, NAME_MAGI_ZELKIS, NAME_LENE_COLTOS, NAME_SHUVALTZ_FLORE, NAME_KARTIN_MAI,
                                        NAME_JEDA_ARUS, NAME_ILZINA_MELDIETE, NAME_OHRYU_GENMA, NAME_DELVA_TRECKINO };
+
+  public const string NAME_LEGAL_ORPHSTEIN = "リガール";
+  public const string NAME_LEGAL_ORPHSTEIN＿FULL = "リガール・オルフシュタイン";
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";

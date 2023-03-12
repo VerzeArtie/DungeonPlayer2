@@ -2384,6 +2384,12 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.DEADLY_DRIVE); }
   }
 
+  public BuffImage IsFlameStrike
+  {
+    get { return SearchBuff(Fix.FLAME_STRIKE); }
+  }
+
+  // 魔法：基本耐性
   public BuffImage IsUpFire
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
@@ -2675,6 +2681,8 @@ public partial class Character : MonoBehaviour
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
     if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
+
+    if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
