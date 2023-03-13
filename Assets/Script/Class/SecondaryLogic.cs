@@ -695,4 +695,13 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
+  public static double FrostLance(Character player)
+  {
+    return 3.20f;
+  }
+  public static int FrostLance_Turn(Character player)
+  {
+    return 3;
+  }
+
 }

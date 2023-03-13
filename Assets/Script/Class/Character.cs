@@ -2389,6 +2389,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.FLAME_STRIKE); }
   }
 
+  public BuffImage IsFrostLance
+  {
+    get { return SearchBuff(Fix.FROST_LANCE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -2683,6 +2688,7 @@ public partial class Character : MonoBehaviour
     if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
 
     if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
+    if (this.FrostLance > 0) { list.Add(Fix.FROST_LANCE); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 

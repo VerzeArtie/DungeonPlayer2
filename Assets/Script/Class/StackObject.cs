@@ -62,11 +62,38 @@ public class StackObject : MonoBehaviour
 
     if (ActionCommand.IsTarget(stack_name) == ActionCommand.TargetType.Own)
     {
-      txtStackTarget.text = player.FullName;
+      Debug.Log("ConstructStack 1: " + ActionCommand.IsTarget(stack_name));
+      if (player == null)
+      {
+        txtStackTarget.text = "";
+      }
+      else
+      {
+        txtStackTarget.text = player.FullName;
+      }
     }
     else
     {
-      txtStackTarget.text = player.FullName + " --> " + target.FullName;
+      Debug.Log("ConstructStack 2: " + ActionCommand.IsTarget(stack_name));
+      if (player == null)
+      {
+        txtStackTarget.text = "";
+      }
+      else
+      {
+        txtStackTarget.text = player.FullName;
+      }
+
+      if (target == null)
+      {
+        // 何もしない
+      }
+      else
+      {
+        txtStackTarget.text += " --> " + target.FullName;
+      }
+
+      Debug.Log("ConstructStack 2: txtStackTarget.text: " + txtStackTarget.text);
     }
 
     if (sudden_timer > 0)

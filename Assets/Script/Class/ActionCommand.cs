@@ -599,6 +599,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return Attribute.Magic; }
+    if (command_name == Fix.FROST_LANCE) { return Attribute.Magic; }
 
     #endregion
 
@@ -725,6 +726,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return TimingType.Normal; }
+    if (command_name == Fix.FROST_LANCE) { return TimingType.Normal; }
 
     #endregion
 
@@ -851,6 +853,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return TargetType.Enemy; }
+    if (command_name == Fix.FROST_LANCE) { return TargetType.Enemy; }
     #endregion
 
     #region "Archetype"
@@ -1051,6 +1054,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return 55; }
+    if (command_name == Fix.FROST_LANCE) { return 52; }
 
     #endregion
 
@@ -1253,6 +1257,7 @@ public static class ActionCommand
 
     #region "Delve V"
     if (command_name == Fix.FLAME_STRIKE) { return BuffType.Negative; }
+    if (command_name == Fix.FROST_LANCE) { return BuffType.Negative; }
     #endregion
 
     #region "Archetype"
@@ -1464,6 +1469,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return true; }
+    if (command_name == Fix.FROST_LANCE) { return true; }
 
     #endregion
 
@@ -1586,6 +1592,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return Fix.FLAME_STRIKE_JP; }
+    if (command_name == Fix.FROST_LANCE) { return Fix.FROST_LANCE_JP; }
 
     #endregion
 
@@ -1701,7 +1708,7 @@ public static class ActionCommand
     #region "Delve V"
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return "敵一体に対して【炎】ダメージを与える。加えて、【炎痕】のBUFFを付与する。【炎痕】が続く間、対象に【炎】属性のダメージが与えられる場合、対象が【防御】の姿勢を取っていても、それを無視して【炎】ダメージが適用される。"; }
-
+    if (command_name == Fix.FROST_LANCE) { return "敵一体に対して【氷】ダメージを与える。加えて、【凍傷】のBUFFを付与する。【凍傷】が続く間、対象がインスタントで行動を行った場合、その行動が失敗する。"; }
     #endregion
 
     #region "Archetype"

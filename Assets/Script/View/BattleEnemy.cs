@@ -1781,6 +1781,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.FLAME_STRIKE:
         ExecFlameStrike(player, target, critical);
         break;
+
+      case Fix.FROST_LANCE:
+        ExecFrostLance(player, target, critical);
+        break;
+
       #endregion
 
       #region "Other"
@@ -2509,6 +2514,23 @@ public partial class BattleEnemy : MotherBase
     int num = stackList.Length - 1;
     stackList[num].StackTimer--;
     stackList[num].txtStackTime.text = stackList[num].StackTimer.ToString();
+
+    // フロスト・ランス効果がある場合、インスタントはカウンターされる。
+    // todo ただし、例外で無効化してくる効果も考えられるため、後にロジック改版。
+    BuffImage frostLance = stackList[num].Player?.IsFrostLance ?? null;
+    if (frostLance != null)
+    {
+      Debug.Log("ExecStackInTheCommand frostLance phase length: " + stackList.Length + " " + stackList[stackList.Length - 1].StackName);
+      string currentStackName = stackList[stackList.Length - 1].StackName;
+      Character player = stackList[stackList.Length - 1].Player;
+      Character target = stackList[stackList.Length - 1].Target;
+      // 現在のスタックを破棄する。
+      Destroy(stackList[stackList.Length - 1].gameObject);
+      stackList[stackList.Length - 1] = null;
+      // 失敗したことを示すスタックを表示する。
+      CreateStackObject(player, target, currentStackName + " 失敗！（要因：フロスト・ランス）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      return;
+    }
     if (stackList[num].StackTimer <= 0)
     {
       ExecPlayerCommand(stackList[num].Player, stackList[num].Target, stackList[num].StackName);
@@ -4536,6 +4558,16 @@ public partial class BattleEnemy : MotherBase
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
       StartAnimation(target.objGroup.gameObject, Fix.FLAME_STRIKE, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void ExecFrostLance(Character player, Character target, Fix.CriticalType critical)
+  {
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FrostLance(player), Fix.DamageSource.Ice, false, critical);
+    if (success)
+    {
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.FROST_LANCE, SecondaryLogic.FrostLance_Turn(player), 0, 0, 0);
+      StartAnimation(target.objGroup.gameObject, Fix.FROST_LANCE, Fix.COLOR_NORMAL);
     }
   }
 
