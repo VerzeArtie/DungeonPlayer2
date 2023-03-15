@@ -1392,6 +1392,22 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
+    if (ActionCommand.GetTiming(player.CurrentActionCommand) == ActionCommand.TimingType.Sorcery)
+    {
+      if (player.CurrentInstantPoint < player.MaxInstantPoint)
+      {
+        Debug.Log("Timing Sorcery and not enough CurrentInstantPoint, then no action.");
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        return;
+      }
+      else
+      {
+        // todo ただし、必ず０とは限らない。状況によっては0にならないケースもあるのでアクションコマンドを慎重に組み立てる事。
+        player.CurrentInstantPoint = 0;
+        player.UpdateActionPointGauge();
+      }
+    }
+
     if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy &&　target == null)
     {
       Debug.Log("Target is null, then no action.");
@@ -2982,6 +2998,11 @@ public partial class BattleEnemy : MotherBase
           return;
         }
       }
+      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
+      {
+        Debug.Log("Command Timing is Sorcery, then no action.");
+        return;
+      }
 
       if (this.NowSelectTarget == false)
       {
@@ -3027,6 +3048,12 @@ public partial class BattleEnemy : MotherBase
           return;
         }
       }
+      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
+      {
+        Debug.Log("Command Timing is Sorcery, then no action.");
+        return;
+      }
+
 
       if (sender.CommandName == Fix.DEFENSE) // 防御姿勢はインスタント消費ではなく可能とする。
       {
