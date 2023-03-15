@@ -1479,16 +1479,16 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ブラッド・サインによる効果
-    if (player.IsBloodSign && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
+    if (player.IsBloodSign && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
       ExecSlipDamage(player, player.IsBloodSign.EffectValue);
     }
     // スリップによる効果
-    if (player.IsSlip && (command_name != Fix.STAY && command_name != Fix.DEFENSE))
+    if (player.IsSlip && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
       ExecSlipDamage(player, player.IsSlip.EffectValue);
     }
-    if (player.IsPenetrationArrow && (command_name != Fix.STAY && command_name != Fix.DEFENSE))
+    if (player.IsPenetrationArrow && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
       ExecSlipDamage(player, player.IsPenetrationArrow.EffectValue);
     }
@@ -1786,6 +1786,9 @@ public partial class BattleEnemy : MotherBase
         ExecFrostLance(player, target, critical);
         break;
 
+      case Fix.SHINING_HEAL:
+        ExecShiningHeal(player, target, critical, target.objFieldPanel);
+        break;
       #endregion
 
       #region "Other"
@@ -3488,7 +3491,14 @@ public partial class BattleEnemy : MotherBase
 
       if (AllList[ii].IsPoison)
       {
-        ExecPoisonDamage(AllList[ii], AllList[ii].IsPoison.EffectValue);
+        if (AllList[ii].SearchFieldBuff(Fix.SHINING_HEAL) != null)
+        {
+          // 何もしない
+        }
+        else
+        {
+          ExecPoisonDamage(AllList[ii], AllList[ii].IsPoison.EffectValue);
+        }
       }
 
       // ブラッド・サインの効果はアップキープではない。
@@ -3497,7 +3507,7 @@ public partial class BattleEnemy : MotherBase
       //  ExecSlipDamage(AllList[ii], AllList[ii].IsBloodSign.EffectValue);
       //}
 
-      if (AllList[ii].IsBlackContract)
+      if (AllList[ii].IsBlackContract && AllList[ii].SearchFieldBuff(Fix.SHINING_HEAL) == null)
       {
         ExecSlipDamage(AllList[ii], AllList[ii].IsBlackContract.EffectValue * AllList[ii].MaxLife);
       }
@@ -4569,6 +4579,15 @@ public partial class BattleEnemy : MotherBase
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.FROST_LANCE, SecondaryLogic.FrostLance_Turn(player), 0, 0, 0);
       StartAnimation(target.objGroup.gameObject, Fix.FROST_LANCE, Fix.COLOR_NORMAL);
     }
+  }
+
+  private void ExecShiningHeal(Character player, Character target, Fix.CriticalType critical, BuffField target_field_obj)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    double healValue = target.MaxLife;
+    AbstractHealCommand(player, target, healValue);
+    target_field_obj.AddBuff(prefab_Buff, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.SHINING_HEAL, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

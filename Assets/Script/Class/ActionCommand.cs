@@ -600,6 +600,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return Attribute.Magic; }
     if (command_name == Fix.FROST_LANCE) { return Attribute.Magic; }
+    if (command_name == Fix.SHINING_HEAL) { return Attribute.Magic; }
 
     #endregion
 
@@ -727,6 +728,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return TimingType.Normal; }
     if (command_name == Fix.FROST_LANCE) { return TimingType.Normal; }
+    if (command_name == Fix.SHINING_HEAL) { return TimingType.Sorcery; }
 
     #endregion
 
@@ -854,6 +856,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return TargetType.Enemy; }
     if (command_name == Fix.FROST_LANCE) { return TargetType.Enemy; }
+    if (command_name == Fix.SHINING_HEAL) { return TargetType.Ally; } // + AllyField
     #endregion
 
     #region "Archetype"
@@ -1055,6 +1058,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return 55; }
     if (command_name == Fix.FROST_LANCE) { return 52; }
+    if (command_name == Fix.SHINING_HEAL) { return 63; }
 
     #endregion
 
@@ -1258,6 +1262,7 @@ public static class ActionCommand
     #region "Delve V"
     if (command_name == Fix.FLAME_STRIKE) { return BuffType.Negative; }
     if (command_name == Fix.FROST_LANCE) { return BuffType.Negative; }
+    if (command_name == Fix.SHINING_HEAL) { return BuffType.Positive; }
     #endregion
 
     #region "Archetype"
@@ -1470,6 +1475,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return true; }
     if (command_name == Fix.FROST_LANCE) { return true; }
+    if (command_name == Fix.SHINING_HEAL) { return false; }
 
     #endregion
 
@@ -1593,6 +1599,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return Fix.FLAME_STRIKE_JP; }
     if (command_name == Fix.FROST_LANCE) { return Fix.FROST_LANCE_JP; }
+    if (command_name == Fix.SHINING_HEAL) { return Fix.SHINING_HEAL_JP; }
 
     #endregion
 
@@ -1709,6 +1716,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.FLAME_STRIKE) { return "敵一体に対して【炎】ダメージを与える。加えて、【炎痕】のBUFFを付与する。【炎痕】が続く間、対象に【炎】属性のダメージが与えられる場合、対象が【防御】の姿勢を取っていても、それを無視して【炎】ダメージが適用される。"; }
     if (command_name == Fix.FROST_LANCE) { return "敵一体に対して【氷】ダメージを与える。加えて、【凍傷】のBUFFを付与する。【凍傷】が続く間、対象がインスタントで行動を行った場合、その行動が失敗する。"; }
+    if (command_name == Fix.SHINING_HEAL) { return "味方一体を対象とする。対象のライフを全回復する。また、味方フィールドに【祝福】のBUFFを付与する。【祝福】の効果が続く間、【猛毒】【出血】の影響を受けない。"; }
     #endregion
 
     #region "Archetype"
@@ -1739,9 +1747,6 @@ public static class ActionCommand
     if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
     #endregion
 
-    if (command_name == Fix.FLAME_STRIKE) { return ""; }
-    if (command_name == Fix.FROST_LANCE) { return ""; }
-    if (command_name == Fix.SHINING_HEAL) { return ""; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return ""; }
     if (command_name == Fix.ERRATIC_THUNDER) { return ""; }
     if (command_name == Fix.PETRIFICATION) { return ""; }

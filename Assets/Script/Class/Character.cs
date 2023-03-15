@@ -2689,6 +2689,7 @@ public partial class Character : MonoBehaviour
 
     if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
     if (this.FrostLance > 0) { list.Add(Fix.FROST_LANCE); }
+    if (this.ShiningHeal > 0) { list.Add(Fix.SHINING_HEAL); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
@@ -5874,7 +5875,15 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (this.IsTrueSight == null)
+        if (Target.IsBloodSign == null)
+        {
+          result = Fix.BLOOD_SIGN;
+        }
+        else if (Target.IsPoison == null)
+        {
+          result = Fix.COMMAND_POISON_NEEDLE;
+        }
+        else if (this.IsTrueSight == null)
         {
           result = Fix.TRUE_SIGHT;
           this.Target = this;
@@ -5887,7 +5896,7 @@ public partial class Character : MonoBehaviour
         {
           result = Fix.DARKNESS_CIRCLE;
         }
-        else if (Target != null &&  Target.IsRockSlum == null)
+        else if (Target != null && Target.IsRockSlum == null)
         {
           result = Fix.ROCK_SLAM;
         }
@@ -5895,10 +5904,6 @@ public partial class Character : MonoBehaviour
         //{
         //  result = Fix.AIR_CUTTER;
         //}
-        else
-        {
-          result = Fix.NORMAL_ATTACK;
-        }
         //if (this.AI_Phase == 1)
         //{
         //  result = Fix.KILLING_WAVE;
@@ -5915,15 +5920,19 @@ public partial class Character : MonoBehaviour
         //  //  result = Fix.VENOM_SLASH;
         //  //}
         //}
-        if (this.IsWillAwakening == null)
+        else if (this.IsWillAwakening == null)
         {
           result = Fix.WILL_AWAKENING;
           this.Target = this;
         }
-        if (this.IsPhantomOboro == null)
+        else if (this.IsPhantomOboro == null)
         {
           result = Fix.PHANTOM_OBORO;
           break;
+        }
+        else
+        {
+          result = Fix.NORMAL_ATTACK;
         }
         break;
 

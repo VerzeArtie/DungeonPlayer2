@@ -704,4 +704,13 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static int ShiningHeal_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double ShiningHeal_Effect1(Character player)
+  {
+    return 2.00f;
+  }
 }
