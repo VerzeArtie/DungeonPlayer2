@@ -1805,6 +1805,10 @@ public partial class BattleEnemy : MotherBase
       case Fix.SHINING_HEAL:
         ExecShiningHeal(player, target, critical, target.objFieldPanel);
         break;
+
+      case Fix.CIRCLE_OF_THE_DESPAIR:
+        ExecCircleOfTheDespair(player, target.objFieldPanel);
+        break;
       #endregion
 
       #region "Other"
@@ -4615,6 +4619,12 @@ public partial class BattleEnemy : MotherBase
     AbstractHealCommand(player, target, healValue);
     target_field_obj.AddBuff(prefab_Buff, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
     StartAnimation(target_field_obj.gameObject, Fix.SHINING_HEAL, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecCircleOfTheDespair(Character player, BuffField target_field_obj)
+  {
+    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_DESPAIR, Fix.COLOR_NORMAL);
   }
 
   private bool ExecUseRedPotion(Character target, string command_name)

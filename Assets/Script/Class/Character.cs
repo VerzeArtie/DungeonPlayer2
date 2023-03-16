@@ -2690,6 +2690,7 @@ public partial class Character : MonoBehaviour
     if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
     if (this.FrostLance > 0) { list.Add(Fix.FROST_LANCE); }
     if (this.ShiningHeal > 0) { list.Add(Fix.SHINING_HEAL); }
+    if (this.CircleOfTheDespair > 0) { list.Add(Fix.CIRCLE_OF_THE_DESPAIR); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 

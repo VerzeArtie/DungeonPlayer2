@@ -713,4 +713,13 @@ public static class SecondaryLogic
   {
     return 2.00f;
   }
+
+  public static int CircleOfDespair_Turn(Character player)
+  {
+    return 5;
+  }
+  public static double CircleOfDespair_Effect1(Character player)
+  {
+    return 0.80f;
+  }
 }

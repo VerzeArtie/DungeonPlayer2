@@ -206,6 +206,11 @@ public static class PrimaryLogic
     {
       result *= dominationField.EffectValue;
     }
+    BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
+    if (circleOfDespair != null)
+    {
+      result *= circleOfDespair.EffectValue;
+    }
 
     if (player.IsRockSlum)
     {
@@ -364,6 +369,11 @@ public static class PrimaryLogic
     {
       result *= dominationField.EffectValue;
     }
+    BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
+    if (circleOfDespair != null)
+    {
+      result *= circleOfDespair.EffectValue;
+    }
 
     if (player.IsShadowBlast)
     {
@@ -508,6 +518,11 @@ public static class PrimaryLogic
     if (circleOfTheVigor != null)
     {
       result = result * circleOfTheVigor.EffectValue2;
+    }
+    BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
+    if (circleOfDespair != null)
+    {
+      result *= circleOfDespair.EffectValue;
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleResponse > 1.00f) { result = result * player.MainWeapon.AmplifyBattleResponse; }
