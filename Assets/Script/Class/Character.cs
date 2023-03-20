@@ -2697,6 +2697,9 @@ public partial class Character : MonoBehaviour
     if (this.ShiningHeal > 0) { list.Add(Fix.SHINING_HEAL); }
     if (this.CircleOfTheDespair > 0) { list.Add(Fix.CIRCLE_OF_THE_DESPAIR); }
 
+    if (this.CounterDisallow > 0) { list.Add(Fix.COUNTER_DISALLOW); }
+    if (this.RagingStorm > 0) { list.Add(Fix.RAGING_STORM); }
+
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
     return list;

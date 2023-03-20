@@ -1813,6 +1813,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.COUNTER_DISALLOW:
         ExecCounterDisallow(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
+
+      case Fix.RAGING_STORM:
+        target_list = GetOpponentGroup(player);
+        ExecRagingStorm(player, target_list, player.objFieldPanel, critical);
+        break;
       #endregion
 
       #region "Other"
@@ -4617,6 +4622,20 @@ public partial class BattleEnemy : MotherBase
     }
     target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_VIGOR, SecondaryLogic.CircleOfTheVigor_Turn(player), SecondaryLogic.CircleOfTheVigor_Effect(player), SecondaryLogic.CircleOfTheVigor_Effect2(player), 0);
     StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_VIGOR, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int jj = 0; jj < 2; jj++)
+    {
+      for (int ii = 0; ii < target_list.Count; ii++)
+      {
+        ExecNormalAttack(player, target_list[ii], SecondaryLogic.RagingStorm(player), Fix.DamageSource.Physical, false, critical);
+      }
+    }
+    target_field_obj.AddBuff(prefab_Buff, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.RAGING_STORM, Fix.COLOR_NORMAL);
   }
 
   private void ExecWillAwakening(Character player, Character target)

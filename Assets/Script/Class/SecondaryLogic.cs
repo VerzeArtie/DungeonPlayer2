@@ -729,4 +729,19 @@ public static class SecondaryLogic
   {
     return 2;
   }
+
+  public static double RagingStorm(Character player)
+  {
+    return 3.00f;
+  }
+
+  public static int RagingStorm_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double RagingStorm_Effect1(Character player)
+  {
+    return 1.10f;
+  }
 }
