@@ -722,4 +722,11 @@ public static class SecondaryLogic
   {
     return 0.80f;
   }
+
+  // MindForce still is not implemented.
+
+  public static int CounterDisallow_Turn(Character player)
+  {
+    return 2;
+  }
 }

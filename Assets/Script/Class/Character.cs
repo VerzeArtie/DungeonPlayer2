@@ -2394,6 +2394,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.FROST_LANCE); }
   }
 
+  public BuffImage IsCounterDisallow
+  {
+    get { return SearchBuff(Fix.COUNTER_DISALLOW); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {

@@ -603,6 +603,8 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return Attribute.Magic; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return Attribute.Magic; }
 
+    if (command_name == Fix.COUNTER_DISALLOW) { return Attribute.Magic; }
+
     #endregion
 
     #region "Archetype"
@@ -732,6 +734,7 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return TimingType.Sorcery; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return TimingType.Normal; }
 
+    if (command_name == Fix.COUNTER_DISALLOW) { return TimingType.StackCommand; }
     #endregion
 
     #region "Archetype"
@@ -860,6 +863,8 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return TargetType.Enemy; }
     if (command_name == Fix.SHINING_HEAL) { return TargetType.Ally; } // + AllyField
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return TargetType.EnemyField; }
+
+    if (command_name == Fix.COUNTER_DISALLOW) { return TargetType.InstantTarget; }
     #endregion
 
     #region "Archetype"
@@ -1064,6 +1069,7 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return 63; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
 
+    if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     #endregion
 
     #region "Archetype"
@@ -1267,6 +1273,8 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return BuffType.Negative; }
     if (command_name == Fix.SHINING_HEAL) { return BuffType.Positive; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return BuffType.Negative; }
+
+    if (command_name == Fix.COUNTER_DISALLOW) { return BuffType.Negative; }
     #endregion
 
     #region "Archetype"
@@ -1482,6 +1490,7 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return false; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return false; }
 
+    if (command_name == Fix.COUNTER_DISALLOW) { return false; }
     #endregion
 
     #region "Archetype"
@@ -1607,6 +1616,7 @@ public static class ActionCommand
     if (command_name == Fix.SHINING_HEAL) { return Fix.SHINING_HEAL_JP; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return Fix.CIRCLE_OF_THE_DESPAIR_JP; }
 
+    if (command_name == Fix.COUNTER_DISALLOW) { return Fix.COUNTER_DISALLOW_JP; }
     #endregion
 
     #region "Archetype"
@@ -1724,6 +1734,8 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return "敵一体に対して【氷】ダメージを与える。加えて、【凍傷】のBUFFを付与する。【凍傷】が続く間、対象がインスタントで行動を行った場合、その行動が失敗する。"; }
     if (command_name == Fix.SHINING_HEAL) { return "味方一体を対象とする。対象のライフを全回復する。また、味方フィールドに【祝福】のBUFFを付与する。【祝福】の効果が続く間、【猛毒】【出血】の影響を受けない。"; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "敵フィールドに【荒廃】のフィールドを形成する。【荒廃】の効果が続く間、物理防御力、魔法防御力、戦闘反応値がそれぞれ２０％減少する。"; }
+
+    if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
     #endregion
 
     #region "Archetype"

@@ -1146,7 +1146,7 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
 
-          CreateStackObject(EnemyList[ii], PlayerList[0], Fix.IRON_BUSTER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          CreateStackObject(EnemyList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
       }
@@ -1808,6 +1808,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.CIRCLE_OF_THE_DESPAIR:
         ExecCircleOfTheDespair(player, target.objFieldPanel);
+        break;
+
+      case Fix.COUNTER_DISALLOW:
+        ExecCounterDisallow(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
       #endregion
 
@@ -2541,7 +2545,8 @@ public partial class BattleEnemy : MotherBase
     // フロスト・ランス効果がある場合、インスタントはカウンターされる。
     // todo ただし、例外で無効化してくる効果も考えられるため、後にロジック改版。
     BuffImage frostLance = stackList[num].Player?.IsFrostLance ?? null;
-    if (frostLance != null)
+    BuffImage counterDisallow = stackList[num].Player?.IsCounterDisallow ?? null;
+    if (frostLance != null || counterDisallow != null)
     {
       Debug.Log("ExecStackInTheCommand frostLance phase length: " + stackList.Length + " " + stackList[stackList.Length - 1].StackName);
       string currentStackName = stackList[stackList.Length - 1].StackName;
@@ -2551,7 +2556,18 @@ public partial class BattleEnemy : MotherBase
       Destroy(stackList[stackList.Length - 1].gameObject);
       stackList[stackList.Length - 1] = null;
       // 失敗したことを示すスタックを表示する。
-      CreateStackObject(player, target, currentStackName + " 失敗！（要因：フロスト・ランス）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      if (frostLance != null)
+      {
+        CreateStackObject(player, target, currentStackName + " 失敗！（要因：フロスト・ランス）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      }
+      else if (counterDisallow != null)
+      {
+        CreateStackObject(player, target, currentStackName + " 失敗！（要因：カウンター・ディスアロウ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      }
+      else
+      {
+        CreateStackObject(player, target, currentStackName + " 失敗！（要因：不明）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      }
       return;
     }
     if (stackList[num].StackTimer <= 0)
@@ -4213,6 +4229,41 @@ public partial class BattleEnemy : MotherBase
         StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
         Destroy(stack_list[num].gameObject);
         stack_list[num] = null;
+      }
+      else
+      {
+        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      }
+    }
+  }
+
+  private void ExecCounterDisallow(Character player, StackObject[] stack_list)
+  {
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+
+      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill ||
+          (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Magic))
+      {
+        // todo CounterAttackやFlashCounterとロジックを統合する必要がある。
+        // カウンターできない。
+        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+            stack_list[num].StackName == Fix.IRON_BUSTER ||
+            stack_list[num].Player.IsWillAwakening != null)
+        {
+          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
+        }
+        else
+        {
+          Character target = stack_list[num].Player;
+          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+          Destroy(stack_list[num].gameObject);
+          stack_list[num] = null;
+
+          target.objBuffPanel.AddBuff(prefab_Buff, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
+          StartAnimation(target.objGroup.gameObject, Fix.COUNTER_DISALLOW, Fix.COLOR_NORMAL);
+        }
       }
       else
       {
