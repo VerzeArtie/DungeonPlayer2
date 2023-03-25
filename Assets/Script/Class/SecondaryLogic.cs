@@ -744,4 +744,9 @@ public static class SecondaryLogic
   {
     return 1.10f;
   }
+
+  public static double PrecisionStrike(Character player)
+  {
+    return 2.50f;
+  }
 }

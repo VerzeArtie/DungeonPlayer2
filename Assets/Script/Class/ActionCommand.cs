@@ -322,7 +322,7 @@ public static class ActionCommand
       result.Add(player.MultipleShot);
       result.Add(player.EyeOfTheIsshin);
       result.Add(player.PenetrationArrow);
-      result.Add(player.PrecisionRange);
+      result.Add(player.PrecisionStrike);
       result.Add(player.EternalConcentration);
       result.Add(player.PiercingArrow);
     }
@@ -605,6 +605,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return Attribute.Magic; }
     if (command_name == Fix.RAGING_STORM) { return Attribute.Skill; }
+    if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
 
     #endregion
 
@@ -737,6 +738,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return TimingType.StackCommand; }
     if (command_name == Fix.RAGING_STORM) { return TimingType.Normal; }
+    if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
     #endregion
 
     #region "Archetype"
@@ -868,6 +870,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return TargetType.InstantTarget; }
     if (command_name == Fix.RAGING_STORM) { return TargetType.EnemyGroup; } // + AllyField
+    if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
     #endregion
 
     #region "Archetype"
@@ -1074,6 +1077,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     if (command_name == Fix.RAGING_STORM) { return 60; } // + AllyField
+    if (command_name == Fix.PRECISION_STRIKE) { return 58; }
     #endregion
 
     #region "Archetype"
@@ -1280,6 +1284,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return BuffType.Negative; }
     if (command_name == Fix.RAGING_STORM) { return BuffType.Positive; }
+    if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
     #endregion
 
     #region "Archetype"
@@ -1496,7 +1501,8 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return false; }
 
     if (command_name == Fix.COUNTER_DISALLOW) { return false; }
-    if (command_name == Fix.RAGING_STORM) { return false; }
+    if (command_name == Fix.RAGING_STORM) { return true; }
+    if (command_name == Fix.PRECISION_STRIKE) { return true; }
     #endregion
 
     #region "Archetype"
@@ -1624,6 +1630,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return Fix.COUNTER_DISALLOW_JP; }
     if (command_name == Fix.RAGING_STORM) { return Fix.RAGING_STORM_JP; }
+    if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
     #endregion
 
     #region "Archetype"
@@ -1744,6 +1751,7 @@ public static class ActionCommand
 
     if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
     if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
+    if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
     #endregion
 
     #region "Archetype"
@@ -1776,8 +1784,6 @@ public static class ActionCommand
 
     if (command_name == Fix.ERRATIC_THUNDER) { return ""; }
     if (command_name == Fix.PETRIFICATION) { return ""; }
-    if (command_name == Fix.RAGING_STORM) { return ""; }
-    if (command_name == Fix.PRECISION_STRIKE) { return ""; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return ""; }
     if (command_name == Fix.SIGIL_OF_THE_HOMURA) { return ""; }
     if (command_name == Fix.HARDEST_PARRY) { return ""; }

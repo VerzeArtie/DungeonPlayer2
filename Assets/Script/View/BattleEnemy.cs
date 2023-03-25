@@ -1818,6 +1818,10 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         ExecRagingStorm(player, target_list, player.objFieldPanel, critical);
         break;
+
+      case Fix.PRECISION_STRIKE:
+        ExecPrecisionStrike(player, target);
+        break;
       #endregion
 
       #region "Other"
@@ -3041,6 +3045,11 @@ public partial class BattleEnemy : MotherBase
           this.NowSelectSrcPlayer.DecisionDefense();
           this.NowSelectSrcPlayer = null;
         }
+        else if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand &&
+                 GroupStackInTheCommand.GetComponentsInChildren<StackObject>().Length <= 0)
+        {
+          Debug.Log("Command Timing is StackCommand and stack-length less than 0, then no action.");
+        }
         else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
         {
           this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
@@ -4203,6 +4212,7 @@ public partial class BattleEnemy : MotherBase
         // カウンターできない。
         if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
             stack_list[num].StackName == Fix.IRON_BUSTER ||
+            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
             stack_list[num].Player.IsWillAwakening != null)
         {
           StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
@@ -4255,6 +4265,7 @@ public partial class BattleEnemy : MotherBase
         // カウンターできない。
         if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
             stack_list[num].StackName == Fix.IRON_BUSTER ||
+            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
             stack_list[num].Player.IsWillAwakening != null)
         {
           StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
@@ -4636,6 +4647,12 @@ public partial class BattleEnemy : MotherBase
     }
     target_field_obj.AddBuff(prefab_Buff, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
     StartAnimation(target_field_obj.gameObject, Fix.RAGING_STORM, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecPrecisionStrike(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    ExecNormalAttack(player, target, SecondaryLogic.PrecisionStrike(player), Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
   }
 
   private void ExecWillAwakening(Character player, Character target)

@@ -1272,8 +1272,8 @@ public partial class Character : MonoBehaviour
   public int Petrification { set { if (value >= 0) { _Petrification = value; } } get { return _Petrification; } }
   [SerializeField] protected int _RagingStorm = 0;
   public int RagingStorm { set { if (value >= 0) { _RagingStorm = value; } } get { return _RagingStorm; } }
-  [SerializeField] protected int _PrecisionRange = 0;
-  public int PrecisionRange { set { if (value >= 0) { _PrecisionRange = value; } } get { return _PrecisionRange; } }
+  [SerializeField] protected int _PrecisionStrike = 0;
+  public int PrecisionStrike { set { if (value >= 0) { _PrecisionStrike = value; } } get { return _PrecisionStrike; } }
   [SerializeField] protected int _UnintentionalHit = 0;
   public int UnintentionalHit { set { if (value >= 0) { _UnintentionalHit = value; } } get { return _UnintentionalHit; } }
   [SerializeField] protected int _CounterDisallow = 0;
@@ -2699,6 +2699,7 @@ public partial class Character : MonoBehaviour
 
     if (this.CounterDisallow > 0) { list.Add(Fix.COUNTER_DISALLOW); }
     if (this.RagingStorm > 0) { list.Add(Fix.RAGING_STORM); }
+    if (this.PrecisionStrike > 0) { list.Add(Fix.PRECISION_STRIKE); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
