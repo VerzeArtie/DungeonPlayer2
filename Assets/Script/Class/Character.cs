@@ -2700,6 +2700,7 @@ public partial class Character : MonoBehaviour
     if (this.CounterDisallow > 0) { list.Add(Fix.COUNTER_DISALLOW); }
     if (this.RagingStorm > 0) { list.Add(Fix.RAGING_STORM); }
     if (this.PrecisionStrike > 0) { list.Add(Fix.PRECISION_STRIKE); }
+    if (this.UnintentionalHit > 0) { list.Add(Fix.UNINTENTIONAL_HIT); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 

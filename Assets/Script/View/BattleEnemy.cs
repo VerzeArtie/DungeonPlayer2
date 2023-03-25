@@ -139,6 +139,11 @@ public partial class BattleEnemy : MotherBase
   protected Character NowIrregularStepTarget = null;
   protected double NowIrregularStepCounter = 0;
 
+  protected bool NowUnintentionalHitMode = false;
+  protected Character NowUnintentionalHitPlayer = null;
+  protected Character NowUnintentionalHitTarget = null;
+  protected double NowUnintentionalHitCounter = 0;
+
   protected bool NowSelectGlobal = false;
   protected bool NowSelectTarget = false;
   protected bool NowInstantTarget = false;
@@ -754,6 +759,11 @@ public partial class BattleEnemy : MotherBase
     if (NowIrregularStepMode)
     {
       ExecPlayIrregularStep();
+      return;
+    }
+    if (NowUnintentionalHitMode)
+    {
+      ExecPlayUnintentionalHit();
       return;
     }
 
@@ -1822,6 +1832,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.PRECISION_STRIKE:
         ExecPrecisionStrike(player, target);
         break;
+
+      case Fix.UNINTENTIONAL_HIT:
+        ExecUnintentionalHit(player, target, critical);
+        break;
+
       #endregion
 
       #region "Other"
@@ -2614,16 +2629,18 @@ public partial class BattleEnemy : MotherBase
     //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
     //}
 
-    if (move_skip > 0)
+    if (move_skip > 0 || move_skip < 0)
     {
       player.BattleGaugeArrow += move_skip;
       if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
     else
     {
       player.BattleGaugeArrow += (float)PrimaryLogic.BattleSpeed(player);
       if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
+      if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     }
   }
@@ -4507,6 +4524,30 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  private void ExecPlayUnintentionalHit()
+  {
+    if (this.NowUnintentionalHitCounter > 0)
+    {
+      // プレイヤーのゲージを進める
+      float factor = (float)PrimaryLogic.BattleSpeed(this.NowUnintentionalHitPlayer) * 2.00f;
+      UpdatePlayerArrow(this.NowUnintentionalHitPlayer, factor);
+
+      // ターゲットのゲージを遅らせる
+      float factor2 = (float)PrimaryLogic.BattleSpeed(this.NowUnintentionalHitTarget) * 2.00f;
+      UpdatePlayerArrow(this.NowUnintentionalHitTarget, factor2 * -1);
+
+      this.NowUnintentionalHitCounter = this.NowUnintentionalHitCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+    }
+
+    if (this.NowUnintentionalHitCounter <= 0.0f)
+    {
+      this.NowUnintentionalHitPlayer = null;
+      this.NowUnintentionalHitTarget = null;
+      this.NowUnintentionalHitCounter = 0;
+      this.NowUnintentionalHitMode = false;
+    }
+  }
+
   public void ExecSigilOfThePending(Character player, Character target)
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
@@ -4653,6 +4694,21 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     ExecNormalAttack(player, target, SecondaryLogic.PrecisionStrike(player), Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+  }
+
+  private void ExecUnintentionalHit(Character player, Character target, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.UnintentionalHit(player), Fix.DamageSource.Physical, false, critical);
+    if (success)
+    {
+      ExecBuffParalyze(player, target, SecondaryLogic.UnintentionalHit_Turn(player), 0);
+
+      this.NowUnintentionalHitPlayer = player;
+      this.NowUnintentionalHitTarget = target;
+      this.NowUnintentionalHitCounter = SecondaryLogic.UnintentionalHit_GaugeStep(player) * BATTLE_GAUGE_WITDH;
+      this.NowUnintentionalHitMode = true;
+    }
   }
 
   private void ExecWillAwakening(Character player, Character target)

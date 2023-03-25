@@ -749,4 +749,17 @@ public static class SecondaryLogic
   {
     return 2.50f;
   }
+
+  public static double UnintentionalHit(Character player)
+  {
+    return 2.00f;
+  }
+  public static int UnintentionalHit_Turn(Character player)
+  {
+    return 2;
+  }
+  public static float UnintentionalHit_GaugeStep(Character player)
+  {
+    return 0.20f;
+  }
 }
