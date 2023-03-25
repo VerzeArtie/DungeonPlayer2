@@ -158,6 +158,12 @@ public static class PrimaryLogic
       }
     }
 
+    BuffImage ragingStorm = player.SearchFieldBuff(Fix.RAGING_STORM);
+    if (ragingStorm != null)
+    {
+      result = result * ragingStorm.EffectValue;
+    }
+
     if (player.IsPhysicalAttackUp)
     {
       result = result * player.IsPhysicalAttackUp.EffectValue;
@@ -329,6 +335,11 @@ public static class PrimaryLogic
       }
     }
 
+    BuffImage ragingStorm = player.SearchFieldBuff(Fix.RAGING_STORM);
+    if (ragingStorm != null)
+    {
+      result = result * ragingStorm.EffectValue;
+    }
 
     if (player.IsMagicAttackDown)
     {
