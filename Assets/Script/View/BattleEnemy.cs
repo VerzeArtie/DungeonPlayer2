@@ -1837,6 +1837,10 @@ public partial class BattleEnemy : MotherBase
         ExecUnintentionalHit(player, target, critical);
         break;
 
+      case Fix.HARDEST_PARRY:
+        ExecHardestParry(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        break;
+
       #endregion
 
       #region "Other"
@@ -3071,7 +3075,14 @@ public partial class BattleEnemy : MotherBase
         {
           this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
           this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          if (sender.CommandName == Fix.HARDEST_PARRY)
+          {
+            CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
+          }
+          else
+          {
+            CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          }
         }
       }
       else
@@ -3114,7 +3125,15 @@ public partial class BattleEnemy : MotherBase
       {
         this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
         this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+
+        if (sender.CommandName == Fix.HARDEST_PARRY)
+        {
+          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+        else
+        {
+          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+        }
       }
     }
   }
@@ -4296,6 +4315,38 @@ public partial class BattleEnemy : MotherBase
 
           target.objBuffPanel.AddBuff(prefab_Buff, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
           StartAnimation(target.objGroup.gameObject, Fix.COUNTER_DISALLOW, Fix.COLOR_NORMAL);
+        }
+      }
+      else
+      {
+        StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      }
+    }
+  }
+
+  private void ExecHardestParry(Character player, StackObject[] stack_list)
+  {
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+
+      if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Skill)
+      {
+        // todo CounterAttackやFlashCounter, CounterDisallowとロジックを統合する必要がある。
+        // カウンターできない。
+        if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+            stack_list[num].StackName == Fix.IRON_BUSTER ||
+            stack_list[num].StackName == Fix.PRECISION_STRIKE ||
+            stack_list[num].Player.IsWillAwakening != null)
+        {
+          StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
+        }
+        else
+        {
+          Character target = stack_list[num].Player;
+          StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+          Destroy(stack_list[num].gameObject);
+          stack_list[num] = null;
         }
       }
       else

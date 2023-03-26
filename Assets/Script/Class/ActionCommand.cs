@@ -607,6 +607,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return Attribute.Skill; }
     if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return Attribute.Skill; }
+    if (command_name == Fix.HARDEST_PARRY) { return Attribute.Skill; }
 
     #endregion
 
@@ -741,6 +742,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return TimingType.Normal; }
     if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return TimingType.Instant; }
+    if (command_name == Fix.HARDEST_PARRY) { return TimingType.StackCommand; }
     #endregion
 
     #region "Archetype"
@@ -874,6 +876,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return TargetType.EnemyGroup; } // + AllyField
     if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return TargetType.Enemy; }
+    if (command_name == Fix.HARDEST_PARRY) { return TargetType.InstantTarget; }
     #endregion
 
     #region "Archetype"
@@ -1082,6 +1085,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return 60; } // + AllyField
     if (command_name == Fix.PRECISION_STRIKE) { return 58; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return 59; }
+    if (command_name == Fix.HARDEST_PARRY) { return 65; }
     #endregion
 
     #region "Archetype"
@@ -1290,6 +1294,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return BuffType.Positive; }
     if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return BuffType.Negative; }
+    if (command_name == Fix.HARDEST_PARRY) { return BuffType.None; }
     #endregion
 
     #region "Archetype"
@@ -1509,6 +1514,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return true; }
     if (command_name == Fix.PRECISION_STRIKE) { return true; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return true; }
+    if (command_name == Fix.HARDEST_PARRY) { return false; }
     #endregion
 
     #region "Archetype"
@@ -1638,6 +1644,7 @@ public static class ActionCommand
     if (command_name == Fix.RAGING_STORM) { return Fix.RAGING_STORM_JP; }
     if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return Fix.UNINTENTIONAL_HIT_JP; }
+    if (command_name == Fix.HARDEST_PARRY) { return Fix.HARDEST_PARRY_JP; }
     #endregion
 
     #region "Archetype"
@@ -1759,7 +1766,8 @@ public static class ActionCommand
     if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
     if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
     if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする）"; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
+    if (command_name == Fix.HARDEST_PARRY) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【スキル】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。この行動は即座に発揮され、打ち消されない。"; }
     #endregion
 
     #region "Archetype"
