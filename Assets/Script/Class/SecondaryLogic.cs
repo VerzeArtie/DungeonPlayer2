@@ -762,4 +762,14 @@ public static class SecondaryLogic
   {
     return 0.20f;
   }
+
+  public static int EverflowMind_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double EverflowMind_Effect1(Character player)
+  {
+    return 0.20f;
+  }
 }

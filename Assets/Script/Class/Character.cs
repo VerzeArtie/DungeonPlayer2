@@ -2399,6 +2399,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.COUNTER_DISALLOW); }
   }
 
+  public BuffImage IsEverflowMind
+  {
+    get { return SearchBuff(Fix.EVERFLOW_MIND); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -2691,6 +2696,7 @@ public partial class Character : MonoBehaviour
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
     if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
+    if (this.BlackContract > 0) { list.Add(Fix.BLACK_CONTRACT); }
 
     if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
     if (this.FrostLance > 0) { list.Add(Fix.FROST_LANCE); }
@@ -2702,6 +2708,7 @@ public partial class Character : MonoBehaviour
     if (this.PrecisionStrike > 0) { list.Add(Fix.PRECISION_STRIKE); }
     if (this.UnintentionalHit > 0) { list.Add(Fix.UNINTENTIONAL_HIT); }
     if (this.HardestParry > 0) { list.Add(Fix.HARDEST_PARRY); }
+    if (this.EverflowMind > 0) { list.Add(Fix.EVERFLOW_MIND); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 

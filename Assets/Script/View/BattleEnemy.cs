@@ -1412,8 +1412,16 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        // todo ただし、必ず０とは限らない。状況によっては0にならないケースもあるのでアクションコマンドを慎重に組み立てる事。
-        player.CurrentInstantPoint = 0;
+        // ソーサリータイミング実行によるインスタント消費はプレイヤー意志によるものであるため、EverflowMindなどの効果の対象とする。
+        BuffImage everflowMind = player.IsEverflowMind;
+        if (everflowMind != null)
+        {
+          player.CurrentInstantPoint = everflowMind.EffectValue * player.MaxInstantPoint;
+        }
+        else
+        {
+          player.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(player) * player.MaxInstantPoint;
+        }
         player.UpdateActionPointGauge();
       }
     }
@@ -1839,6 +1847,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.HARDEST_PARRY:
         ExecHardestParry(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        break;
+
+      case Fix.EVERFLOW_MIND:
+        ExecEverflowMind(player, target);
         break;
 
       #endregion
@@ -2898,7 +2910,15 @@ public partial class BattleEnemy : MotherBase
             else
             {
               // インスタント・ゲージを消費。
-              this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+              BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
+              if (everflowMind != null)
+              {
+                this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
+              }
+              else
+              {
+                this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+              }
               this.NowSelectSrcPlayer.UpdateInstantPointGauge();
             }
           }
@@ -3073,7 +3093,15 @@ public partial class BattleEnemy : MotherBase
         }
         else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
         {
-          this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+          BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
+          if (everflowMind != null)
+          {
+            this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
+          }
+          else
+          {
+            this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+          }
           this.NowSelectSrcPlayer.UpdateInstantPointGauge();
           if (sender.CommandName == Fix.HARDEST_PARRY)
           {
@@ -3123,7 +3151,15 @@ public partial class BattleEnemy : MotherBase
       }
       else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
       {
-        this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+        BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
+        if (everflowMind != null)
+        {
+          this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
+        }
+        else
+        {
+          this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+        }
         this.NowSelectSrcPlayer.UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.HARDEST_PARRY)
@@ -3155,7 +3191,8 @@ public partial class BattleEnemy : MotherBase
           return;
         }
 
-        this.PlayerList[ii].CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
+        // ImmediateActionはポーションやシールなどの消耗品限定であり、アクションコマンドは入らない。実行後は必ず０とする。
+        this.PlayerList[ii].CurrentInstantPoint = 0;
         this.PlayerList[ii].UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.SMALL_RED_POTION ||
@@ -3875,6 +3912,7 @@ public partial class BattleEnemy : MotherBase
       if (rand <= player.IsSonicPulse.EffectValue)
       {
         Debug.Log("SonicPulse effect, then no ExecNormalAttack.");
+        // SonicPulseは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
         player.CurrentInstantPoint = 0;
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
         this.NowAnimationMode = true;
@@ -4354,6 +4392,13 @@ public partial class BattleEnemy : MotherBase
         StartAnimation(stack_list[num].gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       }
     }
+  }
+
+  private void ExecEverflowMind(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EVERFLOW_MIND, Fix.COLOR_NORMAL);
   }
 
   private void ExecStanceOfTheBlade(Character player)

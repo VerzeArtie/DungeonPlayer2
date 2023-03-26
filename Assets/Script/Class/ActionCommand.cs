@@ -608,6 +608,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return Attribute.Skill; }
     if (command_name == Fix.HARDEST_PARRY) { return Attribute.Skill; }
+    if (command_name == Fix.EVERFLOW_MIND) { return Attribute.Skill; }
 
     #endregion
 
@@ -743,6 +744,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return TimingType.Instant; }
     if (command_name == Fix.HARDEST_PARRY) { return TimingType.StackCommand; }
+    if (command_name == Fix.EVERFLOW_MIND) { return TimingType.Normal; }
     #endregion
 
     #region "Archetype"
@@ -877,6 +879,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return TargetType.Enemy; }
     if (command_name == Fix.HARDEST_PARRY) { return TargetType.InstantTarget; }
+    if (command_name == Fix.EVERFLOW_MIND) { return TargetType.Ally; }
     #endregion
 
     #region "Archetype"
@@ -1086,6 +1089,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return 58; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return 59; }
     if (command_name == Fix.HARDEST_PARRY) { return 65; }
+    if (command_name == Fix.EVERFLOW_MIND) { return 80; }
     #endregion
 
     #region "Archetype"
@@ -1295,6 +1299,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return BuffType.Negative; }
     if (command_name == Fix.HARDEST_PARRY) { return BuffType.None; }
+    if (command_name == Fix.EVERFLOW_MIND) { return BuffType.Positive; }
     #endregion
 
     #region "Archetype"
@@ -1515,6 +1520,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return true; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return true; }
     if (command_name == Fix.HARDEST_PARRY) { return false; }
+    if (command_name == Fix.EVERFLOW_MIND) { return false; }
     #endregion
 
     #region "Archetype"
@@ -1645,6 +1651,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return Fix.UNINTENTIONAL_HIT_JP; }
     if (command_name == Fix.HARDEST_PARRY) { return Fix.HARDEST_PARRY_JP; }
+    if (command_name == Fix.EVERFLOW_MIND) { return Fix.EVERFLOW_MIND_JP; }
     #endregion
 
     #region "Archetype"
@@ -1768,6 +1775,7 @@ public static class ActionCommand
     if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
     if (command_name == Fix.HARDEST_PARRY) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【スキル】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。この行動は即座に発揮され、打ち消されない。"; }
+    if (command_name == Fix.EVERFLOW_MIND) { return "味方一体に対して【常在】のBUFFを付与する。【常在】が続く間、インスタント行動を行った後、インスタントゲージが全て消費されず、20%残った状態となる"; }
     #endregion
 
     #region "Archetype"
@@ -1802,10 +1810,8 @@ public static class ActionCommand
     if (command_name == Fix.PETRIFICATION) { return ""; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return ""; }
     if (command_name == Fix.SIGIL_OF_THE_HOMURA) { return ""; }
-    if (command_name == Fix.HARDEST_PARRY) { return ""; }
     if (command_name == Fix.REVOLUTION_AURA) { return ""; }
     if (command_name == Fix.OATH_OF_AEGIS) { return ""; }
-    if (command_name == Fix.EVERFLOW_MIND) { return ""; }
     if (command_name == Fix.ABYSS_EYE) { return ""; }
     if (command_name == Fix.MIND_FORCE) { return ""; }
     if (command_name == Fix.INNER_INSPIRATION) { return ""; }
