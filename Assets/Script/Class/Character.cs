@@ -2709,6 +2709,7 @@ public partial class Character : MonoBehaviour
     if (this.UnintentionalHit > 0) { list.Add(Fix.UNINTENTIONAL_HIT); }
     if (this.HardestParry > 0) { list.Add(Fix.HARDEST_PARRY); }
     if (this.EverflowMind > 0) { list.Add(Fix.EVERFLOW_MIND); }
+    if (this.InnerInspiration > 0) { list.Add(Fix.INNER_INSPIRATION); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 

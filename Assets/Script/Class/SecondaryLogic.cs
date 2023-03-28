@@ -772,4 +772,9 @@ public static class SecondaryLogic
   {
     return 0.20f;
   }
+
+  public static double InnerInspiration_Effect1(Character player)
+  {
+    return 0.10f;
+  }
 }

@@ -1853,6 +1853,10 @@ public partial class BattleEnemy : MotherBase
         ExecEverflowMind(player, target);
         break;
 
+      case Fix.INNER_INSPIRATION:
+        ExecInnerInspiration(player, target);
+        break;
+
       #endregion
 
       #region "Other"
@@ -4399,6 +4403,12 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EVERFLOW_MIND, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecInnerInspiration(Character player, Character target)
+  {
+    double effectValue = SecondaryLogic.InnerInspiration_Effect1(target) * target.MaxSoulPoint;
+    AbstractGainSoulPoint(player, target, effectValue);
   }
 
   private void ExecStanceOfTheBlade(Character player)
