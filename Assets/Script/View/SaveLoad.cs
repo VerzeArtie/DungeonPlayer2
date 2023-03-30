@@ -224,16 +224,26 @@ public class SaveLoad : MotherBase
           string displayAreaName = string.Empty;
           bool displaySaveByDungeon = false;
           ReadDisplaySaveString(targetString, ref displayDungeonName, ref displayAreaName, ref displaySaveByDungeon);
-          if (displayDungeonName != string.Empty)
+          if (displaySaveByDungeon)
           {
-            // Debug.Log("displaySaveString: " + displayDungeonName + " " + displayAreaName + " " + displaySaveByDungeon);
-            if (displaySaveByDungeon)
+            if (displayDungeonName != string.Empty)
             {
               targetButton.text += displayDungeonName;
             }
             else
             {
               targetButton.text += displayAreaName;
+            }
+          }
+          else
+          {
+            if (displayAreaName != string.Empty)
+            {
+              targetButton.text += displayAreaName;
+            }
+            else
+            {
+              targetButton.text += displayDungeonName;
             }
           }
 
