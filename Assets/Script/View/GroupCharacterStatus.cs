@@ -22,8 +22,10 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtDetailLevel;
   public Text txtDetailLife;
   public Image imgDetailLife;
-  public Text txtDetailSoulPoint;
-  public Image imgDetailSP;
+  public Text txtDetailManaPoint;
+  public Image imgDetailManaPoint;
+  public Text txtDetailSkillPoint;
+  public Image imgDetailSkillPoint;
   public Text txtDetailExp;
   public Image imgDetailExp;
   public Text txtDetailStrength;
@@ -198,7 +200,8 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailName.text = player.FullName;
     txtDetailLevel.text = player.Level.ToString();
     txtDetailLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
-    txtDetailSoulPoint.text = player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString();
+    txtDetailManaPoint.text = player.CurrentManaPoint.ToString() + " / " + player.MaxManaPoint.ToString();
+    txtDetailSkillPoint.text = player.CurrentSkillPoint.ToString() + " / " + player.MaxSkillPoint.ToString();
     txtDetailExp.text = player.Exp.ToString() + " / " + player.GetNextExp().ToString();
     txtDetailStrength.text = player.TotalStrength.ToString();
     txtDetailAgility.text = player.TotalAgility.ToString();
@@ -252,16 +255,20 @@ public class GroupCharacterStatus : MonoBehaviour
       float dx = (float)player.Exp / (float)player.GetNextExp();
       imgDetailExp.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
-    if (imgDetailSP != null)
-    {
-      Debug.Log("sp: " + player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString());
-      float dx = (float)player.CurrentSoulPoint / (float)player.MaxSoulPoint;
-      imgDetailSP.rectTransform.localScale = new Vector2(dx, 1.0f);
-    }
     if (imgDetailLife != null)
     {
       float dx = (float)player.CurrentLife / (float)player.MaxLife;
       imgDetailLife.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (imgDetailManaPoint != null)
+    {
+      float dx = (float)player.CurrentManaPoint / (float)player.MaxManaPoint;
+      imgDetailManaPoint.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (imgDetailSkillPoint != null)
+    {
+      float dx = (float)player.CurrentSkillPoint / (float)player.MaxSkillPoint;
+      imgDetailSkillPoint.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
 
     if (txtEssencePoint != null)
@@ -350,7 +357,8 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
       UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife, CurrentPlayer.CurrentLife);
-      UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint, CurrentPlayer.CurrentSoulPoint);
+      UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailManaPoint, CurrentPlayer.MaxManaPoint, ShadowPlayer.MaxManaPoint, CurrentPlayer.CurrentManaPoint);
+      UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSkillPoint, CurrentPlayer.MaxSkillPoint, ShadowPlayer.MaxSkillPoint, CurrentPlayer.CurrentSkillPoint);
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));
@@ -685,9 +693,11 @@ public class GroupCharacterStatus : MonoBehaviour
       ShadowPlayer.Mind = player.Mind;
       ShadowPlayer.MindFood = player.MindFood;
       ShadowPlayer.BaseLife = player.BaseLife;
-      ShadowPlayer.BaseSoulPoint = player.BaseSoulPoint;
+      ShadowPlayer.BaseManaPoint = player.BaseManaPoint;
+      ShadowPlayer.BaseSkillPoint = player.BaseSkillPoint;
       ShadowPlayer.CurrentLife = player.CurrentLife;
-      ShadowPlayer.CurrentSoulPoint = player.CurrentSoulPoint;
+      ShadowPlayer.CurrentManaPoint = player.CurrentManaPoint;
+      ShadowPlayer.CurrentSkillPoint = player.CurrentSkillPoint;
       ShadowPlayer.RemainPoint = player.RemainPoint;
       if (player.MainWeapon != null)
       {
@@ -783,9 +793,8 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
     UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife, CurrentPlayer.CurrentLife);
-    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint, CurrentPlayer.CurrentSoulPoint);
-    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife);
-    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSoulPoint, CurrentPlayer.MaxSoulPoint, ShadowPlayer.MaxSoulPoint);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailManaPoint, CurrentPlayer.MaxManaPoint, ShadowPlayer.MaxManaPoint, CurrentPlayer.CurrentManaPoint);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSkillPoint, CurrentPlayer.MaxSkillPoint, ShadowPlayer.MaxSkillPoint, CurrentPlayer.CurrentSkillPoint);
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));

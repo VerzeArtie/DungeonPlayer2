@@ -190,7 +190,8 @@ public static partial class Fix
   public const string BATTLE_MISS = "Miss";
   public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
   public const string BATTLE_AP_LESS = "No AP";
-  public const string BATTLE_SP_LESS = "No SP";
+  public const string BATTLE_MANAPOINT_LESS = "No MP";
+  public const string BATTLE_SKILLPOINT_LESS = "No SP";
   public const string BATTLE_NO_POTION = "No Potion";
   public const string BATTLE_ALREADY_USED = "空っぽ";
   public const string BATTLE_BIND = "Bind";
@@ -200,7 +201,8 @@ public static partial class Fix
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;
   public static Color COLOR_HEAL = Color.green;
-  public static Color COLOR_GAIN_SP = Color.blue;
+  public static Color COLOR_GAIN_MP = Color.blue;
+  public static Color COLOR_GAIN_SP = Color.yellow;
 
   public static Color COLOR_FIRST_CHARA = new Color(235.0f / 255.0f, 253.0f / 255.0f, 255.0f / 255.0f);
   public static Color COLORFORE_FIRST_CHARA = new Color(0, 185.0f / 255.0f, 255.0f / 255.0f);

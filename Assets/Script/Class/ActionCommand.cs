@@ -973,7 +973,7 @@ public static class ActionCommand
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
-  public static int CostSP(string command_name)
+  public static int Cost(string command_name)
   {
     #region "基本／一般"
     if (command_name == Fix.NORMAL_ATTACK) { return 0; }

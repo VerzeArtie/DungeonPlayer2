@@ -12,9 +12,15 @@ public class NodeMiniChara : MonoBehaviour
   public Text txtName;
   public Text txtLife;
   public Image imgLifeGauge;
-  public Text txtSP;
-  public Image imgSPGauge;
-  public Image imgBackColor;
+  public Image imgBackLifeColor;
+
+  public Text txtManaPoint;
+  public Image imgManaPointGauge;
+  public Image imgBackManaPointColor;
+
+  public Text txtSkillPoint;
+  public Image imgSkillPointGauge;
+  public Image imgBackSkillPointColor;
 
   public void Refresh(Character character)
   {
@@ -38,20 +44,42 @@ public class NodeMiniChara : MonoBehaviour
       imgLifeGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
     }
 
-    if (txtSP != null)
+    if (imgBackLifeColor != null)
     {
-      txtSP.text = character.CurrentSoulPoint.ToString() + " / " + character.MaxSoulPoint.ToString();
+      imgBackLifeColor.color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
     }
 
-    if (imgSPGauge != null)
+    if (txtManaPoint != null)
     {
-      float dx = (float)character.CurrentSoulPoint / (float)character.MaxSoulPoint;
-      imgSPGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+      txtManaPoint.text = character.CurrentManaPoint.ToString() + " / " + character.MaxManaPoint.ToString();
     }
 
-    if (imgBackColor != null)
+    if (imgManaPointGauge != null)
     {
-      imgBackColor.color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
+      float dx = (float)character.CurrentManaPoint / (float)character.MaxManaPoint;
+      imgManaPointGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
     }
+
+    if (imgBackManaPointColor != null)
+    {
+      imgBackManaPointColor.color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
+    }
+
+    if (txtSkillPoint != null)
+    {
+      txtSkillPoint.text = character.CurrentSkillPoint.ToString() + " / " + character.MaxSkillPoint.ToString();
+    }
+
+    if (imgSkillPointGauge != null)
+    {
+      float dx = (float)character.CurrentSkillPoint / (float)character.MaxSkillPoint;
+      imgSkillPointGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+    }
+
+    if (imgBackSkillPointColor != null)
+    {
+      imgBackSkillPointColor.color = new Color(character.BattleBackColor.r, character.BattleBackColor.g, character.BattleBackColor.b, 0.7f);
+    }
+
   }
 }

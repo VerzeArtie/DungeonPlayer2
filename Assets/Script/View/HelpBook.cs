@@ -440,7 +440,7 @@ public class HelpBook : MotherBase
     CurrentLabel_JP.text = ActionCommand.To_JP(command);
     CurrentImage.sprite = Resources.Load<Sprite>(command);
     CurrentDescription.text = ActionCommand.GetDescription(command); 
-    CurrentCost.text = ActionCommand.CostSP(command).ToString();
+    CurrentCost.text = ActionCommand.Cost(command).ToString();
 
 
     if (ActionCommand.IsTarget(command) == ActionCommand.TargetType.Enemy)

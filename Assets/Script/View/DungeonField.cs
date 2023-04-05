@@ -124,8 +124,10 @@ public class DungeonField : MotherBase
   public List<Text> StayListName;
   public List<Text> StayListLife;
   public List<Image> StayListLifeGauge;
-  public List<Text> StayListSP;
-  public List<Image> StayListSPGauge;
+  public List<Text> StayListManaPoint;
+  public List<Image> StayListManaPointGauge;
+  public List<Text> StayListSkillPoint;
+  public List<Image> StayListSkillPointGauge;
   public List<GameObject> StayListCheckMark;
   public GameObject objCancelActionCommand;
   public Text txtCurrentName;
@@ -1886,6 +1888,13 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_MessageBoard_4_X, Fix.MYSTICFOREST_MessageBoard_4_Y, Fix.MYSTICFOREST_MessageBoard_4_Z))
         {
           MessagePack.Message900450(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_MessageBoard_1_X, Fix.VELGUS_MessageBoard_1_Y, Fix.VELGUS_MessageBoard_1_Z))
+        {
+          MessagePack.Message1000010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;

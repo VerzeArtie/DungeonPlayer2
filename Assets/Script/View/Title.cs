@@ -80,12 +80,25 @@ public class Title : MotherBase
     One.TF.AvailableEoneFulnea = true;
 
     Character lana = One.SelectCharacter(Fix.NAME_LANA_AMIRIA);
-    lana.Strength = 10;
+    lana.ShiningHeal = 1;
+    lana.EverflowMind = 1;
+    lana.StraightSmash = 1;
+    lana.BlackContract = 1;
+    lana.InnerInspiration = 1;
+    lana.ActionCommand2 = Fix.SHINING_HEAL;
+    lana.ActionCommand3 = Fix.STRAIGHT_SMASH;
+    lana.ActionCommand4 = Fix.EVERFLOW_MIND;
+    lana.ActionCommand5 = Fix.BLACK_CONTRACT;
+    lana.ActionCommand6 = Fix.INNER_INSPIRATION;
+
+    lana.Strength = 1000;
     lana.Agility = 10;
     lana.Intelligence = 10;
-    lana.Mind = 100;
-    lana.BaseSoulPoint = 999;
+    lana.Mind = 50;
+    lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
+    lana.MaxGain();
+    lana.CurrentManaPoint = 3;
 
     Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
     ein.GaleWind = 1;
@@ -101,34 +114,43 @@ public class Title : MotherBase
     ein.PhantomOboro = 1;
     ein.DeadlyDrive = 1;
     ein.DominationField = 1;
-    ein.Strength = 10;
+    ein.HunterShot = 1;
+    ein.FlameStrike = 1;
+    ein.ShiningHeal = 1;
+    ein.BloodSign = 1;
+    ein.CircleOfTheDespair = 1;
+    ein.RagingStorm = 1;
+    ein.InnerInspiration = 1;
+
+    ein.Strength = 1000;
     ein.Agility = 10;
     ein.Intelligence = 10;
     ein.Mind = 100;
-    ein.BaseSoulPoint = 999;
+    ein.BaseManaPoint = 999;
     ein.BaseLife = 1000;
     ein.ActionCommand1 = Fix.FIRE_BALL;
-    ein.ActionCommand2 = Fix.DOMINATION_FIELD;
-    ein.ActionCommand3 = Fix.CURSED_EVANGILE;
-    ein.ActionCommand4 = Fix.PENETRATION_ARROW;
-    ein.ActionCommand5 = Fix.CIRCLE_OF_THE_VIGOR;
-    ein.ActionCommand6 = Fix.WILL_AWAKENING;
+    ein.ActionCommand2 = Fix.FLAME_STRIKE;
+    ein.ActionCommand3 = Fix.INNER_INSPIRATION;
+    ein.ActionCommand4 = Fix.BLOOD_SIGN;
+    ein.ActionCommand5 = Fix.CIRCLE_OF_THE_DESPAIR;
+    ein.ActionCommand6 = Fix.RAGING_STORM;
     ein.ActionCommand7 = Fix.COUNTER_ATTACK;
     ein.ActionCommand8 = Fix.PHANTOM_OBORO;
-    ein.ActionCommand9 = Fix.DEADLY_DRIVE;
+    ein.ActionCommand9 = Fix.HUNTER_SHOT;
     ein.MaxGain();
+    ein.CurrentManaPoint = 2;
     //Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
     //eone.AgilityFood = 1;
 
-    One.TF.BattlePlayer1 = Fix.NAME_LANA_AMIRIA;
-    One.TF.BattlePlayer2 = Fix.NAME_EIN_WOLENCE;
+    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     //One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
 
     One.CreateShadowData();
 
     One.EnemyList.Clear();
     One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
-    //One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
+    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
     //One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
     //One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
 
@@ -137,12 +159,12 @@ public class Title : MotherBase
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
       Character character = objEC.AddComponent<Character>();
       character.Construction(One.BattleEnemyList[ii]);
-      character.Strength = 50;
-      character.Agility = 20;
-      character.Intelligence = 100;
-      character.Mind = 20;
+      character.Strength = 100;
+      character.Agility = 1;
+      character.Intelligence = 1;
+      character.Mind = 100;
       character.BaseLife = 999999;
-      character.BaseSoulPoint = 99999;
+      character.BaseManaPoint = 99999;
       character.MaxGain();
       One.EnemyList.Add(character);
     }
@@ -168,7 +190,7 @@ public class Title : MotherBase
     lana.Agility = 10;
     lana.Intelligence = 10;
     lana.Mind = 100;
-    lana.BaseSoulPoint = 999;
+    lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
 
     Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
@@ -185,14 +207,29 @@ public class Title : MotherBase
     ein.PhantomOboro = 1;
     ein.DeadlyDrive = 1;
     ein.DominationField = 1;
+    ein.FlameStrike = 1;
+    ein.FrostLance = 1;
+    ein.CounterDisallow = 1;
+    ein.PrecisionStrike = 1;
+    ein.UnintentionalHit = 1;
+    ein.HardestParry = 1;
+    ein.EverflowMind = 1;
+
     ein.Strength = 30;
     ein.Agility = 9;
     ein.Intelligence = 6;
     ein.Stamina = 20;
-    ein.Mind = 10;
+    ein.Mind = 30;
+    ein.BaseManaPoint = 999;
     ein.ActionCommand1 = Fix.STRAIGHT_SMASH;
     ein.ActionCommand2 = Fix.FIRE_BALL;
     ein.ActionCommand3 = Fix.DEFENSE;
+    ein.ActionCommand4 = Fix.FLAME_STRIKE;
+    ein.ActionCommand5 = Fix.FROST_LANCE;
+    ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
+    ein.ActionCommand7 = Fix.PRECISION_STRIKE;
+    ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
+    ein.ActionCommand9 = Fix.HARDEST_PARRY;
     ein.MaxGain();
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
@@ -200,7 +237,7 @@ public class Title : MotherBase
     One.CreateShadowData();
 
     One.EnemyList.Clear();
-    One.BattleEnemyList.Add(Fix.DUEL_JEDA_ARUS);
+    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);//.DUEL_JEDA_ARUS);
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
@@ -232,7 +269,7 @@ public class Title : MotherBase
     lana.Agility = 10;
     lana.Intelligence = 10;
     lana.Mind = 100;
-    lana.BaseSoulPoint = 999;
+    lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
 
     Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
@@ -253,7 +290,7 @@ public class Title : MotherBase
     ein.Agility = 10;
     ein.Intelligence = 10;
     ein.Mind = 100;
-    ein.BaseSoulPoint = 999;
+    ein.BaseManaPoint = 999;
     ein.BaseLife = 1000;
     ein.ActionCommand1 = Fix.FIRE_BALL;
     ein.ActionCommand2 = Fix.DOMINATION_FIELD;
@@ -286,7 +323,7 @@ public class Title : MotherBase
       character.Intelligence = 100;
       character.Mind = 20;
       character.BaseLife = 999999;
-      character.BaseSoulPoint = 99999;
+      character.BaseManaPoint = 99999;
       character.MaxGain();
       One.EnemyList.Add(character);
     }

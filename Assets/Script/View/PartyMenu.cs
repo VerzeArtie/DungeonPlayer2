@@ -21,8 +21,10 @@ public class PartyMenu : MotherBase
   public List<Text> StayListName;
   public List<Text> StayListLife;
   public List<Image> StayListLifeGauge;
-  public List<Text> StayListSP;
-  public List<Image> StayListSPGauge;
+  public List<Text> StayListManaPoint;
+  public List<Image> StayListManaPointGauge;
+  public List<Text> StayListSkillPoint;
+  public List<Image> StayListSkillPointGauge;
   public List<GameObject> StayListCheckMark;
   public GameObject objCancelActionCommand;
   public Text txtCurrentName;
@@ -136,11 +138,11 @@ public class PartyMenu : MotherBase
       {
         return;
       }
-      if (player.CurrentSoulPoint < ActionCommand.CostSP(Fix.FRESH_HEAL))
+      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL))
       {
         return;
       }
-      player.CurrentSoulPoint -= ActionCommand.CostSP(Fix.FRESH_HEAL);
+      player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL);
 
       if (healValue <= 0) { healValue = 0; }
       int result = (int)healValue;
@@ -185,8 +187,9 @@ public class PartyMenu : MotherBase
             Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
             One.TF.DeleteBackpack(current, 1);
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-            PlayerList[ii].CurrentSoulPoint += (int)effectValue;
+            PlayerList[ii].CurrentManaPoint += (int)effectValue;
           }
+          // todo スキルポイント回復ポーションを復活させる事。
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STRENGTH ||
@@ -485,11 +488,11 @@ public class PartyMenu : MotherBase
     else if (txt_src.text == Fix.SHINING_HEAL)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentSoulPoint < ActionCommand.CostSP(Fix.SHINING_HEAL))
+      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.SHINING_HEAL))
       {
         return;
       }
-      player.CurrentSoulPoint -= ActionCommand.CostSP(Fix.SHINING_HEAL);
+      player.CurrentManaPoint -= ActionCommand.Cost(Fix.SHINING_HEAL);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
@@ -553,7 +556,8 @@ public class PartyMenu : MotherBase
       if (StayList[ii] != null) { StayList[ii].gameObject.SetActive(false); }
       if (StayListName[ii] != null) { StayListName[ii].text = string.Empty; }
       if (StayListLife[ii] != null) { StayListLife[ii].text = string.Empty; }
-      if (StayListSP[ii] != null) { StayListSP[ii].text = string.Empty; }
+      if (StayListManaPoint[ii] != null) { StayListManaPoint[ii].text = string.Empty; }
+      if (StayListSkillPoint[ii] != null) { StayListSkillPoint[ii].text = string.Empty; }
     }
     Debug.Log("PlayerList count: " + PlayerList.Count.ToString());
 
@@ -567,12 +571,19 @@ public class PartyMenu : MotherBase
         float dx = (float)PlayerList[ii].CurrentLife / (float)PlayerList[ii].MaxLife;
         StayListLifeGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
       }
-      if (StayListSP[ii] != null) { StayListSP[ii].text = PlayerList[ii].CurrentSoulPoint.ToString() + " / " + PlayerList[ii].MaxSoulPoint.ToString(); }
-      if (StayListSPGauge[ii] != null)
+      if (StayListManaPoint[ii] != null) { StayListManaPoint[ii].text = PlayerList[ii].CurrentManaPoint.ToString() + " / " + PlayerList[ii].MaxManaPoint.ToString(); }
+      if (StayListManaPointGauge[ii] != null)
       {
-        float dx = (float)PlayerList[ii].CurrentSoulPoint / (float)PlayerList[ii].MaxSoulPoint;
-        StayListSPGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
+        float dx = (float)PlayerList[ii].CurrentManaPoint / (float)PlayerList[ii].MaxManaPoint;
+        StayListManaPointGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
       }
+      if (StayListSkillPoint[ii] != null) { StayListSkillPoint[ii].text = PlayerList[ii].CurrentSkillPoint.ToString() + " / " + PlayerList[ii].MaxSkillPoint.ToString(); }
+      if (StayListSkillPointGauge[ii] != null)
+      {
+        float dx = (float)PlayerList[ii].CurrentSkillPoint / (float)PlayerList[ii].MaxSkillPoint;
+        StayListSkillPointGauge[ii].rectTransform.localScale = new Vector2(dx, 1.0f);
+      }
+
       StayList[ii].gameObject.SetActive(true);
     }
   }

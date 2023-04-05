@@ -29,14 +29,16 @@ public partial class BattleEnemy : MotherBase
   public GameObject GroupLvupCharacter;
   public Text txtLvupTitle;
   public Text txtLvupMaxLife;
-  public Text txtLvupMaxEP;
+  public Text txtLvupMaxManaPoint;
+  public Text txtLvupMaxSkillPoint;
   public Text txtLvupRemainPoint;
   public Text txtLvupSoulEssence;
   public Text txtLvupSpecial;
   protected List<bool> DetectLvup = new List<bool>();
   protected List<string> DetectLvupTitle = new List<string>();
   protected List<string> DetectLvupMaxLife = new List<string>();
-  protected List<string> DetectLvupMaxEP = new List<string>();
+  protected List<string> DetectLvupMaxManaPoint = new List<string>();
+  protected List<string> DetectLvupMaxSkillPoint = new List<string>();
   protected List<string> DetectLvupRemainPoint = new List<string>();
   protected List<string> DetectLvupSoulEssence = new List<string>();
   protected List<string> DetectLvupSpecial = new List<string>();
@@ -504,11 +506,14 @@ public partial class BattleEnemy : MotherBase
     character.objCurrentLifeBorder = node.objCurrentLifeBorder;
     character.objBackInstantGauge = node.objBackInstantGauge;
     character.objCurrentInstantGauge = node.objCurrentInstantGauge;
-    character.txtSoulPoint = node.txtSoulPoint;
-    character.objBackSoulPointGauge = node.objBackSoulPointGauge;
-//    character.objBackInstantGauge = node.objBackSoulPointGauge;
-    character.objCurrentSoulPointGauge = node.objCurrentSoulPointGauge;
-    character.objCurrentSoulPointBorder = node.objCurrentSoulPointBorder;
+    character.txtManaPoint = node.txtManaPoint;
+    character.objBackManaPointGauge = node.objBackManaPointGauge;
+    character.objCurrentManaPointGauge = node.objCurrentManaPointGauge;
+    character.objCurrentManaPointBorder = node.objCurrentManaPointBorder;
+    character.txtSkillPoint = node.txtSkillPoint;
+    character.objBackSkillPointGauge = node.objBackSkillPointGauge;
+    character.objCurrentSkillPointGauge = node.objCurrentSkillPointGauge;
+    character.objCurrentSkillPointBorder = node.objCurrentSkillPointBorder;
     character.objMainButton = node.objMainButton;
     character.txtActionCommand = node.txtActionCommand;
     character.groupActionPoint = node.groupActionPoint;
@@ -516,7 +521,8 @@ public partial class BattleEnemy : MotherBase
     character.txtTargetName = node.txtTargetName;
     character.imgTargetLifeGauge = node.imgTargetLifeGauge;
     character.objFieldPanel = field_panel;
-    character.groupSoulPoint = node.GroupSoulPoint;
+    character.groupManaPoint = node.GroupManaPoint;
+    character.groupSkillPoint = node.GroupSkillPoint;
 
     if (node.objImmediateCommand != null)
     {
@@ -537,7 +543,8 @@ public partial class BattleEnemy : MotherBase
 
     if (character.IsEnemy && this.BattleType == Fix.BattleMode.Duel)
     {
-      character.groupSoulPoint.SetActive(true);
+      character.groupManaPoint.SetActive(true);
+      character.groupSkillPoint.SetActive(true);
     }
 
     if (node.GroupActionCommand != null)
@@ -618,9 +625,13 @@ public partial class BattleEnemy : MotherBase
     {
       character.objBackInstantGauge.color = character.BattleBackColor;
     }
-    if (character.txtSoulPoint != null)
+    if (character.txtManaPoint != null)
     {
-      character.txtSoulPoint.text = character.CurrentSoulPoint.ToString();
+      character.txtManaPoint.text = character.CurrentManaPoint.ToString();
+    }
+    if (character.txtSkillPoint != null)
+    {
+      character.txtSkillPoint.text = character.CurrentSkillPoint.ToString();
     }
     if (character.IsEnemy == false && character.objArrow)
     {
@@ -965,7 +976,8 @@ public partial class BattleEnemy : MotherBase
               DetectLvup.Add(true);
               DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");
               DetectLvupMaxLife.Add("最大ライフが " + PlayerList[ii].LevelupBaseLife() + " 上昇した！");
-              DetectLvupMaxEP.Add("最大エナジーポイントが " + PlayerList[ii].LevelupBaseSoulPoint() + " 上昇した！");
+              DetectLvupMaxManaPoint.Add("最大マナが " + PlayerList[ii].LevelupBaseManaPoint() + " 上昇した！");
+              //DetectLvupMaxSkillPoint.Add("最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
               DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
               DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
               if (PlayerList[ii].LevelupActionCommand() != String.Empty)
@@ -1164,7 +1176,7 @@ public partial class BattleEnemy : MotherBase
       {
         if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
         {
-          if (EnemyList[ii].CurrentSoulPoint >= ActionCommand.CostSP(Fix.DOUBLE_SLASH))
+          if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
           {
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
@@ -1263,7 +1275,8 @@ public partial class BattleEnemy : MotherBase
         AllList[ii].UpdatePlayerInstantPoint();
         AllList[ii].UpdateActionPoint();
         AllList[ii].UpdateEnergyPoint();
-        AllList[ii].UpdateSoulPoint();
+        AllList[ii].UpdateManaPoint();
+        AllList[ii].UpdateSkillPoint();
       }
       // プレイヤーのステータス表示を更新する。
       if (AllList[ii].Target != null)
@@ -1484,20 +1497,34 @@ public partial class BattleEnemy : MotherBase
     //}
 
     // ブラック・コントラクトがかかっていれば、SPは消費しない。
+    // todo ブラック・コントラクトは魔法ポイントを消費しない。スキルポイントも消費しないかどうかを決めるべきである。
     if (player.IsBlackContract)
     {
-      Debug.Log("IsBlackContract was detected, then no spend SP.");
+      Debug.Log("IsBlackContract was detected, then no spend Mana/Skill point.");
       // 何もしない
     }
     else
     {
-      if (player.CurrentSoulPoint < ActionCommand.CostSP(command_name))
+      if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
       {
-        Debug.Log("NO SP: [" + command_name + "] " + player.CurrentSoulPoint + " < " + ActionCommand.CostSP(command_name));
-        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SP_LESS, Fix.COLOR_NORMAL);
-        return;
+        if (player.CurrentManaPoint < ActionCommand.Cost(command_name))
+        {
+          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + ActionCommand.Cost(command_name));
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        player.CurrentManaPoint -= ActionCommand.Cost(command_name);
       }
-      player.CurrentSoulPoint -= ActionCommand.CostSP(command_name);
+      else if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
+      {
+        if (player.CurrentSkillPoint < ActionCommand.Cost(command_name))
+        {
+          Debug.Log("NO Skill-Point: [" + command_name + "] " + player.CurrentSkillPoint + " < " + ActionCommand.Cost(command_name));
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SKILLPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        player.CurrentSkillPoint -= ActionCommand.Cost(command_name);
+      }
     }
 
     if (player.Ally == Fix.Ally.Ally)
@@ -3410,7 +3437,8 @@ public partial class BattleEnemy : MotherBase
     {
       txtLvupTitle.text = DetectLvupTitle[0];
       txtLvupMaxLife.text = DetectLvupMaxLife[0];
-      txtLvupMaxEP.text = DetectLvupMaxEP[0];
+      txtLvupMaxManaPoint.text = DetectLvupMaxManaPoint[0];
+      txtLvupMaxSkillPoint.text = DetectLvupMaxSkillPoint[0];
       txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
       txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
       txtLvupSpecial.text = DetectLvupSpecial[0];
@@ -3419,7 +3447,8 @@ public partial class BattleEnemy : MotherBase
       DetectLvup.RemoveAt(0);
       DetectLvupTitle.RemoveAt(0);
       DetectLvupMaxLife.RemoveAt(0);
-      DetectLvupMaxEP.RemoveAt(0);
+      DetectLvupMaxManaPoint.RemoveAt(0);
+      DetectLvupMaxSkillPoint.RemoveAt(0);
       DetectLvupRemainPoint.RemoveAt(0);
       DetectLvupSoulEssence.RemoveAt(0);
       DetectLvupSpecial.RemoveAt(0);
@@ -3610,7 +3639,8 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < AllList.Count; ii++)
     {
       AllList[ii].CurrentActionPoint += Fix.AP_BASE;
-      AllList[ii].GainSoulPoint();
+      //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
+      AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
       AllList[ii].UpdateActionPoint();
 
       BuffImage sigilOfThePending = AllList[ii].IsSigilOfThePending;
@@ -4407,8 +4437,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecInnerInspiration(Character player, Character target)
   {
-    double effectValue = SecondaryLogic.InnerInspiration_Effect1(target) * target.MaxSoulPoint;
-    AbstractGainSoulPoint(player, target, effectValue);
+    double effectValue = SecondaryLogic.InnerInspiration_Effect1(target) * target.MaxSkillPoint;
+    AbstractGainSkillPoint(player, target, effectValue);
   }
 
   private void ExecStanceOfTheBlade(Character player)
@@ -4940,7 +4970,7 @@ public partial class BattleEnemy : MotherBase
     Item current = new Item(itemName);
     One.TF.DeleteBackpack(current, 1);
     double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-    AbstractGainSoulPoint(null, target, effectValue);
+    AbstractGainManaPoint(null, target, effectValue);
     return true;
   }
 
@@ -5657,7 +5687,7 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private bool AbstractGainSoulPoint(Character player, Character target, double gainValue)
+  private bool AbstractGainManaPoint(Character player, Character target, double gainValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     if (target.Dead)
@@ -5672,9 +5702,32 @@ public partial class BattleEnemy : MotherBase
 
     int result = (int)gainValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " sp gain");
-    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " SP回復");
-    target.CurrentSoulPoint += result;
-    target.txtSoulPoint.text = target.CurrentSoulPoint.ToString();
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " ManaPoint回復");
+    target.CurrentManaPoint += result;
+    target.txtManaPoint.text = target.CurrentManaPoint.ToString();
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_MP);
+
+    return true;
+  }
+
+  private bool AbstractGainSkillPoint(Character player, Character target, double gainValue)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (target.Dead)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    // ゲイン量が負の値になる場合は０とみなす。
+    if (gainValue <= 0) { gainValue = 0; }
+
+    int result = (int)gainValue;
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " skill-point gain");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " SkillPoint回復");
+    target.CurrentSkillPoint += result;
+    target.txtSkillPoint.text = target.CurrentSkillPoint.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
 
     return true;

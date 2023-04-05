@@ -32,17 +32,25 @@ public partial class Character : MonoBehaviour
   public List<Image> imgActionPointList = null;
   public Text txtActionPoint = null;
   public Image imgCurrentEnergyPointGauge = null;
-  public Text txtSoulPoint = null;
-  public Image objBackSoulPointGauge = null;
-  public Image objCurrentSoulPointGauge = null;
-  public Image objCurrentSoulPointBorder = null;
+
+  public Text txtManaPoint = null;
+  public Image objBackManaPointGauge = null;
+  public Image objCurrentManaPointGauge = null;
+  public Image objCurrentManaPointBorder = null;
+
+  public Text txtSkillPoint = null;  
+  public Image objBackSkillPointGauge = null;
+  public Image objCurrentSkillPointGauge = null;
+  public Image objCurrentSkillPointBorder = null;
+
   public BuffField objBuffPanel = null;
   public NodeActionCommand objImmediateCommand = null;
   public GameObject GroupActionCommand = null;
   public List<NodeActionCommand> objActionCommandList = new List<NodeActionCommand>();
   public List<NodeActionCommand> objMainActionList = new List<NodeActionCommand>();
   public BuffField objFieldPanel = null;
-  public GameObject groupSoulPoint = null;
+  public GameObject groupManaPoint = null;
+  public GameObject groupSkillPoint = null;
 
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
@@ -468,8 +476,9 @@ public partial class Character : MonoBehaviour
     }
     get { return _baseLife; }
   }
-  [SerializeField] protected int _baseSoulPoint = 0;
-  public int BaseSoulPoint
+
+  [SerializeField] protected int _baseManaPoint = 0;
+  public int BaseManaPoint
   {
     set
     {
@@ -477,21 +486,42 @@ public partial class Character : MonoBehaviour
       {
         value = 0;
       }
-      _baseSoulPoint = value;
+      _baseManaPoint = value;
     }
-    get { return _baseSoulPoint; }
+    get { return _baseManaPoint; }
   }
 
-  public int MaxSoulPoint
+  [SerializeField] protected int _baseSkillPoint = 0;
+  public int BaseSkillPoint
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _baseSkillPoint = value;
+    }
+    get { return _baseSkillPoint; }
+  }
+
+  public int MaxManaPoint
   {
     get
     {
-      return _baseSoulPoint + TotalMind * 2;
+      return _baseManaPoint + TotalMind * 2;
+    }
+  }
+  public int MaxSkillPoint
+  {
+    get
+    {
+      return _baseSkillPoint;
     }
   }
 
-  [SerializeField] protected int _currentSoulPoint = 0;
-  public int CurrentSoulPoint
+  [SerializeField] protected int _currentManaPoint = 0;
+  public int CurrentManaPoint
   {
     set
     {
@@ -499,13 +529,31 @@ public partial class Character : MonoBehaviour
       {
         value = 0;
       }
-      if (value >= MaxSoulPoint)
+      if (value >= MaxManaPoint)
       {
-        value = MaxSoulPoint;
+        value = MaxManaPoint;
       }
-      _currentSoulPoint = value;
+      _currentManaPoint = value;
     }
-    get { return _currentSoulPoint; }
+    get { return _currentManaPoint; }
+  }
+
+  [SerializeField] protected int _currentSkillPoint = 0;
+  public int CurrentSkillPoint
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      if (value >= MaxSkillPoint)
+      {
+        value = MaxSkillPoint;
+      }
+      _currentSkillPoint = value;
+    }
+    get { return _currentSkillPoint; }
   }
 
   [SerializeField] protected int _currentLife = 0;
@@ -1708,7 +1756,8 @@ public partial class Character : MonoBehaviour
   public void MaxGain()
   {
     _currentLife = MaxLife;
-    _currentSoulPoint = MaxSoulPoint;
+    _currentManaPoint = MaxManaPoint;
+    _currentSkillPoint = MaxSkillPoint;
     //_currentActionPoint = MaxActionPoint;
     //_currentEnergyPoint = MaxEnergyPoint;
   }
@@ -1853,26 +1902,50 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  public void UpdateSoulPoint()
+  public void UpdateManaPoint()
   {
-    float dx = (float)this._currentSoulPoint / (float)this.MaxSoulPoint;
-    if (this.objCurrentSoulPointGauge != null)
+    float dx = (float)this._currentManaPoint / (float)this.MaxManaPoint;
+    if (this.objCurrentManaPointGauge != null)
     {
-      this.objCurrentSoulPointGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
+      this.objCurrentManaPointGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
     }
-    if (this.txtSoulPoint != null)
+    if (this.txtManaPoint != null)
     {
-      this.txtSoulPoint.text = this.CurrentSoulPoint.ToString() + " / " + this.MaxSoulPoint.ToString();
+      this.txtManaPoint.text = this.CurrentManaPoint.ToString() + " / " + this.MaxManaPoint.ToString();
     }
-    if (this.objCurrentSoulPointBorder != null)
+    if (this.objCurrentManaPointBorder != null)
     {
       if (dx >= 1.0f)
       {
-        this.objCurrentSoulPointBorder.gameObject.SetActive(false);
+        this.objCurrentManaPointBorder.gameObject.SetActive(false);
       }
       else
       {
-        this.objCurrentSoulPointBorder.gameObject.SetActive(true);
+        this.objCurrentManaPointBorder.gameObject.SetActive(true);
+      }
+    }
+  }
+
+  public void UpdateSkillPoint()
+  {
+    float dx = (float)this._currentSkillPoint / (float)this.MaxSkillPoint;
+    if (this.objCurrentSkillPointGauge != null)
+    {
+      this.objCurrentSkillPointGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
+    }
+    if (this.txtSkillPoint != null)
+    {
+      this.txtSkillPoint.text = this.CurrentSkillPoint.ToString() + " / " + this.MaxSkillPoint.ToString();
+    }
+    if (this.objCurrentSkillPointBorder != null)
+    {
+      if (dx >= 1.0f)
+      {
+        this.objCurrentSkillPointBorder.gameObject.SetActive(false);
+      }
+      else
+      {
+        this.objCurrentSkillPointBorder.gameObject.SetActive(true);
       }
     }
   }
@@ -2117,11 +2190,15 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  public void GainSoulPoint()
+  public void GainManaPoint()
   {
-    this.CurrentSoulPoint += 1;
+    this.CurrentManaPoint += 1;
   }
 
+  public void GainSkillPoint()
+  {
+    this.CurrentSkillPoint += 1;
+  }
 
   public BuffImage IsResistPoison
   {
@@ -3485,7 +3562,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 4;
         this.Mind = 3;
         this.BaseLife = 30;
-        this.BaseSoulPoint = 10;
+        this.BaseManaPoint = 10;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Armorer;
@@ -3511,7 +3589,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 2;
         this.Mind = 3;
         this.BaseLife = 25;
-        this.BaseSoulPoint = 15;
+        this.BaseManaPoint = 15;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
         this.SecondCommandAttribute = Fix.CommandAttribute.DarkMagic;
@@ -3537,7 +3616,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 5;
         this.Mind = 4;
         this.BaseLife = 20 + 15; // level4スタートのため、LV2～LV4分を足し算。
-        this.BaseSoulPoint = 20 + 9; // level4スタートのため、LV2～LV4分を足し算。
+        this.BaseManaPoint = 20 + 9; // level4スタートのため、LV2～LV4分を足し算。
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.SecondCommandAttribute = Fix.CommandAttribute.Archer;
@@ -3570,7 +3650,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 10;
         this.Mind = 5;
         this.BaseLife = 30 + 93; // level10スタートのため、LV2～LV10分を足し算。
-        this.BaseSoulPoint = 10 + 20; // level10スタートのため、LV2～LV10分を足し算。
+        this.BaseManaPoint = 10 + 20; // level10スタートのため、LV2～LV10分を足し算。
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -3606,7 +3687,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 6;
         this.Mind = 3;
         this.BaseLife = 40;
-        this.BaseSoulPoint = 12;
+        this.BaseManaPoint = 12;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -3657,7 +3739,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 4;
         this.Mind = 8;
         this.BaseLife = 20;
-        this.BaseSoulPoint = 20;
+        this.BaseManaPoint = 20;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
         this.SecondCommandAttribute = Fix.CommandAttribute.Warrior;
@@ -3695,7 +3778,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 4;
         this.Mind = 3;
         this.BaseLife = 30;
-        this.BaseSoulPoint = 25;
+        this.BaseManaPoint = 25;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.DarkMagic;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -3772,7 +3856,8 @@ public partial class Character : MonoBehaviour
         this.Stamina = 5;
         this.Mind = 3;
         this.BaseLife = 40;
-        this.BaseSoulPoint = 16;
+        this.BaseManaPoint = 16;
+        this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Archer;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -3958,7 +4043,7 @@ public partial class Character : MonoBehaviour
     return 5;
   }
 
-  public int LevelupBaseSoulPoint()
+  public int LevelupBaseManaPoint()
   {
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
@@ -4009,6 +4094,11 @@ public partial class Character : MonoBehaviour
       if (Level == 10) { return 3; }
     }
     return 2;
+  }
+
+  public int LevelupBaseSkillPoint()
+  {
+    return 0; // ベーススキルポイントは原則、追加されない。
   }
 
   public int LevelupRemainPoint()
@@ -4106,7 +4196,8 @@ public partial class Character : MonoBehaviour
     this.Level += 1;
 
     this.BaseLife += this.LevelupBaseLife();
-    this.BaseSoulPoint += this.LevelupBaseSoulPoint();
+    this.BaseManaPoint += this.LevelupBaseManaPoint();
+    this.BaseSkillPoint += this.LevelupBaseSkillPoint();
     this.RemainPoint += this.LevelupRemainPoint();
     this.SoulFragment += this.LevelupSoulEssence();
 
@@ -5865,7 +5956,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.DIVINE_CIRCLE;
             }
-            else if (this.CurrentSoulPoint >= ActionCommand.CostSP(Fix.DOUBLE_SLASH))
+            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
             {
               result = Fix.DOUBLE_SLASH;
             }
@@ -5880,7 +5971,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.STANCE_OF_THE_BLADE;
             }
-            else if (this.CurrentSoulPoint >= ActionCommand.CostSP(Fix.DOUBLE_SLASH))
+            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
             {
               result = Fix.DOUBLE_SLASH;
             }

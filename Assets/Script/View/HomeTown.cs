@@ -285,6 +285,7 @@ public partial class HomeTown : MotherBase
   public Text txtLvupTitle;
   public Text txtLvupMaxLife;
   public Text txtLvupMaxMana;
+  public Text txtLvupMaxSkill;
   public Text txtLvupRemainPoint;
   public Text txtLvupSoulEssence;
   public Text txtLvupSpecial;
@@ -330,7 +331,8 @@ public partial class HomeTown : MotherBase
   protected List<bool> DetectLvup = new List<bool>();
   protected List<string> DetectLvupTitle = new List<string>();
   protected List<string> DetectLvupMaxLife = new List<string>();
-  protected List<string> DetectLvupMaxEP = new List<string>();
+  protected List<string> DetectLvupMaxManaPoint = new List<string>();
+  protected List<string> DetectLvupMaxSkillPoint = new List<string>();
   protected List<string> DetectLvupRemainPoint = new List<string>();
   protected List<string> DetectLvupSoulEssence = new List<string>();
   protected List<string> DetectLvupSpecial = new List<string>();
@@ -1987,14 +1989,16 @@ public partial class HomeTown : MotherBase
                 if (One.AvailableCharacters[jj].Exp >= One.AvailableCharacters[jj].GetNextExp())
                 {
                   One.AvailableCharacters[jj].BaseLife += 15;
-                  One.AvailableCharacters[jj].BaseSoulPoint += 6;
+                  One.AvailableCharacters[jj].BaseManaPoint += 6;
+                  One.AvailableCharacters[jj].BaseSkillPoint += 0; // スキルポイントは原則上昇しない。
                   One.AvailableCharacters[jj].RemainPoint += 3;
                   One.AvailableCharacters[jj].SoulFragment += 1;
 
                   DetectLvup.Add(true);
                   DetectLvupTitle.Add(One.AvailableCharacters[jj].FullName + "がレベルアップしました！");
                   DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
-                  DetectLvupMaxEP.Add("最大エナジーポイントが 6 上昇した！");
+                  DetectLvupMaxManaPoint.Add("最大マナが 6 上昇した！");
+                  //DetectLvupMaxSkillPoint.Add("最大スキルポイントが 0 上昇した！"); // スキルポイントは原則上昇しない。
                   DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
                   DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
                   DetectLvupSpecial.Add("");
@@ -2033,7 +2037,8 @@ public partial class HomeTown : MotherBase
 
           txtLvupTitle.text = DetectLvupTitle[0];
           txtLvupMaxLife.text = DetectLvupMaxLife[0];
-          txtLvupMaxMana.text = DetectLvupMaxEP[0];
+          txtLvupMaxMana.text = DetectLvupMaxManaPoint[0];
+          txtLvupMaxSkill.text = DetectLvupMaxSkillPoint[0];
           txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
           txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
           txtLvupSpecial.text = DetectLvupSpecial[0];
@@ -2042,19 +2047,12 @@ public partial class HomeTown : MotherBase
           DetectLvup.RemoveAt(0);
           DetectLvupTitle.RemoveAt(0);
           DetectLvupMaxLife.RemoveAt(0);
-          DetectLvupMaxEP.RemoveAt(0);
+          DetectLvupMaxManaPoint.RemoveAt(0);
+          DetectLvupMaxSkillPoint.RemoveAt(0);
           DetectLvupRemainPoint.RemoveAt(0);
           DetectLvupSoulEssence.RemoveAt(0);
           DetectLvupSpecial.RemoveAt(0);
           return;
-
-          //this.txtLvupTitle.text = Fix.NAME_EIN_WOLENCE + "がレベルアップしました！";
-          //this.txtLvupMaxLife.text = "最大ライフ 50 上昇！";
-          //this.txtLvupMaxMana.text = "最大マナ 20 上昇！";
-          //this.txtLvupRemainPoint.text = "コア・パラメタポイントを 3 獲得！";
-          //this.txtLvupSoulEssence.text = "ソウル・エッセンスポイントを 1 獲得！";
-          //this.GroupLvupCharacter.SetActive(true);
-          //return;
         }
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)
@@ -2569,9 +2567,13 @@ public partial class HomeTown : MotherBase
     float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
     charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
 
-    charaView.txtSoulPoint.text = player.CurrentSoulPoint.ToString() + " / " + player.MaxSoulPoint.ToString();
-    float dx_sp = (float)((float)player.CurrentSoulPoint / (float)player.MaxSoulPoint);
-    charaView.imgSoulPointGauge.rectTransform.localScale = new Vector2(dx_sp, 1.0f);
+    charaView.txtManaPoint.text = player.CurrentManaPoint.ToString() + " / " + player.MaxManaPoint.ToString();
+    float dx_mp = (float)((float)player.CurrentManaPoint / (float)player.MaxManaPoint);
+    charaView.imgManaPointGauge.rectTransform.localScale = new Vector2(dx_mp, 1.0f);
+
+    charaView.txtSkillPoint.text = player.CurrentSkillPoint.ToString() + " / " + player.MaxSkillPoint.ToString();
+    float dx_sp = (float)((float)player.CurrentSkillPoint / (float)player.MaxSkillPoint);
+    charaView.imgSkillPointGauge.rectTransform.localScale = new Vector2(dx_sp, 1.0f);
 
     charaView.txtStrength.text = player.TotalStrength.ToString();
     charaView.txtAgility.text = player.TotalAgility.ToString();

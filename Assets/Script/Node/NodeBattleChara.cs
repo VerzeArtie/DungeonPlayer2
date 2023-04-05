@@ -22,12 +22,17 @@ public class NodeBattleChara : MonoBehaviour
   public BuffField groupBuff;
   public Text txtTargetName;
   public Image imgTargetLifeGauge;
-  public Image objBackSoulPointGauge;
-  public Image objCurrentSoulPointGauge;
-  public Image objCurrentSoulPointBorder;
-  public Text txtSoulPoint;
+  public Image objBackManaPointGauge;
+  public Image objCurrentManaPointGauge;
+  public Image objCurrentManaPointBorder;
+  public Text txtManaPoint;
+  public Image objBackSkillPointGauge;
+  public Image objCurrentSkillPointGauge;
+  public Image objCurrentSkillPointBorder;
+  public Text txtSkillPoint;
   public NodeActionCommand objImmediateCommand;
   public GameObject GroupActionCommand;
   public List<NodeActionCommand> ActionCommandList;
-  public GameObject GroupSoulPoint;
+  public GameObject GroupManaPoint;
+  public GameObject GroupSkillPoint;
 }
