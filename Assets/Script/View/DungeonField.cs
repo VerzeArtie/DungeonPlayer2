@@ -131,8 +131,6 @@ public class DungeonField : MotherBase
   public List<GameObject> objActionCommand;
   public Text txtBattleSettingCharacterName;
 
-  public NodeActionCommand CurrentSelectCommand;
-
   public SaveLoad groupSaveLoad;
 
   // GUI

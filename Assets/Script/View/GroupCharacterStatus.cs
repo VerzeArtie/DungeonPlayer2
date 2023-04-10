@@ -73,14 +73,6 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtChangeEquipName;
   public Image imgChangeEquip;
 
-  // Character ( CommandSetting )
-  public List<NodeActionCommand> ListAvailableCommand;
-  public List<Text> ListAvailableCommandText;
-  public GameObject groupCommandCategory;
-  public Button btnCommandCategoryAction;
-  public Button btnCommandCetegoryItem;
-  public Button btnCommandCetegoryArchetype;
-
   // Character ( Detail - Essence )
   public GameObject GroupSubViewStatus;
   public GameObject GroupSubViewCommandSetting;
@@ -143,8 +135,6 @@ public class GroupCharacterStatus : MonoBehaviour
   public GameObject GroupEssenceList2;
   public GameObject GroupEssenceList3;
   public GameObject GroupEssenceList4;
-
-  protected NodeActionCommand CurrentSelectCommand;
 
   protected const string ITEMTYPE_MAIN_WEAPON = "Main Weapon";
   protected const string ITEMTYPE_SUB_WEAPON = "Sub Weapon";
