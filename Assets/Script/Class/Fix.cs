@@ -576,13 +576,14 @@ public static partial class Fix
   public const string SCENE_HELP_BOOK = @"HelpBook";
   public const string SCENE_PARTY_MENU = @"PartyMenu";
   #endregion
-  #region "Limit"
+  #region "Fixed Value"
   public const int INFINITY = 9999999;
-  public static int MAX_BACKPACK_SIZE = 9999;
-  public static int MAX_ITEM_STACK_SIZE = 10;
-  public static int MAX_TEAM_MEMBER = 4;
-  public static int MAX_ENEMY_MEMBER = 6;
-  public static int MAX_INSTANT_NUM = 9;
+  public const int MAX_BACKPACK_SIZE = 9999;
+  public const int MAX_ITEM_STACK_SIZE = 10;
+  public const int MAX_TEAM_MEMBER = 4;
+  public const int MAX_ENEMY_MEMBER = 6;
+  public const int MAX_INSTANT_NUM = 9;
+  public const int BASIC_SKILLPOINT = 100;
   #endregion
   #endregion
 

@@ -5820,6 +5820,7 @@ public partial class Character : MonoBehaviour
     this._stamina = stamina;
     this._mind = mind;
     this._baseLife = base_life;
+    this._baseSkillPoint = Fix.BASIC_SKILLPOINT;
     this._exp = exp;
     this._gold = gold;
   }
