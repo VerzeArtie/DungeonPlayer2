@@ -1998,7 +1998,7 @@ public partial class HomeTown : MotherBase
                   DetectLvupTitle.Add(One.AvailableCharacters[jj].FullName + "がレベルアップしました！");
                   DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
                   DetectLvupMaxManaPoint.Add("最大マナが 6 上昇した！");
-                  //DetectLvupMaxSkillPoint.Add("最大スキルポイントが 0 上昇した！"); // スキルポイントは原則上昇しない。
+                  DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが 0 上昇した！"); // スキルポイントは原則上昇しない。
                   DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
                   DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
                   DetectLvupSpecial.Add("");
@@ -2034,24 +2034,47 @@ public partial class HomeTown : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.ViewLevelUpCharacter)
         {
+          if (DetectLvup.Count > 0)
+          {
+            DetectLvup.RemoveAt(0);
 
-          txtLvupTitle.text = DetectLvupTitle[0];
-          txtLvupMaxLife.text = DetectLvupMaxLife[0];
-          txtLvupMaxMana.text = DetectLvupMaxManaPoint[0];
-          txtLvupMaxSkill.text = DetectLvupMaxSkillPoint[0];
-          txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
-          txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
-          txtLvupSpecial.text = DetectLvupSpecial[0];
+            if (DetectLvupTitle.Count > 0)
+            {
+              txtLvupTitle.text = DetectLvupTitle[0];
+              DetectLvupTitle.RemoveAt(0);
+            }
+            if (DetectLvupMaxLife.Count > 0)
+            {
+              txtLvupMaxLife.text = DetectLvupMaxLife[0];
+              DetectLvupMaxLife.RemoveAt(0);
+            }
+            if (DetectLvupMaxManaPoint.Count > 0)
+            {
+              txtLvupMaxMana.text = DetectLvupMaxManaPoint[0];
+              DetectLvupMaxManaPoint.RemoveAt(0);
+            }
+            if (DetectLvupMaxSkillPoint.Count > 0)
+            {
+              txtLvupMaxSkill.text = DetectLvupMaxSkillPoint[0];
+              DetectLvupMaxSkillPoint.RemoveAt(0);
+            }
+            if (DetectLvupRemainPoint.Count > 0)
+            {
+              txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
+              DetectLvupRemainPoint.RemoveAt(0);
+            }
+            if (DetectLvupSoulEssence.Count > 0)
+            {
+              txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
+              DetectLvupSoulEssence.RemoveAt(0);
+            }
+            if (DetectLvupSpecial.Count > 0)
+            {
+              txtLvupSpecial.text = DetectLvupSpecial[0];
+              DetectLvupSpecial.RemoveAt(0);
+            }
+          }
           GroupLvupCharacter.SetActive(true);
-
-          DetectLvup.RemoveAt(0);
-          DetectLvupTitle.RemoveAt(0);
-          DetectLvupMaxLife.RemoveAt(0);
-          DetectLvupMaxManaPoint.RemoveAt(0);
-          DetectLvupMaxSkillPoint.RemoveAt(0);
-          DetectLvupRemainPoint.RemoveAt(0);
-          DetectLvupSoulEssence.RemoveAt(0);
-          DetectLvupSpecial.RemoveAt(0);
           return;
         }
         // 新しいメンバーを加える。

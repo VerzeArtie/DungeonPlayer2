@@ -977,7 +977,7 @@ public partial class BattleEnemy : MotherBase
               DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");
               DetectLvupMaxLife.Add("最大ライフが " + PlayerList[ii].LevelupBaseLife() + " 上昇した！");
               DetectLvupMaxManaPoint.Add("最大マナが " + PlayerList[ii].LevelupBaseManaPoint() + " 上昇した！");
-              //DetectLvupMaxSkillPoint.Add("最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
+              DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
               DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
               DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
               if (PlayerList[ii].LevelupActionCommand() != String.Empty)
@@ -3435,23 +3435,43 @@ public partial class BattleEnemy : MotherBase
     // シーンエンド前のレベルアップ報告フェーズ
     if (DetectLvup.Count > 0)
     {
-      txtLvupTitle.text = DetectLvupTitle[0];
-      txtLvupMaxLife.text = DetectLvupMaxLife[0];
-      txtLvupMaxManaPoint.text = DetectLvupMaxManaPoint[0];
-      txtLvupMaxSkillPoint.text = DetectLvupMaxSkillPoint[0];
-      txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
-      txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
-      txtLvupSpecial.text = DetectLvupSpecial[0];
-      GroupLvupCharacter.SetActive(true);
-
       DetectLvup.RemoveAt(0);
-      DetectLvupTitle.RemoveAt(0);
-      DetectLvupMaxLife.RemoveAt(0);
-      DetectLvupMaxManaPoint.RemoveAt(0);
-      DetectLvupMaxSkillPoint.RemoveAt(0);
-      DetectLvupRemainPoint.RemoveAt(0);
-      DetectLvupSoulEssence.RemoveAt(0);
-      DetectLvupSpecial.RemoveAt(0);
+      if (DetectLvupTitle.Count > 0)
+      {
+        txtLvupTitle.text = DetectLvupTitle[0];
+        DetectLvupTitle.RemoveAt(0);
+      }
+      if (DetectLvupMaxLife.Count > 0)
+      {
+        txtLvupMaxLife.text = DetectLvupMaxLife[0];
+        DetectLvupMaxLife.RemoveAt(0);
+      }
+      if (DetectLvupMaxManaPoint.Count > 0)
+      {
+        txtLvupMaxManaPoint.text = DetectLvupMaxManaPoint[0];
+        DetectLvupMaxManaPoint.RemoveAt(0);
+      }
+      if (DetectLvupMaxSkillPoint.Count > 0)
+      {
+        txtLvupMaxSkillPoint.text = DetectLvupMaxSkillPoint[0];
+        DetectLvupMaxSkillPoint.RemoveAt(0);
+      }
+      if (DetectLvupRemainPoint.Count > 0)
+      {
+        txtLvupRemainPoint.text = DetectLvupRemainPoint[0];
+        DetectLvupRemainPoint.RemoveAt(0);
+      }
+      if (DetectLvupSoulEssence.Count > 0)
+      {
+        txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
+        DetectLvupSoulEssence.RemoveAt(0);
+      }
+      if (DetectLvupSpecial.Count > 0)
+      {
+        txtLvupSpecial.text = DetectLvupSpecial[0];
+        DetectLvupSpecial.RemoveAt(0);
+      }
+      GroupLvupCharacter.SetActive(true);
       return;
     }
 
