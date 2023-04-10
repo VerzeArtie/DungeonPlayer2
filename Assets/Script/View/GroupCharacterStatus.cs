@@ -74,11 +74,6 @@ public class GroupCharacterStatus : MonoBehaviour
   public Image imgChangeEquip;
 
   // Character ( CommandSetting )
-  public GameObject FilterForAll;
-  public GameObject FilterForActionCommand;
-  public GameObject FilterForAvailableList;
-  public NodeActionCommand ActionCommandMain;
-  public List<NodeActionCommand> ListActionCommandSet;
   public List<NodeActionCommand> ListAvailableCommand;
   public List<Text> ListAvailableCommandText;
   public GameObject groupCommandCategory;

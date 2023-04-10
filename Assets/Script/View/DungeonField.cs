@@ -131,24 +131,6 @@ public class DungeonField : MotherBase
   public List<GameObject> objActionCommand;
   public Text txtBattleSettingCharacterName;
 
-  // Group
-  public GameObject GroupPartyMenu;
-  public GroupCharacterStatus groupPartyStatus;
-  public GameObject groupPartyCommand;
-  public GameObject groupPartyItem;
-  public GameObject groupPartyBattleSetting;
-  public GameObject FilterForAll;
-  public GameObject FilterForActionCommand;
-  public GameObject FilterForAvailableList;
-  public NodeActionCommand ActionCommandMain;
-  public List<NodeActionCommand> ListActionCommandSet;
-  public List<NodeActionCommand> ListAvailableCommand;
-  public List<Text> ListAvailableCommandText;
-  public GameObject groupCommandCategory;
-  public Button btnCommandCategoryAction;
-  public Button btnCommandCetegoryItem;
-  public Button btnCommandCetegoryArchetype;
-
   public NodeActionCommand CurrentSelectCommand;
 
   public SaveLoad groupSaveLoad;
@@ -1064,21 +1046,10 @@ public class DungeonField : MotherBase
 
   public void TapPartyMenu()
   {
-    //GroupPartyMenu.gameObject.SetActive(true);
     //this.CurrentPlayer = PlayerList[0];
 
     SceneManager.sceneLoaded += PartyMenuLoadded;
     SceneDimension.SceneAdd(Fix.SCENE_PARTY_MENU);
-  }
-
-  public void TapExit()
-  {
-    GroupPartyMenu.gameObject.SetActive(false);
-  }
-
-  public void TapMenu()
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
   }
 
   private void UpdateTacticsPartyMember(string full_name, int num)
