@@ -38,7 +38,7 @@ public partial class HomeTown : MotherBase
 
   // Character
   public GameObject GroupCharacter;
-  public GameObject contentCharacter;
+  //public GameObject contentCharacter;
   public NodeCharaView nodeCharaView;
 
   // Backpack
@@ -337,7 +337,6 @@ public partial class HomeTown : MotherBase
   protected List<string> DetectLvupSoulEssence = new List<string>();
   protected List<string> DetectLvupSpecial = new List<string>();
 
-  protected List<NodeCharaView> CharaViewList = new List<NodeCharaView>();
   protected Character CurrentPlayer = null;
   protected Character ShadowPlayer = null;
   protected string CurrentItemType = String.Empty;
@@ -2103,17 +2102,6 @@ public partial class HomeTown : MotherBase
             One.ReInitializeCharacter(Fix.NAME_SELMOI_RO);
           }
 
-          List<Character> current = One.AvailableCharacters;
-          for (int jj = 0; jj < current.Count; jj++)
-          {
-            if (current[jj].FullName == currentMessage)
-            {
-              NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
-              CharaViewList.Add(charaView);
-              CreateCharaView(contentCharacter, charaView, current[jj], CharaViewList.Count - 1);
-              break;
-            }
-          }
           RefreshAllView();
           continue; // 継続
         }
@@ -2561,55 +2549,6 @@ public partial class HomeTown : MotherBase
     miniChara.txtName.text = player.FullName;
     miniChara.gameObject.SetActive(true);
     miniChara.transform.SetParent(ContentMiniChara.transform);
-  }
-
-  private void CreateCharaView(GameObject content, NodeCharaView charaView, Character player, int num)
-  {
-    charaView.transform.SetParent(contentCharacter.transform);
-    RectTransform rect = charaView.GetComponent<RectTransform>();
-    int NODE_HEIGHT = 160;
-    rect.anchoredPosition = new Vector2(0, 0);
-    rect.sizeDelta = new Vector2(0, 0);
-    rect.localPosition = new Vector3(0, -5 - num * NODE_HEIGHT, 0);
-
-    charaView.name = "CharaView_" + player.FullName;
-    charaView.txtName.text = player.FullName;
-    charaView.txtLevel.text = player.Level.ToString();
-    charaView.txtExp.text = player.Exp.ToString();
-    float dx = (float)((float)player.Exp / (float)player.GetNextExp());
-    charaView.imgExpGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
-    charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 255.0f / 255.0f);
-    if (dx >= 1.0f)
-    {
-      charaView.txtExp.text = "Level Up!";
-      charaView.imgExpGauge.color = new Color(255.0f / 255.0f, 201.0f / 255.0f, 177.0f / 255.0f);
-    }
-    charaView.imgJobClass.sprite = Resources.Load<Sprite>("Unit_" + player?.Job.ToString() ?? "");
-
-    charaView.txtLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
-    float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
-    charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
-
-    charaView.txtManaPoint.text = player.CurrentManaPoint.ToString() + " / " + player.MaxManaPoint.ToString();
-    float dx_mp = (float)((float)player.CurrentManaPoint / (float)player.MaxManaPoint);
-    charaView.imgManaPointGauge.rectTransform.localScale = new Vector2(dx_mp, 1.0f);
-
-    charaView.txtSkillPoint.text = player.CurrentSkillPoint.ToString() + " / " + player.MaxSkillPoint.ToString();
-    float dx_sp = (float)((float)player.CurrentSkillPoint / (float)player.MaxSkillPoint);
-    charaView.imgSkillPointGauge.rectTransform.localScale = new Vector2(dx_sp, 1.0f);
-
-    charaView.txtStrength.text = player.TotalStrength.ToString();
-    charaView.txtAgility.text = player.TotalAgility.ToString();
-    charaView.txtIntelligence.text = player.TotalIntelligence.ToString();
-    charaView.txtStamina.text = player.TotalStamina.ToString();
-    charaView.txtMind.text = player.TotalMind.ToString();
-    charaView.txtMainWeapon.text = player.MainWeapon?.ItemName ?? "( 装備なし )";
-    Item temp = new Item(player.MainWeapon?.ItemName);
-    charaView.imgMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
-    charaView.gameObject.SetActive(true);
-
-    const int HEIGHT = 170;
-    content.GetComponent<RectTransform>().sizeDelta = new Vector2(content.GetComponent<RectTransform>().sizeDelta.x, content.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
   }
 
   private NodeShopItem CreateShopItem(GameObject content, Item item, int num, bool item_sell)
@@ -3233,23 +3172,6 @@ public partial class HomeTown : MotherBase
       txtCustomEvent2.text = string.Empty;
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
-    }
-
-    // キャラクター情報を画面へ反映
-    for (int ii = 0; ii < CharaViewList.Count; ii++)
-    {
-      if (CharaViewList[ii] != null)
-      {
-        Destroy(CharaViewList[ii].gameObject);
-        CharaViewList[ii] = null;
-      }
-    }
-    List<Character> currentList = One.AvailableCharacters;
-    for (int ii = 0; ii < currentList.Count; ii++)
-    {
-      NodeCharaView charaView = Instantiate(nodeCharaView) as NodeCharaView;
-      CharaViewList.Add(charaView);
-      CreateCharaView(contentCharacter, charaView, currentList[ii], ii);
     }
 
     // チームのリソース(GoldやObsidianStone)を画面へ反映

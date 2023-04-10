@@ -102,9 +102,6 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_WallDoor;
   public FieldObject prefab_Velgus_SecretWall;
 
-  // BackpackView
-  public NodeBackpackView ParentBackpackView;
-
   // Decision
   public GameObject GroupDecision;
   public Text txtDecisionTitle;
@@ -5852,7 +5849,6 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {
           One.TF.AddBackPack(new Item(currentMessage));
-          ParentBackpackView.ConstructBackpackView(this);
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
@@ -5874,7 +5870,6 @@ public class DungeonField : MotherBase
           Debug.Log("GetTreasure 3");
 
           One.TF.AddBackPack(new Item(currentMessage));
-          ParentBackpackView.ConstructBackpackView(this);
 
           #region "エスミリア草原区域"
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
@@ -11541,9 +11536,6 @@ public class DungeonField : MotherBase
 
     // キャラクター情報を画面へ反映
     UpdateCharacterStatus();
-
-    // バックパック情報を画面へ反映
-    ParentBackpackView.ConstructBackpackView(this);
 
     // フィールドオブジェクトの状態更新
     UpdateFieldObject(One.TF.CurrentDungeonField);
