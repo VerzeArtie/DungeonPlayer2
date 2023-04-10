@@ -25,6 +25,9 @@ public class DungeonField : MotherBase
     Fall,
   }
 
+  // Blackout
+  public GameObject objBlackOut;
+
   // developer-mode
   public Text txtCurrentDevelopView;
   public GameObject GroupDevelop;
@@ -110,12 +113,6 @@ public class DungeonField : MotherBase
   public Text txtDecisionB;
   public Text txtDecisionC;
 
-  // MapSelect
-  public GameObject GroupMapSelect;
-  public List<Text> txtMapSelect;
-  public GameObject background3;
-  public GameObject LayoutBottom;
-
   public SaveLoad groupSaveLoad;
 
   // GUI
@@ -137,7 +134,6 @@ public class DungeonField : MotherBase
   public Text txtQuestMessage;
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
-  public GameObject objBlackOut;
 
   // GameOver
   public GameObject panelGameOver;
@@ -150,9 +146,6 @@ public class DungeonField : MotherBase
   public Image imgEventIcon;
   public Text txtEventTitle;
   public Text txtEventDescription;
-
-  // Blackout
-  public GameObject BlackoutPanel;
 
   // Inner Value
   private GameObject Player;
@@ -182,7 +175,6 @@ public class DungeonField : MotherBase
   private int BattleEncount = 10;
   private int CumulativeBattleCounter = 0;
 
-  private string CurrentMapSelectName = String.Empty;
   private bool ReloadMap = false;
 
   private bool GameOver = false;
@@ -307,72 +299,6 @@ public class DungeonField : MotherBase
     ObjectList.Add("Brushwood");
     ObjectList.Add("Velgus_WallDoor");
     ObjectList.Add("Velgus_SecretWall");
-
-    // マップセレクトを設定
-    for (int ii = 0; ii < txtMapSelect.Count; ii++)
-    {
-      txtMapSelect[ii].text = "???";
-    }
-    background3.SetActive(false);
-    LayoutBottom.SetActive(false);
-
-    int counter = 0;
-    if (One.TF.AvailableAnshet) { txtMapSelect[counter].text = Fix.TOWN_ANSHET; }
-    counter++;
-    if (One.TF.AvailableGoratrum) { txtMapSelect[counter].text = Fix.DUNGEON_GORATRUM_CAVE; }
-    counter++;
-    if (One.TF.AvailableQvelta) { txtMapSelect[counter].text = Fix.TOWN_QVELTA_TOWN; }
-    counter++;
-    if (One.TF.AvailableArtharium) { txtMapSelect[counter].text = Fix.DUNGEON_ARTHARIUM_FACTORY; }
-    counter++;
-    if (One.TF.AvailableCotuhsye) { txtMapSelect[counter].text = Fix.TOWN_COTUHSYE; }
-    counter++;
-    if (One.TF.AvailableZhalman) { txtMapSelect[counter].text = Fix.TOWN_ZHALMAN; }
-    counter++;
-    if (One.TF.AvailableOhran) { txtMapSelect[counter].text = Fix.TOWER_OHRAN; }
-    counter++;
-    if (One.TF.AvailableVelgus) { txtMapSelect[counter].text = Fix.DUNGEON_VELGUS_SEA_TEMPLE; }
-    counter++;
-    if (One.TF.AvailableArcaneDine) { txtMapSelect[counter].text = Fix.TOWN_ARCANEDINE; }
-    counter++;
-    if (One.TF.AvailableParmetysia) { txtMapSelect[counter].text = Fix.TOWN_PARMETYSIA; }
-    counter++;
-    if (One.TF.AvailableSaritan) { txtMapSelect[counter].text = Fix.DUNGEON_RUINS_OF_SARITAN; }
-    counter++;
-    if (One.TF.AvailableDhal) { txtMapSelect[counter].text = Fix.DUNGEON_GATE_OF_DHAL; }
-    counter++;
-    if (One.TF.AvailableDale) { txtMapSelect[counter].text = Fix.TOWN_DALE; }
-    counter++;
-    if (One.TF.AvailableDiskel) { txtMapSelect[counter].text = Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
-    counter++;
-    if (One.TF.AvailableGanro) { txtMapSelect[counter].text = Fix.DUNGEON_GANRO_FORTRESS; }
-    counter++;
-    if (One.TF.AvailableEdelgarzen) { txtMapSelect[counter].text = Fix.TOWN_EDELGARZEN_CASTLE; }
-    counter++;
-    if (One.TF.AvailableLoslon) { txtMapSelect[counter].text = Fix.DUNGEON_LOSLON_CAVE; }
-    counter++;
-    if (One.TF.AvailableZelman) { txtMapSelect[counter].text = Fix.TOWN_ZELMAN; }
-    counter++;
-    if (One.TF.AvailableLataHouse) { txtMapSelect[counter].text = Fix.TOWN_LATA_HOUSE; }
-    counter++;
-    if (One.TF.AvailableSithGraveyard) { txtMapSelect[counter].text = Fix.DUNGEON_SITH_GRAVEYARD; }
-    counter++;
-    if (One.TF.AvailableFran) { txtMapSelect[counter].text = Fix.TOWER_FRAN; }
-    counter++;
-    if (One.TF.AvailableSnowtreeLata) { txtMapSelect[counter].text = Fix.DUNGEON_SNOWTREE_LATA; }
-    counter++;
-    if (One.TF.AvailableWosm) { txtMapSelect[counter].text = Fix.TOWN_WOSM; }
-    counter++;
-    if (One.TF.AvailableFazilCastle) { txtMapSelect[counter].text = Fix.TOWN_FAZIL_CASTLE; }
-    counter++;
-
-    if (One.TF.AvailableHeavenGenesisGate)
-    {
-      txtMapSelect[counter].text = Fix.FIELD_HEAVENS_GENESIS_GATE;
-      background3.SetActive(true);
-      LayoutBottom.SetActive(true);
-    }
-    counter++;
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -1088,7 +1014,6 @@ public class DungeonField : MotherBase
       RefreshQuestList();
       GroupDungeonPlayer.SetActive(true);
       GroupSystem.SetActive(false);
-      GroupMapSelect.SetActive(false);
     }
   }
 
@@ -1103,7 +1028,6 @@ public class DungeonField : MotherBase
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       this.currentDecision = Fix.DECISION_TRANSFER_TOWN;
-      GroupMapSelect.SetActive(true);
     }
     else
     {
@@ -1122,12 +1046,6 @@ public class DungeonField : MotherBase
     if (this.currentDecision == Fix.DECISION_ESCAPE_FROM_DUNGEON)
     {
       this.HomeTownCall = One.TF.BeforeAreaName;
-      return;
-    }
-    if (this.currentDecision == Fix.DECISION_TRANSFER_TOWN)
-    {
-      One.TF.CurrentAreaName = this.CurrentMapSelectName;
-      SceneManager.LoadSceneAsync("HomeTown");
       return;
     }
     if (this.currentDecision == Fix.DECISION_ARTHARIUM_CLIFF)
@@ -1171,7 +1089,6 @@ public class DungeonField : MotherBase
     }
     if (this.currentDecision == Fix.DECISION_TRANSFER_TOWN)
     {
-      this.CurrentMapSelectName = String.Empty;
       GroupDecision.SetActive(false);
       return;
     }
@@ -1205,24 +1122,6 @@ public class DungeonField : MotherBase
       MessagePack.Message1200012(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
-  }
-
-  public void TapMapSelectBack()
-  {
-    this.CurrentMapSelectName = String.Empty;
-    GroupMapSelect.SetActive(false);
-  }
-
-  public void TapMapSelectChoose(Text map_text)
-  {
-    Debug.Log("MapSelectChoose: " + map_text.text);
-
-    if (map_text.text == "???") { return; }
-
-    this.CurrentMapSelectName = map_text.text;
-    txtDecisionTitle.text = map_text.text + "へと移動しますか？";
-    txtDecisionMessage.text = "";
-    GroupDecision.SetActive(true);
   }
 
   public void TapBattleConfig()
