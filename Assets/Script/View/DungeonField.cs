@@ -116,21 +116,6 @@ public class DungeonField : MotherBase
   public GameObject background3;
   public GameObject LayoutBottom;
 
-  // Tactics
-  public List<Button> StayList;
-  public List<Text> StayListName;
-  public List<Text> StayListLife;
-  public List<Image> StayListLifeGauge;
-  public List<Text> StayListManaPoint;
-  public List<Image> StayListManaPointGauge;
-  public List<Text> StayListSkillPoint;
-  public List<Image> StayListSkillPointGauge;
-  public List<GameObject> StayListCheckMark;
-  public GameObject objCancelActionCommand;
-  public Text txtCurrentName;
-  public List<GameObject> objActionCommand;
-  public Text txtBattleSettingCharacterName;
-
   public SaveLoad groupSaveLoad;
 
   // GUI
