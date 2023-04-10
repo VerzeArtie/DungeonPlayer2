@@ -151,8 +151,6 @@ public class DungeonField : MotherBase
 
   public NodeActionCommand CurrentSelectCommand;
 
-  // public GameObject groupPartyExit;
-  public GroupCharacterStatus groupCharacterStatus;
   public SaveLoad groupSaveLoad;
 
   // GUI
@@ -1083,19 +1081,6 @@ public class DungeonField : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
   }
 
-  private void CharacterStatusLoadded(Scene next, LoadSceneMode mode)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod());
-    SceneManager.sceneLoaded -= CharacterStatusLoadded;
-
-    var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
-
-    charaStatus.parentMotherBase = this;
-    charaStatus.ReleaseIt();
-    charaStatus.CurrentPlayer = this.CurrentPlayer;
-    charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
-  }
-
   private void UpdateTacticsPartyMember(string full_name, int num)
   {
     if (full_name != string.Empty)
@@ -1148,7 +1133,6 @@ public class DungeonField : MotherBase
     {
       RefreshQuestList();
       GroupDungeonPlayer.SetActive(true);
-      groupCharacterStatus.gameObject.SetActive(false);
       GroupSystem.SetActive(false);
       GroupMapSelect.SetActive(false);
     }
@@ -1158,13 +1142,6 @@ public class DungeonField : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     SceneManager.sceneLoaded -= PartyMenuLoadded;
-
-    //var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
-
-    //charaStatus.parentMotherBase = this;
-    //charaStatus.ReleaseIt();
-    //charaStatus.CurrentPlayer = this.CurrentPlayer;
-    //charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
   public void TapFastTravel()
@@ -1292,40 +1269,6 @@ public class DungeonField : MotherBase
     txtDecisionTitle.text = map_text.text + "へと移動しますか？";
     txtDecisionMessage.text = "";
     GroupDecision.SetActive(true);
-  }
-
-  public void TapPlayerStatus(Text player_text)
-  {
-    //if (One.PlayerList == null) { Debug.Log("PlayerList is null..."); return; }
-
-    //// 既にプレイヤーステータスが開かれており、同一の名前だった場合は、その画面を閉じる。
-    //if (groupCharacterStatus.gameObject.activeInHierarchy && groupCharacterStatus.CurrentPlayer?.FullName == player_text.text)
-    //{
-    //  groupCharacterStatus.gameObject.SetActive(false);
-    //  return;
-    //}
-
-    //for (int ii = 0; ii < One.PlayerList.Count; ii++)
-    //{
-    //  if (One.PlayerList[ii] == null) { Debug.Log("PlayerList[" + ii.ToString() + "] is null..."); return; }
-
-    //  if (One.PlayerList[ii].FullName == player_text.text)
-    //  {
-    //    One.PlayerList[ii].GetReadyLevelUp();
-    //    groupCharacterStatus.parentMotherBase = this;
-    //    groupCharacterStatus.ReleaseIt();
-    //    groupCharacterStatus.CurrentPlayer = One.PlayerList[ii];
-    //    groupCharacterStatus.UpdateCharacterDetailView(One.PlayerList[ii]);
-    //    break;
-    //  }
-    //}
-
-    //groupCharacterStatus.gameObject.SetActive(true);
-  }
-
-  public void TapCharacterDetailBack()
-  {
-    //groupCharacterStatus.gameObject.SetActive(false);
   }
 
   public void TapBattleConfig()

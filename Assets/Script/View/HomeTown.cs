@@ -36,11 +36,6 @@ public partial class HomeTown : MotherBase
   public NodeSelectAreaButton nodeSelectAreaButton;
   public Text txtGoButton;
 
-  // Character
-  public GameObject GroupCharacter;
-  //public GameObject contentCharacter;
-  public NodeCharaView nodeCharaView;
-
   // Backpack
   public GameObject GroupBackpack;
   public GameObject ContentBackpack;
@@ -571,13 +566,6 @@ public partial class HomeTown : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     SceneManager.sceneLoaded -= PartyMenuLoadded;
-
-    //var charaStatus = GameObject.Find("groupCharacterStatus").GetComponent<GroupCharacterStatus>();
-
-    //charaStatus.parentMotherBase = this;
-    //charaStatus.ReleaseIt();
-    //charaStatus.CurrentPlayer = this.CurrentPlayer;
-    //charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
   public void TapFastTravel()
@@ -637,24 +625,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(true);
-    GroupCharacter.SetActive(false);
-    GroupBackpack.SetActive(false);
-    GroupShopItem.SetActive(false);
-    GroupActionCommandSetting.SetActive(false);
-    GroupTactics.SetActive(false);
-    GroupInn.SetActive(false);
-  }
-
-  public void TapCharacter()
-  {
-    if (GroupCharacter.activeInHierarchy)
-    {
-      GroupCharacter.SetActive(false);
-      return;
-    }
-
-    GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(true);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
@@ -671,7 +641,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(true);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
@@ -698,7 +667,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(true);
     GroupActionCommandSetting.SetActive(false);
@@ -722,7 +690,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(true);
@@ -741,7 +708,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(true);
@@ -781,7 +747,6 @@ public partial class HomeTown : MotherBase
     }
 
     GroupDungeonPlayer.SetActive(false);
-    GroupCharacter.SetActive(false);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
     GroupActionCommandSetting.SetActive(false);
@@ -2255,7 +2220,6 @@ public partial class HomeTown : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.ViewQuestDisplay)
         {
           GroupDungeonPlayer.SetActive(true);
-          GroupCharacter.SetActive(false);
           GroupBackpack.SetActive(false);
           GroupShopItem.SetActive(false);
           GroupActionCommandSetting.SetActive(false);
@@ -2352,38 +2316,6 @@ public partial class HomeTown : MotherBase
     //rect.sizeDelta = new Vector2(0, 0);
     rect.localPosition = new Vector3(50 + num * WIDTH, 0, 0);
   }
-
-  /// <summary>
-  /// キャラクターデータ（基本）を画面に反映します。
-  /// </summary>
-  //private void UpdatePlayerListView(Character player, NodeCharaView charaView)
-  //{
-  //  charaView.txtName.text = player.FullName;
-  //  charaView.txtLevel.text = player.Level.ToString();
-  //  charaView.txtExp.text = player.Exp.ToString();
-  //  float dx = (float)((float)player.Exp / (float)player.GetNextExp());
-  //  charaView.imgExpGauge.rectTransform.localScale = new Vector2(dx, 1.0f);
-  //  charaView.imgExpGauge.color = new Color(72.0f / 255.0f, 220.0f / 255.0f, 71.0f / 255.0f);
-  //  if (dx >= 1.0f)
-  //  {
-  //    charaView.txtExp.text = "Level Up!";
-  //    charaView.imgExpGauge.color = new Color(255.0f / 255.0f, 201.0f / 255.0f, 177.0f / 255.0f);
-  //  }
-  //  charaView.imgJobClass.sprite = Resources.Load<Sprite>("Unit_" + player?.Job.ToString() ?? "");
-
-  //  charaView.txtLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
-  //  float dx_life = (float)((float)player.CurrentLife / (float)player.MaxLife);
-  //  charaView.imgLifeGauge.rectTransform.localScale = new Vector2(dx_life, 1.0f);
-  //  charaView.txtStrength.text = player.TotalStrength.ToString();
-  //  charaView.txtAgility.text = player.TotalAgility.ToString();
-  //  charaView.txtIntelligence.text = player.TotalIntelligence.ToString();
-  //  charaView.txtStamina.text = player.TotalStamina.ToString();
-  //  charaView.txtMind.text = player.TotalMind.ToString();
-  //  charaView.txtMainWeapon.text = player.MainWeapon?.ItemName ?? "( 装備なし )";
-  //  Item temp = new Item(player.MainWeapon?.ItemName);
-  //  charaView.imgMainWeapon.sprite = Resources.Load<Sprite>("Icon_" + temp?.ItemType.ToString() ?? "");
-  //  charaView.gameObject.SetActive(true);
-  //}
 
   private void MoveTransform(GameObject obj, Transform dst)
   {
