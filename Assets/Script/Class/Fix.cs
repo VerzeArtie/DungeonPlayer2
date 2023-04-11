@@ -6314,6 +6314,15 @@ public static partial class Fix
 
   public const string NAME_LEGAL_ORPHSTEIN = "リガール";
   public const string NAME_LEGAL_ORPHSTEIN＿FULL = "リガール・オルフシュタイン";
+
+  public const string NAME_VERZE_ARTIE = @"ヴェルゼ";
+  public const string NAME_VERZE_ARTIE_FULL = @"ヴェルゼ・アーティ";
+
+  public const string NAME_OL_LANDIS = @"ランディス";
+  public const string NAME_OL_LANDIS_FULL = @"オル・ランディス";
+
+  public const string NAME_SINIKIA_KAHLHANZ = @"カールハンツ";
+  public const string NAME_SINIKIA_KAHLHANZ_FULL = @"シニキア・カールハンツ";
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";
