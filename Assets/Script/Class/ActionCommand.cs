@@ -602,7 +602,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return Attribute.Magic; }
     if (command_name == Fix.SHINING_HEAL) { return Attribute.Magic; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return Attribute.Magic; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return Attribute.Magic; }
     if (command_name == Fix.COUNTER_DISALLOW) { return Attribute.Magic; }
     if (command_name == Fix.RAGING_STORM) { return Attribute.Skill; }
     if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
@@ -739,7 +739,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return TimingType.Normal; }
     if (command_name == Fix.SHINING_HEAL) { return TimingType.Sorcery; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return TimingType.Normal; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return TimingType.Normal; }
     if (command_name == Fix.COUNTER_DISALLOW) { return TimingType.StackCommand; }
     if (command_name == Fix.RAGING_STORM) { return TimingType.Normal; }
     if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
@@ -875,7 +875,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return TargetType.Enemy; }
     if (command_name == Fix.SHINING_HEAL) { return TargetType.Ally; } // + AllyField
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return TargetType.EnemyField; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return TargetType.Ally; }
     if (command_name == Fix.COUNTER_DISALLOW) { return TargetType.InstantTarget; }
     if (command_name == Fix.RAGING_STORM) { return TargetType.EnemyGroup; } // + AllyField
     if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
@@ -1086,7 +1086,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return 52; }
     if (command_name == Fix.SHINING_HEAL) { return 63; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     if (command_name == Fix.RAGING_STORM) { return 60; } // + AllyField
     if (command_name == Fix.PRECISION_STRIKE) { return 58; }
@@ -1297,7 +1297,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return BuffType.Negative; }
     if (command_name == Fix.SHINING_HEAL) { return BuffType.Positive; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return BuffType.Negative; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
     if (command_name == Fix.COUNTER_DISALLOW) { return BuffType.Negative; }
     if (command_name == Fix.RAGING_STORM) { return BuffType.Positive; }
     if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
@@ -1519,7 +1519,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return true; }
     if (command_name == Fix.SHINING_HEAL) { return false; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return false; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return false; }
     if (command_name == Fix.COUNTER_DISALLOW) { return false; }
     if (command_name == Fix.RAGING_STORM) { return true; }
     if (command_name == Fix.PRECISION_STRIKE) { return true; }
@@ -1651,7 +1651,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return Fix.FROST_LANCE_JP; }
     if (command_name == Fix.SHINING_HEAL) { return Fix.SHINING_HEAL_JP; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return Fix.CIRCLE_OF_THE_DESPAIR_JP; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return Fix.SEVENTH_PRINCIPLE_JP; }
     if (command_name == Fix.COUNTER_DISALLOW) { return Fix.COUNTER_DISALLOW_JP; }
     if (command_name == Fix.RAGING_STORM) { return Fix.RAGING_STORM_JP; }
     if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
@@ -1776,7 +1776,7 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return "敵一体に対して【氷】ダメージを与える。加えて、【凍傷】のBUFFを付与する。【凍傷】が続く間、対象がインスタントで行動を行った場合、その行動が失敗する。"; }
     if (command_name == Fix.SHINING_HEAL) { return "味方一体を対象とする。対象のライフを全回復する。また、味方フィールドに【祝福】のBUFFを付与する。【祝福】の効果が続く間、【猛毒】【出血】の影響を受けない。"; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "敵フィールドに【荒廃】のフィールドを形成する。【荒廃】の効果が続く間、物理防御力、魔法防御力、戦闘反応値がそれぞれ２０％減少する。"; }
-
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "味方一体を対象とする。対象に【第七原理】のBUFFを付与する。【第七原理】が続く間、物理属性値の源を【知】、魔法属性値の源を【力】に転換する。"; }
     if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
     if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
     if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }

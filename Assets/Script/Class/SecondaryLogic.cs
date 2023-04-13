@@ -777,4 +777,9 @@ public static class SecondaryLogic
   {
     return 0.10f;
   }
+
+  public static int SeventhPrinciple_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
 }

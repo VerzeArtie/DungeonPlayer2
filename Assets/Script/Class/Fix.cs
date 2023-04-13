@@ -1151,6 +1151,9 @@ public static partial class Fix
   public const string INNER_INSPIRATION = "Inner Inspiration";
   public const string INNER_INSPIRATION_JP = "インナー・インスピレーション";
 
+  public const string SEVENTH_PRINCIPLE = "Seventh Principle";
+  public const string SEVENTH_PRINCIPLE_JP = "第七原理";
+
   // Delve VI
   public const string CIRCLE_OF_THE_IGNITE = "Circle of the Ignite";
   public const string CIRCLE_OF_THE_IGNITE_JP = "サークル・オブ・イグニート";

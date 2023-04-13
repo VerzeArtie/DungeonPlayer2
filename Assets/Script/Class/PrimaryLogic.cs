@@ -67,20 +67,41 @@ public static class PrimaryLogic
   {
     double min = 1;
     double max = 1;
-    if (spell_skill_type == SpellSkillType.Strength)
+    if (player.IsSeventhPrinciple)
     {
-      min += player.TotalStrength * Potential(player) * 1.00f;
-      max += player.TotalStrength * Potential(player) * 1.00f;
-    }
-    else if (spell_skill_type == SpellSkillType.Intelligence)
-    {
-      min += player.TotalIntelligence * Potential(player) * 1.00f;
-      max += player.TotalIntelligence * Potential(player) * 1.00f;
+      if (spell_skill_type == SpellSkillType.Strength)
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
+      else if (spell_skill_type == SpellSkillType.Intelligence)
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
+      else
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
     }
     else
     {
-      min += player.TotalStrength * Potential(player) * 1.00f;
-      max += player.TotalStrength * Potential(player) * 1.00f;
+      if (spell_skill_type == SpellSkillType.Strength)
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
+      else if (spell_skill_type == SpellSkillType.Intelligence)
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
+      else
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
     }
 
     min += (player.MainWeapon?.PhysicalAttack ?? 0);
@@ -268,20 +289,41 @@ public static class PrimaryLogic
   {
     double min = 1;
     double max = 1;
-    if (spell_skill_type == SpellSkillType.Intelligence)
+    if (player.IsSeventhPrinciple)
     {
-      min += player.TotalIntelligence * Potential(player) * 1.00f;
-      max += player.TotalIntelligence * Potential(player) * 1.00f;
-    }
-    else if (spell_skill_type == SpellSkillType.Strength)
-    {
-      min += player.TotalStrength * Potential(player) * 1.00f;
-      max += player.TotalStrength * Potential(player) * 1.00f;
+      if (spell_skill_type == SpellSkillType.Intelligence)
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
+      else if (spell_skill_type == SpellSkillType.Strength)
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
+      else
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
     }
     else
     {
-      min += player.TotalIntelligence * Potential(player) * 1.00f;
-      max += player.TotalIntelligence * Potential(player) * 1.00f;
+      if (spell_skill_type == SpellSkillType.Intelligence)
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
+      else if (spell_skill_type == SpellSkillType.Strength)
+      {
+        min += player.TotalStrength * Potential(player) * 1.00f;
+        max += player.TotalStrength * Potential(player) * 1.00f;
+      }
+      else
+      {
+        min += player.TotalIntelligence * Potential(player) * 1.00f;
+        max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
     }
 
     min += (player.MainWeapon?.MagicAttack ?? 0);

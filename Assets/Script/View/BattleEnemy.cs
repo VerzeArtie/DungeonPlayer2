@@ -412,10 +412,6 @@ public partial class BattleEnemy : MotherBase
         if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
         if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
-        // debug
-        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(One.EnemyList[ii]), SecondaryLogic.AuraOfPower_Value(One.EnemyList[ii]), 0);
-        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
-        //One.EnemyList[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(One.EnemyList[ii]), PrimaryLogic.MagicAttack(One.EnemyList[ii], PrimaryLogic.ValueType.Random), 0);
 
         // 戦闘ゲージを設定
         if (this.BattleType == Fix.BattleMode.Duel)
@@ -1882,6 +1878,10 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.INNER_INSPIRATION:
         ExecInnerInspiration(player, target);
+        break;
+
+      case Fix.SEVENTH_PRINCIPLE:
+        ExecSeventhPrinciple(player, target);
         break;
 
       #endregion
@@ -4459,6 +4459,13 @@ public partial class BattleEnemy : MotherBase
   {
     double effectValue = SecondaryLogic.InnerInspiration_Effect1(target) * target.MaxSkillPoint;
     AbstractGainSkillPoint(player, target, effectValue);
+  }
+
+  private void ExecSeventhPrinciple(Character player, Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SEVENTH_PRINCIPLE, SecondaryLogic.SeventhPrinciple_Turn(player), 0, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.SEVENTH_PRINCIPLE, Fix.COLOR_NORMAL);
   }
 
   private void ExecStanceOfTheBlade(Character player)

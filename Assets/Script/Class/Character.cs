@@ -1342,6 +1342,8 @@ public partial class Character : MonoBehaviour
   public int EagleEye { set { if (value >= 0) { _EagleEye = value; } } get { return _EagleEye; } }
   [SerializeField] protected int _InnerInspiration = 0;
   public int InnerInspiration { set { if (value >= 0) { _InnerInspiration = value; } } get { return _InnerInspiration; } }
+  [SerializeField] protected int _SeventhPrinciple = 0;
+  public int SeventhPrinciple { set { if (value >= 0) { _SeventhPrinciple = value; } } get { return _SeventhPrinciple; } }
 
   // Delve VI
   [SerializeField] protected int _CircleOfTheIgnite = 0;
@@ -2481,6 +2483,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EVERFLOW_MIND); }
   }
 
+  public BuffImage IsSeventhPrinciple
+  {
+    get { return SearchBuff(Fix.SEVENTH_PRINCIPLE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -2787,6 +2794,7 @@ public partial class Character : MonoBehaviour
     if (this.HardestParry > 0) { list.Add(Fix.HARDEST_PARRY); }
     if (this.EverflowMind > 0) { list.Add(Fix.EVERFLOW_MIND); }
     if (this.InnerInspiration > 0) { list.Add(Fix.INNER_INSPIRATION); }
+    if (this.SeventhPrinciple > 0) { list.Add(Fix.SEVENTH_PRINCIPLE); }
 
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
 
