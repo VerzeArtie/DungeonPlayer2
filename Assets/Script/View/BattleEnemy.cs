@@ -1719,6 +1719,10 @@ public partial class BattleEnemy : MotherBase
         ExecMultipleShot(player, target_list, critical);
         break;
 
+      case Fix.LEYLINE_SCHEMA:
+        ExecLeylineSchema(player, player.objFieldPanel);
+        break;
+
       case Fix.INVISIBLE_BIND:
         ExecInvisibleBind(player, target, critical);
         break;
@@ -4502,6 +4506,14 @@ public partial class BattleEnemy : MotherBase
     {
       ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, false, critical);
     }
+  }
+
+  private void ExecLeylineSchema(Character player, BuffField target_field_obj)
+  {
+    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
+
+    target_field_obj.AddBuff(prefab_Buff, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(player), SecondaryLogic.LeylineSchema_Effect1(player), 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.LEYLINE_SCHEMA, Fix.COLOR_NORMAL);
   }
 
   private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)

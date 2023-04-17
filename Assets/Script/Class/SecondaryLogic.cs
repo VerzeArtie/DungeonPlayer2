@@ -271,6 +271,15 @@ public static class SecondaryLogic
     return 1.20f;
   }
 
+  public static int LeylineSchema_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+  public static double LeylineSchema_Effect1(Character player)
+  {
+    return 2.00f;
+  }
+
   public static double FlameBlade(Character player)
   {
     return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;

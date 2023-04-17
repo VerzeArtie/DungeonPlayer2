@@ -376,7 +376,7 @@ public class HelpBook : MotherBase
     else if (sender.text == Fix.CLASS_TRUTH)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TRUE_SIGHT); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LAYLINE_SCHEMA); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LEYLINE_SCHEMA); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.WORD_OF_POWER); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.WILL_AWAKENING); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MIND_FORCE); counter++;

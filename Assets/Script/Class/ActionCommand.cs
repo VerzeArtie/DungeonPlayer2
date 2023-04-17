@@ -204,7 +204,7 @@ public static class ActionCommand
     else if (attr == Fix.CommandAttribute.Truth)
     {
       result.Add(Fix.TRUE_SIGHT);
-      result.Add(Fix.LAYLINE_SCHEMA);
+      result.Add(Fix.LEYLINE_SCHEMA);
       result.Add(Fix.WORD_OF_POWER);
       result.Add(Fix.WILL_AWAKENING);
       result.Add(Fix.MIND_FORCE);
@@ -409,7 +409,7 @@ public static class ActionCommand
     else if (attr == Fix.CommandAttribute.Truth)
     {
       result.Add(player.TrueSight);
-      result.Add(player.LaylineSchema);
+      result.Add(player.LeylineSchema);
       result.Add(player.WordOfPower);
       result.Add(player.WillAwakening);
       result.Add(player.EagleEye);
@@ -558,7 +558,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return Attribute.Skill; }
     if (command_name == Fix.SPEED_STEP) { return Attribute.Skill; }
     if (command_name == Fix.MULTIPLE_SHOT) { return Attribute.Skill; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return Attribute.Skill; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return Attribute.Skill; }
     if (command_name == Fix.SPIRITUAL_REST) { return Attribute.Skill; }
     #endregion
 
@@ -695,7 +695,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return TimingType.Normal; }
     if (command_name == Fix.SPEED_STEP) { return TimingType.Instant; }
     if (command_name == Fix.MULTIPLE_SHOT) { return TimingType.Normal; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return TimingType.Normal; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return TimingType.Normal; }
     if (command_name == Fix.SPIRITUAL_REST) { return TimingType.Instant; }
     #endregion
 
@@ -831,7 +831,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
     if (command_name == Fix.SPEED_STEP) { return TargetType.Own; }
     if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return TargetType.AllyField; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return TargetType.AllyField; }
     if (command_name == Fix.SPIRITUAL_REST) { return TargetType.Ally; }
     #endregion
 
@@ -1042,7 +1042,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 8; }
     if (command_name == Fix.SPEED_STEP) { return 7; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 8; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return 11; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 11; }
     if (command_name == Fix.SPIRITUAL_REST) { return 11; }
     #endregion
 
@@ -1254,7 +1254,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return BuffType.Positive; }
     if (command_name == Fix.SPEED_STEP) { return BuffType.Positive; }
     if (command_name == Fix.MULTIPLE_SHOT) { return BuffType.None; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return BuffType.Positive; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return BuffType.Positive; }
     if (command_name == Fix.SPIRITUAL_REST) { return BuffType.None; }
     #endregion
 
@@ -1475,7 +1475,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return false; }
     if (command_name == Fix.SPEED_STEP) { return false; }
     if (command_name == Fix.MULTIPLE_SHOT) { return true; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return false; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return false; }
     if (command_name == Fix.SPIRITUAL_REST) { return false; }
     #endregion
 
@@ -1607,7 +1607,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return Fix.STANCE_OF_THE_GUARD_JP; }
     if (command_name == Fix.SPEED_STEP) { return Fix.SPEED_STEP_JP; }
     if (command_name == Fix.MULTIPLE_SHOT) { return Fix.MULTIPLE_SHOT_JP; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return Fix.LAYLINE_SCHEMA_JP; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return Fix.LEYLINE_SCHEMA_JP; }
     if (command_name == Fix.SPIRITUAL_REST) { return Fix.SPIRITUAL_REST_JP; }
     #endregion
 
@@ -1732,7 +1732,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.SPEED_STEP) { return "自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘速度が上昇する。このスタックは５回まで累積する。"; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
-    if (command_name == Fix.LAYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のソウルポイント回復量が＋１される。"; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のスキルポイント回復量が＋１される。"; }
     if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }
     #endregion
 

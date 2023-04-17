@@ -1224,8 +1224,8 @@ public partial class Character : MonoBehaviour
   public int FortuneSpirit { set { if (value >= 0) { _FortuneSpirit = value; } } get { return _FortuneSpirit; } }
   [SerializeField] protected int _StanceOfTheShade = 0;
   public int StanceOfTheShade { set { if (value >= 0) { _StanceOfTheShade = value; } } get { return _StanceOfTheShade; } }
-  [SerializeField] protected int _LaylineSchema = 0;
-  public int LaylineSchema { set { if (value >= 0) { _LaylineSchema = value; } } get { return _LaylineSchema; } }
+  [SerializeField] protected int _LeylineSchema = 0;
+  public int LeylineSchema { set { if (value >= 0) { _LeylineSchema = value; } } get { return _LeylineSchema; } }
   [SerializeField] protected int _SpiritualRest = 0;
   public int SpiritualRest { set { if (value >= 0) { _SpiritualRest = value; } } get { return _SpiritualRest; } }
 
@@ -2256,6 +2256,12 @@ public partial class Character : MonoBehaviour
   public void GainSkillPoint()
   {
     this.CurrentSkillPoint += 1;
+
+    BuffImage leylineSchema = this.SearchFieldBuff(Fix.LEYLINE_SCHEMA);
+    if (leylineSchema != null)
+    {
+      this.CurrentSkillPoint += (int)(leylineSchema.EffectValue);
+    }
   }
 
   public BuffImage IsResistPoison
@@ -2832,7 +2838,7 @@ public partial class Character : MonoBehaviour
     if (this.FlashCounter > 0) { list.Add(Fix.FLASH_COUNTER); }
     if (this.FortuneSpirit > 0) { list.Add(Fix.FORTUNE_SPIRIT); }
     if (this.StanceOfTheShade > 0) { list.Add(Fix.STANCE_OF_THE_SHADE); }
-    if (this.LaylineSchema > 0) { list.Add(Fix.LAYLINE_SCHEMA); }
+    if (this.LeylineSchema > 0) { list.Add(Fix.LEYLINE_SCHEMA); }
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
     if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
@@ -2929,7 +2935,7 @@ public partial class Character : MonoBehaviour
         else if (type == 1)
         {
           list.Add(Fix.TRUE_SIGHT_JP + "強化");
-          list.Add(Fix.LAYLINE_SCHEMA_JP + "強化");
+          list.Add(Fix.LEYLINE_SCHEMA_JP + "強化");
           list.Add(Fix.WORD_OF_POWER_JP + "強化");
           list.Add(Fix.WILL_AWAKENING_JP + "強化");
           list.Add(Fix.MIND_FORCE_JP + "強化");
@@ -4189,7 +4195,7 @@ public partial class Character : MonoBehaviour
       if (Level == 4) { return Fix.TRUE_SIGHT; }
       if (Level == 7) { return Fix.STANCE_OF_THE_BLADE; }
       if (Level == 10) { return Fix.STANCE_OF_THE_GUARD; }
-      if (Level == 15) { return Fix.LAYLINE_SCHEMA; }
+      if (Level == 15) { return Fix.LEYLINE_SCHEMA; }
       if (Level == 20) { return Fix.DOUBLE_SLASH; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -4291,8 +4297,8 @@ public partial class Character : MonoBehaviour
       }
       if (this.Level == 15)
       {
-        this.LaylineSchema++;
-        ApplyNewCommand(Fix.LAYLINE_SCHEMA);
+        this.LeylineSchema++;
+        ApplyNewCommand(Fix.LEYLINE_SCHEMA);
       }
       if (this.Level == 20)
       {

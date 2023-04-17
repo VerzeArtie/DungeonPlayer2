@@ -1032,8 +1032,8 @@ public static partial class Fix
   public const string FORTUNE_SPIRIT_JP = "フォーチュン・スピリット";
   public const string STANCE_OF_THE_SHADE = "Stance of the Shade";
   public const string STANCE_OF_THE_SHADE_JP = "スタンス・オブ・シェイド";
-  public const string LAYLINE_SCHEMA = "Layline Schema";
-  public const string LAYLINE_SCHEMA_JP = "レイライン・スキーマ";
+  public const string LEYLINE_SCHEMA = "Leyline Schema";
+  public const string LEYLINE_SCHEMA_JP = "レイライン・スキーマ";
   public const string SPIRITUAL_REST = "Spiritual Rest";
   public const string SPIRITUAL_REST_JP = "スピリチュアル・レスト";
 

@@ -67,9 +67,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TRUE_SIGHT);
     }
-    else if (command_name == Fix.LAYLINE_SCHEMA_JP + "強化")
+    else if (command_name == Fix.LEYLINE_SCHEMA_JP + "強化")
     {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LAYLINE_SCHEMA);
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.LEYLINE_SCHEMA);
     }
     else if (command_name == Fix.WORD_OF_POWER_JP + "強化")
     {
