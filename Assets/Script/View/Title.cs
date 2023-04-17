@@ -85,11 +85,13 @@ public class Title : MotherBase
     lana.StraightSmash = 1;
     lana.BlackContract = 1;
     lana.InnerInspiration = 1;
+    lana.SeventhPrinciple = 1;
     lana.ActionCommand2 = Fix.SHINING_HEAL;
     lana.ActionCommand3 = Fix.STRAIGHT_SMASH;
     lana.ActionCommand4 = Fix.EVERFLOW_MIND;
     lana.ActionCommand5 = Fix.BLACK_CONTRACT;
     lana.ActionCommand6 = Fix.INNER_INSPIRATION;
+    lana.ActionCommand7 = Fix.SEVENTH_PRINCIPLE;
 
     lana.Strength = 1000;
     lana.Agility = 10;
@@ -98,7 +100,7 @@ public class Title : MotherBase
     lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
     lana.MaxGain();
-    lana.CurrentManaPoint = 3;
+    //lana.CurrentManaPoint = 3;
 
     Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
     ein.GaleWind = 1;
@@ -109,7 +111,7 @@ public class Title : MotherBase
     ein.CounterAttack = 1;
     ein.CursedEvangile = 1;
     ein.PenetrationArrow = 1;
-    ein.CircleOfTheVigor = 1;
+    ein.CircleOfSerenity = 1;
     ein.WillAwakening = 1;
     ein.PhantomOboro = 1;
     ein.DeadlyDrive = 1;
@@ -121,6 +123,9 @@ public class Title : MotherBase
     ein.CircleOfTheDespair = 1;
     ein.RagingStorm = 1;
     ein.InnerInspiration = 1;
+    ein.FreshHeal = 1;
+    ein.EnergyBolt = 1;
+    ein.SpeedStep = 1;
 
     ein.Strength = 1000;
     ein.Agility = 10;
@@ -131,14 +136,14 @@ public class Title : MotherBase
     ein.ActionCommand1 = Fix.FIRE_BALL;
     ein.ActionCommand2 = Fix.FLAME_STRIKE;
     ein.ActionCommand3 = Fix.INNER_INSPIRATION;
-    ein.ActionCommand4 = Fix.BLOOD_SIGN;
+    ein.ActionCommand4 = Fix.FRESH_HEAL;
     ein.ActionCommand5 = Fix.CIRCLE_OF_THE_DESPAIR;
     ein.ActionCommand6 = Fix.RAGING_STORM;
     ein.ActionCommand7 = Fix.COUNTER_ATTACK;
     ein.ActionCommand8 = Fix.PHANTOM_OBORO;
-    ein.ActionCommand9 = Fix.HUNTER_SHOT;
+    ein.ActionCommand9 = Fix.SPEED_STEP;
     ein.MaxGain();
-    ein.CurrentManaPoint = 2;
+    //ein.CurrentManaPoint = 2;
     //Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
     //eone.AgilityFood = 1;
 
@@ -202,7 +207,7 @@ public class Title : MotherBase
     ein.CounterAttack = 1;
     ein.CursedEvangile = 1;
     ein.PenetrationArrow = 1;
-    ein.CircleOfTheVigor = 1;
+    ein.CircleOfSerenity = 1;
     ein.WillAwakening = 1;
     ein.PhantomOboro = 1;
     ein.DeadlyDrive = 1;
@@ -281,7 +286,7 @@ public class Title : MotherBase
     ein.CounterAttack = 1;
     ein.CursedEvangile = 1;
     ein.PenetrationArrow = 1;
-    ein.CircleOfTheVigor = 1;
+    ein.CircleOfSerenity = 1;
     ein.WillAwakening = 1;
     ein.PhantomOboro = 1;
     ein.DeadlyDrive = 1;
@@ -296,7 +301,7 @@ public class Title : MotherBase
     ein.ActionCommand2 = Fix.DOMINATION_FIELD;
     ein.ActionCommand3 = Fix.CURSED_EVANGILE;
     ein.ActionCommand4 = Fix.PENETRATION_ARROW;
-    ein.ActionCommand5 = Fix.CIRCLE_OF_THE_VIGOR;
+    ein.ActionCommand5 = Fix.CIRCLE_OF_SERENITY;
     ein.ActionCommand6 = Fix.WILL_AWAKENING;
     ein.ActionCommand7 = Fix.COUNTER_ATTACK;
     ein.ActionCommand8 = Fix.PHANTOM_OBORO;

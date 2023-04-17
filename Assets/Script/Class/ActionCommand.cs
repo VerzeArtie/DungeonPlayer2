@@ -1730,7 +1730,7 @@ public static class ActionCommand
     // スキル
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return "自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
-    if (command_name == Fix.SPEED_STEP) { return "自分自身の行動ゲージを進める。行動ゲージが最大を超える場合、行動直前まで行動ゲージが進む。"; }
+    if (command_name == Fix.SPEED_STEP) { return "自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘速度が上昇する。このスタックは５回まで累積する。"; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
     if (command_name == Fix.LAYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のソウルポイント回復量が＋１される。"; }
     if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }

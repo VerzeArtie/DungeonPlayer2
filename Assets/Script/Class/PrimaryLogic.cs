@@ -509,7 +509,7 @@ public static class PrimaryLogic
     }
     if (player.IsSpeedStep)
     {
-      result *= player.IsSpeedStep.EffectValue;
+      result = result * (1.00f + player.IsSpeedStep.EffectValue * player.IsSpeedStep.Cumulative);
     }
     if (player.IsSlow)
     {

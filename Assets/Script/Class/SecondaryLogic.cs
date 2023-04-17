@@ -323,7 +323,7 @@ public static class SecondaryLogic
 
   public static double SpeedStep(Character player)
   {
-    return 1.10f;
+    return 0.02f;
   }
   public static int SpeedStep_Turn(Character player)
   {

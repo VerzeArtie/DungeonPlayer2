@@ -1195,6 +1195,12 @@ public partial class BattleEnemy : MotherBase
         {
           ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
           UpdatePlayerArrowZero(AllList[ii], AllList[ii].objArrow);
+          BuffImage speedStep = AllList[ii].IsSpeedStep;
+          if (speedStep != null)
+          {
+            AllList[ii].IsSpeedStep.Cumulative++;
+          }
+
           AllList[ii].Decision = false;
           break;
         }
@@ -1701,7 +1707,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.SPEED_STEP:
-        ExecSpeedStep(player, target);
+        ExecSpeedStep(player);
         break;
 
       case Fix.STANCE_OF_THE_GUARD:
@@ -4475,11 +4481,11 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
   }
 
-  private void ExecSpeedStep(Character player, Character target)
+  private void ExecSpeedStep(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
+    StartAnimation(player.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
   }
 
   private void ExecStanceOfTheGuard(Character player, Character target)
