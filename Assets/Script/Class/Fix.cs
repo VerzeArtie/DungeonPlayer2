@@ -1100,8 +1100,10 @@ public static partial class Fix
   public const string PHANTOM_OBORO_JP = "ファントム・朧";
   public const string DOMINATION_FIELD = "Domination Field";
   public const string DOMINATION_FIELD_JP = "ドミネーション・フィールド";
-  public const string CIRCLE_OF_THE_VIGOR = "Circle of the Vigor";
-  public const string CIRCLE_OF_THE_VIGOR_JP = "サークル・オブ・ヴィゴー";
+  //public const string CIRCLE_OF_THE_VIGOR = "Circle of the Vigor";
+  //public const string CIRCLE_OF_THE_VIGOR_JP = "サークル・オブ・ヴィゴー";
+  public const string CIRCLE_OF_SERENITY = "Circle of Serenity";
+  public const string CIRCLE_OF_SERENITY_JP = "サークル・オブ・セレニティ";
   public const string DETACHMENT_FAULT = "Detachment Fault";
   public const string DETACHMENT_FAULT_JP = "デタッチメント・フォールト";
   public const string AURA_BURN = "Aura Burn";

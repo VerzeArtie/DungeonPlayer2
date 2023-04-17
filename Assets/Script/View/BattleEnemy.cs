@@ -1463,8 +1463,8 @@ public partial class BattleEnemy : MotherBase
 
     if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
     {
-      // CircleOfTheVigorは対象外。
-      if (command_name == Fix.CIRCLE_OF_THE_VIGOR)
+      // サークル・オブ・セレニティは対象外。
+      if (command_name == Fix.CIRCLE_OF_SERENITY)
       {
         // skip
       }
@@ -1812,9 +1812,9 @@ public partial class BattleEnemy : MotherBase
         ExecPenetrationArrow(player, target, critical);
         break;
 
-      case Fix.CIRCLE_OF_THE_VIGOR:
+      case Fix.CIRCLE_OF_SERENITY:
         target_list = GetAllyGroup(player);
-        ExecCircleOfTheVigor(player, target_list, player.objFieldPanel); 
+        ExecCircleOfTheSerenity(player, target_list, player.objFieldPanel); 
         break;
 
       case Fix.WILL_AWAKENING:
@@ -4826,17 +4826,27 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private void ExecCircleOfTheVigor(Character player, List<Character> target_list, BuffField target_field_obj)
+  private void ExecCircleOfTheSerenity(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_BIND);
+      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_POISON); // 猛毒は解除できない
       target_list[ii].RemoveTargetBuff(Fix.EFFECT_SILENT);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_BIND);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLEEP);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_STUN);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_PARALYZE);
+      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_FREEZE); // 凍結は解除できない
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_FEAR);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_TEMPTATION);
       target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLOW);
+      target_list[ii].RemoveTargetBuff(Fix.EFFECT_DIZZY);
+      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLIP); // 出血は解除できない
+      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_CANNOT_RESURRECT); // 復活不可は解除できない
     }
-    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_VIGOR, SecondaryLogic.CircleOfTheVigor_Turn(player), SecondaryLogic.CircleOfTheVigor_Effect(player), SecondaryLogic.CircleOfTheVigor_Effect2(player), 0);
-    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_VIGOR, Fix.COLOR_NORMAL);
+    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_SERENITY, Fix.COLOR_NORMAL);
   }
 
   private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)

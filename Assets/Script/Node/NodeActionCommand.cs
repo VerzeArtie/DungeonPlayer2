@@ -271,9 +271,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AETHER_DRIVE);
     }
-    else if (command_name == Fix.CIRCLE_OF_THE_VIGOR_JP + "強化")
+    else if (command_name == Fix.CIRCLE_OF_SERENITY_JP + "強化")
     {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CIRCLE_OF_THE_VIGOR);
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CIRCLE_OF_SERENITY);
     }
     else if (command_name == Fix.REVOLUTION_AURA_JP + "強化")
     {

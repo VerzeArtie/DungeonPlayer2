@@ -338,7 +338,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AURA_OF_POWER); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SKY_SHIELD); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AETHER_DRIVE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_THE_VIGOR); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_SERENITY); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.REVOLUTION_AURA); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BRILLIANT_FORM); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AUSTERITY_MATRIX); counter++;

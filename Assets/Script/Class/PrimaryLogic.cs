@@ -525,12 +525,6 @@ public static class PrimaryLogic
       result = result * player.IsBattleSpeedDown.EffectValue;
     }
 
-    BuffImage circleOfTheVigor = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR);
-    if (circleOfTheVigor != null)
-    {
-      result = result * circleOfTheVigor.EffectValue;
-    }
-
     if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.MainWeapon.AmplifyBattleSpeed; }
     if (player.SubWeapon != null && player.SubWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.SubWeapon.AmplifyBattleSpeed; }
     if (player.MainArmor != null && player.MainArmor.AmplifyBattleSpeed > 1.00f) { result = result * player.MainArmor.AmplifyBattleSpeed; }
@@ -566,11 +560,6 @@ public static class PrimaryLogic
     if (player.IsBattleResponseDown)
     {
       result = result * player.IsBattleResponseDown.EffectValue;
-    }
-    BuffImage circleOfTheVigor = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR);
-    if (circleOfTheVigor != null)
-    {
-      result = result * circleOfTheVigor.EffectValue2;
     }
     BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
     if (circleOfDespair != null)

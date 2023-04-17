@@ -1292,8 +1292,8 @@ public partial class Character : MonoBehaviour
   public int PhantomOboro { set { if (value >= 0) { _PhantomOboro = value; } } get { return _PhantomOboro; } }
   [SerializeField] protected int _DominationField = 0;
   public int DominationField { set { if (value >= 0) { _DominationField = value; } } get { return _DominationField; } }
-  [SerializeField] protected int _CircleOfTheVigor = 0;
-  public int CircleOfTheVigor { set { if (value >= 0) { _CircleOfTheVigor = value; } } get { return _CircleOfTheVigor; } }
+  [SerializeField] protected int _CircleOfSerenity = 0;
+  public int CircleOfSerenity { set { if (value >= 0) { _CircleOfSerenity = value; } } get { return _CircleOfSerenity; } }
   [SerializeField] protected int _DetachmentFault = 0;
   public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
   [SerializeField] protected int _AuraBurn = 0;
@@ -1554,6 +1554,12 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    // 猛毒はサークル・オブ・セレニティで防げない
+    //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    //{
+    //  return true;
+    //}
+
     return false;
   }
 
@@ -1569,11 +1575,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
-
-    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
     {
       return true;
     }
+
     return false;
   }
 
@@ -1589,10 +1595,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
-    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
     {
       return true;
     }
+
     return false;
   }
 
@@ -1608,6 +1615,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1623,6 +1635,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1638,6 +1655,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1653,6 +1675,12 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    // 凍結はサークル・オブ・セレニティで防げない
+    //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    //{
+    //  return true;
+    //}
+
     return false;
   }
 
@@ -1668,6 +1696,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1683,6 +1716,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1698,10 +1736,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
-    if (SearchFieldBuff(Fix.CIRCLE_OF_THE_VIGOR) != null)
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
     {
       return true;
     }
+
     return false;
   }
 
@@ -1717,6 +1756,11 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    {
+      return true;
+    }
+
     return false;
   }
 
@@ -1732,6 +1776,12 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    // 出血はサークル・オブ・セレニティで防げない
+    //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    //{
+    //  return true;
+    //}
+
     return false;
   }
 
@@ -1747,6 +1797,12 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
+    // 復活不可はサークル・オブ・セレニティで防げない
+    //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    //{
+    //  return true;
+    //}
+
     return false;
   }
 
@@ -3047,7 +3103,7 @@ public partial class Character : MonoBehaviour
           list.Add(Fix.AURA_OF_POWER_JP + "強化");
           list.Add(Fix.SKY_SHIELD_JP + "強化");
           list.Add(Fix.AETHER_DRIVE_JP + "強化");
-          list.Add(Fix.CIRCLE_OF_THE_VIGOR_JP + "強化");
+          list.Add(Fix.CIRCLE_OF_SERENITY_JP + "強化");
           list.Add(Fix.REVOLUTION_AURA_JP + "強化");
           list.Add(Fix.BRILLIANT_FORM_JP + "強化");
           list.Add(Fix.AUSTERITY_MATRIX_JP + "強化");

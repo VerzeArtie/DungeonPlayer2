@@ -186,7 +186,7 @@ public static class ActionCommand
       result.Add(Fix.AURA_OF_POWER);
       result.Add(Fix.SKY_SHIELD);
       result.Add(Fix.AETHER_DRIVE);
-      result.Add(Fix.CIRCLE_OF_THE_VIGOR);
+      result.Add(Fix.CIRCLE_OF_SERENITY);
       result.Add(Fix.REVOLUTION_AURA);
       result.Add(Fix.BRILLIANT_FORM);
       result.Add(Fix.AUSTERITY_MATRIX);
@@ -371,7 +371,7 @@ public static class ActionCommand
       result.Add(player.AuraOfPower);
       result.Add(player.SkyShield);
       result.Add(player.AetherDrive);
-      result.Add(player.CircleOfTheVigor);
+      result.Add(player.CircleOfSerenity);
       result.Add(player.RevolutionAura);
       result.Add(player.BrilliantForm);
       result.Add(player.AusterityMatrix);
@@ -593,7 +593,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return Attribute.Skill; }
     if (command_name == Fix.PENETRATION_ARROW) { return Attribute.Skill; }
     if (command_name == Fix.WILL_AWAKENING) { return Attribute.Skill; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return Attribute.Skill; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return Attribute.Skill; }
     #endregion
 
     #region "Delve V"
@@ -730,7 +730,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return TimingType.Instant; }
     if (command_name == Fix.PENETRATION_ARROW) { return TimingType.Instant; }
     if (command_name == Fix.WILL_AWAKENING) { return TimingType.Instant; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TimingType.Instant; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return TimingType.Instant; }
     #endregion
 
     #region "Delve V"
@@ -866,7 +866,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return TargetType.Own; }
     if (command_name == Fix.PENETRATION_ARROW) { return TargetType.Enemy; }
     if (command_name == Fix.WILL_AWAKENING) { return TargetType.Ally; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return TargetType.AllyGroup; } // + AllyField
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return TargetType.AllyGroup; } // + AllyField
     #endregion
 
     #region "Delve V"
@@ -1077,7 +1077,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return 24; }
     if (command_name == Fix.PENETRATION_ARROW) { return 25; }
     if (command_name == Fix.WILL_AWAKENING) { return 34; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return 30; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 30; }
     #endregion
 
     #region "Delve V"
@@ -1289,7 +1289,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return BuffType.Positive; }
     if (command_name == Fix.PENETRATION_ARROW) { return BuffType.Negative; }
     if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return BuffType.Positive; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return BuffType.Positive; }
     #endregion
 
     #region "Delve V"
@@ -1510,7 +1510,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return false; }
     if (command_name == Fix.PENETRATION_ARROW) { return true; }
     if (command_name == Fix.WILL_AWAKENING) { return false; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return false; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return false; }
     #endregion
 
     #region "Delve V"
@@ -1642,7 +1642,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return Fix.DEADLY_DRIVE_JP; }
     if (command_name == Fix.PENETRATION_ARROW) { return Fix.PENETRATION_ARROW_JP; }
     if (command_name == Fix.WILL_AWAKENING) { return Fix.WILL_AWAKENING_JP; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.VOICE_OF_VIGOR_JP; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return Fix.CIRCLE_OF_SERENITY_JP; }
     #endregion
 
     #region "Delve V"
@@ -1767,7 +1767,7 @@ public static class ActionCommand
     if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }
     if (command_name == Fix.WILL_AWAKENING) { return "このコマンドはカウンターされない。\r\n味方一体を対象とする。対象に【覚醒】のBUFFを付与する。【覚醒】が続く間、NormalタイミングのコマンドをInstantタイミングで使用可能となる。また、発動コマンドがカウンターされなくなる。"; }
-    if (command_name == Fix.CIRCLE_OF_THE_VIGOR) { return "このコマンドは【束縛】状態であっても発動する。味方全体に対して【鈍足】【束縛】【沈黙】のBUFFを解除し、味方フィールドに【迅速】のフィールドを形成する。【迅速】が続く間、【鈍足】【束縛】【沈黙】のBUFFは付与されない。また、戦闘速度および戦闘反応が１０％上昇する。"; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "このコマンドは【束縛】【スタン】状態であっても発動する。味方全体に対して【沈黙】【束縛】【睡眠】【スタン】【麻痺】【恐怖】【誘惑】【鈍化】【眩暈】のBUFFを解除し、味方フィールドに【静穏】のフィールドを形成する。【静穏】が続く間、【沈黙】【束縛】【睡眠】【スタン】【麻痺】【恐怖】【誘惑】【鈍化】【眩暈】のBUFFは付与されない。"; }
     #endregion
 
     #region "Delve V"

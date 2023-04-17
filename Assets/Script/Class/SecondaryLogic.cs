@@ -632,17 +632,9 @@ public static class SecondaryLogic
     return 0.70f;
   }
 
-  public static int CircleOfTheVigor_Turn(Character player)
+  public static int CircleOfTheSerenity_Turn(Character player)
   {
     return 5;
-  }
-  public static double CircleOfTheVigor_Effect(Character player)
-  {
-    return 1.10f;
-  }
-  public static double CircleOfTheVigor_Effect2(Character player)
-  {
-    return 1.05f;
   }
 
   public static int WillAwakening_Turn(Character player)
