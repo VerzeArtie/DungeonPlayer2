@@ -1021,12 +1021,12 @@ public static class ActionCommand
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
     if (command_name == Fix.ENERGY_BOLT) { return 3; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return 5; }
-    if (command_name == Fix.SHIELD_BASH) { return 4; }
-    if (command_name == Fix.LEG_STRIKE) { return 4; }
-    if (command_name == Fix.HUNTER_SHOT) { return 4; }
-    if (command_name == Fix.TRUE_SIGHT) { return 6; }
-    if (command_name == Fix.DISPEL_MAGIC) { return 3; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return 15; }
+    if (command_name == Fix.SHIELD_BASH) { return 20; }
+    if (command_name == Fix.LEG_STRIKE) { return 10; }
+    if (command_name == Fix.HUNTER_SHOT) { return 12; }
+    if (command_name == Fix.TRUE_SIGHT) { return 20; }
+    if (command_name == Fix.DISPEL_MAGIC) { return 30; }
     #endregion
 
     #region "Delve II"
@@ -1038,12 +1038,12 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
     if (command_name == Fix.FLASH_COUNTER) { return 7; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 8; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 8; }
-    if (command_name == Fix.SPEED_STEP) { return 7; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return 8; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return 11; }
-    if (command_name == Fix.SPIRITUAL_REST) { return 11; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 20; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
+    if (command_name == Fix.SPEED_STEP) { return 15; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 25; }
+    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
     #endregion
 
     #region "Delve III"
@@ -1055,12 +1055,12 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_POWER) { return 15; }
     if (command_name == Fix.SIGIL_OF_THE_PENDING) { return 20; }
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return 14; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return 12; }
-    if (command_name == Fix.BONE_CRUSH) { return 13; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 13; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return 15; }
-    if (command_name == Fix.UNSEEN_AID) { return 16; }
+    if (command_name == Fix.DOUBLE_SLASH) { return 25; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return 15; }
+    if (command_name == Fix.BONE_CRUSH) { return 35; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 20; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return 40; }
+    if (command_name == Fix.UNSEEN_AID) { return 30; }
     #endregion
 
     #region "Delve IV"
@@ -1072,12 +1072,12 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return 33; }
     if (command_name == Fix.PHANTOM_OBORO) { return 36; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return 25; }
-    if (command_name == Fix.DOMINATION_FIELD) { return 28; }
-    if (command_name == Fix.DEADLY_DRIVE) { return 24; }
-    if (command_name == Fix.PENETRATION_ARROW) { return 25; }
-    if (command_name == Fix.WILL_AWAKENING) { return 34; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 30; }
+    if (command_name == Fix.IRON_BUSTER) { return 30; }
+    if (command_name == Fix.DOMINATION_FIELD) { return 40; }
+    if (command_name == Fix.DEADLY_DRIVE) { return 5; }
+    if (command_name == Fix.PENETRATION_ARROW) { return 45; }
+    if (command_name == Fix.WILL_AWAKENING) { return 50; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 50; }
     #endregion
 
     #region "Delve V"
@@ -1088,11 +1088,11 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
-    if (command_name == Fix.RAGING_STORM) { return 60; } // + AllyField
-    if (command_name == Fix.PRECISION_STRIKE) { return 58; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return 59; }
-    if (command_name == Fix.HARDEST_PARRY) { return 65; }
-    if (command_name == Fix.EVERFLOW_MIND) { return 80; }
+    if (command_name == Fix.RAGING_STORM) { return 45; }
+    if (command_name == Fix.PRECISION_STRIKE) { return 50; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
+    if (command_name == Fix.HARDEST_PARRY) { return 25; }
+    if (command_name == Fix.EVERFLOW_MIND) { return 20; }
     if (command_name == Fix.INNER_INSPIRATION) { return 0; }
     #endregion
 
