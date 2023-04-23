@@ -997,18 +997,25 @@ public static class ActionCommand
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return 0; }
+    if (command_name == Fix.SMALL_GREEN_POTION) { return 0; }
     if (command_name == Fix.NORMAL_RED_POTION) { return 0; }
     if (command_name == Fix.NORMAL_BLUE_POTION) { return 0; }
+    if (command_name == Fix.NORMAL_GREEN_POTION) { return 0; }
     if (command_name == Fix.LARGE_RED_POTION) { return 0; }
     if (command_name == Fix.LARGE_BLUE_POTION) { return 0; }
+    if (command_name == Fix.LARGE_GREEN_POTION) { return 0; }
     if (command_name == Fix.HUGE_RED_POTION) { return 0; }
     if (command_name == Fix.HUGE_BLUE_POTION) { return 0; }
+    if (command_name == Fix.HUGE_GREEN_POTION) { return 0; }
     if (command_name == Fix.HQ_RED_POTION) { return 0; }
     if (command_name == Fix.HQ_BLUE_POTION) { return 0; }
+    if (command_name == Fix.HQ_GREEN_POTION) { return 0; }
     if (command_name == Fix.THQ_RED_POTION) { return 0; }
     if (command_name == Fix.THQ_BLUE_POTION) { return 0; }
+    if (command_name == Fix.THQ_GREEN_POTION) { return 0; }
     if (command_name == Fix.PERFECT_RED_POTION) { return 0; }
     if (command_name == Fix.PERFECT_BLUE_POTION) { return 0; }
+    if (command_name == Fix.PERFECT_GREEN_POTION) { return 0; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return 0; }
     #endregion
 
@@ -1088,6 +1095,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
+    // スキル
     if (command_name == Fix.RAGING_STORM) { return 45; }
     if (command_name == Fix.PRECISION_STRIKE) { return 50; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
@@ -1209,18 +1217,25 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_7) { return BuffType.None; }
     if (command_name == Fix.SMALL_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.SMALL_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.NORMAL_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.NORMAL_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.NORMAL_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.LARGE_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.LARGE_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.LARGE_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.HUGE_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.HUGE_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.HUGE_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.HQ_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.HQ_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.HQ_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.THQ_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.THQ_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.THQ_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.PERFECT_RED_POTION) { return BuffType.None; }
     if (command_name == Fix.PERFECT_BLUE_POTION) { return BuffType.None; }
+    if (command_name == Fix.PERFECT_GREEN_POTION) { return BuffType.None; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return BuffType.None; }
     #endregion
 
@@ -1430,18 +1445,25 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_7) { return false; }
     if (command_name == Fix.SMALL_RED_POTION) { return false; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return false; }
+    if (command_name == Fix.SMALL_GREEN_POTION) { return false; }
     if (command_name == Fix.NORMAL_RED_POTION) { return false; }
     if (command_name == Fix.NORMAL_BLUE_POTION) { return false; }
+    if (command_name == Fix.NORMAL_GREEN_POTION) { return false; }
     if (command_name == Fix.LARGE_RED_POTION) { return false; }
     if (command_name == Fix.LARGE_BLUE_POTION) { return false; }
+    if (command_name == Fix.LARGE_GREEN_POTION) { return false; }
     if (command_name == Fix.HUGE_RED_POTION) { return false; }
     if (command_name == Fix.HUGE_BLUE_POTION) { return false; }
+    if (command_name == Fix.HUGE_GREEN_POTION) { return false; }
     if (command_name == Fix.HQ_RED_POTION) { return false; }
     if (command_name == Fix.HQ_BLUE_POTION) { return false; }
+    if (command_name == Fix.HQ_GREEN_POTION) { return false; }
     if (command_name == Fix.THQ_RED_POTION) { return false; }
     if (command_name == Fix.THQ_BLUE_POTION) { return false; }
+    if (command_name == Fix.THQ_GREEN_POTION) { return false; }
     if (command_name == Fix.PERFECT_RED_POTION) { return false; }
     if (command_name == Fix.PERFECT_BLUE_POTION) { return false; }
+    if (command_name == Fix.PERFECT_GREEN_POTION) { return false; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return false; }
     #endregion
 

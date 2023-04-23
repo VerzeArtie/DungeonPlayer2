@@ -2807,48 +2807,59 @@ public partial class Character : MonoBehaviour
     if (this.IceNeedle > 0) { list.Add(Fix.ICE_NEEDLE); }
     if (this.FreshHeal > 0) { list.Add(Fix.FRESH_HEAL); }
     if (this.ShadowBlast > 0) { list.Add(Fix.SHADOW_BLAST); }
-    if (this.AirCutter > 0) { list.Add(Fix.AIR_CUTTER); }
-    if (this.RockSlam > 0) { list.Add(Fix.ROCK_SLAM); }
-    if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
-    if (this.HunterShot > 0) { list.Add(Fix.HUNTER_SHOT); }
-    if (this.LegStrike > 0) { list.Add(Fix.LEG_STRIKE); }
-    if (this.VenomSlash > 0) { list.Add(Fix.VENOM_SLASH); }
-    if (this.EnergyBolt > 0) { list.Add(Fix.ENERGY_BOLT); }
-    if (this.ShieldBash > 0 ) { list.Add(Fix.SHIELD_BASH); }
-    if (this.AuraBurn > 0) { list.Add(Fix.AURA_BURN); }
-    if (this.DispelMagic > 0) { list.Add(Fix.DISPEL_MAGIC); }
-    if (this.HeartOfLife > 0) { list.Add(Fix.HEART_OF_LIFE); }
-    if (this.DarkAura > 0) { list.Add(Fix.DARK_AURA); }
-    if (this.TrueSight > 0) { list.Add(Fix.TRUE_SIGHT); }
     if (this.OracleCommand > 0) { list.Add(Fix.ORACLE_COMMAND); }
+    if (this.EnergyBolt > 0) { list.Add(Fix.ENERGY_BOLT); }
+    if (this.StraightSmash > 0) { list.Add(Fix.STRAIGHT_SMASH); }
+    if (this.ShieldBash > 0) { list.Add(Fix.SHIELD_BASH); }
+    if (this.LegStrike > 0) { list.Add(Fix.LEG_STRIKE); }
+    if (this.HunterShot > 0) { list.Add(Fix.HUNTER_SHOT); }
+    if (this.TrueSight > 0) { list.Add(Fix.TRUE_SIGHT); }
+    if (this.DispelMagic > 0) { list.Add(Fix.DISPEL_MAGIC); }
 
     if (this.FlameBlade > 0) { list.Add(Fix.FLAME_BLADE); }
     if (this.PurePurification > 0) { list.Add(Fix.PURE_PURIFICATION); }
     if (this.DivineCircle > 0) { list.Add(Fix.DIVINE_CIRCLE); }
     if (this.BloodSign > 0) { list.Add(Fix.BLOOD_SIGN); }
-    if (this.StormArmor > 0) { list.Add(Fix.STORM_ARMOR); }
-    if (this.SoldWall > 0) { list.Add(Fix.SOLID_WALL); }
-    if (this.StanceOfTheBlade > 0) { list.Add(Fix.STANCE_OF_THE_BLADE); }
-    if (this.MultipleShot > 0) { list.Add(Fix.MULTIPLE_SHOT); }
-    if (this.SpeedStep > 0) { list.Add(Fix.SPEED_STEP); }
-    if (this.InvisibleBind > 0) { list.Add(Fix.INVISIBLE_BIND); }
-    if (this.IdeologyOfSophistication > 0) { list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION); }
-    if (this.StanceOfTheGuard > 0){ list. Add(Fix.STANCE_OF_THE_GUARD); }
-    if (this.SkyShield > 0) { list.Add(Fix.SKY_SHIELD); }
-    if (this.FlashCounter > 0) { list.Add(Fix.FLASH_COUNTER); }
     if (this.FortuneSpirit > 0) { list.Add(Fix.FORTUNE_SPIRIT); }
-    if (this.StanceOfTheShade > 0) { list.Add(Fix.STANCE_OF_THE_SHADE); }
+    if (this.FlashCounter > 0) { list.Add(Fix.FLASH_COUNTER); }
+    if (this.StanceOfTheBlade > 0) { list.Add(Fix.STANCE_OF_THE_BLADE); }
+    if (this.StanceOfTheGuard > 0) { list.Add(Fix.STANCE_OF_THE_GUARD); }
+    if (this.SpeedStep > 0) { list.Add(Fix.SPEED_STEP); }
+    if (this.MultipleShot > 0) { list.Add(Fix.MULTIPLE_SHOT); }
     if (this.LeylineSchema > 0) { list.Add(Fix.LEYLINE_SCHEMA); }
     if (this.SpiritualRest > 0) { list.Add(Fix.SPIRITUAL_REST); }
 
-    if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
+    if (this.MeteorBullet > 0) { list.Add(Fix.METEOR_BULLET); }
+    if (this.BlueBullet > 0) { list.Add(Fix.BLUE_BULLET); }
+    if (this.HolyBreath > 0) { list.Add(Fix.HOLY_BREATH); }
     if (this.BlackContract > 0) { list.Add(Fix.BLACK_CONTRACT); }
+    if (this.WordOfPower > 0) { list.Add(Fix.WORD_OF_POWER); }
+    if (this.SigilOfThePending > 0) { list.Add(Fix.SIGIL_OF_THE_PENDING); }
+    if (this.DoubleSlash > 0) { list.Add(Fix.DOUBLE_SLASH); }
+    if (this.ConcussiveHit > 0) { list.Add(Fix.CONCUSSIVE_HIT); }
+    if (this.BoneCrush > 0) { list.Add(Fix.BONE_CRUSH); }
+    if (this.EyeOfTheIsshin > 0) { list.Add(Fix.EYE_OF_THE_ISSHIN); }
+    if (this.VoiceOfVigor > 0) { list.Add(Fix.VOICE_OF_VIGOR); }
+    if (this.UnseenAid > 0) { list.Add(Fix.UNSEEN_AID); }
+
+    if (this.VolcanicBlaze > 0) { list.Add(Fix.VOLCANIC_BLAZE); }
+    if (this.FreezingCube > 0) { list.Add(Fix.FREEZING_CUBE); }
+    if (this.AngelicEcho > 0) { list.Add(Fix.ANGELIC_ECHO); }
+    if (this.CursedEvangile > 0) { list.Add(Fix.CURSED_EVANGILE); }
+    if (this.GaleWind > 0) { list.Add(Fix.GALE_WIND); }
+    if (this.PhantomOboro > 0) { list.Add(Fix.PHANTOM_OBORO); }
+    if (this.IronBuster > 0) { list.Add(Fix.IRON_BUSTER); }
+    if (this.DominationField > 0) { list.Add(Fix.DOMINATION_FIELD); }
+    if (this.DeadlyDrive > 0) { list.Add(Fix.DEADLY_DRIVE); }
+    if (this.PenetrationArrow > 0) { list.Add(Fix.PENETRATION_ARROW); }
+    if (this.WillAwakening > 0) { list.Add(Fix.WILL_AWAKENING); }
+    if (this.CircleOfSerenity > 0) { list.Add(Fix.CIRCLE_OF_SERENITY); }
 
     if (this.FlameStrike > 0) { list.Add(Fix.FLAME_STRIKE); }
     if (this.FrostLance > 0) { list.Add(Fix.FROST_LANCE); }
     if (this.ShiningHeal > 0) { list.Add(Fix.SHINING_HEAL); }
     if (this.CircleOfTheDespair > 0) { list.Add(Fix.CIRCLE_OF_THE_DESPAIR); }
-
+    if (this.SeventhPrinciple > 0) { list.Add(Fix.SEVENTH_PRINCIPLE); }
     if (this.CounterDisallow > 0) { list.Add(Fix.COUNTER_DISALLOW); }
     if (this.RagingStorm > 0) { list.Add(Fix.RAGING_STORM); }
     if (this.PrecisionStrike > 0) { list.Add(Fix.PRECISION_STRIKE); }
@@ -2856,9 +2867,21 @@ public partial class Character : MonoBehaviour
     if (this.HardestParry > 0) { list.Add(Fix.HARDEST_PARRY); }
     if (this.EverflowMind > 0) { list.Add(Fix.EVERFLOW_MIND); }
     if (this.InnerInspiration > 0) { list.Add(Fix.INNER_INSPIRATION); }
-    if (this.SeventhPrinciple > 0) { list.Add(Fix.SEVENTH_PRINCIPLE); }
 
+    // other
+    if (this.AirCutter > 0) { list.Add(Fix.AIR_CUTTER); }
+    if (this.RockSlam > 0) { list.Add(Fix.ROCK_SLAM); }
+    if (this.VenomSlash > 0) { list.Add(Fix.VENOM_SLASH); }
+    if (this.AuraBurn > 0) { list.Add(Fix.AURA_BURN); }
+    if (this.HeartOfLife > 0) { list.Add(Fix.HEART_OF_LIFE); }
+    if (this.DarkAura > 0) { list.Add(Fix.DARK_AURA); }
     if (this.CounterAttack > 0) { list.Add(Fix.COUNTER_ATTACK); }
+    if (this.StormArmor > 0) { list.Add(Fix.STORM_ARMOR); }
+    if (this.SoldWall > 0) { list.Add(Fix.SOLID_WALL); }
+    if (this.InvisibleBind > 0) { list.Add(Fix.INVISIBLE_BIND); }
+    if (this.IdeologyOfSophistication > 0) { list.Add(Fix.IDEOLOGY_OF_SOPHISTICATION); }
+    if (this.SkyShield > 0) { list.Add(Fix.SKY_SHIELD); }
+    if (this.StanceOfTheShade > 0) { list.Add(Fix.STANCE_OF_THE_SHADE); }
 
     return list;
   }
@@ -2880,6 +2903,13 @@ public partial class Character : MonoBehaviour
     if (One.TF.FindBackPackItem(Fix.HQ_BLUE_POTION)) { list.Add(Fix.HQ_BLUE_POTION); }
     if (One.TF.FindBackPackItem(Fix.THQ_BLUE_POTION)) { list.Add(Fix.THQ_BLUE_POTION); }
     if (One.TF.FindBackPackItem(Fix.PERFECT_BLUE_POTION)) { list.Add(Fix.PERFECT_BLUE_POTION); }
+    if (One.TF.FindBackPackItem(Fix.SMALL_GREEN_POTION)) { list.Add(Fix.SMALL_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.NORMAL_GREEN_POTION)) { list.Add(Fix.NORMAL_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.LARGE_GREEN_POTION)) { list.Add(Fix.LARGE_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HUGE_GREEN_POTION)) { list.Add(Fix.HUGE_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.HQ_GREEN_POTION)) { list.Add(Fix.HQ_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.THQ_GREEN_POTION)) { list.Add(Fix.THQ_GREEN_POTION); }
+    if (One.TF.FindBackPackItem(Fix.PERFECT_GREEN_POTION)) { list.Add(Fix.PERFECT_GREEN_POTION); }
     if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
     return list;
   }
@@ -4191,62 +4221,51 @@ public partial class Character : MonoBehaviour
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
       // if (Level == 1) { return Fix.STRAIGHT_SMASH; }
-      if (Level == 2) { return Fix.SHIELD_BASH; }
-      if (Level == 4) { return Fix.TRUE_SIGHT; }
-      if (Level == 7) { return Fix.STANCE_OF_THE_BLADE; }
-      if (Level == 10) { return Fix.STANCE_OF_THE_GUARD; }
-      if (Level == 15) { return Fix.LEYLINE_SCHEMA; }
-      if (Level == 20) { return Fix.DOUBLE_SLASH; }
+      if (Level == 2) { return Fix.FIRE_BALL; }
+      if (Level == 4) { return Fix.STANCE_OF_THE_BLADE; }
+      if (Level == 7) { return Fix.FLAME_BLADE; }
+      if (Level == 10) { return Fix.ARCHETYPE_EIN_1; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       // if (Level == 1) { return Fix.ICE_NEEDLE; }
-      if (Level == 2) { return Fix.SHADOW_BLAST; }
-      if (Level == 4) { return Fix.DISPEL_MAGIC; }
-      if (Level == 7) { return Fix.PURE_PURIFICATION; }
-      if (Level == 10) { return Fix.BLOOD_SIGN; }
-      if (Level == 15) { return Fix.FLASH_COUNTER; }
-      if (Level == 20) { return Fix.BLUE_BULLET; }
+      if (Level == 2) { return Fix.LEG_STRIKE; }
+      if (Level == 4) { return Fix.PURE_PURIFICATION; }
+      if (Level == 7) { return Fix.SPEED_STEP; }
+      if (Level == 10) { return Fix.ARCHETYPE_LANA_1; }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
       // if (Level == 1) { return Fix.FRESH_HEAL; }
       if (Level == 2) { return Fix.HUNTER_SHOT; }
-      if (Level == 4) { return Fix.AURA_OF_POWER; }
-      if (Level == 7) { return Fix.DIVINE_CIRCLE; }
-      if (Level == 10) { return Fix.MULTIPLE_SHOT; }
-      if (Level == 15) { return Fix.SKY_SHIELD; }
-      if (Level == 20) { return Fix.HOLY_BREATH; }
+      if (Level == 4) { return Fix.DIVINE_CIRCLE; }
+      if (Level == 7) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 10) { return Fix.ARCHETYPE_EONE_1; }
     }
     if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
       // if (Level == 1) { return Fix.LEG_STRIKE; }
       if (Level == 2) { return Fix.FIRE_BALL; }
-      if (Level == 4) { return Fix.HEART_OF_LIFE; }
-      if (Level == 7) { return Fix.SPEED_STEP; }
-      if (Level == 10) { return Fix.FLAME_BLADE; }
-      if (Level == 15) { return Fix.FORTUNE_SPIRIT; }
-      if (Level == 20) { return Fix.BONE_CRUSH; }
+      if (Level == 4) { return Fix.SPEED_STEP; }
+      if (Level == 7) { return Fix.FLAME_BLADE; }
+      if (Level == 10) { return Fix.ARCHETYPE_BILLY_1; }
     }
     if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
       // if (Level == 1) { return Fix.ENERGY_BOLT; }
-      if (Level == 2) { return Fix.ROCK_SLAM; }
-      if (Level == 4) { return Fix.ORACLE_COMMAND; }
-      if (Level == 7) { return Fix.IDEOLOGY_OF_SOPHISTICATION; }
-      if (Level == 10) { return Fix.SOLID_WALL; }
-      if (Level == 15) { return Fix.SPIRITUAL_REST; }
-      if (Level == 20) { return Fix.SIGIL_OF_THE_PENDING; }
+      if (Level == 2) { return Fix.DISPEL_MAGIC; }
+      if (Level == 4) { return Fix.FLASH_COUNTER; }
+      if (Level == 7) { return Fix.SPIRITUAL_REST; }
+      if (Level == 10) { return Fix.ARCHETYPE_ADEL_1; }
     }
+
     if (this.FullName == Fix.NAME_SELMOI_RO)
     {
-      // if (Level == 1) { return Fix.VENOM_SLASH; }
-      if (Level == 2) { return Fix.AIR_CUTTER; }
-      if (Level == 4) { return Fix.DARK_AURA; }
-      if (Level == 7) { return Fix.INVISIBLE_BIND; }
-      if (Level == 10) { return Fix.STORM_ARMOR; }
-      if (Level == 15) { return Fix.STANCE_OF_THE_SHADE; }
-      if (Level == 20) { return Fix.IRREGULAR_STEP; }
+      //if (Level == 1) { return Fix.SHADOW_BLAST; }
+      if (Level == 2) { return Fix.HUNTER_SHOT; }
+      if (Level == 4) { return Fix.BLOOD_SIGN; }
+      if (Level == 7) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 10) { return Fix.ARCHETYPE_RO_1; }
     }
     return String.Empty;
   }
@@ -4275,70 +4294,48 @@ public partial class Character : MonoBehaviour
     {
       if (this.Level == 2)
       {
-        this.AvailableArmorer = true;
-        this.ShieldBash++;
-        ApplyNewCommand(Fix.SHIELD_BASH);
+        this.AvailableFire = true;
+        this.FireBall++;
+        ApplyNewCommand(Fix.FIRE_BALL);
       }
       if (this.Level == 4)
-      {
-        this.AvailableTruth = true;
-        this.TrueSight++;
-        ApplyNewCommand(Fix.TRUE_SIGHT);
-      }
-      if (this.Level == 7)
       {
         this.StanceOfTheBlade++;
         ApplyNewCommand(Fix.STANCE_OF_THE_BLADE);
       }
+      if (this.Level == 7)
+      {
+        this.FlameBlade++;
+        ApplyNewCommand(Fix.FLAME_BLADE);
+      }
       if (this.Level == 10)
       {
-        this.StanceOfTheGuard++;
-        ApplyNewCommand(Fix.STANCE_OF_THE_GUARD);
-      }
-      if (this.Level == 15)
-      {
-        this.LeylineSchema++;
-        ApplyNewCommand(Fix.LEYLINE_SCHEMA);
-      }
-      if (this.Level == 20)
-      {
-        this.DoubleSlash++;
-        ApplyNewCommand(Fix.DOUBLE_SLASH);
+        // this.Archetype_Ein1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
+        ApplyNewCommand(Fix.ARCHETYPE_EIN_1);
       }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       if (this.Level == 2)
       {
-        this.AvailableDarkMagic = true;
-        this.ShadowBlast++;
-        ApplyNewCommand(Fix.SHADOW_BLAST);
+        this.AvailableMartialArts = true;
+        this.LegStrike++;
+        ApplyNewCommand(Fix.LEG_STRIKE);
       }
       if (this.Level == 4)
-      {
-        this.AvailableMysticForm = true;
-        this.DispelMagic++;
-        ApplyNewCommand(Fix.DISPEL_MAGIC);
-      }
-      if (this.Level == 7)
       {
         this.PurePurification++;
         ApplyNewCommand(Fix.PURE_PURIFICATION);
       }
+      if (this.Level == 7)
+      {
+        this.SpeedStep++;
+        ApplyNewCommand(Fix.SPEED_STEP);
+      }
       if (this.Level == 10)
       {
-        this.BloodSign++;
-        ApplyNewCommand(Fix.BLOOD_SIGN);
-      }
-      if (this.Level == 15)
-      {
-        this.FlashCounter++;
-        ApplyNewCommand(Fix.FLASH_COUNTER);
-      }
-      if (this.Level == 20)
-      {
-        this.BlueBullet++;
-        ApplyNewCommand(Fix.BLUE_BULLET);
+        // this.Archetype_Lana1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
+        ApplyNewCommand(Fix.ARCHETYPE_LANA_1);
       }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
@@ -4351,29 +4348,18 @@ public partial class Character : MonoBehaviour
       }
       if (this.Level == 4)
       {
-        this.AvailableEnhanceForm = true;
-        this.AuraOfPower++;
-        ApplyNewCommand(Fix.AURA_OF_POWER);
-      }
-      if (this.Level == 7)
-      {
         this.DivineCircle++;
         ApplyNewCommand(Fix.DIVINE_CIRCLE);
       }
-      if (this.Level == 10)
+      if (this.Level == 7)
       {
         this.MultipleShot++;
         ApplyNewCommand(Fix.MULTIPLE_SHOT);
       }
-      if (this.Level == 15)
+      if (this.Level == 10)
       {
-        this.SkyShield++;
-        ApplyNewCommand(Fix.SKY_SHIELD);
-      }
-      if (this.Level == 20)
-      {
-        this.HolyBreath++;
-        ApplyNewCommand(Fix.HOLY_BREATH);
+        // this.Archetype_Eone1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
+        ApplyNewCommand(Fix.ARCHETYPE_EONE_1);
       }
     }
     if (this.FullName == Fix.NAME_BILLY_RAKI)
@@ -4386,29 +4372,18 @@ public partial class Character : MonoBehaviour
       }
       if (this.Level == 4)
       {
-        this.AvailableBrave = true;
-        this.HeartOfLife++;
-        ApplyNewCommand(Fix.HEART_OF_LIFE);
-      }
-      if (this.Level == 7)
-      {
         this.SpeedStep++;
         ApplyNewCommand(Fix.SPEED_STEP);
       }
-      if (this.Level == 10)
+      if (this.Level == 7)
       {
         this.FlameBlade++;
         ApplyNewCommand(Fix.FLAME_BLADE);
       }
-      if (this.Level == 15)
+      if (this.Level == 10)
       {
-        this.FortuneSpirit++;
-        ApplyNewCommand(Fix.FORTUNE_SPIRIT);
-      }
-      if (this.Level == 20)
-      {
-        this.BoneCrush++;
-        ApplyNewCommand(Fix.BONE_CRUSH);
+        // this.Archetype_BILLY1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
+        ApplyNewCommand(Fix.ARCHETYPE_BILLY_1);
       }
     }
   }

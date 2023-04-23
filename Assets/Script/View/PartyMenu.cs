@@ -189,6 +189,19 @@ public class PartyMenu : MotherBase
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentManaPoint += (int)effectValue;
           }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.NORMAL_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.LARGE_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HUGE_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.HQ_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.THQ_GREEN_POTION ||
+                   ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PERFECT_GREEN_POTION)
+          {
+            Item current = new Item(ParentBackpackView.CurrentSelectBackpack.ItemName);
+            One.TF.DeleteBackpack(current, 1);
+            double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+            PlayerList[ii].CurrentSkillPoint += (int)effectValue;
+          }
           // todo スキルポイント回復ポーションを復活させる事。
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
@@ -346,6 +359,13 @@ public class PartyMenu : MotherBase
         current == Fix.HQ_BLUE_POTION ||
         current == Fix.THQ_BLUE_POTION ||
         current == Fix.PERFECT_BLUE_POTION ||
+        current == Fix.SMALL_GREEN_POTION ||
+        current == Fix.NORMAL_GREEN_POTION ||
+        current == Fix.LARGE_GREEN_POTION ||
+        current == Fix.HUGE_GREEN_POTION ||
+        current == Fix.HQ_GREEN_POTION ||
+        current == Fix.THQ_GREEN_POTION ||
+        current == Fix.PERFECT_GREEN_POTION ||
         current == Fix.GROWTH_LIQUID_STRENGTH ||
         current == Fix.GROWTH_LIQUID2_STRENGTH ||
         current == Fix.GROWTH_LIQUID3_STRENGTH ||

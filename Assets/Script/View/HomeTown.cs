@@ -2780,7 +2780,15 @@ public partial class HomeTown : MotherBase
         current == Fix.HUGE_BLUE_POTION ||
         current == Fix.HQ_BLUE_POTION ||
         current == Fix.THQ_BLUE_POTION ||
-        current == Fix.PERFECT_BLUE_POTION)
+        current == Fix.PERFECT_BLUE_POTION ||
+        current == Fix.SMALL_GREEN_POTION ||
+        current == Fix.NORMAL_GREEN_POTION ||
+        current == Fix.LARGE_GREEN_POTION ||
+        current == Fix.HUGE_GREEN_POTION ||
+        current == Fix.HQ_GREEN_POTION ||
+        current == Fix.THQ_GREEN_POTION ||
+        current == Fix.PERFECT_GREEN_POTION ||
+        current == Fix.PURE_CLEAN_WATER)
     {
       Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
     }
@@ -3614,6 +3622,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.SWORD_OF_LIFE));
       shopList.Add(new Item(Fix.SMALL_RED_POTION));
       shopList.Add(new Item(Fix.SMALL_BLUE_POTION));
+      shopList.Add(new Item(Fix.SMALL_GREEN_POTION));
     }
     if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
@@ -3641,6 +3650,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.MUIN_BOOK));
       shopList.Add(new Item(Fix.NORMAL_RED_POTION));
       shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
+      shopList.Add(new Item(Fix.NORMAL_GREEN_POTION));
 
       //// todo
       //if (false)
@@ -3680,6 +3690,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.YELLOW_AMULET));
       shopList.Add(new Item(Fix.LARGE_RED_POTION));
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
+      shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
     {

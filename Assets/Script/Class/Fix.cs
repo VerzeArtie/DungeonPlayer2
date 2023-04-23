@@ -958,6 +958,13 @@ public static partial class Fix
   public const string USE_BLUE_POTION_5 = "BluePotion_5";
   public const string USE_BLUE_POTION_6 = "BluePotion_6";
   public const string USE_BLUE_POTION_7 = "BluePotion_7";
+  public const string USE_GREEN_POTION_1 = "GreenPotion_1";
+  public const string USE_GREEN_POTION_2 = "GreenPotion_2";
+  public const string USE_GREEN_POTION_3 = "GreenPotion_3";
+  public const string USE_GREEN_POTION_4 = "GreenPotion_4";
+  public const string USE_GREEN_POTION_5 = "GreenPotion_5";
+  public const string USE_GREEN_POTION_6 = "GreenPotion_6";
+  public const string USE_GREEN_POTION_7 = "GreenPotion_7";
 
   public const string DEFENSE_DISABLE = "Defense_Disable";
 
@@ -1784,18 +1791,25 @@ public static partial class Fix
   #region "ポーション"
   public const string SMALL_RED_POTION = "小さい赤ポーション";
   public const string SMALL_BLUE_POTION = "小さい青ポーション";
+  public const string SMALL_GREEN_POTION = "小さい緑ポーション";
   public const string NORMAL_RED_POTION = "普通の赤ポーション";
   public const string NORMAL_BLUE_POTION = "普通の青ポーション";
+  public const string NORMAL_GREEN_POTION = "普通の緑ポーション";
   public const string LARGE_RED_POTION = "大きな赤ポーション";
   public const string LARGE_BLUE_POTION = "大きな青ポーション";
+  public const string LARGE_GREEN_POTION = "大きな緑ポーション";
   public const string HUGE_RED_POTION = "巨大な赤ポーション";
   public const string HUGE_BLUE_POTION = "巨大な青ポーション";
+  public const string HUGE_GREEN_POTION = "巨大な緑ポーション";
   public const string HQ_RED_POTION = "高品質の赤ポーション";
   public const string HQ_BLUE_POTION = "高品質の青ポーション";
+  public const string HQ_GREEN_POTION = "高品質の緑ポーション";
   public const string THQ_RED_POTION = "最高品質の赤ポーション";
   public const string THQ_BLUE_POTION = "最高品質の青ポーション";
+  public const string THQ_GREEN_POTION = "最高品質の緑ポーション";
   public const string PERFECT_RED_POTION = "完全な赤ポーション";
   public const string PERFECT_BLUE_POTION = "完全な青ポーション";
+  public const string PERFECT_GREEN_POTION = "完全な緑ポーション";
   #endregion
   #region "成長剤"
   // 成長剤（１階）

@@ -27,6 +27,13 @@ public class NodeActionCommand : MonoBehaviour
     else if (command_name == Fix.HQ_BLUE_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_5); }
     else if (command_name == Fix.THQ_BLUE_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_6); }
     else if (command_name == Fix.PERFECT_BLUE_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_BLUE_POTION_7); }
+    else if (command_name == Fix.SMALL_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_1); }
+    else if (command_name == Fix.NORMAL_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_2); }
+    else if (command_name == Fix.LARGE_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_3); }
+    else if (command_name == Fix.HUGE_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_4); }
+    else if (command_name == Fix.HQ_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_5); }
+    else if (command_name == Fix.THQ_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_6); }
+    else if (command_name == Fix.PERFECT_GREEN_POTION) { ActionButton.image.sprite = Resources.Load<Sprite>(Fix.USE_GREEN_POTION_7); }
     else if (command_name == Fix.PURE_CLEAN_WATER)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("PureCleanWater");

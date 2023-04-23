@@ -668,8 +668,11 @@ public static class MessagePack
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.SMALL_BLUE_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_GREEN_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_GREEN_POTION, ActionEvent.GetItem);
+    Message(ref m_list, ref e_list, Fix.SMALL_GREEN_POTION, ActionEvent.GetItem);
     Message(ref m_list, ref e_list, Fix.ITEM_TOOMI_AOSUISYOU, ActionEvent.GetItem);
-    Message(ref m_list, ref e_list, "【 " + Fix.SMALL_RED_POTION + " 】と【 " + Fix.SMALL_BLUE_POTION + " 】を取得しました！", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "ポーション一式を取得しました！", ActionEvent.MessageDisplay);
     Message(ref m_list, ref e_list, "【 " + Fix.ITEM_TOOMI_AOSUISYOU + " 】を取得しました！", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "500", ActionEvent.GetGold);

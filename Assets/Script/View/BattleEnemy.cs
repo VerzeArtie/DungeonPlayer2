@@ -1990,6 +1990,16 @@ public partial class BattleEnemy : MotherBase
         ExecUseBluePotion(player, command_name);
         break;
 
+      case Fix.SMALL_GREEN_POTION:
+      case Fix.NORMAL_GREEN_POTION:
+      case Fix.LARGE_GREEN_POTION:
+      case Fix.HUGE_GREEN_POTION:
+      case Fix.HQ_GREEN_POTION:
+      case Fix.THQ_GREEN_POTION:
+      case Fix.PERFECT_GREEN_POTION:
+        ExecUseGreenPotion(player, command_name);
+        break;
+
       case Fix.PURE_CLEAN_WATER:
         ExecPureCleanWater(player);
         break;
@@ -3259,6 +3269,20 @@ public partial class BattleEnemy : MotherBase
                  sender.CommandName == Fix.PERFECT_BLUE_POTION)
         {
           bool result = ExecUseBluePotion(this.PlayerList[ii], sender.CommandName);
+          if (result == false)
+          {
+            StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+          }
+        }
+        else if (sender.CommandName == Fix.SMALL_GREEN_POTION ||
+                 sender.CommandName == Fix.NORMAL_GREEN_POTION ||
+                 sender.CommandName == Fix.LARGE_GREEN_POTION ||
+                 sender.CommandName == Fix.HUGE_GREEN_POTION ||
+                 sender.CommandName == Fix.HQ_GREEN_POTION ||
+                 sender.CommandName == Fix.THQ_GREEN_POTION ||
+                 sender.CommandName == Fix.PERFECT_GREEN_POTION)
+        {
+          bool result = ExecUseGreenPotion(this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -5029,6 +5053,40 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
+  private bool ExecUseGreenPotion(Character target, string command_name)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    string itemName = string.Empty;
+
+    if (command_name == Fix.USE_GREEN_POTION_1 || command_name == Fix.SMALL_GREEN_POTION) { itemName = Fix.SMALL_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_2 || command_name == Fix.NORMAL_GREEN_POTION) { itemName = Fix.NORMAL_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_3 || command_name == Fix.LARGE_GREEN_POTION) { itemName = Fix.LARGE_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_4 || command_name == Fix.HUGE_GREEN_POTION) { itemName = Fix.HUGE_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_5 || command_name == Fix.HQ_GREEN_POTION) { itemName = Fix.HQ_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_6 || command_name == Fix.THQ_GREEN_POTION) { itemName = Fix.THQ_GREEN_POTION; }
+    if (command_name == Fix.USE_GREEN_POTION_7 || command_name == Fix.PERFECT_GREEN_POTION) { itemName = Fix.PERFECT_GREEN_POTION; }
+
+    if (itemName == string.Empty)
+    {
+      Debug.Log("Green Potion name is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    if (One.TF.FindBackPackItem(itemName) == false)
+    {
+      Debug.Log("Green Potion is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    Item current = new Item(itemName);
+    One.TF.DeleteBackpack(current, 1);
+    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+    AbstractGainSkillPoint(null, target, effectValue);
+    return true;
+  }
+
   private bool ExecPureCleanWater(Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -5756,7 +5814,7 @@ public partial class BattleEnemy : MotherBase
     if (gainValue <= 0) { gainValue = 0; }
 
     int result = (int)gainValue;
-    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " sp gain");
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " Mana gain");
     UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " ManaPoint回復");
     target.CurrentManaPoint += result;
     target.txtManaPoint.text = target.CurrentManaPoint.ToString();
