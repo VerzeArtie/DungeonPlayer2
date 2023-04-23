@@ -1270,16 +1270,13 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < AllList.Count; ii++)
     {
       // プレイヤーのリソースゲージ値を更新する。
-      if (AllList[ii].Dead == false)
-      {
-        AllList[ii].MaxLifeCheck();
-        AllList[ii].UpdateLife();
-        AllList[ii].UpdatePlayerInstantPoint();
-        AllList[ii].UpdateActionPoint();
-        AllList[ii].UpdateEnergyPoint();
-        AllList[ii].UpdateManaPoint();
-        AllList[ii].UpdateSkillPoint();
-      }
+      AllList[ii].MaxLifeCheck();
+      AllList[ii].UpdateLife();
+      AllList[ii].UpdatePlayerInstantPoint();
+      AllList[ii].UpdateActionPoint();
+      AllList[ii].UpdateEnergyPoint();
+      AllList[ii].UpdateManaPoint();
+      AllList[ii].UpdateSkillPoint();
       // プレイヤーのステータス表示を更新する。
       if (AllList[ii].Target != null)
       {
