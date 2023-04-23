@@ -16080,8 +16080,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DungeonField, Assembly-CSharp
+      - m_Target: {fileID: 1965409546}
+        m_TargetAssemblyTypeName: PartyMenu, Assembly-CSharp
         m_MethodName: TapBackpackCancelAction
         m_Mode: 1
         m_Arguments:
@@ -18764,8 +18764,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 635, y: -50}
-  m_SizeDelta: {x: 413.33334, y: 80}
+  m_AnchoredPosition: {x: 807, y: -50}
+  m_SizeDelta: {x: 528, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &574697868
 MonoBehaviour:
@@ -22139,17 +22139,6 @@ MonoBehaviour:
   lblChangeEquipType: {fileID: 507076448}
   txtChangeEquipName: {fileID: 697402296}
   imgChangeEquip: {fileID: 1646325052}
-  FilterForAll: {fileID: 0}
-  FilterForActionCommand: {fileID: 0}
-  FilterForAvailableList: {fileID: 0}
-  ActionCommandMain: {fileID: 0}
-  ListActionCommandSet: []
-  ListAvailableCommand: []
-  ListAvailableCommandText: []
-  groupCommandCategory: {fileID: 0}
-  btnCommandCategoryAction: {fileID: 0}
-  btnCommandCetegoryItem: {fileID: 0}
-  btnCommandCetegoryArchetype: {fileID: 0}
   GroupSubViewStatus: {fileID: 0}
   GroupSubViewCommandSetting: {fileID: 0}
   GroupSubViewEssence: {fileID: 0}
@@ -56682,8 +56671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1058.3334, y: -50}
-  m_SizeDelta: {x: 413.33334, y: 80}
+  m_AnchoredPosition: {x: 1345, y: -50}
+  m_SizeDelta: {x: 528, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774032777
 MonoBehaviour:
@@ -67100,8 +67089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 211.66667, y: -50}
-  m_SizeDelta: {x: 413.33334, y: 80}
+  m_AnchoredPosition: {x: 269, y: -50}
+  m_SizeDelta: {x: 528, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114297322
 MonoBehaviour:

@@ -161,6 +161,13 @@ public class PartyMenu : MotherBase
     {
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
+        Character target = One.SelectCharacter(txt_name.text);
+        if (target.Dead)
+        {
+          Debug.Log(MethodBase.GetCurrentMethod() + " Target is dead, cannot use. " + target.FullName + " " + ParentBackpackView.CurrentSelectBackpack.ItemName);
+          return;
+        }
+
         if (txt_name.text == PlayerList[ii].FullName)
         {
           if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.SMALL_RED_POTION ||
