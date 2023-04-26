@@ -138,11 +138,11 @@ public class PartyMenu : MotherBase
       {
         return;
       }
-      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL))
+      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL, player))
       {
         return;
       }
-      player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL);
+      player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL, player);
 
       if (healValue <= 0) { healValue = 0; }
       int result = (int)healValue;
@@ -515,11 +515,11 @@ public class PartyMenu : MotherBase
     else if (txt_src.text == Fix.SHINING_HEAL)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.SHINING_HEAL))
+      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.SHINING_HEAL, player))
       {
         return;
       }
-      player.CurrentManaPoint -= ActionCommand.Cost(Fix.SHINING_HEAL);
+      player.CurrentManaPoint -= ActionCommand.Cost(Fix.SHINING_HEAL, player);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {

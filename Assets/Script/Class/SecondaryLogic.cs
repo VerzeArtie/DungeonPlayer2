@@ -74,15 +74,13 @@ public static class SecondaryLogic
   public static double FireBall(Character player)
   {
     if (player.FireBall <= 1) { return 2.00f; }
-
-    return 2.00f + (player.FireBall - 1) * 0.05f;
+    return 2.00f + (player.FireBall - 1) * 0.10f;
   }
 
   public static double IceNeedle(Character player)
   {
     if (player.IceNeedle <= 1) { return 1.80f; }
-
-    return 1.80f + (player.IceNeedle - 1) * 0.05f;
+    return 1.80f + (player.IceNeedle - 1) * 0.09f;
   }
   public static int IceNeedle_Turn(Character player)
   {
@@ -95,7 +93,8 @@ public static class SecondaryLogic
 
   public static double FreshHeal(Character player)
   {
-    return 3.00f;
+    if (player.FreshHeal <= 1) { return 3.00f; }
+    return 3.00f + (player.FreshHeal - 1) * 0.20f;
   }
 
   public static double ShadowBlast(Character player)
@@ -143,7 +142,7 @@ public static class SecondaryLogic
   {
     if (player.StraightSmash <= 1) { return 2.00f; }
 
-    return 2.00f + (player.StraightSmash - 1) * 0.05f;
+    return 2.00f + (player.StraightSmash - 1) * 0.10f;
   }
 
   public static double HunterShot(Character player)
@@ -156,13 +155,12 @@ public static class SecondaryLogic
   }
   public static double HunterShot_Value(Character player)
   {
-    return 10.0f;
+    return 10.0f + (player.HunterShot - 1) * 2.0f;
   }
 
   public static double LegStrike(Character player)
   {
-    if (player.LegStrike <= 1) { return 1.80f; }
-    return 1.80f + (player.LegStrike - 1) * 0.05f;
+    return 1.80f;
   }
   public static int LegStrike_Turn(Character player)
   {
@@ -170,7 +168,8 @@ public static class SecondaryLogic
   }
   public static double LegStrike_Value(Character player)
   {
-    return 1.20f;
+    if (player.LegStrike <= 1) { return 1.20f; }
+    return 1.20f + (player.LegStrike - 1) * 0.05f;
   }
 
   public static double VenomSlash(Character player)
@@ -217,7 +216,8 @@ public static class SecondaryLogic
   }
   public static double TrueSight_Value(Character player)
   {
-    return 1.10f;
+    if (player.TrueSight <= 1) { return 1.10f; }
+    return 1.10f + (player.TrueSight - 1) * 0.05f;
   }
 
   public static int DispelMagic_Value(Character player)
@@ -261,9 +261,9 @@ public static class SecondaryLogic
     return 0.80f;
   }
 
-  public static int OracleCommand(Character player)
+  public static double OracleCommand(Character player)
   {
-    return 100;
+    return 0.50f + (player.OracleCommand - 1) * 0.10f;
   }
 
   public static double MultipleShot(Character player)

@@ -973,7 +973,7 @@ public static class ActionCommand
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
-  public static int Cost(string command_name)
+  public static int Cost(string command_name, Character player)
   {
     #region "基本／一般"
     if (command_name == Fix.NORMAL_ATTACK) { return 0; }
@@ -1026,14 +1026,30 @@ public static class ActionCommand
     if (command_name == Fix.FRESH_HEAL) { return 4; }
     if (command_name == Fix.SHADOW_BLAST) { return 3; }
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
-    if (command_name == Fix.ENERGY_BOLT) { return 3; }
+    if (command_name == Fix.ENERGY_BOLT)
+    {
+      int result = 3;
+      if (player != null && player.EnergyBolt > 1)
+      {
+        result -= (player.EnergyBolt - 1) * 1;
+      }
+      return result;
+    }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return 15; }
     if (command_name == Fix.SHIELD_BASH) { return 20; }
     if (command_name == Fix.LEG_STRIKE) { return 10; }
     if (command_name == Fix.HUNTER_SHOT) { return 12; }
     if (command_name == Fix.TRUE_SIGHT) { return 20; }
-    if (command_name == Fix.DISPEL_MAGIC) { return 30; }
+    if (command_name == Fix.DISPEL_MAGIC)
+    {
+      int result = 25;
+      if (player != null && player.DispelMagic > 1)
+      {
+        result -= (player.DispelMagic - 1) * 5;
+      }
+      return result; 
+    }
     #endregion
 
     #region "Delve II"
@@ -1736,7 +1752,7 @@ public static class ActionCommand
     if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
     if (command_name == Fix.SHIELD_BASH) { return "敵一体を対象とする。対象を【物理】ダメージを与えた後、【スタン】のBUFFを付与する。\r\n【スタン】が続く間、戦闘ゲージ進行が停止する。"; }
     if (command_name == Fix.LEG_STRIKE) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、【萎縮】のBUFFを付与する。\r\n【萎縮】が続く間、対象の戦闘反応値が減少する。"; }
-    if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、自分自身へ【標的】のBUFFを付与する。\r\n【標的】が続く間、自分自身から対象へ攻撃する際のクリティカル率が10%上昇する。"; }
+    if (command_name == Fix.HUNTER_SHOT) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、自分自身へ【標的】のBUFFを付与する。\r\n【標的】が続く間、自分自身から対象へ攻撃する際のクリティカル率が上昇する。"; }
     if (command_name == Fix.TRUE_SIGHT) { return "味方一体を対象とする。対象に【深層】のBUFFを付与する。\r\n【深層】が続く間、【沈黙】【鈍化】【暗闇】のBUFFがあったとしてもそれがあたかも無いかに様に行動する。"; }
     if (command_name == Fix.DISPEL_MAGIC) { return "敵一体を対象とする。対象にかかっている【有益】に属するBUFFを除去する。"; }
     #endregion

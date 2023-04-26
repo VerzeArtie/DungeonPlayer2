@@ -1172,7 +1172,7 @@ public partial class BattleEnemy : MotherBase
       {
         if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
         {
-          if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+          if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, EnemyList[ii]))
           {
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
@@ -1506,23 +1506,23 @@ public partial class BattleEnemy : MotherBase
     {
       if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
       {
-        if (player.CurrentManaPoint < ActionCommand.Cost(command_name))
+        if (player.CurrentManaPoint < ActionCommand.Cost(command_name, player))
         {
-          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + ActionCommand.Cost(command_name));
+          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + ActionCommand.Cost(command_name, player));
           StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
           return;
         }
-        player.CurrentManaPoint -= ActionCommand.Cost(command_name);
+        player.CurrentManaPoint -= ActionCommand.Cost(command_name, player);
       }
       else if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
       {
-        if (player.CurrentSkillPoint < ActionCommand.Cost(command_name))
+        if (player.CurrentSkillPoint < ActionCommand.Cost(command_name, player))
         {
-          Debug.Log("NO Skill-Point: [" + command_name + "] " + player.CurrentSkillPoint + " < " + ActionCommand.Cost(command_name));
+          Debug.Log("NO Skill-Point: [" + command_name + "] " + player.CurrentSkillPoint + " < " + ActionCommand.Cost(command_name, player));
           StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SKILLPOINT_LESS, Fix.COLOR_NORMAL);
           return;
         }
-        player.CurrentSkillPoint -= ActionCommand.Cost(command_name);
+        player.CurrentSkillPoint -= ActionCommand.Cost(command_name, player);
       }
     }
 
@@ -4318,9 +4318,10 @@ public partial class BattleEnemy : MotherBase
   private void ExecOracleCommand(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    int effectValue = SecondaryLogic.OracleCommand(player);
-    target.CurrentActionPoint += effectValue;
-    StartAnimation(target.objGroup.gameObject, "AP +" + effectValue.ToString(), Fix.COLOR_NORMAL);
+    double effectValue = SecondaryLogic.OracleCommand(player);
+    target.CurrentInstantPoint += (int)((double)Fix.MAX_INSTANT_POINT * effectValue);
+    int strValue = (int)((effectValue * 100));
+    StartAnimation(target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
   }
 
   // Delve II

@@ -6002,7 +6002,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.DIVINE_CIRCLE;
             }
-            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, this))
             {
               result = Fix.DOUBLE_SLASH;
             }
@@ -6017,7 +6017,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.STANCE_OF_THE_BLADE;
             }
-            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, this))
             {
               result = Fix.DOUBLE_SLASH;
             }
@@ -6032,18 +6032,18 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (Target.IsBloodSign == null)
+        if (this.IsTrueSight == null)
+        {
+          result = Fix.TRUE_SIGHT;
+          this.Target = this;
+        }
+        else if (Target.IsBloodSign == null)
         {
           result = Fix.BLOOD_SIGN;
         }
         else if (Target.IsPoison == null)
         {
           result = Fix.COMMAND_POISON_NEEDLE;
-        }
-        else if (this.IsTrueSight == null)
-        {
-          result = Fix.TRUE_SIGHT;
-          this.Target = this;
         }
         else if (this.IsLegStrike == null)
         {
