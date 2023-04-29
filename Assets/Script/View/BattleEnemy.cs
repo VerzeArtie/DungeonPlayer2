@@ -1198,7 +1198,13 @@ public partial class BattleEnemy : MotherBase
           BuffImage speedStep = AllList[ii].IsSpeedStep;
           if (speedStep != null)
           {
-            AllList[ii].IsSpeedStep.Cumulative++;
+            Debug.Log("Target is speedStep, then Cumulative++");
+            int beforeCumulative = speedStep.Cumulative;
+            speedStep.Cumulative++;
+            if (beforeCumulative != speedStep.Cumulative)
+            {
+              StartAnimation(AllList[ii].objGroup.gameObject, Fix.BATTLE_SPEED_UP, Fix.COLOR_NORMAL);
+            }
           }
 
           AllList[ii].Decision = false;
@@ -1539,7 +1545,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ブラッド・サインによる効果
-    if (player.IsBloodSign && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
+    if (player.IsBloodSign && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
       ExecSlipDamage(player, player.IsBloodSign.EffectValue);
     }
@@ -1559,7 +1565,7 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
       critical = Fix.CriticalType.Absolute;
-      fortune.RemoveBuff();
+      fortune.CumulativeDown(1);
     }
     BuffImage syutyuDanzetsu = player.IsSyutyuDanzetsu;
     if (ActionCommand.IsDamage(command_name) && syutyuDanzetsu)
@@ -1708,7 +1714,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.STANCE_OF_THE_GUARD:
-        ExecStanceOfTheGuard(player, target);
+        ExecStanceOfTheGuard(player);
         break;
 
       case Fix.MULTIPLE_SHOT:
@@ -2456,6 +2462,15 @@ public partial class BattleEnemy : MotherBase
             ExecBuffSlow(player, target, 1, 0.5f);
           }
         }
+        break;
+
+      case "絶望の魔手":
+        ExecBuffSlow(player, target, 10, 0.5f);
+        ExecBuffPoison(player, target, 10, 11);
+        ExecBuffSlip(player, target, 10, 12);
+        ExecBuffFreeze(player, target, 10, 0);
+        ExecBuffSilent(player, target, 10, 0);
+        ExecBuffBind(player, target, 10, 0);
         break;
 
       #endregion
@@ -4038,7 +4053,7 @@ public partial class BattleEnemy : MotherBase
     if (player.IsFlameBlade && player.Dead == false)
     {
       bool resultCritical2 = false;
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, false, critical, ref resultCritical2);
+      double addDamageValue = player.IsFlameBlade.EffectValue; // MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, false, critical, ref resultCritical2);
       // ファントム・朧による効果
       if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
       {
@@ -4049,13 +4064,26 @@ public partial class BattleEnemy : MotherBase
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
     if (stanceOfTheBlade != null)
     {
+      Debug.Log("Target is stanceOfTheBlade, then Cumulative++");
+      int beforeCumulative = stanceOfTheBlade.Cumulative;
       stanceOfTheBlade.Cumulative++;
+      if (beforeCumulative != stanceOfTheBlade.Cumulative)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_ATTACK_UP, Fix.COLOR_NORMAL);
+      }
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
-    if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
+    if (stanceOfTheGuard != null && target.IsDefense && target.Dead == false)
     {
+      Debug.Log("Target is IsStanceOfTheGuard, then Cumulative++");
+      int beforeCumulative = stanceOfTheGuard.Cumulative;
       stanceOfTheGuard.Cumulative++;
+      if (beforeCumulative != stanceOfTheGuard.Cumulative)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DEFENSE_UP, Fix.COLOR_NORMAL);
+      }
     }
+
     if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
     {
       double effectValue = player.MainWeapon.ItemValue1 + AP.Math.RandomInteger(player.MainWeapon.ItemValue2 - player.MainWeapon.ItemValue1);
@@ -4144,7 +4172,13 @@ public partial class BattleEnemy : MotherBase
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
     if (target.IsStanceOfTheGuard && target.IsDefense && target.Dead == false)
     {
+      Debug.Log("Target is IsStanceOfTheGuard, then Cumulative++");
+      int beforeCumulative = stanceOfTheGuard.Cumulative;
       stanceOfTheGuard.Cumulative++;
+      if (beforeCumulative != stanceOfTheGuard.Cumulative)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DEFENSE_UP, Fix.COLOR_NORMAL);
+      }
     }
 
     return true;
@@ -4335,7 +4369,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecPurePurification(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.RemoveBuff(1, ActionCommand.BuffType.Negative);
+    target.RemoveBuff(SecondaryLogic.PurePurification_Effect1(player), ActionCommand.BuffType.Negative);
     StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
   }
 
@@ -4514,11 +4548,11 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
   }
 
-  private void ExecStanceOfTheGuard(Character player, Character target)
+  private void ExecStanceOfTheGuard(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.STANCE_OF_THE_GUARD, Fix.COLOR_NORMAL);
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
+    StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_GUARD, Fix.COLOR_NORMAL);
   }
 
   private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
@@ -4552,7 +4586,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit(player), 0, 0);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit_Effect1(player), 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.FORTUNE_SPIRIT, Fix.COLOR_NORMAL);
   }
 

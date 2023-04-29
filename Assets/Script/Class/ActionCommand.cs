@@ -1059,14 +1059,32 @@ public static class ActionCommand
     if (command_name == Fix.DIVINE_CIRCLE) { return 8; }
     if (command_name == Fix.BLOOD_SIGN) { return 7; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
-    if (command_name == Fix.FLASH_COUNTER) { return 7; }
+    if (command_name == Fix.FLASH_COUNTER)
+    {
+      int result = 7;
+      if (player != null && player.FlashCounter > 1)
+      {
+        result -= (player.FlashCounter - 1) * 2;
+      }
+      if (result <= 0) { result = 0; }
+      return result; 
+    }
     // スキル
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return 20; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
     if (command_name == Fix.SPEED_STEP) { return 15; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return 25; }
-    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 20; }
+    if (command_name == Fix.SPIRITUAL_REST)
+    {
+      int result = 15;
+      if (player != null && player.SpiritualRest > 1)
+      {
+        result -= (player.SpiritualRest - 1) * 3;
+      }
+      if (result <= 0) { result = 0; }
+      return result; 
+    }
     #endregion
 
     #region "Delve III"
@@ -1425,8 +1443,19 @@ public static class ActionCommand
 
     #region "一般系統"
     if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_SLIP) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SILENT) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_BIND) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLEEP) { return BuffType.Negative; }
     if (command_name == Fix.EFFECT_STUN) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_PARALYZE) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_FREEZE) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_FEAR) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_TEMPTATION) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLOW) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_DIZZY) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLIP) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_CANNOT_RESURRECT) { return BuffType.Negative; }
+
     if (command_name == Fix.EFFECT_SHADOW_BLAST) { return BuffType.Negative; }
     if (command_name == Fix.EFFECT_FORTUNE) { return BuffType.Positive; }
     if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return BuffType.Positive; }

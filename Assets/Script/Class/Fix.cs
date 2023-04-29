@@ -197,6 +197,14 @@ public static partial class Fix
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
   public const string BATTLE_SILENT = "Silent";
+
+  public const string BATTLE_ATTACK_UP = "物攻率 UP";
+  public const string BATTLE_MAGIC_ATTACK_UP = "魔攻率 UP";
+  public const string BATTLE_DEFENSE_UP = "物防率 UP";
+  public const string BATTLE_MAGIC_DEFENSE_UP = "魔防率 UP";
+  public const string BATTLE_SPEED_UP = "戦速率 UP";
+  public const string BATTLE_RESPONS_UP = "戦応率 UP";
+  public const string BATTLE_POTENTIAL_UP = "潜在率 UP";
   #endregion
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;

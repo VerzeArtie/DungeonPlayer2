@@ -22,13 +22,15 @@ public class BuffField : MonoBehaviour
       if (buffList[ii].BuffName == buff_name)
       {
         detect = true;
-        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.BUFF_LIGHTNING_OUTBURST) // todo ここで累積UPを分岐させているのは構造上おかしい。
+        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.BUFF_LIGHTNING_OUTBURST || buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
         {
-          buffList[ii].CumulativeUp(remain_counter, 1);
+          int up = 1;
+          if (buff_name == Fix.FORTUNE_SPIRIT) { up = (int)effect_value; }
+          buffList[ii].CumulativeUp(remain_counter, up);
         }
         else
         {
-          buffList[ii].UpdateBuff(buff_name, remain_counter, effect_value, effect_value2, effect_value3);
+          buffList[ii].UpdateBuff(buff_name, remain_counter, 1, effect_value, effect_value2, effect_value3);// 累積は標準１がデフォルトで与えられる。
         }
         break;
       }
@@ -37,7 +39,12 @@ public class BuffField : MonoBehaviour
 
     // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
     BuffImage buff = Instantiate(prefab) as BuffImage;
-    buff.UpdateBuff(buff_name, remain_counter, effect_value, effect_value2, effect_value3);
+    int cumulative = 1;// 累積は標準１がデフォルトで与えられる。
+    if (buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
+    {
+      cumulative = (int)effect_value;
+    }
+    buff.UpdateBuff(buff_name, remain_counter, cumulative, effect_value, effect_value2, effect_value3);
     buff.gameObject.SetActive(true);
     buff.transform.SetParent(this.gameObject.transform);
     //RectTransform rect = buff.GetComponent<RectTransform>();

@@ -268,7 +268,8 @@ public static class SecondaryLogic
 
   public static double MultipleShot(Character player)
   {
-    return 1.20f;
+    if (player.MultipleShot <= 1) { return 1.20f; }
+    return 1.20f + (player.MultipleShot - 1) * 0.10f;
   }
 
   public static int LeylineSchema_Turn(Character player)
@@ -277,12 +278,23 @@ public static class SecondaryLogic
   }
   public static double LeylineSchema_Effect1(Character player)
   {
-    return 2.00f;
+    if (player.LeylineSchema <= 1) { return 2.00f; }
+    return 2.00f + (player.LeylineSchema - 1);
   }
 
   public static double FlameBlade(Character player)
   {
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
+    double factor = 0.00f;
+    if (player.FlameBlade <= 1) 
+    {
+      factor = 1.00f; 
+    }
+    else
+    {
+      factor = 1.00f + (player.FlameBlade - 1) * 0.20f;
+    }
+
+    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * factor;
   }
 
   public static int FlameBlade_Turn(Character player)
@@ -290,9 +302,25 @@ public static class SecondaryLogic
     return 5;
   }
 
+  public static int PurePurification_Effect1(Character player)
+  {
+    if (player.PurePurification <= 1) { return 1; }
+    return 1 + (player.PurePurification - 1);
+  }
+
   public static double BloodSign(Character player)
   {
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
+    double result = 0.0f;
+    if (player.BloodSign <= 1)
+    {
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
+    }
+    else
+    {
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.BloodSign - 1) * 0.20f);
+    }
+
+    return result;
   }
 
   public static int BloodSign_Turn(Character player)
@@ -302,7 +330,8 @@ public static class SecondaryLogic
 
   public static int DivineCircle(Character player)
   {
-    return 150;
+    if (player.DivineCircle <= 1) { return 150; }
+    return 150 + (player.DivineCircle - 1) * 250;
   }
 
   public static int DivineCircle_Turn(Character player)
@@ -310,19 +339,20 @@ public static class SecondaryLogic
     return 9;
   }
 
-  public static double FortuneSpirit(Character player)
-  {
-    return 100.0f;
-  }
-
   public static int FortuneSpirit_Turn(Character player)
   {
     return Fix.INFINITY;
   }
+  public static int FortuneSpirit_Effect1(Character player)
+  {
+    if (player.FortuneSpirit <= 1) { return 1; }
+    return 1 + (player.FortuneSpirit - 1);
+  }
 
   public static double StanceOfTheBlade(Character player)
   {
-    return 0.10f;
+    if (player.StanceOfTheBlade <= 1) { return 0.10f; }
+    return 0.10f + (player.StanceOfTheBlade - 1) * 0.20f;
   }
 
   public static int StanceOfTheBlade_Turn(Character player)
@@ -332,21 +362,23 @@ public static class SecondaryLogic
 
   public static double SpeedStep(Character player)
   {
-    return 0.02f;
+    if (player.SpeedStep <= 1) { return 0.05f; }
+    return 0.05f + (player.SpeedStep - 1) * 0.03f;
   }
   public static int SpeedStep_Turn(Character player)
   {
-    return 5;
+    return 10;
   }
 
   public static double StanceOfTheGuard(Character player)
   {
-    return 0.01f;
+    if (player.StanceOfTheGuard <= 1) { return 0.02f; }
+    return 0.02f + (player.StanceOfTheGuard - 1) * 0.02f;
   }
 
   public static int StanceOfTheGuard_Turn(Character player)
   {
-    return 5;
+    return 10;
   }
 
   public static double InvisibleBind(Character player)

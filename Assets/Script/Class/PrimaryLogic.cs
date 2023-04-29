@@ -152,7 +152,9 @@ public static class PrimaryLogic
     BuffImage stanceOfTheBlade = player.IsStanceOfTheBlade;
     if (stanceOfTheBlade)
     {
+      double debug_result = result;
       result = result * (1.00f + (player.IsStanceOfTheBlade.EffectValue * stanceOfTheBlade.Cumulative));
+      Debug.Log("stanceOfTheBlade detect: " + debug_result.ToString() + " -> " + result);
     }
 
     BuffImage deadlyDrive = player.IsDeadlyDrive;
@@ -256,10 +258,12 @@ public static class PrimaryLogic
       Debug.Log("IsPhysicalDefenseDown phase: " + result);
     }
 
-    BuffImage stanceOfTheShield = player.IsStanceOfTheGuard;
-    if (stanceOfTheShield)
+    BuffImage stanceOfTheGuard = player.IsStanceOfTheGuard;
+    if (stanceOfTheGuard)
     {
-      result = result * (1.00f + player.IsStanceOfTheGuard.EffectValue * stanceOfTheShield.Cumulative);
+      double debug_result = result;
+      result = result * (1.00f + player.IsStanceOfTheGuard.EffectValue * stanceOfTheGuard.Cumulative);
+      Debug.Log("stanceOfTheGuard detect: " + debug_result.ToString() + " -> " + result);
     }
 
     if (player.IsPhysicalDefenseUp)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -47,6 +48,7 @@ public class BuffImage : Image
     set
     {
       if (value >= 5) { value = 5; }
+      if (value <= 0) { value = 0; }
       _cumulative = value;
     }
     get { return _cumulative; }
@@ -59,14 +61,14 @@ public class BuffImage : Image
     get { return _remainCounter; }
   }
 
-  public void UpdateBuff(string buff_name, int remain, double effect_value, double effect_value2, double effect_value3)
+  public void UpdateBuff(string buff_name, int remain, int cumulative, double effect_value, double effect_value2, double effect_value3)
   {
     this._buffName = buff_name;
     this._remainCounter = remain;
     this._effectValue = effect_value;
     this._effectValue2 = effect_value2;
     this._effectValue3 = effect_value3;
-    this._cumulative = 1; // 累積は標準１がデフォルトで与えられる。
+    this._cumulative = cumulative; 
     this.sprite = Resources.Load<Sprite>(buff_name);
     Invalidate();
   }
@@ -75,6 +77,22 @@ public class BuffImage : Image
   {
     this._remainCounter = remain;
     this.Cumulative = this._cumulative + cumulative_up;
+    Invalidate();
+  }
+
+  public void CumulativeDown(int cumulative_down)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + cumulative_down);
+    this.Cumulative = this._cumulative - cumulative_down;
+    if (this.Cumulative <= 0)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " Cumulative is less than zero, then remove it");
+      RemoveBuff();
+    }
+    else
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " Cumulative is remaining: " + this.Cumulative);
+    }
     Invalidate();
   }
 
