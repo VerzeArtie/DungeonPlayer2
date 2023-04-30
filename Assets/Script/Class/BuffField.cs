@@ -22,7 +22,7 @@ public class BuffField : MonoBehaviour
       if (buffList[ii].BuffName == buff_name)
       {
         detect = true;
-        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.BUFF_LIGHTNING_OUTBURST || buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
+        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.CONCUSSIVE_HIT || buff_name == Fix.BUFF_LIGHTNING_OUTBURST || buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
         {
           int up = 1;
           if (buff_name == Fix.FORTUNE_SPIRIT) { up = (int)effect_value; }

@@ -198,7 +198,9 @@ public static class PrimaryLogic
     BuffImage boneCrush = player.IsBoneCrush;
     if (boneCrush)
     {
+      double result_before = result;
       result = result * boneCrush.EffectValue;
+      Debug.Log("Detect boneCrush: " + result_before + " -> " + result);
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * player.MainWeapon.AmplifyPhysicalAttack; }
@@ -235,6 +237,16 @@ public static class PrimaryLogic
     {
       result *= dominationField.EffectValue;
     }
+
+    BuffImage concussiveHit = player.IsConcussiveHit;
+    if (concussiveHit != null)
+    {
+      double result_before = result;
+      result = result * (1.00f - concussiveHit.EffectValue * concussiveHit.Cumulative);
+      if (result <= 0) { result = 0.0f; }
+      Debug.Log("Detect concussiveHit: " + concussiveHit.Cumulative + " " + result_before + " -> " + result);
+    }
+
     BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
     if (circleOfDespair != null)
     {

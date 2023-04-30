@@ -328,10 +328,18 @@ public static class SecondaryLogic
     return 5;
   }
 
-  public static int DivineCircle(Character player)
+  public static double DivineCircle_Effect1(Character player)
   {
-    if (player.DivineCircle <= 1) { return 150; }
-    return 150 + (player.DivineCircle - 1) * 250;
+    double result = 0.0f;
+    if (player.DivineCircle <= 1)
+    {
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.50f;
+    }
+    else
+    {
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.50f + (player.DivineCircle - 1) * 0.30f);
+    }
+    return result;
   }
 
   public static int DivineCircle_Turn(Character player)
@@ -406,15 +414,26 @@ public static class SecondaryLogic
   {
     return 0.80f;
   }
+  public static int MeteorBullet_Effect1(Character player)
+  {
+    if (player.MeteorBullet <= 1) { return 3; }
+    return 3 + (player.MeteorBullet - 1);
+  }
 
   public static double BlueBullet(Character player)
   {
     return 0.70f;
   }
+  public static int BlueBullet_Effect1(Character player)
+  {
+    if (player.BlueBullet <= 1) { return 3; }
+    return 3 + (player.BlueBullet - 1);
+  }
 
   public static double HolyBreath(Character player)
   {
-    return 3.00f;
+    if (player.HolyBreath <= 1) { return 3.00f; }
+    return 3.00f + (player.HolyBreath - 1) * 0.30f;
   }
 
   public static double BlackContract(Character plyaer)
@@ -424,7 +443,8 @@ public static class SecondaryLogic
 
   public static int BlackContract_Turn(Character player)
   {
-    return 3;
+    if (player.BlackContract <= 1) { return 3; }
+    return 3 + (player.BlackContract - 1);
   }
 
   public static double SonicPulse(Character player)
@@ -454,7 +474,8 @@ public static class SecondaryLogic
 
   public static double ConcussiveHit(Character player)
   {
-    return 0.05f;
+    if (player.ConcussiveHit <= 1) { return 0.05f; }
+    return 0.05f + (player.ConcussiveHit - 1) * 0.01f;
   }
 
   public static int ConcussiveHit_Turn(Character player)
@@ -462,9 +483,10 @@ public static class SecondaryLogic
     return 9;
   }
 
-  public static double EyeOfTheIsshin(Character player)
+  public static double EyeOfTheIsshin_Effect1(Character player)
   {
-    return 0.20f;
+    if (player.EyeOfTheIsshin <= 1) { return 0.20f; }
+    return 0.20f + (player.EyeOfTheIsshin - 1) * 0.02f;
   }
 
   public static int EyeOfTheIsshin_Turn(Character player)
@@ -484,7 +506,11 @@ public static class SecondaryLogic
 
   public static double BoneCrush_Value(Character player)
   {
-    return 0.80f;
+    double result = 0.0f;
+    if (player.BoneCrush <= 1) { return 0.80f; }
+    result = 0.80f - (player.BoneCrush - 1) * 0.03f;
+    if (result <= 0.0f) { result = 0.0f; }
+    return result;
   }
 
   public static double IrregularStep_Damage(Character player)
@@ -499,7 +525,8 @@ public static class SecondaryLogic
 
   public static int SigilOfThePending_Turn(Character player)
   {
-    return Fix.INFINITY;
+    if (player.SigilOfThePending <= 1) { return 3; }
+    return 3 + (player.SigilOfThePending - 1) * 2;
   }
 
   public static int AetherDrive_Turn(Character player)
@@ -524,7 +551,14 @@ public static class SecondaryLogic
 
   public static double WordOfPower(Character player)
   {
-    return 2.40;
+    if (player.WordOfPower <= 1) { return 2.40f; }
+    return 2.40f + (player.WordOfPower - 1) * 0.20f;
+  }
+
+  public static double DoubleSlash(Character player)
+  {
+    if (player.DoubleSlash <= 1) { return 1.20f; }
+    return 1.20f + (player.DoubleSlash - 1) * 0.10f;
   }
 
   public static double StormArmor_SpeedUp(Character player)
@@ -549,12 +583,13 @@ public static class SecondaryLogic
 
   public static double VoiceOfVigor(Character player)
   {
-    return 1.10f;
+    if (player.VoiceOfVigor <= 1) { return 1.10f; }
+    return 1.10f + (player.VoiceOfVigor - 1) * 0.03f;
   }
 
   public static int VoiceOfVigor_Turn(Character player)
   {
-    return 2;
+    return 9;
   }
 
   public static double ShiningHeal(Character player)

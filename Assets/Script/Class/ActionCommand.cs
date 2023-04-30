@@ -704,7 +704,7 @@ public static class ActionCommand
     if (command_name == Fix.METEOR_BULLET) { return TimingType.Instant; }
     if (command_name == Fix.BLUE_BULLET) { return TimingType.Instant; }
     if (command_name == Fix.HOLY_BREATH) { return TimingType.Normal; }
-    if (command_name == Fix.BLACK_CONTRACT) { return TimingType.Sorcery; }
+    if (command_name == Fix.BLACK_CONTRACT) { return TimingType.Normal; }
     if (command_name == Fix.WORD_OF_POWER) { return TimingType.Instant; }
     if (command_name == Fix.SIGIL_OF_THE_PENDING) { return TimingType.Instant; }
     // スキル
@@ -1101,7 +1101,16 @@ public static class ActionCommand
     if (command_name == Fix.BONE_CRUSH) { return 35; }
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 20; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return 40; }
-    if (command_name == Fix.UNSEEN_AID) { return 30; }
+    if (command_name == Fix.UNSEEN_AID)
+    {
+      int result = 30;
+      if (player != null && player.UnseenAid > 1)
+      {
+        result -= (player.UnseenAid - 1) * 5;
+      }
+      if (result <= 0) { result = 0; }
+      return result;
+    }
     #endregion
 
     #region "Delve IV"

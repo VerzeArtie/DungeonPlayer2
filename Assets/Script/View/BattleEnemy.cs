@@ -3030,7 +3030,8 @@ public partial class BattleEnemy : MotherBase
     // 自分自身の場合はその場で選択決定。（防御など）
     ActionCommand.TargetType targetType = ActionCommand.IsTarget(sender.CommandName);
     Debug.Log("current mainaction " + sender.CommandName + " targetType: " + targetType.ToString());
-    if (targetType == ActionCommand.TargetType.Own)
+    if (targetType == ActionCommand.TargetType.Own ||
+        targetType == ActionCommand.TargetType.AllMember)
     {
       ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectSrcPlayer.objMainButton.ActionButton, sender.CommandName);
       //CopyActionButton(sender.ActionButton, this.NowSelectSrcPlayer.objMainButton);
@@ -3715,6 +3716,7 @@ public partial class BattleEnemy : MotherBase
       if (sigilOfThePending != null) 
       {
         Debug.Log("Upkeep phase, but sigilOfThePending is enabled, then no effect");
+        AllList[ii].BuffCountdown(); // ペンディング効果がある状態だが、カウントダウンが進む方がゲーム性は高いため、進む事とする。
         continue; 
       }
 
@@ -4377,7 +4379,7 @@ public partial class BattleEnemy : MotherBase
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle(player), 0, 0);
+    target_field_obj.AddBuff(prefab_Buff, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player), 0, 0);
     StartAnimation(target_field_obj.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
   }
 
@@ -4621,13 +4623,13 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < 2; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
+      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, false, critical);
     }
   }
 
   private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
-    for (int ii = 0; ii < 3; ii++)
+    for (int ii = 0; ii < SecondaryLogic.MeteorBullet_Effect1(player); ii++)
     {
       int rand = AP.Math.RandomInteger(target_list.Count);
       ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, false, critical);
@@ -4636,7 +4638,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecBlueBullet(Character player, Character target, Fix.CriticalType critical)
   {
-    for (int ii = 0; ii < 3; ii++)
+    for (int ii = 0; ii < SecondaryLogic.BlueBullet_Effect1(player); ii++)
     {
       ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, false, critical);
     }
@@ -4687,7 +4689,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player));
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.CONCUSSIVE_HIT, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player), 0, 0);
     }
   }
 
@@ -4722,8 +4724,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EYE_OF_THE_ISSHIN, Fix.COLOR_NORMAL);
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin_Effect1(player), 0, 0);
+    StartAnimation(player.objGroup.gameObject, Fix.EYE_OF_THE_ISSHIN, Fix.COLOR_NORMAL);
   }
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
