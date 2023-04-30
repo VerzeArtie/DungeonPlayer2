@@ -2475,6 +2475,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EYE_OF_THE_ISSHIN); }
   }
 
+  public BuffImage IsConcussiveHit
+  {
+    get { return SearchBuff(Fix.CONCUSSIVE_HIT); }
+  }
+
   public BuffImage IsBoneCrush
   {
     get { return SearchBuff(Fix.BONE_CRUSH, Fix.BONE_CRUSH_JP); }
