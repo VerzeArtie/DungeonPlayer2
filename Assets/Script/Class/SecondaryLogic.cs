@@ -599,7 +599,8 @@ public static class SecondaryLogic
 
   public static int GaleWind_Turn(Character player)
   {
-    return 3;
+    if (player.GaleWind <= 1) { return 3; }
+    return 3 + (player.GaleWind - 1);
   }
 
   public static double FreezingCube(Character player)
@@ -614,7 +615,8 @@ public static class SecondaryLogic
 
   public static double FreezingCube_Effect(Character player)
   {
-    return 1.20F;
+    if (player.FreezingCube <= 1) { return 1.20f; }
+    return 1.20F + (player.FreezingCube - 1) * 0.25f;
   }
 
   public static double FreezingCube_Effect2(Character player)
@@ -634,7 +636,8 @@ public static class SecondaryLogic
 
   public static double VolcanicBlaze_Effect(Character player)
   {
-    return 1.20f;
+    if (player.VolcanicBlaze <= 1) { return 1.20f; }
+    return 1.20f + (player.VolcanicBlaze - 1) * 0.30f;
   }
   public static double VolcanicBlaze_Effect2(Character player)
   {
@@ -643,16 +646,19 @@ public static class SecondaryLogic
 
   public static double IronBuster(Character player)
   {
-    return 2.50f;
+    if (player.IronBuster <= 1) { return 2.50f; }
+    return 2.50f + (player.IronBuster - 1) * 0.30f;
   }
   public static double IronBuster_2(Character player)
   {
-    return 1.50f;
+    if (player.IronBuster <= 1) { return 1.50f; }
+    return 1.50f + (player.IronBuster - 1) * 0.20f;
   }
 
   public static double AngelicEcho(Character player)
   {
-    return 1.50f;
+    if (player.AngelicEcho <= 1) { return 1.50f; }
+    return 1.50f + (player.AngelicEcho - 1) * 0.10f;
   }
   public static int AngelicEcho_Turn(Character player)
   {
@@ -660,7 +666,8 @@ public static class SecondaryLogic
   }
   public static double AngelicEcho_Effect(Character player)
   {
-    return 1.50f;
+    if (player.AngelicEcho <= 1) { return 1.50f; }
+    return 1.50f + (player.AngelicEcho - 1) * 0.10f;
   }
 
   public static double CursedEvangile(Character player)
@@ -675,7 +682,8 @@ public static class SecondaryLogic
 
   public static double CursedEvangile_Effect(Character player)
   {
-    return 4.44f;
+    if (player.CursedEvangile <= 1) { return 4.44f; }
+    return 4.44f + (player.CursedEvangile - 1) * 0.74f; // 3段階UPで666を狙った値
   }
 
   public static int CursedEvangile_SlepTurn(Character player)
@@ -705,7 +713,8 @@ public static class SecondaryLogic
 
   public static double PenetrationArrow_Effect2(Character player)
   {
-    return 0.70f;
+    if (player.PenetrationArrow <= 1) { return 0.70f; }
+    return 0.70f - (player.PenetrationArrow - 1) * 0.04f;
   }
 
   public static int CircleOfTheSerenity_Turn(Character player)
@@ -715,7 +724,8 @@ public static class SecondaryLogic
 
   public static int WillAwakening_Turn(Character player)
   {
-    return 3;
+    if (player.WillAwakening <= 1) { return 3; }
+    return 3 + (player.WillAwakening - 1);
   }
 
   public static int PhantomOboro_Turn(Character player)
@@ -729,15 +739,18 @@ public static class SecondaryLogic
   }
   public static double DeadlyDrive_Effect1(Character player)
   {
-    return 1.05f;
+    if (player.DeadlyDrive <= 1) { return 1.05f; }
+    return 1.05f + (player.DeadlyDrive - 1) * 0.01f;
   }
   public static double DeadlyDrive_Effect2(Character player)
   {
-    return 1.10f;
+    if (player.DeadlyDrive <= 1) { return 1.10f; }
+    return 1.10f + (player.DeadlyDrive - 1) * 0.02f;
   }
   public static double DeadlyDrive_Effect3(Character player)
   {
-    return 1.15f;
+    if (player.DeadlyDrive <= 1) { return 1.15f; }
+    return 1.15f + (player.DeadlyDrive - 1) * 0.03f;
   }
 
   public static int DominationField_Turn(Character player)
@@ -746,11 +759,13 @@ public static class SecondaryLogic
   }
   public static double DominationField_Effect1(Character player)
   {
-    return 1.10f;
+    if (player.DominationField <= 1) { return 1.10f; }
+    return 1.10f + (player.DominationField - 1) * 0.03f;
   }
   public static double DominationField_Effect2(Character player)
   {
-    return 0.10f;
+    if (player.DominationField <= 1) { return 0.10f; }
+    return 0.10f + (player.DominationField - 1) * 0.02f;
   }
 
   public static double FlameStrike(Character player)

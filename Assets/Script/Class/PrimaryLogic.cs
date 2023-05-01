@@ -163,21 +163,24 @@ public static class PrimaryLogic
       double diffLife = (double)(player.CurrentLife) / (double)(player.MaxLife);
       if (diffLife <= 0.10f)
       {
-        Debug.Log("DeadlyDrive under 10% effect before: " + diffLife.ToString() + " " + result);
+        double result_before = result;
+        Debug.Log("DeadlyDrive under 10%: " + diffLife.ToString());
         result = result * player.IsDeadlyDrive.EffectValue3;
-        Debug.Log("DeadlyDrive under 10% effect after : " + diffLife.ToString() + " " + result);
+        Debug.Log("DeadlyDrive under 10% : " + player.IsDeadlyDrive.EffectValue3.ToString("F2") + " " + result_before.ToString("F2") + " -> " + result);
       }
       else if (diffLife <= 0.20f)
       {
-        Debug.Log("DeadlyDrive under 20% effect before: " + diffLife.ToString() + " " + result);
+        double result_before = result;
+        Debug.Log("DeadlyDrive under 20%: " + diffLife.ToString() + " " + result);
         result = result * player.IsDeadlyDrive.EffectValue2;
-        Debug.Log("DeadlyDrive under 20% effect after: " + diffLife.ToString() + " " + result);
+        Debug.Log("DeadlyDrive under 20% : " + player.IsDeadlyDrive.EffectValue2.ToString("F2") + " " + result_before.ToString("F2") + " -> " + result);
       }
       else if (diffLife <= 0.30f)
       {
-        Debug.Log("DeadlyDrive under 30% effect before: " + diffLife.ToString() + " " + result);
-        result = result * player.IsDeadlyDrive.EffectValue3;
-        Debug.Log("DeadlyDrive under 30% effect after: " + diffLife.ToString() + " " + result);
+        double result_before = result;
+        Debug.Log("DeadlyDrive under 30%: " + diffLife.ToString() + " " + result);
+        result = result * player.IsDeadlyDrive.EffectValue;
+        Debug.Log("DeadlyDrive under 30% : " + player.IsDeadlyDrive.EffectValue.ToString("F2") + " " + result_before.ToString("F2") + " -> " + result);
       }
     }
 
@@ -259,7 +262,10 @@ public static class PrimaryLogic
     }
     if (player.IsPenetrationArrow)
     {
+      Debug.Log("PhysicalDefense( Penetration-Arrow ): " + player.IsPenetrationArrow.EffectValue2.ToString("F2"));
+      double result_before = result;
       result *= player.IsPenetrationArrow.EffectValue2;
+      Debug.Log("PenetrationArrow detect: " + player.IsPenetrationArrow.EffectValue2.ToString("F2") + " " + result_before.ToString("F2") + " -> " + result.ToString("F2"));
     }
 
     if (player.IsPhysicalDefenseDown)

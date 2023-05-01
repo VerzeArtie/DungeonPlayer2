@@ -1120,14 +1120,32 @@ public static class ActionCommand
     if (command_name == Fix.ANGELIC_ECHO) { return 27; }
     if (command_name == Fix.CURSED_EVANGILE) { return 26; }
     if (command_name == Fix.GALE_WIND) { return 33; }
-    if (command_name == Fix.PHANTOM_OBORO) { return 36; }
+    if (command_name == Fix.PHANTOM_OBORO)
+    {
+      int result = 36;
+      if (player != null && player.PhantomOboro > 0)
+      {
+        result -= (player.PhantomOboro - 1) * 10;
+      }
+      if (result <= 0) { result = 0; }
+      return result; 
+    }
     // スキル
     if (command_name == Fix.IRON_BUSTER) { return 30; }
     if (command_name == Fix.DOMINATION_FIELD) { return 40; }
     if (command_name == Fix.DEADLY_DRIVE) { return 5; }
     if (command_name == Fix.PENETRATION_ARROW) { return 45; }
     if (command_name == Fix.WILL_AWAKENING) { return 50; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 50; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY)
+    {
+      int result = 50;
+      if (player != null && player.CircleOfSerenity > 0)
+      {
+        result -= (player.CircleOfSerenity - 1) * 10;
+      }
+      if (result <= 0) { result = 0; }
+      return result;
+    }
     #endregion
 
     #region "Delve V"
@@ -1838,7 +1856,7 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return "自分自身を対象とする。対象に【分身】のBUFFを付与する。\r\n【分身】の効果が続く間、コマンドを発動する際、連続で２回同じ行動を行う。"; }
     if (command_name == Fix.PHANTOM_OBORO) { return "自分自身に【朧】のBUFFを付与する。【朧】のBUFFがある間に、インスタントアクションからダメージを有する攻撃を受けた場合、そのダメージは０と見なされる。これはダメージ軽減の適用外である。"; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、敵全体に対して【物理】ダメージを与える。\r\nこのコマンドはカウンターされない。"; }
+    if (command_name == Fix.IRON_BUSTER) { return "敵一体を対象とする。対象に【物理】ダメージを与える。加えて、周囲敵全体（対象となった敵以外）に対して【物理】ダメージを与える。このコマンドはカウンターされない。"; }
     if (command_name == Fix.DOMINATION_FIELD) { return "味方フィールドに【鉄壁】のBUFFを形成する。【鉄壁】が続く間、物理防御力および魔法防御力が１０％上昇する。また、各味方が【防御】姿勢を行っている場合のダメージ軽減率が20%上昇する。"; }
     if (command_name == Fix.DEADLY_DRIVE) { return "自分自身に【決死】のBUFFを付与する。【決死】が続く間、致死ダメージ（ライフが0になる攻撃ダメージ）を受けた場合、ライフ１で生き残る。この効果はライフ１以下の時は適用されない。また、ライフが最大ライフの30％以下であれば、物理攻撃が5%上昇、20%以下であれば10%上昇、10以下であれば15%上昇する。"; }
     if (command_name == Fix.PENETRATION_ARROW) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与える。このダメージは相手の物理防御力に影響しない。加えて対象に【傷跡】のBUFFを付与する。【傷跡】が続く間、対象の物理防御力が減少する。また、対象が行動する度に【出血】ダメージを与える。"; }

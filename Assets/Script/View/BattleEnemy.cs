@@ -3750,6 +3750,7 @@ public partial class BattleEnemy : MotherBase
 
       if (AllList[ii].IsCursedEvangile)
       {
+        Debug.Log("CursedEvangile Detect");
         List<string> total = new List<string>();
         if (AllList[ii].IsSilent == null) { total.Add(Fix.EFFECT_SILENT); }
         if (AllList[ii].IsBind == null) { total.Add(Fix.EFFECT_BIND); }
@@ -3760,19 +3761,23 @@ public partial class BattleEnemy : MotherBase
           int random = AP.Math.RandomInteger(total.Count);
           if (total[random] == Fix.EFFECT_SILENT)
           {
+            Debug.Log("CursedEvangile EFFECT_SILENT");
             ExecBuffSilent(AllList[ii], AllList[ii], (int)(AllList[ii].IsCursedEvangile.EffectValue2), 0);
           }
           else if (total[random] == Fix.EFFECT_BIND)
           {
+            Debug.Log("CursedEvangile EFFECT_BIND");
             ExecBuffBind(AllList[ii], AllList[ii], (int)(AllList[ii].IsCursedEvangile.EffectValue2), 0);
           }
           else // if (total[random] == Fix.EFFECT_SLIP)
           {
+            Debug.Log("CursedEvangile EFFECT_SLIP");
             ExecBuffSlip(AllList[ii], AllList[ii], (int)(AllList[ii].IsCursedEvangile.EffectValue2), AllList[ii].IsCursedEvangile.EffectValue3);
           }
         }
         else
         {
+          Debug.Log("CursedEvangile Detect: " + AllList[ii].IsCursedEvangile.EffectValue.ToString("F2"));
           ExecElementalDamage(AllList[ii], Fix.DamageSource.DarkMagic, AllList[ii].IsCursedEvangile.EffectValue);
         }
       }
@@ -5661,13 +5666,17 @@ public partial class BattleEnemy : MotherBase
         // フリージング・キューブによる効果
         if (buffList[ii].BuffName == Fix.FREEZING_CUBE && attr == Fix.DamageSource.Ice)
         {
+          double before_result = damageValue;
           damageValue = damageValue * buffList[ii].EffectValue;
+          Debug.Log("MagicDamage ( FreezingCube ) : " + buffList[ii].EffectValue.ToString("F2") + " " + before_result.ToString("F2") + " -> " + damageValue.ToString("F2"));
         }
 
         // ヴォルカニック・ウェイヴによる効果
         if (buffList[ii].BuffName == Fix.VOLCANIC_BLAZE && attr == Fix.DamageSource.Fire)
         {
+          double before_result = damageValue;
           damageValue = damageValue * buffList[ii].EffectValue;
+          Debug.Log("MagicDamage ( VolcanicWave ) : " + buffList[ii].EffectValue.ToString("F2") + " " + before_result.ToString("F2") + " -> " + damageValue.ToString("F2"));
         }
       }
     }
