@@ -3119,6 +3119,12 @@ public partial class BattleEnemy : MotherBase
         return;
       }
 
+      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand)
+      {
+        Debug.Log("Command Timing is StackCommand, then no action.");
+        return;
+      }
+
       if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
       {
         if (this.NowSelectSrcPlayer.IsWillAwakening)
@@ -4530,7 +4536,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecInnerInspiration(Character player, Character target)
   {
-    double effectValue = SecondaryLogic.InnerInspiration_Effect1(target) * target.MaxSkillPoint;
+    double effectValue = SecondaryLogic.InnerInspiration_Effect1(player) * target.MaxSkillPoint;
     AbstractGainSkillPoint(player, target, effectValue);
   }
 

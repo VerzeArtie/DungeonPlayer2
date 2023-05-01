@@ -1533,7 +1533,7 @@ public partial class Character : MonoBehaviour
     {
       if (buffList[ii].BuffName == field_buff_name)
       {
-        Debug.Log("Detect field_buff_name: " + field_buff_name);
+        //Debug.Log("Detect field_buff_name: " + field_buff_name);
         return buffList[ii];
       }
     }
@@ -6037,7 +6037,13 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (skip_decision == false) { this.AI_Phase++; }
 
-        if (this.IsTrueSight == null)
+        if (true)
+        {
+//          result = Fix.COMMAND_MIDARE_GIRI;
+          result = Fix.COMMAND_POISON_NEEDLE;
+//          result = Fix.SHIELD_BASH;// Fix.STRAIGHT_SMASH;// "絶望の魔手";
+        }
+        else if (this.IsTrueSight == null)
         {
           result = Fix.TRUE_SIGHT;
           this.Target = this;

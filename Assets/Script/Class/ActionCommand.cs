@@ -1154,13 +1154,31 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return 52; }
     if (command_name == Fix.SHINING_HEAL) { return 63; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE)
+    {
+      int result = 80;
+      if (player != null && player.SeventhPrinciple > 0)
+      {
+        result -= (player.SeventhPrinciple - 1) * 10;
+      }
+      if (result <= 0) { result = 0; }
+      return result;
+    }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     // スキル
     if (command_name == Fix.RAGING_STORM) { return 45; }
     if (command_name == Fix.PRECISION_STRIKE) { return 50; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
-    if (command_name == Fix.HARDEST_PARRY) { return 25; }
+    if (command_name == Fix.HARDEST_PARRY)
+    {
+      int result = 50;
+      if (player != null && player.HardestParry > 0)
+      {
+        result -= (player.HardestParry - 1) * 5;
+      }
+      if (result <= 0) { result = 0; }
+      return result;
+    }
     if (command_name == Fix.EVERFLOW_MIND) { return 20; }
     if (command_name == Fix.INNER_INSPIRATION) { return 0; }
     #endregion

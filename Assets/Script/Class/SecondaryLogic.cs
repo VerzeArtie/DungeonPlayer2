@@ -770,7 +770,8 @@ public static class SecondaryLogic
 
   public static double FlameStrike(Character player)
   {
-    return 3.50f;
+    if (player.FlameStrike <= 1) { return 3.50f; }
+    return 3.50f + (player.FlameStrike - 1) * 0.50f;
   }
 
   public static int FlameStrike_Turn(Character player)
@@ -780,7 +781,8 @@ public static class SecondaryLogic
 
   public static double FrostLance(Character player)
   {
-    return 3.20f;
+    if (player.FrostLance <= 1) { return 3.20f; }
+    return 3.20f + (player.FrostLance - 1) * 0.40f;
   }
   public static int FrostLance_Turn(Character player)
   {
@@ -789,7 +791,8 @@ public static class SecondaryLogic
 
   public static int ShiningHeal_Turn(Character player)
   {
-    return 3;
+    if (player.ShiningHeal <= 1) { return 3; }
+    return 3 + (player.ShiningHeal - 1);
   }
 
   public static double ShiningHeal_Effect1(Character player)
@@ -803,14 +806,16 @@ public static class SecondaryLogic
   }
   public static double CircleOfDespair_Effect1(Character player)
   {
-    return 0.80f;
+    if (player.CircleOfTheDespair <= 1) { return 0.80f; }
+    return 0.80f - (player.CircleOfTheDespair - 1) * 0.03f;
   }
 
   // MindForce still is not implemented.
 
   public static int CounterDisallow_Turn(Character player)
   {
-    return 2;
+    if (player.CounterDisallow <= 1) { return 2; }
+    return 2 + (player.CounterDisallow - 1);
   }
 
   public static double RagingStorm(Character player)
@@ -825,12 +830,14 @@ public static class SecondaryLogic
 
   public static double RagingStorm_Effect1(Character player)
   {
-    return 1.10f;
+    if (player.RagingStorm <= 1) { return 1.10f; }
+    return 1.10f + (player.RagingStorm - 1) * 0.10f;
   }
 
   public static double PrecisionStrike(Character player)
   {
-    return 2.50f;
+    if (player.PrecisionStrike <= 1) { return 2.50f; }
+    return 2.50f + (player.PrecisionStrike - 1) * 0.50f;
   }
 
   public static double UnintentionalHit(Character player)
@@ -853,12 +860,14 @@ public static class SecondaryLogic
 
   public static double EverflowMind_Effect1(Character player)
   {
-    return 0.20f;
+    if (player.EverflowMind <= 1) { return 0.20f; }
+    return 0.20f + (player.EverflowMind - 1) * 0.02f;
   }
 
   public static double InnerInspiration_Effect1(Character player)
   {
-    return 0.10f;
+    if (player.InnerInspiration <= 1) { return 0.10f; }
+    return 0.10f + (player.InnerInspiration - 1) * 0.10f;
   }
 
   public static int SeventhPrinciple_Turn(Character player)
