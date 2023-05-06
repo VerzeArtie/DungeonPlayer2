@@ -5589,9 +5589,9 @@ public static partial class Fix
 
   public const string OHRANTOWER_ObsidianStone_2_C = "ObsidianStone";
   public const string OHRANTOWER_ObsidianStone_2_O = "2";
-  public const float OHRANTOWER_ObsidianStone_2_X = -29f;
-  public const float OHRANTOWER_ObsidianStone_2_Y = 9f;
-  public const float OHRANTOWER_ObsidianStone_2_Z = 17f;
+  public const float OHRANTOWER_ObsidianStone_2_X = 7.0f;
+  public const float OHRANTOWER_ObsidianStone_2_Y = -7.0f;
+  public const float OHRANTOWER_ObsidianStone_2_Z = -9.0f;
 
   public const string OHRANTOWER_WarpHole_1_C = "WarpHole";
   public const string OHRANTOWER_WarpHole_1_O = "1";

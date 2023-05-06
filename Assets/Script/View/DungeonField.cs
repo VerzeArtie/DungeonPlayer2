@@ -1878,6 +1878,12 @@ public class DungeonField : MotherBase
         MessagePack.Message900720(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_ObsidianStone_2_X, Fix.OHRANTOWER_ObsidianStone_2_Y, Fix.OHRANTOWER_ObsidianStone_2_Z))
+      {
+        MessagePack.Message801000(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
     // オブジェクト（岩）の判定
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
@@ -4934,7 +4940,7 @@ public class DungeonField : MotherBase
         RemoveOneSentence();
         GroupQuestMessage.SetActive(true);
 
-        Debug.Log(currentEvent.ToString() + " " + currentMessage);
+        Debug.Log("TapOK: " + currentEvent.ToString() + " " + currentMessage);
 
         // ブラックアウトしている画面から元に戻す。
         if (currentEvent == MessagePack.ActionEvent.ReturnToNormal)
@@ -6502,6 +6508,14 @@ public class DungeonField : MotherBase
             }
           }
 
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+          {
+            if (currentMessage == Fix.OHRANTOWER_ObsidianStone_2_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_ObsidianStone_2_X, Fix.OHRANTOWER_ObsidianStone_2_Y, Fix.OHRANTOWER_ObsidianStone_2_Z));
+            }
+          }
+
           // 岩壁１
           if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
           {
@@ -6671,6 +6685,10 @@ public class DungeonField : MotherBase
             JumpToLocation(new Vector3(jump_X, jump_Y, jump_Z));
             UpdateUnknownTile(Player.transform.position);
           }
+        }
+        else if (currentEvent == MessagePack.ActionEvent.GotoHomeTownForce)
+        {
+          this.HomeTownCall = currentMessage;
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
