@@ -293,6 +293,11 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < playerList.Count; ii++)
     {
       Debug.Log("playerList: " + ii.ToString() + " " + playerList[ii].FullName);
+      if (BattleType == Fix.BattleMode.Duel && ii >= 1)
+      {
+        // Duelの場合１人しか参加させない。
+        continue;
+      }
       NodeBattleChara node = Instantiate(node_BattleChara) as NodeBattleChara;
       node.gameObject.SetActive(true);
       node.ParentPanel.SetActive(true);

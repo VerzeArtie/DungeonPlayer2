@@ -716,7 +716,7 @@ public static partial class Fix
   public const string QUEST_DESC_20 = "オーランの塔最上階へと上る階段にて、流れ込んでくる異質な風をパーティ全員は感じ取った。この先、何かが待ち受けている事だけは間違いない。準備を万全にして挑んだ方が良いだろう。";
 
   public const string QUEST_TITLE_21 = "国王エルミからの依頼３";
-  public const string QUEST_DESC_21 = "オーランの塔から見えた奇妙な赤い星、およびそれ以外にも見えた内容について国王へ報告を行った。国王エルミからは次の指令としてムーンフォーダー方面にあるアーケンダイン街を目指すよう依頼を受けた。準備を万全に整え、アーケンダイン街を目指そう。";
+  public const string QUEST_DESC_21 = "オーランの塔から見えた奇妙な赤い星、およびそれ以外にも見えた内容について国王へ報告を行った。国王エルミからは次の指令としてムーンフォーダー方面にあるパルメティシア神殿を目指すよう依頼を受けた。準備を整えたアイン達は、パルメティシア神殿へと向かう。";
   public const string QUEST_DESC_21_2 = "アーケンダイン街に到着したアイン達は、早速聞き込みを開始する事とした。アーケンダイン街を一通り回り、街の人と会話しよう。";
 
   public const string QUEST_TITLE_22 = "隠されしは【神秘の森】";
@@ -737,6 +737,10 @@ public static partial class Fix
   public const string DECISION_ARTHARIUM_CRASH_DOOR = "アーサリウム工場跡地：扉を蹴破れ！";
   public const string DECISION_ARTHARIUM_CRASH_DOOR2 = "アーサリウム工場跡地：扉を蹴破れ！（２）";
   public const string DECISION_PARTY_JOIN_SELMOI_RO = "セルモイ・ロウを仲間に引き入れる";
+
+  public const string CHOICE_VELGUS_JUDGE_1 = "ヴェルガス海底神殿：石像への解【１】";
+  public const string CHOICE_VELGUS_JUDGE_2 = "ヴェルガス海底神殿：石像への解【２】";
+  public const string CHOICE_VELGUS_JUDGE_3 = "ヴェルガス海底神殿：石像への解【３】";
   #endregion
   #region "Area Description"
   public const string AREA_INFO_ANSHET = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。";
@@ -746,6 +750,8 @@ public static partial class Fix
   public const string AREA_INFO_COTUHSYE = "この港町には様々な職業の者が行き来している。国王エルミは本エリアを交流の場の一つとして制定しており、出入りについて制限は設けていないため交易が盛んである。だが、現在は船の出航制限がかかっており、ここからヴィンスガルデ王国行きの船は出ていない。";
   public const string AREA_INFO_MYSTIC_FOREST = "立ち入る人々を深淵なる濃霧へと誘う【神秘の森】。その場の見通しの悪さに加え、モンスターからの襲撃が繰り返し行われるため、方向感覚を失い、そのまま行方不明となる者が後を絶えない。進むためには入念なる準備が必要となるだろう。";
   public const string AREA_INFO_OHRAN_TOWER = "塔の頂上からは大陸全土を見渡す事ができる。【オーランの塔】が建設された時期は依然として不明であるが、少なくともファージル王国が栄えるよりも前から存在している。今では観光として訪れる者はおらず、モンスターが蔓延る場所と化しており、戦闘経験を積んだ者達が腕試しとして挑む場所に指定されている。塔の頂きに到達したければ、一定の力量、状況判断を持って挑む必要があるだろう。";
+  public const string AREA_INFO_PARMETYSIA = "ムーンフォーダー方面を統括するパルメティシア神殿。その方面は雪原地域であり、ファージルエリアからは特別な事情が無い限り行くことはないとされている。また、そのエリア一帯はムーンフォーダー教団の一員達が定期的な監視を行っており、迂闊に出歩く事も許されていない。";
+  public const string AREA_INFO_VELGUS_SEA_TEMPLE = "遥か古代から存在する海底神殿ヴェルガス。その名は教団がこの神殿を発見した当時の人物「ヴェルセリウス・ガーランド・アルトリウス」の名にちなんで命名された。この世に生まれし生命は等しく神から寵愛を受ける事が約束されており、それは「天の名」という形で示される。海底神殿には幾つもの紋様が刻まれており、紋様が示す意図はムーンフォーダー教団の力を持ってしても、未だ解明されていない。「天の名」が授けられると言われる海底神殿ではあるが、実質は魔物の巣窟となっている。海底神殿へ挑むには相当の力量が必要となるだろう。";
   #endregion
   #endregion
 

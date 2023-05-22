@@ -113,6 +113,14 @@ public class DungeonField : MotherBase
   public Text txtDecisionB;
   public Text txtDecisionC;
 
+  // Choice
+  public GameObject GroupChoice;
+  public Text txtChoiceTitle;
+  public Text txtChoiceMessage;
+  public Text txtChoiceA;
+  public Text txtChoiceB;
+  public Text txtChoiceC;
+
   public SaveLoad groupSaveLoad;
 
   // GUI
@@ -185,6 +193,7 @@ public class DungeonField : MotherBase
   private FieldObject CurrentEventObject = null;
 
   private string currentDecision = String.Empty;
+  private string currentChoice = String.Empty;
 
   private float FieldDamage = 1.0f;
 
@@ -468,6 +477,14 @@ public class DungeonField : MotherBase
         if (One.TF.Event_Message1200010 == false)
         {
           MessagePack.Message1200010(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+      {
+        if (One.TF.DefeatEoneFulnea && One.TF.Event_Message1010010 == false)
+        {
+          MessagePack.Message1010010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
 
@@ -1122,6 +1139,72 @@ public class DungeonField : MotherBase
       MessagePack.Message1200012(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
+  }
+
+  public void TapChoiceAccept(int number)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + number.ToString());
+    GroupChoice.SetActive(false);
+    if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_1)
+    {
+      if (number == 1)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 2)
+      {
+        MessagePack.Message1009020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 3)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_2)
+    {
+      if (number == 1)
+      {
+        MessagePack.Message1009030(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 2)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 3)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      } 
+    }
+    else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_3)
+    {
+      if (number == 1)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 2)
+      {
+        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (number == 3)
+      {
+        MessagePack.Message1009040(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+  }
+
+  public void TapChoiceCancel()
+  {
+    this.currentChoice = String.Empty;
+    GroupChoice.SetActive(false);
   }
 
   public void TapBattleConfig()
@@ -6651,8 +6734,51 @@ public class DungeonField : MotherBase
             GroupDecision.SetActive(true);
             return;
           }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_1)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
+            txtChoiceMessage.text = "";
+            txtChoiceA.text = "赤ポーションを皿の上に置く";
+            txtChoiceB.text = "青ポーションを皿の上の置く";
+            txtChoiceC.text = "何もしない";
+            GroupChoice.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_2)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
+            txtChoiceMessage.text = "";
+            txtChoiceA.text = "水晶を皿の上に置く";
+            txtChoiceB.text = "本を皿の上の置く";
+            txtChoiceC.text = "何もしない";
+            GroupChoice.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_3)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
+            txtChoiceMessage.text = "";
+            txtChoiceA.text = "剣を皿の上に置く";
+            txtChoiceB.text = "盾を皿の上の置く";
+            txtChoiceC.text = "何もしない";
+            GroupChoice.SetActive(true);
+            return;
+          }
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountBoss)
+        {
+          One.CannotRunAway = true;
+          One.BattleEnemyList.Clear();
+          One.BattleEnemyList.Add(currentMessage);
+          PrepareCallTruthBattleEnemy();
+        }
+        else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
         {
           One.CannotRunAway = true;
           One.BattleEnemyList.Clear();
@@ -6739,6 +6865,10 @@ public class DungeonField : MotherBase
           One.EnemyList[0].Area == Fix.MonsterArea.Boss5)
       {
         One.BattleMode = Fix.BattleMode.Boss;
+      }
+      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+      {
+        One.BattleMode = Fix.BattleMode.Duel;
       }
       else
       {

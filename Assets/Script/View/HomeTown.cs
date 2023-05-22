@@ -361,6 +361,10 @@ public partial class HomeTown : MotherBase
   private RectTransform canvasRect;
   private Vector2 mousePosition;
   protected bool FirstAction = false;
+  private bool AlreadyDetectEncount = false;
+  private bool AlreadyDetectEncounted = false;
+  private int MarginTimeForCallBattle = 30;
+  bool ignoreCreateShadow = false;
 
   private bool HomeTownComplete = false;
 
@@ -413,12 +417,18 @@ public partial class HomeTown : MotherBase
       }
 
       // オーランの塔からの帰還
-      if (One.TF.Event_Message800100 && One.TF.Event_Message700020 == false)
+      if (One.TF.Event_Message800100 && One.TF.Event_Message700060 == false)
       {
         MessagePack.Message700020(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
+      // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
+      if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
+      {
+        MessagePack.Message1010020(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
@@ -498,6 +508,20 @@ public partial class HomeTown : MotherBase
         MessagePack.Message801010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+    }
+
+    if (this.AlreadyDetectEncount)
+    {
+      MarginTimeForCallBattle--;
+      if (MarginTimeForCallBattle <= 0)
+      {
+        if (AlreadyDetectEncounted == false)
+        {
+          AlreadyDetectEncounted = true;
+          SceneDimension.CallBattleEnemy();
+        }
+      }
+      return;
     }
 
     if (this.DungeonCallComplete)
@@ -774,6 +798,10 @@ public partial class HomeTown : MotherBase
         {
           MessagePack.Message700050(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+        else if (One.TF.Event_Message801010 && One.TF.Event_Message700060 == false)
+        {
+          MessagePack.Message700060(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
         else
         {
           MessagePack.Message700031(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -970,8 +998,14 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (One.TF.Event_Message801010 && One.TF.Event_Message700060 == false)
+    {
+      MessagePack.Message801020(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     // 行き先がホームタウンの場合
-    if (this.DungeonMap == Fix.TOWN_ANSHET ||
+      if (this.DungeonMap == Fix.TOWN_ANSHET ||
         this.DungeonMap == Fix.TOWN_FAZIL_CASTLE ||
         this.DungeonMap == Fix.TOWN_COTUHSYE ||
         this.DungeonMap == Fix.TOWN_ARCANEDINE ||
@@ -1039,6 +1073,7 @@ public partial class HomeTown : MotherBase
           One.TF.CurrentAreaName == Fix.TOWN_ARCANEDINE ||
           One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
       {
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_VELGUS, 14.0f, 1.0f, -12.0f);
       }
       else
       {
@@ -2253,14 +2288,26 @@ public partial class HomeTown : MotherBase
           ExecRestInn();
           continue;
         }
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownNight)
+        {
+          UpdateBackgroundData(Fix.BACKGROUND_NIGHT);
+          continue;
+        }
         else if (currentEvent == MessagePack.ActionEvent.HometownNextDay)
         {
-          
+
           ExecRestInn();
           UpdateBackgroundData(Fix.BACKGROUND_MORNING);
           this.objBlackOut.SetActive(false);
           MessagePack.MessageX00001(ref QuestMessageList, ref QuestEventList);
           continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
+        {
+          One.CannotRunAway = true;
+          One.BattleEnemyList.Clear();
+          One.BattleEnemyList.Add(currentMessage);
+          PrepareCallTruthBattleEnemy();
         }
         else
         {
@@ -2298,6 +2345,64 @@ public partial class HomeTown : MotherBase
     {
       this.QuestEventList.RemoveAt(0);
     }
+  }
+
+  private void PrepareCallTruthBattleEnemy()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + "1");
+
+    this.AlreadyDetectEncount = true;
+    One.BattleEnd = Fix.GameEndType.None;
+    if (this.ignoreCreateShadow == false)
+    {
+      One.CreateShadowData();
+      for (int ii = 0; ii < One.EnemyList.Count; ii++)
+      {
+        UnityEngine.Object.DontDestroyOnLoad(One.ShadowPlayerList[ii]);
+      }
+    }
+    Debug.Log(MethodBase.GetCurrentMethod() + "2");
+
+    One.EnemyList.Clear();
+    for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + "3 " + One.BattleEnemyList[ii]);
+      GameObject objEC = new GameObject("objEC_" + ii.ToString());
+      Debug.Log(MethodBase.GetCurrentMethod() + "3-2 " + One.BattleEnemyList[ii]);
+      Character character = objEC.AddComponent<Character>();
+      Debug.Log(MethodBase.GetCurrentMethod() + "3-3 " + One.BattleEnemyList[ii]);
+      character.Construction(One.BattleEnemyList[ii]);
+      Debug.Log(MethodBase.GetCurrentMethod() + "3-4 " + One.BattleEnemyList[ii]);
+      One.EnemyList.Add(character);
+      Debug.Log(MethodBase.GetCurrentMethod() + "3-5 " + One.BattleEnemyList[ii]);
+
+      if (One.EnemyList[0].Area == Fix.MonsterArea.Boss1 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss2 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss5)
+      {
+        One.BattleMode = Fix.BattleMode.Boss;
+      }
+      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+      {
+        Debug.Log(MethodBase.GetCurrentMethod() + "4 Duel");
+        One.BattleMode = Fix.BattleMode.Duel;
+      }
+      else
+      {
+        One.BattleMode = Fix.BattleMode.Normal;
+      }
+    }
+
+    for (int ii = 0; ii < One.EnemyList.Count; ii++)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + "5");
+      UnityEngine.Object.DontDestroyOnLoad(One.EnemyList[ii]);
+    }
+
+    //this.GroupQuestMessage.SetActive(true);
+    Debug.Log(MethodBase.GetCurrentMethod() + "6");
   }
 
   private void CharacterEatFood(Character player, int[] food_up_value)
@@ -3343,6 +3448,8 @@ public partial class HomeTown : MotherBase
     //if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
     if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
     if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
+    if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
+    if (One.TF.Event_Message2200020) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE, true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
@@ -3402,6 +3509,8 @@ public partial class HomeTown : MotherBase
     if (select_area_name == Fix.TOWN_COTUHSYE) { txtEventDescription.text = Fix.AREA_INFO_COTUHSYE; }
     if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { txtEventDescription.text = Fix.AREA_INFO_MYSTIC_FOREST; }
     if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
+    if (select_area_name == Fix.TOWN_PARMETYSIA) { txtEventDescription.text = Fix.AREA_INFO_PARMETYSIA; }
+    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
   }
   
   private void ViewQuestEvent(string quest_name)

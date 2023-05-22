@@ -5785,6 +5785,11 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      default:
+        SetupParameter(10, 10, 10, 10, 10, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
     }
 
     // debug

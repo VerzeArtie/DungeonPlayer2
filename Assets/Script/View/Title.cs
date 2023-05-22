@@ -51,6 +51,27 @@ public class Title : MotherBase
     SceneDimension.JumpToHomeTown();
   }
 
+  public void TapGameStartDungeon()
+  {
+    if (System.IO.File.Exists(One.PathForRootFile(Fix.AR_FILE)) == false)
+    {
+      Debug.Log("PathForRootFile(Fix.AR_FILE no exist, then create it.: " + One.PathForRootFile(Fix.AR_FILE));
+      One.UpdateAkashicRecord();
+    }
+    else
+    {
+      Debug.Log("PathForRootFile(Fix.AR_FILE exist, then no action.: " + One.PathForRootFile(Fix.AR_FILE));
+    }
+
+    One.TF.AvailableEinWolence = true;
+    One.TF.AvailableLanaAmiria = true;
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
+    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+    One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
+    SceneDimension.JumpToDungeonField(Fix.MAPFILE_VELGUS);
+  }
+
   public void TapGameLoad()
   {
     One.SaveMode = false;
@@ -78,78 +99,166 @@ public class Title : MotherBase
     One.BattleEnd = Fix.GameEndType.None;
 
     One.TF.AvailableEoneFulnea = true;
+    One.TF.AvailableBillyRaki = true;
+
+    Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
+    ein.FireBall = 6;
+    //ein.FlameBlade = 1;
+    //ein.GaleWind = 1;
+    //ein.IceNeedle = 1;
+    //ein.FreezingCube = 1;
+    //ein.VolcanicBlaze = 1;
+    //ein.IronBuster = 1;
+    //ein.CounterAttack = 1;
+    //ein.CursedEvangile = 1;
+    //ein.PenetrationArrow = 1;
+    //ein.CircleOfSerenity = 1;
+    //ein.WillAwakening = 1;
+    //ein.PhantomOboro = 1;
+    //ein.DeadlyDrive = 1;
+    //ein.DominationField = 1;
+    //ein.HunterShot = 1;
+    //ein.ShiningHeal = 1;
+    //ein.BloodSign = 1;
+    //ein.CircleOfTheDespair = 1;
+    //ein.RagingStorm = 1;
+    //ein.FreshHeal = 1;
+    //ein.EnergyBolt = 1;
+    //ein.SpeedStep = 1;
+    //ein.LeylineSchema = 3;
+    //ein.OracleCommand = 6;
+    //ein.EnergyBolt = 4;
+    ein.FortuneSpirit = 3;
+    ein.StanceOfTheBlade = 1;
+    ein.StanceOfTheGuard = 20;
+    //ein.SpiritualRest = 1;
+    ein.WordOfPower = 6;
+    //ein.SigilOfThePending = 4;
+    ein.DoubleSlash = 6;
+    ein.GaleWind = 3;
+    ein.EyeOfTheIsshin = 20;
+    ein.PhantomOboro = 3;
+    //ein.DominationField = 20;
+    ein.WillAwakening = 3;
+    ein.FlameStrike = 1;
+    ein.SeventhPrinciple = 4;
+    ein.HardestParry = 4;
+    ein.InnerInspiration = 6;
+    ein.ActionCommand1 = Fix.FIRE_BALL;
+    ein.ActionCommand2 = Fix.STRAIGHT_SMASH;
+    ein.ActionCommand3 = Fix.INNER_INSPIRATION;
+    ein.ActionCommand4 = Fix.FRESH_HEAL;
+    ein.ActionCommand5 = Fix.SEVENTH_PRINCIPLE;
+    ein.ActionCommand6 = Fix.PHANTOM_OBORO;
+    ein.ActionCommand7 = Fix.FLAME_STRIKE;
+    ein.ActionCommand8 = Fix.GALE_WIND;
+    ein.ActionCommand9 = Fix.HARDEST_PARRY;
+    ein.Strength = 100;
+    ein.Agility = 10;
+    ein.Intelligence = 10;
+    ein.Mind = 100;
+    ein.BaseManaPoint = 999;
+    ein.BaseLife = 1000;
+    ein.MaxGain();
+    //ein.CurrentManaPoint = 2;
 
     Character lana = One.SelectCharacter(Fix.NAME_LANA_AMIRIA);
+    lana.IceNeedle = 6;
+    lana.LegStrike = 2;
     lana.ShiningHeal = 1;
     lana.EverflowMind = 1;
     lana.StraightSmash = 1;
-    lana.BlackContract = 1;
     lana.InnerInspiration = 1;
-    lana.SeventhPrinciple = 1;
+    lana.DispelMagic = 6;
+    lana.PurePurification = 3;
+    lana.BloodSign = 20;
+    lana.SpeedStep = 6;
+    lana.SpiritualRest = 4;
+    lana.BlackContract = 4;
+    lana.CursedEvangile = 4;
+    lana.CircleOfSerenity = 4;
+    lana.CircleOfTheDespair = 6;
+    lana.CounterDisallow = 4;
+    lana.ActionCommand1 = Fix.ICE_NEEDLE;
     lana.ActionCommand2 = Fix.SHINING_HEAL;
     lana.ActionCommand3 = Fix.STRAIGHT_SMASH;
-    lana.ActionCommand4 = Fix.EVERFLOW_MIND;
-    lana.ActionCommand5 = Fix.BLACK_CONTRACT;
-    lana.ActionCommand6 = Fix.INNER_INSPIRATION;
-    lana.ActionCommand7 = Fix.SEVENTH_PRINCIPLE;
-
-    lana.Strength = 1000;
+    lana.ActionCommand4 = Fix.CIRCLE_OF_SERENITY;
+    lana.ActionCommand5 = Fix.COUNTER_DISALLOW;
+    lana.ActionCommand6 = Fix.CIRCLE_OF_THE_DESPAIR;
+    lana.ActionCommand7 = Fix.BLOOD_SIGN;
+    lana.ActionCommand8 = Fix.CURSED_EVANGILE;
+    lana.ActionCommand9 = Fix.SPIRITUAL_REST;
+    lana.Strength = 100;
     lana.Agility = 10;
-    lana.Intelligence = 10;
+    lana.Intelligence = 100;
     lana.Mind = 50;
     lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
     lana.MaxGain();
     //lana.CurrentManaPoint = 3;
 
-    Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
-    ein.GaleWind = 1;
-    ein.IceNeedle = 1;
-    ein.FreezingCube = 1;
-    ein.VolcanicBlaze = 1;
-    ein.IronBuster = 1;
-    ein.CounterAttack = 1;
-    ein.CursedEvangile = 1;
-    ein.PenetrationArrow = 1;
-    ein.CircleOfSerenity = 1;
-    ein.WillAwakening = 1;
-    ein.PhantomOboro = 1;
-    ein.DeadlyDrive = 1;
-    ein.DominationField = 1;
-    ein.HunterShot = 1;
-    ein.FlameStrike = 1;
-    ein.ShiningHeal = 1;
-    ein.BloodSign = 1;
-    ein.CircleOfTheDespair = 1;
-    ein.RagingStorm = 1;
-    ein.InnerInspiration = 1;
-    ein.FreshHeal = 1;
-    ein.EnergyBolt = 1;
-    ein.SpeedStep = 1;
+    Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
+    eone.AgilityFood = 1;
+    eone.Agility = 30;
+    eone.HunterShot = 6;
+    eone.DivineCircle = 60;
+    eone.MultipleShot = 10;
+    eone.BlueBullet = 5;
+    eone.HolyBreath = 6;
+    eone.UnseenAid = 4;
+    eone.FreezingCube = 2;
+    eone.AngelicEcho = 1;
+    eone.PenetrationArrow = 6;
+    eone.FrostLance = 6;
+    eone.ShiningHeal = 3;
+    eone.PrecisionStrike = 4;
+    eone.ActionCommand1 = Fix.FRESH_HEAL;
+    eone.ActionCommand2 = Fix.HUNTER_SHOT;
+    eone.ActionCommand3 = Fix.SHINING_HEAL;
+    eone.ActionCommand4 = Fix.PENETRATION_ARROW;
+    eone.ActionCommand5 = Fix.BLUE_BULLET;
+    eone.ActionCommand6 = Fix.HOLY_BREATH;
+    eone.ActionCommand7 = Fix.PRECISION_STRIKE;
+    eone.ActionCommand8 = Fix.ANGELIC_ECHO;
+    eone.ActionCommand9 = Fix.FROST_LANCE;
+    eone.Strength = 100;
+    eone.Agility = 10;
+    eone.Intelligence = 100;
+    eone.Mind = 10;
+    eone.BaseLife = 1000;
+    eone.BaseManaPoint = 1000;
+    eone.MaxGain();
 
-    ein.Strength = 1000;
-    ein.Agility = 10;
-    ein.Intelligence = 10;
-    ein.Mind = 100;
-    ein.BaseManaPoint = 999;
-    ein.BaseLife = 1000;
-    ein.ActionCommand1 = Fix.FIRE_BALL;
-    ein.ActionCommand2 = Fix.FLAME_STRIKE;
-    ein.ActionCommand3 = Fix.INNER_INSPIRATION;
-    ein.ActionCommand4 = Fix.FRESH_HEAL;
-    ein.ActionCommand5 = Fix.CIRCLE_OF_THE_DESPAIR;
-    ein.ActionCommand6 = Fix.RAGING_STORM;
-    ein.ActionCommand7 = Fix.COUNTER_ATTACK;
-    ein.ActionCommand8 = Fix.PHANTOM_OBORO;
-    ein.ActionCommand9 = Fix.SPEED_STEP;
-    ein.MaxGain();
-    //ein.CurrentManaPoint = 2;
-    //Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
-    //eone.AgilityFood = 1;
+    Character billy = One.SelectCharacter(Fix.NAME_BILLY_RAKI);
+    billy.MeteorBullet = 3;
+    billy.ConcussiveHit = 4;
+    billy.BoneCrush = 6;
+    billy.VoiceOfVigor = 20;
+    billy.VolcanicBlaze = 2;
+    billy.IronBuster = 6;
+    billy.DeadlyDrive = 6;
+    billy.RagingStorm = 1;
+    billy.EverflowMind = 6;
+    billy.ActionCommand1 = Fix.METEOR_BULLET;
+    billy.ActionCommand2 = Fix.CONCUSSIVE_HIT;
+    billy.ActionCommand3 = Fix.BONE_CRUSH;
+    billy.ActionCommand4 = Fix.VOICE_OF_VIGOR;
+    billy.ActionCommand5 = Fix.EVERFLOW_MIND;
+    billy.ActionCommand6 = Fix.IRON_BUSTER;
+    billy.ActionCommand7 = Fix.DEADLY_DRIVE;
+    billy.ActionCommand8 = Fix.RAGING_STORM;
+    billy.Strength = 100;
+    billy.Intelligence = 100;
+    billy.Agility = 25;
+    billy.Mind = 10;
+    billy.BaseLife = 1000;
+    billy.MaxGain();
+    billy.CurrentLife = 300;
 
-    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
-    //One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+    One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
+    One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+    One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
 
     One.CreateShadowData();
 
