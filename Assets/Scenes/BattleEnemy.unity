@@ -5342,8 +5342,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  GroupManaPoint: {fileID: 0}
-  GroupSkillPoint: {fileID: 0}
+  GroupManaPoint: {fileID: 791992515}
+  GroupSkillPoint: {fileID: 373632811}
 --- !u!1 &218063941
 GameObject:
   m_ObjectHideFlags: 0
@@ -24800,8 +24800,8 @@ MonoBehaviour:
   - {fileID: 1520047053}
   - {fileID: 561778604}
   - {fileID: 935530512}
-  GroupManaPoint: {fileID: 0}
-  GroupSkillPoint: {fileID: 0}
+  GroupManaPoint: {fileID: 975373953}
+  GroupSkillPoint: {fileID: 582535477}
 --- !u!1 &1227718018
 GameObject:
   m_ObjectHideFlags: 0
@@ -27064,8 +27064,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  GroupManaPoint: {fileID: 0}
-  GroupSkillPoint: {fileID: 0}
+  GroupManaPoint: {fileID: 723428200}
+  GroupSkillPoint: {fileID: 1978464902}
 --- !u!224 &1337777123
 RectTransform:
   m_ObjectHideFlags: 0

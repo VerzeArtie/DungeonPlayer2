@@ -81,6 +81,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Unknown;
   public TileInformation prefab_Unknown_Goratrum;
   public TileInformation prefab_Unknown_MysticForest;
+  public TileInformation prefab_Unknown_Velgus;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -482,6 +483,10 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
       {
+        if (One.TF.Event_Message1000000 == false)
+        {
+          MessagePack.Message1000000(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
         if (One.TF.DefeatEoneFulnea && One.TF.Event_Message1010010 == false)
         {
           MessagePack.Message1010010(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1776,6 +1781,28 @@ public class DungeonField : MotherBase
       return;
     }
 
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_SecretWall)
+    {
+      CurrentEventObject = fieldObjBefore;
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_5_X, Fix.VELGUS_SECRETWALL_5_Y, Fix.VELGUS_SECRETWALL_5_Z))
+      {
+        if (direction == Direction.Top)
+        {
+          MessagePack.Message1000015(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else
+        {
+          One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        }
+        return;
+      }
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_5_2_X, Fix.VELGUS_SECRETWALL_5_2_Y, Fix.VELGUS_SECRETWALL_5_2_Z))
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
+    }
+
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
     {
       Debug.Log("Content.Rock detect: " + fieldObjBefore.ObjectId + " " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
@@ -1979,6 +2006,13 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Brushwood)
     {
       Debug.Log("fieldObjBefore is Brushwood, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    // オブジェクト（ヴェルガスの海底神殿：壁ドア）の判定
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_WallDoor)
+    {
+      Debug.Log("fieldObjBefore is Velgus_WallDoor, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -5533,6 +5567,23 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_MysticForest[numbers[jj]] = true;
             }
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 9; jj++)
+            {
+              for (int kk = 0; kk < 9; kk++)
+              {
+                numbers.Add(5 * 50 + 10 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -5655,6 +5706,10 @@ public class DungeonField : MotherBase
             this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
                                                                      this.CurrentEventObject.transform.position.y,
                                                                      this.CurrentEventObject.transform.position.z + 1.0f);
+          }
+          else
+          {
+            Debug.Log("CurrentEventObject is null...");
           }
           continue; // 継続
         }
@@ -6599,6 +6654,22 @@ public class DungeonField : MotherBase
             }
           }
 
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+          {
+            if (currentMessage == Fix.VELGUS_DOOR_6_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_6_X, Fix.VELGUS_DOOR_6_Y, Fix.VELGUS_DOOR_6_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_7_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_7_X, Fix.VELGUS_DOOR_7_Y, Fix.VELGUS_DOOR_7_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_8_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_8_X, Fix.VELGUS_DOOR_8_Y, Fix.VELGUS_DOOR_8_Z));
+            }
+          }
+
           // 岩壁１
           if (currentMessage == Fix.ARTHARIUM_Rock_1_O)
           {
@@ -7459,7 +7530,7 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message900740(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
-      }     
+      }
     }
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
@@ -7640,6 +7711,71 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+    {
+      // エントランス１
+      if (One.TF.Event_Message1000010_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_1_X, Fix.VELGUS_TRIGGERTILE_1_Y, Fix.VELGUS_TRIGGERTILE_1_Z))
+        {
+          MessagePack.Message1000011(ref QuestMessageList, ref QuestEventList);
+          if (One.TF.Event_Message1000011 == false && One.TF.Event_Message1000012 == false && One.TF.Event_Message1000013 == false && One.TF.Event_Message1000014 == false)
+          {
+            One.TF.Event_Message1000011 = true;
+          }
+          else
+          {
+            One.TF.Event_Message1000010_Fail = true;
+          }
+          TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_2_X, Fix.VELGUS_TRIGGERTILE_2_Y, Fix.VELGUS_TRIGGERTILE_2_Z))
+        {
+          MessagePack.Message1000012(ref QuestMessageList, ref QuestEventList);
+          if (One.TF.Event_Message1000011 == true && One.TF.Event_Message1000012 == false && One.TF.Event_Message1000013 == false && One.TF.Event_Message1000014 == false)
+          {
+            One.TF.Event_Message1000012 = true;
+          }
+          else
+          {
+            One.TF.Event_Message1000010_Fail = true;
+          }
+          TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_3_X, Fix.VELGUS_TRIGGERTILE_3_Y, Fix.VELGUS_TRIGGERTILE_3_Z))
+        {
+          MessagePack.Message1000013(ref QuestMessageList, ref QuestEventList);
+          if (One.TF.Event_Message1000011 == true && One.TF.Event_Message1000012 == true && One.TF.Event_Message1000013 == false && One.TF.Event_Message1000014 == false)
+          {
+            One.TF.Event_Message1000013 = true;
+          }
+          else
+          {
+            One.TF.Event_Message1000010_Fail = true;
+          }
+          TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_4_X, Fix.VELGUS_TRIGGERTILE_4_Y, Fix.VELGUS_TRIGGERTILE_4_Z))
+        {
+          MessagePack.Message1000014(ref QuestMessageList, ref QuestEventList);
+          if (One.TF.Event_Message1000011 == true && One.TF.Event_Message1000012 == true && One.TF.Event_Message1000013 == true && One.TF.Event_Message1000014 == false && One.TF.Event_Message1000010_Fail == false)
+          {
+            One.TF.Event_Message1000014 = true;
+            MessagePack.Message1000016(ref QuestMessageList, ref QuestEventList);
+          }
+          else
+          {
+            One.TF.Event_Message1000010_Fail = true;
+            MessagePack.Message1000017(ref QuestMessageList, ref QuestEventList);
+          }
+          TapOK();
+          return true;
+        }
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
@@ -8860,11 +8996,20 @@ public class DungeonField : MotherBase
       // 右
       if (currentRight != null && currentRight.MoveCost != 999)
       {
-        Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+        Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 0.5f, currentRight.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
+        if (field_obj == null)
+        {
+          // 1.0f段差は判定に含める
+          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          field_obj = SearchObject(vector2);
+        }
+
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
-            field_obj != null && field_obj.content == FieldObject.Content.Brushwood)
+            field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
           // 可視化しない
         }
@@ -8891,6 +9036,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
 
           if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
@@ -8913,6 +9062,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
         }
       }
@@ -8920,11 +9073,19 @@ public class DungeonField : MotherBase
       // 左
       if (currentLeft != null && currentLeft.MoveCost != 999)
       {
-        Vector3 vector = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 1.0f, currentLeft.transform.position.z);
+        Vector3 vector = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 0.5f, currentLeft.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
+        if (field_obj == null)
+        {
+          // 1.0f段差は判定に含める
+          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          field_obj = SearchObject(vector2);
+        }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
-            field_obj != null && field_obj.content == FieldObject.Content.Brushwood)
+            field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
           // 可視化しない
         }
@@ -8951,6 +9112,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
 
           if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
@@ -8973,6 +9138,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
         }
       }
@@ -8980,11 +9149,19 @@ public class DungeonField : MotherBase
       // 上
       if (currentTop != null && currentTop.MoveCost != 999)
       {
-        Vector3 vector = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 1.0f, currentTop.transform.position.z);
+        Vector3 vector = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 0.5f, currentTop.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
+        if (field_obj == null)
+        {
+          // 1.0f段差は判定に含める
+          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          field_obj = SearchObject(vector2);
+        }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
-            field_obj != null && field_obj.content == FieldObject.Content.Brushwood)
+            field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
           // 可視化しない
         }
@@ -9011,6 +9188,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
 
           if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
@@ -9033,6 +9214,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
         }
       }
@@ -9040,11 +9225,19 @@ public class DungeonField : MotherBase
       // 下
       if (currentBottom != null && currentBottom.MoveCost != 999)
       {
-        Vector3 vector = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 1.0f, currentBottom.transform.position.z);
+        Vector3 vector = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 0.5f, currentBottom.transform.position.z);
         FieldObject field_obj = SearchObject(vector);
+        if (field_obj == null)
+        {
+          // 1.0f段差は判定に含める
+          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          field_obj = SearchObject(vector2);
+        }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
-            field_obj != null && field_obj.content == FieldObject.Content.Brushwood)
+            field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
           // 可視化しない
         }
@@ -9071,6 +9264,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
           }
 
           if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
@@ -9092,6 +9289,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
             {
               One.TF.KnownTileList_MysticForest[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
             }
           }
         }
@@ -9331,6 +9532,10 @@ public class DungeonField : MotherBase
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
       {
         current = Instantiate(prefab_Unknown_MysticForest, position, Quaternion.identity) as TileInformation;
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+      {
+        current = Instantiate(prefab_Unknown_Velgus, position, Quaternion.identity) as TileInformation;
       }
       else
       {
@@ -9774,6 +9979,27 @@ public class DungeonField : MotherBase
         }
       }
     }
+
+    if (map_data == Fix.MAPFILE_VELGUS)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_VELGUS_SEATEMPLE; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_X_VELGUS_SEATEMPLE; jj++)
+        {
+          Vector3 position = new Vector3(jj, 1.0f, -ii);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+        }
+      }
+      Debug.Log("Goratrum KnownTileList_VelgusSeaTemple count: " + One.TF.KnownTileList_VelgusSeaTemple.Count);
+      for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE; ii++)
+      {
+        if (One.TF.KnownTileList_VelgusSeaTemple[ii])
+        {
+          UnknownTileList[ii].gameObject.SetActive(false);
+        }
+      }
+    }
   }
 
   private void LoadObjectFromEvent()
@@ -10122,7 +10348,6 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_ObsidianPortal_1_X, Fix.MYSTICFOREST_ObsidianPortal_1_Y, Fix.MYSTICFOREST_ObsidianPortal_1_Z));
       }
-
     }
     #endregion
     #region "アーサリウム工場跡地"
@@ -11070,6 +11295,24 @@ public class DungeonField : MotherBase
       {
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+    }
+    #endregion
+    #region "ヴェルガスの海底神殿"
+    if (map_data == Fix.MAPFILE_VELGUS)
+    {
+      // エントランス１の柱
+      if (One.TF.Event_Message1000010_MoveWall)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_5_X, Fix.VELGUS_SECRETWALL_5_Y, Fix.VELGUS_SECRETWALL_5_Z), new Vector3(Fix.VELGUS_SECRETWALL_5_2_X, Fix.VELGUS_SECRETWALL_5_2_Y, Fix.VELGUS_SECRETWALL_5_2_Z));
+      }
+
+      // 壁ドア
+      if (One.TF.Event_Message1000010_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_6_X, Fix.VELGUS_DOOR_6_Y, Fix.VELGUS_DOOR_6_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_7_X, Fix.VELGUS_DOOR_7_Y, Fix.VELGUS_DOOR_7_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_8_X, Fix.VELGUS_DOOR_8_Y, Fix.VELGUS_DOOR_8_Z));
       }
     }
     #endregion

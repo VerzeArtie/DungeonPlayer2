@@ -15412,9 +15412,6 @@ MonoBehaviour:
   contentSelectArea: {fileID: 1920569885}
   nodeSelectAreaButton: {fileID: 1506416264}
   txtGoButton: {fileID: 1307293981}
-  GroupCharacter: {fileID: 0}
-  contentCharacter: {fileID: 0}
-  nodeCharaView: {fileID: 590510201}
   GroupBackpack: {fileID: 1474703593}
   ContentBackpack: {fileID: 1461913270}
   nodeBackpackItem: {fileID: 1217324330}
@@ -75127,7 +75124,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fccef8807506ff34081cba5c7439ddb7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54d69a2d3bb844e43aa7aa22ed53380e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

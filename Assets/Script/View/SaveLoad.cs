@@ -658,6 +658,17 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
 
+      // ダンジョンKnownTileInfo ( VelgusSeaTemple )
+      xmlWriter.WriteStartElement("VelgusSeaTemple");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_VelgusSeaTemple.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_VelgusSeaTemple" + ii.ToString("D8"), One.TF.KnownTileList_VelgusSeaTemple[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -1306,6 +1317,23 @@ public class SaveLoad : MotherBase
         else
         {
           One.TF.KnownTileList_MysticForest[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentVelgusSeaTemple = xml.GetElementsByTagName("VelgusSeaTemple");
+    for (int ii = 0; ii < parentVelgusSeaTemple.Count; ii++)
+    {
+      XmlNodeList current = parentVelgusSeaTemple[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_VelgusSeaTemple[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_VelgusSeaTemple[jj] = false;
         }
       }
     }

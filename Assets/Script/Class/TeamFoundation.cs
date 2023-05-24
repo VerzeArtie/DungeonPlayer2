@@ -623,6 +623,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_MysticForest = value; }
     get { return _knownTileList_MysticForest; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_VelgusSeaTemple = new List<bool>(Fix.MAPSIZE_X_VELGUS_SEATEMPLE * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE);
+  public List<bool> KnownTileList_VelgusSeaTemple
+  {
+    set { _knownTileList_VelgusSeaTemple = value; }
+    get { return _knownTileList_VelgusSeaTemple; }
+  }
   #endregion
 
   #region "Event"
@@ -1165,6 +1172,36 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1009040 { get { return _event_message1009040; } set { _event_message1009040 = value; } }
   [SerializeField] protected bool _event_message1009050 = false;
   public bool Event_Message1009050 { get { return _event_message1009050; } set { _event_message1009050 = value; } }
+
+  // ヴェルガスの海底神殿
+  [SerializeField] protected bool _event_message1000000 = false;
+  public bool Event_Message1000000 { get { return _event_message1000000; } set { _event_message1000000 = value; } }
+  [SerializeField] protected bool _event_message1000010 = false;
+  public bool Event_Message1000010 { get { return _event_message1000010; } set { _event_message1000010 = value; } }
+  [SerializeField] protected bool _event_message1000011 = false;
+  public bool Event_Message1000011 { get { return _event_message1000011; } set { _event_message1000011 = value; } }
+  [SerializeField] protected bool _event_message1000012 = false;
+  public bool Event_Message1000012 { get { return _event_message1000012; } set { _event_message1000012 = value; } }
+  [SerializeField] protected bool _event_message1000013 = false;
+  public bool Event_Message1000013 { get { return _event_message1000013; } set { _event_message1000013 = value; } }
+  [SerializeField] protected bool _event_message1000014 = false;
+  public bool Event_Message1000014 { get { return _event_message1000014; } set { _event_message1000014 = value; } }
+  [SerializeField] protected bool _event_message1000010_fail = false;
+  public bool Event_Message1000010_Fail { get { return _event_message1000010_fail; } set { _event_message1000010_fail = value; } }
+  [SerializeField] protected bool _event_message1000010_movewall = false;
+  public bool Event_Message1000010_MoveWall { get { return _event_message1000010_movewall; } set { _event_message1000010_movewall = value; } }
+  [SerializeField] protected bool _event_message1000010_complete = false;
+  public bool Event_Message1000010_Complete { get { return _event_message1000010_complete; } set { _event_message1000010_complete = value; } }
+  [SerializeField] protected bool _event_message1000010_nomessageboard = false;
+  public bool Event_Message1000010_NoMessageBoard { get { return _event_message1000010_nomessageboard; } set { _event_message1000010_nomessageboard = value; } }
+  [SerializeField] protected bool _event_message1000010_failedmessage1 = false;
+  public bool Event_Message1000010_FailedMessage1 { get { return _event_message1000010_failedmessage1; } set { _event_message1000010_failedmessage1 = value; } }
+  [SerializeField] protected bool _event_message1000010_failedmessage2 = false;
+  public bool Event_Message1000010_FailedMessage2 { get { return _event_message1000010_failedmessage2; } set { _event_message1000010_failedmessage2 = value; } }
+  [SerializeField] protected bool _event_message1000010_progress1 = false;
+  public bool Event_Message1000010_Progress1 { get { return _event_message1000010_progress1; } set { _event_message1000010_progress1 = value; } }
+  [SerializeField] protected bool _event_message1000010_progress2 = false;
+  public bool Event_Message1000010_Progress2 { get { return _event_message1000010_progress2; } set { _event_message1000010_progress2 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }

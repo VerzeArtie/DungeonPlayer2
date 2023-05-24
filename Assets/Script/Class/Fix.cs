@@ -388,6 +388,9 @@ public static partial class Fix
   public const int MAPSIZE_X_MYSTICFOREST = 50;
   public const int MAPSIZE_Z_MYSTICFOREST = 30;
 
+  public const int MAPSIZE_X_VELGUS_SEATEMPLE = 50;
+  public const int MAPSIZE_Z_VELGUS_SEATEMPLE = 30;
+
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
@@ -5895,6 +5898,70 @@ public static partial class Fix
   public const float VELGUS_MessageBoard_1_Y = 1.0f;
   public const float VELGUS_MessageBoard_1_Z = -9.0f;
   #endregion
+
+  // トリガータイル（１－１）
+  public const string VELGUS_TRIGGERTILE_1_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_1_O = "1";
+  public const float VELGUS_TRIGGERTILE_1_X = 16.0f;
+  public const float VELGUS_TRIGGERTILE_1_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_1_Z = -7.0f;
+
+  // トリガータイル（１－２）
+  public const string VELGUS_TRIGGERTILE_2_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_2_O = "2";
+  public const float VELGUS_TRIGGERTILE_2_X = 16.0f;
+  public const float VELGUS_TRIGGERTILE_2_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_2_Z = -11.0f;
+
+  // トリガータイル（１－３）
+  public const string VELGUS_TRIGGERTILE_3_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_3_O = "3";
+  public const float VELGUS_TRIGGERTILE_3_X = 12.0f;
+  public const float VELGUS_TRIGGERTILE_3_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_3_Z = -7.0f;
+
+  // トリガータイル（１－４）
+  public const string VELGUS_TRIGGERTILE_4_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_4_O = "4";
+  public const float VELGUS_TRIGGERTILE_4_X = 12.0f;
+  public const float VELGUS_TRIGGERTILE_4_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_4_Z = -11.0f;
+
+  // シークレット壁（１）
+  public const string VELGUS_SECRETWALL_5_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_5_O = "5";
+  public const float VELGUS_SECRETWALL_5_X = 15.0f;
+  public const float VELGUS_SECRETWALL_5_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_5_Z = -8.0f;
+
+  // シークレット壁（１）移動後
+  public const string VELGUS_SECRETWALL_5_2_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_5_2_O = "5";
+  public const float VELGUS_SECRETWALL_5_2_X = 15.0f;
+  public const float VELGUS_SECRETWALL_5_2_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_5_2_Z = -7.0f;
+
+  // エントランス１：壁ドア（１）
+  public const string VELGUS_DOOR_6_C = "VelgusDoor";
+  public const string VELGUS_DOOR_6_O = "6";
+  public const float VELGUS_DOOR_6_X = 14.0f;
+  public const float VELGUS_DOOR_6_Y = 0.5f;
+  public const float VELGUS_DOOR_6_Z = -5.0f;
+
+  // エントランス１：壁ドア（２）
+  public const string VELGUS_DOOR_7_C = "VelgusDoor";
+  public const string VELGUS_DOOR_7_O = "7";
+  public const float VELGUS_DOOR_7_X = 10.0f;
+  public const float VELGUS_DOOR_7_Y = 0.5f;
+  public const float VELGUS_DOOR_7_Z = -9.0f;
+
+  // エントランス１：壁ドア（３）
+  public const string VELGUS_DOOR_8_C = "VelgusDoor";
+  public const string VELGUS_DOOR_8_O = "8";
+  public const float VELGUS_DOOR_8_X = 18.0f;
+  public const float VELGUS_DOOR_8_Y = 0.5f;
+  public const float VELGUS_DOOR_8_Z = -9.0f;
+
   #endregion
   #region "ダルの門 ( not used )"
   // ダルの門、右エリア入口

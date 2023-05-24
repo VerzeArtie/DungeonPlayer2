@@ -223,6 +223,10 @@ public static class One
     {
       TF.KnownTileList_MysticForest.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE; ii++)
+    {
+      TF.KnownTileList_VelgusSeaTemple.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
