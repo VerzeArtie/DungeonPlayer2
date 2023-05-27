@@ -9192,7 +9192,7 @@ public class DungeonField : MotherBase
         if (field_obj == null)
         {
           // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          Vector3 vector2 = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 1.0f, currentLeft.transform.position.z);
           field_obj = SearchObject(vector2);
         }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
@@ -9268,7 +9268,7 @@ public class DungeonField : MotherBase
         if (field_obj == null)
         {
           // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          Vector3 vector2 = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 1.0f, currentTop.transform.position.z);
           field_obj = SearchObject(vector2);
         }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
@@ -9344,7 +9344,7 @@ public class DungeonField : MotherBase
         if (field_obj == null)
         {
           // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
+          Vector3 vector2 = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 1.0f, currentBottom.transform.position.z);
           field_obj = SearchObject(vector2);
         }
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
