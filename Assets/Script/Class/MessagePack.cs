@@ -13252,6 +13252,132 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000020 == false)
+    {
+      One.TF.Event_Message1000020 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読むぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　右上　右下　左上　左下　　　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こ、これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだこれ。さっきと同じじゃねーか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：フロア自体のレイアウトが異なるから、解き方は違うって所かしらね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン、サクっと解いてしまおーぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。まあそうなんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まずは周辺を見回してみましょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "（アイン・ウォーレンスは周囲を見回し、全体を確認した。）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、頼むから教えてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・っ・・・何でしょう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここの構造・・・どう思う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：えっ・・・その・・・どういう意味？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっとバカアイン。変な聞き方しないでって、いつも言ってるでしょうが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ、そうだよな。ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪い。今のは忘れてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ、まずは探索してみるとするか！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　右上　右下　左上　左下　　　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000021(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+  }
+
+  public static void Message1000022(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+  }
+
+  public static void Message1000023(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+  }
+
+  public static void Message1000024(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+  }
+
+  public static void Message1000025(ref List<string> m_list, ref List<ActionEvent> e_list, ActionEvent action)
+  {
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、先に看板を見たほうが良いんじゃない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。分かった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0", action);
+  }
+
+  public static void Message1000026(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000020_Fail == false)
+    {
+      One.TF.Event_Message1000020_Complete = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_15_O, ActionEvent.RemoveFieldObject);
+    }
+  }
+
+
+  public static void Message1000027(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000020 == false)
+    {
+      return; // 看板を見ていないならセリフは発生しない。
+    }
+
+    if (One.TF.Event_Message1000020_Progress1 == false)
+    {
+      if (One.TF.Event_Message1000020_FailedMessage1 == false)
+      {
+        One.TF.Event_Message1000020_FailedMessage1 = true;
+
+        Message(ref m_list, ref e_list, "アイン：特に、何も起きないな・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：タイルを踏む順序を間違えてるのかしらね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：もう一度最初からやってみる。看板の所へ行こう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：看板の所からやり直すんでしょ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうだった。看板の所へ行こう。", ActionEvent.None);
+      }
+    }
+  }
+
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)

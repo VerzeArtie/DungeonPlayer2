@@ -5897,6 +5897,12 @@ public static partial class Fix
   public const float VELGUS_MessageBoard_1_X = 14.0f;
   public const float VELGUS_MessageBoard_1_Y = 1.0f;
   public const float VELGUS_MessageBoard_1_Z = -9.0f;
+
+  public const string VELGUS_MessageBoard_2_C = "MessageBoard";
+  public const string VELGUS_MessageBoard_2_O = "2";
+  public const float VELGUS_MessageBoard_2_X = 22.0f;
+  public const float VELGUS_MessageBoard_2_Y = 1.0f;
+  public const float VELGUS_MessageBoard_2_Z = -9.0f;
   #endregion
 
   // トリガータイル（１－１）
@@ -5961,6 +5967,56 @@ public static partial class Fix
   public const float VELGUS_DOOR_8_X = 18.0f;
   public const float VELGUS_DOOR_8_Y = 0.5f;
   public const float VELGUS_DOOR_8_Z = -9.0f;
+
+  // 中央の間（周辺１）
+  public const string VELGUS_TILEEVENT_9_C = "TileEvent";
+  public const string VELGUS_TILEEVENT_9_O = "9";
+  public const float VELGUS_TILEEVENT_9_X = 21.0f;
+  public const float VELGUS_TILEEVENT_9_Y = 0.0f;
+  public const float VELGUS_TILEEVENT_9_Z = -8.0f;
+
+  // 中央の間（周辺２）
+  public const string VELGUS_TILEEVENT_10_C = "TileEvent";
+  public const string VELGUS_TILEEVENT_10_O = "10";
+  public const float VELGUS_TILEEVENT_10_X = 21.0f;
+  public const float VELGUS_TILEEVENT_10_Y = 0.0f;
+  public const float VELGUS_TILEEVENT_10_Z = -10.0f;
+
+  // 中央の間：左上　／　左下
+  public const string VELGUS_TRIGGERTILE_11_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_11_O = "11";
+  public const float VELGUS_TRIGGERTILE_11_X = 20.0f;
+  public const float VELGUS_TRIGGERTILE_11_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_11_Z = -6.0f;
+
+  // 中央の間：右上　／　左上
+  public const string VELGUS_TRIGGERTILE_12_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_12_O = "12";
+  public const float VELGUS_TRIGGERTILE_12_X = 28.0f;
+  public const float VELGUS_TRIGGERTILE_12_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_12_Z = -4.0f;
+
+  // 中央の間：右下　／　右上
+  public const string VELGUS_TRIGGERTILE_13_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_13_O = "13";
+  public const float VELGUS_TRIGGERTILE_13_X = 30.0f;
+  public const float VELGUS_TRIGGERTILE_13_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_13_Z = -12.0f;
+
+  // 中央の間：左下　／　右下
+  public const string VELGUS_TRIGGERTILE_14_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_14_O = "14";
+  public const float VELGUS_TRIGGERTILE_14_X = 22.0f;
+  public const float VELGUS_TRIGGERTILE_14_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_14_Z = -14.0f;
+
+  // 中央の間：壁ドア（１:CENTER）
+  public const string VELGUS_DOOR_15_C = "VelgusDoor";
+  public const string VELGUS_DOOR_15_O = "15";
+  public const float VELGUS_DOOR_15_X = 25.0f;
+  public const float VELGUS_DOOR_15_Y = 0.5f;
+  public const float VELGUS_DOOR_15_Z = -11.0f;
+
 
   #endregion
   #region "ダルの門 ( not used )"

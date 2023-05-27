@@ -1203,6 +1203,28 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000010_progress2 = false;
   public bool Event_Message1000010_Progress2 { get { return _event_message1000010_progress2; } set { _event_message1000010_progress2 = value; } }
 
+  [SerializeField] protected bool _event_message1000020 = false;
+  public bool Event_Message1000020 { get { return _event_message1000020; } set { _event_message1000020 = value; } }
+  [SerializeField] protected bool _event_message1000021 = false;
+  public bool Event_Message1000021 { get { return _event_message1000021; } set { _event_message1000021 = value; } }
+  [SerializeField] protected bool _event_message1000022 = false;
+  public bool Event_Message1000022 { get { return _event_message1000022; } set { _event_message1000022 = value; } }
+  [SerializeField] protected bool _event_message1000023 = false;
+  public bool Event_Message1000023 { get { return _event_message1000023; } set { _event_message1000023 = value; } }
+  [SerializeField] protected bool _event_message1000024 = false;
+  public bool Event_Message1000024 { get { return _event_message1000024; } set { _event_message1000024 = value; } }
+  [SerializeField] protected bool _event_message1000020_fail = false;
+  public bool Event_Message1000020_Fail { get { return _event_message1000020_fail; } set { _event_message1000020_fail = value; } }
+
+  [SerializeField] protected bool _event_message1000020_failedmessage1 = false;
+  public bool Event_Message1000020_FailedMessage1 { get { return _event_message1000020_failedmessage1; } set { _event_message1000020_failedmessage1 = value; } }
+  [SerializeField] protected bool _event_message1000020_progress1 = false;
+  public bool Event_Message1000020_Progress1 { get { return _event_message1000020_progress1; } set { _event_message1000020_progress1 = value; } }
+
+  [SerializeField] protected bool _event_message1000020_complete = false;
+  public bool Event_Message1000020_Complete { get { return _event_message1000020_complete; } set { _event_message1000020_complete = value; } }
+
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;

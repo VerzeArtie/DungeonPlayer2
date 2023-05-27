@@ -105,6 +105,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Brushwood;
   public FieldObject prefab_Velgus_WallDoor;
   public FieldObject prefab_Velgus_SecretWall;
+  public FieldObject prefab_Velgus_FakeSea;
 
   // Decision
   public GameObject GroupDecision;
@@ -309,6 +310,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Brushwood");
     ObjectList.Add("Velgus_WallDoor");
     ObjectList.Add("Velgus_SecretWall");
+    ObjectList.Add("Velgus_FakeSea");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -615,7 +617,7 @@ public class DungeonField : MotherBase
         int counter = 0;
         for (int ii = 0; ii < FieldObjList.Count; ii++)
         {
-          Debug.Log("FieldObjList ID: " + FieldObjList[ii].ObjectId);
+          Debug.Log("FieldObjList ID: " + FieldObjList[ii].ObjectId + " objectname: " + txtSelectObjectName.text);
           FieldObject.Content currentContent = (FieldObject.Content)(Enum.Parse(typeof(FieldObject.Content), txtSelectObjectName.text));
           if (FieldObjList[ii].content == currentContent)
           {
@@ -1777,6 +1779,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_MessageBoard_2_X, Fix.VELGUS_MessageBoard_2_Y, Fix.VELGUS_MessageBoard_2_Z))
+        {
+          MessagePack.Message1000020(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -1801,6 +1808,12 @@ public class DungeonField : MotherBase
         One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
         return;
       }
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_FakeSea)
+    {
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
     }
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
@@ -5584,6 +5597,23 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
             }
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS && currentMessage == "2")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 11; jj++)
+            {
+              for (int kk = 0; kk < 11; kk++)
+              {
+                numbers.Add(4 * 50 + 20 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6667,6 +6697,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_8_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_8_X, Fix.VELGUS_DOOR_8_Y, Fix.VELGUS_DOOR_8_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_15_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_15_X, Fix.VELGUS_DOOR_15_Y, Fix.VELGUS_DOOR_15_Z));
             }
           }
 
@@ -7776,6 +7810,82 @@ public class DungeonField : MotherBase
           TapOK();
           return true;
         }
+      }
+
+      // 中央の間
+      if (One.TF.Event_Message1000020_Complete == false && One.TF.Event_Message1000020 == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_TILEEVENT_9_X, Fix.VELGUS_TILEEVENT_9_Y, Fix.VELGUS_TILEEVENT_9_Z))
+        {
+          MessagePack.Message1000025(ref QuestMessageList, ref QuestEventList, MessagePack.ActionEvent.ForceMoveBottom);
+          TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_TILEEVENT_10_X, Fix.VELGUS_TILEEVENT_10_Y, Fix.VELGUS_TILEEVENT_10_Z))
+        {
+          MessagePack.Message1000025(ref QuestMessageList, ref QuestEventList, MessagePack.ActionEvent.ForceMoveTop);
+          TapOK();
+          return true;
+        }
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_11_X, Fix.VELGUS_TRIGGERTILE_11_Y, Fix.VELGUS_TRIGGERTILE_11_Z))
+      {
+        MessagePack.Message1000021(ref QuestMessageList, ref QuestEventList);
+        if (One.TF.Event_Message1000021 == false && One.TF.Event_Message1000022 == false && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+        {
+          One.TF.Event_Message1000021 = true;
+        }
+        else
+        {
+          One.TF.Event_Message1000020_Fail = true;
+        }
+        TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_12_X, Fix.VELGUS_TRIGGERTILE_12_Y, Fix.VELGUS_TRIGGERTILE_12_Z))
+      {
+        MessagePack.Message1000022(ref QuestMessageList, ref QuestEventList);
+        if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == false && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+        {
+          One.TF.Event_Message1000022 = true;
+        }
+        else
+        {
+          One.TF.Event_Message1000020_Fail = true;
+        }
+        TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_13_X, Fix.VELGUS_TRIGGERTILE_13_Y, Fix.VELGUS_TRIGGERTILE_13_Z))
+      {
+        MessagePack.Message1000023(ref QuestMessageList, ref QuestEventList);
+        if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == true && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+        {
+          One.TF.Event_Message1000023 = true;
+        }
+        else
+        {
+          One.TF.Event_Message1000020_Fail = true;
+        }
+        TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_14_X, Fix.VELGUS_TRIGGERTILE_14_Y, Fix.VELGUS_TRIGGERTILE_14_Z))
+      {
+        MessagePack.Message1000024(ref QuestMessageList, ref QuestEventList);
+        if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == true && One.TF.Event_Message1000023 == true && One.TF.Event_Message1000024 == false && One.TF.Event_Message1000020_Fail == false)
+        {
+          One.TF.Event_Message1000024 = true;
+          MessagePack.Message1000026(ref QuestMessageList, ref QuestEventList);
+        }
+        else
+        {
+          One.TF.Event_Message1000020_Fail = true;
+          MessagePack.Message1000027(ref QuestMessageList, ref QuestEventList);
+        }
+        TapOK();
+        return true;
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
@@ -8989,6 +9099,10 @@ public class DungeonField : MotherBase
         {
           One.TF.KnownTileList_MysticForest[ii] = true;
         }
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+        {
+          One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+        }
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
@@ -9671,6 +9785,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_SecretWall, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_SecretWall;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_FakeSea")
+    {
+      current = Instantiate(prefab_Velgus_FakeSea, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_FakeSea;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -11313,6 +11435,10 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_6_X, Fix.VELGUS_DOOR_6_Y, Fix.VELGUS_DOOR_6_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_7_X, Fix.VELGUS_DOOR_7_Y, Fix.VELGUS_DOOR_7_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_8_X, Fix.VELGUS_DOOR_8_Y, Fix.VELGUS_DOOR_8_Z));
+      }
+      if (One.TF.Event_Message1000020_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_15_X, Fix.VELGUS_DOOR_15_Y, Fix.VELGUS_DOOR_15_Z));
       }
     }
     #endregion

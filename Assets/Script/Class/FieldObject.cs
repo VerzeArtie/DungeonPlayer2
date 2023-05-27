@@ -26,6 +26,7 @@ public class FieldObject : MonoBehaviour
     Brushwood,
     Velgus_WallDoor,
     Velgus_SecretWall,
+    Velgus_FakeSea,
     Boss,
   }
 
