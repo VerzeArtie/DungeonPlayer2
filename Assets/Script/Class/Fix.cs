@@ -5982,26 +5982,26 @@ public static partial class Fix
   public const float VELGUS_TILEEVENT_10_Y = 0.0f;
   public const float VELGUS_TILEEVENT_10_Z = -10.0f;
 
-  // 中央の間：左上　／　左下
+  // 中央の間：右上　／　左上
   public const string VELGUS_TRIGGERTILE_11_C = "TriggerTile";
   public const string VELGUS_TRIGGERTILE_11_O = "11";
-  public const float VELGUS_TRIGGERTILE_11_X = 20.0f;
+  public const float VELGUS_TRIGGERTILE_11_X = 28.0f;
   public const float VELGUS_TRIGGERTILE_11_Y = 0.0f;
-  public const float VELGUS_TRIGGERTILE_11_Z = -6.0f;
-
-  // 中央の間：右上　／　左上
-  public const string VELGUS_TRIGGERTILE_12_C = "TriggerTile";
-  public const string VELGUS_TRIGGERTILE_12_O = "12";
-  public const float VELGUS_TRIGGERTILE_12_X = 28.0f;
-  public const float VELGUS_TRIGGERTILE_12_Y = 0.0f;
-  public const float VELGUS_TRIGGERTILE_12_Z = -4.0f;
+  public const float VELGUS_TRIGGERTILE_11_Z = -4.0f;
 
   // 中央の間：右下　／　右上
+  public const string VELGUS_TRIGGERTILE_12_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_12_O = "12";
+  public const float VELGUS_TRIGGERTILE_12_X = 30.0f;
+  public const float VELGUS_TRIGGERTILE_12_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_12_Z = -12.0f;
+
+  // 中央の間：左上　／　左下
   public const string VELGUS_TRIGGERTILE_13_C = "TriggerTile";
   public const string VELGUS_TRIGGERTILE_13_O = "13";
-  public const float VELGUS_TRIGGERTILE_13_X = 30.0f;
+  public const float VELGUS_TRIGGERTILE_13_X = 20.0f;
   public const float VELGUS_TRIGGERTILE_13_Y = 0.0f;
-  public const float VELGUS_TRIGGERTILE_13_Z = -12.0f;
+  public const float VELGUS_TRIGGERTILE_13_Z = -6.0f;
 
   // 中央の間：左下　／　右下
   public const string VELGUS_TRIGGERTILE_14_C = "TriggerTile";
@@ -6016,6 +6016,75 @@ public static partial class Fix
   public const float VELGUS_DOOR_15_X = 25.0f;
   public const float VELGUS_DOOR_15_Y = 0.5f;
   public const float VELGUS_DOOR_15_Z = -11.0f;
+
+  // 中央の間：外れの間への壁
+  public const string VELGUS_SECRETWALL_16_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_16_O = "16";
+  public const float VELGUS_SECRETWALL_16_X = 20.0f;
+  public const float VELGUS_SECRETWALL_16_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_16_Z = -4.0f;
+
+  // 中央の間：外れの間（上）
+  public const string VELGUS_TRIGGERTILE_17_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_17_O = "17";
+  public const float VELGUS_TRIGGERTILE_17_X = 25.0f;
+  public const float VELGUS_TRIGGERTILE_17_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_17_Z = -2.0f;
+
+  // 中央の間：右上、通路封鎖を開放
+  public const string VELGUS_FAKESEA_18_C = "FakeSea";
+  public const string VELGUS_FAKESEA_18_O = "18";
+  public const float VELGUS_FAKESEA_18_X = 31.0f;
+  public const float VELGUS_FAKESEA_18_Y = 0.0f;
+  public const float VELGUS_FAKESEA_18_Z = -4.0f;
+
+  public const string VELGUS_FAKESEA_19_C = "FakeSea";
+  public const string VELGUS_FAKESEA_19_O = "19";
+  public const float VELGUS_FAKESEA_19_X = 31.0f;
+  public const float VELGUS_FAKESEA_19_Y = 0.0f;
+  public const float VELGUS_FAKESEA_19_Z = -5.0f;
+
+  // 中央の間：右下、通路封鎖を開放
+  public const string VELGUS_FAKESEA_20_C = "FakeSea";
+  public const string VELGUS_FAKESEA_20_O = "20";
+  public const float VELGUS_FAKESEA_20_X = 29.0f;
+  public const float VELGUS_FAKESEA_20_Y = 0.0f;
+  public const float VELGUS_FAKESEA_20_Z = -15.0f;
+
+  public const string VELGUS_FAKESEA_21_C = "FakeSea";
+  public const string VELGUS_FAKESEA_21_O = "21";
+  public const float VELGUS_FAKESEA_21_X = 29.0f;
+  public const float VELGUS_FAKESEA_21_Y = 0.0f;
+  public const float VELGUS_FAKESEA_21_Z = -16.0f;
+
+  // 中央の間：左下、通路封鎖を開放
+  public const string VELGUS_FAKESEA_22_C = "FakeSea";
+  public const string VELGUS_FAKESEA_22_O = "22";
+  public const float VELGUS_FAKESEA_22_X = 19.0f;
+  public const float VELGUS_FAKESEA_22_Y = 0.0f;
+  public const float VELGUS_FAKESEA_22_Z = -13.0f;
+
+  public const string VELGUS_FAKESEA_23_C = "FakeSea";
+  public const string VELGUS_FAKESEA_23_O = "23";
+  public const float VELGUS_FAKESEA_23_X = 19.0f;
+  public const float VELGUS_FAKESEA_23_Y = 0.0f;
+  public const float VELGUS_FAKESEA_23_Z = -14.0f;
+
+  #region "宝箱"
+  // エントランスの上
+  public const string VELGUS_TREASURE_1_C = "Treasure";
+  public const string VELGUS_TREASURE_1_O = "1";
+  public const float VELGUS_TREASURE_1_X = 14.0f;
+  public const float VELGUS_TREASURE_1_Y = 1.0f;
+  public const float VELGUS_TREASURE_1_Z = -2.0f;
+
+  // 中央の間
+  public const string VELGUS_TREASURE_2_C = "Treasure";
+  public const string VELGUS_TREASURE_2_O = "2";
+  public const float VELGUS_TREASURE_2_X = 25.0f;
+  public const float VELGUS_TREASURE_2_Y = 1.0f;
+  public const float VELGUS_TREASURE_2_Z = -9.0f;
+  #endregion
 
 
   #endregion

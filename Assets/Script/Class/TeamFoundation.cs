@@ -1213,16 +1213,35 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1000023 { get { return _event_message1000023; } set { _event_message1000023 = value; } }
   [SerializeField] protected bool _event_message1000024 = false;
   public bool Event_Message1000024 { get { return _event_message1000024; } set { _event_message1000024 = value; } }
+  [SerializeField] protected bool _event_message1000021_2 = false;
+  public bool Event_Message1000021_2 { get { return _event_message1000021_2; } set { _event_message1000021_2 = value; } }
+  [SerializeField] protected bool _event_message1000022_2 = false;
+  public bool Event_Message1000022_2 { get { return _event_message1000022_2; } set { _event_message1000022_2 = value; } }
+  [SerializeField] protected bool _event_message1000023_2 = false;
+  public bool Event_Message1000023_2 { get { return _event_message1000023_2; } set { _event_message1000023_2 = value; } }
+  [SerializeField] protected bool _event_message1000024_2 = false;
+  public bool Event_Message1000024_2 { get { return _event_message1000024_2; } set { _event_message1000024_2 = value; } }
+
   [SerializeField] protected bool _event_message1000020_fail = false;
   public bool Event_Message1000020_Fail { get { return _event_message1000020_fail; } set { _event_message1000020_fail = value; } }
+  [SerializeField] protected bool _event_message1000020_2_fail = false;
+  public bool Event_Message1000020_2_Fail { get { return _event_message1000020_2_fail; } set { _event_message1000020_2_fail = value; } }
 
   [SerializeField] protected bool _event_message1000020_failedmessage1 = false;
   public bool Event_Message1000020_FailedMessage1 { get { return _event_message1000020_failedmessage1; } set { _event_message1000020_failedmessage1 = value; } }
   [SerializeField] protected bool _event_message1000020_progress1 = false;
   public bool Event_Message1000020_Progress1 { get { return _event_message1000020_progress1; } set { _event_message1000020_progress1 = value; } }
+  [SerializeField] protected bool _event_message1000020_progress2 = false;
+  public bool Event_Message1000020_Progress2 { get { return _event_message1000020_progress2; } set { _event_message1000020_progress2 = value; } }
+  [SerializeField] protected bool _event_message1000020_progress3 = false;
+  public bool Event_Message1000020_Progress3 { get { return _event_message1000020_progress3; } set { _event_message1000020_progress3 = value; } }
 
   [SerializeField] protected bool _event_message1000020_complete = false;
   public bool Event_Message1000020_Complete { get { return _event_message1000020_complete; } set { _event_message1000020_complete = value; } }
+  [SerializeField] protected bool _event_message1000020_2_complete = false;
+  public bool Event_Message1000020_2_Complete { get { return _event_message1000020_2_complete; } set { _event_message1000020_2_complete = value; } }
+  [SerializeField] protected bool _event_message1000020_3_complete = false;
+  public bool Event_Message1000020_3_Complete { get { return _event_message1000020_3_complete; } set { _event_message1000020_3_complete = value; } }
 
 
   [SerializeField] protected bool _event_message1010000 = false;
@@ -1451,6 +1470,11 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_ohrantower_00034 = false;
   [SerializeField] protected bool _treasure_ohrantower_00035 = false;
   [SerializeField] protected bool _treasure_ohrantower_00036 = false;
+
+  [SerializeField] protected bool _treasure_velgus_00001 = false;
+  [SerializeField] protected bool _treasure_velgus_00002 = false;
+  public bool Treasure_Velgus_00001 { get { return _treasure_velgus_00001; } set { _treasure_velgus_00001 = value; } }
+  public bool Treasure_Velgus_00002 { get { return _treasure_velgus_00002; } set { _treasure_velgus_00002 = value; } }
 
   public bool Treasure_EsmiliaGrassField_00001 { get { return _treasure_EsmiliaGrassField_00001; } set { _treasure_EsmiliaGrassField_00001 = value; } }
   public bool Treasure_EsmiliaGrassField_00002 { get { return _treasure_EsmiliaGrassField_00002; } set { _treasure_EsmiliaGrassField_00002 = value; } }
