@@ -586,6 +586,7 @@ public static partial class Fix
   public const string SCENE_HOME_TOWN = @"HomeTown";
   public const string SCENE_HELP_BOOK = @"HelpBook";
   public const string SCENE_PARTY_MENU = @"PartyMenu";
+  public const string SCENE_TRUTH_ANSWER = @"TruthAnswer";
   #endregion
   #region "Fixed Value"
   public const int INFINITY = 9999999;
@@ -1777,6 +1778,7 @@ public static partial class Fix
   public const string PURE_CLEAN_WATER = "清透水";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
+  public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
   public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
@@ -5903,6 +5905,12 @@ public static partial class Fix
   public const float VELGUS_MessageBoard_2_X = 22.0f;
   public const float VELGUS_MessageBoard_2_Y = 1.0f;
   public const float VELGUS_MessageBoard_2_Z = -9.0f;
+
+  public const string VELGUS_MessageBoard_3_C = "MessageBoard";
+  public const string VELGUS_MessageBoard_3_O = "3";
+  public const float VELGUS_MessageBoard_3_X = 41.0f;
+  public const float VELGUS_MessageBoard_3_Y = 1.0f;
+  public const float VELGUS_MessageBoard_3_Z = -5.0f;
   #endregion
 
   // トリガータイル（１－１）
@@ -6070,6 +6078,300 @@ public static partial class Fix
   public const float VELGUS_FAKESEA_23_Y = 0.0f;
   public const float VELGUS_FAKESEA_23_Z = -14.0f;
 
+  // 右方、天の物語「詩」の間、スイッチ１
+  public const string VELGUS_TRIGGERTILE_24_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_24_O = "24";
+  public const float VELGUS_TRIGGERTILE_24_X = 42.0f;
+  public const float VELGUS_TRIGGERTILE_24_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_24_Z = -11.0f;
+
+  // エントランス：隠し壁ドア
+  public const string VELGUS_SECRETWALL_25_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_25_O = "25";
+  public const float VELGUS_SECRETWALL_25_X = 12.0f;
+  public const float VELGUS_SECRETWALL_25_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_25_Z = -2.0f;
+
+  // 右方、天の物語「詩」の間、壁ドア左
+  public const string VELGUS_DOOR_26_C = "VelgusDoor";
+  public const string VELGUS_DOOR_26_O = "26";
+  public const float VELGUS_DOOR_26_X = 41.0f;
+  public const float VELGUS_DOOR_26_Y = 0.5f;
+  public const float VELGUS_DOOR_26_Z = -11.0f;
+
+  // 右方、天の物語「詩」の間、壁ドア下
+  public const string VELGUS_DOOR_27_C = "VelgusDoor";
+  public const string VELGUS_DOOR_27_O = "27";
+  public const float VELGUS_DOOR_27_X = 42.0f;
+  public const float VELGUS_DOOR_27_Y = 0.5f;
+  public const float VELGUS_DOOR_27_Z = -12.0f;
+
+  // 右方、天の物語「詩」の間、壁ドア右
+  public const string VELGUS_DOOR_28_C = "VelgusDoor";
+  public const string VELGUS_DOOR_28_O = "28";
+  public const float VELGUS_DOOR_28_X = 43.0f;
+  public const float VELGUS_DOOR_28_Y = 0.5f;
+  public const float VELGUS_DOOR_28_Z = -11.0f;
+
+  // エントランス、外れの間、隠し壁ドア
+  public const string VELGUS_SECRETWALL_29_C = "VelgusDoor";
+  public const string VELGUS_SECRETWALL_29_O = "29";
+  public const float VELGUS_SECRETWALL_29_X = 12.0f;
+  public const float VELGUS_SECRETWALL_29_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_29_Z = -2.0f;
+
+  // エントランス、外れの間、天の物語「詩』１
+  public const string VELGUS_TRIGGERTILE_30_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_30_O = "30";
+  public const float VELGUS_TRIGGERTILE_30_X = 11.0f;
+  public const float VELGUS_TRIGGERTILE_30_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_30_Z = -1.0f;
+
+  // 右方、天の物語「詩』２
+  public const string VELGUS_TRIGGERTILE_31_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_31_O = "31";
+  public const float VELGUS_TRIGGERTILE_31_X = 38.0f;
+  public const float VELGUS_TRIGGERTILE_31_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_31_Z = -7.0f;
+
+  // 右方、天の物語「詩』３
+  public const string VELGUS_TRIGGERTILE_32_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_32_O = "32";
+  public const float VELGUS_TRIGGERTILE_32_X = 40.0f;
+  public const float VELGUS_TRIGGERTILE_32_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_32_Z = -7.0f;
+
+  // 右方、天の物語「詩』４
+  public const string VELGUS_TRIGGERTILE_33_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_33_O = "33";
+  public const float VELGUS_TRIGGERTILE_33_X = 38.0f;
+  public const float VELGUS_TRIGGERTILE_33_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_33_Z = -13.0f;
+
+  // 右方、天の物語「詩』５
+  public const string VELGUS_TRIGGERTILE_34_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_34_O = "34";
+  public const float VELGUS_TRIGGERTILE_34_X = 38.0f;
+  public const float VELGUS_TRIGGERTILE_34_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_34_Z = -15.0f;
+
+  // 右方、天の物語「詩』６
+  public const string VELGUS_TRIGGERTILE_35_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_35_O = "35";
+  public const float VELGUS_TRIGGERTILE_35_X = 44.0f;
+  public const float VELGUS_TRIGGERTILE_35_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_35_Z = -7.0f;
+
+  // 右方、天の物語「詩』７
+  public const string VELGUS_TRIGGERTILE_36_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_36_O = "36";
+  public const float VELGUS_TRIGGERTILE_36_X = 46.0f;
+  public const float VELGUS_TRIGGERTILE_36_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_36_Z = -7.0f;
+
+  // 右方、天の物語「詩』８
+  public const string VELGUS_TRIGGERTILE_37_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_37_O = "37";
+  public const float VELGUS_TRIGGERTILE_37_X = 36.0f;
+  public const float VELGUS_TRIGGERTILE_37_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_37_Z = -7.0f;
+
+  // 右方、天の物語「詩』９
+  public const string VELGUS_TRIGGERTILE_38_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_38_O = "38";
+  public const float VELGUS_TRIGGERTILE_38_X = 36.0f;
+  public const float VELGUS_TRIGGERTILE_38_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_38_Z = -9.0f;
+
+  // 右方、天の物語「詩』１０
+  public const string VELGUS_TRIGGERTILE_39_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_39_O = "39";
+  public const float VELGUS_TRIGGERTILE_39_X = 44.0f;
+  public const float VELGUS_TRIGGERTILE_39_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_39_Z = -3.0f;
+
+  // 右方、天の物語「詩』１１
+  public const string VELGUS_TRIGGERTILE_40_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_40_O = "40";
+  public const float VELGUS_TRIGGERTILE_40_X = 44.0f;
+  public const float VELGUS_TRIGGERTILE_40_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_40_Z = -5.0f;
+
+  // 右方、天の物語「詩』１２
+  public const string VELGUS_TRIGGERTILE_41_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_41_O = "41";
+  public const float VELGUS_TRIGGERTILE_41_X = 44.0f;
+  public const float VELGUS_TRIGGERTILE_41_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_41_Z = -13.0f;
+
+  // 右方、天の物語「詩』１３
+  public const string VELGUS_TRIGGERTILE_42_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_42_O = "42";
+  public const float VELGUS_TRIGGERTILE_42_X = 44.0f;
+  public const float VELGUS_TRIGGERTILE_42_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_42_Z = -15.0f;
+
+  // 右方、天の物語「詩』１４
+  public const string VELGUS_TRIGGERTILE_43_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_43_O = "43";
+  public const float VELGUS_TRIGGERTILE_43_X = 34.0f;
+  public const float VELGUS_TRIGGERTILE_43_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_43_Z = -13.0f;
+
+  // 右方、天の物語「詩』１５
+  public const string VELGUS_TRIGGERTILE_44_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_44_O = "44";
+  public const float VELGUS_TRIGGERTILE_44_X = 36.0f;
+  public const float VELGUS_TRIGGERTILE_44_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_44_Z = -13.0f;
+
+  // 右方、天の物語「詩』１６
+  public const string VELGUS_TRIGGERTILE_45_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_45_O = "45";
+  public const float VELGUS_TRIGGERTILE_45_X = 48.0f;
+  public const float VELGUS_TRIGGERTILE_45_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_45_Z = -2.0f;
+
+  // トリガータイル（E3B-1）
+  public const string VELGUS_TRIGGERTILE_46_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_46_O = "46";
+  public const float VELGUS_TRIGGERTILE_46_X = 32.0f;
+  public const float VELGUS_TRIGGERTILE_46_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_46_Z = -8.0f;
+
+  // トリガータイル（E3B-2）
+  public const string VELGUS_TRIGGERTILE_47_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_47_O = "47";
+  public const float VELGUS_TRIGGERTILE_47_X = 48.0f;
+  public const float VELGUS_TRIGGERTILE_47_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_47_Z = -4.0f;
+
+  // トリガータイル（E3B-3）
+  public const string VELGUS_TRIGGERTILE_48_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_48_O = "48";
+  public const float VELGUS_TRIGGERTILE_48_X = 48.0f;
+  public const float VELGUS_TRIGGERTILE_48_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_48_Z = -14.0f;
+
+  // 右方、隠し壁ドア（E3B-1）
+  public const string VELGUS_SECRETWALL_49_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_49_O = "49";
+  public const float VELGUS_SECRETWALL_49_X = 39.0f;
+  public const float VELGUS_SECRETWALL_49_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_49_Z = -10.0f;
+
+  // 右方、隠し壁ドア（E3B-2）
+  public const string VELGUS_SECRETWALL_50_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_50_O = "50";
+  public const float VELGUS_SECRETWALL_50_X = 41.0f;
+  public const float VELGUS_SECRETWALL_50_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_50_Z = -14.0f;
+
+  // 右方、隠し壁ドア（E3B-3）
+  public const string VELGUS_SECRETWALL_51_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_51_O = "51";
+  public const float VELGUS_SECRETWALL_51_X = 45.0f;
+  public const float VELGUS_SECRETWALL_51_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_51_Z = -10.0f;
+
+  // 右方、隠し壁ドア（E3C-1）
+  public const string VELGUS_SECRETWALL_52_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_52_O = "52";
+  public const float VELGUS_SECRETWALL_52_X = 33.0f;
+  public const float VELGUS_SECRETWALL_52_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_52_Z = -8.0f;
+
+  // 右方、隠し壁ドア（E3C-2）
+  public const string VELGUS_SECRETWALL_53_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_53_O = "53";
+  public const float VELGUS_SECRETWALL_53_X = 47.0f;
+  public const float VELGUS_SECRETWALL_53_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_53_Z = -4.0f;
+
+  // 右方、隠し壁ドア（E3C-3）
+  public const string VELGUS_SECRETWALL_54_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_54_O = "54";
+  public const float VELGUS_SECRETWALL_54_X = 47.0f;
+  public const float VELGUS_SECRETWALL_54_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_54_Z = -14.0f;
+
+  // 右方、隠し壁ドア（E3D）
+  public const string VELGUS_SECRETWALL_55_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_55_O = "55";
+  public const float VELGUS_SECRETWALL_55_X = 32.0f;
+  public const float VELGUS_SECRETWALL_55_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_55_Z = -12.0f;
+
+  // 右方、隠し壁ドア（E3E）
+  public const string VELGUS_SECRETWALL_56_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_56_O = "56";
+  public const float VELGUS_SECRETWALL_56_X = 42.0f;
+  public const float VELGUS_SECRETWALL_56_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_56_Z = -2.0f;
+
+  // トリガータイル（E3B-F）
+  public const string VELGUS_TRIGGERTILE_57_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_57_O = "57";
+  public const float VELGUS_TRIGGERTILE_57_X = 34.0f;
+  public const float VELGUS_TRIGGERTILE_57_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_57_Z = -1.0f;
+
+  // 右方、隠し壁ドア（E3F）
+  public const string VELGUS_SECRETWALL_58_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_58_O = "58";
+  public const float VELGUS_SECRETWALL_58_X = 41.0f;
+  public const float VELGUS_SECRETWALL_58_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_58_Z = -17.0f;
+
+  // トリガータイル（E3G）
+  public const string VELGUS_TRIGGERTILE_59_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_59_O = "59";
+  public const float VELGUS_TRIGGERTILE_59_X = 37.0f;
+  public const float VELGUS_TRIGGERTILE_59_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_59_Z = -17.0f;
+
+  // 右方、隠し壁ドア（E3G)
+  public const string VELGUS_SECRETWALL_60_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_60_O = "60";
+  public const float VELGUS_SECRETWALL_60_X = 40.0f;
+  public const float VELGUS_SECRETWALL_60_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_60_Z = -5.0f;
+
+  // トリガータイル（E3G -> H）
+  public const string VELGUS_TRIGGERTILE_61_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_61_O = "61";
+  public const float VELGUS_TRIGGERTILE_61_X = 41.0f;
+  public const float VELGUS_TRIGGERTILE_61_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_61_Z = -5.0f;
+
+  // 詠唱の地（E3H)
+  public const string VELGUS_CHANTFIELD_62_C = "ChantField";
+  public const string VELGUS_CHANTFIELD_62_O = "62";
+  public const float VELGUS_CHANTFIELD_62_X = 33.0f;
+  public const float VELGUS_CHANTFIELD_62_Y = 0.0f;
+  public const float VELGUS_CHANTFIELD_62_Z = -5.0f;
+
+  // 右方、隠し壁ドア（E3H）
+  public const string VELGUS_SECRETWALL_63_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_63_O = "63";
+  public const float VELGUS_SECRETWALL_63_X = 43.0f;
+  public const float VELGUS_SECRETWALL_63_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_63_Z = -1.0f;
+
+  // 右方、隠し壁ドア（E3I）
+  public const string VELGUS_SECRETWALL_64_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_64_O = "64";
+  public const float VELGUS_SECRETWALL_64_X = 33.0f;
+  public const float VELGUS_SECRETWALL_64_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_64_Z = -1.0f;
+
+  // トリガータイル（E3-???）
+  public const string VELGUS_TRIGGERTILE_65_C = "TriggerTile";
+  public const string VELGUS_TRIGGERTILE_65_O = "65";
+  public const float VELGUS_TRIGGERTILE_65_X = 28.0f;
+  public const float VELGUS_TRIGGERTILE_65_Y = 0.0f;
+  public const float VELGUS_TRIGGERTILE_65_Z = -1.0f;
+
   #region "宝箱"
   // エントランスの上
   public const string VELGUS_TREASURE_1_C = "Treasure";
@@ -6078,12 +6380,34 @@ public static partial class Fix
   public const float VELGUS_TREASURE_1_Y = 1.0f;
   public const float VELGUS_TREASURE_1_Z = -2.0f;
 
-  // 中央の間
+  // 中央の間（１）
   public const string VELGUS_TREASURE_2_C = "Treasure";
   public const string VELGUS_TREASURE_2_O = "2";
   public const float VELGUS_TREASURE_2_X = 25.0f;
   public const float VELGUS_TREASURE_2_Y = 1.0f;
   public const float VELGUS_TREASURE_2_Z = -9.0f;
+
+  // 中央の間（２）
+  public const string VELGUS_TREASURE_3_C = "Treasure";
+  public const string VELGUS_TREASURE_3_O = "3";
+  public const float VELGUS_TREASURE_3_X = 23.0f;
+  public const float VELGUS_TREASURE_3_Y = 1.0f;
+  public const float VELGUS_TREASURE_3_Z = -1.0f;
+
+  // 右方の間（１）
+  public const string VELGUS_TREASURE_4_C = "Treasure";
+  public const string VELGUS_TREASURE_4_O = "4";
+  public const float VELGUS_TREASURE_4_X = 48.0f;
+  public const float VELGUS_TREASURE_4_Y = 1.0f;
+  public const float VELGUS_TREASURE_4_Z = -12.0f;
+
+  // 右方の間（２）
+  public const string VELGUS_TREASURE_5_C = "Treasure";
+  public const string VELGUS_TREASURE_5_O = "5";
+  public const float VELGUS_TREASURE_5_X = 37.0f;
+  public const float VELGUS_TREASURE_5_Y = 1.0f;
+  public const float VELGUS_TREASURE_5_Z = -1.0f;
+
   #endregion
 
 

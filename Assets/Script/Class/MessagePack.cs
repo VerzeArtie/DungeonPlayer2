@@ -51,6 +51,7 @@ public static class MessagePack
     HometownNextDay,
     EncountBoss,
     EncountDuel,
+    SceneAdd,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -13622,7 +13623,2153 @@ public static class MessagePack
     }
   }
 
-  public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message1000040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000040 == false)
+    {
+      One.TF.Event_Message1000040 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・この看板は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・読むぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【鳥が歌い、木々が囁き始める】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【天は青く照らし、地は新緑を謳歌する】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【闇が夜へと誘い、光が昼へと道を示す】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【水、流れ落ち、偉大なる海、天へと還り、無限循環】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【火、あらゆる場所、可能な場を生めつくし、創元浄化】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【嵐、万物なる生成要素、一から零へと変化させる】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【死、この世における絶対的な平等の象徴】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【生、偉大なる母、厳格なる父より永久の確約】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【神、全創生、全法則、全にして無条件の存在】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【人、誤り、恐れ、喚き、屈し、失い、揺らぎ続ける存在】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【理、神と人、鳥、木々、全生物における連続の理そこに見つけたり】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【空、在るべきもの、成るべくして成り、在るべくして現存と見つけたり】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【相、完全調和への導き、交わることの無い絶対双極、見つけたり】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【永遠、終わらない所へ、終わりと始まりが連続する永遠環】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　【世界、あなた、そしてわたしが居た場所へ。無限に続くこの世界】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、頼むから1つだけ教えてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この看板の内容はヴェルガスの海底神殿を起源とした詩なのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それとも、パルメテイシア神殿から来た詩なのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：っ・・・それは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：別に良いのよ、無理に答えなくても。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。何でそんな事を聞いてんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・強いて言えば", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：場合によっては、永遠に彷徨うハメになるかも知れないからだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いやいやいや、ちょっと待てよ。まだ何も調べてねーだろうが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：この先の所に進んで探索もしてねーのに、なんでそんな事言えるんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、永遠は言い過ぎかもしれないが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：相当な時間を費やさなければならない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そんな気がするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、ほんのちょっとだけで良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：力を・・・貸してくれ。頼む！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：アインさんは・・・まず・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：『詩』と表現されているようですが、何故そう表現したんでしょう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・そうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何かの物語を描いた様な・・・そんな印象を受けたからだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：後は一節ごとに連なる連続性だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、これは単なる設問ではない。そう思ったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・そんな所から・・・　たった、これだけで・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良いのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ。しかし、私が知っている事はおそらく助けにはならないでしょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良いんだ。ほんの少しだけでも糸口になるんだ。頼む！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ここにある看板の内容は、パルメテイシア神殿において古代から伝承されている記述そのものです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：正確な起源までは分かりませんが、相当古い時代から言い伝えられてるそうです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ただし、この記述はヴェルガスの海底神殿に描かれている紋様を神殿の者が解釈し、それを文章化したものだと伝えられています。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：以上です。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・ありがとう！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ。大した情報ではないので、お役に立つかどうかは分かりませんが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいや、十分過ぎるぐらいだよ。助かった！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：でも、スゴイね、アインにーちゃん☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何がだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アタシ、エオネおねーちゃんはこの件は絶対喋らないと思ってたのに", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何か不思議―☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：確かに。。。重ねてだが、本当に助かった。感謝する。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、どうするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このまま進めてみようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：皆、分からない難問が出た時はちょっとだけ時間をくれ。良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：別にいーぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：お任せー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、じゃあ進めるとしよう！", ActionEvent.None);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000040_Complete_4 == false)
+      {
+        Message(ref m_list, ref e_list, "　【鳥が歌い、木々が囁き始める】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【天は青く照らし、地は新緑を謳歌する】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【闇が夜へと誘い、光が昼へと道を示す】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【水、流れ落ち、偉大なる海、天へと還り、無限循環】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【火、あらゆる場所、可能な場を生めつくし、創元浄化】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【嵐、万物なる生成要素、一から零へと変化させる】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【死、この世における絶対的な平等の象徴】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【生、偉大なる母、厳格なる父より永久の確約】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【神、全創生、全法則、全にして無条件の存在】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【人、誤り、恐れ、喚き、屈し、失い、揺らぎ続ける存在】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【理、神と人、鳥、木々、全生物における連続の理そこに見つけたり】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【空、在るべきもの、成るべくして成り、在るべくして現存と見つけたり】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【相、完全調和への導き、交わることの無い絶対双極、見つけたり】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【永遠、終わらない所へ、終わりと始まりが連続する永遠環】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　【世界、あなた、そしてわたしが居た場所へ。無限に続くこの世界】", ActionEvent.None);
+      }
+      else if (One.TF.Event_Message1000040_Progress_1 == false)
+      {
+        Message1000063(ref m_list, ref e_list);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000059 == false)
+        {
+          Message(ref m_list, ref e_list, "　【鳥が歌い、木々が囁き始める】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【天は青く照らし、地は新緑を謳歌する】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【闇が夜へと誘い、光が昼へと道を示す】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【水、流れ落ち、偉大なる海、天へと還り、無限循環】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【火、あらゆる場所、可能な場を生めつくし、創元浄化】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【嵐、万物なる生成要素、一から零へと変化させる】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【死、この世における絶対的な平等の象徴】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【生、偉大なる母、厳格なる父より永久の確約】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【神、全創生、全法則、全にして無条件の存在】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【人、誤り、恐れ、喚き、屈し、失い、揺らぎ続ける存在】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【理、神と人、鳥、木々、全生物における連続の理そこに見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【空、在るべきもの、成るべくして成り、在るべくして現存と見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【相、完全調和への導き、交わることの無い絶対双極、見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【永遠、終わらない所へ、終わりと始まりが連続する永遠環】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【世界、あなた、そしてわたしが居た場所へ。無限に続くこの世界】", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "　【鳥が歌い、木々が囁き始める】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【天は青く照らし、地は新緑を謳歌する】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【闇が夜へと誘い、光が昼へと道を示す】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【水、流れ落ち、偉大なる海、天へと還り、無限循環】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【火、あらゆる場所、可能な場を生めつくし、創元浄化】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【嵐、万物なる生成要素、一から零へと変化させる】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【死、この世における絶対的な平等の象徴】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【生、偉大なる母、厳格なる父より永久の確約】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【神、全創生、全法則、全にして無条件の存在】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【人、誤り、恐れ、喚き、屈し、失い、揺らぎ続ける存在】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【理、神と人、鳥、木々、全生物における連続の理そこに見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【空、在るべきもの、成るべくして成り、在るべくして現存と見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【相、完全調和への導き、交わることの無い絶対双極、見つけたり】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【永遠、終わらない所へ、終わりと始まりが連続する永遠環】", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "　【世界、あなた、そしてわたしが居た場所へ。無限に続くこの世界】", ActionEvent.None);
+
+          if (One.TF.Event_Message1000075 == false)
+          {
+            One.TF.Event_Message1000075 = true;
+
+            Message(ref m_list, ref e_list, "アイン：よし、じゃあ始めるとしよう。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：始めるだぁ？どーいう意味だよ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：さっき、詩の節の始まりが描かれている場所を通った時に音がしたろ？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：あ、ああ。何かそういやそうだったな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：おそらくだが、あれがこの区画を解くためのヒントを映し出してくれる。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：最初に探索した時はちょっと分からなかったが、今なら変化しているはずだ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：それをもう一度見に行こうと思う。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：要はもう一度探索するって事ね。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：そういう事だ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：何か分かったら、ちゃんと教えろよな。眺めたままダンマリじゃ分かんねーからな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう。", ActionEvent.None);
+          }
+          else if (One.TF.Event_Message1000040_Reading_1 &&
+                   One.TF.Event_Message1000040_Reading_2 &&
+                   One.TF.Event_Message1000040_Reading_3 &&
+                   One.TF.Event_Message1000040_Reading_4 &&
+                   One.TF.Event_Message1000040_Reading_5 &&
+                   One.TF.Event_Message1000040_Reading_6 &&
+                   One.TF.Event_Message1000040_Reading_7 &&
+                   One.TF.Event_Message1000040_Reading_8 &&
+                   One.TF.Event_Message1000040_Reading_9 &&
+                   One.TF.Event_Message1000040_Reading_10 &&
+                   One.TF.Event_Message1000040_Reading_11 &&
+                   One.TF.Event_Message1000040_Reading_12 &&
+                   One.TF.Event_Message1000040_Reading_13 &&
+                   One.TF.Event_Message1000040_Reading_14 &&
+                   One.TF.Event_Message1000040_Reading_15)
+          {
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000041(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000041 == false)
+    {
+      One.TF.Event_Message1000041 = true;
+
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_25_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_26_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_27_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_28_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：っな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、早速開いたみてーだな！じゃあ、突撃するか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　マズイな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだよ、単に開いただけだろーが。おい、早く行こうぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ・・・", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000059 && One.TF.Event_Message1000075 == false)
+    {
+      One.TF.Event_Message1000075 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ始めるとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：始めるだぁ？どーいう意味だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さっき、詩の節の始まりが描かれている場所を通った時に音がしたろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あ、ああ。何かそういやそうだったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらくだが、あれがこの区画を解くためのヒントを映し出してくれる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最初に探索した時はちょっと分からなかったが、今なら変化しているはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それをもう一度見に行こうと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：要はもう一度探索するって事ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういう事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何か分かったら、ちゃんと教えろよな。眺めたままダンマリじゃ分かんねーからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000042(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000042 == false)
+    {
+      One.TF.Event_Message1000042 = true;
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+    }
+    Check1000040_Complete_1(ref m_list, ref e_list);
+  }
+
+  public static void Message1000043(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000043 == false)
+    {
+      One.TF.Event_Message1000043 = true;
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+    }
+    Check1000040_Complete_1(ref m_list, ref e_list);
+  }
+
+  public static void Message1000044(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000044 == false)
+    {
+      One.TF.Event_Message1000044 = true;
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+    }
+    Check1000040_Complete_1(ref m_list, ref e_list);
+  }
+
+  private static void Check1000040_Complete_1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000042 && One.TF.Event_Message1000043 && One.TF.Event_Message1000044)
+    {
+      One.TF.Event_Message1000040_Complete_1 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_49_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_50_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_51_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ラナ：何かが開く音がしたわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：またどっかが開いたんじゃねーのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ・・・おそらくな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テメーにしちゃ、やけに慎重になってるじゃねーか。どうしちまったんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、何ていうのかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：奇麗過ぎて、順序の見通しが効かない。って感じだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そうなのかよ。まあ、相変わらずそういうのは分かんねーけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここで立ち止まってもしょうがない。進めてみよう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000045(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000045 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(2);
+      One.TF.Event_Message1000045 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_2 == false)
+        {
+          One.TF.Event_Message1000040_Reading_2 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 2);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 2);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000046(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000046 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(3);
+      One.TF.Event_Message1000046 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_3 == false)
+        {
+          One.TF.Event_Message1000040_Reading_3 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 3);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 3);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000047(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000047 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(4);
+      One.TF.Event_Message1000047 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_4 == false)
+        {
+          One.TF.Event_Message1000040_Reading_4 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 4);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 4);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000048(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000048 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(5);
+      One.TF.Event_Message1000048 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_5 == false)
+        {
+          One.TF.Event_Message1000040_Reading_5 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 5);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 5);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000049(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000049 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(6);
+      One.TF.Event_Message1000049 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_6 == false)
+        {
+          One.TF.Event_Message1000040_Reading_6 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 6);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 6);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000050 == false && One.TF.Event_Message1000040_Complete_2 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(7);
+      One.TF.Event_Message1000050 = true;
+      Check1000040_Complete_2(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_7 == false)
+        {
+          One.TF.Event_Message1000040_Reading_7 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 7);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 7);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000051(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000051 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(8);
+      One.TF.Event_Message1000051 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_8 == false)
+        {
+          One.TF.Event_Message1000040_Reading_8 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 8);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 8);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000052(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000052 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(9);
+      One.TF.Event_Message1000052 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_9 == false)
+        {
+          One.TF.Event_Message1000040_Reading_9 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 9);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 9);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000053(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000053 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(10);
+      One.TF.Event_Message1000053 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_10 == false)
+        {
+          One.TF.Event_Message1000040_Reading_10 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 10);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 10);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000054(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000054 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(11);
+      One.TF.Event_Message1000054 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_11 == false)
+        {
+          One.TF.Event_Message1000040_Reading_11 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 11);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 11);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000055(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000055 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(12);
+      One.TF.Event_Message1000055 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_12 == false)
+        {
+          One.TF.Event_Message1000040_Reading_12 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 12);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 12);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000056(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000056 == false && One.TF.Event_Message1000040_Complete_3 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(13);
+      One.TF.Event_Message1000056 = true;
+      Check1000040_Complete_3(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_13 == false)
+        {
+          One.TF.Event_Message1000040_Reading_13 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 13);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 13);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000057(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000057 == false && One.TF.Event_Message1000040_Complete_4 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(14);
+      One.TF.Event_Message1000057 = true;
+      Check1000040_Complete_4(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_14 == false)
+        {
+          One.TF.Event_Message1000040_Reading_14 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 14);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 14);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000058(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000058 == false && One.TF.Event_Message1000040_Complete_4 == false)
+    {
+      One.AR.Velgus_Chant_Sequence(15);
+      One.TF.Event_Message1000058 = true;
+      Check1000040_Complete_4(ref m_list, ref e_list);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        if (One.TF.Event_Message1000040_Reading_15 == false)
+        {
+          One.TF.Event_Message1000040_Reading_15 = true;
+          Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+          Message1000040_MessageFromChant(ref m_list, ref e_list, 15);
+
+          Message(ref m_list, ref e_list, "アイン：よし、他の所も確認しよう。", ActionEvent.None);
+        }
+        else
+        {
+          if (One.TF.Event_Message1000040_Complete_8 == false)
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message1000040_MessageFromChant(ref m_list, ref e_list, 15);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+  
+  public static void Message1000059(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000059 == false)
+    {
+      One.TF.Event_Message1000059 = true;
+      One.TF.Event_Message1000040_Reading_1 = true;
+      Message(ref m_list, ref e_list, "アイン：あった、これだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（自然の木々と・・・・無数の・・・鳥・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おっ！何か今、音が鳴らなかったか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし。合ってたみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ここがさっき探索していた場所と関連性があるの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ここが始まりの節を示す場所だったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これで、関連性は整った。後は進めるだけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・っ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ早速、例のフロアへ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ま、待ってください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうした？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：まるで見てきたかの様な振る舞いなので、ちょっと驚いただけです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：気にしないでください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアインは結構ハズレを引いてる時も多いのよ。いちいち気にしない方が良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ、そうですか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、俺なりに考えてだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ハイハイ、そのくだりも良いから。ッホラ。とっとと行くんでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。よし、じゃあ例のフロアにもう一度戻ろう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000060 == false)
+    {
+      One.TF.Event_Message1000060 = true;
+      One.AR.VelgusChantAchivement = true;
+      One.UpdateAkashicRecord();
+
+      Message(ref m_list, ref e_list, "アイン：あった！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      // Message(ref m_list, ref e_list, "　【　過去と未来に非ず、始まりと終わりに非ず、夢幻無二なる特異空間へと至る　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（な・・・なんだこれ・・・！！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（相似形の螺旋と円環・・・？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（いや・・・夢幻のフラクタル系にも見えるが・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・過去と・・・未来・・・？いや、そうでも無さそうだな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ん・・・一か所だけ異質な箇所があるな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ものすごく小さい粒点だな・・・単なるミスか？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・違う・・・ミスのはずがない・・・これは・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：おーーい、アインのお兄ちゃーーーん☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、おおーー、悪い悪い。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうなのよ。１６の節と言ってたのは、本当に見えたわけ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どうだろうなって、どーなんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１６の詩の節自体は確かにあった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、何というか・・・描かれていた内容がその・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：在るには在ったワケね。もう、その辺りは良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：す、すまねえ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、よーやくこれで終わりか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、皆付き合わせてしまって悪かったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おーし、じゃあそろそろ、次の所へ行こーぜ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解だ。次へ行こう！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+    }
+  }
+
+  private static void Message1000040_MessageFromChant(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  {
+    if (One.AR.VelgusSearchChantNumber(number) == 2)
+    {
+      Message(ref m_list, ref e_list, "アイン：青く晴れた空と奇麗な緑の大地が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：２番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 3)
+    {
+      Message(ref m_list, ref e_list, "アイン：暗闇に一筋の光が差し込んでいて道が繋がっている様な感じがするな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：３番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 4)
+    {
+      Message(ref m_list, ref e_list, "アイン：流線形で様々な形を司った水模様が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：４番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 5)
+    {
+      Message(ref m_list, ref e_list, "アイン：場全体が火に包まれている。全体的に浄化されている様な印象を受けるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：５番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 6)
+    {
+      Message(ref m_list, ref e_list, "アイン：あらゆる万物が嵐の中で形成取っている過程が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：６番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 7)
+    {
+      Message(ref m_list, ref e_list, "アイン：この世に対して死が平等に到来する瞬間が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：７番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 8)
+    {
+      Message(ref m_list, ref e_list, "アイン：生誕における母性と父性を象徴するような象が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：８番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 9)
+    {
+      Message(ref m_list, ref e_list, "アイン：抽象的な幾何学模様を用いて法則性や創生を生み出す神を描いている様に見えるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：９番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 10)
+    {
+      Message(ref m_list, ref e_list, "アイン：恐れたり、失ったり、様々な人々の象が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１０番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 11)
+    {
+      Message(ref m_list, ref e_list, "アイン：理を象徴するように、神、人々、鳥や自然の木々を一つの連続した線で描いているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１１番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 12)
+    {
+      Message(ref m_list, ref e_list, "アイン：無の空間なんだが、在るべき型が現存している様を描いているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１２番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 13)
+    {
+      Message(ref m_list, ref e_list, "アイン：交わってはいないが、水平と垂直を象徴する相の幾何学模様が描いているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１３番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 14)
+    {
+      Message(ref m_list, ref e_list, "アイン：始まりの地点と終わりの地点が同地点に行きつく永遠の象徴が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１４番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 15)
+    {
+      Message(ref m_list, ref e_list, "アイン：世界事象が全体的に描かれ、象が２つ向かい合っている姿が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１５番目の節が該当しそうね。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000061(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：鍵の入手・・・か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：おおし、やったじゃねえか！早速この鍵で開けられる扉を探してみようぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、後ほんの少しだけ待ってくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：どのぐらい待つんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この先の通路を確認したい。話はそれからだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：マップのメモからすると、よほどの複雑な構造でない限り、探索範囲はあと少しね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：じゃあ、本当にあと少しなんだな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、すまねえがあとほんの少しだけだ。行こう。", ActionEvent.None);
+  }
+
+  public static void Message1000062(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000076 == false)
+    {
+      One.TF.Event_Message1000076 = true;
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：よう、行き止まりの様だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：探索はひとまず終了かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと考えてみたい事がある。看板の所に戻ってみても良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ皆。悪いがちょっとだけ付き合ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おうよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（・・・っ・・・　・・・）", ActionEvent.None);
+    }
+    else
+    {
+      if (One.TF.Event_Message1000040_Reading_1 &&
+          One.TF.Event_Message1000040_Reading_2 &&
+          One.TF.Event_Message1000040_Reading_3 &&
+          One.TF.Event_Message1000040_Reading_4 &&
+          One.TF.Event_Message1000040_Reading_5 &&
+          One.TF.Event_Message1000040_Reading_6 &&
+          One.TF.Event_Message1000040_Reading_7 &&
+          One.TF.Event_Message1000040_Reading_8 &&
+          One.TF.Event_Message1000040_Reading_9 &&
+          One.TF.Event_Message1000040_Reading_10 &&
+          One.TF.Event_Message1000040_Reading_11 &&
+          One.TF.Event_Message1000040_Reading_12 &&
+          One.TF.Event_Message1000040_Reading_13 &&
+          One.TF.Event_Message1000040_Reading_14 &&
+          One.TF.Event_Message1000040_Reading_15 &&
+          One.TF.Event_Message1000040_Complete_5 == false)
+      {
+        One.TF.Event_Message1000040_Complete_5 = true;
+
+        Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_58_O, ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "アイン：よし、当たりの様だな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：まっ、マジかよおぉ！！？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どうしてこんな所にまだ仕掛けがあると思ったわけ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：何でって言うほどでもないが、宝箱が印象的だったんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：このヴェルガスの海底神殿、普通に置いてある宝箱と思わせぶりな宝箱の配置があるんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：どういう事だよ？ここの通路の宝箱はちゃんと鍵が入ってたじゃねえか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：だからこそ、だよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：鍵を入手したし、拓けた通路もここまで。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そういう感覚を俺達に印象付けている気がするんだよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：そんなもんかぁ？納得というか意味不明だな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：開いた場所はやっぱりこの区画のどこかって事で良いのかしら？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、そうだな。ちょっと面倒かも知れないが、もう一度だけ戻って探索してみよう。", ActionEvent.None);
+      }
+      else if (One.TF.Event_Message1000040_Complete_5)
+      {
+        // todo 最後の隠し扉がまだ残っている。
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：いや、行き止まりだろ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・そうだな。", ActionEvent.None);
+      }
+    }
+  }
+
+  public static void Message1000063(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000040_Progress_1 == false)
+    {
+      One.TF.Event_Message1000040_Progress_1 = true;
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このエリアで俺達が見てきた地点は", ActionEvent.None);
+
+      if (One.TF.Event_Message1000059 == false)
+      {
+        Message(ref m_list, ref e_list, "アイン：合計で14箇所だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：しかし、看板に記述されている詩の節は15個ある。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：数が符号しない。一致性が無いんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：一致性って何だよ？看板にそんな事が書いてあるか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：明確には記されていない。この看板は詩の節が示されているだけだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：んじゃあ気のせいなんじゃねーのか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：別の観点があるんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：最初のエリアは看板にヒントがあった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そのヒントを辿る事で次のルートへ進めている。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：次にあった中央の場所もそうだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：でも、看板に示された内容を読み解いた上で、次のルートが拓けたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ただし最初の場所よりも中央の場所の方が、比較的、解き辛かった気はしている。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：で、ここの区画の看板はこの内容だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：これはもうヒントですらない。何等かの啓示の様にも思える。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ただ、俺達は今回、単純に通路や区画を探索する事で次々と開放してきた。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：少なくとも、詩の節に示される内容との関連性は厳密には見出す事ができなかった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それでいて、最終的には宝箱を開き、鍵を入手できたわけだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あまり根拠とか無いんだが、これは異質な気がするんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：んー。でもなあ。たまたま探索した順序が、その詩の節に合致してたんじゃねーのか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それも無い。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：なんで言い切れんだよ？？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：完全な順序で1発で当てるには最初のステップとして合計幾つあるかによる。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：仮に14なら、まず1/14。約７．１％だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：次は1つ減るから、13個のうちから1つを当てる。1/13で役７．７％だ", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：７％ぐらいっつうんなら、んなもんじゃねえのか？あり得るだろーが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いいや、1/14を言い当てた中で、更に1/13を言い当てる事になる。依存関係があるんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：依存関係がもしあると仮定した場合は、この時点で約0.5%になる。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：この時点で１％すら残されていないんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：んな・・・だからよー。1%以下だろうが気合で引き当てたんだろーが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：確かに・・・ちょっとダメそうね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、これが14と仮定した場合、その確率はおよそ8700万分の1近くにもなる。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：つまり、0.0000000011%だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：そ、それも気合でだな・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：詩の節は15あった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：14という仮定で話しているが、もしもそれが誤りで15だとすると", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：0.000000000076%。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：・・・0って何回言ったんだ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあ、あり得ないわけじゃないが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まずまず無理なんだ。そう考えてもらえば良い。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラリー：気合の範囲を超えてるって話か・・・しょうがねえか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：でも、何か糸口が残ってるわけ？さっきから見てる感じだと珍しく苦戦してるみたいじゃない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ・・・正直これはきつい。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ひょっとしたらだが、このヴェルガスの海底神殿。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここが一番の難所かもしれない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そんな気がするんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：珍しいわね。そこまで言うなんて。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ただし、完全に糸口がない訳じゃないんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：どこにあるってんだよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：この、看板だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：それはもう何度も見てるだろーが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあ、そうなんだけどな・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：少し、時間が要りそうかしら？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、ちょっと考えたい。悪いな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：テメーのそういう所、オルガウェイン傭兵訓練施設の頃もそんな感じだったな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そ、そうかもな。ハハハ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "【 アイン・ウォーレンスは看板に目を向け、そのまま静止状態となった 】", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ラナ：しばらく、かかりそうね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ねえ、少し離れた所でモンスターに警戒しつつ、小休憩しておきましょ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：分かった。ボーっと見てても疲れるだけだしな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
+        
+        Message(ref m_list, ref e_list, "アデル：一休みしよー☆", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～～～しばらくして～～～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ラナ：もうそろそろかしら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：時間分かるのかよ！？すげーな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：何となくね。バカアインに限ってはこのぐらいが丁度いいはずよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：行ってみよー。なんか思いついてるかもねー☆", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "【 ラナ、アデル、ビリー、エオネはアイン・ウォーレンスの元へと戻った 】", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ラナ：どう？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ようやくだが、見えた気がする。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まず最初に取るべき行動は", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：始まりの地点を探すことだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どういう事かしら？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：最後の通路が開いた時は２つの地点をチェックして開いた。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：その前は３区画毎に２か所。合計６。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：その前も３区画毎に２か所。合計６。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：で合わせると１４なんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ただしこの看板の詩の節は１５あるので一致しない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：残る１つはどこにあって、そして、どのタイミングで開いたのか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：解は、このエリアに来た時の最初のタイミングで扉が開いた時にある。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：そんなの、あったか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：覚えてないか？中央で交差する箇所は最初３つの扉で仕切られていたはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：そういえば、そうね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：で、交差する箇所に足を踏み入れると、３つの扉が目の前で開いた。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あの印象的な通路の開放が、おそらくこの地に足を踏み入れる者に対して、認識の錯誤を与えるトラップなんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：じゃあ・・・まさか・・・どこかにまだ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そういう事だ。きっとどこかにまだ１か所開いた箇所がある。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：でも、やみくもに探すのかよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：大丈夫だ。その目星もつけている。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ヒントになっているのは「宝箱」だ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：最初のエントランスを解いた地点から上に行った所に宝箱があっただろ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：ああ、あったな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あそこへもう一度行ってみよう。きっと通路が開いているはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：マジかよ・・・あんな関係ねえ所がまさかって感じがして、信じられねえが。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：大丈夫、確信があるんだ。行こう。", ActionEvent.None);
+
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：合計15だ。", ActionEvent.None);
+      }
+
+    }
+  }
+
+  public static void Message1000064(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000040_Complete_6 == false)
+    {
+      One.TF.Event_Message1000040_Complete_6 = true;
+      Message(ref m_list, ref e_list, "(ッカチ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_MessageBoard_3_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まさか・・・そんな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なに動揺してんだよ？また、どっか開いたんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：想定外って所なのかしら、どうなの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直、これで仕掛けは終わりだと思っていた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：看板が示していた詩の節についてはきちんと調べてある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：遠くにあった始まりの節も到達済みだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：後は行き止まりにあった仕掛けを動作させて、この場所に至ったわけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なので、それでもまだ先があると言うのは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：完全に想定外だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：想定外でも、新しく開いた所へ行くしかないんでしょ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ・・・そうするしかないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ここまで来たんだろ。次で今度こそ最後なんじゃねえのか？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・ビリーの言う通りかもしれないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ここまで解いてきたんだし、最後まで頼んだわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった。じゃあ、引き続き探索しよう！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000065(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000040_Complete_7 == false)
+    {
+      One.TF.Event_Message1000040_Complete_7 = true;
+
+      Message(ref m_list, ref e_list, "ラナ：・・・看板がなくなってるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_60_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おい・・・何だか異様だな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000066(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000077 == false)
+    {
+      One.TF.Event_Message1000077 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おっ・・・おい、どうしたんだよ急に立ち止まって・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな、頼みがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっとだけで良い。ここで待っていてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、行ってくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
+
+      Message(ref m_list, ref e_list, "（アインが足を踏み入れたその時だった）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　突如台座がアインの前に浮き上がり、アインは薄黄色い空間に包まれた ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.TurnToWhite);
+
+      Message(ref m_list, ref e_list, "ラナ：っちょっと何これ？？アイン！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だ。任せとけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：台座に何かが記されている・・・これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　　　　『絶対試練：汝、答えを示せ。』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.SCENE_TRUTH_ANSWER, ActionEvent.SceneAdd);
+    }
+  }
+
+  public static void Message1000067(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000077 && One.TF.Event_Message1000078 == false)
+    {
+      if (One.TF.Event_Message1000040_VelgusChantSuccess == false)
+      {
+        Message(ref m_list, ref e_list, "アイン：駄目だ・・・反応しない・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ひょっとして・・・どこかで・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：やべ・・・頭が・・・ッグ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, " ～　THE　END　～　（記憶の断片）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+        Message(ref m_list, ref e_list, "　　　　『空間が激しくフラッシュし、凝縮された空間へと連続的に小さくなる！！！』", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　　　　『パパパパパパパ！！！！ッバシュウウウゥゥゥン！！！！！！！』", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "　　　　『凝縮された空間が弾け飛んだ後、台座の前にアインの倒れた姿があった』", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：アイン！！大丈夫！？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、ああ。大丈夫だ。イッツツツ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：な・・・な・・・な・・・っ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：何やってたのよ！！ホントに！！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ウワッ、いきなりそんな怒るなって・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：バカよ！！バカなのよアンタは本当に！！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：何だったのかって聞いてるのよ！！！信じられないわよ！！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：・・・本当・・・バカでしょ・・・勝手に突然行動して・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：す、すまねえ・・・悪かった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：でも、今回だけは奇妙な感覚があったんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ココはきっと絶対的な何かがある。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そう信じて、歩を進めたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ただ正直、ここまでの事象に遭遇するとは思ってなかった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：本当にすまなかった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：分かったわよ。もう、いいから。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：でも、次から本当に何か言ってからにしてよね。万が一かあってからじゃ遅いんだから。。。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：わ、分かった・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：で、どーだったんだよ？外側からじゃ全然見えなかったが？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあ、何て言うんだろうな・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：見つけたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：何を？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：１６番目の節", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エオネ：（・・・　っ！　・・・）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ウソでしょ？だって看板には１５個しか記されてなかったわよね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、確かにそうだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：だが、さっき確かに確認したんだ。台座の所で。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：おい、確かなんだろうな？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、間違いない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：じゃあ、まだどこか開けられる場所があるって事？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：正直な所、未だに信じられないが、そういう事になる。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：マップ的には・・・確かに、まだ少しだけありそうな気はするわね・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうだな。きっとどこかにあるはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：見つけに行こう。これで最後だ。", ActionEvent.None);
+      }
+    }
+  }
+
+  public static void Message1000068(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000040_Complete_8 == false)
+    {
+      One.TF.Event_Message1000040_Complete_8 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく、ここだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少しだけ待っててくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：別に良いけど。でも仕掛けはなさそうよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、任せておけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アイン、その場で視線を壁に向け、静かに姿勢を保ち続けた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_63_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：・・・よし！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・え、何よ今の？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何が？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうやって開いたのか？って聞いてるのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、正直どうやったのかは分からない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：壁に眼を向けて色々考えている間に自然と・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ何だ。たまたまって事なのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こればっかりは、たまたまだ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：真剣なのかテキトーなのか相変わらず分かんないわね・・・まあいいけど", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：もうこれで本当にラストなんだろうな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、詩の節16はすぐそこだ。行こう。", ActionEvent.None);
+    }
+  }
+
+  private static void Check1000040_Complete_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.MessageClear);
+
+    if (One.TF.Event_Message1000061 == false)
+    {
+      One.TF.Event_Message1000061 = true;
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（すげえな・・・何だろう・・・これ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ホラ、ボサーっとしてないで行くわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000062 == false)
+    {
+      One.TF.Event_Message1000062 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここも・・・か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（何かが・・・描かれている？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、とっとと行こうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、オーケー。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000063 == false)
+    {
+      One.TF.Event_Message1000063 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（単なる風景にも見えるし、・・・いや、どうだろうな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まずは、進めてみるしかないんでしょ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その通りだ。次へ行こう。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000064 == false)
+    {
+      One.TF.Event_Message1000064 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（これは、何らかの特定の事象を示している様にも見えるな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。何かが分かりそうなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、この時点では無理だ。他を探索しよう。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000065 == false)
+    {
+      One.TF.Event_Message1000065 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（事象・・・ならわし・・・それに性質・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ。今ここで考えてみるのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すまねえ。まずは次だな。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000066 == false)
+    {
+      One.TF.Event_Message1000066 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（水・・・火・・・同質と表現か・・・）", ActionEvent.None);
+    }
+
+    if (One.TF.Event_Message1000045 && One.TF.Event_Message1000046 && One.TF.Event_Message1000047 && One.TF.Event_Message1000048 && One.TF.Event_Message1000049 && One.TF.Event_Message1000050)
+    {
+      One.TF.Event_Message1000040_Complete_2 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_52_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_53_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_54_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：っな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おー、また開いたな！絶好調じゃねーか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今は足を止める所じゃないと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どこか他の場所が開いたのは確かだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：探索を続けよう。", ActionEvent.None);
+    }
+  }
+
+  private static void Check1000040_Complete_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.MessageClear);
+
+    if (One.TF.Event_Message1000067 == false)
+    {
+      One.TF.Event_Message1000067 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（文字じゃないのか・・・詠唱を示す何か・・・？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこに突っ立ってないで、行きましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000068 == false)
+    {
+      One.TF.Event_Message1000068 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・人々と・・・神々と・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：オラー、早く行くぞオラー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：わ、分かった分かった。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000069 == false)
+    {
+      One.TF.Event_Message1000069 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・連続性・・・完全なる現存・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ、ひょっとして何か見えてるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、何でもない。次へ行こう。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000070 == false)
+    {
+      One.TF.Event_Message1000070 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・見つける事、感じている事は・・・偽り・・・？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：オーーイ、誤ってどっか行ってんじゃねーのかー？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、いやそういうわけじゃ無いんだ。よし、次だ。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000071 == false)
+    {
+      One.TF.Event_Message1000071 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・相反と同時に一意・・・いや、違うか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：毎回考えている感じがするけど、後でまとめるんでしょ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そんな所だな。よし、行こう。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000072 == false)
+    {
+      One.TF.Event_Message1000072 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・これは・・・まさか・・・）", ActionEvent.None);
+    }
+
+    if (One.TF.Event_Message1000051 && One.TF.Event_Message1000052 && One.TF.Event_Message1000053 && One.TF.Event_Message1000054 && One.TF.Event_Message1000055 && One.TF.Event_Message1000056)
+    {
+      One.TF.Event_Message1000040_Complete_3 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_55_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：よーし、よしよし！アイン、てめー本当にすげえぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと本当に静かね。一体どうしたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分からないんだ、今回ばかりは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：進めて見れば、何かが分かるかもしれないが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最終的には・・・無限に近い順列を探す事になる気がするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：(・・・っ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：道は順調に開けているけど、そうじゃなくて、別の観点を追っているのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、それすらも分からない。すまねえが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだラナ。頼みがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺がこれまでに通ってきた部屋と立ち止まったポイントの順序を記録しておいてもらえないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫よ。既にメモしてあるから。どうせ後になって考え込んでみるつもりなんでしょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：マジか。すげー助かるぜ！サンキューな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：よーし、まとまったかぁ？次開いた所を探しに行こうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+    }
+  }
+
+  private static void Check1000040_Complete_4(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.MessageClear);
+
+    if (One.TF.Event_Message1000073 == false)
+    {
+      One.TF.Event_Message1000073 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・循環・・・それから・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうなの？何かが見えてるんだったら、後で教えてくれると良いんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、もう少しだと思う。続けて他をあたろう。", ActionEvent.None);
+    }
+    else if (One.TF.Event_Message1000074 == false)
+    {
+      One.TF.Event_Message1000074 = true;
+
+      Message(ref m_list, ref e_list, "【 アインは壁に描かれている不思議な紋様を凝視した。】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・無限であり・・・それから世界・・・か・・・）", ActionEvent.None);
+    }
+
+    if (One.TF.Event_Message1000057 && One.TF.Event_Message1000058)
+    {
+      One.TF.Event_Message1000040_Complete_4 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_56_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一応、次あたりで一度考えてみたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ、とりあえず開いた所を探せば良いんだよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ、早速行こうぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー、了解だ。", ActionEvent.None);
+    }
+  }
+    public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)
     {
