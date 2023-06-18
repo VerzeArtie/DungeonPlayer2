@@ -15769,7 +15769,647 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：オーケー、了解だ。", ActionEvent.None);
     }
   }
-    public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
+
+  public static void Message1000100(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Success == false)
+    {
+      One.TF.Event_Message1000100_Number_7 = false;
+      One.TF.Event_Message1000100_Number_6_2 = false;
+      One.TF.Event_Message1000100_Number_6_1 = false;
+      One.TF.Event_Message1000100_Number_6 = false;
+      One.TF.Event_Message1000100_Number_5_2 = false;
+      One.TF.Event_Message1000100_Number_5_1 = false;
+      One.TF.Event_Message1000100_Number_5 = false;
+      One.TF.Event_Message1000100_Number_4_1 = false;
+      One.TF.Event_Message1000100_Number_4 = false;
+      One.TF.Event_Message1000100_Number_3_3 = false;
+      One.TF.Event_Message1000100_Number_3_2 = false;
+      One.TF.Event_Message1000100_Number_3_1 = false;
+      One.TF.Event_Message1000100_Number_3 = false;
+      One.TF.Event_Message1000100_Number_2_1 = false;
+      One.TF.Event_Message1000100_Number_2 = false;
+      One.TF.Event_Message1000100_Number_1_3 = false;
+      One.TF.Event_Message1000100_Number_1_2 = false;
+      One.TF.Event_Message1000100_Number_1_1 = false;
+      One.TF.Event_Message1000100_Number_1 = false;
+      One.TF.Event_Message1000100_Failed = false;
+    }
+
+    if (One.TF.Event_Message1000100 == false)
+    {
+      One.TF.Event_Message1000100 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　数が示すは儀式の順路。巡礼者の行く手を阻まん　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こいつは行けそうだな。やってみるとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：簡単そうなの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少し考えるかもしれないが、おそらく大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、調子こいて踏ん詰まるんじゃねーぞ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　数が示すは儀式の順路。巡礼者の行く手を阻まん　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000101(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1000102(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+        One.TF.Event_Message1000100_Number_6_2 == false &&
+        One.TF.Event_Message1000100_Number_6_1 == false &&
+        One.TF.Event_Message1000100_Number_6 == false &&
+        One.TF.Event_Message1000100_Number_5_2 == false &&
+        One.TF.Event_Message1000100_Number_5_1 == false &&
+        One.TF.Event_Message1000100_Number_5 == false &&
+        One.TF.Event_Message1000100_Number_4_1 == false &&
+        One.TF.Event_Message1000100_Number_4 == false &&
+        One.TF.Event_Message1000100_Number_3_3 == false &&
+        One.TF.Event_Message1000100_Number_3_2 == false &&
+        One.TF.Event_Message1000100_Number_3_1 == false &&
+        One.TF.Event_Message1000100_Number_3 == false &&
+        One.TF.Event_Message1000100_Number_2_1 == false &&
+        One.TF.Event_Message1000100_Number_2 == false &&
+        One.TF.Event_Message1000100_Number_1_3 == false &&
+        One.TF.Event_Message1000100_Number_1_2 == false &&
+        One.TF.Event_Message1000100_Number_1_1 == false &&
+        One.TF.Event_Message1000100_Number_1 == false)
+    {
+      One.TF.Event_Message1000100_Number_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000103(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+        One.TF.Event_Message1000100_Number_6_2 == false &&
+        One.TF.Event_Message1000100_Number_6_1 == false &&
+        One.TF.Event_Message1000100_Number_6 == false &&
+        One.TF.Event_Message1000100_Number_5_2 == false &&
+        One.TF.Event_Message1000100_Number_5_1 == false &&
+        One.TF.Event_Message1000100_Number_5 == false &&
+        One.TF.Event_Message1000100_Number_4_1 == false &&
+        One.TF.Event_Message1000100_Number_4 == false &&
+        One.TF.Event_Message1000100_Number_3_3 == false &&
+        One.TF.Event_Message1000100_Number_3_2 == false &&
+        One.TF.Event_Message1000100_Number_3_1 == false &&
+        One.TF.Event_Message1000100_Number_3 == false &&
+        One.TF.Event_Message1000100_Number_2_1 == false &&
+        One.TF.Event_Message1000100_Number_2 == false &&
+        One.TF.Event_Message1000100_Number_1_3 == false &&
+        One.TF.Event_Message1000100_Number_1_2 == false &&
+        One.TF.Event_Message1000100_Number_1_1 == false &&
+        One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_1_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000104(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+        One.TF.Event_Message1000100_Number_6_2 == false &&
+        One.TF.Event_Message1000100_Number_6_1 == false &&
+        One.TF.Event_Message1000100_Number_6 == false &&
+        One.TF.Event_Message1000100_Number_5_2 == false &&
+        One.TF.Event_Message1000100_Number_5_1 == false &&
+        One.TF.Event_Message1000100_Number_5 == false &&
+        One.TF.Event_Message1000100_Number_4_1 == false &&
+        One.TF.Event_Message1000100_Number_4 == false &&
+        One.TF.Event_Message1000100_Number_3_3 == false &&
+        One.TF.Event_Message1000100_Number_3_2 == false &&
+        One.TF.Event_Message1000100_Number_3_1 == false &&
+        One.TF.Event_Message1000100_Number_3 == false &&
+        One.TF.Event_Message1000100_Number_2_1 == false &&
+        One.TF.Event_Message1000100_Number_2 == false &&
+        One.TF.Event_Message1000100_Number_1_3 == false &&
+        One.TF.Event_Message1000100_Number_1_2 == false &&
+        One.TF.Event_Message1000100_Number_1_1 &&
+        One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_1_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000105(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 == false &&
+     One.TF.Event_Message1000100_Number_3 == false &&
+     One.TF.Event_Message1000100_Number_2_1 == false &&
+     One.TF.Event_Message1000100_Number_2 == false &&
+     One.TF.Event_Message1000100_Number_1_3 == false &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_1_3 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000106(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 == false &&
+     One.TF.Event_Message1000100_Number_3 == false &&
+     One.TF.Event_Message1000100_Number_2_1 == false &&
+     One.TF.Event_Message1000100_Number_2 == false &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000107(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 == false &&
+     One.TF.Event_Message1000100_Number_3 == false &&
+     One.TF.Event_Message1000100_Number_2_1 == false &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_2_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000108(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 == false &&
+     One.TF.Event_Message1000100_Number_3 == false &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_3 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000109(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 == false &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_3_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000110(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 == false &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_3_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000111(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 == false &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_3_3 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000112(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 == false &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_4 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000113(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 == false &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_4_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000114(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 == false &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_5 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000115(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 == false &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_5_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000116(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 == false &&
+     One.TF.Event_Message1000100_Number_5_1 &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_5_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000117(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 == false &&
+     One.TF.Event_Message1000100_Number_5_2 &&
+     One.TF.Event_Message1000100_Number_5_1 &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_6 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000118(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 == false &&
+     One.TF.Event_Message1000100_Number_6 &&
+     One.TF.Event_Message1000100_Number_5_2 &&
+     One.TF.Event_Message1000100_Number_5_1 &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_6_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000119(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 == false &&
+     One.TF.Event_Message1000100_Number_6_1 &&
+     One.TF.Event_Message1000100_Number_6 &&
+     One.TF.Event_Message1000100_Number_5_2 &&
+     One.TF.Event_Message1000100_Number_5_1 &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_6_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+    }
+  }
+  public static void Message1000120(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000100_Number_7 == false &&
+     One.TF.Event_Message1000100_Number_6_2 &&
+     One.TF.Event_Message1000100_Number_6_1 &&
+     One.TF.Event_Message1000100_Number_6 &&
+     One.TF.Event_Message1000100_Number_5_2 &&
+     One.TF.Event_Message1000100_Number_5_1 &&
+     One.TF.Event_Message1000100_Number_5 &&
+     One.TF.Event_Message1000100_Number_4_1 &&
+     One.TF.Event_Message1000100_Number_4 &&
+     One.TF.Event_Message1000100_Number_3_3 &&
+     One.TF.Event_Message1000100_Number_3_2 &&
+     One.TF.Event_Message1000100_Number_3_1 &&
+     One.TF.Event_Message1000100_Number_3 &&
+     One.TF.Event_Message1000100_Number_2_1 &&
+     One.TF.Event_Message1000100_Number_2 &&
+     One.TF.Event_Message1000100_Number_1_3 &&
+     One.TF.Event_Message1000100_Number_1_2 &&
+     One.TF.Event_Message1000100_Number_1_1 &&
+     One.TF.Event_Message1000100_Number_1)
+    {
+      One.TF.Event_Message1000100_Number_7 = true;
+
+      if (One.TF.Event_Message1000100_Failed == false)
+      {
+        One.TF.Event_Message1000100_Success = true;
+        Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_86_O, ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "アイン：よし、オッケー！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：やったじゃねえか！次行ってみようぜ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あれ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：どこか順番を間違えたんじゃないの？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうかもな・・・もう一度看板に戻ってやり直すか。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      One.TF.Event_Message1000100_Failed = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あれ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どこか順番を間違えたんじゃないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうかもな・・・もう一度看板に戻ってやり直すか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)
     {

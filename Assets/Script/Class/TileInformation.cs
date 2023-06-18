@@ -54,6 +54,13 @@ public class TileInformation : MonoBehaviour
     Velgus_Normal = 3001,
     Velgus_Wall = 3002,
     Velgus_Sea = 3003,
+    Velgus_Number1 = 3004,
+    Velgus_Number2 = 3005,
+    Velgus_Number3 = 3006,
+    Velgus_Number4 = 3007,
+    Velgus_Number5 = 3008,
+    Velgus_Number6 = 3009,
+    Velgus_Number7 = 3010,
     // 3000
     // ƒ_ƒ‹‚Ì–å
     Dhal_Normal = 4001,
@@ -147,6 +154,13 @@ public class TileInformation : MonoBehaviour
 
       // ƒ”ƒFƒ‹ƒKƒX‚ÌŠC’ê_“a
       if (field == Field.Velgus_Normal) { return 1; }
+      if (field == Field.Velgus_Number1) { return 1; }
+      if (field == Field.Velgus_Number2) { return 1; }
+      if (field == Field.Velgus_Number3) { return 1; }
+      if (field == Field.Velgus_Number4) { return 1; }
+      if (field == Field.Velgus_Number5) { return 1; }
+      if (field == Field.Velgus_Number6) { return 1; }
+      if (field == Field.Velgus_Number7) { return 1; }
       if (field == Field.Velgus_Wall) { return 999; }
       if (field == Field.Velgus_Sea) { return 999; }
 
