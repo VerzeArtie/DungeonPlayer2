@@ -6525,6 +6525,181 @@ public static partial class Fix
   public const float VELGUS_DOOR_86_Y = 0.5f;
   public const float VELGUS_DOOR_86_Z = -23.0f;
 
+  // イベント（E42）エリア可視化
+  public const string VELGUS_EVENTTILE_87_C = "EventTile";
+  public const string VELGUS_EVENTTILE_87_O = "87";
+  public const float VELGUS_EVENTTILE_87_X = 35.0f;
+  public const float VELGUS_EVENTTILE_87_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_87_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(1)
+  public const string VELGUS_NUMBERTILE_2_0_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_88_O = "88";
+  public const float VELGUS_NUMBERTILE_88_X = 37.0f;
+  public const float VELGUS_NUMBERTILE_88_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_88_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(2)
+  public const string VELGUS_NUMBERTILE_2_0_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_89_O = "89";
+  public const float VELGUS_NUMBERTILE_89_X = 39.0f;
+  public const float VELGUS_NUMBERTILE_89_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_89_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(3)
+  public const string VELGUS_NUMBERTILE_2_0_3 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_90_O = "90";
+  public const float VELGUS_NUMBERTILE_90_X = 41.0f;
+  public const float VELGUS_NUMBERTILE_90_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_90_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(4)
+  public const string VELGUS_NUMBERTILE_2_0_4 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_91_O = "91";
+  public const float VELGUS_NUMBERTILE_91_X = 43.0f;
+  public const float VELGUS_NUMBERTILE_91_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_91_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(5)
+  public const string VELGUS_NUMBERTILE_2_0_5 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_92_O = "92";
+  public const float VELGUS_NUMBERTILE_92_X = 45.0f;
+  public const float VELGUS_NUMBERTILE_92_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_92_Z = -19.0f;
+
+  // 順路の間、ナンバータイル２ー０(6)
+  public const string VELGUS_NUMBERTILE_2_0_6 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_93_O = "93";
+  public const float VELGUS_NUMBERTILE_93_X = 45.0f;
+  public const float VELGUS_NUMBERTILE_93_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_93_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１
+  public const string VELGUS_NUMBERTILE_2_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_94_O = "94";
+  public const float VELGUS_NUMBERTILE_94_X = 45.0f;
+  public const float VELGUS_NUMBERTILE_94_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_94_Z = -23.0f;
+
+  // 順路の間、ナンバータイル２ー１(0)
+  public const string VELGUS_NUMBERTILE_2_1_0 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_95_O = "95";
+  public const float VELGUS_NUMBERTILE_95_X = 43.0f;
+  public const float VELGUS_NUMBERTILE_95_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_95_Z = -23.0f;
+
+  // 順路の間、ナンバータイル２ー１(1)
+  public const string VELGUS_NUMBERTILE_2_1_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_96_O = "96";
+  public const float VELGUS_NUMBERTILE_96_X = 43.0f;
+  public const float VELGUS_NUMBERTILE_96_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_96_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１(2)
+  public const string VELGUS_NUMBERTILE_2_1_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_97_O = "97";
+  public const float VELGUS_NUMBERTILE_97_X = 41.0f;
+  public const float VELGUS_NUMBERTILE_97_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_97_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１(3)
+  public const string VELGUS_NUMBERTILE_2_1_3 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_98_O = "98";
+  public const float VELGUS_NUMBERTILE_98_X = 39.0f;
+  public const float VELGUS_NUMBERTILE_98_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_98_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１(4)
+  public const string VELGUS_NUMBERTILE_2_1_4 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_99_O = "99";
+  public const float VELGUS_NUMBERTILE_99_X = 37.0f;
+  public const float VELGUS_NUMBERTILE_99_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_99_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１(5)
+  public const string VELGUS_NUMBERTILE_2_1_5 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_100_O = "100";
+  public const float VELGUS_NUMBERTILE_100_X = 35.0f;
+  public const float VELGUS_NUMBERTILE_100_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_100_Z = -21.0f;
+
+  // 順路の間、ナンバータイル２ー１(6)
+  public const string VELGUS_NUMBERTILE_2_1_6 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_101_O = "101";
+  public const float VELGUS_NUMBERTILE_101_X = 35.0f;
+  public const float VELGUS_NUMBERTILE_101_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_101_Z = -23.0f;
+
+  // 順路の間、ナンバータイル２ー１(7)
+  public const string VELGUS_NUMBERTILE_2_1_7 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_102_O = "102";
+  public const float VELGUS_NUMBERTILE_102_X = 35.0f;
+  public const float VELGUS_NUMBERTILE_102_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_102_Z = -25.0f;
+
+  // 順路の間、ナンバータイル２ー１(8)
+  public const string VELGUS_NUMBERTILE_2_1_8 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_103_O = "103";
+  public const float VELGUS_NUMBERTILE_103_X = 35.0f;
+  public const float VELGUS_NUMBERTILE_103_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_103_Z = -27.0f;
+
+  // 順路の間、ナンバータイル２ー１(9)
+  public const string VELGUS_NUMBERTILE_2_1_9 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_104_O = "104";
+  public const float VELGUS_NUMBERTILE_104_X = 37.0f;
+  public const float VELGUS_NUMBERTILE_104_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_104_Z = -27.0f;
+
+  // 順路の間、ナンバータイル２ー２
+  public const string VELGUS_NUMBERTILE_2_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_105_O = "105";
+  public const float VELGUS_NUMBERTILE_105_X = 39.0f;
+  public const float VELGUS_NUMBERTILE_105_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_105_Z = -27.0f;
+
+  // 順路の間、ナンバータイル２ー２(1)
+  public const string VELGUS_NUMBERTILE_2_2_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_106_O = "106";
+  public const float VELGUS_NUMBERTILE_106_X = 39.0f;
+  public const float VELGUS_NUMBERTILE_106_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_106_Z = -25.0f;
+
+  // 順路の間、ナンバータイル２ー２(1)
+  public const string VELGUS_NUMBERTILE_2_2_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_107_O = "107";
+  public const float VELGUS_NUMBERTILE_107_X = 37.0f;
+  public const float VELGUS_NUMBERTILE_107_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_107_Z = -25.0f;
+
+  // 順路の間、ナンバータイル２ー３
+  public const string VELGUS_NUMBERTILE_2_3 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_108_O = "108";
+  public const float VELGUS_NUMBERTILE_108_X = 37.0f;
+  public const float VELGUS_NUMBERTILE_108_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_108_Z = -23.0f;
+
+  // 順路の間、ナンバータイル２ー３(1)
+  public const string VELGUS_NUMBERTILE_2_3_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_109_O = "109";
+  public const float VELGUS_NUMBERTILE_109_X = 39.0f;
+  public const float VELGUS_NUMBERTILE_109_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_109_Z = -23.0f;
+
+  // 順路の間、ナンバータイル２ー３(2)
+  public const string VELGUS_NUMBERTILE_2_3_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_110_O = "110";
+  public const float VELGUS_NUMBERTILE_110_X = 41.0f;
+  public const float VELGUS_NUMBERTILE_110_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_110_Z = -23.0f;
+
+  // 順路の間、壁ドア２
+  public const string VELGUS_DOOR_111 = "VelgusDoor";
+  public const string VELGUS_DOOR_111_O = "111";
+  public const float VELGUS_DOOR_111_X = 41.0f;
+  public const float VELGUS_DOOR_111_Y = 0.5f;
+  public const float VELGUS_DOOR_111_Z = -24.0f;
+
   #region "宝箱"
   // エントランスの上
   public const string VELGUS_TREASURE_1_C = "Treasure";

@@ -5745,6 +5745,36 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS && currentMessage == "4")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 7; jj++)
+            {
+              for (int kk = 0; kk < 13; kk++)
+              {
+                numbers.Add(18 * 50 + 34 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+
+            numbers.Clear();
+            for (int jj = 0; jj < 4; jj++)
+            {
+              for (int kk = 0; kk < 7; kk++)
+              {
+                numbers.Add(25 * 50 + 34 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6958,6 +6988,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_86_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_86_X, Fix.VELGUS_DOOR_86_Y, Fix.VELGUS_DOOR_86_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_111_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_111_X, Fix.VELGUS_DOOR_111_Y, Fix.VELGUS_DOOR_111_Z));
             }
           }
 
@@ -8519,6 +8553,198 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_87_X, Fix.VELGUS_EVENTTILE_87_Y, Fix.VELGUS_EVENTTILE_87_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000121(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_88_X, Fix.VELGUS_NUMBERTILE_88_Y, Fix.VELGUS_NUMBERTILE_88_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000122(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_89_X, Fix.VELGUS_NUMBERTILE_89_Y, Fix.VELGUS_NUMBERTILE_89_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000123(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_90_X, Fix.VELGUS_NUMBERTILE_90_Y, Fix.VELGUS_NUMBERTILE_90_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000124(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_91_X, Fix.VELGUS_NUMBERTILE_91_Y, Fix.VELGUS_NUMBERTILE_91_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000125(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_92_X, Fix.VELGUS_NUMBERTILE_92_Y, Fix.VELGUS_NUMBERTILE_92_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000126(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_93_X, Fix.VELGUS_NUMBERTILE_93_Y, Fix.VELGUS_NUMBERTILE_93_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000127(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_94_X, Fix.VELGUS_NUMBERTILE_94_Y, Fix.VELGUS_NUMBERTILE_94_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000128(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_95_X, Fix.VELGUS_NUMBERTILE_95_Y, Fix.VELGUS_NUMBERTILE_95_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000129(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_96_X, Fix.VELGUS_NUMBERTILE_96_Y, Fix.VELGUS_NUMBERTILE_96_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000130(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_97_X, Fix.VELGUS_NUMBERTILE_97_Y, Fix.VELGUS_NUMBERTILE_97_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000131(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_98_X, Fix.VELGUS_NUMBERTILE_98_Y, Fix.VELGUS_NUMBERTILE_98_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000132(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_99_X, Fix.VELGUS_NUMBERTILE_99_Y, Fix.VELGUS_NUMBERTILE_99_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000133(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_100_X, Fix.VELGUS_NUMBERTILE_100_Y, Fix.VELGUS_NUMBERTILE_100_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000134(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_101_X, Fix.VELGUS_NUMBERTILE_101_Y, Fix.VELGUS_NUMBERTILE_101_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000135(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_102_X, Fix.VELGUS_NUMBERTILE_102_Y, Fix.VELGUS_NUMBERTILE_102_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000136(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_103_X, Fix.VELGUS_NUMBERTILE_103_Y, Fix.VELGUS_NUMBERTILE_103_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000137(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_104_X, Fix.VELGUS_NUMBERTILE_104_Y, Fix.VELGUS_NUMBERTILE_104_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000138(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_105_X, Fix.VELGUS_NUMBERTILE_105_Y, Fix.VELGUS_NUMBERTILE_105_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000139(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_106_X, Fix.VELGUS_NUMBERTILE_106_Y, Fix.VELGUS_NUMBERTILE_106_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000140(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_107_X, Fix.VELGUS_NUMBERTILE_107_Y, Fix.VELGUS_NUMBERTILE_107_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000141(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_108_X, Fix.VELGUS_NUMBERTILE_108_Y, Fix.VELGUS_NUMBERTILE_108_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000142(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_109_X, Fix.VELGUS_NUMBERTILE_109_Y, Fix.VELGUS_NUMBERTILE_109_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000143(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+      if (LocationDetect(tile, Fix.VELGUS_NUMBERTILE_110_X, Fix.VELGUS_NUMBERTILE_110_Y, Fix.VELGUS_NUMBERTILE_110_Z))
+      {
+        if (One.TF.Event_Message1000110_Success == false)
+        {
+          MessagePack.Message1000144(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -12193,6 +12419,11 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000100_Success)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_86_X, Fix.VELGUS_DOOR_86_Y, Fix.VELGUS_DOOR_86_Z));
+      }
+
+      if (One.TF.Event_Message1000110_Success)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_111_X, Fix.VELGUS_DOOR_111_Y, Fix.VELGUS_DOOR_111_Z));
       }
     }
     #endregion
