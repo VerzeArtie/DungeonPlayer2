@@ -17266,7 +17266,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：よっしゃ！開いたぞ！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：順調みたいね。このまま進みましょ♪", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：順調みたいね。次に進んでみましょ♪", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：オーケー！", ActionEvent.None);
       }
