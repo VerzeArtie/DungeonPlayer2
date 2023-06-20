@@ -17295,6 +17295,249 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000145(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000120_Success == false)
+    {
+      One.TF.Event_Message1000120_Number_0_7 = false;
+      One.TF.Event_Message1000120_Number_0_6 = false;
+      One.TF.Event_Message1000120_Number_0_5 = false;
+      One.TF.Event_Message1000120_Number_0_4 = false;
+      One.TF.Event_Message1000120_Number_0_3 = false;
+      One.TF.Event_Message1000120_Number_0_2 = false;
+      One.TF.Event_Message1000120_Number_0_1 = false;
+      One.TF.Event_Message1000120_Failed = false;
+    }
+
+    if (One.TF.Event_Message1000120 == false)
+    {
+      One.TF.Event_Message1000120 = true;
+
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスは周囲を見回した 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どういう意味で、「なるほど」なんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、番号を示すタイルが無いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いや、別にそんなもんじゃねえか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、ここに来て無いってのはオカシイだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いや、オカシイ事言ってるのはテメーだ。ボケアイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、オカシイ事を言ってるのは認めるが、どうもおかしいんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いーや、いやいやいや、絶対おかしいだろ。それ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、そこまでよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、何か目星でもあるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：強いて言えば、番号を示すタイルが無いって事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、ちょっと任せてくれないか。探索してみたいんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。何か見つかったら教えてよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000146(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 == false &&
+        One.TF.Event_Message1000120_Number_0_4 == false &&
+        One.TF.Event_Message1000120_Number_0_3 == false &&
+        One.TF.Event_Message1000120_Number_0_2 == false &&
+        One.TF.Event_Message1000120_Number_0_1 == false
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_1 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000147(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 == false &&
+        One.TF.Event_Message1000120_Number_0_4 == false &&
+        One.TF.Event_Message1000120_Number_0_3 == false &&
+        One.TF.Event_Message1000120_Number_0_2 == false &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_2 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000148(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 == false &&
+        One.TF.Event_Message1000120_Number_0_4 == false &&
+        One.TF.Event_Message1000120_Number_0_3 == false &&
+        One.TF.Event_Message1000120_Number_0_2 &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_3 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000149(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 == false &&
+        One.TF.Event_Message1000120_Number_0_4 == false &&
+        One.TF.Event_Message1000120_Number_0_3 &&
+        One.TF.Event_Message1000120_Number_0_2 &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_4 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 == false &&
+        One.TF.Event_Message1000120_Number_0_4 &&
+        One.TF.Event_Message1000120_Number_0_3 &&
+        One.TF.Event_Message1000120_Number_0_2 &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_5 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000151(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 == false &&
+        One.TF.Event_Message1000120_Number_0_5 &&
+        One.TF.Event_Message1000120_Number_0_4 &&
+        One.TF.Event_Message1000120_Number_0_3 &&
+        One.TF.Event_Message1000120_Number_0_2 &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_6 = true;
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+    }
+  }
+  public static void Message1000152(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if (One.TF.Event_Message1000120_Number_0_7 == false &&
+        One.TF.Event_Message1000120_Number_0_6 &&
+        One.TF.Event_Message1000120_Number_0_5 &&
+        One.TF.Event_Message1000120_Number_0_4 &&
+        One.TF.Event_Message1000120_Number_0_3 &&
+        One.TF.Event_Message1000120_Number_0_2 &&
+        One.TF.Event_Message1000120_Number_0_1
+        )
+    {
+      One.TF.Event_Message1000120_Number_0_7 = true;
+
+      if (One.TF.Event_Message1000120_Failed == false)
+      {
+        One.TF.Event_Message1000120_Success = true;
+
+        Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_120_O, ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "アイン：よし、当たりだったみたいだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：はぁ？？　何でだ？？？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：これまでと同じルールを当てはめてみたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：スタート地点とゴール地点があり、その途中経路は決められている。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そう考えれば、この区画は一通りしかない事が分かるはずだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：ゴール地点が何でココなんだよ？？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：宝箱が初っ端から置いてあったろ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：ああ、確かにな。それがなんだっつうんだよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あれは一種のガイドだろう。無くても辿り着けるが、一応ヒントになっている。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：はぁ？？？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あと、さっきラナにマップのメモを見せてもらった。それで考えてみたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：宝箱を迂回。一本道で戻りなし。全タイルを必ず通過する事。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：まあ分かってしまえばそんな難しくは無いな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：はぁ？？？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：相変わらずそういう独特の感覚はあるのね。言ってる内容が支離滅裂なんだけどね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：実際見つけた事だし、それで良しとしてくれ。ハハハ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：まあ良いか！多分お宝なんだろ？早く取ろうぜ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：っしゃ、行こう！", ActionEvent.None);
+      }
+      else
+      {
+        // ここはノーヒントで、メッセージは表示しない。
+      }
+    }
+    else
+    {
+      One.TF.Event_Message1000120_Failed = true;
+
+      // ここはノーヒントで、メッセージは表示しない。
+    }
+  }
+
+  public static void Message1000153(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：どうやら、鍵みたいだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：よぉし、閉まっている扉があったら使ってみようぜ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケー、了解だ。", ActionEvent.None);
+  }
+
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)

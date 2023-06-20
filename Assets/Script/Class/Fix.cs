@@ -1779,6 +1779,7 @@ public static partial class Fix
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
+  public const string VELGUS_KEY2 = "ヴェルガス海底神殿の鍵【２】";
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
   public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
@@ -6700,6 +6701,69 @@ public static partial class Fix
   public const float VELGUS_DOOR_111_Y = 0.5f;
   public const float VELGUS_DOOR_111_Z = -24.0f;
 
+  // イベント（E43）エリア可視化
+  public const string VELGUS_EVENTTILE_112_C = "EventTile";
+  public const string VELGUS_EVENTTILE_112_O = "112";
+  public const float VELGUS_EVENTTILE_112_X = 41.0f;
+  public const float VELGUS_EVENTTILE_112_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_112_Z = -25.0f;
+
+  // 順路の間、ナンバータイル３ー０(1)
+  public const string VELGUS_NUMBERTILE_3_0_1 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_113_O = "113";
+  public const float VELGUS_NUMBERTILE_113_X = 41.0f;
+  public const float VELGUS_NUMBERTILE_113_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_113_Z = -27.0f;
+
+  // 順路の間、ナンバータイル３ー０(2)
+  public const string VELGUS_NUMBERTILE_3_0_2 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_114_O = "114";
+  public const float VELGUS_NUMBERTILE_114_X = 43.0f;
+  public const float VELGUS_NUMBERTILE_114_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_114_Z = -27.0f;
+
+  // 順路の間、ナンバータイル３ー０(3)
+  public const string VELGUS_NUMBERTILE_3_0_3 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_115_O = "115";
+  public const float VELGUS_NUMBERTILE_115_X = 43.0f;
+  public const float VELGUS_NUMBERTILE_115_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_115_Z = -25.0f;
+
+  // 順路の間、ナンバータイル３ー０(4)
+  public const string VELGUS_NUMBERTILE_3_0_4 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_116_O = "116";
+  public const float VELGUS_NUMBERTILE_116_X = 45.0f;
+  public const float VELGUS_NUMBERTILE_116_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_116_Z = -25.0f;
+
+  // 順路の間、ナンバータイル３ー０(5)
+  public const string VELGUS_NUMBERTILE_3_0_5 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_117_O = "117";
+  public const float VELGUS_NUMBERTILE_117_X = 45.0f;
+  public const float VELGUS_NUMBERTILE_117_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_117_Z = -27.0f;
+
+  // 順路の間、ナンバータイル３ー０(6)
+  public const string VELGUS_NUMBERTILE_3_0_6 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_118_O = "118";
+  public const float VELGUS_NUMBERTILE_118_X = 47.0f;
+  public const float VELGUS_NUMBERTILE_118_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_118_Z = -27.0f;
+
+  // 順路の間、ナンバータイル３ー０(7)
+  public const string VELGUS_NUMBERTILE_3_0_7 = "NumberTile";
+  public const string VELGUS_NUMBERTILE_119_O = "119";
+  public const float VELGUS_NUMBERTILE_119_X = 47.0f;
+  public const float VELGUS_NUMBERTILE_119_Y = 0.0f;
+  public const float VELGUS_NUMBERTILE_119_Z = -25.0f;
+
+  // 順路の間、隠し壁ドア３
+  public const string VELGUS_SECRETWALL_120_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_120_O = "120";
+  public const float VELGUS_SECRETWALL_120_X = 47.0f;
+  public const float VELGUS_SECRETWALL_120_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_120_Z = -24.0f;
+
   #region "宝箱"
   // エントランスの上
   public const string VELGUS_TREASURE_1_C = "Treasure";
@@ -6742,6 +6806,21 @@ public static partial class Fix
   public const float VELGUS_TREASURE_6_X = 33.0f;
   public const float VELGUS_TREASURE_6_Y = 1.0f;
   public const float VELGUS_TREASURE_6_Z = -21.0f;
+
+  // 順路の間（２）
+  public const string VELGUS_TREASURE_7_C = "Treasure";
+  public const string VELGUS_TREASURE_7_O = "7";
+  public const float VELGUS_TREASURE_7_X = 42.0f;
+  public const float VELGUS_TREASURE_7_Y = 1.0f;
+  public const float VELGUS_TREASURE_7_Z = -25.0f;
+
+  // 順路の間（３）
+  public const string VELGUS_TREASURE_8_C = "Treasure";
+  public const string VELGUS_TREASURE_8_O = "8";
+  public const float VELGUS_TREASURE_8_X = 47.0f;
+  public const float VELGUS_TREASURE_8_Y = 1.0f;
+  public const float VELGUS_TREASURE_8_Z = -19.0f;
+
 
   #endregion
 

@@ -1479,6 +1479,26 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000110_success = false;
   public bool Event_Message1000110_Success { get { return _event_message1000110_success; } set { _event_message1000110_success = value; } }
 
+  [SerializeField] protected bool _event_message1000120 = false;
+  public bool Event_Message1000120 { get { return _event_message1000120; } set { _event_message1000120 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_1 = false;
+  public bool Event_Message1000120_Number_0_1 { get { return _event_message1000120_Number_0_1; } set { _event_message1000120_Number_0_1 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_2 = false;
+  public bool Event_Message1000120_Number_0_2 { get { return _event_message1000120_Number_0_2; } set { _event_message1000120_Number_0_2 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_3 = false;
+  public bool Event_Message1000120_Number_0_3 { get { return _event_message1000120_Number_0_3; } set { _event_message1000120_Number_0_3 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_4 = false;
+  public bool Event_Message1000120_Number_0_4 { get { return _event_message1000120_Number_0_4; } set { _event_message1000120_Number_0_4 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_5 = false;
+  public bool Event_Message1000120_Number_0_5 { get { return _event_message1000120_Number_0_5; } set { _event_message1000120_Number_0_5 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_6 = false;
+  public bool Event_Message1000120_Number_0_6 { get { return _event_message1000120_Number_0_6; } set { _event_message1000120_Number_0_6 = value; } }
+  [SerializeField] protected bool _event_message1000120_Number_0_7 = false;
+  public bool Event_Message1000120_Number_0_7 { get { return _event_message1000120_Number_0_7; } set { _event_message1000120_Number_0_7 = value; } }
+  [SerializeField] protected bool _event_message1000120_failed = false;
+  public bool Event_Message1000120_Failed { get { return _event_message1000120_failed; } set { _event_message1000120_failed = value; } }
+  [SerializeField] protected bool _event_message1000120_success = false;
+  public bool Event_Message1000120_Success { get { return _event_message1000120_success; } set { _event_message1000120_success = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
@@ -1713,12 +1733,16 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_velgus_00004 = false;
   [SerializeField] protected bool _treasure_velgus_00005 = false;
   [SerializeField] protected bool _treasure_velgus_00006 = false;
+  [SerializeField] protected bool _treasure_velgus_00007 = false;
+  [SerializeField] protected bool _treasure_velgus_00008 = false;
   public bool Treasure_Velgus_00001 { get { return _treasure_velgus_00001; } set { _treasure_velgus_00001 = value; } }
   public bool Treasure_Velgus_00002 { get { return _treasure_velgus_00002; } set { _treasure_velgus_00002 = value; } }
   public bool Treasure_Velgus_00003 { get { return _treasure_velgus_00003; } set { _treasure_velgus_00003 = value; } }
   public bool Treasure_Velgus_00004 { get { return _treasure_velgus_00004; } set { _treasure_velgus_00004 = value; } }
   public bool Treasure_Velgus_00005 { get { return _treasure_velgus_00005; } set { _treasure_velgus_00005 = value; } }
   public bool Treasure_Velgus_00006 { get { return _treasure_velgus_00006; } set { _treasure_velgus_00006 = value; } }
+  public bool Treasure_Velgus_00007 { get { return _treasure_velgus_00007; } set { _treasure_velgus_00007 = value; } }
+  public bool Treasure_Velgus_00008 { get { return _treasure_velgus_00008; } set { _treasure_velgus_00008 = value; } }
 
   public bool Treasure_EsmiliaGrassField_00001 { get { return _treasure_EsmiliaGrassField_00001; } set { _treasure_EsmiliaGrassField_00001 = value; } }
   public bool Treasure_EsmiliaGrassField_00002 { get { return _treasure_EsmiliaGrassField_00002; } set { _treasure_EsmiliaGrassField_00002 = value; } }
