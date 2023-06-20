@@ -15822,7 +15822,26 @@ public static class MessagePack
 
   public static void Message1000101(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+    if (One.TF.Event_Message1000101 == false)
+    {
+      One.TF.Event_Message1000101 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここは・・・少し周囲を確認してみるとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスは周囲を見回した 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：番号のあるタイルが幾つかあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：順番どおりに踏むんじゃねえのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、多分それで良いと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おーし、じゃ早速いこうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、任せておけ。", ActionEvent.None);
+    }
   }
 
   public static void Message1000102(ref List<string> m_list, ref List<ActionEvent> e_list) 
