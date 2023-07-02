@@ -4966,6 +4966,19 @@ public partial class Character : MonoBehaviour
         break;
       #endregion
 
+      #region "オーランの塔"
+      #endregion
+
+      #region "ヴェルガスの海底神殿"
+      case Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP:
+        SetupParameter(400, 700, 1200, 4000, 100, 0, 0, 50000);
+        list.Add(Fix.NORMAL_ATTACK);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss21;
+        this.CannotCritical = false;
+        break;
+      #endregion
+
       case Fix.DUMMY_SUBURI:
         SetupParameter(10, 10, 10, 10, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);

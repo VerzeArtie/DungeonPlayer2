@@ -1780,6 +1780,7 @@ public static partial class Fix
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
   public const string VELGUS_KEY2 = "ヴェルガス海底神殿の鍵【２】";
+  public const string VELGUS_KEY3 = "ヴェルガス海底神殿の鍵【３】";
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
   public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
@@ -2207,6 +2208,17 @@ public static partial class Fix
   public const string SCREAMING_RAFFLESIA = "叫喚のラフレシア";
   public const string HELL_KERBEROS = "Hell Kerberos";
   public const string HELL_KERBEROS_JP = "地獄のケルベロス";
+
+  public const string ENEMY_BRILLIANT_SEA_PRINCE = @"輝ける海の王子";
+  public const string ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP = @"源星・珊瑚の女王";
+  public const string ENEMY_SHELL_SWORD_KNIGHT = @"シェル・ザ・ソードナイト";
+  public const string ENEMY_JELLY_EYE_BRIGHT_RED = @"ジェリーアイ・熱光";
+  public const string ENEMY_JELLY_EYE_DEEP_BLUE = @"ジェリーアイ・流冷";
+  public const string ENEMY_SEA_STAR_KNIGHT_AEGIRU = @"海星騎士・エーギル";
+  public const string ENEMY_SEA_STAR_KNIGHT_AMARA = @"海星騎士・アマラ";
+  public const string ENEMY_SEA_STAR_ORIGIN_KING = @"海星源の王";
+
+  public const string ENEMY_BOSS_LEVIATHAN = @"二階の守護者：大海蛇リヴィアサン";
 
   public const string DUMMY_SUBURI = "ダミー素振り君";
   #endregion
@@ -5918,6 +5930,13 @@ public static partial class Fix
   public const float VELGUS_MessageBoard_4_X = 24.0f;
   public const float VELGUS_MessageBoard_4_Y = 1.0f;
   public const float VELGUS_MessageBoard_4_Z = -17.0f;
+
+  // パズルの間、看板
+  public const string VELGUS_MessageBoard_5_C = "SecretWall";
+  public const string VELGUS_MessageBoard_5_O = "5";
+  public const float VELGUS_MessageBoard_5_X = 18.0f;
+  public const float VELGUS_MessageBoard_5_Y = 1.0f;
+  public const float VELGUS_MessageBoard_5_Z = -14.0f;
   #endregion
 
   // トリガータイル（１－１）
@@ -6764,6 +6783,595 @@ public static partial class Fix
   public const float VELGUS_SECRETWALL_120_Y = 0.5f;
   public const float VELGUS_SECRETWALL_120_Z = -24.0f;
 
+  // パズルの間、E5(0)
+  public const string VELGUS_EVENTTILE_121_C = "EventTile";
+  public const string VELGUS_EVENTTILE_121_O = "121";
+  public const float VELGUS_EVENTTILE_121_X = 17.0f;
+  public const float VELGUS_EVENTTILE_121_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_121_Z = -17.0f;
+
+  // パズルの間、E5(A)
+  public const string VELGUS_EVENTTILE_122_C = "EventTile";
+  public const string VELGUS_EVENTTILE_122_O = "122";
+  public const float VELGUS_EVENTTILE_122_X = 15.0f;
+  public const float VELGUS_EVENTTILE_122_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_122_Z = -17.0f;
+
+  // パズルの間、E5(B)
+  public const string VELGUS_EVENTTILE_123_C = "EventTile";
+  public const string VELGUS_EVENTTILE_123_O = "123";
+  public const float VELGUS_EVENTTILE_123_X = 16.0f;
+  public const float VELGUS_EVENTTILE_123_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_123_Z = -21.0f;
+
+  // パズルの間、E5(C)
+  public const string VELGUS_EVENTTILE_124_C = "EventTile";
+  public const string VELGUS_EVENTTILE_124_O = "124";
+  public const float VELGUS_EVENTTILE_124_X = 16.0f;
+  public const float VELGUS_EVENTTILE_124_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_124_Z = -25.0f;
+
+  // パズルの間、E5(D)
+  public const string VELGUS_EVENTTILE_125_C = "EventTile";
+  public const string VELGUS_EVENTTILE_125_O = "125";
+  public const float VELGUS_EVENTTILE_125_X = 12.0f;
+  public const float VELGUS_EVENTTILE_125_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_125_Z = -26.0f;
+
+  // パズルの間、E5(E)
+  public const string VELGUS_EVENTTILE_126_C = "EventTile";
+  public const string VELGUS_EVENTTILE_126_O = "126";
+  public const float VELGUS_EVENTTILE_126_X = 8.0f;
+  public const float VELGUS_EVENTTILE_126_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_126_Z = -26.0f;
+
+  // パズルの間、E5(F)
+  public const string VELGUS_EVENTTILE_127_C = "EventTile";
+  public const string VELGUS_EVENTTILE_127_O = "127";
+  public const float VELGUS_EVENTTILE_127_X = 7.0f;
+  public const float VELGUS_EVENTTILE_127_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_127_Z = -22.0f;
+
+  // パズルの間、E5(G)
+  public const string VELGUS_EVENTTILE_128_C = "EventTile";
+  public const string VELGUS_EVENTTILE_128_O = "128";
+  public const float VELGUS_EVENTTILE_128_X = 7.0f;
+  public const float VELGUS_EVENTTILE_128_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_128_Z = -18.0f;
+
+  // パズルの間、E5(H)
+  public const string VELGUS_EVENTTILE_129_C = "EventTile";
+  public const string VELGUS_EVENTTILE_129_O = "129";
+  public const float VELGUS_EVENTTILE_129_X = 11.0f;
+  public const float VELGUS_EVENTTILE_129_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_129_Z = -17.0f;
+
+  // SECRETWALL(隠し壁ドア)ではないのだが、同じコンテンツを使いたいので、同じ名称とする。
+  // パズルの間、Wall-A1
+  public const string VELGUS_SECRETWALL_130_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_130_O = "130";
+  public const float VELGUS_SECRETWALL_130_X = 14.0f;
+  public const float VELGUS_SECRETWALL_130_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_130_Z = -17.0f;
+
+  // パズルの間、Wall-A2
+  public const string VELGUS_SECRETWALL_131_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_131_O = "131";
+  public const float VELGUS_SECRETWALL_131_X = 14.0f;
+  public const float VELGUS_SECRETWALL_131_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_131_Z = -18.0f;
+
+  // パズルの間、Wall-A3
+  public const string VELGUS_SECRETWALL_132_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_132_O = "132";
+  public const float VELGUS_SECRETWALL_132_X = 15.0f;
+  public const float VELGUS_SECRETWALL_132_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_132_Z = -18.0f;
+
+  // パズルの間、Wall-A4
+  public const string VELGUS_SECRETWALL_133_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_133_O = "133";
+  public const float VELGUS_SECRETWALL_133_X = 16.0f;
+  public const float VELGUS_SECRETWALL_133_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_133_Z = -18.0f;
+
+  // パズルの間、Wall-A5
+  public const string VELGUS_SECRETWALL_134_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_134_O = "134";
+  public const float VELGUS_SECRETWALL_134_X = 16.0f;
+  public const float VELGUS_SECRETWALL_134_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_134_Z = -17.0f;
+
+  // パズルの間、Wall-B1
+  public const string VELGUS_SECRETWALL_135_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_135_O = "135";
+  public const float VELGUS_SECRETWALL_135_X = 16.0f;
+  public const float VELGUS_SECRETWALL_135_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_135_Z = -20.0f;
+
+  // パズルの間、Wall-B2
+  public const string VELGUS_SECRETWALL_136_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_136_O = "136";
+  public const float VELGUS_SECRETWALL_136_X = 15.0f;
+  public const float VELGUS_SECRETWALL_136_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_136_Z = -20.0f;
+
+  // パズルの間、Wall-B3
+  public const string VELGUS_SECRETWALL_137_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_137_O = "137";
+  public const float VELGUS_SECRETWALL_137_X = 15.0f;
+  public const float VELGUS_SECRETWALL_137_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_137_Z = -21.0f;
+
+  // パズルの間、Wall-B4
+  public const string VELGUS_SECRETWALL_138_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_138_O = "138";
+  public const float VELGUS_SECRETWALL_138_X = 15.0f;
+  public const float VELGUS_SECRETWALL_138_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_138_Z = -22.0f;
+
+  // パズルの間、Wall-B5
+  public const string VELGUS_SECRETWALL_139_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_139_O = "139";
+  public const float VELGUS_SECRETWALL_139_X = 16.0f;
+  public const float VELGUS_SECRETWALL_139_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_139_Z = -22.0f;
+
+  // パズルの間、Wall-C1
+  public const string VELGUS_SECRETWALL_140_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_140_O = "140";
+  public const float VELGUS_SECRETWALL_140_X = 16.0f;
+  public const float VELGUS_SECRETWALL_140_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_140_Z = -24.0f;
+
+  // パズルの間、Wall-C2
+  public const string VELGUS_SECRETWALL_141_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_141_O = "141";
+  public const float VELGUS_SECRETWALL_141_X = 15.0f;
+  public const float VELGUS_SECRETWALL_141_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_141_Z = -24.0f;
+
+  // パズルの間、Wall-C3
+  public const string VELGUS_SECRETWALL_142_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_142_O = "142";
+  public const float VELGUS_SECRETWALL_142_X = 15.0f;
+  public const float VELGUS_SECRETWALL_142_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_142_Z = -25.0f;
+
+  // パズルの間、Wall-C4
+  public const string VELGUS_SECRETWALL_143_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_143_O = "143";
+  public const float VELGUS_SECRETWALL_143_X = 15.0f;
+  public const float VELGUS_SECRETWALL_143_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_143_Z = -26.0f;
+
+  // パズルの間、Wall-C5
+  public const string VELGUS_SECRETWALL_144_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_144_O = "144";
+  public const float VELGUS_SECRETWALL_144_X = 16.0f;
+  public const float VELGUS_SECRETWALL_144_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_144_Z = -26.0f;
+
+  // パズルの間、Wall-D1
+  public const string VELGUS_SECRETWALL_145_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_145_O = "145";
+  public const float VELGUS_SECRETWALL_145_X = 13.0f;
+  public const float VELGUS_SECRETWALL_145_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_145_Z = -26.0f;
+
+  // パズルの間、Wall-D2
+  public const string VELGUS_SECRETWALL_146_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_146_O = "146";
+  public const float VELGUS_SECRETWALL_146_X = 13.0f;
+  public const float VELGUS_SECRETWALL_146_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_146_Z = -25.0f;
+
+  // パズルの間、Wall-D3
+  public const string VELGUS_SECRETWALL_147_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_147_O = "147";
+  public const float VELGUS_SECRETWALL_147_X = 12.0f;
+  public const float VELGUS_SECRETWALL_147_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_147_Z = -25.0f;
+
+  // パズルの間、Wall-D4
+  public const string VELGUS_SECRETWALL_148_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_148_O = "148";
+  public const float VELGUS_SECRETWALL_148_X = 11.0f;
+  public const float VELGUS_SECRETWALL_148_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_148_Z = -25.0f;
+
+  // パズルの間、Wall-D5
+  public const string VELGUS_SECRETWALL_149_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_149_O = "149";
+  public const float VELGUS_SECRETWALL_149_X = 11.0f;
+  public const float VELGUS_SECRETWALL_149_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_149_Z = -26.0f;
+
+  // パズルの間、Wall-E1
+  public const string VELGUS_SECRETWALL_150_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_150_O = "150";
+  public const float VELGUS_SECRETWALL_150_X = 9.0f;
+  public const float VELGUS_SECRETWALL_150_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_150_Z = -26.0f;
+
+  // パズルの間、Wall-E2
+  public const string VELGUS_SECRETWALL_151_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_151_O = "151";
+  public const float VELGUS_SECRETWALL_151_X = 9.0f;
+  public const float VELGUS_SECRETWALL_151_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_151_Z = -25.0f;
+
+  // パズルの間、Wall-E3
+  public const string VELGUS_SECRETWALL_152_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_152_O = "152";
+  public const float VELGUS_SECRETWALL_152_X = 8.0f;
+  public const float VELGUS_SECRETWALL_152_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_152_Z = -25.0f;
+
+  // パズルの間、Wall-E4
+  public const string VELGUS_SECRETWALL_153_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_153_O = "153";
+  public const float VELGUS_SECRETWALL_153_X = 7.0f;
+  public const float VELGUS_SECRETWALL_153_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_153_Z = -25.0f;
+
+  // パズルの間、Wall-E5
+  public const string VELGUS_SECRETWALL_154_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_154_O = "154";
+  public const float VELGUS_SECRETWALL_154_X = 7.0f;
+  public const float VELGUS_SECRETWALL_154_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_154_Z = -26.0f;
+
+  // パズルの間、Wall-F1
+  public const string VELGUS_SECRETWALL_155_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_155_O = "155";
+  public const float VELGUS_SECRETWALL_155_X = 7.0f;
+  public const float VELGUS_SECRETWALL_155_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_155_Z = -23.0f;
+
+  // パズルの間、Wall-F2
+  public const string VELGUS_SECRETWALL_156_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_156_O = "156";
+  public const float VELGUS_SECRETWALL_156_X = 8.0f;
+  public const float VELGUS_SECRETWALL_156_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_156_Z = -23.0f;
+
+  // パズルの間、Wall-F3
+  public const string VELGUS_SECRETWALL_157_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_157_O = "157";
+  public const float VELGUS_SECRETWALL_157_X = 8.0f;
+  public const float VELGUS_SECRETWALL_157_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_157_Z = -22.0f;
+
+  // パズルの間、Wall-F4
+  public const string VELGUS_SECRETWALL_158_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_158_O = "158";
+  public const float VELGUS_SECRETWALL_158_X = 8.0f;
+  public const float VELGUS_SECRETWALL_158_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_158_Z = -21.0f;
+
+  // パズルの間、Wall-F5
+  public const string VELGUS_SECRETWALL_159_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_159_O = "159";
+  public const float VELGUS_SECRETWALL_159_X = 7.0f;
+  public const float VELGUS_SECRETWALL_159_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_159_Z = -21.0f;
+
+  // パズルの間、Wall-G1
+  public const string VELGUS_SECRETWALL_160_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_160_O = "160";
+  public const float VELGUS_SECRETWALL_160_X = 7.0f;
+  public const float VELGUS_SECRETWALL_160_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_160_Z = -19.0f;
+
+  // パズルの間、Wall-G2
+  public const string VELGUS_SECRETWALL_161_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_161_O = "161";
+  public const float VELGUS_SECRETWALL_161_X = 8.0f;
+  public const float VELGUS_SECRETWALL_161_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_161_Z = -19.0f;
+
+  // パズルの間、Wall-G3
+  public const string VELGUS_SECRETWALL_162_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_162_O = "162";
+  public const float VELGUS_SECRETWALL_162_X = 8.0f;
+  public const float VELGUS_SECRETWALL_162_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_162_Z = -18.0f;
+
+  // パズルの間、Wall-G4
+  public const string VELGUS_SECRETWALL_163_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_163_O = "163";
+  public const float VELGUS_SECRETWALL_163_X = 8.0f;
+  public const float VELGUS_SECRETWALL_163_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_163_Z = -17.0f;
+
+  // パズルの間、Wall-G5
+  public const string VELGUS_SECRETWALL_164_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_164_O = "164";
+  public const float VELGUS_SECRETWALL_164_X = 7.0f;
+  public const float VELGUS_SECRETWALL_164_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_164_Z = -17.0f;
+
+  // パズルの間、Wall-H1
+  public const string VELGUS_SECRETWALL_165_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_165_O = "165";
+  public const float VELGUS_SECRETWALL_165_X = 10.0f;
+  public const float VELGUS_SECRETWALL_165_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_165_Z = -17.0f;
+
+  // パズルの間、Wall-H2
+  public const string VELGUS_SECRETWALL_166_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_166_O = "166";
+  public const float VELGUS_SECRETWALL_166_X = 10.0f;
+  public const float VELGUS_SECRETWALL_166_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_166_Z = -18.0f;
+
+  // パズルの間、Wall-H3
+  public const string VELGUS_SECRETWALL_167_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_167_O = "167";
+  public const float VELGUS_SECRETWALL_167_X = 11.0f;
+  public const float VELGUS_SECRETWALL_167_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_167_Z = -18.0f;
+
+  // パズルの間、Wall-H4
+  public const string VELGUS_SECRETWALL_168_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_168_O = "168";
+  public const float VELGUS_SECRETWALL_168_X = 12.0f;
+  public const float VELGUS_SECRETWALL_168_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_168_Z = -18.0f;
+
+  // パズルの間、Wall-H5
+  public const string VELGUS_SECRETWALL_169_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_169_O = "169";
+  public const float VELGUS_SECRETWALL_169_X = 12.0f;
+  public const float VELGUS_SECRETWALL_169_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_169_Z = -17.0f;
+
+  // パズルの間、BallRed初期位置
+  public const string VELGUS_BALLRED_170_C = "BallRed";
+  public const string VELGUS_BALLRED_170_O = "170";
+  public const float VELGUS_BALLRED_170_X = 13.0f;
+  public const float VELGUS_BALLRED_170_Y = 1.0f;
+  public const float VELGUS_BALLRED_170_Z = -20.0f;
+
+  // パズルの間、BallBlue初期位置
+  public const string VELGUS_BALLBLUE_171_C = "BallBlue";
+  public const string VELGUS_BALLBLUE_171_O = "171";
+  public const float VELGUS_BALLBLUE_171_X = 12.0f;
+  public const float VELGUS_BALLBLUE_171_Y = 1.0f;
+  public const float VELGUS_BALLBLUE_171_Z = -22.0f;
+
+  // パズルの間、BallGreen初期位置
+  public const string VELGUS_BALLGREEN_172_C = "BallGreen";
+  public const string VELGUS_BALLGREEN_172_O = "172";
+  public const float VELGUS_BALLGREEN_172_X = 13.0f;
+  public const float VELGUS_BALLGREEN_172_Y = 1.0f;
+  public const float VELGUS_BALLGREEN_172_Z = -22.0f;
+
+  // パズルの間、BallYellow初期位置
+  public const string VELGUS_BALLYELLOW_173_C = "BallGreen";
+  public const string VELGUS_BALLYELLOW_173_O = "173";
+  public const float VELGUS_BALLYELLOW_173_X = 11.0f;
+  public const float VELGUS_BALLYELLOW_173_Y = 1.0f;
+  public const float VELGUS_BALLYELLOW_173_Z = -20.0f;
+
+  // パズルの間、BallRedゴール位置
+  public const string VELGUS_BALLREDGOAL_174_C = "BallRedGoal";
+  public const string VELGUS_BALLREDGOAL_174_O = "174";
+  public const float VELGUS_BALLREDGOAL_174_X = 9.0f;
+  public const float VELGUS_BALLREDGOAL_174_Y = 1.0f;
+  public const float VELGUS_BALLREDGOAL_174_Z = -24.0f;
+
+  // パズルの間、BallBlueゴール位置
+  public const string VELGUS_BALLBLUEGOAL_175_C = "BallBlueGoal";
+  public const string VELGUS_BALLBLUEGOAL_175_O = "175";
+  public const float VELGUS_BALLBLUEGOAL_175_X = 14.0f;
+  public const float VELGUS_BALLBLUEGOAL_175_Y = 1.0f;
+  public const float VELGUS_BALLBLUEGOAL_175_Z = -19.0f;
+
+  // パズルの間、BallGreenゴール位置
+  public const string VELGUS_BALLGREENGOAL_176_C = "BallGreenGoal";
+  public const string VELGUS_BALLGREENGOAL_176_O = "176";
+  public const float VELGUS_BALLGREENGOAL_176_X = 9.0f;
+  public const float VELGUS_BALLGREENGOAL_176_Y = 1.0f;
+  public const float VELGUS_BALLGREENGOAL_176_Z = -19.0f;
+
+  // パズルの間、BallYellowゴール位置
+  public const string VELGUS_BALLYELLOWGOAL_177_C = "BallGreenGoal";
+  public const string VELGUS_BALLYELLOWGOAL_177_O = "177";
+  public const float VELGUS_BALLYELLOWGOAL_177_X = 14.0f;
+  public const float VELGUS_BALLYELLOWGOAL_177_Y = 1.0f;
+  public const float VELGUS_BALLYELLOWGOAL_177_Z = -24.0f;
+
+  // パズルの間、壁ドアＡ
+  public const string VELGUS_DOOR_178_C = "VelgusDoor";
+  public const string VELGUS_DOOR_178_O = "178";
+  public const float VELGUS_DOOR_178_X = 5.0f;
+  public const float VELGUS_DOOR_178_Y = 0.5f;
+  public const float VELGUS_DOOR_178_Z = -20.0f;
+
+  // パズルの間、CircleRed移動前
+  public const string VELGUS_CIRCLE_RED_179_C = "CircleRed";
+  public const string VELGUS_CIRCLE_RED_179_O = "179";
+  public const float VELGUS_CIRCLE_RED_179_X = 9.0f;
+  public const float VELGUS_CIRCLE_RED_179_Y = 0.0f;
+  public const float VELGUS_CIRCLE_RED_179_Z = -24.0f;
+
+  // パズルの間、CircleBlue移動前
+  public const string VELGUS_CIRCLE_BLUE_180_C = "CircleBlue";
+  public const string VELGUS_CIRCLE_BLUE_180_O = "180";
+  public const float VELGUS_CIRCLE_BLUE_180_X = 14.0f;
+  public const float VELGUS_CIRCLE_BLUE_180_Y = 0.0f;
+  public const float VELGUS_CIRCLE_BLUE_180_Z = -19.0f;
+
+  // パズルの間、CircleGreen移動前
+  public const string VELGUS_CIRCLE_GREEN_181_C = "CircleGreen";
+  public const string VELGUS_CIRCLE_GREEN_181_O = "181";
+  public const float VELGUS_CIRCLE_GREEN_181_X = 9.0f;
+  public const float VELGUS_CIRCLE_GREEN_181_Y = 0.0f;
+  public const float VELGUS_CIRCLE_GREEN_181_Z = -19.0f;
+
+  // パズルの間、CircleYellow移動前
+  public const string VELGUS_CIRCLE_YELLOW_182_C = "CircleYellow";
+  public const string VELGUS_CIRCLE_YELLOW_182_O = "182";
+  public const float VELGUS_CIRCLE_YELLOW_182_X = 14.0f;
+  public const float VELGUS_CIRCLE_YELLOW_182_Y = 0.0f;
+  public const float VELGUS_CIRCLE_YELLOW_182_Z = -24.0f;
+
+  // パズルの間、CircleRed移動後
+  public const string VELGUS_CIRCLE_RED_183_C = "CircleRed";
+  public const string VELGUS_CIRCLE_RED_183_O = "183";
+  public const float VELGUS_CIRCLE_RED_183_X = 12.0f;
+  public const float VELGUS_CIRCLE_RED_183_Y = 0.0f;
+  public const float VELGUS_CIRCLE_RED_183_Z = -19.0f;
+
+  // パズルの間、CircleBlue移動後
+  public const string VELGUS_CIRCLE_BLUE_184_C = "CircleBlue";
+  public const string VELGUS_CIRCLE_BLUE_184_O = "184";
+  public const float VELGUS_CIRCLE_BLUE_184_X = 11.0f;
+  public const float VELGUS_CIRCLE_BLUE_184_Y = 0.0f;
+  public const float VELGUS_CIRCLE_BLUE_184_Z = -24.0f;
+
+  // パズルの間、CircleGreen移動後
+  public const string VELGUS_CIRCLE_GREEN_185_C = "CircleGreen";
+  public const string VELGUS_CIRCLE_GREEN_185_O = "185";
+  public const float VELGUS_CIRCLE_GREEN_185_X = 13.0f;
+  public const float VELGUS_CIRCLE_GREEN_185_Y = 0.0f;
+  public const float VELGUS_CIRCLE_GREEN_185_Z = -24.0f;
+
+  // パズルの間、CircleYellow移動後
+  public const string VELGUS_CIRCLE_YELLOW_186_C = "CircleYellow";
+  public const string VELGUS_CIRCLE_YELLOW_186_O = "186";
+  public const float VELGUS_CIRCLE_YELLOW_186_X = 10.0f;
+  public const float VELGUS_CIRCLE_YELLOW_186_Y = 0.0f;
+  public const float VELGUS_CIRCLE_YELLOW_186_Z = -19.0f;
+
+  // パズルの間、BallRedゴール位置(2)
+  public const string VELGUS_BALLREDGOAL2_187_C = "BallRedGoal2";
+  public const string VELGUS_BALLREDGOAL2_187_O = "187";
+  public const float VELGUS_BALLREDGOAL2_187_X = 12.0f;
+  public const float VELGUS_BALLREDGOAL2_187_Y = 1.0f;
+  public const float VELGUS_BALLREDGOAL2_187_Z = -19.0f;
+
+  // パズルの間、BallBlueゴール位置(2)
+  public const string VELGUS_BALLBLUEGOAL2_188_C = "BallBlueGoal2";
+  public const string VELGUS_BALLBLUEGOAL2_188_O = "188";
+  public const float VELGUS_BALLBLUEGOAL2_188_X = 11.0f;
+  public const float VELGUS_BALLBLUEGOAL2_188_Y = 1.0f;
+  public const float VELGUS_BALLBLUEGOAL2_188_Z = -24.0f;
+
+  // パズルの間、BallGreenゴール位置(2)
+  public const string VELGUS_BALLGREENGOAL2_189_C = "BallGreenGoal2";
+  public const string VELGUS_BALLGREENGOAL2_189_O = "189";
+  public const float VELGUS_BALLGREENGOAL2_189_X = 13.0f;
+  public const float VELGUS_BALLGREENGOAL2_189_Y = 1.0f;
+  public const float VELGUS_BALLGREENGOAL2_189_Z = -24.0f;
+
+  // パズルの間、BallYellowゴール位置(2)
+  public const string VELGUS_BALLYELLOWGOAL2_190_C = "BallYellowGoal2";
+  public const string VELGUS_BALLYELLOWGOAL2_190_O = "190";
+  public const float VELGUS_BALLYELLOWGOAL2_190_X = 10.0f;
+  public const float VELGUS_BALLYELLOWGOAL2_190_Y = 1.0f;
+  public const float VELGUS_BALLYELLOWGOAL2_190_Z = -19.0f;
+
+  // パズルの間、壁ドアＢ
+  public const string VELGUS_DOOR_191_C = "VelgusDoor";
+  public const string VELGUS_DOOR_191_O = "191";
+  public const float VELGUS_DOOR_191_X = 18.0f;
+  public const float VELGUS_DOOR_191_Y = 0.5f;
+  public const float VELGUS_DOOR_191_Z = -27.0f;
+
+  // パズルの間、CircleRed移動後(3)
+  public const string VELGUS_CIRCLE_RED_192_C = "CircleRed";
+  public const string VELGUS_CIRCLE_RED_192_O = "192";
+  public const float VELGUS_CIRCLE_RED_192_X = 6.0f;
+  public const float VELGUS_CIRCLE_RED_192_Y = 0.0f;
+  public const float VELGUS_CIRCLE_RED_192_Z = -24.0f;
+
+  // パズルの間、CircleBlue移動後(3)
+  public const string VELGUS_CIRCLE_BLUE_193_C = "CircleBlue";
+  public const string VELGUS_CIRCLE_BLUE_193_O = "193";
+  public const float VELGUS_CIRCLE_BLUE_193_X = 9.0f;
+  public const float VELGUS_CIRCLE_BLUE_193_Y = 0.0f;
+  public const float VELGUS_CIRCLE_BLUE_193_Z = -16.0f;
+
+  // パズルの間、CircleGreen移動後(3)
+  public const string VELGUS_CIRCLE_GREEN_194_C = "CircleGreen";
+  public const string VELGUS_CIRCLE_GREEN_194_O = "194";
+  public const float VELGUS_CIRCLE_GREEN_194_X = 17.0f;
+  public const float VELGUS_CIRCLE_GREEN_194_Y = 0.0f;
+  public const float VELGUS_CIRCLE_GREEN_194_Z = -19.0f;
+
+  // パズルの間、CircleYellow移動後(3)
+  public const string VELGUS_CIRCLE_YELLOW_195_C = "CircleYellow";
+  public const string VELGUS_CIRCLE_YELLOW_195_O = "195";
+  public const float VELGUS_CIRCLE_YELLOW_195_X = 14.0f;
+  public const float VELGUS_CIRCLE_YELLOW_195_Y = 0.0f;
+  public const float VELGUS_CIRCLE_YELLOW_195_Z = -27.0f;
+
+  // パズルの間、BallRedゴール位置(3)
+  public const string VELGUS_BALLREDGOAL3_196_C = "BallRedGoal3";
+  public const string VELGUS_BALLREDGOAL3_196_O = "196";
+  public const float VELGUS_BALLREDGOAL3_196_X = 6.0f;
+  public const float VELGUS_BALLREDGOAL3_196_Y = 1.0f;
+  public const float VELGUS_BALLREDGOAL3_196_Z = -24.0f;
+
+  // パズルの間、BallBlueゴール位置(3)
+  public const string VELGUS_BALLBLUEGOAL3_197_C = "BallBlueGoal3";
+  public const string VELGUS_BALLBLUEGOAL3_197_O = "197";
+  public const float VELGUS_BALLBLUEGOAL3_197_X = 9.0f;
+  public const float VELGUS_BALLBLUEGOAL3_197_Y = 1.0f;
+  public const float VELGUS_BALLBLUEGOAL3_197_Z = -16.0f;
+
+  // パズルの間、BallGreenゴール位置(3)
+  public const string VELGUS_BALLGREENGOAL3_198_C = "BallGreenGoal2";
+  public const string VELGUS_BALLGREENGOAL3_198_O = "198";
+  public const float VELGUS_BALLGREENGOAL3_198_X = 17.0f;
+  public const float VELGUS_BALLGREENGOAL3_198_Y = 1.0f;
+  public const float VELGUS_BALLGREENGOAL3_198_Z = -19.0f;
+
+  // パズルの間、BallYellowゴール位置(3)
+  public const string VELGUS_BALLYELLOWGOAL3_199_C = "BallYellowGoal2";
+  public const string VELGUS_BALLYELLOWGOAL3_199_O = "199";
+  public const float VELGUS_BALLYELLOWGOAL3_199_X = 14.0f;
+  public const float VELGUS_BALLYELLOWGOAL3_199_Y = 1.0f;
+  public const float VELGUS_BALLYELLOWGOAL3_199_Z = -27.0f;
+
+  // パズルの間、隠し壁ドアＣ
+  public const string VELGUS_SECRETWALL_200_C = "VelgusDoor";
+  public const string VELGUS_SECRETWALL_200_O = "200";
+  public const float VELGUS_SECRETWALL_200_X = 4.0f;
+  public const float VELGUS_SECRETWALL_200_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_200_Z = -19.0f;
+
+  // 左上通路：壁ドア１
+  public const string VELGUS_DOOR_201_C = "VelgusDoor";
+  public const string VELGUS_DOOR_201_O = "201";
+  public const float VELGUS_DOOR_201_X = 8.0f;
+  public const float VELGUS_DOOR_201_Y = 0.5f;
+  public const float VELGUS_DOOR_201_Z = -4.0f;
+
+  // 左上通路：壁ドア２
+  public const string VELGUS_DOOR_202_C = "VelgusDoor";
+  public const string VELGUS_DOOR_202_O = "202";
+  public const float VELGUS_DOOR_202_X = 6.0f;
+  public const float VELGUS_DOOR_202_Y = 0.5f;
+  public const float VELGUS_DOOR_202_Z = -2.0f;
+
+  // 左上通路：壁ドア３
+  public const string VELGUS_DOOR_203_C = "VelgusDoor";
+  public const string VELGUS_DOOR_203_O = "203";
+  public const float VELGUS_DOOR_203_X = 4.0f;
+  public const float VELGUS_DOOR_203_Y = 0.5f;
+  public const float VELGUS_DOOR_203_Z = -5.0f;
+
+  // 左上通路：ボス戦
+  public const string VELGUS_BOSS_204_C = "Event";
+  public const string VELGUS_BOSS_204_O = "204";
+  public const float VELGUS_BOSS_204_X = 4.0f;
+  public const float VELGUS_BOSS_204_Y = 0.0f;
+  public const float VELGUS_BOSS_204_Z = -8.0f;
+
   #region "宝箱"
   // エントランスの上
   public const string VELGUS_TREASURE_1_C = "Treasure";
@@ -6821,6 +7429,40 @@ public static partial class Fix
   public const float VELGUS_TREASURE_8_Y = 1.0f;
   public const float VELGUS_TREASURE_8_Z = -19.0f;
 
+  // パズルの間（１）
+  public const string VELGUS_TREASURE_9_C = "Treasure";
+  public const string VELGUS_TREASURE_9_O = "9";
+  public const float VELGUS_TREASURE_9_X = 4.0f;
+  public const float VELGUS_TREASURE_9_Y = 1.0f;
+  public const float VELGUS_TREASURE_9_Z = -28.0f;
+
+  // パズルの間（２）
+  public const string VELGUS_TREASURE_10_C = "Treasure";
+  public const string VELGUS_TREASURE_10_O = "10";
+  public const float VELGUS_TREASURE_10_X = 19.0f;
+  public const float VELGUS_TREASURE_10_Y = 1.0f;
+  public const float VELGUS_TREASURE_10_Z = -19.0f;
+
+  // パズルの間（３）
+  public const string VELGUS_TREASURE_11_C = "Treasure";
+  public const string VELGUS_TREASURE_11_O = "11";
+  public const float VELGUS_TREASURE_11_X = 4.0f;
+  public const float VELGUS_TREASURE_11_Y = 1.0f;
+  public const float VELGUS_TREASURE_11_Z = -15.0f;
+
+  // 左上通路（１）
+  public const string VELGUS_TREASURE_12_C = "Treasure";
+  public const string VELGUS_TREASURE_12_O = "12";
+  public const float VELGUS_TREASURE_12_X = 8.0f;
+  public const float VELGUS_TREASURE_12_Y = 1.0f;
+  public const float VELGUS_TREASURE_12_Z = -3.0f;
+
+  // 左上通路（２）
+  public const string VELGUS_TREASURE_13_C = "Treasure";
+  public const string VELGUS_TREASURE_13_O = "13";
+  public const float VELGUS_TREASURE_13_X = 4.0f;
+  public const float VELGUS_TREASURE_13_Y = 1.0f;
+  public const float VELGUS_TREASURE_13_Z = -3.0f;
 
   #endregion
 

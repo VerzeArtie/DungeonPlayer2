@@ -85,6 +85,10 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Velgus_Number5;
   public TileInformation prefab_Velgus_Number6;
   public TileInformation prefab_Velgus_Number7;
+  public TileInformation prefab_Velgus_CircleRed;
+  public TileInformation prefab_Velgus_CircleBlue;
+  public TileInformation prefab_Velgus_CircleGreen;
+  public TileInformation prefab_Velgus_CircleYellow;
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Downstair;
   public TileInformation prefab_Unknown;
@@ -115,6 +119,14 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_WallDoor;
   public FieldObject prefab_Velgus_SecretWall;
   public FieldObject prefab_Velgus_FakeSea;
+  public FieldObject prefab_Velgus_BallRed;
+  public FieldObject prefab_Velgus_BallBlue;
+  public FieldObject prefab_Velgus_BallGreen;
+  public FieldObject prefab_Velgus_BallYellow;
+  public FieldObject prefab_Velgus_CircleRedObj;
+  public FieldObject prefab_Velgus_CircleBlueObj;
+  public FieldObject prefab_Velgus_CircleGreenObj;
+  public FieldObject prefab_Velgus_CircleYellowObj;
 
   // Decision
   public GameObject GroupDecision;
@@ -273,7 +285,7 @@ public class DungeonField : MotherBase
     PrefabList.Add("Bridge2");
     PrefabList.Add("Wall_1");
     PrefabList.Add("Town_1");
-    PrefabList.Add("Fountain_1");
+    PrefabList.Add("Fountain_1"); 
     PrefabList.Add("Castle_1");
     PrefabList.Add("Dungeon_1");
     PrefabList.Add("Snow");
@@ -306,6 +318,10 @@ public class DungeonField : MotherBase
     PrefabList.Add("Velgus_Number5");
     PrefabList.Add("Velgus_Number6");
     PrefabList.Add("Velgus_Number7");
+    PrefabList.Add("Velgus_CircleRed");
+    PrefabList.Add("Velgus_CircleBlue");
+    PrefabList.Add("Velgus_CircleGreen");
+    PrefabList.Add("Velgus_CircleYellow");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -327,6 +343,14 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_WallDoor");
     ObjectList.Add("Velgus_SecretWall");
     ObjectList.Add("Velgus_FakeSea");
+    ObjectList.Add("Velgus_BallRed");
+    ObjectList.Add("Velgus_BallBlue");
+    ObjectList.Add("Velgus_BallGreen");
+    ObjectList.Add("Velgus_BallYellow");
+    ObjectList.Add("Velgus_CircleRed");
+    ObjectList.Add("Velgus_CircleBlue");
+    ObjectList.Add("Velgus_CircleGreen");
+    ObjectList.Add("Velgus_CircleYellow");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -1810,6 +1834,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000100(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_MessageBoard_5_X, Fix.VELGUS_MessageBoard_5_Y, Fix.VELGUS_MessageBoard_5_Z))
+        {
+          MessagePack.Message1000160(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -2062,6 +2091,49 @@ public class DungeonField : MotherBase
     // オブジェクト（ヴェルガスの海底神殿：壁ドア）の判定
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_WallDoor)
     {
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_DOOR_201_X, Fix.VELGUS_DOOR_201_Y, Fix.VELGUS_DOOR_201_Z))
+      {
+        if (One.TF.Event_Message1000137 == false)
+        {
+          if (One.TF.FindBackPackItem(Fix.VELGUS_KEY2))
+          {
+            MessagePack.Message1000176(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000177(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+        }
+      }
+      else if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_DOOR_202_X, Fix.VELGUS_DOOR_202_Y, Fix.VELGUS_DOOR_202_Z))
+      {
+        if (One.TF.Event_Message1000139 == false)
+        {
+          if (One.TF.FindBackPackItem(Fix.VELGUS_KEY1))
+          {
+            MessagePack.Message1000178(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000179(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+        }
+      }
+      else if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_DOOR_203_X, Fix.VELGUS_DOOR_203_Y, Fix.VELGUS_DOOR_203_Z))
+      {
+        if (One.TF.Event_Message1000141 == false)
+        {
+          if (One.TF.FindBackPackItem(Fix.VELGUS_KEY3))
+          {
+            MessagePack.Message1000180(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000181(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+        }
+      }
+
       Debug.Log("fieldObjBefore is Velgus_WallDoor, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
@@ -4793,6 +4865,47 @@ public class DungeonField : MotherBase
           TapOK();
           return;
         }
+        if (One.TF.Treasure_Velgus_00009 == false && location.x == Fix.VELGUS_TREASURE_9_X && location.y == Fix.VELGUS_TREASURE_9_Y && location.z == Fix.VELGUS_TREASURE_9_Z)
+        {
+          treasureName = Fix.EXCELLENT_SWORD;
+          if (One.TF.Event_Message1000132 == false)
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+            MessagePack.Message1000171(ref QuestMessageList, ref QuestEventList);
+            TapOK();
+            return;
+          }
+        }
+        if (One.TF.Treasure_Velgus_00010 == false && location.x == Fix.VELGUS_TREASURE_10_X && location.y == Fix.VELGUS_TREASURE_10_Y && location.z == Fix.VELGUS_TREASURE_10_Z)
+        {
+          treasureName = Fix.EXCELLENT_SWORD;
+          if (One.TF.Event_Message1000134 == false)
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+            MessagePack.Message1000173(ref QuestMessageList, ref QuestEventList);
+            TapOK();
+            return;
+          }
+        }
+        if (One.TF.Treasure_Velgus_00011 == false && location.x == Fix.VELGUS_TREASURE_11_X && location.y == Fix.VELGUS_TREASURE_11_Y && location.z == Fix.VELGUS_TREASURE_11_Z)
+        {
+          treasureName = Fix.VELGUS_KEY3;
+          if (One.TF.Event_Message1000136 == false)
+          {
+            MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+            MessagePack.Message1000175(ref QuestMessageList, ref QuestEventList);
+            TapOK();
+            return;
+          }
+        }
+        if (One.TF.Treasure_Velgus_00012 == false && location.x == Fix.VELGUS_TREASURE_12_X && location.y == Fix.VELGUS_TREASURE_12_Y && location.z == Fix.VELGUS_TREASURE_12_Z)
+        {
+          treasureName = Fix.EXCELLENT_SWORD;
+        }
+        if (One.TF.Treasure_Velgus_00013 == false && location.x == Fix.VELGUS_TREASURE_13_X && location.y == Fix.VELGUS_TREASURE_13_Y && location.z == Fix.VELGUS_TREASURE_13_Z)
+        {
+          treasureName = Fix.EXCELLENT_SWORD;
+        }
 
         if (treasureName == String.Empty)
         {
@@ -5803,6 +5916,38 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS && currentMessage == "6")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 14; jj++)
+            {
+              for (int kk = 0; kk < 14; kk++)
+              {
+                numbers.Add(15 * 50 + 5 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS && currentMessage == "7")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 6; jj++)
+            {
+              for (int kk = 0; kk < 7; kk++)
+              {
+                numbers.Add(7 * 50 + 1 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -5994,6 +6139,198 @@ public class DungeonField : MotherBase
             this.NextTapOk = true;
           }
           return; // 画面即時反映
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveTopContinuous)
+        {
+          if (CurrentEventObject != null)
+          {
+            FieldObjectMoveLogic(CurrentEventObject, Direction.Top);
+          }
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveBottomContinuous)
+        {
+          if (CurrentEventObject != null)
+          {
+            FieldObjectMoveLogic(CurrentEventObject, Direction.Bottom);
+          }
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveLeftContinuous)
+        {
+          if (CurrentEventObject != null)
+          {
+            FieldObjectMoveLogic(CurrentEventObject, Direction.Left);
+          }
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.MoveRightContinuous)
+        {
+          if (CurrentEventObject != null)
+          {
+            FieldObjectMoveLogic(CurrentEventObject, Direction.Right);
+          }
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusBallReset)
+        {
+          if (One.TF.Event_Message1000130_Success == false)
+          {
+            FieldObject obj = SearchObject(FieldObject.Content.Velgus_BallRed);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLRED_170_X, Fix.VELGUS_BALLRED_170_Y, Fix.VELGUS_BALLRED_170_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallBlue);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLBLUE_171_X, Fix.VELGUS_BALLBLUE_171_Y, Fix.VELGUS_BALLBLUE_171_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallGreen);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLGREEN_172_X, Fix.VELGUS_BALLGREEN_172_Y, Fix.VELGUS_BALLGREEN_172_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallYellow);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLYELLOW_173_X, Fix.VELGUS_BALLYELLOW_173_Y, Fix.VELGUS_BALLYELLOW_173_Z);
+            }
+          }
+          else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+          {
+            // 前回のゴール位置がリセット地点である。
+            FieldObject obj = SearchObject(FieldObject.Content.Velgus_BallRed);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLREDGOAL_174_X, Fix.VELGUS_BALLREDGOAL_174_Y, Fix.VELGUS_BALLREDGOAL_174_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallBlue);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLBLUEGOAL_175_X, Fix.VELGUS_BALLBLUEGOAL_175_Y, Fix.VELGUS_BALLBLUEGOAL_175_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallGreen);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLGREENGOAL_176_X, Fix.VELGUS_BALLGREENGOAL_176_Y, Fix.VELGUS_BALLGREENGOAL_176_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallYellow);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLYELLOWGOAL_177_X, Fix.VELGUS_BALLYELLOWGOAL_177_Y, Fix.VELGUS_BALLYELLOWGOAL_177_Z);
+            }
+          }
+          else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+          {
+            // 前回のゴール位置がリセット地点である。
+            FieldObject obj = SearchObject(FieldObject.Content.Velgus_BallRed);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLREDGOAL2_187_X, Fix.VELGUS_BALLREDGOAL2_187_Y, Fix.VELGUS_BALLREDGOAL2_187_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallBlue);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLBLUEGOAL2_188_X, Fix.VELGUS_BALLBLUEGOAL2_188_Y, Fix.VELGUS_BALLBLUEGOAL2_188_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallGreen);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLGREENGOAL2_189_X, Fix.VELGUS_BALLGREENGOAL2_189_Y, Fix.VELGUS_BALLGREENGOAL2_189_Z);
+            }
+            obj = SearchObject(FieldObject.Content.Velgus_BallYellow);
+            if (obj != null)
+            {
+              obj.transform.position = new Vector3(Fix.VELGUS_BALLYELLOWGOAL2_190_X, Fix.VELGUS_BALLYELLOWGOAL2_190_Y, Fix.VELGUS_BALLYELLOWGOAL2_190_Z);
+            }
+          }
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusBallCheckComplete)
+        {
+          FieldObject objBallRed = SearchObject(FieldObject.Content.Velgus_BallRed);
+          FieldObject objBallBlue = SearchObject(FieldObject.Content.Velgus_BallBlue);
+          FieldObject objBallGreen = SearchObject(FieldObject.Content.Velgus_BallGreen);
+          FieldObject objBallYellow = SearchObject(FieldObject.Content.Velgus_BallYellow);
+          if (objBallRed == null || objBallBlue == null || objBallGreen == null || objBallYellow == null)
+          {
+            Debug.Log("VelgusBallCheckComplete objBall null...");
+            continue;
+          }
+
+          if (One.TF.Event_Message1000130_Success == false)
+          {
+            if (MatchFieldObjLocation(objBallRed, Fix.VELGUS_BALLREDGOAL_174_X, Fix.VELGUS_BALLREDGOAL_174_Y, Fix.VELGUS_BALLREDGOAL_174_Z) &&
+                MatchFieldObjLocation(objBallBlue, Fix.VELGUS_BALLBLUEGOAL_175_X, Fix.VELGUS_BALLBLUEGOAL_175_Y, Fix.VELGUS_BALLBLUEGOAL_175_Z) &&
+                MatchFieldObjLocation(objBallGreen, Fix.VELGUS_BALLGREENGOAL_176_X, Fix.VELGUS_BALLGREENGOAL_176_Y, Fix.VELGUS_BALLGREENGOAL_176_Z) &&
+                MatchFieldObjLocation(objBallYellow, Fix.VELGUS_BALLYELLOWGOAL_177_X, Fix.VELGUS_BALLYELLOWGOAL_177_Y, Fix.VELGUS_BALLYELLOWGOAL_177_Z))
+            {
+              Debug.Log("VelgusBallCheckComplete 1 Match ALL !!");
+              MessagePack.Message1000170(ref QuestMessageList, ref QuestEventList);
+              continue;
+            }
+            else
+            {
+              Debug.Log("VelgusBallCheckComplete 2 not match...");
+            }
+            Debug.Log("VelgusBallCheckComplete 1 last continue...");
+            continue;
+          }
+          else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+          {
+            if (MatchFieldObjLocation(objBallRed, Fix.VELGUS_BALLREDGOAL2_187_X, Fix.VELGUS_BALLREDGOAL2_187_Y, Fix.VELGUS_BALLREDGOAL2_187_Z) &&
+                MatchFieldObjLocation(objBallBlue, Fix.VELGUS_BALLBLUEGOAL2_188_X, Fix.VELGUS_BALLBLUEGOAL2_188_Y, Fix.VELGUS_BALLBLUEGOAL2_188_Z) &&
+                MatchFieldObjLocation(objBallGreen, Fix.VELGUS_BALLGREENGOAL2_189_X, Fix.VELGUS_BALLGREENGOAL2_189_Y, Fix.VELGUS_BALLGREENGOAL2_189_Z) &&
+                MatchFieldObjLocation(objBallYellow, Fix.VELGUS_BALLYELLOWGOAL2_190_X, Fix.VELGUS_BALLYELLOWGOAL2_190_Y, Fix.VELGUS_BALLYELLOWGOAL2_190_Z))
+            {
+              Debug.Log("VelgusBallCheckComplete 2 Match ALL !!");
+              MessagePack.Message1000172(ref QuestMessageList, ref QuestEventList);
+              continue;
+            }
+            else
+            {
+              Debug.Log("VelgusBallCheckComplete 2 not match...");
+            }
+            Debug.Log("VelgusBallCheckComplete 2 last continue...");
+            continue;
+          }
+          else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+          {
+            if (MatchFieldObjLocation(objBallRed, Fix.VELGUS_BALLREDGOAL3_196_X, Fix.VELGUS_BALLREDGOAL3_196_Y, Fix.VELGUS_BALLREDGOAL3_196_Z) &&
+                MatchFieldObjLocation(objBallBlue, Fix.VELGUS_BALLBLUEGOAL3_197_X, Fix.VELGUS_BALLBLUEGOAL3_197_Y, Fix.VELGUS_BALLBLUEGOAL3_197_Z) &&
+                MatchFieldObjLocation(objBallGreen, Fix.VELGUS_BALLGREENGOAL3_198_X, Fix.VELGUS_BALLGREENGOAL3_198_Y, Fix.VELGUS_BALLGREENGOAL3_198_Z) &&
+                MatchFieldObjLocation(objBallYellow, Fix.VELGUS_BALLYELLOWGOAL3_199_X, Fix.VELGUS_BALLYELLOWGOAL3_199_Y, Fix.VELGUS_BALLYELLOWGOAL3_199_Z))
+            {
+              Debug.Log("VelgusBallCheckComplete 3 Match ALL !!");
+              MessagePack.Message1000174(ref QuestMessageList, ref QuestEventList);
+              continue;
+            }
+            else
+            {
+              Debug.Log("VelgusBallCheckComplete 3 not match...");
+            }
+            Debug.Log("VelgusBallCheckComplete 3 last continue...");
+            continue;
+          }
+
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusCircleChange)
+        {
+          if (One.TF.Event_Message1000130_Success && One.TF.Event_Message1000130_Success_2 == false)
+          {
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_RED_179_X, Fix.VELGUS_CIRCLE_RED_179_Y, Fix.VELGUS_CIRCLE_RED_179_Z), new Vector3(Fix.VELGUS_CIRCLE_RED_183_X, Fix.VELGUS_CIRCLE_RED_183_Y, Fix.VELGUS_CIRCLE_RED_183_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_BLUE_180_X, Fix.VELGUS_CIRCLE_BLUE_180_Y, Fix.VELGUS_CIRCLE_BLUE_180_Z), new Vector3(Fix.VELGUS_CIRCLE_BLUE_184_X, Fix.VELGUS_CIRCLE_BLUE_184_Y, Fix.VELGUS_CIRCLE_BLUE_184_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_GREEN_181_X, Fix.VELGUS_CIRCLE_GREEN_181_Y, Fix.VELGUS_CIRCLE_GREEN_181_Z), new Vector3(Fix.VELGUS_CIRCLE_GREEN_185_X, Fix.VELGUS_CIRCLE_GREEN_185_Y, Fix.VELGUS_CIRCLE_GREEN_185_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_YELLOW_182_X, Fix.VELGUS_CIRCLE_YELLOW_182_Y, Fix.VELGUS_CIRCLE_YELLOW_182_Z), new Vector3(Fix.VELGUS_CIRCLE_YELLOW_186_X, Fix.VELGUS_CIRCLE_YELLOW_186_Y, Fix.VELGUS_CIRCLE_YELLOW_186_Z));
+          }
+          else if (One.TF.Event_Message1000130_Success && One.TF.Event_Message1000130_Success_2 && One.TF.Event_Message1000130_Success_3 == false)
+          {
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_RED_183_X, Fix.VELGUS_CIRCLE_RED_183_Y, Fix.VELGUS_CIRCLE_RED_183_Z), new Vector3(Fix.VELGUS_CIRCLE_RED_192_X, Fix.VELGUS_CIRCLE_RED_192_Y, Fix.VELGUS_CIRCLE_RED_192_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_BLUE_184_X, Fix.VELGUS_CIRCLE_BLUE_184_Y, Fix.VELGUS_CIRCLE_BLUE_184_Z), new Vector3(Fix.VELGUS_CIRCLE_BLUE_193_X, Fix.VELGUS_CIRCLE_BLUE_193_Y, Fix.VELGUS_CIRCLE_BLUE_193_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_GREEN_185_X, Fix.VELGUS_CIRCLE_GREEN_185_Y, Fix.VELGUS_CIRCLE_GREEN_185_Z), new Vector3(Fix.VELGUS_CIRCLE_GREEN_194_X, Fix.VELGUS_CIRCLE_GREEN_194_Y, Fix.VELGUS_CIRCLE_GREEN_194_Z));
+            MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_YELLOW_186_X, Fix.VELGUS_CIRCLE_YELLOW_186_Y, Fix.VELGUS_CIRCLE_YELLOW_186_Z), new Vector3(Fix.VELGUS_CIRCLE_YELLOW_195_X, Fix.VELGUS_CIRCLE_YELLOW_195_Y, Fix.VELGUS_CIRCLE_YELLOW_195_Z));
+          }
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
         {
@@ -6570,6 +6907,26 @@ public class DungeonField : MotherBase
             {
               One.TF.Treasure_Velgus_00008 = true;
             }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_9_X, Fix.VELGUS_TREASURE_9_Y, Fix.VELGUS_TREASURE_9_Z))
+            {
+              One.TF.Treasure_Velgus_00009 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_10_X, Fix.VELGUS_TREASURE_10_Y, Fix.VELGUS_TREASURE_10_Z))
+            {
+              One.TF.Treasure_Velgus_00010 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_11_X, Fix.VELGUS_TREASURE_11_Y, Fix.VELGUS_TREASURE_11_Z))
+            {
+              One.TF.Treasure_Velgus_00011 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_12_X, Fix.VELGUS_TREASURE_12_Y, Fix.VELGUS_TREASURE_12_Z))
+            {
+              One.TF.Treasure_Velgus_00012 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_TREASURE_13_X, Fix.VELGUS_TREASURE_13_Y, Fix.VELGUS_TREASURE_13_Z))
+            {
+              One.TF.Treasure_Velgus_00013 = true;
+            }
           }
           #endregion
           #region "ダルの門"
@@ -7033,6 +7390,30 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_120_X, Fix.VELGUS_SECRETWALL_120_Y, Fix.VELGUS_SECRETWALL_120_Z));
             }
+            if (currentMessage == Fix.VELGUS_DOOR_178_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_178_X, Fix.VELGUS_DOOR_178_Y, Fix.VELGUS_DOOR_178_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_191_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_191_X, Fix.VELGUS_DOOR_191_Y, Fix.VELGUS_DOOR_191_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_200_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_200_X, Fix.VELGUS_SECRETWALL_200_Y, Fix.VELGUS_SECRETWALL_200_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_201_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_201_X, Fix.VELGUS_DOOR_201_Y, Fix.VELGUS_DOOR_201_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_202_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_202_X, Fix.VELGUS_DOOR_202_Y, Fix.VELGUS_DOOR_202_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_203_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_203_X, Fix.VELGUS_DOOR_203_Y, Fix.VELGUS_DOOR_203_Z));
+            }
           }
 
           // 岩壁１
@@ -7113,6 +7494,170 @@ public class DungeonField : MotherBase
             RemoveFieldObject(FieldObjList, new Vector3(Fix.EVENT_GATEDHAL_3_X, Fix.EVENT_GATEDHAL_3_Y, Fix.EVENT_GATEDHAL_3_Z));
           }
           continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.RevealFieldObject)
+        {
+          if (currentMessage == Fix.VELGUS_SECRETWALL_130_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_130_X, Fix.VELGUS_SECRETWALL_130_Y, Fix.VELGUS_SECRETWALL_130_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_131_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_131_X, Fix.VELGUS_SECRETWALL_131_Y, Fix.VELGUS_SECRETWALL_131_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_132_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_132_X, Fix.VELGUS_SECRETWALL_132_Y, Fix.VELGUS_SECRETWALL_132_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_133_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_133_X, Fix.VELGUS_SECRETWALL_133_Y, Fix.VELGUS_SECRETWALL_133_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_134_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_134_X, Fix.VELGUS_SECRETWALL_134_Y, Fix.VELGUS_SECRETWALL_134_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_135_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_135_X, Fix.VELGUS_SECRETWALL_135_Y, Fix.VELGUS_SECRETWALL_135_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_136_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_136_X, Fix.VELGUS_SECRETWALL_136_Y, Fix.VELGUS_SECRETWALL_136_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_137_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_137_X, Fix.VELGUS_SECRETWALL_137_Y, Fix.VELGUS_SECRETWALL_137_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_138_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_138_X, Fix.VELGUS_SECRETWALL_138_Y, Fix.VELGUS_SECRETWALL_138_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_139_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_139_X, Fix.VELGUS_SECRETWALL_139_Y, Fix.VELGUS_SECRETWALL_139_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_140_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_140_X, Fix.VELGUS_SECRETWALL_140_Y, Fix.VELGUS_SECRETWALL_140_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_141_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_141_X, Fix.VELGUS_SECRETWALL_141_Y, Fix.VELGUS_SECRETWALL_141_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_142_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_142_X, Fix.VELGUS_SECRETWALL_142_Y, Fix.VELGUS_SECRETWALL_142_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_143_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_143_X, Fix.VELGUS_SECRETWALL_143_Y, Fix.VELGUS_SECRETWALL_143_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_144_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_144_X, Fix.VELGUS_SECRETWALL_144_Y, Fix.VELGUS_SECRETWALL_144_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_145_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_145_X, Fix.VELGUS_SECRETWALL_145_Y, Fix.VELGUS_SECRETWALL_145_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_146_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_146_X, Fix.VELGUS_SECRETWALL_146_Y, Fix.VELGUS_SECRETWALL_146_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_147_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_147_X, Fix.VELGUS_SECRETWALL_147_Y, Fix.VELGUS_SECRETWALL_147_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_148_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_148_X, Fix.VELGUS_SECRETWALL_148_Y, Fix.VELGUS_SECRETWALL_148_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_149_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_149_X, Fix.VELGUS_SECRETWALL_149_Y, Fix.VELGUS_SECRETWALL_149_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_150_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_150_X, Fix.VELGUS_SECRETWALL_150_Y, Fix.VELGUS_SECRETWALL_150_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_151_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_151_X, Fix.VELGUS_SECRETWALL_151_Y, Fix.VELGUS_SECRETWALL_151_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_152_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_152_X, Fix.VELGUS_SECRETWALL_152_Y, Fix.VELGUS_SECRETWALL_152_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_153_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_153_X, Fix.VELGUS_SECRETWALL_153_Y, Fix.VELGUS_SECRETWALL_153_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_154_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_154_X, Fix.VELGUS_SECRETWALL_154_Y, Fix.VELGUS_SECRETWALL_154_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_155_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_155_X, Fix.VELGUS_SECRETWALL_155_Y, Fix.VELGUS_SECRETWALL_155_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_156_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_156_X, Fix.VELGUS_SECRETWALL_156_Y, Fix.VELGUS_SECRETWALL_156_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_157_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_157_X, Fix.VELGUS_SECRETWALL_157_Y, Fix.VELGUS_SECRETWALL_157_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_158_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_158_X, Fix.VELGUS_SECRETWALL_158_Y, Fix.VELGUS_SECRETWALL_158_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_159_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_159_X, Fix.VELGUS_SECRETWALL_159_Y, Fix.VELGUS_SECRETWALL_159_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_160_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_160_X, Fix.VELGUS_SECRETWALL_160_Y, Fix.VELGUS_SECRETWALL_160_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_161_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_161_X, Fix.VELGUS_SECRETWALL_161_Y, Fix.VELGUS_SECRETWALL_161_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_162_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_162_X, Fix.VELGUS_SECRETWALL_162_Y, Fix.VELGUS_SECRETWALL_162_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_163_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_163_X, Fix.VELGUS_SECRETWALL_163_Y, Fix.VELGUS_SECRETWALL_163_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_164_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_164_X, Fix.VELGUS_SECRETWALL_164_Y, Fix.VELGUS_SECRETWALL_164_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_165_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_165_X, Fix.VELGUS_SECRETWALL_165_Y, Fix.VELGUS_SECRETWALL_165_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_166_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_166_X, Fix.VELGUS_SECRETWALL_166_Y, Fix.VELGUS_SECRETWALL_166_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_167_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_167_X, Fix.VELGUS_SECRETWALL_167_Y, Fix.VELGUS_SECRETWALL_167_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_168_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_168_X, Fix.VELGUS_SECRETWALL_168_Y, Fix.VELGUS_SECRETWALL_168_Z));
+          }
+          if (currentMessage == Fix.VELGUS_SECRETWALL_169_O)
+          {
+            RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_169_X, Fix.VELGUS_SECRETWALL_169_Y, Fix.VELGUS_SECRETWALL_169_Z));
+          }
+          continue;
         }
         else if (currentEvent == MessagePack.ActionEvent.CallDecision)
         {
@@ -7308,7 +7853,12 @@ public class DungeonField : MotherBase
           One.EnemyList[0].Area == Fix.MonsterArea.Boss2 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss5)
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss5 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss21 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss22 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss23 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss24 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss25)
       {
         One.BattleMode = Fix.BattleMode.Boss;
       }
@@ -8850,6 +9400,235 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_121_X, Fix.VELGUS_EVENTTILE_121_Y, Fix.VELGUS_EVENTTILE_121_Z))
+      {
+        MessagePack.Message1000161(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_122_X, Fix.VELGUS_EVENTTILE_122_Y, Fix.VELGUS_EVENTTILE_122_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallRed( MoveBottomContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000162(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_123_X, Fix.VELGUS_EVENTTILE_123_Y, Fix.VELGUS_EVENTTILE_123_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallRed( MoveLeftContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000163(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_124_X, Fix.VELGUS_EVENTTILE_124_Y, Fix.VELGUS_EVENTTILE_124_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallGreen( MoveLeftContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000164(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_125_X, Fix.VELGUS_EVENTTILE_125_Y, Fix.VELGUS_EVENTTILE_125_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallGreen( MoveTopContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000165(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_126_X, Fix.VELGUS_EVENTTILE_126_Y, Fix.VELGUS_EVENTTILE_126_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallBlue( MoveTopContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000166(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_127_X, Fix.VELGUS_EVENTTILE_127_Y, Fix.VELGUS_EVENTTILE_127_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallBlue);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallBlue( MoveRightContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000167(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_128_X, Fix.VELGUS_EVENTTILE_128_Y, Fix.VELGUS_EVENTTILE_128_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallYellow( MoveRightContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000168(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_129_X, Fix.VELGUS_EVENTTILE_129_Y, Fix.VELGUS_EVENTTILE_129_Z))
+      {
+        if (One.TF.Event_Message1000130_Success == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallYellow);
+        }
+        else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallGreen);
+        }
+        else if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+        {
+          CurrentEventObject = SearchObject(FieldObject.Content.Velgus_BallRed);
+        }
+        else
+        {
+          return true;
+        }
+
+        if (CurrentEventObject == null)
+        {
+          Debug.Log("Cannot find SearchObject Velgus_BallYellow( MoveBottomContinuous )...should debug it.");
+          return true;
+        }
+        MessagePack.Message1000169(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_204_X, Fix.VELGUS_BOSS_204_Y, Fix.VELGUS_BOSS_204_Z) && One.TF.DefeatOriginStarCoralQueen == false)
+      {
+        MessagePack.Message1000182(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -9915,6 +10694,42 @@ public class DungeonField : MotherBase
     return obj;
   }
 
+  private FieldObject SearchObject(FieldObject.Content obj_content)
+  {
+    FieldObject obj = null;
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      Debug.Log("SearchObject: " + FieldObjList[ii].ObjectId + " " + FieldObjList[ii].content.ToString());
+      // ヴェルガスの海底神殿で、赤、青、緑、黄のボールを探索するために記載しているが
+      // 複数ボールがある場合は上手く機能しない。しかしボールは１つずつしかないため、これで良しとする。
+      if (FieldObjList[ii].content == FieldObject.Content.Velgus_BallRed &&
+          obj_content == FieldObject.Content.Velgus_BallRed)
+      {
+        obj = FieldObjList[ii];
+        break;
+      }
+      else if (FieldObjList[ii].content == FieldObject.Content.Velgus_BallBlue &&
+               obj_content == FieldObject.Content.Velgus_BallBlue)
+      {
+        obj = FieldObjList[ii];
+        break;
+      }
+      else if (FieldObjList[ii].content == FieldObject.Content.Velgus_BallGreen &&
+               obj_content == FieldObject.Content.Velgus_BallGreen)
+      {
+        obj = FieldObjList[ii];
+        break;
+      }
+      else if (FieldObjList[ii].content == FieldObject.Content.Velgus_BallYellow &&
+               obj_content == FieldObject.Content.Velgus_BallYellow)
+      {
+        obj = FieldObjList[ii];
+        break;
+      }
+    }
+    return obj;
+  }
+
   private TileInformation SearchNextTile(Vector3 player, Direction direction)
   {
     TileInformation next = null;
@@ -10583,6 +11398,22 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_Number7, position, Quaternion.identity) as TileInformation;
     }
+    else if (tile_name == "Velgus_CircleRed")
+    {
+      current = Instantiate(prefab_Velgus_CircleRed, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Velgus_CircleBlue")
+    {
+      current = Instantiate(prefab_Velgus_CircleBlue, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Velgus_CircleGreen")
+    {
+      current = Instantiate(prefab_Velgus_CircleGreen, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Velgus_CircleYellow")
+    {
+      current = Instantiate(prefab_Velgus_CircleYellow, position, Quaternion.identity) as TileInformation;
+    }
     else if (tile_name == "Upstair")
     {
       current = Instantiate(prefab_Upstair, position, Quaternion.identity) as TileInformation;
@@ -10784,6 +11615,70 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_FakeSea, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_FakeSea;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_BallRed")
+    {
+      current = Instantiate(prefab_Velgus_BallRed, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_BallRed;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_BallBlue")
+    {
+      current = Instantiate(prefab_Velgus_BallBlue, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_BallBlue;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_BallGreen")
+    {
+      current = Instantiate(prefab_Velgus_BallGreen, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_BallGreen;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_BallYellow")
+    {
+      current = Instantiate(prefab_Velgus_BallYellow, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_BallYellow;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_CircleRed")
+    {
+      current = Instantiate(prefab_Velgus_CircleRedObj, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_CircleRed;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_CircleBlue")
+    {
+      current = Instantiate(prefab_Velgus_CircleBlueObj, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_CircleBlue;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_CircleGreen")
+    {
+      current = Instantiate(prefab_Velgus_CircleGreenObj, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_CircleGreen;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_CircleYellow")
+    {
+      current = Instantiate(prefab_Velgus_CircleYellowObj, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_CircleYellow;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -12446,6 +13341,26 @@ public class DungeonField : MotherBase
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_8_X, Fix.VELGUS_TREASURE_8_Y, Fix.VELGUS_TREASURE_8_Z)));
       }
+      if (One.TF.Treasure_Velgus_00009)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_9_X, Fix.VELGUS_TREASURE_9_Y, Fix.VELGUS_TREASURE_9_Z)));
+      }
+      if (One.TF.Treasure_Velgus_00010)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_10_X, Fix.VELGUS_TREASURE_10_Y, Fix.VELGUS_TREASURE_10_Z)));
+      }
+      if (One.TF.Treasure_Velgus_00011)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_11_X, Fix.VELGUS_TREASURE_11_Y, Fix.VELGUS_TREASURE_11_Z)));
+      }
+      if (One.TF.Treasure_Velgus_00012)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_12_X, Fix.VELGUS_TREASURE_12_Y, Fix.VELGUS_TREASURE_12_Z)));
+      }
+      if (One.TF.Treasure_Velgus_00013)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_TREASURE_13_X, Fix.VELGUS_TREASURE_13_Y, Fix.VELGUS_TREASURE_13_Z)));
+      }
 
       // エントランス１の柱
       if (One.TF.Event_Message1000010_MoveWall)
@@ -12543,6 +13458,120 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_120_X, Fix.VELGUS_SECRETWALL_120_Y, Fix.VELGUS_SECRETWALL_120_Z));
       }
+
+      if (One.TF.Event_Message1000131 == false)
+      {
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_130_X, Fix.VELGUS_SECRETWALL_130_Y, Fix.VELGUS_SECRETWALL_130_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_131_X, Fix.VELGUS_SECRETWALL_131_Y, Fix.VELGUS_SECRETWALL_131_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_132_X, Fix.VELGUS_SECRETWALL_132_Y, Fix.VELGUS_SECRETWALL_132_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_133_X, Fix.VELGUS_SECRETWALL_133_Y, Fix.VELGUS_SECRETWALL_133_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_134_X, Fix.VELGUS_SECRETWALL_134_Y, Fix.VELGUS_SECRETWALL_134_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_135_X, Fix.VELGUS_SECRETWALL_135_Y, Fix.VELGUS_SECRETWALL_135_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_136_X, Fix.VELGUS_SECRETWALL_136_Y, Fix.VELGUS_SECRETWALL_136_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_137_X, Fix.VELGUS_SECRETWALL_137_Y, Fix.VELGUS_SECRETWALL_137_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_138_X, Fix.VELGUS_SECRETWALL_138_Y, Fix.VELGUS_SECRETWALL_138_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_139_X, Fix.VELGUS_SECRETWALL_139_Y, Fix.VELGUS_SECRETWALL_139_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_140_X, Fix.VELGUS_SECRETWALL_140_Y, Fix.VELGUS_SECRETWALL_140_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_141_X, Fix.VELGUS_SECRETWALL_141_Y, Fix.VELGUS_SECRETWALL_141_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_142_X, Fix.VELGUS_SECRETWALL_142_Y, Fix.VELGUS_SECRETWALL_142_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_143_X, Fix.VELGUS_SECRETWALL_143_Y, Fix.VELGUS_SECRETWALL_143_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_144_X, Fix.VELGUS_SECRETWALL_144_Y, Fix.VELGUS_SECRETWALL_144_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_145_X, Fix.VELGUS_SECRETWALL_145_Y, Fix.VELGUS_SECRETWALL_145_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_146_X, Fix.VELGUS_SECRETWALL_146_Y, Fix.VELGUS_SECRETWALL_146_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_147_X, Fix.VELGUS_SECRETWALL_147_Y, Fix.VELGUS_SECRETWALL_147_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_148_X, Fix.VELGUS_SECRETWALL_148_Y, Fix.VELGUS_SECRETWALL_148_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_149_X, Fix.VELGUS_SECRETWALL_149_Y, Fix.VELGUS_SECRETWALL_149_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_150_X, Fix.VELGUS_SECRETWALL_150_Y, Fix.VELGUS_SECRETWALL_150_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_151_X, Fix.VELGUS_SECRETWALL_151_Y, Fix.VELGUS_SECRETWALL_151_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_152_X, Fix.VELGUS_SECRETWALL_152_Y, Fix.VELGUS_SECRETWALL_152_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_153_X, Fix.VELGUS_SECRETWALL_153_Y, Fix.VELGUS_SECRETWALL_153_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_154_X, Fix.VELGUS_SECRETWALL_154_Y, Fix.VELGUS_SECRETWALL_154_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_155_X, Fix.VELGUS_SECRETWALL_155_Y, Fix.VELGUS_SECRETWALL_155_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_156_X, Fix.VELGUS_SECRETWALL_156_Y, Fix.VELGUS_SECRETWALL_156_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_157_X, Fix.VELGUS_SECRETWALL_157_Y, Fix.VELGUS_SECRETWALL_157_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_158_X, Fix.VELGUS_SECRETWALL_158_Y, Fix.VELGUS_SECRETWALL_158_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_159_X, Fix.VELGUS_SECRETWALL_159_Y, Fix.VELGUS_SECRETWALL_159_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_160_X, Fix.VELGUS_SECRETWALL_160_Y, Fix.VELGUS_SECRETWALL_160_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_161_X, Fix.VELGUS_SECRETWALL_161_Y, Fix.VELGUS_SECRETWALL_161_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_162_X, Fix.VELGUS_SECRETWALL_162_Y, Fix.VELGUS_SECRETWALL_162_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_163_X, Fix.VELGUS_SECRETWALL_163_Y, Fix.VELGUS_SECRETWALL_163_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_164_X, Fix.VELGUS_SECRETWALL_164_Y, Fix.VELGUS_SECRETWALL_164_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_165_X, Fix.VELGUS_SECRETWALL_165_Y, Fix.VELGUS_SECRETWALL_165_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_166_X, Fix.VELGUS_SECRETWALL_166_Y, Fix.VELGUS_SECRETWALL_166_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_167_X, Fix.VELGUS_SECRETWALL_167_Y, Fix.VELGUS_SECRETWALL_167_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_168_X, Fix.VELGUS_SECRETWALL_168_Y, Fix.VELGUS_SECRETWALL_168_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_169_X, Fix.VELGUS_SECRETWALL_169_Y, Fix.VELGUS_SECRETWALL_169_Z));
+      }
+
+      if (One.TF.Event_Message1000130_Success)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_178_X, Fix.VELGUS_DOOR_178_Y, Fix.VELGUS_DOOR_178_Z));
+      }
+      if (One.TF.Event_Message1000130_Success_2)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_191_X, Fix.VELGUS_DOOR_191_Y, Fix.VELGUS_DOOR_191_Z));
+      }
+      if (One.TF.Event_Message1000130_Success_3)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_200_X, Fix.VELGUS_SECRETWALL_200_Y, Fix.VELGUS_SECRETWALL_200_Z));
+      }
+
+      // ヴェルガスの海底神殿：４つの球体は条件に応じて表示位置が変わる
+      if (One.TF.Event_Message1000130_Success && One.TF.Event_Message1000130_Success_2 == false)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLRED_170_X, Fix.VELGUS_BALLRED_170_Y, Fix.VELGUS_BALLRED_170_Z), new Vector3(Fix.VELGUS_BALLREDGOAL_174_X, Fix.VELGUS_BALLREDGOAL_174_Y, Fix.VELGUS_BALLREDGOAL_174_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLBLUE_171_X, Fix.VELGUS_BALLBLUE_171_Y, Fix.VELGUS_BALLBLUE_171_Z), new Vector3(Fix.VELGUS_BALLBLUEGOAL_175_X, Fix.VELGUS_BALLBLUEGOAL_175_Y, Fix.VELGUS_BALLBLUEGOAL_175_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLGREEN_172_X, Fix.VELGUS_BALLGREEN_172_Y, Fix.VELGUS_BALLGREEN_172_Z), new Vector3(Fix.VELGUS_BALLGREENGOAL_176_X, Fix.VELGUS_BALLGREENGOAL_176_Y, Fix.VELGUS_BALLGREENGOAL_176_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLYELLOW_173_X, Fix.VELGUS_BALLYELLOW_173_Y, Fix.VELGUS_BALLYELLOW_173_Z), new Vector3(Fix.VELGUS_BALLYELLOWGOAL_177_X, Fix.VELGUS_BALLYELLOWGOAL_177_Y, Fix.VELGUS_BALLYELLOWGOAL_177_Z));
+      }
+      else if (One.TF.Event_Message1000130_Success && One.TF.Event_Message1000130_Success_2 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLRED_170_X, Fix.VELGUS_BALLRED_170_Y, Fix.VELGUS_BALLRED_170_Z), new Vector3(Fix.VELGUS_BALLREDGOAL2_187_X, Fix.VELGUS_BALLREDGOAL2_187_Y, Fix.VELGUS_BALLREDGOAL2_187_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLBLUE_171_X, Fix.VELGUS_BALLBLUE_171_Y, Fix.VELGUS_BALLBLUE_171_Z), new Vector3(Fix.VELGUS_BALLBLUEGOAL2_188_X, Fix.VELGUS_BALLBLUEGOAL2_188_Y, Fix.VELGUS_BALLBLUEGOAL2_188_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLGREEN_172_X, Fix.VELGUS_BALLGREEN_172_Y, Fix.VELGUS_BALLGREEN_172_Z), new Vector3(Fix.VELGUS_BALLGREENGOAL2_189_X, Fix.VELGUS_BALLGREENGOAL2_189_Y, Fix.VELGUS_BALLGREENGOAL2_189_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLYELLOW_173_X, Fix.VELGUS_BALLYELLOW_173_Y, Fix.VELGUS_BALLYELLOW_173_Z), new Vector3(Fix.VELGUS_BALLYELLOWGOAL2_190_X, Fix.VELGUS_BALLYELLOWGOAL2_190_Y, Fix.VELGUS_BALLYELLOWGOAL2_190_Z));
+      }
+      else if (One.TF.Event_Message1000130_Success && One.TF.Event_Message1000130_Success_2 && One.TF.Event_Message1000130_Success_3)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLRED_170_X, Fix.VELGUS_BALLRED_170_Y, Fix.VELGUS_BALLRED_170_Z), new Vector3(Fix.VELGUS_BALLREDGOAL3_196_X, Fix.VELGUS_BALLREDGOAL3_196_Y, Fix.VELGUS_BALLREDGOAL3_196_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLBLUE_171_X, Fix.VELGUS_BALLBLUE_171_Y, Fix.VELGUS_BALLBLUE_171_Z), new Vector3(Fix.VELGUS_BALLBLUEGOAL3_197_X, Fix.VELGUS_BALLBLUEGOAL3_197_Y, Fix.VELGUS_BALLBLUEGOAL3_197_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLGREEN_172_X, Fix.VELGUS_BALLGREEN_172_Y, Fix.VELGUS_BALLGREEN_172_Z), new Vector3(Fix.VELGUS_BALLGREENGOAL3_198_X, Fix.VELGUS_BALLGREENGOAL3_198_Y, Fix.VELGUS_BALLGREENGOAL3_198_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_BALLYELLOW_173_X, Fix.VELGUS_BALLYELLOW_173_Y, Fix.VELGUS_BALLYELLOW_173_Z), new Vector3(Fix.VELGUS_BALLYELLOWGOAL3_199_X, Fix.VELGUS_BALLYELLOWGOAL3_199_Y, Fix.VELGUS_BALLYELLOWGOAL3_199_Z));
+      }
+
+      // ヴェルガスの海底神殿：４つのサークルは条件に応じて表示位置が変わる
+      if (One.TF.Event_Message1000130_Success == false)
+      {
+        // 動かさない
+      }
+      else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000135 == false)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_RED_179_X, Fix.VELGUS_CIRCLE_RED_179_Y, Fix.VELGUS_CIRCLE_RED_179_Z), new Vector3(Fix.VELGUS_CIRCLE_RED_183_X, Fix.VELGUS_CIRCLE_RED_183_Y, Fix.VELGUS_CIRCLE_RED_183_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_BLUE_180_X, Fix.VELGUS_CIRCLE_BLUE_180_Y, Fix.VELGUS_CIRCLE_BLUE_180_Z), new Vector3(Fix.VELGUS_CIRCLE_BLUE_184_X, Fix.VELGUS_CIRCLE_BLUE_184_Y, Fix.VELGUS_CIRCLE_BLUE_184_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_GREEN_181_X, Fix.VELGUS_CIRCLE_GREEN_181_Y, Fix.VELGUS_CIRCLE_GREEN_181_Z), new Vector3(Fix.VELGUS_CIRCLE_GREEN_185_X, Fix.VELGUS_CIRCLE_GREEN_185_Y, Fix.VELGUS_CIRCLE_GREEN_185_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_YELLOW_182_X, Fix.VELGUS_CIRCLE_YELLOW_182_Y, Fix.VELGUS_CIRCLE_YELLOW_182_Z), new Vector3(Fix.VELGUS_CIRCLE_YELLOW_186_X, Fix.VELGUS_CIRCLE_YELLOW_186_Y, Fix.VELGUS_CIRCLE_YELLOW_186_Z));
+      }
+      else if (One.TF.Event_Message1000133 && One.TF.Event_Message1000135)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_RED_179_X, Fix.VELGUS_CIRCLE_RED_179_Y, Fix.VELGUS_CIRCLE_RED_179_Z), new Vector3(Fix.VELGUS_CIRCLE_RED_192_X, Fix.VELGUS_CIRCLE_RED_192_Y, Fix.VELGUS_CIRCLE_RED_192_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_BLUE_180_X, Fix.VELGUS_CIRCLE_BLUE_180_Y, Fix.VELGUS_CIRCLE_BLUE_180_Z), new Vector3(Fix.VELGUS_CIRCLE_BLUE_193_X, Fix.VELGUS_CIRCLE_BLUE_193_Y, Fix.VELGUS_CIRCLE_BLUE_193_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_GREEN_181_X, Fix.VELGUS_CIRCLE_GREEN_181_Y, Fix.VELGUS_CIRCLE_GREEN_181_Z), new Vector3(Fix.VELGUS_CIRCLE_GREEN_194_X, Fix.VELGUS_CIRCLE_GREEN_194_Y, Fix.VELGUS_CIRCLE_GREEN_194_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_CIRCLE_YELLOW_182_X, Fix.VELGUS_CIRCLE_YELLOW_182_Y, Fix.VELGUS_CIRCLE_YELLOW_182_Z), new Vector3(Fix.VELGUS_CIRCLE_YELLOW_195_X, Fix.VELGUS_CIRCLE_YELLOW_195_Y, Fix.VELGUS_CIRCLE_YELLOW_195_Z));
+      }
+
+      if (One.TF.Event_Message1000137)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_201_X, Fix.VELGUS_DOOR_201_Y, Fix.VELGUS_DOOR_201_Z));
+      }
+      if (One.TF.Event_Message1000139)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_202_X, Fix.VELGUS_DOOR_202_Y, Fix.VELGUS_DOOR_202_Z));
+      }
+      if (One.TF.Event_Message1000141)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_203_X, Fix.VELGUS_DOOR_203_Y, Fix.VELGUS_DOOR_203_Z));
+      }
+
     }
     #endregion
     #region "ダルの門"
@@ -12859,6 +13888,38 @@ public class DungeonField : MotherBase
 
   }
 
+  private void HideFieldObject(List<FieldObject> list, Vector3 position)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (FieldObjList[ii].transform.position == position)
+      {
+        FieldObject current = FieldObjList[ii];
+        Debug.Log("HideFieldObject[ii] " + ii.ToString());
+        current.gameObject.SetActive(false);
+        return;
+      }
+    }
+
+    Debug.Log("HideFieldObject not found...");
+  }
+
+  private void RevealFieldObject(List<FieldObject> list, Vector3 position)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (FieldObjList[ii].transform.position == position)
+      {
+        FieldObject current = FieldObjList[ii];
+        Debug.Log("RevealFieldObject[ii] " + ii.ToString());
+        current.gameObject.SetActive(true);
+        return;
+      }
+    }
+
+    Debug.Log("RevealFieldObject not found...");
+  }
+
   private void RemoveFieldObject(List<FieldObject> list, Vector3 position)
   {
     for (int ii = 0; ii < FieldObjList.Count; ii++)
@@ -13065,5 +14126,108 @@ public class DungeonField : MotherBase
     }
 
     return -1;
+  }
+
+  private void FieldObjectMoveLogic(FieldObject field_obj, Direction direction)
+  {
+    if (field_obj != null)
+    {
+      for (int jj = 0; jj < Fix.INFINITY; jj++)
+      {
+        TileInformation tile = SearchNextTile(field_obj.transform.position, direction);
+        if (tile == null)
+        {
+          break;
+        }
+
+        Vector3 nextLocation = new Vector3(-99999, -99999, -99999); // 初期(0,0,0)はあり得るので、あり得ない位置をまず設定
+        Vector3 nextLocation2 = new Vector3(-99999, -99999, -99999); // 初期(0,0,0)はあり得るので、あり得ない位置をまず設定
+        if (direction == Direction.Right)
+        {
+          nextLocation = new Vector3(field_obj.transform.position.x + 1.0f, field_obj.transform.position.y, field_obj.transform.position.z);
+          nextLocation2 = new Vector3(field_obj.transform.position.x + 1.0f, field_obj.transform.position.y - 0.5f, field_obj.transform.position.z);
+          Debug.Log("nextLocation: " + nextLocation.ToString());
+        }
+        if (direction == Direction.Left)
+        {
+          nextLocation = new Vector3(field_obj.transform.position.x - 1.0f, field_obj.transform.position.y, field_obj.transform.position.z);
+          nextLocation2 = new Vector3(field_obj.transform.position.x - 1.0f, field_obj.transform.position.y - 0.5f, field_obj.transform.position.z);
+          Debug.Log("nextLocation: " + nextLocation.ToString());
+        }
+        if (direction == Direction.Top)
+        {
+          nextLocation = new Vector3(field_obj.transform.position.x, field_obj.transform.position.y, field_obj.transform.position.z + 1.0f);
+          nextLocation2 = new Vector3(field_obj.transform.position.x, field_obj.transform.position.y - 0.5f, field_obj.transform.position.z + 1.0f);
+          Debug.Log("nextLocation: " + nextLocation.ToString());
+        }
+        if (direction == Direction.Bottom)
+        {
+          nextLocation = new Vector3(field_obj.transform.position.x, field_obj.transform.position.y, field_obj.transform.position.z - 1.0f);
+          nextLocation2 = new Vector3(field_obj.transform.position.x, field_obj.transform.position.y - 0.5f, field_obj.transform.position.z - 1.0f);
+          Debug.Log("nextLocation: " + nextLocation.ToString());
+        }
+        FieldObject fieldObjBefore = SearchObject(nextLocation);
+        if (fieldObjBefore != null)
+        {
+          break;
+        }
+        fieldObjBefore = SearchObject(nextLocation2);
+        if (fieldObjBefore != null)
+        {
+          break;
+        }
+
+        if (tile != null)
+        {
+          Debug.Log("nextLocation: " + nextLocation.ToString());
+
+          if (BlockCheck(field_obj.gameObject, tile) == false)
+          {
+            break;
+          }
+        }
+
+        // todo 単なる描画のためにスリープメソッドを探求する必要があるか。あれば要対応
+        //this.NextTapOkSleep = Convert.ToSingle(currentMessage);
+        //this.NextTapOk = true;
+
+        if (direction == Direction.Right)
+        {
+          field_obj.transform.position = new Vector3(field_obj.transform.position.x + 1.0f,
+                                                     field_obj.transform.position.y,
+                                                     field_obj.transform.position.z);
+        }
+        else if (direction == Direction.Left)
+        {
+          field_obj.transform.position = new Vector3(field_obj.transform.position.x -1.0f,
+                                                     field_obj.transform.position.y,
+                                                     field_obj.transform.position.z);
+        }
+        else if (direction == Direction.Top)
+        {
+          field_obj.transform.position = new Vector3(field_obj.transform.position.x,
+                                                     field_obj.transform.position.y,
+                                                     field_obj.transform.position.z + 1.0f);
+        }
+        else if (direction == Direction.Bottom)
+        {
+          field_obj.transform.position = new Vector3(field_obj.transform.position.x,
+                                                     field_obj.transform.position.y,
+                                                     field_obj.transform.position.z - 1.0f);
+        }
+      }
+    }
+  }
+
+  private bool MatchFieldObjLocation(FieldObject field_obj, float x, float y, float z)
+  {
+    if ((x - 0.001f <= field_obj.transform.position.x && field_obj.transform.position.x <= x + 0.001f) &&
+        (y - 0.001f <= field_obj.transform.position.y && field_obj.transform.position.y <= y + 0.001f) &&
+        (z - 0.001f <= field_obj.transform.position.z && field_obj.transform.position.z <= z + 0.001f))
+    {
+      return true;
+    }
+
+    return false;
   }
 }

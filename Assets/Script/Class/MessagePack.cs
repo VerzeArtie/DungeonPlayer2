@@ -20,6 +20,7 @@ public static class MessagePack
     QuestComplete,
     GetTreasure,
     RemoveFieldObject,
+    RevealFieldObject,
     CallDecision,
     MoveTop,
     MoveLeft,
@@ -38,6 +39,13 @@ public static class MessagePack
     ForceMoveObjRise,
     ForceMoveObjFall,
     ForceMoveObjRiseWithoutPlayer,
+    MoveLeftContinuous,
+    MoveRightContinuous,
+    MoveTopContinuous,
+    MoveBottomContinuous,
+    VelgusBallReset,
+    VelgusBallCheckComplete,
+    VelgusCircleChange,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -339,7 +347,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "『　訪れし者よ。次へと進むが良い　』", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.RemoveFieldObject);
 
@@ -16393,7 +16401,7 @@ public static class MessagePack
       if (One.TF.Event_Message1000100_Failed == false)
       {
         One.TF.Event_Message1000100_Success = true;
-        Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_86_O, ActionEvent.RemoveFieldObject);
 
@@ -17260,7 +17268,7 @@ public static class MessagePack
       if (One.TF.Event_Message1000110_Failed == false)
       {
         One.TF.Event_Message1000110_Success = true;
-        Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_111_O, ActionEvent.RemoveFieldObject);
 
@@ -17474,7 +17482,7 @@ public static class MessagePack
       {
         One.TF.Event_Message1000120_Success = true;
 
-        Message(ref m_list, ref e_list, "ッゴゴゴゴ、ズズウウゥゥゥン・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_120_O, ActionEvent.RemoveFieldObject);
 
@@ -17536,6 +17544,810 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ビリー：よぉし、閉まっている扉があったら使ってみようぜ！！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：オーケー、了解だ。", ActionEvent.None);
+  }
+
+  public static void Message1000160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000130 == false)
+    {
+      One.TF.Event_Message1000130 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板があるな。なになに。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　非目的化された事象、起源の調べは遊戯の中にある　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほどな・・・そういう考え方か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ちょっと意味分かんねえが、どういう事なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、おそらく深い意味はないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そうじゃなくてだな、どういう事かを聞いてんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・どう言えば良いのか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ポイントとか要素はなく、純粋に触れてみれば解ける、って事かな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだぁ？そりゃ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・まあ、実際に見てみようぜ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　非目的化された事象、起源の調べは遊戯の中にある　』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000130_Success == false)
+      {
+        if (One.TF.Event_Message1000130_Progress_1 == false)
+        {
+          One.TF.Event_Message1000130_Progress_1 = true;
+
+          Message(ref m_list, ref e_list, "『ッカチ！・・・ゴオオォォン・・・』", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallReset);
+
+          Message(ref m_list, ref e_list, "ビリー：お？何か音がしなかったか。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：きっとこの先のエリアにあった球体の位置がリセットされたんだろう。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "ビリー：なるほどな。じゃあ、何度でもトライできそうだな。", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "アイン：ああ、もう一度最初からやってみよう。", ActionEvent.None);
+        }
+        else
+        {
+          Message(ref m_list, ref e_list, "『ッカチ！・・・ゴオオォォン・・・』", ActionEvent.None);
+
+          Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallReset);
+
+          Message(ref m_list, ref e_list, "アイン：よし、もう一度最初からやってみよう。", ActionEvent.None);
+        }
+      }
+      else if (One.TF.Event_Message1000130_Success_2 == false)
+      {
+        if (One.TF.Event_Message1000132)
+        {
+          if (One.TF.Event_Message1000133 == false)
+          {
+            One.TF.Event_Message1000133 = true;
+
+            Message(ref m_list, ref e_list, "（ガッ、ガガアァァァン・・・！）", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "", ActionEvent.VelgusCircleChange);
+
+            Message(ref m_list, ref e_list, "ビリー：おお！？　何か今音がしたな！", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：よし、改めて看板を調べたのが当たりだったみたいだな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：お前、本当よく見つけるな。そういうの。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：まあ、何となくだな。この神殿は奇麗な造りだから、感覚的に読みやすいんだ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：俺には分かんねーけどな。で、もう一度さっきの所に行けば良いんだな？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：ああ、そうだ。早速行ってみよう。", ActionEvent.None);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "『ッカチ！・・・ゴオオォォン・・・』", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallReset);
+
+            Message(ref m_list, ref e_list, "アイン：よし、もう一度最初からやってみよう。", ActionEvent.None);
+          }
+        }
+      }
+      else if (One.TF.Event_Message1000130_Success_3 == false)
+      {
+        if (One.TF.Event_Message1000134)
+        {
+          if (One.TF.Event_Message1000135 == false)
+          {
+            One.TF.Event_Message1000135 = true;
+
+            Message(ref m_list, ref e_list, "（ガッ、ガガアァァァン・・・！）", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "", ActionEvent.VelgusCircleChange);
+
+            Message(ref m_list, ref e_list, "ビリー：おお！　マジかよ、おい！？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：オーケー。少々不安もあったが、やっぱりまだあったな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：そういうのって、どの辺りから掴みとってるわけ？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：この神殿に入った瞬間から・・・かな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：この神殿は人工的な感じがするんだ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：あたりめーだろ。神殿なんだから人工的に建造したに決まってるだろ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：いや、それはそうなんだが、とにかく自然的なレイアウトじゃないんだ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：常に何かしらを隠しているか、与えているか、気付かせないか、錯覚させるか・・・", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：妙な言い方になってしまうが【試練】というのが近いのかな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：いや【調和】とでも言うべきかな。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "エオネ：（・・・　・・・　・・・）", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：その前に【分離】と【融合】が根本的にある気もするが・・・", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：どんどん意味不明になってきてるな、その辺でもういいぞ、十分だ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：ハハハ・・・まあ、何となくありそうだなって思えてくる造りになってるのさ。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ラナ：まだまだ続きそうなの？", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：いや、おそらくこれで最後だろう。", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "ビリー：よし、ラストか！じゃあ、早いとこ解いてしまおーぜ！", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "アイン：オーケー！", ActionEvent.None);
+          }
+          else
+          {
+            Message(ref m_list, ref e_list, "『ッカチ！・・・ゴオオォォン・・・』", ActionEvent.None);
+
+            Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallReset);
+
+            Message(ref m_list, ref e_list, "アイン：よし、もう一度最初からやってみよう。", ActionEvent.None);
+          }
+        }
+      }
+    }
+  }
+
+  public static void Message1000161(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000131 == false)
+    {
+      One.TF.Event_Message1000131 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おお！これは！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスは周囲を見回した 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "6", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "ラナ：広いわね・・・。あっ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：真ん中にあるアレ、何かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：空中に浮いてるのか？丸い形状をした何かに見えるが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何か妙な色付きのタイルも見えねえか？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ガッ、ガガアァァァン・・・！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_130_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_131_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_132_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_133_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_134_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_135_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_136_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_137_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_138_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_139_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_140_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_141_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_142_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_143_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_144_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_145_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_146_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_147_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_148_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_149_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_150_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_151_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_152_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_153_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_154_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_155_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_156_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_157_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_158_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_159_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_160_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_161_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_162_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_163_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_164_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_165_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_166_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_167_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_168_O, ActionEvent.RevealFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_169_O, ActionEvent.RevealFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：あ！んだこの壁はぁ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか、ここから開始って事か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：開始って何がだよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：看板が示していた遊戯の事さ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：全体像は最初にある程度把握する形式になっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、少し時間経過したらこうなった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なので、開始ポイントが今なんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく何からの操作系だとは思うんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと見てみないと何ともだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：つまり、最初の全体像は参考程度で、結局改めて確認していくしかないわけね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そういう事になる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：メンドクセー仕掛けだな。ビビらせんじゃねえっつうの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：確かに、ちょっとびっくりはしたけどな。ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、少し探索してみましょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー、了解だ。", ActionEvent.None);
+
+    }
+  }
+
+  public static void Message1000162(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveLeftContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveBottomContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000163(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveTopContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveLeftContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000164(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveRightContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveLeftContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000165(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      // 条件分岐の結果が同一だが、構造的には分岐させた形式で記述する事とする。
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveTopContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveTopContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000166(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveLeftContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveTopContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000167(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveBottomContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveRightContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000168(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      // 条件分岐の結果が同一だが、構造的には分岐させた形式で記述する事とする。
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveRightContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveRightContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+  public static void Message1000169(ref List<string> m_list, ref List<ActionEvent> e_list) 
+  {
+    if ((One.TF.Event_Message1000130_Success == false) ||
+        (One.TF.Event_Message1000133 && One.TF.Event_Message1000130_Success_2 == false) ||
+        (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false))
+    {
+      Message(ref m_list, ref e_list, "『ッカチ！』", ActionEvent.None);
+
+      // 条件分岐の結果が同一だが、構造的には分岐させた形式で記述する事とする。
+      if (One.TF.Event_Message1000135 && One.TF.Event_Message1000130_Success_3 == false)
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveBottomContinuous);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "500", ActionEvent.MoveBottomContinuous);
+      }
+
+      Message(ref m_list, ref e_list, "～　どこかで物が動く音がした　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusBallCheckComplete);
+    }
+  }
+
+  public static void Message1000170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000130_Success == false)
+    {
+      One.TF.Event_Message1000130_Success = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_178_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし！オーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン、結構楽しそうにやってたじゃねえか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こういうのは割と好きだな。試行錯誤が面白い感じがするしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構こういうのは食いつくわよね、バカアインは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと、じゃあ早速お宝ＧＥＴと行きますか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000171(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000132 == false)
+    {
+      One.TF.Event_Message1000132 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、宝箱ＧＥＴ完了っと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと待って。このエリアはもう終わりなのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、これで終わりじゃないだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだよ、宝箱取ったのにまだあるっつうのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この神殿の宝箱は印象的なトラップが多いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：きっとまだある。一旦、看板の所へ戻ってみても良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。行ってみましょう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000172(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000130_Success_2 == false)
+    {
+      One.TF.Event_Message1000130_Success_2 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_191_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よしよし！オーケーオーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前がこういうのを得意げにやるってのが意外だけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：意外・・・ああ、意外なのかもな！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ホラ、浮かれてないで。開放された所へ行ってみましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000173(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000134 == false)
+    {
+      One.TF.Event_Message1000134 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、ここの宝箱もＧＥＴしたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、さすがにもうこれで終わりで良いんだよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、マップを見せてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　アイン・ウォーレンスはダンジョン・マップを凝視した　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・まだあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。度々で悪いが、もう１回だけ看板の所へ行っても良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。行ってみましょう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000174(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000130_Success_3 == false)
+    {
+      One.TF.Event_Message1000130_Success_3 = true;
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_200_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よーし、クリアだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どこが開いたのかしら。マップ的にはこの区画のどこかよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１回目に開いた箇所があっただろ。おそらく、あの通路の方だろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、サクっと行ってみようぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000175(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：おっ、鍵みたいだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どこかで使えそうね。閉まっている扉があったら使ってみましょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケー。", ActionEvent.None);
+  }
+
+  public static void Message1000176(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000137 == false)
+    {
+      One.TF.Event_Message1000137 = true;
+
+      Message(ref m_list, ref e_list, "（ギッギギィ・・・・・・バァァン！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_201_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし、この鍵で合っていたみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：次に行ってみましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000177(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000138 == false)
+    {
+      One.TF.Event_Message1000138 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉が開かないな・・・", ActionEvent.None);
+
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY1) || One.TF.FindBackPackItem(Fix.VELGUS_KEY3))
+      {
+        Message(ref m_list, ref e_list, "ラナ：差し込み口に合う鍵は試してみたけど、一致しないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵穴があるみたいね。どこかで鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY1) || One.TF.FindBackPackItem(Fix.VELGUS_KEY3))
+      {
+        Message(ref m_list, ref e_list, "ラナ：今の手持ちの鍵だと、開かないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000178(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000139 == false)
+    {
+      One.TF.Event_Message1000139 = true;
+
+      Message(ref m_list, ref e_list, "（ギッギギィ・・・・・・バァァン！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_202_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし、この扉もバッチリ開いたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ガンガン進もうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000179(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000140 == false)
+    {
+      One.TF.Event_Message1000140 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉が開かないな・・・", ActionEvent.None);
+
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY2) || One.TF.FindBackPackItem(Fix.VELGUS_KEY3))
+      {
+        Message(ref m_list, ref e_list, "ラナ：差し込み口に合う鍵は試してみたけど、一致しないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵穴があるみたいね。どこかで鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY2) || One.TF.FindBackPackItem(Fix.VELGUS_KEY3))
+      {
+        Message(ref m_list, ref e_list, "ラナ：今の手持ちの鍵だと、開かないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000180(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000141 == false)
+    {
+      One.TF.Event_Message1000141 = true;
+
+      Message(ref m_list, ref e_list, "（ギッギギィ・・・・・・バァァン！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_203_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。バッチリだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：待って、この先に何かいるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：結構ヤバそうな奴だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの雰囲気・・・いきなりバトル突入はきついかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうするのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：突撃する前に少しだけ索敵してくる。皆はちょっとここで待っててくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveBottom);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveBottom);
+
+      Message(ref m_list, ref e_list, "7", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "～ ・・・しばらくして・・・ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.MoveTop);
+
+      Message(ref m_list, ref e_list, "ラナ：どうだった？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず、見た感じだが、知的な類の生物だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：初手から攻撃的なエッセンスで猛攻を仕掛けてくるタイプではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どちらかというと【場】を構築してくるタイプだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだよ、その【場】って言うのは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：直接的な勝利を狙う訳じゃないが、自分にとって有利な状況を構築するって感じだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：場を構築されてしまった場合の勝算は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこからは向こう側のペースになるだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：絶対勝てないって訳じゃないが、苦しくはなるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、初手でこっちから猛攻撃を仕掛けて何とかなるとも思えない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの感じだと防衛手段も持ち合わせているだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ある程度の長期戦は覚悟の上、場を構築される事に対して対応しつつ勝機を窺おう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なんだか結構面倒くさそうなやつだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナは、魔法かスキルでアドバンテージを取ってくれ。後方からの支援タイプでも良いし、前衛で攻撃に参加でも良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ビリーは敵が場を構築する度に、割り込みでカウンターを入れるか、敵の体勢を崩すような強襲を頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：な、なんだぁ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、いつも通りやってくれ。お前はいつもそれが出来ている。多分大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう！任せておけ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデルは、機転を利かせて、相手の行動を無効化してくれ。それから、場をなるべく公平に戻す様な操作を頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うん、良く分かんないけど、分かったー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それから、エオネ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：回復と護衛はもちろんだが、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：例の戦術は機会があれば可能か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい、機会があればやってみます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう。じゃあ決まりだ。準備をきっちりしてから行くぞ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000181(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000142 == false)
+    {
+      One.TF.Event_Message1000142 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉が開かないな・・・", ActionEvent.None);
+
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY1) || One.TF.FindBackPackItem(Fix.VELGUS_KEY2))
+      {
+        Message(ref m_list, ref e_list, "ラナ：差し込み口に合う鍵は試してみたけど、一致しないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵穴があるみたいね。どこかで鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(Fix.VELGUS_KEY1) || One.TF.FindBackPackItem(Fix.VELGUS_KEY2))
+      {
+        Message(ref m_list, ref e_list, "ラナ：今の手持ちの鍵だと、開かないわね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：鍵を入手しないと開ける事は難しいわね。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "アイン：しょうがない、他をあたってみるか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000182(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：コオォォ・・・コォアアアア！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、ビリー、エオネ、アデル。準備はいいか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：おお！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いつでも行けるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：私なら大丈夫です。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アデル：準備万端だよー☆", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：きっちり取っていこう。行くぞ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP, ActionEvent.EncountBoss);
   }
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
