@@ -1581,6 +1581,12 @@ public static partial class Fix
   public const string COPPERRING_DEER = "銅の腕輪『鹿』";
   public const string COPPERRING_ELEPHANT = "銅の腕輪『象』";
 
+  public const string RED_AMULET = "レッド・アミュレット";
+  public const string BLUE_AMULET = "ブルー・アミュレット";
+  public const string PURPLE_AMULET = "パープル・アミュレット";
+  public const string GREEN_AMULET = "グリーン・アミュレット";
+  public const string YELLOW_AMULET = "イエロー・アミュレット";
+
   public const string STEEL_ANKLET = "鋼鉄のアンクレット";
   public const string CLEAN_HEARBAND = "清潔な髪飾り";
   public const string TRUTH_GLASSES = "真実メガネ";
@@ -1631,11 +1637,13 @@ public static partial class Fix
 
   public const string ENSHOUTOU = "炎翔刀";
   public const string GALLANT_FEATHER_LANCE = "ガーラント・フェザー・ランス";
+  public const string VIRGIRANTE_HELLGATE_LANCE = "ヴィルジランデ・ヘルゲート・ランス";
   public const string THUNDER_BREAK_AXE = "サンダー・ブレイク・アックス";
   public const string WRATH_SABEL_CLAW = "ラス・サーヴェル・クロー";
   public const string DORN_NAMELESS_ROD = "ドルン・ネームレス・ロッド";
   public const string FINESSE_IMPERIAL_BOOK = "フィネッセ・インペリアル・ブック";
   public const string INTRINSIC_FROZEN_ORB = "イントリンシック・フローズン・オーブ";
+  public const string MULLERHAIZEN_AGARTA_BOOK = "ミュラーヘイゼン・ブック・オブ・アガルタ";
   public const string FORCEFUL_BASTARD_SWORD = "フォースフル・バスタード・ソード";
   public const string SHARPNEL_ARC_LANCER = "シャープネル・アーク・ランサー";
   public const string OGRE_KILL_BUSTER = "オーガ・キル・バスター";
@@ -1646,6 +1654,29 @@ public static partial class Fix
   public const string WONDERING_BLESSED_CROSS = "ワンダリング・ブレスド・クロス";
   public const string SERANA_BRILLIANT_ROBE = "セラーナ・ブリリアント・ローブ";
 
+  public const string BRONZE_RING_KIBA = "青銅の腕輪『牙』";
+  public const string BRONZE_RING_SASU = "青銅の腕輪『刺』";
+  public const string BRONZE_RING_KU = "青銅の腕輪『駆』";
+  public const string BRONZE_RING_NAGURI = "青銅の腕輪『殴』";
+  public const string BRONZE_RING_TOBI = "青銅の腕輪『飛』";
+  public const string BRONZE_RING_KARAMU = "青銅の腕輪『絡』";
+  public const string BRONZE_RING_HANERU = "青銅の腕輪『跳』";
+  public const string BRONZE_RING_TORU = "青銅の腕輪『補』";
+  public const string BRONZE_RING_MIRU = "青銅の腕輪『視』";
+  public const string BRONZE_RING_KATAI = "青銅の腕輪『堅』";
+  public const string RED_KOKUIN = "赤の刻印";
+  public const string BLUE_KOKUIN = "青の刻印";
+  public const string PURPLE_KOKUIN = "紫の刻印";
+  public const string GREEN_KOKUIN = "緑の刻印";
+  public const string YELLOW_KOKUIN = "黄の刻印";
+  public const string ENSEMBLE_FEATHER_HUT = "エンゼンブル・フェザー・ハット";
+  public const string MIRAGE_PLASMA_EARRING = "ミラージュ・プラズマ・イヤリング";
+  public const string PHOTON_ZEAL_CROWN = "フォトン・ジール・クラウン";
+  public const string DEMONS_STAR_BRACELET = "デーモンズ・スター・ブレスレット";
+  public const string MIST_WAVE_GAUNTLET = "ミスト・ウェーブ・ガントレット";
+  public const string MEIUN_PRISM_BOX = "命運のプリズムボックス";
+  public const string RARE_SPIRIT_OF_HEART = "心の聖杯【ハート】";
+
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
   public const string HEAVYWEIGHT_SHOULDER = "ヘビーウェイト・ショルダー";
@@ -1654,11 +1685,6 @@ public static partial class Fix
   public const string SWEET_BANGLE = "スイート・バングル";
   public const string NAMELESS_HAT = "ネームレス・ハット";
   public const string WARM_LEGGUARD = "ウォーム・レッグガード";
-  public const string RED_AMULET = "レッド・アミュレット";
-  public const string BLUE_AMULET = "ブルー・アミュレット";
-  public const string PURPLE_AMULET = "パープル・アミュレット";
-  public const string GREEN_AMULET = "グリーン・アミュレット";
-  public const string YELLOW_AMULET = "イエロー・アミュレット";
   #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";
@@ -1677,6 +1703,54 @@ public static partial class Fix
   public const string SUPERIOR_ARMOR = "スペリオル・アーマー";
   public const string SUPERIOR_CROSS = "スペリオル・クロス";
   public const string SUPERIOR_ROBE = "スペリオル・ローブ";
+
+  public const string FULLMETAL_ASTRAL_BLADE = "フルメタル・アストラル・ブレード";
+  public const string STORM_FURY_LANCER = "ストーム・フュリー・ランサー";
+  public const string WARLOAD_BASTARD_AXE = "ウォーロード・バスタード・アックス";
+  public const string EARTH_SHARD_CLAW = "アース・シャード・クロー";
+  public const string ENGAGED_FUTURE_ROD = "エンゲージド・フューチャー・ロッド";
+  public const string ANCIENT_FAITHFUL_BOOK = "アンシエント・フェイスフル・ブック";
+  public const string BLUE_SKY_ORB = "ブルー・スカイ・オーブ";
+  public const string PRISMATIC_SOUL_BREAKER = "プリズマティック・ソウル・ブレイカー";
+  public const string BLOOD_STUBBORN_SPEAR = "ブラッド・スタボーン・スピア";
+  public const string ELEMENTAL_DISRUPT_AXE = "エレメンタル・ディスラプト・アックス";
+  public const string LINGERING_FROST_SHOOTER = "リンガリング・フロスト・シューター";
+  public const string INFERNAL_IMMORTAL_STAFF = "インファーナル・イモータル・スタッフ";
+  public const string GRACEFUL_KINGS_BUCKLER = "グレイスフル・キングス・バックラー";
+  public const string HARDED_INTENSITY_PLATE = "ハーデッド・インテンシティ・プレート";
+  public const string SOLDIER_HATRED_CROSS = "ソルジャー・ヴィゴー・クロス";
+  public const string WONDERERS_INVISIBLE_ROBE = "ワンダラーズ・インビジブル・ローブ";
+
+  public const string STEEL_RING_POWER = "鋼の腕輪『パワー』";
+  public const string STEEL_RING_SENSE = "鋼の腕輪『センス』";
+  public const string STEEL_RING_TOUGH = "鋼の腕輪『タフ』";
+  public const string STEEL_RING_ROCK = "鋼の腕輪『ロック』";
+  public const string STEEL_RING_FAST = "鋼の腕輪『ファスト』";
+  public const string STEEL_RING_SHARP = "鋼の腕輪『シャープ』";
+  public const string STEEL_RING_HIGH = "鋼の腕輪『ハイ』";
+  public const string STEEL_RING_DEEP = "鋼の腕輪『ディープ』";
+  public const string STEEL_RING_BOUND = "鋼の腕輪『バウンド』";
+  public const string STEEL_RING_EMOTE = "鋼の腕輪『エモート』";
+  public const string RED_MASEKI = "赤の魔石";
+  public const string BLUE_MASEKI = "青の魔石";
+  public const string PURPLE_MASEKI = "紫の魔石";
+  public const string GREEN_MASEKI = "緑の魔石";
+  public const string YELLOW_MASEKI = "黄の魔石";
+  public const string POWER_STEEL_RING_SOLID = "強芯鋼の腕輪『ソリッド』";
+  public const string POWER_STEEL_RING_VAPOUR = "強芯鋼の腕輪『ヴェイパー』";
+  public const string POWER_STEEL_RING_STRAIN = "強芯鋼の腕輪『ストレイン』";
+  public const string POWER_STEEL_RING_TOLERANCE = "強芯鋼の腕輪『トレランス』";
+  public const string POWER_STEEL_RING_ASCEND = "強芯鋼の腕輪『アセンド』";
+  public const string POWER_STEEL_RING_INTERCEPT = "強芯鋼の腕輪『インターセプト』";
+  public const string STARAIR_FLOATING_STONE = "星空の飛空石";
+  public const string LIGHTBRIGHT_FLOATING_STONE = "聖光の浮遊石";
+  public const string LUMINUS_REFLECT_MIRROR = "ルミナス・リフレクト・ミラー";
+  public const string BLACK_SPIRAL_NEEDLE = "ブラック・スパイラル・ニードル";
+  public const string EMBLEM_OF_VALKYRIE = "エムブレム・オブ・ヴァルキリー";
+  public const string EMBLEM_OF_NECROMANCY = "エムブレム・オブ・ネクロマンシー";
+  public const string SEAL_OF_REDEYE = "シール・オブ・レッドアイ";
+  public const string SEAL_OF_BLUEEYE = "シール・オブ・ブルーアイ";
+
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
   public const string EXCELLENT_SWORD = "エクセレント・ソード";
