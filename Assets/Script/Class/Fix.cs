@@ -1753,22 +1753,39 @@ public static partial class Fix
 
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
-  public const string EXCELLENT_SWORD = "エクセレント・ソード";
-  public const string EXCELLENT_LANCE = "エクセレント・ランス";
-  public const string EXCELLENT_AXE = "エクセレント・アックス";
-  public const string EXCELLENT_CLAW = "エクセレント・クロー";
-  public const string EXCELLENT_ROD = "エクセレント・ロッド";
-  public const string EXCELLENT_BOOK = "エクセレント・ブック";
-  public const string EXCELLENT_ORB = "エクセレント・オーブ";
-  public const string EXCELLENT_LARGE_SWORD = "エクセレント・ラージ・ソード";
-  public const string EXCELLENT_LARGE_LANCE = "エクセレント・ラージ・ランス";
-  public const string EXCELLENT_LARGE_AXE = "エクセレント・ラージ・アックス";
-  public const string EXCELLENT_BOW = "エクセレント・ボウ";
-  public const string EXCELLENT_LARGE_STAFF = "エクセレント・ラージ・スタッフ";
-  public const string EXCELLENT_SHIELD = "エクセレント・シールド";
-  public const string EXCELLENT_ARMOR = "エクセレント・アーマー";
-  public const string EXCELLENT_CROSS = "エクセレント・クロス";
-  public const string EXCELLENT_ROBE = "エクセレント・ローブ";
+  public const string MASTER_SWORD = "マスター・ソード";
+  public const string MASTER_LANCE = "マスター・ランス";
+  public const string MASTER_AXE = "マスター・アックス";
+  public const string MASTER_CLAW = "マスター・クロー";
+  public const string MASTER_ROD = "マスター・ロッド";
+  public const string MASTER_BOOK = "マスター・ブック";
+  public const string MASTER_ORB = "マスター・オーブ";
+  public const string MASTER_LARGE_SWORD = "マスター・ラージ・ソード";
+  public const string MASTER_LARGE_LANCE = "マスター・ラージ・ランス";
+  public const string MASTER_LARGE_AXE = "マスター・ラージ・アックス";
+  public const string MASTER_BOW = "マスター・ボウ";
+  public const string MASTER_LARGE_STAFF = "マスター・ラージ・スタッフ";
+  public const string MASTER_SHIELD = "マスター・シールド";
+  public const string MASTER_ARMOR = "マスター・アーマー";
+  public const string MASTER_CROSS = "マスター・クロス";
+  public const string MASTER_ROBE = "マスター・ローブ";
+
+  public const string SOLEMN_EMPERORS_SWORD = "ソレム・エンペラーズ・ソード";
+  public const string MYSTIC_BLUE_JAVELIN = "ミスティック・ブルー・ジャベリン";
+  public const string STRONG_FIRE_HELL_BASTARDAXE = "剛煉炎・ヘル・バスタードアックス";
+  public const string AURA_BURN_CLAW = "オーラ・バーン・クロー";
+  public const string MIND_STONEFEAR_ROD = "マインド・ストーンフィアー・ロッド";
+  public const string DARKSUN_TRAGEDIC_BOOK = "ダークサン・トラジェディック・ブック";
+  public const string CHROMATIC_FORGE_ORB = "クロマティック・フォージ・オーブ";
+  public const string GOLDWILL_DESCENT_SOWRD = "ゴールドウィル・ディセント・ソード";
+  public const string FLASH_VANISH_SPEAR = "フラッシュ・ヴァニッシュ・スピア";
+  public const string VOLCANIC_BATTLE_BASTER = "ヴォルカニック・バトル・バスター";
+  public const string WHITE_FIRE_CROSSBOW = "ホワイト・ファイア・クロスボウ";
+  public const string ELDERSTAFF_OF_LIFEBLOOM = "エルダースタッフ・オブ・ライフブルーム";
+  public const string DIMENSION_ZERO_SHIELD = "ディメンジョン・ゼロ・シールド";
+  public const string HIGHWARRIOR_DRAGONMAIL = "ハイウォーリアー・ドラゴンメイル";
+  public const string SWIFTCROSS_OF_REDTHUNDER = "スウィフトクロス・オブ・レッドサンダー";
+  public const string BLADESHADOW_CROWDED_DRESS = "ブレードシャドウ・クラウディッド・ドレス";
   #endregion
   #region "フェーズ【 IIIー２ 】：ダルの門"
   public const string MARVELOUS_SWORD = "マーベラス・ソード";
@@ -1789,22 +1806,22 @@ public static partial class Fix
   public const string MARVELOUS_ROBE = "マーベラス・ローブ";
   #endregion
   #region "フェーズ【 IVー１ 】：ディスケル戦場跡地"
-  public const string MASTER_SWORD = "マスター・ソード";
-  public const string MASTER_LANCE = "マスター・ランス";
-  public const string MASTER_AXE = "マスター・アックス";
-  public const string MASTER_CLAW = "マスター・クロー";
-  public const string MASTER_ROD = "マスター・ロッド";
-  public const string MASTER_BOOK = "マスター・ブック";
-  public const string MASTER_ORB = "マスター・オーブ";
-  public const string MASTER_LARGE_SWORD = "マスター・ラージ・ソード";
-  public const string MASTER_LARGE_LANCE = "マスター・ラージ・ランス";
-  public const string MASTER_LARGE_AXE = "マスター・ラージ・アックス";
-  public const string MASTER_BOW = "マスター・ボウ";
-  public const string MASTER_LARGE_STAFF = "マスター・ラージ・スタッフ";
-  public const string MASTER_SHIELD = "マスター・シールド";
-  public const string MASTER_ARMOR = "マスター・アーマー";
-  public const string MASTER_CROSS = "マスター・クロス";
-  public const string MASTER_ROBE = "マスター・ローブ";
+  public const string EXCELLENT_SWORD = "エクセレント・ソード";
+  public const string EXCELLENT_LANCE = "エクセレント・ランス";
+  public const string EXCELLENT_AXE = "エクセレント・アックス";
+  public const string EXCELLENT_CLAW = "エクセレント・クロー";
+  public const string EXCELLENT_ROD = "エクセレント・ロッド";
+  public const string EXCELLENT_BOOK = "エクセレント・ブック";
+  public const string EXCELLENT_ORB = "エクセレント・オーブ";
+  public const string EXCELLENT_LARGE_SWORD = "エクセレント・ラージ・ソード";
+  public const string EXCELLENT_LARGE_LANCE = "エクセレント・ラージ・ランス";
+  public const string EXCELLENT_LARGE_AXE = "エクセレント・ラージ・アックス";
+  public const string EXCELLENT_BOW = "エクセレント・ボウ";
+  public const string EXCELLENT_LARGE_STAFF = "エクセレント・ラージ・スタッフ";
+  public const string EXCELLENT_SHIELD = "エクセレント・シールド";
+  public const string EXCELLENT_ARMOR = "エクセレント・アーマー";
+  public const string EXCELLENT_CROSS = "エクセレント・クロス";
+  public const string EXCELLENT_ROBE = "エクセレント・ローブ";
   #endregion
   #region "フェーズ【 IVー２ 】：エデルガイゼン城"
   public const string EXTREME_SWORD = "エクストリーム・ソード";
