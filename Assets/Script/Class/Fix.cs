@@ -1748,8 +1748,6 @@ public static partial class Fix
   public const string BLACK_SPIRAL_NEEDLE = "ブラック・スパイラル・ニードル";
   public const string EMBLEM_OF_VALKYRIE = "エムブレム・オブ・ヴァルキリー";
   public const string EMBLEM_OF_NECROMANCY = "エムブレム・オブ・ネクロマンシー";
-  public const string SEAL_OF_REDEYE = "シール・オブ・レッドアイ";
-  public const string SEAL_OF_BLUEEYE = "シール・オブ・ブルーアイ";
 
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
@@ -1786,6 +1784,36 @@ public static partial class Fix
   public const string HIGHWARRIOR_DRAGONMAIL = "ハイウォーリアー・ドラゴンメイル";
   public const string SWIFTCROSS_OF_REDTHUNDER = "スウィフトクロス・オブ・レッドサンダー";
   public const string BLADESHADOW_CROWDED_DRESS = "ブレードシャドウ・クラウディッド・ドレス";
+
+  public const string SILVER_RING_GOUKA = "銀の腕輪【業火】";
+  public const string SILVER_RING_TSUNAMI = "銀の腕輪【津波】";
+  public const string SILVER_RING_AKISAME = "銀の腕輪【秋雨】";
+  public const string SILVER_RING_NEPPA = "銀の腕輪【熱波】";
+  public const string SILVER_RING_RAIMEI = "銀の腕輪【雷鳴】";
+  public const string SILVER_RING_FUBUKI = "銀の腕輪【吹雪】";
+  public const string SILVER_RING_GENJITSU = "銀の腕輪【幻日】";
+  public const string SILVER_RING_TATSUMAKI = "銀の腕輪【竜巻】";
+  public const string SILVER_RING_SYUNIJI = "銀の腕輪【主虹】";
+  public const string SILVER_RING_KAGEROU = "銀の腕輪【陽炎】";
+
+  public const string REDLIGHT_BRIGHTSTONE = "赤光の輝石";
+  public const string BLUELIGHT_BRIGHTSTONE = "青光の輝石";
+  public const string PURPLELIGHT_BRIGHTSTONE = "紫光の輝石";
+  public const string GREENLIGHT_BRIGHTSTONE = "緑光の輝石";
+  public const string YELLOWLIGHT_BRIGHTSTONE = "黄光の輝石";
+
+  public const string SEAL_OF_REDEYE = "シール・オブ・レッドアイ";
+  public const string SEAL_OF_BLUEEYE = "シール・オブ・ブルーアイ";
+  public const string WINGED_LIGHTNING_BOOTS = "ウィングド・ライトニング・ブーツ";
+  public const string SPELLCASTERS_LENS = "スペルキャスターズ・レンズ";
+  public const string PEACEFUL_REBIRTH_CANDLE = "ピースフル・リボーン・キャンドル";
+  public const string DESPAIR_BLACKANGEL_RING = "デスペアー・ブラックエンジェル・リング";
+  public const string PHANTASMAL_INSIGHT_RUNE = "ファンタズマル・インサイト・ルーン";
+  public const string SILVER_ETERNAL_SEED = "シルバー・エターナル・シード";
+  public const string FIRELIEGE_AETHER_TALISMAN = "ファイアリージェ・エーテルタリスマン";
+  public const string RAINBOW_MOON_COMPASS = "レインボー・ムーン・コンパス";
+  public const string ANGEL_CONTRACT_SHEET = "天使の契約書";
+
   #endregion
   #region "フェーズ【 IIIー２ 】：ダルの門"
   public const string MARVELOUS_SWORD = "マーベラス・ソード";
