@@ -46,6 +46,7 @@ public static class MessagePack
     VelgusBallReset,
     VelgusBallCheckComplete,
     VelgusCircleChange,
+    VelgusSpeedRunStart_1,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -12828,6 +12829,7 @@ public static class MessagePack
   #endregion
 
   #region "ヴェルガスの海底神殿"
+  #region "第一階層"
   public static void Message1000000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1000000 == false)
@@ -18349,6 +18351,664 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP, ActionEvent.EncountBoss);
   }
+
+  public static void Message1000183(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatOriginStarCoralQueen && One.TF.Event_Message1000183 == false)
+    {
+      One.TF.Event_Message1000183 = true;
+
+      Message(ref m_list, ref e_list, "珊瑚の女王：オ、オッ・・・・オオォッ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "珊瑚の女王：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：終わったみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構苦戦したわね。構築タイプってやっぱり苦手だわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナの行動は相手に対してだいぶ影響を及ぼしていた。助かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そう？なら良いんだけど、ありがと♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネの援護射撃とアデルの場の維持も大変助かった。サンキューな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ありがとー、でも私の場合は何かしたのかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ次へ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：待て、俺も活躍しただろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ！・・・ああ、活躍ありがとうな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：て、てめぇ・・・適当に言いやがって。覚えてろよな、ったく。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ、悪い悪い。前線維持はビリーにも一役買ってもらってるつもりだ。ありがとな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、お、おうよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ。まだこの先、通路があるみたいだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この感じからして、まだ次の階層がありそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ。この区画だけでだいぶ歩かされた感じがするけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：次も同じとは限らないさ。まずは進めてみるとしよう。", ActionEvent.None);
+    }
+  }
+  #endregion
+  #region "第二階層"
+  public static void Message1000200(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Complete == false)
+    {
+      One.TF.Event_SpeedRun1_Progress = -1;
+      One.TF.Event_Message1000201 = false;
+      One.TF.Event_Message1000202 = false;
+      One.TF.Event_Message1000203 = false;
+      One.TF.Event_Message1000204 = false;
+      One.TF.Event_Message1000205 = false;
+      One.TF.Event_Message1000206 = false;
+      One.TF.Event_Message1000207 = false;
+      One.TF.Event_Message1000208 = false;
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　外周を神域の速度で駆け抜けろ　』", ActionEvent.None);
+
+      return;
+    }
+
+    if (One.TF.Event_Message1000200 == false)
+    {
+      One.TF.Event_Message1000200 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　外周を神域の速度で駆け抜けろ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ！こいつは面白いな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：仕組みや仕掛けの類じゃなさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：言葉通りだな。おそらく、ここの外周を全力で走るんだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：全員で走んのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、おそらくは一人で良いはずだ。皆はここで待っててくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：俺じゃ駄目なのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあビリーでもおそらくクリア可能だろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だが、ここはちょっと俺にやらせてくれないか？トライしてみたいんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おうよ。そういうんだったら任せたぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行ってくる。見ててくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　３　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　２　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　１　】", ActionEvent.None);
+
+      Start_SpeedRun1(ref m_list, ref e_list);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　外周を神域の速度で駆け抜けろ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よしっ、もう一回だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ、頑張れよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、見ててくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　３　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　２　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　１　】", ActionEvent.None);
+
+      Start_SpeedRun1(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000201(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 1);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000202(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 2);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000203(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 3);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000204(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 4);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000205(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 5);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000206(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 6);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000207(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 7);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+  public static void Message1000208(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Progress <= -1) { return; }
+
+    bool result = CheckPoint_SpeedRun1(ref m_list, ref e_list, 8);
+    if (result == false)
+    {
+      SpeedRun1_Failed(ref m_list, ref e_list);
+    }
+  }
+
+  private static void Start_SpeedRun1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStart_1);
+  }
+
+  private static bool CheckPoint_SpeedRun1(ref List<string> m_list, ref List<ActionEvent> e_list, int num)
+  {
+    // 1st
+    if (One.TF.Event_SpeedRun1_Progress == 0)
+    {
+      if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+      {
+        if (num == 1) { One.TF.Event_Message1000201 = true; One.TF.Event_SpeedRun1_Progress = 1; }
+        else if (num == 2) { return false; }
+        else if (num == 3) { One.TF.Event_Message1000203 = true; One.TF.Event_SpeedRun1_Progress = 3; }
+        else if (num == 4) { return false; }
+        else if (num == 5) { One.TF.Event_Message1000205 = true; One.TF.Event_SpeedRun1_Progress = 5; }
+        else if (num == 6) { return false; }
+        else if (num == 7) { One.TF.Event_Message1000207 = true; One.TF.Event_SpeedRun1_Progress = 7; }
+        else if (num == 8) { return false; }
+        else { return true; } // 万が一の場合は単に通過扱いとする。
+        return true;
+      }
+    }
+    else
+    {
+      if (One.TF.Event_SpeedRun1_Progress == 1)
+      {
+        // 2nd
+        if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { return false; }
+          else if (num == 2) { One.TF.Event_Message1000202 = true; }
+          else if (num == 3) { return false; }
+          else if (num == 4) { return false; }
+          else if (num == 5) { return false; }
+          else if (num == 6) { return false; }
+          else if (num == 7) { return false; }
+          else if (num == 8) { return One.TF.Event_Message1000208 = true; }
+          else { return true; } // 万が一の場合は単に通過扱いとする。
+          return true;
+        }
+        // 3rd～Pattern1
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        // 3rd～Pattern2
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        // Last-Check
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 1) { MessageCompleteSpeedRun1(ref m_list, ref e_list); return true; }
+          else { return false; }
+        }
+      }
+      else if (One.TF.Event_SpeedRun1_Progress == 3)
+      {
+        // 2nd
+        if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { return false; }
+          else if (num == 2) { One.TF.Event_Message1000202 = true; }
+          else if (num == 3) { return false; }
+          else if (num == 4) { One.TF.Event_Message1000204 = true; }
+          else if (num == 5) { return false; }
+          else if (num == 6) { return false; }
+          else if (num == 7) { return false; }
+          else if (num == 8) { return false; }
+          else { return true; } // 万が一の場合は単に通過扱いとする。
+          return true;
+        }
+        // 3rd-Pattern1
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        // 3rd-Pattern2
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        // Last-Check
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 3) { MessageCompleteSpeedRun1(ref m_list, ref e_list); return true; }
+          else { return false; }
+        }
+      }
+      else if (One.TF.Event_SpeedRun1_Progress == 5)
+      {
+        // 2nd
+        if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { return false; }
+          else if (num == 2) { return false; }
+          else if (num == 3) { return false; }
+          else if (num == 4) { One.TF.Event_Message1000204 = true; }
+          else if (num == 5) { return false; }
+          else if (num == 6) { One.TF.Event_Message1000206 = true; }
+          else if (num == 7) { return false; }
+          else if (num == 8) { return false; }
+          else { return true; } // 万が一の場合は単に通過扱いとする。
+          return true;
+        }
+        // 3rd-Pattern1
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        // 3rd-Pattern2
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 == false && One.TF.Event_Message1000208)
+        {
+          if (num == 7) { One.TF.Event_Message1000207 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        // Last-Check
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 5) { MessageCompleteSpeedRun1(ref m_list, ref e_list); return true; }
+          else { return false; }
+        }
+      }
+      else if (One.TF.Event_SpeedRun1_Progress == 7)
+      {
+        // 2nd
+        if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { return false; }
+          else if (num == 2) { return false; }
+          else if (num == 3) { return false; }
+          else if (num == 4) { return false; }
+          else if (num == 5) { return false; }
+          else if (num == 6) { One.TF.Event_Message1000206 = true; }
+          else if (num == 7) { return false; }
+          else if (num == 8) { One.TF.Event_Message1000208 = true; }
+          else { return true; } // 万が一の場合は単に通過扱いとする。
+          return true;
+        }
+        // 3rd-Pattern1
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 == false && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 6) { One.TF.Event_Message1000206 = true; return true; }
+          else { return false; }
+        }
+        // 3rd-Pattern2
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 == false && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 5) { One.TF.Event_Message1000205 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 == false && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 4) { One.TF.Event_Message1000204 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 == false && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 3) { One.TF.Event_Message1000203 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 == false && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 2) { One.TF.Event_Message1000202 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 == false && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 1) { One.TF.Event_Message1000201 = true; return true; }
+          else { return false; }
+        }
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208 == false)
+        {
+          if (num == 8) { One.TF.Event_Message1000208 = true; return true; }
+          else { return false; }
+        }
+        // Last-Check
+        else if (One.TF.Event_Message1000201 && One.TF.Event_Message1000202 && One.TF.Event_Message1000203 && One.TF.Event_Message1000204 && One.TF.Event_Message1000205 && One.TF.Event_Message1000206 && One.TF.Event_Message1000207 && One.TF.Event_Message1000208)
+        {
+          if (num == 7) { MessageCompleteSpeedRun1(ref m_list, ref e_list); return true; }
+          else { return false; }
+        }
+      }
+    }
+    return false;
+  }
+
+  public static void SpeedRun1_Failed(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.Event_SpeedRun1_Progress = -1;
+    One.TF.Event_Message1000201 = false;
+    One.TF.Event_Message1000202 = false;
+    One.TF.Event_Message1000203 = false;
+    One.TF.Event_Message1000204 = false;
+    One.TF.Event_Message1000205 = false;
+    One.TF.Event_Message1000206 = false;
+    One.TF.Event_Message1000207 = false;
+    One.TF.Event_Message1000208 = false;
+
+    Message(ref m_list, ref e_list, "『ッブブー！！』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ！　何か警告音が！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（  アイン足元の床が突如開いた  ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "＜＜＜　ッパカ ＞＞＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "13:1:-21", ActionEvent.JumpToLocation);
+
+    Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
+
+    if (One.TF.Event_SpeedRun1_Failed1 == false)
+    {
+      One.TF.Event_SpeedRun1_Failed1 = true;
+      Message(ref m_list, ref e_list, "ラナ：大丈夫？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だ。ちょっと打っただけだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：中々難しいな・・・テンポよくやらないと駄目みたいだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：慣れるしかないわね。頑張ってきてちょうだい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、任せとけ！", ActionEvent.None);
+    }
+    else if (One.TF.Event_SpeedRun1_Failed2 == false)
+    {
+      One.TF.Event_SpeedRun1_Failed2 = true;
+      Message(ref m_list, ref e_list, "ラナ：結構難しそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：イッツツ・・・何かタイミングを取るのが難しいな", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：この看板の位置からテメーが必死に走ってる姿を見るのも面白いけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こっちは必死なんだ。今度こそ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：無理なんじゃないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、あと少しな感じはする。今度こそ！", ActionEvent.None);
+    }
+  }
+
+  private static void MessageCompleteSpeedRun1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun1_Complete == false)
+    {
+      One.TF.Event_SpeedRun1_Complete = true;
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_216_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_217_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_218_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よしきた！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おお、やるじゃねーか！結構な速度でガンガン走ってたな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：直線的なダッシュじゃないから、ちょっと詰まる所もあったけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いずれにせよ、これで道が開けたみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、サクッサクッと突っ込んでみるか！", ActionEvent.None);
+    }
+  }
+  #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {

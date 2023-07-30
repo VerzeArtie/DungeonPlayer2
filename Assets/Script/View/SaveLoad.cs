@@ -1408,6 +1408,9 @@ public class SaveLoad : MotherBase
     else if (map_file == Fix.MAPFILE_MYSTIC_FOREST) { return saveDungeonAreaString + Fix.DUNGEON_MYSTIC_FOREST; }
     else if (map_file == Fix.MAPFILE_OHRAN_TOWER) { return saveDungeonAreaString + Fix.DUNGEON_OHRAN_TOWER; }
     else if (map_file == Fix.MAPFILE_VELGUS) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE; }
+    else if (map_file == Fix.MAPFILE_VELGUS_2) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_2; }
+    else if (map_file == Fix.MAPFILE_VELGUS_3) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_3; }
+    else if (map_file == Fix.MAPFILE_VELGUS_4) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_4; }
     else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return saveDungeonAreaString + Fix.DUNGEON_GATE_OF_DHAL; }
     else if (map_file == Fix.MAPFILE_DISKEL) { return saveDungeonAreaString + Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
     else if (map_file == Fix.MAPFILE_EDELGARZEN) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
