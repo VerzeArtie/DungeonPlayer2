@@ -47,6 +47,9 @@ public static class MessagePack
     VelgusBallCheckComplete,
     VelgusCircleChange,
     VelgusSpeedRunStart_1,
+    VelgusSpeedRunStart_2,
+    VelgusSpeedRunStart_2_Next,
+    VelgusSpeedRunStart_2_Reset,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -19006,6 +19009,134 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：いずれにせよ、これで道が開けたみたいね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、サクッサクッと突っ込んでみるか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000209(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000209 == false)
+    {
+      One.TF.Event_Message1000209 = true;
+      Message(ref m_list, ref e_list, "アイン：おっ、看板だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私が読んでみるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　海底に生まれしは流水の法則　大自然なる流水に即して進むべし　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_219_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、なるほどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どの辺りがなるほどなのよ。凄いテキトーよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：多分大丈夫だな、これは。行ける行ける。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ここもオメーがやるのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああそうだ。頼む！やらせてくれないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：別にやりてーんなら好きにしろ。俺は別にどっちでも良いぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ、悪いな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ今回もここで見てるから、頼んだわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よっしゃ、任せろ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　海底に生まれしは流水の法則　大自然なる流水に即して進むべし　』", ActionEvent.None);
+    }
+  }
+
+  public static void StartSlideTile(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、行くぜ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　３　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　２　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　１　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStart_2);
+  }
+
+  public static void CheckSlideTile(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStart_2_Next);
+  }
+
+  public static void SpeedRun2_Failed(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『ッブブー！！』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ！　何か警告音が！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（  アイン足元の床が突如開いた  ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "＜＜＜　ッパカ ＞＞＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "22:1:-23", ActionEvent.JumpToLocation);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStart_2_Reset);
+
+    Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
+
+    if (One.TF.Event_SpeedRun2_Failed1 == false)
+    {
+      One.TF.Event_SpeedRun2_Failed1 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おかしいな。行ける気がしたんだがな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テンポが大事なんじゃねーのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：テンポも重要だな。よし、今度は抜けてみせる！", ActionEvent.None);
+    }
+    else if (One.TF.Event_SpeedRun2_Failed2 == false)
+    {
+      One.TF.Event_SpeedRun2_Failed2 = true;
+
+      Message(ref m_list, ref e_list, "アイン：マジか。これで行けたと思ったんだがな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何なら俺がやってやろーか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、俺がやってみせる。頼むがそこで見ていてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何かセリフ回しが面白れーけどな。まあ、分かったぜ。任せたぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、今度こそ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ビリー：だから、俺に変われっつーの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいやいや、俺がやる。あと少しだけ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000210(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_SpeedRun2_Complete == false)
+    {
+      One.TF.Event_SpeedRun2_Complete = true;
+      Message(ref m_list, ref e_list, "アイン：よしきた！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：オーイ、皆！もう来ても大丈夫だぞー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：しっかし、よくこんなの出来るよなお前。見てる側としては笑っちまうけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか？これは慣れてしまえば出来そうなもんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、クリアしたと思ったらすぐまた看板があるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし！次もきっとコレ系だな。行くぜ！", ActionEvent.None);
     }
   }
   #endregion

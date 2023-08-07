@@ -95,6 +95,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Unknown_Goratrum;
   public TileInformation prefab_Unknown_MysticForest;
   public TileInformation prefab_Unknown_Velgus;
+  public TileInformation prefab_Unknown_Velgus_2;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -127,6 +128,8 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_CircleBlueObj;
   public FieldObject prefab_Velgus_CircleGreenObj;
   public FieldObject prefab_Velgus_CircleYellowObj;
+  public FieldObject prefab_Velgus_SlidingTile;
+  public FieldObject prefab_Velgus_FixedTile;
 
   // Decision
   public GameObject GroupDecision;
@@ -242,6 +245,10 @@ public class DungeonField : MotherBase
   private int MovementInterval = 0; // ダンジョンマップ全体を見ている時のインターバル
 
   private int Velgus_SpeedRun1_Timer = 0;
+  private int Velgus_SpeedRun2_Timer = 0;
+  private FieldObject objVelgusSlidingTile = null;
+  private Vector3 objVelgusSlidingTileLocation = Vector3.zero;
+  private int VelgusSlidingTilePhase = 0;
 
   // Start is called before the first frame update
   public override void Start()
@@ -353,6 +360,8 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_CircleBlue");
     ObjectList.Add("Velgus_CircleGreen");
     ObjectList.Add("Velgus_CircleYellow");
+    ObjectList.Add("Velgus_SlidingTile");
+    ObjectList.Add("Velgus_FixedTile");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -874,6 +883,63 @@ public class DungeonField : MotherBase
         }
       }
     }
+    // ヴェルガスの海底神殿、疾走の間、流水のタイマーカウント
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && One.TF.Event_SpeedRun2_Complete == false)
+    {
+      if (this.VelgusSlidingTilePhase >= 7)
+      {
+        // 何もしない
+      }
+      else
+      {
+        if (this.Velgus_SpeedRun2_Timer > 0)
+        {
+          Debug.Log("Velgus_SpeedRun2_Timer: " + this.Velgus_SpeedRun2_Timer.ToString());
+
+          if (this.objVelgusSlidingTile == null)
+          {
+            for (int ii = 0; ii < FieldObjList.Count; ii++)
+            {
+              if (FieldObjList[ii].content == FieldObject.Content.Velgus_SlidingTile) // スライディングタイルは１つだけなのでこれでも問題ない。複数出現する場合は要検討。
+              {
+                this.objVelgusSlidingTile = FieldObjList[ii];
+                this.objVelgusSlidingTileLocation = FieldObjList[ii].transform.localPosition;
+                break;
+              }
+            }
+          }
+
+          int border1 = 200;
+          int border2 = 100;
+          int border3 = 0;
+
+          if (this.VelgusSlidingTilePhase == 0) { border1 = 250; border2 = 200; border3 = 150; }
+          if (this.VelgusSlidingTilePhase == 1) { border1 = 270; border2 = 240; border3 = 210; }
+          if (this.VelgusSlidingTilePhase == 2) { border1 = 280; border2 = 260; border3 = 240; }
+          if (this.VelgusSlidingTilePhase == 3) { border1 = 285; border2 = 270; border3 = 255; }
+          if (this.VelgusSlidingTilePhase == 4) { border1 = 290; border2 = 280; border3 = 270; }
+          if (this.VelgusSlidingTilePhase == 5) { border1 = 293; border2 = 286; border3 = 279; }
+          if (this.VelgusSlidingTilePhase == 6) { border1 = 295; border2 = 290; border3 = 285; }
+
+          this.Velgus_SpeedRun2_Timer--;
+          if (this.Velgus_SpeedRun2_Timer == border1)
+          {
+            this.objVelgusSlidingTile.transform.localPosition = new Vector3(this.objVelgusSlidingTile.transform.localPosition.x, this.objVelgusSlidingTile.transform.localPosition.y, this.objVelgusSlidingTile.transform.localPosition.z - 1.00f);
+          }
+          else if (this.Velgus_SpeedRun2_Timer == border2)
+          {
+            this.objVelgusSlidingTile.transform.localPosition = new Vector3(this.objVelgusSlidingTile.transform.localPosition.x, this.objVelgusSlidingTile.transform.localPosition.y, this.objVelgusSlidingTile.transform.localPosition.z - 1.00f);
+          }
+          else if (this.Velgus_SpeedRun2_Timer == border3)
+          {
+            this.Velgus_SpeedRun2_Timer = 300;
+            this.objVelgusSlidingTile.transform.localPosition = new Vector3(this.objVelgusSlidingTileLocation.x + this.VelgusSlidingTilePhase, this.objVelgusSlidingTileLocation.y, this.objVelgusSlidingTileLocation.z);
+            return;
+          }
+        }
+      }
+    }
+
 
     bool detectKey = false;
     TileInformation tile = null;
@@ -1866,6 +1932,11 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_1_X, Fix.VELGUS_2_MessageBoard_1_Y, Fix.VELGUS_2_MessageBoard_1_Z))
         {
           MessagePack.Message1000200(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_2_X, Fix.VELGUS_2_MessageBoard_2_Y, Fix.VELGUS_2_MessageBoard_2_Z))
+        {
+          MessagePack.Message1000209(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -6060,6 +6131,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 5; jj++)
+            {
+              for (int kk = 0; kk < 4; kk++)
+              {
+                numbers.Add(21 * 50 + 32 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6448,6 +6535,61 @@ public class DungeonField : MotherBase
         {
           One.TF.Event_SpeedRun1_Progress = 0;
           this.Velgus_SpeedRun1_Timer = 300;
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_2)
+        {
+          this.Velgus_SpeedRun2_Timer = 300;
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_2_Next)
+        {
+          if (this.objVelgusSlidingTile != null)
+          {
+            Debug.Log("objVelgusSlidingTile x : " + this.Player.transform.position.x.ToString() + " " + this.objVelgusSlidingTile.transform.position.x.ToString());
+            Debug.Log("objVelgusSlidingTile z : " + this.Player.transform.position.z.ToString() + " " + this.objVelgusSlidingTile.transform.position.z.ToString());
+
+            if ((this.Player.transform.position.x == this.objVelgusSlidingTile.transform.position.x) && (this.Player.transform.position.z == this.objVelgusSlidingTile.transform.position.z))
+            {
+              this.VelgusSlidingTilePhase++;
+              this.Velgus_SpeedRun2_Timer = 300;
+              this.objVelgusSlidingTile.transform.localPosition = new Vector3(this.objVelgusSlidingTileLocation.x + this.VelgusSlidingTilePhase, this.objVelgusSlidingTileLocation.y, this.objVelgusSlidingTileLocation.z);
+              // if (this.VelgusSlidingTilePhase == 0) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_229_X, Fix.VELGUS_FIXEDTILE_229_Y, Fix.VELGUS_FIXEDTILE_229_Z)); } // 最初のタイルは操作不要。
+              if (this.VelgusSlidingTilePhase == 1) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_230_X, Fix.VELGUS_FIXEDTILE_230_Y, Fix.VELGUS_FIXEDTILE_230_Z)); }
+              if (this.VelgusSlidingTilePhase == 2) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_231_X, Fix.VELGUS_FIXEDTILE_231_Y, Fix.VELGUS_FIXEDTILE_231_Z)); }
+              if (this.VelgusSlidingTilePhase == 3) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_232_X, Fix.VELGUS_FIXEDTILE_232_Y, Fix.VELGUS_FIXEDTILE_232_Z)); }
+              if (this.VelgusSlidingTilePhase == 4) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_233_X, Fix.VELGUS_FIXEDTILE_233_Y, Fix.VELGUS_FIXEDTILE_233_Z)); }
+              if (this.VelgusSlidingTilePhase == 5) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_234_X, Fix.VELGUS_FIXEDTILE_234_Y, Fix.VELGUS_FIXEDTILE_234_Z)); }
+              if (this.VelgusSlidingTilePhase == 6) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_235_X, Fix.VELGUS_FIXEDTILE_235_Y, Fix.VELGUS_FIXEDTILE_235_Z)); }
+              if (this.VelgusSlidingTilePhase == 7) 
+              {
+                RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_236_X, Fix.VELGUS_FIXEDTILE_236_Y, Fix.VELGUS_FIXEDTILE_236_Z));
+                this.objVelgusSlidingTile.gameObject.SetActive(false);
+              }
+            }
+            else
+            {
+              MessagePack.SpeedRun2_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+          }
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_2_Reset)
+        {
+          // もう少しクラス構造を見直した方が良いが、コレで良しとする。
+          //HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_229_X, Fix.VELGUS_FIXEDTILE_229_Y, Fix.VELGUS_FIXEDTILE_229_Z)); // 最初のタイルは隠さなくて良い。
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_230_X, Fix.VELGUS_FIXEDTILE_230_Y, Fix.VELGUS_FIXEDTILE_230_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_231_X, Fix.VELGUS_FIXEDTILE_231_Y, Fix.VELGUS_FIXEDTILE_231_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_232_X, Fix.VELGUS_FIXEDTILE_232_Y, Fix.VELGUS_FIXEDTILE_232_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_233_X, Fix.VELGUS_FIXEDTILE_233_Y, Fix.VELGUS_FIXEDTILE_233_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_234_X, Fix.VELGUS_FIXEDTILE_234_Y, Fix.VELGUS_FIXEDTILE_234_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_235_X, Fix.VELGUS_FIXEDTILE_235_Y, Fix.VELGUS_FIXEDTILE_235_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_236_X, Fix.VELGUS_FIXEDTILE_236_Y, Fix.VELGUS_FIXEDTILE_236_Z));
+          HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_237_X, Fix.VELGUS_FIXEDTILE_237_Y, Fix.VELGUS_FIXEDTILE_237_Z));
+
+          this.objVelgusSlidingTile.transform.localPosition = new Vector3(this.objVelgusSlidingTileLocation.x, this.objVelgusSlidingTileLocation.y, this.objVelgusSlidingTileLocation.z);
+          this.Velgus_SpeedRun2_Timer = 0;
+          this.VelgusSlidingTilePhase = 0;
           continue;
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
@@ -7610,6 +7752,11 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_218_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_218_X, Fix.VELGUS_DOOR_218_Y, Fix.VELGUS_DOOR_218_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_DOOR_219_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_219_X, Fix.VELGUS_DOOR_219_Y, Fix.VELGUS_DOOR_219_Z));
             }
           }
 
@@ -9880,6 +10027,55 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+
+      if (One.TF.Event_SpeedRun2_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_220_X, Fix.VELGUS_EVENTTILE_220_Y, Fix.VELGUS_EVENTTILE_220_Z))
+        {
+          MessagePack.StartSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_221_X, Fix.VELGUS_EVENTTILE_221_Y, Fix.VELGUS_EVENTTILE_221_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_222_X, Fix.VELGUS_EVENTTILE_222_Y, Fix.VELGUS_EVENTTILE_222_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_223_X, Fix.VELGUS_EVENTTILE_223_Y, Fix.VELGUS_EVENTTILE_223_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_224_X, Fix.VELGUS_EVENTTILE_224_Y, Fix.VELGUS_EVENTTILE_224_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_225_X, Fix.VELGUS_EVENTTILE_225_Y, Fix.VELGUS_EVENTTILE_225_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_226_X, Fix.VELGUS_EVENTTILE_226_Y, Fix.VELGUS_EVENTTILE_226_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_227_X, Fix.VELGUS_EVENTTILE_227_Y, Fix.VELGUS_EVENTTILE_227_Z))
+        {
+          MessagePack.CheckSlideTile(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_228_X, Fix.VELGUS_EVENTTILE_228_Y, Fix.VELGUS_EVENTTILE_228_Z))
+        {
+          MessagePack.Message1000210(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -11157,6 +11353,10 @@ public class DungeonField : MotherBase
         {
           One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
         }
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+        }
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
@@ -11208,6 +11408,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
           }
 
           if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
@@ -11233,6 +11437,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
           }
         }
@@ -11284,6 +11492,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
           }
 
           if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
@@ -11309,6 +11521,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
           }
         }
@@ -11360,6 +11576,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
           }
 
           if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
@@ -11385,6 +11605,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
           }
         }
@@ -11436,6 +11660,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
           }
 
           if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
@@ -11461,6 +11689,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
             {
               One.TF.KnownTileList_VelgusSeaTemple[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
           }
         }
@@ -11749,6 +11981,10 @@ public class DungeonField : MotherBase
       {
         current = Instantiate(prefab_Unknown_Velgus, position, Quaternion.identity) as TileInformation;
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+      {
+        current = Instantiate(prefab_Unknown_Velgus_2, position, Quaternion.identity) as TileInformation;
+      }
       else
       {
         current = Instantiate(prefab_Unknown, position, Quaternion.identity) as TileInformation;
@@ -11955,6 +12191,22 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_CircleYellowObj, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_CircleYellow;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_SlidingTile")
+    {
+      current = Instantiate(prefab_Velgus_SlidingTile, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_SlidingTile;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_FixedTile")
+    {
+      current = Instantiate(prefab_Velgus_FixedTile, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_FixedTile;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -12275,10 +12527,30 @@ public class DungeonField : MotherBase
           UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
         }
       }
-      Debug.Log("Goratrum KnownTileList_VelgusSeaTemple count: " + One.TF.KnownTileList_VelgusSeaTemple.Count);
+      Debug.Log("KnownTileList_VelgusSeaTemple count: " + One.TF.KnownTileList_VelgusSeaTemple.Count);
       for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE; ii++)
       {
         if (One.TF.KnownTileList_VelgusSeaTemple[ii])
+        {
+          UnknownTileList[ii].gameObject.SetActive(false);
+        }
+      }
+    }
+
+    if (map_data == Fix.MAPFILE_VELGUS_2)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_2; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_2; jj++)
+        {
+          Vector3 position = new Vector3(jj, 1.0f, -ii);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+        }
+      }
+      for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_2 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_2; ii++)
+      {
+        if (One.TF.KnownTileList_VelgusSeaTemple_2[ii])
         {
           UnknownTileList[ii].gameObject.SetActive(false);
         }
@@ -13919,6 +14191,27 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_218_X, Fix.VELGUS_DOOR_218_Y, Fix.VELGUS_DOOR_218_Z));
       }
 
+      if (One.TF.Event_Message1000209)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_219_X, Fix.VELGUS_DOOR_219_Y, Fix.VELGUS_DOOR_219_Z));
+      }
+
+      if (One.TF.Event_SpeedRun2_Complete == false)
+      {
+        //HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_229_X, Fix.VELGUS_FIXEDTILE_229_Y, Fix.VELGUS_FIXEDTILE_229_Z)); // 最初のタイルは隠さなくて良い。
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_230_X, Fix.VELGUS_FIXEDTILE_230_Y, Fix.VELGUS_FIXEDTILE_230_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_231_X, Fix.VELGUS_FIXEDTILE_231_Y, Fix.VELGUS_FIXEDTILE_231_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_232_X, Fix.VELGUS_FIXEDTILE_232_Y, Fix.VELGUS_FIXEDTILE_232_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_233_X, Fix.VELGUS_FIXEDTILE_233_Y, Fix.VELGUS_FIXEDTILE_233_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_234_X, Fix.VELGUS_FIXEDTILE_234_Y, Fix.VELGUS_FIXEDTILE_234_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_235_X, Fix.VELGUS_FIXEDTILE_235_Y, Fix.VELGUS_FIXEDTILE_235_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_236_X, Fix.VELGUS_FIXEDTILE_236_Y, Fix.VELGUS_FIXEDTILE_236_Z));
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_237_X, Fix.VELGUS_FIXEDTILE_237_Y, Fix.VELGUS_FIXEDTILE_237_Z));
+      }
+      else
+      {
+        HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SLIDINGTILE_238_X, Fix.VELGUS_SLIDINGTILE_238_Y, Fix.VELGUS_SLIDINGTILE_238_Z));
+      }
     }
     #endregion
     #region "ダルの門"

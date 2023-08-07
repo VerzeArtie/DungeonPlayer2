@@ -630,6 +630,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_VelgusSeaTemple = value; }
     get { return _knownTileList_VelgusSeaTemple; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_VelgusSeaTemple_2 = new List<bool>(Fix.MAPSIZE_X_VELGUS_SEATEMPLE_2 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_2);
+  public List<bool> KnownTileList_VelgusSeaTemple_2
+  {
+    set { _knownTileList_VelgusSeaTemple_2 = value; }
+    get { return _knownTileList_VelgusSeaTemple_2; }
+  }
   #endregion
 
   #region "Event"
@@ -1565,6 +1572,16 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_SpeedRun1_Failed2 { get { return _event_speedrun1_failed2; } set { _event_speedrun1_failed2 = value; } }
   [SerializeField] protected bool _event_speedrun1_complete = false;
   public bool Event_SpeedRun1_Complete { get { return _event_speedrun1_complete; } set { _event_speedrun1_complete = value; } }
+
+  [SerializeField] protected bool _event_message1000209 = false;
+  public bool Event_Message1000209 { get { return _event_message1000209; } set { _event_message1000209 = value; } }
+
+  [SerializeField] protected bool _event_speedrun2_failed1 = false;
+  public bool Event_SpeedRun2_Failed1 { get { return _event_speedrun2_failed1; } set { _event_speedrun2_failed1 = value; } }
+  [SerializeField] protected bool _event_speedrun2_failed2 = false;
+  public bool Event_SpeedRun2_Failed2 { get { return _event_speedrun2_failed2; } set { _event_speedrun2_failed2 = value; } }
+  [SerializeField] protected bool _event_speedrun2_complete = false;
+  public bool Event_SpeedRun2_Complete { get { return _event_speedrun2_complete; } set { _event_speedrun2_complete = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }

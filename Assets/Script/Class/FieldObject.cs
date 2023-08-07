@@ -35,6 +35,8 @@ public class FieldObject : MonoBehaviour
     Velgus_CircleBlue,
     Velgus_CircleGreen,
     Velgus_CircleYellow,
+    Velgus_SlidingTile,
+    Velgus_FixedTile,
     Boss,
   }
 

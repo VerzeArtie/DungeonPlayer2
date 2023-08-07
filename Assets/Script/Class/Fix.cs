@@ -394,6 +394,9 @@ public static partial class Fix
   public const int MAPSIZE_X_VELGUS_SEATEMPLE = 50;
   public const int MAPSIZE_Z_VELGUS_SEATEMPLE = 30;
 
+  public const int MAPSIZE_X_VELGUS_SEATEMPLE_2 = 50;
+  public const int MAPSIZE_Z_VELGUS_SEATEMPLE_2 = 30;
+
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
@@ -7675,6 +7678,127 @@ public static partial class Fix
   public const float VELGUS_DOOR_218_X = 14.0f;
   public const float VELGUS_DOOR_218_Y = 0.5f;
   public const float VELGUS_DOOR_218_Z = -17.0f;
+
+  // 疾走の間１
+  public const string VELGUS_DOOR_219_C = "Velgus_Door";
+  public const string VELGUS_DOOR_219_O = "219";
+  public const float VELGUS_DOOR_219_X = 23.0f;
+  public const float VELGUS_DOOR_219_Y = 0.5f;
+  public const float VELGUS_DOOR_219_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_220_C = "EventTile";
+  public const string VELGUS_EVENTTILE_220_O = "220";
+  public const float VELGUS_EVENTTILE_220_X = 24.0f;
+  public const float VELGUS_EVENTTILE_220_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_220_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_221_C = "EventTile";
+  public const string VELGUS_EVENTTILE_221_O = "221";
+  public const float VELGUS_EVENTTILE_221_X = 25.0f;
+  public const float VELGUS_EVENTTILE_221_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_221_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_222_C = "EventTile";
+  public const string VELGUS_EVENTTILE_222_O = "222";
+  public const float VELGUS_EVENTTILE_222_X = 26.0f;
+  public const float VELGUS_EVENTTILE_222_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_222_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_223_C = "EventTile";
+  public const string VELGUS_EVENTTILE_223_O = "223";
+  public const float VELGUS_EVENTTILE_223_X = 27.0f;
+  public const float VELGUS_EVENTTILE_223_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_223_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_224_C = "EventTile";
+  public const string VELGUS_EVENTTILE_224_O = "224";
+  public const float VELGUS_EVENTTILE_224_X = 28.0f;
+  public const float VELGUS_EVENTTILE_224_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_224_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_225_C = "EventTile";
+  public const string VELGUS_EVENTTILE_225_O = "225";
+  public const float VELGUS_EVENTTILE_225_X = 29.0f;
+  public const float VELGUS_EVENTTILE_225_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_225_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_226_C = "EventTile";
+  public const string VELGUS_EVENTTILE_226_O = "226";
+  public const float VELGUS_EVENTTILE_226_X = 30.0f;
+  public const float VELGUS_EVENTTILE_226_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_226_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_227_C = "EventTile";
+  public const string VELGUS_EVENTTILE_227_O = "227";
+  public const float VELGUS_EVENTTILE_227_X = 31.0f;
+  public const float VELGUS_EVENTTILE_227_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_227_Z = -23.0f;
+
+  public const string VELGUS_EVENTTILE_228_C = "EventTile";
+  public const string VELGUS_EVENTTILE_228_O = "228";
+  public const float VELGUS_EVENTTILE_228_X = 32.0f;
+  public const float VELGUS_EVENTTILE_228_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_228_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_229C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_229_O = "229";
+  public const float VELGUS_FIXEDTILE_229_X = 24.0f;
+  public const float VELGUS_FIXEDTILE_229_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_229_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_230_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_230_O = "230";
+  public const float VELGUS_FIXEDTILE_230_X = 25.0f;
+  public const float VELGUS_FIXEDTILE_230_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_230_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_231_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_231_O = "231";
+  public const float VELGUS_FIXEDTILE_231_X = 26.0f;
+  public const float VELGUS_FIXEDTILE_231_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_231_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_232_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_232_O = "232";
+  public const float VELGUS_FIXEDTILE_232_X = 27.0f;
+  public const float VELGUS_FIXEDTILE_232_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_232_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_233_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_233_O = "233";
+  public const float VELGUS_FIXEDTILE_233_X = 28.0f;
+  public const float VELGUS_FIXEDTILE_233_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_233_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_234_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_234_O = "234";
+  public const float VELGUS_FIXEDTILE_234_X = 29.0f;
+  public const float VELGUS_FIXEDTILE_234_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_234_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_235_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_235_O = "235";
+  public const float VELGUS_FIXEDTILE_235_X = 30.0f;
+  public const float VELGUS_FIXEDTILE_235_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_235_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_236_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_236_O = "236";
+  public const float VELGUS_FIXEDTILE_236_X = 31.0f;
+  public const float VELGUS_FIXEDTILE_236_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_236_Z = -23.0f;
+
+  public const string VELGUS_FIXEDTILE_237_C = "FIXEDTILE";
+  public const string VELGUS_FIXEDTILE_237_O = "237";
+  public const float VELGUS_FIXEDTILE_237_X = 32.0f;
+  public const float VELGUS_FIXEDTILE_237_Y = 0.5f;
+  public const float VELGUS_FIXEDTILE_237_Z = -23.0f;
+
+  public const string VELGUS_SLIDINGTILE_238_C = "SlidingTile";
+  public const string VELGUS_SLIDINGTILE_238_O = "238";
+  public const float VELGUS_SLIDINGTILE_238_X = 25.0f;
+  public const float VELGUS_SLIDINGTILE_238_Y = 0.5f;
+  public const float VELGUS_SLIDINGTILE_238_Z = -22.0f;
 
   //// 疾走の間１、開始地点
   //public const string VELGUS_EVENTTILE_212_C = "EventTile";
