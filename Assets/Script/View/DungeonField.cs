@@ -250,6 +250,8 @@ public class DungeonField : MotherBase
   private Vector3 objVelgusSlidingTileLocation = Vector3.zero;
   private int VelgusSlidingTilePhase = 0;
 
+  private int Velgus_SpeedRun3_Timer = 0;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -939,7 +941,20 @@ public class DungeonField : MotherBase
         }
       }
     }
-
+    // ヴェルガスの海底神殿、疾走の間２、対流のタイマーカウント
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && One.TF.Event_SpeedRun3_Complete == false)
+    {
+      if (this.Velgus_SpeedRun3_Timer > 0)
+      {
+        Debug.Log("Velgus_SpeedRun3_Timer: " + this.Velgus_SpeedRun3_Timer.ToString());
+        this.Velgus_SpeedRun3_Timer--;
+        if (this.Velgus_SpeedRun3_Timer == 0)
+        {
+          //MessagePack.SpeedRun1_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+    }
 
     bool detectKey = false;
     TileInformation tile = null;
@@ -967,7 +982,7 @@ public class DungeonField : MotherBase
       this.keyDown = false;
       movementTimer_Tick();
     }
-    else if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow) || this.arrowDown)
+    if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow) || this.arrowDown)
     {
       this.keyDown = true;
       this.keyUp = false;
@@ -985,15 +1000,42 @@ public class DungeonField : MotherBase
       this.keyLeft = false;
       movementTimer_Tick();
     }
-    if (Input.GetKeyUp(KeyCode.Keypad8) || Input.GetKeyUp(KeyCode.UpArrow) ||
-        Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.DownArrow) ||
-        Input.GetKeyUp(KeyCode.Keypad4) || Input.GetKeyUp(KeyCode.LeftArrow) ||
-        Input.GetKeyUp(KeyCode.Keypad6) || Input.GetKeyUp(KeyCode.RightArrow))
+    if (Input.GetKeyUp(KeyCode.UpArrow))
     {
-      detectKeyUp = true;
-      CancelKeyDownMovement();
+      this.keyUp = false;
     }
-
+    if (Input.GetKeyUp(KeyCode.DownArrow))
+    {
+      this.keyDown = false;
+    }
+    if (Input.GetKeyUp(KeyCode.LeftArrow))
+    {
+      this.keyLeft = false;
+    }
+    if (Input.GetKeyUp(KeyCode.RightArrow))
+    {
+      this.keyRight = false;
+    }
+    //if (Input.GetKeyUp(KeyCode.Keypad8) || Input.GetKeyUp(KeyCode.UpArrow) ||
+    //    Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.DownArrow) ||
+    //    Input.GetKeyUp(KeyCode.Keypad4) || Input.GetKeyUp(KeyCode.LeftArrow) ||
+    //    Input.GetKeyUp(KeyCode.Keypad6) || Input.GetKeyUp(KeyCode.RightArrow))
+    //{
+    //  detectKeyUp = true;
+    //  Debug.Log("CancelKeyDownMovement call 1");
+    //  CancelKeyDownMovement();
+    //}
+    if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
+    {
+      if (this.keyUp == false && this.keyDown == false && this.keyLeft == false && this.keyRight == false)
+      {
+        Velgus_SpeedRun3_Timer = 0;
+        MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    
+    
     // [comment] イベント実行はUpdatePlayersKeyEventsで実施する。
 
     #region "カメラ移動"
@@ -1726,6 +1768,7 @@ public class DungeonField : MotherBase
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
     detectKeyUp = true;
+    Debug.Log("CancelKeyDownMovement call 2");
     CancelKeyDownMovement();
   }
 
@@ -1740,6 +1783,13 @@ public class DungeonField : MotherBase
     this.keyLeft = false;
     this.keyRight = false;
     this.interval = MOVE_INTERVAL;
+
+    if (One.TF.Event_SpeedRun3_Complete == false && this.Velgus_SpeedRun3_Timer > 0)
+    {
+      Velgus_SpeedRun3_Timer = 0;
+      MessagePack.SpeedRun3_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
   }
 
   private void movementTimer_Tick()
@@ -1937,6 +1987,11 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_2_X, Fix.VELGUS_2_MessageBoard_2_Y, Fix.VELGUS_2_MessageBoard_2_Z))
         {
           MessagePack.Message1000209(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_3_X, Fix.VELGUS_2_MessageBoard_3_Y, Fix.VELGUS_2_MessageBoard_3_Z))
+        {
+          MessagePack.Message1000211(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -6147,6 +6202,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "2")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 5; jj++)
+            {
+              for (int kk = 0; kk < 4; kk++)
+              {
+                numbers.Add(17 * 50 + 35 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6561,7 +6632,7 @@ public class DungeonField : MotherBase
               if (this.VelgusSlidingTilePhase == 4) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_233_X, Fix.VELGUS_FIXEDTILE_233_Y, Fix.VELGUS_FIXEDTILE_233_Z)); }
               if (this.VelgusSlidingTilePhase == 5) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_234_X, Fix.VELGUS_FIXEDTILE_234_Y, Fix.VELGUS_FIXEDTILE_234_Z)); }
               if (this.VelgusSlidingTilePhase == 6) { RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_235_X, Fix.VELGUS_FIXEDTILE_235_Y, Fix.VELGUS_FIXEDTILE_235_Z)); }
-              if (this.VelgusSlidingTilePhase == 7) 
+              if (this.VelgusSlidingTilePhase == 7)
               {
                 RevealFieldObject(FieldObjList, new Vector3(Fix.VELGUS_FIXEDTILE_236_X, Fix.VELGUS_FIXEDTILE_236_Y, Fix.VELGUS_FIXEDTILE_236_Z));
                 this.objVelgusSlidingTile.gameObject.SetActive(false);
@@ -6591,6 +6662,10 @@ public class DungeonField : MotherBase
           this.Velgus_SpeedRun2_Timer = 0;
           this.VelgusSlidingTilePhase = 0;
           continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_3)
+        {
+          this.Velgus_SpeedRun3_Timer = 999999; // 時間制限は要らないかもしれない。
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
         {
@@ -7757,6 +7832,11 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_219_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_219_X, Fix.VELGUS_DOOR_219_Y, Fix.VELGUS_DOOR_219_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_DOOR_239_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_239_X, Fix.VELGUS_DOOR_239_Y, Fix.VELGUS_DOOR_239_Z));
             }
           }
 
@@ -10073,6 +10153,20 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_228_X, Fix.VELGUS_EVENTTILE_228_Y, Fix.VELGUS_EVENTTILE_228_Z))
         {
           MessagePack.Message1000210(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+
+      if (One.TF.Event_SpeedRun3_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_240_X, Fix.VELGUS_EVENTTILE_240_Y, Fix.VELGUS_EVENTTILE_240_Z))
+        {
+          MessagePack.StartSpeedRun3(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_241_X, Fix.VELGUS_EVENTTILE_241_Y, Fix.VELGUS_EVENTTILE_241_Z))
+        {
+          MessagePack.Message1000212(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
@@ -14211,6 +14305,11 @@ public class DungeonField : MotherBase
       else
       {
         HideFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SLIDINGTILE_238_X, Fix.VELGUS_SLIDINGTILE_238_Y, Fix.VELGUS_SLIDINGTILE_238_Z));
+      }
+
+      if (One.TF.Event_Message1000211)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_239_X, Fix.VELGUS_DOOR_239_Y, Fix.VELGUS_DOOR_239_Z));
       }
     }
     #endregion

@@ -1583,6 +1583,16 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_speedrun2_complete = false;
   public bool Event_SpeedRun2_Complete { get { return _event_speedrun2_complete; } set { _event_speedrun2_complete = value; } }
 
+  [SerializeField] protected bool _event_message1000211 = false;
+  public bool Event_Message1000211 { get { return _event_message1000211; } set { _event_message1000211 = value; } }
+
+  [SerializeField] protected bool _event_speedrun3_failed1 = false;
+  public bool Event_SpeedRun3_Failed1 { get { return _event_speedrun3_failed1; } set { _event_speedrun3_failed1 = value; } }
+  [SerializeField] protected bool _event_speedrun3_failed2 = false;
+  public bool Event_SpeedRun3_Failed2 { get { return _event_speedrun3_failed2; } set { _event_speedrun3_failed2 = value; } }
+  [SerializeField] protected bool _event_speedrun3_complete = false;
+  public bool Event_SpeedRun3_Complete { get { return _event_speedrun3_complete; } set { _event_speedrun3_complete = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
