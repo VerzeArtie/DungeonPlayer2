@@ -7740,6 +7740,7 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_228_Y = 0.0f;
   public const float VELGUS_EVENTTILE_228_Z = -23.0f;
 
+  // 疾走の間１、開始地点
   public const string VELGUS_FIXEDTILE_229C = "FIXEDTILE";
   public const string VELGUS_FIXEDTILE_229_O = "229";
   public const float VELGUS_FIXEDTILE_229_X = 24.0f;
@@ -7788,6 +7789,7 @@ public static partial class Fix
   public const float VELGUS_FIXEDTILE_236_Y = 0.5f;
   public const float VELGUS_FIXEDTILE_236_Z = -23.0f;
 
+  // 疾走の間１、終了地点
   public const string VELGUS_FIXEDTILE_237_C = "FIXEDTILE";
   public const string VELGUS_FIXEDTILE_237_O = "237";
   public const float VELGUS_FIXEDTILE_237_X = 32.0f;
@@ -7820,34 +7822,26 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_241_Y = 0.0f;
   public const float VELGUS_EVENTTILE_241_Z = -19.0f;
 
-  //// 疾走の間１、開始地点
-  //public const string VELGUS_EVENTTILE_212_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_212_O = "212";
-  //public const float VELGUS_EVENTTILE_212_X = 24.0f;
-  //public const float VELGUS_EVENTTILE_212_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_212_Z = -23.0f;
+  // 疾走の間３、壁ドア
+  public const string VELGUS_DOOR_242_C = "Velgus_Door";
+  public const string VELGUS_DOOR_242_O = "242";
+  public const float VELGUS_DOOR_242_X = 35.0f;
+  public const float VELGUS_DOOR_242_Y = 0.5f;
+  public const float VELGUS_DOOR_242_Z = -19.0f;
 
-  //// 疾走の間１、終了地点
-  //public const string VELGUS_EVENTTILE_213_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_213_O = "213";
-  //public const float VELGUS_EVENTTILE_213_X = 32.0f;
-  //public const float VELGUS_EVENTTILE_213_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_213_Z = -23.0f;
+  // 疾走の間３、開始地点
+  public const string VELGUS_EVENTTILE_243_C = "EventTile";
+  public const string VELGUS_EVENTTILE_243_O = "243";
+  public const float VELGUS_EVENTTILE_243_X = 34.0f;
+  public const float VELGUS_EVENTTILE_243_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_243_Z = -19.0f;
 
-
-  //// 疾走の間３、開始地点
-  //public const string VELGUS_EVENTTILE_216_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_216_O = "216";
-  //public const float VELGUS_EVENTTILE_216_X = 34.0f;
-  //public const float VELGUS_EVENTTILE_216_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_216_Z = -19.0f;
-
-  //// 疾走の間３、終了地点
-  //public const string VELGUS_EVENTTILE_217_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_217_O = "217";
-  //public const float VELGUS_EVENTTILE_217_X = 35.0f;
-  //public const float VELGUS_EVENTTILE_217_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_217_Z = -14.0f;
+  // 疾走の間３、終了地点
+  public const string VELGUS_EVENTTILE_244_C = "EventTile";
+  public const string VELGUS_EVENTTILE_244_O = "244";
+  public const float VELGUS_EVENTTILE_244_X = 35.0f;
+  public const float VELGUS_EVENTTILE_244_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_244_Z = -14.0f;
 
   //// 海渡りの間１、開始地点
   //public const string VELGUS_EVENTTILE_218_C = "EventTile";

@@ -1593,6 +1593,21 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_speedrun3_complete = false;
   public bool Event_SpeedRun3_Complete { get { return _event_speedrun3_complete; } set { _event_speedrun3_complete = value; } }
 
+  [SerializeField] protected bool _event_message1000213 = false;
+  public bool Event_Message1000213 { get { return _event_message1000213; } set { _event_message1000213 = value; } }
+
+  [SerializeField] protected bool _event_speedrun4_failed1 = false;
+  public bool Event_SpeedRun4_Failed1 { get { return _event_speedrun4_failed1; } set { _event_speedrun4_failed1 = value; } }
+  [SerializeField] protected bool _event_speedrun4_failed2 = false;
+  public bool Event_SpeedRun4_Failed2 { get { return _event_speedrun4_failed2; } set { _event_speedrun4_failed2 = value; } }
+  [SerializeField] protected bool _event_speedrun4_failed3 = false;
+  public bool Event_SpeedRun4_Failed3 { get { return _event_speedrun4_failed3; } set { _event_speedrun4_failed3 = value; } }
+  [SerializeField] protected bool _event_speedrun4_complete = false;
+  public bool Event_SpeedRun4_Complete { get { return _event_speedrun4_complete; } set { _event_speedrun4_complete = value; } }
+
+  [SerializeField] protected bool _event_message1000215 = false;
+  public bool Event_Message1000215 { get { return _event_message1000215; } set { _event_message1000215 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
