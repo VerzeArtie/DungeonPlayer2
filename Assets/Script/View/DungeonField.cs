@@ -243,6 +243,14 @@ public class DungeonField : MotherBase
   private int interval = 0;
   private bool detectKeyUp = false; // ２階、技の部屋Ｃでキーを離した事を示すフラグ
   private int MovementInterval = 0; // ダンジョンマップ全体を見ている時のインターバル
+  private bool detectFastKeyUpTop = false; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知したフラグ
+  private int FastKeyUpTimerTop = 0; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知するためのタイマー
+  private bool detectFastKeyUpLeft = false; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知したフラグ
+  private int FastKeyUpTimerLeft = 0; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知するためのタイマー
+  private bool detectFastKeyUpRight = false; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知したフラグ
+  private int FastKeyUpTimerRight = 0; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知するためのタイマー
+  private bool detectFastKeyUpBottom = false; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知したフラグ
+  private int FastKeyUpTimerBottom = 0; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知するためのタイマー
 
   private int Velgus_SpeedRun1_Timer = 0;
   private int Velgus_SpeedRun2_Timer = 0;
@@ -253,6 +261,8 @@ public class DungeonField : MotherBase
   private int Velgus_SpeedRun3_Timer = 0;
 
   private int Velgus_SpeedRun4_Timer = 0;
+
+  private int Velgus_SpeedRun5_Timer = 0;
 
   // Start is called before the first frame update
   public override void Start()
@@ -973,6 +983,26 @@ public class DungeonField : MotherBase
       }
     }
 
+    // ヴェルガスの海底神殿、疾走の間４、光速のタイマーカウント
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && One.TF.Event_SpeedRun5_Complete == false)
+    {
+      if (this.Velgus_SpeedRun5_Timer > 0)
+      {
+        this.FastKeyUpTimerTop++;
+        this.FastKeyUpTimerLeft++;
+        this.FastKeyUpTimerRight++;
+        this.FastKeyUpTimerBottom++;
+
+        Debug.Log("Velgus_SpeedRun5_Timer: " + this.Velgus_SpeedRun5_Timer.ToString());
+        this.Velgus_SpeedRun5_Timer--;
+        if (this.Velgus_SpeedRun5_Timer == 0)
+        {
+          MessagePack.SpeedRun5_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+    }
+
     bool detectKey = false;
     TileInformation tile = null;
     Direction direction = Direction.None;
@@ -997,45 +1027,69 @@ public class DungeonField : MotherBase
     {
       this.keyUp = true;
       this.keyDown = false;
+      if (0 < this.FastKeyUpTimerTop && this.FastKeyUpTimerTop < 5)
+      {
+        this.detectFastKeyUpTop = true;
+      }
       movementTimer_Tick();
     }
     if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.DownArrow) || this.arrowDown)
     {
       this.keyDown = true;
       this.keyUp = false;
+      if (0 < this.FastKeyUpTimerBottom && this.FastKeyUpTimerBottom < 5)
+      {
+        this.detectFastKeyUpBottom = true;
+      }
       movementTimer_Tick();
     }
     if (Input.GetKey(KeyCode.Keypad4) || Input.GetKey(KeyCode.LeftArrow) || this.arrowLeft)
     {
       this.keyLeft = true;
       this.keyRight = false;
+      if (0 < this.FastKeyUpTimerLeft && this.FastKeyUpTimerLeft < 5)
+      {
+        this.detectFastKeyUpLeft = true;
+      }
       movementTimer_Tick();
     }
     if (Input.GetKey(KeyCode.Keypad6) || Input.GetKey(KeyCode.RightArrow) || this.arrowRight)
     {
       this.keyRight = true;
       this.keyLeft = false;
+      if (0 < this.FastKeyUpTimerRight && this.FastKeyUpTimerRight < 5)
+      {
+        this.detectFastKeyUpRight = true;
+      }
       movementTimer_Tick();
     }
     if (Input.GetKeyUp(KeyCode.UpArrow))
     {
       this.keyUp = false;
       this.interval = MOVE_INTERVAL;
+      this.FastKeyUpTimerTop = 0;
+      this.detectFastKeyUpTop = false;
     }
     if (Input.GetKeyUp(KeyCode.DownArrow))
     {
       this.keyDown = false;
       this.interval = MOVE_INTERVAL;
+      this.FastKeyUpTimerBottom = 0;
+      this.detectFastKeyUpBottom = false;
     }
     if (Input.GetKeyUp(KeyCode.LeftArrow))
     {
       this.keyLeft = false;
       this.interval = MOVE_INTERVAL;
+      this.FastKeyUpTimerLeft = 0;
+      this.detectFastKeyUpLeft = false;
     }
     if (Input.GetKeyUp(KeyCode.RightArrow))
     {
       this.keyRight = false;
       this.interval = MOVE_INTERVAL;
+      this.FastKeyUpTimerRight = 0;
+      this.detectFastKeyUpRight = false;
     }
     //if (Input.GetKeyUp(KeyCode.Keypad8) || Input.GetKeyUp(KeyCode.UpArrow) ||
     //    Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.DownArrow) ||
@@ -1816,7 +1870,14 @@ public class DungeonField : MotherBase
   private void movementTimer_Tick()
   {
     if (this.interval < this.MovementInterval) { this.interval++; return; }
-    else { this.interval = 0; }
+    else 
+    {
+      this.interval = 0;
+      if (this.detectFastKeyUpTop || this.detectFastKeyUpLeft || this.detectFastKeyUpRight || this.detectFastKeyUpBottom)
+      {
+        this.interval = this.MovementInterval;
+      }
+    }
 
     TileInformation tile = null;
     if (this.keyUp)
@@ -2019,6 +2080,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000213(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_5_X, Fix.VELGUS_2_MessageBoard_5_Y, Fix.VELGUS_2_MessageBoard_5_Z))
+        {
+          MessagePack.Message1000215(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -2026,6 +2092,7 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_SecretWall)
     {
       CurrentEventObject = fieldObjBefore;
+      // 第一階層
       if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_5_X, Fix.VELGUS_SECRETWALL_5_Y, Fix.VELGUS_SECRETWALL_5_Z))
       {
         if (direction == Direction.Top)
@@ -2048,6 +2115,16 @@ public class DungeonField : MotherBase
         {
           // 条件を満たしていない場合は開かないが、WallHitの音は出さない。
           //One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        }
+        return;
+      }
+
+      // 第二階層
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_245_X, Fix.VELGUS_SECRETWALL_245_Y, Fix.VELGUS_SECRETWALL_245_Z))
+      {
+        if (direction == Direction.Right && One.TF.Event_Message1000215 == false)
+        {
+          MessagePack.Message1000215(ref QuestMessageList, ref QuestEventList); TapOK();
         }
         return;
       }
@@ -6260,6 +6337,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "4")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 3; jj++)
+            {
+              for (int kk = 0; kk < 7; kk++)
+              {
+                numbers.Add(14 * 50 + 39 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -6712,6 +6805,10 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_4)
         {
           this.Velgus_SpeedRun4_Timer = 500;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_5)
+        {
+          this.Velgus_SpeedRun5_Timer = 200;
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
         {
@@ -7888,6 +7985,20 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_242_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_242_X, Fix.VELGUS_DOOR_242_Y, Fix.VELGUS_DOOR_242_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_SECRETWALL_245_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_245_X, Fix.VELGUS_SECRETWALL_245_Y, Fix.VELGUS_SECRETWALL_245_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_DOOR_248_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_248_X, Fix.VELGUS_DOOR_248_Y, Fix.VELGUS_DOOR_248_Z));
+            }
+            if (currentMessage == Fix.VELGUS_DOOR_249_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_249_X, Fix.VELGUS_DOOR_249_Y, Fix.VELGUS_DOOR_249_Z));
             }
           }
 
@@ -10232,6 +10343,29 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_244_X, Fix.VELGUS_EVENTTILE_244_Y, Fix.VELGUS_EVENTTILE_244_Z))
         {
           MessagePack.Message1000214(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+
+      if (One.TF.Event_SpeedRun5_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_246_X, Fix.VELGUS_EVENTTILE_246_Y, Fix.VELGUS_EVENTTILE_246_Z))
+        {
+          MessagePack.StartSpeedRun5(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_247_X, Fix.VELGUS_EVENTTILE_247_Y, Fix.VELGUS_EVENTTILE_247_Z))
+        {
+          // クラス化していないが、良しとする。
+          this.detectFastKeyUpTop = false;
+          this.detectFastKeyUpBottom = false;
+          this.detectFastKeyUpLeft = false;
+          this.detectFastKeyUpRight = false;
+          this.FastKeyUpTimerTop = 0;
+          this.FastKeyUpTimerBottom = 0;
+          this.FastKeyUpTimerLeft = 0;
+          this.FastKeyUpTimerRight = 0;
+          MessagePack.Message1000216(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
@@ -14380,6 +14514,17 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000213)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_242_X, Fix.VELGUS_DOOR_242_Y, Fix.VELGUS_DOOR_242_Z));
+      }
+
+      if (One.TF.Event_Message1000215)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_245_X, Fix.VELGUS_SECRETWALL_245_Y, Fix.VELGUS_SECRETWALL_245_Z));
+      }
+
+      if (One.TF.Event_SpeedRun5_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_248_X, Fix.VELGUS_DOOR_248_Y, Fix.VELGUS_DOOR_248_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_249_X, Fix.VELGUS_DOOR_249_Y, Fix.VELGUS_DOOR_249_Z));
       }
     }
     #endregion
