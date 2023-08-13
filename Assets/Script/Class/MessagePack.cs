@@ -19562,7 +19562,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：おいおいおい、少しは喜んでくれよ！ッハッハッハ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：何か・・・お前の動き、凄く早かったよな？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：何か・・・お前の動き、凄えええ早かったよな？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
