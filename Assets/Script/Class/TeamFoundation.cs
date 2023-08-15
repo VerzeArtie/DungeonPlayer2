@@ -1615,6 +1615,16 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_speedrun5_complete = false;
   public bool Event_SpeedRun5_Complete { get { return _event_speedrun5_complete; } set { _event_speedrun5_complete = value; } }
 
+  [SerializeField] protected bool _event_message1000217 = false;
+  public bool Event_Message1000217 { get { return _event_message1000217; } set { _event_message1000217 = value; } }
+  [SerializeField] protected bool _event_seacirculate1_complete = false;
+  public bool EventSeaCirculate1_Complete { get { return _event_seacirculate1_complete; } set { _event_seacirculate1_complete = value; } }
+
+  [SerializeField] protected bool _event_message1000219 = false;
+  public bool Event_Message1000219 { get { return _event_message1000219; } set { _event_message1000219 = value; } }
+  [SerializeField] protected bool _event_seacirculate2_complete = false;
+  public bool EventSeaCirculate2_Complete { get { return _event_seacirculate2_complete; } set { _event_seacirculate2_complete = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;

@@ -19584,6 +19584,164 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000217(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000217 == false)
+    {
+      One.TF.Event_Message1000217 = true;
+      Message(ref m_list, ref e_list, "アイン：看板だな。どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　渦潮の流れを詠み、逆らう事なく進むべし　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと、これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは周囲一帯を全体的に見回した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・さて、どうすっかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どう？行けそう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんらかの道筋を辿って行けば、クリアできる感じだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：だろうなって、テメーはそれで行ける気がすんのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、ちょっと気にはなっているが、あまり難しく考えすぎないようにするさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ここはじゃあ任せても良いのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。じゃあ、やってくるぜ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　渦潮の流れを詠み、逆らう事なく進むべし　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000218(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventSeaCirculate1_Complete == false)
+    {
+      One.TF.EventSeaCirculate1_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：っよし、オーケーオーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構単純だったかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。急かされる内容じゃないし、仕組みもシンプルだったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・簡単だったのかよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：い、いや、そりなりに何て言うんだ。結構難しかったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：えー、今の流れでさすがにそれはないでしょー、アハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：スマン、ビリー。やっぱり簡単だった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ！！じゃあ俺だけが難しく感じたって事かよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：大丈夫だよー、私もこーいうの苦手だから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：だよな。俺だけかと思ったぜ。ビックリさせんなっつうの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・悪い悪い。さてと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらくここから先、まだきっとあるはずだ。次へ進めるぜ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000219(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000219 == false)
+    {
+      One.TF.Event_Message1000219 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ええと、次は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは周囲一帯を全体的に見回した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "6", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・そういう感じで来たか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ちょっとここで質問でーす☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：いま全体を見まわしたよねー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：で、今の時点で既に分かってるんじゃないのー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：んんと？何がだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：簡単なのかどーかって事☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：んー、そうだなー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さっきよりはちょっと戸惑うかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、すんなり進められるかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、どっちになったとしても、いずれも問題ないという感じはある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これで、答えになってるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハハ、面白い答えだねー。どうもありがと☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、ここもとりあえずは任せるわよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、任せろ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000220(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventSeaCirculate2_Complete == false)
+    {
+      One.TF.EventSeaCirculate2_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よっしゃあ！！どうだ皆見たか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：中々上手だったわね。感心するわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前ってさ。普段からこういうのを訓練してるのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：訓練っていう様な事はしていないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ何の訓練をしてきたって言うんだよ？何もやってねーって事はねえだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：訓練・・・うーん・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：剣と魔法の基礎練習かな。そこまで根詰めてやってるわけじゃないが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：全然関係ねーだろが。他に何かねえのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いいや、無いな。正直この神殿の仕組みは初めてみるものばかりだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：だから聞いているのはそこじゃねーっつうの・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこのバカに聞くと余計おかしくなるから止めておいた方が良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、足回りのステップとかが戦闘に似てるんじゃないかな。正直な所、分からないが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　っそ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っそ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：い、いえ何でもありません。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ところで、まだ終わった様には見えないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、きっとまだある。このまま進めるとするぜ！", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

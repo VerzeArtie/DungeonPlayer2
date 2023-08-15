@@ -130,6 +130,19 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_CircleYellowObj;
   public FieldObject prefab_Velgus_SlidingTile;
   public FieldObject prefab_Velgus_FixedTile;
+  public FieldObject prefab_Velgus_MovingTile1;
+  public FieldObject prefab_Velgus_MovingTile2;
+  public FieldObject prefab_Velgus_MovingTile3;
+  public FieldObject prefab_Velgus_MovingTile4;
+  public FieldObject prefab_Velgus_MovingTile5;
+  public FieldObject prefab_Velgus_MovingTile2_1;
+  public FieldObject prefab_Velgus_MovingTile2_2;
+  public FieldObject prefab_Velgus_MovingTile2_3;
+  public FieldObject prefab_Velgus_MovingTile2_4;
+  public FieldObject prefab_Velgus_MovingTile2_5;
+  public FieldObject prefab_Velgus_MovingTile2_6;
+  public FieldObject prefab_Velgus_MovingTile2_7;
+  public FieldObject prefab_Velgus_MovingTile2_8;
 
   // Decision
   public GameObject GroupDecision;
@@ -241,7 +254,6 @@ public class DungeonField : MotherBase
   private bool keyRight = false;
   private int MOVE_INTERVAL = 50;
   private int interval = 0;
-  private bool detectKeyUp = false; // ２階、技の部屋Ｃでキーを離した事を示すフラグ
   private int MovementInterval = 0; // ダンジョンマップ全体を見ている時のインターバル
   private bool detectFastKeyUpTop = false; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知したフラグ
   private int FastKeyUpTimerTop = 0; // ヴェルガスの海底神殿、疾走の間４、短時間移動を検知するためのタイマー
@@ -263,6 +275,23 @@ public class DungeonField : MotherBase
   private int Velgus_SpeedRun4_Timer = 0;
 
   private int Velgus_SpeedRun5_Timer = 0;
+
+  private int Velgus_Circulate1_Timer = 0;
+  private FieldObject objVelgusMovingTile1 = null;
+  private FieldObject objVelgusMovingTile2 = null;
+  private FieldObject objVelgusMovingTile3 = null;
+  private FieldObject objVelgusMovingTile4 = null;
+  private FieldObject objVelgusMovingTile5 = null;
+
+  private int Velgus_Circulate2_Timer = 0;
+  private FieldObject objVelgusMovingTile2_1 = null;
+  private FieldObject objVelgusMovingTile2_2 = null;
+  private FieldObject objVelgusMovingTile2_3 = null;
+  private FieldObject objVelgusMovingTile2_4 = null;
+  private FieldObject objVelgusMovingTile2_5 = null;
+  private FieldObject objVelgusMovingTile2_6 = null;
+  private FieldObject objVelgusMovingTile2_7 = null;
+  private FieldObject objVelgusMovingTile2_8 = null;
 
   // Start is called before the first frame update
   public override void Start()
@@ -376,6 +405,19 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_CircleYellow");
     ObjectList.Add("Velgus_SlidingTile");
     ObjectList.Add("Velgus_FixedTile");
+    ObjectList.Add("Velgus_MovingTile1");
+    ObjectList.Add("Velgus_MovingTile2");
+    ObjectList.Add("Velgus_MovingTile3");
+    ObjectList.Add("Velgus_MovingTile4");
+    ObjectList.Add("Velgus_MovingTile5");
+    ObjectList.Add("Velgus_MovingTile2_1");
+    ObjectList.Add("Velgus_MovingTile2_2");
+    ObjectList.Add("Velgus_MovingTile2_3");
+    ObjectList.Add("Velgus_MovingTile2_4");
+    ObjectList.Add("Velgus_MovingTile2_5");
+    ObjectList.Add("Velgus_MovingTile2_6");
+    ObjectList.Add("Velgus_MovingTile2_7");
+    ObjectList.Add("Velgus_MovingTile2_8");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -1000,6 +1042,243 @@ public class DungeonField : MotherBase
           MessagePack.SpeedRun5_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+      }
+    }
+
+    // ヴェルガスの海底神殿、海渡の間１、タイマーカウント１
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && One.TF.Event_Message1000217 && One.TF.EventSeaCirculate1_Complete == false)
+    {
+      Velgus_Circulate1_Timer++;
+      if (this.objVelgusMovingTile1 == null)
+      {
+        for (int ii = 0; ii < FieldObjList.Count; ii++)
+        {
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile1) // 複数出現する場合は要検討。
+          {
+            this.objVelgusMovingTile1 = FieldObjList[ii];
+            //break;
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2 && this.objVelgusMovingTile2 == null)
+          {
+            this.objVelgusMovingTile2 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile3 && this.objVelgusMovingTile3 == null)
+          {
+            this.objVelgusMovingTile3 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile4 && this.objVelgusMovingTile4 == null)
+          {
+            this.objVelgusMovingTile4 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile5 && this.objVelgusMovingTile5 == null)
+          {
+            this.objVelgusMovingTile5 = FieldObjList[ii];
+          }
+        }
+      }
+
+      if (0 < Velgus_Circulate1_Timer && Velgus_Circulate1_Timer <= 100)
+      {
+        objVelgusMovingTile1.transform.localPosition = new Vector3(objVelgusMovingTile1.transform.localPosition.x, objVelgusMovingTile1.transform.localPosition.y, objVelgusMovingTile1.transform.localPosition.z - 0.01f);
+
+        objVelgusMovingTile2.transform.localPosition = new Vector3(objVelgusMovingTile2.transform.localPosition.x + 0.01f, objVelgusMovingTile2.transform.localPosition.y, objVelgusMovingTile2.transform.localPosition.z);
+
+        objVelgusMovingTile3.transform.localPosition = new Vector3(objVelgusMovingTile3.transform.localPosition.x, objVelgusMovingTile3.transform.localPosition.y, objVelgusMovingTile3.transform.localPosition.z + 0.01f);
+
+        objVelgusMovingTile4.transform.localPosition = new Vector3(objVelgusMovingTile4.transform.localPosition.x, objVelgusMovingTile4.transform.localPosition.y, objVelgusMovingTile4.transform.localPosition.z - 0.01f);
+
+        objVelgusMovingTile5.transform.localPosition = new Vector3(objVelgusMovingTile5.transform.localPosition.x, objVelgusMovingTile5.transform.localPosition.y, objVelgusMovingTile5.transform.localPosition.z + 0.01f);
+      }
+      else if (100 < Velgus_Circulate1_Timer && Velgus_Circulate1_Timer <= 200)
+      {
+        objVelgusMovingTile1.transform.localPosition = new Vector3(objVelgusMovingTile1.transform.localPosition.x + 0.01f, objVelgusMovingTile1.transform.localPosition.y, objVelgusMovingTile1.transform.localPosition.z);
+
+        objVelgusMovingTile2.transform.localPosition = new Vector3(objVelgusMovingTile2.transform.localPosition.x, objVelgusMovingTile2.transform.localPosition.y, objVelgusMovingTile2.transform.localPosition.z + 0.01f);
+
+        objVelgusMovingTile3.transform.localPosition = new Vector3(objVelgusMovingTile3.transform.localPosition.x - 0.01f, objVelgusMovingTile3.transform.localPosition.y, objVelgusMovingTile3.transform.localPosition.z);
+
+        objVelgusMovingTile4.transform.localPosition = new Vector3(objVelgusMovingTile4.transform.localPosition.x - 0.01f, objVelgusMovingTile4.transform.localPosition.y, objVelgusMovingTile4.transform.localPosition.z);
+
+        objVelgusMovingTile5.transform.localPosition = new Vector3(objVelgusMovingTile5.transform.localPosition.x + 0.01f, objVelgusMovingTile5.transform.localPosition.y, objVelgusMovingTile5.transform.localPosition.z);
+      }
+      else if (200 < Velgus_Circulate1_Timer && Velgus_Circulate1_Timer <= 300)
+      {
+        objVelgusMovingTile1.transform.localPosition = new Vector3(objVelgusMovingTile1.transform.localPosition.x, objVelgusMovingTile1.transform.localPosition.y, objVelgusMovingTile1.transform.localPosition.z + 0.01f);
+
+        objVelgusMovingTile2.transform.localPosition = new Vector3(objVelgusMovingTile2.transform.localPosition.x - 0.01f, objVelgusMovingTile2.transform.localPosition.y, objVelgusMovingTile2.transform.localPosition.z);
+
+        objVelgusMovingTile3.transform.localPosition = new Vector3(objVelgusMovingTile3.transform.localPosition.x, objVelgusMovingTile3.transform.localPosition.y, objVelgusMovingTile3.transform.localPosition.z - 0.01f);
+
+        objVelgusMovingTile4.transform.localPosition = new Vector3(objVelgusMovingTile4.transform.localPosition.x, objVelgusMovingTile4.transform.localPosition.y, objVelgusMovingTile4.transform.localPosition.z + 0.01f);
+
+        objVelgusMovingTile5.transform.localPosition = new Vector3(objVelgusMovingTile5.transform.localPosition.x, objVelgusMovingTile5.transform.localPosition.y, objVelgusMovingTile5.transform.localPosition.z - 0.01f);
+      }
+      else if (300 < Velgus_Circulate1_Timer && Velgus_Circulate1_Timer <= 400)
+      {
+        objVelgusMovingTile1.transform.localPosition = new Vector3(objVelgusMovingTile1.transform.localPosition.x - 0.01f, objVelgusMovingTile1.transform.localPosition.y, objVelgusMovingTile1.transform.localPosition.z);
+
+        objVelgusMovingTile2.transform.localPosition = new Vector3(objVelgusMovingTile2.transform.localPosition.x, objVelgusMovingTile2.transform.localPosition.y, objVelgusMovingTile2.transform.localPosition.z - 0.01f);
+
+        objVelgusMovingTile3.transform.localPosition = new Vector3(objVelgusMovingTile3.transform.localPosition.x + 0.01f, objVelgusMovingTile3.transform.localPosition.y, objVelgusMovingTile3.transform.localPosition.z);
+
+        objVelgusMovingTile4.transform.localPosition = new Vector3(objVelgusMovingTile4.transform.localPosition.x + 0.01f, objVelgusMovingTile4.transform.localPosition.y, objVelgusMovingTile4.transform.localPosition.z);
+
+        objVelgusMovingTile5.transform.localPosition = new Vector3(objVelgusMovingTile5.transform.localPosition.x - 0.01f, objVelgusMovingTile5.transform.localPosition.y, objVelgusMovingTile5.transform.localPosition.z);
+      }
+
+      if (Velgus_Circulate1_Timer >= 400) { Velgus_Circulate1_Timer = 0; }
+
+      // Debug.Log("X: " + this.Player.transform.position.x + " " + objVelgusMovingTile.transform.position.x);
+      // Debug.Log("Z: " + this.Player.transform.position.z + " " + objVelgusMovingTile.transform.position.z);
+      if (objVelgusMovingTile1.transform.position.x - 0.1f < this.Player.transform.position.x && this.Player.transform.position.x < objVelgusMovingTile1.transform.position.x + 0.1f &&
+          objVelgusMovingTile1.transform.position.z - 0.1f < this.Player.transform.position.z && this.Player.transform.position.z < objVelgusMovingTile1.transform.position.z + 0.1f)
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile1.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile1.transform.position.z);
+      }
+      if (objVelgusMovingTile2.transform.position.x - 0.1f < this.Player.transform.position.x && this.Player.transform.position.x < objVelgusMovingTile2.transform.position.x + 0.1f &&
+          objVelgusMovingTile2.transform.position.z - 0.1f < this.Player.transform.position.z && this.Player.transform.position.z < objVelgusMovingTile2.transform.position.z + 0.1f)
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2.transform.position.z);
+      }
+      if (objVelgusMovingTile3.transform.position.x - 0.1f < this.Player.transform.position.x && this.Player.transform.position.x < objVelgusMovingTile3.transform.position.x + 0.1f &&
+          objVelgusMovingTile3.transform.position.z - 0.1f < this.Player.transform.position.z && this.Player.transform.position.z < objVelgusMovingTile3.transform.position.z + 0.1f)
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile3.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile3.transform.position.z);
+      }
+      if (objVelgusMovingTile4.transform.position.x - 0.1f < this.Player.transform.position.x && this.Player.transform.position.x < objVelgusMovingTile4.transform.position.x + 0.1f &&
+          objVelgusMovingTile4.transform.position.z - 0.1f < this.Player.transform.position.z && this.Player.transform.position.z < objVelgusMovingTile4.transform.position.z + 0.1f)
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile4.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile4.transform.position.z);
+      }
+      if (objVelgusMovingTile5.transform.position.x - 0.1f < this.Player.transform.position.x && this.Player.transform.position.x < objVelgusMovingTile5.transform.position.x + 0.1f &&
+          objVelgusMovingTile5.transform.position.z - 0.1f < this.Player.transform.position.z && this.Player.transform.position.z < objVelgusMovingTile5.transform.position.z + 0.1f)
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile5.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile5.transform.position.z);
+      }
+    }
+
+    // ヴェルガスの海底神殿、海渡の間２、タイマーカウント２
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && One.TF.Event_Message1000219 && One.TF.EventSeaCirculate2_Complete == false)
+    {
+      Velgus_Circulate2_Timer++;
+      if (this.objVelgusMovingTile2_1 == null)
+      {
+        for (int ii = 0; ii < FieldObjList.Count; ii++)
+        {
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_1)
+          {
+            this.objVelgusMovingTile2_1 = FieldObjList[ii];
+            //break;
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_2 && this.objVelgusMovingTile2_2 == null)
+          {
+            this.objVelgusMovingTile2_2 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_3 && this.objVelgusMovingTile2_3 == null)
+          {
+            this.objVelgusMovingTile2_3 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_4 && this.objVelgusMovingTile2_4 == null)
+          {
+            this.objVelgusMovingTile2_4 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_5 && this.objVelgusMovingTile2_5 == null)
+          {
+            this.objVelgusMovingTile2_5 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_6 && this.objVelgusMovingTile2_6 == null)
+          {
+            this.objVelgusMovingTile2_6 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_7 && this.objVelgusMovingTile2_7 == null)
+          {
+            this.objVelgusMovingTile2_7 = FieldObjList[ii];
+          }
+          if (FieldObjList[ii].content == FieldObject.Content.Velgus_MovingTile2_8 && this.objVelgusMovingTile2_8 == null)
+          {
+            this.objVelgusMovingTile2_8 = FieldObjList[ii];
+          }
+        }
+      }
+
+      if (0 < Velgus_Circulate2_Timer && Velgus_Circulate2_Timer <= 50)
+      {
+        objVelgusMovingTile2_1.transform.localPosition = new Vector3(objVelgusMovingTile2_1.transform.localPosition.x, objVelgusMovingTile2_1.transform.localPosition.y, objVelgusMovingTile2_1.transform.localPosition.z + 0.02f);
+        objVelgusMovingTile2_2.transform.localPosition = new Vector3(objVelgusMovingTile2_2.transform.localPosition.x - 0.02f, objVelgusMovingTile2_2.transform.localPosition.y, objVelgusMovingTile2_2.transform.localPosition.z);
+        objVelgusMovingTile2_3.transform.localPosition = new Vector3(objVelgusMovingTile2_3.transform.localPosition.x - 0.02f, objVelgusMovingTile2_3.transform.localPosition.y, objVelgusMovingTile2_3.transform.localPosition.z);
+        objVelgusMovingTile2_4.transform.localPosition = new Vector3(objVelgusMovingTile2_4.transform.localPosition.x - 0.04f, objVelgusMovingTile2_4.transform.localPosition.y, objVelgusMovingTile2_4.transform.localPosition.z);
+        objVelgusMovingTile2_5.transform.localPosition = new Vector3(objVelgusMovingTile2_5.transform.localPosition.x + 0.02f, objVelgusMovingTile2_5.transform.localPosition.y, objVelgusMovingTile2_5.transform.localPosition.z);
+        objVelgusMovingTile2_6.transform.localPosition = new Vector3(objVelgusMovingTile2_6.transform.localPosition.x + 0.02f, objVelgusMovingTile2_6.transform.localPosition.y, objVelgusMovingTile2_6.transform.localPosition.z);
+        objVelgusMovingTile2_7.transform.localPosition = new Vector3(objVelgusMovingTile2_7.transform.localPosition.x + 0.02f, objVelgusMovingTile2_7.transform.localPosition.y, objVelgusMovingTile2_7.transform.localPosition.z);
+        //
+      }
+      else if (50 < Velgus_Circulate2_Timer && Velgus_Circulate2_Timer <= 100)
+      {
+        //
+        objVelgusMovingTile2_2.transform.localPosition = new Vector3(objVelgusMovingTile2_2.transform.localPosition.x + 0.02f, objVelgusMovingTile2_2.transform.localPosition.y, objVelgusMovingTile2_2.transform.localPosition.z);
+        objVelgusMovingTile2_3.transform.localPosition = new Vector3(objVelgusMovingTile2_3.transform.localPosition.x - 0.02f, objVelgusMovingTile2_3.transform.localPosition.y, objVelgusMovingTile2_3.transform.localPosition.z);
+        objVelgusMovingTile2_4.transform.localPosition = new Vector3(objVelgusMovingTile2_4.transform.localPosition.x + 0.02f, objVelgusMovingTile2_4.transform.localPosition.y, objVelgusMovingTile2_4.transform.localPosition.z);
+        //
+        objVelgusMovingTile2_6.transform.localPosition = new Vector3(objVelgusMovingTile2_6.transform.localPosition.x - 0.02f, objVelgusMovingTile2_6.transform.localPosition.y, objVelgusMovingTile2_6.transform.localPosition.z);
+        objVelgusMovingTile2_7.transform.localPosition = new Vector3(objVelgusMovingTile2_7.transform.localPosition.x - 0.04f, objVelgusMovingTile2_7.transform.localPosition.y, objVelgusMovingTile2_7.transform.localPosition.z);
+        objVelgusMovingTile2_8.transform.localPosition = new Vector3(objVelgusMovingTile2_8.transform.localPosition.x - 0.02f, objVelgusMovingTile2_8.transform.localPosition.y, objVelgusMovingTile2_8.transform.localPosition.z);
+      }
+      else if (100 < Velgus_Circulate2_Timer && Velgus_Circulate2_Timer <= 150)
+      {
+        objVelgusMovingTile2_1.transform.localPosition = new Vector3(objVelgusMovingTile2_1.transform.localPosition.x, objVelgusMovingTile2_1.transform.localPosition.y, objVelgusMovingTile2_1.transform.localPosition.z - 0.02f);
+        objVelgusMovingTile2_2.transform.localPosition = new Vector3(objVelgusMovingTile2_2.transform.localPosition.x - 0.02f, objVelgusMovingTile2_2.transform.localPosition.y, objVelgusMovingTile2_2.transform.localPosition.z);
+        objVelgusMovingTile2_3.transform.localPosition = new Vector3(objVelgusMovingTile2_3.transform.localPosition.x + 0.02f, objVelgusMovingTile2_3.transform.localPosition.y, objVelgusMovingTile2_3.transform.localPosition.z);
+        objVelgusMovingTile2_4.transform.localPosition = new Vector3(objVelgusMovingTile2_4.transform.localPosition.x + 0.04f, objVelgusMovingTile2_4.transform.localPosition.y, objVelgusMovingTile2_4.transform.localPosition.z);
+        objVelgusMovingTile2_5.transform.localPosition = new Vector3(objVelgusMovingTile2_5.transform.localPosition.x - 0.04f, objVelgusMovingTile2_5.transform.localPosition.y, objVelgusMovingTile2_5.transform.localPosition.z);
+        objVelgusMovingTile2_6.transform.localPosition = new Vector3(objVelgusMovingTile2_6.transform.localPosition.x + 0.02f, objVelgusMovingTile2_6.transform.localPosition.y, objVelgusMovingTile2_6.transform.localPosition.z);
+        //
+        objVelgusMovingTile2_8.transform.localPosition = new Vector3(objVelgusMovingTile2_8.transform.localPosition.x + 0.04f, objVelgusMovingTile2_8.transform.localPosition.y, objVelgusMovingTile2_8.transform.localPosition.z);
+      }
+      else if (150 < Velgus_Circulate2_Timer && Velgus_Circulate2_Timer <= 200)
+      {
+        //
+        objVelgusMovingTile2_2.transform.localPosition = new Vector3(objVelgusMovingTile2_2.transform.localPosition.x + 0.02f, objVelgusMovingTile2_2.transform.localPosition.y, objVelgusMovingTile2_2.transform.localPosition.z);
+        objVelgusMovingTile2_3.transform.localPosition = new Vector3(objVelgusMovingTile2_3.transform.localPosition.x + 0.02f, objVelgusMovingTile2_3.transform.localPosition.y, objVelgusMovingTile2_3.transform.localPosition.z);
+        objVelgusMovingTile2_4.transform.localPosition = new Vector3(objVelgusMovingTile2_4.transform.localPosition.x - 0.02f, objVelgusMovingTile2_4.transform.localPosition.y, objVelgusMovingTile2_4.transform.localPosition.z);
+        objVelgusMovingTile2_5.transform.localPosition = new Vector3(objVelgusMovingTile2_5.transform.localPosition.x + 0.02f, objVelgusMovingTile2_5.transform.localPosition.y, objVelgusMovingTile2_5.transform.localPosition.z);
+        objVelgusMovingTile2_6.transform.localPosition = new Vector3(objVelgusMovingTile2_6.transform.localPosition.x - 0.02f, objVelgusMovingTile2_6.transform.localPosition.y, objVelgusMovingTile2_6.transform.localPosition.z);
+        objVelgusMovingTile2_7.transform.localPosition = new Vector3(objVelgusMovingTile2_7.transform.localPosition.x + 0.02f, objVelgusMovingTile2_7.transform.localPosition.y, objVelgusMovingTile2_7.transform.localPosition.z);
+        objVelgusMovingTile2_8.transform.localPosition = new Vector3(objVelgusMovingTile2_8.transform.localPosition.x - 0.02f, objVelgusMovingTile2_8.transform.localPosition.y, objVelgusMovingTile2_8.transform.localPosition.z);
+      }
+
+      if (Velgus_Circulate2_Timer >= 200) { Velgus_Circulate2_Timer = 0; }
+
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_1.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_1.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_1.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_2.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_2.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_2.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_3.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_3.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_3.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_4.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_4.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_4.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_5.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_5.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_5.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_6.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_6.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_6.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_7.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_7.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_7.transform.position.z);
+      }
+      if (DetectVelgusMovingTile(objVelgusMovingTile2_8.gameObject, this.Player))
+      {
+        this.Player.transform.position = new Vector3(objVelgusMovingTile2_8.transform.position.x, this.Player.transform.position.y, objVelgusMovingTile2_8.transform.position.z);
       }
     }
 
@@ -1842,7 +2121,6 @@ public class DungeonField : MotherBase
   public void PointerUpArrow()
   {
     UpdateDebugMessage(MethodBase.GetCurrentMethod().ToString());
-    detectKeyUp = true;
     Debug.Log("CancelKeyDownMovement call 2");
     CancelKeyDownMovement();
   }
@@ -2083,7 +2361,7 @@ public class DungeonField : MotherBase
 
         if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_5_X, Fix.VELGUS_2_MessageBoard_5_Y, Fix.VELGUS_2_MessageBoard_5_Z))
         {
-          MessagePack.Message1000215(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message1000217(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -2135,8 +2413,78 @@ public class DungeonField : MotherBase
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Velgus_FakeSea)
     {
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
-      return;
+      //Debug.Log("fieldObjBefore Velgus_FakeSea: " + fieldObjBefore.transform.localPosition.ToString());
+      //Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile2.transform.localPosition.x);
+      //Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile2.transform.localPosition.z);
+
+      if (objVelgusMovingTile1 != null &&
+          fieldObjBefore.transform.localPosition.x - 0.1f < objVelgusMovingTile1.transform.localPosition.x &&
+          objVelgusMovingTile1.transform.localPosition.x < fieldObjBefore.transform.localPosition.x + 0.1f &&
+          fieldObjBefore.transform.localPosition.z - 0.1f < objVelgusMovingTile1.transform.localPosition.z &&
+          objVelgusMovingTile1.transform.localPosition.z < fieldObjBefore.transform.localPosition.z + 0.1f)
+      {
+        // 何もせず通過
+        Debug.Log("DETECT objVelgusMovingTile1 within Velgus_FakeSea");
+        Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile1.transform.localPosition.x);
+        Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile1.transform.localPosition.z);
+      }
+      else if (objVelgusMovingTile2 != null &&
+          fieldObjBefore.transform.localPosition.x - 0.1f < objVelgusMovingTile2.transform.localPosition.x &&
+          objVelgusMovingTile2.transform.localPosition.x < fieldObjBefore.transform.localPosition.x + 0.1f &&
+          fieldObjBefore.transform.localPosition.z - 0.1f < objVelgusMovingTile2.transform.localPosition.z &&
+          objVelgusMovingTile2.transform.localPosition.z < fieldObjBefore.transform.localPosition.z + 0.1f)
+      {
+        // 何もせず通過
+        Debug.Log("DETECT objVelgusMovingTile2 within Velgus_FakeSea");
+        Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile2.transform.localPosition.x);
+        Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile2.transform.localPosition.z);
+      }
+      else if (objVelgusMovingTile3 != null &&
+          fieldObjBefore.transform.localPosition.x - 0.1f < objVelgusMovingTile3.transform.localPosition.x &&
+          objVelgusMovingTile3.transform.localPosition.x < fieldObjBefore.transform.localPosition.x + 0.1f &&
+          fieldObjBefore.transform.localPosition.z - 0.1f < objVelgusMovingTile3.transform.localPosition.z &&
+          objVelgusMovingTile3.transform.localPosition.z < fieldObjBefore.transform.localPosition.z + 0.1f)
+      {
+        // 何もせず通過
+        Debug.Log("DETECT objVelgusMovingTile3 within Velgus_FakeSea");
+        Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile3.transform.localPosition.x);
+        Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile3.transform.localPosition.z);
+      }
+      else if (objVelgusMovingTile4 != null &&
+          fieldObjBefore.transform.localPosition.x - 0.1f < objVelgusMovingTile4.transform.localPosition.x &&
+          objVelgusMovingTile4.transform.localPosition.x < fieldObjBefore.transform.localPosition.x + 0.1f &&
+          fieldObjBefore.transform.localPosition.z - 0.1f < objVelgusMovingTile4.transform.localPosition.z &&
+          objVelgusMovingTile4.transform.localPosition.z < fieldObjBefore.transform.localPosition.z + 0.1f)
+      {
+        // 何もせず通過
+        Debug.Log("DETECT objVelgusMovingTile4 within Velgus_FakeSea");
+        Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile4.transform.localPosition.x);
+        Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile4.transform.localPosition.z);
+      }
+      else if (objVelgusMovingTile5 != null &&
+          fieldObjBefore.transform.localPosition.x - 0.1f < objVelgusMovingTile5.transform.localPosition.x &&
+          objVelgusMovingTile5.transform.localPosition.x < fieldObjBefore.transform.localPosition.x + 0.1f &&
+          fieldObjBefore.transform.localPosition.z - 0.1f < objVelgusMovingTile5.transform.localPosition.z &&
+          objVelgusMovingTile5.transform.localPosition.z < fieldObjBefore.transform.localPosition.z + 0.1f)
+      {
+        // 何もせず通過
+        Debug.Log("DETECT objVelgusMovingTile5 within Velgus_FakeSea");
+        Debug.Log("X: " + fieldObjBefore.transform.localPosition.x + " " + objVelgusMovingTile5.transform.localPosition.x);
+        Debug.Log("Z: " + fieldObjBefore.transform.localPosition.z + " " + objVelgusMovingTile5.transform.localPosition.z);
+      }
+      else if (objVelgusMovingTile2_1 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_1.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_2 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_2.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_3 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_3.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_4 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_4.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_5 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_5.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_6 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_6.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_7 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_7.gameObject)) { } // 何もせず通過
+      else if (objVelgusMovingTile2_8 != null && DetectVelgusMovingTile(fieldObjBefore.gameObject, objVelgusMovingTile2_8.gameObject)) { } // 何もせず通過
+      else
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        return;
+      }
     }
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
@@ -6353,6 +6701,38 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "5")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 8; jj++)
+            {
+              for (int kk = 0; kk < 6; kk++)
+              {
+                numbers.Add(7 * 50 + 12 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "6")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 13; jj++)
+            {
+              for (int kk = 0; kk < 5; kk++)
+              {
+                numbers.Add(2 * 50 + 8 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10369,6 +10749,21 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_251_X, Fix.VELGUS_EVENTTILE_251_Y, Fix.VELGUS_EVENTTILE_251_Z))
+      {
+        MessagePack.Message1000219(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (One.TF.EventSeaCirculate2_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_252_X, Fix.VELGUS_EVENTTILE_252_Y, Fix.VELGUS_EVENTTILE_252_Z))
+        {
+          MessagePack.Message1000220(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -11569,6 +11964,16 @@ public class DungeonField : MotherBase
       {
         return FieldObjList[ii];
       }
+
+      x = (float)Math.Round(x);
+      y = (float)Math.Round(y);
+      z = (float)Math.Round(z);
+      if (x == FieldObjList[ii].transform.position.x &&
+          y == FieldObjList[ii].transform.position.y &&
+          z == FieldObjList[ii].transform.position.z)
+      {
+        return FieldObjList[ii];
+      }
     }
 
     //Debug.Log("Cannot get object...then NULL");
@@ -11583,6 +11988,16 @@ public class DungeonField : MotherBase
     //Debug.Log("GetTileInfo: " + x.ToString() + " " + y.ToString() + " " + z.ToString());
     for (int ii = 0; ii < TileList.Count; ii++)
     {
+      if (x == TileList[ii].transform.position.x &&
+          y == TileList[ii].transform.position.y &&
+          z == TileList[ii].transform.position.z)
+      {
+        return TileList[ii];
+      }
+
+      x = (float)Math.Round(x);
+      y = (float)Math.Round(y);
+      z = (float)Math.Round(z);
       if (x == TileList[ii].transform.position.x &&
           y == TileList[ii].transform.position.y &&
           z == TileList[ii].transform.position.z)
@@ -12500,6 +12915,110 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_FixedTile, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_FixedTile;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile1")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile1, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile1;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile3")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile3, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile3;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile4")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile4, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile4;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile5")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile5, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile5;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_1")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_1, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_1;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_2")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_2, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_2;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_3")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_3, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_3;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_4")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_4, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_4;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_5")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_5, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_5;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_6")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_6, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_6;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_7")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_7, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_7;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_MovingTile2_8")
+    {
+      current = Instantiate(prefab_Velgus_MovingTile2_8, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_MovingTile2_8;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -15182,6 +15701,22 @@ public class DungeonField : MotherBase
       return true;
     }
 
+    return false;
+  }
+
+  private bool DetectVelgusMovingTile(GameObject src, GameObject dst)
+  {
+    if (src == null) { return false; }
+    if (dst == null) { return false; }
+
+    if (src.transform.position.x - 0.1f < dst.transform.position.x &&
+         dst.transform.position.x < src.transform.position.x + 0.1f &&
+         src.transform.position.z - 0.1f < dst.transform.position.z &&
+         dst.transform.position.z < src.transform.position.z + 0.1f)
+    {
+      // 何もせず通過
+      return true;
+    }
     return false;
   }
 }

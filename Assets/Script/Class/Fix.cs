@@ -7871,33 +7871,26 @@ public static partial class Fix
   public const float VELGUS_DOOR_249_Y = 0.5f;
   public const float VELGUS_DOOR_249_Z = -25.0f;
 
-  //// 海渡りの間１、開始地点
-  //public const string VELGUS_EVENTTILE_218_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_218_O = "218";
-  //public const float VELGUS_EVENTTILE_218_X = 14.0f;
-  //public const float VELGUS_EVENTTILE_218_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_218_Z = -13.0f;
+  // 海渡りの間１、終了地点
+  public const string VELGUS_EVENTTILE_250_C = "EventTile";
+  public const string VELGUS_EVENTTILE_250_O = "250";
+  public const float VELGUS_EVENTTILE_250_X = 14.0f;
+  public const float VELGUS_EVENTTILE_250_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_250_Z = -6.0f;
 
-  //// 海渡りの間１、終了地点
-  //public const string VELGUS_EVENTTILE_219_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_219_O = "219";
-  //public const float VELGUS_EVENTTILE_219_X = 14.0f;
-  //public const float VELGUS_EVENTTILE_219_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_219_Z = -6.0f;
+  // 海渡りの間２、開始地点
+  public const string VELGUS_EVENTTILE_251_C = "EventTile";
+  public const string VELGUS_EVENTTILE_251_O = "251";
+  public const float VELGUS_EVENTTILE_251_X = 10.0f;
+  public const float VELGUS_EVENTTILE_251_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_251_Z = -4.0f;
 
-  //// 海渡りの間２、開始地点
-  //public const string VELGUS_EVENTTILE_220_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_220_O = "220";
-  //public const float VELGUS_EVENTTILE_220_X = 11.0f;
-  //public const float VELGUS_EVENTTILE_220_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_220_Z = -4.0f;
-
-  //// 海渡りの間２、終了地点
-  //public const string VELGUS_EVENTTILE_221_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_221_O = "221";
-  //public const float VELGUS_EVENTTILE_221_X = 10.0f;
-  //public const float VELGUS_EVENTTILE_221_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_221_Z = -13.0f;
+  // 海渡りの間２、終了地点
+  public const string VELGUS_EVENTTILE_252_C = "EventTile";
+  public const string VELGUS_EVENTTILE_252_O = "252";
+  public const float VELGUS_EVENTTILE_252_X = 10.0f;
+  public const float VELGUS_EVENTTILE_252_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_252_Z = -14.0f;
 
   //// 海渡りの間３、開始地点
   //public const string VELGUS_EVENTTILE_222_C = "EventTile";
