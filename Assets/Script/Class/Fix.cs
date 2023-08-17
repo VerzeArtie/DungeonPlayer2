@@ -6102,26 +6102,19 @@ public static partial class Fix
   public const float VELGUS_2_MessageBoard_5_Y = 1.0f;
   public const float VELGUS_2_MessageBoard_5_Z = -15.0f;
 
-  // 第二階層、海渡りの間(6)、看板
+  // 第二階層、ランダムの間(6)、看板
   public const string VELGUS_2_MessageBoard_6_C = "MessageBoard";
   public const string VELGUS_2_MessageBoard_6_O = "6";
-  public const float VELGUS_2_MessageBoard_6_X = 5.0f;
+  public const float VELGUS_2_MessageBoard_6_X = 27.0f;
   public const float VELGUS_2_MessageBoard_6_Y = 1.0f;
-  public const float VELGUS_2_MessageBoard_6_Z = -3.0f;
+  public const float VELGUS_2_MessageBoard_6_Z = -10.0f;
 
-  // 第二階層、ランダムの間(7)、看板
+  // 第二階層、不規則の間(7)、看板
   public const string VELGUS_2_MessageBoard_7_C = "MessageBoard";
   public const string VELGUS_2_MessageBoard_7_O = "7";
-  public const float VELGUS_2_MessageBoard_7_X = 27.0f;
+  public const float VELGUS_2_MessageBoard_7_X = 45.0f;
   public const float VELGUS_2_MessageBoard_7_Y = 1.0f;
-  public const float VELGUS_2_MessageBoard_7_Z = -10.0f;
-
-  // 第二階層、不規則の間(8)、看板
-  public const string VELGUS_2_MessageBoard_8_C = "MessageBoard";
-  public const string VELGUS_2_MessageBoard_8_O = "8";
-  public const float VELGUS_2_MessageBoard_8_X = 45.0f;
-  public const float VELGUS_2_MessageBoard_8_Y = 1.0f;
-  public const float VELGUS_2_MessageBoard_8_Z = -2.0f;
+  public const float VELGUS_2_MessageBoard_7_Z = -2.0f;
 
   #endregion
   #region "第一階層"
@@ -7892,19 +7885,47 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_252_Y = 0.0f;
   public const float VELGUS_EVENTTILE_252_Z = -14.0f;
 
-  //// 海渡りの間３、開始地点
-  //public const string VELGUS_EVENTTILE_222_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_222_O = "222";
-  //public const float VELGUS_EVENTTILE_222_X = 6.0f;
-  //public const float VELGUS_EVENTTILE_222_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_222_Z = -13.0f;
+  // 海渡りの間３、開始地点
+  public const string VELGUS_EVENTTILE_253_C = "EventTile";
+  public const string VELGUS_EVENTTILE_253_O = "253";
+  public const float VELGUS_EVENTTILE_253_X = 8.0f;
+  public const float VELGUS_EVENTTILE_253_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_253_Z = -16.0f;
 
-  //// 海渡りの間３、終了地点
-  //public const string VELGUS_EVENTTILE_223_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_223_O = "223";
-  //public const float VELGUS_EVENTTILE_223_X = 6.0f;
-  //public const float VELGUS_EVENTTILE_223_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_223_Z = -6.0f;
+  // 海渡りの間３、スイッチ地点１
+  public const string VELGUS_EVENTTILE_254_C = "EventTile";
+  public const string VELGUS_EVENTTILE_254_O = "254";
+  public const float VELGUS_EVENTTILE_254_X = 5.0f;
+  public const float VELGUS_EVENTTILE_254_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_254_Z = -13.0f;
+
+  // 海渡りの間３、スイッチ地点２
+  public const string VELGUS_EVENTTILE_255_C = "EventTile";
+  public const string VELGUS_EVENTTILE_255_O = "255";
+  public const float VELGUS_EVENTTILE_255_X = 2.0f;
+  public const float VELGUS_EVENTTILE_255_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_255_Z = -12.0f;
+
+  // 海渡りの間３、スイッチ地点３
+  public const string VELGUS_EVENTTILE_256_C = "EventTile";
+  public const string VELGUS_EVENTTILE_256_O = "256";
+  public const float VELGUS_EVENTTILE_256_X = 3.0f;
+  public const float VELGUS_EVENTTILE_256_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_256_Z = -15.0f;
+
+  // 海渡りの間３、スイッチ地点４
+  public const string VELGUS_EVENTTILE_257_C = "EventTile";
+  public const string VELGUS_EVENTTILE_257_O = "257";
+  public const float VELGUS_EVENTTILE_257_X = 1.0f;
+  public const float VELGUS_EVENTTILE_257_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_257_Z = -8.0f;
+
+  // 海渡りの間３、終了地点
+  public const string VELGUS_EVENTTILE_258_C = "EventTile";
+  public const string VELGUS_EVENTTILE_258_O = "258";
+  public const float VELGUS_EVENTTILE_258_X = 6.0f;
+  public const float VELGUS_EVENTTILE_258_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_258_Z = -5.0f;
 
   //// 海渡りの間４、開始地点
   //public const string VELGUS_EVENTTILE_224_C = "EventTile";
@@ -8224,47 +8245,54 @@ public static partial class Fix
   public const float VELGUS_2_TREASURE_9_Y = 1.0f;
   public const float VELGUS_2_TREASURE_9_Z = -16.0f;
 
-  // 海渡りの間３
+  // 海渡りの間３ー１
   public const string VELGUS_2_TREASURE_10_C = "Treasure";
   public const string VELGUS_2_TREASURE_10_O = "10";
-  public const float VELGUS_2_TREASURE_10_X = 7.0f;
+  public const float VELGUS_2_TREASURE_10_X = 5.0f;
   public const float VELGUS_2_TREASURE_10_Y = 1.0f;
   public const float VELGUS_2_TREASURE_10_Z = -3.0f;
 
-  // 海渡りの間４
+  // 海渡りの間３ー２
   public const string VELGUS_2_TREASURE_11_C = "Treasure";
   public const string VELGUS_2_TREASURE_11_O = "11";
-  public const float VELGUS_2_TREASURE_11_X = 2.0f;
+  public const float VELGUS_2_TREASURE_11_X = 7.0f;
   public const float VELGUS_2_TREASURE_11_Y = 1.0f;
-  public const float VELGUS_2_TREASURE_11_Z = -16.0f;
+  public const float VELGUS_2_TREASURE_11_Z = -3.0f;
 
-  // 海渡りの間５
+  // 海渡りの間４
   public const string VELGUS_2_TREASURE_12_C = "Treasure";
   public const string VELGUS_2_TREASURE_12_O = "12";
-  public const float VELGUS_2_TREASURE_12_X = 27.0f;
+  public const float VELGUS_2_TREASURE_12_X = 1.0f;
   public const float VELGUS_2_TREASURE_12_Y = 1.0f;
   public const float VELGUS_2_TREASURE_12_Z = -5.0f;
 
-  // ランダムの間１
+  // 海渡りの間５
   public const string VELGUS_2_TREASURE_13_C = "Treasure";
   public const string VELGUS_2_TREASURE_13_O = "13";
-  public const float VELGUS_2_TREASURE_13_X = 43.0f;
+  public const float VELGUS_2_TREASURE_13_X = 22.0f;
   public const float VELGUS_2_TREASURE_13_Y = 1.0f;
   public const float VELGUS_2_TREASURE_13_Z = -2.0f;
 
-  // ランダムの間２
+  // ランダムの間１
   public const string VELGUS_2_TREASURE_14_C = "Treasure";
   public const string VELGUS_2_TREASURE_14_O = "14";
-  public const float VELGUS_2_TREASURE_14_X = 47.0f;
+  public const float VELGUS_2_TREASURE_14_X = 43.0f;
   public const float VELGUS_2_TREASURE_14_Y = 1.0f;
   public const float VELGUS_2_TREASURE_14_Z = -2.0f;
 
-  // 不規則の間
+  // ランダムの間２
   public const string VELGUS_2_TREASURE_15_C = "Treasure";
   public const string VELGUS_2_TREASURE_15_O = "15";
   public const float VELGUS_2_TREASURE_15_X = 47.0f;
   public const float VELGUS_2_TREASURE_15_Y = 1.0f;
-  public const float VELGUS_2_TREASURE_15_Z = -24.0f;
+  public const float VELGUS_2_TREASURE_15_Z = -2.0f;
+
+  // 不規則の間
+  public const string VELGUS_2_TREASURE_16_C = "Treasure";
+  public const string VELGUS_2_TREASURE_16_O = "16";
+  public const float VELGUS_2_TREASURE_16_X = 47.0f;
+  public const float VELGUS_2_TREASURE_16_Y = 1.0f;
+  public const float VELGUS_2_TREASURE_16_Z = -24.0f;
 
   #endregion
   #endregion

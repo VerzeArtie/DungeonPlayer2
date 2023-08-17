@@ -50,6 +50,13 @@ public class FieldObject : MonoBehaviour
     Velgus_MovingTile2_6,
     Velgus_MovingTile2_7,
     Velgus_MovingTile2_8,
+    Velgus_MovingTile3_1,
+    Velgus_MovingTile3_2,
+    Velgus_MovingTile3_3,
+    Velgus_MovingTile3_4,
+    Velgus_MovingTile3_5,
+    Velgus_MovingTile3_6,
+    Velgus_MovingTile3_7,
     Boss,
   }
 

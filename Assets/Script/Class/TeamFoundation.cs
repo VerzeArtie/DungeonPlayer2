@@ -1625,6 +1625,19 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_seacirculate2_complete = false;
   public bool EventSeaCirculate2_Complete { get { return _event_seacirculate2_complete; } set { _event_seacirculate2_complete = value; } }
 
+  [SerializeField] protected bool _event_message1000221 = false;
+  public bool Event_Message1000221 { get { return _event_message1000221; } set { _event_message1000221 = value; } }
+  [SerializeField] protected bool _event_seacirculate3_tilestart1 = false;
+  public bool EventSseaCirculate3_TileStart1 { get { return _event_seacirculate3_tilestart1; } set { _event_seacirculate3_tilestart1 = value; } }
+  [SerializeField] protected bool _event_seacirculate3_tilestart2 = false;
+  public bool EventSseaCirculate3_TileStart2 { get { return _event_seacirculate3_tilestart2; } set { _event_seacirculate3_tilestart2 = value; } }
+  [SerializeField] protected bool _event_seacirculate3_tilestart3 = false;
+  public bool EventSseaCirculate3_TileStart3 { get { return _event_seacirculate3_tilestart3; } set { _event_seacirculate3_tilestart3 = value; } }
+  [SerializeField] protected bool _event_seacirculate3_tilestart4 = false;
+  public bool EventSseaCirculate3_TileStart4 { get { return _event_seacirculate3_tilestart4; } set { _event_seacirculate3_tilestart4 = value; } }
+  [SerializeField] protected bool _event_seacirculate3_complete = false;
+  public bool EventSeaCirculate3_Complete { get { return _event_seacirculate3_complete; } set { _event_seacirculate3_complete = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
@@ -1880,6 +1893,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_velgus2_00013 = false;
   [SerializeField] protected bool _treasure_velgus2_00014 = false;
   [SerializeField] protected bool _treasure_velgus2_00015 = false;
+  [SerializeField] protected bool _treasure_velgus2_00016 = false;
   public bool Treasure_Velgus_00001 { get { return _treasure_velgus_00001; } set { _treasure_velgus_00001 = value; } }
   public bool Treasure_Velgus_00002 { get { return _treasure_velgus_00002; } set { _treasure_velgus_00002 = value; } }
   public bool Treasure_Velgus_00003 { get { return _treasure_velgus_00003; } set { _treasure_velgus_00003 = value; } }
@@ -1908,6 +1922,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_Velgus2_00013 { get { return _treasure_velgus2_00013; } set { _treasure_velgus2_00013 = value; } }
   public bool Treasure_Velgus2_00014 { get { return _treasure_velgus2_00014; } set { _treasure_velgus2_00014 = value; } }
   public bool Treasure_Velgus2_00015 { get { return _treasure_velgus2_00015; } set { _treasure_velgus2_00015 = value; } }
+  public bool Treasure_Velgus2_00016 { get { return _treasure_velgus2_00016; } set { _treasure_velgus2_00016 = value; } }
 
   public bool Treasure_EsmiliaGrassField_00001 { get { return _treasure_EsmiliaGrassField_00001; } set { _treasure_EsmiliaGrassField_00001 = value; } }
   public bool Treasure_EsmiliaGrassField_00002 { get { return _treasure_EsmiliaGrassField_00002; } set { _treasure_EsmiliaGrassField_00002 = value; } }

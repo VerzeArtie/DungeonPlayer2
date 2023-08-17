@@ -53,6 +53,7 @@ public static class MessagePack
     VelgusSpeedRunStart_3,
     VelgusSpeedRunStart_4,
     VelgusSpeedRunStart_5,
+    VelgusCirculate3_Switch,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -19740,6 +19741,102 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：ところで、まだ終わった様には見えないわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、きっとまだある。このまま進めるとするぜ！", ActionEvent.None);
+    }
+  }
+
+
+  public static void Message1000221(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000221 == false)
+    {
+      One.TF.Event_Message1000221 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ・・・これは・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは周囲一帯を全体的に見回した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "7", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どーなんだよ。簡単なんだろうな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうかな・・・まあ、やってみれば自ずと分かるだろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、深く考えすぎか。これが難しいと感じる人種もいるわけだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいおい、誰の事言ってんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいや悪い。独り言だ、ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となくだが難易度がそう劇的に難しくはならないなと感じただけなんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この辺りはさすがに感覚的なものだから、錯覚しているだけかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：多少手こずるかもしれないが、解いてしまおうと思う。任せておいてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おうよ、頼んだぜ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000222(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "1", ActionEvent.VelgusCirculate3_Switch);
+  }
+  public static void Message1000223(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "2", ActionEvent.VelgusCirculate3_Switch);
+  }
+  public static void Message1000224(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3", ActionEvent.VelgusCirculate3_Switch);
+  }
+  public static void Message1000225(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "4", ActionEvent.VelgusCirculate3_Switch);
+  }
+
+  public static void Message1000226(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventSeaCirculate3_Complete == false)
+    {
+      One.TF.EventSeaCirculate3_Complete = true;
+
+      Message(ref m_list, ref e_list, "8", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：オッケー！クリア！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうしたエオネ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：い、いえ。何でもありません。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアイン的にはこれも結構簡単だったわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、さすがにこれは簡単とは言えなかった。苦戦はしたさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし苦戦といっても窮地に立たされる状況ではなかったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういう意味じゃ苦戦という表現は若干違うかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：錯覚や失敗の連続を重ねるとそのうち目的に辿り着ける類だから・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういうの、何て言うんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：試行錯誤です。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう！それだそれ！サンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：よし、じゃあこの区画はクリアで良いんだよな！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ待て。まずは、宝箱を取らせてくれ。", ActionEvent.None);
     }
   }
   #endregion
