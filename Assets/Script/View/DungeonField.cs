@@ -11226,6 +11226,11 @@ public class DungeonField : MotherBase
     {
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
       {
+        if (LocationDetect(tile, 29.0f, 0, 9.0f))
+        {
+          this.HomeTownCall = Fix.TOWN_ANSHET;
+          return true;
+        }
         if (LocationDetect(tile, -10.0f, 0, -4.0f))
         {
           this.HomeTownCall = Fix.TOWN_FAZIL_CASTLE;
