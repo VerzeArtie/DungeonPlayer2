@@ -535,6 +535,11 @@ public class DungeonField : MotherBase
           return;
         }
 
+        if (One.TF.DefeatScreamingRafflesia && One.TF.Event_Message000111 == false)
+        {
+          MessagePack.Message000111(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
       }
 
       if (One.GoratrumHoleFalling)

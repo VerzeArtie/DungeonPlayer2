@@ -1617,7 +1617,7 @@ public partial class HomeTown : MotherBase
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
 
-    MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text);
+    MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text, One.TF.CurrentAreaName);
     TapOK();
   }
 
@@ -2281,6 +2281,25 @@ public partial class HomeTown : MotherBase
           this.panelSystemMessage.SetActive(false);
           this.txtQuestMessage.text = currentMessage;
           Debug.Log("ActionEvent.None: " + currentMessage);
+        }
+        // サブビューを全て非表示にする。
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownHideAllSubView)
+        {
+          GroupDungeonPlayer.SetActive(false);
+          GroupBackpack.SetActive(false);
+          GroupShopItem.SetActive(false);
+          GroupActionCommandSetting.SetActive(false);
+          GroupInn.SetActive(false);
+        }
+        // 宿屋を呼び出す
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownCallRestInn)
+        {
+          GroupDungeonPlayer.SetActive(false);
+          GroupBackpack.SetActive(false);
+          GroupShopItem.SetActive(false);
+          GroupActionCommandSetting.SetActive(false);
+          GroupInn.SetActive(true);
+          continue;
         }
         // 宿屋による休憩だけを実行する。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownExecRestInn)

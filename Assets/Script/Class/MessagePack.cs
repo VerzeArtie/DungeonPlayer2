@@ -68,6 +68,9 @@ public static class MessagePack
     EncountBoss,
     EncountDuel,
     SceneAdd,
+    HomeTownHideAllSubView,
+    HomeTownCallRestInn,
+    HomeTownExecRestInn,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -115,7 +118,6 @@ public static class MessagePack
     HomeTownTicketChoice,
     HomeTownGoToKahlhanz,
     HomeTownGotoFirstPlace,
-    HomeTownExecRestInn,
     HomeTownExecItemBank,
     HomeTownCallRequestFood,
     HomeTownButtonHidden,
@@ -191,35 +193,75 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：遠見の青水晶で既にダンジョンから脱出しているからな。今日はもう止めておこう。", ActionEvent.None);
   }
 
-  public static void MessageX00006(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  public static void MessageX00006(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu, string area_name)
   {
-    Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+    if (area_name == Fix.TOWN_FAZIL_CASTLE)
+    {
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】が良いかな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ハンナおばさん、すみませーん。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハンナ：ああ、ちょいと待ってな。今すぐ用意してあげるよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハンナ：はい、出来たよ。ゆっくりとしていきな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いやー、どうもありがとうございます。いただきまーす！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハンナ：部屋はそれぞれ取ってあるから、食べ終わったんなら、部屋に行って休息してくるんだね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ごちそうさまでした！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：色々とありがとうございます。じゃあお言葉に甘えて。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+      if (One.TF.AvailableBillyRaki)
+      {
+        Message(ref m_list, ref e_list, "ビリー：ごっそうさま！", ActionEvent.None);
+      }
 
-    Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ありがとうございました。じゃあ、私もこれで。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+      if (One.TF.AvailableEoneFulnea)
+      {
+        Message(ref m_list, ref e_list, "エオネ：ご馳走さまでした。", ActionEvent.None);
+      }
 
-    Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+    }
   }
 
   public static void MessageX00007(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -554,6 +596,35 @@ public static class MessagePack
 
   }
 
+  public static void Message000111(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message000111 == false)
+    {
+      One.TF.Event_Message000111 = true;
+      Message(ref m_list, ref e_list, "？？？：ッキ・・・ッキ・・・ァァ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうやら片付いたみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この草原区域で、この類のモンスターって出現していたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あんまり見ないわね。結構珍しいと思うわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：討伐自体は出来たわけだが、出てくる事自体に違和感はあったかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：安全とは言われてないし、たまには出るんじゃないかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん、そうかもな・・・ただ何というか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そんな事より、まず遠征許可証を取りに行きましょ。時間が無いわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな、分かった。ファージル宮殿の方へ早く向かうとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、頼んだわよ。", ActionEvent.None);
+    }
+  }
+
   public static void Message000120(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：よし、看板だな。どれどれ・・・", ActionEvent.None);
@@ -764,6 +835,8 @@ public static class MessagePack
 
   public static void Message100021(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownHideAllSubView);
+
     Message(ref m_list, ref e_list, "アイン：よし、" + Fix.TOWN_FAZIL_CASTLE + "に到着。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：正面ゲートから入ったらすぐ横の受付を済ませてちょうだいね。", ActionEvent.None);
@@ -6018,6 +6091,8 @@ public static class MessagePack
     {
       One.TF.Event_Message700020 = true;
 
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownHideAllSubView);
+
       Message(ref m_list, ref e_list, "ラナ：ハンナおばさん、こんにちはー♪", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ハンナ：ラナちゃん、久しぶりだねぇ、いらっしゃい。", ActionEvent.None);
@@ -6044,7 +6119,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【状況に応じた選択を行う事でより効果的なパラメタ調整を行って行くことをお勧めします。】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownCallRestInn);
     }
   }
 
