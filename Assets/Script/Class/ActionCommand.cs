@@ -508,8 +508,8 @@ public static class ActionCommand
   public static Attribute GetAttribute(string command_name)
   {
     #region "基本／一般"
-    if (command_name == Fix.NORMAL_ATTACK) { return Attribute.Skill; } // 物理としての基本攻撃である。
-    if (command_name == Fix.MAGIC_ATTACK) { return Attribute.Magic; } // 魔法としての基本攻撃である。
+    if (command_name == Fix.NORMAL_ATTACK) { return Attribute.Basic; } // 物理属性の基本攻撃。スキル属性には設定せずbasicとする。（束縛の対象にはならない）
+    if (command_name == Fix.MAGIC_ATTACK) { return Attribute.Basic; } // 魔法属性の基本攻撃。魔法属性には設定せずbasicとする。（沈黙の対象にはならない）
     if (command_name == Fix.DEFENSE) { return Attribute.Basic; }
     if (command_name == Fix.STAY) { return Attribute.Basic; }
     if (command_name == Fix.USE_RED_POTION_1) { return Attribute.Basic; }
