@@ -1556,6 +1556,7 @@ public partial class HomeTown : MotherBase
 
     One.TF.AddBackPack(current);
     One.TF.Gold -= current.Gold;
+    txtItemGoldCost.text = One.TF.Gold.ToString();
 
     ConstructBackpackView();
     TapBuyCancel();
