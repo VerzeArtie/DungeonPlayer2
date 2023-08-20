@@ -589,7 +589,7 @@ public partial class BattleEnemy : MotherBase
     // GUI画面向けオブジェクトの登録
     if (character.txtName != null)
     {
-      character.txtName.text = character.FullName;
+      character.txtName.text = character.ConvertToJP(character.FullName);
     }
     if (character.txtLife != null)
     {
