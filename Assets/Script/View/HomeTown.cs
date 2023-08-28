@@ -1133,6 +1133,14 @@ public partial class HomeTown : MotherBase
   private void CallDungeon(string source, string destination, float x, float y, float z)
   {
     Debug.Log("CallDungeon -> " + source + " " + destination);
+
+    // ホームタウンからダンジョンに向かう時、全快していて欲しい。宿屋ではないが全快扱いとする。
+    for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    {
+      One.PlayerList[ii].MaxGain();
+      One.PlayerList[ii].Dead = false;
+    }
+
     One.TF.AlreadyDungeon = true;
     One.TF.AlreadyRestInn = false;
     One.TF.Field_X = x;
