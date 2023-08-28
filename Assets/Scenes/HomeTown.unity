@@ -15401,6 +15401,7 @@ MonoBehaviour:
   txtSoulFragment: {fileID: 611975200}
   txtObsidianStone: {fileID: 1944776277}
   txtMessage: {fileID: 1282959264}
+  imgAreaIcon: {fileID: 1435905892}
   GroupConfig: {fileID: 1285538928}
   GroupDungeonPlayer: {fileID: 1853687127}
   contentDungeonPlayer: {fileID: 1403580622}
@@ -75124,8 +75125,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 54d69a2d3bb844e43aa7aa22ed53380e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

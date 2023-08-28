@@ -3771,28 +3771,29 @@ public partial class HomeTown : MotherBase
     }
     if (area_name == Fix.TOWN_FAZIL_CASTLE)
     {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-      shopList.Add(new Item(Fix.FINE_CLAW));
-      shopList.Add(new Item(Fix.FINE_LANCE));
-      shopList.Add(new Item(Fix.FINE_AXE));
-      shopList.Add(new Item(Fix.FINE_BOW));
-      shopList.Add(new Item(Fix.FINE_ORB));
-      shopList.Add(new Item(Fix.FINE_BOOK));
-      shopList.Add(new Item(Fix.FINE_ROD));
-      shopList.Add(new Item(Fix.FINE_SHIELD));
-      shopList.Add(new Item(Fix.FINE_ARMOR));
-      shopList.Add(new Item(Fix.FINE_CROSS));
-      shopList.Add(new Item(Fix.FINE_ROBE));
-      shopList.Add(new Item(Fix.RED_PENDANT));
-      shopList.Add(new Item(Fix.BLUE_PENDANT));
-      shopList.Add(new Item(Fix.PURPLE_PENDANT));
-      shopList.Add(new Item(Fix.GREEN_PENDANT));
-      shopList.Add(new Item(Fix.YELLOW_PENDANT));
-      shopList.Add(new Item(Fix.SWORD_OF_LIFE));
-      shopList.Add(new Item(Fix.BLUE_WIZARD_HAT));
-      shopList.Add(new Item(Fix.FLAME_HAND_KEEPER));
-      shopList.Add(new Item(Fix.RED_PILLER_ORB));
-      shopList.Add(new Item(Fix.MUIN_BOOK));
+      shopList.Add(new Item(Fix.CLASSICAL_SWORD));
+      shopList.Add(new Item(Fix.CLASSICAL_CLAW));
+      shopList.Add(new Item(Fix.CLASSICAL_LANCE));
+      shopList.Add(new Item(Fix.CLASSICAL_AXE));
+      shopList.Add(new Item(Fix.CLASSICAL_ROD));
+      shopList.Add(new Item(Fix.CLASSICAL_BOOK));
+      shopList.Add(new Item(Fix.CLASSICAL_ORB));
+      shopList.Add(new Item(Fix.CLASSICAL_BOW));
+      shopList.Add(new Item(Fix.CLASSICAL_SHIELD));
+      shopList.Add(new Item(Fix.CLASSICAL_ARMOR));
+      shopList.Add(new Item(Fix.CLASSICAL_CROSS));
+      shopList.Add(new Item(Fix.CLASSICAL_ROBE));
+      shopList.Add(new Item(Fix.RED_AMULET));
+      shopList.Add(new Item(Fix.BLUE_AMULET));
+      shopList.Add(new Item(Fix.PURPLE_AMULET));
+      shopList.Add(new Item(Fix.GREEN_AMULET));
+      shopList.Add(new Item(Fix.YELLOW_AMULET));
+      shopList.Add(new Item(Fix.ASH_EXCLUDE_LANCE));
+      shopList.Add(new Item(Fix.STAR_FUSION_ORB));
+      shopList.Add(new Item(Fix.ROIZ_IMPERIAL_ARMOR));
+      shopList.Add(new Item(Fix.CROWD_DIRGE_ROBE));
+      shopList.Add(new Item(Fix.FIVECOLOR_COMPASS));
+      shopList.Add(new Item(Fix.LIGHT_HAKURUANGEL_STATUE));
       shopList.Add(new Item(Fix.NORMAL_RED_POTION));
       shopList.Add(new Item(Fix.NORMAL_BLUE_POTION));
       shopList.Add(new Item(Fix.NORMAL_GREEN_POTION));
@@ -3800,11 +3801,6 @@ public partial class HomeTown : MotherBase
       //// todo
       //if (false)
       //{
-      //  shopList.Add(new Item(Fix.FINE_LANCE));
-      //  shopList.Add(new Item(Fix.FINE_AXE));
-      //  shopList.Add(new Item(Fix.FINE_BOW));
-      //  shopList.Add(new Item(Fix.FINE_ROD));
-      //  shopList.Add(new Item(Fix.FINE_BOOK));
       //  //shopList.Add(new Item(Fix.BASTARD_SWORD));
       //  shopList.Add(new Item(Fix.AERO_BLADE));
       //  shopList.Add(new Item(Fix.GEAR_GENSEI));
