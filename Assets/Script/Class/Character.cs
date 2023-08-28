@@ -4902,6 +4902,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_SPIKE_SHOT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
+        this.TargetSelectType = Fix.TargetSelectType.Behind;
         //this.CannotCritical = true; // クリティカルあり
         break;
 
