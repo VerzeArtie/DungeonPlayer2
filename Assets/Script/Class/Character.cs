@@ -6266,5 +6266,81 @@ public partial class Character : MonoBehaviour
   }
   #endregion
 
+  public string ConvertToJP(string src)
+  {
+    if (src == Fix.TINY_MANTIS) { return Fix.TINY_MANTIS_JP; }
+    if (src == Fix.GREEN_SLIME) { return Fix.GREEN_SLIME_JP; }
+    if (src == Fix.MANDRAGORA) { return Fix.MANDRAGORA_JP; }
+    if (src == Fix.YOUNG_WOLF) { return Fix.YOUNG_WOLF_JP; }
+    if (src == Fix.WILD_ANT) { return Fix.WILD_ANT_JP; }
+    if (src == Fix.OLD_TREEFORK) { return Fix.OLD_TREEFORK_JP; }
+    if (src == Fix.SUN_FLOWER) { return Fix.SUN_FLOWER_JP; }
+    if (src == Fix.SOLID_BEETLE) { return Fix.SOLID_BEETLE_JP; }
+    if (src == Fix.SILENT_LADYBUG) { return Fix.SILENT_LADYBUG_JP; }
+    if (src == Fix.NIMBLE_RABBIT) { return Fix.NIMBLE_RABBIT_JP; }
+    if (src == Fix.ENTANGLED_VINE) { return Fix.ENTANGLED_VINE_JP; }
+    if (src == Fix.CREEPING_SPIDER) { return Fix.CREEPING_SPIDER_JP; }
+    if (src == Fix.BLOOD_MOSS) { return Fix.BLOOD_MOSS_JP; }
+    if (src == Fix.KILLER_BEE) { return Fix.KILLER_BEE_JP; }
+    if (src == Fix.WONDER_SEED) { return Fix.WONDER_SEED_JP; }
+    if (src == Fix.DAUNTLESS_HORSE) { return Fix.DAUNTLESS_HORSE_JP; }
+    if (src == Fix.SCREAMING_RAFFLESIA) { return Fix.SCREAMING_RAFFLESIA_JP; }
 
+    if (src == Fix.DEBRIS_SOLDIER) { return Fix.DEBRIS_SOLDIER_JP; }
+    if (src == Fix.MAGICAL_AUTOMATA) { return Fix.MAGICAL_AUTOMATA_JP; }
+    if (src == Fix.KILLER_MACHINE) { return Fix.KILLER_MACHINE_JP; }
+    if (src == Fix.STINKY_BAT) { return Fix.STINKY_BAT_JP; }
+    if (src == Fix.ANTIQUE_MIRROR) { return Fix.ANTIQUE_MIRROR_JP; }
+    if (src == Fix.MECH_HAND) { return Fix.MECH_HAND_JP; }
+    if (src == Fix.ABSENCE_MOAI) { return Fix.ABSENCE_MOAI_JP; }
+    if (src == Fix.ACID_SCORPION) { return Fix.ACID_SCORPION_JP; }
+    if (src == Fix.NEJIMAKI_KNIGHT) { return Fix.NEJIMAKI_KNIGHT_JP; }
+    if (src == Fix.AIMING_SHOOTER) { return Fix.AIMING_SHOOTER_JP; }
+    if (src == Fix.CULT_BLACK_MAGICIAN_JP) { return Fix.CULT_BLACK_MAGICIAN_JP; }
+    if (src == Fix.STONE_GOLEM) { return Fix.STONE_GOLEM_JP; }
+    if (src == Fix.JUNK_VULKAN) { return Fix.JUNK_VULKAN_JP; }
+    if (src == Fix.LIGHTNING_CLOUD) { return Fix.LIGHTNING_CLOUD_JP; }
+    if (src == Fix.SILENT_GARGOYLE) { return Fix.SILENT_GARGOYLE_JP; }
+    if (src == Fix.GATE_HOUND) { return Fix.GATE_HOUND_JP; }
+    if (src == Fix.PLAY_FIRE_IMP_JP) { return Fix.PLAY_FIRE_IMP_JP; }
+    if (src == Fix.WALKING_TIME_BOMB) { return Fix.WALKING_TIME_BOMB_JP; }
+    if (src == Fix.EARTH_ELEMENTAL) { return Fix.EARTH_ELEMENTAL_JP; }
+    if (src == Fix.DEATH_DRONE) { return Fix.DEATH_DRONE_JP; }
+    if (src == Fix.ASSULT_SCARECROW) { return Fix.ASSULT_SCARECROW_JP; }
+    if (src == Fix.MAD_DOCTOR) { return Fix.MAD_DOCTOR_JP; }
+    if (src == Fix.MAGICAL_HAIL_GUN) { return Fix.MAGICAL_HAIL_GUN_JP; }
+    if (src == Fix.THE_GALVADAZER) { return Fix.THE_GALVADAZER_JP; }
+
+    if (src == Fix.CHARGED_BOAR) { return Fix.CHARGED_BOAR_JP; }
+    if (src == Fix.WOOD_ELF) { return Fix.WOOD_ELF_JP; }
+    if (src == Fix.STINKED_SPORE) { return Fix.STINKED_SPORE_JP; }
+    if (src == Fix.POISON_FLOG) { return Fix.POISON_FLOG_JP; }
+    if (src == Fix.GIANT_SNAKE) { return Fix.GIANT_SNAKE_JP; }
+    if (src == Fix.SAVAGE_BEAR) { return Fix.SAVAGE_BEAR_JP; }
+    if (src == Fix.INNOCENT_FAIRY) { return Fix.INNOCENT_FAIRY_JP; }
+    if (src == Fix.MYSTIC_DRYAD) { return Fix.MYSTIC_DRYAD_JP; }
+    if (src == Fix.SPEEDY_FALCON) { return Fix.SPEEDY_FALCON_JP; }
+    if (src == Fix.WOLF_HUNTER) { return Fix.WOLF_HUNTER_JP; }
+    if (src == Fix.FOREST_PHANTOM) { return Fix.FOREST_PHANTOM_JP; }
+    if (src == Fix.EXCITED_ELEPHANT) {  return Fix.EXCITED_ELEPHANT_JP; }
+    if (src == Fix.SYLPH_DANCER) { return Fix.SYLPH_DANCER_JP; }
+    if (src == Fix.GATHERING_LAPTOR) { return Fix.GATHERING_LAPTOR_JP; }
+    if (src == Fix.FOREST_ELEMENTAL) { return Fix.FOREST_ELEMENTAL_JP; }
+    if (src == Fix.THORN_WARRIOR) { return Fix.THORN_WARRIOR_JP; }
+    if (src == Fix.MUDDLED_PLANT) { return Fix.MUDDLED_PLANT_JP; }
+    if (src == Fix.FLANSIS_KNIGHT) { return Fix.FLANSIS_KNIGHT_JP; }
+    if (src == Fix.MIST_PYTHON) { return Fix.MIST_PYTHON_JP; }
+    if (src == Fix.TOWER_SCOUT) { return Fix.TOWER_SCOUT_JP; }
+    if (src == Fix.DISTURB_RHINO) { return Fix.DISTURB_RHINO_JP; }
+    if (src == Fix.POISON_MARY) { return Fix.POISON_MARY_JP; }
+    if (src == Fix.FLANSIS_OF_THE_FOREST_QUEEN) { return Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP; }
+
+    // 未設定
+    if (src == Fix.RUDE_WATCHDOG) { return Fix.RUDE_WATCHDOG_JP; }
+    if (src == Fix.STONE_STATUE_SEIHITSU) { return Fix.STONE_STATUE_SEIHITSU_JP; }
+    if (src == Fix.DISTORTED_SENSOR) { return Fix.DISTORTED_SENSOR_JP; }
+    if (src == Fix.SHOTGUN_HYUUI) { return Fix.SHOTGUN_HYUUI_JP; }
+
+    return src; // なにも該当しないなら、そのまま。
+  }
 }
