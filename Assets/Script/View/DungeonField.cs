@@ -5324,11 +5324,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Goratrum2_00003 == false && location.x == Fix.GORATRUM_2_Treasure_3_X && location.y == Fix.GORATRUM_2_Treasure_3_Y && location.z == Fix.GORATRUM_2_Treasure_3_Z)
         {
-          treasureName = Fix.LIGHTNING_CLAW;
+          treasureName = Fix.COLD_SPLASH_CLAW;
         }
         if (One.TF.Treasure_Goratrum2_00004 == false && location.x == Fix.GORATRUM_2_Treasure_4_X && location.y == Fix.GORATRUM_2_Treasure_4_Y && location.z == Fix.GORATRUM_2_Treasure_4_Z)
         {
-          treasureName = Fix.ICE_SPIRIT_LANCE;
+          treasureName = Fix.BLUE_LIGHTNING_SWORD;
         }
 
         if (treasureName == String.Empty)
