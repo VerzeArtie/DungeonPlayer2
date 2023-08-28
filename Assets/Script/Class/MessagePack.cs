@@ -1061,7 +1061,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：" + Fix.TOWN_COTUHSYE + "まで護衛して欲しいって事よね、承るわよ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：確認なんだけど、一般市民としてかしら？それとも、戦闘で何か出来る事はある？", ActionEvent.None);
 
@@ -1077,7 +1077,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
 
-    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！よろしくお願いします！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます。よろしくお願いします。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう！", ActionEvent.None);
 
@@ -4954,7 +4954,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：こんな道具使った事ないから本当助かるわ。その時は、お願いしますね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あ、ありがとうございます。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：じゃあ、続けて探索開始と行きますか！", ActionEvent.None);
     }
