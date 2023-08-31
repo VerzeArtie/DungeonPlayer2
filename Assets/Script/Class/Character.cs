@@ -5028,11 +5028,12 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAGICAL_HAIL_GUN:
       case Fix.MAGICAL_HAIL_GUN_JP:
-        SetupParameter(125, 55, 160, 560, 12, 0, 2500, 4000);
-        list.Add(Fix.NORMAL_ATTACK);
+        SetupParameter(90, 55, 90, 760, 15, 0, 7000, 5000);
+        list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SPAAAARK);
         list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
         list.Add(Fix.COMMAND_ELECTRO_RAILGUN);
+        list.Add(Fix.COMMAND_BEHIND_BOMB);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss2;
         this.CannotCritical = false;
@@ -6090,23 +6091,47 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAGICAL_HAIL_GUN:
         if (skip_decision == false) { this.AI_Phase++; }
-        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+        if (this.AI_Phase >= 8) { this.AI_Phase = 0; }
 
         if (this.AI_Phase == 0)
         {
-          current.Add(Fix.MAGIC_ATTACK);
+          current.Add(Fix.COMMAND_ELECTRO_RAILGUN);
         }
         else if (this.AI_Phase == 1)
         {
-          current.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
+          current.Add(Fix.MAGIC_ATTACK);
         }
         else if (this.AI_Phase == 2)
         {
-          current.Add(Fix.COMMAND_SPAAAARK);
+          current.Add(Fix.COMMAND_LIGHTNING_OUTBURST);
         }
         else if (this.AI_Phase == 3)
         {
-          current.Add(Fix.COMMAND_ELECTRO_RAILGUN);
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        else if (this.AI_Phase == 4)
+        {
+          current.Add(Fix.COMMAND_SPAAAARK);
+        }
+        else if (this.AI_Phase == 5)
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        else if (this.AI_Phase == 6)
+        {
+          current.Add(Fix.COMMAND_BEHIND_BOMB);
+          for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
+          {
+            if (opponent_group[ii].Dead == false)
+            {
+              this.Target = opponent_group[ii];
+              break;
+            }
+          }
+        }
+        else if (this.AI_Phase == 7)
+        {
+          current.Add(Fix.MAGIC_ATTACK);
         }
 
         result = RandomChoice(current);

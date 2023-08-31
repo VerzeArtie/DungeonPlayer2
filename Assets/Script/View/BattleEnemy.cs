@@ -1045,6 +1045,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatScreamingRafflesia = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MAGICAL_HAIL_GUN)
+        {
+          One.TF.DefeatMagicalHailGun = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HELL_KERBEROS)
         {
           One.TF.DefeatHellKerberos = true;
@@ -2391,21 +2395,23 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, false, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, false, critical);
         }
         // 相手に魔法攻撃が当たったかどうかに関係なく、自分自身へのBUFFは適用される。
-        ExecBuffPhysicalAttackUp(player, player, Fix.INFINITY, 1.20f);
+        ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 1.10f);
         break;
 
       case Fix.COMMAND_SUPER_RANDOM_CANNON:
-        for (int jj = 0; jj < 2; jj++)
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < 4; jj++)
         {
-          ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, false, critical);
+          double additional = AP.Math.RandomReal() / 2.0f;
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.8f + additional, Fix.DamageSource.Physical, false, critical);
         }
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -2425,8 +2431,8 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_LIGHTNING_OUTBURST:
-        PanelEnemyField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
-        StartAnimation(PanelEnemyField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
+        //PanelEnemyField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
+        //StartAnimation(PanelEnemyField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
         PanelPlayerField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
         StartAnimation(PanelPlayerField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
         break;

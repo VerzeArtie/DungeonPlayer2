@@ -967,7 +967,7 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_POWERED_ATTACK) { return TargetType.Enemy; }
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return TargetType.EnemyGroup; }
 
-    if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return TargetType.AllyField; }
+    if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return TargetType.EnemyField; }
     #endregion
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。

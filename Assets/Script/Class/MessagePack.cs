@@ -5908,7 +5908,30 @@ public static class MessagePack
 
   public static void Message600330(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    // todo ボス討伐後のイベント
+    if (One.TF.Event_Message600200 == false)
+    {
+      One.TF.Event_Message600200 = true;
+
+      Message(ref m_list, ref e_list, "？？？：ＡＡＡＡＡ！！ＲＲＲＡＡＲＡ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まだ動くのか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ＧＡ・・・ＧＧＩ・・・ＰＰＰＳＳＳＨＨＨＵ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：と、止まったんじゃないかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：コアの駆動部分が破壊された以上、もう動けないはずです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：順当とはいえ、ちょっと危なかったな・・・予想以上だった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ見て。向こう側にまだ通路があるわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、行ってみよう。", ActionEvent.None);
+    }
   }
 
   public static void Message600340(ref List<string> m_list, ref List<ActionEvent> e_list)

@@ -579,6 +579,15 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+      {
+        if (One.TF.DefeatMagicalHailGun && One.TF.Event_Message600200 == false)
+        {
+          MessagePack.Message600330(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
       {
         if (One.TF.DefeatHellKerberos && One.TF.QuestMain_Complete_00007 == false)
