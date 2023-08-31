@@ -1150,44 +1150,47 @@ public partial class BattleEnemy : MotherBase
     // ボス戦、Duel戦が対象
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
-      if (EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
+      if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
       {
-        EnemyList[ii].CurrentInstantPoint = 0;
-        EnemyList[ii].UpdateInstantPointGauge();
-        CreateStackObject(EnemyList[ii], EnemyList[ii], Fix.COMMAND_LIGHTNING_OUTBURST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-        return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
-      }
-
-      if (EnemyList[ii].FullName == Fix.THE_GALVADAZER || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP_VIEW)
-      {
-        EnemyList[ii].CurrentInstantPoint = 0;
-        EnemyList[ii].UpdateInstantPointGauge();
-        CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_DRILL_CYCLONE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-        return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
-      }
-
-      if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
-      {
-        if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
+        if (EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
-
-          CreateStackObject(EnemyList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          CreateStackObject(EnemyList[ii], EnemyList[ii], Fix.COMMAND_SUPER_RANDOM_CANNON, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
-      }
-      if (EnemyList[ii].FullName == Fix.DUEL_JEDA_ARUS)
-      {
-        if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
+
+        if (EnemyList[ii].FullName == Fix.THE_GALVADAZER || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP || EnemyList[ii].FullName == Fix.THE_GALVADAZER_JP_VIEW)
         {
-          if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, EnemyList[ii]))
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_DRILL_CYCLONE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
+        {
+          if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
           {
             EnemyList[ii].CurrentInstantPoint = 0;
             EnemyList[ii].UpdateInstantPointGauge();
 
-            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            CreateStackObject(EnemyList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+        }
+        if (EnemyList[ii].FullName == Fix.DUEL_JEDA_ARUS)
+        {
+          if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
+          {
+            if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, EnemyList[ii]))
+            {
+              EnemyList[ii].CurrentInstantPoint = 0;
+              EnemyList[ii].UpdateInstantPointGauge();
+
+              CreateStackObject(EnemyList[ii], PlayerList[0], Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
           }
         }
       }
