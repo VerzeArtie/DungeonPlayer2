@@ -607,6 +607,12 @@ public partial class HomeTown : MotherBase
 
   public void TapDungeonPlayer()
   {
+    if (One.TF.AlreadyDungeon)
+    {
+      MessagePack.MessageX00008(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.QuestMain_00002 == false)
     {
       MessagePack.Message700040(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -977,12 +983,6 @@ public partial class HomeTown : MotherBase
       this.txtQuestMessage.text = QuestMessageList[0];
       RemoveOneSentence();
       this.GroupQuestMessage.SetActive(true);
-      return;
-    }
-
-    if (One.TF.AlreadyDungeon)
-    {
-      MessagePack.MessageX00008(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
 
