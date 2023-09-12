@@ -3836,7 +3836,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 5;
         this.Mind = 4;
         this.BaseLife = 20 + 15; // level4スタートのため、LV2～LV4分を足し算。
-        this.BaseManaPoint = 20 + 9; // level4スタートのため、LV2～LV4分を足し算。
+        this.BaseManaPoint = 20 + 27; // level4スタートのため、LV2～LV4分を足し算。
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
@@ -3870,7 +3870,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 10;
         this.Mind = 5;
         this.BaseLife = 50 + 136; // level10スタートのため、LV2～LV10分を足し算。
-        this.BaseManaPoint = 10 + 20; // level10スタートのため、LV2～LV10分を足し算。
+        this.BaseManaPoint = 5 + 32; // level10スタートのため、LV2～LV10分を足し算。
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
@@ -3907,7 +3907,7 @@ public partial class Character : MonoBehaviour
         this.Stamina = 6;
         this.Mind = 3;
         this.BaseLife = 15 + 388; // LV20スタートのため
-        this.BaseManaPoint = 12;
+        this.BaseManaPoint = 25 + 220; // LV20スタートのため
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
@@ -4579,29 +4579,221 @@ public partial class Character : MonoBehaviour
   {
     if (this.FullName == Fix.NAME_EIN_WOLENCE)
     {
-      if (Level == 2) { return 2; }
-      if (Level == 3) { return 2; }
-      if (Level == 4) { return 2; }
-      if (Level == 5) { return 2; }
-      if (Level == 6) { return 2; }
-      if (Level == 7) { return 2; }
-      if (Level == 8) { return 2; }
-      if (Level == 9) { return 3; }
-      if (Level == 10) { return 3; }
+      if (Level == 2) { return 5; }
+      if (Level == 3) { return 5; }
+      if (Level == 4) { return 5; }
+      if (Level == 5) { return 5; }
+      if (Level == 6) { return 6; }
+      if (Level == 7) { return 6; }
+      if (Level == 8) { return 6; }
+      if (Level == 9) { return 6; }
+      if (Level == 10) { return 6; }
+      if (Level == 11) { return 7; }
+      if (Level == 12) { return 7; }
+      if (Level == 13) { return 7; }
+      if (Level == 14) { return 7; }
+      if (Level == 15) { return 7; }
+      if (Level == 16) { return 9; }
+      if (Level == 17) { return 9; }
+      if (Level == 18) { return 9; }
+      if (Level == 19) { return 9; }
+      if (Level == 20) { return 9; }
+      if (Level == 21) { return 11; }
+      if (Level == 22) { return 11; }
+      if (Level == 23) { return 11; }
+      if (Level == 24) { return 11; }
+      if (Level == 25) { return 11; }
+      if (Level == 26) { return 14; }
+      if (Level == 27) { return 14; }
+      if (Level == 28) { return 14; }
+      if (Level == 29) { return 14; }
+      if (Level == 30) { return 14; }
+      if (Level == 31) { return 17; }
+      if (Level == 32) { return 17; }
+      if (Level == 33) { return 17; }
+      if (Level == 34) { return 17; }
+      if (Level == 35) { return 17; }
+      if (Level == 36) { return 22; }
+      if (Level == 37) { return 22; }
+      if (Level == 38) { return 22; }
+      if (Level == 39) { return 22; }
+      if (Level == 40) { return 22; }
+      if (Level == 41) { return 27; }
+      if (Level == 42) { return 27; }
+      if (Level == 43) { return 27; }
+      if (Level == 44) { return 27; }
+      if (Level == 45) { return 27; }
+      if (Level == 46) { return 35; }
+      if (Level == 47) { return 35; }
+      if (Level == 48) { return 35; }
+      if (Level == 49) { return 35; }
+      if (Level == 50) { return 35; }
+      if (Level == 51) { return 43; }
+      if (Level == 52) { return 43; }
+      if (Level == 53) { return 43; }
+      if (Level == 54) { return 43; }
+      if (Level == 55) { return 43; }
+      if (Level == 56) { return 56; }
+      if (Level == 57) { return 56; }
+      if (Level == 58) { return 56; }
+      if (Level == 59) { return 56; }
+      if (Level == 60) { return 56; }
+      if (Level == 61) { return 69; }
+      if (Level == 62) { return 69; }
+      if (Level == 63) { return 69; }
+      if (Level == 64) { return 69; }
+      if (Level == 65) { return 69; }
+      if (Level == 66) { return 90; }
+      if (Level == 67) { return 90; }
+      if (Level == 68) { return 90; }
+      if (Level == 69) { return 90; }
+      if (Level == 70) { return 90; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
-      if (Level == 2) { return 3; }
-      if (Level == 3) { return 3; }
-      if (Level == 4) { return 3; }
-      if (Level == 5) { return 3; }
-      if (Level == 6) { return 3; }
-      if (Level == 7) { return 3; }
-      if (Level == 8) { return 3; }
-      if (Level == 9) { return 4; }
-      if (Level == 10) { return 4; }
+      if (Level == 2) { return 7; }
+      if (Level == 3) { return 7; }
+      if (Level == 4) { return 7; }
+      if (Level == 5) { return 7; }
+      if (Level == 6) { return 8; }
+      if (Level == 7) { return 8; }
+      if (Level == 8) { return 8; }
+      if (Level == 9) { return 8; }
+      if (Level == 10) { return 8; }
+      if (Level == 11) { return 10; }
+      if (Level == 12) { return 10; }
+      if (Level == 13) { return 10; }
+      if (Level == 14) { return 10; }
+      if (Level == 15) { return 10; }
+      if (Level == 16) { return 13; }
+      if (Level == 17) { return 13; }
+      if (Level == 18) { return 13; }
+      if (Level == 19) { return 13; }
+      if (Level == 20) { return 13; }
+      if (Level == 21) { return 17; }
+      if (Level == 22) { return 17; }
+      if (Level == 23) { return 17; }
+      if (Level == 24) { return 17; }
+      if (Level == 25) { return 17; }
+      if (Level == 26) { return 22; }
+      if (Level == 27) { return 22; }
+      if (Level == 28) { return 22; }
+      if (Level == 29) { return 22; }
+      if (Level == 30) { return 22; }
+      if (Level == 31) { return 28; }
+      if (Level == 32) { return 28; }
+      if (Level == 33) { return 28; }
+      if (Level == 34) { return 28; }
+      if (Level == 35) { return 28; }
+      if (Level == 36) { return 35; }
+      if (Level == 37) { return 35; }
+      if (Level == 38) { return 35; }
+      if (Level == 39) { return 35; }
+      if (Level == 40) { return 35; }
+      if (Level == 41) { return 43; }
+      if (Level == 42) { return 43; }
+      if (Level == 43) { return 43; }
+      if (Level == 44) { return 43; }
+      if (Level == 45) { return 43; }
+      if (Level == 46) { return 52; }
+      if (Level == 47) { return 52; }
+      if (Level == 48) { return 52; }
+      if (Level == 49) { return 52; }
+      if (Level == 50) { return 52; }
+      if (Level == 51) { return 62; }
+      if (Level == 52) { return 62; }
+      if (Level == 53) { return 62; }
+      if (Level == 54) { return 62; }
+      if (Level == 55) { return 62; }
+      if (Level == 56) { return 73; }
+      if (Level == 57) { return 73; }
+      if (Level == 58) { return 73; }
+      if (Level == 59) { return 73; }
+      if (Level == 60) { return 73; }
+      if (Level == 61) { return 85; }
+      if (Level == 62) { return 85; }
+      if (Level == 63) { return 85; }
+      if (Level == 64) { return 85; }
+      if (Level == 65) { return 85; }
+      if (Level == 66) { return 98; }
+      if (Level == 67) { return 98; }
+      if (Level == 68) { return 98; }
+      if (Level == 69) { return 98; }
+      if (Level == 70) { return 98; }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      if (Level == 2) { return 9; }
+      if (Level == 3) { return 9; }
+      if (Level == 4) { return 9; }
+      if (Level == 5) { return 9; }
+      if (Level == 6) { return 10; }
+      if (Level == 7) { return 10; }
+      if (Level == 8) { return 10; }
+      if (Level == 9) { return 10; }
+      if (Level == 10) { return 10; }
+      if (Level == 11) { return 12; }
+      if (Level == 12) { return 12; }
+      if (Level == 13) { return 12; }
+      if (Level == 14) { return 12; }
+      if (Level == 15) { return 12; }
+      if (Level == 16) { return 16; }
+      if (Level == 17) { return 16; }
+      if (Level == 18) { return 16; }
+      if (Level == 19) { return 16; }
+      if (Level == 20) { return 16; }
+      if (Level == 21) { return 22; }
+      if (Level == 22) { return 22; }
+      if (Level == 23) { return 22; }
+      if (Level == 24) { return 22; }
+      if (Level == 25) { return 22; }
+      if (Level == 26) { return 30; }
+      if (Level == 27) { return 30; }
+      if (Level == 28) { return 30; }
+      if (Level == 29) { return 30; }
+      if (Level == 30) { return 30; }
+      if (Level == 31) { return 40; }
+      if (Level == 32) { return 40; }
+      if (Level == 33) { return 40; }
+      if (Level == 34) { return 40; }
+      if (Level == 35) { return 40; }
+      if (Level == 36) { return 52; }
+      if (Level == 37) { return 52; }
+      if (Level == 38) { return 52; }
+      if (Level == 39) { return 52; }
+      if (Level == 40) { return 52; }
+      if (Level == 41) { return 66; }
+      if (Level == 42) { return 66; }
+      if (Level == 43) { return 66; }
+      if (Level == 44) { return 66; }
+      if (Level == 45) { return 66; }
+      if (Level == 46) { return 82; }
+      if (Level == 47) { return 82; }
+      if (Level == 48) { return 82; }
+      if (Level == 49) { return 82; }
+      if (Level == 50) { return 82; }
+      if (Level == 51) { return 100; }
+      if (Level == 52) { return 100; }
+      if (Level == 53) { return 100; }
+      if (Level == 54) { return 100; }
+      if (Level == 55) { return 100; }
+      if (Level == 56) { return 120; }
+      if (Level == 57) { return 120; }
+      if (Level == 58) { return 120; }
+      if (Level == 59) { return 120; }
+      if (Level == 60) { return 120; }
+      if (Level == 61) { return 142; }
+      if (Level == 62) { return 142; }
+      if (Level == 63) { return 142; }
+      if (Level == 64) { return 142; }
+      if (Level == 65) { return 142; }
+      if (Level == 66) { return 166; }
+      if (Level == 67) { return 166; }
+      if (Level == 68) { return 166; }
+      if (Level == 69) { return 166; }
+      if (Level == 70) { return 166; }
+    }
+    if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
       if (Level == 2) { return 3; }
       if (Level == 3) { return 3; }
@@ -4611,21 +4803,141 @@ public partial class Character : MonoBehaviour
       if (Level == 7) { return 4; }
       if (Level == 8) { return 4; }
       if (Level == 9) { return 4; }
-      if (Level == 10) { return 5; }
+      if (Level == 10) { return 4; }
+      if (Level == 11) { return 5; }
+      if (Level == 12) { return 5; }
+      if (Level == 13) { return 5; }
+      if (Level == 14) { return 5; }
+      if (Level == 15) { return 5; }
+      if (Level == 16) { return 7; }
+      if (Level == 17) { return 7; }
+      if (Level == 18) { return 7; }
+      if (Level == 19) { return 7; }
+      if (Level == 20) { return 7; }
+      if (Level == 21) { return 9; }
+      if (Level == 22) { return 9; }
+      if (Level == 23) { return 9; }
+      if (Level == 24) { return 9; }
+      if (Level == 25) { return 9; }
+      if (Level == 26) { return 12; }
+      if (Level == 27) { return 12; }
+      if (Level == 28) { return 12; }
+      if (Level == 29) { return 12; }
+      if (Level == 30) { return 12; }
+      if (Level == 31) { return 15; }
+      if (Level == 32) { return 15; }
+      if (Level == 33) { return 15; }
+      if (Level == 34) { return 15; }
+      if (Level == 35) { return 15; }
+      if (Level == 36) { return 19; }
+      if (Level == 37) { return 19; }
+      if (Level == 38) { return 19; }
+      if (Level == 39) { return 19; }
+      if (Level == 40) { return 19; }
+      if (Level == 41) { return 23; }
+      if (Level == 42) { return 23; }
+      if (Level == 43) { return 23; }
+      if (Level == 44) { return 23; }
+      if (Level == 45) { return 23; }
+      if (Level == 46) { return 28; }
+      if (Level == 47) { return 28; }
+      if (Level == 48) { return 28; }
+      if (Level == 49) { return 28; }
+      if (Level == 50) { return 28; }
+      if (Level == 51) { return 33; }
+      if (Level == 52) { return 33; }
+      if (Level == 53) { return 33; }
+      if (Level == 54) { return 33; }
+      if (Level == 55) { return 33; }
+      if (Level == 56) { return 39; }
+      if (Level == 57) { return 39; }
+      if (Level == 58) { return 39; }
+      if (Level == 59) { return 39; }
+      if (Level == 60) { return 39; }
+      if (Level == 61) { return 45; }
+      if (Level == 62) { return 45; }
+      if (Level == 63) { return 45; }
+      if (Level == 64) { return 45; }
+      if (Level == 65) { return 45; }
+      if (Level == 66) { return 52; }
+      if (Level == 67) { return 52; }
+      if (Level == 68) { return 52; }
+      if (Level == 69) { return 52; }
+      if (Level == 70) { return 52; }
     }
-    if (this.FullName == Fix.NAME_BILLY_RAKI)
+    if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
-      if (Level == 2) { return 2; }
-      if (Level == 3) { return 2; }
-      if (Level == 4) { return 2; }
-      if (Level == 5) { return 2; }
-      if (Level == 6) { return 2; }
-      if (Level == 7) { return 2; }
-      if (Level == 8) { return 2; }
-      if (Level == 9) { return 3; }
-      if (Level == 10) { return 3; }
+      if (Level == 2) { return 10; }
+      if (Level == 3) { return 10; }
+      if (Level == 4) { return 10; }
+      if (Level == 5) { return 10; }
+      if (Level == 6) { return 11; }
+      if (Level == 7) { return 11; }
+      if (Level == 8) { return 11; }
+      if (Level == 9) { return 11; }
+      if (Level == 10) { return 11; }
+      if (Level == 11) { return 12; }
+      if (Level == 12) { return 12; }
+      if (Level == 13) { return 12; }
+      if (Level == 14) { return 12; }
+      if (Level == 15) { return 12; }
+      if (Level == 16) { return 13; }
+      if (Level == 17) { return 13; }
+      if (Level == 18) { return 13; }
+      if (Level == 19) { return 13; }
+      if (Level == 20) { return 13; }
+      if (Level == 21) { return 15; }
+      if (Level == 22) { return 15; }
+      if (Level == 23) { return 15; }
+      if (Level == 24) { return 15; }
+      if (Level == 25) { return 15; }
+      if (Level == 26) { return 18; }
+      if (Level == 27) { return 18; }
+      if (Level == 28) { return 18; }
+      if (Level == 29) { return 18; }
+      if (Level == 30) { return 18; }
+      if (Level == 31) { return 23; }
+      if (Level == 32) { return 23; }
+      if (Level == 33) { return 23; }
+      if (Level == 34) { return 23; }
+      if (Level == 35) { return 23; }
+      if (Level == 36) { return 31; }
+      if (Level == 37) { return 31; }
+      if (Level == 38) { return 31; }
+      if (Level == 39) { return 31; }
+      if (Level == 40) { return 31; }
+      if (Level == 41) { return 44; }
+      if (Level == 42) { return 44; }
+      if (Level == 43) { return 44; }
+      if (Level == 44) { return 44; }
+      if (Level == 45) { return 44; }
+      if (Level == 46) { return 65; }
+      if (Level == 47) { return 65; }
+      if (Level == 48) { return 65; }
+      if (Level == 49) { return 65; }
+      if (Level == 50) { return 65; }
+      if (Level == 51) { return 99; }
+      if (Level == 52) { return 99; }
+      if (Level == 53) { return 99; }
+      if (Level == 54) { return 99; }
+      if (Level == 55) { return 99; }
+      if (Level == 56) { return 154; }
+      if (Level == 57) { return 154; }
+      if (Level == 58) { return 154; }
+      if (Level == 59) { return 154; }
+      if (Level == 60) { return 154; }
+      if (Level == 61) { return 243; }
+      if (Level == 62) { return 243; }
+      if (Level == 63) { return 243; }
+      if (Level == 64) { return 243; }
+      if (Level == 65) { return 243; }
+      if (Level == 66) { return 387; }
+      if (Level == 67) { return 387; }
+      if (Level == 68) { return 387; }
+      if (Level == 69) { return 387; }
+      if (Level == 70) { return 387; }
     }
-    return 2;
+    return 2; // 意味はないが2としておく。
   }
 
   public int LevelupBaseSkillPoint()
