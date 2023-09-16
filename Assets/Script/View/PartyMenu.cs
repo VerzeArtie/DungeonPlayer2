@@ -111,6 +111,7 @@ public class PartyMenu : MotherBase
   public void TapSwitchFormation()
   {
     panelHideOther.SetActive(!panelHideOther.activeInHierarchy);
+    this.SwitchCharacter = string.Empty;
   }
 
   public void TapBackpack()
