@@ -49,9 +49,12 @@ public class PartyMenu : MotherBase
   // BackpackView
   public NodeBackpackView ParentBackpackView;
 
+  public GameObject panelHideOther;
   // Inner Value
   private List<Character> PlayerList = new List<Character>();
   private Character CurrentPlayer = null;
+
+  private string SwitchCharacter = string.Empty;
 
   // Start is called before the first frame update
   public override void Start()
@@ -105,6 +108,11 @@ public class PartyMenu : MotherBase
     groupPartyBattleSetting.SetActive(true);
   }
 
+  public void TapSwitchFormation()
+  {
+    panelHideOther.SetActive(!panelHideOther.activeInHierarchy);
+  }
+
   public void TapBackpack()
   {
     if (ParentBackpackView.gameObject.activeInHierarchy)
@@ -126,6 +134,88 @@ public class PartyMenu : MotherBase
   public void TapStayListCharacter(Text txt_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    // 隊列変更
+    if (panelHideOther.activeInHierarchy)
+    {
+      Debug.Log("panelHideOther.activeInHierarchy is true, switch phase");
+      if (this.SwitchCharacter == String.Empty)
+      {
+        Debug.Log("SwitchCharacter is empty, then set it: " + txt_name.text);
+        this.SwitchCharacter = txt_name.text;
+      }
+      else if (this.SwitchCharacter == txt_name.text)
+      {
+        Debug.Log("SwitchCharacter is save, then cancel it: " + txt_name.text);
+        // 同じ場合はキャンセル扱い
+        this.SwitchCharacter = String.Empty;
+      }
+      else
+      {
+        // もう少し良い書き方があるはず。趣味なので探してみて最適化する事。
+        Debug.Log("SwitchCharacter start: " + this.SwitchCharacter + " -> " + txt_name.text);
+        // Swap
+        if (One.TF.BattlePlayer1 == txt_name.text)
+        {
+          One.TF.BattlePlayer1 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer2 == this.SwitchCharacter) { One.TF.BattlePlayer2 = txt_name.text; }
+          else if (One.TF.BattlePlayer3 == this.SwitchCharacter) { One.TF.BattlePlayer3 = txt_name.text; }
+          else if (One.TF.BattlePlayer4 == this.SwitchCharacter) { One.TF.BattlePlayer4 = txt_name.text; }
+          else if (One.TF.BattlePlayer5 == this.SwitchCharacter) { One.TF.BattlePlayer5 = txt_name.text; }
+          else if (One.TF.BattlePlayer6 == this.SwitchCharacter) { One.TF.BattlePlayer6 = txt_name.text; }
+        }
+        else if (One.TF.BattlePlayer2 == txt_name.text)
+        {
+          One.TF.BattlePlayer2 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer1 == this.SwitchCharacter) { One.TF.BattlePlayer1 = txt_name.text; }
+          else if (One.TF.BattlePlayer3 == this.SwitchCharacter) { One.TF.BattlePlayer3 = txt_name.text; }
+          else if (One.TF.BattlePlayer4 == this.SwitchCharacter) { One.TF.BattlePlayer4 = txt_name.text; }
+          else if (One.TF.BattlePlayer5 == this.SwitchCharacter) { One.TF.BattlePlayer5 = txt_name.text; }
+          else if (One.TF.BattlePlayer6 == this.SwitchCharacter) { One.TF.BattlePlayer6 = txt_name.text; }
+        }
+        else if (One.TF.BattlePlayer3 == txt_name.text)
+        {
+          One.TF.BattlePlayer3 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer1 == this.SwitchCharacter) { One.TF.BattlePlayer1 = txt_name.text; }
+          else if (One.TF.BattlePlayer2 == this.SwitchCharacter) { One.TF.BattlePlayer2 = txt_name.text; }
+          else if (One.TF.BattlePlayer4 == this.SwitchCharacter) { One.TF.BattlePlayer4 = txt_name.text; }
+          else if (One.TF.BattlePlayer5 == this.SwitchCharacter) { One.TF.BattlePlayer5 = txt_name.text; }
+          else if (One.TF.BattlePlayer6 == this.SwitchCharacter) { One.TF.BattlePlayer6 = txt_name.text; }
+        }
+        else if (One.TF.BattlePlayer4 == txt_name.text)
+        {
+          One.TF.BattlePlayer4 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer1 == this.SwitchCharacter) { One.TF.BattlePlayer1 = txt_name.text; }
+          else if (One.TF.BattlePlayer2 == this.SwitchCharacter) { One.TF.BattlePlayer2 = txt_name.text; }
+          else if (One.TF.BattlePlayer3 == this.SwitchCharacter) { One.TF.BattlePlayer3 = txt_name.text; }
+          else if (One.TF.BattlePlayer5 == this.SwitchCharacter) { One.TF.BattlePlayer5 = txt_name.text; }
+          else if (One.TF.BattlePlayer6 == this.SwitchCharacter) { One.TF.BattlePlayer6 = txt_name.text; }
+        }
+        else if (One.TF.BattlePlayer5 == txt_name.text)
+        {
+          One.TF.BattlePlayer5 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer1 == this.SwitchCharacter) { One.TF.BattlePlayer1 = txt_name.text; }
+          else if (One.TF.BattlePlayer2 == this.SwitchCharacter) { One.TF.BattlePlayer2 = txt_name.text; }
+          else if (One.TF.BattlePlayer3 == this.SwitchCharacter) { One.TF.BattlePlayer3 = txt_name.text; }
+          else if (One.TF.BattlePlayer4 == this.SwitchCharacter) { One.TF.BattlePlayer4 = txt_name.text; }
+          else if (One.TF.BattlePlayer6 == this.SwitchCharacter) { One.TF.BattlePlayer6 = txt_name.text; }
+        }
+        else if (One.TF.BattlePlayer6 == txt_name.text)
+        {
+          One.TF.BattlePlayer6 = this.SwitchCharacter;
+          if (One.TF.BattlePlayer1 == this.SwitchCharacter) { One.TF.BattlePlayer1 = txt_name.text; }
+          else if (One.TF.BattlePlayer2 == this.SwitchCharacter) { One.TF.BattlePlayer2 = txt_name.text; }
+          else if (One.TF.BattlePlayer3 == this.SwitchCharacter) { One.TF.BattlePlayer3 = txt_name.text; }
+          else if (One.TF.BattlePlayer4 == this.SwitchCharacter) { One.TF.BattlePlayer4 = txt_name.text; }
+          else if (One.TF.BattlePlayer5 == this.SwitchCharacter) { One.TF.BattlePlayer5 = txt_name.text; }
+        }
+        this.SwitchCharacter = String.Empty;
+        RefreshAllView();
+      }
+      return;
+    }
+    Debug.Log("panelHideOther.activeInHierarchy is false...");
+
     // コマンド実行
     if (objCancelActionCommand.activeInHierarchy)
     {
@@ -560,8 +650,31 @@ public class PartyMenu : MotherBase
     List<Character> list = One.AvailableCharacters;
     for (int ii = 0; ii < list.Count; ii++)
     {
-      PlayerList.Add(list[ii]);
+      if (One.TF.BattlePlayer1 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
     }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer2 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer3 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer4 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer5 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer6 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
+    }
+
+    // 不要なフィルタを排除
+    panelHideOther.SetActive(false);
 
     // パーティステータス画面への反映
     SetupStayList();

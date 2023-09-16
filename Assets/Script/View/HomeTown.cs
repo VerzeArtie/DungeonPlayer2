@@ -3279,7 +3279,51 @@ public partial class HomeTown : MotherBase
     List<Character> available = One.AvailableCharacters;
     for (int ii = 0; ii < available.Count; ii++)
     {
-      CreateMiniCharaIcon(available[ii]);
+      if (One.TF.BattlePlayer1 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < available.Count; ii++)
+    {
+      if (One.TF.BattlePlayer2 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < available.Count; ii++)
+    {
+      if (One.TF.BattlePlayer3 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < available.Count; ii++)
+    {
+      if (One.TF.BattlePlayer4 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < available.Count; ii++)
+    {
+      if (One.TF.BattlePlayer5 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < available.Count; ii++)
+    {
+      if (One.TF.BattlePlayer6 == available[ii].FullName)
+      {
+        CreateMiniCharaIcon(available[ii]);
+        break;
+      }
     }
     UpdateActionCommandSetting(this.CurrentPlayer);
 

@@ -16006,13 +16006,77 @@ public class DungeonField : MotherBase
     List<Character> list = One.AvailableCharacters;
     for (int ii = 0; ii < list.Count; ii++)
     {
-      NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
-      current.Refresh(list[ii]);
-      current.transform.SetParent(GroupCharacterList.transform);
-      MiniCharaList.Add(current);
-
-      PlayerList.Add(list[ii]);
+      if (One.TF.BattlePlayer1 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]);
+        break; 
+      }
     }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer2 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]); 
+        break; 
+      }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer3 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]); 
+        break; 
+      }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer4 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]); 
+        break;
+      }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer5 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]);
+        break;
+      }
+    }
+    for (int ii = 0; ii < list.Count; ii++)
+    {
+      if (One.TF.BattlePlayer6 == list[ii].FullName)
+      {
+        NodeMiniChara current = Instantiate(nodeCharaPanel) as NodeMiniChara;
+        current.Refresh(list[ii]);
+        current.transform.SetParent(GroupCharacterList.transform);
+        MiniCharaList.Add(current);
+        PlayerList.Add(list[ii]);
+        break;
+      }
+    }
+
     // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
     if (list.Count < Fix.MAX_TEAM_MEMBER)
     {
