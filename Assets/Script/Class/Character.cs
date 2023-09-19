@@ -4967,49 +4967,75 @@ public partial class Character : MonoBehaviour
       // if (Level == 1) { return Fix.STRAIGHT_SMASH; }
       if (Level == 2) { return Fix.FIRE_BALL; }
       if (Level == 4) { return Fix.STANCE_OF_THE_BLADE; }
-      if (Level == 7) { return Fix.FLAME_BLADE; }
-      if (Level == 10) { return Fix.ARCHETYPE_EIN_1; }
+      if (Level == 6) { return Fix.FLAME_BLADE; }
+      if (Level == 8) { return Fix.DOUBLE_SLASH; }
+      if (Level == 10) { return Fix.METEOR_BULLET; }
+      if (Level == 12) { return Fix.SHIELD_BASH; }
+      if (Level == 14) { return Fix.STANCE_OF_THE_GUARD; }
+      if (Level == 16) { return Fix.CONCUSSIVE_HIT; }
+      if (Level == 18) { return Fix.VOLCANIC_BLAZE; }
+      if (Level == 20) { return Fix.IRON_BUSTER; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
       // if (Level == 1) { return Fix.ICE_NEEDLE; }
       if (Level == 2) { return Fix.LEG_STRIKE; }
       if (Level == 4) { return Fix.PURE_PURIFICATION; }
-      if (Level == 7) { return Fix.SPEED_STEP; }
-      if (Level == 10) { return Fix.ARCHETYPE_LANA_1; }
+      if (Level == 6) { return Fix.SPEED_STEP; }
+      if (Level == 8) { return Fix.BLUE_BULLET; }
+      if (Level == 10) { return Fix.BONE_CRUSH; }
+      if (Level == 12) { return Fix.SHADOW_BLAST; }
+      if (Level == 14) { return Fix.BLOOD_SIGN; }
+      if (Level == 16) { return Fix.BLACK_CONTRACT; }
+      if (Level == 18) { return Fix.DEADLY_DRIVE; }
+      if (Level == 20) { return Fix.FREEZING_CUBE; }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
       // if (Level == 1) { return Fix.FRESH_HEAL; }
       if (Level == 2) { return Fix.HUNTER_SHOT; }
       if (Level == 4) { return Fix.DIVINE_CIRCLE; }
-      if (Level == 7) { return Fix.MULTIPLE_SHOT; }
-      if (Level == 10) { return Fix.ARCHETYPE_EONE_1; }
+      if (Level == 6) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 8) { return Fix.HOLY_BREATH; }
+      if (Level == 10) { return Fix.EYE_OF_THE_ISSHIN; }
+      if (Level == 12) { return Fix.DISPEL_MAGIC; }
+      if (Level == 14) { return Fix.SPIRITUAL_REST; }
+      if (Level == 16) { return Fix.UNSEEN_AID; }
+      if (Level == 18) { return Fix.ANGELIC_ECHO; }
+      if (Level == 20) { return Fix.PENETRATION_ARROW; }
     }
     if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
       // if (Level == 1) { return Fix.LEG_STRIKE; }
       if (Level == 2) { return Fix.FIRE_BALL; }
       if (Level == 4) { return Fix.SPEED_STEP; }
-      if (Level == 7) { return Fix.FLAME_BLADE; }
-      if (Level == 10) { return Fix.ARCHETYPE_BILLY_1; }
+      if (Level == 6) { return Fix.FLAME_BLADE; }
+      if (Level == 8) { return Fix.BONE_CRUSH; }
+      if (Level == 10) { return Fix.METEOR_BULLET; }
+      if (Level == 12) { return Fix.TRUE_SIGHT; }
+      if (Level == 14) { return Fix.LEYLINE_SCHEMA; }
+      if (Level == 16) { return Fix.VOICE_OF_VIGOR; }
+      if (Level == 18) { return Fix.VOLCANIC_BLAZE; }
+      if (Level == 20) { return Fix.IRON_BUSTER; }
     }
     if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
       // if (Level == 1) { return Fix.ENERGY_BOLT; }
-      if (Level == 2) { return Fix.DISPEL_MAGIC; }
+      if (Level == 2) { return Fix.ORACLE_COMMAND; }
       if (Level == 4) { return Fix.FLASH_COUNTER; }
-      if (Level == 7) { return Fix.SPIRITUAL_REST; }
-      if (Level == 10) { return Fix.ARCHETYPE_ADEL_1; }
+      if (Level == 6) { return Fix.FORTUNE_SPIRIT; }
+      if (Level == 8) { return Fix.SIGIL_OF_THE_PENDING; }
+      if (Level == 10) { return Fix.WORD_OF_POWER; }
+      if (Level == 12) { return Fix.ICE_NEEDLE; }
+      if (Level == 14) { return Fix.PURE_PURIFICATION; }
+      if (Level == 16) { return Fix.BLUE_BULLET; }
+      if (Level == 18) { return Fix.PHANTOM_OBORO; }
+      if (Level == 20) { return Fix.GALE_WIND; }
     }
 
     if (this.FullName == Fix.NAME_SELMOI_RO)
     {
       //if (Level == 1) { return Fix.SHADOW_BLAST; }
-      if (Level == 2) { return Fix.HUNTER_SHOT; }
-      if (Level == 4) { return Fix.BLOOD_SIGN; }
-      if (Level == 7) { return Fix.MULTIPLE_SHOT; }
-      if (Level == 10) { return Fix.ARCHETYPE_RO_1; }
     }
     return String.Empty;
   }
