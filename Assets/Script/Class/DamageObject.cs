@@ -36,11 +36,19 @@ public class DamageObject : MonoBehaviour
     }
   }
 
+  [SerializeField] protected int _chainNumber = 0;
+  public int ChainNumber
+  {
+    get { return _chainNumber; }
+    set { _chainNumber = value; }
+  }
+
   public Text txtMessage;
 
-  public void Construct(string message, Color color, int timer)
+  public void Construct(string message, int chain_num, Color color, int timer)
   {
     _message = message;
+    _chainNumber = chain_num;
     _timer = timer;
     _firstLook = false;
     txtMessage.text = String.Empty; // message;

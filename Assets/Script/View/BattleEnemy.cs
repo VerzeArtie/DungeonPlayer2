@@ -159,6 +159,8 @@ public partial class BattleEnemy : MotherBase
   protected bool NowAnimationArchetect;
   protected int AnimationArchetectProgress;
 
+  protected int GlobalAnimationChain = 0; // アニメーション実行の際、ひとまとめで表示したい箇所についてナンバーを宣言し、同一ナンバーの場合はまとめてアニメーション実行するためのフラグ
+
   protected int AutoExit = -1;
 
   private float BATTLE_GAUGE_WITDH = 0;
@@ -1482,7 +1484,7 @@ public partial class BattleEnemy : MotherBase
     if (command_name == string.Empty)
     {
       Debug.Log("command_name is empty, then no action.");
-      StartAnimation(player.objGroup.gameObject, "Miss", Fix.COLOR_NORMAL);
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
 
@@ -1591,6 +1593,7 @@ public partial class BattleEnemy : MotherBase
       player.NowExecSyutyuDanzetsu = true;
     }
 
+    this.GlobalAnimationChain++; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
     #region "コマンド実行"
     List<Character> target_list = null;
     int rand = 0;
@@ -2499,6 +2502,7 @@ public partial class BattleEnemy : MotherBase
         break;
     }
     #endregion
+    this.GlobalAnimationChain--; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
   }
 
   private List<Character> GetAllMember()
@@ -2563,7 +2567,14 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, -AP.Math.RandomInteger(5) * 20.0f);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    damageObj.Construct(message, color, animation_speed);
+    if (this.GlobalAnimationChain > 0)
+    {
+      damageObj.Construct(message, this.GlobalAnimationChain, color, animation_speed);
+    }
+    else
+    {
+      damageObj.Construct(message, 0, color, animation_speed);
+    }
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -2583,7 +2594,14 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
 
     // アニメーショングループに再設定してアニメーション表示する。
-    damageObj.Construct(message, color, animation_speed);
+    if (this.GlobalAnimationChain > 0)
+    {
+      damageObj.Construct(message, this.GlobalAnimationChain, color, animation_speed);
+    }
+    else
+    {
+      damageObj.Construct(message, 0, color, animation_speed);
+    }
     damageObj.transform.SetParent(GroupAnimation.transform);
     damageObj.gameObject.SetActive(true);
     this.NowAnimationMode = true;
@@ -2595,11 +2613,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecAnimation()
   {
     bool detect = false;
+    int chainNumber = 0;
     DamageObject[] damageObj = GroupAnimation.GetComponentsInChildren<DamageObject>();
     for (int ii = 0; ii < damageObj.Length; ii++)
     {
       if (damageObj[ii].Timer > 0)
       {
+        // 最初に検知したチェインナンバーと同じものはアニメーション実行する。
+        if ((chainNumber) > 0 && (damageObj[ii].ChainNumber != chainNumber))
+        {
+          continue;
+        }
+
         damageObj[ii].FirstLook = true;
         damageObj[ii].Timer--;
         RectTransform rect = damageObj[ii].txtMessage.GetComponent<RectTransform>();
@@ -2612,6 +2637,7 @@ public partial class BattleEnemy : MotherBase
         rect.position = new Vector3(rect.position.x + moveX, rect.position.y, rect.position.z);
 
         detect = true;
+        chainNumber = damageObj[ii].ChainNumber;
 
         if (damageObj[ii].Timer <= 0)
         {
@@ -2622,7 +2648,11 @@ public partial class BattleEnemy : MotherBase
           Destroy(damageObj[ii].gameObject);
           damageObj[ii] = null;
         }
-        break;
+
+        if (chainNumber <= 0)
+        {
+          break;
+        }
       }
     }
 
@@ -4133,7 +4163,7 @@ public partial class BattleEnemy : MotherBase
     // ターゲットが既に死んでいる場合
     if (target.Dead)
     {
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL, animation_speed);
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
     }
