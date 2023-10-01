@@ -1619,6 +1619,7 @@ public partial class HomeTown : MotherBase
 
   public void TapInnAccept(Text sender)
   {
+    Debug.Log("TapInnAccept(S)");
     GroupInnDecision.SetActive(false);
     GroupInn.SetActive(false);
     One.TF.AlreadyRestInn = true;
@@ -1626,6 +1627,16 @@ public partial class HomeTown : MotherBase
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
 
+    // 港町コチューシェ、第二属性の開放
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence)
+    {
+      Debug.Log("TOWN_COTUHSYE event 1");
+      MessagePack.Message400050(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
+    Debug.Log("TapInnAccept normal");
     MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text, One.TF.CurrentAreaName);
     TapOK();
   }
