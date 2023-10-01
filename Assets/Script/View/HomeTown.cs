@@ -2120,6 +2120,32 @@ public partial class HomeTown : MotherBase
           RefreshAllView();
           continue; // 継続
         }
+        // パーティから離脱する
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownRemoveCharacter)
+        {
+          if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
+          {
+            if (One.TF.BattlePlayer1 == Fix.NAME_EONE_FULNEA)
+            {
+              One.TF.BattlePlayer1 = One.TF.BattlePlayer2;
+              One.TF.BattlePlayer2 = One.TF.BattlePlayer3;
+              One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
+              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+            }
+            else if (One.TF.BattlePlayer2 == Fix.NAME_EONE_FULNEA)
+            {
+              One.TF.BattlePlayer2 = One.TF.BattlePlayer3;
+              One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
+              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+            }
+            else if (One.TF.BattlePlayer3 == Fix.NAME_EONE_FULNEA)
+            {
+              One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
+              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+            }
+          }
+          continue; // 継続
+        }
         // アイテムの入手
         else if (currentEvent == MessagePack.ActionEvent.GetItem)
         {

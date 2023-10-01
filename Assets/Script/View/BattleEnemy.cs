@@ -239,7 +239,7 @@ public partial class BattleEnemy : MotherBase
       if (ii == 0) { target = One.TF.BattlePlayer1; Debug.Log("target1 is " + target); }
       if (ii == 1) { target = One.TF.BattlePlayer2; Debug.Log("target2 is " + target); }
       if (ii == 2) { target = One.TF.BattlePlayer3; Debug.Log("target3 is " + target); }
-      if (ii == 3) { target = One.TF.BattlePlayer4; Debug.Log("target4 is " + target); }
+      //if (ii == 3) { target = One.TF.BattlePlayer4; Debug.Log("target4 is " + target); }
 
       int counter = 0;
       if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.SelectCharacter(target)); }

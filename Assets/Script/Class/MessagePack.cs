@@ -131,6 +131,7 @@ public static class MessagePack
     HomeTownCallDecision,
     HomeTownCallDecision3,
     HomeTownAddNewCharacter,
+    HomeTownRemoveCharacter,
     GetGreenPotionForLana,
     CallSomeMessageWithAnimation,
     CallSomeMessageWithNotJoinLana,
@@ -3935,7 +3936,51 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：じゃあ、いざ出発！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "", ActionEvent.ViewQuestDisplay);
+      Message(ref m_list, ref e_list, "エオネ：あ、あの。ちょっと宜しいでしょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：港町で少し事を済ませたい案件があるので、少し離れていても大丈夫でしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そういえば港町まで行きたいって最初依頼してた時に言ってたよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：エオネさん、今までありがとうね。またどこかで会えたら声かけしてね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：はい。ありがとうございます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そ、それで・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まだ何か済ませたい案件が他にもあるのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ、事を済ませた後についてですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：また、同行させてもらっても良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、そういう話か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もちろん、同行してもらうのは大歓迎だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あっ・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：どうもありがとうございます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、決まりね。アインはエオネさんから声かけがあったら、ちゃんと応対してよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、分かった！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、エオネ。また後で終わり次第、声かけしてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：わかりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownRemoveCharacter);
+
+      Message(ref m_list, ref e_list, " ～エオネ・フルネアはパーティから離脱しました～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　パーティ画面でサブ・グループが追加されました。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　サブ・グループのメンバーは戦闘に参加する事はできませんが、経験値は入ります。", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "　アイテムの受け渡しなどは行えるため、メイン・グループの装備を整える事をお勧めします。 ", ActionEvent.MessageDisplay);
     }
   }
   #endregion
