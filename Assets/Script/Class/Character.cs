@@ -4975,6 +4975,10 @@ public partial class Character : MonoBehaviour
       if (Level == 16) { return Fix.CONCUSSIVE_HIT; }
       if (Level == 18) { return Fix.VOLCANIC_BLAZE; }
       if (Level == 20) { return Fix.IRON_BUSTER; }
+      if (Level == 22) { return Fix.DOMINATION_FIELD; }
+      if (Level == 24) { return Fix.FLAME_STRIKE; }
+      if (Level == 26) { return Fix.RAGING_STORM; }
+      if (Level == 28) { return Fix.HARDEST_PARRY; }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
     {
@@ -4989,6 +4993,10 @@ public partial class Character : MonoBehaviour
       if (Level == 16) { return Fix.BLACK_CONTRACT; }
       if (Level == 18) { return Fix.DEADLY_DRIVE; }
       if (Level == 20) { return Fix.FREEZING_CUBE; }
+      if (Level == 22) { return Fix.CURSED_EVANGILE; }
+      if (Level == 24) { return Fix.UNINTENTIONAL_HIT; }
+      if (Level == 26) { return Fix.FROST_LANCE; }
+      if (Level == 28) { return Fix.CIRCLE_OF_THE_DESPAIR; }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
@@ -5003,6 +5011,10 @@ public partial class Character : MonoBehaviour
       if (Level == 16) { return Fix.UNSEEN_AID; }
       if (Level == 18) { return Fix.ANGELIC_ECHO; }
       if (Level == 20) { return Fix.PENETRATION_ARROW; }
+      if (Level == 22) { return Fix.CIRCLE_OF_SERENITY; }
+      if (Level == 24) { return Fix.SHINING_HEAL; }
+      if (Level == 26) { return Fix.PRECISION_STRIKE; }
+      if (Level == 28) { return Fix.INNER_INSPIRATION; }
     }
     if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
@@ -5016,7 +5028,11 @@ public partial class Character : MonoBehaviour
       if (Level == 14) { return Fix.LEYLINE_SCHEMA; }
       if (Level == 16) { return Fix.VOICE_OF_VIGOR; }
       if (Level == 18) { return Fix.VOLCANIC_BLAZE; }
-      if (Level == 20) { return Fix.IRON_BUSTER; }
+      if (Level == 20) { return Fix.WILL_AWAKENING; }
+      if (Level == 22) { return Fix.DEADLY_DRIVE; }
+      if (Level == 24) { return Fix.FLAME_STRIKE; }
+      if (Level == 26) { return Fix.UNINTENTIONAL_HIT; }
+      if (Level == 28) { return Fix.EVERFLOW_MIND; }
     }
     if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
@@ -5031,6 +5047,10 @@ public partial class Character : MonoBehaviour
       if (Level == 16) { return Fix.BLUE_BULLET; }
       if (Level == 18) { return Fix.PHANTOM_OBORO; }
       if (Level == 20) { return Fix.GALE_WIND; }
+      if (Level == 22) { return Fix.FREEZING_CUBE; }
+      if (Level == 24) { return Fix.SEVENTH_PRINCIPLE; }
+      if (Level == 26) { return Fix.COUNTER_DISALLOW; }
+      if (Level == 28) { return Fix.FROST_LANCE; }
     }
 
     if (this.FullName == Fix.NAME_SELMOI_RO)
