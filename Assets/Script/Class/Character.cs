@@ -1424,6 +1424,11 @@ public partial class Character : MonoBehaviour
   [SerializeField] protected int _CounterAttack = 0;
   public int CounterAttack { set { if (value >= 0) { _CounterAttack = value; } } get { return _CounterAttack; } }
 
+  [SerializeField] protected int _Catastrophe = 0;
+  public int Catastrophe { set { if (value >= 0) { _Catastrophe = value; } } get { return _Catastrophe; } }
+  [SerializeField] protected int _Genesis = 0;
+  public int Genesis { set { if (value >= 0) { _Genesis = value; } } get { return _Genesis; } }
+
   [SerializeField] protected int _SanctionField = 0;
   public int SanctionField
   {

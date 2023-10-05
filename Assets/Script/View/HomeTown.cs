@@ -1627,8 +1627,12 @@ public partial class HomeTown : MotherBase
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
 
+    Debug.Log("One.TF.CurrentAreaName: " + One.TF.CurrentAreaName);
+    Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
+    Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
+
     // 港町コチューシェ、第二属性の開放
-    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence)
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence == false)
     {
       Debug.Log("TOWN_COTUHSYE event 1");
       MessagePack.Message400050(ref QuestMessageList, ref QuestEventList, sender.text);

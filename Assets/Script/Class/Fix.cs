@@ -603,6 +603,14 @@ public static partial class Fix
   public const int MAX_INSTANT_NUM = 9;
   public const int BASIC_SKILLPOINT = 100;
   #endregion
+
+  public static int CHARACTER_MAX_LEVEL1 = 10; // エスミリア草原区域まで
+  public static int CHARACTER_MAX_LEVEL2 = 20; // ゴラトラム洞窟まで
+  public static int CHARACTER_MAX_LEVEL3 = 30; // 神秘の森まで
+  public static int CHARACTER_MAX_LEVEL4 = 40; // オーランの塔まで
+  public static int CHARACTER_MAX_LEVEL5 = 50; // ヴェルガスの海底神殿まで
+  public static int CHARACTER_MAX_LEVEL6 = 60; // エデルガイゼン城まで
+  public static int CHARACTER_MAX_LEVEL7 = 70; // 真実世界まで
   #endregion
 
   #region "Quest Event"
@@ -895,24 +903,34 @@ public static partial class Fix
 
   #region "GUI Label"
   #region "クラス属性ラベル(JP)"
+  public const string CLASS_WARRIOR = "Warrior";
   public const string CLASS_WARRIOR_JP = "戦士";
+  public const string CLASS_ARCHERY = "Archery";
   public const string CLASS_ARCHERY_JP = "弓術";
+  public const string CLASS_MARTIAL_ARTS = "MartialArts";
   public const string CLASS_MARTIAL_ARTS_JP = "格闘";
   public const string CLASS_COMBAT_TRICK_JP = "計略";
   public const string CLASS_WONDER_HERMIT_JP = "仙術";
+  public const string CLASS_GUARDIAN = "Guardian";
   public const string CLASS_GUARDIAN_JP = "護衛";
+  public const string CLASS_FIRE = "Fire";
   public const string CLASS_FIRE_JP = "炎";
+  public const string CLASS_ICE = "Ice";
   public const string CLASS_ICE_JP = "氷";
-  public const string CLASS_HOLYLIGHT = "聖";
-  public const string CLASS_DARK_MAGIC = "闇";
+  public const string CLASS_HOLYLIGHT = "HolyLight";
+  public const string CLASS_HOLYLIGHT_JP = "聖";
+  public const string CLASS_DARK_MAGIC = "DarkMagic";
+  public const string CLASS_DARK_MAGIC_JP = "闇";
   public const string CLASS_WIND = "風";
   public const string CLASS_EARTH = "土";
-  public const string CLASS_ENHANCE = "進化";
-  public const string CLASS_MYSTIC = "神秘";
-  public const string CLASS_BRAVE = "勇敢";
-  public const string CLASS_VENGEANCE = "復讐";
-  public const string CLASS_TRUTH = "心眼";
-  public const string CLASS_MINDFULNESS = "無心";
+  public const string CLASS_FORCE = "Force";
+  public const string CLASS_FORCE_JP = "理";
+  public const string CLASS_VOIDCHANT = "VoidChant";
+  public const string CLASS_VOIDCHANT_JP = "空唱";
+  public const string CLASS_TRUTH = "Truth";
+  public const string CLASS_TRUTH_JP = "心眼";
+  public const string CLASS_MINDFULNESS = "Mindfulness";
+  public const string CLASS_MINDFULNESS_JP = "無心";
   #endregion
 
   #region "コマンドタイミング属性ラベル(JP)"
@@ -1250,6 +1268,8 @@ public static partial class Fix
   public const string TRANSCENDENCE_REACHED_JP = "トランッセンデンス・リーチ";
   public const string ONE_IMMUNITY = "One Immunity";
   public const string ONE_IMMUNITY_JP = "ワン・イムーニティ";
+  public const string CATASTROPHE = "Catastrophe";
+  public const string CATASTROPHE_JP = "カタストロフィ";
   public const string AUSTERITY_MATRIX = "Austerity Matrix";
   public const string AUSTERITY_MATRIX_JP = "アウステリティ・マトリクス";
   public const string ESSENCE_OVERFLOW = "Essence Overflow";
@@ -1262,6 +1282,8 @@ public static partial class Fix
   public const string STANCE_OF_THE_KOKOROE_JP = "スタンス・オブ・心得";
   public const string TIME_SKIP = "Time Skip";
   public const string TIME_SKIP_JP = "タイム・スキップ";
+  public const string GENESIS = "Genesis";
+  public const string GENESIS_JP = "ジェネシス";
 
   //public const string DESTROYER_SMASH = "Destroyer Smash";
   //public const string DEADLY_ARROW = "Deadly Arrow";

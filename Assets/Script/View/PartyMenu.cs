@@ -9,9 +9,12 @@ using System.Text;
 
 public class PartyMenu : MotherBase
 {
+  public GameObject btnEssenceTree;
+
   public GroupCharacterStatus groupCharacterStatus;
   public GameObject groupPartyBattleSetting;
   public GameObject groupPartyCommand;
+  public GameObject groupPartyEssenceTree;
   public GameObject groupPartyItem;
 
   public Text txtGold;
@@ -49,6 +52,74 @@ public class PartyMenu : MotherBase
   // BackpackView
   public NodeBackpackView ParentBackpackView;
 
+  // EssenceTreeView
+  public GameObject GroupEssenceCategory;
+  public Button btnEssence_First;
+  public Button btnEssence_Second;
+  public Button btnEssence_Third;
+  public Button btnEssence_Fourth;
+  public GameObject GroupEssenceList1;
+  public GameObject GroupEssenceList2;
+  public GameObject GroupEssenceList3;
+  public GameObject GroupEssenceList4;
+  public List<Text> txtEssenceCategoryList;
+  public List<GameObject> GroupEssenceList;
+  public List<Text> txtEssenceElementList;
+  public List<Text> txtEssenceElementLevelList;
+  public List<Image> imgEssenceElementList;
+  public List<GameObject> objHideEssenceElementList;
+
+  // Character ( Detail - Essence )
+  public GameObject GroupSubViewStatus;
+  public GameObject GroupSubViewCommandSetting;
+  public GameObject GroupSubViewEssence;
+  public List<NodeActionCommand> imgEssenceList;
+  public List<Text> txtEssenceList;
+  public List<NodeActionCommand> imgEssenceList2;
+  public List<Text> txtEssenceList2;
+  public List<NodeActionCommand> imgEssenceList3;
+  public List<Text> txtEssenceList3;
+  public List<NodeActionCommand> imgEssenceList4;
+  public List<Text> txtEssenceList4;
+
+  public List<NodeActionCommand> imgEssenceList1_1;
+  public List<Text> txtEssenceList1_1;
+  public List<NodeActionCommand> imgEssenceList1_2;
+  public List<Text> txtEssenceList1_2;
+  public List<NodeActionCommand> imgEssenceList1_3;
+  public List<Text> txtEssenceList1_3;
+  public List<NodeActionCommand> imgEssenceList2_1;
+  public List<Text> txtEssenceList2_1;
+  public List<NodeActionCommand> imgEssenceList2_2;
+  public List<Text> txtEssenceList2_2;
+  public List<NodeActionCommand> imgEssenceList2_3;
+  public List<Text> txtEssenceList2_3;
+  public List<NodeActionCommand> imgEssenceList3_1;
+  public List<Text> txtEssenceList3_1;
+  public List<NodeActionCommand> imgEssenceList3_2;
+  public List<Text> txtEssenceList3_2;
+  public List<NodeActionCommand> imgEssenceList3_3;
+  public List<Text> txtEssenceList3_3;
+  public List<NodeActionCommand> imgEssenceList4_1;
+  public List<Text> txtEssenceList4_1;
+  public List<NodeActionCommand> imgEssenceList4_2;
+  public List<Text> txtEssenceList4_2;
+  public List<NodeActionCommand> imgEssenceList4_3;
+  public List<Text> txtEssenceList4_3;
+
+  public Text txtEssencePoint;
+  //public Image imgEssenceCurrent;
+  public NodeActionCommand imgEssenceCurrent;
+  public Text txtEssenceCurrentName;
+  public Text txtEssenceCurrentDescription;
+  public GameObject groupEssenceDecision;
+  public Image imgEssenceDecision;
+  public Text txtEssenceDecisionTitle;
+  public Text txtEssenceDecisionMessage;
+  public Button btnEssenceDecisionAccept;
+  public Button btnEssenceDecisionCancel;
+  public Button btnEssenceDecisionOK;
+
   public GameObject panelHideOther;
   // Inner Value
   private List<Character> PlayerList = new List<Character>();
@@ -80,6 +151,7 @@ public class PartyMenu : MotherBase
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(false);
+    groupPartyEssenceTree.SetActive(false);
   }
   public void TapCommand()
   {
@@ -88,6 +160,7 @@ public class PartyMenu : MotherBase
     groupPartyCommand.SetActive(true);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(false);
+    groupPartyEssenceTree.SetActive(false);
   }
 
   public void TapItem()
@@ -97,6 +170,7 @@ public class PartyMenu : MotherBase
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(true);
     groupPartyBattleSetting.SetActive(false);
+    groupPartyEssenceTree.SetActive(false);
   }
 
   public void TapBattleSetting()
@@ -106,6 +180,17 @@ public class PartyMenu : MotherBase
     groupPartyCommand.SetActive(false);
     groupPartyItem.SetActive(false);
     groupPartyBattleSetting.SetActive(true);
+    groupPartyEssenceTree.SetActive(false);
+  }
+
+  public void TapEssenceTree()
+  {
+    SetupStayList();
+    groupCharacterStatus.gameObject.SetActive(false);
+    groupPartyCommand.SetActive(false);
+    groupPartyItem.SetActive(false);
+    groupPartyBattleSetting.SetActive(false);
+    groupPartyEssenceTree.SetActive(true);
   }
 
   public void TapSwitchFormation()
@@ -409,6 +494,44 @@ public class PartyMenu : MotherBase
     // コマンド設定画面への反映
     Character player3 = One.SelectCharacter(txt_name.text);
     SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
+
+    // エッセンスツリーへの反映
+    if (player3.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      txtEssenceCategoryList[0].text = Fix.CLASS_WARRIOR;
+      txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
+      txtEssenceCategoryList[2].text = Fix.CLASS_GUARDIAN;
+      txtEssenceCategoryList[3].text = Fix.CLASS_HOLYLIGHT;
+    }
+    else if (player3.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      txtEssenceCategoryList[0].text = Fix.CLASS_ICE;
+      txtEssenceCategoryList[1].text = Fix.CLASS_MARTIAL_ARTS;
+      txtEssenceCategoryList[2].text = Fix.CLASS_DARK_MAGIC;
+      txtEssenceCategoryList[3].text = Fix.CLASS_MINDFULNESS;
+    }
+    else if (player3.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      txtEssenceCategoryList[0].text = Fix.CLASS_ARCHERY;
+      txtEssenceCategoryList[1].text = Fix.CLASS_HOLYLIGHT;
+      txtEssenceCategoryList[2].text = Fix.CLASS_MINDFULNESS;
+      txtEssenceCategoryList[3].text = Fix.CLASS_DARK_MAGIC;
+    }
+    else if (player3.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      txtEssenceCategoryList[0].text = Fix.CLASS_MARTIAL_ARTS;
+      txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
+      txtEssenceCategoryList[2].text = Fix.CLASS_TRUTH;
+      txtEssenceCategoryList[3].text = Fix.CLASS_WARRIOR;
+    }
+    else if (player3.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+      txtEssenceCategoryList[0].text = Fix.CLASS_VOIDCHANT;
+      txtEssenceCategoryList[1].text = Fix.CLASS_FORCE;
+      txtEssenceCategoryList[2].text = Fix.CLASS_ICE;
+      txtEssenceCategoryList[3].text = Fix.CLASS_FIRE;
+    }
+    SetupEssenceList(player3, 0);
   }
 
   private void CallGroupPartyStatus(Character player)
@@ -635,6 +758,65 @@ public class PartyMenu : MotherBase
   }
   #endregion
 
+  #region "エッセンス・ツリー設定"
+  public void TapEssenceCategory(int number)
+  {
+    SetupEssenceList(CurrentPlayer, number);
+    //for (int ii = 0; ii < GroupEssenceList.Count; ii++)
+    //{
+    //  if (number == ii) { GroupEssenceList[ii].SetActive(true); }
+    //  else { GroupEssenceList[ii].SetActive(false); }
+    //}
+  }
+
+  public void TapSelectEssence(Text txt_title)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    txtEssenceCurrentName.text = txt_title.text;
+    txtEssenceCurrentDescription.text = ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
+    imgEssenceCurrent.ApplyImageIcon(txt_title.text);
+  }
+
+  public void TapDecisionEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    imgEssenceDecision.sprite = imgEssenceCurrent.ActionButton.image.sprite;
+    imgEssenceDecision.name = txtEssenceCurrentName.text;
+    if (CurrentPlayer.SoulFragment <= 0)
+    {
+      txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + " を獲得する事ができません。";
+      txtEssenceDecisionMessage.text = "エッセンス・ポイントが不足しています。エッセンス・ポイントを入手してください。";
+      btnEssenceDecisionAccept.gameObject.SetActive(false);
+      btnEssenceDecisionCancel.gameObject.SetActive(false);
+      btnEssenceDecisionOK.gameObject.SetActive(true);
+      groupEssenceDecision.SetActive(true);
+      return;
+    }
+
+    txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + "を獲得しますか？";
+    txtEssenceDecisionMessage.text = "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。";
+    btnEssenceDecisionAccept.gameObject.SetActive(true);
+    btnEssenceDecisionCancel.gameObject.SetActive(true);
+    btnEssenceDecisionOK.gameObject.SetActive(false);
+    groupEssenceDecision.SetActive(true);
+  }
+
+  public void TapAcceptEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + imgEssenceDecision.name);
+    CurrentPlayer.UpgradeEssenceTree(imgEssenceDecision.name);
+    txtEssencePoint.text = CurrentPlayer.SoulFragment.ToString();
+    groupEssenceDecision.SetActive(false);
+  }
+
+  public void TapCancelEssence()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    groupEssenceDecision.SetActive(false);
+  }
+  #endregion
+
   // 閉じる
   public void TapExit()
   {
@@ -645,6 +827,9 @@ public class PartyMenu : MotherBase
 
   public override void RefreshAllView()
   {
+    // エッセンスツリーボタン
+    btnEssenceTree.SetActive(One.TF.AvailableSecondEssence);
+
     // プレイヤーリストの反映
     PlayerList.Clear();
 
@@ -682,6 +867,9 @@ public class PartyMenu : MotherBase
 
     // コマンド設定画面への反映
     SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
+
+    // エッセンス画面への反映
+    SetupEssenceList(PlayerList[0], 0);
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView(this);
@@ -813,6 +1001,189 @@ public class PartyMenu : MotherBase
       ListAvailableCommand[ii].name = currentList[ii];
       ListAvailableCommand[ii].ApplyImageIcon(currentList[ii]);
       ListAvailableCommandText[ii].text = currentList[ii];
+    }
+  }
+
+  private void SetupEssenceList(Character player, int number)
+  {
+    Debug.Log("SetupEssenceList(S) " + player.FullName + " " + number.ToString());
+    string attribute = String.Empty;
+
+    if (player.FullName == Fix.NAME_EIN_WOLENCE)
+    {
+      if (number == 0) { attribute = Fix.CLASS_WARRIOR; }
+      if (number == 1) { attribute = Fix.CLASS_FIRE; }
+      if (number == 2) { attribute = Fix.CLASS_GUARDIAN; }
+      if (number == 3) { attribute = Fix.CLASS_HOLYLIGHT; }
+    }
+    else if (player.FullName == Fix.NAME_LANA_AMIRIA)
+    {
+      if (number == 0) { attribute = Fix.CLASS_ICE; }
+      if (number == 1) { attribute = Fix.CLASS_MARTIAL_ARTS; }
+      if (number == 2) { attribute = Fix.CLASS_DARK_MAGIC; }
+      if (number == 3) { attribute = Fix.CLASS_MINDFULNESS; }
+    }
+    else if (player.FullName == Fix.NAME_EONE_FULNEA)
+    {
+      if (number == 0) { attribute = Fix.CLASS_ARCHERY; }
+      if (number == 1) { attribute = Fix.CLASS_HOLYLIGHT; }
+      if (number == 2) { attribute = Fix.CLASS_MINDFULNESS; }
+      if (number == 3) { attribute = Fix.CLASS_DARK_MAGIC; }
+    }
+    else if (player.FullName == Fix.NAME_BILLY_RAKI)
+    {
+      if (number == 0) { attribute = Fix.CLASS_MARTIAL_ARTS; }
+      if (number == 1) { attribute = Fix.CLASS_FIRE; }
+      if (number == 2) { attribute = Fix.CLASS_TRUTH; }
+      if (number == 3) { attribute = Fix.CLASS_WARRIOR; }
+    }
+    else if (player.FullName == Fix.NAME_ADEL_BRIGANDY)
+    {
+      if (number == 0) { attribute = Fix.CLASS_VOIDCHANT; }
+      if (number == 1) { attribute = Fix.CLASS_FORCE; }
+      if (number == 2) { attribute = Fix.CLASS_ICE; }
+      if (number == 3) { attribute = Fix.CLASS_FIRE; }
+    }
+
+    int counter = 0;
+    if (attribute == Fix.CLASS_FIRE)
+    {
+      SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, counter); counter++;
+      SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, counter); counter++;
+      SetupEssenceElement(player.MeteorBullet, Fix.METEOR_BULLET, counter); counter++;
+      SetupEssenceElement(player.VolcanicBlaze, Fix.VOLCANIC_BLAZE, counter); counter++;
+      SetupEssenceElement(player.FlameStrike, Fix.FLAME_STRIKE, counter); counter++;
+      SetupEssenceElement(player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, counter); counter++;
+      SetupEssenceElement(player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_ICE)
+    {
+      SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, counter); counter++;
+      SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, counter); counter++;
+      SetupEssenceElement(player.BlueBullet, Fix.BLUE_BULLET, counter); counter++;
+      SetupEssenceElement(player.FreezingCube, Fix.FREEZING_CUBE, counter); counter++;
+      SetupEssenceElement(player.FrostLance, Fix.FROST_LANCE, counter); counter++;
+      SetupEssenceElement(player.WaterPresence, Fix.WATER_PRESENCE, counter); counter++;
+      SetupEssenceElement(player.AbsoluteZero, Fix.ABSOLUTE_ZERO, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_HOLYLIGHT)
+    {
+      SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, counter); counter++;
+      SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, counter); counter++;
+      SetupEssenceElement(player.HolyBreath, Fix.HOLY_BREATH, counter); counter++;
+      SetupEssenceElement(player.AngelicEcho, Fix.ANGELIC_ECHO, counter); counter++;
+      SetupEssenceElement(player.ShiningHeal, Fix.SHINING_HEAL, counter); counter++;
+      SetupEssenceElement(player.ValkyrieBlade, Fix.VALKYRIE_BLADE, counter); counter++;
+      SetupEssenceElement(player.Resurrection, Fix.RESURRECTION, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_DARK_MAGIC)
+    {
+      SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, counter); counter++;
+      SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, counter); counter++;
+      SetupEssenceElement(player.BlackContract, Fix.BLACK_CONTRACT, counter); counter++;
+      SetupEssenceElement(player.CursedEvangile, Fix.CURSED_EVANGILE, counter); counter++;
+      SetupEssenceElement(player.CircleOfTheDespair, Fix.CIRCLE_OF_THE_DESPAIR, counter); counter++;
+      SetupEssenceElement(player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, counter); counter++;
+      SetupEssenceElement(player.DeathScythe, Fix.DEATH_SCYTHE, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_FORCE)
+    {
+      SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, counter); counter++;
+      SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, counter); counter++;
+      SetupEssenceElement(player.WordOfPower, Fix.WORD_OF_POWER, counter); counter++;
+      SetupEssenceElement(player.GaleWind, Fix.GALE_WIND, counter); counter++;
+      SetupEssenceElement(player.SeventhPrinciple, Fix.SEVENTH_PRINCIPLE, counter); counter++;
+      SetupEssenceElement(player.FutureVision, Fix.FUTURE_VISION, counter); counter++;
+      SetupEssenceElement(player.Genesis, Fix.GENESIS, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_VOIDCHANT)
+    {
+      SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, counter); counter++;
+      SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, counter); counter++;
+      SetupEssenceElement(player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, counter); counter++;
+      SetupEssenceElement(player.PhantomOboro, Fix.PHANTOM_OBORO, counter); counter++;
+      SetupEssenceElement(player.CounterDisallow, Fix.COUNTER_DISALLOW, counter); counter++;
+      SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, counter); counter++;
+      SetupEssenceElement(player.TimeSkip, Fix.TIME_SKIP, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_WARRIOR)
+    {
+      SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, counter); counter++;
+      SetupEssenceElement(player.DoubleSlash, Fix.DOUBLE_SLASH, counter); counter++;
+      SetupEssenceElement(player.IronBuster, Fix.IRON_BUSTER, counter); counter++;
+      SetupEssenceElement(player.RagingStorm, Fix.RAGING_STORM, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, counter); counter++;
+      SetupEssenceElement(player.KineticSmash, Fix.KINETIC_SMASH, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_GUARDIAN)
+    {
+      SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, counter); counter++;
+      SetupEssenceElement(player.ConcussiveHit, Fix.CONCUSSIVE_HIT, counter); counter++;
+      SetupEssenceElement(player.DominationField, Fix.DOMINATION_FIELD, counter); counter++;
+      SetupEssenceElement(player.HardestParry, Fix.HARDEST_PARRY, counter); counter++;
+      SetupEssenceElement(player.OneImmunity, Fix.ONE_IMMUNITY, counter); counter++;
+      SetupEssenceElement(player.Catastrophe, Fix.CATASTROPHE, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_MARTIAL_ARTS)
+    {
+      SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, counter); counter++;
+      SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, counter); counter++;
+      SetupEssenceElement(player.BoneCrush, Fix.BONE_CRUSH, counter); counter++;
+      SetupEssenceElement(player.DeadlyDrive, Fix.DEADLY_DRIVE, counter); counter++;
+      SetupEssenceElement(player.UnintentionalHit, Fix.UNINTENTIONAL_HIT, counter); counter++;
+      SetupEssenceElement(player.StanceOfMuin, Fix.STANCE_OF_MUIN, counter); counter++;
+      SetupEssenceElement(player.CarnageRush, Fix.CARNAGE_RUSH, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_ARCHERY)
+    {
+      SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, counter); counter++;
+      SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, counter); counter++;
+      SetupEssenceElement(player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, counter); counter++;
+      SetupEssenceElement(player.PenetrationArrow, Fix.PENETRATION_ARROW, counter); counter++;
+      SetupEssenceElement(player.PrecisionStrike, Fix.PRECISION_STRIKE, counter); counter++;
+      SetupEssenceElement(player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, counter); counter++;
+      SetupEssenceElement(player.PiercingArrow, Fix.PIERCING_ARROW, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_TRUTH)
+    {
+      SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, counter); counter++;
+      SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, counter); counter++;
+      SetupEssenceElement(player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, counter); counter++;
+      SetupEssenceElement(player.WillAwakening, Fix.WILL_AWAKENING, counter); counter++;
+      SetupEssenceElement(player.EverflowMind, Fix.EVERFLOW_MIND, counter); counter++;
+      SetupEssenceElement(player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, counter); counter++;
+    }
+    else if (attribute == Fix.CLASS_MINDFULNESS)
+    {
+      SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, counter); counter++;
+      SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, counter); counter++;
+      SetupEssenceElement(player.UnseenAid, Fix.UNSEEN_AID, counter); counter++;
+      SetupEssenceElement(player.CircleOfSerenity, Fix.CIRCLE_OF_SERENITY, counter); counter++;
+      SetupEssenceElement(player.InnerInspiration, Fix.INNER_INSPIRATION, counter); counter++;
+      SetupEssenceElement(player.ZeroImmunity, Fix.ZERO_IMMUNITY, counter); counter++;
+      SetupEssenceElement(player.TranscendenceReached, Fix.TRANSCENDENCE_REACHED, counter); counter++;
+    }
+  }
+
+  private void SetupEssenceElement(int element_level, string label_text, int number)
+  {
+    // todo レベル０で条件を満たしている場合の可視化と、レベル０で未到達の場合はLOCKとして見せるのは設計が異なる。
+    if (element_level >= 0)
+    {
+      txtEssenceElementList[number].text = label_text;
+      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
+      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
+      objHideEssenceElementList[number].SetActive(false);
+    }
+    else
+    {
+      txtEssenceElementList[number].text = "？？？";
+      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
+      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
+      objHideEssenceElementList[number].SetActive(true);
     }
   }
   #endregion

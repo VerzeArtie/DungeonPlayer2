@@ -3990,6 +3990,15 @@ public static class MessagePack
     {
       One.TF.Event_Message400050 = true;
       One.TF.AvailableSecondEssence = true;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableHolyLight = true;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).FreshHeal = 1;
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableMindfulness = true;
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).DispelMagic = 1;
+      One.SelectCharacter(Fix.NAME_BILLY_RAKI).AvailableSwordman = true;
+      One.SelectCharacter(Fix.NAME_BILLY_RAKI).StraightSmash = 1;
+      // エオネは戻ってきた時に開放する。
+      //One.SelectCharacter(Fix.NAME_EONE_FULNEA).AvailableDarkMagic = true;
+      //One.SelectCharacter(Fix.NAME_EONE_FULNEA).ShadowBlast = 1;
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
@@ -4037,7 +4046,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：あれは苦手だったな。近くで殴れないしな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：魔法の方はどう？まあ傭兵施設だとフローラ学院ほど充実はしていないと思うけど。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：魔法の方はどう？まあ傭兵施設だと聖フローラ女学院ほど充実はしていないと思うけど。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：炎がぶっ放せるのは面白いけどな。それ以外は興味ねーな。", ActionEvent.None);
 
@@ -4049,15 +4058,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ラナの方は戦術は結構固まっているみたいだが、追加で何かできそうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：うーん、どうかしら。私もどっちかっていうと構築タイプみたいなのは不得手だったわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：うーん、どうかしら。私は魔法系もスキル系も一応扱えるわよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：でも女学院は主席で卒業したんだろ？不得手というか得意なのは他にもあったんじゃないのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：聖フローラ女学院はたしか主席で卒業したんだったよな？色々とできそうな感じがするが。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：ゲッ、しゅ、主席だったのかよ！？スゲーじゃん！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：でも、あれはただの飾りよ。本質的には出来る人達は他にもたくさん居たわ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：第一わたし、聖スペルは最初の講義をすっぽかしたぐらいよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：で、聖スペルなんだけど、正直苦手って感じだったから、最初の講義はすっぽかしたわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：なのに、何かその行動のせいで、逆に才能アリって認められちゃったみたいで。", ActionEvent.None);
 
@@ -4065,7 +4074,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：ともかく、聖スペルはあんまりイマジネーションが出来なかったのは確かよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：で、最初の設問に対してだけど、反属性の闇スペルなら多少のたしなみはあるわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：最初の設問に対してだけど、エオネさんが使っていた無心スキルなら多少のたしなみはあるわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なるほど・・・と、なるとそうか。そこはありがたいのは確かだな。", ActionEvent.None);
 
@@ -4171,7 +4180,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：エオネがいない間は、俺も聖スペルを少し使うようにする。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ラナは肩慣らし程度で良い。エオネの弓とはちょっと違うが、後方からの攻撃強化で、闇スペルも活用を頼む。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ラナは肩慣らし程度で良い。あまり戦術は変えなくて良いが、サポート強化で、無心スキルの活用を頼む。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：ええ。分かったわ。", ActionEvent.None);
 
@@ -4179,13 +4188,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：おうよ。任せとけ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞が開放されました！ 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 エッセンス・ツリーが開放されました！ 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "【 パーティメニューでエッセンスツリーを選択できるようになりました。 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 各キャラクターの特性に応じた魔法およびスキルを開放する事が出来るようになります。 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 各キャラクターの特性に応じた魔法およびスキルを開放／強化する事が出来るようになります。 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 パーティメニューからキャラクターを選択し、ツリーを確認してみましょう。 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 パーティメニューからキャラクターを選択し、エッセンスツリーを確認してみましょう。 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
 

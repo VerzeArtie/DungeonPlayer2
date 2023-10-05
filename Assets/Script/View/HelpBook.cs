@@ -333,46 +333,46 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LIFE_GRACE); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EARTH_QUAKE); counter++;
     }
-    else if (sender.text == Fix.CLASS_ENHANCE)
-    {
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AURA_OF_POWER); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SKY_SHIELD); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AETHER_DRIVE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_SERENITY); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.REVOLUTION_AURA); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BRILLIANT_FORM); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AUSTERITY_MATRIX); counter++;
-    }
-    else if (sender.text == Fix.CLASS_MYSTIC)
-    {
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DISPEL_MAGIC); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FLASH_COUNTER); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MUTE_IMPULSE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DETACHMENT_FAULT); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.OATH_OF_AEGIS); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FUTURE_VISION); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ESSENCE_OVERFLOW); counter++;
-    }
-    else if (sender.text == Fix.CLASS_BRAVE)
-    {
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.HEART_OF_LIFE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FORTUNE_SPIRIT); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.VOICE_OF_VIGOR); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AURA_BURN); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EVERFLOW_MIND); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SOUL_SHOUT); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.OVERWHELMING_DESTINY); counter++;
-    }
-    else if (sender.text == Fix.CLASS_VENGEANCE)
-    {
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DARK_AURA); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_SHADE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.KILLING_WAVE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LEVEL_EATER); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ABYSS_EYE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AVENGER_PROMISE); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DEMON_CONTRACT); counter++;
-    }
+    //else if (sender.text == Fix.CLASS_ENHANCE)
+    //{
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AURA_OF_POWER); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SKY_SHIELD); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AETHER_DRIVE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.CIRCLE_OF_SERENITY); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.REVOLUTION_AURA); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.BRILLIANT_FORM); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AUSTERITY_MATRIX); counter++;
+    //}
+    //else if (sender.text == Fix.CLASS_MYSTIC)
+    //{
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DISPEL_MAGIC); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FLASH_COUNTER); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.MUTE_IMPULSE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DETACHMENT_FAULT); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.OATH_OF_AEGIS); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FUTURE_VISION); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ESSENCE_OVERFLOW); counter++;
+    //}
+    //else if (sender.text == Fix.CLASS_BRAVE)
+    //{
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.HEART_OF_LIFE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.FORTUNE_SPIRIT); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.VOICE_OF_VIGOR); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AURA_BURN); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EVERFLOW_MIND); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.SOUL_SHOUT); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.OVERWHELMING_DESTINY); counter++;
+    //}
+    //else if (sender.text == Fix.CLASS_VENGEANCE)
+    //{
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DARK_AURA); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.STANCE_OF_THE_SHADE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.KILLING_WAVE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.LEVEL_EATER); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ABYSS_EYE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.AVENGER_PROMISE); counter++;
+    //  SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.DEMON_CONTRACT); counter++;
+    //}
     else if (sender.text == Fix.CLASS_TRUTH)
     {
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TRUE_SIGHT); counter++;
