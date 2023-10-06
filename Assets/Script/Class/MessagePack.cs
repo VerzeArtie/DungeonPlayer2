@@ -6453,6 +6453,169 @@ public static class MessagePack
 
   }
 
+  public static void Message700045(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    if (One.TF.Event_Message700040 == false)
+    {
+      One.TF.Event_Message700040 = true;
+
+      One.TF.AvailableFirstEssence = true;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableArmorer = true;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).ShieldBash = 1;
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableDarkMagic = true;
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).ShadowBlast = 1;
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).AvailableMindfulness = true;
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).DispelMagic = 1;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハンナ：はいよ、ちょっと待ってな。今すぐ用意してあげるよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ハンナ：さあどうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " ～　食事中にて・・・　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、どうするかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か考えこんでるわね。どうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、戦術論について色々考えてるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３人って結構できる事があるなと思ったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：例えばどういう内容なわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・例えばか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そこで既に考え込むわけね。わかったわ、例えばじゃなくても良いわ。今の現状だとどうなの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今の現状だと、ある程度陣形を組む様な構成になっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺が前衛を張って、ラナは柔軟な対応、そしてエオネが後方からの支援だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この構成は非常に強い陣形だ。結構、満足している。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：満足してるのね。それでいて考え込むのがバカアインらしいけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：何か・・・私の行動で気になる事でもあるのでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ！いやいやいや、そうじゃないんだ！悪い悪い、ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：たださ。何かこう、もったいない気がしたんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：もったいない？その言葉を使う場面が間違ってる気がするけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何て言うんだろうな・・・難しいんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：満足のいく内容っていうのは結構穴があったりするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：形がきっちり固定化するればするほど、強い容にはなるんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、いざという時に別の手筋が必要だった場合、それがないと対処に困る場合があるんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、少しだけ作戦の幅は持たせておきたい。という感じだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・なるほどね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアインらしくない物凄くまともな内容だったわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、師匠からの受け売りだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、何かリクエストでもあれば言ってちょうだい。出来る範囲で応えるわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、じゃあ、ちょっとそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナは確か、聖フローラ女学院で魔法系統を勉強したんだよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうね。一般的なものなら勉強だけじゃなく、ある程度実践訓練もやっていたわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうなのか。じゃあ、そうだなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：戦術を大きく変える必要はないんだが、今使っている氷属性と似たようなやつを扱えるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：似たような系統・・・難しい事言うわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、いや良いんだ。ラナが好き好んで使える類なら何でもオーケーだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：好き好んでっていうのもちょっと引っかかるんだけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ゲッ、わ、悪い悪い。正直どれでもオーケーだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どれでもって・・・それはそれでテキトー過ぎるわね。まあ良いけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうね。じゃあ、闇スペルなんかどうかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：敵へ影響を与える魔法があるのに加えて、味方へ力を与えるタイプの魔法もあるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：氷と闇の相性は良く、戦術がそこまで変わるわけじゃないわ。普通に組み込む事は可能ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それだ、さすがラナ！助かるぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、闇スペルって事で良いかしら。少し思い出しながらになるから、あまり過度に期待はしないでね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あの・・・そ、それでしたら・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：私は、無心スキルでよろしかったでしょうか・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：後方支援という位置づけなら・・・カウンター系統が良いかなと思ったので・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお！支援に加えて、カウンターか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、助かる助かる。もちろん、それでオーケーだ！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうなると、アインはどうするつもりなの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺はそうだな。護衛スキルを少しやってみようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この構成だと、下手に俺が攻撃にまわるよりも、場全体を見た方が良いと思うんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良いかな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アンタがそう思うんなら、それでいいんじゃないの。私は構わないわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー。じゃ、決まりだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナは闇スペル。エオネは無心スキル。俺は護衛スキルを取り込んでいく。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：無理に一気にやる必要はない。少しずつ付け足す感じでやっていこう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：了解よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 各メンバーが習得するコマンドの属性が追加されました！ 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 レベルアップ時に新たな属性のコマンドが習得される様になります。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 新しいタイプが習得されたら、バトル設定画面で内容を確認してみましょう。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ご馳走様でした。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ごちそうさまです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+    }
+  }
+   
   public static void Message700050(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message700050 == false)

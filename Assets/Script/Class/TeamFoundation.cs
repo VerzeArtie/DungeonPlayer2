@@ -161,6 +161,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableArchetype_SelmoiRo; }
   }
 
+  [SerializeField] protected bool _availableFirstEssence = false;
+  public bool AvailableFirstEssence
+  {
+    set { _availableFirstEssence = value; }
+    get { return _availableFirstEssence; }
+  }
+
   [SerializeField] protected bool _availableSecondEssence = false;
   public bool AvailableSecondEssence
   {
@@ -1074,6 +1081,14 @@ public class TeamFoundation : MonoBehaviour
     get { return _event_message700030; }
     set { _event_message700030 = value; }
   }
+
+  [SerializeField] protected bool _event_message700040 = false;
+  public bool Event_Message700040
+  {
+    get { return _event_message700040; }
+    set { _event_message700040 = value; }
+  }
+
   [SerializeField] protected bool _event_message700050 = false;
   public bool Event_Message700050
   {

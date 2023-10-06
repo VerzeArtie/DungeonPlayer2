@@ -1631,6 +1631,15 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
 
+    // ファージル宮殿、属性追加
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.SelectCharacter(Fix.NAME_EIN_WOLENCE).Level >= 10 && One.TF.AvailableFirstEssence == false)
+    {
+      Debug.Log("TOWN_FAZIL_CASTLE event 1");
+      MessagePack.Message700045(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
     // 港町コチューシェ、第二属性の開放
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence == false)
     {
