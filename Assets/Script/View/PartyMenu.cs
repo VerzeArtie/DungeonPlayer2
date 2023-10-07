@@ -823,8 +823,6 @@ public class PartyMenu : MotherBase
     SceneDimension.SceneClose(Fix.SCENE_PARTY_MENU);
   }
 
-  #region "private"
-
   public override void RefreshAllView()
   {
     // エッセンスツリーボタン
@@ -878,6 +876,7 @@ public class PartyMenu : MotherBase
     txtGold.text = One.TF.Gold.ToString();
   }
 
+  #region "private"
   private void SetupStayList()
   {
     for (int ii = 0; ii < StayListName.Count; ii++)
