@@ -3736,6 +3736,426 @@ public partial class Character : MonoBehaviour
       this.SoulFragment--;
       this.RushSkill++;
     }
+    else if (essence_name == Fix.FIRE_BALL || essence_name == Fix.FIRE_BALL_JP)
+    {
+      this.SoulFragment--;
+      this.FireBall++;
+    }
+    else if (essence_name == Fix.FLAME_BLADE || essence_name == Fix.FLAME_BLADE_JP)
+    {
+      this.SoulFragment--;
+      this.FlameBlade++;
+    }
+    else if (essence_name == Fix.METEOR_BULLET || essence_name == Fix.METEOR_BULLET_JP)
+    {
+      this.SoulFragment--;
+      this.MeteorBullet++;
+    }
+    else if (essence_name == Fix.VOLCANIC_BLAZE || essence_name == Fix.VOLCANIC_BLAZE_JP)
+    {
+      this.SoulFragment--;
+      this.VolcanicBlaze++;
+    }
+    else if (essence_name == Fix.FLAME_STRIKE || essence_name == Fix.FLAME_STRIKE_JP)
+    {
+      this.SoulFragment--;
+      this.FlameStrike++;
+    }
+    else if (essence_name == Fix.CIRCLE_OF_THE_IGNITE || essence_name == Fix.CIRCLE_OF_THE_IGNITE_JP)
+    {
+      this.SoulFragment--;
+      this.CircleOfTheIgnite++;
+    }
+    else if (essence_name == Fix.LAVA_ANNIHILATION || essence_name == Fix.LAVA_ANNIHILATION_JP)
+    {
+      this.SoulFragment--;
+      this.LavaAnnihilation++;
+    }
+    else if (essence_name == Fix.ICE_NEEDLE || essence_name == Fix.ICE_NEEDLE_JP)
+    {
+      this.SoulFragment--;
+      this.IceNeedle++;
+    }
+    else if (essence_name == Fix.PURE_PURIFICATION || essence_name == Fix.PURE_PURIFICATION_JP)
+    {
+      this.SoulFragment--;
+      this.PurePurification++;
+    }
+    else if (essence_name == Fix.BLUE_BULLET || essence_name == Fix.BLUE_BULLET_JP)
+    {
+      this.SoulFragment--;
+      this.BlueBullet++;
+    }
+    else if (essence_name == Fix.FREEZING_CUBE || essence_name == Fix.FREEZING_CUBE_JP)
+    {
+      this.SoulFragment--;
+      this.FreezingCube++;
+    }
+    else if (essence_name == Fix.FROST_LANCE || essence_name == Fix.FROST_LANCE_JP)
+    {
+      this.SoulFragment--;
+      this.FrostLance++;
+    }
+    else if (essence_name == Fix.WATER_PRESENCE || essence_name == Fix.WATER_PRESENCE_JP)
+    {
+      this.SoulFragment--;
+      this.WaterPresence++;
+    }
+    else if (essence_name == Fix.ABSOLUTE_ZERO || essence_name == Fix.ABSOLUTE_ZERO_JP)
+    {
+      this.SoulFragment--;
+      this.AbsoluteZero++;
+    }
+    else if (essence_name == Fix.FRESH_HEAL || essence_name == Fix.FRESH_HEAL_JP)
+    {
+      this.SoulFragment--;
+      this.FreshHeal++;
+    }
+    else if (essence_name == Fix.DIVINE_CIRCLE || essence_name == Fix.DIVINE_CIRCLE_JP)
+    {
+      this.SoulFragment--;
+      this.DivineCircle++;
+    }
+    else if (essence_name == Fix.HOLY_BREATH || essence_name == Fix.HOLY_BREATH_JP)
+    {
+      this.SoulFragment--;
+      this.HolyBreath++;
+    }
+    else if (essence_name == Fix.ANGELIC_ECHO || essence_name == Fix.ANGELIC_ECHO_JP)
+    {
+      this.SoulFragment--;
+      this.HolyBreath++;
+    }
+    else if (essence_name == Fix.SHINING_HEAL || essence_name == Fix.SHINING_HEAL_JP)
+    {
+      this.SoulFragment--;
+      this.ShiningHeal++;
+    }
+    else if (essence_name == Fix.VALKYRIE_BLADE || essence_name == Fix.VALKYRIE_BLADE_JP)
+    {
+      this.SoulFragment--;
+      this.ValkyrieBlade++;
+    }
+    else if (essence_name == Fix.RESURRECTION || essence_name == Fix.RESURRECTION_JP)
+    {
+      this.SoulFragment--;
+      this.Resurrection++;
+    }
+    else if (essence_name == Fix.SHADOW_BLAST || essence_name == Fix.SHADOW_BLAST_JP)
+    {
+      this.SoulFragment--;
+      this.ShadowBlast++;
+    }
+    else if (essence_name == Fix.BLOOD_SIGN || essence_name == Fix.BLOOD_SIGN_JP)
+    {
+      this.SoulFragment--;
+      this.BloodSign++;
+    }
+    else if (essence_name == Fix.BLACK_CONTRACT || essence_name == Fix.BLACK_CONTRACT_JP)
+    {
+      this.SoulFragment--;
+      this.BlackContract++;
+    }
+    else if (essence_name == Fix.CURSED_EVANGILE || essence_name == Fix.CURSED_EVANGILE_JP)
+    {
+      this.SoulFragment--;
+      this.CursedEvangile++;
+    }
+    else if (essence_name == Fix.CIRCLE_OF_THE_DESPAIR || essence_name == Fix.CIRCLE_OF_THE_DESPAIR_JP)
+    {
+      this.SoulFragment--;
+      this.CircleOfTheDespair++;
+    }
+    else if (essence_name == Fix.THE_DARK_INTENSITY || essence_name == Fix.THE_DARK_INTENSITY_JP)
+    {
+      this.SoulFragment--;
+      this.TheDarkIntensity++;
+    }
+    else if (essence_name == Fix.DEATH_SCYTHE || essence_name == Fix.DEATH_SCYTHE_JP)
+    {
+      this.SoulFragment--;
+      this.DeathScythe++;
+    }
+    else if (essence_name == Fix.ORACLE_COMMAND || essence_name == Fix.ORACLE_COMMAND_JP)
+    {
+      this.SoulFragment--;
+      this.OracleCommand++;
+    }
+    else if (essence_name == Fix.FORTUNE_SPIRIT || essence_name == Fix.FORTUNE_SPIRIT_JP)
+    {
+      this.SoulFragment--;
+      this.FortuneSpirit++;
+    }
+    else if (essence_name == Fix.WORD_OF_POWER || essence_name == Fix.WORD_OF_POWER_JP)
+    {
+      this.SoulFragment--;
+      this.WordOfPower++;
+    }
+    else if (essence_name == Fix.GALE_WIND || essence_name == Fix.GALE_WIND_JP)
+    {
+      this.SoulFragment--;
+      this.GaleWind++;
+    }
+    else if (essence_name == Fix.SEVENTH_PRINCIPLE || essence_name == Fix.SEVENTH_PRINCIPLE_JP)
+    {
+      this.SoulFragment--;
+      this.SeventhPrinciple++;
+    }
+    else if (essence_name == Fix.FUTURE_VISION || essence_name == Fix.FUTURE_VISION_JP)
+    {
+      this.SoulFragment--;
+      this.FutureVision++;
+    }
+    else if (essence_name == Fix.GENESIS || essence_name == Fix.GENESIS_JP)
+    {
+      this.SoulFragment--;
+      this.Genesis++;
+    }
+    else if (essence_name == Fix.ENERGY_BOLT || essence_name == Fix.ENERGY_BOLT_JP)
+    {
+      this.SoulFragment--;
+      this.EnergyBolt++;
+    }
+    else if (essence_name == Fix.FLASH_COUNTER || essence_name == Fix.FLASH_COUNTER_JP)
+    {
+      this.SoulFragment--;
+      this.FlashCounter++;
+    }
+    else if (essence_name == Fix.SIGIL_OF_THE_PENDING || essence_name == Fix.SIGIL_OF_THE_PENDING_JP)
+    {
+      this.SoulFragment--;
+      this.SigilOfThePending++;
+    }
+    else if (essence_name == Fix.PHANTOM_OBORO || essence_name == Fix.PHANTOM_OBORO_JP)
+    {
+      this.SoulFragment--;
+      this.PhantomOboro++;
+    }
+    else if (essence_name == Fix.COUNTER_DISALLOW || essence_name == Fix.COUNTER_DISALLOW_JP)
+    {
+      this.SoulFragment--;
+      this.CounterDisallow++;
+    }
+    else if (essence_name == Fix.DETACHMENT_FAULT || essence_name == Fix.DETACHMENT_FAULT_JP)
+    {
+      this.SoulFragment--;
+      this.DetachmentFault++;
+    }
+    else if (essence_name == Fix.TIME_SKIP || essence_name == Fix.TIME_SKIP_JP)
+    {
+      this.SoulFragment--;
+      this.TimeSkip++;
+    }
+    else if (essence_name == Fix.STRAIGHT_SMASH || essence_name == Fix.STRAIGHT_SMASH_JP)
+    {
+      this.SoulFragment--;
+      this.StraightSmash++;
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_BLADE || essence_name == Fix.STANCE_OF_THE_BLADE_JP)
+    {
+      this.SoulFragment--;
+      this.StanceOfTheBlade++;
+    }
+    else if (essence_name == Fix.DOUBLE_SLASH || essence_name == Fix.DOUBLE_SLASH_JP)
+    {
+      this.SoulFragment--;
+      this.DoubleSlash++;
+    }
+    else if (essence_name == Fix.IRON_BUSTER || essence_name == Fix.IRON_BUSTER_JP)
+    {
+      this.SoulFragment--;
+      this.IronBuster++;
+    }
+    else if (essence_name == Fix.RAGING_STORM || essence_name == Fix.RAGING_STORM_JP)
+    {
+      this.SoulFragment--;
+      this.RagingStorm++;
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_IAI || essence_name == Fix.STANCE_OF_THE_IAI_JP)
+    {
+      this.SoulFragment--;
+      this.StanceOfTheIai++;
+    }
+    else if (essence_name == Fix.KINETIC_SMASH || essence_name == Fix.KINETIC_SMASH_JP)
+    {
+      this.SoulFragment--;
+      this.KineticSmash++;
+    }
+    else if (essence_name == Fix.SHIELD_BASH || essence_name == Fix.SHIELD_BASH_JP)
+    {
+      this.SoulFragment--;
+      this.ShieldBash++;
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_GUARD || essence_name == Fix.STANCE_OF_THE_GUARD_JP)
+    {
+      this.SoulFragment--;
+      this.StanceOfTheGuard++;
+    }
+    else if (essence_name == Fix.CONCUSSIVE_HIT || essence_name == Fix.CONCUSSIVE_HIT_JP)
+    {
+      this.SoulFragment--;
+      this.ConcussiveHit++;
+    }
+    else if (essence_name == Fix.DOMINATION_FIELD || essence_name == Fix.DOMINATION_FIELD_JP)
+    {
+      this.SoulFragment--;
+      this.DominationField++;
+    }
+    else if (essence_name == Fix.HARDEST_PARRY || essence_name == Fix.HARDEST_PARRY_JP)
+    {
+      this.SoulFragment--;
+      this.HardestParry++;
+    }
+    else if (essence_name == Fix.ONE_IMMUNITY || essence_name == Fix.ONE_IMMUNITY_JP)
+    {
+      this.SoulFragment--;
+      this.OneImmunity++;
+    }
+    else if (essence_name == Fix.CATASTROPHE || essence_name == Fix.CATASTROPHE_JP)
+    {
+      this.SoulFragment--;
+      this.Catastrophe++;
+    }
+    else if (essence_name == Fix.LEG_STRIKE || essence_name == Fix.LEG_STRIKE_JP)
+    {
+      this.SoulFragment--;
+      this.LegStrike++;
+    }
+    else if (essence_name == Fix.SPEED_STEP || essence_name == Fix.SPEED_STEP_JP)
+    {
+      this.SoulFragment--;
+      this.SpeedStep++;
+    }
+    else if (essence_name == Fix.BONE_CRUSH || essence_name == Fix.BONE_CRUSH_JP)
+    {
+      this.SoulFragment--;
+      this.BoneCrush++;
+    }
+    else if (essence_name == Fix.DEADLY_DRIVE || essence_name == Fix.DEADLY_DRIVE_JP)
+    {
+      this.SoulFragment--;
+      this.DeadlyDrive++;
+    }
+    else if (essence_name == Fix.UNINTENTIONAL_HIT || essence_name == Fix.UNINTENTIONAL_HIT_JP)
+    {
+      this.SoulFragment--;
+      this.DeadlyDrive++;
+    }
+    else if (essence_name == Fix.STANCE_OF_MUIN || essence_name == Fix.STANCE_OF_MUIN_JP)
+    {
+      this.SoulFragment--;
+      this.StanceOfMuin++;
+    }
+    else if (essence_name == Fix.CARNAGE_RUSH || essence_name == Fix.CARNAGE_RUSH_JP)
+    {
+      this.SoulFragment--;
+      this.CarnageRush++;
+    }
+    else if (essence_name == Fix.HUNTER_SHOT || essence_name == Fix.HUNTER_SHOT_JP)
+    {
+      this.SoulFragment--;
+      this.HunterShot++;
+    }
+    else if (essence_name == Fix.MULTIPLE_SHOT || essence_name == Fix.MULTIPLE_SHOT_JP)
+    {
+      this.SoulFragment--;
+      this.MultipleShot++;
+    }
+    else if (essence_name == Fix.EYE_OF_THE_ISSHIN || essence_name == Fix.EYE_OF_THE_ISSHIN_JP)
+    {
+      this.SoulFragment--;
+      this.EyeOfTheIsshin++;
+    }
+    else if (essence_name == Fix.PENETRATION_ARROW || essence_name == Fix.PENETRATION_ARROW_JP)
+    {
+      this.SoulFragment--;
+      this.PenetrationArrow++;
+    }
+    else if (essence_name == Fix.PRECISION_STRIKE || essence_name == Fix.PRECISION_STRIKE_JP)
+    {
+      this.SoulFragment--;
+      this.PrecisionStrike++;
+    }
+    else if (essence_name == Fix.ETERNAL_CONCENTRATION || essence_name == Fix.ETERNAL_CONCENTRATION_JP)
+    {
+      this.SoulFragment--;
+      this.EternalConcentration++;
+    }
+    else if (essence_name == Fix.PENETRATION_ARROW || essence_name == Fix.PENETRATION_ARROW_JP)
+    {
+      this.SoulFragment--;
+      this.PenetrationArrow++;
+    }
+    else if (essence_name == Fix.TRUE_SIGHT || essence_name == Fix.TRUE_SIGHT_JP)
+    {
+      this.SoulFragment--;
+      this.TrueSight++;
+    }
+    else if (essence_name == Fix.LEYLINE_SCHEMA || essence_name == Fix.LEYLINE_SCHEMA_JP)
+    {
+      this.SoulFragment--;
+      this.LeylineSchema++;
+    }
+    else if (essence_name == Fix.VOICE_OF_VIGOR || essence_name == Fix.VOICE_OF_VIGOR_JP)
+    {
+      this.SoulFragment--;
+      this.VoiceOfVigor++;
+    }
+    else if (essence_name == Fix.WILL_AWAKENING || essence_name == Fix.WILL_AWAKENING_JP)
+    {
+      this.SoulFragment--;
+      this.WillAwakening++;
+    }
+    else if (essence_name == Fix.EVERFLOW_MIND || essence_name == Fix.EVERFLOW_MIND_JP)
+    {
+      this.SoulFragment--;
+      this.EverflowMind++;
+    }
+    else if (essence_name == Fix.SIGIL_OF_THE_FAITH || essence_name == Fix.SIGIL_OF_THE_FAITH_JP)
+    {
+      this.SoulFragment--;
+      this.SigilOfTheFaith++;
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_KOKOROE || essence_name == Fix.STANCE_OF_THE_KOKOROE_JP)
+    {
+      this.SoulFragment--;
+      this.StanceOfTheKokoroe++;
+    }
+    else if (essence_name == Fix.DISPEL_MAGIC || essence_name == Fix.DISPEL_MAGIC_JP)
+    {
+      this.SoulFragment--;
+      this.DispelMagic++;
+    }
+    else if (essence_name == Fix.SPIRITUAL_REST || essence_name == Fix.SPIRITUAL_REST_JP)
+    {
+      this.SoulFragment--;
+      this.SpiritualRest++;
+    }
+    else if (essence_name == Fix.UNSEEN_AID || essence_name == Fix.UNSEEN_AID_JP)
+    {
+      this.SoulFragment--;
+      this.UnseenAid++;
+    }
+    else if (essence_name == Fix.CIRCLE_OF_SERENITY || essence_name == Fix.CIRCLE_OF_SERENITY_JP)
+    {
+      this.SoulFragment--;
+      this.CircleOfSerenity++;
+    }
+    else if (essence_name == Fix.INNER_INSPIRATION || essence_name == Fix.INNER_INSPIRATION_JP)
+    {
+      this.SoulFragment--;
+      this.InnerInspiration++;
+    }
+    else if (essence_name == Fix.ZERO_IMMUNITY || essence_name == Fix.ZERO_IMMUNITY_JP)
+    {
+      this.SoulFragment--;
+      this.ZeroImmunity++;
+    }
+    else if (essence_name == Fix.TRANSCENDENCE_REACHED || essence_name == Fix.TRANSCENDENCE_REACHED_JP)
+    {
+      this.SoulFragment--;
+      this.TranscendenceReached++;
+    }
   }
 
   public void UpdateActionCommandList(List<NodeActionCommand> action_command_list)
