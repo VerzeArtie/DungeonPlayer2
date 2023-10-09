@@ -129,6 +129,8 @@ public class PartyMenu : MotherBase
 
   private string SwitchCharacter = string.Empty;
 
+  private int CurrentEssenceSelectNumber = 0;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -535,6 +537,7 @@ public class PartyMenu : MotherBase
       txtEssenceCategoryList[3].text = Fix.CLASS_FIRE;
     }
     SetupEssenceList(player3, 0);
+    CurrentEssenceSelectNumber = 0;
   }
 
   private void CallGroupPartyStatus(Character player)
@@ -764,6 +767,7 @@ public class PartyMenu : MotherBase
   #region "エッセンス・ツリー設定"
   public void TapEssenceCategory(int number)
   {
+    CurrentEssenceSelectNumber = number;
     SetupEssenceList(CurrentPlayer, number);
     TapSelectEssence(txtEssenceElementList[0]);
     //for (int ii = 0; ii < GroupEssenceList.Count; ii++)
@@ -813,6 +817,9 @@ public class PartyMenu : MotherBase
     CurrentPlayer.UpgradeEssenceTree(imgEssenceDecision.name);
     txtEssencePoint.text = CurrentPlayer.SoulFragment.ToString();
     groupEssenceDecision.SetActive(false);
+
+    TapSelectEssence(txtEssenceCurrentName);
+    SetupEssenceList(this.CurrentPlayer, this.CurrentEssenceSelectNumber);
   }
 
   public void TapCancelEssence()
@@ -873,6 +880,7 @@ public class PartyMenu : MotherBase
 
     // エッセンス画面への反映
     SetupEssenceList(PlayerList[0], 0);
+    CurrentEssenceSelectNumber = 0;
 
     // バックパック情報を画面へ反映
     ParentBackpackView.ConstructBackpackView(this);
