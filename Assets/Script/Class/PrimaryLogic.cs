@@ -529,10 +529,6 @@ public static class PrimaryLogic
     {
       result *= player.IsStormArmor.EffectValue;
     }
-    if (player.IsSpeedStep)
-    {
-      result = result * (1.00f + player.IsSpeedStep.EffectValue * player.IsSpeedStep.Cumulative);
-    }
     if (player.IsSlow)
     {
       result *= player.IsSlow.EffectValue;
@@ -574,6 +570,10 @@ public static class PrimaryLogic
     if (player.IsAirCutter)
     {
       result = result * player.IsAirCutter.EffectValue;
+    }
+    if (player.IsSpeedStep)
+    {
+      result = result * (1.00f + player.IsSpeedStep.EffectValue * player.IsSpeedStep.Cumulative);
     }
     if (player.IsBattleReponseUp)
     {

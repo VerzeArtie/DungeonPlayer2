@@ -605,9 +605,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return Attribute.Magic; }
     if (command_name == Fix.COUNTER_DISALLOW) { return Attribute.Magic; }
     if (command_name == Fix.RAGING_STORM) { return Attribute.Skill; }
-    if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return Attribute.Skill; }
     if (command_name == Fix.HARDEST_PARRY) { return Attribute.Skill; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return Attribute.Skill; }
+    if (command_name == Fix.PRECISION_STRIKE) { return Attribute.Skill; }
     if (command_name == Fix.EVERFLOW_MIND) { return Attribute.Skill; }
     if (command_name == Fix.INNER_INSPIRATION) { return Attribute.Skill; }
 
@@ -742,9 +742,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return TimingType.Normal; }
     if (command_name == Fix.COUNTER_DISALLOW) { return TimingType.StackCommand; }
     if (command_name == Fix.RAGING_STORM) { return TimingType.Normal; }
-    if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return TimingType.Instant; }
     if (command_name == Fix.HARDEST_PARRY) { return TimingType.StackCommand; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return TimingType.Instant; }
+    if (command_name == Fix.PRECISION_STRIKE) { return TimingType.StackCommand; }
     if (command_name == Fix.EVERFLOW_MIND) { return TimingType.Normal; }
     if (command_name == Fix.INNER_INSPIRATION) { return TimingType.Instant; }
     #endregion
@@ -878,9 +878,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return TargetType.Ally; }
     if (command_name == Fix.COUNTER_DISALLOW) { return TargetType.InstantTarget; }
     if (command_name == Fix.RAGING_STORM) { return TargetType.EnemyGroup; } // + AllyField
-    if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return TargetType.Enemy; }
     if (command_name == Fix.HARDEST_PARRY) { return TargetType.InstantTarget; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return TargetType.Enemy; }
+    if (command_name == Fix.PRECISION_STRIKE) { return TargetType.InstantTarget; }
     if (command_name == Fix.EVERFLOW_MIND) { return TargetType.Ally; }
     if (command_name == Fix.INNER_INSPIRATION) { return TargetType.Ally; }
     #endregion
@@ -1167,8 +1167,6 @@ public static class ActionCommand
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     // スキル
     if (command_name == Fix.RAGING_STORM) { return 45; }
-    if (command_name == Fix.PRECISION_STRIKE) { return 50; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
     if (command_name == Fix.HARDEST_PARRY)
     {
       int result = 50;
@@ -1179,6 +1177,8 @@ public static class ActionCommand
       if (result <= 0) { result = 0; }
       return result;
     }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
+    if (command_name == Fix.PRECISION_STRIKE) { return 50; }
     if (command_name == Fix.EVERFLOW_MIND) { return 20; }
     if (command_name == Fix.INNER_INSPIRATION) { return 0; }
     #endregion
@@ -1394,9 +1394,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
     if (command_name == Fix.COUNTER_DISALLOW) { return BuffType.Negative; }
     if (command_name == Fix.RAGING_STORM) { return BuffType.Positive; }
-    if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return BuffType.Negative; }
     if (command_name == Fix.HARDEST_PARRY) { return BuffType.None; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return BuffType.Negative; }
+    if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
     if (command_name == Fix.EVERFLOW_MIND) { return BuffType.Positive; }
     if (command_name == Fix.INNER_INSPIRATION) { return BuffType.None; }
     #endregion
@@ -1634,9 +1634,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return false; }
     if (command_name == Fix.COUNTER_DISALLOW) { return false; }
     if (command_name == Fix.RAGING_STORM) { return true; }
-    if (command_name == Fix.PRECISION_STRIKE) { return true; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return true; }
     if (command_name == Fix.HARDEST_PARRY) { return false; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return true; }
+    if (command_name == Fix.PRECISION_STRIKE) { return true; }
     if (command_name == Fix.EVERFLOW_MIND) { return false; }
     if (command_name == Fix.INNER_INSPIRATION) { return false; }
     #endregion
@@ -1766,9 +1766,9 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return Fix.SEVENTH_PRINCIPLE_JP; }
     if (command_name == Fix.COUNTER_DISALLOW) { return Fix.COUNTER_DISALLOW_JP; }
     if (command_name == Fix.RAGING_STORM) { return Fix.RAGING_STORM_JP; }
-    if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return Fix.UNINTENTIONAL_HIT_JP; }
     if (command_name == Fix.HARDEST_PARRY) { return Fix.HARDEST_PARRY_JP; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return Fix.UNINTENTIONAL_HIT_JP; }
+    if (command_name == Fix.PRECISION_STRIKE) { return Fix.PRECISION_STRIKE_JP; }
     if (command_name == Fix.EVERFLOW_MIND) { return Fix.EVERFLOW_MIND_JP; }
     if (command_name == Fix.INNER_INSPIRATION) { return Fix.INNER_INSPIRATION_JP; }
     #endregion
@@ -1836,15 +1836,15 @@ public static class ActionCommand
     if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
     if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象にかかっている【有害】に属するBUFFを除去する。"; }
     if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
-    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【出血】のBUFFを付与する。【出血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
+    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【失血】のBUFFを付与する。【失血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
     if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
     // スキル
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return "自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
-    if (command_name == Fix.SPEED_STEP) { return "自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘速度が上昇する。このスタックは５回まで累積する。"; }
+    if (command_name == Fix.SPEED_STEP) { return "自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘反応が上昇する。このスタックは５回まで累積する。"; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のスキルポイント回復量が＋１される。"; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のスキルポイント回復量が＋２される。"; }
     if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }
     #endregion
 
@@ -1860,7 +1860,7 @@ public static class ActionCommand
     if (command_name == Fix.DOUBLE_SLASH) { return "敵一体を対象とする。対象に２回【物理】ダメージを与える。"; }
     if (command_name == Fix.CONCUSSIVE_HIT) { return "敵一体を対象とする。対象に物理ダメージを与え、【破損】のBUFFを付与する。【破損】が続く間、対象の物理防御が減少する。この効果は５回まで累積可能である。"; }
     if (command_name == Fix.BONE_CRUSH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象に【損傷】のBUFFを付与する。【損傷】が続く間、対象の物理攻撃力が２０％低下する。"; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "自分自身に【心眼】のBUFFを付与する。【心眼】が続く間、対象の物理防御を２０％無視して、ダメージを当てられるようになる。"; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "自分自身に【一心】のBUFFを付与する。【一心】が続く間、対象の物理防御を２０％無視して、ダメージを当てられるようになる。"; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return "味方全員に【活力】のBUFFを付与する。【活力】が続く間、最大ライフが10%上昇する。また、その分だけライフを回復する。"; }
     if (command_name == Fix.UNSEEN_AID) { return "敵味方全員を対象とする。対象にかかっている【有害】【有益】いずれのBUFFもすべて除去する。"; }
     #endregion
@@ -1890,10 +1890,11 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "敵フィールドに【荒廃】のフィールドを形成する。【荒廃】の効果が続く間、物理防御力、魔法防御力、戦闘反応値がそれぞれ２０％減少する。"; }
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return "味方一体を対象とする。対象に【第七原理】のBUFFを付与する。【第七原理】が続く間、物理属性値の源を【知】、魔法属性値の源を【力】に転換する。"; }
     if (command_name == Fix.COUNTER_DISALLOW) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】か【スキル】である場合、そのインスタント行動を打ち消す。その後、対象に【喪失】のBUFFを付与する。【喪失】が続く間、対象はインスタント行動を開始する事ができない。また開始した場合、その行動をカウンターする。"; }
+    // スキル
     if (command_name == Fix.RAGING_STORM) { return "敵全体に対して【物理】ダメージを2回連続で与える。加えて【臨戦】のフィールドを形成する。その後味方フィールドに【臨戦】のBUFFが続く間、味方から敵に与える物理および魔法ダメージが１０％上昇する。"; }
-    if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
     if (command_name == Fix.HARDEST_PARRY) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【スキル】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。この行動は即座に発揮され、打ち消されない。"; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
+    if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
     if (command_name == Fix.EVERFLOW_MIND) { return "味方一体に対して【常在】のBUFFを付与する。【常在】が続く間、インスタント行動を行った後、インスタントゲージが全て消費されず、20%残った状態となる"; }
     if (command_name == Fix.INNER_INSPIRATION) { return "味方一体を対象とする。SPを10%回復する。"; }
     #endregion
@@ -1975,6 +1976,96 @@ public static class ActionCommand
     if (command_name == Fix.DEMON_CONTRACT) { return ""; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
     if (command_name == Fix.TIME_SKIP) { return ""; }
+
+    return String.Empty;
+  }
+
+  public static string GetDescEffect(Character player, string command_name)
+  {
+    #region "Delve I"
+    // 魔法
+    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋" + (player.FireBall) * 10; }
+    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋" + (player.IceNeedle) * 9; }
+    if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 ＋" + (player.FreshHeal) * 20; }
+    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋" + (player.ShadowBlast) * 5; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋" + (player.OracleCommand) * 10; }
+    if (command_name == Fix.ENERGY_BOLT) { return "ＭＰ消費 －" + (player.EnergyBolt) * 1 ; }
+    // スキル
+    if (command_name == Fix.STRAIGHT_SMASH) { return "物理ダメージの威力 ＋" + (player.StraightSmash) * 10; }
+    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋" + (player.ShieldBash) * 1; }
+    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋" + (player.LegStrike) * 5; }
+    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋" + (player.HunterShot) * 2; }
+    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋" + (player.TrueSight) * 5; }
+    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －" + (player.DispelMagic) * 5; }
+    #endregion
+
+    #region "Delve II"
+    // 魔法
+    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋" + (player.FlameBlade) * 20; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "一度に除去する数 ＋" + (player.PurePurification) * 1; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋" + (player.DivineCircle) * 30; }
+    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋" + (player.BloodSign) * 20; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + (player.FortuneSpirit) * 1; }
+    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + (player.FlashCounter) * 2; }
+    // スキル
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + (player.StanceOfTheGuard) * 2; }
+    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + (player.SpeedStep) * 3; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + (player.MultipleShot) * 10; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋" + (player.LeylineSchema) * 2; }
+    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －" + (player.SpiritualRest) * 3; }
+    #endregion
+
+    #region "Delve III"
+    // 魔法
+    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + (player.MeteorBullet) * 1; }
+    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + (player.BlueBullet) * 1; }
+    if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + (player.FreshHeal) * 30; }
+    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + (player.BlackContract) * 1; }
+    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + (player.WordOfPower) * 20; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + (player.SigilOfThePending) * 2; }
+    // スキル
+    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + (player.DoubleSlash) * 10; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + (player.ConcussiveHit) * 1; }
+    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + (player.ConcussiveHit) * 3; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + (player.EyeOfTheIsshin) * 2; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + (player.VoiceOfVigor) * 3; }
+    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + (player.SpiritualRest) * 5; }
+    #endregion
+
+    #region "Delve IV"
+    // 魔法
+    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + (player.VolcanicBlaze) * 30; }
+    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + (player.FreezingCube) * 25; }
+    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + (player.AngelicEcho) * 10; }
+    if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + (player.CursedEvangile) * 74; }
+    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + (player.GaleWind) * 1; }
+    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + (player.PhantomOboro) * 10; }
+    // スキル
+    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + (player.IronBuster) * 30 + "　周囲全体へのダメージの威力 ＋" + (player.IronBuster) * 20; }
+    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + (player.DominationField) * 3 + "　防御姿勢によるダメージ軽減 ＋" + (player.DominationField) * 2; }
+    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + (player.DeadlyDrive) * 1 + "　(20%以下)＋" + (player.DeadlyDrive) * 2 + "　(10%以下)＋" + (player.DeadlyDrive) * 3; }
+    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + (player.PenetrationArrow) * 4; }
+    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + (player.WillAwakening) * 1; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + (player.CircleOfSerenity) * 10; }
+    #endregion
+
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + (player.FlameStrike) * 50; }
+    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + (player.FrostLance) * 40; }
+    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + (player.ShiningHeal) * 1; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + (player.CircleOfTheDespair) * 3; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + (player.SeventhPrinciple) * 10; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + (player.CounterDisallow) * 1; }
+    // スキル
+    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + (player.RagingStorm) * 10; }
+    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + (player.HardestParry) * 5; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + (player.UnintentionalHit) * 3 + "　敵の行動ゲージ後退率 ＋" + (player.UnintentionalHit) * 3; }
+    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + (player.PrecisionStrike) * 50; }
+    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + (player.EverflowMind) * 2; }
+    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + (player.InnerInspiration) * 10; }
+    #endregion
 
     return String.Empty;
   }

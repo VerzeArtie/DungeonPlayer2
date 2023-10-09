@@ -279,7 +279,7 @@ public static class SecondaryLogic
   public static double LeylineSchema_Effect1(Character player)
   {
     if (player.LeylineSchema <= 1) { return 2.00f; }
-    return 2.00f + (player.LeylineSchema - 1);
+    return 2.00f + (player.LeylineSchema - 1) * 2.00f;
   }
 
   public static double FlameBlade(Character player)
@@ -360,7 +360,7 @@ public static class SecondaryLogic
   public static double StanceOfTheBlade(Character player)
   {
     if (player.StanceOfTheBlade <= 1) { return 0.10f; }
-    return 0.10f + (player.StanceOfTheBlade - 1) * 0.20f;
+    return 0.10f + (player.StanceOfTheBlade - 1) * 0.30f;
   }
 
   public static int StanceOfTheBlade_Turn(Character player)

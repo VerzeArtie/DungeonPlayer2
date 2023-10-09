@@ -54,6 +54,7 @@ public class PartyMenu : MotherBase
 
   // EssenceTreeView
   public GameObject GroupEssenceCategory;
+  public Text txtEssenceTreeName;
   public Button btnEssence_First;
   public Button btnEssence_Second;
   public Button btnEssence_Third;
@@ -112,6 +113,7 @@ public class PartyMenu : MotherBase
   public NodeActionCommand imgEssenceCurrent;
   public Text txtEssenceCurrentName;
   public Text txtEssenceCurrentDescription;
+  public Text txtEssenceCurrentDescEffect;
   public GameObject groupEssenceDecision;
   public Image imgEssenceDecision;
   public Text txtEssenceDecisionTitle;
@@ -135,6 +137,7 @@ public class PartyMenu : MotherBase
     this.CurrentPlayer = PlayerList[0];
     TapStatus();
     TapStayListCharacter(StayListName[0]);
+    TapSelectEssence(txtEssenceElementList[0]);
   }
 
   // Update is called once per frame
@@ -762,6 +765,7 @@ public class PartyMenu : MotherBase
   public void TapEssenceCategory(int number)
   {
     SetupEssenceList(CurrentPlayer, number);
+    TapSelectEssence(txtEssenceElementList[0]);
     //for (int ii = 0; ii < GroupEssenceList.Count; ii++)
     //{
     //  if (number == ii) { GroupEssenceList[ii].SetActive(true); }
@@ -773,7 +777,8 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
-    txtEssenceCurrentDescription.text = ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
+    txtEssenceCurrentDescription.text = "`Œø‰Ê`@" + ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
+    txtEssenceCurrentDescEffect.text = "`‹­‰»`@" + ActionCommand.GetDescEffect(this.CurrentPlayer, txt_title.text);
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
 
@@ -1007,6 +1012,9 @@ public class PartyMenu : MotherBase
   {
     Debug.Log("SetupEssenceList(S) " + player.FullName + " " + number.ToString());
     string attribute = String.Empty;
+
+    txtEssenceTreeName.text = player.FullName;
+    txtEssencePoint.text = player.SoulFragment.ToString();
 
     if (player.FullName == Fix.NAME_EIN_WOLENCE)
     {
