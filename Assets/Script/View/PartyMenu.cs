@@ -46,6 +46,7 @@ public class PartyMenu : MotherBase
   public Button btnCommandCategoryAction;
   public Button btnCommandCetegoryItem;
   public Button btnCommandCetegoryArchetype;
+  public GameObject groupPageScroll;
 
   public NodeActionCommand CurrentSelectCommand;
 
@@ -130,6 +131,10 @@ public class PartyMenu : MotherBase
   private string SwitchCharacter = string.Empty;
 
   private int CurrentEssenceSelectNumber = 0;
+
+  private int CurrentBattleSettingPageNumber = 0;
+
+  private const int BATTLE_SETTING_NUM = 8;
 
   // Start is called before the first frame update
   public override void Start()
@@ -723,6 +728,67 @@ public class PartyMenu : MotherBase
     this.CurrentSelectCommand = null;
   }
 
+  public void TapBattleSettingPageNext()
+  {
+    Debug.Log("TapBattleSettingPageNext(S)");
+
+    List<string> currentList = CurrentPlayer.GetAvailableList();
+    if (currentList.Count <= (this.CurrentBattleSettingPageNumber + 1) * BATTLE_SETTING_NUM)
+    {
+      Debug.Log("TapBattleSettingPageNext - PageLimit, then no action.");
+      return;
+    }
+
+    this.CurrentBattleSettingPageNumber++;
+
+    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
+    {
+      Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
+      if (ii >= currentList.Count - this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM)
+      {
+        ListAvailableCommand[ii].CommandName = String.Empty;
+        ListAvailableCommand[ii].name = String.Empty;
+        ListAvailableCommand[ii].ActionButton.image.sprite = null;
+        ListAvailableCommandText[ii].text = String.Empty;
+        continue;
+      }
+      ListAvailableCommand[ii].CommandName = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+      ListAvailableCommand[ii].name = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+      ListAvailableCommand[ii].ApplyImageIcon(currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM]);
+      ListAvailableCommandText[ii].text = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+    }
+  }
+
+  public void TapBattleSettingPageBack()
+  {
+    Debug.Log("TapBattleSettingPageBack(S)");
+
+    if (this.CurrentBattleSettingPageNumber <= 0)
+    {
+      Debug.Log("TapBattleSettingPageBack - PageFirst, then no action.");
+      return;
+    }
+    this.CurrentBattleSettingPageNumber--;
+
+    List<string> currentList = CurrentPlayer.GetAvailableList();
+    for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
+    {
+      Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
+      if (ii >= currentList.Count - this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM)
+      {
+        ListAvailableCommand[ii].CommandName = String.Empty;
+        ListAvailableCommand[ii].name = String.Empty;
+        ListAvailableCommand[ii].ActionButton.image.sprite = null;
+        ListAvailableCommandText[ii].text = String.Empty;
+        continue;
+      }
+      ListAvailableCommand[ii].CommandName = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+      ListAvailableCommand[ii].name = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+      ListAvailableCommand[ii].ApplyImageIcon(currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM]);
+      ListAvailableCommandText[ii].text = currentList[ii + this.CurrentBattleSettingPageNumber * BATTLE_SETTING_NUM];
+    }
+  }
+
   #region "アクションコマンド"
   public void TapActionCommand(Text txt_src)
   {
@@ -998,6 +1064,7 @@ public class PartyMenu : MotherBase
       currentList = player.GetAvailableBasicAction(); // 万が一見つからない場合はBasicで表示
     }
 
+    this.CurrentBattleSettingPageNumber = 0; // 初期表示のため、0に再設定
     for (int ii = 0; ii < ListAvailableCommand.Count; ii++)
     {
       Debug.Log("GetAvailableList: " + ListAvailableCommand[ii].CommandName);
@@ -1013,6 +1080,15 @@ public class PartyMenu : MotherBase
       ListAvailableCommand[ii].name = currentList[ii];
       ListAvailableCommand[ii].ApplyImageIcon(currentList[ii]);
       ListAvailableCommandText[ii].text = currentList[ii];
+    }
+
+    if (currentList.Count > BATTLE_SETTING_NUM)
+    {
+      groupPageScroll.SetActive(true);
+    }
+    else
+    {
+      groupPageScroll.SetActive(false);
     }
   }
 
@@ -1186,7 +1262,7 @@ public class PartyMenu : MotherBase
   private void SetupEssenceElement(int element_level, string label_text, int number)
   {
     // todo レベル０で条件を満たしている場合の可視化と、レベル０で未到達の場合はLOCKとして見せるのは設計が異なる。
-    if (element_level >= 0)
+    if (element_level >= 1)
     {
       txtEssenceElementList[number].text = label_text;
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
@@ -1197,7 +1273,7 @@ public class PartyMenu : MotherBase
     {
       txtEssenceElementList[number].text = "？？？";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
-      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
+      txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(true);
     }
   }
