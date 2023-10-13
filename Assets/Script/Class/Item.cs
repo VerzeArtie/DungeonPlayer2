@@ -41,6 +41,7 @@ public partial class Item
     Light_Armor,
     Accessory,
     Artifact,
+    Jewel,
     Potion,
     EventItem,
     SellOnly,
@@ -5745,6 +5746,499 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.JUNK_TARISMAN_POISON:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、猛毒耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistPoison = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_SILENCE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、沈黙耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistSilence = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_BIND:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、束縛耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistBind = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_SLEEP:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、睡眠耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistSleep = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_STUN:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、スタン耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistStun = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_PARALYZE:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、麻痺耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistParalyze = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_FROZEN:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、凍結耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistFreeze = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_FEAR:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、恐怖耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistFear = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_TEMPTATION:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、誘惑耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistTemptation = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_SLOW:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、鈍化耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistSlow = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_DIZZY:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、眩暈耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistDizzy = true;
+        break;
+
+      case Fix.JUNK_TARISMAN_SLIP:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 5500;
+        this._importantType = Important.None;
+        this._description = "今にも壊れそうなタリスマンだが、最低限の効果は期待できる。体＋２０、出血耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 20;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistSlip = true;
+        break;
+
+      case Fix.SIHAIRYU_SIKOTU:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "常に在り続けるが、姿のない竜の意志が流れ込んでくる。指の骨は形を呈しているだけであり真実ではないが、直接的なパワーを感じ取れる。物攻率＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyPhysicalAttack = 1.05f; // todo 要検証
+        break;
+
+      case Fix.OLDGLORY_TREE_KAREHA:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "既に枯れてしまっているにも関わらず、古代栄樹の底知れぬ魔力を宿す。保持するだけで直接脳内へ魔力の根源が伝わってくる。魔攻率＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyMagicAttack = 1.05f; // todo 要検証
+        break;
+
+      case Fix.GALEWIND_KONSEKI:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "正しき秩序と整合性はこのゲイル・ウィンドから生じる事象。その痕跡だけではあるが、直接原理の意志が流れ込んでくる。戦速率＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyBattleSpeed = 1.05f; // todo 要検証
+        break;
+
+      case Fix.SIN_CRYSTAL_KAKERA:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "過去から現在、そして未来永劫決して輝きを失わないクリスタル。その欠片のみではあるが、所持者に直接的な反射能力を向上させる力が宿っている。戦応率＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyBattleResponse = 1.05f; // todo 要検証
+        break;
+
+      case Fix.EVERMIND_ZANSHI:
+        this._rarity = Rarity.Poor;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 7500;
+        this._importantType = Important.None;
+        this._description = "現世には決して存在しない存在、エバー・マインド。その存在の残思は潜在意識へと直接コンタクトしてくる。既に朽ちてはいるが、そでもなお一定の効果は発揮される。潜力率＋５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyPotential = 1.05f; // todo 要検証
+        break;
+
       case Fix.BRONZE_RING_KIBA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;
@@ -6155,6 +6649,36 @@ public partial class Item
         this._description = "黄を宿らせている刻印、それは【心】を示す。心＋５０";
         this._strength = 0;
         this._agility = 0;
+        this._intelligence = 40;
+        this._stamina = 20;
+        this._mind = 15;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyLight = 1.05f; // 要検証
+        this.ResistSleep = true;
+        break;
+
+      case Fix.SUNLEAF_SEAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "太陽をシンボルとして光を放ち続ける葉。葉に込められた魔力は聖なる輝きを周囲へ放つ。知＋４０、体＋２０、心＋１５、睡眠耐性、聖増幅＋５％";
+        this._strength = 0;
+        this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 50;
@@ -6163,6 +6687,361 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SPIRIT_TUNOBUE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "森に住む精霊達が稀に落としていく角笛。その笛から発せられる音波は常人には聞こえないが、稀に聞き取れる者がおり、その者には躍動感がみなぎると言われている。技＋４０、知＋２０、心＋１５、束縛耐性、闇増幅＋５％";
+        this._strength = 0;
+        this._agility = 40;
+        this._intelligence = 20;
+        this._stamina = 0;
+        this._mind = 15;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyShadow = 1.05f; // 要検証
+        this.ResistBind = true;
+        break;
+
+      case Fix.DEPLETH_SEED_PIERCE:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "種として枯渇しきった素材を元に作製された黒いピアス。失われた魔力の代償として、それと同等の力を手にする。力＋４０、技＋２０、心＋１５、恐怖耐性、炎増幅＋５％";
+        this._strength = 40;
+        this._agility = 20;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 15;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyFire = 1.05f; // 要検証
+        this.ResistFear = true;
+        break;
+
+      case Fix.SPARKLINE_EMBLEM:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "一点から周囲全体へと電撃がほとばしる紋章。瞬間的な強さを誇る者はこの原理を基点としている。技＋４０、心＋２５、凍結耐性、氷増幅＋５％";
+        this._strength = 0;
+        this._agility = 40;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 25;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyIce = 1.05f; // 要検証
+        this.ResistFreeze = true;
+        break;
+
+      case Fix.CHAINSHIFT_BOOTS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 16000;
+        this._importantType = Important.None;
+        this._description = "身動きの取りやすい攻撃フォームから防衛姿勢に転じる時、このブーツが半自動的にその効果を発揮してくれる。力＋２５、体＋４０、スタン耐性、麻痺耐性";
+        this._strength = 25;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 40;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistStun = true;
+        this.ResistParalyze = true;
+        break;
+
+      case Fix.ASHED_COMPASS:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 17000;
+        this._importantType = Important.None;
+        this._description = "コンパスとしての指し示す機能は既に失われている。ただし、所持者の想い次第で導きを再び指し示してくれる。力＋１０、技＋１０、知＋１０、体＋１０、心＋３０、炎耐性５％、氷耐性５％、聖耐性５％、闇耐性５％";
+        this._strength = 10;
+        this._agility = 10;
+        this._intelligence = 10;
+        this._stamina = 10;
+        this._mind = 30;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.ResistFire = 1.05f; // 要検証
+        this.ResistIce = 1.05f; // 要検証
+        this.ResistLight = 1.05f; // 要検証
+        this.ResistShadow = 1.05f; // 要検証
+        break;
+
+      case Fix.SQUARE_SINNEN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「信念」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、物攻率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyPhysicalAttack = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_BLESTAR:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「熟慮」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、物防率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyPhysicalDefense = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_CHISEI:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「知性」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、魔攻率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyMagicAttack = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_SENREN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「洗練」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、魔防率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyMagicDefense = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_SAIKI:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「才気」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、戦速率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyBattleSpeed = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_TANREN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「鍛錬」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、戦応率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyBattleResponse = 1.10f; // 要検証
+        break;
+
+      case Fix.SQUARE_KOKOH:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Jewel;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 32000;
+        this._importantType = Important.None;
+        this._description = "正方形の形状をした宝石。煌びやかではないが宝石の中央に「孤高」の文字が刻まれ、もの静かに発光している。ジュエルソケットに装着する事で効果を得られる。心＋２０、潜力率１０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 20;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        this.AmplifyPotential = 1.10f; // 要検証
         break;
 
       case Fix.ENSEMBLE_FEATHER_HUT:
@@ -6353,7 +7232,7 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.RARE_SPIRIT_OF_HEART:
+      case Fix.SPIRIT_CHALICE_OF_HEART:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;

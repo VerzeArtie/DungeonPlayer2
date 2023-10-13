@@ -1683,6 +1683,24 @@ public static partial class Fix
   public const string WONDERING_BLESSED_CROSS = "ワンダリング・ブレスド・クロス";
   public const string SERANA_BRILLIANT_ROBE = "セラーナ・ブリリアント・ローブ";
 
+  public const string JUNK_TARISMAN_POISON = "ジャンク・タリスマン『猛毒』";
+  public const string JUNK_TARISMAN_SILENCE = "ジャンク・タリスマン『沈黙』";
+  public const string JUNK_TARISMAN_BIND = "ジャンク・タリスマン『束縛』";
+  public const string JUNK_TARISMAN_SLEEP = "ジャンク・タリスマン『睡眠』";
+  public const string JUNK_TARISMAN_STUN = "ジャンク・タリスマン『スタン』";
+  public const string JUNK_TARISMAN_PARALYZE = "ジャンク・タリスマン『麻痺』";
+  public const string JUNK_TARISMAN_FROZEN = "ジャンク・タリスマン『凍結』";
+  public const string JUNK_TARISMAN_FEAR = "ジャンク・タリスマン『恐怖』";
+  public const string JUNK_TARISMAN_TEMPTATION = "ジャンク・タリスマン『誘惑』";
+  public const string JUNK_TARISMAN_SLOW = "ジャンク・タリスマン『鈍化』";
+  public const string JUNK_TARISMAN_DIZZY = "ジャンク・タリスマン『眩暈』";
+  public const string JUNK_TARISMAN_SLIP = "ジャンク・タリスマン『出血』";
+  public const string SIHAIRYU_SIKOTU = "支配竜の指骨";
+  public const string OLDGLORY_TREE_KAREHA = "古代栄樹の枯れ葉";
+  public const string GALEWIND_KONSEKI = "ゲイル・ウィンドの痕跡";
+  public const string SIN_CRYSTAL_KAKERA = "シン・クリスタルの欠片";
+  public const string EVERMIND_ZANSHI = "エバー・マインドの残思";
+
   public const string BRONZE_RING_KIBA = "青銅の腕輪『牙』";
   public const string BRONZE_RING_SASU = "青銅の腕輪『刺』";
   public const string BRONZE_RING_KU = "青銅の腕輪『駆』";
@@ -1698,13 +1716,26 @@ public static partial class Fix
   public const string PURPLE_KOKUIN = "紫の刻印";
   public const string GREEN_KOKUIN = "緑の刻印";
   public const string YELLOW_KOKUIN = "黄の刻印";
+  public const string SUNLEAF_SEAL = "サンリーフ・シール";
+  public const string SPIRIT_TUNOBUE = "精霊達の角笛";
+  public const string DEPLETH_SEED_PIERCE = "デプレス・シードピアス";
+  public const string SPARKLINE_EMBLEM = "スパークライン・エムブレム";
+  public const string CHAINSHIFT_BOOTS = "チェーンシフト・ブーツ";
+  public const string ASHED_COMPASS = "アッシュド・コンパス";
   public const string ENSEMBLE_FEATHER_HUT = "エンゼンブル・フェザー・ハット";
   public const string MIRAGE_PLASMA_EARRING = "ミラージュ・プラズマ・イヤリング";
   public const string PHOTON_ZEAL_CROWN = "フォトン・ジール・クラウン";
   public const string DEMONS_STAR_BRACELET = "デーモンズ・スター・ブレスレット";
   public const string MIST_WAVE_GAUNTLET = "ミスト・ウェーブ・ガントレット";
   public const string MEIUN_PRISM_BOX = "命運のプリズムボックス";
-  public const string RARE_SPIRIT_OF_HEART = "心の聖杯【ハート】";
+  public const string SPIRIT_CHALICE_OF_HEART = "心の聖杯【ハート】";
+  public const string SQUARE_SINNEN = "スクエア【信念】";
+  public const string SQUARE_BLESTAR = "スクエア【熟慮】";
+  public const string SQUARE_CHISEI = "スクエア【知性】";
+  public const string SQUARE_SENREN = "スクエア【洗練】";
+  public const string SQUARE_SAIKI = "スクエア【才気】";
+  public const string SQUARE_TANREN = "スクエア【鍛錬】";
+  public const string SQUARE_KOKOH = "スクエア【孤高】";
 
   public const string WATERY_RING = "ウォータリー・リング";
   public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
