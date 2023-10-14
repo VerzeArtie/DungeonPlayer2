@@ -4273,10 +4273,9 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.BEGINNER_ROBE);
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
+        this.DivineCircle = 1;
         this.AvailableArcher = true;
         this.HunterShot = 1;
-        this.AvailableEnhanceForm = true;
-        this.AuraOfPower = 1;
         this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.FRESH_HEAL;
@@ -4312,7 +4311,7 @@ public partial class Character : MonoBehaviour
         this.FireBall = 1;
         this.FlameBlade = 1;
         this.AvailableBrave = true;
-        this.HeartOfLife = 1;
+        this.TrueSight = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.LEG_STRIKE;
@@ -5490,7 +5489,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public void UpdateLevelup()
+  public void UpdateLevelup(ref string new_command)
   {
     this.Level += 1;
 
@@ -5507,21 +5506,68 @@ public partial class Character : MonoBehaviour
         this.AvailableFire = true;
         this.FireBall++;
         ApplyNewCommand(Fix.FIRE_BALL);
+        new_command = Fix.FIRE_BALL;
       }
       if (this.Level == 4)
       {
         this.StanceOfTheBlade++;
         ApplyNewCommand(Fix.STANCE_OF_THE_BLADE);
+        new_command = Fix.STANCE_OF_THE_BLADE;
       }
-      if (this.Level == 7)
+      if (this.Level == 6)
       {
         this.FlameBlade++;
         ApplyNewCommand(Fix.FLAME_BLADE);
+        new_command = Fix.FLAME_BLADE;
+      }
+      if (this.Level == 8)
+      {
+        this.DoubleSlash++;
+        ApplyNewCommand(Fix.DOUBLE_SLASH);
+        new_command = Fix.DOUBLE_SLASH;
       }
       if (this.Level == 10)
       {
+        this.MeteorBullet++;
+        ApplyNewCommand(Fix.METEOR_BULLET);
+        new_command = Fix.METEOR_BULLET;
+      }
+      if (this.Level == 12)
+      {
+        this.StanceOfTheGuard++;
+        ApplyNewCommand(Fix.STANCE_OF_THE_GUARD);
+        new_command = Fix.STANCE_OF_THE_GUARD;
+      }
+      if (this.Level == 14)
+      {
+        this.ConcussiveHit++;
+        ApplyNewCommand(Fix.CONCUSSIVE_HIT);
+        new_command = Fix.CONCUSSIVE_HIT;
+      }
+      if (this.Level == 16)
+      {
+        this.VolcanicBlaze++;
+        ApplyNewCommand(Fix.VOLCANIC_BLAZE);
+        new_command = Fix.VOLCANIC_BLAZE;
+      }
+      if (this.Level == 18)
+      {
+        this.IronBuster++;
+        ApplyNewCommand(Fix.IRON_BUSTER);
+        new_command = Fix.IRON_BUSTER;
+      }
+      if (this.Level == 20)
+      {
+        this.DominationField++;
+        ApplyNewCommand(Fix.DOMINATION_FIELD);
+        new_command = Fix.DOMINATION_FIELD;
+      }
+
+      if (this.Level == 999)
+      {
         // this.Archetype_Ein1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
         ApplyNewCommand(Fix.ARCHETYPE_EIN_1);
+        new_command = Fix.ARCHETYPE_EIN_1;
       }
     }
     if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -5531,69 +5577,166 @@ public partial class Character : MonoBehaviour
         this.AvailableMartialArts = true;
         this.LegStrike++;
         ApplyNewCommand(Fix.LEG_STRIKE);
+        new_command = Fix.LEG_STRIKE;
       }
       if (this.Level == 4)
       {
         this.PurePurification++;
         ApplyNewCommand(Fix.PURE_PURIFICATION);
+        new_command = Fix.PURE_PURIFICATION;
       }
-      if (this.Level == 7)
+      if (this.Level == 6)
       {
         this.SpeedStep++;
         ApplyNewCommand(Fix.SPEED_STEP);
+        new_command = Fix.SPEED_STEP;
+      }
+      if (this.Level == 8)
+      {
+        this.BlueBullet++;
+        ApplyNewCommand(Fix.BLUE_BULLET);
+        new_command = Fix.BLUE_BULLET;
       }
       if (this.Level == 10)
       {
+        this.BoneCrush++;
+        ApplyNewCommand(Fix.BONE_CRUSH);
+        new_command = Fix.BONE_CRUSH;
+      }
+      if (this.Level == 12)
+      {
+        this.BloodSign++;
+        ApplyNewCommand(Fix.BLOOD_SIGN);
+        new_command = Fix.BLOOD_SIGN;
+      }
+      if (this.Level == 14)
+      {
+        this.BlackContract++;
+        ApplyNewCommand(Fix.BLACK_CONTRACT);
+        new_command = Fix.BLACK_CONTRACT;
+      }
+      if (this.Level == 16)
+      {
+        this.DeadlyDrive++;
+        ApplyNewCommand(Fix.DEADLY_DRIVE);
+        new_command = Fix.DEADLY_DRIVE;
+      }
+      if (this.Level == 18)
+      {
+        this.FreezingCube++;
+        ApplyNewCommand(Fix.FREEZING_CUBE);
+        new_command = Fix.FREEZING_CUBE;
+      }
+      if (this.Level == 20)
+      {
+        this.CursedEvangile++;
+        ApplyNewCommand(Fix.CURSED_EVANGILE);
+        new_command = Fix.CURSED_EVANGILE;
+      }
+
+      if (this.Level == 999)
+      {
         // this.Archetype_Lana1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
         ApplyNewCommand(Fix.ARCHETYPE_LANA_1);
+        new_command = Fix.ARCHETYPE_LANA_1;
       }
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
-      if (this.Level == 2)
-      {
-        this.AvailableArcher = true;
-        this.HunterShot++;
-        ApplyNewCommand(Fix.HUNTER_SHOT);
-      }
-      if (this.Level == 4)
-      {
-        this.DivineCircle++;
-        ApplyNewCommand(Fix.DIVINE_CIRCLE);
-      }
-      if (this.Level == 7)
+      if (this.Level == 6)
       {
         this.MultipleShot++;
         ApplyNewCommand(Fix.MULTIPLE_SHOT);
+        new_command = Fix.MULTIPLE_SHOT;
+      }
+      if (this.Level == 8)
+      {
+        this.HolyBreath++;
+        ApplyNewCommand(Fix.HOLY_BREATH);
+        new_command = Fix.HOLY_BREATH;
       }
       if (this.Level == 10)
       {
+        this.EyeOfTheIsshin++;
+        ApplyNewCommand(Fix.EYE_OF_THE_ISSHIN);
+        new_command = Fix.EYE_OF_THE_ISSHIN;
+      }
+      if (this.Level == 12)
+      {
+        this.SpiritualRest++;
+        ApplyNewCommand(Fix.SPIRITUAL_REST);
+        new_command = Fix.SPIRITUAL_REST;
+      }
+      if (this.Level == 14)
+      {
+        this.UnseenAid++;
+        ApplyNewCommand(Fix.UNSEEN_AID);
+        new_command = Fix.UNSEEN_AID;
+      }
+      if (this.Level == 16)
+      {
+        this.AngelicEcho++;
+        ApplyNewCommand(Fix.ANGELIC_ECHO);
+        new_command = Fix.ANGELIC_ECHO;
+      }
+      if (this.Level == 18)
+      {
+        this.PenetrationArrow++;
+        ApplyNewCommand(Fix.PENETRATION_ARROW);
+        new_command = Fix.PENETRATION_ARROW;
+      }
+      if (this.Level == 20)
+      {
+        this.CircleOfSerenity++;
+        ApplyNewCommand(Fix.CIRCLE_OF_SERENITY);
+        new_command = Fix.CIRCLE_OF_SERENITY;
+      }
+
+      if (this.Level == 999)
+      {
         // this.Archetype_Eone1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
         ApplyNewCommand(Fix.ARCHETYPE_EONE_1);
+        new_command = Fix.ARCHETYPE_EONE_1;
       }
     }
     if (this.FullName == Fix.NAME_BILLY_RAKI)
     {
-      if (this.Level == 2)
+      if (this.Level == 12)
       {
-        this.AvailableFire = true;
-        this.FireBall++;
-        ApplyNewCommand(Fix.FIRE_BALL);
+        this.LeylineSchema++;
+        ApplyNewCommand(Fix.LEYLINE_SCHEMA);
+        new_command = Fix.LEYLINE_SCHEMA;
       }
-      if (this.Level == 4)
+      if (this.Level == 14)
       {
-        this.SpeedStep++;
-        ApplyNewCommand(Fix.SPEED_STEP);
+        this.VoiceOfVigor++;
+        ApplyNewCommand(Fix.VOICE_OF_VIGOR);
+        new_command = Fix.VOICE_OF_VIGOR;
       }
-      if (this.Level == 7)
+      if (this.Level == 16)
       {
-        this.FlameBlade++;
-        ApplyNewCommand(Fix.FLAME_BLADE);
+        this.VolcanicBlaze++;
+        ApplyNewCommand(Fix.VOLCANIC_BLAZE);
+        new_command = Fix.VOLCANIC_BLAZE;
       }
-      if (this.Level == 10)
+      if (this.Level == 18)
+      {
+        this.WillAwakening++;
+        ApplyNewCommand(Fix.WILL_AWAKENING);
+        new_command = Fix.WILL_AWAKENING;
+      }
+      if (this.Level == 20)
+      {
+        this.DeadlyDrive++;
+        ApplyNewCommand(Fix.DEADLY_DRIVE);
+        new_command = Fix.DEADLY_DRIVE;
+      }
+
+      if (this.Level == 999)
       {
         // this.Archetype_BILLY1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
         ApplyNewCommand(Fix.ARCHETYPE_BILLY_1);
+        new_command = Fix.ARCHETYPE_BILLY_1;
       }
     }
   }
@@ -6136,6 +6279,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(106, 50, 30, 115, 10, 8, 460, 280);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPER_TOSSHIN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         break;
 
@@ -6144,6 +6289,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(95, 55, 102, 108, 10, 4, 476, 288);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WILD_STORM);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         break;
 
@@ -6152,6 +6299,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(65, 47, 98, 120, 10, 3, 491, 296);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_YOUKAIEKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         this.TargetSelectType = Fix.TargetSelectType.Behind;
         break;
@@ -6161,6 +6310,8 @@ public partial class Character : MonoBehaviour
         SetupParameter(101, 53, 71, 112, 10, 9, 512, 302);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POISON_TONGUE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         break;
 
@@ -6169,8 +6320,11 @@ public partial class Character : MonoBehaviour
         SetupParameter(109, 52, 68, 117, 10, 1, 527, 313);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONSTRICT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         break;
+
       #endregion
 
       #region "オーランの塔"

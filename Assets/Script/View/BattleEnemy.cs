@@ -973,8 +973,9 @@ public partial class BattleEnemy : MotherBase
 
             if (PlayerList[ii].Exp >= PlayerList[ii].GetNextExp())
             {
+              string newCommand = string.Empty;
               PlayerList[ii].Exp = PlayerList[ii].Exp - PlayerList[ii].GetNextExp();
-              PlayerList[ii].UpdateLevelup();
+              PlayerList[ii].UpdateLevelup(ref newCommand);
 
               DetectLvup.Add(true);
               DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");
@@ -983,9 +984,9 @@ public partial class BattleEnemy : MotherBase
               DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
               DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
               DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
-              if (PlayerList[ii].LevelupActionCommand() != String.Empty)
+              if (newCommand != String.Empty)
               {
-                DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(PlayerList[ii].LevelupActionCommand()) + " 】を習得した！");
+                DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(newCommand) + " 】を習得した！");
               }
               else
               {
