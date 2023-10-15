@@ -1380,6 +1380,29 @@ public static partial class Fix
   public const string COMMAND_YOUKAIEKI = "溶解液";
   public const string COMMAND_POISON_TONGUE = "猛毒の舌";
   public const string COMMAND_CONSTRICT = "締めつけ";
+  public const string COMMAND_TAIATARI = "体当たり";
+  public const string COMMAND_WINDFLARE = "ウィンド・フレア";
+  public const string COMMAND_EARTHBOLT = "アース・ボルト";
+  public const string COMMAND_SILENT_SHOT = "サイレント・ショット";
+  public const string COMMAND_PHANTOM_SONG = "精霊の歌";
+  public const string COMMAND_ENRAGE = "怒り";
+  public const string COMMAND_SPLASH_HARMONY = "スプラッシュ・ハーモニー";
+  public const string COMMAND_RANBOU_CHARGE = "乱暴な突進";
+  public const string COMMAND_BEAST_STRIKE = "猛獣の一撃";
+  public const string COMMAND_KONSHIN_TOKKAN = "渾身の突貫";
+  public const string COMMAND_HUHAI_SINKOU = "腐敗の進行";
+  public const string COMMAND_CHARGED_LANCE = "チャージ・ランス";
+  public const string COMMAND_SHADOW_MIST = "闇の濃霧";
+  public const string COMMAND_ROCK_THROW = "岩石投げ";
+  public const string COMMAND_YOUEN_KISS = "妖艶なキス";
+  public const string COMMAND_POISON_SPORE = "猛毒の胞子";
+  public const string COMMAND_GROUND_RUMBLE = "地ならし";
+  public const string COMMAND_FIRE_BLAST = "ファイア・ブラスト";
+  public const string COMMAND_RENSOU_TOSSHIN = "連槍突進";
+  public const string COMMAND_VERDANT_VOICE = "新緑の呼び声";
+  public const string COMMAND_BLACK_SPORE = "黒い胞子";
+  public const string COMMAND_KILL_SPINNING_LANCER = "キル・スピニングランサー";
+
   public const string COMMAND_NOTHING = "なし";
   #endregion
 

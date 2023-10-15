@@ -6325,6 +6325,190 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.SAVAGE_BEAR:
+      case Fix.SAVAGE_BEAR_JP:
+        SetupParameter(140, 65, 77, 223, 14, 6, 685, 412);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_TAIATARI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.INNOCENT_FAIRY:
+      case Fix.INNOCENT_FAIRY_JP:
+        SetupParameter(79, 70, 145, 190, 14, 7, 702, 427);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_WINDFLARE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SPEEDY_FALCON:
+      case Fix.SPEEDY_FALCON_JP:
+        SetupParameter(132, 76, 105, 212, 14, 9, 716, 438);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        // this.CannotCritical = true; // クリティカルあり
+        break;
+
+      case Fix.MYSTIC_DRYAD:
+      case Fix.MYSTIC_DRYAD_JP:
+        SetupParameter(90, 72, 151, 220, 14, 4, 727, 450);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_EARTHBOLT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WOLF_HUNTER:
+      case Fix.WOLF_HUNTER_JP:
+        SetupParameter(143, 78, 110, 236, 14, 1, 740, 466);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SILENT_SHOT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.FOREST_PHANTOM:
+      case Fix.FOREST_PHANTOM_JP:
+        SetupParameter(120, 80, 155, 241, 14, 6, 772, 481);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_PHANTOM_SONG);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area32;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.EXCITED_ELEPHANT:
+      case Fix.EXCITED_ELEPHANT_JP:
+        SetupParameter(165, 86, 122, 277, 17, 8, 788, 516);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ENRAGE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SYLPH_DANCER:
+      case Fix.SYLPH_DANCER_JP:
+        SetupParameter(126, 90, 169, 262, 17, 2, 792, 530);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SPLASH_HARMONY);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.GATHERING_LAPTOR:
+      case Fix.GATHERING_LAPTOR_JP:
+        SetupParameter(172, 88, 134, 278, 17, 5, 804, 543);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_RANBOU_CHARGE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.RAGE_TIGER:
+      case Fix.RAGE_TIGER_JP:
+        SetupParameter(181, 92, 140, 269, 17, 7, 821, 561);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BEAST_STRIKE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        // this.CannotCritical = true; // クリティカルあり
+        break;
+
+      case Fix.THORN_WARRIOR:
+      case Fix.THORN_WARRIOR_JP:
+        SetupParameter(177, 87, 141, 269, 17, 2, 839, 575);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_KONSHIN_TOKKAN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MUDDLED_PLANT:
+      case Fix.MUDDLED_PLANT_JP:
+        SetupParameter(155, 84, 177, 285, 17, 4, 853, 589);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_HUHAI_SINKOU);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area33;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.FLANSIS_KNIGHT:
+      case Fix.FLANSIS_KNIGHT_JP:
+        SetupParameter(196, 101, 142, 316, 20, 7, 910, 650);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CHARGED_LANCE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area34;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.MIST_PYTHON:
+      case Fix.MIST_PYTHON_JP:
+        SetupParameter(149, 106, 188, 305, 20, 1, 923, 667);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SHADOW_MIST);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area34;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.TOWERING_ENT:
+      case Fix.TOWERING_ENT_JP:
+        SetupParameter(186, 99, 147, 327, 20, 3, 940, 681);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ROCK_THROW);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area34;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.POISON_MARY:
+      case Fix.POISON_MARY_JP:
+        SetupParameter(153, 104, 196, 312, 20, 6, 955, 699);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_YOUEN_KISS);
+        list.Add(Fix.COMMAND_POISON_SPORE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area34;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DISTURB_RHINO:
+      case Fix.DISTURB_RHINO_JP:
+        SetupParameter(206, 97, 133, 336, 20, 8, 988, 704);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GROUND_RUMBLE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area34;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
+      case Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP:
+        SetupParameter(450, 150, 500, 1600, 25, 0, 30000, 45000);
+        list.Add(Fix.COMMAND_FIRE_BLAST);
+        list.Add(Fix.COMMAND_RENSOU_TOSSHIN);
+        list.Add(Fix.COMMAND_VERDANT_VOICE);
+        list.Add(Fix.COMMAND_BLACK_SPORE);
+        // list.Add("キル・スピニングランサー"); // エリミネイトスキルなので設定しなくてよい。
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss3;
+        this.CannotCritical = false;
+        break;
+
       #endregion
 
       #region "オーランの塔"
@@ -6367,15 +6551,6 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
-      case Fix.MYSTIC_DRYAD:
-      case Fix.MYSTIC_DRYAD_JP:
-        SetupParameter(35, 10, 60, 20, 5, 0, 80, 50);
-        list.Add(Fix.COMMAND_POISON_RINPUN);
-        list.Add(Fix.COMMAND_YOUEN_FIRE);
-        list.Add(Fix.COMMAND_BLAZE_DANCE);
-        this.CannotCritical = false;
-        break;
-
       case Fix.SHOTGUN_HYUUI:
       case Fix.SHOTGUN_HYUUI_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
@@ -6383,29 +6558,8 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.SPEEDY_FALCON:
-      case Fix.SPEEDY_FALCON_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.INNOCENT_FAIRY:
-      case Fix.INNOCENT_FAIRY_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
       case Fix.CALM_STAG:
       case Fix.CALM_STAG_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SAVAGE_BEAR:
-      case Fix.SAVAGE_BEAR_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
@@ -6416,84 +6570,6 @@ public partial class Character : MonoBehaviour
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
-        break;
-
-      case Fix.EXCITED_ELEPHANT:
-      case Fix.EXCITED_ELEPHANT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.FLANSIS_KNIGHT:
-      case Fix.FLANSIS_KNIGHT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.GATHERING_LAPTOR:
-      case Fix.GATHERING_LAPTOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SYLPH_DANCER:
-      case Fix.SYLPH_DANCER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.THORN_WARRIOR:
-      case Fix.THORN_WARRIOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.TOWERING_ENT:
-      case Fix.TOWERING_ENT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.DISTURB_RHINO:
-      case Fix.DISTURB_RHINO_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MIST_PYTHON:
-      case Fix.MIST_PYTHON_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MUDDLED_PLANT:
-      case Fix.MUDDLED_PLANT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.POISON_MARY:
-      case Fix.POISON_MARY_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
-      case Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        this.Area = Fix.MonsterArea.Boss3;
         break;
 
       case Fix.DAGGER_FISH:
@@ -7097,13 +7173,6 @@ public partial class Character : MonoBehaviour
 
       case Fix.DREAD_LANCER:
       case Fix.DREAD_LANCER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.RAGE_TIGER:
-      case Fix.RAGE_TIGER_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
