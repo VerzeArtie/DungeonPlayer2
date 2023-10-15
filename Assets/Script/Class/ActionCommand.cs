@@ -1074,7 +1074,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
     if (command_name == Fix.SPEED_STEP) { return 15; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return 20; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 2; }
     if (command_name == Fix.SPIRITUAL_REST)
     {
       int result = 15;
