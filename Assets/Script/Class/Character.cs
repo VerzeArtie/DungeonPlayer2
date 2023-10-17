@@ -2455,9 +2455,9 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_POISON); }
   }
 
-  public BuffImage IsStun
+  public BuffImage IsSilent
   {
-    get { return SearchBuff(Fix.EFFECT_STUN); }
+    get { return SearchBuff(Fix.EFFECT_SILENT); }
   }
 
   public BuffImage IsBind
@@ -2465,14 +2465,34 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.EFFECT_BIND); }
   }
 
-  public BuffImage IsSilent
-  {
-    get { return SearchBuff(Fix.EFFECT_SILENT); }
-  }
-
   public BuffImage IsSleep
   {
     get { return SearchBuff(Fix.EFFECT_SLEEP); }
+  }
+
+  public BuffImage IsStun
+  {
+    get { return SearchBuff(Fix.EFFECT_STUN); }
+  }
+
+  public BuffImage IsParalyze
+  {
+    get { return SearchBuff(Fix.EFFECT_PARALYZE); }
+  }
+
+  public BuffImage IsFreeze
+  {
+    get { return SearchBuff(Fix.EFFECT_FREEZE); }
+  }
+
+  public BuffImage IsFear
+  {
+    get { return SearchBuff(Fix.EFFECT_FEAR); }
+  }
+
+  public BuffImage IsTemptation
+  {
+    get { return SearchBuff(Fix.EFFECT_TEMPTATION); }
   }
 
   public BuffImage IsSlow
@@ -2488,6 +2508,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsSlip
   {
     get {return SearchBuff(Fix.EFFECT_SLIP); }
+  }
+
+  public BuffImage IsCannotResurrect
+  {
+    get { return SearchBuff(Fix.EFFECT_CANNOT_RESURRECT); }
   }
 
   public BuffImage IsSkyShield
@@ -2772,6 +2797,12 @@ public partial class Character : MonoBehaviour
   public BuffImage IsSyutyuDanzetsu
   {
     get { return SearchBuff(Fix.BUFF_SYUTYU_DANZETSU); }
+  }
+
+  // モンスター特融
+  public BuffImage IsBlackSpore
+  {
+    get { return SearchBuff(Fix.BUFF_BLACK_SPORE); }
   }
 
   public void RemoveTargetBuff(string buff_name)
@@ -5375,8 +5406,20 @@ public partial class Character : MonoBehaviour
     if (Level <= 10) { return 4; }
     if (Level <= 15) { return 5; }
     if (Level <= 20) { return 6; }
-
-    return 7;
+    if (Level <= 25) { return 7; }
+    if (Level <= 30) { return 8; }
+    if (Level <= 35) { return 9; }
+    if (Level <= 40) { return 10; }
+    if (Level <= 45) { return 11; }
+    if (Level <= 50) { return 12; }
+    if (Level <= 55) { return 13; }
+    if (Level <= 60) { return 14; }
+    if (Level <= 65) { return 15; }
+    if (Level <= 70) { return 16; }
+    else
+    {
+      return 3;
+    }
   }
 
   public int LevelupSoulEssence()
@@ -6449,7 +6492,7 @@ public partial class Character : MonoBehaviour
       case Fix.FLANSIS_KNIGHT_JP:
         SetupParameter(196, 101, 142, 316, 20, 7, 910, 650);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_CHARGED_LANCE);
+        list.Add(Fix.COMMAND_STRONG_SLASH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = false;
@@ -7469,6 +7512,26 @@ public partial class Character : MonoBehaviour
           current.Add(Fix.COMMAND_STRUGGLE_VOICE);
         }
         result = RandomChoice(current);
+        break;
+
+      case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
+        // todo 構築する必要がある。
+        random = AP.Math.RandomInteger(4);
+        switch (random)
+        {
+          case 0:
+            result = Fix.COMMAND_FIRE_BLAST;
+            break;
+          case 1:
+            result = Fix.COMMAND_VERDANT_VOICE;
+            break;
+          case 2:
+            result = Fix.COMMAND_BLACK_SPORE;
+            break;
+          case 3:
+            result = Fix.COMMAND_RENSOU_TOSSHIN;
+            break;
+        }
         break;
 
       case Fix.DUEL_JEDA_ARUS:
