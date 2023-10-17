@@ -2486,6 +2486,204 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
+      case Fix.COMMAND_TAIATARI:
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffStun(player, target, 1, 0);
+        }
+        break;
+
+      case Fix.COMMAND_WINDFLARE:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffSlow(player, target, 2, 0.5f);
+        }
+        break;
+
+      case Fix.COMMAND_EARTHBOLT:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffBind(player, target, 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_SILENT_SHOT:
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffFear(player, target, 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_PHANTOM_SONG:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, false, critical);
+          ExecBuffSilent(player, target_list[jj], 1, 0);
+        }
+        break;
+
+      case Fix.COMMAND_ENRAGE:
+        ExecBuffPhysicalAttackUp(player, player, 3, 1.30f);
+        break;
+
+      case Fix.COMMAND_SPLASH_HARMONY:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffParalyze(player, target, 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_RANBOU_CHARGE:
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffPhysicalDefenseDown(player, target, 5, 0.70f);
+        }
+        break;
+
+      case Fix.COMMAND_BEAST_STRIKE:
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffSlip(player, target, 3, 50);
+        }
+        break;
+
+      case Fix.COMMAND_KONSHIN_TOKKAN:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_HUHAI_SINKOU:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, false, Fix.CriticalType.None);
+        if (success)
+        {
+          if (target.IsPoison == null)
+          {
+            ExecBuffPoison(player, target, 3, 50);
+          }
+          else if (target.IsSlip == null)
+          {
+            ExecBuffSlip(player, target, 3, 50);
+          }
+          else if (target.IsFear == null)
+          {
+            ExecBuffFear(player, target, 1, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_STRONG_SLASH:
+        success = ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecNormalAttack(player, target, 0.30f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+        }
+        break;
+
+      case Fix.COMMAND_SHADOW_MIST:
+        target_list = GetOpponentGroup(player);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          bool hit = ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, false, critical);
+          if (hit)
+          {
+            ExecBuffDizzy(player, target_list[jj], 2, 0.30f);
+            ExecBuffSlow(player, target_list[jj], 1, 0.50f);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_ROCK_THROW:
+        success = ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffStun(player, target, 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_YOUEN_KISS:
+        ExecBuffTemptation(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_POISON_SPORE:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, false, Fix.CriticalType.None);
+        if (success)
+        {
+          ExecBuffPoison(player, target, 3, 100);
+        }
+        break;
+
+      case Fix.COMMAND_GROUND_RUMBLE:
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          ExecNormalAttack(player, target, 0.70f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+          int random = AP.Math.RandomInteger(3);
+          if (random == 0)
+          {
+            ExecBuffStun(player, target_list[jj], 2, 0);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffBind(player, target_list[jj], 2, 0);
+          }
+          else
+          {
+            ExecBuffSilent(player, target_list[jj], 2, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_FIRE_BLAST:
+        target_list = GetOpponentGroup(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          bool hit = ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
+          if (hit)
+          {
+            ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.70f);
+          }
+        }
+        target_list[0].objFieldPanel.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
+        StartAnimation(target_list[0].objFieldPanel.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
+        break;
+
+      case Fix.COMMAND_RENSOU_TOSSHIN:
+        for (int jj = 0; jj < 3; jj++)
+        {
+          // ランダムで対象を選んで当てる
+          List<Character> list = GetOpponentGroup(player);
+          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.90f, Fix.DamageSource.Physical, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_VERDANT_VOICE:
+        ExecLifeGain(player, player.MaxLife / 20);
+        player.objFieldPanel.AddBuff(prefab_Buff, Fix.BUFF_VERDANT_VOICE, Fix.INFINITY, 0, 0, 0);
+        break;
+
+      case Fix.COMMAND_BLACK_SPORE:
+        target_list = GetOpponentGroup(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          // ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
+          target_list[ii].objBuffPanel.AddBuff(prefab_Buff, "BlackSpore", Fix.INFINITY, 0, 0, 0);
+        }
+        break;
+
+      case Fix.COMMAND_KILL_SPINNING_LANCER:
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, false, critical);
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
@@ -3755,6 +3953,16 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.BUFF_VERDANT_VOICE)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          if (EnemyList[jj].IsSigilOfThePending == null)
+          {
+            ExecLifeGain(EnemyList[jj], EnemyList[jj].MaxLife / 40);
+          }
+        }
+      }
     }
 
     // 各BUFFによる効果
@@ -3834,6 +4042,29 @@ public partial class BattleEnemy : MotherBase
         {
           Debug.Log("CursedEvangile Detect: " + AllList[ii].IsCursedEvangile.EffectValue.ToString("F2"));
           ExecElementalDamage(AllList[ii], Fix.DamageSource.DarkMagic, AllList[ii].IsCursedEvangile.EffectValue);
+        }
+      }
+
+      if (AllList[ii].IsBlackSpore)
+      {
+        int random = AP.Math.RandomInteger(5);
+        switch (random)
+        {
+          case 0:
+            ExecBuffSilent(AllList[ii], AllList[ii], 3, 0);
+            break;
+          case 1:
+            ExecBuffBind(AllList[ii], AllList[ii], 3, 0);
+            break;
+          case 2:
+            ExecBuffFear(AllList[ii], AllList[ii], 2, 0);
+            break;
+          case 3:
+            ExecBuffPoison(AllList[ii], AllList[ii], 5, 120);
+            break;
+          case 4:
+            ExecBuffTemptation(AllList[ii], AllList[ii], 2, 0);
+            break;
         }
       }
 

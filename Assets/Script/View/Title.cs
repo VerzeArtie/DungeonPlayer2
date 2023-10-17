@@ -426,17 +426,17 @@ public class Title : MotherBase
     One.CreateShadowData();
 
     One.EnemyList.Clear();
-    One.BattleEnemyList.Add(Fix.THE_GALVADAZER);
+    One.BattleEnemyList.Add(Fix.FLANSIS_OF_THE_FOREST_QUEEN);
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
       Character character = objEC.AddComponent<Character>();
       character.Construction(One.BattleEnemyList[ii]);
-      character.Strength = 50;
-      character.Agility = 20;
-      character.Intelligence = 100;
-      character.Mind = 20;
-      character.BaseLife = 999999;
+      //character.Strength = 50;
+      //character.Agility = 20;
+      //character.Intelligence = 100;
+      //character.Mind = 20;
+      //character.BaseLife = 999999;
       character.BaseManaPoint = 99999;
       character.MaxGain();
       One.EnemyList.Add(character);

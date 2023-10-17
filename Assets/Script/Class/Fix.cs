@@ -337,6 +337,8 @@ public static partial class Fix
   public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
 
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
+  public const string BUFF_BLACK_SPORE = "BlackSpore";
+  public const string BUFF_VERDANT_VOICE = "VerdantVoice";
   #endregion
   #region "Timer"
   public const int BATTLEEND_AUTOEXIT = 200;
@@ -1391,7 +1393,7 @@ public static partial class Fix
   public const string COMMAND_BEAST_STRIKE = "猛獣の一撃";
   public const string COMMAND_KONSHIN_TOKKAN = "渾身の突貫";
   public const string COMMAND_HUHAI_SINKOU = "腐敗の進行";
-  public const string COMMAND_CHARGED_LANCE = "チャージ・ランス";
+  public const string COMMAND_STRONG_SLASH = "ストロング・スラッシュ";
   public const string COMMAND_SHADOW_MIST = "闇の濃霧";
   public const string COMMAND_ROCK_THROW = "岩石投げ";
   public const string COMMAND_YOUEN_KISS = "妖艶なキス";
