@@ -12311,6 +12311,54 @@ public static class MessagePack
   public static void Message900070(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "18:1:-6", ActionEvent.JumpToLocation);
+
+    if (One.TF.Event_Message900075 == false)
+    {
+      One.TF.Event_Message900075 = true;
+      Message(ref m_list, ref e_list, "アイン：っな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：また別の場所に飛ばされたわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構、厄介だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：だな。これだけワープさせられてんだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、そこじゃないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、どこなんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：配置そのものが広範囲でバラついてるんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：茂みが深くて入れない場所もあるし、今みたいに飛ばされる場合もある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、問いかけの様なものも見当たらない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：道標がない以上は感覚的に進めるしかないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：感覚派のテメーがそれを言うかよ。おもしれー意見だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・ま、まあな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ねえ、じゃあ本当にやみくもに進むしかないわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうかな。やみくもと言えば、そうなるのかもな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、広範囲にバラついている事自体がヒントにはなっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それ自体を手がかりの一つと考えて進めればいいだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：だけどよ。その広範囲っていうのは本当かよ？こんだけ飛ばされてると位置関係なんか分かんねーだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：広範囲っていうのは確かに微妙だったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、今の所、通路はまだどこも繋がってないのは確かって事さ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なるほど、確かにな。まあその辺りはわかんねーから、任せるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ここで悩んでいても先には進めない。まずは探索していってみよう。", ActionEvent.None);
+    }
   }
 
   public static void Message900080(ref List<string> m_list, ref List<ActionEvent> e_list)
