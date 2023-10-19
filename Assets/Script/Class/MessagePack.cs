@@ -12393,21 +12393,35 @@ public static class MessagePack
 
   public static void Message900140(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00001 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00001 = true;
+      if (One.TF.FieldObject_MysticForest_00001 == false)
+      {
+        One.TF.FieldObject_MysticForest_00001 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_1_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_1_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
   public static void Message900150(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00004 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00004 = true;
+      if (One.TF.FieldObject_MysticForest_00004 == false)
+      {
+        One.TF.FieldObject_MysticForest_00004 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_4_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_4_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -12438,11 +12452,18 @@ public static class MessagePack
 
   public static void Message900210(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00002 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00002 = true;
+      if (One.TF.FieldObject_MysticForest_00002 == false)
+      {
+        One.TF.FieldObject_MysticForest_00002 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_2_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_2_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -12463,21 +12484,35 @@ public static class MessagePack
 
   public static void Message900250(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00003 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00003 = true;
+      if (One.TF.FieldObject_MysticForest_00003 == false)
+      {
+        One.TF.FieldObject_MysticForest_00003 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_3_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_3_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
   public static void Message900260(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00005 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00005 = true;
+      if (One.TF.FieldObject_MysticForest_00005 == false)
+      {
+        One.TF.FieldObject_MysticForest_00005 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_5_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_5_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -12597,11 +12632,18 @@ public static class MessagePack
 
   public static void Message900380(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00011 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00011 = true;
+      if (One.TF.FieldObject_MysticForest_00011 == false)
+      {
+        One.TF.FieldObject_MysticForest_00011 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_11_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_11_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -12630,6 +12672,43 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "33:1:-7", ActionEvent.JumpToLocation);
   }
 
+  public static void Message900435(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900055 == false)
+    {
+      One.TF.Event_Message900055 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっと、何か面白いものを見つけたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっとそれ。面白いっていう代物じゃないわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何なんだ？これは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：古代栄樹。遥か昔から言い伝えられている幻の大樹の事よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：普通に言って、手に入れられる代物じゃないわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうなのか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、何か不思議な感覚がするな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：持っているだけで、何かに誘導される様な感じが伝わってくるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：「古代栄樹」は大自然からの導きを指し示す「言霊」としてよく使われるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：その古代栄樹の枝だから、何かを感じ取ってもおかしくはないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほどな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・そうか。分かったぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こいつを例の深い茂みにかざしてみよう。きっと何か起こる筈だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ可能性はありそうね。やってみましょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
 
   public static void Message900440(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -12736,6 +12815,21 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
     }
+  }
+
+  public static void Message900455(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：っと・・・・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：な、なんだ？急に立ち止まってどうしたってんだよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、一応これで拓けたかな、と思ってさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：どういう意味だよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：祈願の御札を取る前ってさ。", ActionEvent.None);
   }
 
   public static void Message900450(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -12926,11 +13020,18 @@ public static class MessagePack
 
   public static void Message900600(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00006 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00006 = true;
+      if (One.TF.FieldObject_MysticForest_00006 == false)
+      {
+        One.TF.FieldObject_MysticForest_00006 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_6_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_6_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -12941,41 +13042,69 @@ public static class MessagePack
 
   public static void Message900620(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00007 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00007 = true;
+      if (One.TF.FieldObject_MysticForest_00007 == false)
+      {
+        One.TF.FieldObject_MysticForest_00007 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_7_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_7_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
   public static void Message900630(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00008 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00008 = true;
+      if (One.TF.FieldObject_MysticForest_00008 == false)
+      {
+        One.TF.FieldObject_MysticForest_00008 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_8_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_8_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
   public static void Message900640(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00009 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00009 = true;
+      if (One.TF.FieldObject_MysticForest_00009 == false)
+      {
+        One.TF.FieldObject_MysticForest_00009 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_9_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_9_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
   public static void Message900650(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00010 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00010 = true;
+      if (One.TF.FieldObject_MysticForest_00010 == false)
+      {
+        One.TF.FieldObject_MysticForest_00010 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_10_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_10_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -13001,11 +13130,18 @@ public static class MessagePack
 
   public static void Message900700(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.FieldObject_MysticForest_00012 == false)
+    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
     {
-      One.TF.FieldObject_MysticForest_00012 = true;
+      if (One.TF.FieldObject_MysticForest_00012 == false)
+      {
+        One.TF.FieldObject_MysticForest_00012 = true;
 
-      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_12_O);
+        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_12_O);
+      }
+    }
+    else
+    {
+      FailedBrushwood(ref m_list, ref e_list);
     }
   }
 
@@ -13020,17 +13156,11 @@ public static class MessagePack
     {
       One.TF.Event_Message900040 = true;
 
-      Message(ref m_list, ref e_list, "アイン：おっ、この茂み・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっ、この深い茂み・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：どうする？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：いや、何か不意に動いた気がしたが。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：気のせいじゃねえのか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ひょっとして、これか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：例の枝をかざしてみよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "　～　アインは" + Fix.KODAIEIJU_EDA + "を茂みに向かってかざした　～", ActionEvent.None);
 
@@ -13038,23 +13168,23 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
 
-      Message(ref m_list, ref e_list, "アイン：おっしゃ！開けたぜ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっしゃ！開いたぜ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：驚いたわ。まさかその枝で開くなんて。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：実際に開くのは予想してたとはいえ、驚かされるわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや、俺も分かっていたわけじゃないからな。正直な所、偶然だ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあ、正直なところ偶然だけどな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おめーの偶然はいつもインチキＬＶだな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあまあ、見つかってよかったじゃないか、ッハッハッハ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあインチキはさておき、これで色々と進めるようになるな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：そのテキトーさが当たるって所がバカアインの特徴よね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：他の場所もあったわよね。探索を続けましょうか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあこれで進めるようになったんだ。次へ行こう！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
     else
     {
-      Message(ref m_list, ref e_list, "アイン：おっ、例の茂みだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっ、例の深い茂みだな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：じゃあ、頼んだわよ。", ActionEvent.None);
 
@@ -13068,6 +13198,47 @@ public static class MessagePack
     }
   }
 
+  private static void FailedBrushwood(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900041 == false)
+    {
+      One.TF.Event_Message900041 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっ、何か茂みが深い所だが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ひょっとして強引に通れるんじゃねえのか！？突貫してみよーぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ！ビリー、待て！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（突如、茂みの中から長くて黒い蔦がビリーに襲い始めた！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　（ザザッ！！ザザザァァァ！！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ヌウウオオオオォォォ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ビリーは元の場所へ吹き飛ばされてしまった！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：グッフォー！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やはり駄目か・・・通させてもらえそうにないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：痛ってーな、クソ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫か。無理やり突っ込むのは止せって。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んなもん、突破できると思ったんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しばらくココは通れそうにない。他をあたろう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：ここか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうする？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、他をあたろう。", ActionEvent.None);
+    }
+  }
 
   public static void Message900720(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
