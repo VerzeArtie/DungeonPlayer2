@@ -9835,6 +9835,12 @@ public class DungeonField : MotherBase
         return true;
       }
 
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_54_X, Fix.MYSTICFOREST_Event_54_Y, Fix.MYSTICFOREST_Event_54_Z))
+      {
+        MessagePack.Message900436(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
       if (LocationDetect(tile, Fix.MYSTICFOREST_Boss_1_X, Fix.MYSTICFOREST_Boss_1_Y, Fix.MYSTICFOREST_Boss_1_Z) && One.TF.DefeatFlansisQueenOfVerdant == false)
       {
         MessagePack.Message900740(ref QuestMessageList, ref QuestEventList); TapOK();

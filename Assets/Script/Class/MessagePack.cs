@@ -12540,8 +12540,6 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：分からない、な。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
-
       Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：珍しいわね。そんな考えこむなんて。", ActionEvent.None);
@@ -12556,9 +12554,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：その祈願が、何を指しているのかがわからない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：エオネ、何か知らないか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ラナ、何か知らないか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：いいえ、何も。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ちょっとピンと来ないわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そうか・・・・・・", ActionEvent.None);
 
@@ -12570,7 +12568,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：分かった。このまま進めよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：気になったらちゃんと言ってちょうだいよ。バカアインの変な感覚は他の人は察知できないんだから。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：他に何か気になった事があれば、ちゃんと言ってよね。バカアインの変な感覚は察知できないんだから。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、了解だ。", ActionEvent.None);
     }
@@ -12707,6 +12705,38 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：まあ可能性はありそうね。やってみましょう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message900436(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900056 == false)
+    {
+      One.TF.Event_Message900056 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前、また変な所で足を止めるよな。何か見つかったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：道筋が見つかった気はする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そーか？？普通の場所に見えるけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここに来る時、さっき例の深い茂みを通過しただろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：例の茂みを通ったら必ずそうだっていうわけじゃないが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少なくとも、このルートを少し進んでみた感じ、元のルートに戻る気配はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なので、少し進んでいるのは確かだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあどっち行けば良いか正直俺にはわかんねー。その辺りは頼んだぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、続けて進んでみよう。", ActionEvent.None);
     }
   }
 

@@ -3688,6 +3688,12 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_53_X = 42.0f;
   public const float MYSTICFOREST_Event_53_Y = 0.0f;
   public const float MYSTICFOREST_Event_53_Z = -26.0f;
+
+  public const string MYSTICFOREST_Event_54_C = "Event";
+  public const string MYSTICFOREST_Event_54_O = "54";
+  public const float MYSTICFOREST_Event_54_X = 7.0f;
+  public const float MYSTICFOREST_Event_54_Y = 0.0f;
+  public const float MYSTICFOREST_Event_54_Z = -21.0f;
   #endregion
   #region "BrushWood"
   public const string MYSTICFOREST_BRUSHWOOD_1_C = "BrushWood";
