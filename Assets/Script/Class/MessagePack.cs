@@ -12566,7 +12566,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：分かった。このまま進めよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そんなに気になるんだったら一応メモしておくけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、すまない。頼んだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：他に何か気になった事があれば、ちゃんと言ってよね。バカアインの変な感覚は察知できないんだから。", ActionEvent.None);
 
