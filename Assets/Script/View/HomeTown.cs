@@ -3931,6 +3931,10 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.PURPLE_AMULET));
       shopList.Add(new Item(Fix.GREEN_AMULET));
       shopList.Add(new Item(Fix.YELLOW_AMULET));
+      shopList.Add(new Item(Fix.GALLANT_FEATHER_LANCE));
+      shopList.Add(new Item(Fix.ARANDEL_FORCE_ARMOR));
+      shopList.Add(new Item(Fix.MIRAGE_PLASMA_EARRING));
+      shopList.Add(new Item(Fix.MIST_WAVE_GAUNTLET));
       shopList.Add(new Item(Fix.LARGE_RED_POTION));
       shopList.Add(new Item(Fix.LARGE_BLUE_POTION));
       shopList.Add(new Item(Fix.LARGE_GREEN_POTION));
