@@ -12198,6 +12198,54 @@ public class DungeonField : MotherBase
               break;
           }
         }
+        else if (area_info == TileInformation.Area.AREA_2 || area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_2");
+          int rand_data = AP.Math.RandomInteger(5);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
+              One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
+              One.BattleEnemyList.Add(Fix.SPEEDY_FALCON);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              One.BattleEnemyList.Add(Fix.SPEEDY_FALCON);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              break;
+            case 5:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
 
         One.CannotRunAway = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
