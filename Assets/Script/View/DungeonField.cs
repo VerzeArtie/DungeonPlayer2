@@ -12198,10 +12198,10 @@ public class DungeonField : MotherBase
               break;
           }
         }
-        else if (area_info == TileInformation.Area.AREA_2 || area_info == TileInformation.Area.None)
+        else if (area_info == TileInformation.Area.AREA_2)
         {
           Debug.Log("area_info is AREA_2");
-          int rand_data = AP.Math.RandomInteger(5);
+          int rand_data = AP.Math.RandomInteger(10);
           Debug.Log("rand_data is " + random);
           switch (rand_data)
           {
@@ -12236,10 +12236,162 @@ public class DungeonField : MotherBase
               One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
               break;
             case 5:
-              Debug.Log("rand_data 4");
+              Debug.Log("rand_data 5");
               One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
               One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
               One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.SAVAGE_BEAR);
+              One.BattleEnemyList.Add(Fix.SPEEDY_FALCON);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              One.BattleEnemyList.Add(Fix.SPEEDY_FALCON);
+              One.BattleEnemyList.Add(Fix.SPEEDY_FALCON);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.WOLF_HUNTER);
+              One.BattleEnemyList.Add(Fix.FOREST_PHANTOM);
+              One.BattleEnemyList.Add(Fix.INNOCENT_FAIRY);
+              break;
+
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_3)
+        {
+          Debug.Log("area_info is AREA_3");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.EXCITED_ELEPHANT);
+              One.BattleEnemyList.Add(Fix.RAGE_TIGER);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.GATHERING_LAPTOR);
+              One.BattleEnemyList.Add(Fix.EXCITED_ELEPHANT);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.GATHERING_LAPTOR);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.GATHERING_LAPTOR);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              One.BattleEnemyList.Add(Fix.MUDDLED_PLANT);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.THORN_WARRIOR);
+              One.BattleEnemyList.Add(Fix.RAGE_TIGER);
+              One.BattleEnemyList.Add(Fix.MUDDLED_PLANT);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.THORN_WARRIOR);
+              One.BattleEnemyList.Add(Fix.MUDDLED_PLANT);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              break;
+            case 6:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.THORN_WARRIOR);
+              One.BattleEnemyList.Add(Fix.MUDDLED_PLANT);
+              One.BattleEnemyList.Add(Fix.RAGE_TIGER);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.GATHERING_LAPTOR);
+              One.BattleEnemyList.Add(Fix.GATHERING_LAPTOR);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.EXCITED_ELEPHANT);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              One.BattleEnemyList.Add(Fix.RAGE_TIGER);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.EXCITED_ELEPHANT);
+              One.BattleEnemyList.Add(Fix.SYLPH_DANCER);
+              One.BattleEnemyList.Add(Fix.THORN_WARRIOR);
+              break;
+
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_4)
+        {
+          Debug.Log("area_info is AREA_4");
+          int rand_data = AP.Math.RandomInteger(7);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.FLANSIS_KNIGHT);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.FLANSIS_KNIGHT);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              One.BattleEnemyList.Add(Fix.POISON_MARY);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.TOWERING_ENT);
+              One.BattleEnemyList.Add(Fix.POISON_MARY);
+              One.BattleEnemyList.Add(Fix.POISON_MARY);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.TOWERING_ENT);
+              One.BattleEnemyList.Add(Fix.FLANSIS_KNIGHT);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.DISTURB_RHINO);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              One.BattleEnemyList.Add(Fix.POISON_MARY);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.DISTURB_RHINO);
+              One.BattleEnemyList.Add(Fix.FLANSIS_KNIGHT);
+              One.BattleEnemyList.Add(Fix.POISON_MARY);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.TOWERING_ENT);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
+              One.BattleEnemyList.Add(Fix.MIST_PYTHON);
               break;
             default:
               Debug.Log("rand_data default...");
