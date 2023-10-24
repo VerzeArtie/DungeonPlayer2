@@ -3067,6 +3067,7 @@ public partial class Character : MonoBehaviour
     if (One.TF.FindBackPackItem(Fix.THQ_GREEN_POTION)) { list.Add(Fix.THQ_GREEN_POTION); }
     if (One.TF.FindBackPackItem(Fix.PERFECT_GREEN_POTION)) { list.Add(Fix.PERFECT_GREEN_POTION); }
     if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
+    if (One.TF.FindBackPackItem(Fix.PURE_SINSEISUI)) { list.Add(Fix.PURE_SINSEISUI); }
     return list;
   }
 

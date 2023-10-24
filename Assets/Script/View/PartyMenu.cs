@@ -395,7 +395,30 @@ public class PartyMenu : MotherBase
             double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].CurrentSkillPoint += (int)effectValue;
           }
-          // todo スキルポイント回復ポーションを復活させる事。
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_CLEAN_WATER)
+          {
+            if (One.TF.AlreadyPureCleanWater == false)
+            {
+              One.TF.AlreadyPureCleanWater = true;
+              PlayerList[ii].CurrentLife += PlayerList[ii].MaxLife;
+            }
+            else
+            {
+              // 何かメッセージを入れないと使えない事が分からない。
+            }
+          }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_SINSEISUI)
+          {
+            if (One.TF.AlreadySinseisui == false)
+            {
+              One.TF.AlreadySinseisui = true;
+              PlayerList[ii].CurrentManaPoint += PlayerList[ii].MaxManaPoint;
+            }
+            else
+            {
+              // 何かメッセージを入れないと使えない事が分からない。
+            }
+          }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STRENGTH ||
@@ -632,7 +655,9 @@ public class PartyMenu : MotherBase
         current == Fix.GROWTH_LIQUID4_MIND ||
         current == Fix.GROWTH_LIQUID5_MIND ||
         current == Fix.GROWTH_LIQUID6_MIND ||
-        current == Fix.GROWTH_LIQUID7_MIND
+        current == Fix.GROWTH_LIQUID7_MIND ||
+        current == Fix.PURE_CLEAN_WATER || 
+        current == Fix.PURE_SINSEISUI
         )
     {
       ParentBackpackView.objBlockFilter.SetActive(true);

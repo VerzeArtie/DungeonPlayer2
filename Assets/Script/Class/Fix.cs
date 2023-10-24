@@ -1654,7 +1654,6 @@ public static partial class Fix
   public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
 
   public const string KODAIEIJU_EDA = "古代栄樹の枝";
-  public const string SINSEISUI = "神聖水";
   public const string KIGAN_OFUDA = "祈願の御札";
 
   #endregion
@@ -1980,6 +1979,7 @@ public static partial class Fix
   public const string ITEM_WALKING_ROPE = "綱渡りロープ";
   public const string ITEM_COPPER_KEY = "銅製の鍵";
   public const string PURE_CLEAN_WATER = "清透水";
+  public const string PURE_SINSEISUI = "神聖水";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";

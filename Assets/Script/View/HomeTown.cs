@@ -1626,6 +1626,7 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
+    One.TF.AlreadySinseisui = false;
 
     Debug.Log("One.TF.CurrentAreaName: " + One.TF.CurrentAreaName);
     Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
@@ -1685,6 +1686,7 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
+    One.TF.AlreadySinseisui = false;
 
     One.TF.GameDay += 1;
     dayLabel.text = One.TF.GameDay.ToString() + "日目";
@@ -2987,7 +2989,8 @@ public partial class HomeTown : MotherBase
         current == Fix.HQ_GREEN_POTION ||
         current == Fix.THQ_GREEN_POTION ||
         current == Fix.PERFECT_GREEN_POTION ||
-        current == Fix.PURE_CLEAN_WATER)
+        current == Fix.PURE_CLEAN_WATER ||
+        current == Fix.PURE_SINSEISUI)
     {
       Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
     }

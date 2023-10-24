@@ -12010,6 +12010,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.PURE_SINSEISUI:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "純濃度が高い青い液体で生成された回復ポーション。飲んだ者のマナを100%回復する。ただし1度使うと空となるが、次の日になれば自然発生によりポーションはまた使える様になる。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.RESIST_POISON_SUIT:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.EventItem;

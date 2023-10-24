@@ -5376,7 +5376,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_MysticForest_00005 == false && location.x == Fix.MYSTICFOREST_Treasure_5_X && location.y == Fix.MYSTICFOREST_Treasure_5_Y && location.z == Fix.MYSTICFOREST_Treasure_5_Z)
         {
-          treasureName = Fix.SINSEISUI;
+          treasureName = Fix.PURE_SINSEISUI;
         }
         if (One.TF.Treasure_MysticForest_00006 == false && location.x == Fix.MYSTICFOREST_Treasure_6_X && location.y == Fix.MYSTICFOREST_Treasure_6_Y && location.z == Fix.MYSTICFOREST_Treasure_6_Z)
         {

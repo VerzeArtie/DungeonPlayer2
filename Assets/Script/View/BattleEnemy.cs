@@ -2026,6 +2026,9 @@ public partial class BattleEnemy : MotherBase
       case Fix.PURE_CLEAN_WATER:
         ExecPureCleanWater(player);
         break;
+      case Fix.PURE_SINSEISUI:
+        ExecSinseisui(player);
+        break;
       #endregion
 
       #region "モンスターアクション"
@@ -5432,6 +5435,29 @@ public partial class BattleEnemy : MotherBase
     One.TF.AlreadyPureCleanWater = true;
     double effectValue = target.MaxLife;
     AbstractHealCommand(null, target, effectValue);
+    return true;
+  }
+
+  private bool ExecSinseisui(Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (One.TF.FindBackPackItem(Fix.PURE_SINSEISUI) == false)
+    {
+      Debug.Log("SINSEISUI is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+    if (One.TF.AlreadySinseisui)
+    {
+      Debug.Log("SINSEISUI is already used...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_ALREADY_USED, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    One.TF.AlreadySinseisui = true;
+    double effectValue = target.MaxManaPoint;
+    AbstractGainManaPoint(null, target, effectValue);
     return true;
   }
 
