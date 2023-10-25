@@ -5425,7 +5425,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_MysticForest_00014 == false && location.x == Fix.MYSTICFOREST_Treasure_14_X && location.y == Fix.MYSTICFOREST_Treasure_14_Y && location.z == Fix.MYSTICFOREST_Treasure_14_Z)
         {
-          treasureName = Fix.MULLERHAIZEN_AGARTA_BOOK;
+          treasureName = Fix.INTRINSIC_FROZEN_ORB;
         }
         if (One.TF.Treasure_MysticForest_00015 == false && location.x == Fix.MYSTICFOREST_Treasure_15_X && location.y == Fix.MYSTICFOREST_Treasure_15_Y && location.z == Fix.MYSTICFOREST_Treasure_15_Z)
         {
