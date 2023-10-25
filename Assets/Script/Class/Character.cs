@@ -6371,7 +6371,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SAVAGE_BEAR:
       case Fix.SAVAGE_BEAR_JP:
-        SetupParameter(140, 65, 77, 223, 14, 6, 685, 412);
+        SetupParameter(140, 65, 77, 193, 14, 6, 685, 412);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TAIATARI);
         this.Rare = Fix.RareString.Black;
@@ -6381,7 +6381,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.INNOCENT_FAIRY:
       case Fix.INNOCENT_FAIRY_JP:
-        SetupParameter(79, 70, 145, 190, 14, 7, 702, 427);
+        SetupParameter(79, 70, 145, 160, 14, 7, 702, 427);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WINDFLARE);
         this.Rare = Fix.RareString.Black;
@@ -6391,7 +6391,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SPEEDY_FALCON:
       case Fix.SPEEDY_FALCON_JP:
-        SetupParameter(132, 76, 105, 212, 14, 9, 716, 438);
+        SetupParameter(132, 76, 105, 182, 14, 9, 716, 438);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
         this.Rare = Fix.RareString.Black;
@@ -6401,7 +6401,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MYSTIC_DRYAD:
       case Fix.MYSTIC_DRYAD_JP:
-        SetupParameter(90, 72, 151, 220, 14, 4, 727, 450);
+        SetupParameter(90, 72, 151, 190, 14, 4, 727, 450);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_EARTHBOLT);
         this.Rare = Fix.RareString.Black;
@@ -6411,7 +6411,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WOLF_HUNTER:
       case Fix.WOLF_HUNTER_JP:
-        SetupParameter(143, 78, 110, 236, 14, 1, 740, 466);
+        SetupParameter(143, 78, 110, 206, 14, 1, 740, 466);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SILENT_SHOT);
         this.Rare = Fix.RareString.Black;
@@ -6421,7 +6421,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FOREST_PHANTOM:
       case Fix.FOREST_PHANTOM_JP:
-        SetupParameter(120, 80, 155, 241, 14, 6, 772, 481);
+        SetupParameter(120, 80, 155, 211, 14, 6, 772, 481);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_PHANTOM_SONG);
         this.Rare = Fix.RareString.Black;
