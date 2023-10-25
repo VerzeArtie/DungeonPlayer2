@@ -1859,6 +1859,7 @@ public class DungeonField : MotherBase
   {
     //this.CurrentPlayer = PlayerList[0];
 
+    SceneManager.sceneUnloaded += PartyMenuUnloaded;
     SceneManager.sceneLoaded += PartyMenuLoadded;
     SceneDimension.SceneAdd(Fix.SCENE_PARTY_MENU);
   }
@@ -1923,6 +1924,14 @@ public class DungeonField : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     SceneManager.sceneLoaded -= PartyMenuLoadded;
+  }
+
+  private void PartyMenuUnloaded(Scene scene)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    SceneManager.sceneUnloaded -= PartyMenuUnloaded;
+
+    RefreshAllView();
   }
 
   public void TapFastTravel()
