@@ -12748,7 +12748,7 @@ public static class MessagePack
     {
       One.TF.Event_Message900060 = true;
 
-      Message(ref m_list, ref e_list, "ビリー：おおぉ！これってアレじゃねえのかよ！　アイン！？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：おお！？また何か使えそうなのが出てきたな！　アイン！？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：祈願の御札・・・か。", ActionEvent.None);
 
@@ -12764,29 +12764,21 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：ちょっと良いかしら。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：アンタらしくないわよ。いつもの意味不明な内容はどこに行ったのよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：アンタらしくないわよ。いつもの意味不明な内容は展開しないわけ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いや・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：バカアインはいつも通りしゃべってた方が普通よ。ちゃんと言いなさいよね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：ラナさん、それはちょっと・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：悪い悪い。確かにそうだな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いやいや、悪い悪い。確かにそうだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：じゃあ、改めて・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：じゃあ、改めまして・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は使える。それは間違いじゃない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：・・・（ッ）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：例の看板にあった「祈願」というキーワードとも合致しているし、きっとそれで良いんだと思う。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：エオネさん、笑っちゃだめよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：す、すみません・・・（ッ）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は使える。それは間違いじゃないんだが", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：例の看板にあった祈願とキーワードの合致はあるんだが", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：その事を指しているのかどうか、どうにも合致しない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ただ、その事のみを指しているのかどうか、どうにも合致しない。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：どういう意味よ？", ActionEvent.None);
 
@@ -12823,9 +12815,7 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "アイン：で、この看板からは同じ感覚が湧いてくるんだよ。", ActionEvent.None);
       }
 
-      Message(ref m_list, ref e_list, "アイン：【詩】っていば良いのかな。上手くいえないんだが・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：・・・（ッ！）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：【詩】っていえば良いのかな。上手くいえないんだが・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：何かの一節に感じないか？", ActionEvent.None);
 
@@ -12835,9 +12825,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は、実際この神秘の森を通過するための要素ではあるだろうが、", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：すまねえ、ちょっとこれ以上は上手く言えない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：その要素を指し示すだけの代物とはちょっと思えないんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ほんと、サッパリ分からないわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：すまねえが、これ以上は上手く言えない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ほんと、今の時点でもサッパリね。", ActionEvent.None);
       // 満たされるは精神と英知。語り継ぎし者よ、安らぎと平穏を。
       // うつろいを重ね、遠くを廻りて、祈願を果たす // todo
 
@@ -13613,6 +13605,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあそのツァルマンの里やらに赴いて一休憩入れるとするか！", ActionEvent.None);
     }
+  }
+
+  public static void Message900760(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "15:1:-22", ActionEvent.JumpToLocation);
   }
   #endregion
 

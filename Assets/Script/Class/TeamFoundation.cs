@@ -1870,6 +1870,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _treasure_mysticforest_00016 = false;
   [SerializeField] protected bool _treasure_mysticforest_00017 = false;
   [SerializeField] protected bool _treasure_mysticforest_00018 = false;
+  [SerializeField] protected bool _treasure_mysticforest_00019 = false;
 
   [SerializeField] protected bool _treasure_artharium_00001 = false;
   [SerializeField] protected bool _treasure_artharium_00002 = false;
@@ -2041,6 +2042,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Treasure_MysticForest_00016 { get { return _treasure_mysticforest_00016; } set { _treasure_mysticforest_00016 = value; } }
   public bool Treasure_MysticForest_00017 { get { return _treasure_mysticforest_00017; } set { _treasure_mysticforest_00017 = value; } }
   public bool Treasure_MysticForest_00018 { get { return _treasure_mysticforest_00018; } set { _treasure_mysticforest_00018 = value; } }
+  public bool Treasure_MysticForest_00019 { get { return _treasure_mysticforest_00019; } set { _treasure_mysticforest_00019 = value; } }
 
   public bool Treasure_Artharium_00001 { get { return _treasure_artharium_00001; } set { _treasure_artharium_00001 = value; } }
   public bool Treasure_Artharium_00002 { get { return _treasure_artharium_00002; } set { _treasure_artharium_00002 = value; } }

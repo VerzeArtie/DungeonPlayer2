@@ -3253,6 +3253,12 @@ public static partial class Fix
   public const float MYSTICFOREST_Treasure_18_X = 19.0f;
   public const float MYSTICFOREST_Treasure_18_Y = 1.0f;
   public const float MYSTICFOREST_Treasure_18_Z = -14.0f;
+
+  public const string MYSTICFOREST_Treasure_19_C = "Treasure";
+  public const string MYSTICFOREST_Treasure_19_O = "19";
+  public const float MYSTICFOREST_Treasure_19_X = 15.0f;
+  public const float MYSTICFOREST_Treasure_19_Y = 1.0f;
+  public const float MYSTICFOREST_Treasure_19_Z = -20.0f;
   #endregion
   #region "看板"
   public const string MYSTICFOREST_MessageBoard_1_C = "MessageBoard";
@@ -3694,6 +3700,12 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_54_X = 7.0f;
   public const float MYSTICFOREST_Event_54_Y = 0.0f;
   public const float MYSTICFOREST_Event_54_Z = -21.0f;
+
+  public const string MYSTICFOREST_Event_55_C = "Event";
+  public const string MYSTICFOREST_Event_55_O = "55";
+  public const float MYSTICFOREST_Event_55_X = 15.0f;
+  public const float MYSTICFOREST_Event_55_Y = 0.0f;
+  public const float MYSTICFOREST_Event_55_Z = -18.0f;
   #endregion
   #region "BrushWood"
   public const string MYSTICFOREST_BRUSHWOOD_1_C = "BrushWood";
