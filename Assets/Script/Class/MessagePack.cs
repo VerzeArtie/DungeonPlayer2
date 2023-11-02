@@ -7810,7 +7810,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：お、おぉ。。。悪い悪ぃ。大丈夫だって。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：血、出てるぜ。拳を握りすぎじゃなんじゃねえのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：血、出てるぜ。拳を握りすぎなんじゃねえのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンス、一瞬静止し、剣の切っ先を空中へ向けた 】", ActionEvent.MessageDisplay);
 
@@ -12603,6 +12603,8 @@ public static class MessagePack
   public static void Message900320(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "32:1:-1", ActionEvent.JumpToLocation);
+
+    Message900385(ref m_list, ref e_list);
   }
 
   public static void Message900330(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -12644,6 +12646,50 @@ public static class MessagePack
     else
     {
       FailedBrushwood(ref m_list, ref e_list);
+    }
+  }
+
+  public static void Message900385(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900051 == false)
+    {
+      One.TF.Event_Message900051 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっと！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：今、俺達目の前の通路をかっ飛ばしたよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これも、この森の仕掛けって事か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いや、仕掛けかどうかはわかんねーだろうが。俺達が早すぎただけかもしれないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ、そう来るか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：考えられなくもねー。だろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：う、うーん。どうだろうな。。。まあ、否定はできない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ！もっかいだ！絶対に通ってみせる！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：うおおおお！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "32:1:-5", ActionEvent.JumpToLocation);
+
+      Message(ref m_list, ref e_list, "ビリー：うおおおお！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "32:1:-1", ActionEvent.JumpToLocation);
+
+      Message(ref m_list, ref e_list, "ビリー：クッソ、どうやっても駄目だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、突っ込んでどうにかなるとは考えられないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どーすんだよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：気にはなるが、このまま進めるしかないだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んじゃあ、進めてみるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、何となくだが、行ける気はする。慎重に進めていこう。", ActionEvent.None);
     }
   }
 
@@ -12839,21 +12885,6 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
     }
-  }
-
-  public static void Message900455(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Message(ref m_list, ref e_list, "アイン：っと・・・・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "ビリー：な、なんだ？急に立ち止まってどうしたってんだよ？", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：いや、一応これで拓けたかな、と思ってさ。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "ビリー：どういう意味だよ？", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：祈願の御札を取る前ってさ。", ActionEvent.None);
   }
 
   public static void Message900450(ref List<string> m_list, ref List<ActionEvent> e_list)
