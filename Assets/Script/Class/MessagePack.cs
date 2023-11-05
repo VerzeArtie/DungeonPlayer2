@@ -3976,11 +3976,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, " ～エオネ・フルネアはパーティから離脱しました～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "　パーティ画面でサブ・グループが追加されました。", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "　パーティ画面でサブ・グループが追加されました。", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "　サブ・グループのメンバーは戦闘に参加する事はできませんが、経験値は入ります。", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "　サブ・グループのメンバーは戦闘に参加する事はできませんが、経験値は入ります。", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "　アイテムの受け渡しなどは行えるため、メイン・グループの装備を整える事をお勧めします。 ", ActionEvent.MessageDisplay);
+      //Message(ref m_list, ref e_list, "　アイテムの受け渡しなどは行えるため、メイン・グループの装備を整える事をお勧めします。 ", ActionEvent.MessageDisplay);
     }
   }
 
@@ -13582,7 +13582,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　フランシスの連槍がとっさに動き、ビリーに向けて突き刺してきた！！　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：しまっ！！", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "アイン：しまっ！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "～　その瞬間、一閃の光がフランシスの連槍へと放たれた　～", ActionEvent.MessageDisplay);
 
@@ -13590,9 +13590,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（ッドサ・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：なっ・・・なっ・・・", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "ビリー：なっ・・・なっ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：何だ今のああぁぁぁ！！", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "ビリー：何だ今のああぁぁぁ！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：どうやら今のは・・・【矢】が放たれたみたいだな。", ActionEvent.None);
 
