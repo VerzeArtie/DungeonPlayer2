@@ -117,6 +117,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_DhalGateDoor;
   public FieldObject prefab_DhalGateDoorOpen;
   public FieldObject prefab_Brushwood;
+  public FieldObject prefab_MysticForest_EventWall;
   public FieldObject prefab_Velgus_WallDoor;
   public FieldObject prefab_Velgus_SecretWall;
   public FieldObject prefab_Velgus_FakeSea;
@@ -416,6 +417,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("DhalGate_Door");
     ObjectList.Add("DhalGate_Door_Open");
     ObjectList.Add("Brushwood");
+    ObjectList.Add("MysticForest_EventWall");
     ObjectList.Add("Velgus_WallDoor");
     ObjectList.Add("Velgus_SecretWall");
     ObjectList.Add("Velgus_FakeSea");
@@ -3058,6 +3060,13 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Brushwood)
     {
       Debug.Log("fieldObjBefore is Brushwood, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    // オブジェクト（イベント壁）の判定
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MysticForest_EventWall)
+    {
+      Debug.Log("fieldObjBefore is MysticForest_EventWall, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -12799,6 +12808,7 @@ public class DungeonField : MotherBase
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
@@ -12883,6 +12893,7 @@ public class DungeonField : MotherBase
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
@@ -12967,6 +12978,7 @@ public class DungeonField : MotherBase
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
@@ -13051,6 +13063,7 @@ public class DungeonField : MotherBase
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
+            field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
         {
@@ -13526,6 +13539,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Brushwood, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Brushwood;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "MysticForest_EventWall")
+    {
+      current = Instantiate(prefab_MysticForest_EventWall, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.MysticForest_EventWall;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
