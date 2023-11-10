@@ -776,30 +776,34 @@ public static partial class Fix
   #endregion
 
   #region "Food Menu"
+  // アンシェット街
   public const string FOOD_BALANCE_SET = "バランス定食";
   public const string FOOD_LARGE_GOHAN_SET = "山盛りごはんセット";
   public const string FOOD_TSIKARA_UDON = "タップリ 力うどん";
   public const string FOOD_ZUNOU_FLY_SET = "頭脳フライ定食";
   public const string FOOD_SPEED_SOBA = "おかわり蕎麦";
 
+  // ファージル宮殿
+  public const string FOOD_KATUCARRY = @"激辛カツカレー定食";
+  public const string FOOD_OLIVE_AND_ONION = @"オリーブパンとオニオンスープ";
+  public const string FOOD_INAGO_AND_TAMAGO = @"イナゴの佃煮と卵和え定食";
+  public const string FOOD_USAGI = @"ウサギ肉のシチュー";
+  public const string FOOD_SANMA = @"サンマ定食（煮物添え）";
+
+  // 港町コチューシェ
+  public const string FOOD_FISH_GURATAN = @"フィッシュ・グラタン";
+  public const string FOOD_SEA_TENPURA = @"海鮮サクサク天プラ";
+  public const string FOOD_TRUTH_YAMINABE_1 = @"真実の闇鍋（パート１）";
+  public const string FOOD_OSAKANA_ZINGISKAN = @"お魚ジンギスカン";
+  public const string FOOD_RED_HOT_SPAGHETTI = @"レッドホット・スパゲッティ";
+
+  // ツァルマンの里
   public const string FOOD_TOBIUSAGI_ROAST = "トビウサギのロースト定食";
   public const string FOOD_WATARI_KAMONABE = "渡り鴨鍋";
   public const string FOOD_SYOI_KINOKO_SUGATAYAKI = "背負いキノコの姿焼";
   public const string FOOD_NEGIYAKI_DON = "ネギ焼き丼";
   public const string FOOD_NANAIRO_BUNA_NITSUKE = "七色ブナの煮つけ";
 
-  // １階
-  public const string FOOD_KATUCARRY = @"激辛カツカレー定食";
-  public const string FOOD_OLIVE_AND_ONION = @"オリーブパンとオニオンスープ";
-  public const string FOOD_INAGO_AND_TAMAGO = @"イナゴの佃煮と卵和え定食";
-  public const string FOOD_USAGI = @"ウサギ肉のシチュー";
-  public const string FOOD_SANMA = @"サンマ定食（煮物添え）";
-  // ２階
-  public const string FOOD_FISH_GURATAN = @"フィッシュ・グラタン";
-  public const string FOOD_SEA_TENPURA = @"海鮮サクサク天プラ";
-  public const string FOOD_TRUTH_YAMINABE_1 = @"真実の闇鍋（パート１）";
-  public const string FOOD_OSAKANA_ZINGISKAN = @"お魚ジンギスカン";
-  public const string FOOD_RED_HOT_SPAGHETTI = @"レッドホット・スパゲッティ";
   // ３階
   public const string FOOD_HINYARI_YASAI = @"ヒンヤリ・カリっと野菜定食";
   public const string FOOD_AZARASI_SHIOYAKI = @"白アザラシの塩焼き";
@@ -831,17 +835,23 @@ public static partial class Fix
   public static string DESC_24 = DESC_24_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８\r\n  技＋５\r\n  知　　\r\n  体　　\r\n  心＋３";
   public static string DESC_25 = DESC_25_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５\r\n  技＋３\r\n  知　　\r\n  体　　\r\n  心＋８";
 
-  public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋８０\r\n  体\r\n  心＋６０";
-  public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋８０\r\n  知＋６０\r\n  体＋６０\r\n  心";
-  public static string DESC_33 = DESC_33_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８０\r\n  技\r\n  知\r\n  体＋８０\r\n  心＋４０";
-  public static string DESC_34 = DESC_34_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５０\r\n  技＋５０\r\n  知＋５０\r\n  体＋５０\r\n  心＋５０";
-  public static string DESC_35 = DESC_35_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋１５０\r\n  体＋１００\r\n  心";
+  public static string DESC_31 = DESC_31_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技＋３０\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
+  public static string DESC_32 = DESC_32_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋３０\r\n  技　　　\r\n  知　　　\r\n  体＋１０\r\n  心＋１０";
+  public static string DESC_33 = DESC_33_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知＋３０\r\n  体＋１０\r\n  心＋１０";
+  public static string DESC_34 = DESC_34_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力　　　\r\n  技　　　\r\n  知　　　\r\n  体＋３０\r\n  心＋２０";
+  public static string DESC_35 = DESC_35_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋１０\r\n  技＋１０\r\n  知＋１０\r\n  体＋１０\r\n  心＋１０";
 
-  public static string DESC_41 = DESC_41_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体\r\n  心＋２５０";
-  public static string DESC_42 = DESC_42_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技\r\n  知\r\n  体＋２５０\r\n  心＋２５０";
-  public static string DESC_43 = DESC_43_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知＋２５０\r\n  知\r\n  体＋２５０";
-  public static string DESC_44 = DESC_44_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋２５０\r\n  心";
-  public static string DESC_45 = DESC_45_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技＋２５０\r\n  知\r\n  体\r\n  心＋２５０";
+  public static string DESC_51 = DESC_51_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋８０\r\n  体\r\n  心＋６０";
+  public static string DESC_52 = DESC_52_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋８０\r\n  知＋６０\r\n  体＋６０\r\n  心";
+  public static string DESC_53 = DESC_53_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋８０\r\n  技\r\n  知\r\n  体＋８０\r\n  心＋４０";
+  public static string DESC_54 = DESC_54_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋５０\r\n  技＋５０\r\n  知＋５０\r\n  体＋５０\r\n  心＋５０";
+  public static string DESC_55 = DESC_55_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技\r\n  知＋１５０\r\n  体＋１００\r\n  心";
+
+  public static string DESC_61 = DESC_61_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体\r\n  心＋２５０";
+  public static string DESC_62 = DESC_62_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技\r\n  知\r\n  体＋２５０\r\n  心＋２５０";
+  public static string DESC_63 = DESC_63_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  知＋２５０\r\n  知\r\n  体＋２５０";
+  public static string DESC_64 = DESC_64_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力\r\n  技＋２５０\r\n  知＋２５０\r\n  体＋２５０\r\n  心";
+  public static string DESC_65 = DESC_65_MINI + "\r\n\r\n食べた次の日は、以下の効果。\r\n  力＋２５０\r\n  技＋２５０\r\n  知\r\n  体\r\n  心＋２５０";
 
   public const string DESC_01_MINI = "体調を良くする事を意識して作られた定食。カロリーバランスが取れており、近隣の住人が良く食べに来る味付けとなっている。";
   public const string DESC_02_MINI = "腹ごしらえに最適なごはんセット。当然のごとく山盛りとなったごはんに加え、スタミナが十分につくおかずも多く盛られており、一部の客に人気がある";
@@ -861,17 +871,23 @@ public static partial class Fix
   public const string DESC_24_MINI = "魚とは思えないような歯ごたえのあるジンギスカン。食べた後の後味は良く、何度でも食べたくなる味付け。";
   public const string DESC_25_MINI = "真っ赤なスパゲッティだが、実は全然辛く無いらしい。\r\n　素材の原色を駆使し、着色は一切行ってないそうだ。";
 
-  public const string DESC_31_MINI = "カリっと天ぷら粉で焼き上げた野菜天ぷら。\r\n野菜であることを忘れてしまうぐらい、非常に香ばしい食感が残る。";
-  public const string DESC_32_MINI = "固くて歯ごたえの悪いアザラシ肉を十分にほぐし、凍らせた後、焼き、塩をまぶした究極の一品。";
-  public const string DESC_33_MINI = "冬の季節、急激な温度変化により身が引き締まったビーフを使用したカレーライス。臭みは一切感じない。";
-  public const string DESC_34_MINI = "肉、魚、豆、味噌汁、ご飯、煎茶。全てが揃ったバランスの良い定食。\r\nハンナおばさん自慢の定食。";
-  public const string DESC_35_MINI = "何という青さ・・・見ただけで凍えてしまいそうだ。\r\n　食べた時の口いっぱいに広がる感触は一級品のデザートそのものである。";
+  public const string DESC_31_MINI = "ウサギのもも肉の部位をゆっくりと弱火で焼き上げ、ツァルマンの里秘伝のタレで仕上げられた逸品。ふんわりとした触感がクセになる美味しさ。";
+  public const string DESC_32_MINI = "里の近辺で行われる狩猟では渡り鴨が良く取れる。鴨のふくらはぎ部分を切り落とし、鍋には多種多彩な野菜と共に入れられる。出来上がった鍋からは程よい香ばしい香りがして食欲を誘う。";
+  public const string DESC_33_MINI = "背負いキノコを丸々一匹、石窯で焼き上げた珍しい料理。触感は意外とコリコリしており、食べてみるとやみつきになる。";
+  public const string DESC_34_MINI = "熱い鉄板の上で豪快に焼き上げた大量のネギ。デカいどんぶりにドカっとのせ、一丁アガリ！";
+  public const string DESC_35_MINI = "七色の色を放つブナは基本的に調理したとしても食べられる箇所はごく僅か。数日の間、煮付けた後の旨味は最高の状態で引き出される。";
 
-  public const string DESC_41_MINI = "真っ黒な色のスパゲッティ\r\n見た目がかなり不気味だが・・・スパイスの効いた香りがする。";
-  public const string DESC_42_MINI = "ハンバーグの中に小さめに切り刻んだピーナッツが入っている\r\nフワフワとしたジューシーな肉とカリっとしたピーナッツが食欲をそそる。";
-  public const string DESC_43_MINI = "表面に真っ赤なトウガラシがかけられているヒレステーキ。\r\nその裏には実はほんのりとハチミツが隠し味として入っており、食べた者には辛さと甘さが同時に響き渡る。";
-  public const string DESC_44_MINI = "１番人気のトースト定食といえば、このオレンジトースト。\r\nふんだんに塗られたオレンジジャムとホワイトクリームを乗せたバカでかいトーストは男女問わず人気の一品である。";
-  public const string DESC_45_MINI = "食物の匂いが全くしない闇の鍋\r\n　ハンナ叔母さん曰く、美味しいモノはちゃんと入っているとの事。それを信じて食べるしか選択肢は無い。";
+  public const string DESC_51_MINI = "カリっと天ぷら粉で焼き上げた野菜天ぷら。\r\n野菜であることを忘れてしまうぐらい、非常に香ばしい食感が残る。";
+  public const string DESC_52_MINI = "固くて歯ごたえの悪いアザラシ肉を十分にほぐし、凍らせた後、焼き、塩をまぶした究極の一品。";
+  public const string DESC_53_MINI = "冬の季節、急激な温度変化により身が引き締まったビーフを使用したカレーライス。臭みは一切感じない。";
+  public const string DESC_54_MINI = "肉、魚、豆、味噌汁、ご飯、煎茶。全てが揃ったバランスの良い定食。\r\nハンナおばさん自慢の定食。";
+  public const string DESC_55_MINI = "何という青さ・・・見ただけで凍えてしまいそうだ。\r\n　食べた時の口いっぱいに広がる感触は一級品のデザートそのものである。";
+
+  public const string DESC_61_MINI = "真っ黒な色のスパゲッティ\r\n見た目がかなり不気味だが・・・スパイスの効いた香りがする。";
+  public const string DESC_62_MINI = "ハンバーグの中に小さめに切り刻んだピーナッツが入っている\r\nフワフワとしたジューシーな肉とカリっとしたピーナッツが食欲をそそる。";
+  public const string DESC_63_MINI = "表面に真っ赤なトウガラシがかけられているヒレステーキ。\r\nその裏には実はほんのりとハチミツが隠し味として入っており、食べた者には辛さと甘さが同時に響き渡る。";
+  public const string DESC_64_MINI = "１番人気のトースト定食といえば、このオレンジトースト。\r\nふんだんに塗られたオレンジジャムとホワイトクリームを乗せたバカでかいトーストは男女問わず人気の一品である。";
+  public const string DESC_65_MINI = "食物の匂いが全くしない闇の鍋\r\n　ハンナ叔母さん曰く、美味しいモノはちゃんと入っているとの事。それを信じて食べるしか選択肢は無い。";
 
   public static int[] FOOD_01_VALUE = { 1, 1, 1, 0, 0 };
   public static int[] FOOD_02_VALUE = { 0, 0, 0, 3, 0 };
@@ -891,16 +907,23 @@ public static partial class Fix
   public static int[] FOOD_24_VALUE = { 8, 5, 0, 0, 3 };
   public static int[] FOOD_25_VALUE = { 5, 3, 0, 0, 8 };
 
-  public static int[] FOOD_31_VALUE = { 0, 0, 80, 0, 60 };
-  public static int[] FOOD_32_VALUE = { 0, 80, 60, 60, 0 };
-  public static int[] FOOD_33_VALUE = { 80, 0, 0, 80, 40 };
-  public static int[] FOOD_34_VALUE = { 50, 50, 50, 50, 50 };
-  public static int[] FOOD_35_VALUE = { 0, 0, 150, 100, 0 };
-  public static int[] FOOD_41_VALUE = { 0, 250, 250, 0, 250 };
-  public static int[] FOOD_42_VALUE = { 250, 0, 0, 250, 250 };
-  public static int[] FOOD_43_VALUE = { 250, 0, 250, 250, 0 };
-  public static int[] FOOD_44_VALUE = { 0, 250, 250, 250, 0 };
-  public static int[] FOOD_45_VALUE = { 250, 250, 0, 0, 250 };
+  public static int[] FOOD_31_VALUE = {  0, 30,  0, 10, 10 };
+  public static int[] FOOD_32_VALUE = { 30,  0,  0, 10, 10 };
+  public static int[] FOOD_33_VALUE = {  0,  0, 30, 10, 10 };
+  public static int[] FOOD_34_VALUE = {  0,  0,  0, 30, 20 };
+  public static int[] FOOD_35_VALUE = { 10, 10, 10, 10, 10 };
+
+  public static int[] FOOD_51_VALUE = { 0, 0, 80, 0, 60 };
+  public static int[] FOOD_52_VALUE = { 0, 80, 60, 60, 0 };
+  public static int[] FOOD_53_VALUE = { 80, 0, 0, 80, 40 };
+  public static int[] FOOD_54_VALUE = { 50, 50, 50, 50, 50 };
+  public static int[] FOOD_55_VALUE = { 0, 0, 150, 100, 0 };
+
+  public static int[] FOOD_61_VALUE = { 0, 250, 250, 0, 250 };
+  public static int[] FOOD_62_VALUE = { 250, 0, 0, 250, 250 };
+  public static int[] FOOD_63_VALUE = { 250, 0, 250, 250, 0 };
+  public static int[] FOOD_64_VALUE = { 0, 250, 250, 250, 0 };
+  public static int[] FOOD_65_VALUE = { 250, 250, 0, 0, 250 };
   #endregion
 
   #region "GUI Label"

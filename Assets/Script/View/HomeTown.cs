@@ -1604,17 +1604,24 @@ public partial class HomeTown : MotherBase
     if (sender.text == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24; }
     if (sender.text == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25; }
 
-    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_31; }
-    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_32; }
-    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_33; }
-    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_34; }
-    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_35; }
+    if (sender.text == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31; }
+    if (sender.text == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32; }
+    if (sender.text == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33; }
+    if (sender.text == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34; }
+    if (sender.text == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35; }
 
-    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_41; }
-    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_42; }
-    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_43; }
-    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_44; }
-    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_45; }
+    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51; }
+    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52; }
+    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53; }
+    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54; }
+    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55; }
+
+    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61; }
+    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62; }
+    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63; }
+    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64; }
+    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65; }
+
   }
 
   public void TapInnAccept(Text sender)
@@ -2120,10 +2127,20 @@ public partial class HomeTown : MotherBase
         // 新しいメンバーを加える。
         else if (currentEvent == MessagePack.ActionEvent.HomeTownAddNewCharacter)
         {
+          Debug.Log("HomeTownAddNewCharacter phase: " + currentMessage);
+          Debug.Log("One.TF.BattlePlayer1: " + One.TF.BattlePlayer1.ToString());
+          Debug.Log("One.TF.BattlePlayer2: " + One.TF.BattlePlayer2.ToString());
+          Debug.Log("One.TF.BattlePlayer3: " + One.TF.BattlePlayer3.ToString());
+          Debug.Log("One.TF.BattlePlayer4: " + One.TF.BattlePlayer4.ToString());
+          Debug.Log("One.TF.BattlePlayer5: " + One.TF.BattlePlayer5.ToString());
+          Debug.Log("One.TF.BattlePlayer6: " + One.TF.BattlePlayer6.ToString());
           if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
           {
+            Debug.Log("NewAddCharacter Eone");
             One.TF.AvailableEoneFulnea = true;
-            One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+            if (One.TF.BattlePlayer3 == null || One.TF.BattlePlayer3 == String.Empty) { One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 3"); }
+            else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 4"); }
+            else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 5"); }
             One.ReInitializeCharacter(Fix.NAME_EONE_FULNEA);
           }
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
@@ -2134,7 +2151,12 @@ public partial class HomeTown : MotherBase
           }
           else if (currentMessage.Contains(Fix.NAME_ADEL_BRIGANDY))
           {
+            Debug.Log("NewAddCharacter Adel");
             One.TF.AvailableAdelBrigandy = true;
+            if (One.TF.BattlePlayer3 == null || One.TF.BattlePlayer3 == String.Empty) { One.TF.BattlePlayer3 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 3"); }
+            else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 4"); }
+            else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 5"); }
+            else if (One.TF.BattlePlayer6 == null || One.TF.BattlePlayer6 == String.Empty) { One.TF.BattlePlayer6 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 6"); }
             One.ReInitializeCharacter(Fix.NAME_ADEL_BRIGANDY);
           }
           else if (currentMessage.Contains(Fix.NAME_SELMOI_RO))
@@ -2194,7 +2216,7 @@ public partial class HomeTown : MotherBase
           List<Character> characters = One.AvailableCharacters;
           for (int jj = 0; jj < characters.Count; jj++)
           {
-            // エリア０
+            // アンシェット街
             if (currentMessage == Fix.FOOD_BALANCE_SET)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_01_VALUE);
@@ -2216,7 +2238,7 @@ public partial class HomeTown : MotherBase
               CharacterEatFood(characters[jj], Fix.FOOD_05_VALUE);
             }
 
-            // エリア１
+            // ファージル宮殿
             if (currentMessage == Fix.FOOD_KATUCARRY)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_11_VALUE);
@@ -2238,7 +2260,7 @@ public partial class HomeTown : MotherBase
               CharacterEatFood(characters[jj], Fix.FOOD_15_VALUE);
             }
 
-            // エリア２
+            // 港町コチューシェ
             else if (currentMessage == Fix.FOOD_FISH_GURATAN)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_21_VALUE);
@@ -2258,50 +2280,72 @@ public partial class HomeTown : MotherBase
             else if (currentMessage == Fix.FOOD_RED_HOT_SPAGHETTI)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_25_VALUE);
+            } 
+
+            // ツァルマンの里
+            else if (currentMessage == Fix.FOOD_TOBIUSAGI_ROAST)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_31_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_WATARI_KAMONABE)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_32_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_33_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_NEGIYAKI_DON)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_34_VALUE);
+            }
+            else if (currentMessage == Fix.FOOD_NANAIRO_BUNA_NITSUKE)
+            {
+              CharacterEatFood(characters[jj], Fix.FOOD_35_VALUE);
             }
 
             // エリア３
             else if (currentMessage == Fix.FOOD_HINYARI_YASAI)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_31_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_51_VALUE);
             }
             else if (currentMessage == Fix.FOOD_AZARASI_SHIOYAKI)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_32_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_52_VALUE);
             }
             else if (currentMessage == Fix.FOOD_WINTER_BEEF_CURRY)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_33_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_53_VALUE);
             }
             else if (currentMessage == Fix.FOOD_GATTURI_GOZEN)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_34_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_54_VALUE);
             }
             else if (currentMessage == Fix.FOOD_KOGOERU_DESSERT)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_35_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_55_VALUE);
             }
 
             // エリア４
             else if (currentMessage == Fix.FOOD_BLACK_BUTTER_SPAGHETTI)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_41_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_61_VALUE);
             }
             else if (currentMessage == Fix.FOOD_KOROKORO_PIENUS_HAMBURG)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_42_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_62_VALUE);
             }
             else if (currentMessage == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_43_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_63_VALUE);
             }
             else if (currentMessage == Fix.FOOD_HUNWARI_ORANGE_TOAST)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_44_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_64_VALUE);
             }
             else if (currentMessage == Fix.FOOD_TRUTH_YAMINABE_2)
             {
-              CharacterEatFood(characters[jj], Fix.FOOD_45_VALUE);
+              CharacterEatFood(characters[jj], Fix.FOOD_65_VALUE);
             }
           }
           for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
@@ -3421,6 +3465,8 @@ public partial class HomeTown : MotherBase
     UpdateTacticsPartyMember(One.TF.BattlePlayer2, num); num++;
     UpdateTacticsPartyMember(One.TF.BattlePlayer3, num); num++;
     UpdateTacticsPartyMember(One.TF.BattlePlayer4, num); num++;
+    UpdateTacticsPartyMember(One.TF.BattlePlayer5, num); num++;
+    UpdateTacticsPartyMember(One.TF.BattlePlayer6, num); num++;
     UpdateStayListCheckMark();
 
     // 背景と日数
@@ -3455,12 +3501,14 @@ public partial class HomeTown : MotherBase
   {
     for (int ii = 0; ii < PartyListName.Count; ii++)
     {
-      if (PartyListName[ii].text != "(Empty" && PartyListName[ii].text != String.Empty)
+      if (PartyListName[ii].text != "(Empty)" && PartyListName[ii].text != String.Empty)
       {
         if (ii == 0) { One.TF.BattlePlayer1 = PartyListName[ii].text; }
         if (ii == 1) { One.TF.BattlePlayer2 = PartyListName[ii].text; }
         if (ii == 2) { One.TF.BattlePlayer3 = PartyListName[ii].text; }
         if (ii == 3) { One.TF.BattlePlayer4 = PartyListName[ii].text; }
+        if (ii == 4) { One.TF.BattlePlayer5 = PartyListName[ii].text; }
+        if (ii == 5) { One.TF.BattlePlayer6 = PartyListName[ii].text; }
       }
       else
       {
@@ -3468,6 +3516,8 @@ public partial class HomeTown : MotherBase
         if (ii == 1) { One.TF.BattlePlayer2 = string.Empty; }
         if (ii == 2) { One.TF.BattlePlayer3 = string.Empty; }
         if (ii == 3) { One.TF.BattlePlayer4 = string.Empty; }
+        if (ii == 4) { One.TF.BattlePlayer5 = string.Empty; }
+        if (ii == 5) { One.TF.BattlePlayer6 = string.Empty; }
       }
     }
 
@@ -3476,7 +3526,9 @@ public partial class HomeTown : MotherBase
       if (StayListName[ii].text == One.TF.BattlePlayer1 ||
           StayListName[ii].text == One.TF.BattlePlayer2 ||
           StayListName[ii].text == One.TF.BattlePlayer3 ||
-          StayListName[ii].text == One.TF.BattlePlayer4)
+          StayListName[ii].text == One.TF.BattlePlayer4 ||
+          StayListName[ii].text == One.TF.BattlePlayer5 ||
+          StayListName[ii].text == One.TF.BattlePlayer6)
       {
         StayListCheckMark[ii].SetActive(true);
       }
