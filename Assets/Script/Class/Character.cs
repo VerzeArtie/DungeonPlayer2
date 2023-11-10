@@ -4356,12 +4356,12 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
-        this.Level = 20;
-        this.Strength = 6;
-        this.Agility = 5;
-        this.Intelligence = 7;
-        this.Stamina = 6;
-        this.Mind = 3;
+        this.Level = 20; // 17 + 3*4 + 4*5 + 5*5 + 6*5 = 104
+        this.Strength = 8; // 0.08%
+        this.Agility = 20; // 0.19%
+        this.Intelligence = 30; // 0.29%
+        this.Stamina = 13; // 0.12%
+        this.Mind = 33; // 0.32%
         this.BaseLife = 15 + 388; // LV20スタートのため
         this.BaseManaPoint = 25 + 220; // LV20スタートのため
         this.BaseSkillPoint = 100;
