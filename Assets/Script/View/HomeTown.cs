@@ -227,23 +227,23 @@ public partial class HomeTown : MotherBase
 
   // Tactics
   public GameObject GroupTactics;
-  public List<Button> StayList;
-  public List<Text> StayListName;
-  public List<GameObject> StayListCheckMark;
-  public List<GameObject> GroupPartyList;
-  public List<GameObject> MemberIconList;
-  public List<Image> PartyListClass;
-  public List<Text> PartyListName;
-  public List<Text> PartyListLevel;
-  public List<Text> PartyListLife;
-  public List<Text> PartyListSTR;
-  public List<Text> PartyListAGL;
-  public List<Text> PartyListINT;
-  public List<Text> PartyListSTM;
-  public List<Text> PartyListMND;
-  public NodeActionCommand prefab_ActionCommand;
-  public GameObject objSelectCursor;
-  public Text txtSelectCursor;
+  //public List<Button> StayList;
+  //public List<Text> StayListName;
+  //public List<GameObject> StayListCheckMark;
+  //public List<GameObject> GroupPartyList;
+  //public List<GameObject> MemberIconList;
+  //public List<Image> PartyListClass;
+  //public List<Text> PartyListName;
+  //public List<Text> PartyListLevel;
+  //public List<Text> PartyListLife;
+  //public List<Text> PartyListSTR;
+  //public List<Text> PartyListAGL;
+  //public List<Text> PartyListINT;
+  //public List<Text> PartyListSTM;
+  //public List<Text> PartyListMND;
+  //public NodeActionCommand prefab_ActionCommand;
+  //public GameObject objSelectCursor;
+  //public Text txtSelectCursor;
 
   // Inn
   public GameObject GroupInn;
@@ -537,13 +537,13 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    if (this.objSelectCursor.activeInHierarchy)
-    {
-      RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
-                        Input.mousePosition, canvas.worldCamera, out this.mousePosition);
-      RectTransform objRect = objSelectCursor.GetComponent<RectTransform>();
-      objSelectCursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(mousePosition.x + objRect.sizeDelta.x + 10, mousePosition.y + objRect.sizeDelta.y + 10);
-    }
+    //if (this.objSelectCursor.activeInHierarchy)
+    //{
+    //  RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
+    //                    Input.mousePosition, canvas.worldCamera, out this.mousePosition);
+    //  RectTransform objRect = objSelectCursor.GetComponent<RectTransform>();
+    //  objSelectCursor.GetComponent<RectTransform>().anchoredPosition = new Vector2(mousePosition.x + objRect.sizeDelta.x + 10, mousePosition.y + objRect.sizeDelta.y + 10);
+    //}
   }
 
   public void TapConfig()
@@ -1730,189 +1730,189 @@ public partial class HomeTown : MotherBase
   {
     Debug.Log(MethodInfo.GetCurrentMethod() + ": " + src_txt.text);
 
-    // 未選択時は、キャラクターを選択
-    if (TacticsPickupCharacter == null)
-    {
-      for (int ii = 0; ii < One.PlayerList.Count; ii++)
-      {
-        if (src_txt.text == One.PlayerList[ii].FullName)
-        {
-          TacticsPickupCharacter = One.PlayerList[ii];
-          TacticsPickupPartyNumber = -1;
-          objSelectCursor.SetActive(true);
-          txtSelectCursor.text = One.PlayerList[ii].FullName;
-          return;
-        }
-      }
-      Debug.Log("TapPartyPickEnter cannot search playerlist...");
-      return;
-    }
+    //// 未選択時は、キャラクターを選択
+    //if (TacticsPickupCharacter == null)
+    //{
+    //  for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //  {
+    //    if (src_txt.text == One.PlayerList[ii].FullName)
+    //    {
+    //      TacticsPickupCharacter = One.PlayerList[ii];
+    //      TacticsPickupPartyNumber = -1;
+    //      objSelectCursor.SetActive(true);
+    //      txtSelectCursor.text = One.PlayerList[ii].FullName;
+    //      return;
+    //    }
+    //  }
+    //  Debug.Log("TapPartyPickEnter cannot search playerlist...");
+    //  return;
+    //}
 
-    // 選択時は、パーティ内のキャラクターを選んでいる場合は、
-    // 選択しているキャラクターを削除する。
-    if (TacticsPickupPartyNumber >= 0)
-    {
-      PartyListClass[TacticsPickupPartyNumber].sprite = null;
-      PartyListName[TacticsPickupPartyNumber].text = "(Empty)";
-      PartyListLevel[TacticsPickupPartyNumber].text = "--";
-      PartyListLife[TacticsPickupPartyNumber].text = "--";
-      PartyListSTR[TacticsPickupPartyNumber].text = "--";
-      PartyListAGL[TacticsPickupPartyNumber].text = "--";
-      PartyListINT[TacticsPickupPartyNumber].text = "--";
-      PartyListSTM[TacticsPickupPartyNumber].text = "--";
-      PartyListMND[TacticsPickupPartyNumber].text = "--";
-      foreach (Transform n in GroupPartyList[TacticsPickupPartyNumber].transform)
-      {
-        GameObject.Destroy(n.gameObject);
-      }
-    }
+    //// 選択時は、パーティ内のキャラクターを選んでいる場合は、
+    //// 選択しているキャラクターを削除する。
+    //if (TacticsPickupPartyNumber >= 0)
+    //{
+    //  PartyListClass[TacticsPickupPartyNumber].sprite = null;
+    //  PartyListName[TacticsPickupPartyNumber].text = "(Empty)";
+    //  PartyListLevel[TacticsPickupPartyNumber].text = "--";
+    //  PartyListLife[TacticsPickupPartyNumber].text = "--";
+    //  PartyListSTR[TacticsPickupPartyNumber].text = "--";
+    //  PartyListAGL[TacticsPickupPartyNumber].text = "--";
+    //  PartyListINT[TacticsPickupPartyNumber].text = "--";
+    //  PartyListSTM[TacticsPickupPartyNumber].text = "--";
+    //  PartyListMND[TacticsPickupPartyNumber].text = "--";
+    //  foreach (Transform n in GroupPartyList[TacticsPickupPartyNumber].transform)
+    //  {
+    //    GameObject.Destroy(n.gameObject);
+    //  }
+    //}
 
-    UpdateStayListCheckMark();
-    objSelectCursor.SetActive(false);
-    TacticsPickupCharacter = null;
-    TacticsPickupPartyNumber = -1;
+    //UpdateStayListCheckMark();
+    //objSelectCursor.SetActive(false);
+    //TacticsPickupCharacter = null;
+    //TacticsPickupPartyNumber = -1;
   }
   public void TapPartyPickChoose(int num)
   {
-    Debug.Log(MethodInfo.GetCurrentMethod() +  ": " + num.ToString());
-    // 未選択時は、キャラクターを選択
-    if (TacticsPickupCharacter == null)
-    {
-      for (int ii = 0; ii < One.PlayerList.Count; ii++)
-      {
-        if (PartyListName[num].text == One.PlayerList[ii].FullName)
-        {
-          TacticsPickupCharacter = One.PlayerList[ii];
-          TacticsPickupPartyNumber = num;
-          objSelectCursor.SetActive(true);
-          txtSelectCursor.text = One.PlayerList[ii].FullName;
-          return;
-        }
-      }
-      Debug.Log(MethodInfo.GetCurrentMethod() + ": cannot search playerlist...");
-      return;
-    }
+    //Debug.Log(MethodInfo.GetCurrentMethod() +  ": " + num.ToString());
+    //// 未選択時は、キャラクターを選択
+    //if (TacticsPickupCharacter == null)
+    //{
+    //  for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //  {
+    //    if (PartyListName[num].text == One.PlayerList[ii].FullName)
+    //    {
+    //      TacticsPickupCharacter = One.PlayerList[ii];
+    //      TacticsPickupPartyNumber = num;
+    //      objSelectCursor.SetActive(true);
+    //      txtSelectCursor.text = One.PlayerList[ii].FullName;
+    //      return;
+    //    }
+    //  }
+    //  Debug.Log(MethodInfo.GetCurrentMethod() + ": cannot search playerlist...");
+    //  return;
+    //}
 
-    // 反映先に既にキャラクターがある場合は、選択元を記憶する。
-    Character current = null;
-    if (PartyListName[num].text != null && PartyListName[num].text != String.Empty && PartyListName[num].text != "Character Name" && PartyListName[num].text != "(Empty)")
-    {
-      Debug.Log("swap PartyListName is " + PartyListName[num].text);
+    //// 反映先に既にキャラクターがある場合は、選択元を記憶する。
+    //Character current = null;
+    //if (PartyListName[num].text != null && PartyListName[num].text != String.Empty && PartyListName[num].text != "Character Name" && PartyListName[num].text != "(Empty)")
+    //{
+    //  Debug.Log("swap PartyListName is " + PartyListName[num].text);
 
-      for (int ii = 0; ii < One.PlayerList.Count; ii++)
-      {
-        if (PartyListName[num].text == One.PlayerList[ii].FullName)
-        {
-          current = One.PlayerList[ii];
-          break;
-        }
-      }
-    }
+    //  for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //  {
+    //    if (PartyListName[num].text == One.PlayerList[ii].FullName)
+    //    {
+    //      current = One.PlayerList[ii];
+    //      break;
+    //    }
+    //  }
+    //}
 
-    // 選択しているキャラクターが既にパーティリストにある場合は、それを削除する。
-    for (int ii = 0; ii < PartyListName.Count; ii++)
-    {
-      Debug.Log("PartyListName: " + PartyListName[ii].text + " TacticsPickupCharacter: " + TacticsPickupCharacter.FullName);
-      if (PartyListName[ii].text == "Character Name" || PartyListName[ii].text == "(Empty")
-      {
-        continue;
-      }
+    //// 選択しているキャラクターが既にパーティリストにある場合は、それを削除する。
+    //for (int ii = 0; ii < PartyListName.Count; ii++)
+    //{
+    //  Debug.Log("PartyListName: " + PartyListName[ii].text + " TacticsPickupCharacter: " + TacticsPickupCharacter.FullName);
+    //  if (PartyListName[ii].text == "Character Name" || PartyListName[ii].text == "(Empty")
+    //  {
+    //    continue;
+    //  }
 
-      if (TacticsPickupCharacter.FullName == PartyListName[ii].text)
-      {
-        PartyListClass[ii].sprite = null;
-        PartyListName[ii].text = "(Empty)";
-        PartyListLevel[ii].text = "--";
-        PartyListLife[ii].text = "--";
-        PartyListSTR[ii].text = "--";
-        PartyListAGL[ii].text = "--";
-        PartyListINT[ii].text = "--";
-        PartyListSTM[ii].text = "--";
-        PartyListMND[ii].text = "--";
-        foreach (Transform n in GroupPartyList[ii].transform)
-        {
-          GameObject.Destroy(n.gameObject);
-        }
-        break;
-      }
-    }
+    //  if (TacticsPickupCharacter.FullName == PartyListName[ii].text)
+    //  {
+    //    PartyListClass[ii].sprite = null;
+    //    PartyListName[ii].text = "(Empty)";
+    //    PartyListLevel[ii].text = "--";
+    //    PartyListLife[ii].text = "--";
+    //    PartyListSTR[ii].text = "--";
+    //    PartyListAGL[ii].text = "--";
+    //    PartyListINT[ii].text = "--";
+    //    PartyListSTM[ii].text = "--";
+    //    PartyListMND[ii].text = "--";
+    //    foreach (Transform n in GroupPartyList[ii].transform)
+    //    {
+    //      GameObject.Destroy(n.gameObject);
+    //    }
+    //    break;
+    //  }
+    //}
 
-    // 現在選択しているキャラクターを指定箇所に反映する。
-    Debug.Log("Now setup TacticsPickupCharacter: " + num +  " " + TacticsPickupCharacter.FullName);
-    PartyListClass[num].sprite = Resources.Load<Sprite>("Unit_" + TacticsPickupCharacter?.Job.ToString() ?? "");
-    PartyListName[num].text = TacticsPickupCharacter.FullName;
-    PartyListLevel[num].text = TacticsPickupCharacter.Level.ToString();
-    PartyListLife[num].text = TacticsPickupCharacter.CurrentLife.ToString() + " / " + TacticsPickupCharacter.MaxLife.ToString();
-    PartyListSTR[num].text = TacticsPickupCharacter.TotalStrength.ToString();
-    PartyListAGL[num].text = TacticsPickupCharacter.TotalAgility.ToString();
-    PartyListINT[num].text = TacticsPickupCharacter.TotalIntelligence.ToString();
-    PartyListSTM[num].text = TacticsPickupCharacter.TotalStamina.ToString();
-    PartyListMND[num].text = TacticsPickupCharacter.TotalMind.ToString();
+    //// 現在選択しているキャラクターを指定箇所に反映する。
+    //Debug.Log("Now setup TacticsPickupCharacter: " + num +  " " + TacticsPickupCharacter.FullName);
+    //PartyListClass[num].sprite = Resources.Load<Sprite>("Unit_" + TacticsPickupCharacter?.Job.ToString() ?? "");
+    //PartyListName[num].text = TacticsPickupCharacter.FullName;
+    //PartyListLevel[num].text = TacticsPickupCharacter.Level.ToString();
+    //PartyListLife[num].text = TacticsPickupCharacter.CurrentLife.ToString() + " / " + TacticsPickupCharacter.MaxLife.ToString();
+    //PartyListSTR[num].text = TacticsPickupCharacter.TotalStrength.ToString();
+    //PartyListAGL[num].text = TacticsPickupCharacter.TotalAgility.ToString();
+    //PartyListINT[num].text = TacticsPickupCharacter.TotalIntelligence.ToString();
+    //PartyListSTM[num].text = TacticsPickupCharacter.TotalStamina.ToString();
+    //PartyListMND[num].text = TacticsPickupCharacter.TotalMind.ToString();
 
-    foreach (Transform n in GroupPartyList[num].transform)
-    {
-      GameObject.Destroy(n.gameObject);
-    }
-    List<String> actionList = TacticsPickupCharacter.GetActionCommandList();
-    for (int ii = 0; ii < actionList.Count; ii++)
-    {
-      NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
-      instant.BackColor.color = TacticsPickupCharacter.BattleForeColor;
-      instant.CommandName = actionList[ii];
-      instant.name = actionList[ii];
-      instant.OwnerName = TacticsPickupCharacter.FullName;
-      instant.ActionButton.name = actionList[ii];
-      instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
+    //foreach (Transform n in GroupPartyList[num].transform)
+    //{
+    //  GameObject.Destroy(n.gameObject);
+    //}
+    //List<String> actionList = TacticsPickupCharacter.GetActionCommandList();
+    //for (int ii = 0; ii < actionList.Count; ii++)
+    //{
+    //  NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
+    //  instant.BackColor.color = TacticsPickupCharacter.BattleForeColor;
+    //  instant.CommandName = actionList[ii];
+    //  instant.name = actionList[ii];
+    //  instant.OwnerName = TacticsPickupCharacter.FullName;
+    //  instant.ActionButton.name = actionList[ii];
+    //  instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[ii]);
 
-      //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[ii]);
-      instant.transform.SetParent(GroupPartyList[num].transform);
-      instant.gameObject.SetActive(true);
-    }
+    //  //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[ii]);
+    //  instant.transform.SetParent(GroupPartyList[num].transform);
+    //  instant.gameObject.SetActive(true);
+    //}
 
-    // 反映先のキャラクターと入れ替え情報があった場合、かつ
-    // 選択元がStayListではない場合、入れ替えを行う。
-    if (current != null && TacticsPickupPartyNumber >= 0)
-    {
-      Debug.Log("Detect current: " + TacticsPickupPartyNumber + " " + current.FullName);
-      PartyListClass[TacticsPickupPartyNumber].sprite = Resources.Load<Sprite>("Unit_" + current?.Job.ToString() ?? "");
-      PartyListName[TacticsPickupPartyNumber].text = current.FullName;
-      PartyListLevel[TacticsPickupPartyNumber].text = current.Level.ToString();
-      PartyListLife[TacticsPickupPartyNumber].text = current.CurrentLife.ToString() + " / " + current.MaxLife.ToString();
-      PartyListSTR[TacticsPickupPartyNumber].text = current.TotalStrength.ToString();
-      PartyListAGL[TacticsPickupPartyNumber].text = current.TotalAgility.ToString();
-      PartyListINT[TacticsPickupPartyNumber].text = current.TotalIntelligence.ToString();
-      PartyListSTM[TacticsPickupPartyNumber].text = current.TotalStamina.ToString();
-      PartyListMND[TacticsPickupPartyNumber].text = current.TotalMind.ToString();
+    //// 反映先のキャラクターと入れ替え情報があった場合、かつ
+    //// 選択元がStayListではない場合、入れ替えを行う。
+    //if (current != null && TacticsPickupPartyNumber >= 0)
+    //{
+    //  Debug.Log("Detect current: " + TacticsPickupPartyNumber + " " + current.FullName);
+    //  PartyListClass[TacticsPickupPartyNumber].sprite = Resources.Load<Sprite>("Unit_" + current?.Job.ToString() ?? "");
+    //  PartyListName[TacticsPickupPartyNumber].text = current.FullName;
+    //  PartyListLevel[TacticsPickupPartyNumber].text = current.Level.ToString();
+    //  PartyListLife[TacticsPickupPartyNumber].text = current.CurrentLife.ToString() + " / " + current.MaxLife.ToString();
+    //  PartyListSTR[TacticsPickupPartyNumber].text = current.TotalStrength.ToString();
+    //  PartyListAGL[TacticsPickupPartyNumber].text = current.TotalAgility.ToString();
+    //  PartyListINT[TacticsPickupPartyNumber].text = current.TotalIntelligence.ToString();
+    //  PartyListSTM[TacticsPickupPartyNumber].text = current.TotalStamina.ToString();
+    //  PartyListMND[TacticsPickupPartyNumber].text = current.TotalMind.ToString();
 
-      foreach (Transform n in GroupPartyList[TacticsPickupPartyNumber].transform)
-      {
-        GameObject.Destroy(n.gameObject);
-      }
-      List<string> actionListCurrent = current.GetActionCommandList();
-      for (int ii = 0; ii < actionListCurrent.Count; ii++)
-      {
-        NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
-        instant.BackColor.color = current.BattleForeColor;
-        instant.CommandName = actionListCurrent[ii];
-        instant.name = actionListCurrent[ii];
-        instant.OwnerName = current.FullName;
-        instant.ActionButton.name = actionListCurrent[ii];
-        instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionListCurrent[ii]);
+    //  foreach (Transform n in GroupPartyList[TacticsPickupPartyNumber].transform)
+    //  {
+    //    GameObject.Destroy(n.gameObject);
+    //  }
+    //  List<string> actionListCurrent = current.GetActionCommandList();
+    //  for (int ii = 0; ii < actionListCurrent.Count; ii++)
+    //  {
+    //    NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
+    //    instant.BackColor.color = current.BattleForeColor;
+    //    instant.CommandName = actionListCurrent[ii];
+    //    instant.name = actionListCurrent[ii];
+    //    instant.OwnerName = current.FullName;
+    //    instant.ActionButton.name = actionListCurrent[ii];
+    //    instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionListCurrent[ii]);
 
-        Debug.Log("TapPartyPickChoose: " + actionListCurrent[ii]);
-        instant.transform.SetParent(GroupPartyList[TacticsPickupPartyNumber].transform);
-        instant.gameObject.SetActive(true);
-      }
-    }
-    else
-    {
-      Debug.Log("Detect current: null...");
-    }
+    //    Debug.Log("TapPartyPickChoose: " + actionListCurrent[ii]);
+    //    instant.transform.SetParent(GroupPartyList[TacticsPickupPartyNumber].transform);
+    //    instant.gameObject.SetActive(true);
+    //  }
+    //}
+    //else
+    //{
+    //  Debug.Log("Detect current: null...");
+    //}
 
-    UpdateStayListCheckMark();
-    objSelectCursor.SetActive(false);
-    TacticsPickupCharacter = null;
-    TacticsPickupPartyNumber = -1;
+    //UpdateStayListCheckMark();
+    //objSelectCursor.SetActive(false);
+    //TacticsPickupCharacter = null;
+    //TacticsPickupPartyNumber = -1;
   }
 
   public void TapPartyCommand()
@@ -3462,28 +3462,28 @@ public partial class HomeTown : MotherBase
     TapSelectFood(txtFoodMenuList[0]);
 
     // Tacticsのリスト
-    int counter = 0;
-    for (int ii = 0; ii < StayListName.Count; ii++)
-    {
-      StayListName[ii].text = string.Empty;
-    }
-    for (int ii = 0; ii < StayListName.Count; ii++)
-    {
-      if (One.AvailableCharacterName(Fix.NAME_LIST[ii]))
-      {
-        StayListName[counter].text = Fix.NAME_LIST[ii];
-        counter++;
-      }
-    }
+    //int counter = 0;
+    //for (int ii = 0; ii < StayListName.Count; ii++)
+    //{
+    //  StayListName[ii].text = string.Empty;
+    //}
+    //for (int ii = 0; ii < StayListName.Count; ii++)
+    //{
+    //  if (One.AvailableCharacterName(Fix.NAME_LIST[ii]))
+    //  {
+    //    StayListName[counter].text = Fix.NAME_LIST[ii];
+    //    counter++;
+    //  }
+    //}
 
-    int num = 0;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer1, num); num++;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer2, num); num++;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer3, num); num++;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer4, num); num++;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer5, num); num++;
-    UpdateTacticsPartyMember(One.TF.BattlePlayer6, num); num++;
-    UpdateStayListCheckMark();
+    //int num = 0;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer1, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer2, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer3, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer4, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer5, num); num++;
+    //UpdateTacticsPartyMember(One.TF.BattlePlayer6, num); num++;
+    //UpdateStayListCheckMark();
 
     // 背景と日数
     this.dayLabel.text = One.TF.GameDay.ToString() + "日目";
@@ -3515,88 +3515,88 @@ public partial class HomeTown : MotherBase
 
   private void UpdateStayListCheckMark()
   {
-    for (int ii = 0; ii < PartyListName.Count; ii++)
-    {
-      if (PartyListName[ii].text != "(Empty)" && PartyListName[ii].text != String.Empty)
-      {
-        if (ii == 0) { One.TF.BattlePlayer1 = PartyListName[ii].text; }
-        if (ii == 1) { One.TF.BattlePlayer2 = PartyListName[ii].text; }
-        if (ii == 2) { One.TF.BattlePlayer3 = PartyListName[ii].text; }
-        if (ii == 3) { One.TF.BattlePlayer4 = PartyListName[ii].text; }
-        if (ii == 4) { One.TF.BattlePlayer5 = PartyListName[ii].text; }
-        if (ii == 5) { One.TF.BattlePlayer6 = PartyListName[ii].text; }
-      }
-      else
-      {
-        if (ii == 0) { One.TF.BattlePlayer1 = string.Empty; }
-        if (ii == 1) { One.TF.BattlePlayer2 = string.Empty; }
-        if (ii == 2) { One.TF.BattlePlayer3 = string.Empty; }
-        if (ii == 3) { One.TF.BattlePlayer4 = string.Empty; }
-        if (ii == 4) { One.TF.BattlePlayer5 = string.Empty; }
-        if (ii == 5) { One.TF.BattlePlayer6 = string.Empty; }
-      }
-    }
+    //for (int ii = 0; ii < PartyListName.Count; ii++)
+    //{
+    //  if (PartyListName[ii].text != "(Empty)" && PartyListName[ii].text != String.Empty)
+    //  {
+    //    if (ii == 0) { One.TF.BattlePlayer1 = PartyListName[ii].text; }
+    //    if (ii == 1) { One.TF.BattlePlayer2 = PartyListName[ii].text; }
+    //    if (ii == 2) { One.TF.BattlePlayer3 = PartyListName[ii].text; }
+    //    if (ii == 3) { One.TF.BattlePlayer4 = PartyListName[ii].text; }
+    //    if (ii == 4) { One.TF.BattlePlayer5 = PartyListName[ii].text; }
+    //    if (ii == 5) { One.TF.BattlePlayer6 = PartyListName[ii].text; }
+    //  }
+    //  else
+    //  {
+    //    if (ii == 0) { One.TF.BattlePlayer1 = string.Empty; }
+    //    if (ii == 1) { One.TF.BattlePlayer2 = string.Empty; }
+    //    if (ii == 2) { One.TF.BattlePlayer3 = string.Empty; }
+    //    if (ii == 3) { One.TF.BattlePlayer4 = string.Empty; }
+    //    if (ii == 4) { One.TF.BattlePlayer5 = string.Empty; }
+    //    if (ii == 5) { One.TF.BattlePlayer6 = string.Empty; }
+    //  }
+    //}
 
-    for (int ii = 0; ii < StayListName.Count; ii++)
-    {
-      if (StayListName[ii].text == One.TF.BattlePlayer1 ||
-          StayListName[ii].text == One.TF.BattlePlayer2 ||
-          StayListName[ii].text == One.TF.BattlePlayer3 ||
-          StayListName[ii].text == One.TF.BattlePlayer4 ||
-          StayListName[ii].text == One.TF.BattlePlayer5 ||
-          StayListName[ii].text == One.TF.BattlePlayer6)
-      {
-        StayListCheckMark[ii].SetActive(true);
-      }
-      else
-      {
-        StayListCheckMark[ii].SetActive(false);
-      }
-    }
+    //for (int ii = 0; ii < StayListName.Count; ii++)
+    //{
+    //  if (StayListName[ii].text == One.TF.BattlePlayer1 ||
+    //      StayListName[ii].text == One.TF.BattlePlayer2 ||
+    //      StayListName[ii].text == One.TF.BattlePlayer3 ||
+    //      StayListName[ii].text == One.TF.BattlePlayer4 ||
+    //      StayListName[ii].text == One.TF.BattlePlayer5 ||
+    //      StayListName[ii].text == One.TF.BattlePlayer6)
+    //  {
+    //    StayListCheckMark[ii].SetActive(true);
+    //  }
+    //  else
+    //  {
+    //    StayListCheckMark[ii].SetActive(false);
+    //  }
+    //}
   }
 
   private void UpdateTacticsPartyMember(string full_name, int num)
   {
-    if (full_name != string.Empty)
-    {
-      for (int ii = 0; ii < One.PlayerList.Count; ii++)
-      {
-        if (One.PlayerList[ii].FullName == full_name)
-        {
-          Character current = One.PlayerList[ii];
-          PartyListClass[num].sprite = Resources.Load<Sprite>("Unit_" + current?.Job.ToString() ?? "");
-          PartyListName[num].text = current.FullName;
-          PartyListLevel[num].text = current.Level.ToString();
-          PartyListLife[num].text = current.CurrentLife.ToString() + " / " + current.MaxLife.ToString();
-          PartyListSTR[num].text = current.TotalStrength.ToString();
-          PartyListAGL[num].text = current.TotalAgility.ToString();
-          PartyListINT[num].text = current.TotalIntelligence.ToString();
-          PartyListSTM[num].text = current.TotalStamina.ToString();
-          PartyListMND[num].text = current.TotalMind.ToString();
+    //if (full_name != string.Empty)
+    //{
+    //  for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //  {
+    //    if (One.PlayerList[ii].FullName == full_name)
+    //    {
+    //      Character current = One.PlayerList[ii];
+    //      PartyListClass[num].sprite = Resources.Load<Sprite>("Unit_" + current?.Job.ToString() ?? "");
+    //      PartyListName[num].text = current.FullName;
+    //      PartyListLevel[num].text = current.Level.ToString();
+    //      PartyListLife[num].text = current.CurrentLife.ToString() + " / " + current.MaxLife.ToString();
+    //      PartyListSTR[num].text = current.TotalStrength.ToString();
+    //      PartyListAGL[num].text = current.TotalAgility.ToString();
+    //      PartyListINT[num].text = current.TotalIntelligence.ToString();
+    //      PartyListSTM[num].text = current.TotalStamina.ToString();
+    //      PartyListMND[num].text = current.TotalMind.ToString();
 
-          foreach (Transform n in GroupPartyList[num].transform)
-          {
-            GameObject.Destroy(n.gameObject);
-          }
-          List<string> actionList = current.GetActionCommandList();
-          for (int jj = 0; jj < actionList.Count; jj++)
-          {
-            NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
-            instant.BackColor.color = current.BattleForeColor;
-            instant.CommandName = actionList[jj];
-            instant.name = actionList[jj];
-            instant.OwnerName = current.FullName;
-            instant.ActionButton.name = actionList[jj];
-            instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[jj]);
+    //      foreach (Transform n in GroupPartyList[num].transform)
+    //      {
+    //        GameObject.Destroy(n.gameObject);
+    //      }
+    //      List<string> actionList = current.GetActionCommandList();
+    //      for (int jj = 0; jj < actionList.Count; jj++)
+    //      {
+    //        NodeActionCommand instant = Instantiate(prefab_ActionCommand) as NodeActionCommand;
+    //        instant.BackColor.color = current.BattleForeColor;
+    //        instant.CommandName = actionList[jj];
+    //        instant.name = actionList[jj];
+    //        instant.OwnerName = current.FullName;
+    //        instant.ActionButton.name = actionList[jj];
+    //        instant.ActionButton.image.sprite = Resources.Load<Sprite>(actionList[jj]);
 
-            //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[jj]);
-            instant.transform.SetParent(GroupPartyList[num].transform);
-            instant.gameObject.SetActive(true);
-          }
-          break;
-        }
-      }
-    }
+    //        //Debug.Log("TapPartyPickChoose: " + TacticsPickupCharacter.ActionCommandList[jj]);
+    //        instant.transform.SetParent(GroupPartyList[num].transform);
+    //        instant.gameObject.SetActive(true);
+    //      }
+    //      break;
+    //    }
+    //  }
+    //}
   }
 
   private void RefreshQuestList()
