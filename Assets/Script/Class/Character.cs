@@ -1043,6 +1043,20 @@ public partial class Character : MonoBehaviour
     get { return _AvailableDarkMagic; }
   }
 
+  [SerializeField] protected bool _AvailableForce = false;
+  public bool AvailableForce
+  {
+    set { _AvailableForce = value; }
+    get { return _AvailableForce; }
+  }
+
+  [SerializeField] protected bool _AvailableVoidChant = false;
+  public bool AvailableVoidChant
+  {
+    set { _AvailableVoidChant = value; }
+    get { return _AvailableVoidChant; }
+  }
+
   [SerializeField] protected bool _AvailableWind = false;
   public bool AvailableWind
   {
@@ -1057,32 +1071,18 @@ public partial class Character : MonoBehaviour
     get { return _AvailableEarth; }
   }
 
-  [SerializeField] protected bool _AvailableSwordman = false;
-  public bool AvailableSwordman
+  [SerializeField] protected bool _AvailableWarrior = false;
+  public bool AvailableWarrior
   {
-    set { _AvailableSwordman = value; }
-    get { return _AvailableSwordman; }
+    set { _AvailableWarrior = value; }
+    get { return _AvailableWarrior; }
   }
 
-  [SerializeField] protected bool _AvailableArmorer = false;
-  public bool AvailableArmorer
+  [SerializeField] protected bool _AvailableGuardian = false;
+  public bool AvailableGuardian
   {
-    set { _AvailableArmorer = value; }
-    get { return _AvailableArmorer; }
-  }
-
-  [SerializeField] protected bool _AvailableArcher = false;
-  public bool AvailableArcher
-  {
-    set { _AvailableArcher = value; }
-    get { return _AvailableArcher; }
-  }
-
-  [SerializeField] protected bool _AvailableRogue = false;
-  public bool AvailableRogue
-  {
-    set { _AvailableRogue = value; }
-    get { return _AvailableRogue; }
+    set { _AvailableGuardian = value; }
+    get { return _AvailableGuardian; }
   }
 
   [SerializeField] protected bool _AvailableMartialArts = false;
@@ -1092,39 +1092,11 @@ public partial class Character : MonoBehaviour
     get { return _AvailableMartialArts; }
   }
 
-  [SerializeField] protected bool _AvailableWonderHermit = false;
-  public bool AvailableWonderHermit
+  [SerializeField] protected bool _AvailableArchery = false;
+  public bool AvailableArchery
   {
-    set { _AvailableWonderHermit = value; }
-    get { return _AvailableWonderHermit; }
-  }
-
-  [SerializeField] protected bool _AvailableEnhanceForm = false;
-  public bool AvailableEnhanceForm
-  {
-    set { _AvailableEnhanceForm = value; }
-    get { return _AvailableEnhanceForm; }
-  }
-
-  [SerializeField] protected bool _AvailableMysticForm = false;
-  public bool AvailableMysticForm
-  {
-    set { _AvailableMysticForm = value; }
-    get { return _AvailableMysticForm; }
-  }
-
-  [SerializeField] protected bool _AvailableBrave = false;
-  public bool AvailableBrave
-  {
-    set { _AvailableBrave = value; }
-    get { return _AvailableBrave; }
-  }
-
-  [SerializeField] protected bool _AvailableMindfulness = false;
-  public bool AvailableMindfulness
-  {
-    set { _AvailableMindfulness = value; }
-    get { return _AvailableMindfulness; }
+    set { _AvailableArchery = value; }
+    get { return _AvailableArchery; }
   }
 
   [SerializeField] protected bool _AvailableTruth = false;
@@ -1134,11 +1106,11 @@ public partial class Character : MonoBehaviour
     get { return _AvailableTruth; }
   }
 
-  [SerializeField] protected bool _AvailableVengeance = false;
-  public bool AvailableVengeance
+  [SerializeField] protected bool _AvailableMindfulness = false;
+  public bool AvailableMindfulness
   {
-    set { _AvailableVengeance = value; }
-    get { return _AvailableVengeance; }
+    set { _AvailableMindfulness = value; }
+    get { return _AvailableMindfulness; }
   }
 
   // Basic
@@ -4243,13 +4215,13 @@ public partial class Character : MonoBehaviour
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Armorer;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Guardian;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
         this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.AvailableSwordman = true;
+        this.AvailableWarrior = true;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.StraightSmash = 1;
@@ -4270,8 +4242,8 @@ public partial class Character : MonoBehaviour
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
-        this.SecondCommandAttribute = Fix.CommandAttribute.DarkMagic;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.MysticForm;
+        this.SecondCommandAttribute = Fix.CommandAttribute.MartialArts;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.DarkMagic;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
@@ -4297,7 +4269,7 @@ public partial class Character : MonoBehaviour
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Archer;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Archery;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
         this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
         this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
@@ -4306,7 +4278,7 @@ public partial class Character : MonoBehaviour
         this.AvailableHolyLight = true;
         this.FreshHeal = 1;
         this.DivineCircle = 1;
-        this.AvailableArcher = true;
+        this.AvailableArchery = true;
         this.HunterShot = 1;
         this.GlobalAction1 = Fix.MAGIC_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
@@ -4331,7 +4303,7 @@ public partial class Character : MonoBehaviour
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Brave;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
         this.BattleBackColor = Fix.COLOR_FOURTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FOURTH_CHARA;
         this.MainWeapon = new Item(Fix.SMART_CLAW);
@@ -4342,7 +4314,7 @@ public partial class Character : MonoBehaviour
         this.AvailableFire = true;
         this.FireBall = 1;
         this.FlameBlade = 1;
-        this.AvailableBrave = true;
+        this.AvailableTruth = true;
         this.TrueSight = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
@@ -4366,15 +4338,43 @@ public partial class Character : MonoBehaviour
         this.BaseManaPoint = 25 + 220; // LV20スタートのため
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
-        this.FirstCommandAttribute = Fix.CommandAttribute.EnhanceForm;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.FirstCommandAttribute = Fix.CommandAttribute.VoidChant;
+        this.SecondCommandAttribute = Fix.CommandAttribute.Force;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Ice;
         this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
-        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
-        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.AvailableEnhanceForm = true;
-        this.AuraOfPower = 1;
+        this.MainWeapon = new Item(Fix.SUPERIOR_BOOK);
+        this.SubWeapon = new Item(Fix.SUPERIOR_ORB);
+        this.MainArmor = new Item(Fix.SUPERIOR_CROSS);
+        this.Accessory1 = new Item(Fix.SPIRIT_CHALICE_OF_HEART);
+        this.Accessory2 = new Item(Fix.MIRAGE_PLASMA_EARRING);
+        this.Artifact = new Item(Fix.YELLOW_KOKUIN);
+        this.AvailableVoidChant = true;
+        this.EnergyBolt = 1;
+        this.FlashCounter = 1;
+        this.SigilOfThePending = 1;
+        this.PhantomOboro = 1;
+        this.AvailableForce = true;
+        this.OracleCommand = 1;
+        this.FortuneSpirit = 1;
+        this.WordOfPower = 1;
+        this.GaleWind = 1;
+        this.AvailableIce = true;
+        this.IceNeedle = 1;
+        this.PurePurification = 1;
+        this.BlueBullet = 1;
+        this.FreezingCube = 1;
+        this.ActionCommandMain = Fix.MAGIC_ATTACK;
+        this.ActionCommand1 = Fix.ENERGY_BOLT;
+        this.ActionCommand2 = Fix.FLASH_COUNTER;
+        this.ActionCommand3 = Fix.SIGIL_OF_THE_PENDING;
+        this.ActionCommand4 = Fix.ORACLE_COMMAND;
+        this.ActionCommand5 = Fix.FORTUNE_SPIRIT;
+        this.ActionCommand6 = Fix.WORD_OF_POWER;
+        this.ActionCommand7 = Fix.FREEZING_CUBE;
+        this.ActionCommand8 = Fix.GALE_WIND;
+        this.ActionCommand9 = Fix.PHANTOM_OBORO;
+        this.RemainPoint = 5;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.NORMAL_ATTACK;
@@ -4389,9 +4389,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_MAGI_ZELKIS:
@@ -4402,9 +4399,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_SELMOI_RO:
@@ -4418,19 +4412,6 @@ public partial class Character : MonoBehaviour
         this.BaseManaPoint = 20;
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Rogue;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.MysticForm;
-        this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
-        this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
-        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
-        this.MainArmor = new Item(Fix.BEGINNER_ARMOR);
-        this.AvailableMysticForm = true;
-        this.DispelMagic = 1;
-        this.GlobalAction1 = Fix.NORMAL_ATTACK;
-        this.GlobalAction2 = Fix.DEFENSE;
-        this.GlobalAction3 = Fix.DISPEL_MAGIC;
-        this.GlobalAction4 = Fix.DEFENSE;
         break;
 
       case Fix.NAME_KARTIN_MAI:
@@ -4441,9 +4422,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_JEDA_ARUS:
@@ -4457,9 +4435,6 @@ public partial class Character : MonoBehaviour
         this.BaseManaPoint = 25;
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Seeker;
-        this.FirstCommandAttribute = Fix.CommandAttribute.DarkMagic;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.ShadowBlast = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
@@ -4475,9 +4450,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_LENE_COLTOS:
@@ -4488,9 +4460,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_PERMA_WARAMY:
@@ -4501,9 +4470,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_KILT_JORJU:
@@ -4514,9 +4480,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_ANNA_HAMILTON:
@@ -4535,9 +4498,6 @@ public partial class Character : MonoBehaviour
         this.BaseManaPoint = 16;
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Archer;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         this.HunterShot = 1;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
@@ -4553,9 +4513,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_SHUVALTZ_FLORE:
@@ -4566,9 +4523,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_RVEL_ZELKIS:
@@ -4579,9 +4533,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_VAN_HEHGUSTEL:
@@ -4592,9 +4543,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_OHRYU_GENMA:
@@ -4605,9 +4553,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_LADA_MYSTORUS:
@@ -4618,9 +4563,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_SIN_OSCURETE:
@@ -4631,9 +4573,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_DELVA_TRECKINO:
@@ -4644,9 +4583,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
 
       case Fix.NAME_ILZINA_MELDIETE:
@@ -4657,9 +4593,6 @@ public partial class Character : MonoBehaviour
         this.Stamina = 1;
         this.Mind = 1;
         this.Job = Fix.JobClass.Fighter;
-        this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.EnhanceForm;
         break;
     }
 

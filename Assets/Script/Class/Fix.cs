@@ -53,24 +53,18 @@ public static partial class Fix
 
   public enum CommandAttribute
   {
-    Fire,
-    Ice,
-    HolyLight,
-    DarkMagic,
-    Wind,
-    Earth,
-    Warrior,
-    Archer,
-    MartialArts,
-    Rogue,
-    WonderHermit,
-    Armorer,
-    EnhanceForm,
-    MysticForm,
-    Truth,
-    Brave,
-    Vengeance,
-    Mindfulness,
+    Fire, // 炎
+    Ice, // 氷
+    HolyLight, // 聖
+    DarkMagic, // 闇
+    Force, // 理
+    VoidChant, // 空唱
+    Warrior, // 戦士
+    Guardian, // 護衛
+    MartialArts, // 格闘
+    Archery, // 弓術
+    Truth, // 心眼
+    Mindfulness, // 無心
     None,
   }
 

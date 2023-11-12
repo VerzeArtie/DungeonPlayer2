@@ -2168,6 +2168,28 @@ public partial class HomeTown : MotherBase
           RefreshAllView();
           continue; // 継続
         }
+        // 元いたパーティを復帰させる、もしくは更新する。
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownUpdateCharacter)
+        {
+          if (currentMessage.Contains(Fix.NAME_EONE_FULNEA))
+          {
+            Debug.Log("NewAddCharacter Eone");
+            One.TF.AvailableEoneFulnea = true;
+            if (One.TF.BattlePlayer3 == null || One.TF.BattlePlayer3 == String.Empty) { One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 3"); }
+            else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 4"); }
+            else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 5"); }
+            // 本来ここで制御すべきではないかもしれないが、ストーリー上ここでしか発生しないので良しとする。
+            Character character = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
+            character.AvailableDarkMagic = true;
+            character.ShadowBlast = 1;
+            character.BloodSign = 1;
+            character.BlackContract = 1;
+            character.CursedEvangile = 1;
+          }
+
+          RefreshAllView();
+          continue; // 継続
+        }
         // パーティから離脱する
         else if (currentEvent == MessagePack.ActionEvent.HomeTownRemoveCharacter)
         {
@@ -2280,7 +2302,7 @@ public partial class HomeTown : MotherBase
             else if (currentMessage == Fix.FOOD_RED_HOT_SPAGHETTI)
             {
               CharacterEatFood(characters[jj], Fix.FOOD_25_VALUE);
-            } 
+            }
 
             // ツァルマンの里
             else if (currentMessage == Fix.FOOD_TOBIUSAGI_ROAST)
@@ -2604,18 +2626,12 @@ public partial class HomeTown : MotherBase
       CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
       CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
       CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Wind);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Earth);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Force);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.VoidChant);
       CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Archer);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Guardian);
       CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Rogue);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.WonderHermit);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Armorer);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.EnhanceForm);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.MysticForm);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Brave);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Vengeance);
+      CreateACAttribute(attributeList, Fix.CommandAttribute.Archery);
       CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
       CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
     }
@@ -2666,7 +2682,7 @@ public partial class HomeTown : MotherBase
         attributeList[ii].lockPanel.SetActive(false);
         attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
         attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
-        attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
+        //attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
         for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
         {
           attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(attrList[jj]);

@@ -131,6 +131,7 @@ public static class MessagePack
     HomeTownCallDecision,
     HomeTownCallDecision3,
     HomeTownAddNewCharacter,
+    HomeTownUpdateCharacter,
     HomeTownRemoveCharacter,
     GetGreenPotionForLana,
     CallSomeMessageWithAnimation,
@@ -3994,7 +3995,7 @@ public static class MessagePack
       One.SelectCharacter(Fix.NAME_EIN_WOLENCE).FreshHeal = 1;
       One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableMindfulness = true;
       One.SelectCharacter(Fix.NAME_LANA_AMIRIA).DispelMagic = 1;
-      One.SelectCharacter(Fix.NAME_BILLY_RAKI).AvailableSwordman = true;
+      One.SelectCharacter(Fix.NAME_BILLY_RAKI).AvailableWarrior = true;
       One.SelectCharacter(Fix.NAME_BILLY_RAKI).StraightSmash = 1;
       // エオネは戻ってきた時に開放する。
       //One.SelectCharacter(Fix.NAME_EONE_FULNEA).AvailableDarkMagic = true;
@@ -5044,7 +5045,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, " 【アデル・ブリガンディ】と【エオネ・フルネア】が仲間になりました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownAddNewCharacter);
+      Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.HomeTownUpdateCharacter);
 
       Message(ref m_list, ref e_list, Fix.NAME_ADEL_BRIGANDY, ActionEvent.HomeTownAddNewCharacter);
 
@@ -6604,7 +6605,7 @@ public static class MessagePack
       One.TF.Event_Message700040 = true;
 
       One.TF.AvailableFirstEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableArmorer = true;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableGuardian = true;
       One.SelectCharacter(Fix.NAME_EIN_WOLENCE).ShieldBash = 1;
       One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableDarkMagic = true;
       One.SelectCharacter(Fix.NAME_LANA_AMIRIA).ShadowBlast = 1;
