@@ -4071,6 +4071,17 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      if (AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
+      {
+        AllList[ii].CurrentManaPoint += 10;
+        AllList[ii].UpdateManaPoint();
+      }
+      if (AllList[ii].Artifact.ItemName == Fix.ARTIFACT_ZIHI)
+      {
+        AllList[ii].CurrentSkillPoint += 3;
+        AllList[ii].UpdateSkillPoint();
+      }
+
       AllList[ii].BuffCountdown();
     }
 

@@ -12305,7 +12305,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。ソケットに埋め込む事により、さらにその輝きは増す。力+5、心＋10、「宝玉ソケット埋め込み時：力+10、心＋5」";
+        this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。アーティファクト枠に埋め込む事で、輝きは増す。力＋１０、心＋１０、毎ターンマナが回復する。";
         this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;
@@ -12333,7 +12333,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。ソケットに埋め込む事により、さらにその輝きは増す。体＋５０、心＋５０、「宝玉ソケット埋め込み時：体＋７５、心＋７５」、毎ターンライフが回復する。";
+        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、毎ターンスキルポイントが回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
