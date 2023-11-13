@@ -12333,12 +12333,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "慈悲の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。体+1000、「宝玉ソケット埋め込み時：体+500、心+500」";
+        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。ソケットに埋め込む事により、さらにその輝きは増す。体＋５０、心＋５０、「宝玉ソケット埋め込み時：体＋７５、心＋７５」、毎ターンライフが回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
-        this._stamina = 1000;
-        this._mind = 0;
+        this._stamina = 50;
+        this._mind = 50;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
