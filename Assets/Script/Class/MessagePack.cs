@@ -6495,17 +6495,19 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "（　明らかに視点がズレているから、とも思える　）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "（　ツァルマンの里から託されたObsidianStone　）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（　ツァルマンの里から託された書状　）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "（　元々どこの誰のものだったのか　）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（　内容そのものより、元々あの長老は国王と接点が合ったような感じがする　）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "（　いいや、その考え方も既におかしいんだろう　）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（　いいや、違うか・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　その考え方の原点もおかしい気はする　）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "（　国王と何を話すべきだろう　）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "（　決めて・・・おかないとな　）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "（　決めておかないとな・・・　）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
 
@@ -6516,6 +6518,8 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
 
         Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+        Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
 
         Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.LastMessage);
       }
@@ -6879,11 +6883,17 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：そして、現れたのが・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：Obsidian Stone・・・授かったのだね？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：長老だね。書状は授かったのかな？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：はい。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：はい。これを。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：なかなか面白いね。やっぱりアイン君の喋りは興味が湧くよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, " ～　アインは長老から受け取った書状を国王エルミへと差し出した ～　", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "エルミ：拝見させてもらうよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エルミ：なるほど、なかなか面白いね。やっぱりアイン君には興味が湧いてくるよ。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：あの、すみません。ちょっと聞いても良いでしょうか？", ActionEvent.None);
 
@@ -6917,11 +6927,15 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エルミ：いくつでも良いよ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：俺が入手した奇妙な物体、つまりObsidianStoneとはいったい何なんでしょうか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：この宝剣はObsidianStoneと何らかの関連性があるのでしょうか？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：その宝剣にはめるためのもので、間違いないよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：関連性がある事までは把握できている。ただし、", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：いや、ちょっと待ってください。それっておかしいですよね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：関連性そのものを証明できる事象は今の所発見されていない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・なるほど・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：でも、それって・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ラナ：ちょっとバカアイン。何突っかかってんのよ！？", ActionEvent.None);
 
@@ -6933,17 +6947,37 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：あ、ええとですね・・・つまり・・・", ActionEvent.None);
 
+        Message(ref m_list, ref e_list, "アイン：本来ならファージル国の調査部隊が証明できる材料を見つけてくるんだと思うんですが", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それが中々進まないのと、同時に", ActionEvent.None);
+
         Message(ref m_list, ref e_list, "アイン：国王様は今何等かの事情があって、動けない。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：そう考えれば辻褄としては合う事になりますよね？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：だから一般市民である俺達に調査依頼を行っている。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：いいや。「ハズレ」と答えておこう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：宝剣も何らかの事象が発生した際、偶発的に何か新たに分かる事があるかもしれない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：だから、宝剣を託しておいた。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：これで辻褄としては合う事になりますよね？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エルミ：いいや。残念だが「ハズレ」と答えておこう。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：え！？あれ！？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：うん。でも、さすがアイン君、と付け加えておこう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：今のは何となくアイン君らしくはなかったな。常人のセンスによる一般的な追跡だね。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：これはちょっと限界があるね。じゃあ、少しだけ譲歩しよう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：アイン君、もっと君らしく言ってくれて良いんだよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、えっとじゃあまあ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　国王、一瞬だけアイン以外のメンバーに眼を向け、すぐに眼をアインへ戻す ～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "エルミ：なるほど、事情は分かった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エルミ：この場ではちょっと限界があるね。じゃあ、少しだけ譲歩しよう。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エルミ：アイン君が最初にここに訪れる前に", ActionEvent.None);
 
@@ -6959,11 +6993,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：あ、そうか！そういう事か！！", ActionEvent.None);
-
-        Message(ref m_list, ref e_list, "アイン：何だよ俺！そんな事にも気づかずにずっと旅してたって事か！", ActionEvent.None);
-
-        Message(ref m_list, ref e_list, "アイン：ッハッハッハ！いやいや、そうなのか！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、そうだったのか！", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エルミ：でも、アイン君なら薄々と勘づいてたんじゃないかな？", ActionEvent.None);
 
@@ -6975,11 +7005,13 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エオネ：えっ、あ。ハイ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：そうか・・・じゃあ俺達があのツァルマンの里から呼び戻されたってのは・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：俺達があのツァルマンの里に到着した時は、俺達は始めてだったかもしれないが、", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：宝剣と対になる「Obsidian Stone」が手に入ったからか。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：エオネは過去、あのツァルマンの里に何度か出入りした経験があるって事か？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：必然というよりも・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：はい。ツァルマンの里は始めてではありません。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうか・・・だとすると偶発的と思ってはいたが・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：・・・【理】・・・か。", ActionEvent.None);
 
@@ -6991,7 +7023,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：それもまた、理由の連鎖が合致していない感じがする。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：宝剣は些細な道標でしかなく、", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：一つ一つは些細な道標でしかなく、", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：選ぶべき対象があるが、", ActionEvent.None);
 
@@ -7009,7 +7041,9 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：すみません、駄目です。正直、辿り着ける気がしない。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：いや、凄いよ。そこまで手繰り寄せられるのはアイン君だけじゃないかな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：いや、そこまで手繰り寄せられるのはアイン君だけじゃないかな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エルミ：今のはアイン君らしくて良かったよ。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エルミ：ラナ君。どうだい？", ActionEvent.None);
 
@@ -7021,7 +7055,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "ビリー：いやいやいや、スンマセン！俺なんかとてもじゃありませっせっせんが！！", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ビリー：ア、ア、アインのヤローのセリフは何時も楽しんでるというかノリ会話なんで。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ビリー：ア、ア、アインのヤローとは、セリフは何時もお互いに楽しんでるだけ！っというかノリ会話１０００％なわけで・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ビリー：ハ、ッハハハハハ！な、なあアイン！？なぁ！？", ActionEvent.None);
 
@@ -7043,7 +7077,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エルミ：ありがとう。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：彼に伝えておいてほしい。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：それから、ツァルマン爺に伝えておいてほしい。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エルミ：現在も、そしてこれからも、私は感謝し続けると。", ActionEvent.None);
 
@@ -7055,13 +7089,13 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：はい、ありがとうございます。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：国王。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：エルミ国王。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：うん、なんだい？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：なんだい？", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：後は俺自身が何とか考えます。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：そしてまた、分かった事をお伝えしに来ます。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：そして、また分かった事をお伝えしに来ます。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：必ず、また来ます！", ActionEvent.None);
 
@@ -7085,11 +7119,13 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エルミ：オーランの塔周辺は突然危険なモンスターも出没する。準備は怠らないように。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エルミ：これは軍資金だ。好きに使ってくれて良いからね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エルミ：これは軍資金とアイテムだ。好きに使ってくれて良いからね。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "【 50000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
-        Message(ref m_list, ref e_list, "50000", ActionEvent.GetGold);
+        Message(ref m_list, ref e_list, "【 " + Fix.ARTIFACT_ZIHI + " 】を獲得しました！", ActionEvent.MessageDisplay);
+
+        // Message(ref m_list, ref e_list, "50000", ActionEvent.GetGold); // クエスト達成時に取得するため、ここでは取得しない。
 
         Message(ref m_list, ref e_list, "アイン：あ、わざわざすみません！大事に使います！", ActionEvent.None);
 
@@ -7103,13 +7139,13 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：が、その前にエオネ。ちょっと今度また教えてくれ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エオネ：ハ・・・ハイ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：はい。今がよろしいでしょうか？", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：あ、いや正直な所、今は良いんだ。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：絶妙な機会とタイミングがあればで良い。これからもよろしくな。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エオネ：・・・ハイ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：はい、分かりました。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：よし、じゃオーランの塔へ向けて出発とするか！", ActionEvent.None);
 

@@ -2061,6 +2061,24 @@ public partial class HomeTown : MotherBase
             this.txtQCItemGain.text = gainItem + " を獲得しました";
             this.txtQCSoulEssenceGain.text = "1 ソウル・エッセンスを獲得しました！";
           }
+          else if (currentMessage.Contains(Fix.QUEST_TITLE_2))
+          {
+            One.TF.QuestMain_Complete_00002 = true;
+
+            int gainGold = 50000;
+            string gainItem = Fix.ARTIFACT_ZIHI;
+            int gainSoulFragment = 1;
+            for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
+            {
+              One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
+            }
+            One.TF.AddBackPack(new Item(gainItem));
+
+            this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = gainItem + " を獲得しました";
+            this.txtQCSoulEssenceGain.text = "新しいミッションが追加されました！";
+            this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+          }
           if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_Complete_00002 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_Complete_00003 = true; }
           if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_Complete_00004 = true; }
@@ -3634,11 +3652,11 @@ public partial class HomeTown : MotherBase
       GameObject.Destroy(n.gameObject);
     }
     int counter = 0;
-    //if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
     if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, counter); counter++; }
-    //if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
-    //if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
+    if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.TOWN_COTUHSYE, true, counter); counter++; }
     if (One.TF.Event_Message400030 && One.TF.AvailableBillyRaki) { AddSelectArea(Fix.DUNGEON_MYSTIC_FOREST, true, counter); counter++; }
     if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
     if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
