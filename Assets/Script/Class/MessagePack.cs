@@ -13270,73 +13270,73 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "31:1:-28", ActionEvent.JumpToLocation);
   }
 
-  public static void Message900620(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
-    {
-      if (One.TF.FieldObject_MysticForest_00007 == false)
-      {
-        One.TF.FieldObject_MysticForest_00007 = true;
+  //public static void Message900620(ref List<string> m_list, ref List<ActionEvent> e_list)
+  //{
+  //  if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
+  //  {
+  //    if (One.TF.FieldObject_MysticForest_00007 == false)
+  //    {
+  //      One.TF.FieldObject_MysticForest_00007 = true;
 
-        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_7_O);
-      }
-    }
-    else
-    {
-      FailedBrushwood(ref m_list, ref e_list);
-    }
-  }
+  //      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_7_O);
+  //    }
+  //  }
+  //  else
+  //  {
+  //    FailedBrushwood(ref m_list, ref e_list);
+  //  }
+  //}
 
-  public static void Message900630(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
-    {
-      if (One.TF.FieldObject_MysticForest_00008 == false)
-      {
-        One.TF.FieldObject_MysticForest_00008 = true;
+  //public static void Message900630(ref List<string> m_list, ref List<ActionEvent> e_list)
+  //{
+  //  if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
+  //  {
+  //    if (One.TF.FieldObject_MysticForest_00008 == false)
+  //    {
+  //      One.TF.FieldObject_MysticForest_00008 = true;
 
-        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_8_O);
-      }
-    }
-    else
-    {
-      FailedBrushwood(ref m_list, ref e_list);
-    }
-  }
+  //      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_8_O);
+  //    }
+  //  }
+  //  else
+  //  {
+  //    FailedBrushwood(ref m_list, ref e_list);
+  //  }
+  //}
 
-  public static void Message900640(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
-    {
-      if (One.TF.FieldObject_MysticForest_00009 == false)
-      {
-        One.TF.FieldObject_MysticForest_00009 = true;
+  //public static void Message900640(ref List<string> m_list, ref List<ActionEvent> e_list)
+  //{
+  //  if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
+  //  {
+  //    if (One.TF.FieldObject_MysticForest_00009 == false)
+  //    {
+  //      One.TF.FieldObject_MysticForest_00009 = true;
 
-        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_9_O);
-      }
-    }
-    else
-    {
-      FailedBrushwood(ref m_list, ref e_list);
-    }
-  }
+  //      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_9_O);
+  //    }
+  //  }
+  //  else
+  //  {
+  //    FailedBrushwood(ref m_list, ref e_list);
+  //  }
+  //}
 
-  public static void Message900650(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
-    {
-      if (One.TF.FieldObject_MysticForest_00010 == false)
-      {
-        One.TF.FieldObject_MysticForest_00010 = true;
+  //public static void Message900650(ref List<string> m_list, ref List<ActionEvent> e_list)
+  //{
+  //  if (One.TF.FindBackPackItem(Fix.KODAIEIJU_EDA))
+  //  {
+  //    if (One.TF.FieldObject_MysticForest_00010 == false)
+  //    {
+  //      One.TF.FieldObject_MysticForest_00010 = true;
 
-        UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_10_O);
-      }
-    }
-    else
-    {
-      FailedBrushwood(ref m_list, ref e_list);
-    }
-  }
+  //      UpdateBrushwood(ref m_list, ref e_list, Fix.MYSTICFOREST_BRUSHWOOD_10_O);
+  //    }
+  //  }
+  //  else
+  //  {
+  //    FailedBrushwood(ref m_list, ref e_list);
+  //  }
+  //}
 
   public static void Message900660(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -13870,6 +13870,196 @@ public static class MessagePack
   public static void Message900760(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "15:1:-22", ActionEvent.JumpToLocation);
+  }
+
+  public static void Message900800(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message900120 == false)
+    {
+      One.TF.Event_Message900120 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何？気になる点でもあるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直、気になるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル、エオネ。ちょっと教えてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何かなー☆　　　エオネ：なんでしょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ツァルマンの里に行き来している者は、毎回あの入り組んだ道のりを選んではいないって事だよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そーだねー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だとすると、この辺りかと思ってさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネも既にツァルマンの里に辿り着いた事があるって事は、俺達が通った道は使ってないよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：全て異なるルート、というわけではありませんが、そうですね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：という事で怪しい場所と言ったらココしかないんだがな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：でも、例の古代栄樹の枝を振りかざしても", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やっぱり、何も起きないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：見当違いとは思えないんだけどな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何故なんだ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テメーが一人突っ込みするとはな。面白い所が見れたぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：でもでもー、ここまで分かってるんなら教えてあげたいよねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：見つけられないのも無理はありませんが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん　・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：降参！教えてくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ねー、教えてあげよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：仕方がありません。では・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "　～　エオネ・フルネアは茂みに近寄って行った　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "(ッガサ・・・ッササ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "(・・・　・・・　ッス　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あっ、姿が！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（茂みの向こう側からエオネの声が届いてくる）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：≪すみません、ちょっと分かり難かったかもしれませんが≫", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：≪今の要領で潜れば通り抜ける事が出来ますので≫", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、そのまま注意深く入れば良かっただけなのか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：シンプルなだけに難しかったかもしれないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。いや本当に気付けなかった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：≪では、皆さんもこちらへどうぞ≫", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、今行く。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+
+      Message(ref m_list, ref e_list, "アイン：おー、抜けられた！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あんなに通れそうになかったのに、不思議よね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：気合で見抜かねーとコイツは確かに分からなかったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやー、助かった。ありがとう、アデル、エオネ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：私は別にー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：特別な事はしておりませんので。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあちょっとこの通り道を探索してみるとするか。", ActionEvent.None);
+    }
+  }
+
+  public static void Message900810(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+  }
+
+  public static void Message900820(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+  }
+
+  public static void Message900830(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+  }
+
+  public static void Message900840(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+  }
+
+  public static void Message900850(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+  }
+
+  public static void Message900860(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+  }
+
+  public static void Message900870(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+  }
+
+  public static void Message900880(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+  }
+
+  public static void Message900890(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
+  }
+
+  public static void Message900900(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、ココを潜っていこう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
+
+    Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
   }
   #endregion
 

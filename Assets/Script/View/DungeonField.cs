@@ -2967,22 +2967,22 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message900600(ref QuestMessageList, ref QuestEventList); TapOK();
       }
-      if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z))
-      {
-        MessagePack.Message900620(ref QuestMessageList, ref QuestEventList); TapOK();
-      }
-      if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z))
-      {
-        MessagePack.Message900630(ref QuestMessageList, ref QuestEventList); TapOK();
-      }
-      if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z))
-      {
-        MessagePack.Message900640(ref QuestMessageList, ref QuestEventList); TapOK();
-      }
-      if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z))
-      {
-        MessagePack.Message900650(ref QuestMessageList, ref QuestEventList); TapOK();
-      }
+      //if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z))
+      //{
+      //  MessagePack.Message900620(ref QuestMessageList, ref QuestEventList); TapOK();
+      //}
+      //if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z))
+      //{
+      //  MessagePack.Message900630(ref QuestMessageList, ref QuestEventList); TapOK();
+      //}
+      //if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z))
+      //{
+      //  MessagePack.Message900640(ref QuestMessageList, ref QuestEventList); TapOK();
+      //}
+      //if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z))
+      //{
+      //  MessagePack.Message900650(ref QuestMessageList, ref QuestEventList); TapOK();
+      //}
       if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_BRUSHWOOD_11_X, Fix.MYSTICFOREST_BRUSHWOOD_11_Y, Fix.MYSTICFOREST_BRUSHWOOD_11_Z))
       {
         MessagePack.Message900380(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -3067,7 +3067,75 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.MysticForest_EventWall)
     {
       Debug.Log("fieldObjBefore is MysticForest_EventWall, then no move");
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      if (One.TF.AvailableAdelBrigandy)
+      {
+        // 隠し通路（１）
+        if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_56_X, Fix.MYSTICFOREST_Event_56_Y, Fix.MYSTICFOREST_Event_56_Z))
+        {
+          if (One.TF.Event_Message900120 == false)
+          {
+            MessagePack.Message900800(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message900820(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+        }
+        // 隠し通路（１）反対側
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_57_X, Fix.MYSTICFOREST_Event_57_Y, Fix.MYSTICFOREST_Event_57_Z))
+        {
+          MessagePack.Message900810(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（２）
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_58_X, Fix.MYSTICFOREST_Event_58_Y, Fix.MYSTICFOREST_Event_58_Z))
+        {
+          MessagePack.Message900830(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（２）反対側
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_59_X, Fix.MYSTICFOREST_Event_59_Y, Fix.MYSTICFOREST_Event_59_Z))
+        {
+          MessagePack.Message900840(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（３）
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_60_X, Fix.MYSTICFOREST_Event_60_Y, Fix.MYSTICFOREST_Event_60_Z))
+        {
+          MessagePack.Message900850(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（３）反対側
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_61_X, Fix.MYSTICFOREST_Event_61_Y, Fix.MYSTICFOREST_Event_61_Z))
+        {
+          MessagePack.Message900860(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（４）
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_62_X, Fix.MYSTICFOREST_Event_62_Y, Fix.MYSTICFOREST_Event_62_Z))
+        {
+          MessagePack.Message900870(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（４）反対側
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_63_X, Fix.MYSTICFOREST_Event_63_Y, Fix.MYSTICFOREST_Event_63_Z))
+        {
+          MessagePack.Message900880(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（５）
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_64_X, Fix.MYSTICFOREST_Event_64_Y, Fix.MYSTICFOREST_Event_64_Z))
+        {
+          MessagePack.Message900890(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        // 隠し通路（５）反対側
+        else if (this.Player.transform.position == new Vector3(Fix.MYSTICFOREST_Event_65_X, Fix.MYSTICFOREST_Event_65_Y, Fix.MYSTICFOREST_Event_65_Z))
+        {
+          MessagePack.Message900900(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else
+        {
+          Debug.Log("not detect... " + this.Player.transform.position.ToString());
+        }
+        return;
+      }
+      else
+      {
+        One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      }
       return;
     }
     // オブジェクト（ヴェルガスの海底神殿：壁ドア）の判定
@@ -8593,22 +8661,22 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_6_X, Fix.MYSTICFOREST_BRUSHWOOD_6_Y, Fix.MYSTICFOREST_BRUSHWOOD_6_Z));
             }
-            if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_7_O)
-            {
-              RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z));
-            }
-            if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_8_O)
-            {
-              RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z));
-            }
-            if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_9_O)
-            {
-              RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z));
-            }
-            if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_10_O)
-            {
-              RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z));
-            }
+            //if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_7_O)
+            //{
+            //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z));
+            //}
+            //if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_8_O)
+            //{
+            //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z));
+            //}
+            //if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_9_O)
+            //{
+            //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z));
+            //}
+            //if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_10_O)
+            //{
+            //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z));
+            //}
             if (currentMessage == Fix.MYSTICFOREST_BRUSHWOOD_11_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_11_X, Fix.MYSTICFOREST_BRUSHWOOD_11_Y, Fix.MYSTICFOREST_BRUSHWOOD_11_Z));
@@ -14477,26 +14545,26 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_6_X, Fix.MYSTICFOREST_BRUSHWOOD_6_Y, Fix.MYSTICFOREST_BRUSHWOOD_6_Z));
       }
-      // 茂み７
-      if (One.TF.FieldObject_MysticForest_00007)
-      {
-        RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z));
-      }
-      // 茂み８
-      if (One.TF.FieldObject_MysticForest_00008)
-      {
-        RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z));
-      }
-      // 茂み９
-      if (One.TF.FieldObject_MysticForest_00009)
-      {
-        RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z));
-      }
-      // 茂み１０
-      if (One.TF.FieldObject_MysticForest_00010)
-      {
-        RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z));
-      }
+      //// 茂み７
+      //if (One.TF.FieldObject_MysticForest_00007)
+      //{
+      //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_7_X, Fix.MYSTICFOREST_BRUSHWOOD_7_Y, Fix.MYSTICFOREST_BRUSHWOOD_7_Z));
+      //}
+      //// 茂み８
+      //if (One.TF.FieldObject_MysticForest_00008)
+      //{
+      //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_8_X, Fix.MYSTICFOREST_BRUSHWOOD_8_Y, Fix.MYSTICFOREST_BRUSHWOOD_8_Z));
+      //}
+      //// 茂み９
+      //if (One.TF.FieldObject_MysticForest_00009)
+      //{
+      //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_9_X, Fix.MYSTICFOREST_BRUSHWOOD_9_Y, Fix.MYSTICFOREST_BRUSHWOOD_9_Z));
+      //}
+      //// 茂み１０
+      //if (One.TF.FieldObject_MysticForest_00010)
+      //{
+      //  RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_10_X, Fix.MYSTICFOREST_BRUSHWOOD_10_Y, Fix.MYSTICFOREST_BRUSHWOOD_10_Z));
+      //}
       // 茂み１１
       if (One.TF.FieldObject_MysticForest_00011)
       {

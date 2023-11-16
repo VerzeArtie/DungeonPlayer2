@@ -3723,6 +3723,76 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_55_X = 15.0f;
   public const float MYSTICFOREST_Event_55_Y = 0.0f;
   public const float MYSTICFOREST_Event_55_Z = -18.0f;
+
+  // 隠し通路（１）
+  public const string MYSTICFOREST_Event_56_C = "Event";
+  public const string MYSTICFOREST_Event_56_O = "56";
+  public const float MYSTICFOREST_Event_56_X = 38.0f;
+  public const float MYSTICFOREST_Event_56_Y = 1.0f;
+  public const float MYSTICFOREST_Event_56_Z = -22.0f;
+
+  // 隠し通路（１）の反対側
+  public const string MYSTICFOREST_Event_57_C = "Event";
+  public const string MYSTICFOREST_Event_57_O = "57";
+  public const float MYSTICFOREST_Event_57_X = 40.0f;
+  public const float MYSTICFOREST_Event_57_Y = 1.0f;
+  public const float MYSTICFOREST_Event_57_Z = -22.0f;
+
+  // 隠し通路（２）
+  public const string MYSTICFOREST_Event_58_C = "Event";
+  public const string MYSTICFOREST_Event_58_O = "58";
+  public const float MYSTICFOREST_Event_58_X = 48.0f;
+  public const float MYSTICFOREST_Event_58_Y = 1.0f;
+  public const float MYSTICFOREST_Event_58_Z = -21.0f;
+
+  // 隠し通路（２）の反対側
+  public const string MYSTICFOREST_Event_59_C = "Event";
+  public const string MYSTICFOREST_Event_59_O = "59";
+  public const float MYSTICFOREST_Event_59_X = 48.0f;
+  public const float MYSTICFOREST_Event_59_Y = 1.0f;
+  public const float MYSTICFOREST_Event_59_Z = -19.0f;
+
+  // 隠し通路（３）
+  public const string MYSTICFOREST_Event_60_C = "Event";
+  public const string MYSTICFOREST_Event_60_O = "60";
+  public const float MYSTICFOREST_Event_60_X = 48.0f;
+  public const float MYSTICFOREST_Event_60_Y = 1.0f;
+  public const float MYSTICFOREST_Event_60_Z = -17.0f;
+
+  // 隠し通路（３）の反対側
+  public const string MYSTICFOREST_Event_61_C = "Event";
+  public const string MYSTICFOREST_Event_61_O = "61";
+  public const float MYSTICFOREST_Event_61_X = 48.0f;
+  public const float MYSTICFOREST_Event_61_Y = 1.0f;
+  public const float MYSTICFOREST_Event_61_Z = -15.0f;
+
+  // 隠し通路（４）
+  public const string MYSTICFOREST_Event_62_C = "Event";
+  public const string MYSTICFOREST_Event_62_O = "62";
+  public const float MYSTICFOREST_Event_62_X = 48.0f;
+  public const float MYSTICFOREST_Event_62_Y = 1.0f;
+  public const float MYSTICFOREST_Event_62_Z = -12.0f;
+
+  // 隠し通路（４）の反対側
+  public const string MYSTICFOREST_Event_63_C = "Event";
+  public const string MYSTICFOREST_Event_63_O = "63";
+  public const float MYSTICFOREST_Event_63_X = 48.0f;
+  public const float MYSTICFOREST_Event_63_Y = 1.0f;
+  public const float MYSTICFOREST_Event_63_Z = -10.0f;
+
+  // 隠し通路（５）
+  public const string MYSTICFOREST_Event_64_C = "Event";
+  public const string MYSTICFOREST_Event_64_O = "64";
+  public const float MYSTICFOREST_Event_64_X = 48.0f;
+  public const float MYSTICFOREST_Event_64_Y = 1.0f;
+  public const float MYSTICFOREST_Event_64_Z = -13.0f;
+
+  // 隠し通路（５）の反対側
+  public const string MYSTICFOREST_Event_65_C = "Event";
+  public const string MYSTICFOREST_Event_65_O = "65";
+  public const float MYSTICFOREST_Event_65_X = 46.0f;
+  public const float MYSTICFOREST_Event_65_Y = 1.0f;
+  public const float MYSTICFOREST_Event_65_Z = -13.0f;
   #endregion
   #region "BrushWood"
   public const string MYSTICFOREST_BRUSHWOOD_1_C = "BrushWood";
@@ -3761,29 +3831,33 @@ public static partial class Fix
   public const float MYSTICFOREST_BRUSHWOOD_6_Y = 1.0f;
   public const float MYSTICFOREST_BRUSHWOOD_6_Z = -28.0f;
 
-  public const string MYSTICFOREST_BRUSHWOOD_7_C = "BrushWood";
-  public const string MYSTICFOREST_BRUSHWOOD_7_O = "7";
-  public const float MYSTICFOREST_BRUSHWOOD_7_X = 48;
-  public const float MYSTICFOREST_BRUSHWOOD_7_Y = 1.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_7_Z = -20.0f;
+  // 未使用
+  //public const string MYSTICFOREST_BRUSHWOOD_7_C = "BrushWood";
+  //public const string MYSTICFOREST_BRUSHWOOD_7_O = "7";
+  //public const float MYSTICFOREST_BRUSHWOOD_7_X = 48;
+  //public const float MYSTICFOREST_BRUSHWOOD_7_Y = 1.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_7_Z = -20.0f;
 
-  public const string MYSTICFOREST_BRUSHWOOD_8_C = "BrushWood";
-  public const string MYSTICFOREST_BRUSHWOOD_8_O = "8";
-  public const float MYSTICFOREST_BRUSHWOOD_8_X = 48.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_8_Y = 1.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_8_Z = -16.0f;
+  // 未使用
+  //public const string MYSTICFOREST_BRUSHWOOD_8_C = "BrushWood";
+  //public const string MYSTICFOREST_BRUSHWOOD_8_O = "8";
+  //public const float MYSTICFOREST_BRUSHWOOD_8_X = 48.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_8_Y = 1.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_8_Z = -16.0f;
 
-  public const string MYSTICFOREST_BRUSHWOOD_9_C = "BrushWood";
-  public const string MYSTICFOREST_BRUSHWOOD_9_O = "9";
-  public const float MYSTICFOREST_BRUSHWOOD_9_X = 48.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_9_Y = 1.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_9_Z = -13.0f;
+  // 未使用
+  //public const string MYSTICFOREST_BRUSHWOOD_9_C = "BrushWood";
+  //public const string MYSTICFOREST_BRUSHWOOD_9_O = "9";
+  //public const float MYSTICFOREST_BRUSHWOOD_9_X = 48.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_9_Y = 1.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_9_Z = -13.0f;
 
-  public const string MYSTICFOREST_BRUSHWOOD_10_C = "BrushWood";
-  public const string MYSTICFOREST_BRUSHWOOD_10_O = "10";
-  public const float MYSTICFOREST_BRUSHWOOD_10_X = 45.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_10_Y = 1.0f;
-  public const float MYSTICFOREST_BRUSHWOOD_10_Z = -13.0f;
+  // 未使用
+  //public const string MYSTICFOREST_BRUSHWOOD_10_C = "BrushWood";
+  //public const string MYSTICFOREST_BRUSHWOOD_10_O = "10";
+  //public const float MYSTICFOREST_BRUSHWOOD_10_X = 45.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_10_Y = 1.0f;
+  //public const float MYSTICFOREST_BRUSHWOOD_10_Z = -13.0f;
 
   public const string MYSTICFOREST_BRUSHWOOD_11_C = "BrushWood";
   public const string MYSTICFOREST_BRUSHWOOD_11_O = "11";
