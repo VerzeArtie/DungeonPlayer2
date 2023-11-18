@@ -6,12 +6,52 @@ public class AkashicRecord : MonoBehaviour
 {
   // 新規ゲーム、ロード、リロードに関わらず常に記憶されるクラス
 
-  // ツァルマンの里からもらったObsidianStoneをゴラトラム洞窟のObsidianStone設置箇所に戻す
+  // （３）ゴラトラム洞窟のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_1 = false;
   public bool InscribeObsidianStone_1
   {
     set { _inscribeObsidianStone_1 = value; }
     get { return _inscribeObsidianStone_1; }
+  }
+
+  // （５）神秘の森でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_2 = false;
+  public bool InscribeObsidianStone_2
+  {
+    set { _inscribeObsidianStone_2 = value; }
+    get { return _inscribeObsidianStone_2; }
+  }
+
+  // （２）オーランの塔でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_3 = false;
+  public bool InscribeObsidianStone_3
+  {
+    set { _inscribeObsidianStone_3 = value; }
+    get { return _inscribeObsidianStone_3; }
+  }
+
+  // （１）ヴェルガス海底神殿でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_4 = false;
+  public bool InscribeObsidianStone_4
+  {
+    set { _inscribeObsidianStone_4 = value; }
+    get { return _inscribeObsidianStone_4; }
+  }
+
+  // （４）エデルガイゼン城でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_5 = false;
+  public bool InscribeObsidianStone_5
+  {
+    set { _inscribeObsidianStone_5 = value; }
+    get { return _inscribeObsidianStone_5; }
+  }
+
+  // （０）エスミリア草原区域でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_6 = false;
+  public bool InscribeObsidianStone_6
+  {
+    set { _inscribeObsidianStone_6 = value; }
+    get { return _inscribeObsidianStone_6; }
   }
 
   // ヴェルガスの海底神殿、右方の間、詩の節２～１５の記録ナンバー

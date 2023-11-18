@@ -6064,6 +6064,8 @@ public static class MessagePack
       One.TF.AvailablePotentialGauge = true;
       One.TF.AvailableArchetype_EinWolence = true;
       One.TF.PotentialEnergy = 0;
+      One.AR.InscribeObsidianStone_1 = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, Fix.GORATRUM_2_Event_1_O, ActionEvent.UpdateUnknownTile);
 
@@ -7856,6 +7858,8 @@ public static class MessagePack
     {
       One.TF.Event_Message801000 = true;
       One.TF.AvailableThirdEssence = true;
+      One.AR.InscribeObsidianStone_3 = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -13476,6 +13480,8 @@ public static class MessagePack
     {
       One.TF.Event_Message900090 = true;
       One.TF.AvailableSecondEssence = true;
+      One.AR.InscribeObsidianStone_2 = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, "アイン：こ、この石は！！", ActionEvent.None);
 
@@ -21307,6 +21313,8 @@ public static class MessagePack
     if (One.TF.Event_Message1009050 == false)
     {
       One.TF.Event_Message1009050 = true;
+      One.AR.InscribeObsidianStone_4 = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, "アイン：（石が見えるな・・・）", ActionEvent.None);
 
