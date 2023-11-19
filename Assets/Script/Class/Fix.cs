@@ -6231,6 +6231,13 @@ public static partial class Fix
   public const float OHRANTOWER_WarpHole_26_X = 1f;
   public const float OHRANTOWER_WarpHole_26_Y = 44f;
   public const float OHRANTOWER_WarpHole_26_Z = 20f;
+
+  public const string OHRANTOWER_EVENT_1_C = "Event";
+  public const string OHRANTOWER_EVENT_1_O = "1";
+  public const float OHRANTOWER_EVENT_1_X = 15.0f;
+  public const float OHRANTOWER_EVENT_1_Y = 0.0f;
+  public const float OHRANTOWER_EVENT_1_Z = -27.0f;
+
   #endregion
   #region "ヴェルガスの海底神殿"
   #region "看板"

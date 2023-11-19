@@ -7512,38 +7512,44 @@ public static class MessagePack
   #region "オーランの塔"
   public static void Message800010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：へえ・・・ここが・・・。", ActionEvent.None);
+    if (One.TF.Event_Message800010 == false)
+    {
+      One.TF.Event_Message800010 = true;
 
-    Message(ref m_list, ref e_list, "～ アインは塔に入った途端、周囲を見回した ～", ActionEvent.MessageDisplay);
-    
-    Message(ref m_list, ref e_list, "アイン：なかなか面白そうな構造をしてるな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：へえ・・・ここが・・・。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：フロア全体が吹き抜け構造になってるって感じよね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～ アインは塔の中を全体的に見回した ～", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "エオネ：仕掛けもたくさんありそうで、難しそうですね・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：なかなか面白い構造だな。遠くまで見渡せる様になっている。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ビリー：お・・・おいアイン。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：フロア全体が吹き抜け構造になってる感じよね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ん？どうした。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あと、足元に注意して進まないと危ないかも知れません。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ビリー：これ、まさか上へ登るって話じゃないだろうな？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：塔の階層がそれなりにありそーだね☆", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：上へ登るために来たんだろ。塔に来たんだしな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：お・・・おいアイン。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：お、お前まさか・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ん？どうした。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ビリー：っんでもねえよ！ああもう良いから、黙って俺に付いてこいや！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：これ、まさか上へ登るって話じゃないだろうな？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：はいはい、分かりましたよ。じゃあビリー様を先頭にして付いて行くとするか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：上へ登るために来たんだろ。塔に来たんだしな。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ビリー：っんで俺が先頭なんだよ！！先頭はてめえが先に行けば良いだろうが。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：お、お前まさか・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：マジかよ。じゃあまあ一応リーダーはビリー。で、ルート選択は俺がやる。それで良いかな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：っんでもねえよ！ああもう良いから、黙って俺に付いてこいや！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ビリー：ああ、頼んだぜ！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：分かった。じゃあビリー様を先頭にして付いて行くとするか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：よし、じゃあオーランの塔を進んでみるとするか！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：っんで俺が先頭なんだよ！！先頭はてめえが先に行けば良いだろうが。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：マジかよ。じゃあまあルートの選択は俺がやる。それで良いかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ああ、頼んだぜ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあオーランの塔を進んでみるとするか！", ActionEvent.None);
+    }
   }
 
   public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)

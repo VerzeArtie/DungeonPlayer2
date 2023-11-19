@@ -9948,6 +9948,16 @@ public class DungeonField : MotherBase
       }
     }
     #endregion
+    #region "オーランの塔"
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_1_X, Fix.OHRANTOWER_EVENT_1_Y, Fix.OHRANTOWER_EVENT_1_Z))
+      {
+        MessagePack.Message800010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       if (LocationDetect(tile, -47, 3.5f, 17))
