@@ -735,6 +735,16 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【　バトルコマンド設定画面でアイテム・アクションを設定してみてください。　】", ActionEvent.MessageDisplay);
   }
+
+
+  public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_6 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
   #endregion
 
   #region "アンシェットの街"
@@ -23408,6 +23418,14 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "ランディス：０！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, Fix.NAME_OL_LANDIS_FULL, ActionEvent.HomeTownCallDuel);
+  }
+
+  public static void InscribeMatrixDragon_5(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_5 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
   }
   #endregion
 
