@@ -735,16 +735,6 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【　バトルコマンド設定画面でアイテム・アクションを設定してみてください。　】", ActionEvent.MessageDisplay);
   }
-
-
-  public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    One.AR.InscribeObsidianStone_6 = true;
-    One.UpdateAkashicRecord();
-
-    // todo
-  }
-
   #endregion
 
   #region "アンシェットの街"
@@ -7985,7 +7975,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -21342,7 +21332,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
-      Message(ref m_list, ref e_list, "　　（　石は、既にそこには存在していないのだ。　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "　　（　石は、既にそこには存在していない。　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "　　（　適切な表現、正確な表現、正しい把握というものは存在しない。　）", ActionEvent.None);
 
@@ -21406,13 +21396,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "支配竜：・・・　感知せよ／発せよ　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "支配竜：すべてには終焉があり始まりがある", ActionEvent.None);
+      Message(ref m_list, ref e_list, "支配竜：すべてには終焉／始まりがある", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "支配竜：望む姿と願う意志により世界は永劫の時を刻む", ActionEvent.None);
+      Message(ref m_list, ref e_list, "支配竜：望む姿と願う意志により世界は刹那／永劫の時を刻む", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "支配竜：人が定義する過去は幾度となく繰り返された無である", ActionEvent.None);
+      Message(ref m_list, ref e_list, "支配竜：人が定義する過去とは無限に繰り返されし無である", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "支配竜：人が定義する未来とは既に起こりえた事象である", ActionEvent.None);
+      Message(ref m_list, ref e_list, "支配竜：人が定義する未来とは既に起こりえた事象の記憶である", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "支配竜：その無限なる連鎖こそが因果律と知るが良い", ActionEvent.None);
 
@@ -21423,6 +21413,10 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "支配竜：", ActionEvent.None);
 
       // todo　ストーリー未完成
+      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
+
     }
   }
 
@@ -23425,14 +23419,6 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, Fix.NAME_OL_LANDIS_FULL, ActionEvent.HomeTownCallDuel);
   }
-
-  public static void InscribeMatrixDragon_5(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    One.AR.InscribeObsidianStone_5 = true;
-    One.UpdateAkashicRecord();
-
-    // todo
-  }
   #endregion
 
   #region "ゼールマンの里"
@@ -24021,6 +24007,58 @@ public static class MessagePack
   public static void Message2600010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
   }
+  #endregion
+
+  #region "支配竜との対話"
+  public static void InscribeMatrixDragon_1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_1 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
+  public static void InscribeMatrixDragon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_2 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
+  public static void InscribeMatrixDragon_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_3 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
+  public static void InscribeMatrixDragon_4(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_4 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
+
+  public static void InscribeMatrixDragon_5(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_5 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
+  public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.InscribeObsidianStone_6 = true;
+    One.UpdateAkashicRecord();
+
+    // todo
+  }
+
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)
