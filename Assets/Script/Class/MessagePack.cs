@@ -6091,73 +6091,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
-
-      Message(ref m_list, ref e_list, "　　（　俺はこの時どう考えていただろうか　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　意味の追跡はここまで　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　おそらく考えていた事が重要なのではなく　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　無限に連なる空間があった事が重要だったのだろう　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　知らなかったというよりも　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　その概念の外側　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　あたかも始めから決められていたかのように　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　その石に触れた　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：繰り返すは永劫の記憶", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：誰だ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：我は存在の定義から外れし者", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ヒトの子は我を支配竜と呼ぶ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：支配・・・竜・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年がこの石を選択する事に在らず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：石が少年を選択する事に在らず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：手にせしその石", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年が遥か太古から入手しているものである", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：遥か太古・・・から・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：石との接触は", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：一つの終わりを意味する", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年が進むは過去への道標", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：過去へ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.GORATRUM_2_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
-
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　元核【集中と断絶】を習得 】", ActionEvent.MessageDisplay);
+      // Inscribe_MatrixDragon_X()
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -7869,113 +7803,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
-
-      Message(ref m_list, ref e_list, "　　（　自分の感覚としては形容する事の出来ない空間にいる　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　空間・・・いや　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　それすらも適用する事自体が誤っていると感じられた　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　石との接触は俺にとって　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　願いそのものと成っていき　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　そして、そこへ、現れた　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：石に触れし者よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：赤い星を見たことはきっかけ程度だったんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：それよりもっと以前から感覚があった。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：エルミ国王とは何者なんだ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：調べについては少年は既に認識をしている", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：あるべき事象は既に発生しており回避と受諾は同一とせよ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：じゃあ・・・エルミ国王は・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ま、まさか・・・！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：あらゆる波動からの意志により選定された事象", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：悠久の時を超える事は叶わず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：連鎖の始まりは既に未来へと託された世界である", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：だって、そんなのおかしいだろ！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：受諾するがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：いや、待ってくれ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ファラ王妃はどうなんだ？いくらなんでも違うだろ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：波動の連鎖は無間連鎖であり潰える事叶わず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：回避の意志を保持しているのはその事象に対する認識と同一", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：認識の原点とは可視よりも前から発生する", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：原点には受諾の根源存在があり", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：根源存在は個が有するものではない", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そんな・・・ファラ王妃ですら・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ど、どうにかする事はできないのかよ！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：答えてくれ・・・！頼む！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：いや、だ、駄目だ・・・このままじゃ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：支配竜よ、頼む。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：俺自身は選択する。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：エルミ国王を・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そしてファラ王妃を・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：選択を検知した", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：既に定められし未来の事象とされている永劫回帰へと", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：還り続けるがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_2_O, ActionEvent.RemoveFieldObject);
-
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
+      // Inscribe_MatrixDragon_X()
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -13491,83 +13319,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：こ、この石は！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
-
-      Message(ref m_list, ref e_list, "　　（　確かに、許容される事象の境界というのは概念で形成化でき得るものでは無い。　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　いや、その考え方自体を問われていた。　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　誰から？　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　存在に頼った訳じゃないが　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　認識に対する根源を追及したい気持ちが強かったんだと思う　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　その時、無限に連なっている認識の外側からどこからともなく　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　その石に、再び、触れた　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：繰り返すは永遠に続く未来への記憶", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：未来への・・・記憶・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：我は概念の領域に属さぬ者", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ヒトの子は我を支配竜と呼ぶ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：支配竜よ。応えてくれ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：彼ら、彼女らはどうなったんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：在るがままである", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：死んではいない。そういう事か？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：意味をなす理にあらず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年が欲する概念に対し我が発するは事象の在り方のみ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：その連鎖は少年が記憶する過去現在未来に依存せず", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：在るがままである", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そうか・・・・・・・・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：頼む。もう１つだけ応えてくれ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：国王は俺にとってどういう存在なんだ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年と国王は遥か未来にて既に接触が刻まれている", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：接触は一つの連鎖と成す", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：少年が戻りしは未来への回帰", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：未来への・・・回帰・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.MYSTICFOREST_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
-
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
+      // Inscribe_MatrixDragon_X()
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -21324,99 +21076,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（石が見えるな・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：（ッグ・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
-
-      Message(ref m_list, ref e_list, "　　（　石は、既にそこには存在していない。　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　適切な表現、正確な表現、正しい把握というものは存在しない。　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　俺達と呼んでいる人が定義するのではなく　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　始まりから在り続けている　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　いや、始まりですら始まりに非ず　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　その存在していない何かに吸い寄せられるように　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　　（　石に、再び、触れた　）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：繰り返すは無の連鎖を連ねる記憶", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：無の・・・連鎖・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：我は因果律の領域に属さぬ者", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ヒトの子は我を支配竜と呼ぶ", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：支配竜よ・・・頼む・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：どうしても・・・この結末にしか・・・ならないのか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：全ての事象は因果律によってもたらされるもの", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：結末とは始まりであり", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：始まりとは終焉であり", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：終焉とは無そのものである", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：無とは有を包含とし", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：ありとあらゆる有は全てが無へと還る", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　幼き「子／人」よ　｜　何を「願う／求む」　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：国王エルミ・ジョルジュと王妃ファラ・フローレと共に歩みたかったんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ビリー・ラキー、エオネ・フルネア、アデル・ブリガンディとも", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：もちろん、シニキア・カールハンツ先生にも居てほしい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：オル・ランディス師匠もだ。もっと俺とバトルをしてほしい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そして・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ラナ・アミリアだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　感知せよ／発せよ　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：すべてには終焉／始まりがある", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：望む姿と願う意志により世界は刹那／永劫の時を刻む", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：人が定義する過去とは無限に繰り返されし無である", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：人が定義する未来とは既に起こりえた事象の記憶である", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：その無限なる連鎖こそが因果律と知るが良い", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：無限なる・・・連鎖・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "支配竜：", ActionEvent.None);
+      // Inscribe_MatrixDragon_X()
 
       // todo　ストーリー未完成
-      Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
-
     }
   }
 
@@ -24015,7 +23677,115 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_1 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　俺はこの時どう考えていただろうか　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　意味、意志、論理の追跡はここまで　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　おそらくそこで考えていた事が重要なのではなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　無限に連なる空間があった事が何より重要だったと今では思える　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　認識に至らなかったというよりも　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　概念の外側　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　あたかも始めから決められていたかのように　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　その石に触れた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：繰り返すは無間なる永劫の記憶", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：誰だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：我は存在の定義から外れし者", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ヒトの子よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：支配竜と呼ぶがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年がこの石を選択する事に在らず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：石が少年を選択する事に在らず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：手にせしその石は少年が遥か過去／未来から入手しているものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：こ、これが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：石との接触は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：一つの終わりを意味する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：でも、どうしてなんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうして終わりに向かって進まなくちゃいけないんだよ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そんなのは、俺は認めない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：絶対に道筋が在るはずなんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜が指す終わりとは何だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が今イメージしているそのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：全ての事象は同一の空間と時間律において連続的であり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：絶える事なく繋がりなく停滞なく進行なく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年がイメージした事は事象の一つとして常に刻まれる", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：あらゆる事象について感知／受諾せよ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：事象の感知と・・・受諾・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺にこれから起こりうる事象は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：避けられない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何故なら、俺自身がもう決めているからだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：これで良い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それ以外に選択肢はないんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が進むは過去への循環", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が振り返しは未来への記録", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.GORATRUM_2_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　元核【集中と断絶】を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -24023,7 +23793,158 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_2 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　確かに、許容される事象の境界というのは概念で形成化できるものでは無い。　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　その考え方自体を問われていた。　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　誰からでもなく、自分自身の意志としてでもなく、どこからともなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　何かの存在に頼ろうとした訳じゃない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　ただただ、認識に対する根源的な何かを追及したい気持ちが強かったんだと思う　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　その時、無限に連なっている時間がどこからともなく流れてきて　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　その石に、再び、触れた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：石に触れし者よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：繰り返すは永遠に続く未来への記憶", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：未来への・・・記憶・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：我は概念の領域に属さぬ者", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ヒトの子よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：支配竜と呼ぶがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ。教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：彼と彼女はどうなったんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：事象が示すは少年がイメージした通りである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：という事は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・何でなんだよ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何故なんだ？何故そうする必要があったっていうんだよ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：意味をなす理にあらず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：理由を求めるは人の子が故の事象", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：認識に至らず到達せず還ること叶わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が欲する概念に対し我が発するは事象の在り方のみ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その連鎖は少年が記憶する過去現在未来に依存せず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：在るがままである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そんな・・・じゃあどうする事もできないのか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：頼む。もう１つだけ教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は国王はどういう存在なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年と国王は遥か未来にて既に接触が刻まれている", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：接触は一つの連鎖と成す", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が戻りしは未来への回帰", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：未来への・・・回帰・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：理とは刻まれし未来を紡ぐ事象そのものを指し示す", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年達が住まう世界は既に終わった世界であり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：今もなお在り続ける世界である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どこかに境界や綻びがあったりするとでも言うのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：それらの定義に頼るは人の心", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人の心を持つものよ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人の心を捨てよ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：心と呼ぶ定義を全て捨てた果てに", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：今この刻む時間律に全てが在ると知るがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が刻むは限りなき無である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：限りなき無・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　無であると言われ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　こんなにも酷い状況であるにも関わらず　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　起こってしまった事象に対する虚無感や絶望の感情はなくなり　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　不思議な感覚に包まれた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　・・・今なら・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　イメージできるかもしれないと　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　そう思えた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　この時、思わず　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　ふと声に出ていた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その事象について", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺である自分自身はそれ自体を認識できず、記憶する事もできないが、", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それでも必ず、その終わりの事象へと至ってみせる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そして", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：必ずその先へ辿り着いてみせる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が選択せしは生命に対する回帰そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：超越する事なく対峙する事なく否定することなく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年はその頂の果てを見るだろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.MYSTICFOREST_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_3(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -24031,7 +23952,95 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_3 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　自分の感覚としては今、形容する事の出来ない空間と時間の狭間にいる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　空間・・・？　時間・・・？　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　それすらも適用する事自体が誤っていると感じられた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　石との接触は俺にとって　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　在るべくして在り続ける存在　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　いつの間にかそこに　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　存在が容として形成していた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：石に触れし者よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：赤い星を見たことは些細なきっかけでしかない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それよりもっと以前からこの奇妙な感覚はあったんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この連鎖は一体どこから来ているんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が生まれてくる刻よりも遥か以前からであり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が死する刻よりも遥か未来からである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その無間循環は人の子が捉える事はなく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：流転の時を経て獲得する事叶わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：悠久を示す時間律が示す理と知るが良い", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：時間の流れを覆す事はできない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ただ、時間の流れを創り出す事はできる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それを創り出せるのは・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：理を認識し始めてから幾度となく繰り返す事を弛まぬ少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が何を願うかは未だ理に内在される領域", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：一切を捨てて願うがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あの時、心に決めていた事があるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それを今度こそ実行する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：必ずだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が選択せしは死を司る元始そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_2_O, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_4(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -24039,7 +24048,163 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_4 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　信念、想い、祈り　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　事象そのものが対象というのは適切ではなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　非常に大きく、捉え所がない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　大きい渦の様にも思えるし、奇麗な一本として感じられる気もする　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　この世界に存在しえない世界　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　そのイメージを保持しながら　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　俺は石に触れた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：石に触れし者よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エルミ国王とは何者なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その調べについては少年は既に認識をしている", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：既に認識している・・・？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：あるべき事象は既に発生しており回避と受諾は同一とせよ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ・・・エルミ国王は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ま、まさか・・・！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：あらゆる波動からの意志により選定された事象", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：悠久の時を超える事は叶わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：連鎖の始まりは既に未来へと託された世界である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だって、そんなバカな・・・！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エルミ国王と俺はその時接触はしていないのは明らかだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：受諾するがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、待ってくれ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ファラ王妃についてはどうなんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：波動の連鎖は無間連鎖であり潰える事叶わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：回避の意志を保持しているのはその事象に対する認識と同一", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：認識の原点とは可視よりも前から発生する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：原点には受諾の根源存在があり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：根源存在は個が有するものではない", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そんな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ど、どうにかする事はできないのかよ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：答えてくれ・・・！頼む！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：違うか・・・頼んだ所で何も起きはしない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ、宝剣とはどういう存在なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その剣は神剣フェルトゥーシュである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュとは摂理", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：存在そのものに意味を問う事に本質を伴わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュが指し示すは記録された未来そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：記録された・・・未来・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：剣が意志を持ちて保持者を選定する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：選定されし者は剣の意志と調和し", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：記録された未来へ向け行動し", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：剣をダンジョンへと返還する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：神剣は国王エルミが保持していたはずだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それがラナに手渡されたという事は、ラナが剣の保持者になるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人の子が定義する保持と理が示す摂理とは異なるもの", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：剣による意志は全の意志そのものであり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：個が認識する意志にあらず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王エルミからラナへ渡ったかと思っていたが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そういう類のものじゃないって事か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：という事は俺達が認識する保持者っていう概念も適用外だとすれば", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：神剣フェルトゥーシュが返還される場所も", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：既に、決まっている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ、教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人の子が定義する【離島ウォズム】という地にて", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：我は神剣フェルトゥーシュの返還を再認識する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：離島・・・ウォズム・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ、俺は選択する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エルミ国王・・・ファラ王妃・・・いや", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺自身が俺自身として、全て起こり得る未来を受諾する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が選択せしは理が示す永循環そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：絶え間ない循環を経て少年は神剣フェルトゥーシュの意志を刮目するだろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_2_O, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
   }
 
 
@@ -24048,7 +24213,209 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_5 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：（ッグ・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　触れた瞬間、石はそこに存在していないとも言える。　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　適切な表現、正確な表現、正しい把握というものは存在しない。　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　俺達人々がそれを定義する事は不可能だが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　在り続ける存在だ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　俺はその何らかの存在を今回はかなり能動的に意識して　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　石に、再び、触れた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：石に触れし者よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：繰り返すは連鎖を連ねる記憶", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：我は因果律の領域に属さぬ者", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：ヒトの子よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナと国王エルミは関係なかったはずだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なのにどうして国王はラナに神剣フェルトゥーシュを託したんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：全ての事象は因果律によってもたらされるもの", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュが定めた時間律に即した結果である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：神剣がラナに手渡す様に意志を持っていたという事か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣は人が定義する始まりへの行く末を司る存在", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣は人の子が定義する意志にあらず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：始まりとは人が定義するは終焉と謡うものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：終焉とは無そのものであり", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュは終焉であり始まりを示す存在である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：無は有をすべて包含し", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：ありとあらゆる有は全てが無へと還る", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　おそらく、俺達が理解できる様な次元ではないんだろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　理解不能というよりも　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　その流れがあまりにも奇麗過ぎるという印象　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺達がいう明確な解というのはそもそも無いのかもしれない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　ただただ、支配竜は呼応してくれる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺も、それに、応えようと思う　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ、もう一つだけ教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王エルミはどこから来た存在なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：かの者エルミ・ジョルジュは現世の理を司るオラクルと接触を行った人物の関連者である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：オラクルの声は理の創生を根源から生み出す事象として定義されている", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：根源から生み出されしは現世そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ国王が自ら神剣フェルトゥーシュを最初に手にしたという事なのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：最初というものは存在しない", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：在り続ける現世の中で人が定義する世界を映し出すはオラクルの声", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：手にせし者は幾度となく現れる", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：それはその存在の意志ではなく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：オラクルに記録された者のみが選定者となる", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：かの者エルミ・ジョルジュはその記録に無い存在である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王エルミも・・・選定された者ではないだというのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ誰なんだ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：王妃ファラが？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まさか、ボケ師匠のオル・ランディスが？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それともFiveSeekerメンバーであるシニキア・カールハンツ？　ヴェルゼ・アーティ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：オラクルが選定せし記録に刻まれるは", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：ヴェルス・エクストゥーゼ・アーティス", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なっ・・・それって・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年達が知る者の真実の名である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうなのか・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　何となく分かった気がする　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺の意識や経験の範疇ではそもそもこの件は追跡不可能なんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　・・・記録・・・時間律・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　・・・オラクル・・・選定者・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　・・・支配竜が呼ぶ現世、俺達が呼ぶ世界・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　何もかもが理解を超えている　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　繋がりが膨大すぎて追跡できないんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺は・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　応え続ける事でしか掴めないんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　何度でも、何度でも呼びかけよう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：連鎖には終わりや始まりがないとしても", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は今の国王エルミ・ジョルジュ、王妃ファラ・フローレと共に同じ時間を歩みたいと思ったんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ・アミリアとも、しっかりと向き合って歩みたいと思っている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もちろんこれまで出会った人達ともだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：無限ではないのは分かっている。ただ、", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もう少しだけ共に生きる時間が欲しいんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それは可能なのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：時間律および因果律が覆える事はない", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が願う世界が何であるかにより", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が視るべき未来が何であるかにより", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の意志は神剣フェルトゥーシュの意志と呼応する容で目覚めるであろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　幼き「子／人」よ　｜　何を「願う／求む」　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　感知せよ／発せよ　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：すべてには終焉／始まりがある", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：望む姿と願う意志により世界は刹那／永劫の時を刻む", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人が定義する過去とは無限に繰り返されし無である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：人が定義する未来とは既に起こりえた事象の記憶である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その無限なる連鎖こそがオラクルが示す因果律と知るが良い", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：永遠に見定める事を連ねよう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そのために俺は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何度でもその無限の連鎖と向き合おう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が選択せしは果て無き永劫そのものである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年はオラクルが発した約束の刻へと到達するだろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在意志＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -24056,8 +24423,213 @@ public static class MessagePack
     One.AR.InscribeObsidianStone_6 = true;
     One.UpdateAkashicRecord();
 
-    // todo
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "　　（　ココに訪れたのは何時だったか　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　思い出せないでいたが、今ようやく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　把握した　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　俺はこの場所で　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　彼に既に出会っているんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　触れた対象というのは石ではなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　一つの剣だった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　それを手にした刻を境にして　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　（　俺は時間も空間も無くなっていたんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王エルミと王妃ファラが収めてくれたこの世界に感謝する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ヴィンスガルデ領国の王リガール・オルフシュタイン", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ムーンフォーダーの教皇ツヴェルドーゼ、および、エオネ・フルネア", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ツァルマンの名を受け継ぐ神秘の森の長老、および、アデル・ブリガンディ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いつも励ましてくれたビリー・ラキ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そして何より、ラナ・アミリアが居てくれた世界。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：全てに対して感謝の気持ちを捧げたい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、感謝じゃないんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうしても、この世界に居て欲しかっただけなんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：彼ら彼女らが居なくなったこの世界で", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は諦めたくないだけだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：きっとそれは摂理なんだろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：覆らないし、変わる事は無い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：永遠に求めても、永遠に漂うだけなのも分かっている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだったとしても", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：因果律と時間律によって", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：無間の永劫を追い求めるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ、俺は選択する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：幼き少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：永遠にも等しき流れの中より", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：事象を定めるがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：果ての世界へと俺は向かおうと思う。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オラクルと呼ばれる存在が", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：神剣フェルトゥーシュおよびこの世界を創生し続けているのなら", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺はその存在に接触して", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この世界の在り方を語りかけてみたい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：永久なる現世のオラクルは", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：エレミティア・リーマ・セフェラーデ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エレミティア・リーマ・セフェラーデ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：真実の・・・名か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　聞いた事のない名だったが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　本能的な認識があった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　どこかで会ったとか、そういう訳じゃない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　そもそも、この剣との接触がある度に　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　どこからともなく声が聞こえていた気はする　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　言葉一つ一つを紡ぐように　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　語りかける様でいて　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　突き放す様な旋律に近い　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　耳元ではなく頭の中でもなく心の中でもなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺の存在の外側にある波長　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　それが無限の空間に拡がり響く様な感じだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その存在には会いに行く事はできるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：オラクルの声は少年の生命の状態に関連する事なく既に無数に行き届いている", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年は未だ否定と回避を繰り返すのみ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：永劫の刻は近い", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：更なる精神波動を伴うがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年の潜在意志は今解き放たれたばかりである", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：壱なる想いは全てを超えるだろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：願い続けるがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：応え続けるがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：オラクルはやがて少年の傍に", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：一時の形容として現れるであろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ここで", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しばらくの間、問いかけを続けようと思う。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうか・・・共に居て欲しい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：幼き人の子よ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：我が存在は常に少年と共にある", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年がそう願うのであれば", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：何時いかなる時間律においても我は呼びかけに応じるだろう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　ここから先の事は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　事象の連鎖の繰り返しが続いた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　果てしない永劫の果てに　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　しばらくの間　俺は支配竜が謡い続ける理というもの追い求める事にした　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　この永遠とも思える果てにたどり着いたに関わらず　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　支配竜はこう呼んでいた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　少年の潜在意志は今解き放たれたばかりである、と　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　どれだけの時間が経過したのかはもう分からない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　千年・・・万年・・・そのさらに先へ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　万回・・・億回・・・幾多の繰り返し　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　世界と自分との関連性を干渉する認識もなくなり　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　やがて・・・という表現は不釣り合いではあるが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　オラクルの存在は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　今、ようやく現れ始めた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　形容はできないが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　陳腐ではあるが、女神、という表現になるだろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　どことなくラナに雰囲気が似ているのは　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺の中に僅かに残っていた遥か遠い刻の記憶がそうさせたんだと思う　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　人かどうかも分からないし、性別というのも意味はないだろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺では、その存在を定義する事はできないため　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　支配竜が綴った言霊である「オラクル」と呼ぶことにした　）", ActionEvent.None);
+
+    // todo この後、作者はどうするつもりなのか。ゲームエンドなのか何か続投なのかを決めてから書く事。
   }
+
 
   #endregion
 
