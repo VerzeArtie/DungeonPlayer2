@@ -962,6 +962,11 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return TargetType.EnemyGroup; }
 
     if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return TargetType.EnemyField; }
+
+    if (command_name == Fix.COMMAND_VERDANT_VOICE) { return TargetType.AllyField; }
+    if (command_name == Fix.COMMAND_FIRE_BLAST) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_BLACK_SPORE) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_RENSOU_TOSSHIN) { return TargetType.EnemyGroup; }
     #endregion
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。

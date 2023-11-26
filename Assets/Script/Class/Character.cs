@@ -6476,6 +6476,7 @@ public partial class Character : MonoBehaviour
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP:
         SetupParameter(450, 150, 500, 1600, 25, 0, 30000, 45000);
+        this._baseInstantPoint = 5000;
         list.Add(Fix.COMMAND_FIRE_BLAST);
         list.Add(Fix.COMMAND_RENSOU_TOSSHIN);
         list.Add(Fix.COMMAND_VERDANT_VOICE);
@@ -7449,23 +7450,46 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
-        // todo 構築する必要がある。
-        random = AP.Math.RandomInteger(4);
-        switch (random)
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
         {
-          case 0:
-            result = Fix.COMMAND_FIRE_BLAST;
-            break;
-          case 1:
-            result = Fix.COMMAND_VERDANT_VOICE;
-            break;
-          case 2:
-            result = Fix.COMMAND_BLACK_SPORE;
-            break;
-          case 3:
-            result = Fix.COMMAND_RENSOU_TOSSHIN;
-            break;
+          current.Add(Fix.COMMAND_FIRE_BLAST);
         }
+        else if (this.AI_Phase == 1)
+        {
+          if (this.SearchFieldBuff(Fix.BUFF_VERDANT_VOICE))
+          {
+            current.Add(Fix.MAGIC_ATTACK);
+          }
+          else
+          {
+            current.Add(Fix.COMMAND_VERDANT_VOICE);
+          }
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_RENSOU_TOSSHIN);
+        }
+        else
+        {
+          bool detect = false;
+          for (int ii = 0; ii < opponent_group.Count; ii++)
+          {
+            if (opponent_group[ii].SearchBuff(Fix.BUFF_BLACK_SPORE) == false)
+            {
+              current.Add(Fix.COMMAND_BLACK_SPORE);
+              detect = true;
+              break;
+            }
+          }
+          if (detect == false)
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        result = RandomChoice(current);
         break;
 
       case Fix.DUEL_JEDA_ARUS:

@@ -1175,6 +1175,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || EnemyList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP || EnemyList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_KILL_SPINNING_LANCER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
@@ -1471,9 +1479,16 @@ public partial class BattleEnemy : MotherBase
     }
     if (target != null && target.Dead && command_name != Fix.RESURRECTION)
     {
-      Debug.Log("Target is dead, then no action.");
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      return;
+      if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally || ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy)
+      {
+        Debug.Log("Target is dead, then no action.");
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        return;
+      }
+      else
+      {
+        Debug.Log("Target is dead, But ignore it. IsTarget is " + ActionCommand.IsTarget(command_name).ToString());
+      }
     }
 
     // コマンド名指定が無い場合は、プレイヤーが現在選択しているアクションコマンドを実行する。
@@ -2650,14 +2665,15 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          bool hit = ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, false, critical);
           if (hit)
           {
             ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.70f);
           }
         }
-        target_list[0].objFieldPanel.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
-        StartAnimation(target_list[0].objFieldPanel.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
+        // 強すぎるため制限
+        //target_list[0].objFieldPanel.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
+        //StartAnimation(target_list[0].objFieldPanel.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
         break;
 
       case Fix.COMMAND_RENSOU_TOSSHIN:
@@ -2681,6 +2697,7 @@ public partial class BattleEnemy : MotherBase
         {
           // ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
           target_list[ii].objBuffPanel.AddBuff(prefab_Buff, "BlackSpore", Fix.INFINITY, 0, 0, 0);
+          StartAnimation(target_list[ii].objBuffPanel.gameObject, Fix.COMMAND_BLACK_SPORE, Color.black);
         }
         break;
 
