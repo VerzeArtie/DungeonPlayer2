@@ -465,8 +465,8 @@ public partial class Item
   public Item SocketedItem4 { get { return _socketedItem4; } set { _socketedItem4 = value; } }
   public Item SocketedItem5 { get { return _socketedItem5; } set { _socketedItem5 = value; } }
 
-  public double _resistFire = 0.0f;
-  public double ResistFire
+  public double _resistFirePercent = 0.0f;
+  public double ResistFirePercent
   {
     set
     {
@@ -474,13 +474,13 @@ public partial class Item
       {
         value = 0;
       }
-      _resistFire = value;
+      _resistFirePercent = value;
     }
-    get { return _resistFire; }
+    get { return _resistFirePercent; }
   }
 
-  public double _resistIce = 0.0f;
-  public double ResistIce
+  public double _resistFireValue = 0.0f;
+  public double ResistFireValue
   {
     set
     {
@@ -488,13 +488,13 @@ public partial class Item
       {
         value = 0;
       }
-      _resistIce = value;
+      _resistFireValue = value;
     }
-    get { return _resistIce; }
+    get { return _resistFireValue; }
   }
 
-  public double _resistLight = 0.0f;
-  public double ResistLight
+  public double _resistIcePercent = 0.0f;
+  public double ResistIcePercent
   {
     set
     {
@@ -502,13 +502,13 @@ public partial class Item
       {
         value = 0;
       }
-      _resistLight = value;
+      _resistIcePercent = value;
     }
-    get { return _resistLight; }
+    get { return _resistIcePercent; }
   }
 
-  public double _resistShadow = 0.0f;
-  public double ResistShadow
+  public double _resistIceValue = 0.0f;
+  public double ResistIceValue
   {
     set
     {
@@ -516,13 +516,13 @@ public partial class Item
       {
         value = 0;
       }
-      _resistShadow = value;
+      _resistIceValue = value;
     }
-    get { return _resistShadow; }
+    get { return _resistIceValue; }
   }
 
-  public double _resistWind = 0.0f;
-  public double ResistWind
+  public double _resistLightPercent = 0.0f;
+  public double ResistLightPercent
   {
     set
     {
@@ -530,13 +530,13 @@ public partial class Item
       {
         value = 0;
       }
-      _resistWind = value;
+      _resistLightPercent = value;
     }
-    get { return _resistWind; }
+    get { return _resistLightPercent; }
   }
 
-  public double _resistEarth = 0.0f;
-  public double ResistEarth
+  public double _resistLightValue = 0.0f;
+  public double ResistLightValue
   {
     set
     {
@@ -544,9 +544,93 @@ public partial class Item
       {
         value = 0;
       }
-      _resistEarth = value;
+      _resistLightValue = value;
     }
-    get { return _resistEarth; }
+    get { return _resistLightValue; }
+  }
+
+  public double _resistShadowPercent = 0.0f;
+  public double ResistShadowPercent
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistShadowPercent = value;
+    }
+    get { return _resistShadowPercent; }
+  }
+
+  public double _resistShadowValue = 0.0f;
+  public double ResistShadowValue
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistShadowValue = value;
+    }
+    get { return _resistShadowValue; }
+  }
+
+  public double _resistWindPercent = 0.0f;
+  public double ResistWindPercent
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistWindPercent = value;
+    }
+    get { return _resistWindPercent; }
+  }
+
+  public double _resistWindValue = 0.0f;
+  public double ResistWindValue
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistWindValue = value;
+    }
+    get { return _resistWindValue; }
+  }
+
+  public double _resistEarthPercent = 0.0f;
+  public double ResistEarthPercent
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistEarthPercent = value;
+    }
+    get { return _resistEarthPercent; }
+  }
+
+  public double _resistEarthValue = 0.0f;
+  public double ResistEarthValue
+  {
+    set
+    {
+      if (value <= 0)
+      {
+        value = 0;
+      }
+      _resistEarthValue = value;
+    }
+    get { return _resistEarthValue; }
   }
 
   // 猛毒への耐性
@@ -3708,7 +3792,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistEarth = 150;
+        this._resistEarthValue = 150;
         this._resistSilence = true;
         break;
 
@@ -3750,8 +3834,8 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 4;
         this._mind = 0;
-        this._resistEarth = 150;
-        this._resistWind = 150;
+        this._resistEarthValue = 150;
+        this._resistWindValue = 150;
         this._resistStun = true;
         this._resistSilence = true;
         break;
@@ -3814,8 +3898,8 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 2;
-        this._resistFire = 150;
-        this._resistIce = 150;
+        this._resistFireValue = 150;
+        this._resistIceValue = 150;
         this._resistPoison = true;
         this._resistSlow = true;
         break;
@@ -3861,8 +3945,8 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 4;
-        this._resistLight = 150;
-        this._resistShadow = 150;
+        this._resistLightValue = 150;
+        this._resistShadowValue = 150;
         this._resistBind = true;
         this._resistFear = true;
         break;
@@ -4046,7 +4130,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistFire = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistFireValue = 50;
         break;
 
       case Fix.MAGICLIGHT_ICE:
@@ -4059,7 +4143,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistIce = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistIceValue = 50;
         break;
 
       case Fix.MAGICLIGHT_SHADOW:
@@ -4072,7 +4156,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistShadow = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistShadowValue = 50;
         break;
 
       case Fix.MAGICLIGHT_LIGHT:
@@ -4085,7 +4169,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistLight = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistLightValue = 50;
         break;
 
       case Fix.MAGICLIGHT_WIND:
@@ -4098,7 +4182,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistWind = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistWindValue = 50;
         break;
 
       case Fix.MAGICLIGHT_EARTH:
@@ -4111,7 +4195,7 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistEarth = 50; // todo パーセンテージで 0.00 ~ 1.00のパラメタだが、減値 50を埋め込む値ではない。
+        this._resistEarthValue = 50;
         break;
 
       case Fix.COPPERRING_TIGER:
@@ -4429,7 +4513,7 @@ public partial class Item
         this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
-        this._resistWind = 100;
+        this._resistWindValue = 100;
         this._amplifyWind = 1.05f;
         this.CanbeSocket1 = true;
         break;
@@ -4450,7 +4534,7 @@ public partial class Item
         this._resistSilence = true;
         this._resistStun = true;
         this._resistFear = true;
-        this._resistFire = 500;
+        this._resistFireValue = 500;
         this._amplifyIce = 1.07f;
         this._amplifyBattleSpeed = 1.03f;
         this.CanbeSocket1 = true;
@@ -6835,10 +6919,10 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.05f; // 要検証
-        this.ResistIce = 1.05f; // 要検証
-        this.ResistLight = 1.05f; // 要検証
-        this.ResistShadow = 1.05f; // 要検証
+        this.ResistFirePercent = 0.05f;
+        this.ResistIcePercent = 0.05f;
+        this.ResistLightPercent = 0.05f;
+        this.ResistShadowPercent = 0.05f;
         break;
 
       case Fix.SQUARE_SINNEN:
@@ -7072,7 +7156,7 @@ public partial class Item
         this.CanbeSocket5 = false;
         this.ResistSilence = true;
         this.ResistPoison = true;
-        this.ResistShadow = 1.15f; // todo 要検証
+        this.ResistShadowPercent = 0.15f;
         this.AmplifyFire = 1.15f; // todo 要検証
         this.AmplifyMagicAttack = 1.05f; // todo 要検証
         break;
@@ -7105,7 +7189,7 @@ public partial class Item
         this.CanbeSocket5 = false;
         this.ResistBind = true;
         this.ResistFear = true;
-        this.ResistIce = 1.15f; // todo 要検証
+        this.ResistIcePercent = 0.15f;
         this.AmplifyLight = 1.15f; // todo 要検証
         this.AmplifyBattleSpeed = 1.05f; // todo 要検証
         break;
@@ -7136,10 +7220,10 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.15f; // todo 要検証
-        this.ResistIce = 1.15f; // todo 要検証
-        this.ResistLight = 1.15f; // todo 要検証
-        this.ResistShadow = 1.15f; // todo 要検証
+        this.ResistFirePercent = 0.15f;
+        this.ResistIcePercent = 0.15f;
+        this.ResistLightPercent = 0.15f;
+        this.ResistShadowPercent = 0.15f;
         break;
 
       case Fix.DEMONS_STAR_BRACELET:
@@ -7200,7 +7284,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyIce = 1.15f; // todo 要検証
-        this.ResistLight = 1.15f; // todo 要検証
+        this.ResistLightPercent = 0.15f;
         this.AmplifyBattleResponse = 1.05f; // todo 要検証
         break;
 
@@ -8104,7 +8188,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyIce = 1.10f; // todo 要検証
-        this.ResistIce = 1.10f; // todo 要検証
+        this.ResistIcePercent = 0.10f;
         break;
 
       case Fix.SUPERIOR_LARGE_STAFF:
@@ -8162,7 +8246,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyFire = 1.10f; // todo 要検証
-        this.ResistFire = 1.10f; // todo 要検証
+        this.ResistFirePercent = 0.10f;
         break;
 
       case Fix.SUPERIOR_SHIELD:
@@ -8219,7 +8303,7 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistShadow = 1.10f; // todo 要検証
+        this.ResistShadowPercent = 0.10f;
         break;
 
       case Fix.SUPERIOR_ARMOR:
@@ -8276,8 +8360,8 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.10f; // todo 要検証
-        this.ResistLight = 1.10f; // todo 要検証
+        this.ResistFirePercent = 0.10f;
+        this.ResistLightPercent = 0.10f;
         break;
 
       case Fix.SUPERIOR_CROSS:
@@ -8334,7 +8418,7 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistIce = 1.10f;
+        this.ResistIcePercent = 0.10f;
         break;
 
       case Fix.SUPERIOR_ROBE:
@@ -8391,7 +8475,7 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistShadow = 1.10f; // todo 要検証
+        this.ResistShadowPercent = 0.10f;
         this.ResistSleep = true;
         this.ResistPoison = true;
         this.ResistSilence = true;
@@ -9114,7 +9198,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.10f;
-        this.ResistShadow = 1.10f;
+        this.ResistShadowPercent = 0.10f;
         this.ResistFear = true;
         break;
 
@@ -9145,9 +9229,9 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyLight = 1.10f;
-        this.ResistLight = 1.10f;
         this.AmplifyFire = 1.10f;
-        this.ResistFire = 1.10f;
+        this.ResistLightPercent = 0.10f;
+        this.ResistFirePercent = 0.10f;
         this.ResistSilence = true;
         this.ResistParalyze = true;
         this.ResistTemptation = true;
@@ -9180,9 +9264,9 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.10f;
-        this.ResistShadow = 1.10f;
         this.AmplifyIce = 1.10f;
-        this.ResistIce = 1.10f;
+        this.ResistShadowPercent = 0.10f;
+        this.ResistIcePercent = 0.10f;
         this.ResistFreeze = true;
         this.ResistFear = true;
         this.ResistSlip = true;
@@ -9916,10 +10000,10 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.15f;
-        this.ResistIce = 1.15f;
-        this.ResistLight = 1.15f;
-        this.ResistShadow = 1.15f;
+        this.ResistFirePercent = 0.15f;
+        this.ResistIcePercent = 0.15f;
+        this.ResistLightPercent = 0.15f;
+        this.ResistShadowPercent = 0.15f;
         break;
 
       case Fix.MASTER_ARMOR:
@@ -9976,8 +10060,8 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistIce = 1.25f;
-        this.ResistLight = 1.25f;
+        this.ResistIcePercent = 0.25f;
+        this.ResistLightPercent = 0.25f;
         break;
 
       case Fix.MASTER_CROSS:
@@ -10034,8 +10118,8 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.25f;
-        this.ResistShadow = 1.25f;
+        this.ResistFirePercent = 0.25f;
+        this.ResistShadowPercent = 0.25f;
         break;
 
       case Fix.MASTER_ROBE:
@@ -10092,8 +10176,8 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistLight = 1.25f;
-        this.ResistShadow = 1.25f;
+        this.ResistLightPercent = 0.25f;
+        this.ResistShadowPercent = 0.25f;
         break;
 
       case Fix.SILVER_RING_GOUKA:
@@ -10543,7 +10627,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
-        this.ResistFire = 1.30f;
+        this.ResistFirePercent = 0.30f;
         this.ResistFear = true;
         this.ResistStun = true;
         this.ResistParalyze = true;
@@ -10576,7 +10660,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyIce = 1.30f;
-        this.ResistIce = 1.30f;
+        this.ResistIcePercent = 0.30f;
         this.ResistFreeze = true;
         this.ResistStun = true;
         this.ResistParalyze = true;
@@ -10609,7 +10693,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
-        this.ResistIce = 1.30f;
+        this.ResistIcePercent = 0.30f;
         this.ResistBind = true;
         this.ResistParalyze = true;
         this.ResistStun = true;
@@ -10677,7 +10761,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyLight = 1.30f;
-        this.ResistShadow = 1.30f;
+        this.ResistShadowPercent = 0.30f;
         this.ResistSlow = true;
         this.ResistFear = true;
         this.ResistDizzy = true;
@@ -10711,7 +10795,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.30f;
-        this.ResistFire = 1.30f;
+        this.ResistFirePercent = 0.30f;
         this.ResistPoison = true;
         this.ResistFreeze = true;
         this.ResistSlip = true;
@@ -10745,7 +10829,7 @@ public partial class Item
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
-        this.ResistIce = 1.30f;
+        this.ResistIcePercent = 0.30f;
         this.ResistSleep = true;
         this.ResistStun = true;
         this.ResistParalyze = true;
@@ -10780,8 +10864,8 @@ public partial class Item
         this.CanbeSocket5 = false;
         this.AmplifyLight = 1.20f;
         this.AmplifyShadow = 1.20f;
-        this.ResistFire = 1.20f;
-        this.ResistIce = 1.20f;
+        this.ResistFirePercent = 0.20f;
+        this.ResistIcePercent = 0.20f;
         this.ResistBind = true;
         this.ResistFear = true;
         this.ResistSlip = true;
@@ -10814,8 +10898,8 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
-        this.ResistFire = 1.30f;
-        this.ResistShadow = 1.30f;
+        this.ResistFirePercent = 0.30f;
+        this.ResistShadowPercent = 0.30f;
         this.ResistSilence = true;
         this.ResistBind = true;
         this.ResistStun = true;
@@ -10852,10 +10936,10 @@ public partial class Item
         this.AmplifyIce = 1.10f;
         this.AmplifyLight = 1.10f;
         this.AmplifyShadow = 1.10f;
-        this.ResistFire = 1.10f;
-        this.ResistIce = 1.10f;
-        this.ResistLight = 1.10f;
-        this.ResistShadow = 1.10f;
+        this.ResistFirePercent = 0.10f;
+        this.ResistIcePercent = 0.10f;
+        this.ResistLightPercent = 0.10f;
+        this.ResistShadowPercent = 0.10f;
         break;
 
       case Fix.ANGEL_CONTRACT_SHEET:
@@ -12445,13 +12529,13 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Normal;
-        this._description = "炎授天使からの加護が得られる護符。魔法防御力が全体的に上がる事に加え、炎に特化した耐性が付く。";
+        this._description = "炎授天使からの加護が得られる護符。炎に特化した耐性が付く。知＋３、心＋３、炎耐性＋２０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 3;
         this._stamina = 0;
         this._mind = 3;
-        this._resistFire = 0.30f;
+        this._resistFirePercent = 0.20f;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
