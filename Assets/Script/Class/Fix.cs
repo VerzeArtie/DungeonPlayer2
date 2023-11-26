@@ -6238,6 +6238,15 @@ public static partial class Fix
   public const float OHRANTOWER_EVENT_1_Y = 0.0f;
   public const float OHRANTOWER_EVENT_1_Z = -27.0f;
 
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string OHRANTOWER_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string OHRANTOWER_ObsidianPortal_1_O = "1";
+  public const float OHRANTOWER_ObsidianPortal_1_X = -999.0f; // todo
+  public const float OHRANTOWER_ObsidianPortal_1_Y = -999.0f; // todo
+  public const float OHRANTOWER_ObsidianPortal_1_Z = -999.0f; // todo
+  #endregion
+
   #endregion
   #region "ヴェルガスの海底神殿"
   #region "看板"
@@ -8505,7 +8514,14 @@ public static partial class Fix
 
   #endregion
   #endregion
-
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string VELGUS_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string VELGUS_ObsidianPortal_1_O = "1";
+  public const float VELGUS_ObsidianPortal_1_X = -999.0f; // todo
+  public const float VELGUS_ObsidianPortal_1_Y = -999.0f; // todo
+  public const float VELGUS_ObsidianPortal_1_Z = -999.0f; // todo
+  #endregion
 
   #endregion
   #region "ダルの門 ( not used )"
@@ -8916,6 +8932,17 @@ public static partial class Fix
   public const float GATEOFDHAL_Treasure_51_X = 29f;
   public const float GATEOFDHAL_Treasure_51_Y = 13f;
   public const float GATEOFDHAL_Treasure_51_Z = 11f;
+  #endregion
+  #region "エデルガイゼン城"
+  #region "ObsidianPortal"
+  // Odsidian Portal
+  public const string EDELGARZEN_ObsidianPortal_1_C = "ObsidianPortal";
+  public const string EDELGARZEN_ObsidianPortal_1_O = "1";
+  public const float EDELGARZEN_ObsidianPortal_1_X = -999.0f; // todo
+  public const float EDELGARZEN_ObsidianPortal_1_Y = -999.0f; // todo
+  public const float EDELGARZEN_ObsidianPortal_1_Z = -999.0f; // todo
+  #endregion
+
   #endregion
   #endregion
 
