@@ -6,6 +6,603 @@ public class AkashicRecord : MonoBehaviour
 {
   // 新規ゲーム、ロード、リロードに関わらず常に記憶されるクラス
 
+  // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
+  [SerializeField] protected bool _FireBall = false;
+  public bool FireBall
+  {
+    set { _FireBall = value; }
+    get { return _FireBall; }
+  }
+
+  [SerializeField] protected bool _IceNeedle = false;
+  public bool IceNeedle
+  {
+    set { _IceNeedle = value; }
+    get { return _IceNeedle; }
+  }
+
+  [SerializeField] protected bool _FreshHeal = false;
+  public bool FreshHeal
+  {
+    set { _FreshHeal = value; }
+    get { return _FreshHeal; }
+  }
+
+  [SerializeField] protected bool _ShadowBlast = false;
+  public bool ShadowBlast
+  {
+    set { _ShadowBlast = value; }
+    get { return _ShadowBlast; }
+  }
+
+  [SerializeField] protected bool _OracleCommand = false;
+  public bool OracleCommand
+  {
+    set { _OracleCommand = value; }
+    get { return _OracleCommand; }
+  }
+
+  [SerializeField] protected bool _EnergyBolt = false;
+  public bool EnergyBolt
+  {
+    set { _EnergyBolt = value; }
+    get { return _EnergyBolt; }
+  }
+
+  [SerializeField] protected bool _StraightSmash = false;
+  public bool StraightSmash
+  {
+    set { _StraightSmash = value; }
+    get { return _StraightSmash; }
+  }
+
+  [SerializeField] protected bool _ShieldBash = false;
+  public bool ShieldBash
+  {
+    set { _ShieldBash = value; }
+    get { return _ShieldBash; }
+  }
+
+  [SerializeField] protected bool _LegStrike = false;
+  public bool LegStrike
+  {
+    set { _LegStrike = value; }
+    get { return _LegStrike; }
+  }
+
+  [SerializeField] protected bool _HunterShot = false;
+  public bool HunterShot
+  {
+    set { _HunterShot = value; }
+    get { return _HunterShot; }
+  }
+
+  [SerializeField] protected bool _TrueSight = false;
+  public bool TrueSight
+  {
+    set { _TrueSight = value; }
+    get { return _TrueSight; }
+  }
+
+  [SerializeField] protected bool _DispelMagic = false;
+  public bool DispelMagic
+  {
+    set { _DispelMagic = value; }
+    get { return _DispelMagic; }
+  }
+
+  [SerializeField] protected bool _FlameBlade = false;
+  public bool FlameBlade
+  {
+    set { _FlameBlade = value; }
+    get { return _FlameBlade; }
+  }
+
+  [SerializeField] protected bool _PurePurification = false;
+  public bool PurePurification
+  {
+    set { _PurePurification = value; }
+    get { return _PurePurification; }
+  }
+
+  [SerializeField] protected bool _DivineCircle = false;
+  public bool DivineCircle
+  {
+    set { _DivineCircle = value; }
+    get { return _DivineCircle; }
+  }
+
+  [SerializeField] protected bool _BloodSign = false;
+  public bool BloodSign
+  {
+    set { _BloodSign = value; }
+    get { return _BloodSign; }
+  }
+
+  [SerializeField] protected bool _FortuneSpirit = false;
+  public bool FortuneSpirit
+  {
+    set { _FortuneSpirit = value; }
+    get { return _FortuneSpirit; }
+  }
+
+  [SerializeField] protected bool _FlashCounter = false;
+  public bool FlashCounter
+  {
+    set { _FlashCounter = value; }
+    get { return _FlashCounter; }
+  }
+
+  [SerializeField] protected bool _StanceOfTheBlade = false;
+  public bool StanceOfTheBlade
+  {
+    set { _StanceOfTheBlade = value; }
+    get { return _StanceOfTheBlade; }
+  }
+
+  [SerializeField] protected bool _StanceOfTheGuard = false;
+  public bool StanceOfTheGuard
+  {
+    set { _StanceOfTheGuard = value; }
+    get { return _StanceOfTheGuard; }
+  }
+
+  [SerializeField] protected bool _SpeedStep = false;
+  public bool SpeedStep
+  {
+    set { _SpeedStep = value; }
+    get { return _SpeedStep; }
+  }
+
+  [SerializeField] protected bool _MultipleShot = false;
+  public bool MultipleShot
+  {
+    set { _MultipleShot = value; }
+    get { return _MultipleShot; }
+  }
+
+  [SerializeField] protected bool _LeylineSchema = false;
+  public bool LeylineSchema
+  {
+    set { _LeylineSchema = value; }
+    get { return _LeylineSchema; }
+  }
+
+  [SerializeField] protected bool _SpiritualRest = false;
+  public bool SpiritualRest
+  {
+    set { _SpiritualRest = value; }
+    get { return _SpiritualRest; }
+  }
+
+  [SerializeField] protected bool _MeteorBullet = false;
+  public bool MeteorBullet
+  {
+    set { _MeteorBullet = value; }
+    get { return _MeteorBullet; }
+  }
+
+  [SerializeField] protected bool _BlueBullet = false;
+  public bool BlueBullet
+  {
+    set { _BlueBullet = value; }
+    get { return _BlueBullet; }
+  }
+
+  [SerializeField] protected bool _HolyBreath = false;
+  public bool HolyBreath
+  {
+    set { _HolyBreath = value; }
+    get { return _HolyBreath; }
+  }
+
+  [SerializeField] protected bool _BlackContract = false;
+  public bool BlackContract
+  {
+    set { _BlackContract = value; }
+    get { return _BlackContract; }
+  }
+
+  [SerializeField] protected bool _WordOfPower = false;
+  public bool WordOfPower
+  {
+    set { _WordOfPower = value; }
+    get { return _WordOfPower; }
+  }
+
+  [SerializeField] protected bool _SigilOfThePending = false;
+  public bool SigilOfThePending
+  {
+    set { _WordOfPower = value; }
+    get { return _SigilOfThePending; }
+  }
+
+  [SerializeField] protected bool _DoubleSlash = false;
+  public bool DoubleSlash
+  {
+    set { _DoubleSlash = value; }
+    get { return _DoubleSlash; }
+  }
+
+  [SerializeField] protected bool _ConcussiveHit = false;
+  public bool ConcussiveHit
+  {
+    set { _ConcussiveHit = value; }
+    get { return _ConcussiveHit; }
+  }
+
+  [SerializeField] protected bool _BoneCrush = false;
+  public bool BoneCrush
+  {
+    set { _BoneCrush = value; }
+    get { return _BoneCrush; }
+  }
+
+  [SerializeField] protected bool _EyeOfTheIsshin = false;
+  public bool EyeOfTheIsshin
+  {
+    set { _EyeOfTheIsshin = value; }
+    get { return _EyeOfTheIsshin; }
+  }
+
+  [SerializeField] protected bool _VoiceOfVigor = false;
+  public bool VoiceOfVigor
+  {
+    set { _VoiceOfVigor = value; }
+    get { return _VoiceOfVigor; }
+  }
+
+  [SerializeField] protected bool _UnseenAid = false;
+  public bool UnseenAid
+  {
+    set { _UnseenAid = value; }
+    get { return _UnseenAid; }
+  }
+
+  [SerializeField] protected bool _VolcanicBlaze = false;
+  public bool VolcanicBlaze
+  {
+    set { _VolcanicBlaze = value; }
+    get { return _VolcanicBlaze; }
+  }
+
+  [SerializeField] protected bool _FreezingCube = false;
+  public bool FreezingCube
+  {
+    set { _FreezingCube = value; }
+    get { return _FreezingCube; }
+  }
+
+  [SerializeField] protected bool _AngelicEcho = false;
+  public bool AngelicEcho
+  {
+    set { _AngelicEcho = value; }
+    get { return _AngelicEcho; }
+  }
+
+  [SerializeField] protected bool _CursedEvangile = false;
+  public bool CursedEvangile
+  {
+    set { _CursedEvangile = value; }
+    get { return _CursedEvangile; }
+  }
+
+  [SerializeField] protected bool _GaleWind = false;
+  public bool GaleWind
+  {
+    set { _GaleWind = value; }
+    get { return _GaleWind; }
+  }
+
+  [SerializeField] protected bool _PhantomOboro = false;
+  public bool PhantomOboro
+  {
+    set { _PhantomOboro = value; }
+    get { return _PhantomOboro; }
+  }
+
+  [SerializeField] protected bool _IronBuster = false;
+  public bool IronBuster
+  {
+    set { _IronBuster = value; }
+    get { return _IronBuster; }
+  }
+
+  [SerializeField] protected bool _DominationField = false;
+  public bool DominationField
+  {
+    set { _DominationField = value; }
+    get { return _DominationField; }
+  }
+
+  [SerializeField] protected bool _DeadlyDrive = false;
+  public bool DeadlyDrive
+  {
+    set { _DeadlyDrive = value; }
+    get { return _DeadlyDrive; }
+  }
+
+  [SerializeField] protected bool _PenetrationArrow = false;
+  public bool PenetrationArrow
+  {
+    set { _PenetrationArrow = value; }
+    get { return _PenetrationArrow; }
+  }
+
+  [SerializeField] protected bool _WillAwakening = false;
+  public bool WillAwakening
+  {
+    set { _WillAwakening = value; }
+    get { return _WillAwakening; }
+  }
+
+  [SerializeField] protected bool _CircleOfSerenity = false;
+  public bool CircleOfSerenity
+  {
+    set { _CircleOfSerenity = value; }
+    get { return _CircleOfSerenity; }
+  }
+
+  [SerializeField] protected bool _FlameStrike = false;
+  public bool FlameStrike
+  {
+    set { _FlameStrike = value; }
+    get { return _FlameStrike; }
+  }
+
+  [SerializeField] protected bool _FrostLance = false;
+  public bool FrostLance
+  {
+    set { _FrostLance = value; }
+    get { return _FrostLance; }
+  }
+
+  [SerializeField] protected bool _ShiningHeal = false;
+  public bool ShiningHeal
+  {
+    set { _ShiningHeal = value; }
+    get { return _ShiningHeal; }
+  }
+
+  [SerializeField] protected bool _CircleOfTheDespair = false;
+  public bool CircleOfTheDespair
+  {
+    set { _CircleOfTheDespair = value; }
+    get { return _CircleOfTheDespair; }
+  }
+
+  [SerializeField] protected bool _SeventhPrinciple = false;
+  public bool SeventhPrinciple
+  {
+    set { _SeventhPrinciple = value; }
+    get { return _SeventhPrinciple; }
+  }
+
+  [SerializeField] protected bool _CounterDisallow = false;
+  public bool CounterDisallow
+  {
+    set { _CounterDisallow = value; }
+    get { return _CounterDisallow; }
+  }
+
+  [SerializeField] protected bool _RagingStorm = false;
+  public bool RagingStorm
+  {
+    set { _RagingStorm = value; }
+    get { return _RagingStorm; }
+  }
+
+  [SerializeField] protected bool _HardestParry = false;
+  public bool HardestParry
+  {
+    set { _HardestParry = value; }
+    get { return _HardestParry; }
+  }
+
+  [SerializeField] protected bool _UnintentionalHit = false;
+  public bool UnintentionalHit
+  {
+    set { _UnintentionalHit = value; }
+    get { return _UnintentionalHit; }
+  }
+
+  [SerializeField] protected bool _PrecisionStrike = false;
+  public bool PrecisionStrike
+  {
+    set { _PrecisionStrike = value; }
+    get { return _PrecisionStrike; }
+  }
+
+  [SerializeField] protected bool _EverflowMind = false;
+  public bool EverflowMind
+  {
+    set { _EverflowMind = value; }
+    get { return _EverflowMind; }
+  }
+
+  [SerializeField] protected bool _InnerInspiration = false;
+  public bool InnerInspiration
+  {
+    set { _InnerInspiration = value; }
+    get { return _InnerInspiration; }
+  }
+
+  [SerializeField] protected bool _CircleOfTheIgnite = false;
+  public bool CircleOfTheIgnite
+  {
+    set { _CircleOfTheIgnite = value; }
+    get { return _CircleOfTheIgnite; }
+  }
+
+  [SerializeField] protected bool _WaterPresence = false;
+  public bool WaterPresence
+  {
+    set { _WaterPresence = value; }
+    get { return _WaterPresence; }
+  }
+
+  [SerializeField] protected bool _ValkyrieBlade = false;
+  public bool ValkyrieBlade
+  {
+    set { _ValkyrieBlade = value; }
+    get { return _ValkyrieBlade; }
+  }
+
+  [SerializeField] protected bool _TheDarkIntensity = false;
+  public bool TheDarkIntensity
+  {
+    set { _TheDarkIntensity = value; }
+    get { return _TheDarkIntensity; }
+  }
+
+  [SerializeField] protected bool _FutureVision = false;
+  public bool FutureVision
+  {
+    set { _FutureVision = value; }
+    get { return _FutureVision; }
+  }
+
+  [SerializeField] protected bool _DetachmentFault = false;
+  public bool DetachmentFault
+  {
+    set { _DetachmentFault = value; }
+    get { return _DetachmentFault; }
+  }
+
+  [SerializeField] protected bool _StanceOfTheIai = false;
+  public bool StanceOfTheIai
+  {
+    set { _StanceOfTheIai = value; }
+    get { return _StanceOfTheIai; }
+  }
+
+  [SerializeField] protected bool _OneImmunity = false;
+  public bool OneImmunity
+  {
+    set { _OneImmunity = value; }
+    get { return _OneImmunity; }
+  }
+
+  [SerializeField] protected bool _StanceOfMuin = false;
+  public bool StanceOfMuin
+  {
+    set { _StanceOfMuin = value; }
+    get { return _StanceOfMuin; }
+  }
+
+  [SerializeField] protected bool _EternalConcentration = false;
+  public bool EternalConcentration
+  {
+    set { _EternalConcentration = value; }
+    get { return _EternalConcentration; }
+  }
+
+  [SerializeField] protected bool _SigilOfTheFaith = false;
+  public bool SigilOfTheFaith
+  {
+    set { _SigilOfTheFaith = value; }
+    get { return _SigilOfTheFaith; }
+  }
+
+  [SerializeField] protected bool _ZeroImmunity = false;
+  public bool ZeroImmunity
+  {
+    set { _ZeroImmunity = value; }
+    get { return _ZeroImmunity; }
+  }
+
+  [SerializeField] protected bool _LavaAnnihilation = false;
+  public bool LavaAnnihilation
+  {
+    set { _LavaAnnihilation = value; }
+    get { return _LavaAnnihilation; }
+  }
+
+  [SerializeField] protected bool _AbsoluteZero = false;
+  public bool AbsoluteZero
+  {
+    set { _AbsoluteZero = value; }
+    get { return _AbsoluteZero; }
+  }
+
+  [SerializeField] protected bool _Resurrection = false;
+  public bool Resurrection
+  {
+    set { _Resurrection = value; }
+    get { return _Resurrection; }
+  }
+
+  [SerializeField] protected bool _DeathScythe = false;
+  public bool DeathScythe
+  {
+    set { _DeathScythe = value; }
+    get { return _DeathScythe; }
+  }
+
+  [SerializeField] protected bool _Genesis = false;
+  public bool Genesis
+  {
+    set { _Genesis = value; }
+    get { return _Genesis; }
+  }
+
+  [SerializeField] protected bool _TimeSkip = false;
+  public bool TimeSkip
+  {
+    set { _TimeSkip = value; }
+    get { return _TimeSkip; }
+  }
+
+  [SerializeField] protected bool _KineticSmash = false;
+  public bool KineticSmash
+  {
+    set { _KineticSmash = value; }
+    get { return _KineticSmash; }
+  }
+
+  [SerializeField] protected bool _Catastrophe = false;
+  public bool Catastrophe
+  {
+    set { _Catastrophe = value; }
+    get { return _Catastrophe; }
+  }
+
+  [SerializeField] protected bool _CarnageRush = false;
+  public bool CarnageRush
+  {
+    set { _CarnageRush = value; }
+    get { return _CarnageRush; }
+  }
+
+  [SerializeField] protected bool _PiercingArrow = false;
+  public bool PiercingArrow
+  {
+    set { _PiercingArrow = value; }
+    get { return _PiercingArrow; }
+  }
+
+  [SerializeField] protected bool _StanceOfTheKokoroe = false;
+  public bool StanceOfTheKokoroe
+  {
+    set { _StanceOfTheKokoroe = value; }
+    get { return _StanceOfTheKokoroe; }
+  }
+
+  [SerializeField] protected bool _TranscendenceReached = false;
+  public bool TranscendenceReached
+  {
+    set { _TranscendenceReached = value; }
+    get { return _TranscendenceReached; }
+  }
+
+  // エオネ・フルネアを仲間にした事がある。
+  [SerializeField] protected bool _partyjoin_EoneFulnea = false;
+  public bool PartyJoin_EoneFulnea
+  {
+    set { _partyjoin_EoneFulnea = value; }
+    get { return _partyjoin_EoneFulnea; }
+  }
+
   // （３）ゴラトラム洞窟のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_1 = false;
   public bool InscribeObsidianStone_1

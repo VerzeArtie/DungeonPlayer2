@@ -1266,8 +1266,6 @@ public partial class Character : MonoBehaviour
   public int DominationField { set { if (value >= 0) { _DominationField = value; } } get { return _DominationField; } }
   [SerializeField] protected int _CircleOfSerenity = 0;
   public int CircleOfSerenity { set { if (value >= 0) { _CircleOfSerenity = value; } } get { return _CircleOfSerenity; } }
-  [SerializeField] protected int _DetachmentFault = 0;
-  public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
   [SerializeField] protected int _AuraBurn = 0;
   public int AuraBurn { set { if (value >= 0) { _AuraBurn = value; } } get { return _AuraBurn; } }
   [SerializeField] protected int _LevelEater = 0;
@@ -1354,6 +1352,10 @@ public partial class Character : MonoBehaviour
   public int SigilOfTheFaith { set { if (value >= 0) { _SigilOfTheFaith = value; } } get { return _SigilOfTheFaith; } }
   [SerializeField] protected int _ZeroImmunity = 0;
   public int ZeroImmunity { set { if (value >= 0) { _ZeroImmunity = value; } } get { return _ZeroImmunity; } }
+  [SerializeField] protected int _DetachmentFault = 0;
+  public int DetachmentFault { set { if (value >= 0) { _DetachmentFault = value; } } get { return _DetachmentFault; } }
+  [SerializeField] protected int _OneImmunity = 0;
+  public int OneImmunity { set { if (value >= 0) { _OneImmunity = value; } } get { return _OneImmunity; } }
 
   // Delve VII
   [SerializeField] protected int _LavaAnnihilation = 0;
@@ -1378,8 +1380,6 @@ public partial class Character : MonoBehaviour
   public int Ambidexterity { set { if (value >= 0) { _Ambidexterity = value; } } get { return _Ambidexterity; } }
   [SerializeField] protected int _TranscendenceReached = 0;
   public int TranscendenceReached { set { if (value >= 0) { _TranscendenceReached = value; } } get { return _TranscendenceReached; } }
-  [SerializeField] protected int _OneImmunity = 0;
-  public int OneImmunity { set { if (value >= 0) { _OneImmunity = value; } } get { return _OneImmunity; } }
   [SerializeField] protected int _AusterityMatrix = 0;
   public int AusterityMatrix { set { if (value >= 0) { _AusterityMatrix = value; } } get { return _AusterityMatrix; } }
   [SerializeField] protected int _EssenceOverflow = 0;

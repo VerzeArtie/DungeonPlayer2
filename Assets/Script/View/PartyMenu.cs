@@ -64,6 +64,7 @@ public class PartyMenu : MotherBase
   public GameObject GroupEssenceList2;
   public GameObject GroupEssenceList3;
   public GameObject GroupEssenceList4;
+  public List<Button> btnEssenceCategoryList;
   public List<Text> txtEssenceCategoryList;
   public List<GameObject> GroupEssenceList;
   public List<Text> txtEssenceElementList;
@@ -535,6 +536,8 @@ public class PartyMenu : MotherBase
       txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
       txtEssenceCategoryList[2].text = Fix.CLASS_GUARDIAN;
       txtEssenceCategoryList[3].text = Fix.CLASS_HOLYLIGHT;
+      txtEssenceCategoryList[4].text = Fix.CLASS_FORCE;
+      txtEssenceCategoryList[5].text = Fix.CLASS_TRUTH;
     }
     else if (player3.FullName == Fix.NAME_LANA_AMIRIA)
     {
@@ -542,6 +545,8 @@ public class PartyMenu : MotherBase
       txtEssenceCategoryList[1].text = Fix.CLASS_MARTIAL_ARTS;
       txtEssenceCategoryList[2].text = Fix.CLASS_DARK_MAGIC;
       txtEssenceCategoryList[3].text = Fix.CLASS_MINDFULNESS;
+      txtEssenceCategoryList[4].text = Fix.CLASS_VOIDCHANT;
+      txtEssenceCategoryList[5].text = Fix.CLASS_FIRE;
     }
     else if (player3.FullName == Fix.NAME_EONE_FULNEA)
     {
@@ -549,21 +554,37 @@ public class PartyMenu : MotherBase
       txtEssenceCategoryList[1].text = Fix.CLASS_HOLYLIGHT;
       txtEssenceCategoryList[2].text = Fix.CLASS_MINDFULNESS;
       txtEssenceCategoryList[3].text = Fix.CLASS_DARK_MAGIC;
+      txtEssenceCategoryList[4].text = Fix.CLASS_ICE;
+      txtEssenceCategoryList[5].text = Fix.CLASS_VOIDCHANT;
     }
     else if (player3.FullName == Fix.NAME_BILLY_RAKI)
     {
       txtEssenceCategoryList[0].text = Fix.CLASS_MARTIAL_ARTS;
       txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
-      txtEssenceCategoryList[2].text = Fix.CLASS_TRUTH;
-      txtEssenceCategoryList[3].text = Fix.CLASS_WARRIOR;
+      txtEssenceCategoryList[2].text = Fix.CLASS_WARRIOR;
+      txtEssenceCategoryList[3].text = Fix.CLASS_TRUTH;
+      txtEssenceCategoryList[4].text = Fix.CLASS_DARK_MAGIC;
+      txtEssenceCategoryList[5].text = Fix.CLASS_MINDFULNESS;
     }
     else if (player3.FullName == Fix.NAME_ADEL_BRIGANDY)
     {
       txtEssenceCategoryList[0].text = Fix.CLASS_VOIDCHANT;
       txtEssenceCategoryList[1].text = Fix.CLASS_FORCE;
       txtEssenceCategoryList[2].text = Fix.CLASS_ICE;
-      txtEssenceCategoryList[3].text = Fix.CLASS_FIRE;
+      txtEssenceCategoryList[3].text = Fix.CLASS_ARCHERY;
+      txtEssenceCategoryList[4].text = Fix.CLASS_HOLYLIGHT;
+      txtEssenceCategoryList[5].text = Fix.CLASS_TRUTH;
     }
+
+    btnEssenceCategoryList[0].gameObject.SetActive(true);
+    btnEssenceCategoryList[1].gameObject.SetActive(One.AR.PartyJoin_EoneFulnea);
+    btnEssenceCategoryList[2].gameObject.SetActive(One.AR.InscribeObsidianStone_1);
+    btnEssenceCategoryList[3].gameObject.SetActive(One.AR.InscribeObsidianStone_2);
+    btnEssenceCategoryList[4].gameObject.SetActive(One.AR.InscribeObsidianStone_3);
+    btnEssenceCategoryList[5].gameObject.SetActive(One.AR.InscribeObsidianStone_4);
+    btnEssenceCategoryList[6].gameObject.SetActive(One.AR.InscribeObsidianStone_5);
+    btnEssenceCategoryList[7].gameObject.SetActive(One.AR.InscribeObsidianStone_6);
+
     SetupEssenceList(player3, 0);
     CurrentEssenceSelectNumber = 0;
   }
@@ -1125,168 +1146,135 @@ public class PartyMenu : MotherBase
     txtEssenceTreeName.text = player.FullName;
     txtEssencePoint.text = player.SoulFragment.ToString();
 
-    if (player.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      if (number == 0) { attribute = Fix.CLASS_WARRIOR; }
-      if (number == 1) { attribute = Fix.CLASS_FIRE; }
-      if (number == 2) { attribute = Fix.CLASS_GUARDIAN; }
-      if (number == 3) { attribute = Fix.CLASS_HOLYLIGHT; }
-    }
-    else if (player.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      if (number == 0) { attribute = Fix.CLASS_ICE; }
-      if (number == 1) { attribute = Fix.CLASS_MARTIAL_ARTS; }
-      if (number == 2) { attribute = Fix.CLASS_DARK_MAGIC; }
-      if (number == 3) { attribute = Fix.CLASS_MINDFULNESS; }
-    }
-    else if (player.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      if (number == 0) { attribute = Fix.CLASS_ARCHERY; }
-      if (number == 1) { attribute = Fix.CLASS_HOLYLIGHT; }
-      if (number == 2) { attribute = Fix.CLASS_MINDFULNESS; }
-      if (number == 3) { attribute = Fix.CLASS_DARK_MAGIC; }
-    }
-    else if (player.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      if (number == 0) { attribute = Fix.CLASS_MARTIAL_ARTS; }
-      if (number == 1) { attribute = Fix.CLASS_FIRE; }
-      if (number == 2) { attribute = Fix.CLASS_TRUTH; }
-      if (number == 3) { attribute = Fix.CLASS_WARRIOR; }
-    }
-    else if (player.FullName == Fix.NAME_ADEL_BRIGANDY)
-    {
-      if (number == 0) { attribute = Fix.CLASS_VOIDCHANT; }
-      if (number == 1) { attribute = Fix.CLASS_FORCE; }
-      if (number == 2) { attribute = Fix.CLASS_ICE; }
-      if (number == 3) { attribute = Fix.CLASS_FIRE; }
-    }
+    attribute = txtEssenceCategoryList[number].text;
+    Debug.Log("SetupEssenceList attribute: " + attribute);
 
     int counter = 0;
     if (attribute == Fix.CLASS_FIRE)
     {
-      SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, counter); counter++;
-      SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, counter); counter++;
-      SetupEssenceElement(player.MeteorBullet, Fix.METEOR_BULLET, counter); counter++;
-      SetupEssenceElement(player.VolcanicBlaze, Fix.VOLCANIC_BLAZE, counter); counter++;
-      SetupEssenceElement(player.FlameStrike, Fix.FLAME_STRIKE, counter); counter++;
-      SetupEssenceElement(player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, counter); counter++;
-      SetupEssenceElement(player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, counter); counter++;
+      SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter); counter++;
+      SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter); counter++;
+      SetupEssenceElement(player.MeteorBullet, Fix.METEOR_BULLET, One.AR.MeteorBullet, counter); counter++;
+      SetupEssenceElement(player.VolcanicBlaze, Fix.VOLCANIC_BLAZE, One.AR.VolcanicBlaze, counter); counter++;
+      SetupEssenceElement(player.FlameStrike, Fix.FLAME_STRIKE, One.AR.FlameStrike, counter); counter++;
+      SetupEssenceElement(player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, One.AR.CircleOfTheIgnite, counter); counter++;
+      SetupEssenceElement(player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, One.AR.LavaAnnihilation, counter); counter++;
     }
     else if (attribute == Fix.CLASS_ICE)
     {
-      SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, counter); counter++;
-      SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, counter); counter++;
-      SetupEssenceElement(player.BlueBullet, Fix.BLUE_BULLET, counter); counter++;
-      SetupEssenceElement(player.FreezingCube, Fix.FREEZING_CUBE, counter); counter++;
-      SetupEssenceElement(player.FrostLance, Fix.FROST_LANCE, counter); counter++;
-      SetupEssenceElement(player.WaterPresence, Fix.WATER_PRESENCE, counter); counter++;
-      SetupEssenceElement(player.AbsoluteZero, Fix.ABSOLUTE_ZERO, counter); counter++;
+      SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, One.AR.IceNeedle, counter); counter++;
+      SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, One.AR.PurePurification, counter); counter++;
+      SetupEssenceElement(player.BlueBullet, Fix.BLUE_BULLET, One.AR.BlueBullet, counter); counter++;
+      SetupEssenceElement(player.FreezingCube, Fix.FREEZING_CUBE, One.AR.FreezingCube, counter); counter++;
+      SetupEssenceElement(player.FrostLance, Fix.FROST_LANCE, One.AR.FrostLance, counter); counter++;
+      SetupEssenceElement(player.WaterPresence, Fix.WATER_PRESENCE, One.AR.WaterPresence, counter); counter++;
+      SetupEssenceElement(player.AbsoluteZero, Fix.ABSOLUTE_ZERO, One.AR.AbsoluteZero, counter); counter++;
     }
     else if (attribute == Fix.CLASS_HOLYLIGHT)
     {
-      SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, counter); counter++;
-      SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, counter); counter++;
-      SetupEssenceElement(player.HolyBreath, Fix.HOLY_BREATH, counter); counter++;
-      SetupEssenceElement(player.AngelicEcho, Fix.ANGELIC_ECHO, counter); counter++;
-      SetupEssenceElement(player.ShiningHeal, Fix.SHINING_HEAL, counter); counter++;
-      SetupEssenceElement(player.ValkyrieBlade, Fix.VALKYRIE_BLADE, counter); counter++;
-      SetupEssenceElement(player.Resurrection, Fix.RESURRECTION, counter); counter++;
+      SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, One.AR.FreshHeal, counter); counter++;
+      SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, One.AR.DivineCircle, counter); counter++;
+      SetupEssenceElement(player.HolyBreath, Fix.HOLY_BREATH, One.AR.HolyBreath, counter); counter++;
+      SetupEssenceElement(player.AngelicEcho, Fix.ANGELIC_ECHO, One.AR.AngelicEcho, counter); counter++;
+      SetupEssenceElement(player.ShiningHeal, Fix.SHINING_HEAL, One.AR.ShiningHeal, counter); counter++;
+      SetupEssenceElement(player.ValkyrieBlade, Fix.VALKYRIE_BLADE, One.AR.ValkyrieBlade, counter); counter++;
+      SetupEssenceElement(player.Resurrection, Fix.RESURRECTION, One.AR.Resurrection, counter); counter++;
     }
     else if (attribute == Fix.CLASS_DARK_MAGIC)
     {
-      SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, counter); counter++;
-      SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, counter); counter++;
-      SetupEssenceElement(player.BlackContract, Fix.BLACK_CONTRACT, counter); counter++;
-      SetupEssenceElement(player.CursedEvangile, Fix.CURSED_EVANGILE, counter); counter++;
-      SetupEssenceElement(player.CircleOfTheDespair, Fix.CIRCLE_OF_THE_DESPAIR, counter); counter++;
-      SetupEssenceElement(player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, counter); counter++;
-      SetupEssenceElement(player.DeathScythe, Fix.DEATH_SCYTHE, counter); counter++;
+      SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, One.AR.ShadowBlast, counter); counter++;
+      SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, One.AR.BloodSign, counter); counter++;
+      SetupEssenceElement(player.BlackContract, Fix.BLACK_CONTRACT, One.AR.BlackContract, counter); counter++;
+      SetupEssenceElement(player.CursedEvangile, Fix.CURSED_EVANGILE, One.AR.CursedEvangile, counter); counter++;
+      SetupEssenceElement(player.CircleOfTheDespair, Fix.CIRCLE_OF_THE_DESPAIR, One.AR.CircleOfTheDespair, counter); counter++;
+      SetupEssenceElement(player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, One.AR.TheDarkIntensity, counter); counter++;
+      SetupEssenceElement(player.DeathScythe, Fix.DEATH_SCYTHE, One.AR.DeathScythe, counter); counter++;
     }
     else if (attribute == Fix.CLASS_FORCE)
     {
-      SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, counter); counter++;
-      SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, counter); counter++;
-      SetupEssenceElement(player.WordOfPower, Fix.WORD_OF_POWER, counter); counter++;
-      SetupEssenceElement(player.GaleWind, Fix.GALE_WIND, counter); counter++;
-      SetupEssenceElement(player.SeventhPrinciple, Fix.SEVENTH_PRINCIPLE, counter); counter++;
-      SetupEssenceElement(player.FutureVision, Fix.FUTURE_VISION, counter); counter++;
-      SetupEssenceElement(player.Genesis, Fix.GENESIS, counter); counter++;
+      SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, One.AR.OracleCommand, counter); counter++;
+      SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, One.AR.FortuneSpirit, counter); counter++;
+      SetupEssenceElement(player.WordOfPower, Fix.WORD_OF_POWER, One.AR.WordOfPower, counter); counter++;
+      SetupEssenceElement(player.GaleWind, Fix.GALE_WIND, One.AR.GaleWind, counter); counter++;
+      SetupEssenceElement(player.SeventhPrinciple, Fix.SEVENTH_PRINCIPLE, One.AR.SeventhPrinciple, counter); counter++;
+      SetupEssenceElement(player.FutureVision, Fix.FUTURE_VISION, One.AR.FutureVision, counter); counter++;
+      SetupEssenceElement(player.Genesis, Fix.GENESIS, One.AR.Genesis, counter); counter++;
     }
     else if (attribute == Fix.CLASS_VOIDCHANT)
     {
-      SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, counter); counter++;
-      SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, counter); counter++;
-      SetupEssenceElement(player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, counter); counter++;
-      SetupEssenceElement(player.PhantomOboro, Fix.PHANTOM_OBORO, counter); counter++;
-      SetupEssenceElement(player.CounterDisallow, Fix.COUNTER_DISALLOW, counter); counter++;
-      SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, counter); counter++;
-      SetupEssenceElement(player.TimeSkip, Fix.TIME_SKIP, counter); counter++;
+      SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, One.AR.EnergyBolt, counter); counter++;
+      SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, One.AR.FlashCounter, counter); counter++;
+      SetupEssenceElement(player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, One.AR.SigilOfThePending, counter); counter++;
+      SetupEssenceElement(player.PhantomOboro, Fix.PHANTOM_OBORO, One.AR.PhantomOboro, counter); counter++;
+      SetupEssenceElement(player.CounterDisallow, Fix.COUNTER_DISALLOW, One.AR.CounterDisallow, counter); counter++;
+      SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, One.AR.DetachmentFault, counter); counter++;
+      SetupEssenceElement(player.TimeSkip, Fix.TIME_SKIP, One.AR.TimeSkip, counter); counter++;
     }
     else if (attribute == Fix.CLASS_WARRIOR)
     {
-      SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, counter); counter++;
-      SetupEssenceElement(player.DoubleSlash, Fix.DOUBLE_SLASH, counter); counter++;
-      SetupEssenceElement(player.IronBuster, Fix.IRON_BUSTER, counter); counter++;
-      SetupEssenceElement(player.RagingStorm, Fix.RAGING_STORM, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, counter); counter++;
-      SetupEssenceElement(player.KineticSmash, Fix.KINETIC_SMASH, counter); counter++;
+      SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, One.AR.StraightSmash, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, One.AR.StanceOfTheBlade, counter); counter++;
+      SetupEssenceElement(player.DoubleSlash, Fix.DOUBLE_SLASH, One.AR.DoubleSlash, counter); counter++;
+      SetupEssenceElement(player.IronBuster, Fix.IRON_BUSTER, One.AR.IronBuster, counter); counter++;
+      SetupEssenceElement(player.RagingStorm, Fix.RAGING_STORM, One.AR.RagingStorm, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, One.AR.StanceOfTheIai, counter); counter++;
+      SetupEssenceElement(player.KineticSmash, Fix.KINETIC_SMASH, One.AR.KineticSmash, counter); counter++;
     }
     else if (attribute == Fix.CLASS_GUARDIAN)
     {
-      SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, counter); counter++;
-      SetupEssenceElement(player.ConcussiveHit, Fix.CONCUSSIVE_HIT, counter); counter++;
-      SetupEssenceElement(player.DominationField, Fix.DOMINATION_FIELD, counter); counter++;
-      SetupEssenceElement(player.HardestParry, Fix.HARDEST_PARRY, counter); counter++;
-      SetupEssenceElement(player.OneImmunity, Fix.ONE_IMMUNITY, counter); counter++;
-      SetupEssenceElement(player.Catastrophe, Fix.CATASTROPHE, counter); counter++;
+      SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, One.AR.ShieldBash, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, One.AR.StanceOfTheGuard, counter); counter++;
+      SetupEssenceElement(player.ConcussiveHit, Fix.CONCUSSIVE_HIT, One.AR.ConcussiveHit, counter); counter++;
+      SetupEssenceElement(player.DominationField, Fix.DOMINATION_FIELD, One.AR.DominationField, counter); counter++;
+      SetupEssenceElement(player.HardestParry, Fix.HARDEST_PARRY, One.AR.HardestParry, counter); counter++;
+      SetupEssenceElement(player.OneImmunity, Fix.ONE_IMMUNITY, One.AR.OneImmunity, counter); counter++;
+      SetupEssenceElement(player.Catastrophe, Fix.CATASTROPHE, One.AR.Catastrophe, counter); counter++;
     }
     else if (attribute == Fix.CLASS_MARTIAL_ARTS)
     {
-      SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, counter); counter++;
-      SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, counter); counter++;
-      SetupEssenceElement(player.BoneCrush, Fix.BONE_CRUSH, counter); counter++;
-      SetupEssenceElement(player.DeadlyDrive, Fix.DEADLY_DRIVE, counter); counter++;
-      SetupEssenceElement(player.UnintentionalHit, Fix.UNINTENTIONAL_HIT, counter); counter++;
-      SetupEssenceElement(player.StanceOfMuin, Fix.STANCE_OF_MUIN, counter); counter++;
-      SetupEssenceElement(player.CarnageRush, Fix.CARNAGE_RUSH, counter); counter++;
+      SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, One.AR.LegStrike, counter); counter++;
+      SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, One.AR.SpeedStep, counter); counter++;
+      SetupEssenceElement(player.BoneCrush, Fix.BONE_CRUSH, One.AR.BoneCrush, counter); counter++;
+      SetupEssenceElement(player.DeadlyDrive, Fix.DEADLY_DRIVE, One.AR.DeadlyDrive, counter); counter++;
+      SetupEssenceElement(player.UnintentionalHit, Fix.UNINTENTIONAL_HIT, One.AR.UnintentionalHit, counter); counter++;
+      SetupEssenceElement(player.StanceOfMuin, Fix.STANCE_OF_MUIN, One.AR.StanceOfMuin, counter); counter++;
+      SetupEssenceElement(player.CarnageRush, Fix.CARNAGE_RUSH, One.AR.CarnageRush, counter); counter++;
     }
     else if (attribute == Fix.CLASS_ARCHERY)
     {
-      SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, counter); counter++;
-      SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, counter); counter++;
-      SetupEssenceElement(player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, counter); counter++;
-      SetupEssenceElement(player.PenetrationArrow, Fix.PENETRATION_ARROW, counter); counter++;
-      SetupEssenceElement(player.PrecisionStrike, Fix.PRECISION_STRIKE, counter); counter++;
-      SetupEssenceElement(player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, counter); counter++;
-      SetupEssenceElement(player.PiercingArrow, Fix.PIERCING_ARROW, counter); counter++;
+      SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, One.AR.HunterShot, counter); counter++;
+      SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, One.AR.MultipleShot, counter); counter++;
+      SetupEssenceElement(player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, One.AR.EyeOfTheIsshin, counter); counter++;
+      SetupEssenceElement(player.PenetrationArrow, Fix.PENETRATION_ARROW, One.AR.PenetrationArrow, counter); counter++;
+      SetupEssenceElement(player.PrecisionStrike, Fix.PRECISION_STRIKE, One.AR.PrecisionStrike, counter); counter++;
+      SetupEssenceElement(player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, One.AR.EternalConcentration, counter); counter++;
+      SetupEssenceElement(player.PiercingArrow, Fix.PIERCING_ARROW, One.AR.PiercingArrow, counter); counter++;
     }
     else if (attribute == Fix.CLASS_TRUTH)
     {
-      SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, counter); counter++;
-      SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, counter); counter++;
-      SetupEssenceElement(player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, counter); counter++;
-      SetupEssenceElement(player.WillAwakening, Fix.WILL_AWAKENING, counter); counter++;
-      SetupEssenceElement(player.EverflowMind, Fix.EVERFLOW_MIND, counter); counter++;
-      SetupEssenceElement(player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, counter); counter++;
+      SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, One.AR.TrueSight, counter); counter++;
+      SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, One.AR.LeylineSchema, counter); counter++;
+      SetupEssenceElement(player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, One.AR.VoiceOfVigor, counter); counter++;
+      SetupEssenceElement(player.WillAwakening, Fix.WILL_AWAKENING, One.AR.WillAwakening, counter); counter++;
+      SetupEssenceElement(player.EverflowMind, Fix.EVERFLOW_MIND, One.AR.EverflowMind, counter); counter++;
+      SetupEssenceElement(player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, One.AR.SigilOfTheFaith, counter); counter++;
+      SetupEssenceElement(player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, One.AR.StanceOfTheKokoroe, counter); counter++;
     }
     else if (attribute == Fix.CLASS_MINDFULNESS)
     {
-      SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, counter); counter++;
-      SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, counter); counter++;
-      SetupEssenceElement(player.UnseenAid, Fix.UNSEEN_AID, counter); counter++;
-      SetupEssenceElement(player.CircleOfSerenity, Fix.CIRCLE_OF_SERENITY, counter); counter++;
-      SetupEssenceElement(player.InnerInspiration, Fix.INNER_INSPIRATION, counter); counter++;
-      SetupEssenceElement(player.ZeroImmunity, Fix.ZERO_IMMUNITY, counter); counter++;
-      SetupEssenceElement(player.TranscendenceReached, Fix.TRANSCENDENCE_REACHED, counter); counter++;
+      SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, One.AR.DispelMagic, counter); counter++;
+      SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, One.AR.SpiritualRest, counter); counter++;
+      SetupEssenceElement(player.UnseenAid, Fix.UNSEEN_AID, One.AR.UnseenAid, counter); counter++;
+      SetupEssenceElement(player.CircleOfSerenity, Fix.CIRCLE_OF_SERENITY, One.AR.CircleOfSerenity, counter); counter++;
+      SetupEssenceElement(player.InnerInspiration, Fix.INNER_INSPIRATION, One.AR.InnerInspiration, counter); counter++;
+      SetupEssenceElement(player.ZeroImmunity, Fix.ZERO_IMMUNITY, One.AR.ZeroImmunity, counter); counter++;
+      SetupEssenceElement(player.TranscendenceReached, Fix.TRANSCENDENCE_REACHED, One.AR.TranscendenceReached, counter); counter++;
     }
   }
 
-  private void SetupEssenceElement(int element_level, string label_text, int number)
+  private void SetupEssenceElement(int element_level, string label_text, bool available, int number)
   {
-    // todo レベル０で条件を満たしている場合の可視化と、レベル０で未到達の場合はLOCKとして見せるのは設計が異なる。
+    // level 1以上なら可視化
     if (element_level >= 1)
     {
       txtEssenceElementList[number].text = label_text;
@@ -1294,6 +1282,15 @@ public class PartyMenu : MotherBase
       txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
     }
+    // level 0であっても、条件を満たせば可視化
+    else if (available)
+    {
+      txtEssenceElementList[number].text = label_text;
+      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
+      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
+      objHideEssenceElementList[number].SetActive(false);
+    }
+    // それ以外は非表示とする。
     else
     {
       txtEssenceElementList[number].text = "？？？";
