@@ -553,9 +553,9 @@ public class PartyMenu : MotherBase
       txtEssenceCategoryList[0].text = Fix.CLASS_ARCHERY;
       txtEssenceCategoryList[1].text = Fix.CLASS_HOLYLIGHT;
       txtEssenceCategoryList[2].text = Fix.CLASS_MINDFULNESS;
-      txtEssenceCategoryList[3].text = Fix.CLASS_DARK_MAGIC;
+      txtEssenceCategoryList[3].text = Fix.CLASS_VOIDCHANT;
       txtEssenceCategoryList[4].text = Fix.CLASS_ICE;
-      txtEssenceCategoryList[5].text = Fix.CLASS_VOIDCHANT;
+      txtEssenceCategoryList[5].text = Fix.CLASS_DARK_MAGIC;
     }
     else if (player3.FullName == Fix.NAME_BILLY_RAKI)
     {
