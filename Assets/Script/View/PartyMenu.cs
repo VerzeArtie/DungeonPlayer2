@@ -570,9 +570,9 @@ public class PartyMenu : MotherBase
     {
       txtEssenceCategoryList[0].text = Fix.CLASS_VOIDCHANT;
       txtEssenceCategoryList[1].text = Fix.CLASS_FORCE;
-      txtEssenceCategoryList[2].text = Fix.CLASS_ARCHERY;
+      txtEssenceCategoryList[2].text = Fix.CLASS_TRUTH;
       txtEssenceCategoryList[3].text = Fix.CLASS_HOLYLIGHT;
-      txtEssenceCategoryList[4].text = Fix.CLASS_TRUTH;
+      txtEssenceCategoryList[4].text = Fix.CLASS_ARCHERY;
       txtEssenceCategoryList[5].text = Fix.CLASS_ICE;
     }
 
