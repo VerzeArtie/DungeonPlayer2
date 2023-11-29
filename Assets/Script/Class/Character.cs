@@ -1015,6 +1015,27 @@ public partial class Character : MonoBehaviour
     get { return _ThirdCommandAttribute; }
   }
 
+  [SerializeField] protected Fix.CommandAttribute _FourthCommandAttribute = Fix.CommandAttribute.None;
+  public Fix.CommandAttribute FourthCommandAttribute
+  {
+    set { _FourthCommandAttribute = value; }
+    get { return _FourthCommandAttribute; }
+  }
+
+  [SerializeField] protected Fix.CommandAttribute _FifthCommandAttribute = Fix.CommandAttribute.None;
+  public Fix.CommandAttribute FifthCommandAttribute
+  {
+    set { _FifthCommandAttribute = value; }
+    get { return _FifthCommandAttribute; }
+  }
+
+  [SerializeField] protected Fix.CommandAttribute _SixthCommandAttribute = Fix.CommandAttribute.None;
+  public Fix.CommandAttribute SixthCommandAttribute
+  {
+    set { _SixthCommandAttribute = value; }
+    get { return _SixthCommandAttribute; }
+  }
+
   [SerializeField] protected bool _AvailableFire = false;
   public bool AvailableFire
   {
@@ -4217,6 +4238,9 @@ public partial class Character : MonoBehaviour
         this.FirstCommandAttribute = Fix.CommandAttribute.Warrior;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Guardian;
+        this.FourthCommandAttribute = Fix.CommandAttribute.HolyLight;
+        this.FifthCommandAttribute = Fix.CommandAttribute.Force;
+        this.SixthCommandAttribute = Fix.CommandAttribute.Truth;
         this.BattleBackColor = Fix.COLOR_FIRST_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIRST_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
@@ -4244,6 +4268,9 @@ public partial class Character : MonoBehaviour
         this.FirstCommandAttribute = Fix.CommandAttribute.Ice;
         this.SecondCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.ThirdCommandAttribute = Fix.CommandAttribute.DarkMagic;
+        this.FourthCommandAttribute = Fix.CommandAttribute.Mindfulness;
+        this.FifthCommandAttribute = Fix.CommandAttribute.VoidChant;
+        this.SixthCommandAttribute = Fix.CommandAttribute.Fire;
         this.BattleBackColor = Fix.COLOR_SECOND_CHARA;
         this.BattleForeColor = Fix.COLORFORE_SECOND_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
@@ -4268,9 +4295,12 @@ public partial class Character : MonoBehaviour
         this.BaseManaPoint = 20 + 27; // level4スタートのため、LV2～LV4分を足し算。
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
-        this.FirstCommandAttribute = Fix.CommandAttribute.HolyLight;
-        this.SecondCommandAttribute = Fix.CommandAttribute.Archery;
+        this.FirstCommandAttribute = Fix.CommandAttribute.Archery;
+        this.SecondCommandAttribute = Fix.CommandAttribute.HolyLight;
         this.ThirdCommandAttribute = Fix.CommandAttribute.Mindfulness;
+        this.FourthCommandAttribute = Fix.CommandAttribute.VoidChant;
+        this.FifthCommandAttribute = Fix.CommandAttribute.Ice;
+        this.SixthCommandAttribute = Fix.CommandAttribute.DarkMagic;
         this.BattleBackColor = Fix.COLOR_THIRD_CHARA;
         this.BattleForeColor = Fix.COLORFORE_THIRD_CHARA;
         this.MainWeapon = new Item(Fix.PRACTICE_ORB);
@@ -4303,7 +4333,10 @@ public partial class Character : MonoBehaviour
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Warrior;
+        this.FourthCommandAttribute = Fix.CommandAttribute.Truth;
+        this.FifthCommandAttribute = Fix.CommandAttribute.DarkMagic;
+        this.SixthCommandAttribute = Fix.CommandAttribute.Mindfulness;
         this.BattleBackColor = Fix.COLOR_FOURTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FOURTH_CHARA;
         this.MainWeapon = new Item(Fix.SMART_CLAW);
@@ -4340,7 +4373,10 @@ public partial class Character : MonoBehaviour
         this.Job = Fix.JobClass.Seeker;
         this.FirstCommandAttribute = Fix.CommandAttribute.VoidChant;
         this.SecondCommandAttribute = Fix.CommandAttribute.Force;
-        this.ThirdCommandAttribute = Fix.CommandAttribute.Ice;
+        this.ThirdCommandAttribute = Fix.CommandAttribute.Truth;
+        this.FourthCommandAttribute = Fix.CommandAttribute.HolyLight;
+        this.FifthCommandAttribute = Fix.CommandAttribute.Archery;
+        this.SixthCommandAttribute = Fix.CommandAttribute.Ice;
         this.BattleBackColor = Fix.COLOR_FIFTH_CHARA;
         this.BattleForeColor = Fix.COLORFORE_FIFTH_CHARA;
         this.MainWeapon = new Item(Fix.SUPERIOR_BOOK);
@@ -4359,11 +4395,11 @@ public partial class Character : MonoBehaviour
         this.FortuneSpirit = 1;
         this.WordOfPower = 1;
         this.GaleWind = 1;
-        this.AvailableIce = true;
-        this.IceNeedle = 1;
-        this.PurePurification = 1;
-        this.BlueBullet = 1;
-        this.FreezingCube = 1;
+        this.AvailableTruth = true;
+        this.TrueSight = 1;
+        this.LeylineSchema = 1;
+        this.VoiceOfVigor = 1;
+        this.WillAwakening = 1;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ENERGY_BOLT;
         this.ActionCommand2 = Fix.FLASH_COUNTER;
