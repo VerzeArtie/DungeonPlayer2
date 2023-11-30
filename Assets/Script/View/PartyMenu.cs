@@ -530,52 +530,14 @@ public class PartyMenu : MotherBase
     SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
     // エッセンスツリーへの反映
-    if (player3.FullName == Fix.NAME_EIN_WOLENCE)
-    {
-      txtEssenceCategoryList[0].text = Fix.CLASS_WARRIOR;
-      txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
-      txtEssenceCategoryList[2].text = Fix.CLASS_GUARDIAN;
-      txtEssenceCategoryList[3].text = Fix.CLASS_HOLYLIGHT;
-      txtEssenceCategoryList[4].text = Fix.CLASS_FORCE;
-      txtEssenceCategoryList[5].text = Fix.CLASS_TRUTH;
-    }
-    else if (player3.FullName == Fix.NAME_LANA_AMIRIA)
-    {
-      txtEssenceCategoryList[0].text = Fix.CLASS_ICE;
-      txtEssenceCategoryList[1].text = Fix.CLASS_MARTIAL_ARTS;
-      txtEssenceCategoryList[2].text = Fix.CLASS_DARK_MAGIC;
-      txtEssenceCategoryList[3].text = Fix.CLASS_MINDFULNESS;
-      txtEssenceCategoryList[4].text = Fix.CLASS_VOIDCHANT;
-      txtEssenceCategoryList[5].text = Fix.CLASS_FIRE;
-    }
-    else if (player3.FullName == Fix.NAME_EONE_FULNEA)
-    {
-      txtEssenceCategoryList[0].text = Fix.CLASS_ARCHERY;
-      txtEssenceCategoryList[1].text = Fix.CLASS_HOLYLIGHT;
-      txtEssenceCategoryList[2].text = Fix.CLASS_MINDFULNESS;
-      txtEssenceCategoryList[3].text = Fix.CLASS_VOIDCHANT;
-      txtEssenceCategoryList[4].text = Fix.CLASS_ICE;
-      txtEssenceCategoryList[5].text = Fix.CLASS_DARK_MAGIC;
-    }
-    else if (player3.FullName == Fix.NAME_BILLY_RAKI)
-    {
-      txtEssenceCategoryList[0].text = Fix.CLASS_MARTIAL_ARTS;
-      txtEssenceCategoryList[1].text = Fix.CLASS_FIRE;
-      txtEssenceCategoryList[2].text = Fix.CLASS_WARRIOR;
-      txtEssenceCategoryList[3].text = Fix.CLASS_TRUTH;
-      txtEssenceCategoryList[4].text = Fix.CLASS_DARK_MAGIC;
-      txtEssenceCategoryList[5].text = Fix.CLASS_MINDFULNESS;
-    }
-    else if (player3.FullName == Fix.NAME_ADEL_BRIGANDY)
-    {
-      txtEssenceCategoryList[0].text = Fix.CLASS_VOIDCHANT;
-      txtEssenceCategoryList[1].text = Fix.CLASS_FORCE;
-      txtEssenceCategoryList[2].text = Fix.CLASS_TRUTH;
-      txtEssenceCategoryList[3].text = Fix.CLASS_HOLYLIGHT;
-      txtEssenceCategoryList[4].text = Fix.CLASS_ARCHERY;
-      txtEssenceCategoryList[5].text = Fix.CLASS_ICE;
-    }
+    txtEssenceCategoryList[0].text = GetCommandAttributeString(player3.FirstCommandAttribute);
+    txtEssenceCategoryList[1].text = GetCommandAttributeString(player3.SecondCommandAttribute);
+    txtEssenceCategoryList[2].text = GetCommandAttributeString(player3.ThirdCommandAttribute);
+    txtEssenceCategoryList[3].text = GetCommandAttributeString(player3.FourthCommandAttribute);
+    txtEssenceCategoryList[4].text = GetCommandAttributeString(player3.FifthCommandAttribute);
+    txtEssenceCategoryList[5].text = GetCommandAttributeString(player3.SixthCommandAttribute);
 
+    // アカシックレコードによる表示／非表示
     btnEssenceCategoryList[0].gameObject.SetActive(true);
     btnEssenceCategoryList[1].gameObject.SetActive(One.AR.PartyJoin_EoneFulnea);
     btnEssenceCategoryList[2].gameObject.SetActive(One.AR.InscribeObsidianStone_1);
@@ -587,6 +549,24 @@ public class PartyMenu : MotherBase
 
     SetupEssenceList(player3, 0);
     CurrentEssenceSelectNumber = 0;
+  }
+
+  private string GetCommandAttributeString(Fix.CommandAttribute attribute)
+  {
+    if (attribute == Fix.CommandAttribute.Fire) { return Fix.CLASS_FIRE; }
+    if (attribute == Fix.CommandAttribute.Ice) { return Fix.CLASS_ICE; }
+    if (attribute == Fix.CommandAttribute.HolyLight) { return Fix.CLASS_HOLYLIGHT; }
+    if (attribute == Fix.CommandAttribute.DarkMagic) { return Fix.CLASS_DARK_MAGIC; }
+    if (attribute == Fix.CommandAttribute.Force) { return Fix.CLASS_FORCE; }
+    if (attribute == Fix.CommandAttribute.VoidChant) { return Fix.CLASS_VOIDCHANT; }
+    if (attribute == Fix.CommandAttribute.Warrior) { return Fix.CLASS_WARRIOR; }
+    if (attribute == Fix.CommandAttribute.Guardian) { return Fix.CLASS_GUARDIAN; }
+    if (attribute == Fix.CommandAttribute.MartialArts) { return Fix.CLASS_MARTIAL_ARTS; }
+    if (attribute == Fix.CommandAttribute.Archery) { return Fix.CLASS_ARCHERY; }
+    if (attribute == Fix.CommandAttribute.Truth) { return Fix.CLASS_TRUTH; }
+    if (attribute == Fix.CommandAttribute.Mindfulness) { return Fix.CLASS_MINDFULNESS; }
+
+    return String.Empty;
   }
 
   private void CallGroupPartyStatus(Character player)
