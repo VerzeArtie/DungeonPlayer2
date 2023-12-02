@@ -615,7 +615,7 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return TimingType.Instant; }
     if (command_name == Fix.FLASH_COUNTER) { return TimingType.StackCommand; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TimingType.Normal; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TimingType.Instant; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return TimingType.Normal; }
     if (command_name == Fix.SPEED_STEP) { return TimingType.Instant; }
     if (command_name == Fix.MULTIPLE_SHOT) { return TimingType.Normal; }
@@ -786,7 +786,7 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return TargetType.Ally; }
     if (command_name == Fix.FLASH_COUNTER) { return TargetType.InstantTarget; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Own; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return TargetType.Enemy; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return TargetType.Own; }
     if (command_name == Fix.SPEED_STEP) { return TargetType.Own; }
     if (command_name == Fix.MULTIPLE_SHOT) { return TargetType.EnemyGroup; }
@@ -1036,7 +1036,7 @@ public static class ActionCommand
       return result;
     }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return 15; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return 12; }
     if (command_name == Fix.SHIELD_BASH) { return 20; }
     if (command_name == Fix.LEG_STRIKE) { return 10; }
     if (command_name == Fix.HUNTER_SHOT) { return 12; }
@@ -1070,7 +1070,7 @@ public static class ActionCommand
       return result; 
     }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 20; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 15; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
     if (command_name == Fix.SPEED_STEP) { return 15; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
@@ -1655,7 +1655,7 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return false; }
     if (command_name == Fix.FLASH_COUNTER) { return false; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return false; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return true; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return false; }
     if (command_name == Fix.SPEED_STEP) { return false; }
     if (command_name == Fix.MULTIPLE_SHOT) { return true; }
@@ -1982,7 +1982,7 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
     if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "敵一体を対象とする。対象に【物理】ダメージを与える。\r\n自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.SPEED_STEP) { return "自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘反応が上昇する。このスタックは５回まで累積する。"; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
@@ -2184,7 +2184,7 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + (player.FortuneSpirit) * 1; }
     if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + (player.FlashCounter) * 2; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + ((player.StanceOfTheBlade) * 5) + "【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + (player.StanceOfTheGuard) * 2; }
     if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + (player.SpeedStep) * 3; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + (player.MultipleShot) * 10; }

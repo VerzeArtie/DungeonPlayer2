@@ -1754,7 +1754,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.STANCE_OF_THE_BLADE:
-        ExecStanceOfTheBlade(player);
+        ExecStanceOfTheBlade(player, target, critical);
         break;
 
       case Fix.SPEED_STEP:
@@ -4438,7 +4438,7 @@ public partial class BattleEnemy : MotherBase
       stanceOfTheBlade.Cumulative++;
       if (beforeCumulative != stanceOfTheBlade.Cumulative)
       {
-        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_ATTACK_UP, Fix.COLOR_NORMAL);
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_ATTACK_UP, Fix.COLOR_NORMAL);
       }
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
@@ -4903,9 +4903,11 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.SEVENTH_PRINCIPLE, Fix.COLOR_NORMAL);
   }
 
-  private void ExecStanceOfTheBlade(Character player)
+  private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, false, critical);
+
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
     StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
   }

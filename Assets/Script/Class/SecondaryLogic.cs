@@ -356,6 +356,11 @@ public static class SecondaryLogic
     if (player.FortuneSpirit <= 1) { return 1; }
     return 1 + (player.FortuneSpirit - 1);
   }
+  public static double StanceOfTheBladeDamage(Character player)
+  {
+    if (player.StanceOfTheBlade <= 1) { return 1.50f; }
+    return 1.50f + (player.StanceOfTheBlade - 1) * 0.10f;
+  }
 
   public static double StanceOfTheBlade(Character player)
   {
