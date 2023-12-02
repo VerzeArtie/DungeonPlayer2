@@ -294,12 +294,18 @@ public static class SecondaryLogic
       factor = 1.00f + (player.FlameBlade - 1) * 0.20f;
     }
 
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * factor;
+    return 20.0f + PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * factor;
   }
 
   public static int FlameBlade_Turn(Character player)
   {
-    return 5;
+    return Fix.INFINITY;
+  }
+
+  public static double PurePurificationHealValuel(Character player)
+  {
+    if (player.PurePurification <= 1) { return 1.20f; }
+    return 1.20f + (player.PurePurification - 1) * 0.10f;
   }
 
   public static int PurePurification_Effect1(Character player)

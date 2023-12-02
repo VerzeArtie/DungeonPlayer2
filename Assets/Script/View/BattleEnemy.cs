@@ -4738,6 +4738,9 @@ public partial class BattleEnemy : MotherBase
   private void ExecPurePurification(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
+    AbstractHealCommand(player, target, healValue);
+
     target.RemoveBuff(SecondaryLogic.PurePurification_Effect1(player), ActionCommand.BuffType.Negative);
     StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
   }
