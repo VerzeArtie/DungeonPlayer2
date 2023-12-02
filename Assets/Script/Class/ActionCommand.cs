@@ -1976,7 +1976,7 @@ public static class ActionCommand
     #region "Delve II"
     // 魔法
     if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象にかかっている【有害】に属するBUFFを除去する。"; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象のライフを回復する。対象にかかっている【有害】に属するBUFFを除去する。"; }
     if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
     if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【失血】のBUFFを付与する。【失血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
@@ -2178,13 +2178,13 @@ public static class ActionCommand
     #region "Delve II"
     // 魔法
     if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋" + (player.FlameBlade) * 20; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "一度に除去する数 ＋" + (player.PurePurification) * 1; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "ライフの回復量 ＋" + (player.PurePurification) * 10 + "\r\n一度に除去する数 ＋" + (player.PurePurification) * 1; }
     if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋" + (player.DivineCircle) * 30; }
     if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋" + (player.BloodSign) * 20; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + (player.FortuneSpirit) * 1; }
     if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + (player.FlashCounter) * 2; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + ((player.StanceOfTheBlade) * 5) + "【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + ((player.StanceOfTheBlade) * 5) + "\r\n【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + (player.StanceOfTheGuard) * 2; }
     if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + (player.SpeedStep) * 3; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + (player.MultipleShot) * 10; }
