@@ -3991,15 +3991,10 @@ public static class MessagePack
     {
       One.TF.Event_Message400050 = true;
       One.TF.AvailableSecondEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableHolyLight = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).FreshHeal = 1;
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableMindfulness = true;
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).DispelMagic = 1;
-      One.SelectCharacter(Fix.NAME_BILLY_RAKI).AvailableWarrior = true;
-      One.SelectCharacter(Fix.NAME_BILLY_RAKI).StraightSmash = 1;
-      // エオネは戻ってきた時に開放する。
-      //One.SelectCharacter(Fix.NAME_EONE_FULNEA).AvailableDarkMagic = true;
-      //One.SelectCharacter(Fix.NAME_EONE_FULNEA).ShadowBlast = 1;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).UpgradeEssenceTree(4);
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).UpgradeEssenceTree(4);
+      One.SelectCharacter(Fix.NAME_BILLY_RAKI).UpgradeEssenceTree(4);
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).UpgradeEssenceTree(4); // エオネは居ないが、内部的にはアップグレードしておく。
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
@@ -4077,9 +4072,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：最初の設問に対してだけど、エオネさんが使っていた無心スキルなら多少のたしなみはあるわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：なるほど・・・と、なるとそうか。そこはありがたいのは確かだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：魔法じゃないけど良いかしら？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：となると、うーん・・・聖スペルかあ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ、助かるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・と、なるとそうか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・聖スペルかあ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おいおい、マジで何とかならねーのかよ？", ActionEvent.None);
 
@@ -6545,12 +6544,9 @@ public static class MessagePack
       One.TF.Event_Message700040 = true;
 
       One.TF.AvailableFirstEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).AvailableGuardian = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).ShieldBash = 1;
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).AvailableDarkMagic = true;
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).ShadowBlast = 1;
-      One.SelectCharacter(Fix.NAME_EONE_FULNEA).AvailableMindfulness = true;
-      One.SelectCharacter(Fix.NAME_EONE_FULNEA).DispelMagic = 1;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).UpgradeEssenceTree(3);
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).UpgradeEssenceTree(3);
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).UpgradeEssenceTree(3);
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 

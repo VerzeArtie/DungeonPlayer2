@@ -28,11 +28,17 @@ public partial class BattleEnemy : MotherBase
   // Level-UP Character
   public GameObject GroupLvupCharacter;
   public Text txtLvupTitle;
+  public GameObject grpLvupMaxLife;
   public Text txtLvupMaxLife;
+  public GameObject objLvupMaxManaPoint;
   public Text txtLvupMaxManaPoint;
+  public GameObject objLvupMaxSkillPoint;
   public Text txtLvupMaxSkillPoint;
+  public GameObject objLvupRemainPoint;
   public Text txtLvupRemainPoint;
+  public GameObject objLvupSoulEssence;
   public Text txtLvupSoulEssence;
+  public GameObject grpLvupSpecial;
   public Text txtLvupSpecial;
   protected List<bool> DetectLvup = new List<bool>();
   protected List<string> DetectLvupTitle = new List<string>();
@@ -983,7 +989,14 @@ public partial class BattleEnemy : MotherBase
               DetectLvupMaxManaPoint.Add("最大マナが " + PlayerList[ii].LevelupBaseManaPoint() + " 上昇した！");
               DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
               DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
-              DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
+              if (PlayerList[ii].LevelupSoulEssence() > 0)
+              {
+                DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
+              }
+              else
+              {
+                //DetectLvupSoulEssence.Add("");
+              }
               if (newCommand != String.Empty)
               {
                 DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(newCommand) + " 】を習得した！");
@@ -3813,6 +3826,10 @@ public partial class BattleEnemy : MotherBase
       {
         txtLvupSoulEssence.text = DetectLvupSoulEssence[0];
         DetectLvupSoulEssence.RemoveAt(0);
+      }
+      else
+      {
+        objLvupSoulEssence.SetActive(false);
       }
       if (DetectLvupSpecial.Count > 0)
       {
