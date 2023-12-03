@@ -4946,7 +4946,6 @@ public partial class Character : MonoBehaviour
         this.ActionCommand1 = Fix.HUNTER_SHOT;
         this.ActionCommand2 = Fix.FRESH_HEAL;
         this.ActionCommand3 = Fix.MULTIPLE_SHOT;
-        this.ActionCommand4 = Fix.DIVINE_CIRCLE;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -6053,12 +6052,12 @@ public partial class Character : MonoBehaviour
     }
     if (this.FullName == Fix.NAME_EONE_FULNEA)
     {
-      // if (Level == 1) { return Fix.FRESH_HEAL; }
-      if (Level == 2) { return Fix.HUNTER_SHOT; }
-      if (Level == 4) { return Fix.DIVINE_CIRCLE; }
-      if (Level == 6) { return Fix.MULTIPLE_SHOT; }
-      if (Level == 8) { return Fix.HOLY_BREATH; }
-      if (Level == 10) { return Fix.EYE_OF_THE_ISSHIN; }
+      // if (Level == 1) { return Fix.HUNTER_SHOT; }
+      if (Level == 2) { return Fix.FRESH_HEAL; }
+      if (Level == 4) { return Fix.MULTIPLE_SHOT; }
+      if (Level == 6) { return Fix.DIVINE_CIRCLE; }
+      if (Level == 8) { return Fix.EYE_OF_THE_ISSHIN; }
+      if (Level == 10) { return Fix.HOLY_BREATH; }
       if (Level == 12) { return Fix.SPIRITUAL_REST; }
       if (Level == 14) { return Fix.UNSEEN_AID; }
       if (Level == 16) { return Fix.ANGELIC_ECHO; }
