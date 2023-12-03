@@ -379,6 +379,11 @@ public static class SecondaryLogic
     return 10;
   }
 
+  public static double SpeedStepDamage(Character player)
+  {
+    return 1.40f;
+  }
+
   public static double SpeedStep(Character player)
   {
     if (player.SpeedStep <= 1) { return 0.05f; }

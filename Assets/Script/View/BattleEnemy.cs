@@ -1758,7 +1758,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.SPEED_STEP:
-        ExecSpeedStep(player);
+        ExecSpeedStep(player, target, critical);
         break;
 
       case Fix.STANCE_OF_THE_GUARD:
@@ -4915,9 +4915,13 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
   }
 
-  private void ExecSpeedStep(Character player)
+  private void ExecSpeedStep(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.SpeedStepDamage(player), Fix.DamageSource.Physical, false, critical);
+
+    // 対象への物理攻撃がヒットしなくても、自分自身にはBUFF付与する。
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
     StartAnimation(player.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
   }
