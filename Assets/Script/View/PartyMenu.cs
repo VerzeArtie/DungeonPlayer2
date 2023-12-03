@@ -137,6 +137,8 @@ public class PartyMenu : MotherBase
 
   private const int BATTLE_SETTING_NUM = 8;
 
+  private string CurrentSelectHealCommand = String.Empty;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -319,23 +321,46 @@ public class PartyMenu : MotherBase
       Character player = One.SelectCharacter(txtCurrentName.text);
       Character target = One.SelectCharacter(txt_name.text);
 
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
-      Debug.Log(MethodBase.GetCurrentMethod());
-      if (target.Dead)
+      if (this.CurrentSelectHealCommand == Fix.FRESH_HEAL)
       {
-        return;
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
+        Debug.Log(MethodBase.GetCurrentMethod());
+        if (target.Dead)
+        {
+          return;
+        }
+        if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL, player))
+        {
+          return;
+        }
+        player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL, player);
+
+        if (healValue <= 0) { healValue = 0; }
+        int result = (int)healValue;
+        Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
+        target.CurrentLife += result;
       }
-      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL, player))
+      else if (this.CurrentSelectHealCommand == Fix.PURE_PURIFICATION)
       {
-        return;
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
+        Debug.Log(MethodBase.GetCurrentMethod());
+        if (target.Dead)
+        {
+          return;
+        }
+        if (player.CurrentManaPoint < ActionCommand.Cost(Fix.PURE_PURIFICATION, player))
+        {
+          return;
+        }
+        player.CurrentManaPoint -= ActionCommand.Cost(Fix.PURE_PURIFICATION, player);
+
+        if (healValue <= 0) { healValue = 0; }
+        int result = (int)healValue;
+        Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
+        target.CurrentLife += result;
       }
-      player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL, player);
 
-      if (healValue <= 0) { healValue = 0; }
-      int result = (int)healValue;
-      Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
-      target.CurrentLife += result;
-
+      CurrentSelectHealCommand = String.Empty;
       objCancelActionCommand.SetActive(false);
       ParentBackpackView.objBlockFilter.SetActive(false);
       SetupStayList();
@@ -486,6 +511,7 @@ public class PartyMenu : MotherBase
             PlayerList[ii].Mind += effectValue;
           }
 
+          CurrentSelectHealCommand = String.Empty;
           objCancelActionCommand.SetActive(false);
           ParentBackpackView.objBlockFilter.SetActive(false);
           SetupStayList();
@@ -515,14 +541,17 @@ public class PartyMenu : MotherBase
     Character player2 = One.SelectCharacter(txt_name.text);
     if (player2 != null)
     {
-      if (player2.FreshHeal > 0) { objActionCommand[0].SetActive(true); }
+      if (player2.PurePurification > 0) { objActionCommand[0].SetActive(true); }
       else { objActionCommand[0].SetActive(false); }
 
-      if (player2.ShiningHeal > 0) { objActionCommand[1].SetActive(true); }
+      if (player2.FreshHeal > 0) { objActionCommand[1].SetActive(true); }
       else { objActionCommand[1].SetActive(false); }
 
-      if (player2.LifeGrace > 0) { objActionCommand[2].SetActive(true); }
+      if (player2.ShiningHeal > 0) { objActionCommand[2].SetActive(true); }
       else { objActionCommand[2].SetActive(false); }
+
+      if (player2.LifeGrace > 0) { objActionCommand[3].SetActive(true); }
+      else { objActionCommand[3].SetActive(false); }
     }
 
     // ÉRÉ}ÉìÉhê›íËâÊñ Ç÷ÇÃîΩâf
@@ -822,6 +851,12 @@ public class PartyMenu : MotherBase
 
     if (txt_src.text == Fix.FRESH_HEAL)
     {
+      CurrentSelectHealCommand = Fix.FRESH_HEAL;
+      objCancelActionCommand.SetActive(true);
+    }
+    else if (txt_src.text == Fix.PURE_PURIFICATION)
+    {
+      CurrentSelectHealCommand = Fix.PURE_PURIFICATION;
       objCancelActionCommand.SetActive(true);
     }
     else if (txt_src.text == Fix.SHINING_HEAL)
@@ -852,6 +887,7 @@ public class PartyMenu : MotherBase
 
   public void TapCancelActionCommand()
   {
+    CurrentSelectHealCommand = String.Empty;
     objCancelActionCommand.SetActive(false);
   }
   #endregion
