@@ -4943,9 +4943,10 @@ public partial class Character : MonoBehaviour
         this.GlobalAction3 = Fix.FRESH_HEAL;
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
-        this.ActionCommand1 = Fix.FRESH_HEAL;
-        this.ActionCommand2 = Fix.HUNTER_SHOT;
-        this.ActionCommand3 = Fix.AURA_OF_POWER;
+        this.ActionCommand1 = Fix.HUNTER_SHOT;
+        this.ActionCommand2 = Fix.FRESH_HEAL;
+        this.ActionCommand3 = Fix.MULTIPLE_SHOT;
+        this.ActionCommand4 = Fix.DIVINE_CIRCLE;
         break;
 
       case Fix.NAME_BILLY_RAKI:
