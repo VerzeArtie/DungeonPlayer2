@@ -4486,7 +4486,7 @@ public partial class Character : MonoBehaviour
     else if (essence_name == Fix.ANGELIC_ECHO || essence_name == Fix.ANGELIC_ECHO_JP)
     {
       this.SoulFragment--;
-      this.HolyBreath++;
+      this.AngelicEcho++;
     }
     else if (essence_name == Fix.SHINING_HEAL || essence_name == Fix.SHINING_HEAL_JP)
     {
@@ -4701,7 +4701,7 @@ public partial class Character : MonoBehaviour
     else if (essence_name == Fix.UNINTENTIONAL_HIT || essence_name == Fix.UNINTENTIONAL_HIT_JP)
     {
       this.SoulFragment--;
-      this.DeadlyDrive++;
+      this.UnintentionalHit++;
     }
     else if (essence_name == Fix.STANCE_OF_MUIN || essence_name == Fix.STANCE_OF_MUIN_JP)
     {
