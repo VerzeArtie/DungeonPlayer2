@@ -940,8 +940,10 @@ public static partial class Fix
   public const string CLASS_HOLYLIGHT_JP = "聖";
   public const string CLASS_DARK_MAGIC = "DarkMagic";
   public const string CLASS_DARK_MAGIC_JP = "闇";
-  public const string CLASS_WIND = "風";
-  public const string CLASS_EARTH = "土";
+  public const string CLASS_WIND = "Wind";
+  public const string CLASS_WIND_JP = "風";
+  public const string CLASS_EARTH = "Earth";
+  public const string CLASS_EARTH_JP = "土";
   public const string CLASS_FORCE = "Force";
   public const string CLASS_FORCE_JP = "理";
   public const string CLASS_VOIDCHANT = "VoidChant";
