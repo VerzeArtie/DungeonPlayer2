@@ -2022,42 +2022,18 @@ public partial class HomeTown : MotherBase
           {
             One.TF.QuestMain_Complete_00001 = true;
 
-            int gainExp = 300;
-            int gainGold = 1000;
-            string gainItem = Fix.FINE_SWORD;
-            int gainSoulFragment = 1;
-            for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
-            {
-              if (One.AvailableCharacters[jj].Exp < One.AvailableCharacters[jj].GetNextExp())
-              {
-                One.AvailableCharacters[jj].GainExp(gainExp);
-                if (One.AvailableCharacters[jj].Exp >= One.AvailableCharacters[jj].GetNextExp())
-                {
-                  One.AvailableCharacters[jj].BaseLife += 15;
-                  One.AvailableCharacters[jj].BaseManaPoint += 6;
-                  One.AvailableCharacters[jj].BaseSkillPoint += 0; // スキルポイントは原則上昇しない。
-                  One.AvailableCharacters[jj].RemainPoint += 3;
-                  One.AvailableCharacters[jj].SoulFragment += 1;
-
-                  DetectLvup.Add(true);
-                  DetectLvupTitle.Add(One.AvailableCharacters[jj].FullName + "がレベルアップしました！");
-                  DetectLvupMaxLife.Add("最大ライフが 15 上昇した！");
-                  DetectLvupMaxManaPoint.Add("最大マナが 6 上昇した！");
-                  DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが 0 上昇した！"); // スキルポイントは原則上昇しない。
-                  DetectLvupRemainPoint.Add("コア・パラメタポイントを 3 獲得！");
-                  DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを 1 獲得！");
-                  DetectLvupSpecial.Add("");
-                }
-              }
-              One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
-            }
+            // Message100021で獲得した内容を表示する。
+            //int gainExp = 0;
+            int gainGold = 2000;
+            string gainItem = Fix.ARTIFACT_GENSEI;
+            // int gainSoulFragment = 0;
             One.TF.Gold += gainGold;
             One.TF.AddBackPack(new Item(gainItem));
 
             this.txtQCGoldGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
-            this.txtQCExpGain.text = gainExp.ToString() + " 経験値を獲得しました！";
+            this.txtQCExpGain.text = "";// gainExp.ToString() + " 経験値を獲得しました！";
             this.txtQCItemGain.text = gainItem + " を獲得しました";
-            this.txtQCSoulEssenceGain.text = "1 ソウル・エッセンスを獲得しました！";
+            this.txtQCSoulEssenceGain.text = "エオネ・フルネアが仲間になりました！";// "1 ソウル・エッセンスを獲得しました！";
           }
           else if (currentMessage.Contains(Fix.QUEST_TITLE_2))
           {

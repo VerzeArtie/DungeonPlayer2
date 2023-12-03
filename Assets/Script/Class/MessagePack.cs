@@ -983,13 +983,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "エルミ：それから、少しばかりだが軍資金とアイテムを用意しておいた。好きに使ってもらって構わないよ。", ActionEvent.None);
 
+    // Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold); // クエスト達成時に取得するため、ここでは取得しない。
     Message(ref m_list, ref e_list, "【 2000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "2000", ActionEvent.GetGold);
-
+    // Message(ref m_list, ref e_list, Fix.ARTIFACT_GENSEI, ActionEvent.GetItem); // クエスト達成時に取得するため、ここでは取得しない。
     Message(ref m_list, ref e_list, " 【 " + Fix.ARTIFACT_GENSEI + " 】を手に入れました！", ActionEvent.MessageDisplay);
-
-    Message(ref m_list, ref e_list, Fix.ARTIFACT_GENSEI, ActionEvent.GetItem);
 
     Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！僭越ながら、拝受つかまつります！", ActionEvent.None);
 
