@@ -4623,8 +4623,8 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      player.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
-      StartAnimation(player.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
+      StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
     }
   }
 
@@ -5898,7 +5898,7 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     int rand = AP.Math.RandomInteger(100);
-    int current = SecondaryLogic.CriticalRate(player);
+    int current = SecondaryLogic.CriticalRate(player, target);
     Debug.Log("PhysicalDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
     if (player.CannotCritical == false &&
         ((critical == Fix.CriticalType.Random && rand <= current))
@@ -6085,7 +6085,7 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     int rand = AP.Math.RandomInteger(100);
-    int current = SecondaryLogic.CriticalRate(player);
+    int current = SecondaryLogic.CriticalRate(player, target);
     Debug.Log("MagicDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
     if (player.CannotCritical == false &&
         ((critical == Fix.CriticalType.Random && rand <= current))

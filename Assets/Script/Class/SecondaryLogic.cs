@@ -17,10 +17,10 @@ public static class SecondaryLogic
     return 1.00f;
   }
 
-  public static int CriticalRate(Character player)
+  public static int CriticalRate(Character player, Character target)
   {
     int result = 5;
-    BuffImage hunterShot = player.IsHunterShot;
+    BuffImage hunterShot = target.IsHunterShot;
     if (hunterShot != null)
     {
       result += (int)(hunterShot.EffectValue);
