@@ -2546,8 +2546,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 851.5, y: -332.625}
-  m_SizeDelta: {x: 1703, y: 221.75}
+  m_AnchoredPosition: {x: 586.5, y: -208.5}
+  m_SizeDelta: {x: 1173, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &81049605
 GameObject:
@@ -8350,8 +8350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 851.5, y: -110.875}
-  m_SizeDelta: {x: 1703, y: 221.75}
+  m_AnchoredPosition: {x: 586.5, y: -69.5}
+  m_SizeDelta: {x: 1173, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &181620335
 GameObject:
@@ -15401,7 +15401,6 @@ MonoBehaviour:
   txtSoulFragment: {fileID: 611975200}
   txtObsidianStone: {fileID: 1944776277}
   txtMessage: {fileID: 1282959264}
-  imgAreaIcon: {fileID: 1435905892}
   GroupConfig: {fileID: 1285538928}
   GroupDungeonPlayer: {fileID: 1853687127}
   contentDungeonPlayer: {fileID: 1403580622}
@@ -15592,115 +15591,6 @@ MonoBehaviour:
   btnShopSell: {fileID: 635834382}
   txtShopCurrentType: {fileID: 510407745}
   GroupTactics: {fileID: 1176450559}
-  StayList:
-  - {fileID: 1839980818}
-  - {fileID: 812064697}
-  - {fileID: 1253267683}
-  - {fileID: 419665415}
-  - {fileID: 730154917}
-  - {fileID: 1970441656}
-  - {fileID: 1740750768}
-  - {fileID: 1782315905}
-  - {fileID: 786007567}
-  - {fileID: 1776929505}
-  - {fileID: 409813772}
-  - {fileID: 1354805435}
-  - {fileID: 16867218}
-  - {fileID: 660050152}
-  - {fileID: 712496986}
-  - {fileID: 1545443531}
-  StayListName:
-  - {fileID: 83575732}
-  - {fileID: 1472795859}
-  - {fileID: 2005819146}
-  - {fileID: 824116579}
-  - {fileID: 345162444}
-  - {fileID: 1100670885}
-  - {fileID: 1218960706}
-  - {fileID: 395615631}
-  - {fileID: 546437012}
-  - {fileID: 1283084978}
-  - {fileID: 183926765}
-  - {fileID: 1111316372}
-  - {fileID: 953219078}
-  - {fileID: 1462668788}
-  - {fileID: 1476320698}
-  - {fileID: 1998749343}
-  StayListCheckMark:
-  - {fileID: 1028132657}
-  - {fileID: 1165544661}
-  - {fileID: 2041089526}
-  - {fileID: 1244763077}
-  - {fileID: 975057017}
-  - {fileID: 1406368955}
-  - {fileID: 638846096}
-  - {fileID: 1893833604}
-  - {fileID: 645389359}
-  - {fileID: 1082061869}
-  - {fileID: 224608254}
-  - {fileID: 2007550139}
-  - {fileID: 542068317}
-  - {fileID: 1686592873}
-  - {fileID: 353910050}
-  - {fileID: 1762180455}
-  GroupPartyList:
-  - {fileID: 2103670235}
-  - {fileID: 1041424655}
-  - {fileID: 408984213}
-  - {fileID: 1375222229}
-  MemberIconList:
-  - {fileID: 455327356}
-  - {fileID: 915672331}
-  - {fileID: 1718984400}
-  - {fileID: 2035383960}
-  PartyListClass:
-  - {fileID: 455327358}
-  - {fileID: 915672333}
-  - {fileID: 1718984402}
-  - {fileID: 2035383962}
-  PartyListName:
-  - {fileID: 724504768}
-  - {fileID: 1379011078}
-  - {fileID: 1979761418}
-  - {fileID: 1800060507}
-  PartyListLevel:
-  - {fileID: 334073790}
-  - {fileID: 1020532375}
-  - {fileID: 367776604}
-  - {fileID: 1561344454}
-  PartyListLife:
-  - {fileID: 839038985}
-  - {fileID: 614577625}
-  - {fileID: 512033899}
-  - {fileID: 787429595}
-  PartyListSTR:
-  - {fileID: 379253595}
-  - {fileID: 1142256763}
-  - {fileID: 582303959}
-  - {fileID: 138383115}
-  PartyListAGL:
-  - {fileID: 1785288247}
-  - {fileID: 321157068}
-  - {fileID: 1375070057}
-  - {fileID: 1323878847}
-  PartyListINT:
-  - {fileID: 492856608}
-  - {fileID: 244714074}
-  - {fileID: 183481273}
-  - {fileID: 544920053}
-  PartyListSTM:
-  - {fileID: 893358585}
-  - {fileID: 1195948894}
-  - {fileID: 159464231}
-  - {fileID: 203258155}
-  PartyListMND:
-  - {fileID: 608790320}
-  - {fileID: 439198439}
-  - {fileID: 1825382300}
-  - {fileID: 1559173985}
-  prefab_ActionCommand: {fileID: 556164223}
-  objSelectCursor: {fileID: 153497214}
-  txtSelectCursor: {fileID: 1324112951}
   GroupInn: {fileID: 81049605}
   GroupInnDecision: {fileID: 1467050813}
   txtFoodMenuList:
@@ -53596,8 +53486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 851.5, y: -776.125}
-  m_SizeDelta: {x: 1703, y: 221.75}
+  m_AnchoredPosition: {x: 586.5, y: -486.5}
+  m_SizeDelta: {x: 1173, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1027797815
 GameObject:
@@ -62589,8 +62479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 851.5, y: -554.375}
-  m_SizeDelta: {x: 1703, y: 221.75}
+  m_AnchoredPosition: {x: 586.5, y: -347.5}
+  m_SizeDelta: {x: 1173, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1213416047
 GameObject:
