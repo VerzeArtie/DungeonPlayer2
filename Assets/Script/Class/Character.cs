@@ -4918,14 +4918,14 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_EONE_FULNEA:
-        this.Level = 4; // 17 + 9
+        this.Level = 6; // 17 + (12 + 4)
         this.Strength = 7;
         this.Agility = 8;
-        this.Intelligence = 11;
+        this.Intelligence = 9;
         this.Stamina = 5;
         this.Mind = 4;
-        this.BaseLife = 20 + 15; // level4スタートのため、LV2～LV4分を足し算。
-        this.BaseManaPoint = 20 + 27; // level4スタートのため、LV2～LV4分を足し算。
+        this.BaseLife = 20 + 30; // level6スタートのため、LV2～LV6分を足し算。
+        this.BaseManaPoint = 20 + 46; // level6スタートのため、LV2～LV6分を足し算。
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Magician;
         this.FirstCommandAttribute = Fix.CommandAttribute.Archery;
@@ -4946,6 +4946,7 @@ public partial class Character : MonoBehaviour
         this.ActionCommand1 = Fix.HUNTER_SHOT;
         this.ActionCommand2 = Fix.FRESH_HEAL;
         this.ActionCommand3 = Fix.MULTIPLE_SHOT;
+        this.ActionCommand4 = Fix.DIVINE_CIRCLE;
         break;
 
       case Fix.NAME_BILLY_RAKI:
