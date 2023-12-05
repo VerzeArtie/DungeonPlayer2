@@ -6658,7 +6658,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：そうなると、アインはどうするつもりなの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：俺はそうだな。護衛スキルを少しやってみようと思う。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：俺はそうだな・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：護衛スキルをしやってみようと思う。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：この構成だと、下手に俺が攻撃にまわるよりも、場全体を見た方が良いと思うんだ。", ActionEvent.None);
 
