@@ -6680,11 +6680,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 各メンバーが習得するコマンドの属性が追加されました！ 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 各メンバーに新しいコマンド属性が追加されました！ 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 レベルアップ時に新たな属性のコマンドが習得される様になります。 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 新しいタイプが習得されたら、バトル設定画面で内容を確認してみましょう。 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 バトル設定画面で新しく追加されたコマンドの内容を確認してみましょう！ 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
 
