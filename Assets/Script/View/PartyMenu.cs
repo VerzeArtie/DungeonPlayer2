@@ -744,8 +744,21 @@ public class PartyMenu : MotherBase
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(action_command.CommandName).ToString();
     txtCommandCost.text = "コスト： " + ActionCommand.Cost(action_command.CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
-    return;
 
+    // 万が一選択状態が存在していない場合は再設定する。
+    if (this.CurrentSelectCommand == null)
+    {
+      this.CurrentSelectCommand = action_command;
+      return;
+    }
+    // 現在選択と違うアクションコマンドの場合は設定モードに移行しない。
+    if (this.CurrentSelectCommand != action_command)
+    {
+      this.CurrentSelectCommand = action_command;
+      return;
+    }
+
+    // 設定モードへの移行
     if (FilterForAll.activeInHierarchy == false)
     {
       if (action_command.CommandName == "" || action_command.CommandName == Fix.STAY)
@@ -793,7 +806,7 @@ public class PartyMenu : MotherBase
     FilterForAll.SetActive(false);
     FilterForActionCommand.SetActive(false);
     FilterForAvailableList.SetActive(false);
-    this.CurrentSelectCommand = null;
+    // this.CurrentSelectCommand = null; // キャンセル時、現在選択しているコマンドはクリアしなくて良いGUIとなった。
   }
 
   public void TapBattleSettingPageNext()
@@ -1171,6 +1184,7 @@ public class PartyMenu : MotherBase
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = "コスト： " + ActionCommand.Cost(ListAvailableCommand[0].CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
+    this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }
 
   private void SetupEssenceList(Character player, int number)
