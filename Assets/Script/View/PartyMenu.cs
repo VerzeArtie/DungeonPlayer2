@@ -47,6 +47,11 @@ public class PartyMenu : MotherBase
   public Button btnCommandCetegoryItem;
   public Button btnCommandCetegoryArchetype;
   public GameObject groupPageScroll;
+  public Text txtCommandTitle;
+  public Image imgCommandTitle;
+  public Text txtCommandAttribute;
+  public Text txtCommandCost;
+  public Text txtCommandDescription;
 
   public NodeActionCommand CurrentSelectCommand;
 
@@ -733,6 +738,14 @@ public class PartyMenu : MotherBase
   public void TapAvailableListButton(NodeActionCommand action_command)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    txtCommandTitle.text = action_command.CommandName;
+    imgCommandTitle.sprite = Resources.Load<Sprite>(action_command.CommandName);
+    txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(action_command.CommandName).ToString();
+    txtCommandCost.text = "コスト： " + ActionCommand.Cost(action_command.CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
+    txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
+    return;
+
     if (FilterForAll.activeInHierarchy == false)
     {
       if (action_command.CommandName == "" || action_command.CommandName == Fix.STAY)
@@ -1152,6 +1165,12 @@ public class PartyMenu : MotherBase
     {
       groupPageScroll.SetActive(false);
     }
+
+    txtCommandTitle.text = ListAvailableCommand[0].CommandName;
+    imgCommandTitle.sprite = Resources.Load<Sprite>(ListAvailableCommand[0].CommandName);
+    txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(ListAvailableCommand[0].CommandName).ToString();
+    txtCommandCost.text = "コスト： " + ActionCommand.Cost(ListAvailableCommand[0].CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
+    txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
   }
 
   private void SetupEssenceList(Character player, int number)

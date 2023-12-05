@@ -395,6 +395,58 @@ public static class ActionCommand
     return result;
   }
 
+  public static string GetAttribute_JP(string command_name)
+  {
+    Attribute current = GetAttribute(command_name);
+    if (current == Attribute.Basic)
+    {
+      return Fix.ATTRIBUTE_BASIC;
+    }
+    else if (current == Attribute.Magic)
+    {
+      return Fix.ATTRIBUTE_MAGIC;
+    }
+    else if (current == Attribute.Skill)
+    {
+      return Fix.ATTRIBUTE_SKILL;
+    }
+    else if (current == Attribute.Archetype)
+    {
+      return Fix.ATTRIBUTE_CORE;
+    }
+    else if (current == Attribute.None)
+    {
+      return Fix.ATTRIBUTE_NONE;
+    }
+    return Fix.ATTRIBUTE_BASIC; // デフォルトは基本行動とする。
+  }
+
+  public static string GetAttribute_Unit(string command_name)
+  {
+    Attribute current = GetAttribute(command_name);
+    if (current == Attribute.Basic)
+    {
+      return "(なし)";
+    }
+    else if (current == Attribute.Magic)
+    {
+      return " MP";
+    }
+    else if (current == Attribute.Skill)
+    {
+      return " SP";
+    }
+    else if (current == Attribute.Archetype)
+    {
+      return "(なし)";
+    }
+    else if (current == Attribute.None)
+    {
+      return "(なし)";
+    }
+    return "(なし)"; // デフォルトは(なし)とする。
+  }
+
   public static Attribute GetAttribute(string command_name)
   {
     #region "基本／一般"

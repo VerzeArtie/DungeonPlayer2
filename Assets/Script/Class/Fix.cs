@@ -921,6 +921,14 @@ public static partial class Fix
   #endregion
 
   #region "GUI Label"
+  #region "コマンド属性(JP)"
+  public const string ATTRIBUTE_BASIC = "基本行動";
+  public const string ATTRIBUTE_MAGIC = "魔法";
+  public const string ATTRIBUTE_SKILL = "スキル";
+  public const string ATTRIBUTE_CORE = "元核";
+  public const string ATTRIBUTE_NONE = "その他";
+  #endregion
+
   #region "クラス属性ラベル(JP)"
   public const string CLASS_WARRIOR = "Warrior";
   public const string CLASS_WARRIOR_JP = "戦士";
