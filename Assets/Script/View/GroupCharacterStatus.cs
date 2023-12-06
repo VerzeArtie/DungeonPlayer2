@@ -72,6 +72,7 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text lblChangeEquipType;
   public Text txtChangeEquipName;
   public Image imgChangeEquip;
+  public Text txtEquipChangeDescription;
 
   // Character ( Detail - Essence )
   public GameObject GroupSubViewStatus;
@@ -484,6 +485,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -517,6 +519,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -550,6 +553,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -583,6 +587,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -616,6 +621,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -649,6 +655,7 @@ public class GroupCharacterStatus : MonoBehaviour
     }
 
     // 画面表示
+    this.txtEquipChangeDescription.text = String.Empty;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -790,6 +797,8 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleSpeed, PrimaryLogic.BattleSpeed(CurrentPlayer), PrimaryLogic.BattleSpeed(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
+
+    txtEquipChangeDescription.text = new Item(sender.text).Description;
   }
 
   /// <summary>
