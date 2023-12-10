@@ -143,7 +143,9 @@ public static partial class Fix
     Area42,
     Area43,
     Area44,
+    Area45,
     Boss4,
+    Boss42,
     TruthBoss4,
     Area51,
     Boss5,
@@ -2236,8 +2238,8 @@ public static partial class Fix
   public const string SYLPH_DANCER_JP = "シルフ ダンサー";
   public const string GATHERING_LAPTOR = "Gathering Laptor";
   public const string GATHERING_LAPTOR_JP = "ギャザリング ラプター";
-  public const string FOREST_ELEMENTAL = "Forest Elemental";
-  public const string FOREST_ELEMENTAL_JP = "フォレスト エレメンタル";
+  public const string RAGE_TIGER = "Rage Tiger";
+  public const string RAGE_TIGER_JP = "レイジ・タイガー";
   public const string THORN_WARRIOR = "Thorn Warrior";
   public const string THORN_WARRIOR_JP = "茨の戦士";
   public const string MUDDLED_PLANT = "Muddled Plant";
@@ -2246,16 +2248,82 @@ public static partial class Fix
   public const string FLANSIS_KNIGHT_JP = "フランシスの騎士";
   public const string MIST_PYTHON = "Mist Python";
   public const string MIST_PYTHON_JP = "ミスト パイソン";
-  public const string TOWER_SCOUT = "Tower Scout";
-  public const string TOWER_SCOUT_JP = "塔の監視者";
-  public const string DISTURB_RHINO = "Disturb Rhino";
-  public const string DISTURB_RHINO_JP = "ディスターブ リノ";
+  public const string TOWERING_ENT = "Towering Ent";
+  public const string TOWERING_ENT_JP = "そびえ立つエント";
   public const string POISON_MARY = "Poison Mary";
   public const string POISON_MARY_JP = "ポイズン マリー";
+  public const string DISTURB_RHINO = "Disturb Rhino";
+  public const string DISTURB_RHINO_JP = "ディスターブ リノ";
   public const string FLANSIS_OF_THE_FOREST_QUEEN = "Flansis, The Queen of Verdant";
   public const string FLANSIS_OF_THE_FOREST_QUEEN_JP = "新緑の女王：フランシス";
   public const string FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW = "【　新緑の女王　】\r\nフランシス";
 
+  public const string WISDOM_CENTAURUS = "Wisdom Centaurus";
+  public const string WISDOM_CENTAURUS_JP = "知的なケンタウロス";
+  public const string SWIFT_EAGLE = "Swift Eagle";
+  public const string SWIFT_EAGLE_JP = "スウィフト イーグル";
+  public const string EASTERN_GOLEM = "Eastern Golem";
+  public const string EASTERN_GOLEM_JP = "イースタン ゴーレム";
+  public const string WESTERN_GOLEM = "Western Golem";
+  public const string WESTERN_GOLEM_JP = "ウェスタン ゴーレム";
+  public const string WIND_ELEMENTAL = "Wind Elemental";
+  public const string WIND_ELEMENTAL_JP = "ウィンド エレメンタル";
+  public const string SKY_KNIGHT = "Sky Knight";
+  public const string SKY_KNIGHT_JP = "スカイ ナイト";
+  public const string THE_PURPLE_HIKARIGOKE = "The Purple Hikarigoke";
+  public const string THE_PURPLE_HIKARIGOKE_JP = "紫色のヒカリゴケ";
+  public const string MYSTICAL_UNICORN = "Mystical Unicorn";
+  public const string MYSTICAL_UNICORN_JP = "ミスティカル ユニコーン";
+  public const string TRIAL_HERMIT = "Trial Hermit";
+  public const string TRIAL_HERMIT_JP = "トライアル ハーミット";
+  public const string STORM_BIRDMAN = "Storm Birdman";
+  public const string STORM_BIRDMAN_JP = "疾風のバードマン";
+  public const string THE_BLUE_LAVA_EYE = "The Blue-Lava Eye";
+  public const string THE_BLUE_LAVA_EYE_JP = "ブルー ラーヴァ アイ";
+  public const string THE_RED_LAVA_EYE = "The Red-Lava Eye";
+  public const string THE_RED_LAVA_EYE_JP = "レッド ラーヴァ アイ";
+  public const string FLYING_CURTAIN = "Flying Curtain";
+  public const string FLYING_CURTAIN_JP = "浮遊するカーテン";
+  public const string LUMINOUS_HAWK = "Luminous Hawk";
+  public const string LUMINOUS_HAWK_JP = "ルミナス ホーク";
+  public const string AETHER_GUST = "Aether Gust";
+  public const string AETHER_GUST_JP = "エーテル ガスト";
+  public const string WHIRLWIND_KITSUNE = "Whirlwind Kitsune";
+  public const string WHIRLWIND_KITSUNE_JP = "風纏い狐";
+  public const string THUNDER_LION = "Thunder Lion";
+  public const string THUNDER_LION_JP = "サンダー ライオン";
+  public const string SAINT_PEGASUS = "Saint Pegasus";
+  public const string SAINT_PEGASUS_JP = "神聖なるペガサス";
+  public const string DREAM_WALKER = "Dream Walker";
+  public const string DREAM_WALKER_JP = "ドリーム ウォーカー";
+  public const string IVORY_STATUE = "Ivory Statue";
+  public const string IVORY_STATUE_JP = "アイボリー スタチュー";
+  public const string STUBBORN_SAGE = "Stubborn Sage";
+  public const string STUBBORN_SAGE_JP = "スタボーン セイジ";
+  public const string BOMB_BALLON = "Bomb Ballon";
+  public const string BOMB_BALLON_JP = "爆弾バルーン";
+  public const string OBSERVANT_HERALD = "Observant Herald";
+  public const string OBSERVANT_HERALD_JP = "用心深い伝令者";
+  public const string TOWER_SCOUT = "Tower Scout";
+  public const string TOWER_SCOUT_JP = "塔の監視者";
+  public const string MIST_SALVAGER = "Mist Salvager";
+  public const string MIST_SALVAGER_JP = "ミスト サルベージャー";
+  public const string WINGSPAN_RANGER = "Wingspan  Ranger";
+  public const string WINGSPAN_RANGER_JP = "ウィングスパン レンジャー";
+  public const string MAJESTIC_CLOUD = "Magiestic Cloud";
+  public const string MAJESTIC_CLOUD_JP = "マジェスティック クラウド";
+  public const string HARDENED_GRIFFIN = "Hardened Griffin";
+  public const string HARDENED_GRIFFIN_JP = "硬化体質のグリフィン";
+  public const string PRISMA_SPHERE = "Prisma Sphere";
+  public const string PRISMA_SPHERE_JP = "プリズマ スフィア";
+  public const string MOVING_CANNON = "Moving Cannon";
+  public const string MOVING_CANNON_JP = "動き回る砲台";
+  public const string VEIL_FORTUNE_WIZARD = "Veil Fortune Wizard";
+  public const string VEIL_FORTUNE_WIZARD_JP = "ヴェイル フォーチュン ウィザード";
+  public const string LIGHT_THUNDER_LANCEBOLTS = "Light-Thunder Lancebolts";
+  public const string LIGHT_THUNDER_LANCEBOLTS_JP = "雷光ランスボルツ";
+  public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
+  public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
 
   // 未設定
   public const string RUDE_WATCHDOG = "Rude Watchdog";
@@ -2269,8 +2337,6 @@ public static partial class Fix
 
   public const string CALM_STAG = "Calm Stag";
   public const string CALM_STAG_JP = "冷静な鹿";
-  public const string TOWERING_ENT = "Towering Ent";
-  public const string TOWERING_ENT_JP = "そびえ立つエント";
   public const string DAGGER_FISH = "Dagger Fish";
   public const string DAGGER_FISH_JP = "ダガー フィッシュ";
   public const string FLOATING_MANTA = "Floating Manta";
@@ -2352,65 +2418,9 @@ public static partial class Fix
   public const string VELGAS_THE_KING_OF_SEA_STAR = "Velgas, The king of Sea-Star";
   public const string VELGAS_THE_KING_OF_SEA_STAR_JP = "海星源の王：ヴェルガス";
 
+  public const string FOREST_ELEMENTAL = "Forest Elemental";
+  public const string FOREST_ELEMENTAL_JP = "フォレスト エレメンタル";
 
-  public const string SWIFT_EAGLE = "Swift Eagle";
-  public const string SWIFT_EAGLE_JP = "スウィフト イーグル";
-  public const string EASTERN_GOLEM = "Eastern Golem";
-  public const string EASTERN_GOLEM_JP = "イースタン ゴーレム";
-  public const string WESTERN_GOLEM = "Western Golem";
-  public const string WESTERN_GOLEM_JP = "ウェスタン ゴーレム";
-  public const string WIND_ELEMENTAL = "Wind Elemental";
-  public const string WIND_ELEMENTAL_JP = "ウィンド エレメンタル";
-  public const string SKY_KNIGHT = "Sky Knight";
-  public const string SKY_KNIGHT_JP = "スカイ ナイト";
-  public const string THE_PURPLE_HIKARIGOKE = "The Purple Hikarigoke";
-  public const string THE_PURPLE_HIKARIGOKE_JP = "紫色のヒカリゴケ";
-  public const string MYSTICAL_UNICORN = "Mystical Unicorn";
-  public const string MYSTICAL_UNICORN_JP = "ミスティカル ユニコーン";
-  public const string TRIAL_HERMIT = "Trial Hermit";
-  public const string TRIAL_HERMIT_JP = "トライアル ハーミット";
-  public const string STORM_BIRDMAN = "Storm Birdman";
-  public const string STORM_BIRDMAN_JP = "疾風のバードマン";
-  public const string THE_BLUE_LAVA_EYE = "The Blue-Lava Eye";
-  public const string THE_BLUE_LAVA_EYE_JP = "ブルー ラーヴァ アイ";
-  public const string FLYING_CURTAIN = "Flying Curtain";
-  public const string FLYING_CURTAIN_JP = "浮遊するカーテン";
-  public const string LUMINOUS_HAWK = "Luminous Hawk";
-  public const string LUMINOUS_HAWK_JP = "ルミナス ホーク";
-  public const string AETHER_GUST = "Aether Gust";
-  public const string AETHER_GUST_JP = "エーテル ガスト";
-  public const string WHIRLWIND_KITSUNE = "Whirlwind Kitsune";
-  public const string WHIRLWIND_KITSUNE_JP = "風纏い狐";
-  public const string THUNDER_LION = "Thunder Lion";
-  public const string THUNDER_LION_JP = "サンダー ライオン";
-  public const string SAINT_PEGASUS = "Saint Pegasus";
-  public const string SAINT_PEGASUS_JP = "神聖なるペガサス";
-  public const string DREAM_WALKER = "Dream Walker";
-  public const string DREAM_WALKER_JP = "ドリーム ウォーカー";
-  public const string IVORY_STATUE = "Ivory Statue";
-  public const string IVORY_STATUE_JP = "アイボリー スタチュー";
-  public const string STUBBORN_SAGE = "Stubborn Sage";
-  public const string STUBBORN_SAGE_JP = "スタボーン セイジ";
-  public const string LIGHT_THUNDER_LANCEBOLTS = "Light-Thunder Lancebolts";
-  public const string LIGHT_THUNDER_LANCEBOLTS_JP = "雷光ランスボルツ";
-  public const string BOMB_BALLON = "Bomb Ballon";
-  public const string BOMB_BALLON_JP = "爆弾バルーン";
-  public const string OBSERVANT_HERALD = "Observant Herald";
-  public const string OBSERVANT_HERALD_JP = "用心深い伝令者";
-  public const string MIST_SALVAGER = "Mist Salvager";
-  public const string MIST_SALVAGER_JP = "ミスト サルベージャー";
-  public const string WINGSPAN_RANGER = "Wingspan  Ranger";
-  public const string WINGSPAN_RANGER_JP = "ウィングスパン レンジャー";
-  public const string HARDENED_GRIFFIN = "Hardened Griffin";
-  public const string HARDENED_GRIFFIN_JP = "硬化体質のグリフィン";
-  public const string MAJESTIC_CLOUD = "Magiestic Cloud";
-  public const string MAJESTIC_CLOUD_JP = "マジェスティック クラウド";
-  public const string PRISMA_SPHERE = "Prisma Sphere";
-  public const string PRISMA_SPHERE_JP = "プリズマ スフィア";
-  public const string VEIL_FORTUNE_WIZARD = "Veil Fortune Wizard";
-  public const string VEIL_FORTUNE_WIZARD_JP = "ヴェイル フォーチュン ウィザード";
-  public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
-  public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
   public const string IMPERIAL_KNIGHT = "Imperial Knight";
   public const string IMPERIAL_KNIGHT_JP = "インペリアル・ナイト";
   public const string VENERABLE_WIZARD = "Venerable Wizard";
@@ -2421,8 +2431,6 @@ public static partial class Fix
   public const string LIGHTNING_SPHERE_JP = "ライトニング・スフィア";
   public const string DECEIVED_HUNTSMAN = "Deceived Huntsman";
   public const string DECEIVED_HUNTSMAN_JP = "待ち伏せハンツマン";
-  public const string MOVING_CANNON = "Moving Cannon";
-  public const string MOVING_CANNON_JP = "動き回る砲台";
   public const string DHAL_GUARDIAN = "Dhal Guardian";
   public const string DHAL_GUARDIAN_JP = "ダルの守護人";
   public const string PUPPET_MASTER = "Puppet Master";
@@ -2437,14 +2445,10 @@ public static partial class Fix
   public const string WHISTLE_SENSOR_JP = "笛吹きセンサー";
   public const string DREAD_LANCER = "Dread Lancer";
   public const string DREAD_LANCER_JP = "ドレッド・ランサー";
-  public const string RAGE_TIGER = "Rage Tiger";
-  public const string RAGE_TIGER_JP = "レイジ・タイガー";
   public const string PEACEFUL_ANDANTINO = "Peaceful Andantino";
   public const string PEACEFUL_ANDANTINO_JP = "ピースフル・アンダンティーノ";
   public const string POISONED_CHALICE = "Poisoned Chalice";
   public const string POISONED_CHALICE_JP = "猛毒聖杯";
-  public const string WISDOM_CENTAURUS = "Wisdom Centaurus";
-  public const string WISDOM_CENTAURUS_JP = "知的なケンタウロス";
   public const string UNKNOWN_FLOATING_BALL = "Unknown Floating-Ball";
   public const string UNKNOWN_FLOATING_BALL_JP = "正体不明の浮遊物";
   public const string AURORA_SPIRIT = "Aurora Spirit";
