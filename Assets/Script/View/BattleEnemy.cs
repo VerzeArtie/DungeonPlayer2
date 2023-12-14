@@ -2718,6 +2718,256 @@ public partial class BattleEnemy : MotherBase
         ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, false, critical);
         break;
 
+      case Fix.COMMAND_WING_BLADE:
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Wind, false, critical);
+        if (success)
+        {
+          ExecBuffSilent(player, target, 2, 0);
+          ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
+        }
+        break;
+
+      case Fix.COMMAND_STONE_BLAW:
+        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffPhysicalDefenseDown(player, target, 5, 0.70f);
+        }
+        break;
+
+      case Fix.COMMAND_HUMIOROSI:
+        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffMagicDefenceDown(player, target, 5, 0.70f);
+        }
+        break;
+
+      case Fix.COMMAND_SQUALL_LIGHTNING:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          if (hit)
+          {
+            if (AP.Math.RandomInteger(3) == 0)
+            {
+              ExecBuffFreeze(player, target_list[ii], 2, 0);
+            }
+          }
+        }
+        break;
+
+      case Fix.COMMAND_SIPPUUKEN:
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffBattleSpeedUp(player, player, 2, 1.30f);
+        }
+        break;
+
+      case Fix.COMMAND_BRIGHTNESS_RINPUN:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          if (hit)
+          {
+            int random = AP.Math.RandomInteger(3);
+            if (random == 0)
+            {
+              ExecBuffDizzy(player, target_list[ii], 3, 0);
+            }
+            else if (random == 1)
+            {
+              ExecBuffSleep(player, target_list[ii], 3, 0);
+            }
+            else
+            {
+              ExecBuffPoison(player, target_list[ii], 3, 150);
+            }
+          }
+        }
+        break;
+
+      case Fix.COMMAND_SHIROGANE_HORN:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          target_list = GetAllyGroup(player);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 1.20f);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_VISIBLE_EYE:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          ExecBuffStun(player, target, 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_INVISIBLE_EYE:
+        ExecBuffBind(player, target, 3, 0);
+        ExecBuffParalyze(player, target, 3, 0);
+        break;
+
+      case Fix.COMMAND_WIND_CUTTER:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          int number = AP.Math.RandomInteger(target_list.Count);
+          ExecMagicAttack(player, target_list[number], 1.10f, Fix.DamageSource.Wind, false, critical);         
+        }
+        break;
+
+      case Fix.COMMAND_BLUE_LAVA:
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        if (success)
+        {
+          BuffUpIce(player, target, 5, 1.50f);
+        }
+        break;
+
+      case Fix.COMMAND_BLUE_BUBBLE:
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        if (success)
+        {
+          BuffDownFire(player, target, 5, 0.30f);
+        }
+        break;
+
+      case Fix.COMMAND_WHITE_LAVA:
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          BuffUpLight(player, target, 5, 1.50f);
+        }
+        break;
+
+      case Fix.COMMAND_WHITE_BUBBLE:
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          BuffDownLight(player, target, 5, 0.30f);
+        }
+        break;
+
+      case Fix.COMMAND_REFLECTION_SHADE:
+        target_list = GetAllyGroupAlive(player);
+        target_list[AP.Math.RandomInteger(target_list.Count)].objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_REFLECTION_SHADE, 3, 0, 0, 0);
+        break;
+
+      case Fix.COMMAND_ICHIMAI_GUARDWALL:
+        target_list = GetAllyGroupAlive(player);
+        target_list[AP.Math.RandomInteger(target_list.Count)].objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_ICHIMAI_GUARDWALL, 3, 0, 0, 0);
+        break;
+
+      case Fix.COMMAND_MULTIPLE_FEATHER:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 0.9f, Fix.DamageSource.Wind, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_BRIGHT_FLASH:
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          ExecBuffParalyze(player, target, 3, 0);
+        }
+        break;
+
+      case Fix.COMMAND_CYCLONE_SHOT:
+        for (int ii = 0; ii < 2; ii++)
+        {
+          ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.Wind, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_MORPH_VANISH:
+        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          int random = AP.Math.RandomInteger(3);
+          if (random == 0)
+          {
+            ExecBuffPhysicalAttackDown(player, target, 3, 0.70f);
+          }
+          else if (random == 1)
+          {
+            ExecBuffMagicAttackDown(player, target, 3, 0.70f);
+          }
+          else
+          {
+            ExecBuffBattleSpeedDown(player, target, 3, 0.70f);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_ROD_AGARTHA:
+        success = ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          ExecBuffMagicAttackUp(player, player, 5, 1.20f);
+        }
+        break;
+
+      case Fix.COMMAND_SWORD_MAHOROBA:
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
+        }
+        break;
+
+      case Fix.COMMAND_FEROCIOUS_THUNDER:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.7f, Fix.DamageSource.Wind, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_RAGING_CLAW:
+        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffSlip(player, target, 4, 200);
+        }
+        break;
+
+      case Fix.COMMAND_CLEANSING_LIGHT:
+        success = ExecMagicAttack(player, target, 1.0f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          BuffUpLight(player, player, 4, 1.30f);
+        }
+        break;
+
+      case Fix.COMMAND_FAITH_SIGHT:
+        player.objFieldPanel.AddBuff(prefab_Buff, Fix.COMMAND_FAITH_SIGHT, 9, 1200, 0, 0);
+        StartAnimation(player.objFieldPanel.gameObject, Fix.COMMAND_FAITH_SIGHT, Fix.COLOR_NORMAL);
+        break;
+
+      case Fix.COMMAND_SAMAYOU_HAND:
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, critical);
+        if (success)
+        {
+          ExecBuffSlip(player, target, 3, 200);
+          ExecBuffSilent(player, target, 3, 0);
+        }
+        break;
+
+      case Fix.COMMAND_SEIIN_FOOTPRINT:
+        player.objFieldPanel.AddBuff(prefab_Buff, Fix.COMMAND_SEIIN_FOOTPRINT, 9, 15, 0, 0);
+        StartAnimation(player.objFieldPanel.gameObject, Fix.COMMAND_SEIIN_FOOTPRINT, Fix.COLOR_NORMAL);
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
@@ -2743,6 +2993,33 @@ public partial class BattleEnemy : MotherBase
     return AllList;
   }
 
+  private List<Character> GetAllyGroupAlive(Character player)
+  {
+    List<Character> list = new List<Character>();
+    if (player.Ally == Fix.Ally.Ally)
+    {
+      for (int ii = 0; ii < PlayerList.Count; ii++)
+      {
+        if (PlayerList[ii].Dead == false)
+        {
+          list.Add(PlayerList[ii]);
+        }
+      }
+      return list;
+    }
+    //else if (player.Ally == Fix.Ally.Enemy)
+    else
+    {
+      for (int ii = 0; ii < EnemyList.Count; ii++)
+      {
+        if (EnemyList[ii].Dead == false)
+        {
+          list.Add(EnemyList[ii]);
+        }
+      }
+      return list;
+    }
+  }
   private List<Character> GetAllyGroup(Character player)
   {
     if (player.Ally == Fix.Ally.Ally)
@@ -2780,7 +3057,7 @@ public partial class BattleEnemy : MotherBase
           list.Add(PlayerList[ii]);
         }
       }
-      return PlayerList;
+      return list;
     }
   }
   private List<Character> GetOpponentGroup(Character player)
@@ -3040,7 +3317,11 @@ public partial class BattleEnemy : MotherBase
   private void UpdatePlayerArrowZero(Character player, GameObject arrow)
   {
     player.BattleGaugeArrow = 0;
-    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH);
+    if (player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT) != null)
+    {
+      player.BattleGaugeArrow = (float)(player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT).EffectValue);
+    }
+    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     //RectTransform rect = arrow.GetComponent<RectTransform>();
     //rect.position = new Vector3(0, rect.position.y, rect.position.z);
   }
@@ -4410,11 +4691,38 @@ public partial class BattleEnemy : MotherBase
         return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
       }
     }
+    // モンスター専用：FAITH_SIGHTによる効果
+    if (panelField != null)
+    {
+      BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.COMMAND_FAITH_SIGHT);
+      if (buffImage != null)
+      {
+        Debug.Log("COMMAND_FAITH_SIGHT: " + player.FullName + " -> " + damageValue.ToString("F2") + " " + buffImage.EffectValue.ToString("F2"));
+        buffImage.EffectValue -= damageValue;
+        StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
+        if (buffImage.EffectValue <= 0)
+        {
+          buffImage.RemoveBuff();
+        }
+        return false; // FAITH_SIGHTで吸収された場合はヒットしたことにならない。
+      }
+    }
+
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
       damageValue = 0;
     }
+
+    // モンスター特有
+    if (target.IsIchimaiGuardwall != null)
+    {
+      target.RemoveTargetBuff(Fix.COMMAND_ICHIMAI_GUARDWALL);
+      ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
+      return true;
+      // 反射に関するロジック構築は必要だが、モンスターの単発行動であるため、これで良い。
+    }
+
     // ダメージ適用
     ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
@@ -4522,6 +4830,15 @@ public partial class BattleEnemy : MotherBase
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
       damageValue = 0;
+    }
+
+    // モンスター特有
+    if (target.IsReflectionShade != null)
+    {
+      target.RemoveTargetBuff(Fix.COMMAND_REFLECTION_SHADE);
+      ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
+      return true;
+      // 反射に関するロジック構築は必要だが、モンスターの単発行動であるため、これで良い。
     }
 
     // ダメージ適用
@@ -5838,6 +6155,72 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_FIRE, Fix.COLOR_NORMAL);
   }
 
+  private void BuffDownFire(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_FIRE, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_FIRE, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffUpIce(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_ICE, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_ICE, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffDownIce(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_ICE, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_ICE, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffUpLight(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_LIGHT, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_LIGHT, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffDownLight(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_LIGHT, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_LIGHT, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffUpShadow(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_SHADOW, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_SHADOW, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffDownShadow(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_SHADOW, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_LIGHT, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffUpWind(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_WIND, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_WIND, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffDownWind(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_WIND, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_WIND, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffUpEarth(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_EARTH, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_EARTH, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffDownEarth(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_EARTH, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_EARTH, Fix.COLOR_NORMAL);
+  }
+
   private void ExecBuffSyutyuDanzetsu(Character player, Character target, int turn, double effect_value)
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_SYUTYU_DANZETSU, turn, effect_value, 0, 0);
@@ -6106,6 +6489,7 @@ public partial class BattleEnemy : MotherBase
 
     // 属性耐性の分だけ、減衰させる ( Percent )
     double reductionFire = 0.0f;
+    if (attr == Fix.DamageSource.Fire && target.IsDownFire != null && target.IsDownFire.EffectValue > 0) { reductionFire += target.IsDownFire.EffectValue; }
     if (attr == Fix.DamageSource.Fire && target.MainWeapon != null && target.MainWeapon.ResistFirePercent > 0) { reductionFire += target.MainWeapon.ResistFirePercent; }
     if (attr == Fix.DamageSource.Fire && target.SubWeapon != null && target.SubWeapon.ResistFirePercent > 0) { reductionFire += target.SubWeapon.ResistFirePercent; }
     if (attr == Fix.DamageSource.Fire && target.MainArmor != null && target.MainArmor.ResistFirePercent > 0) { reductionFire += target.MainArmor.ResistFirePercent; }
@@ -6116,6 +6500,7 @@ public partial class BattleEnemy : MotherBase
     damageValue *= (1.00f - reductionFire);
 
     double reductionIce = 0.0f;
+    if (attr == Fix.DamageSource.Ice && target.IsDownIce != null && target.IsDownIce.EffectValue > 0) { reductionIce += target.IsDownIce.EffectValue; }
     if (attr == Fix.DamageSource.Ice && target.MainWeapon != null && target.MainWeapon.ResistIcePercent > 0) { reductionIce += target.MainWeapon.ResistIcePercent; }
     if (attr == Fix.DamageSource.Ice && target.SubWeapon != null && target.SubWeapon.ResistIcePercent > 0) { reductionIce += target.SubWeapon.ResistIcePercent; }
     if (attr == Fix.DamageSource.Ice && target.MainArmor != null && target.MainArmor.ResistIcePercent > 0) { reductionIce += target.MainArmor.ResistIcePercent; }
@@ -6126,6 +6511,7 @@ public partial class BattleEnemy : MotherBase
     damageValue *= (1.00f - reductionIce);
 
     double reductionLight = 0.0f;
+    if (attr == Fix.DamageSource.HolyLight && target.IsDownLight != null && target.IsDownLight.EffectValue > 0) { reductionLight += target.IsDownLight.EffectValue; }
     if (attr == Fix.DamageSource.HolyLight && target.MainWeapon != null && target.MainWeapon.ResistLightPercent > 0) { reductionLight += target.MainWeapon.ResistLightPercent; }
     if (attr == Fix.DamageSource.HolyLight && target.SubWeapon != null && target.SubWeapon.ResistLightPercent > 0) { reductionLight += target.SubWeapon.ResistLightPercent; }
     if (attr == Fix.DamageSource.HolyLight && target.MainArmor != null && target.MainArmor.ResistLightPercent > 0) { reductionLight += target.MainArmor.ResistLightPercent; }
@@ -6136,6 +6522,7 @@ public partial class BattleEnemy : MotherBase
     damageValue *= (1.00f - reductionLight);
 
     double reductionShadow = 0.0f;
+    if (attr == Fix.DamageSource.DarkMagic && target.IsDownShadow != null && target.IsDownShadow.EffectValue > 0) { reductionShadow += target.IsDownShadow.EffectValue; }
     if (attr == Fix.DamageSource.DarkMagic && target.MainWeapon != null && target.MainWeapon.ResistShadowPercent > 0) { reductionShadow += target.MainWeapon.ResistShadowPercent; }
     if (attr == Fix.DamageSource.DarkMagic && target.SubWeapon != null && target.SubWeapon.ResistShadowPercent > 0) { reductionShadow += target.SubWeapon.ResistShadowPercent; }
     if (attr == Fix.DamageSource.DarkMagic && target.MainArmor != null && target.MainArmor.ResistShadowPercent > 0) { reductionShadow += target.MainArmor.ResistShadowPercent; }
@@ -6146,6 +6533,7 @@ public partial class BattleEnemy : MotherBase
     damageValue *= (1.00f - reductionShadow);
 
     double reductionWind = 0.0f;
+    if (attr == Fix.DamageSource.Wind && target.IsDownWind != null && target.IsDownWind.EffectValue > 0) { reductionWind += target.IsDownWind.EffectValue; }
     if (attr == Fix.DamageSource.Wind && target.MainWeapon != null && target.MainWeapon.ResistWindPercent > 0) { reductionWind += target.MainWeapon.ResistWindPercent; }
     if (attr == Fix.DamageSource.Wind && target.SubWeapon != null && target.SubWeapon.ResistWindPercent > 0) { reductionWind += target.SubWeapon.ResistWindPercent; }
     if (attr == Fix.DamageSource.Wind && target.MainArmor != null && target.MainArmor.ResistWindPercent > 0) { reductionWind += target.MainArmor.ResistWindPercent; }
@@ -6156,6 +6544,7 @@ public partial class BattleEnemy : MotherBase
     damageValue *= (1.00f - reductionWind);
 
     double reductionEarth = 0.0f;
+    if (attr == Fix.DamageSource.Earth && target.IsDownEarth != null && target.IsDownEarth.EffectValue > 0) { reductionEarth += target.IsDownEarth.EffectValue; }
     if (attr == Fix.DamageSource.Earth && target.MainWeapon != null && target.MainWeapon.ResistEarthPercent > 0) { reductionEarth += target.MainWeapon.ResistEarthPercent; }
     if (attr == Fix.DamageSource.Earth && target.SubWeapon != null && target.SubWeapon.ResistEarthPercent > 0) { reductionEarth += target.SubWeapon.ResistEarthPercent; }
     if (attr == Fix.DamageSource.Earth && target.MainArmor != null && target.MainArmor.ResistEarthPercent > 0) { reductionEarth += target.MainArmor.ResistEarthPercent; }

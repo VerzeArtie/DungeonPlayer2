@@ -258,6 +258,13 @@ public static partial class Fix
   public const string EFFECT_POWERUP_WIND = "UP Wind";
   public const string EFFECT_POWERUP_EARTH = "UP Earth";
 
+  public const string EFFECT_POWERDOWN_FIRE = "DOWN Fire";
+  public const string EFFECT_POWERDOWN_ICE = "DOWN Ice";
+  public const string EFFECT_POWERDOWN_LIGHT = "DOWN Light";
+  public const string EFFECT_POWERDOWN_SHADOW = "DOWN Shadow";
+  public const string EFFECT_POWERDOWN_WIND = "DOWN Wind";
+  public const string EFFECT_POWERDOWN_EARTH = "DOWN Earth";
+
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
   public const string EFFECT_BIND = "Bind";
@@ -1434,6 +1441,70 @@ public static partial class Fix
   public const string COMMAND_BLACK_SPORE = "黒い胞子";
   public const string COMMAND_KILL_SPINNING_LANCER = "キル・スピニングランサー";
 
+  public const string COMMAND_WING_BLADE = "ウィング・ブレード";
+  public const string COMMAND_STONE_BLAW = "ストーン・ブロー";
+  public const string COMMAND_HUMIOROSI = "踏み下ろし";
+  public const string COMMAND_SQUALL_LIGHTNING = "スコール・ライトニング";
+  public const string COMMAND_SIPPUUKEN = "疾風剣";
+  public const string COMMAND_BRIGHTNESS_RINPUN = "輝かしい鱗粉";
+  public const string COMMAND_SHIROGANE_HORN = "白銀の角";
+  public const string COMMAND_VISIBLE_EYE = "不可視の視線";
+  public const string COMMAND_INVISIBLE_EYE = "可視光線";
+  public const string COMMAND_WIND_CUTTER = "ウィンド・カッター";
+  public const string COMMAND_BLUE_LAVA = "青い溶岩";
+  public const string COMMAND_BLUE_BUBBLE = "ブルー・バブル";
+  public const string COMMAND_WHITE_LAVA = "白い溶岩";
+  public const string COMMAND_WHITE_BUBBLE = "ホワイト・バブル";
+  public const string COMMAND_REFLECTION_SHADE = "リフレクション・シェード";
+  public const string COMMAND_ICHIMAI_GUARDWALL = "壱枚の防壁";
+  public const string COMMAND_MULTIPLE_FEATHER = "マルチプル・フェザー";
+  public const string COMMAND_BRIGHT_FLASH = "ブライト・フラッシュ";
+  public const string COMMAND_CYCLONE_SHOT = "サイクロン・ショット";
+  public const string COMMAND_MORPH_VANISH = "変異バニッシュ";
+  public const string COMMAND_ROD_AGARTHA = "杖：アガルタ";
+  public const string COMMAND_SWORD_MAHOROBA = "剣：マホロバ";
+  public const string COMMAND_FEROCIOUS_THUNDER = "フェロシアス・サンダー";
+  public const string COMMAND_RAGING_CLAW = "レイジング・クロー";
+  public const string COMMAND_CLEANSING_LIGHT = "浄化の光";
+  public const string COMMAND_FAITH_SIGHT = "信仰への凝視";
+  public const string COMMAND_SAMAYOU_HAND = "彷徨う手";
+  public const string COMMAND_SEIIN_FOOTPRINT = "正因の足跡";
+  public const string COMMAND_LIGHT_THUNDERBOLT = "雷光の一撃";
+  public const string COMMAND_CYCLONE_ARMOR = "サイクロン・アーマー";
+  public const string COMMAND_FURY_TRIDENT = "フューリー・トライデント";
+  public const string COMMAND_HEAVEN_THUNDER_SPEAR = "天啓の雷槍";
+  public const string COMMAND_OVERRUN = "踏みつぶし";
+  public const string COMMAND_GLARE = "睨みつけ";
+  public const string COMMAND_ARC_BLASTER = "アーク・ブラスター";
+  public const string COMMAND_DRAGON_BREATH = "ドラゴン・ブレス";
+  public const string COMMAND_RENZOKU_BAKUHATSU = "連続爆発";
+  public const string COMMAND_AIUCHI_NERAI = "相打ち狙い";
+  public const string COMMAND_HIDDEN_KNIFE = "隠しナイフ";
+  public const string COMMAND_MYSTICAL_FIELD = "ミスティカル・フィールド";
+  public const string COMMAND_SEIKUU_GUARDWALL = "清空の防壁";
+  public const string COMMAND_THUNDERCLOUD_INVASION = "雷雲の侵攻";
+  public const string COMMAND_MIST_BARRIER = "ミスト・バリア";
+  public const string COMMAND_SUN_SLAYER = "サン・スレイヤー";
+  public const string COMMAND_TRIPLE_TACTICS = "トリプル・タクティクス";
+  public const string COMMAND_WIND_ARROW = "ウィンド・アロー";
+  public const string COMMAND_TYPHOON = "タイフーン";
+  public const string COMMAND_UNIDENTIFIED_DISK = "奇妙な円盤";
+  public const string COMMAND_HARD_CHARGE = "激突";
+  public const string COMMAND_RAMPAGE = "大暴れ";
+  public const string COMMAND_ICE_BURN = "アイス・バーン";
+  public const string COMMAND_FROST_SHARD = "フロスト・シャード";
+  public const string COMMAND_DOKAAAAN = "ドカーーン！";
+  public const string COMMAND_RENSYA = "連射！";
+  public const string COMMAND_ERRATIC_EXPLODE = "エラティック・エクスプロード";
+  public const string COMMAND_CYCLONE_FIELD = "サイクロン・フィールド";
+  public const string COMMAND_ICE_RAY = "アイス・レイ";
+  public const string COMMAND_CLEANSING_LANCE = "浄化の槍";
+  public const string COMMAND_STATUS_CHANGE = "状態変異";
+  public const string COMMAND_DEATH_DANCE = "死の舞踏";
+  public const string COMMAND_HEAVEN_VOICE = "天空の呼び声";
+  public const string COMMAND_PLASMA_STORM = "プラズマ・ストーム";
+  public const string COMMAND_APOCALYPSE_SWORD = "アポカリプス・ソード";
+
   public const string COMMAND_NOTHING = "なし";
   #endregion
 
@@ -2280,8 +2351,8 @@ public static partial class Fix
   public const string STORM_BIRDMAN_JP = "疾風のバードマン";
   public const string THE_BLUE_LAVA_EYE = "The Blue-Lava Eye";
   public const string THE_BLUE_LAVA_EYE_JP = "ブルー ラーヴァ アイ";
-  public const string THE_RED_LAVA_EYE = "The Red-Lava Eye";
-  public const string THE_RED_LAVA_EYE_JP = "レッド ラーヴァ アイ";
+  public const string THE_WHITE_LAVA_EYE = "The White-Lava Eye";
+  public const string THE_WHITE_LAVA_EYE_JP = "ホワイト ラーヴァ アイ";
   public const string FLYING_CURTAIN = "Flying Curtain";
   public const string FLYING_CURTAIN_JP = "浮遊するカーテン";
   public const string LUMINOUS_HAWK = "Luminous Hawk";

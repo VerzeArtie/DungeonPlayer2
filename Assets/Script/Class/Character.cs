@@ -2698,30 +2698,54 @@ public partial class Character : MonoBehaviour
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_FIRE); }
   }
+  public BuffImage IsDownFire
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_FIRE); }
+  }
 
   public BuffImage IsUpIce
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_ICE); }
+  }
+  public BuffImage IsDownIce
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_ICE); }
   }
 
   public BuffImage IsUpLight
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_LIGHT); }
   }
+  public BuffImage IsDownLight
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_LIGHT); }
+  }
 
   public BuffImage IsUpShadow
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_SHADOW); }
+  }
+  public BuffImage IsDownShadow
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_SHADOW); }
   }
 
   public BuffImage IsUpWind
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_WIND); }
   }
+  public BuffImage IsDownWind
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_WIND); }
+  }
 
   public BuffImage IsUpEarth
   {
     get { return SearchBuff(Fix.EFFECT_POWERUP_EARTH); }
+  }
+  public BuffImage IsDownEarth
+  {
+    get { return SearchBuff(Fix.EFFECT_POWERDOWN_EARTH); }
   }
 
   public BuffImage IsPhysicalAttackUp
@@ -2792,10 +2816,25 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BUFF_SYUTYU_DANZETSU); }
   }
 
-  // モンスター特融
+  // モンスター特有
   public BuffImage IsBlackSpore
   {
     get { return SearchBuff(Fix.BUFF_BLACK_SPORE); }
+  }
+  
+  public BuffImage IsReflectionShade
+  {
+    get { return SearchBuff(Fix.COMMAND_REFLECTION_SHADE); }
+  }
+
+  public BuffImage IsIchimaiGuardwall
+  {
+    get { return SearchBuff(Fix.COMMAND_ICHIMAI_GUARDWALL); }
+  }
+
+  public BuffImage IsFaithSight
+  {
+    get { return SearchBuff(Fix.COMMAND_FAITH_SIGHT); }
   }
 
   public void RemoveTargetBuff(string buff_name)
@@ -7158,7 +7197,7 @@ public partial class Character : MonoBehaviour
       case Fix.SWIFT_EAGLE_JP:
         SetupParameter(250, 149, 207, 498, 25, 7, 2021, 1566);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("ウィング・ブレード");
+        list.Add(Fix.COMMAND_WING_BLADE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
@@ -7168,7 +7207,7 @@ public partial class Character : MonoBehaviour
       case Fix.EASTERN_GOLEM_JP:
         SetupParameter(320, 120, 170, 580, 25, 5, 2208, 1629);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("ストーン・ブロー");
+        list.Add(Fix.COMMAND_STONE_BLAW);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
@@ -7178,7 +7217,7 @@ public partial class Character : MonoBehaviour
       case Fix.WESTERN_GOLEM_JP:
         SetupParameter(320, 120, 170, 580, 25, 5, 2208, 1629);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("踏み下ろし");
+        list.Add(Fix.COMMAND_HUMIOROSI);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
@@ -7188,7 +7227,7 @@ public partial class Character : MonoBehaviour
       case Fix.WIND_ELEMENTAL_JP:
         SetupParameter(262, 143, 289, 564, 25, 3, 2384, 1742);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("スコール・ライトニング");
+        list.Add(Fix.COMMAND_SQUALL_LIGHTNING);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
@@ -7198,7 +7237,7 @@ public partial class Character : MonoBehaviour
       case Fix.SKY_KNIGHT_JP:
         SetupParameter(388, 162, 245, 623, 30, 8, 2531, 1836);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("疾風剣");
+        list.Add(Fix.COMMAND_SIPPUUKEN);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
@@ -7208,7 +7247,7 @@ public partial class Character : MonoBehaviour
       case Fix.THE_PURPLE_HIKARIGOKE_JP:
         SetupParameter(299, 151, 382, 607, 30, 9, 2665, 1947);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("輝かしい鱗粉");
+        list.Add(Fix.COMMAND_BRIGHTNESS_RINPUN);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
@@ -7218,8 +7257,8 @@ public partial class Character : MonoBehaviour
       case Fix.MYSTICAL_UNICORN_JP:
         SetupParameter(369, 170, 310, 631, 30, 4, 2853, 2051);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("癒しの角");
-        list.Add("突進");
+        list.Add(Fix.COMMAND_SHIROGANE_HORN);
+        list.Add(Fix.COMMAND_TOSSHIN);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
@@ -7229,8 +7268,8 @@ public partial class Character : MonoBehaviour
       case Fix.TRIAL_HERMIT_JP:
         SetupParameter(324, 167, 398, 611, 30, 5, 3013, 2116);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("不可視の視線");
-        list.Add("可視光線");
+        list.Add(Fix.COMMAND_VISIBLE_EYE);
+        list.Add(Fix.COMMAND_INVISIBLE_EYE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
@@ -7240,8 +7279,8 @@ public partial class Character : MonoBehaviour
       case Fix.STORM_BIRDMAN_JP:
         SetupParameter(353, 189, 322, 623, 30, 1, 3164, 2231);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("連続攻撃");
-        list.Add("ウィンド・カッター");
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        list.Add(Fix.COMMAND_WIND_CUTTER);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
@@ -7251,19 +7290,19 @@ public partial class Character : MonoBehaviour
       case Fix.THE_BLUE_LAVA_EYE_JP:
         SetupParameter(318, 174, 407, 643, 30, 2, 3308, 2412);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("ブルー・フィールド");
-        list.Add("ブルー・バブル");
+        list.Add(Fix.COMMAND_BLUE_LAVA);
+        list.Add(Fix.COMMAND_BLUE_BUBBLE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
         break;
 
-      case Fix.THE_RED_LAVA_EYE:
-      case Fix.THE_RED_LAVA_EYE_JP:
+      case Fix.THE_WHITE_LAVA_EYE:
+      case Fix.THE_WHITE_LAVA_EYE_JP:
         SetupParameter(318, 174, 407, 643, 30, 2, 3308, 2412);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("レッド・フィールド");
-        list.Add("レッド・バブル");
+        list.Add(Fix.COMMAND_WHITE_LAVA);
+        list.Add(Fix.COMMAND_WHITE_BUBBLE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
@@ -7273,8 +7312,8 @@ public partial class Character : MonoBehaviour
       case Fix.FLYING_CURTAIN_JP:
         SetupParameter(333, 202, 451, 688, 35, 4, 3519, 2677);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("リフレクション・シェード");
-        list.Add("壱枚の防壁");
+        list.Add(Fix.COMMAND_REFLECTION_SHADE);
+        list.Add(Fix.COMMAND_ICHIMAI_GUARDWALL);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7284,8 +7323,8 @@ public partial class Character : MonoBehaviour
       case Fix.LUMINOUS_HAWK_JP:
         SetupParameter(427, 228, 329, 705, 35, 8, 3665, 2879);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("マルチプル・フェザー");
-        list.Add("ブライト・フラッシュ");
+        list.Add(Fix.COMMAND_MULTIPLE_FEATHER);
+        list.Add(Fix.COMMAND_BRIGHT_FLASH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7295,8 +7334,8 @@ public partial class Character : MonoBehaviour
       case Fix.AETHER_GUST_JP:
         SetupParameter(341, 219, 443, 711, 35, 7, 3784, 2992);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("サイクロン・ショット");
-        list.Add("変異バニッシュ");
+        list.Add(Fix.COMMAND_CYCLONE_SHOT);
+        list.Add(Fix.COMMAND_MORPH_VANISH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7306,8 +7345,8 @@ public partial class Character : MonoBehaviour
       case Fix.WHIRLWIND_KITSUNE_JP:
         SetupParameter(448, 224, 448, 733, 35, 9, 3911, 3046);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("杖：アガルタ");
-        list.Add("剣：マホロバ");
+        list.Add(Fix.COMMAND_ROD_AGARTHA);
+        list.Add(Fix.COMMAND_SWORD_MAHOROBA);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = false;
@@ -7317,8 +7356,8 @@ public partial class Character : MonoBehaviour
       case Fix.THUNDER_LION_JP:
         SetupParameter(457, 239, 432, 746, 35, 5, 4026, 3113);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("フェロシアス・サンダー");
-        list.Add("レイジング・クロー");
+        list.Add(Fix.COMMAND_FEROCIOUS_THUNDER);
+        list.Add(Fix.COMMAND_RAGING_CLAW);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7328,8 +7367,8 @@ public partial class Character : MonoBehaviour
       case Fix.SAINT_PEGASUS_JP:
         SetupParameter(387, 231, 451, 757, 35, 2, 4129, 3297);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("浄化の光");
-        list.Add("信仰への凝視");
+        list.Add(Fix.COMMAND_CLEANSING_LIGHT);
+        list.Add(Fix.COMMAND_FAITH_SIGHT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7339,8 +7378,8 @@ public partial class Character : MonoBehaviour
       case Fix.DREAM_WALKER_JP:
         SetupParameter(456, 235, 395, 763, 35, 3, 4297, 3418);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("彷徨う手");
-        list.Add("正因の足跡");
+        list.Add(Fix.COMMAND_SAMAYOU_HAND);
+        list.Add(Fix.COMMAND_SEIIN_FOOTPRINT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
@@ -7350,10 +7389,10 @@ public partial class Character : MonoBehaviour
       case Fix.LIGHT_THUNDER_LANCEBOLTS_JP:
         SetupParameter(980, 280, 980, 4500, 50, 0, 95000, 65000);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("雷光の一撃");
-        list.Add("サイクロン・アーマー");
-        list.Add("フューリー・トライデント");
-        list.Add("天啓の雷槍");
+        list.Add(Fix.COMMAND_LIGHT_THUNDERBOLT);
+        list.Add(Fix.COMMAND_CYCLONE_ARMOR);
+        list.Add(Fix.COMMAND_FURY_TRIDENT);
+        list.Add(Fix.COMMAND_HEAVEN_THUNDER_SPEAR);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss4;
         this.CannotCritical = false;
@@ -7363,8 +7402,8 @@ public partial class Character : MonoBehaviour
       case Fix.IVORY_STATUE_JP:
         SetupParameter(546, 265, 411, 820, 40, 9, 4438, 3610);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("踏みつぶし");
-        list.Add("睨みつけ");
+        list.Add(Fix.COMMAND_OVERRUN);
+        list.Add(Fix.COMMAND_GLARE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
@@ -7374,8 +7413,8 @@ public partial class Character : MonoBehaviour
       case Fix.STUBBORN_SAGE_JP:
         SetupParameter(433, 275, 557, 832, 40, 9, 4438, 3610);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("アーク・ブラスター");
-        list.Add("ドラゴン・ブレス");
+        list.Add(Fix.COMMAND_ARC_BLASTER);
+        list.Add(Fix.COMMAND_DRAGON_BREATH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = false;
@@ -7385,8 +7424,8 @@ public partial class Character : MonoBehaviour
       case Fix.BOMB_BALLON_JP:
         SetupParameter(539, 281, 427, 816, 40, 3, 4818, 3889);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("連続爆発");
-        list.Add("相打ち狙い");
+        list.Add(Fix.COMMAND_RENZOKU_BAKUHATSU);
+        list.Add(Fix.COMMAND_AIUCHI_NERAI);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = false;
@@ -7396,8 +7435,8 @@ public partial class Character : MonoBehaviour
       case Fix.OBSERVANT_HERALD_JP:
         SetupParameter(528, 298, 432, 824, 40, 6, 5066, 4022);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("隠しナイフ");
-        list.Add("ミスティカル・フィールド");
+        list.Add(Fix.COMMAND_HIDDEN_KNIFE);
+        list.Add(Fix.COMMAND_MYSTICAL_FIELD);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
@@ -7407,8 +7446,8 @@ public partial class Character : MonoBehaviour
       case Fix.TOWER_SCOUT_JP:
         SetupParameter(441, 286, 557, 836, 40, 2, 5284, 4146);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("清空の防壁");
-        list.Add("雷雲の侵攻");
+        list.Add(Fix.COMMAND_SEIKUU_GUARDWALL);
+        list.Add(Fix.COMMAND_THUNDERCLOUD_INVASION);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
@@ -7418,8 +7457,8 @@ public partial class Character : MonoBehaviour
       case Fix.MIST_SALVAGER_JP:
         SetupParameter(453, 293, 564, 846, 40, 2, 5497, 4215);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("ミスト・バリア");
-        list.Add("サン・スレイヤー");
+        list.Add(Fix.COMMAND_MIST_BARRIER);
+        list.Add(Fix.COMMAND_SUN_SLAYER);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
@@ -7429,8 +7468,8 @@ public partial class Character : MonoBehaviour
       case Fix.WINGSPAN_RANGER_JP:
         SetupParameter(630, 329, 489, 927, 45, 4, 6218, 4467);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("トリプル・タクティクス");
-        list.Add("ウィンド・アロー");
+        list.Add(Fix.COMMAND_TRIPLE_TACTICS);
+        list.Add(Fix.COMMAND_WIND_ARROW);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = false;
@@ -7440,8 +7479,8 @@ public partial class Character : MonoBehaviour
       case Fix.MAJESTIC_CLOUD_JP:
         SetupParameter(497, 307, 641, 945, 45, 2, 6561, 4580);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("タイフーン");
-        list.Add("奇妙な円盤");
+        list.Add(Fix.COMMAND_TYPHOON);
+        list.Add(Fix.COMMAND_UNIDENTIFIED_DISK);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
@@ -7451,8 +7490,8 @@ public partial class Character : MonoBehaviour
       case Fix.HARDENED_GRIFFIN_JP:
         SetupParameter(646, 312, 470, 966, 45, 7, 6813, 4711);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("激突");
-        list.Add("大暴れ");
+        list.Add(Fix.COMMAND_HARD_CHARGE);
+        list.Add(Fix.COMMAND_RAMPAGE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
@@ -7462,8 +7501,8 @@ public partial class Character : MonoBehaviour
       case Fix.PRISMA_SPHERE_JP:
         SetupParameter(481, 317, 655, 973, 45, 5, 7019, 4853);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("アイス・バーン");
-        list.Add("フロスト・シャード");
+        list.Add(Fix.COMMAND_ICE_BURN);
+        list.Add(Fix.COMMAND_FROST_SHARD);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
@@ -7473,8 +7512,8 @@ public partial class Character : MonoBehaviour
       case Fix.MOVING_CANNON_JP:
         SetupParameter(658, 319, 488, 981, 45, 6, 7267, 4979);
         list.Add(Fix.NORMAL_ATTACK);
-        list.Add("ドカーーン！");
-        list.Add("連射！");
+        list.Add(Fix.COMMAND_DOKAAAAN);
+        list.Add(Fix.COMMAND_RENSYA);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
@@ -7484,9 +7523,9 @@ public partial class Character : MonoBehaviour
       case Fix.VEIL_FORTUNE_WIZARD_JP:
         SetupParameter(493, 315, 672, 998, 45, 9, 7493, 5111);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("エラティック・エクスプロード");
-        list.Add("サイクロン・フィールド");
-        list.Add("アイス・レイ");
+        list.Add(Fix.COMMAND_ERRATIC_EXPLODE);
+        list.Add(Fix.COMMAND_CYCLONE_FIELD);
+        list.Add(Fix.COMMAND_ICE_RAY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = false;
@@ -7496,12 +7535,12 @@ public partial class Character : MonoBehaviour
       case Fix.THE_YODIRIAN_JP:
         SetupParameter(1200, 450, 1500, 12000, 60, 0, 160000, 100000);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add("浄化の槍");
-        list.Add("状態変異");
-        list.Add("死の舞踏");
-        list.Add("天空の呼び声");
-        list.Add("プラズマ・ストーム");
-        list.Add("アポカリプス・ソード");
+        list.Add(Fix.COMMAND_CLEANSING_LANCE);
+        list.Add(Fix.COMMAND_STATUS_CHANGE);
+        list.Add(Fix.COMMAND_DEATH_DANCE);
+        list.Add(Fix.COMMAND_HEAVEN_VOICE);
+        list.Add(Fix.COMMAND_PLASMA_STORM);
+        list.Add(Fix.COMMAND_APOCALYPSE_SWORD);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss42;
         this.CannotCritical = false;
@@ -7521,7 +7560,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(10, 10, 10, 10, 10, 100, 0, 0);
+        SetupParameter(10, 10, 10, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
