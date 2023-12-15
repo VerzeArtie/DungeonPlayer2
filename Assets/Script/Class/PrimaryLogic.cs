@@ -543,6 +543,12 @@ public static class PrimaryLogic
       result = result * player.IsBattleSpeedDown.EffectValue;
     }
 
+    BuffImage buffImage = player.IsLightThunderbolt;
+    if (buffImage)
+    {
+      result = result * (1.00f - buffImage.EffectValue * buffImage.Cumulative);
+    }
+
     if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.MainWeapon.AmplifyBattleSpeed; }
     if (player.SubWeapon != null && player.SubWeapon.AmplifyBattleSpeed > 1.00f) { result = result * player.SubWeapon.AmplifyBattleSpeed; }
     if (player.MainArmor != null && player.MainArmor.AmplifyBattleSpeed > 1.00f) { result = result * player.MainArmor.AmplifyBattleSpeed; }
@@ -587,6 +593,12 @@ public static class PrimaryLogic
     if (circleOfDespair != null)
     {
       result *= circleOfDespair.EffectValue;
+    }
+
+    BuffImage buffImage = player.IsLightThunderbolt;
+    if (buffImage)
+    {
+      result = result * (1.00f - buffImage.EffectValue2 * buffImage.Cumulative);
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleResponse > 1.00f) { result = result * player.MainWeapon.AmplifyBattleResponse; }

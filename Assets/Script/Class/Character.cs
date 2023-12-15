@@ -2837,6 +2837,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.COMMAND_FAITH_SIGHT); }
   }
 
+  public BuffImage IsLightThunderbolt
+  {
+    get { return SearchBuff(Fix.COMMAND_LIGHT_THUNDERBOLT); }
+  }
+
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
@@ -7387,7 +7392,9 @@ public partial class Character : MonoBehaviour
 
       case Fix.LIGHT_THUNDER_LANCEBOLTS:
       case Fix.LIGHT_THUNDER_LANCEBOLTS_JP:
+      case Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW:
         SetupParameter(980, 280, 980, 4500, 50, 0, 95000, 65000);
+        this._baseInstantPoint = 3000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_LIGHT_THUNDERBOLT);
         list.Add(Fix.COMMAND_CYCLONE_ARMOR);
@@ -8318,6 +8325,43 @@ public partial class Character : MonoBehaviour
             }
           }
           if (detect == false)
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.LIGHT_THUNDER_LANCEBOLTS:
+      case Fix.LIGHT_THUNDER_LANCEBOLTS_JP:
+      case Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_FURY_TRIDENT);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_LIGHT_THUNDERBOLT);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          if (this.IsBattleSpeedUp == false ||
+              this.IsPhysicalAttackUp == false ||
+              this.IsMagicDefenseUp == false)
+          {
+            current.Add(Fix.COMMAND_CYCLONE_ARMOR);
+          }
+        }
+        else
+        {
+          if (AP.Math.RandomInteger(2) == 0)
+          {
+            current.Add(Fix.MAGIC_ATTACK);
+          }
+          else
           {
             current.Add(Fix.NORMAL_ATTACK);
           }

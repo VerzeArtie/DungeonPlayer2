@@ -2393,6 +2393,7 @@ public static partial class Fix
   public const string VEIL_FORTUNE_WIZARD_JP = "ヴェイル フォーチュン ウィザード";
   public const string LIGHT_THUNDER_LANCEBOLTS = "Light-Thunder Lancebolts";
   public const string LIGHT_THUNDER_LANCEBOLTS_JP = "雷光ランスボルツ";
+  public const string LIGHT_THUNDER_LANCEBOLTS_JP_VIEW = "【　裁きの鳴動　】\r\n雷光ランスボルツ";
   public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
   public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
 

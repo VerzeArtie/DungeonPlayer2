@@ -1196,6 +1196,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS || EnemyList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP || EnemyList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_HEAVEN_THUNDER_SPEAR, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
@@ -2966,6 +2974,46 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_SEIIN_FOOTPRINT:
         player.objFieldPanel.AddBuff(prefab_Buff, Fix.COMMAND_SEIIN_FOOTPRINT, 9, 15, 0, 0);
         StartAnimation(player.objFieldPanel.gameObject, Fix.COMMAND_SEIIN_FOOTPRINT, Fix.COLOR_NORMAL);
+        break;
+
+      case Fix.COMMAND_LIGHT_THUNDERBOLT:
+        success = ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.HolyLight, false, critical);
+        if (success)
+        {
+          target.objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.INFINITY, 0.10f, 0.10f, 0);
+        }
+        break;
+
+      case Fix.COMMAND_CYCLONE_ARMOR:
+        ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+        ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
+        ExecBuffMagicDefenceUp(player, player, 5, 2.00f);
+        break;
+
+      case Fix.COMMAND_FURY_TRIDENT:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+          int random = AP.Math.RandomInteger(3);
+          if (random == 0)
+          {
+            ExecBuffFear(player, target_list[ii], 3, 0);
+          }
+          else if (random == 1)
+          {
+            ExecBuffFreeze(player, target_list[ii], 2, 0);
+          }
+          else if (random == 2)
+          {
+            ExecBuffStun(player, target_list[ii], 2, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_HEAVEN_THUNDER_SPEAR:
+        ExecNormalAttack(player, target, 4.00f, Fix.DamageSource.Physical, false, critical);
+        ExecMagicAttack(player, target, 4.00f, Fix.DamageSource.HolyLight, false, critical);
         break;
 
       case "絶望の魔手":

@@ -22,10 +22,10 @@ public class BuffField : MonoBehaviour
       if (buffList[ii].BuffName == buff_name)
       {
         detect = true;
-        if (buff_name == Fix.BUFF_PD_DOWN || buff_name == Fix.CONCUSSIVE_HIT || buff_name == Fix.BUFF_LIGHTNING_OUTBURST || buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
+        if (ActionCommand.GetBuffCumulative(buff_name) > 1) // 1つより大きければ累積
         {
           int up = 1;
-          if (buff_name == Fix.FORTUNE_SPIRIT) { up = (int)effect_value; }
+          if (buff_name == Fix.FORTUNE_SPIRIT) { up = (int)effect_value; } // todo まだコマンド特有が残っている
           buffList[ii].CumulativeUp(remain_counter, up);
         }
         else
