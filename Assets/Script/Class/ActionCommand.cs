@@ -24,6 +24,13 @@ public static class ActionCommand
     Neutral,
   }
 
+  public enum CumulativeType
+  {
+    None,
+    Normal,
+    Cumulative,
+  }
+
   public enum TargetType
   {
     None,
@@ -1647,6 +1654,15 @@ public static class ActionCommand
     }
 
     return 1; // 通常は累積なし
+  }
+
+  public static CumulativeType GetCumulativeType(string command_name)
+  {
+    if (command_name == Fix.FORTUNE_SPIRIT)
+    {
+      return CumulativeType.Cumulative;
+    }
+    return CumulativeType.Normal;
   }
 
   public static bool IsDamage(string command_name)

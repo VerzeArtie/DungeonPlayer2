@@ -25,7 +25,7 @@ public class BuffField : MonoBehaviour
         if (ActionCommand.GetBuffCumulative(buff_name) > 1) // 1つより大きければ累積
         {
           int up = 1;
-          if (buff_name == Fix.FORTUNE_SPIRIT) { up = (int)effect_value; } // todo まだコマンド特有が残っている
+          if (ActionCommand.GetCumulativeType(buff_name) == ActionCommand.CumulativeType.Cumulative) { up = (int)effect_value; }
           buffList[ii].CumulativeUp(remain_counter, up);
         }
         else
@@ -40,7 +40,7 @@ public class BuffField : MonoBehaviour
     // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
     BuffImage buff = Instantiate(prefab) as BuffImage;
     int cumulative = 1;// 累積は標準１がデフォルトで与えられる。
-    if (buff_name == Fix.FORTUNE_SPIRIT) // todo ここで累積UPを分岐させているのは構造上おかしい。
+    if (ActionCommand.GetCumulativeType(buff_name) == ActionCommand.CumulativeType.Cumulative)
     {
       cumulative = (int)effect_value;
     }
