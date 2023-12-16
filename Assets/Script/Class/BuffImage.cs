@@ -47,11 +47,22 @@ public class BuffImage : Image
   {
     set
     {
-      if (value >= 5) { value = 5; }
+      if (value >= _cumulativeMax) { value = _cumulativeMax; }
       if (value <= 0) { value = 0; }
       _cumulative = value;
     }
     get { return _cumulative; }
+  }
+
+  [SerializeField] protected int _cumulativeMax = 1; // 累積は最低1必要のため、初期値1とする。
+  public int CumulativeMax
+  {
+    set
+    {
+      if (value <= 1) { value = 1; }
+      _cumulativeMax = value;
+    }
+    get { return _cumulativeMax; }
   }
 
   [SerializeField] protected int _remainCounter = 0;
@@ -61,14 +72,15 @@ public class BuffImage : Image
     get { return _remainCounter; }
   }
 
-  public void UpdateBuff(string buff_name, int remain, int cumulative, double effect_value, double effect_value2, double effect_value3)
+  public void UpdateBuff(string buff_name, int remain, int cumulative, int cumulative_max, double effect_value, double effect_value2, double effect_value3)
   {
     this._buffName = buff_name;
     this._remainCounter = remain;
     this._effectValue = effect_value;
     this._effectValue2 = effect_value2;
     this._effectValue3 = effect_value3;
-    this._cumulative = cumulative; 
+    this._cumulative = cumulative;
+    this._cumulativeMax = cumulative_max;
     this.sprite = Resources.Load<Sprite>(buff_name);
     Invalidate();
   }

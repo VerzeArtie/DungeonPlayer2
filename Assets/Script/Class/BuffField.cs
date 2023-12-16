@@ -22,7 +22,7 @@ public class BuffField : MonoBehaviour
       if (buffList[ii].BuffName == buff_name)
       {
         detect = true;
-        if (ActionCommand.GetBuffCumulative(buff_name) > 1) // 1つより大きければ累積
+        if (ActionCommand.CumulativeMax(buff_name) > 1) // 1つより大きければ累積
         {
           int up = 1;
           if (ActionCommand.GetCumulativeType(buff_name) == ActionCommand.CumulativeType.Cumulative) { up = (int)effect_value; }
@@ -30,7 +30,7 @@ public class BuffField : MonoBehaviour
         }
         else
         {
-          buffList[ii].UpdateBuff(buff_name, remain_counter, 1, effect_value, effect_value2, effect_value3);// 累積は標準１がデフォルトで与えられる。
+          buffList[ii].UpdateBuff(buff_name, remain_counter, 1, ActionCommand.CumulativeMax(buff_name), effect_value, effect_value2, effect_value3);// 累積は標準１がデフォルトで与えられる。
         }
         break;
       }
@@ -44,7 +44,8 @@ public class BuffField : MonoBehaviour
     {
       cumulative = (int)effect_value;
     }
-    buff.UpdateBuff(buff_name, remain_counter, cumulative, effect_value, effect_value2, effect_value3);
+    int cumulativeMax = ActionCommand.CumulativeMax(buff_name);
+    buff.UpdateBuff(buff_name, remain_counter, cumulative, cumulativeMax, effect_value, effect_value2, effect_value3);
     buff.gameObject.SetActive(true);
     buff.transform.SetParent(this.gameObject.transform);
     //RectTransform rect = buff.GetComponent<RectTransform>();

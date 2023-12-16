@@ -1642,16 +1642,13 @@ public static class ActionCommand
     return BuffType.None;
   }
 
-  public static int GetBuffCumulative(string command_name)
+  public static int CumulativeMax(string command_name)
   {
-    if (command_name == Fix.BUFF_PD_DOWN || 
-        command_name == Fix.CONCUSSIVE_HIT ||
-        command_name == Fix.BUFF_LIGHTNING_OUTBURST ||
-        command_name == Fix.FORTUNE_SPIRIT ||
-        command_name == Fix.COMMAND_LIGHT_THUNDERBOLT) 
-    {
-      return 5; // todo コマンド毎で最大値を分ける構想のはず。今は固定値５
-    }
+    if (command_name == Fix.BUFF_PD_DOWN) { return 5; }
+    else if (command_name == Fix.CONCUSSIVE_HIT) { return 5; }
+    else if (command_name == Fix.BUFF_LIGHTNING_OUTBURST) { return 5; }
+    else if (command_name == Fix.COMMAND_LIGHT_THUNDERBOLT) { return 7; }
+    else if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
 
     return 1; // 通常は累積なし
   }
