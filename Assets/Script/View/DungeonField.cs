@@ -11857,10 +11857,11 @@ public class DungeonField : MotherBase
       return;
     }
 
+    const int NoEncountNumber = 6;
     CumulativeBattleCounter++;
 
     // 最初の歩きはじめはエンカウント対象外
-    if (CumulativeBattleCounter <= 3)
+    if (CumulativeBattleCounter <= NoEncountNumber)
     {
       return;
     }
@@ -11874,7 +11875,7 @@ public class DungeonField : MotherBase
     #region "エスミリア草原区域"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
     {
-      int random = 100 - CumulativeBattleCounter;
+      int random = 100 + NoEncountNumber - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
@@ -12038,7 +12039,7 @@ public class DungeonField : MotherBase
     #region "ゴラトラム洞窟"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM || One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
     {
-      int random = 100 - CumulativeBattleCounter;
+      int random = 100 + NoEncountNumber - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
@@ -12259,7 +12260,7 @@ public class DungeonField : MotherBase
     #region "神秘の森"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
     {
-      int random = 100 - CumulativeBattleCounter;
+      int random = 100 + NoEncountNumber - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
@@ -12520,7 +12521,7 @@ public class DungeonField : MotherBase
     #region "オーランの塔"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
     {
-      int random = 200 - CumulativeBattleCounter; // オーランの塔は広いので値は低め
+      int random = 200 + NoEncountNumber - CumulativeBattleCounter; // オーランの塔は広いので値は低め
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
