@@ -4994,14 +4994,14 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_BILLY_RAKI:
-        this.Level = 10; // 17 + 28
-        this.Strength = 17;
-        this.Agility = 8;
-        this.Intelligence = 5;
-        this.Stamina = 10;
-        this.Mind = 5;
-        this.BaseLife = 50 + 136; // level10スタートのため、LV2～LV10分を足し算。
-        this.BaseManaPoint = 5 + 32; // level10スタートのため、LV2～LV10分を足し算。
+        this.Level = 14; // 17 + (3*4 + 4*5 + 5*4)
+        this.Strength = 22;
+        this.Agility = 12;
+        this.Intelligence = 4;
+        this.Stamina = 17;
+        this.Mind = 14;
+        this.BaseLife = 50 + 246; // level14スタートのため、LV2～LV14分を足し算。
+        this.BaseManaPoint = 5 + 52; // level14スタートのため、LV2～LV14分を足し算。
         this.BaseSkillPoint = 100;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
@@ -5020,9 +5020,12 @@ public partial class Character : MonoBehaviour
         this.GlobalAction4 = Fix.DEFENSE;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.LEG_STRIKE;
-        this.ActionCommand2 = Fix.FIRE_BALL;
-        this.ActionCommand3 = Fix.HEART_OF_LIFE;
-        this.ActionCommand4 = Fix.SPEED_STEP;
+        this.ActionCommand2 = Fix.SPEED_STEP;
+        this.ActionCommand3 = Fix.BONE_CRUSH;
+        this.ActionCommand4 = Fix.FIRE_BALL;
+        this.ActionCommand5 = Fix.FLAME_BLADE;
+        this.ActionCommand6 = Fix.METEOR_BULLET;
+        this.ActionCommand7 = Fix.TRUE_SIGHT;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
