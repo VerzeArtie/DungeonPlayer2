@@ -660,6 +660,8 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    RefreshSelectAreaList();
+
     GroupDungeonPlayer.SetActive(true);
     GroupBackpack.SetActive(false);
     GroupShopItem.SetActive(false);
