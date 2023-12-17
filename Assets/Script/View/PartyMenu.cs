@@ -557,6 +557,9 @@ public class PartyMenu : MotherBase
 
       if (player2.LifeGrace > 0) { objActionCommand[3].SetActive(true); }
       else { objActionCommand[3].SetActive(false); }
+
+      if (player2.HolyBreath > 0) { objActionCommand[4].SetActive(true); }
+      else { objActionCommand[4].SetActive(false); }
     }
 
     // ÉRÉ}ÉìÉhê›íËâÊñ Ç÷ÇÃîΩâf
@@ -884,6 +887,29 @@ public class PartyMenu : MotherBase
     {
       CurrentSelectHealCommand = Fix.PURE_PURIFICATION;
       objCancelActionCommand.SetActive(true);
+    }
+    else if (txt_src.text == Fix.HOLY_BREATH)
+    {
+      Character player = One.SelectCharacter(txtCurrentName.text);
+      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.HOLY_BREATH, player))
+      {
+        return;
+      }
+      player.CurrentManaPoint -= ActionCommand.Cost(Fix.HOLY_BREATH, player);
+
+      for (int ii = 0; ii < PlayerList.Count; ii++)
+      {
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
+        Character target = PlayerList[ii];
+        if (target.Dead)
+        {
+          return;
+        }
+
+        if (healValue <= 0) { healValue = 0; }
+        PlayerList[ii].CurrentLife += (int)healValue;
+      }
+      groupCharacterStatus.UpdateCharacterDetailView(groupCharacterStatus.CurrentPlayer);
     }
     else if (txt_src.text == Fix.SHINING_HEAL)
     {
