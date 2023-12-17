@@ -2192,19 +2192,20 @@ public partial class HomeTown : MotherBase
               One.TF.BattlePlayer1 = One.TF.BattlePlayer2;
               One.TF.BattlePlayer2 = One.TF.BattlePlayer3;
               One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
-              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+              //One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
             }
             else if (One.TF.BattlePlayer2 == Fix.NAME_EONE_FULNEA)
             {
               One.TF.BattlePlayer2 = One.TF.BattlePlayer3;
               One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
-              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+              //One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
             }
             else if (One.TF.BattlePlayer3 == Fix.NAME_EONE_FULNEA)
             {
               One.TF.BattlePlayer3 = One.TF.BattlePlayer4;
-              One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
+              //One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA;
             }
+            One.TF.BattlePlayer4 = String.Empty;
           }
           continue; // 継続
         }
