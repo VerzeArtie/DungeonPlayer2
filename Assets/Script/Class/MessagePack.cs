@@ -3726,11 +3726,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：じゃあ、行ってみるとするか！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：大丈夫なんでしょうか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ま、大丈夫だろ。行ってみるとするか！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：根拠もなく大丈夫とか言いやがったな。あんな危険な場所に本気で行くつもりかよ？", ActionEvent.None);
 
