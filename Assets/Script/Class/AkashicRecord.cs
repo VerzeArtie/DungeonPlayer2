@@ -603,6 +603,30 @@ public class AkashicRecord : MonoBehaviour
     get { return _partyjoin_EoneFulnea; }
   }
 
+  // ビリー・ラキを仲間にした事がある。
+  [SerializeField] protected bool _partyjoin_BillyRaki = false;
+  public bool PartyJoin_BillyRaki
+  {
+    set { _partyjoin_BillyRaki = value; }
+    get { return _partyjoin_BillyRaki; }
+  }
+
+  // アデル・ブリガンディを仲間にした後、宿屋で休んだ事がある。
+  [SerializeField] protected bool _partyjoin_AdelBrigandy = false;
+  public bool PartyJoin_AdelBrigandy
+  {
+    set { _partyjoin_AdelBrigandy = value; }
+    get { return _partyjoin_AdelBrigandy; }
+  }
+
+  // パルメテイシア神殿で神言を授かる。
+  [SerializeField] protected bool _gift_ParmetysiaWord = false;
+  public bool GiftParmetysiaWord
+  {
+    set { _gift_ParmetysiaWord = value; }
+    get { return _gift_ParmetysiaWord; }
+  }
+
   // （３）ゴラトラム洞窟のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_1 = false;
   public bool InscribeObsidianStone_1

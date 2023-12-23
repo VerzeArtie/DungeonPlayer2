@@ -577,9 +577,9 @@ public class PartyMenu : MotherBase
     // アカシックレコードによる表示／非表示
     btnEssenceCategoryList[0].gameObject.SetActive(true);
     btnEssenceCategoryList[1].gameObject.SetActive(One.AR.PartyJoin_EoneFulnea);
-    btnEssenceCategoryList[2].gameObject.SetActive(One.AR.InscribeObsidianStone_1);
-    btnEssenceCategoryList[3].gameObject.SetActive(One.AR.InscribeObsidianStone_2);
-    btnEssenceCategoryList[4].gameObject.SetActive(One.AR.InscribeObsidianStone_3);
+    btnEssenceCategoryList[2].gameObject.SetActive(One.AR.PartyJoin_BillyRaki);
+    btnEssenceCategoryList[3].gameObject.SetActive(One.AR.PartyJoin_AdelBrigandy);
+    btnEssenceCategoryList[4].gameObject.SetActive(One.AR.GiftParmetysiaWord);
     btnEssenceCategoryList[5].gameObject.SetActive(One.AR.InscribeObsidianStone_4);
     btnEssenceCategoryList[6].gameObject.SetActive(One.AR.InscribeObsidianStone_5);
     btnEssenceCategoryList[7].gameObject.SetActive(One.AR.InscribeObsidianStone_6);

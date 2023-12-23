@@ -3598,6 +3598,8 @@ public static class MessagePack
     if (One.TF.Event_Message400020 == false)
     {
       One.TF.Event_Message400020 = true;
+      One.AR.PartyJoin_BillyRaki = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, "アイン：おっ、何かこっちの方はずいぶんと賑やかだな・・・", ActionEvent.None);
 
@@ -4740,6 +4742,8 @@ public static class MessagePack
     if (One.TF.Event_Message500030 == false)
     {
       One.TF.Event_Message500030 = true;
+      One.AR.PartyJoin_AdelBrigandy = true;
+      One.UpdateAkashicRecord();
 
       Message(ref m_list, ref e_list, "門番：アイン殿および御一同、お待ちください。", ActionEvent.None);
 
@@ -23646,6 +23650,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
     }
+  }
+
+  public static void Message2299999(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.GiftParmetysiaWord = true;
+    One.UpdateAkashicRecord();
+
+    // todo
   }
   #endregion
 
