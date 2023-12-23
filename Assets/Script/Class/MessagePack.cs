@@ -837,6 +837,9 @@ public static class MessagePack
 
   public static void Message100021(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    One.AR.PartyJoin_EoneFulnea = true;
+    One.UpdateAkashicRecord();
+
     Message(ref m_list, ref e_list, "", ActionEvent.HomeTownHideAllSubView);
 
     Message(ref m_list, ref e_list, "アイン：よし、" + Fix.TOWN_FAZIL_CASTLE + "に到着。", ActionEvent.None);
@@ -4024,7 +4027,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：おいアイン。何か打つ手はねえのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：うーん・・・でもエオネを呼び戻すとか、ただ待機とかはしたくないな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：うーん・・・でもエオネを呼び戻すとか、エオネの用事が済むまで待機とかはしたくないな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：少しでも進めておきたいところだが・・・", ActionEvent.None);
 
@@ -4050,9 +4053,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：うーん、どうかしら。私は魔法系もスキル系も一応扱えるわよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：聖フローラ女学院はたしか主席で卒業したんだったよな？色々とできそうな感じがするが。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：聖フローラ女学院はたしか首席で卒業したんだったよな？色々とできそうな感じがするが。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：ゲッ、しゅ、主席だったのかよ！？スゲーじゃん！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：ゲッ、しゅ、首席だったのかよ！？スゲーじゃん！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：でも、あれはただの飾りよ。本質的には出来る人達は他にもたくさん居たわ。", ActionEvent.None);
 
@@ -4088,9 +4091,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：えええぇぇ？？？　　ビリー：はあああぁぁ？？？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ウソでしょ！？え、だってあんたエスミリア草原の時は一度も使わなかったじゃない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ウソでしょ！？え、だってあんたエスミリア草原やゴラトラム洞窟の時は一度も使わなかったじゃない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：必要ないだろ。ポーションで行ける。そう判断したまでだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：だって必要なかっただろ。そう判断したまでだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：判断したまでだ。って一言いっておけよ。わかんねーだろうが。", ActionEvent.None);
 
@@ -4142,9 +4145,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：どうだ！ッハッハッハ！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ホッ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：えっと・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ホンットに出来るのね！いつもの冗談だと思ってたわ！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ホンッッットに出来るのね！いつもの冗談だと思ってたわ！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：正直意外過ぎるな。コイツが聖スペル出来るなんてマジで聞いてねーぞ。", ActionEvent.None);
 
