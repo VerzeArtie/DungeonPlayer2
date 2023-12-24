@@ -304,8 +304,8 @@ public static class SecondaryLogic
 
   public static double PurePurificationHealValuel(Character player)
   {
-    if (player.PurePurification <= 1) { return 1.20f; }
-    return 1.20f + (player.PurePurification - 1) * 0.10f;
+    if (player.PurePurification <= 1) { return 0.70f; }
+    return 0.70f + (player.PurePurification - 1) * 0.10f;
   }
 
   public static int PurePurification_Effect1(Character player)
