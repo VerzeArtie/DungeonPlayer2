@@ -3990,10 +3990,12 @@ public static class MessagePack
     {
       One.TF.Event_Message400050 = true;
       One.TF.AvailableSecondEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).UpgradeEssenceTree(4);
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).UpgradeEssenceTree(4);
-      One.SelectCharacter(Fix.NAME_BILLY_RAKI).UpgradeEssenceTree(4);
-      One.SelectCharacter(Fix.NAME_EONE_FULNEA).UpgradeEssenceTree(4); // エオネは居ないが、内部的にはアップグレードしておく。
+
+      string dummy = string.Empty;
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).LevelUpEssenceTree(4, ref dummy);
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).LevelUpEssenceTree(4, ref dummy);
+      One.SelectCharacter(Fix.NAME_BILLY_RAKI).LevelUpEssenceTree(4, ref dummy);
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).LevelUpEssenceTree(4, ref dummy); // エオネは居ないが、内部的にはアップグレードしておく。
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
@@ -6544,10 +6546,11 @@ public static class MessagePack
     {
       One.TF.Event_Message700040 = true;
 
+      string dummy = string.Empty;
       One.TF.AvailableFirstEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).UpgradeEssenceTree(3);
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).UpgradeEssenceTree(3);
-      One.SelectCharacter(Fix.NAME_EONE_FULNEA).UpgradeEssenceTree(3);
+      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).LevelUpEssenceTree(3, ref dummy);
+      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).LevelUpEssenceTree(3, ref dummy);
+      One.SelectCharacter(Fix.NAME_EONE_FULNEA).LevelUpEssenceTree(3, ref dummy);
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
