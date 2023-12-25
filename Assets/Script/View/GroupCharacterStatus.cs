@@ -70,6 +70,7 @@ public class GroupCharacterStatus : MonoBehaviour
   public GameObject ContentChangeEquip;
   public NodeBackpackItem nodeChangeEquip;
   public Text lblChangeEquipType;
+  public GameObject backChangeEquip;
   public Text txtChangeEquipName;
   public Image imgChangeEquip;
   public Text txtEquipChangeDescription;
@@ -486,6 +487,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.MainWeapon?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.MainWeapon?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -520,6 +523,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.SubWeapon?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.SubWeapon?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -554,6 +559,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.MainArmor?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.MainArmor?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -588,6 +595,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.Accessory1?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.Accessory1?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -622,6 +631,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.Accessory2?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.Accessory2?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -656,6 +667,8 @@ public class GroupCharacterStatus : MonoBehaviour
 
     // 画面表示
     this.txtEquipChangeDescription.text = String.Empty;
+    backChangeEquip.GetComponent<Image>().color = CurrentPlayer.Artifact?.GetRareColor ?? Color.white;
+    txtChangeEquipName.GetComponent<Text>().color = CurrentPlayer.Artifact?.GetRareTextColor ?? Color.white;
     GroupChangeEquip.SetActive(true);
     GroupMainEquip.SetActive(false);
   }
@@ -738,6 +751,64 @@ public class GroupCharacterStatus : MonoBehaviour
     //  BackpackList[ii].imgSelect.gameObject.SetActive(false);
     //}
     backpack.imgSelect.gameObject.SetActive(true);
+  }
+
+  /// <summary>
+  /// 現在装備しているアイテムを選択します。
+  /// </summary>
+  /// <param name="sender"></param>
+  public void TapNodeCurrentEquip(Text sender)
+  {
+    txtEquipChangeDescription.text = new Item(sender.text).Description;
+    if (CurrentItemType == ITEMTYPE_MAIN_WEAPON)
+    {
+      this.ShadowPlayer.MainWeapon = null;
+      this.ShadowPlayer.MainWeapon = new Item(txtChangeEquipName.text);
+    }
+    else if (CurrentItemType == ITEMTYPE_SUB_WEAPON)
+    {
+      this.ShadowPlayer.SubWeapon = null;
+      this.ShadowPlayer.SubWeapon = new Item(txtChangeEquipName.text);
+    }
+    else if (CurrentItemType == ITEMTYPE_ARMOR)
+    {
+      this.ShadowPlayer.MainArmor = null;
+      this.ShadowPlayer.MainArmor = new Item(txtChangeEquipName.text);
+    }
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY1)
+    {
+      this.ShadowPlayer.Accessory1 = null;
+      this.ShadowPlayer.Accessory1 = new Item(txtChangeEquipName.text);
+    }
+    else if (CurrentItemType == ITEMTYPE_ACCESSORY2)
+    {
+      this.ShadowPlayer.Accessory2 = null;
+      this.ShadowPlayer.Accessory2 = new Item(txtChangeEquipName.text);
+    }
+    else if (CurrentItemType == ITEMTYPE_ARTIFACT)
+    {
+      this.ShadowPlayer.Artifact = null;
+      this.ShadowPlayer.Artifact = new Item(txtChangeEquipName.text);
+    }
+
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStrength, CurrentPlayer.TotalStrength, ShadowPlayer.TotalStrength);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailAgility, CurrentPlayer.TotalAgility, ShadowPlayer.TotalAgility);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailIntelligence, CurrentPlayer.TotalIntelligence, ShadowPlayer.TotalIntelligence);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailStamina, CurrentPlayer.TotalStamina, ShadowPlayer.TotalStamina);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMind, CurrentPlayer.TotalMind, ShadowPlayer.TotalMind);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailLife, CurrentPlayer.MaxLife, ShadowPlayer.MaxLife, CurrentPlayer.CurrentLife);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailManaPoint, CurrentPlayer.MaxManaPoint, ShadowPlayer.MaxManaPoint, CurrentPlayer.CurrentManaPoint);
+    UpdateBattleValueTwoWithShadow(CurrentPlayer, ShadowPlayer, txtDetailSkillPoint, CurrentPlayer.MaxSkillPoint, ShadowPlayer.MaxSkillPoint, CurrentPlayer.CurrentSkillPoint);
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttack, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Strength));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalAttackMax, PrimaryLogic.PhysicalAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength), PrimaryLogic.PhysicalAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Strength));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPhysicalDefense, PrimaryLogic.PhysicalDefense(CurrentPlayer), PrimaryLogic.PhysicalDefense(ShadowPlayer));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttack, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttackMax, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicDefense, PrimaryLogic.MagicDefense(CurrentPlayer), PrimaryLogic.MagicDefense(ShadowPlayer));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleSpeed, PrimaryLogic.BattleSpeed(CurrentPlayer), PrimaryLogic.BattleSpeed(ShadowPlayer));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
+    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
   }
 
   /// <summary>
