@@ -512,7 +512,7 @@ public static class SecondaryLogic
 
   public static double BoneCrush(Character player)
   {
-    return 1.20;
+    return 2.20;
   }
 
   public static int BoneCrush_Turn(Character player)

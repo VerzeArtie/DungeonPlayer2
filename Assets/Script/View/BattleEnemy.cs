@@ -5471,7 +5471,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
