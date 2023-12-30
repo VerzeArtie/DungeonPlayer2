@@ -4008,7 +4008,33 @@ public partial class HomeTown : MotherBase
     }
     else if (area_name == Fix.TOWN_ZHALMAN)
     {
-      shopList.Add(new Item(Fix.AERO_BLADE));
+      shopList.Add(new Item(Fix.SUPERIOR_SWORD));
+      shopList.Add(new Item(Fix.SUPERIOR_LANCE));
+      shopList.Add(new Item(Fix.SUPERIOR_AXE));
+      shopList.Add(new Item(Fix.SUPERIOR_CLAW));
+      shopList.Add(new Item(Fix.SUPERIOR_ROD));
+      shopList.Add(new Item(Fix.SUPERIOR_BOOK));
+      shopList.Add(new Item(Fix.SUPERIOR_ORB));
+      shopList.Add(new Item(Fix.SUPERIOR_LARGE_SWORD));
+      shopList.Add(new Item(Fix.SUPERIOR_LARGE_LANCE));
+      shopList.Add(new Item(Fix.SUPERIOR_LARGE_AXE));
+      shopList.Add(new Item(Fix.SUPERIOR_BOW));
+      shopList.Add(new Item(Fix.SUPERIOR_LARGE_STAFF));
+      shopList.Add(new Item(Fix.SUPERIOR_SHIELD));
+      shopList.Add(new Item(Fix.SUPERIOR_ARMOR));
+      shopList.Add(new Item(Fix.SUPERIOR_CROSS));
+      shopList.Add(new Item(Fix.SUPERIOR_ROBE));
+      shopList.Add(new Item(Fix.STEEL_RING_POWER));
+      shopList.Add(new Item(Fix.STEEL_RING_SENSE));
+      shopList.Add(new Item(Fix.STEEL_RING_FAST));
+      shopList.Add(new Item(Fix.STEEL_RING_DEEP));
+      shopList.Add(new Item(Fix.STEEL_RING_BOUND));
+      shopList.Add(new Item(Fix.EARTH_SHARD_CLAW));
+      shopList.Add(new Item(Fix.BLOOD_STUBBORN_SPEAR));
+      shopList.Add(new Item(Fix.EMBLEM_OF_VALKYRIE));
+      shopList.Add(new Item(Fix.HUGE_RED_POTION));
+      shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
+      shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
     }
     else if (area_name == Fix.TOWN_ARCANEDINE)
     {
