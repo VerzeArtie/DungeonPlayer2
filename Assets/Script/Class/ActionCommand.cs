@@ -16,14 +16,6 @@ public static class ActionCommand
     Archetype,
   }
 
-  public enum BuffType
-  {
-    None,
-    Positive,
-    Negative,
-    Neutral,
-  }
-
   public enum CumulativeType
   {
     None,
@@ -1366,195 +1358,195 @@ public static class ActionCommand
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
-  public static BuffType GetBuffType(string command_name)
+  public static Fix.BuffType GetBuffType(string command_name)
   {
     #region "基本／一般"
-    if (command_name == Fix.NORMAL_ATTACK) { return BuffType.None; }
-    if (command_name == Fix.MAGIC_ATTACK) { return BuffType.None; }
-    if (command_name == Fix.DEFENSE) { return BuffType.None; }
-    if (command_name == Fix.STAY) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_1) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_2) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_3) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_4) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_5) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_6) { return BuffType.None; }
-    if (command_name == Fix.USE_RED_POTION_7) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_1) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_2) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_3) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_4) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_5) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_6) { return BuffType.None; }
-    if (command_name == Fix.USE_BLUE_POTION_7) { return BuffType.None; }
-    if (command_name == Fix.SMALL_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.SMALL_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.SMALL_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.NORMAL_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.NORMAL_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.NORMAL_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.LARGE_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.LARGE_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.LARGE_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.HUGE_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.HUGE_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.HUGE_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.HQ_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.HQ_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.HQ_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.THQ_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.THQ_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.THQ_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.PERFECT_RED_POTION) { return BuffType.None; }
-    if (command_name == Fix.PERFECT_BLUE_POTION) { return BuffType.None; }
-    if (command_name == Fix.PERFECT_GREEN_POTION) { return BuffType.None; }
-    if (command_name == Fix.PURE_CLEAN_WATER) { return BuffType.None; }
-    if (command_name == Fix.PURE_SINSEISUI) { return BuffType.None; }
+    if (command_name == Fix.NORMAL_ATTACK) { return Fix.BuffType.None; }
+    if (command_name == Fix.MAGIC_ATTACK) { return Fix.BuffType.None; }
+    if (command_name == Fix.DEFENSE) { return Fix.BuffType.None; }
+    if (command_name == Fix.STAY) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_1) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_2) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_3) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_4) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_5) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_6) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_RED_POTION_7) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_1) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_2) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_3) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_4) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_5) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_6) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_BLUE_POTION_7) { return Fix.BuffType.None; }
+    if (command_name == Fix.SMALL_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.SMALL_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.SMALL_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.NORMAL_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.NORMAL_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.NORMAL_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.LARGE_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.LARGE_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.LARGE_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HUGE_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HUGE_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HUGE_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HQ_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HQ_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.HQ_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.THQ_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.THQ_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.THQ_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.PERFECT_RED_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.PERFECT_BLUE_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.PERFECT_GREEN_POTION) { return Fix.BuffType.None; }
+    if (command_name == Fix.PURE_CLEAN_WATER) { return Fix.BuffType.None; }
+    if (command_name == Fix.PURE_SINSEISUI) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return BuffType.None; }
-    if (command_name == Fix.ICE_NEEDLE) { return BuffType.Negative; }
-    if (command_name == Fix.FRESH_HEAL) { return BuffType.None; }
-    if (command_name == Fix.SHADOW_BLAST) { return BuffType.Negative; }
-    if (command_name == Fix.ORACLE_COMMAND) { return BuffType.None; }
-    if (command_name == Fix.ENERGY_BOLT) { return BuffType.None; }
+    if (command_name == Fix.FIRE_BALL) { return Fix.BuffType.None; }
+    if (command_name == Fix.ICE_NEEDLE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.FRESH_HEAL) { return Fix.BuffType.None; }
+    if (command_name == Fix.SHADOW_BLAST) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.ORACLE_COMMAND) { return Fix.BuffType.None; }
+    if (command_name == Fix.ENERGY_BOLT) { return Fix.BuffType.None; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return BuffType.None; }
-    if (command_name == Fix.SHIELD_BASH) { return BuffType.Negative; }
-    if (command_name == Fix.LEG_STRIKE) { return BuffType.Negative; }
-    if (command_name == Fix.HUNTER_SHOT) { return BuffType.Negative; }
-    if (command_name == Fix.TRUE_SIGHT) { return BuffType.Positive; }
-    if (command_name == Fix.DISPEL_MAGIC) { return BuffType.None; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return Fix.BuffType.None; }
+    if (command_name == Fix.SHIELD_BASH) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.LEG_STRIKE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.HUNTER_SHOT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.TRUE_SIGHT) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.DISPEL_MAGIC) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve II"
     // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return BuffType.Positive; }
-    if (command_name == Fix.PURE_PURIFICATION) { return BuffType.None; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return BuffType.Positive; }
-    if (command_name == Fix.BLOOD_SIGN) { return BuffType.Negative; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return BuffType.Positive; }
-    if (command_name == Fix.FLASH_COUNTER) { return BuffType.None; }
+    if (command_name == Fix.FLAME_BLADE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.PURE_PURIFICATION) { return Fix.BuffType.None; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BLOOD_SIGN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.FLASH_COUNTER) { return Fix.BuffType.None; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return BuffType.Positive; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return BuffType.Positive; }
-    if (command_name == Fix.SPEED_STEP) { return BuffType.Positive; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return BuffType.None; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return BuffType.Positive; }
-    if (command_name == Fix.SPIRITUAL_REST) { return BuffType.None; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SPEED_STEP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return Fix.BuffType.None; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SPIRITUAL_REST) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve III"
     // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return BuffType.None; }
-    if (command_name == Fix.BLUE_BULLET) { return BuffType.None; }
-    if (command_name == Fix.HOLY_BREATH) { return BuffType.Positive; }
-    if (command_name == Fix.BLACK_CONTRACT) { return BuffType.Positive; }
-    if (command_name == Fix.WORD_OF_POWER) { return BuffType.None; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
+    if (command_name == Fix.METEOR_BULLET) { return Fix.BuffType.None; }
+    if (command_name == Fix.BLUE_BULLET) { return Fix.BuffType.None; }
+    if (command_name == Fix.HOLY_BREATH) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BLACK_CONTRACT) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.WORD_OF_POWER) { return Fix.BuffType.None; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return Fix.BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return BuffType.None; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return BuffType.Negative; }
-    if (command_name == Fix.BONE_CRUSH) { return BuffType.Negative; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return BuffType.Positive; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return BuffType.Positive; }
-    if (command_name == Fix.UNSEEN_AID) { return BuffType.None; }
+    if (command_name == Fix.DOUBLE_SLASH) { return Fix.BuffType.None; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BONE_CRUSH) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.UNSEEN_AID) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve IV"
     // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return BuffType.Negative; }
-    if (command_name == Fix.FREEZING_CUBE) { return BuffType.Negative; }
-    if (command_name == Fix.ANGELIC_ECHO) { return BuffType.Positive; }
-    if (command_name == Fix.CURSED_EVANGILE) { return BuffType.Negative; }
-    if (command_name == Fix.GALE_WIND) { return BuffType.Positive; }
-    if (command_name == Fix.PHANTOM_OBORO) { return BuffType.Positive; }
+    if (command_name == Fix.VOLCANIC_BLAZE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.FREEZING_CUBE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.ANGELIC_ECHO) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.CURSED_EVANGILE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.GALE_WIND) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.PHANTOM_OBORO) { return Fix.BuffType.Positive; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return BuffType.None; }
-    if (command_name == Fix.DOMINATION_FIELD) { return BuffType.Positive; }
-    if (command_name == Fix.DEADLY_DRIVE) { return BuffType.Positive; }
-    if (command_name == Fix.PENETRATION_ARROW) { return BuffType.Negative; }
-    if (command_name == Fix.WILL_AWAKENING) { return BuffType.Positive; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return BuffType.Positive; }
+    if (command_name == Fix.IRON_BUSTER) { return Fix.BuffType.None; }
+    if (command_name == Fix.DOMINATION_FIELD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.DEADLY_DRIVE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.PENETRATION_ARROW) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.WILL_AWAKENING) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return Fix.BuffType.Positive; }
     #endregion
 
     #region "Delve V"
     // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return BuffType.Negative; }
-    if (command_name == Fix.FROST_LANCE) { return BuffType.Negative; }
-    if (command_name == Fix.SHINING_HEAL) { return BuffType.Positive; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return BuffType.Negative; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
-    if (command_name == Fix.COUNTER_DISALLOW) { return BuffType.Negative; }
+    if (command_name == Fix.FLAME_STRIKE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.FROST_LANCE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.SHINING_HEAL) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return Fix.BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
+    if (command_name == Fix.COUNTER_DISALLOW) { return Fix.BuffType.Negative; }
     // スキル
-    if (command_name == Fix.RAGING_STORM) { return BuffType.Positive; }
-    if (command_name == Fix.HARDEST_PARRY) { return BuffType.None; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return BuffType.Negative; }
-    if (command_name == Fix.PRECISION_STRIKE) { return BuffType.None; }
-    if (command_name == Fix.EVERFLOW_MIND) { return BuffType.Positive; }
-    if (command_name == Fix.INNER_INSPIRATION) { return BuffType.None; }
+    if (command_name == Fix.RAGING_STORM) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.HARDEST_PARRY) { return Fix.BuffType.None; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.PRECISION_STRIKE) { return Fix.BuffType.None; }
+    if (command_name == Fix.EVERFLOW_MIND) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.INNER_INSPIRATION) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return BuffType.Negative; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.VALKYRIE_BLADE) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.FUTURE_VISION) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.DETACHMENT_FAULT) { return BuffType.Neutral; } // todo 仮  // Neutralは有益／有害のいずれでもないので、打ち消し難い
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.WATER_PRESENCE) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.VALKYRIE_BLADE) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.THE_DARK_INTENSITY) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.FUTURE_VISION) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.DETACHMENT_FAULT) { return Fix.BuffType.Neutral; } // todo 仮  // Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.ONE_IMMUNITY) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.STANCE_OF_MUIN) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.Positive; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.ONE_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.STANCE_OF_MUIN) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
     #endregion
 
     #region "Delve VII"
     // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return BuffType.Negative; } // todo 仮
-    if (command_name == Fix.ABSOLUTE_ZERO) { return BuffType.Negative; } // todo 仮
-    if (command_name == Fix.RESURRECTION) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return BuffType.Negative; } // todo 仮
-    if (command_name == Fix.GENESIS) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.TIME_SKIP) { return BuffType.None; } // todo 仮
+    if (command_name == Fix.LAVA_ANNIHILATION) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.GENESIS) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.TIME_SKIP) { return Fix.BuffType.None; } // todo 仮
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.CARNAGE_RUSH) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.PIERCING_ARROW) { return BuffType.None; } // todo 仮
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return BuffType.Positive; } // todo 仮
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return BuffType.Positive; } // todo 仮
+    if (command_name == Fix.KINETIC_SMASH) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.CARNAGE_RUSH) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.PIERCING_ARROW) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.BuffType.Positive; } // todo 仮
     #endregion
 
     #region "Archetype"
-    if (command_name == Fix.ARCHETYPE_EIN_1) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
+    if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
     #endregion
 
     #region "Other"
-    if (command_name == Fix.AIR_CUTTER) { return BuffType.Positive; }
-    if (command_name == Fix.ROCK_SLAM) { return BuffType.Negative; }
-    if (command_name == Fix.VENOM_SLASH) { return BuffType.Negative; }
-    if (command_name == Fix.AURA_OF_POWER) { return BuffType.Positive; }
-    if (command_name == Fix.HEART_OF_LIFE) { return BuffType.Positive; }
-    if (command_name == Fix.DARKNESS_CIRCLE) { return BuffType.Negative; }
-    if (command_name == Fix.STORM_ARMOR) { return BuffType.Positive; }
-    if (command_name == Fix.SOLID_WALL) { return BuffType.Positive; }
-    if (command_name == Fix.INVISIBLE_BIND) { return BuffType.Negative; }
-    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
-    if (command_name == Fix.SKY_SHIELD) { return BuffType.Positive; }
-    if (command_name == Fix.STANCE_OF_THE_SHADE) { return BuffType.Positive; }
-    if (command_name == Fix.SONIC_PULSE) { return BuffType.Negative; }
-    if (command_name == Fix.LAND_SHATTER) { return BuffType.Negative; }
-    if (command_name == Fix.MUTE_IMPULSE) { return BuffType.None; }
-    if (command_name == Fix.AETHER_DRIVE) { return BuffType.Positive; }
-    if (command_name == Fix.KILLING_WAVE) { return BuffType.Negative; }
-    if (command_name == Fix.IRREGULAR_STEP) { return BuffType.None; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return BuffType.None; }
+    if (command_name == Fix.AIR_CUTTER) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.ROCK_SLAM) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.VENOM_SLASH) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.AURA_OF_POWER) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.HEART_OF_LIFE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.DARKNESS_CIRCLE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.STORM_ARMOR) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SOLID_WALL) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.INVISIBLE_BIND) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.IDEOLOGY_OF_SOPHISTICATION) { return Fix.BuffType.Neutral; } // Neutralは有益／有害のいずれでもないので、打ち消し難い
+    if (command_name == Fix.SKY_SHIELD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.STANCE_OF_THE_SHADE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SONIC_PULSE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.LAND_SHATTER) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.MUTE_IMPULSE) { return Fix.BuffType.None; }
+    if (command_name == Fix.AETHER_DRIVE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.KILLING_WAVE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.IRREGULAR_STEP) { return Fix.BuffType.None; }
+    //if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.None; }
     #endregion
 
     #region "Monster"
@@ -1617,29 +1609,29 @@ public static class ActionCommand
     #endregion
 
     #region "一般系統"
-    if (command_name == Fix.EFFECT_POISON) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_SILENT) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_BIND) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_SLEEP) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_STUN) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_PARALYZE) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_FREEZE) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_FEAR) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_TEMPTATION) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_SLOW) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_DIZZY) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_SLIP) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_CANNOT_RESURRECT) { return BuffType.Negative; }
+    if (command_name == Fix.EFFECT_POISON) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SILENT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_BIND) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLEEP) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_STUN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_PARALYZE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_FREEZE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_FEAR) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_TEMPTATION) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLOW) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_DIZZY) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_SLIP) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_CANNOT_RESURRECT) { return Fix.BuffType.Negative; }
 
-    if (command_name == Fix.EFFECT_SHADOW_BLAST) { return BuffType.Negative; }
-    if (command_name == Fix.EFFECT_FORTUNE) { return BuffType.Positive; }
-    if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return BuffType.Positive; }
+    if (command_name == Fix.EFFECT_SHADOW_BLAST) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_FORTUNE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return Fix.BuffType.Positive; }
 
     // モンスターコマンド
-    if (command_name == Fix.EFFECT_POWERUP_FIRE) { return BuffType.Positive; }
+    if (command_name == Fix.EFFECT_POWERUP_FIRE) { return Fix.BuffType.Positive; }
     #endregion
 
-    return BuffType.None;
+    return Fix.BuffType.None;
   }
 
   public static int CumulativeMax(string command_name)

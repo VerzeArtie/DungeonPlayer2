@@ -6,6 +6,15 @@ using UnityEngine;
 public static partial class Fix
 {
   #region "enum"
+
+  public enum BuffType
+  {
+    None,
+    Positive,
+    Negative,
+    Neutral,
+  }
+
   public enum Ally
   {
     None,

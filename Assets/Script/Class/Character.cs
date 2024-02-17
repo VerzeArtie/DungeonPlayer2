@@ -2854,7 +2854,7 @@ public partial class Character : MonoBehaviour
   /// <summary>
   /// ディスペル・マジックやピュア・ピュリファイケーション経由でBUFFを除去します。
   /// </summary>
-  public void RemoveBuff(int num, ActionCommand.BuffType buff_type)
+  public void RemoveBuff(int num, Fix.BuffType buff_type)
   {
     if (this.objBuffPanel == null) { return; }
 
@@ -2890,7 +2890,7 @@ public partial class Character : MonoBehaviour
     int result = 0;
     for (int ii = 0; ii < buffList.Length; ii++)
     {
-      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == ActionCommand.BuffType.Positive)
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Positive)
       {
         result++;
       }
@@ -2906,7 +2906,7 @@ public partial class Character : MonoBehaviour
     int result = 0;
     for (int ii = 0; ii < buffList.Length; ii++)
     {
-      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == ActionCommand.BuffType.Negative)
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Negative)
       {
         result++;
       }

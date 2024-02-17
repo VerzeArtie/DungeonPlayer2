@@ -4492,7 +4492,7 @@ public partial class BattleEnemy : MotherBase
             BuffImage[] buffList = PlayerList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0) 
             {
-              PlayerList[jj].RemoveBuff(1, ActionCommand.BuffType.Negative);
+              PlayerList[jj].RemoveBuff(1, Fix.BuffType.Negative);
               detectAngelicEchoEffectAlly = true;
             }
           }
@@ -4512,7 +4512,7 @@ public partial class BattleEnemy : MotherBase
             BuffImage[] buffList = EnemyList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0)
             {
-              EnemyList[jj].RemoveBuff(1, ActionCommand.BuffType.Negative);
+              EnemyList[jj].RemoveBuff(1, Fix.BuffType.Negative);
               detectAngelicEchoEffectEnemy = true;
             }
           }
@@ -5048,7 +5048,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.RemoveBuff(SecondaryLogic.DispelMagic_Value(player), ActionCommand.BuffType.Positive);
+    target.RemoveBuff(SecondaryLogic.DispelMagic_Value(player), Fix.BuffType.Positive);
     StartAnimation(target.objGroup.gameObject, Fix.DISPEL_MAGIC, Fix.COLOR_NORMAL);
   }
 
@@ -5106,7 +5106,7 @@ public partial class BattleEnemy : MotherBase
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
     AbstractHealCommand(player, target, healValue);
 
-    target.RemoveBuff(SecondaryLogic.PurePurification_Effect1(player), ActionCommand.BuffType.Negative);
+    target.RemoveBuff(SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
     StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
   }
 
@@ -5170,7 +5170,7 @@ public partial class BattleEnemy : MotherBase
       int num = stack_list.Length - 2;
 
       if (ActionCommand.GetAttribute(stack_list[num].StackName) == ActionCommand.Attribute.Magic &&
-          (ActionCommand.GetBuffType(stack_list[num].StackName) == ActionCommand.BuffType.Negative || ActionCommand.GetBuffType(stack_list[num].StackName) == ActionCommand.BuffType.Positive))
+          (ActionCommand.GetBuffType(stack_list[num].StackName) == Fix.BuffType.Negative || ActionCommand.GetBuffType(stack_list[num].StackName) == Fix.BuffType.Positive))
       {
         StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
         Destroy(stack_list[num].gameObject);
