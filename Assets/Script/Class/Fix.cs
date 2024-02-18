@@ -6,6 +6,16 @@ using UnityEngine;
 public static partial class Fix
 {
   #region "enum"
+  public enum Direction
+  {
+    None,
+    Top,
+    Left,
+    Right,
+    Bottom,
+    Rise,
+    Fall,
+  }
 
   public enum BuffType
   {

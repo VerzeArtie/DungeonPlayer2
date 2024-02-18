@@ -5426,11 +5426,11 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
   }
 
@@ -5438,11 +5438,11 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Top);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Top);
     }
   }
 
@@ -5450,11 +5450,11 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
   }
 
@@ -5462,11 +5462,11 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Top);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Top);
     }
   }
 
@@ -5474,11 +5474,11 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Bottom);
     }
   }
 
@@ -5486,35 +5486,35 @@ public static class MessagePack
   {
     if (One.TF.Event_Message600070 == false)
     {
-      GoratrumCrossHoleFirst(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHoleFirst(ref m_list, ref e_list, Fix.Direction.Top);
     }
     else
     {
-      GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+      GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Top);
     }
   }
 
   public static void Message600130(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Bottom);
+    GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Bottom);
   }
 
   public static void Message600140(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Top);
+    GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Top);
   }
 
   public static void Message600150(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Right);
+    GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Right);
   }
 
   public static void Message600160(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    GoratrumCrossHole(ref m_list, ref e_list, DungeonField.Direction.Left);
+    GoratrumCrossHole(ref m_list, ref e_list, Fix.Direction.Left);
   }
 
-  public static void GoratrumCrossHoleFirst(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction)
+  public static void GoratrumCrossHoleFirst(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction)
   {
     One.TF.Event_Message600070 = true;
 
@@ -5558,25 +5558,25 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：っしゃ、行ってみるぜ！", ActionEvent.None);
 
-    if (direction == DungeonField.Direction.Top)
+    if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
     }
-    else if (direction == DungeonField.Direction.Right)
+    else if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
 
@@ -5592,7 +5592,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ次の探索へと進むとするか！", ActionEvent.None);
   }
 
-  public static void GoratrumCrossHole(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction)
+  public static void GoratrumCrossHole(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction)
   {
     Message(ref m_list, ref e_list, "アイン：よし、渡るか。", ActionEvent.None);
 
@@ -5602,25 +5602,25 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "（ ッヒュ・・・　・・・　・・・　ッカ！）", ActionEvent.None);
 
-    if (direction == DungeonField.Direction.Top)
+    if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveTop);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveLeft);
     }
-    else if (direction == DungeonField.Direction.Right)
+    else if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
 
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveRight);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "1", ActionEvent.MoveBottom);
 
@@ -8137,23 +8137,23 @@ public static class MessagePack
     }
   }
 
-  public static void MoveFloatingTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num, int move)
+  public static void MoveFloatingTile(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction, int num, int move)
   {
     Message(ref m_list, ref e_list, "アイン：さてと、このタイルで移動するか。", ActionEvent.None);
 
-    if (direction == DungeonField.Direction.Right)
+    if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
     }
-    else if (direction == DungeonField.Direction.Top)
+    else if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
     }
@@ -8504,7 +8504,7 @@ public static class MessagePack
     }
     else if (num == 44)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8512,7 +8512,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8651,7 +8651,7 @@ public static class MessagePack
     }
     else if (num == 61)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8659,7 +8659,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8766,7 +8766,7 @@ public static class MessagePack
     }
     else if (num == 74)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8774,7 +8774,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8785,7 +8785,7 @@ public static class MessagePack
     }
     else if (num == 75)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8793,7 +8793,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8804,7 +8804,7 @@ public static class MessagePack
     }
     else if (num == 76)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8812,7 +8812,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8823,7 +8823,7 @@ public static class MessagePack
     }
     else if (num == 77)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8831,7 +8831,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8954,7 +8954,7 @@ public static class MessagePack
     }
     else if (num == 92)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8962,7 +8962,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8973,7 +8973,7 @@ public static class MessagePack
     }
     else if (num == 93)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8981,7 +8981,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -8992,7 +8992,7 @@ public static class MessagePack
     }
     else if (num == 94)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9000,7 +9000,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9027,7 +9027,7 @@ public static class MessagePack
     }
     else if (num == 97)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9035,7 +9035,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9046,7 +9046,7 @@ public static class MessagePack
     }
     else if (num == 98)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9054,7 +9054,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9065,7 +9065,7 @@ public static class MessagePack
     }
     else if (num == 99)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9073,7 +9073,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9084,7 +9084,7 @@ public static class MessagePack
     }
     else if (num == 100)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9092,7 +9092,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9103,7 +9103,7 @@ public static class MessagePack
     }
     else if (num == 101)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9111,7 +9111,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9122,7 +9122,7 @@ public static class MessagePack
     }
     else if (num == 102)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9130,7 +9130,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9141,7 +9141,7 @@ public static class MessagePack
     }
     else if (num == 103)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9149,7 +9149,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9192,7 +9192,7 @@ public static class MessagePack
     }
     else if (num == 108)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9200,7 +9200,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9211,7 +9211,7 @@ public static class MessagePack
     }
     else if (num == 109)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9219,7 +9219,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9230,7 +9230,7 @@ public static class MessagePack
     }
     else if (num == 110)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9238,7 +9238,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9249,7 +9249,7 @@ public static class MessagePack
     }
     else if (num == 111)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9257,7 +9257,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9268,7 +9268,7 @@ public static class MessagePack
     }
     else if (num == 112)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9276,7 +9276,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9287,7 +9287,7 @@ public static class MessagePack
     }
     else if (num == 113)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9295,7 +9295,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9306,7 +9306,7 @@ public static class MessagePack
     }
     else if (num == 114)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9314,7 +9314,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9325,7 +9325,7 @@ public static class MessagePack
     }
     else if (num == 115)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9333,7 +9333,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9344,7 +9344,7 @@ public static class MessagePack
     }
     else if (num == 116)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9352,7 +9352,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9363,7 +9363,7 @@ public static class MessagePack
     }
     else if (num == 117)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9371,7 +9371,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9382,7 +9382,7 @@ public static class MessagePack
     }
     else if (num == 118)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9390,7 +9390,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9401,7 +9401,7 @@ public static class MessagePack
     }
     else if (num == 119)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9409,7 +9409,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9420,7 +9420,7 @@ public static class MessagePack
     }
     else if (num == 120)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9428,7 +9428,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9439,7 +9439,7 @@ public static class MessagePack
     }
     else if (num == 121)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9447,7 +9447,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9458,7 +9458,7 @@ public static class MessagePack
     }
     else if (num == 122)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9466,7 +9466,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9477,7 +9477,7 @@ public static class MessagePack
     }
     else if (num == 123)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9485,7 +9485,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9496,7 +9496,7 @@ public static class MessagePack
     }
     else if (num == 124)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9504,7 +9504,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9515,7 +9515,7 @@ public static class MessagePack
     }
     else if (num == 125)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9523,7 +9523,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9566,7 +9566,7 @@ public static class MessagePack
     }
     else if (num == 130)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9574,7 +9574,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9585,7 +9585,7 @@ public static class MessagePack
     }
     else if (num == 131)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9593,7 +9593,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9604,7 +9604,7 @@ public static class MessagePack
     }
     else if (num == 132)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9612,7 +9612,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9623,7 +9623,7 @@ public static class MessagePack
     }
     else if (num == 133)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9631,7 +9631,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9642,7 +9642,7 @@ public static class MessagePack
     }
     else if (num == 134)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9650,7 +9650,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9741,7 +9741,7 @@ public static class MessagePack
     }
     else if (num == 145)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9749,7 +9749,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9760,7 +9760,7 @@ public static class MessagePack
     }
     else if (num == 146)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9768,7 +9768,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9779,7 +9779,7 @@ public static class MessagePack
     }
     else if (num == 147)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9787,7 +9787,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9798,7 +9798,7 @@ public static class MessagePack
     }
     else if (num == 148)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9806,7 +9806,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9817,7 +9817,7 @@ public static class MessagePack
     }
     else if (num == 149)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9825,7 +9825,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9836,7 +9836,7 @@ public static class MessagePack
     }
     else if (num == 150)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9844,7 +9844,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9855,7 +9855,7 @@ public static class MessagePack
     }
     else if (num == 151)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9863,7 +9863,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9874,7 +9874,7 @@ public static class MessagePack
     }
     else if (num == 152)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9882,7 +9882,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9893,7 +9893,7 @@ public static class MessagePack
     }
     else if (num == 153)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9901,7 +9901,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9912,7 +9912,7 @@ public static class MessagePack
     }
     else if (num == 154)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9920,7 +9920,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9947,7 +9947,7 @@ public static class MessagePack
     }
     else if (num == 157)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9955,7 +9955,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9966,7 +9966,7 @@ public static class MessagePack
     }
     else if (num == 158)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9974,7 +9974,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9985,7 +9985,7 @@ public static class MessagePack
     }
     else if (num == 159)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -9993,7 +9993,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10004,7 +10004,7 @@ public static class MessagePack
     }
     else if (num == 160)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10012,7 +10012,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10023,7 +10023,7 @@ public static class MessagePack
     }
     else if (num == 161)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10031,7 +10031,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10042,7 +10042,7 @@ public static class MessagePack
     }
     else if (num == 162)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10050,7 +10050,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10093,7 +10093,7 @@ public static class MessagePack
     }
     else if (num == 167)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10101,7 +10101,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10112,7 +10112,7 @@ public static class MessagePack
     }
     else if (num == 168)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10120,7 +10120,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10131,7 +10131,7 @@ public static class MessagePack
     }
     else if (num == 169)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10139,7 +10139,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10150,7 +10150,7 @@ public static class MessagePack
     }
     else if (num == 170)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10158,7 +10158,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10169,7 +10169,7 @@ public static class MessagePack
     }
     else if (num == 171)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10177,7 +10177,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10222,12 +10222,12 @@ public static class MessagePack
     {
       for (int ii = 0; ii < move; ii++)
       {
-        if (direction == DungeonField.Direction.Top)
+        if (direction == Fix.Direction.Top)
         {
           Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
-        else if (direction == DungeonField.Direction.Left)
+        else if (direction == Fix.Direction.Left)
         {
           Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjLeft);
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
@@ -10268,7 +10268,7 @@ public static class MessagePack
     }
     else if (num == 181)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10276,7 +10276,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
         }
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10287,7 +10287,7 @@ public static class MessagePack
     }
     else if (num == 182)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10295,7 +10295,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
         }
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10306,7 +10306,7 @@ public static class MessagePack
     }
     else if (num == 183)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10314,7 +10314,7 @@ public static class MessagePack
           Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
         }
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         for (int ii = 0; ii < move; ii++)
         {
@@ -10572,11 +10572,11 @@ public static class MessagePack
     }
     else if (num == 44)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
@@ -10647,11 +10647,11 @@ public static class MessagePack
     }
     else if (num == 61)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
@@ -10706,44 +10706,44 @@ public static class MessagePack
     }
     else if (num == 74)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 75)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 76)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 77)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
@@ -10806,33 +10806,33 @@ public static class MessagePack
     }
     else if (num == 92)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 93)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 94)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
@@ -10847,77 +10847,77 @@ public static class MessagePack
     }
     else if (num == 97)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 98)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 99)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 100)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 101)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 102)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 103)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
@@ -10940,198 +10940,198 @@ public static class MessagePack
     }
     else if (num == 108)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 109)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 110)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 111)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 112)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 113)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 114)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 115)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 116)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 117)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 118)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 119)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 120)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 121)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 122)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 123)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 124)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 125)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
@@ -11154,55 +11154,55 @@ public static class MessagePack
     }
     else if (num == 130)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 131)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 132)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 133)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 134)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
@@ -11249,110 +11249,110 @@ public static class MessagePack
     }
     else if (num == 145)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 146)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 147)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 148)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 149)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 150)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 151)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 152)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 153)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 154)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
@@ -11367,66 +11367,66 @@ public static class MessagePack
     }
     else if (num == 157)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 158)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 159)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 160)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 161)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 162)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
@@ -11449,55 +11449,55 @@ public static class MessagePack
     }
     else if (num == 167)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
     }
     else if (num == 168)
     {
-      if (direction == DungeonField.Direction.Bottom)
+      if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 169)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 170)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
     }
     else if (num == 171)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
@@ -11520,11 +11520,11 @@ public static class MessagePack
     }
     else if (num == 176)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Left)
+      else if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
@@ -11547,33 +11547,33 @@ public static class MessagePack
     }
     else if (num == 181)
     {
-      if (direction == DungeonField.Direction.Right)
+      if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
-      else if (direction == DungeonField.Direction.Bottom)
+      else if (direction == Fix.Direction.Bottom)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
       }
     }
     else if (num == 182)
     {
-      if (direction == DungeonField.Direction.Top)
+      if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
-      else if (direction == DungeonField.Direction.Right)
+      else if (direction == Fix.Direction.Right)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
       }
     }
     else if (num == 183)
     {
-      if (direction == DungeonField.Direction.Left)
+      if (direction == Fix.Direction.Left)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveLeft);
       }
-      else if (direction == DungeonField.Direction.Top)
+      else if (direction == Fix.Direction.Top)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
       }
@@ -11618,23 +11618,23 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
   }
 
-  public static void MoveFloatingTileFail(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
+  public static void MoveFloatingTileFail(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction, int num)
   {
     Message(ref m_list, ref e_list, "アイン：さてと、このタイルで移動するか。", ActionEvent.None);
 
-    if (direction == DungeonField.Direction.Right)
+    if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
     }
-    else if (direction == DungeonField.Direction.Top)
+    else if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
     }
@@ -11712,19 +11712,19 @@ public static class MessagePack
       }
     }
 
-    if (direction == DungeonField.Direction.Right)
+    if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
     }
-    else if (direction == DungeonField.Direction.Top)
+    else if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
     }
@@ -11784,24 +11784,24 @@ public static class MessagePack
     }
   }
 
-  public static void MoveWarpHoleTile(ref List<string> m_list, ref List<ActionEvent> e_list, DungeonField.Direction direction, int num)
+  public static void MoveWarpHoleTile(ref List<string> m_list, ref List<ActionEvent> e_list, Fix.Direction direction, int num)
   {
     Message(ref m_list, ref e_list, "アイン：さてと、これでワープ移動するか。", ActionEvent.None);
 
 
-    if (direction == DungeonField.Direction.Right)
+    if (direction == Fix.Direction.Right)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveRight);
     }
-    else if (direction == DungeonField.Direction.Left)
+    else if (direction == Fix.Direction.Left)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveLeft);
     }
-    else if (direction == DungeonField.Direction.Top)
+    else if (direction == Fix.Direction.Top)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
     }
-    else if (direction == DungeonField.Direction.Bottom)
+    else if (direction == Fix.Direction.Bottom)
     {
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
     }
