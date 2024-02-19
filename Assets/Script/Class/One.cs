@@ -80,9 +80,6 @@ public static class One
   public static List<Character> EnemyList = new List<Character>();
 
   #region "SceneManager"
-  // MotherForm
-  public static string SceneName;
-
   // SaveLoad
   public static bool AfterBacktoTitle = false; // タイトル戻り直前のセーブモード
   public static bool SaveMode = false; // false:Load true:Save
