@@ -20,7 +20,6 @@ public static class SceneDimension
   {
     One.StopDungeonMusic();
     SceneManager.LoadSceneAsync(Fix.SCENE_HOME_TOWN);
-    One.Parent.Clear();
   }
 
   public static void JumpToDungeonField(string dungeon_field)
@@ -29,7 +28,6 @@ public static class SceneDimension
     One.TF.CurrentDungeonField = dungeon_field;
     Resources.UnloadUnusedAssets();
     SceneManager.LoadSceneAsync(Fix.SCENE_DUNGEON_FIELD);
-    One.Parent.Clear();
   }
 
   public static void JumpToTitle()
@@ -37,7 +35,6 @@ public static class SceneDimension
     One.ReInitializeGroundOne(false);
     One.StopDungeonMusic();
     SceneManager.LoadSceneAsync(Fix.Title);
-    One.Parent.Clear();
   }
 
   //public static void CallSaveLoad(MotherBase scene, bool SaveMode, bool AfterBacktoTitle)
@@ -307,27 +304,4 @@ public static class SceneDimension
   //  SceneManager.LoadSceneAsync(Fix.TruthBattleSetting, LoadSceneMode.Additive);
   //}
 
-  public static void Back(MotherBase scene)
-  {
-    Debug.Log("back name: " + scene.GetType().Name);
-    string sceneName = scene.GetType().Name;
-    if (One.Parent.Count > 0)
-    {
-      One.Parent[One.Parent.Count - 1].SceneBack();
-      One.Parent.RemoveAt(One.Parent.Count - 1);
-    }
-    SceneManager.UnloadSceneAsync(sceneName);
-  }
-
-  public static void BackSuddenly(MotherBase scene)
-  {
-    SceneManager.UnloadSceneAsync(scene.GetType().Name);
-
-    if (One.Parent.Count > 0)
-    {
-      MotherBase current = One.Parent[One.Parent.Count - 1];
-      One.Parent.RemoveAt(One.Parent.Count - 1);
-      current.SceneBack();
-    }
-  }
 }

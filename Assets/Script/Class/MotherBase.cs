@@ -28,21 +28,4 @@ public class MotherBase : MonoBehaviour
       this.Filter.SetActive(false);
     }
   }
-
-  public void NextScene()
-  {
-    Resources.UnloadUnusedAssets();
-    //Application.UnloadLevel(Fix.Title);
-    //Application.UnloadLevel(Fix.SaveLoad);
-    if (One.TF.SaveByDungeon)
-    {
-      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToDungeonField(One.TF.CurrentDungeonField);
-    }
-    else
-    {
-      One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToHomeTown();
-    }
-  }
 }

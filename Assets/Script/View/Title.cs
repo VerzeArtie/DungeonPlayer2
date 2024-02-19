@@ -77,7 +77,6 @@ public class Title : MotherBase
     One.SaveMode = false;
     One.AfterBacktoTitle = false;
     One.SaveAndExit = false;
-    One.Parent.Add(this);
     this.groupSaveLoad.SceneLoading();
     this.groupSaveLoad.gameObject.SetActive(true);
     //SceneDimension.CallSaveLoad(this, false, false);

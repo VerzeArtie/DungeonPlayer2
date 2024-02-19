@@ -81,7 +81,6 @@ public static class One
 
   #region "SceneManager"
   // MotherForm
-  public static List<MotherBase> Parent;
   public static string SceneName;
 
   // SaveLoad
@@ -146,7 +145,6 @@ public static class One
     //shadowWE2 = null;
     if (FromGameLoad == false)
     {
-      Parent.Clear();
       UnityEngine.Object.Destroy(sound);
       UnityEngine.Object.Destroy(soundSource);
       sound = null;
@@ -190,7 +188,6 @@ public static class One
 
     if (FromGameLoad == false)
     {
-      Parent = new List<MotherBase>();
       sound = new GameObject("sound");
       soundSource = sound.AddComponent<AudioSource>();
       bgm = new GameObject("bgm");

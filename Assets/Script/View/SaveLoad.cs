@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SaveLoad : MotherBase
 {
@@ -1407,9 +1408,19 @@ public class SaveLoad : MotherBase
       {
         SceneDimension.JumpToTitle();
       }
-      else if (One.Parent.Count > 0)
+      else
       {
-        One.Parent[One.Parent.Count - 1].NextScene();
+        Resources.UnloadUnusedAssets();
+        if (One.TF.SaveByDungeon)
+        {
+          One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+          SceneDimension.JumpToDungeonField(One.TF.CurrentDungeonField);
+        }
+        else
+        {
+          One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+          SceneDimension.JumpToHomeTown();
+        }
       }
     }
     else if (One.AfterBacktoTitle)
@@ -1418,7 +1429,9 @@ public class SaveLoad : MotherBase
     }
     else
     {
-      SceneDimension.Back(this);
+      // TapCloseと同等に扱う。
+      One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+      this.gameObject.SetActive(false);
     }
   }
 
