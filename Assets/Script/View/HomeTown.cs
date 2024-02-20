@@ -518,6 +518,7 @@ public partial class HomeTown : MotherBase
         if (AlreadyDetectEncounted == false)
         {
           AlreadyDetectEncounted = true;
+          One.StopDungeonMusic();
           SceneDimension.CallBattleEnemy();
         }
       }
@@ -533,7 +534,9 @@ public partial class HomeTown : MotherBase
       this.DungeonCallComplete = true;
       Debug.Log("DungeonCallComplete: " + this.DungeonCall + " " + this.DungeonMap);
       One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-      SceneDimension.JumpToDungeonField(this.DungeonMap);
+      One.StopDungeonMusic();
+      One.TF.CurrentDungeonField = this.DungeonMap;
+      SceneDimension.JumpToDungeonField();
       return;
     }
 
@@ -1146,7 +1149,9 @@ public partial class HomeTown : MotherBase
     One.TF.Field_Y = y;
     One.TF.Field_Z = z;
     One.TF.BeforeAreaName = source;
-    SceneDimension.JumpToDungeonField(destination);
+    One.StopDungeonMusic();
+    One.TF.CurrentDungeonField = destination;
+    SceneDimension.JumpToDungeonField();
     groupNowLoading.SetActive(true);
   }
 
@@ -1157,6 +1162,7 @@ public partial class HomeTown : MotherBase
     this.HomeTownComplete = true;
     One.TF.BeforeAreaName = source;
     One.TF.CurrentAreaName = destination;
+    One.StopDungeonMusic();
     SceneDimension.JumpToHomeTown();
     groupNowLoading.SetActive(true);
   }
@@ -1949,6 +1955,8 @@ public partial class HomeTown : MotherBase
         // ゲームオーバー、タイトルへ
         else if (currentEvent == MessagePack.ActionEvent.DungeonBadEnd)
         {
+          One.ReInitializeGroundOne(false);
+          One.StopDungeonMusic();
           SceneDimension.JumpToTitle();
         }
         // 画面の情報をクリアする。

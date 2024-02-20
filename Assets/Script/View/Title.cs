@@ -48,6 +48,7 @@ public class Title : MotherBase
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
     One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
     One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
+    One.StopDungeonMusic();
     SceneDimension.JumpToHomeTown();
   }
 
@@ -69,7 +70,9 @@ public class Title : MotherBase
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
     One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
     One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
-    SceneDimension.JumpToDungeonField(Fix.MAPFILE_VELGUS);
+    One.StopDungeonMusic();
+    One.TF.CurrentDungeonField = Fix.MAPFILE_VELGUS;
+    SceneDimension.JumpToDungeonField();
   }
 
   public void TapGameLoad()
@@ -289,6 +292,7 @@ public class Title : MotherBase
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Normal;
+    One.StopDungeonMusic();
     SceneDimension.CallBattleEnemy();
   }
 
@@ -367,6 +371,7 @@ public class Title : MotherBase
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Duel;
+    One.StopDungeonMusic();
     SceneDimension.CallBattleEnemy();
   }
 
@@ -448,6 +453,7 @@ public class Title : MotherBase
     //    SceneDimension.CallBattleEnemy();
 
     One.BattleMode = Fix.BattleMode.Boss;
+    One.StopDungeonMusic();
     SceneDimension.CallBattleEnemy();
   }
 }

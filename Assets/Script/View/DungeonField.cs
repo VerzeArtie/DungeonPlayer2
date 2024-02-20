@@ -653,6 +653,7 @@ public class DungeonField : MotherBase
         if (AlreadyDetectEncounted == false)
         {
           AlreadyDetectEncounted = true;
+          One.StopDungeonMusic();
           SceneDimension.CallBattleEnemy();
         }
       }
@@ -948,6 +949,7 @@ public class DungeonField : MotherBase
       this.HomeTownComplete = true;
       One.TF.BeforeAreaName = One.TF.CurrentAreaName;
       One.TF.CurrentAreaName = this.HomeTownCall;
+      One.StopDungeonMusic();
       SceneDimension.JumpToHomeTown();
       return;
     }
@@ -957,7 +959,9 @@ public class DungeonField : MotherBase
       // todo
       Debug.Log("DungeonCallComplete: " + this.DungeonCall + " " + this.DungeonMap);
       // One.TF.BeforeAreaName = One.TF.CurrentAreaName; // 更新しない
-      SceneDimension.JumpToDungeonField(this.DungeonMap);
+      // One.StopDungeonMusic(); // 同じダンジョン内の階層移動なので、音楽は停止しない
+      One.TF.CurrentDungeonField = this.DungeonMap;
+      SceneDimension.JumpToDungeonField();
       return;
     }
 
@@ -2433,6 +2437,7 @@ public class DungeonField : MotherBase
     this.HomeTownComplete = true;
     One.TF.LocationPlayer2 = false;
     One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+    One.StopDungeonMusic();
     SceneDimension.JumpToHomeTown();
   }
 
@@ -6425,6 +6430,8 @@ public class DungeonField : MotherBase
         // ゲームオーバー、タイトルへ
         else if (currentEvent == MessagePack.ActionEvent.DungeonBadEnd)
         {
+          One.ReInitializeGroundOne(false);
+          One.StopDungeonMusic();
           SceneDimension.JumpToTitle();
         }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)

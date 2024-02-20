@@ -4201,6 +4201,8 @@ public partial class BattleEnemy : MotherBase
 
   public void TapSurrenderBattle()
   {
+    One.ReInitializeGroundOne(false);
+    One.StopDungeonMusic();
     SceneDimension.JumpToTitle();
   }
   #endregion

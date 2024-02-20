@@ -18,28 +18,22 @@ public static class SceneDimension
 
   public static void JumpToHomeTown()
   {
-    One.StopDungeonMusic();
     SceneManager.LoadSceneAsync(Fix.SCENE_HOME_TOWN);
   }
 
-  public static void JumpToDungeonField(string dungeon_field)
+  public static void JumpToDungeonField()
   {
-    One.StopDungeonMusic();
-    One.TF.CurrentDungeonField = dungeon_field;
     Resources.UnloadUnusedAssets();
     SceneManager.LoadSceneAsync(Fix.SCENE_DUNGEON_FIELD);
   }
 
   public static void JumpToTitle()
   {
-    One.ReInitializeGroundOne(false);
-    One.StopDungeonMusic();
     SceneManager.LoadSceneAsync(Fix.Title);
   }
 
   public static void CallBattleEnemy()
   {
-    One.StopDungeonMusic();
     SceneManager.LoadSceneAsync("BattleEnemy");
   }
 }

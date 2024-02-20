@@ -1406,6 +1406,8 @@ public class SaveLoad : MotherBase
     {
       if (One.AfterBacktoTitle)
       {
+        One.ReInitializeGroundOne(false);
+        One.StopDungeonMusic();
         SceneDimension.JumpToTitle();
       }
       else
@@ -1414,17 +1416,21 @@ public class SaveLoad : MotherBase
         if (One.TF.SaveByDungeon)
         {
           One.TF.BeforeAreaName = One.TF.CurrentAreaName;
-          SceneDimension.JumpToDungeonField(One.TF.CurrentDungeonField);
+          One.StopDungeonMusic();
+          SceneDimension.JumpToDungeonField();
         }
         else
         {
           One.TF.BeforeAreaName = One.TF.CurrentAreaName;
+          One.StopDungeonMusic();
           SceneDimension.JumpToHomeTown();
         }
       }
     }
     else if (One.AfterBacktoTitle)
     {
+      One.ReInitializeGroundOne(false);
+      One.StopDungeonMusic();
       SceneDimension.JumpToTitle();
     }
     else
