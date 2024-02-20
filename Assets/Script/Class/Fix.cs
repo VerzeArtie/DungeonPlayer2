@@ -613,6 +613,7 @@ public static partial class Fix
   public const string SingleBattleEnemy = @"SingleBattleEnemy";
 
   public const string SCENE_DUNGEON_FIELD = @"DungeonField";
+  public const string SCENE_BATTLE_ENEMY = @"BattleEnemy";
   public const string SCENE_HOME_TOWN = @"HomeTown";
   public const string SCENE_HELP_BOOK = @"HelpBook";
   public const string SCENE_PARTY_MENU = @"PartyMenu";

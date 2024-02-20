@@ -34,6 +34,6 @@ public static class SceneDimension
 
   public static void CallBattleEnemy()
   {
-    SceneManager.LoadSceneAsync("BattleEnemy");
+    SceneManager.LoadSceneAsync(Fix.SCENE_BATTLE_ENEMY);
   }
 }
