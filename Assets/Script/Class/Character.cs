@@ -3079,35 +3079,6 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
-  public List<string> GetAvailableListItem()
-  {
-    List<string> list = new List<string>();
-    if (One.TF.FindBackPackItem(Fix.SMALL_RED_POTION)) { list.Add(Fix.SMALL_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.NORMAL_RED_POTION)) { list.Add(Fix.NORMAL_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.LARGE_RED_POTION)) { list.Add(Fix.LARGE_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HUGE_RED_POTION)) { list.Add(Fix.HUGE_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HQ_RED_POTION)) { list.Add(Fix.HQ_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.THQ_RED_POTION)) { list.Add(Fix.THQ_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PERFECT_RED_POTION)) { list.Add(Fix.PERFECT_RED_POTION); }
-    if (One.TF.FindBackPackItem(Fix.SMALL_BLUE_POTION)) { list.Add(Fix.SMALL_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.NORMAL_BLUE_POTION)) { list.Add(Fix.NORMAL_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.LARGE_BLUE_POTION)) { list.Add(Fix.LARGE_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HUGE_BLUE_POTION)) { list.Add(Fix.HUGE_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HQ_BLUE_POTION)) { list.Add(Fix.HQ_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.THQ_BLUE_POTION)) { list.Add(Fix.THQ_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PERFECT_BLUE_POTION)) { list.Add(Fix.PERFECT_BLUE_POTION); }
-    if (One.TF.FindBackPackItem(Fix.SMALL_GREEN_POTION)) { list.Add(Fix.SMALL_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.NORMAL_GREEN_POTION)) { list.Add(Fix.NORMAL_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.LARGE_GREEN_POTION)) { list.Add(Fix.LARGE_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HUGE_GREEN_POTION)) { list.Add(Fix.HUGE_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.HQ_GREEN_POTION)) { list.Add(Fix.HQ_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.THQ_GREEN_POTION)) { list.Add(Fix.THQ_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PERFECT_GREEN_POTION)) { list.Add(Fix.PERFECT_GREEN_POTION); }
-    if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
-    if (One.TF.FindBackPackItem(Fix.PURE_SINSEISUI)) { list.Add(Fix.PURE_SINSEISUI); }
-    return list;
-  }
-
   public void LevelUpEssenceTree(int number, ref string new_command)
   {
     if (number == 1)
@@ -3780,37 +3751,6 @@ public partial class Character : MonoBehaviour
       //    new_command = Fix.ARCHETYPE_ADEL_1;
       //  }
     }
-  }
-
-  public List<string> GetAvailableListArchetype()
-  {
-    // todo ストーリー進行 or レベルアップなどでリスト追加
-    List<string> list = new List<string>();
-    if (this.FullName == Fix.NAME_EIN_WOLENCE && One.TF.AvailableArchetype_EinWolence)
-    {
-      list.Add(Fix.ARCHETYPE_EIN_1);
-    }
-    if (this.FullName == Fix.NAME_LANA_AMIRIA && One.TF.AvailableArchetype_LanaAmiria)
-    {
-      list.Add(Fix.ARCHETYPE_LANA_1);
-    }
-    if (this.FullName == Fix.NAME_EONE_FULNEA && One.TF.AvailableArchetype_EoneFulnea)
-    {
-      list.Add(Fix.ARCHETYPE_EONE_1);
-    }
-    if (this.FullName == Fix.NAME_BILLY_RAKI && One.TF.AvailableArchetype_BillyRaki)
-    {
-      list.Add(Fix.ARCHETYPE_BILLY_1);
-    }
-    if (this.FullName == Fix.NAME_ADEL_BRIGANDY && One.TF.AvailableArchetype_AdelBrigandy)
-    {
-      list.Add(Fix.ARCHETYPE_ADEL_1);
-    }
-    if (this.FullName == Fix.NAME_SELMOI_RO && One.TF.AvailableArchetype_SelmoiRo)
-    {
-      list.Add(Fix.ARCHETYPE_RO_1);
-    }
-    return list;
   }
 
   public List<string> GetEssenceTreeTitleList(int attr, int type)
@@ -4968,6 +4908,8 @@ public partial class Character : MonoBehaviour
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.NORMAL_ATTACK;
         this.ActionCommand1 = Fix.STRAIGHT_SMASH;
+        this.AvailableWarrior = true;
+        this.StraightSmash = 1;
         break;
 
       case Fix.NAME_LANA_AMIRIA:
@@ -4996,6 +4938,8 @@ public partial class Character : MonoBehaviour
         this.CurrentImmediateCommand = Fix.SMALL_RED_POTION;
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ICE_NEEDLE;
+        this.AvailableIce = true;
+        this.IceNeedle = 1;
         break;
 
       case Fix.NAME_EONE_FULNEA:
@@ -5028,6 +4972,12 @@ public partial class Character : MonoBehaviour
         this.ActionCommand2 = Fix.FRESH_HEAL;
         this.ActionCommand3 = Fix.MULTIPLE_SHOT;
         this.ActionCommand4 = Fix.DIVINE_CIRCLE;
+        this.AvailableArchery = true;
+        this.AvailableHolyLight = true;
+        this.HunterShot = 1;
+        this.MultipleShot = 1;
+        this.FreshHeal = 1;
+        this.DivineCircle = 1;
         break;
 
       case Fix.NAME_BILLY_RAKI:
@@ -5064,6 +5014,16 @@ public partial class Character : MonoBehaviour
         this.ActionCommand5 = Fix.FLAME_BLADE;
         this.ActionCommand6 = Fix.METEOR_BULLET;
         this.ActionCommand7 = Fix.TRUE_SIGHT;
+        this.AvailableMartialArts = true;
+        this.AvailableFire = true;
+        this.AvailableTruth = true;
+        this.LegStrike = 1;
+        this.SpeedStep = 1;
+        this.BoneCrush = 1;
+        this.FireBall = 1;
+        this.FlameBlade = 1;
+        this.MeteorBullet = 1;
+        this.TrueSight = 1;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -5095,17 +5055,29 @@ public partial class Character : MonoBehaviour
         this.ActionCommand1 = Fix.ENERGY_BOLT;
         this.ActionCommand2 = Fix.FLASH_COUNTER;
         this.ActionCommand3 = Fix.SIGIL_OF_THE_PENDING;
-        this.ActionCommand4 = Fix.ORACLE_COMMAND;
-        this.ActionCommand5 = Fix.FORTUNE_SPIRIT;
-        this.ActionCommand6 = Fix.WORD_OF_POWER;
-        this.ActionCommand7 = Fix.FREEZING_CUBE;
-        this.ActionCommand8 = Fix.GALE_WIND;
-        this.ActionCommand9 = Fix.PHANTOM_OBORO;
+        this.ActionCommand4 = Fix.TRUE_SIGHT;
+        this.ActionCommand5 = Fix.LEYLINE_SCHEMA;
+        this.ActionCommand6 = Fix.SIGIL_OF_THE_PENDING;
+        this.ActionCommand7 = Fix.ORACLE_COMMAND;
+        this.ActionCommand8 = Fix.FORTUNE_SPIRIT;
+        this.ActionCommand9 = Fix.WORD_OF_POWER;
         this.RemainPoint = 5;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.NORMAL_ATTACK;
         this.GlobalAction4 = Fix.MAGIC_ATTACK;
+        this.AvailableVoidChant = true;
+        this.AvailableTruth = true;
+        this.AvailableForce = true;
+        this.EnergyBolt = 1;
+        this.FlashCounter = 1;
+        this.SigilOfThePending = 1;
+        this.TrueSight = 1;
+        this.LeylineSchema = 1;
+        this.VoiceOfVigor = 1;
+        this.OracleCommand = 1;
+        this.FortuneSpirit = 1;
+        this.WordOfPower = 1;
         break;
 
       case Fix.NAME_CALMANS_OHN:
@@ -5324,15 +5296,6 @@ public partial class Character : MonoBehaviour
     }
 
     MaxGain();
-
-    // エッセンスツリー更新
-    string dummy = String.Empty;
-    if (true) { LevelUpEssenceTree(1, ref dummy); } // 無条件
-    if (true) { LevelUpEssenceTree(2, ref dummy); } // 無条件
-    if (One.TF.AvailableFirstEssence) { LevelUpEssenceTree(3, ref dummy); }
-    if (One.TF.AvailableSecondEssence) { LevelUpEssenceTree(4, ref dummy); }
-    if (One.TF.AvailableThirdEssence) { LevelUpEssenceTree(5, ref dummy); }
-    if (One.TF.AvailableFourthEssence) { LevelUpEssenceTree(6, ref dummy); }
   }
 
   public int LevelupBaseLife()
@@ -6111,7 +6074,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public void UpdateLevelup(ref string new_command)
+  public void UpdateLevelup(ref string new_command, bool first, bool second, bool third, bool fourth)
   {
     this.Level += 1;
 
@@ -6125,10 +6088,10 @@ public partial class Character : MonoBehaviour
     new_command = String.Empty;
     if (true) { LevelUpEssenceTree(1, ref new_command); } // 無条件
     if (true) { LevelUpEssenceTree(2, ref new_command); } // 無条件
-    if (One.TF.AvailableFirstEssence) { LevelUpEssenceTree(3, ref new_command); }
-    if (One.TF.AvailableSecondEssence) { LevelUpEssenceTree(4, ref new_command); }
-    if (One.TF.AvailableThirdEssence) { LevelUpEssenceTree(5, ref new_command); }
-    if (One.TF.AvailableFourthEssence) { LevelUpEssenceTree(6, ref new_command); }
+    if (first) { LevelUpEssenceTree(3, ref new_command); }
+    if (second) { LevelUpEssenceTree(4, ref new_command); }
+    if (third) { LevelUpEssenceTree(5, ref new_command); }
+    if (fourth) { LevelUpEssenceTree(6, ref new_command); }
 
     // アクションコマンドのスロット空きがあれば、新しく習得したアクションコマンドを設定する。
     if (new_command != String.Empty)

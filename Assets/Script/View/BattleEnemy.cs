@@ -981,7 +981,7 @@ public partial class BattleEnemy : MotherBase
             {
               string newCommand = string.Empty;
               PlayerList[ii].Exp = PlayerList[ii].Exp - PlayerList[ii].GetNextExp();
-              PlayerList[ii].UpdateLevelup(ref newCommand);
+              PlayerList[ii].UpdateLevelup(ref newCommand, One.TF.AvailableFirstEssence, One.TF.AvailableSecondEssence, One.TF.AvailableThirdEssence, One.TF.AvailableFourthEssence);
 
               DetectLvup.Add(true);
               DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");

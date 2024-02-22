@@ -2142,13 +2142,13 @@ public partial class HomeTown : MotherBase
             if (One.TF.BattlePlayer3 == null || One.TF.BattlePlayer3 == String.Empty) { One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 3"); }
             else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 4"); }
             else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 5"); }
-            One.ReInitializeCharacter(Fix.NAME_EONE_FULNEA);
+            // todo ReInitializeではなくて、アップデートが必要。
           }
           else if (currentMessage.Contains(Fix.NAME_BILLY_RAKI))
           {
             One.TF.AvailableBillyRaki = true;
             One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
-            One.ReInitializeCharacter(Fix.NAME_BILLY_RAKI);
+            // todo ReInitializeではなくて、アップデートが必要。
           }
           else if (currentMessage.Contains(Fix.NAME_ADEL_BRIGANDY))
           {
@@ -2158,12 +2158,12 @@ public partial class HomeTown : MotherBase
             else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 4"); }
             else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 5"); }
             else if (One.TF.BattlePlayer6 == null || One.TF.BattlePlayer6 == String.Empty) { One.TF.BattlePlayer6 = Fix.NAME_ADEL_BRIGANDY; Debug.Log("Adel 6"); }
-            One.ReInitializeCharacter(Fix.NAME_ADEL_BRIGANDY);
+            // todo ReInitializeではなくて、アップデートが必要。
           }
           else if (currentMessage.Contains(Fix.NAME_SELMOI_RO))
           {
             One.TF.AvailableSelmoiRo = true;
-            One.ReInitializeCharacter(Fix.NAME_SELMOI_RO);
+            // todo ReInitializeではなくて、アップデートが必要。
           }
 
           RefreshAllView();

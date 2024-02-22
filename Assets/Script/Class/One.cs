@@ -1185,20 +1185,6 @@ public static class One
       //}
     }
 
-  public static void ReInitializeCharacter(string character_name)
-  {
-    Debug.Log(MethodBase.GetCurrentMethod() + " " + character_name);
-    for (int ii = 0; ii < Characters.Count; ii++)
-    {
-      if (character_name == Characters[ii].FullName)
-      {
-        Debug.Log("detect " + character_name);
-        Characters[ii].CharacterCreation(character_name);
-        break;
-      }
-    }
-  }
-
   #region "BGM再生と効果音関連"
   public static void PlaySoundEffect(string soundName)
   {
