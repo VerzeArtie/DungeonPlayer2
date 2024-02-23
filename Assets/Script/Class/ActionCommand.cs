@@ -227,172 +227,174 @@ public static class ActionCommand
     }
     return result;
   }
-  public static List<int> GetCommandPlus(Character player, Fix.CommandAttribute attr)
-  {
-    List<int> result = new List<int>();
-    if (attr == Fix.CommandAttribute.Fire)
-    {
-      result.Add(player.FireBall);
-      result.Add(player.FlameBlade);
-      result.Add(player.MeteorBullet);
-      result.Add(player.VolcanicBlaze);
-      result.Add(player.FlameStrike);
-      result.Add(player.CircleOfTheIgnite);
-      result.Add(player.LavaAnnihilation);
-    }
-    else if (attr == Fix.CommandAttribute.Ice)
-    {
-      result.Add(player.IceNeedle);
-      result.Add(player.PurePurification);
-      result.Add(player.BlueBullet);
-      result.Add(player.FreezingCube);
-      result.Add(player.FrostLance);
-      result.Add(player.WaterPresence);
-      result.Add(player.AbsoluteZero);
-    }
-    else if (attr == Fix.CommandAttribute.HolyLight)
-    {
-      result.Add(player.FreshHeal);
-      result.Add(player.DivineCircle);
-      result.Add(player.HolyBreath);
-      result.Add(player.AngelicEcho);
-      result.Add(player.ShiningHeal);
-      result.Add(player.ValkyrieBlade);
-      result.Add(player.Resurrection);
-    }
-    else if (attr == Fix.CommandAttribute.DarkMagic)
-    {
-      result.Add(player.ShadowBlast);
-      result.Add(player.BloodSign);
-      result.Add(player.BlackContract);
-      result.Add(player.CursedEvangile);
-      result.Add(player.CircleOfTheDespair);
-      result.Add(player.TheDarkIntensity);
-      result.Add(player.DeathScythe);
-    }
-    else if (attr == Fix.CommandAttribute.Force)
-    {
-      result.Add(player.OracleCommand);
-      result.Add(player.FortuneSpirit);
-      result.Add(player.WordOfPower);
-      result.Add(player.GaleWind);
-      result.Add(player.SeventhPrinciple);
-      result.Add(player.FutureVision);
-      result.Add(player.Genesis);
-    }
-    else if (attr == Fix.CommandAttribute.VoidChant)
-    {
-      result.Add(player.EnergyBolt);
-      result.Add(player.FlashCounter);
-      result.Add(player.SigilOfThePending);
-      result.Add(player.PhantomOboro);
-      result.Add(player.CounterDisallow);
-      result.Add(player.DetachmentFault);
-      result.Add(player.TimeSkip);
-    }
-    else if (attr == Fix.CommandAttribute.Warrior)
-    {
-      result.Add(player.StraightSmash);
-      result.Add(player.StanceOfTheBlade);
-      result.Add(player.DoubleSlash);
-      result.Add(player.IronBuster);
-      result.Add(player.RagingStorm);
-      result.Add(player.StanceOfTheIai);
-      result.Add(player.KineticSmash);
-    }
-    else if (attr == Fix.CommandAttribute.Guardian)
-    {
-      result.Add(player.ShieldBash);
-      result.Add(player.StanceOfTheGuard);
-      result.Add(player.ConcussiveHit);
-      result.Add(player.DominationField);
-      result.Add(player.HardestParry);
-      result.Add(player.OneImmunity);
-      result.Add(player.Catastrophe);
-    }
-    else if (attr == Fix.CommandAttribute.MartialArts)
-    {
-      result.Add(player.LegStrike);
-      result.Add(player.SpeedStep);
-      result.Add(player.BoneCrush);
-      result.Add(player.DeadlyDrive);
-      result.Add(player.UnintentionalHit);
-      result.Add(player.StanceOfMuin);
-      result.Add(player.CarnageRush);
-    }
-    else if (attr == Fix.CommandAttribute.Archery)
-    {
-      result.Add(player.HunterShot);
-      result.Add(player.MultipleShot);
-      result.Add(player.EyeOfTheIsshin);
-      result.Add(player.PenetrationArrow);
-      result.Add(player.PrecisionStrike);
-      result.Add(player.EternalConcentration);
-      result.Add(player.PiercingArrow);
-    }
-    else if (attr == Fix.CommandAttribute.Truth)
-    {
-      result.Add(player.TrueSight);
-      result.Add(player.LeylineSchema);
-      result.Add(player.VoiceOfVigor);
-      result.Add(player.WillAwakening);
-      result.Add(player.EverflowMind);
-      result.Add(player.SigilOfTheFaith);
-      result.Add(player.StanceOfTheKokoroe);
-    }
-    else if (attr == Fix.CommandAttribute.Mindfulness)
-    {
-      result.Add(player.DispelMagic);
-      result.Add(player.SpiritualRest);
-      result.Add(player.UnseenAid);
-      result.Add(player.CircleOfSerenity);
-      result.Add(player.InnerInspiration);
-      result.Add(player.ZeroImmunity);
-      result.Add(player.TranscendenceReached);
-    }
-    else
-    {
-      result.Add(player.AirCutter);
-      result.Add(player.StormArmor);
-      result.Add(player.SonicPulse);
-      result.Add(player.ErraticThunder);
-      result.Add(player.CycloneField);
-      result.Add(player.LightningSquall);
-      result.Add(player.RockSlam);
-      result.Add(player.SoldWall);
-      result.Add(player.EarthSurge);
-      result.Add(player.SandBurst);
-      result.Add(player.Petrification);
-      result.Add(player.LifeGrace);
-      result.Add(player.EarthQuake);
-      result.Add(player.AuraBurn);
-      result.Add(player.EagleEye);
-      result.Add(player.HeartOfLife);
-      result.Add(player.SoulShout);
-      result.Add(player.OverwhelmingDestiny);
-      result.Add(player.ExactTime);
-      result.Add(player.IdeologyOfSophistication);
-      result.Add(player.SigilOfTheHomura);
-      result.Add(player.WordOfProphecy);
-      result.Add(player.AuraOfPower);
-      result.Add(player.SkyShield);
-      result.Add(player.AetherDrive);
-      result.Add(player.RevolutionAura);
-      result.Add(player.BrilliantForm);
-      result.Add(player.AusterityMatrix);
-      result.Add(player.MuteImpulse);
-      result.Add(player.OathOfAegis);
-      result.Add(player.EssenceOverflow);
-      result.Add(player.DarknessCircle);
-      result.Add(player.StanceOfTheShade);
-      result.Add(player.KillingWave);
-      result.Add(player.LevelEater);
-      result.Add(player.AbyssEye);
-      result.Add(player.AvengerPromise);
-      result.Add(player.DemonContract);
-    }
-    return result;
-  }
+
+  // todo リリースで削除する。
+  //public static List<int> GetCommandPlus(Character player, Fix.CommandAttribute attr)
+  //{
+  //  List<int> result = new List<int>();
+  //  if (attr == Fix.CommandAttribute.Fire)
+  //  {
+  //    result.Add(player.FireBall);
+  //    result.Add(player.FlameBlade);
+  //    result.Add(player.MeteorBullet);
+  //    result.Add(player.VolcanicBlaze);
+  //    result.Add(player.FlameStrike);
+  //    result.Add(player.CircleOfTheIgnite);
+  //    result.Add(player.LavaAnnihilation);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Ice)
+  //  {
+  //    result.Add(player.IceNeedle);
+  //    result.Add(player.PurePurification);
+  //    result.Add(player.BlueBullet);
+  //    result.Add(player.FreezingCube);
+  //    result.Add(player.FrostLance);
+  //    result.Add(player.WaterPresence);
+  //    result.Add(player.AbsoluteZero);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.HolyLight)
+  //  {
+  //    result.Add(player.FreshHeal);
+  //    result.Add(player.DivineCircle);
+  //    result.Add(player.HolyBreath);
+  //    result.Add(player.AngelicEcho);
+  //    result.Add(player.ShiningHeal);
+  //    result.Add(player.ValkyrieBlade);
+  //    result.Add(player.Resurrection);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.DarkMagic)
+  //  {
+  //    result.Add(player.ShadowBlast);
+  //    result.Add(player.BloodSign);
+  //    result.Add(player.BlackContract);
+  //    result.Add(player.CursedEvangile);
+  //    result.Add(player.CircleOfTheDespair);
+  //    result.Add(player.TheDarkIntensity);
+  //    result.Add(player.DeathScythe);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Force)
+  //  {
+  //    result.Add(player.OracleCommand);
+  //    result.Add(player.FortuneSpirit);
+  //    result.Add(player.WordOfPower);
+  //    result.Add(player.GaleWind);
+  //    result.Add(player.SeventhPrinciple);
+  //    result.Add(player.FutureVision);
+  //    result.Add(player.Genesis);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.VoidChant)
+  //  {
+  //    result.Add(player.EnergyBolt);
+  //    result.Add(player.FlashCounter);
+  //    result.Add(player.SigilOfThePending);
+  //    result.Add(player.PhantomOboro);
+  //    result.Add(player.CounterDisallow);
+  //    result.Add(player.DetachmentFault);
+  //    result.Add(player.TimeSkip);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Warrior)
+  //  {
+  //    result.Add(player.StraightSmash);
+  //    result.Add(player.StanceOfTheBlade);
+  //    result.Add(player.DoubleSlash);
+  //    result.Add(player.IronBuster);
+  //    result.Add(player.RagingStorm);
+  //    result.Add(player.StanceOfTheIai);
+  //    result.Add(player.KineticSmash);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Guardian)
+  //  {
+  //    result.Add(player.ShieldBash);
+  //    result.Add(player.StanceOfTheGuard);
+  //    result.Add(player.ConcussiveHit);
+  //    result.Add(player.DominationField);
+  //    result.Add(player.HardestParry);
+  //    result.Add(player.OneImmunity);
+  //    result.Add(player.Catastrophe);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.MartialArts)
+  //  {
+  //    result.Add(player.LegStrike);
+  //    result.Add(player.SpeedStep);
+  //    result.Add(player.BoneCrush);
+  //    result.Add(player.DeadlyDrive);
+  //    result.Add(player.UnintentionalHit);
+  //    result.Add(player.StanceOfMuin);
+  //    result.Add(player.CarnageRush);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Archery)
+  //  {
+  //    result.Add(player.HunterShot);
+  //    result.Add(player.MultipleShot);
+  //    result.Add(player.EyeOfTheIsshin);
+  //    result.Add(player.PenetrationArrow);
+  //    result.Add(player.PrecisionStrike);
+  //    result.Add(player.EternalConcentration);
+  //    result.Add(player.PiercingArrow);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Truth)
+  //  {
+  //    result.Add(player.TrueSight);
+  //    result.Add(player.LeylineSchema);
+  //    result.Add(player.VoiceOfVigor);
+  //    result.Add(player.WillAwakening);
+  //    result.Add(player.EverflowMind);
+  //    result.Add(player.SigilOfTheFaith);
+  //    result.Add(player.StanceOfTheKokoroe);
+  //  }
+  //  else if (attr == Fix.CommandAttribute.Mindfulness)
+  //  {
+  //    result.Add(player.DispelMagic);
+  //    result.Add(player.SpiritualRest);
+  //    result.Add(player.UnseenAid);
+  //    result.Add(player.CircleOfSerenity);
+  //    result.Add(player.InnerInspiration);
+  //    result.Add(player.ZeroImmunity);
+  //    result.Add(player.TranscendenceReached);
+  //  }
+  //  else
+  //  {
+  //    result.Add(player.AirCutter);
+  //    result.Add(player.StormArmor);
+  //    result.Add(player.SonicPulse);
+  //    result.Add(player.ErraticThunder);
+  //    result.Add(player.CycloneField);
+  //    result.Add(player.LightningSquall);
+  //    result.Add(player.RockSlam);
+  //    result.Add(player.SoldWall);
+  //    result.Add(player.EarthSurge);
+  //    result.Add(player.SandBurst);
+  //    result.Add(player.Petrification);
+  //    result.Add(player.LifeGrace);
+  //    result.Add(player.EarthQuake);
+  //    result.Add(player.AuraBurn);
+  //    result.Add(player.EagleEye);
+  //    result.Add(player.HeartOfLife);
+  //    result.Add(player.SoulShout);
+  //    result.Add(player.OverwhelmingDestiny);
+  //    result.Add(player.ExactTime);
+  //    result.Add(player.IdeologyOfSophistication);
+  //    result.Add(player.SigilOfTheHomura);
+  //    result.Add(player.WordOfProphecy);
+  //    result.Add(player.AuraOfPower);
+  //    result.Add(player.SkyShield);
+  //    result.Add(player.AetherDrive);
+  //    result.Add(player.RevolutionAura);
+  //    result.Add(player.BrilliantForm);
+  //    result.Add(player.AusterityMatrix);
+  //    result.Add(player.MuteImpulse);
+  //    result.Add(player.OathOfAegis);
+  //    result.Add(player.EssenceOverflow);
+  //    result.Add(player.DarknessCircle);
+  //    result.Add(player.StanceOfTheShade);
+  //    result.Add(player.KillingWave);
+  //    result.Add(player.LevelEater);
+  //    result.Add(player.AbyssEye);
+  //    result.Add(player.AvengerPromise);
+  //    result.Add(player.DemonContract);
+  //  }
+  //  return result;
+  //}
 
   public static string GetAttribute_JP(string command_name)
   {
@@ -1023,7 +1025,7 @@ public static class ActionCommand
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
-  public static int Cost(string command_name, Character player)
+  public static int Cost(string command_name)
   {
     #region "基本／一般"
     if (command_name == Fix.NORMAL_ATTACK) { return 0; }
@@ -1077,30 +1079,14 @@ public static class ActionCommand
     if (command_name == Fix.FRESH_HEAL) { return 4; }
     if (command_name == Fix.SHADOW_BLAST) { return 3; }
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
-    if (command_name == Fix.ENERGY_BOLT)
-    {
-      int result = 3;
-      if (player != null && player.EnergyBolt > 1)
-      {
-        result -= (player.EnergyBolt - 1) * 1;
-      }
-      return result;
-    }
+    if (command_name == Fix.ENERGY_BOLT) { return 3; }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return 12; }
     if (command_name == Fix.SHIELD_BASH) { return 20; }
     if (command_name == Fix.LEG_STRIKE) { return 10; }
     if (command_name == Fix.HUNTER_SHOT) { return 12; }
     if (command_name == Fix.TRUE_SIGHT) { return 20; }
-    if (command_name == Fix.DISPEL_MAGIC)
-    {
-      int result = 25;
-      if (player != null && player.DispelMagic > 1)
-      {
-        result -= (player.DispelMagic - 1) * 5;
-      }
-      return result; 
-    }
+    if (command_name == Fix.DISPEL_MAGIC) { return 25; }
     #endregion
 
     #region "Delve II"
@@ -1110,32 +1096,14 @@ public static class ActionCommand
     if (command_name == Fix.DIVINE_CIRCLE) { return 8; }
     if (command_name == Fix.BLOOD_SIGN) { return 7; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
-    if (command_name == Fix.FLASH_COUNTER)
-    {
-      int result = 7;
-      if (player != null && player.FlashCounter > 1)
-      {
-        result -= (player.FlashCounter - 1) * 2;
-      }
-      if (result <= 0) { result = 0; }
-      return result; 
-    }
+    if (command_name == Fix.FLASH_COUNTER) { return 7; }
     // スキル
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return 15; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
     if (command_name == Fix.SPEED_STEP) { return 13; }
     if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
     if (command_name == Fix.LEYLINE_SCHEMA) { return 2; }
-    if (command_name == Fix.SPIRITUAL_REST)
-    {
-      int result = 15;
-      if (player != null && player.SpiritualRest > 1)
-      {
-        result -= (player.SpiritualRest - 1) * 3;
-      }
-      if (result <= 0) { result = 0; }
-      return result; 
-    }
+    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
     #endregion
 
     #region "Delve III"
@@ -1152,16 +1120,7 @@ public static class ActionCommand
     if (command_name == Fix.BONE_CRUSH) { return 35; }
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 20; }
     if (command_name == Fix.VOICE_OF_VIGOR) { return 40; }
-    if (command_name == Fix.UNSEEN_AID)
-    {
-      int result = 30;
-      if (player != null && player.UnseenAid > 1)
-      {
-        result -= (player.UnseenAid - 1) * 5;
-      }
-      if (result <= 0) { result = 0; }
-      return result;
-    }
+    if (command_name == Fix.UNSEEN_AID) { return 30; }
     #endregion
 
     #region "Delve IV"
@@ -1171,32 +1130,14 @@ public static class ActionCommand
     if (command_name == Fix.ANGELIC_ECHO) { return 27; }
     if (command_name == Fix.CURSED_EVANGILE) { return 26; }
     if (command_name == Fix.GALE_WIND) { return 33; }
-    if (command_name == Fix.PHANTOM_OBORO)
-    {
-      int result = 36;
-      if (player != null && player.PhantomOboro > 0)
-      {
-        result -= (player.PhantomOboro - 1) * 10;
-      }
-      if (result <= 0) { result = 0; }
-      return result; 
-    }
+    if (command_name == Fix.PHANTOM_OBORO) { return 36; }
     // スキル
     if (command_name == Fix.IRON_BUSTER) { return 30; }
     if (command_name == Fix.DOMINATION_FIELD) { return 40; }
     if (command_name == Fix.DEADLY_DRIVE) { return 5; }
     if (command_name == Fix.PENETRATION_ARROW) { return 45; }
     if (command_name == Fix.WILL_AWAKENING) { return 50; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY)
-    {
-      int result = 50;
-      if (player != null && player.CircleOfSerenity > 0)
-      {
-        result -= (player.CircleOfSerenity - 1) * 10;
-      }
-      if (result <= 0) { result = 0; }
-      return result;
-    }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 50; }
     #endregion
 
     #region "Delve V"
@@ -1205,29 +1146,11 @@ public static class ActionCommand
     if (command_name == Fix.FROST_LANCE) { return 52; }
     if (command_name == Fix.SHINING_HEAL) { return 63; }
     if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 59; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE)
-    {
-      int result = 80;
-      if (player != null && player.SeventhPrinciple > 0)
-      {
-        result -= (player.SeventhPrinciple - 1) * 10;
-      }
-      if (result <= 0) { result = 0; }
-      return result;
-    }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     // スキル
     if (command_name == Fix.RAGING_STORM) { return 45; }
-    if (command_name == Fix.HARDEST_PARRY)
-    {
-      int result = 50;
-      if (player != null && player.HardestParry > 0)
-      {
-        result -= (player.HardestParry - 1) * 5;
-      }
-      if (result <= 0) { result = 0; }
-      return result;
-    }
+    if (command_name == Fix.HARDEST_PARRY) { return 50; }
     if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
     if (command_name == Fix.PRECISION_STRIKE) { return 50; }
     if (command_name == Fix.EVERFLOW_MIND) { return 20; }
@@ -2227,91 +2150,91 @@ public static class ActionCommand
     return String.Empty;
   }
 
-  public static string GetDescEffect(Character player, string command_name)
+  public static string GetDescEffect(string command_name, int factor1, int factor2, int factor3)
   {
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋" + (player.FireBall) * 10; }
-    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋" + (player.IceNeedle) * 9; }
-    if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 ＋" + (player.FreshHeal) * 20; }
-    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋" + (player.ShadowBlast) * 5; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋" + (player.OracleCommand) * 10; }
-    if (command_name == Fix.ENERGY_BOLT) { return "ＭＰ消費 －" + (player.EnergyBolt) * 1 ; }
+    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 ＋" + factor1; }
+    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋" + factor1; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋" + factor1; }
+    if (command_name == Fix.ENERGY_BOLT) { return "ＭＰ消費 －" + factor1 ; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return "物理ダメージの威力 ＋" + (player.StraightSmash) * 10; }
-    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋" + (player.ShieldBash) * 1; }
-    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋" + (player.LegStrike) * 5; }
-    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋" + (player.HunterShot) * 2; }
-    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋" + (player.TrueSight) * 5; }
-    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －" + (player.DispelMagic) * 5; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return "物理ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋" + factor1; }
+    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋" + factor1; }
+    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋" + factor1; }
+    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve II"
     // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋" + (player.FlameBlade) * 20; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "ライフの回復量 ＋" + (player.PurePurification) * 10 + "\r\n一度に除去する数 ＋" + (player.PurePurification) * 1; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋" + (player.DivineCircle) * 30; }
-    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋" + (player.BloodSign) * 20; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + (player.FortuneSpirit) * 1; }
-    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + (player.FlashCounter) * 2; }
+    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "ライフの回復量 ＋" + factor1 + "　一度に除去する数 ＋" + factor2; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋" + factor1; }
+    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋" + factor1; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + factor1; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + ((player.StanceOfTheBlade) * 5) + "\r\n【剣の構え】による物理攻撃ＵＰ影響 ＋" + (player.StanceOfTheBlade) * 3; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + (player.StanceOfTheGuard) * 2; }
-    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + (player.SpeedStep) * 3; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + (player.MultipleShot) * 10; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋" + (player.LeylineSchema) * 2; }
-    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －" + (player.SpiritualRest) * 3; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + factor1 + "　【剣の構え】による物理攻撃ＵＰ影響 ＋" + factor2; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + factor1; }
+    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + factor1; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋" + factor1; }
+    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve III"
     // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + (player.MeteorBullet) * 1; }
-    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + (player.BlueBullet) * 1; }
-    if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + (player.FreshHeal) * 30; }
-    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + (player.BlackContract) * 1; }
-    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + (player.WordOfPower) * 20; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + (player.SigilOfThePending) * 2; }
+    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + factor1; }
+    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + factor1; }
+    if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + factor1; }
+    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + factor1; }
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + (player.DoubleSlash) * 10; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + (player.ConcussiveHit) * 1; }
-    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + (player.ConcussiveHit) * 3; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + (player.EyeOfTheIsshin) * 2; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + (player.VoiceOfVigor) * 3; }
-    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + (player.SpiritualRest) * 5; }
+    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
+    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + factor1; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + factor1; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + factor1; }
+    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve IV"
     // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + (player.VolcanicBlaze) * 30; }
-    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + (player.FreezingCube) * 25; }
-    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + (player.AngelicEcho) * 10; }
-    if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + (player.CursedEvangile) * 74; }
-    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + (player.GaleWind) * 1; }
-    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + (player.PhantomOboro) * 10; }
+    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + factor1; }
+    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + factor1; }
+    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + factor1; }
+    if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + factor1; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + (player.IronBuster) * 30 + "　周囲全体へのダメージの威力 ＋" + (player.IronBuster) * 20; }
-    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + (player.DominationField) * 3 + "　防御姿勢によるダメージ軽減 ＋" + (player.DominationField) * 2; }
-    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + (player.DeadlyDrive) * 1 + "　(20%以下)＋" + (player.DeadlyDrive) * 2 + "　(10%以下)＋" + (player.DeadlyDrive) * 3; }
-    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + (player.PenetrationArrow) * 4; }
-    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + (player.WillAwakening) * 1; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + (player.CircleOfSerenity) * 10; }
+    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + factor1 + "　周囲全体へのダメージの威力 ＋" + factor2; }
+    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + factor1 + "　防御姿勢によるダメージ軽減 ＋" + factor2; }
+    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + factor1 + "　(20%以下)＋" + factor2 + "　(10%以下)＋" + factor3; }
+    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
+    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve V"
     // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + (player.FlameStrike) * 50; }
-    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + (player.FrostLance) * 40; }
-    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + (player.ShiningHeal) * 1; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + (player.CircleOfTheDespair) * 3; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + (player.SeventhPrinciple) * 10; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + (player.CounterDisallow) * 1; }
+    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + factor1; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + factor1; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + factor1; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + factor1; }
     // スキル
-    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + (player.RagingStorm) * 10; }
-    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + (player.HardestParry) * 5; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + (player.UnintentionalHit) * 3 + "　敵の行動ゲージ後退率 ＋" + (player.UnintentionalHit) * 3; }
-    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + (player.PrecisionStrike) * 50; }
-    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + (player.EverflowMind) * 2; }
-    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + (player.InnerInspiration) * 10; }
+    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + factor1; }
+    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + factor1; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + factor1 + "　敵の行動ゲージ後退率 ＋" + factor2; }
+    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + factor1; }
+    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + factor1; }
+    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + factor1; }
     #endregion
 
     #region "Delve VI"

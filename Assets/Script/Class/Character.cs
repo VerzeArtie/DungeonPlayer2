@@ -8062,7 +8062,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.DIVINE_CIRCLE;
             }
-            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, this))
+            else if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.DOUBLE_SLASH, ActionCommand.Cost(Fix.DOUBLE_SLASH), this))
             {
               result = Fix.DOUBLE_SLASH;
             }
@@ -8077,7 +8077,7 @@ public partial class Character : MonoBehaviour
             {
               result = Fix.STANCE_OF_THE_BLADE;
             }
-            else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, this))
+            else if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.DOUBLE_SLASH, ActionCommand.Cost(Fix.DOUBLE_SLASH), this))
             {
               result = Fix.DOUBLE_SLASH;
             }

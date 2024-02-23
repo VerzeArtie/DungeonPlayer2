@@ -334,11 +334,11 @@ public class PartyMenu : MotherBase
         {
           return;
         }
-        if (player.CurrentManaPoint < ActionCommand.Cost(Fix.FRESH_HEAL, player))
+        if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player))
         {
           return;
         }
-        player.CurrentManaPoint -= ActionCommand.Cost(Fix.FRESH_HEAL, player);
+        player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player);
 
         if (healValue <= 0) { healValue = 0; }
         int result = (int)healValue;
@@ -353,11 +353,11 @@ public class PartyMenu : MotherBase
         {
           return;
         }
-        if (player.CurrentManaPoint < ActionCommand.Cost(Fix.PURE_PURIFICATION, player))
+        if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player))
         {
           return;
         }
-        player.CurrentManaPoint -= ActionCommand.Cost(Fix.PURE_PURIFICATION, player);
+        player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player);
 
         if (healValue <= 0) { healValue = 0; }
         int result = (int)healValue;
@@ -745,7 +745,7 @@ public class PartyMenu : MotherBase
     txtCommandTitle.text = action_command.CommandName;
     imgCommandTitle.sprite = Resources.Load<Sprite>(action_command.CommandName);
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(action_command.CommandName).ToString();
-    txtCommandCost.text = "コスト： " + ActionCommand.Cost(action_command.CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
+    txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
 
     // 万が一選択状態が存在していない場合は再設定する。
@@ -891,11 +891,11 @@ public class PartyMenu : MotherBase
     else if (txt_src.text == Fix.HOLY_BREATH)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.HOLY_BREATH, player))
+      if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.HOLY_BREATH, ActionCommand.Cost(Fix.HOLY_BREATH), player))
       {
         return;
       }
-      player.CurrentManaPoint -= ActionCommand.Cost(Fix.HOLY_BREATH, player);
+      player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.HOLY_BREATH, ActionCommand.Cost(Fix.HOLY_BREATH), player);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
@@ -914,11 +914,11 @@ public class PartyMenu : MotherBase
     else if (txt_src.text == Fix.SHINING_HEAL)
     {
       Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentManaPoint < ActionCommand.Cost(Fix.SHINING_HEAL, player))
+      if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.SHINING_HEAL, ActionCommand.Cost(Fix.SHINING_HEAL), player))
       {
         return;
       }
-      player.CurrentManaPoint -= ActionCommand.Cost(Fix.SHINING_HEAL, player);
+      player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.SHINING_HEAL, ActionCommand.Cost(Fix.SHINING_HEAL), player);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
       {
@@ -962,7 +962,10 @@ public class PartyMenu : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
     txtEssenceCurrentDescription.text = "～効果～　" + ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
-    txtEssenceCurrentDescEffect.text = "～強化～　" + ActionCommand.GetDescEffect(this.CurrentPlayer, txt_title.text);
+    txtEssenceCurrentDescEffect.text = "～強化～　" + ActionCommand.GetDescEffect(txt_title.text, SecondaryLogic.FactorControl(txt_title.text, this.CurrentPlayer),
+                                                                                                  SecondaryLogic.FactorControl2(txt_title.text, this.CurrentPlayer),
+                                                                                                  SecondaryLogic.FactorControl3(txt_title.text, this.CurrentPlayer));
+
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }
 
@@ -1258,7 +1261,7 @@ public class PartyMenu : MotherBase
     txtCommandTitle.text = ListAvailableCommand[0].CommandName;
     imgCommandTitle.sprite = Resources.Load<Sprite>(ListAvailableCommand[0].CommandName);
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(ListAvailableCommand[0].CommandName).ToString();
-    txtCommandCost.text = "コスト： " + ActionCommand.Cost(ListAvailableCommand[0].CommandName, CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
+    txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
     this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }

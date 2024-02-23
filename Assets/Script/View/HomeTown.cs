@@ -1349,76 +1349,77 @@ public partial class HomeTown : MotherBase
 
   public void TapDecisionAccept()
   {
-    groupDecision.SetActive(false);
-    // Delve I
-    if (imgCurrentDecision.name == Fix.FIRE_BALL) { CurrentPlayer.FireBall++; }
-    else if (imgCurrentDecision.name == Fix.ICE_NEEDLE) { CurrentPlayer.IceNeedle++; }
-    else if (imgCurrentDecision.name == Fix.FRESH_HEAL) { CurrentPlayer.FreshHeal++; }
-    else if (imgCurrentDecision.name == Fix.SHADOW_BLAST) { CurrentPlayer.ShadowBlast++; }
-    else if (imgCurrentDecision.name == Fix.AIR_CUTTER) { CurrentPlayer.AirCutter++; }
-    else if (imgCurrentDecision.name == Fix.ROCK_SLAM) { CurrentPlayer.RockSlam++; }
-    else if (imgCurrentDecision.name == Fix.STRAIGHT_SMASH) { CurrentPlayer.StraightSmash++; }
-    else if (imgCurrentDecision.name == Fix.HUNTER_SHOT) { CurrentPlayer.HunterShot++; }
-    else if (imgCurrentDecision.name == Fix.LEG_STRIKE) { CurrentPlayer.LegStrike++; }
-    else if (imgCurrentDecision.name == Fix.VENOM_SLASH) { CurrentPlayer.VenomSlash++; }
-    else if (imgCurrentDecision.name == Fix.ENERGY_BOLT) { CurrentPlayer.EnergyBolt++; }
-    else if (imgCurrentDecision.name == Fix.SHIELD_BASH) { CurrentPlayer.ShieldBash++; }
-    else if (imgCurrentDecision.name == Fix.AURA_OF_POWER) { CurrentPlayer.AuraOfPower++; }
-    else if (imgCurrentDecision.name == Fix.DISPEL_MAGIC) { CurrentPlayer.DispelMagic++; }
-    else if (imgCurrentDecision.name == Fix.TRUE_SIGHT) { CurrentPlayer.TrueSight++; }
-    else if (imgCurrentDecision.name == Fix.HEART_OF_LIFE) { CurrentPlayer.HeartOfLife++; }
-    else if (imgCurrentDecision.name == Fix.DARK_AURA) { CurrentPlayer.DarkAura++; }
-    else if (imgCurrentDecision.name == Fix.ORACLE_COMMAND) { CurrentPlayer.OracleCommand++; }
+    // todo リリースで削除する。
+    //groupDecision.SetActive(false);
+    //// Delve I
+    //if (imgCurrentDecision.name == Fix.FIRE_BALL) { CurrentPlayer.FireBall++; }
+    //else if (imgCurrentDecision.name == Fix.ICE_NEEDLE) { CurrentPlayer.IceNeedle++; }
+    //else if (imgCurrentDecision.name == Fix.FRESH_HEAL) { CurrentPlayer.FreshHeal++; }
+    //else if (imgCurrentDecision.name == Fix.SHADOW_BLAST) { CurrentPlayer.ShadowBlast++; }
+    //else if (imgCurrentDecision.name == Fix.AIR_CUTTER) { CurrentPlayer.AirCutter++; }
+    //else if (imgCurrentDecision.name == Fix.ROCK_SLAM) { CurrentPlayer.RockSlam++; }
+    //else if (imgCurrentDecision.name == Fix.STRAIGHT_SMASH) { CurrentPlayer.StraightSmash++; }
+    //else if (imgCurrentDecision.name == Fix.HUNTER_SHOT) { CurrentPlayer.HunterShot++; }
+    //else if (imgCurrentDecision.name == Fix.LEG_STRIKE) { CurrentPlayer.LegStrike++; }
+    //else if (imgCurrentDecision.name == Fix.VENOM_SLASH) { CurrentPlayer.VenomSlash++; }
+    //else if (imgCurrentDecision.name == Fix.ENERGY_BOLT) { CurrentPlayer.EnergyBolt++; }
+    //else if (imgCurrentDecision.name == Fix.SHIELD_BASH) { CurrentPlayer.ShieldBash++; }
+    //else if (imgCurrentDecision.name == Fix.AURA_OF_POWER) { CurrentPlayer.AuraOfPower++; }
+    //else if (imgCurrentDecision.name == Fix.DISPEL_MAGIC) { CurrentPlayer.DispelMagic++; }
+    //else if (imgCurrentDecision.name == Fix.TRUE_SIGHT) { CurrentPlayer.TrueSight++; }
+    //else if (imgCurrentDecision.name == Fix.HEART_OF_LIFE) { CurrentPlayer.HeartOfLife++; }
+    //else if (imgCurrentDecision.name == Fix.DARK_AURA) { CurrentPlayer.DarkAura++; }
+    //else if (imgCurrentDecision.name == Fix.ORACLE_COMMAND) { CurrentPlayer.OracleCommand++; }
 
 
-    else if (imgCurrentDecision.name == Fix.FLAME_BLADE) { CurrentPlayer.FlameBlade++; }
-    else if (imgCurrentDecision.name == Fix.METEOR_BULLET) { CurrentPlayer.MeteorBullet++; }
-    else if (imgCurrentDecision.name == Fix.FLAME_STRIKE) { CurrentPlayer.FlameStrike++; }
-    else if (imgCurrentDecision.name == Fix.LAVA_ANNIHILATION) { CurrentPlayer.LavaAnnihilation++; }
-    else if (imgCurrentDecision.name == Fix.PURE_PURIFICATION) { CurrentPlayer.PurePurification++; }
-    else if (imgCurrentDecision.name == Fix.BLUE_BULLET) { CurrentPlayer.BlueBullet++; }
-    else if (imgCurrentDecision.name == Fix.FREEZING_CUBE) { CurrentPlayer.FreezingCube++; }
-    else if (imgCurrentDecision.name == Fix.FROST_LANCE) { CurrentPlayer.FrostLance++; }
-    else if (imgCurrentDecision.name == Fix.DIVINE_CIRCLE) { CurrentPlayer.DivineCircle++; }
-    else if (imgCurrentDecision.name == Fix.HOLY_BREATH) { CurrentPlayer.HolyBreath++; }
-    else if (imgCurrentDecision.name == Fix.BLOOD_SIGN) { CurrentPlayer.BloodSign++; }
-    else if (imgCurrentDecision.name == Fix.BLACK_CONTRACT) { CurrentPlayer.BlackContract++; }
-    else if (imgCurrentDecision.name == Fix.ABYSS_EYE) { CurrentPlayer.AbyssEye++; }
-    else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_BLADE) { CurrentPlayer.StanceOfTheBlade++; }
-    else if (imgCurrentDecision.name == Fix.DOUBLE_SLASH) { CurrentPlayer.DoubleSlash++; }
-    else if (imgCurrentDecision.name == Fix.KINETIC_SMASH) { CurrentPlayer.KineticSmash++; }
-    else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_GUARD) { CurrentPlayer.StanceOfTheGuard++; }
-    else if (imgCurrentDecision.name == Fix.CONCUSSIVE_HIT) { CurrentPlayer.ConcussiveHit++; }
-    else if (imgCurrentDecision.name == Fix.DOMINATION_FIELD) { CurrentPlayer.DominationField++; }
-    else if (imgCurrentDecision.name == Fix.OATH_OF_AEGIS) { CurrentPlayer.OathOfAegis++; }
-    else if (imgCurrentDecision.name == Fix.MULTIPLE_SHOT) { CurrentPlayer.MultipleShot++; }
-    else if (imgCurrentDecision.name == Fix.EYE_OF_THE_ISSHIN) { CurrentPlayer.EyeOfTheIsshin++; }
-    else if (imgCurrentDecision.name == Fix.PIERCING_ARROW) { CurrentPlayer.PiercingArrow++; }
-    else if (imgCurrentDecision.name == Fix.INVISIBLE_BIND) { CurrentPlayer.InvisibleBind++; }
-    else if (imgCurrentDecision.name == Fix.IRREGULAR_STEP) { CurrentPlayer.IrregularStep++; }
-    else if (imgCurrentDecision.name == Fix.ASSASSINATION_HIT) { CurrentPlayer.AssassinationHit++; }
-    else if (imgCurrentDecision.name == Fix.SKY_SHIELD) { CurrentPlayer.SkyShield++; }
-    else if (imgCurrentDecision.name == Fix.STORM_ARMOR) { CurrentPlayer.StormArmor++; }
-    else if (imgCurrentDecision.name == Fix.FLASH_COUNTER) { CurrentPlayer.FlashCounter++; }
-    else if (imgCurrentDecision.name == Fix.MUTE_IMPULSE) { CurrentPlayer.MuteImpulse++; }
-    else if (imgCurrentDecision.name == Fix.DETACHMENT_FAULT) { CurrentPlayer.DetachmentFault++; }
-    else if (imgCurrentDecision.name == Fix.PHANTOM_OBORO) { CurrentPlayer.PhantomOboro++; }
-    else if (imgCurrentDecision.name == Fix.FORTUNE_SPIRIT) { CurrentPlayer.FortuneSpirit++; }
-    else if (imgCurrentDecision.name == Fix.VOICE_OF_VIGOR) { CurrentPlayer.VoiceOfVigor++; }
-    else if (imgCurrentDecision.name == Fix.SIGIL_OF_THE_FAITH) { CurrentPlayer.SigilOfTheFaith++; }
-    else if (imgCurrentDecision.name == Fix.RAGING_STORM) { CurrentPlayer.RagingStorm++; }
-    else if (imgCurrentDecision.name == Fix.SPIRITUAL_REST) { CurrentPlayer.SpiritualRest++; }
-    else if (imgCurrentDecision.name == Fix.ZERO_IMMUNITY) { CurrentPlayer.ZeroImmunity++; }
-    else if (imgCurrentDecision.name == Fix.ESSENCE_OVERFLOW) { CurrentPlayer.EssenceOverflow++; }
-    else if (imgCurrentDecision.name == Fix.INNER_INSPIRATION) { CurrentPlayer.InnerInspiration++; }
-    else
-    {
-      Debug.Log("Unknown Command: " + imgCurrentDecision.name);
-      return; // 未登録の場合は、何も更新せず終了する。
-    }
-    CurrentPlayer.SoulFragment--;
-    CurrentSelectHideACAttribute.gameObject.SetActive(false);
-    UpdateActionCommandSetting(CurrentPlayer);
+    //else if (imgCurrentDecision.name == Fix.FLAME_BLADE) { CurrentPlayer.FlameBlade++; }
+    //else if (imgCurrentDecision.name == Fix.METEOR_BULLET) { CurrentPlayer.MeteorBullet++; }
+    //else if (imgCurrentDecision.name == Fix.FLAME_STRIKE) { CurrentPlayer.FlameStrike++; }
+    //else if (imgCurrentDecision.name == Fix.LAVA_ANNIHILATION) { CurrentPlayer.LavaAnnihilation++; }
+    //else if (imgCurrentDecision.name == Fix.PURE_PURIFICATION) { CurrentPlayer.PurePurification++; }
+    //else if (imgCurrentDecision.name == Fix.BLUE_BULLET) { CurrentPlayer.BlueBullet++; }
+    //else if (imgCurrentDecision.name == Fix.FREEZING_CUBE) { CurrentPlayer.FreezingCube++; }
+    //else if (imgCurrentDecision.name == Fix.FROST_LANCE) { CurrentPlayer.FrostLance++; }
+    //else if (imgCurrentDecision.name == Fix.DIVINE_CIRCLE) { CurrentPlayer.DivineCircle++; }
+    //else if (imgCurrentDecision.name == Fix.HOLY_BREATH) { CurrentPlayer.HolyBreath++; }
+    //else if (imgCurrentDecision.name == Fix.BLOOD_SIGN) { CurrentPlayer.BloodSign++; }
+    //else if (imgCurrentDecision.name == Fix.BLACK_CONTRACT) { CurrentPlayer.BlackContract++; }
+    //else if (imgCurrentDecision.name == Fix.ABYSS_EYE) { CurrentPlayer.AbyssEye++; }
+    //else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_BLADE) { CurrentPlayer.StanceOfTheBlade++; }
+    //else if (imgCurrentDecision.name == Fix.DOUBLE_SLASH) { CurrentPlayer.DoubleSlash++; }
+    //else if (imgCurrentDecision.name == Fix.KINETIC_SMASH) { CurrentPlayer.KineticSmash++; }
+    //else if (imgCurrentDecision.name == Fix.STANCE_OF_THE_GUARD) { CurrentPlayer.StanceOfTheGuard++; }
+    //else if (imgCurrentDecision.name == Fix.CONCUSSIVE_HIT) { CurrentPlayer.ConcussiveHit++; }
+    //else if (imgCurrentDecision.name == Fix.DOMINATION_FIELD) { CurrentPlayer.DominationField++; }
+    //else if (imgCurrentDecision.name == Fix.OATH_OF_AEGIS) { CurrentPlayer.OathOfAegis++; }
+    //else if (imgCurrentDecision.name == Fix.MULTIPLE_SHOT) { CurrentPlayer.MultipleShot++; }
+    //else if (imgCurrentDecision.name == Fix.EYE_OF_THE_ISSHIN) { CurrentPlayer.EyeOfTheIsshin++; }
+    //else if (imgCurrentDecision.name == Fix.PIERCING_ARROW) { CurrentPlayer.PiercingArrow++; }
+    //else if (imgCurrentDecision.name == Fix.INVISIBLE_BIND) { CurrentPlayer.InvisibleBind++; }
+    //else if (imgCurrentDecision.name == Fix.IRREGULAR_STEP) { CurrentPlayer.IrregularStep++; }
+    //else if (imgCurrentDecision.name == Fix.ASSASSINATION_HIT) { CurrentPlayer.AssassinationHit++; }
+    //else if (imgCurrentDecision.name == Fix.SKY_SHIELD) { CurrentPlayer.SkyShield++; }
+    //else if (imgCurrentDecision.name == Fix.STORM_ARMOR) { CurrentPlayer.StormArmor++; }
+    //else if (imgCurrentDecision.name == Fix.FLASH_COUNTER) { CurrentPlayer.FlashCounter++; }
+    //else if (imgCurrentDecision.name == Fix.MUTE_IMPULSE) { CurrentPlayer.MuteImpulse++; }
+    //else if (imgCurrentDecision.name == Fix.DETACHMENT_FAULT) { CurrentPlayer.DetachmentFault++; }
+    //else if (imgCurrentDecision.name == Fix.PHANTOM_OBORO) { CurrentPlayer.PhantomOboro++; }
+    //else if (imgCurrentDecision.name == Fix.FORTUNE_SPIRIT) { CurrentPlayer.FortuneSpirit++; }
+    //else if (imgCurrentDecision.name == Fix.VOICE_OF_VIGOR) { CurrentPlayer.VoiceOfVigor++; }
+    //else if (imgCurrentDecision.name == Fix.SIGIL_OF_THE_FAITH) { CurrentPlayer.SigilOfTheFaith++; }
+    //else if (imgCurrentDecision.name == Fix.RAGING_STORM) { CurrentPlayer.RagingStorm++; }
+    //else if (imgCurrentDecision.name == Fix.SPIRITUAL_REST) { CurrentPlayer.SpiritualRest++; }
+    //else if (imgCurrentDecision.name == Fix.ZERO_IMMUNITY) { CurrentPlayer.ZeroImmunity++; }
+    //else if (imgCurrentDecision.name == Fix.ESSENCE_OVERFLOW) { CurrentPlayer.EssenceOverflow++; }
+    //else if (imgCurrentDecision.name == Fix.INNER_INSPIRATION) { CurrentPlayer.InnerInspiration++; }
+    //else
+    //{
+    //  Debug.Log("Unknown Command: " + imgCurrentDecision.name);
+    //  return; // 未登録の場合は、何も更新せず終了する。
+    //}
+    //CurrentPlayer.SoulFragment--;
+    //CurrentSelectHideACAttribute.gameObject.SetActive(false);
+    //UpdateActionCommandSetting(CurrentPlayer);
   }
   public void TapDecisionCancel()
   {
@@ -1430,16 +1431,17 @@ public partial class HomeTown : MotherBase
 
   public void TapNodeMiniChara(Text txt)
   {
-    Debug.Log("TapNodeMiniChara " + txt.text);
-    for (int ii = 0; ii < One.PlayerList.Count; ii++)
-    {
-      if (One.PlayerList[ii].FullName == txt.text)
-      {
-        this.CurrentPlayer = One.PlayerList[ii];
-        break;
-      }
-    }
-    UpdateActionCommandSetting(this.CurrentPlayer);
+    // todo リリースで削除する。
+    //Debug.Log("TapNodeMiniChara " + txt.text);
+    //for (int ii = 0; ii < One.PlayerList.Count; ii++)
+    //{
+    //  if (One.PlayerList[ii].FullName == txt.text)
+    //  {
+    //    this.CurrentPlayer = One.PlayerList[ii];
+    //    break;
+    //  }
+    //}
+    //UpdateActionCommandSetting(this.CurrentPlayer);
   }
 
   public void TapShopItem(NodeShopItem shopItem)
@@ -2595,140 +2597,141 @@ public partial class HomeTown : MotherBase
     }
   }
 
-  private void UpdateActionCommandSetting(Character player)
-  {
-    txtACHeaderName.text = player.FullName;
+   // todo リリースで削除する。
+//  private void UpdateActionCommandSetting(Character player)
+//  {
+//    txtACHeaderName.text = player.FullName;
 
-    // コンテンツ内のparent設定を解放する。
-    foreach (Transform n in ContentActionCommandSetting.transform)
-    {
-      GameObject.Destroy(n.gameObject);
-    }
-    //for (int ii = 0; ii < Fix.INFINITY; ii++)
-    //{
+//    // コンテンツ内のparent設定を解放する。
+//    foreach (Transform n in ContentActionCommandSetting.transform)
+//    {
+//      GameObject.Destroy(n.gameObject);
+//    }
+//    //for (int ii = 0; ii < Fix.INFINITY; ii++)
+//    //{
 
-    //    MoveTransform(ContentActionCommandSetting, EmptyGroup.transform);
-    //    if (ContentActionCommandSetting.transform.childCount <= 0)
-    //    {
-    //        break;
-    //    }
-    //}
+//    //    MoveTransform(ContentActionCommandSetting, EmptyGroup.transform);
+//    //    if (ContentActionCommandSetting.transform.childCount <= 0)
+//    //    {
+//    //        break;
+//    //    }
+//    //}
 
-    // コンテンツ長さを初期化する。
-    GameObject content = ContentActionCommandSetting;
-    content.GetComponent<RectTransform>().sizeDelta = new Vector2(1, content.GetComponent<RectTransform>().sizeDelta.y);
+//    // コンテンツ長さを初期化する。
+//    GameObject content = ContentActionCommandSetting;
+//    content.GetComponent<RectTransform>().sizeDelta = new Vector2(1, content.GetComponent<RectTransform>().sizeDelta.y);
 
-    txtAttributeSoulFragment.text = player.SoulFragment.ToString();
+//    txtAttributeSoulFragment.text = player.SoulFragment.ToString();
 
-    // 制限開放の分だけ、リスト生成する。
-    List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
-    if (One.TF.AvailableAllCommand)
-    {
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Fire);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Force);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.VoidChant);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Guardian);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Archery);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
-      CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
-    }
-    else
-    {
-      if (One.TF.AvailableFirstCommand)
-      {
-        Debug.Log("Detect AvailableFirstCommand");
-        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-        current.CommandAttribute = player.FirstCommandAttribute;
-        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-        attributeList.Add(current);
-      }
-      if (One.TF.AvailableSecondCommand)
-      {
-        Debug.Log("Detect AvailableSecondCommand");
-        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-        current.CommandAttribute = player.SecondCommandAttribute;
-        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-        attributeList.Add(current);
-      }
-      if (One.TF.AvailableThirdCommand)
-      {
-        Debug.Log("Detect AvailableThirdCommand");
-        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
-        current.CommandAttribute = player.ThirdCommandAttribute;
-        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
-        attributeList.Add(current);
-      }
-    }
-
-    // アクションコマンドリストを表示する。
-    for (int ii = 0; ii < attributeList.Count; ii++)
-    {
-      List<string> attrList = ActionCommand.GetCommandList(attributeList[ii].CommandAttribute);
-      List<int> attrPlus = ActionCommand.GetCommandPlus(CurrentPlayer, attributeList[ii].CommandAttribute);
-
-      int totalValue = 0;
-      for (int jj = 0; jj < attrPlus.Count; jj++)
-      {
-        totalValue += attrPlus[jj];
-      }
-
-      // トータル１以上であれば表示。それ以外はLOCKED表示とする。
-//      if (totalValue > 0)
+//    // 制限開放の分だけ、リスト生成する。
+//    List<NodeACAttribute> attributeList = new List<NodeACAttribute>();
+//    if (One.TF.AvailableAllCommand)
+//    {
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Fire);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Ice);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.HolyLight);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.DarkMagic);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Force);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.VoidChant);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Warrior);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Guardian);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.MartialArts);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Archery);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Truth);
+//      CreateACAttribute(attributeList, Fix.CommandAttribute.Mindfulness);
+//    }
+//    else
+//    {
+//      if (One.TF.AvailableFirstCommand)
 //      {
-        Debug.Log("Detect totalValue: " + totalValue.ToString());
-        attributeList[ii].lockPanel.SetActive(false);
-        attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
-        attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
-        //attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
-        for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
-        {
-          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(attrList[jj]);
-        }
-        for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
-        {
-          attributeList[ii].txtACElement[jj].text = attrList[jj];
-        }
-        for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
-        {
-          if (attrPlus[jj] > 0)
-          {
-            attributeList[ii].ACLockPanel[jj].SetActive(false);
-            attributeList[ii].txtACPlus[jj].text = "+" + attrPlus[jj].ToString();
-          }
-          else
-          {
-            attributeList[ii].txtACPlus[jj].text = String.Empty;
-            //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
-          }
-        }
-      //}
-      //else
-      //{
-        Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
-        //attributeList[ii].lockPanel.SetActive(true);
-        //attributeList[ii].txtName.text = String.Empty;
-        //attributeList[ii].txtTotal.text = String.Empty;
-        //attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
-        //for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
-        //{
-        //  attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
-        //}
-        //for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
-        //{
-        //  attributeList[ii].txtACElement[jj].text = string.Empty;
-        //}
-        //for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
-        //{
-        //  attributeList[ii].txtACPlus[jj].text = string.Empty;
-        //}
-      //}
-    }
-  }
+//        Debug.Log("Detect AvailableFirstCommand");
+//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+//        current.CommandAttribute = player.FirstCommandAttribute;
+//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+//        attributeList.Add(current);
+//      }
+//      if (One.TF.AvailableSecondCommand)
+//      {
+//        Debug.Log("Detect AvailableSecondCommand");
+//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+//        current.CommandAttribute = player.SecondCommandAttribute;
+//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+//        attributeList.Add(current);
+//      }
+//      if (One.TF.AvailableThirdCommand)
+//      {
+//        Debug.Log("Detect AvailableThirdCommand");
+//        NodeACAttribute current = Instantiate(NodeACAttribute) as NodeACAttribute;
+//        current.CommandAttribute = player.ThirdCommandAttribute;
+//        CreateACAttribute(ContentActionCommandSetting, current, attributeList.Count);
+//        attributeList.Add(current);
+//      }
+//    }
+
+//    // アクションコマンドリストを表示する。
+//    for (int ii = 0; ii < attributeList.Count; ii++)
+//    {
+//      List<string> attrList = ActionCommand.GetCommandList(attributeList[ii].CommandAttribute);
+//      List<int> attrPlus = ActionCommand.GetCommandPlus(CurrentPlayer, attributeList[ii].CommandAttribute);
+
+//      int totalValue = 0;
+//      for (int jj = 0; jj < attrPlus.Count; jj++)
+//      {
+//        totalValue += attrPlus[jj];
+//      }
+
+//      // トータル１以上であれば表示。それ以外はLOCKED表示とする。
+////      if (totalValue > 0)
+////      {
+//        Debug.Log("Detect totalValue: " + totalValue.ToString());
+//        attributeList[ii].lockPanel.SetActive(false);
+//        attributeList[ii].txtName.text = attributeList[ii].CommandAttribute.ToString();
+//        attributeList[ii].txtTotal.text = "Total Lv" + totalValue;
+//        //attributeList[ii].background.color = ActionCommand.GetCommandColor(attributeList[ii].CommandAttribute);
+//        for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
+//        {
+//          attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(attrList[jj]);
+//        }
+//        for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
+//        {
+//          attributeList[ii].txtACElement[jj].text = attrList[jj];
+//        }
+//        for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
+//        {
+//          if (attrPlus[jj] > 0)
+//          {
+//            attributeList[ii].ACLockPanel[jj].SetActive(false);
+//            attributeList[ii].txtACPlus[jj].text = "+" + attrPlus[jj].ToString();
+//          }
+//          else
+//          {
+//            attributeList[ii].txtACPlus[jj].text = String.Empty;
+//            //attributeList[ii].txtACElement[jj].text = ""; // 非公開にする必要性はない。
+//          }
+//        }
+//      //}
+//      //else
+//      //{
+//        Debug.Log("totalValue: " + totalValue.ToString() + " then, lockPanel on");
+//        //attributeList[ii].lockPanel.SetActive(true);
+//        //attributeList[ii].txtName.text = String.Empty;
+//        //attributeList[ii].txtTotal.text = String.Empty;
+//        //attributeList[ii].background.color = new Color(0.5f, 0.5f, 0.5f);
+//        //for (int jj = 0; jj < attributeList[ii].imgACElement.Count; jj++)
+//        //{
+//        //  attributeList[ii].imgACElement[jj].sprite = Resources.Load<Sprite>(Fix.STAY);
+//        //}
+//        //for (int jj = 0; jj < attributeList[ii].txtACElement.Count; jj++)
+//        //{
+//        //  attributeList[ii].txtACElement[jj].text = string.Empty;
+//        //}
+//        //for (int jj = 0; jj < attributeList[ii].txtACPlus.Count; jj++)
+//        //{
+//        //  attributeList[ii].txtACPlus[jj].text = string.Empty;
+//        //}
+//      //}
+//    }
+//  }
 
   private void CreateACAttribute(List<NodeACAttribute> list,  Fix.CommandAttribute attribute)
   {
@@ -3440,7 +3443,7 @@ public partial class HomeTown : MotherBase
         break;
       }
     }
-    UpdateActionCommandSetting(this.CurrentPlayer);
+    // UpdateActionCommandSetting(this.CurrentPlayer); // todo リリースで削除する。
 
     // ショップ画面の購入アイテムを設定
     ConstructShopBuyView();

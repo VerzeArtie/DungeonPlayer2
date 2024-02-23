@@ -1219,7 +1219,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
           {
-            if (EnemyList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH, EnemyList[ii]))
+            if (EnemyList[ii].CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.DOUBLE_SLASH, ActionCommand.Cost(Fix.DOUBLE_SLASH), EnemyList[ii]))
             {
               EnemyList[ii].CurrentInstantPoint = 0;
               EnemyList[ii].UpdateInstantPointGauge();
@@ -1567,23 +1567,23 @@ public partial class BattleEnemy : MotherBase
     {
       if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
       {
-        if (player.CurrentManaPoint < ActionCommand.Cost(command_name, player))
+        if (player.CurrentManaPoint < SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player))
         {
-          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + ActionCommand.Cost(command_name, player));
+          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player));
           StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
           return;
         }
-        player.CurrentManaPoint -= ActionCommand.Cost(command_name, player);
+        player.CurrentManaPoint -= SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
       }
       else if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
       {
-        if (player.CurrentSkillPoint < ActionCommand.Cost(command_name, player))
+        if (player.CurrentSkillPoint < SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player))
         {
-          Debug.Log("NO Skill-Point: [" + command_name + "] " + player.CurrentSkillPoint + " < " + ActionCommand.Cost(command_name, player));
+          Debug.Log("NO Skill-Point: [" + command_name + "] " + player.CurrentSkillPoint + " < " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player));
           StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SKILLPOINT_LESS, Fix.COLOR_NORMAL);
           return;
         }
-        player.CurrentSkillPoint -= ActionCommand.Cost(command_name, player);
+        player.CurrentSkillPoint -= SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
       }
     }
 
