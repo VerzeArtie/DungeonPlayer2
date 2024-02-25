@@ -149,7 +149,7 @@ public class BuffImage : Image
 
     if (this.objCumulativeCounter != null)
     {
-      if (this.BuffName == Fix.BUFF_PD_DOWN) // todo その書き方はコード体系としてよろしくない。
+      if (CumulativeMax > 1) // 累積最大数が１より大きいなら累積カウントの対象であるため表示する。
       {
         this.objCumulativeCounter.SetActive(true);
       }
