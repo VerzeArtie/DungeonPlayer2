@@ -139,11 +139,13 @@ public class BuffImage : Image
     {
       if (this._remainCounter >= 10)
       {
-        this.txtRemainCounter.text = "-";
+        this.txtRemainCounter.text = "";
+        this.objRemainCounter.SetActive(false);
       }
       else
       {
         this.txtRemainCounter.text = _remainCounter.ToString();
+        this.objRemainCounter.SetActive(true);
       }
     }
 
