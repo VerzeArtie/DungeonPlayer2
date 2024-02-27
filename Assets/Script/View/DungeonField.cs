@@ -5051,6 +5051,18 @@ public class DungeonField : MotherBase
         }
         num++;
 
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_193_X, Fix.OHRANTOWER_FLOATINGTILE_193_Y, Fix.OHRANTOWER_FLOATINGTILE_193_Z))
+        {
+          One.TF.FieldObject_OhranTower_00129 = true;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+        }
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_194_X, Fix.OHRANTOWER_FLOATINGTILE_194_Y, Fix.OHRANTOWER_FLOATINGTILE_194_Z))
+        {
+          One.TF.FieldObject_OhranTower_00129 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+        }
+        num++;
       }
     }
 
@@ -5856,7 +5868,11 @@ public class DungeonField : MotherBase
         {
           treasureName = Fix.SUPERIOR_LARGE_AXE;
         }
-
+        // 宝箱３７
+        if (One.TF.Treasure_OhranTower_00037 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
+        {
+          treasureName = Fix.STARDUST_KEY;
+        }
         if (treasureName == String.Empty)
         {
           // 何もしない
@@ -8234,6 +8250,11 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z))
             {
               One.TF.Treasure_OhranTower_00036 = true;
+            }
+            // 宝箱３７
+            if (this.Player.transform.position == new Vector3(Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
+            {
+              One.TF.Treasure_OhranTower_00037 = true;
             }
           }
           #endregion
@@ -15670,6 +15691,10 @@ public class DungeonField : MotherBase
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_191_X, Fix.OHRANTOWER_FLOATINGTILE_191_Y, Fix.OHRANTOWER_FLOATINGTILE_191_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_192_X, Fix.OHRANTOWER_FLOATINGTILE_192_Y, Fix.OHRANTOWER_FLOATINGTILE_192_Z));
       }
+      if (One.TF.FieldObject_OhranTower_00129)
+      {
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_193_X, Fix.OHRANTOWER_FLOATINGTILE_193_Y, Fix.OHRANTOWER_FLOATINGTILE_193_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_194_X, Fix.OHRANTOWER_FLOATINGTILE_194_Y, Fix.OHRANTOWER_FLOATINGTILE_194_Z));
+      }
 
       // 宝箱１
       if (One.TF.Treasure_OhranTower_00001)
@@ -15885,6 +15910,12 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_OhranTower_00036)
       {
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z));
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
+      }
+      // 宝箱３７
+      if (One.TF.Treasure_OhranTower_00037)
+      {
+        int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
     }

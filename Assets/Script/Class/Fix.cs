@@ -2100,6 +2100,7 @@ public static partial class Fix
   public const string ITEM_COPPER_KEY = "銅製の鍵";
   public const string PURE_CLEAN_WATER = "清透水";
   public const string PURE_SINSEISUI = "神聖水";
+  public const string STARDUST_KEY = "星屑の鍵";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
@@ -5737,6 +5738,19 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_192_Y = -8.0f;
   public const float OHRANTOWER_FLOATINGTILE_192_Z = -9.0f;
 
+  // ５層、中央右
+  public const string OHRANTOWER_FLOATINGTILE_193_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_193_O = "193";
+  public const float OHRANTOWER_FLOATINGTILE_193_X = 22.0f;
+  public const float OHRANTOWER_FLOATINGTILE_193_Y = 32.0f;
+  public const float OHRANTOWER_FLOATINGTILE_193_Z = -16.0f;
+
+  // ５層、中央右、戻り
+  public const string OHRANTOWER_FLOATINGTILE_194_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_194_O = "194";
+  public const float OHRANTOWER_FLOATINGTILE_194_X = 22.0f;
+  public const float OHRANTOWER_FLOATINGTILE_194_Y = 32.0f;
+  public const float OHRANTOWER_FLOATINGTILE_194_Z = -22.0f;
 
   //// オーランの塔、一層、右側（下）
   //public const string EVENT_OHRANTOWER_1_O = "EVENT_OHRANTOWER_1_O";
@@ -6013,6 +6027,12 @@ public static partial class Fix
   public const float OHRANTOWER_Treasure_36_X = 4.0f;
   public const float OHRANTOWER_Treasure_36_Y = 57.0f;
   public const float OHRANTOWER_Treasure_36_Z = -18.0f;
+
+  public const string OHRANTOWER_Treasure_37_C = "Treasure";
+  public const string OHRANTOWER_Treasure_37_O = "37";
+  public const float OHRANTOWER_Treasure_37_X = 22.0f;
+  public const float OHRANTOWER_Treasure_37_Y = 33.0f;
+  public const float OHRANTOWER_Treasure_37_Z = -28.0f;
 
   public const string OHRANTOWER_FloatingTile_7_C = "FloatingTile";
   public const string OHRANTOWER_FloatingTile_7_O = "7";

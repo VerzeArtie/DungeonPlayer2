@@ -7475,6 +7475,97 @@ public static class MessagePack
     }
   }
 
+  public static void Message800020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800020 == false)
+    {
+      One.TF.Event_Message800020 = true;
+
+      Message(ref m_list, ref e_list, "アイン：このタイル、変な感じで浮いているな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル、これ何だか分かるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：フローティングストーン素材を使った飛翔するタイルだねー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：乗ればビューンってまっすぐ飛んで行ってくれるよ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：マジか。面白そうだな。じゃあ早速乗ってみるとするか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうしたんだ？ビリー", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おぉよ。なんでもねえよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネとラナも良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：お構いなく、好きに進めていいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：どうぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ進めてみるとしよう！", ActionEvent.None);
+    }
+  }
+
+  public static void Message800030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800030 == false)
+    {
+      One.TF.Event_Message800030 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ん、ちょっと待て・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　そうだな　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ アインは少し遠い地点まで視点を移し始めた ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、いったい何処見てんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。悪い悪い。ちょっと順序性があるのかどうかを確認してただけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：順序性だぁ？んなもん、やってみねーと分からねえだろが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ結局の所はそうかも知れないけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・てめー。ウソついてんじゃねーぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：この時点で何か見抜こうとしてんだろ、違うか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・まあ、見抜くとかそういう類じゃ無いけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：巻き戻し不可な要素が無いかちょっと気になっただけなんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：巻き戻し・・・不可だぁ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このタイルってさ。直線的に進むだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、基本的には行って戻っての繰り返しで巻き戻しは出来るんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっとここのタイルはどうかなって思っただけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：それがさっき言ってた順序性ってーのと、どう関係があるんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：万が一巻き戻しが出来ない場合は、一方通行的な操作になる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もしそういった事態に陥ったら、行ったは良いが、戻ってこれなくなる可能性があるんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ココがそうだとすると、慎重に進まなければならない、と考えただけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、今見た感じだと、杞憂だったみたいだ。ここは大丈夫！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さあ、行こう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：勝手に完結しやがったな・・・まあ、いつものテメーらしくて何よりだがな。", ActionEvent.None);
+    }
+  }
+
+
   public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800090 == false)
@@ -10395,6 +10486,22 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRight);
       }
     }
+    else if (num == 193)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjBottom);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+      }
+    }
+    else if (num == 194)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
+        Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
 
     Message(ref m_list, ref e_list, "（シュウウウゥゥン）", ActionEvent.None);
 
@@ -11613,6 +11720,14 @@ public static class MessagePack
     else if (num == 192)
     {
       Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveRight);
+    }
+    else if (num == 193)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveBottom);
+    }
+    else if (num == 194)
+    {
+      Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveTop);
     }
 
     Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
