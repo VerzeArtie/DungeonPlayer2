@@ -7738,10 +7738,15 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    // debug
-    //this.Strength = 1;
-    //this.Intelligence = 1;
-    // debug 
+    if (One.Difficulty == -1)
+    {
+      this.Strength = 1;
+      this.Agility = 1;
+      this.Intelligence = 1;
+      this.Stamina = 1;
+      this.Mind = 1;
+      this.BaseLife = 1;
+    }
 
     this.MaxGain();
     this.CurrentActionCommand = list[0];
@@ -8097,6 +8102,21 @@ public partial class Character : MonoBehaviour
 //          result = Fix.COMMAND_MIDARE_GIRI;
           result = Fix.COMMAND_POISON_NEEDLE;
 //          result = Fix.SHIELD_BASH;// Fix.STRAIGHT_SMASH;// "絶望の魔手";
+          random = AP.Math.RandomInteger(3);
+          if (random == 0)
+          {
+            result = Fix.COMMAND_JUBAKU_ON;
+          }
+          else if (random == 1)
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+          else
+          {
+            result = Fix.FORTUNE_SPIRIT;
+          }
+          //          result = Fix.COMMAND_MIDARE_GIRI;
+          //          result = Fix.SHIELD_BASH;// Fix.STRAIGHT_SMASH;// "絶望の魔手";
         }
         else if (this.IsTrueSight == null)
         {
