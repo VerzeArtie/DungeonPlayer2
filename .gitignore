@@ -7,6 +7,7 @@
 /[Ss]ave/
 /[Aa]ssets/AssetImport/*
 /[Aa]ssets/Plugins/*
+/[Aa]ssets/[Ff]onts/
 .vs/
 
 *.csproj
