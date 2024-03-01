@@ -5871,7 +5871,7 @@ public class DungeonField : MotherBase
         // 宝箱３７
         if (One.TF.Treasure_OhranTower_00037 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
         {
-          treasureName = Fix.STARDUST_KEY;
+          treasureName = Fix.STAR_DUST_KEY;
         }
         if (treasureName == String.Empty)
         {

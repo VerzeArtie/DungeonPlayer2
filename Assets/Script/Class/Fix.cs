@@ -2100,7 +2100,9 @@ public static partial class Fix
   public const string ITEM_COPPER_KEY = "銅製の鍵";
   public const string PURE_CLEAN_WATER = "清透水";
   public const string PURE_SINSEISUI = "神聖水";
-  public const string STARDUST_KEY = "星屑の鍵";
+  public const string SHADOW_MOON_KEY = "月影の鍵";
+  public const string SUN_BURST_KEY = "日輪の鍵";
+  public const string STAR_DUST_KEY = "星屑の鍵";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";

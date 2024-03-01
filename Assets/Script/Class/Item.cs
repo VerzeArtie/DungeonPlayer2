@@ -12066,7 +12066,7 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
-      case Fix.STARDUST_KEY:
+      case Fix.STAR_DUST_KEY:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.EventItem;
         this._gripType = GripTypes.None;
@@ -12082,6 +12082,62 @@ public partial class Item
         this._gold = 0;
         this._importantType = Important.Precious;
         this._description = "オーランの塔で入手した星屑の鍵。星屑の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SHADOW_MOON_KEY:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "オーランの塔で入手した月影の鍵。月影の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.SUN_BURST_KEY:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "オーランの塔で入手した日輪の鍵。日輪の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
