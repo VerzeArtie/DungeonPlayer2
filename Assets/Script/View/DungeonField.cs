@@ -107,6 +107,10 @@ public class DungeonField : MotherBase
   public FieldObject prefab_DhalGateDoorOpen;
   public FieldObject prefab_Brushwood;
   public FieldObject prefab_MysticForest_EventWall;
+  public FieldObject prefab_OhranTower_Door_ShadowMoon;
+  public FieldObject prefab_OhranTower_Door_SunBurst;
+  public FieldObject prefab_OhranTower_Door_StarDust;
+  public FieldObject prefab_OhranTower_Door_OriginRoad;
   public FieldObject prefab_Velgus_WallDoor;
   public FieldObject prefab_Velgus_SecretWall;
   public FieldObject prefab_Velgus_FakeSea;
@@ -407,6 +411,10 @@ public class DungeonField : MotherBase
     ObjectList.Add("DhalGate_Door_Open");
     ObjectList.Add("Brushwood");
     ObjectList.Add("MysticForest_EventWall");
+    ObjectList.Add("OhranTower_Door_ShadowMoon");
+    ObjectList.Add("OhranTower_Door_SunBurst");
+    ObjectList.Add("OhranTower_Door_StarDust");
+    ObjectList.Add("OhranTower_Door_OriginRoad");
     ObjectList.Add("Velgus_WallDoor");
     ObjectList.Add("Velgus_SecretWall");
     ObjectList.Add("Velgus_FakeSea");
@@ -2723,6 +2731,31 @@ public class DungeonField : MotherBase
           MessagePack.Message1000217(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+      return;
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.OhranTower_Door_ShadowMoon)
+    {
+      Debug.Log("fieldObjBefore is OhranTower_Door_ShadowMoon, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.OhranTower_Door_SunBurst)
+    {
+      Debug.Log("fieldObjBefore is OhranTower_Door_SunBurst, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.OhranTower_Door_StarDust)
+    {
+      Debug.Log("fieldObjBefore is OhranTower_Door_StarDust, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.OhranTower_Door_OriginRoad)
+    {
+      Debug.Log("fieldObjBefore is OhranTower_Door_OriginRoad, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
 
@@ -13995,6 +14028,38 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_MysticForest_EventWall, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.MysticForest_EventWall;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "OhranTower_Door_ShadowMoon")
+    {
+      current = Instantiate(prefab_OhranTower_Door_ShadowMoon, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.OhranTower_Door_ShadowMoon;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "OhranTower_Door_SunBurst")
+    {
+      current = Instantiate(prefab_OhranTower_Door_SunBurst, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.OhranTower_Door_SunBurst;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "OhranTower_Door_StarDust")
+    {
+      current = Instantiate(prefab_OhranTower_Door_StarDust, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.OhranTower_Door_StarDust;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "OhranTower_Door_OriginRoad")
+    {
+      current = Instantiate(prefab_OhranTower_Door_OriginRoad, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.OhranTower_Door_OriginRoad;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

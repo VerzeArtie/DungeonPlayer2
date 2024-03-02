@@ -4389,13 +4389,16 @@ public static partial class Fix
   public const float ARTHARIUM_ObsidianStone_1_Z = 66f;
   #endregion
   #region "オーランの塔"
-  // 下り階段（入口）
+
+  #region "下り階段（入口）"
   public const string OHRANTOWER_DOWNSTAIR_1_C = "Downstair";
   public const string OHRANTOWER_DOWNSTAIR_1_O = "1";
   public const float OHRANTOWER_DOWNSTAIR_1_X = 15.0f;
   public const float OHRANTOWER_DOWNSTAIR_1_Y = 0.0f;
   public const float OHRANTOWER_DOWNSTAIR_1_Z = -30.0f;
+  #endregion
 
+  #region "FLOATINGTILE"
   // １層、右下
   public const string OHRANTOWER_FLOATINGTILE_1_C = "FloatingTile";
   public const string OHRANTOWER_FLOATINGTILE_1_O = "1";
@@ -5753,36 +5756,15 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_194_X = 22.0f;
   public const float OHRANTOWER_FLOATINGTILE_194_Y = 32.0f;
   public const float OHRANTOWER_FLOATINGTILE_194_Z = -22.0f;
+  #endregion
 
-  //// オーランの塔、一層、右側（下）
-  //public const string EVENT_OHRANTOWER_1_O = "EVENT_OHRANTOWER_1_O";
-  //public const float EVENT_OHRANTOWER_1_X = 10;
-  //public const float EVENT_OHRANTOWER_1_Y = 0;
-  //public const float EVENT_OHRANTOWER_1_Z = 1;
-
-  //// オーランの塔、二層、右側（上）
-  //public const string EVENT_OHRANTOWER_2_O = "EVENT_OHRANTOWER_2_O";
-  //public const float EVENT_OHRANTOWER_2_X = 10;
-  //public const float EVENT_OHRANTOWER_2_Y = 8;
-  //public const float EVENT_OHRANTOWER_2_Z = 1;
-
-  //// オーランの塔、一層、左側（下）
-  //public const string EVENT_OHRANTOWER_3_O = "EVENT_OHRANTOWER_3_O";
-  //public const float EVENT_OHRANTOWER_3_X = -16;
-  //public const float EVENT_OHRANTOWER_3_Y = 0;
-  //public const float EVENT_OHRANTOWER_3_Z = 1;
-
-  //// オーランの塔、一層、左側（上）
-  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
-  //public const float EVENT_OHRANTOWER_4_X = -16;
-  //public const float EVENT_OHRANTOWER_4_Y = 12;
-  //public const float EVENT_OHRANTOWER_4_Z = 1;
-
-  //// オーランの塔、二層、中央左岸（入口）
-  //public const string EVENT_OHRANTOWER_4_O = "EVENT_OHRANTOWER_4_O";
-  //public const float EVENT_OHRANTOWER_4_X = -16;
-  //public const float EVENT_OHRANTOWER_4_Y = 12;
-  //public const float EVENT_OHRANTOWER_4_Z = 1;
+  #region "Event"
+  // エントランス会話
+  public const string OHRANTOWER_EVENT_1_C = "Event";
+  public const string OHRANTOWER_EVENT_1_O = "1";
+  public const float OHRANTOWER_EVENT_1_X = 15.0f;
+  public const float OHRANTOWER_EVENT_1_Y = 0.0f;
+  public const float OHRANTOWER_EVENT_1_Z = -27.0f;
 
   // オーランの塔、ボス前の察知
   public const float EVENT_OHRANTOWER_9_X = 15.0f;
@@ -5813,7 +5795,9 @@ public static partial class Fix
   public const float EVENT_OHRANTOWER_14_X = 1.0f;
   public const float EVENT_OHRANTOWER_14_Y = 65.0f;
   public const float EVENT_OHRANTOWER_14_Z = 32.0f;
+  #endregion
 
+  #region "Treasure"
   public const string OHRANTOWER_Treasure_1_C = "Treasure";
   public const string OHRANTOWER_Treasure_1_O = "1";
   public const float OHRANTOWER_Treasure_1_X = 15.0f;
@@ -6035,7 +6019,9 @@ public static partial class Fix
   public const float OHRANTOWER_Treasure_37_X = 22.0f;
   public const float OHRANTOWER_Treasure_37_Y = 33.0f;
   public const float OHRANTOWER_Treasure_37_Z = -28.0f;
+  #endregion
 
+  #region "FloatingTile / WarpHole"
   public const string OHRANTOWER_FloatingTile_7_C = "FloatingTile";
   public const string OHRANTOWER_FloatingTile_7_O = "7";
   public const float OHRANTOWER_FloatingTile_7_X = 13f;
@@ -6359,12 +6345,21 @@ public static partial class Fix
   public const float OHRANTOWER_WarpHole_26_X = 1f;
   public const float OHRANTOWER_WarpHole_26_Y = 44f;
   public const float OHRANTOWER_WarpHole_26_Z = 20f;
+  #endregion
 
-  public const string OHRANTOWER_EVENT_1_C = "Event";
-  public const string OHRANTOWER_EVENT_1_O = "1";
-  public const float OHRANTOWER_EVENT_1_X = 15.0f;
-  public const float OHRANTOWER_EVENT_1_Y = 0.0f;
-  public const float OHRANTOWER_EVENT_1_Z = -27.0f;
+  #region "鍵付き扉"
+  public const float OHRANTOWER_KEYDOOR_1_X = 20.0f;
+  public const float OHRANTOWER_KEYDOOR_1_Y = 16.0f;
+  public const float OHRANTOWER_KEYDOOR_1_Z = -4.0f;
+
+  public const float OHRANTOWER_KEYDOOR_2_X = 18.0f;
+  public const float OHRANTOWER_KEYDOOR_2_Y = 16.0f;
+  public const float OHRANTOWER_KEYDOOR_2_Z = -4.0f;
+
+  public const float OHRANTOWER_KEYDOOR_3_X = 15.0f;
+  public const float OHRANTOWER_KEYDOOR_3_Y = 56.0f;
+  public const float OHRANTOWER_KEYDOOR_3_Z = -12.0f;
+  #endregion
 
   #region "ObsidianPortal"
   // Odsidian Portal
