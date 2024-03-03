@@ -7485,9 +7485,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：アデル、これ何だか分かるか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：フローティングストーン素材を使った飛翔するタイルだねー。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：ゼタニウム鉱石素材を使った飛翔するタイルだねー。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：乗ればビューンってまっすぐ飛んで行ってくれるよ☆", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：乗ればビューンって飛んで行ってくれるよ☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：マジか。面白そうだな。じゃあ早速乗ってみるとするか！", ActionEvent.None);
 
@@ -7503,7 +7503,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：どうぞ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、じゃあ進めてみるとしよう！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、早速乗ってみよう。", ActionEvent.None);
     }
   }
 

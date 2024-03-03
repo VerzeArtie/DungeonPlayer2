@@ -3240,6 +3240,10 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_1_X, Fix.OHRANTOWER_FLOATINGTILE_1_Y, Fix.OHRANTOWER_FLOATINGTILE_1_Z))
         {
           One.TF.FieldObject_OhranTower_00001 = true;
+          if (One.TF.Event_Message800020 == false)
+          {
+            MessagePack.Message800020(ref QuestMessageList, ref QuestEventList);
+          }
           MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 8); TapOK();
           return;
         }
@@ -3254,6 +3258,10 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_3_X, Fix.OHRANTOWER_FLOATINGTILE_3_Y, Fix.OHRANTOWER_FLOATINGTILE_3_Z))
         {
           One.TF.FieldObject_OhranTower_00002 = true;
+          if (One.TF.Event_Message800020 == false)
+          {
+            MessagePack.Message800020(ref QuestMessageList, ref QuestEventList);
+          }
           MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 16); TapOK();
           return;
         }
