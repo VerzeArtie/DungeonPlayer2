@@ -1112,6 +1112,13 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800010 = false;
   [SerializeField] protected bool _event_message800020 = false;
   [SerializeField] protected bool _event_message800030 = false;
+  [SerializeField] protected bool _event_message800040 = false;
+  [SerializeField] protected bool _event_message800041 = false;
+  [SerializeField] protected bool _event_message800042 = false;
+  [SerializeField] protected bool _event_message800043 = false;
+  [SerializeField] protected bool _event_message800044 = false;
+  [SerializeField] protected bool _event_message800045 = false;
+  [SerializeField] protected bool _event_message800046 = false;
   [SerializeField] protected bool _event_message800090 = false;
   [SerializeField] protected bool _event_message800100 = false;
   [SerializeField] protected bool _event_message800110 = false;
@@ -1129,6 +1136,13 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800010 { get { return _event_message800010; } set { _event_message800010 = value; } }
   public bool Event_Message800020 { get { return _event_message800020; } set { _event_message800020 = value; } }
   public bool Event_Message800030 { get { return _event_message800030; } set { _event_message800030 = value; } }
+  public bool Event_Message800040 { get { return _event_message800040; } set { _event_message800040 = value; } }
+  public bool Event_Message800041 { get { return _event_message800041; } set { _event_message800041 = value; } }
+  public bool Event_Message800042 { get { return _event_message800042; } set { _event_message800042 = value; } }
+  public bool Event_Message800043 { get { return _event_message800043; } set { _event_message800043 = value; } }
+  public bool Event_Message800044 { get { return _event_message800044; } set { _event_message800044 = value; } }
+  public bool Event_Message800045 { get { return _event_message800045; } set { _event_message800045 = value; } }
+  public bool Event_Message800046 { get { return _event_message800046; } set { _event_message800046 = value; } }
 
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
   public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } }

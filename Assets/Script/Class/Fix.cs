@@ -6348,16 +6348,22 @@ public static partial class Fix
   #endregion
 
   #region "鍵付き扉"
+  public const string OHRANTOWER_KEYDOOR_1_C = "KeyDoor";
+  public const string OHRANTOWER_KEYDOOR_1_O = "1";
   public const float OHRANTOWER_KEYDOOR_1_X = 20.0f;
-  public const float OHRANTOWER_KEYDOOR_1_Y = 16.0f;
+  public const float OHRANTOWER_KEYDOOR_1_Y = 16.5f;
   public const float OHRANTOWER_KEYDOOR_1_Z = -4.0f;
 
+  public const string OHRANTOWER_KEYDOOR_2_C = "KeyDoor";
+  public const string OHRANTOWER_KEYDOOR_2_O = "2";
   public const float OHRANTOWER_KEYDOOR_2_X = 18.0f;
-  public const float OHRANTOWER_KEYDOOR_2_Y = 16.0f;
+  public const float OHRANTOWER_KEYDOOR_2_Y = 16.5f;
   public const float OHRANTOWER_KEYDOOR_2_Z = -4.0f;
 
+  public const string OHRANTOWER_KEYDOOR_3_C = "KeyDoor";
+  public const string OHRANTOWER_KEYDOOR_3_O = "3";
   public const float OHRANTOWER_KEYDOOR_3_X = 15.0f;
-  public const float OHRANTOWER_KEYDOOR_3_Y = 56.0f;
+  public const float OHRANTOWER_KEYDOOR_3_Y = 56.5f;
   public const float OHRANTOWER_KEYDOOR_3_Z = -12.0f;
   #endregion
 
