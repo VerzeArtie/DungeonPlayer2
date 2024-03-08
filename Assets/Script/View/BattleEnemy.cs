@@ -1081,6 +1081,12 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatFlansisQueenOfVerdant = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS ||
+                                       One.EnemyList[0].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP ||
+                                       One.EnemyList[0].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW)
+        {
+          One.TF.DefeatLightThunderLancebolts = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP)
         {
           One.TF.DefeatOriginStarCoralQueen = true;

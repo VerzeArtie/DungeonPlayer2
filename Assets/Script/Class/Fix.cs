@@ -5766,6 +5766,20 @@ public static partial class Fix
   public const float OHRANTOWER_EVENT_1_Y = 0.0f;
   public const float OHRANTOWER_EVENT_1_Z = -27.0f;
 
+  // オーランの塔、雷光ランスボルツ戦前の会話
+  public const string OHRANTOWER_EVENT_2_C = "Event";
+  public const string OHRANTOWER_EVENT_2_O = "2";
+  public const float OHRANTOWER_EVENT_2_X = 22.0f;
+  public const float OHRANTOWER_EVENT_2_Y = 32.0f;
+  public const float OHRANTOWER_EVENT_2_Z = -24.0f;
+
+  // オーランの塔、雷光ランスボルツ戦
+  public const string OHRANTOWER_EVENT_3_C = "Event";
+  public const string OHRANTOWER_EVENT_3_O = "3";
+  public const float OHRANTOWER_EVENT_3_X = 22.0f;
+  public const float OHRANTOWER_EVENT_3_Y = 32.0f;
+  public const float OHRANTOWER_EVENT_3_Z = -25.0f;
+
   // オーランの塔、ボス前の察知
   public const float EVENT_OHRANTOWER_9_X = 15.0f;
   public const float EVENT_OHRANTOWER_9_Y = 56.0f;

@@ -1119,6 +1119,9 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800044 = false;
   [SerializeField] protected bool _event_message800045 = false;
   [SerializeField] protected bool _event_message800046 = false;
+  [SerializeField] protected bool _event_message800050 = false;
+  [SerializeField] protected bool _event_message800051 = false;
+  [SerializeField] protected bool _event_message800052 = false;
   [SerializeField] protected bool _event_message800090 = false;
   [SerializeField] protected bool _event_message800100 = false;
   [SerializeField] protected bool _event_message800110 = false;
@@ -1143,6 +1146,9 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800044 { get { return _event_message800044; } set { _event_message800044 = value; } }
   public bool Event_Message800045 { get { return _event_message800045; } set { _event_message800045 = value; } }
   public bool Event_Message800046 { get { return _event_message800046; } set { _event_message800046 = value; } }
+  public bool Event_Message800050 { get { return _event_message800050; } set { _event_message800050 = value; } }
+  public bool Event_Message800051 { get { return _event_message800051; } set { _event_message800051 = value; } }
+  public bool Event_Message800052 { get { return _event_message800052; } set { _event_message800052 = value; } }
 
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
   public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } }
@@ -2229,6 +2235,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_flansis_queen_of_verdant = false;
   public bool DefeatFlansisQueenOfVerdant { get { return _defeat_flansis_queen_of_verdant; } set { _defeat_flansis_queen_of_verdant = value; } }
+
+  protected bool _defeat_light_thunder_lancebolts = false;
+  public bool DefeatLightThunderLancebolts { get { return _defeat_light_thunder_lancebolts; } set { _defeat_light_thunder_lancebolts = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

@@ -604,6 +604,12 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
       {
+        if (One.TF.DefeatLightThunderLancebolts && One.TF.Event_Message800051 == false)
+        {
+          MessagePack.Message800052(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
         if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
         {
           MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -5927,6 +5933,10 @@ public class DungeonField : MotherBase
         if (One.TF.Treasure_OhranTower_00037 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
         {
           treasureName = Fix.STAR_DUST_KEY;
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.Message800053(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
         }
         if (treasureName == String.Empty)
         {
@@ -10034,6 +10044,14 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message800010(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
+      }
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_2_X, Fix.OHRANTOWER_EVENT_2_Y, Fix.OHRANTOWER_EVENT_2_Z))
+      {
+        MessagePack.Message800050(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_3_X, Fix.OHRANTOWER_EVENT_3_Y, Fix.OHRANTOWER_EVENT_3_Z))
+      {
+        MessagePack.Message800051(ref QuestMessageList, ref QuestEventList); TapOK();
       }
     }
     #endregion

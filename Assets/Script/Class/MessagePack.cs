@@ -7929,6 +7929,149 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、じゃあせっかく開い事だし、進めるとしますか！", ActionEvent.None);
   }
 
+  public static void Message800050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800050 == false)
+    {
+      One.TF.Event_Message800050 = true;
+
+      Message(ref m_list, ref e_list, "アイン：待て。何か気配がある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：敵かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：敵かどうかはこの地点からは分からないが・・・おそらくは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー；気配っつーか、なんか妙にビリビリする感じがするけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、結構ヤバイ感じはする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　突如、アイン達の前に稲光が発生した！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "～～～ッピシャ！ッバアアァァァン！！～～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　放たれた稲光は、一か所へ集約し、一定の容を形成し始めた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "？？？：ワレは雷光ランスボルツ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：コノ地へナニをしにキタか？ノベよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何をって訳じゃねえ。単純な視察だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：シサツ程度のレベルでこの地にはタドリつけはシマイ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：キデンからは、イシとドウサツがカンジられる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：コタエよ。ナニをしにキタか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：要件を受けている。それに、応えなくちゃならない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：ヨウケンとはナニか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このオーランの塔にて本大陸全土の視察を行う事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：シサツは貧の階層のみ。カノ地、栄の階層にクルことはアリエナイ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：ヒキカエスがヨイ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういう訳には行かないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大陸全土の視察っていうぐらいだ。この塔の頂には少なくとも進まなくちゃならない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうなった時、何か取りこぼしがあると進められない事態に陥るかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：となると、この区画。特に怪しい感じはする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ランスボルツ：無礼ナル者よ。ヒキカエスがヨイ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こりゃ、決まりみたいだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：皆、万全の戦闘態勢を保って進めよう。各自準備してくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：準備オーケーよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：闘うみてーだな！かかってこい！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：りょーかい☆", ActionEvent.None);
+    }
+  }
+
+  public static void Message800051(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatLightThunderLancebolts == false)
+    {
+      Message(ref m_list, ref e_list, "ランスボルツ：退かぬモノにはシをアタエン", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし！皆構えろ！戦闘だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.LIGHT_THUNDER_LANCEBOLTS, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message800052(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatLightThunderLancebolts && One.TF.Event_Message800051 == false )
+    {
+      One.TF.Event_Message800051 = true;
+      Message(ref m_list, ref e_list, "ランスボルツ：グッ・・・ッグオオオォァァァァ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　エリア全体に稲光が降り注いだ！！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "～～　ッバアアァァァンン！！！ ～～～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：派手なヤツだったな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そこらじゅうに散らかす様なヤツだったな。マジでしんどかったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：私はけっこー面白かったな☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：これを楽しめるってどんな感覚してんだ、ったくよー・・・前衛の身は辛いぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：エオネさんは結構上手くあの電光を避けてたわよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ええ、常にギリギリではありましたが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの距離感を保つ感じはさすがだなと思ったよ。本当に助かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナの支援もバッチリだったしな。サンキューな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ、これで道が拓けたって所かしら。見る限り宝箱が一つあるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：待ってました。ではさっそくお宝ゲットと行きますか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message800053(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800052 == false)
+    {
+      One.TF.Event_Message800052 = true;
+
+      Message(ref m_list, ref e_list, "アイン：鍵か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どこで使うものかしらね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・おそらく、今の段階では分からないんじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：でも、テメー的にはここは要所って感じがしたんだろ？全部分かってるんじゃねーのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それはそうだけど、全容を把握しているわけじゃない。何がどうなっているかは分からないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：断片的に見て、ここは通った方が良いなって思っただけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ふうん、そんなもんかね。まあ、鍵を手に入れた事は重要そうだし、良いんじゃねーのか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ここはもう大丈夫だと思う。次へ行こう。", ActionEvent.None);
+    }
+  }
+
   public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800090 == false)
