@@ -5780,7 +5780,7 @@ public static partial class Fix
   public const float OHRANTOWER_EVENT_3_Y = 32.0f;
   public const float OHRANTOWER_EVENT_3_Z = -25.0f;
 
-  // オーランの塔、雷光ランスボルツ戦
+  // オーランの塔、中盤の会話
   public const string OHRANTOWER_EVENT_4_C = "Event";
   public const string OHRANTOWER_EVENT_4_O = "4";
   public const float OHRANTOWER_EVENT_4_X = 8.0f;
