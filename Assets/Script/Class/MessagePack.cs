@@ -8072,7 +8072,63 @@ public static class MessagePack
     }
   }
 
-  public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message800060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800060 == false)
+    {
+      One.TF.Event_Message800060 = true;
+
+      Message(ref m_list, ref e_list, "アイン：へえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アインは周囲をスっと見回した ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、良くできた造りだな、って思ってさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：奇麗な構成に切り替わったなと感じたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう、で？この塔の攻略にカンケーしてんのかよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、攻略的な観点には直接は結びつかないけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そもそもの目的は視察だからな。別に攻略っていうので来ているのではないわけで・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：上手くは言えないな・・・ハハハ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ良いけよ。攻略視点か奇麗視点かはテメーに任せるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、見た感じだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく一本道だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、合っているか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　ッ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何でいちいちエオネさんに聞いてるのよ。バカアイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、そこは何となくだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：特に何もいう事は無いです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか、分かった。ありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：一本道って事はある程度見えたって事かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと気になる箇所もあるが、まあおそらく大丈夫だろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：難しい御託は置いといて、サクっといこーぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解だ。", ActionEvent.None);
+    }
+  }
+
+    public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800090 == false)
     {
