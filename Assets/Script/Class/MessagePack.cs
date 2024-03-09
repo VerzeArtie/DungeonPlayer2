@@ -8190,7 +8190,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：少なくとも、この浮遊石の位置は例外なく、元に戻るのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：少なくとも、この塔に出てくる浮遊石の位置は例外なく、元に戻るのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：そーだねー。その辺りは安心して良いんじゃないかなー☆", ActionEvent.None);
 
@@ -8203,6 +8203,65 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：おい、途中で迷ったら迷ったで、ちゃんと言えよな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+    }
+  }
+
+
+  public static void Message800080(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800080 == false)
+    {
+      One.TF.Event_Message800080 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よしっ、結構かかったが行けそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・おい、アイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん、なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そのよぉ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テメーはここがゴール地点だっていつ分かったんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いつ・・・いつ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そこを考える時点でちょっ待てって言ーてえんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ強いて言えば、あの浮遊石で中央からスタートしたって辺りからだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：それがヒントになってるのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ヒントってわけじゃないんだが、何ていうんだろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この塔は構造上、回帰するような構造になっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：通路を進める時、スタート　→　通路　→　ゴールってなるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このオーランの塔はその色が強いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、スタートが中央近辺という事は、このスタート近辺の所へ行ければ良いと考えたのさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：少し違うかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：じーちゃんの教えによると、このオーランの塔は何度か改修があったそうだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：だから最初からぜーんぶ完全に奇麗に作られた構造はもう残ってないんだってー", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだったのか・・・、こいつは一本取られたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ全部が全部そうって訳でもなさそうだしな。気にしすぎだったかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そのテキトー加減で、言い得てない割には、クリアに漕ぎつける所がバカアインのおかしな所よね。ホント。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあまあ、良いじゃねえか・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：結果オーケーって事かよ。後はそこに乗るだけなんだな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。行ってみよう。", ActionEvent.None);
     }
   }
 
