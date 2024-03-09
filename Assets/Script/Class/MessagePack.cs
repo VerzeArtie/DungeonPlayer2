@@ -8098,7 +8098,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：上手くは言えないな・・・ハハハ", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：まあ良いけよ。攻略視点か奇麗視点かはテメーに任せるぜ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：まあ良いけどよ。攻略視点か奇麗視点かはテメーに任せるぜ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：で、見た感じだが・・・", ActionEvent.None);
 
@@ -8128,7 +8128,85 @@ public static class MessagePack
     }
   }
 
-    public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message800070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800070 == false)
+    {
+      One.TF.Event_Message800070 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・ん？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アインは一旦全体を見渡し、その直後、目の前の柱へと注目した ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・どういう事だろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ココに来てからテメー突っかかってばかりだな。奇麗な造りが気になるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、攻略視点だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこの柱、見てみろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ああ、この柱なら何も書いてねーけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そっちじゃない。もう一方の方だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あぁ！？もう一方に柱なんてねーだろうが！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その通り。柱が無いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハ、アインのおにーちゃんって本当に言い方が面白いよね☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪ぃ・・・そこの柱の相対性を見てみろと言いたかったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んな、最初っからそう言えよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：スマンかった。でだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、違うかな。ちょっと待ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：読めた・・・かな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・っ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただな・・・ちょっと気がかりが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル。ちょっと良いかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：はい、なんでしょうか☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このオーランの塔。カラクリ的な要素はリセット可能か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：どーいう意味だろー、ん－とね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：この塔を一回出ればリセットされるよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少なくとも、この浮遊石の位置は例外なく、元に戻るのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そーだねー。その辺りは安心して良いんじゃないかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう。だいぶ助かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：行けそうな目星は付いたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、五分五分だが、大丈夫だろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、途中で迷ったら迷ったで、ちゃんと言えよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+    }
+  }
+
+  public static void Message800090(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800090 == false)
     {

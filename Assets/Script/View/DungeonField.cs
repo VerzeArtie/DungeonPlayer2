@@ -10057,6 +10057,10 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message800060(ref QuestMessageList, ref QuestEventList); TapOK();
       }
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_5_X, Fix.OHRANTOWER_EVENT_5_Y, Fix.OHRANTOWER_EVENT_5_Z))
+      {
+        MessagePack.Message800070(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
     }
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
