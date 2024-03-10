@@ -8213,7 +8213,7 @@ public static class MessagePack
     {
       One.TF.Event_Message800080 = true;
 
-      Message(ref m_list, ref e_list, "アイン：よしっ、結構かかったが行けそうだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よしっ、結構かかったが行けたな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：・・・おい、アイン。", ActionEvent.None);
 
@@ -8239,7 +8239,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：通路を進める時、スタート　→　通路　→　ゴールってなるんだが", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：このオーランの塔はその色が強いんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：このオーランの塔はゴール地点とスタート地点が結構近い事が多い気がするんだよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：だから、スタートが中央近辺という事は、このスタート近辺の所へ行ければ良いと考えたのさ。", ActionEvent.None);
 
@@ -8289,7 +8289,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：この塔、おそらくもうすぐだ。ともかく、気をつけて行こう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が開始されました！", ActionEvent.GetNewQuest);
     }
   }
 
@@ -8320,7 +8320,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：ただ守護者とはいえ、実際に戦闘になればいよいよ本領発揮するって感じだろうな。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：攻守を兼ね備えていそうだ。あまり無理に急ぎ過ぎず、持久戦前提で戦闘を行おう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：攻守を兼ね備えていそうだ。あまり無理に突っ込み過ぎず、持久戦前提で戦闘を行おう。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：で、相手が何かやらかしそうだったら、一旦防御に徹するのも手の一つだ。", ActionEvent.None);
 
@@ -8328,13 +8328,15 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：各自で防ぎ切るか、または誰かが全体防御をできるように準備しておいた方が良いかもな。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：大体分かったわ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。エオネ、ラナ、ビリー、準備は良いか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。エオネ、ラナ、アデル、ビリー、準備は良いか？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エオネ：は、はい。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ラナ：私はいつでも良いわよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：いいよー☆", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ビリー：任せとけや！", ActionEvent.None);
 
@@ -8550,7 +8552,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン；じゃあ、最後にその扉の先を拝見するといたしますか！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
+      // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】が更新されました！", ActionEvent.QuestUpdate);
     }

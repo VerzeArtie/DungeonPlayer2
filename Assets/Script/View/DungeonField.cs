@@ -10065,6 +10065,36 @@ public class DungeonField : MotherBase
       {
         MessagePack.Message800080(ref QuestMessageList, ref QuestEventList); TapOK();
       }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_9_X, Fix.EVENT_OHRANTOWER_9_Y, Fix.EVENT_OHRANTOWER_9_Z))
+      {
+        MessagePack.Message800090(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_10_X, Fix.EVENT_OHRANTOWER_10_Y, Fix.EVENT_OHRANTOWER_10_Z))
+      {
+        MessagePack.Message800100(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z))
+      {
+        MessagePack.Message800105(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_12_X, Fix.EVENT_OHRANTOWER_12_Y, Fix.EVENT_OHRANTOWER_12_Z))
+      {
+        MessagePack.Message800120(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_13_X, Fix.EVENT_OHRANTOWER_13_Y, Fix.EVENT_OHRANTOWER_13_Z))
+      {
+        MessagePack.Message800130(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_14_X, Fix.EVENT_OHRANTOWER_14_Y, Fix.EVENT_OHRANTOWER_14_Z))
+      {
+        MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
@@ -10211,39 +10241,6 @@ public class DungeonField : MotherBase
                )
       {
         MessagePack.Message300190(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-    }
-    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
-    {
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_9_X, Fix.EVENT_OHRANTOWER_9_Y, Fix.EVENT_OHRANTOWER_9_Z))
-      {
-        MessagePack.Message800090(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_10_X, Fix.EVENT_OHRANTOWER_10_Y, Fix.EVENT_OHRANTOWER_10_Z))
-      {
-        MessagePack.Message800100(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z))
-      {
-        MessagePack.Message800105(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_12_X, Fix.EVENT_OHRANTOWER_12_Y, Fix.EVENT_OHRANTOWER_12_Z))
-      {
-        MessagePack.Message800120(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_13_X, Fix.EVENT_OHRANTOWER_13_Y, Fix.EVENT_OHRANTOWER_13_Z))
-      {
-        MessagePack.Message800130(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_14_X, Fix.EVENT_OHRANTOWER_14_Y, Fix.EVENT_OHRANTOWER_14_Z))
-      {
-        MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
