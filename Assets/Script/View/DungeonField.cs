@@ -7468,7 +7468,11 @@ public class DungeonField : MotherBase
                                                                      this.CurrentEventObject.transform.position.y + 1.0f,
                                                                      this.CurrentEventObject.transform.position.z);
           }
-          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。他に転用できないかもしれない。
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjRise2)
+        {
+          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。
           if (this.CurrentEventObject2 != null)
           {
             this.CurrentEventObject2.transform.position = new Vector3(this.CurrentEventObject2.transform.position.x,
@@ -7485,7 +7489,11 @@ public class DungeonField : MotherBase
                                                                      this.CurrentEventObject.transform.position.y - 1.0f,
                                                                      this.CurrentEventObject.transform.position.z);
           }
-          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。他に転用できないかもしれない。
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjFall2)
+        {
+          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。
           if (this.CurrentEventObject2 != null)
           {
             this.CurrentEventObject2.transform.position = new Vector3(this.CurrentEventObject2.transform.position.x,

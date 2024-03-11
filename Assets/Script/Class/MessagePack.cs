@@ -37,7 +37,9 @@ public static class MessagePack
     ForceMoveObjRight,
     ForceMoveObjBottom,
     ForceMoveObjRise,
+    ForceMoveObjRise2,
     ForceMoveObjFall,
+    ForceMoveObjFall2,
     ForceMoveObjRiseWithoutPlayer,
     MoveLeftContinuous,
     MoveRightContinuous,
@@ -11209,6 +11211,7 @@ public static class MessagePack
       for (int ii = 0; ii < move; ii++)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjFall2);
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveFall); // 早め
       }
     }
@@ -11217,6 +11220,7 @@ public static class MessagePack
       for (int ii = 0; ii < move; ii++)
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise2);
         Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRise); // 早め
       }
     }
