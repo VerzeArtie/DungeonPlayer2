@@ -8634,6 +8634,84 @@ public static class MessagePack
     }
   }
 
+  public static void Message800140(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800200 == false)
+    {
+      One.TF.Event_Message800200 = true;
+      Message(ref m_list, ref e_list, "アイン：この扉、おそらく最初の入口の広間に繋がる箇所だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こちらからだと鍵穴があるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：鍵穴の上には紋章が描かれているか・・・抽象的な形をしているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：専用の鍵を入手しない限り開けられそうにないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、鍵を探すとするか。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：ここは、専用の鍵を入手しない限り開けられそうにないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、鍵を探すとするか。", ActionEvent.None);
+    }
+  }
+  public static void Message800141(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800210 == false)
+    {
+      One.TF.Event_Message800210 = true;
+
+      if (One.TF.Event_Message800200 == false)
+      {
+        One.TF.Event_Message800200 = true;
+
+        Message(ref m_list, ref e_list, "アイン：この扉、おそらく最初の入口の広間に繋がる箇所だな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：こちらからだと鍵穴があるわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：鍵穴の上には紋章が描かれているか・・・抽象的な形をしているな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：専用の鍵を入手しない限り開けられそうにないわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：確か塔の頂上で鍵を入手してたわよね？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、おそらくそれで行けると思う。頼んだ。", ActionEvent.None);
+      }
+      else
+      {
+
+        Message(ref m_list, ref e_list, "アイン：しかし、不思議な形だな。この紋章は・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：例の鍵、使ってみる？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、頼んだ。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、ちょっと待ってね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　ッカ・・・ッカリカリ・・・ッカ・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：普通のタイプね。じゃあ回すわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～～　ッカチリ　～～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ギッギギィ・・・バタン　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.OHRANTOWER_KEYDOOR_4_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ラナ：開いたわ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おっしゃあ！これで入口から堂々と出られるな。おつかれさんっと！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハ、おつかれさまー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：では、一旦戻りましょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。じゃあオーランの塔から一旦出るとするか。", ActionEvent.None);
+    }
+  }
+
   public static void Message801000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message801000 == false)

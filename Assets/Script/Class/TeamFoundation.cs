@@ -1136,6 +1136,8 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800170 = false;
   [SerializeField] protected bool _event_message800180 = false;
   [SerializeField] protected bool _event_message800190 = false;
+  [SerializeField] protected bool _event_message800200 = false;
+  [SerializeField] protected bool _event_message800210 = false;
   [SerializeField] protected bool _event_message801000 = false;
   [SerializeField] protected bool _event_message801010 = false;
   [SerializeField] protected bool _event_message801020 = false;
@@ -1167,6 +1169,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800170 { get { return _event_message800170; } set { _event_message800170 = value; } } // 星屑の扉の前、強制会話
   public bool Event_Message800180 { get { return _event_message800180; } set { _event_message800180 = value; } } // 最上階到達時の会話
   public bool Event_Message800190 { get { return _event_message800190; } set { _event_message800190 = value; } } // 星屑の鍵で扉を開錠
+  public bool Event_Message800200 { get { return _event_message800200; } set { _event_message800200 = value; } } // 原初の扉の前で会話（鍵無し）
+  public bool Event_Message800210 { get { return _event_message800210; } set { _event_message800210 = value; } } // 原初の鍵で扉を開錠）
   public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } } // オーランの塔、ObsidianStoneと接触時の会話
   public bool Event_Message801010 { get { return _event_message801010; } set { _event_message801010 = value; } } // オーランの塔、ObsidianStoneと接触後のファージル宮殿での会話
   public bool Event_Message801020 { get { return _event_message801020; } set { _event_message801020 = value; } } // オーランの塔制覇後、ファージル宮殿へ誘導する会話

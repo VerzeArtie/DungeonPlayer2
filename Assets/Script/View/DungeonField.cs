@@ -2775,8 +2775,15 @@ public class DungeonField : MotherBase
     }
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.OhranTower_Door_OriginRoad)
     {
-      Debug.Log("fieldObjBefore is OhranTower_Door_OriginRoad, then no move");
-      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      if (One.TF.FindBackPackItem(Fix.ORIGIN_ROAD_KEY))
+      {
+        MessagePack.Message800141(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      else
+      {
+        Debug.Log("fieldObjBefore is OhranTower_Door_OriginRoad, then no move");
+        MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
       return;
     }
 
@@ -8811,6 +8818,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.OHRANTOWER_KEYDOOR_3_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_3_X, Fix.OHRANTOWER_KEYDOOR_3_Y, Fix.OHRANTOWER_KEYDOOR_3_Z));
+            }
+            if (currentMessage == Fix.OHRANTOWER_KEYDOOR_4_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_4_X, Fix.OHRANTOWER_KEYDOOR_4_Y, Fix.OHRANTOWER_KEYDOOR_4_Z));
             }
             if (currentMessage == Fix.OHRANTOWER_ObsidianStone_2_O)
             {
@@ -15333,6 +15344,10 @@ public class DungeonField : MotherBase
     #region "オーランの塔"
     else if (map_data == Fix.MAPFILE_OHRAN_TOWER)
     {
+      if (One.TF.Event_Message800210)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_4_X, Fix.OHRANTOWER_KEYDOOR_4_Y, Fix.OHRANTOWER_KEYDOOR_4_Z));
+      }
       if (One.TF.Event_Message800190)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_3_X, Fix.OHRANTOWER_KEYDOOR_3_Y, Fix.OHRANTOWER_KEYDOOR_3_Z));
