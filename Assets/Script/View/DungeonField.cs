@@ -231,6 +231,7 @@ public class DungeonField : MotherBase
   private float NextTapOkSleep = 0.0f;
   private float NextTapOkCounter = 0.0f;
   private FieldObject CurrentEventObject = null;
+  private FieldObject CurrentEventObject2 = null;
 
   private string currentDecision = String.Empty;
   private string currentChoice = String.Empty;
@@ -610,7 +611,7 @@ public class DungeonField : MotherBase
           return;
         }
 
-        if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false)
+        if (One.TF.DefeatYodirian && One.TF.Event_Message800100 == false)
         {
           MessagePack.Message800110(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
@@ -5089,14 +5090,16 @@ public class DungeonField : MotherBase
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_189_X, Fix.OHRANTOWER_FLOATINGTILE_189_Y, Fix.OHRANTOWER_FLOATINGTILE_189_Z))
         {
+          CurrentEventObject2 = SearchObject(new Vector3(Fix.OHRANTOWER_FLOATINGTILE_195_X, Fix.OHRANTOWER_FLOATINGTILE_195_Y, Fix.OHRANTOWER_FLOATINGTILE_195_Z));
           One.TF.FieldObject_OhranTower_00127 = true;
-          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 64); TapOK();
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
         }
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z))
         {
+          CurrentEventObject2 = SearchObject(new Vector3(Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z));
           One.TF.FieldObject_OhranTower_00127 = false;
-          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 64); TapOK();
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
         }
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_191_X, Fix.OHRANTOWER_FLOATINGTILE_191_Y, Fix.OHRANTOWER_FLOATINGTILE_191_Z))
@@ -7465,6 +7468,13 @@ public class DungeonField : MotherBase
                                                                      this.CurrentEventObject.transform.position.y + 1.0f,
                                                                      this.CurrentEventObject.transform.position.z);
           }
+          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。他に転用できないかもしれない。
+          if (this.CurrentEventObject2 != null)
+          {
+            this.CurrentEventObject2.transform.position = new Vector3(this.CurrentEventObject2.transform.position.x,
+                                                                     this.CurrentEventObject2.transform.position.y + 1.0f,
+                                                                     this.CurrentEventObject2.transform.position.z);
+          }
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.ForceMoveObjFall)
@@ -7474,6 +7484,13 @@ public class DungeonField : MotherBase
             this.CurrentEventObject.transform.position = new Vector3(this.CurrentEventObject.transform.position.x,
                                                                      this.CurrentEventObject.transform.position.y - 1.0f,
                                                                      this.CurrentEventObject.transform.position.z);
+          }
+          // オーランの塔、2つ目の浮遊石を動かすために用意したもの。他に転用できないかもしれない。
+          if (this.CurrentEventObject2 != null)
+          {
+            this.CurrentEventObject2.transform.position = new Vector3(this.CurrentEventObject2.transform.position.x,
+                                                                     this.CurrentEventObject2.transform.position.y - 1.0f,
+                                                                     this.CurrentEventObject2.transform.position.z);
           }
           continue; // 継続
         }
@@ -8783,6 +8800,10 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_2_X, Fix.OHRANTOWER_KEYDOOR_2_Y, Fix.OHRANTOWER_KEYDOOR_2_Z));
             }
+            if (currentMessage == Fix.OHRANTOWER_KEYDOOR_3_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_3_X, Fix.OHRANTOWER_KEYDOOR_3_Y, Fix.OHRANTOWER_KEYDOOR_3_Z));
+            }
             if (currentMessage == Fix.OHRANTOWER_ObsidianStone_2_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_ObsidianStone_2_X, Fix.OHRANTOWER_ObsidianStone_2_Y, Fix.OHRANTOWER_ObsidianStone_2_Z));
@@ -9418,14 +9439,22 @@ public class DungeonField : MotherBase
 
       if (One.EnemyList[0].Area == Fix.MonsterArea.Boss1 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss5 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss21 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss22 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss23 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss24 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss25)
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss25 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss42 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss5 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.LastBoss ||
+          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss1 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss2 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss4 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss5
+          )
       {
         One.BattleMode = Fix.BattleMode.Boss;
       }
@@ -10075,7 +10104,7 @@ public class DungeonField : MotherBase
         MessagePack.Message800100(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z))
+      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_11_X, Fix.EVENT_OHRANTOWER_11_Y, Fix.EVENT_OHRANTOWER_11_Z) && One.TF.DefeatYodirian == false)
       {
         MessagePack.Message800105(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
@@ -10088,11 +10117,6 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_13_X, Fix.EVENT_OHRANTOWER_13_Y, Fix.EVENT_OHRANTOWER_13_Z))
       {
         MessagePack.Message800130(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-      if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_14_X, Fix.EVENT_OHRANTOWER_14_Y, Fix.EVENT_OHRANTOWER_14_Z))
-      {
-        MessagePack.Message800140(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -15301,6 +15325,10 @@ public class DungeonField : MotherBase
     #region "オーランの塔"
     else if (map_data == Fix.MAPFILE_OHRAN_TOWER)
     {
+      if (One.TF.Event_Message800190)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_3_X, Fix.OHRANTOWER_KEYDOOR_3_Y, Fix.OHRANTOWER_KEYDOOR_3_Z));
+      }
       if (One.TF.Event_Message800046)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_1_X, Fix.OHRANTOWER_KEYDOOR_1_Y, Fix.OHRANTOWER_KEYDOOR_1_Z));
@@ -15814,6 +15842,7 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_OhranTower_00127)
       {
         MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_189_X, Fix.OHRANTOWER_FLOATINGTILE_189_Y, Fix.OHRANTOWER_FLOATINGTILE_189_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z));
+        MoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_FLOATINGTILE_195_X, Fix.OHRANTOWER_FLOATINGTILE_195_Y, Fix.OHRANTOWER_FLOATINGTILE_195_Z), new Vector3(Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z));
       }
       if (One.TF.FieldObject_OhranTower_00128)
       {

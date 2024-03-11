@@ -1135,6 +1135,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800160 = false;
   [SerializeField] protected bool _event_message800170 = false;
   [SerializeField] protected bool _event_message800180 = false;
+  [SerializeField] protected bool _event_message800190 = false;
   [SerializeField] protected bool _event_message801000 = false;
   [SerializeField] protected bool _event_message801010 = false;
   [SerializeField] protected bool _event_message801020 = false;
@@ -1154,20 +1155,22 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800052 { get { return _event_message800052; } set { _event_message800052 = value; } }
   public bool Event_Message800060 { get { return _event_message800060; } set { _event_message800060 = value; } }
   public bool Event_Message800070 { get { return _event_message800070; } set { _event_message800070 = value; } }
-  public bool Event_Message800080 { get { return _event_message800080; } set { _event_message800080 = value; } }
-  public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } }
-  public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } }
-  public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } }
-  public bool Event_Message800120 { get { return _event_message800120; } set { _event_message800120 = value; } }
-  public bool Event_Message800130 { get { return _event_message800130; } set { _event_message800130 = value; } }
-  public bool Event_Message800140 { get { return _event_message800140; } set { _event_message800140 = value; } }
-  public bool Event_Message800150 { get { return _event_message800150; } set { _event_message800150 = value; } }
-  public bool Event_Message800160 { get { return _event_message800160; } set { _event_message800160 = value; } }
-  public bool Event_Message800170 { get { return _event_message800170; } set { _event_message800170 = value; } }
-  public bool Event_Message800180 { get { return _event_message800180; } set { _event_message800180 = value; } }
-  public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } }
-  public bool Event_Message801010 { get { return _event_message801010; } set { _event_message801010 = value; } }
-  public bool Event_Message801020 { get { return _event_message801020; } set { _event_message801020 = value; } }
+  public bool Event_Message800080 { get { return _event_message800080; } set { _event_message800080 = value; } } // 7層、クリア直前の会話
+  public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } } // 8層、移動中の通常会話
+  public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } } // ヨーディリアン撃破後の会話
+  public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } } // 最上階探索後の移動ブロック
+  public bool Event_Message800120 { get { return _event_message800120; } set { _event_message800120 = value; } } // 浮遊石11の位置をリセットする時の会話
+  public bool Event_Message800130 { get { return _event_message800130; } set { _event_message800130 = value; } } // 7層、条件不一致でタイル１が動かない時の会話
+  public bool Event_Message800140 { get { return _event_message800140; } set { _event_message800140 = value; } } // 7層、条件不一致でタイル２が動かない時の会話
+  public bool Event_Message800150 { get { return _event_message800150; } set { _event_message800150 = value; } } // 7層、条件不一致でタイル３が動かない時の会話
+  public bool Event_Message800160 { get { return _event_message800160; } set { _event_message800160 = value; } } // ヨーディリアン戦闘前の会話
+  public bool Event_Message800170 { get { return _event_message800170; } set { _event_message800170 = value; } } // 星屑の扉の前、強制会話
+  public bool Event_Message800180 { get { return _event_message800180; } set { _event_message800180 = value; } } // 最上階到達時の会話
+  public bool Event_Message800190 { get { return _event_message800190; } set { _event_message800190 = value; } } // 星屑の鍵で扉を開錠
+  public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } } // オーランの塔、ObsidianStoneと接触時の会話
+  public bool Event_Message801010 { get { return _event_message801010; } set { _event_message801010 = value; } } // オーランの塔、ObsidianStoneと接触後のファージル宮殿での会話
+  public bool Event_Message801020 { get { return _event_message801020; } set { _event_message801020 = value; } } // オーランの塔制覇後、ファージル宮殿へ誘導する会話
+
 
   [SerializeField] protected bool _event_message900010 = false;
   public bool Event_Message900010

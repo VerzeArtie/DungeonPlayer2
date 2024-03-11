@@ -7147,7 +7147,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：いえ、私はあまりちゃんと見てませんでしたので・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：私は展望台には行っておらず、見えませんでした。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：私は塔の最上階へは行っていないため、見えませんでした。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：当方の稚拙なる知見では、その対象の認識すら及びません。", ActionEvent.None);
 
@@ -8354,7 +8354,7 @@ public static class MessagePack
 
   public static void Message800110(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.DefeatYodirian && One.TF.QuestMain_Complete_00020 == false && One.TF.Event_Message800100 == false)
+    if (One.TF.DefeatYodirian && One.TF.Event_Message800100 == false)
     {
       One.TF.Event_Message800100 = true;
 
@@ -8372,15 +8372,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：じゃ、そろそろ戻ろうぜ。もうここに用は無いだろ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあそう焦るなって。この塔の最上階にある展望台から景色を眺めて来いっていうのが依頼なんだからさ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあそう焦るなって。全体の視察を依頼されているんだ。奥にまだ何かありそうだろ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：あぁ！？もうボスは倒したろーが。いいじゃねえかそんな眺めるとかしなくても。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：あぁ！？もうボスは倒したろーが。もうそろそろ引き上げ時なんじゃねーのかよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや、ボス討伐は依頼じゃない。本大陸全土の視察は一度しないといけないんだ。頼むぜ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや、ボス討伐は依頼じゃない。視察は一度しないといけないんだ。頼むぜ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：グッ・・・そりゃまあ・・・まあな・・・おうよ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、じゃあこの先の通路に進むとしよう。きっと展望台があるはずだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあこの先の通路に進むとしよう。", ActionEvent.None);
     }
   }
 
@@ -8390,14 +8390,61 @@ public static class MessagePack
     {
       One.TF.Event_Message800170 = true;
 
-      Message(ref m_list, ref e_list, "アイン：あっ、こんな所にも扉があるんだな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっ、こんな所にも扉があるな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：鍵がかかってるみたい。開かないわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：鍵がかかってるみたい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：となると・・・もう、そこぐらいしかないな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：何か紋章は描かれているか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ここはひとまず後にして、展望台へ行くとしよう。すぐそこだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そうね。鍵穴の上に星屑を示す紋章が描かれているわ。", ActionEvent.None);
+
+      if (One.TF.FindBackPackItem(Fix.STAR_DUST_KEY))
+      {
+        One.TF.Event_Message800190 = true;
+
+        Message(ref m_list, ref e_list, "アイン：なるほど、じゃあ例の場所で拾った星屑の鍵が使えそうだな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：おそらくそうね。ちょっとやってみる？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：おお、ぜひ頼む。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：じゃあ、ちょっと待ってね・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：・・・こう・・・かしら・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～～　ッカチリ　～～", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　ギッギギィ・・・バタン　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, Fix.OHRANTOWER_KEYDOOR_3_O, ActionEvent.RemoveFieldObject);
+
+        Message(ref m_list, ref e_list, "ラナ：開いたわ♪", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：サンキュー。後はどっちへ先に行くかだが・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ひとまず扉じゃない方を見てきても良いか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：ご自由にどうぞ、お任せよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあここはひとまず後にして、すぐそこの通路へ行ってみよう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：しまったな・・・どこかで鍵を入手し忘れたか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：じゃあまずは鍵を探して来ないと、どうにもならないわね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ここを通るための鍵を探すしかないか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：探索ルートはお任せだから、ご自由にどうぞ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+      }
     }
+  }
+
+  public static void Message800121(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
   }
 
   public static void Message800130(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -8406,7 +8453,7 @@ public static class MessagePack
     {
       One.TF.Event_Message800180 = true;
 
-      Message(ref m_list, ref e_list, "アイン：おっ、きっとこの先が展望台だな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：おっ、きっとこの先が最上階だな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こうぜ、ビリー。", ActionEvent.None);
 
@@ -8418,7 +8465,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：ばっ、そ、そんなわけねーだろーが！女子供は引っ込んでな！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：あ、じゃあ私は怖いので、ビリーさん、この先の展望台はお願いします。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：あ、じゃあ私は怖いので、ビリーさん、この先はお願いします。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
 
@@ -8436,7 +8483,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：っしゃあぁ、行ってやらぁ！見とけよ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～ ビリーは塔の展望台まで突貫していった ～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～ ビリーは塔の最上階へ突貫していった ～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：おーい、どうだ？何か見えるか？", ActionEvent.None);
 
@@ -8452,7 +8499,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そうだな。じゃ、俺が行ってくる。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～ アインは展望台へと向かっていった ～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～ アインはビリーが向かった先へと向かっていった ～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "", ActionEvent.HideMessageDisplay);
 
@@ -8476,19 +8523,21 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
 
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
       Message(ref m_list, ref e_list, "ビリー：よーーー、てめぇら！元気にしてたか！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：あら、展望台は無事だったのね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：あら、無事だったのね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：あぁ！？何の話か全然わかんねーな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いやいやいや、お前のその応答だと、意味分からなくなるだろ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そんな事より。展望台で何か見つけたんだろ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：そんな事より。あそこで何か見つけたんだろ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：お、おお。そうだった、忘れる所だったぜ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：皆、おれは展望台で驚くべき事象を見ちまったんだ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：皆、俺はあの場所で驚くべき事象を見ちまったんだ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：良いか、聞いて驚くなかれよ？", ActionEvent.None);
 
@@ -8498,7 +8547,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：まあその、なんだ。見ちまったんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：空に・・・【赤褐色の星】が出てるのをな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：空に・・・【" + Fix.WORLD_EVILPRIME_REDSTAR + "】が出てるのをな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：下を見て大陸を視察したのに、空に何かあるのを見つけたんですか？", ActionEvent.None);
 
@@ -8532,25 +8581,29 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン；ん？どうかしたか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：この展望台で何か見つけたんでしょ？その手に持ってる物。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：何か見つけたんでしょ？その手に持ってる物。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン；ああ、そういえばそうだった。これを見てくれ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～ アインは【忘却の鍵】をラナに見せた ～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, Fix.ORIGIN_ROAD_KEY, ActionEvent.GetItem);
 
-      Message(ref m_list, ref e_list, "ラナ：やっぱり展望台にあったのね。おそらくそれでさっきの扉が開けられるはずよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～ アインは【" + Fix.ORIGIN_ROAD_KEY + "】をラナに見せた ～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン；助かるぜ、じゃあこれをその扉に使ってみるとするか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：それって・・・鍵？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン；よし、エオネ、ラナ、ビリー。みんなありがとう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン；そうみたいだな。さて、どうするかだが・・・とりあえずここは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；エオネ、アデル、ラナ、ビリー。みんなありがとう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おう！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：はい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：どうって事ないわよ♪", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：どういたしましてー☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン；じゃあ、最後にその扉の先を拝見するといたしますか！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：どうって事なかったわね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン；じゃあ、塔の最上階から視察も終えた事だし、一旦戻るとするか！", ActionEvent.None);
 
       // Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_20 + " 】が完了しました！", ActionEvent.QuestComplete);
 
@@ -8577,10 +8630,6 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "0", ActionEvent.MoveBottom);
       }
     }
-  }
-
-  public static void Message800140(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
   }
 
   public static void Message801000(ref List<string> m_list, ref List<ActionEvent> e_list)

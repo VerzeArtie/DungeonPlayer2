@@ -472,6 +472,12 @@ public partial class BattleEnemy : MotherBase
       if (EnemyArrowList[0] == null) { Debug.Log("enemyarrowlist null"); }
       AddPlayerFromOne(One.EnemyList[0], node, EnemyArrowList[0], null, null, null, null, this.PanelEnemyField);
 
+      // ただし、ボス戦のテキストは誇大表示したいため、個別対応
+      // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
+      if (One.EnemyList[0].FullName == Fix.THE_YODIRIAN)
+      {
+        One.EnemyList[0].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
+      }
       // 戦闘ゲージを設定
       One.EnemyList[0].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
       One.EnemyList[0].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
@@ -1073,7 +1079,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatGalvadazer = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_YODIRIAN)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_YODIRIAN ||
+                                       One.EnemyList[0].FullName == Fix.THE_YODIRIAN_JP ||
+                                       One.EnemyList[0].FullName == Fix.THE_YODIRIAN_JP_VIEW)
         {
           One.TF.DefeatYodirian = true;
         }

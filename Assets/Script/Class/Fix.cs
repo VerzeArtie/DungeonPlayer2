@@ -2103,6 +2103,7 @@ public static partial class Fix
   public const string SHADOW_MOON_KEY = "月影の鍵";
   public const string SUN_BURST_KEY = "日輪の鍵";
   public const string STAR_DUST_KEY = "星屑の鍵";
+  public const string ORIGIN_ROAD_KEY = "原初の鍵";
   public const string RESIST_POISON_SUIT = "耐毒防護服";
   public const string ARTHARIUM_KEY = "アーサリウム工場跡地の鍵";
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
@@ -2419,6 +2420,7 @@ public static partial class Fix
   public const string LIGHT_THUNDER_LANCEBOLTS_JP_VIEW = "【　裁きの鳴動　】\r\n雷光ランスボルツ";
   public const string THE_YODIRIAN = "Yodirian, The Way of Tranquil-Line";
   public const string THE_YODIRIAN_JP = "静穏を受け継ぎし者：ヨーディリアン";
+  public const string THE_YODIRIAN_JP_VIEW = "【　静穏を受け継ぎし者　】\r\nヨーディリアン";
 
   // 未設定
   public const string RUDE_WATCHDOG = "Rude Watchdog";
@@ -5726,7 +5728,7 @@ public static partial class Fix
   public const string OHRANTOWER_FLOATINGTILE_190_C = "FloatingTile";
   public const string OHRANTOWER_FLOATINGTILE_190_O = "190";
   public const float OHRANTOWER_FLOATINGTILE_190_X = 15.0f;
-  public const float OHRANTOWER_FLOATINGTILE_190_Y = -8.0f;
+  public const float OHRANTOWER_FLOATINGTILE_190_Y = -0.0f;
   public const float OHRANTOWER_FLOATINGTILE_190_Z = -15.0f;
 
   // ０層、右0A
@@ -5756,6 +5758,20 @@ public static partial class Fix
   public const float OHRANTOWER_FLOATINGTILE_194_X = 22.0f;
   public const float OHRANTOWER_FLOATINGTILE_194_Y = 32.0f;
   public const float OHRANTOWER_FLOATINGTILE_194_Z = -22.0f;
+
+  // ０層、始まりを示す浮遊石
+  public const string OHRANTOWER_FLOATINGTILE_195_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_195_O = "195";
+  public const float OHRANTOWER_FLOATINGTILE_195_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_195_Y = 0.0f;
+  public const float OHRANTOWER_FLOATINGTILE_195_Z = -15.0f;
+
+  // ０層、始まりを示す浮遊石、戻り
+  public const string OHRANTOWER_FLOATINGTILE_196_C = "FloatingTile";
+  public const string OHRANTOWER_FLOATINGTILE_196_O = "196";
+  public const float OHRANTOWER_FLOATINGTILE_196_X = 15.0f;
+  public const float OHRANTOWER_FLOATINGTILE_196_Y = -56.0f;
+  public const float OHRANTOWER_FLOATINGTILE_196_Z = -15.0f;
   #endregion
 
   #region "Event"
@@ -5821,15 +5837,10 @@ public static partial class Fix
   public const float EVENT_OHRANTOWER_12_Y = 56.0f;
   public const float EVENT_OHRANTOWER_12_Z = -11.0f;
 
-  // オーランの塔、展望台
+  // オーランの塔、頂上
   public const float EVENT_OHRANTOWER_13_X = 15.0f;
   public const float EVENT_OHRANTOWER_13_Y = 56.0f;
   public const float EVENT_OHRANTOWER_13_Z = -9.0f;
-
-  // オーランの塔、展望台箇所
-  public const float EVENT_OHRANTOWER_14_X = 1.0f;
-  public const float EVENT_OHRANTOWER_14_Y = 65.0f;
-  public const float EVENT_OHRANTOWER_14_Z = 32.0f;
   #endregion
 
   #region "Treasure"
@@ -5837,7 +5848,7 @@ public static partial class Fix
   public const string OHRANTOWER_Treasure_1_O = "1";
   public const float OHRANTOWER_Treasure_1_X = 15.0f;
   public const float OHRANTOWER_Treasure_1_Y = 1.0f;
-  public const float OHRANTOWER_Treasure_1_Z = -17.0f;
+  public const float OHRANTOWER_Treasure_1_Z = -10.0f;
 
   public const string OHRANTOWER_Treasure_2_C = "Treasure";
   public const string OHRANTOWER_Treasure_2_O = "2";
@@ -6400,6 +6411,12 @@ public static partial class Fix
   public const float OHRANTOWER_KEYDOOR_3_X = 15.0f;
   public const float OHRANTOWER_KEYDOOR_3_Y = 56.5f;
   public const float OHRANTOWER_KEYDOOR_3_Z = -12.0f;
+
+  public const string OHRANTOWER_KEYDOOR_4_C = "KeyDoor";
+  public const string OHRANTOWER_KEYDOOR_4_O = "4";
+  public const float OHRANTOWER_KEYDOOR_4_X = 15.0f;
+  public const float OHRANTOWER_KEYDOOR_4_Y = 0.5f;
+  public const float OHRANTOWER_KEYDOOR_4_Z = -19.0f;
   #endregion
 
   #region "ObsidianPortal"
@@ -9117,6 +9134,9 @@ public static partial class Fix
   #endregion
 
   #region "World Keyword"
+  #region "Scenario"
+  public const string WORLD_EVILPRIME_REDSTAR = "赤褐色の星";
+  #endregion
   #region "Player Name"
   public const int CHARACTER_LIST_NUM = 24;
   public const string NAME_EIN_WOLENCE = @"アイン ウォーレンス";
