@@ -73,6 +73,7 @@ public static class MessagePack
     HomeTownHideAllSubView,
     HomeTownCallRestInn,
     HomeTownExecRestInn,
+    HomeTownResetMenuView,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -7203,7 +7204,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：それはきっと・・・ダルの門ですね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ダルの門？初耳だが、そんなのがあるのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ、それだそれ。エオネ、詳しいな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：え、いえ・・・私も詳しくは知らないです・・・", ActionEvent.None);
 
@@ -7233,15 +7234,93 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あ・・・はい。なんとなくですが、そう感じるんです。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：まあ確かに赤い星は重要なポイントだったね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：確かに、その赤き星は重要なポイントだったね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エルミ：でも、今喋った中で、他にも重要なポイントと感じたのは実はあるんじゃないかな？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そ、それは・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：それは・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：いや、今のはこちらの非礼だった。申し訳ない。", ActionEvent.None);
+      // 条件を満たしていない場合は、バッドエンド
+      if (One.AR.InscribeObsidianStone_1 == false || One.AR.InscribeObsidianStone_2 == false || One.AR.InscribeObsidianStone_3 == false)
+      {
+        Message(ref m_list, ref e_list, "～　ファージル宮殿の外にて　～", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：さて、報告終了だな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：これから、どうするの？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうだな。国王からは特に新しい依頼を受けていないし、適当にクエストでも探すとするか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：討伐タイプなら、俺も付き合うぜ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうだな。難解なやつよりも手っ取り早く片づけられそうなものにするか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エオネ：私はこれにて、失礼いたします。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、今までありがとうな。またどこかで会ったら声をかけてくれ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "エオネ：・・・それでは。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　エオネ・フルネアはその場から立ち去って行った　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "アイン：アデルはどうする？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：ん－、それがねー。じーちゃんから突然言伝があって、帰ってこいって。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうか。分かった。オーランの塔では色々とガイドしてくれてサンキューな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：うん、こっちも楽しかった。アリガトー☆　またねー。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　アデル・ブリガンディはその場から立ち去って行った　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "アイン：よし、じゃあ討伐のクエストが無いか、掲示板に立ち寄ってみるとするか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ラナ：私、ちょっと準備があるから、少し離れるけど行く時になったら呼んでね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：俺も出かける前にひとっ走り行ってくるぜ！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　ビリーとラナはその場から立ち去って行った　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "アイン：さてと・・・掲示板、掲示板っと・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
+
+        Message(ref m_list, ref e_list, "（　掲示板・・・クエスト・・・報酬・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　安定した収入源　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そもそも、何が目的だったっけ・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　充実した生活になる事には変わりない、ただ　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　そういう風に悪い点が見当たらないとか、そういう表現をしていると　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　【充実とか収入源とか安定とか考えてんじゃねーぞボケ】、って師匠から言われそうだな　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　すまねえ、師匠・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　ただ、今の俺ではたどり着けそうにない　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　どうすればよかったのか　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　当初の目的は確か　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+        
+        Message(ref m_list, ref e_list, " ～　THE　END　～　（断絶されし世界）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+
+        return;
+      }
+
+      Message(ref m_list, ref e_list, "エルミ：いや、今のはこちらの非礼だったかもしれない。申し訳ない。", ActionEvent.None);
       
       Message(ref m_list, ref e_list, "アイン：あ、いえそんなつもりじゃないんです！！", ActionEvent.None);
 
@@ -7430,6 +7509,80 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_11 + " 】を達成しました！", ActionEvent.QuestComplete);
 
       Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】が開始されました！", ActionEvent.GetNewQuest);
+    }
+  }
+
+  public static void Message700070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800230 == false)
+    {
+      One.TF.Event_Message800230 = true;
+
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownResetMenuView);
+
+      Message(ref m_list, ref e_list, "アイン：・・・よし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、お前。ちょっと待て、どこへ行こうとしてんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーランの塔だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いやいやいや、待てって。あの塔の視察はもう終わっただろーが？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：視察の件じゃないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行かなきゃいけない所がある。おそらくだが、きっとある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル。聞きたい事がある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アデル・ブリガンディはいつもの笑顔を伏せ、両目を閉じた ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アデル：我はオラクルの声を届けしもの、アデル・ブリガンディ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：蒼穹を捉えし人の子よ。発するがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：率直に聞きたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーランの塔は、一体いつ頃から存在しているんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：かの塔は永劫の時を刻み、常在を映し出す鏡そのもの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：人が生きる時代に建てられしは事象の一つでしかない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ゆえ、一つの理であると認識するがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・そういう事か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう、アデル。参考になった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：迷えし人の子に、導きがあらん事を", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アデル・ブリガンディは両目を開け、いつもの笑顔をしはじめる ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アデル：どーだったかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、良い雰囲気が出てたよ。ありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：エヘヘ、どういたしましてー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：しっかし、すげー雰囲気だよな。声も全然違うし。じーちゃんの教えによるものなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：どーだろうねー、ちょっと分かんない時もあるけど☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今の伝承からすると、このオーランの塔。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：絶対に何かあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、一回クリアしたと思うんだけど、もう1回行くのね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すまないがもう1回だけ頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。じゃあ行ってみましょ。", ActionEvent.None);
     }
   }
   #endregion
@@ -8709,6 +8862,202 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "エオネ：では、一旦戻りましょうか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：オーケー。じゃあオーランの塔から一旦出るとするか。", ActionEvent.None);
+    }
+  }
+
+  // ファージル宮殿に帰還しているので番号が違うが、ストーリーの繋がり重視でこの番号（オーランの塔の続き）とする。
+  public static void Message800150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  { 
+    if (One.TF.Event_Message800220 == false)
+    {
+      One.TF.Event_Message800220 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、街に戻ってきたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構疲れたわね。私はもう今日は適用に食事を済ませて休むとするわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：俺も今日はそっこー寝るぜ。。。マジで疲れたわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：それでは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：じゃ、またねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、皆またな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　メンバ一同はその場から去っていった ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：さてと、俺も休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：バックパックを整理しておいて・・・後は起きてからの行動だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
+
+      Message(ref m_list, ref e_list, "（　どう、行動するか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　オーランの塔で見た事、起きた事をエルミ国王に伝えるんだろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　エルミ国王は視察を俺達に任せてきた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　あの頂上から見えた事は色々あった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　フィオーネの湖は少し水位に変化が発生している　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　キルクード山脈の各箇所にある監視エリアに変化はない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　キージク山道はちょっと土砂崩れがあるようには見えた、現在も工事中の所だろう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アーケンダイン街はいつも通り賑わっている。東西南北どちらかも交流は閉ざされていない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ダルの門、いずれ解除予定とは聞いた事あるが、今もなお厚い壁として存在し続けている　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　廃墟サリタン、悪い意味で復興の兆しは見えない。破棄された当時のままだ。　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ただし・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　これらは、どれもこれも一般的な内容ばかりだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　これらを一つずつ報告する事になるんだろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　そもそも、エルミ国王は俺にこれを見せたかったんだろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　大陸全土の視察　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　それ自体はそれでいいと思うんだが、どうも違和感がある　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　視察自体は名目としての理由付けでしかなく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ともかく、オーランの塔へ向かわせたかったんだろう。　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　そこが焦点なんだが・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　特に意識したわけじゃないんだが、ふと　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ビリーの様子を見に言った時に、ふと空を見上げたんだっけな　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　そこで、あの" + Fix.WORLD_EVILPRIME_REDSTAR + "が見つかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ただ、空にはそれ以外の色の星も無数に見える。　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　あの星自体が特別だったわけじゃない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ただし、ちょっと気がかりになったのは位置関係だ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺自身、星に関する知識は乏しいし、毎日きちんと把握しているわけじゃないが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　元々あの位置に星があったかどうかだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　少なくとも、いままではあんな位置に星は無かった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　これから、何かが起ころうとしているのか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　いや、既に起きているのかもしれない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　当初の依頼は　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ObsidianStone　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　あの依頼がずっと引っかかっている　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　最初に接触した時の感覚は今でも忘れていない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何らかの物質に触ったようにも感じたんだが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何も残っていなかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　いいや、きっとその何かに触れる事すら出来ていないのだろう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ただし対象の認識はできた気がする　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　これを誰かに説明するのは難しい　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ツァルマンの里で育ったアデルなら、何か知っているだろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　明日、動くしかないな　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　よし、寝よう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし、ラナおはよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おはよう。バカアインも疲れの方はだいぶ取れたかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、完全回復さ！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アンタの場合もうちょっと疲れててもおかしくないんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構、皆が頑張ってくれてるからな。助かってるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そ、なら良いんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おーー！アイン！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、元気だな。ビリー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：てめー、そういやさ。一つ忘れてる事があるぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：国王様へご報告を忘れてるだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そのことか。忘れちゃいないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：報告ネタが出来たらきちんと報告しに行くつもりだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なあ、そん時にさ。俺らも付いて行っていいのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だろう。特にそんな厳密なルールはないはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも言っとくけど、謁見できる事自体が奇跡に近いんだから、あまりハメを外さないようにね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。分かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、そこにいるアデルとエオネも同じ意向って事で良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何でも良いよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：私も、特には。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：と、そういえばアデル。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：なーにー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、まあ後で良いか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：なんだろー、アハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行動開始といくか。", ActionEvent.None);
     }
   }
 

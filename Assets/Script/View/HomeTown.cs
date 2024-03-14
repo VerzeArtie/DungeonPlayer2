@@ -401,8 +401,10 @@ public partial class HomeTown : MotherBase
     }
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
+      Debug.Log("Hometown: TOWN_FAZIL_CASTLE");
       if (One.TF.Event_Message100020 == false)
       {
+        Debug.Log("Message100020");
         One.TF.Event_Message100020 = true;
         MessagePack.Message100020(ref QuestMessageList, ref QuestEventList);
         TapOK();
@@ -412,14 +414,16 @@ public partial class HomeTown : MotherBase
       // 港町コチューシェからの帰還
       if (One.TF.Event_Message500020 && One.TF.Event_Message700010 == false)
       {
+        Debug.Log("Message700010");
         MessagePack.Message700010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
-      // オーランの塔からの帰還
-      if (One.TF.Event_Message800100 && One.TF.Event_Message700060 == false)
+      // オーランの塔制覇後の帰還
+      if (One.TF.Event_Message800210 && One.TF.Event_Message800220 == false)
       {
-        MessagePack.Message700020(ref QuestMessageList, ref QuestEventList); TapOK();
+        Debug.Log("Message800150");
+        MessagePack.Message800150(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -808,8 +812,9 @@ public partial class HomeTown : MotherBase
         {
           MessagePack.Message700050(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        else if (One.TF.Event_Message801010 && One.TF.Event_Message700060 == false)
+        else if (One.TF.Event_Message800220 && One.TF.Event_Message800230 == false)
         {
+          // オーランの塔制覇後の謁見
           MessagePack.Message700060(ref QuestMessageList, ref QuestEventList); TapOK();
         }
         else
@@ -1060,8 +1065,15 @@ public partial class HomeTown : MotherBase
     }
     else if (this.DungeonMap == Fix.DUNGEON_OHRAN_TOWER)
     {
-      // オーランの塔は分岐しない。
-      CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 15.0f, 1.0f, -30.0f);
+      if (One.TF.Event_Message800220 && One.TF.Event_Message800230 == false)
+      {
+        MessagePack.Message700070(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      else
+      {
+        // オーランの塔入口は1か所のため、分岐しない。
+        CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_OHRAN_TOWER, 15.0f, 1.0f, -30.0f);
+      }
     }
     else if (this.DungeonMap == Fix.DUNGEON_VELGUS_SEA_TEMPLE)
     {
@@ -2450,6 +2462,17 @@ public partial class HomeTown : MotherBase
           UpdateBackgroundData(Fix.BACKGROUND_MORNING);
           this.objBlackOut.SetActive(false);
           MessagePack.MessageX00001(ref QuestMessageList, ref QuestEventList);
+          continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownResetMenuView)
+        {
+          GroupActionCommandSetting.SetActive(false);
+          GroupDungeonPlayer.SetActive(false);
+          GroupBackpack.SetActive(false);
+          GroupShopItem.SetActive(false);
+          GroupActionCommandSetting.SetActive(false);
+          GroupTactics.SetActive(false);
+          GroupInn.SetActive(false);
           continue;
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
