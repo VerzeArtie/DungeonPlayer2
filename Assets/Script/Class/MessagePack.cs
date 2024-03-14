@@ -7550,7 +7550,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：オーランの塔は、一体いつ頃から存在しているんだ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：かの塔は永劫の時を刻み、常在を映し出す鏡そのもの。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：かの塔は永劫の時を刻み、常在を映し出す像そのもの。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：人が生きる時代に建てられしは事象の一つでしかない。", ActionEvent.None);
 
@@ -7570,7 +7570,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：エヘヘ、どういたしましてー☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：しっかし、すげー雰囲気だよな。声も全然違うし。じーちゃんの教えによるものなのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：しっかし、すげー雰囲気だよな。声も全然違うし。それも、じーちゃんの教えによるものなのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：どーだろうねー、ちょっと分かんない時もあるけど☆", ActionEvent.None);
 
@@ -7578,9 +7578,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：絶対に何かあるな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：じゃあ、一回クリアしたと思うんだけど、もう1回行くのね？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、クリアはしたと思うんだけど、もう１回行くのね？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：すまないがもう1回だけ頼む。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：すまないが、そうなる。頼む。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：分かったわ。じゃあ行ってみましょ。", ActionEvent.None);
     }
