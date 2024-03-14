@@ -9061,6 +9061,55 @@ public static class MessagePack
     }
   }
 
+  public static void Message800160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800230 && One.TF.Event_Message800240 == false)
+    {
+      One.TF.Event_Message800240 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、来たな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なあ、何処へ行くつもりなんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すぐそこ、もう目の前だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：すぐそこって・・・どこの事よ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この塔の中央部分だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ、どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ、何でも。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺の読みが正しければ・・・合ってるはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message800170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800240 && One.TF.Event_Message800250 == false)
+    {
+      One.TF.Event_Message800250 = true;
+      Message(ref m_list, ref e_list, "アイン：ここだ。やっぱりあったか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いつもの浮遊石じゃねえか。これで最上階へ行くつもりかよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いいや、向かう先は最上階じゃないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直な所、これは行ってみないと分からないがおそらくは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最下層だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：はああぁぁ！？マジかよっ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：論より証拠だ。行ってみよう。", ActionEvent.None);
+    }
+  }
+
   public static void Message801000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message801000 == false)

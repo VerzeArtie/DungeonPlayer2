@@ -5105,8 +5105,18 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z))
         {
           CurrentEventObject2 = SearchObject(new Vector3(Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z));
-          One.TF.FieldObject_OhranTower_00127 = false;
-          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
+          if (One.TF.FieldObject_OhranTower_00127)
+          {
+            One.TF.FieldObject_OhranTower_00127 = false;
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
+          }
+          else
+          {
+            One.TF.FieldObject_OhranTower_00127 = true;
+            num--; // todo 汚いコード。必ず直す事。
+            MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
+            num++;
+          }
         }
         num++;
         if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_191_X, Fix.OHRANTOWER_FLOATINGTILE_191_Y, Fix.OHRANTOWER_FLOATINGTILE_191_Z))
@@ -10136,6 +10146,16 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EVENT_OHRANTOWER_13_X, Fix.EVENT_OHRANTOWER_13_Y, Fix.EVENT_OHRANTOWER_13_Z))
       {
         MessagePack.Message800130(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_14_X, Fix.OHRANTOWER_EVENT_14_Y, Fix.OHRANTOWER_EVENT_14_Z))
+      {
+        MessagePack.Message800160(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.OHRANTOWER_EVENT_15_X, Fix.OHRANTOWER_EVENT_15_Y, Fix.OHRANTOWER_EVENT_15_Z))
+      {
+        MessagePack.Message800170(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

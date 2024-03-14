@@ -5841,6 +5841,21 @@ public static partial class Fix
   public const float EVENT_OHRANTOWER_13_X = 15.0f;
   public const float EVENT_OHRANTOWER_13_Y = 56.0f;
   public const float EVENT_OHRANTOWER_13_Z = -9.0f;
+
+  // エントランス会話(制覇後）
+  public const string OHRANTOWER_EVENT_14_C = "Event";
+  public const string OHRANTOWER_EVENT_14_O = "14";
+  public const float OHRANTOWER_EVENT_14_X = 15.0f;
+  public const float OHRANTOWER_EVENT_14_Y = 0.0f;
+  public const float OHRANTOWER_EVENT_14_Z = -26.0f;
+
+  // 中央最下層向け浮遊石の前会話(制覇後）
+  public const string OHRANTOWER_EVENT_15_C = "Event";
+  public const string OHRANTOWER_EVENT_15_O = "15";
+  public const float OHRANTOWER_EVENT_15_X = 15.0f;
+  public const float OHRANTOWER_EVENT_15_Y = 0.0f;
+  public const float OHRANTOWER_EVENT_15_Z = -17.0f;
+
   #endregion
 
   #region "Treasure"
