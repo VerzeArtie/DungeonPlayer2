@@ -5735,14 +5735,14 @@ public static partial class Fix
   public const string OHRANTOWER_FLOATINGTILE_191_C = "FloatingTile";
   public const string OHRANTOWER_FLOATINGTILE_191_O = "191";
   public const float OHRANTOWER_FLOATINGTILE_191_X = 27.0f;
-  public const float OHRANTOWER_FLOATINGTILE_191_Y = -8.0f;
+  public const float OHRANTOWER_FLOATINGTILE_191_Y = -56.0f;
   public const float OHRANTOWER_FLOATINGTILE_191_Z = -9.0f;
 
   // ０層、右0A、戻り
   public const string OHRANTOWER_FLOATINGTILE_192_C = "FloatingTile";
   public const string OHRANTOWER_FLOATINGTILE_192_O = "192";
   public const float OHRANTOWER_FLOATINGTILE_192_X = 12.0f;
-  public const float OHRANTOWER_FLOATINGTILE_192_Y = -8.0f;
+  public const float OHRANTOWER_FLOATINGTILE_192_Y = -56.0f;
   public const float OHRANTOWER_FLOATINGTILE_192_Z = -9.0f;
 
   // ５層、中央右
@@ -6116,7 +6116,7 @@ public static partial class Fix
   public const string OHRANTOWER_ObsidianStone_2_C = "ObsidianStone";
   public const string OHRANTOWER_ObsidianStone_2_O = "2";
   public const float OHRANTOWER_ObsidianStone_2_X = 7.0f;
-  public const float OHRANTOWER_ObsidianStone_2_Y = -7.0f;
+  public const float OHRANTOWER_ObsidianStone_2_Y = -55.0f;
   public const float OHRANTOWER_ObsidianStone_2_Z = -9.0f;
 
   public const string OHRANTOWER_WarpHole_1_C = "WarpHole";

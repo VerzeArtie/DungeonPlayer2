@@ -5115,6 +5115,11 @@ public class DungeonField : MotherBase
             One.TF.FieldObject_OhranTower_00127 = true;
             num--; // todo 汚いコード。必ず直す事。
             MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
+            if (One.TF.Event_Message800260 == false)
+            {
+              MessagePack.Message800180(ref QuestMessageList, ref QuestEventList); TapOK();
+              return;
+            }
             num++;
           }
         }
@@ -5142,6 +5147,18 @@ public class DungeonField : MotherBase
         {
           One.TF.FieldObject_OhranTower_00129 = false;
           MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 6); TapOK();
+        }
+        num++;
+        // 190に統合されているため、ココはコメントアウト
+        //if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z))
+        //{
+        //}
+        num++;
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FLOATINGTILE_196_X, Fix.OHRANTOWER_FLOATINGTILE_196_Y, Fix.OHRANTOWER_FLOATINGTILE_196_Z))
+        {
+          CurrentEventObject2 = SearchObject(new Vector3(Fix.OHRANTOWER_FLOATINGTILE_190_X, Fix.OHRANTOWER_FLOATINGTILE_190_Y, Fix.OHRANTOWER_FLOATINGTILE_190_Z));
+          One.TF.FieldObject_OhranTower_00127 = false;
+          MessagePack.MoveFloatingTile(ref QuestMessageList, ref QuestEventList, direction, num, 56); TapOK();
         }
         num++;
       }

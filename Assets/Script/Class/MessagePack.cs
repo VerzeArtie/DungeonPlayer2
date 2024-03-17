@@ -9075,7 +9075,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：すぐそこって・・・どこの事よ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：この塔の中央部分だ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：この塔の中枢部分だ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
 
@@ -9107,6 +9107,91 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：はああぁぁ！？マジかよっ！？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：論より証拠だ。行ってみよう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message800180(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800260 == false)
+    {
+      One.TF.Event_Message800260 = true;
+      Message(ref m_list, ref e_list, "ビリー：いや、ちょっと待てって！おい！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうした？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：確かにテメーの読み通り、最下層っぽい所には来たが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：信じられねーぜ。どうやってここがあるって分かったんだよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず、この位置だが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：元々気になっていた節はある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最上階に上るまでの間、俺達は色々な通路を通ってきたわけだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一か所だけどうしても通れなかった箇所がある。どこだと思う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：タイルが無い場所なんていくらでもあっただろ。行けない箇所なんてそこら中にあったと思うぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、タイルが無い場所かどうか、って訳じゃないんだが・・・そうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：表現を少し訂正しよう。俺達は何度かそのポイントを横切る様に通過してきているんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最上階から最初の入口の層まで一気に降りてきたラインがそれに当たる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そのラインが中枢って事になるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの中枢ラインには、最上階の浮遊石ともう一つ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：たった今乗ったこの浮遊石が元々設置されていたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺はそれを何度か確認している。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：見てきていたのかよ！？そんなの気にも留めてなかったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：全体を見なくちゃならないんだが、全体を見る際、細かい粒度の所まで見なくちゃならない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その辺りは師匠の受け売りだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：つまり、塔の最上階に行くまでの間、中枢の存在を認識しつつ調査していたら", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：中枢ラインの所にもう一つタイルがある事に気付いたって事かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その通りだ。さすがラナ、分かりやすい説明で助かる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：なるほどな、そいつは分かったぜ。でだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：視察は、最上階からの確認で済んでるはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：これ以上、何があるってんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それは・・・上手く表現できないんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく、例の件だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：例の件って・・・ひょっとしてObsidianStoneの事？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直、自分で言うのもなんだが、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺自身、何が起こっているのかは、はっきりとは分からないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あれがObsidianStoneなのかどうかすらも把握できないでいる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そもそも接触できているのかどうかすら、分からないままだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、どういった事象が起こるのかは、完全な意味で予測できないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：危ない感じがしたらちゃんと引き返してよね。傍から見ていても突っ立っているだけにしか見えないんだから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、考えておく。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。おまえ、ほんと気を付けろよ。俺達は見てるだけなんだからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解だ。", ActionEvent.None);
     }
   }
 
@@ -9218,11 +9303,11 @@ public static class MessagePack
     {
       One.TF.Event_Message801010 = true;
 
-      Message(ref m_list, ref e_list, "アイン：（　俺はこれまでに起きている事象の事を話した　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　俺はあの場所で起きた事象について話をした　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（　ただし、正確には説明ができていないかもしれない　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　ただ、おそらく正確な説明はできていない　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（　いや、厳密には説明出来ないという事を出来る限り説明したつもりだ　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（　いや、厳密には正確な説明というのがそもそも出来ない事を出来る限り説明したつもりだ　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なので、このままじゃ何も言えないのは確かだ。", ActionEvent.None);
 
@@ -9270,7 +9355,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：近づくにつれ、その形成は少しずつ石の形状になり始める。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：近づくにつれ、その形成は少しずつ石の様なの形状になり始める。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：最終的には奇妙な石の容になっていて、微妙に声がするんだ。", ActionEvent.None);
 
@@ -9280,13 +9365,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：わ、悪い悪い・・・ハハハ", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：埒が明かないわ。ちょっと接触までの件は置いときましょ。もうホンット話が進まないわ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：埒が明かないわ。ちょっとその正体不明の石に接触するまでの件は置いときましょ。もうホンット話が進まないわ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いやあ、でもココが重要なポイントなんだよ。こうなんつうか、波動と脳の痛覚と視覚がシンクロするというか・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：もうそういうのは良いわ。聞いてるこっちが疲れてくるから。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：もう一度聞くわ。その石に接触した時・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：もう一度聞くわ。その石と呼んでいる対象っていうのかしら。それに接触した時・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：何を見たのかしら？", ActionEvent.None);
 
@@ -9294,13 +9379,17 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：俺が居ない所へ行ってた。って感じかな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：確かに、会話の様な事はしたんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：どこか別の所へ飛ばされてるという事？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・どうだろうなあ・・・移動しているのかどうかは分からない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、確かにそこで会話の様な事はしたんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いやでも、あれは会話というか・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そもそも俺は口で喋ってないな。うん。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：イメージだ。イメージで喋っていただけだ。うん。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：イメージだ。イメージで語りかけていただけだ。うん。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ま、そんなところだ。", ActionEvent.None);
 
@@ -9318,7 +9407,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：うーん、いや口で会話はしてねえんだよな・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：うーん、分かったわ。じゃあその口で会話とかもカットして良いから。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ああもう、分かったわ。じゃあその【口で会話はしてない】でも良いから。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：どういうイメージだったわけ？その内容を教えてちょうだい。", ActionEvent.None);
 
@@ -9328,17 +9417,23 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そう、そうなんだよ。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：イメージで像や事象が発生して、そこで会話ではない何らかを通して事象把握を行っている感じなんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだ。伝わるか？", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "ビリー：やっぱりな。こいつから情報を聞き出すのは無理じゃねえか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：要領を得ないわね・・・無理かしら。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：何となくだが、そのイメージではエルミ国王とファラ王妃の像が映し出されてたんだよな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：えええぇぇえ！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：えええぇぇええ！！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：うわっ、いきなり大きな声出すなって。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：そ、それを早くいいなさいよ！何なのよもう、まったく", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そ、それを早くいいなさいよ！何なのよもう、まったくもう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ちょっと、で、エルミ国王様とファラ王妃様とは何か会話したわけ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、で？エルミ国王様とファラ王妃様とは何か会話したわけ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いや、そういうのはない。単にこうボワっと出ただけだ。", ActionEvent.None);
 
@@ -9358,17 +9453,19 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：誰・・・誰というか存在がそもそもよく分からなくてだな。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：あれがエルミ国王とファラ王妃だったのかどうかについては、はっきりと断言できない。", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "ラナ：この際、その【誰】っていうのも良いわよ、カット。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：エルミ様とファラ様に何かがあったのね？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：エルミ様とファラ様の様な像との間で、何かがあったのね？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、何というかだな。それなんだが。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：起こりうる内容なんだと思う。そこの具体的なエッセンスは分からないんだが。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：起こりうる内容なんだと思う。そこの具体的なエッセンスは分からない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：国王はおそらく何かを知っている。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ただ、その内容は俺達じゃ捉える事は不可能ではあるが。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ただし、その内容は俺達じゃ追跡出来ないようにはなっている。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：何も言えない状態、という事を創り出す事は出来ているのは確かだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なので、このままじゃ何も言えないのは確かだ。", ActionEvent.None);
 
@@ -9378,7 +9475,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：おい、アデル。この会話のやりとりも何回目だろーな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：３回目じゃない？まだまだ足りないねー☆", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：８回目じゃない？まだまだ足りないねー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：ハーァ・・・おいアイン。この話は終わりだ。もー無理だろお前。", ActionEvent.None);
 
@@ -9422,9 +9519,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（何か分かった事があれば・・・か）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（分かった事は・・・）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（分かった事・・・把握できた事・・・理解しえた事・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（既に・・・）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（何だろうな　・・・　一体あれは　・・・）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "・・・　・・・　・・・", ActionEvent.None);
 
@@ -11730,6 +11827,16 @@ public static class MessagePack
       {
         Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjTop);
         Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+      }
+    }
+    // else if (num == 195) // 190に統合されているため、ココはコメントアウト
+    else if (num == 196)
+    {
+      for (int ii = 0; ii < move; ii++)
+      {
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise);
+        Message(ref m_list, ref e_list, "0", ActionEvent.ForceMoveObjRise2);
+        Message(ref m_list, ref e_list, "0.05", ActionEvent.ForceMoveRise); // 早め
       }
     }
 
