@@ -945,7 +945,7 @@ public partial class HomeTown : MotherBase
         {
           MessagePack.Message700050(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        else if (One.TF.Event_Message800220 && One.TF.Event_Message800230 == false)
+        else if (One.TF.Event_Message800220 && One.TF.Event_Message700060 == false)
         {
           // オーランの塔制覇後の謁見
           MessagePack.Message700060(ref QuestMessageList, ref QuestEventList); TapOK();

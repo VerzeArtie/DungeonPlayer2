@@ -7338,6 +7338,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：・・・", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アデル：・・・", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "エルミ：アイン君。その最も喋り難い内容が一番君の中で重要な事象なのではないかな？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そ、それは・・・", ActionEvent.None);
@@ -7398,11 +7400,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ファラ：視察のほど、ご苦労様でした。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：は、はい！", ActionEvent.None);
-
       Message(ref m_list, ref e_list, "ファラ：では、アインさん。ちょっとこちらへいらして。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あ。ええと、はい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：は、はい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ファラ：ウフフ、そんなにかしこまらなくても大丈夫ですよご心配なく（＾＾", ActionEvent.None);
 
@@ -7460,9 +7460,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：パルメティシア神殿？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：ムーンフォーダー方面を統括しているのはパルメティシア神殿にいる教皇だが。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：ムーンフォーダー方面はパルメティシア神殿にいる教皇が統治を行ってくれている。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：ムーンフォーダーは正直国交が無いため、情報は入手しにくい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：ただし、ムーンフォーダーは正直開放された国交が無いため、情報は入手しにくい状況なんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エルミ：そこで、アイン君には実際に赴いてもらって、今どのような状態になっているかを確認してきてほしいんだ。", ActionEvent.None);
 
@@ -7490,11 +7490,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：なーにー？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：お前さ。この謁見の時だけ、何であんな言葉が出てくるんだ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：お前さ。この謁見の時になると、何であんな言葉が出てくるんだ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：じーちゃんに叩き込まれたのー。「ふざけるのは止めなさい！」って☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：そ、そんなもんか・・・あの雰囲気とかもか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：そ、そんなもんか・・・あの雰囲気もか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：そーだねー。「言葉だけじゃ駄目じゃろ！」ってよく言われるし☆", ActionEvent.None);
 
