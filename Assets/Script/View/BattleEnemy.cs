@@ -1095,6 +1095,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatLightThunderLancebolts = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
+        {
+          One.TF.DefeatSelmoiRo = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP)
         {
           One.TF.DefeatOriginStarCoralQueen = true;
@@ -4188,7 +4192,15 @@ public partial class BattleEnemy : MotherBase
     {
       Destroy(One.EnemyList[ii].gameObject);
     }
-    SceneManager.LoadSceneAsync("DungeonField");
+
+    if (One.FromHometown)
+    {
+      SceneManager.LoadSceneAsync(Fix.SCENE_HOME_TOWN);
+    }
+    else
+    {
+      SceneManager.LoadSceneAsync(Fix.SCENE_DUNGEON_FIELD);
+    }
   }
 
   public void TapSpeedUp()

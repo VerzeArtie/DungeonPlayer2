@@ -1184,6 +1184,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } } // オーランの塔、ObsidianStoneと接触時の会話
   public bool Event_Message801010 { get { return _event_message801010; } set { _event_message801010 = value; } } // オーランの塔、ObsidianStoneと接触後のファージル宮殿での会話
   public bool Event_Message801020 { get { return _event_message801020; } set { _event_message801020 = value; } } // オーランの塔制覇後、ファージル宮殿へ誘導する会話
+  public bool Event_Message801030 { get { return _event_message801030; } set { _event_message801030 = value; } } // ファージル宮殿から、パルメテイシア神殿へ向かう際の会話
 
 
   [SerializeField] protected bool _event_message900010 = false;
@@ -1798,6 +1799,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1400020 { get { return _event_message1400020; } set { _event_message1400020 = value; } }
   public bool Event_Message1400030 { get { return _event_message1400030; } set { _event_message1400030 = value; } }
 
+  [SerializeField] protected bool _event_message2200000 = false;
+  public bool Event_Message2200000 { get { return _event_message2200000; } set { _event_message2200000 = value; } }
   [SerializeField] protected bool _event_message2200010 = false;
   public bool Event_Message2200010 { get { return _event_message2200010; } set { _event_message2200010 = value; } }
   [SerializeField] protected bool _event_message2200020 = false;
@@ -2260,6 +2263,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_light_thunder_lancebolts = false;
   public bool DefeatLightThunderLancebolts { get { return _defeat_light_thunder_lancebolts; } set { _defeat_light_thunder_lancebolts = value; } }
+
+  protected bool _defeat_selmoi_ro = false;
+  public bool DefeatSelmoiRo { get { return _defeat_selmoi_ro; } set { _defeat_selmoi_ro = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

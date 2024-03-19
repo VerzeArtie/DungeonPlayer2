@@ -560,6 +560,13 @@ public partial class HomeTown : MotherBase
         return;
       }
 
+      // パルメテイシア神殿へ始めて向かった時のDUEL戦闘後の帰還
+      if (One.TF.DefeatSelmoiRo && One.TF.Event_Message2200000 == false)
+      {
+        MessagePack.Message2200000(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
       if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
       {
@@ -627,7 +634,8 @@ public partial class HomeTown : MotherBase
         MessagePack.Message1100010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1100050)
+      // パルメティシア神殿に到着直後
+      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message2200010 == false)
       {
         MessagePack.Message2200010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -1157,7 +1165,14 @@ public partial class HomeTown : MotherBase
         this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
         this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
     {
-      ChangeHometown(One.TF.CurrentAreaName, this.DungeonMap);
+      if (One.TF.Event_Message801030 == false)
+      {
+        MessagePack.Message801030(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+      else
+      {
+        ChangeHometown(One.TF.CurrentAreaName, this.DungeonMap);
+      }
     }
     // 行き先がダンジョンの場合
     else if (this.DungeonMap == Fix.DUNGEON_ESMILIA_GRASSFIELD)
@@ -2659,6 +2674,7 @@ public partial class HomeTown : MotherBase
 
     this.AlreadyDetectEncount = true;
     One.BattleEnd = Fix.GameEndType.None;
+    One.FromHometown = true;
     if (this.ignoreCreateShadow == false)
     {
       One.CreateShadowData();
@@ -2690,7 +2706,8 @@ public partial class HomeTown : MotherBase
       {
         One.BattleMode = Fix.BattleMode.Boss;
       }
-      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
+               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
       {
         Debug.Log(MethodBase.GetCurrentMethod() + "4 Duel");
         One.BattleMode = Fix.BattleMode.Duel;

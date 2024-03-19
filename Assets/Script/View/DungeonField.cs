@@ -9466,6 +9466,7 @@ public class DungeonField : MotherBase
   {
     this.AlreadyDetectEncount = true;
     One.BattleEnd = Fix.GameEndType.None;
+    One.FromHometown = false;
     if (this.ignoreCreateShadow == false)
     {
       One.CreateShadowData();
@@ -9504,7 +9505,8 @@ public class DungeonField : MotherBase
       {
         One.BattleMode = Fix.BattleMode.Boss;
       }
-      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
+               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
       {
         One.BattleMode = Fix.BattleMode.Duel;
       }
