@@ -24790,55 +24790,39 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、パルメティシア神殿に到着っと。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：何か雰囲気が別格よね。ここに入ると。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：何かファージルのエリアとは雰囲気が違うわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そうなのか？俺には普通の場所に感じられるが。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：アンタはそういう所が、鈍感すぎなのよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ま、まあ・・・そうなのかも知れないな・・・悪い悪い。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：お、おい。あれ見てみろよ！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　ビリーはとある女性の方へと視線を移した ～", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：・・・ひょっとして、エオネかしら？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：でしょ！？そう思いますよね！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：中央にある神殿の中に入っていくな・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：アイン、追いかけなくて良いの？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ま、まあそうなのかも知れないな・・・悪い悪い。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：なんだ、ずいぶんと慎重じゃねえか。何か気になんのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：どうした？なんだか、ずいぶんと慎重じゃねえか。何か気になんのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや・・・ちょっと難しい所なんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや・・・ちょっと難しい所なんだ。例の件もあった事だしな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ちょっと間をおいてから行こう。尾行不可能になるくらいの時間を置いてからだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：それって、道中で狙われた時の事？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：分からないわね、どういう意味よ。それだったら尾行しなくて良いんじゃないの？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。ただ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあまあ、ちょっとな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、気のせいかな。さすがに大丈夫だとは思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ用心に越した事はねーけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと。ちょっと周辺を探索してから、神殿の中へ向かうとするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "～～～　しばらくして　～～～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：よし、そろそろ良いかな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、こんなもんかな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：完全に見失っちまったじゃねーか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：おーし、じゃあ早速神殿に向かおうぜ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ハハ・・・悪い悪い。ちょっと女性の後ろを付け回すのはなんだか気が引けたんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：えええぇぇ！？　　　ビリー：あああぁぁ！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：な、何だよ。２人揃って大声出すなよ。ビックリするだろうが。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：ごめんなさい、信じられない発言をするもんだから、こっちがびっくりしちゃったわよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：まあ、ともかくこれで十分な距離は取ったはずだ。今から神殿の方に向かおう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：おーし、すぐにでも行こうぜ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
   }
 
@@ -24952,13 +24936,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：っえ、エルミ国王も？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：少し容は違うが、確かに。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：少々表現は異なるが、確かに。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：おお、そうじゃ。いきなりですまんかったの。気楽にせい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：我は。ツヴェルドーゼ１７世。以後、ツヴェルと呼んでもらって構わんよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ゲッ・・・法皇様相手にその様な・・・？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ゲッ・・・法皇様相手にその様な・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：よいのだ。この方が喋りやすかろうて。", ActionEvent.None);
 
@@ -24984,7 +24968,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ええ、大丈夫です。何とか行けそうです。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あ、ところで一つすみませんが、教えてくれないでしょうか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：あ、すみませんが、もう一つだけ、お願いしても良いでしょうか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：なにかね。", ActionEvent.None);
 
@@ -25004,17 +24988,25 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：そうであるの。それしかなかろうて。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは視線を宙に浮かせ、笑顔を解いた　～", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "アイン：エオネ・フルネアの事についてです。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：彼女について何か教えてもらう事はできるでしょうか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：ふむ。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "ツヴェル：ふむ・・・ふむ、ふむ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：まず、", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "ツヴェル：その名は、天に名にあらず。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：我々ムーンフォーダーの民は、天の民。", ActionEvent.None);
       
-      Message(ref m_list, ref e_list, "ツヴェル：神より授けられし、天の名を持つ者同士でしか分かち合う事は許されておらんのだよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：神より授けられし、天の名を持つ者同士でしか分かち合う事は許されておらん。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：そなたはまだ天の名を持っておらぬが故、関連性については一切開示できぬ。悪く思わないでくれたまえ。", ActionEvent.None);
 
@@ -25022,9 +25014,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：子よ。天の名を授かるべきに非ず。神の導きはこれまで。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：と言いたいところじゃが、さて。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：と言いたいところじゃが、さて。どうしたものか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：ファージルの王、エルミ・ジョルジュより遠征許可証を渡されたのじゃな？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：ファージルの国王、エルミ・ジョルジュより遠征許可証を渡されたのじゃな？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ええ、確かにここに。", ActionEvent.None);
 
@@ -25036,23 +25028,27 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：ふむ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：ふむ・・・ほう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：驚いたのう。まさかここまでとは・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：単なる許可証ではないんですか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：これは神殿の決まり事でな。許可証の淵に細かな線で刻まれた紋様が刻み込まれておるのだよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：これは神殿の決まり事でな。許可証の淵に細かな線で紋様を刻み込んであるんじゃよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：天の民は、その紋様で意図が分かるようになっておるのだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そうなんだ・・・何か書いてあるなとは思っていたんですが・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：そなた、不思議なやつよの。まさかとは思うがこの紋様が示す意図に気付いておるのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：ほう、そなた、本当に不思議なやつよの。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや、正直な所、解読はできませんが", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：まさかとは思うがこの紋様が示す意図に気付いておるのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：何らかの選択を迫る内容だと思いました。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや、正直な所、解読はできません。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、何らかの選択を迫る内容が書かれているのではないかと思いました。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：そして、それはおそらくファージル領土とヴィンスガルデ領土において", ActionEvent.None);
 
@@ -25104,7 +25100,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：普段はそのゲートは封鎖しておるのじゃが、", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：そなたが来た時は、特別そのゲートを開放するように取り計らっておこう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ツヴェル：そなたが来た時は、特別にそのゲートを開放するように取り計らっておこう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：色々とすみません、助かります。", ActionEvent.None);
 
@@ -25170,9 +25166,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：いや・・・どうだろうな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：国王エルミ様が法皇様に元々手配していた、という感じだった。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：国王エルミ様が法皇様に手配した、という感じだった。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：正直な所、俺達がココに来ることを見越していた様な雰囲気もあった。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：正直な所、俺からはどういう内容なのかは分からない事だらけなんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：そ・・・そ、そうですか・・・", ActionEvent.None);
 
@@ -25184,13 +25180,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ準備が出来たらヴェルガスの海底神殿へ行こう！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ねえ、準備したらしばらく休息しましょ。オーランの塔から動きっぱなしで少し疲れたわ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ねえ、いきなり出発せず、神殿で一回休息してからにしましょ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、そうだな。じゃあ、出発は明日にしよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ただ・・神殿って休めるところがあるのかな・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：神殿内には就寝室があります。法皇様は慈悲により、一般に訪れた迷いし子はその就寝室を使う事が許されています。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：神殿内には就寝室があります。法皇様の慈悲により、一般に訪れた迷いし子はその就寝室を使う事が許されています。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なるほど。助かるぜ。じゃあ今日はこの神殿で休息しよう。", ActionEvent.None);
 
@@ -25224,7 +25220,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（ん？何か物音がする・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：これまでは手筈通りと申したな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：今、手筈通りと申したな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：す！すみません！法皇様！！", ActionEvent.None);
 
@@ -25297,8 +25293,8 @@ public static class MessagePack
       // Message(ref m_list, ref e_list, "エオネ：私の・・・思う様に・・・行動します。", ActionEvent.None);
       Message(ref m_list, ref e_list, "エオネ：（・・・　様に　・・・　行動します。）", ActionEvent.None);
 
-      // Message(ref m_list, ref e_list, "法皇：ふむ・・・子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
-      Message(ref m_list, ref e_list, "法皇：ふむ・・・子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
+      // Message(ref m_list, ref e_list, "法皇：子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "法皇：子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：失礼・・・いたします。", ActionEvent.None);
 
