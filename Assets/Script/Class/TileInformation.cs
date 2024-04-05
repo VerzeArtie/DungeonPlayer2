@@ -75,6 +75,10 @@ public class TileInformation : MonoBehaviour
     // _”é‚ÌX
     MysticForest_Normal = 5001,
     MysticForest_Wall = 5002,
+
+    // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
+    Edelgarzen_Normal = 6001,
+    Edelgarzen_Wall = 6002,
   }
   public enum Area
   {
@@ -171,6 +175,10 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Velgus_CircleYellow) { return 1; }
       if (field == Field.Velgus_Wall) { return 999; }
       if (field == Field.Velgus_Sea) { return 999; }
+
+      // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
+      if (field == Field.Edelgarzen_Normal) { return 1; }
+      if (field == Field.Edelgarzen_Wall) { return 999; }
 
       return 999;
     }

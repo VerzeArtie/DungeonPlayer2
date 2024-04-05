@@ -80,6 +80,8 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Velgus_CircleYellow;
   public TileInformation prefab_Upstair;
   public TileInformation prefab_Downstair;
+  public TileInformation prefab_Edelgarzen_Normal;
+  public TileInformation prefab_Edelgarzen_Wall;
   public TileInformation prefab_Unknown;
   public TileInformation prefab_Unknown_Goratrum;
   public TileInformation prefab_Unknown_MysticForest;
@@ -393,6 +395,8 @@ public class DungeonField : MotherBase
     PrefabList.Add("Velgus_CircleBlue");
     PrefabList.Add("Velgus_CircleGreen");
     PrefabList.Add("Velgus_CircleYellow");
+    PrefabList.Add("Edelgarzen_Normal");
+    PrefabList.Add("Edelgarzen_Wall");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -13977,6 +13981,14 @@ public class DungeonField : MotherBase
     else if (tile_name == "Velgus_CircleYellow")
     {
       current = Instantiate(prefab_Velgus_CircleYellow, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Edelgarzen_Normal")
+    {
+      current = Instantiate(prefab_Edelgarzen_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Edelgarzen_Wall")
+    {
+      current = Instantiate(prefab_Edelgarzen_Wall, position, Quaternion.identity) as TileInformation;
     }
     else if (tile_name == "Upstair")
     {

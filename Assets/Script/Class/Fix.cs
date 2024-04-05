@@ -403,7 +403,7 @@ public static partial class Fix
   public const string MAPFILE_DISKEL = "MapData_Diskel.txt";
   public const string MAPFILE_GANRO = "MapData_Ganro.txt";
   public const string MAPFILE_LOSLON = "MapData_Loslon.txt";
-  public const string MAPFILE_EDELGARZEN = "MapData_EdelGaizen.txt";
+  public const string MAPFILE_EDELGARZEN = "MapData_EdelGarzen.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
 
   public const int MAPSIZE_X_ESMILIA_GRASSFIELD = 40;
