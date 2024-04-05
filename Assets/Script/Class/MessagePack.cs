@@ -15440,7 +15440,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：へえ・・・奇麗な作りだな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：おい、お前そんな趣向があったのかよ？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：おい、お前さ。オーランの塔の時もそうだったが、そんな趣向があったのかよ？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いや、趣向ってほどじゃないが、何となくだな。", ActionEvent.None);
 
