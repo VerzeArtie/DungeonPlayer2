@@ -79,6 +79,8 @@ public class TileInformation : MonoBehaviour
     // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
     Edelgarzen_Normal = 6001,
     Edelgarzen_Wall = 6002,
+    Edelgarzen_Cloud = 6003,
+    Edelgarzen_Cloud_Secret = 6004,
   }
   public enum Area
   {
@@ -179,6 +181,8 @@ public class TileInformation : MonoBehaviour
       // ƒGƒfƒ‹ƒKƒCƒ[ƒ“é
       if (field == Field.Edelgarzen_Normal) { return 1; }
       if (field == Field.Edelgarzen_Wall) { return 999; }
+      if (field == Field.Edelgarzen_Cloud) { return 999; }
+      if (field == Field.Edelgarzen_Cloud_Secret) { return 1; }
 
       return 999;
     }
