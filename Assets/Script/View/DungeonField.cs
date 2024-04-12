@@ -148,6 +148,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_MovingTile3_5;
   public FieldObject prefab_Velgus_MovingTile3_6;
   public FieldObject prefab_Velgus_MovingTile3_7;
+  public FieldObject prefab_Edelgarzen_Mirror;
 
   // Decision
   public GameObject GroupDecision;
@@ -457,6 +458,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_MovingTile3_5");
     ObjectList.Add("Velgus_MovingTile3_6");
     ObjectList.Add("Velgus_MovingTile3_7");
+    ObjectList.Add("Edelgarzen_Mirror");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -14487,6 +14489,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_MovingTile3_7, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_MovingTile3_7;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Edelgarzen_Mirror")
+    {
+      current = Instantiate(prefab_Edelgarzen_Mirror, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Edelgarzen_Mirror;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

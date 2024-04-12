@@ -62,6 +62,7 @@ public class FieldObject : MonoBehaviour
     Velgus_MovingTile3_5,
     Velgus_MovingTile3_6,
     Velgus_MovingTile3_7,
+    Edelgarzen_Mirror,
     Boss,
   }
 
