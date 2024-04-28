@@ -9130,6 +9130,17 @@ public static partial class Fix
   public const float GATEOFDHAL_Treasure_51_Z = 11f;
   #endregion
   #region "エデルガイゼン城"
+  public const string EDELGARZEN_MIRROR_1_C = "Mirror";
+  public const string EDELGARZEN_MIRROR_1_O = "1";
+  public const float EDELGARZEN_MIRROR_1_X = 12.0f;
+  public const float EDELGARZEN_MIRROR_1_Y = 0.5f;
+  public const float EDELGARZEN_MIRROR_1_Z = -4.0f;
+
+  public const string EDELGARZEN_MIRROR_2_C = "Mirror";
+  public const string EDELGARZEN_MIRROR_2_O = "2";
+  public const float EDELGARZEN_MIRROR_2_X = 16.0f;
+  public const float EDELGARZEN_MIRROR_2_Y = 0.5f;
+  public const float EDELGARZEN_MIRROR_2_Z = -37.0f;
   #region "ObsidianPortal"
   // Odsidian Portal
   public const string EDELGARZEN_ObsidianPortal_1_C = "ObsidianPortal";

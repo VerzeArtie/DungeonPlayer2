@@ -24127,6 +24127,173 @@ public static class MessagePack
   #region "エデルガイゼン城"
   public static void Message1900010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.TF.Event_Message1900010 == false)
+    {
+      One.TF.Event_Message1900010 = true;
+      Message(ref m_list, ref e_list, "アイン：扉は閉まっているみたいだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：鍵穴の様なものは見当たらないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：扉の周辺も特に仕掛けは無さそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いきなり手詰まりかよ。どうすんだよ、おい？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ヒントらしきものはない。地道に探索するしかないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そんだけかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それだけだ。それ以外に手はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そ、そーかよ。・・・まあいいけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし。それじゃ、探索するとしよう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：この扉は固く閉ざされているな。他をあたろう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900020(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_mirror)
+  {
+    if (One.TF.Event_Message1900020 == false)
+    {
+      One.TF.Event_Message1900020 = true;
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・鏡？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、どうする？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：やけに慎重じゃねえか。触れてみるしかないんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。ビリーの言う通りだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：鏡に触れてみよう。他に選択肢はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：誰が触れてみるの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺がまず触れてみるか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは目の前にある鏡に手をかざした ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何も起きないな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：かざす程度じゃダメなんだろ？俺が鏡をぶん殴ってやろうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：や、止めてくれ。それはさすがにない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃどうすんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、頼みがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何よ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナが鏡に手をかざしてみてくれないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：えっ！何でそうなるのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：原理は分からないが、何となく行けそうな気がする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：頼む、ラナ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：べ、別に良いけど。何も起きなくても文句言わないでよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もちろんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃ、じゃあ・・・い、行くわよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：頼んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアはその場で眼を閉じ、深呼吸を行った ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：（スウッ・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアが鏡に向かって静かに手をかざした ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：あっ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　鏡から光が溢れだし、ラナおよび周囲のメンバーを包み込んだ！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, dst_mirror, ActionEvent.JumpToLocation);
+
+      Message(ref m_list, ref e_list, "（ッパシュ！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・お・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おおおぉぉ！すげぇぜ！ラナ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ッフウ・・・どうやら成功したみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：すげーなホント。一体何が起こったんだ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：仕掛けは全然わからないが、あの鏡を使ってワープできたみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、本当に上手くいくとは。いやはや、ラナはさすがだぜホント！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、変に持ち上げないでちょうだいよ。私自身もよく分からないんだから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：でも、何で俺だと駄目なんだろうな。。。。ちょっとショックなわけだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル、何か知っているか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うーん、難しいところだね～☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どう難しいんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：難しいっていうと誤解があるかもねー、アハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何て言うのかな。うーんと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アインにーちゃんは、とにかく対象外なの、アハハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：マジか・・・その辺りはひょっとして秘密って事か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そーだねー。そう考えといてー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：俺は？俺だったらどーなんだよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うーん☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：今通ってきた鏡に手をかざしてやるぜ、オラァア！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ビリー・ラキは鏡に向かって豪快に両手をかざした！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何故だああぁぁぁ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、お前は戦闘に集中してくれ。頼りにしてる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おうよ。モンスターなら任せろってんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、ラナ。また鏡が設置されている箇所があったら、頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ引き続き探索と行こう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, dst_mirror, ActionEvent.JumpToLocation);
+
+      Message(ref m_list, ref e_list, "（ッパシュ！）", ActionEvent.None);
+    }
+  }
+
+  public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, " （その刹那）", ActionEvent.None);
@@ -24470,7 +24637,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "", ActionEvent.HomeTownCallSaveLoad);
   }
 
-  public static void Message1900020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message1900030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);
 

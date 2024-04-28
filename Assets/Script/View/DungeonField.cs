@@ -149,6 +149,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_MovingTile3_6;
   public FieldObject prefab_Velgus_MovingTile3_7;
   public FieldObject prefab_Edelgarzen_Mirror;
+  public FieldObject prefab_Edelgarzen_Door;
 
   // Decision
   public GameObject GroupDecision;
@@ -459,6 +460,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_MovingTile3_6");
     ObjectList.Add("Velgus_MovingTile3_7");
     ObjectList.Add("Edelgarzen_Mirror");
+    ObjectList.Add("Edelgarzen_Door");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -5184,6 +5186,23 @@ public class DungeonField : MotherBase
         MessagePack.CallbackFloatingtile(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+    }
+
+    // エデルガイゼン城の鏡
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Edelgarzen_Mirror)
+    {
+      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_MIRROR_1_X, Fix.EDELGARZEN_MIRROR_1_Y, Fix.EDELGARZEN_MIRROR_1_Z))
+      {
+        MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "17:1:-37"); TapOK();
+        return;
+      }
+      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_MIRROR_2_X, Fix.EDELGARZEN_MIRROR_2_Y, Fix.EDELGARZEN_MIRROR_2_Z))
+      {
+        MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "12:1:-3"); TapOK();
+        return;
+      }
+
+      return;
     }
 
     tile = SearchNextTile(this.Player.transform.position, direction);
@@ -14497,6 +14516,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Edelgarzen_Mirror, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Edelgarzen_Mirror;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Edelgarzen_Door")
+    {
+      current = Instantiate(prefab_Edelgarzen_Door, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Edelgarzen_Door;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

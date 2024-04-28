@@ -1799,6 +1799,13 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1400020 { get { return _event_message1400020; } set { _event_message1400020 = value; } }
   public bool Event_Message1400030 { get { return _event_message1400030; } set { _event_message1400030 = value; } }
 
+  #region "エデルガイゼン城"
+  [SerializeField] protected bool _event_message1900010 = false;
+  [SerializeField] protected bool _event_message1900020 = false;
+  public bool Event_Message1900010 { get { return _event_message1900010; } set { _event_message1900010 = value; } }
+  public bool Event_Message1900020 { get { return _event_message1900020; } set { _event_message1900020 = value; } }
+  #endregion
+
   [SerializeField] protected bool _event_message2200000 = false;
   public bool Event_Message2200000 { get { return _event_message2200000; } set { _event_message2200000 = value; } }
   [SerializeField] protected bool _event_message2200010 = false;
