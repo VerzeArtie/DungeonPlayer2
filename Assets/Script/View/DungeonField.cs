@@ -13088,6 +13088,71 @@ public class DungeonField : MotherBase
       return;
     }
     #endregion
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      int random = 300 + NoEncountNumber - CumulativeBattleCounter; // ヴェルガス海底神殿はパズル要素が多くしたので、基本値は低め
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        Debug.Log("area_info is " + area_info);
+        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_1");
+          int rand_data = AP.Math.RandomInteger(6);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.DAGGER_FISH);
+              One.BattleEnemyList.Add(Fix.FLOATING_MANTA);
+              One.BattleEnemyList.Add(Fix.SKYBLUE_BIRD);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.RAINBOW_CLIONE);
+              One.BattleEnemyList.Add(Fix.ROLLING_MAGURO);
+              One.BattleEnemyList.Add(Fix.BEAUTY_SEA_LILY);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.DAGGER_FISH);
+              One.BattleEnemyList.Add(Fix.FLOATING_MANTA);
+              One.BattleEnemyList.Add(Fix.BEAUTY_SEA_LILY);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.ROLLING_MAGURO);
+              One.BattleEnemyList.Add(Fix.ROLLING_MAGURO);
+              One.BattleEnemyList.Add(Fix.SKYBLUE_BIRD);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.DAGGER_FISH);
+              One.BattleEnemyList.Add(Fix.RAINBOW_CLIONE);
+              One.BattleEnemyList.Add(Fix.FLOATING_MANTA);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.SKYBLUE_BIRD);
+              One.BattleEnemyList.Add(Fix.ROLLING_MAGURO);
+              One.BattleEnemyList.Add(Fix.BEAUTY_SEA_LILY);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+
+        One.CannotRunAway = false;
+        if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+        else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+        PrepareCallTruthBattleEnemy();
+      }
+    }
+    #region "ヴェルガス海底神殿"
+
+    #endregion
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
       int random = 100 - CumulativeBattleCounter;

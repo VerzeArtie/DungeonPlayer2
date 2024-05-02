@@ -20943,7 +20943,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：きっちり取っていこう。行くぞ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP, ActionEvent.EncountBoss);
+    Message(ref m_list, ref e_list, Fix.ORIGIN_STAR_CORAL_QUEEN_JP, ActionEvent.EncountBoss);
   }
 
   public static void Message1000183(ref List<string> m_list, ref List<ActionEvent> e_list)

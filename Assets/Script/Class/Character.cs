@@ -6858,7 +6858,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP:
-        SetupParameter(450, 150, 500, 1600, 25, 0, 30000, 45000);
+        SetupParameter(450, 150, 500, 1600, 25, 0, 15000, 25000);
         this._baseInstantPoint = 5000;
         list.Add(Fix.COMMAND_FIRE_BLAST);
         list.Add(Fix.COMMAND_RENSOU_TOSSHIN);
@@ -7078,7 +7078,7 @@ public partial class Character : MonoBehaviour
       case Fix.LIGHT_THUNDER_LANCEBOLTS:
       case Fix.LIGHT_THUNDER_LANCEBOLTS_JP:
       case Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW:
-        SetupParameter(980, 280, 980, 4500, 50, 0, 95000, 65000);
+        SetupParameter(980, 280, 980, 4500, 50, 0, 25000, 30000);
         this._baseInstantPoint = 3000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_LIGHT_THUNDERBOLT);
@@ -7225,7 +7225,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_YODIRIAN:
       case Fix.THE_YODIRIAN_JP:
-        SetupParameter(1200, 450, 1500, 12000, 60, 0, 160000, 100000);
+        SetupParameter(1200, 450, 1500, 12000, 60, 0, 40000, 50000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CLEANSING_LANCE);
         list.Add(Fix.COMMAND_STATUS_CHANGE);
@@ -7242,7 +7242,8 @@ public partial class Character : MonoBehaviour
       #endregion
 
       #region "ヴェルガスの海底神殿"
-      case Fix.ENEMY_ORIGIN_STAR_CORAL_QUEEN_JP:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
         SetupParameter(400, 700, 1200, 4000, 100, 0, 0, 50000);
         list.Add(Fix.NORMAL_ATTACK);
         this.Rare = Fix.RareString.Black;
@@ -7362,8 +7363,8 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
-      case Fix.THE_HAND_OF_KRAKEN:
-      case Fix.THE_HAND_OF_KRAKEN_JP:
+      case Fix.THE_BIGHAND_OF_KRAKEN:
+      case Fix.THE_BIGHAND_OF_KRAKEN_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
