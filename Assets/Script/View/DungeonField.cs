@@ -13088,7 +13088,7 @@ public class DungeonField : MotherBase
       return;
     }
     #endregion
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
     {
       int random = 300 + NoEncountNumber - CumulativeBattleCounter; // ヴェルガス海底神殿はパズル要素が多くしたので、基本値は低め
       if (random <= 0) { random = 0; }
@@ -13140,6 +13140,258 @@ public class DungeonField : MotherBase
               break;
             default:
               Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_2)
+        {
+          Debug.Log("area_info is AREA_2");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.GAN_GAME);
+              One.BattleEnemyList.Add(Fix.LIMBER_SEAEAGLE);
+              One.BattleEnemyList.Add(Fix.FLUFFY_CORAL);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.RECKLESS_WALRUS);
+              One.BattleEnemyList.Add(Fix.BLACK_OCTOPUS);
+              One.BattleEnemyList.Add(Fix.STEAL_SQUID);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.GAN_GAME);
+              One.BattleEnemyList.Add(Fix.FLUFFY_CORAL);
+              One.BattleEnemyList.Add(Fix.STEAL_SQUID);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.PROUD_VIKING);
+              One.BattleEnemyList.Add(Fix.LIMBER_SEAEAGLE);
+              One.BattleEnemyList.Add(Fix.STEAL_SQUID);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.RECKLESS_WALRUS);
+              One.BattleEnemyList.Add(Fix.JUMPING_KAMASU);
+              One.BattleEnemyList.Add(Fix.JUMPING_KAMASU);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.RECKLESS_WALRUS);
+              One.BattleEnemyList.Add(Fix.BLACK_OCTOPUS);
+              One.BattleEnemyList.Add(Fix.STEAL_SQUID);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.FLUFFY_CORAL);
+              One.BattleEnemyList.Add(Fix.JUMPING_KAMASU);
+              One.BattleEnemyList.Add(Fix.STEAL_SQUID);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.GAN_GAME);
+              One.BattleEnemyList.Add(Fix.PROUD_VIKING);
+              One.BattleEnemyList.Add(Fix.JUMPING_KAMASU);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.PROUD_VIKING);
+              One.BattleEnemyList.Add(Fix.LIMBER_SEAEAGLE);
+              One.BattleEnemyList.Add(Fix.FLUFFY_CORAL);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.RECKLESS_WALRUS);
+              One.BattleEnemyList.Add(Fix.BLACK_OCTOPUS);
+              One.BattleEnemyList.Add(Fix.FLUFFY_CORAL);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_3)
+        {
+          Debug.Log("area_info is AREA_3");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.GLUTTONY_COELACANTH);
+              One.BattleEnemyList.Add(Fix.DEEPSEA_HAND);
+              One.BattleEnemyList.Add(Fix.WRECHED_ANEMONE);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.ASSULT_SERPENT);
+              One.BattleEnemyList.Add(Fix.WRECHED_ANEMONE);
+              One.BattleEnemyList.Add(Fix.DEEPSEA_HAND);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.FEROCIOUS_WHALE);
+              One.BattleEnemyList.Add(Fix.GIANT_SEA_SPIDER);
+              One.BattleEnemyList.Add(Fix.MOGUL_MANTA);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.GLUTTONY_COELACANTH);
+              One.BattleEnemyList.Add(Fix.ESCORT_HERMIT_CLUB);
+              One.BattleEnemyList.Add(Fix.ESCORT_HERMIT_CLUB);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.DEEPSEA_HAND);
+              One.BattleEnemyList.Add(Fix.FEROCIOUS_WHALE);
+              One.BattleEnemyList.Add(Fix.MOGUL_MANTA);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.FEROCIOUS_WHALE);
+              One.BattleEnemyList.Add(Fix.ESCORT_HERMIT_CLUB);
+              One.BattleEnemyList.Add(Fix.GIANT_SEA_SPIDER);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.ASSULT_SERPENT);
+              One.BattleEnemyList.Add(Fix.MOGUL_MANTA);
+              One.BattleEnemyList.Add(Fix.ASSULT_SERPENT);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.GIANT_SEA_SPIDER);
+              One.BattleEnemyList.Add(Fix.ESCORT_HERMIT_CLUB);
+              One.BattleEnemyList.Add(Fix.WRECHED_ANEMONE);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.ASSULT_SERPENT);
+              One.BattleEnemyList.Add(Fix.GIANT_SEA_SPIDER);
+              One.BattleEnemyList.Add(Fix.WRECHED_ANEMONE);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.GLUTTONY_COELACANTH);
+              One.BattleEnemyList.Add(Fix.MOGUL_MANTA);
+              One.BattleEnemyList.Add(Fix.DEEPSEA_HAND);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_4)
+        {
+          Debug.Log("area_info is AREA_4");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.AMBUSH_ANGLERFISH);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              One.BattleEnemyList.Add(Fix.STICKY_STARFISH);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.EMERALD_LOBSTER);
+              One.BattleEnemyList.Add(Fix.STICKY_STARFISH);
+              One.BattleEnemyList.Add(Fix.AMBUSH_ANGLERFISH);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.RAMPAGE_BIGSHARK);
+              One.BattleEnemyList.Add(Fix.AMBUSH_ANGLERFISH);
+              One.BattleEnemyList.Add(Fix.STICKY_STARFISH);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.BIGMOUSE_JOE);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.BIGMOUSE_JOE);
+              One.BattleEnemyList.Add(Fix.AMBUSH_ANGLERFISH);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              One.BattleEnemyList.Add(Fix.AMBUSH_ANGLERFISH);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT);
+              One.BattleEnemyList.Add(Fix.STICKY_STARFISH);
+              One.BattleEnemyList.Add(Fix.EMERALD_LOBSTER);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.BIGMOUSE_JOE);
+              One.BattleEnemyList.Add(Fix.EMERALD_LOBSTER);
+              One.BattleEnemyList.Add(Fix.STICKY_STARFISH);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.RAMPAGE_BIGSHARK);
+              One.BattleEnemyList.Add(Fix.EMERALD_LOBSTER);
+              One.BattleEnemyList.Add(Fix.WEEPING_MIST);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.RAMPAGE_BIGSHARK);
+              One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT);
+              One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_5)
+        {
+          Debug.Log("area_info is AREA_5");
+          int rand_data = AP.Math.RandomInteger(6);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.EDGED_HIGH_SHARK);
+              One.BattleEnemyList.Add(Fix.SEA_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.SEA_SONG_MARMAID);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.GHOST_SHIP);
+              One.BattleEnemyList.Add(Fix.THOUGHTFUL_NAUTILUS);
+              One.BattleEnemyList.Add(Fix.SEA_ELEMENTAL);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.DEFENSIVE_DATSU);
+              One.BattleEnemyList.Add(Fix.SEA_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.THOUGHTFUL_NAUTILUS);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.DEFENSIVE_DATSU);
+              One.BattleEnemyList.Add(Fix.SEA_ELEMENTAL);
+              One.BattleEnemyList.Add(Fix.SEA_SONG_MARMAID);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.GHOST_SHIP);
+              One.BattleEnemyList.Add(Fix.EDGED_HIGH_SHARK);
+              One.BattleEnemyList.Add(Fix.SEA_SONG_MARMAID);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.EDGED_HIGH_SHARK);
+              One.BattleEnemyList.Add(Fix.SEA_SONG_MARMAID);
+              One.BattleEnemyList.Add(Fix.THOUGHTFUL_NAUTILUS);
               break;
           }
         }
