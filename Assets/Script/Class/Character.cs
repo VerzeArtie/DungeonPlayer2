@@ -7242,14 +7242,552 @@ public partial class Character : MonoBehaviour
       #endregion
 
       #region "ヴェルガスの海底神殿"
-      case Fix.ORIGIN_STAR_CORAL_QUEEN:
-      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
-        SetupParameter(400, 700, 1200, 4000, 100, 0, 0, 50000);
+      case Fix.DAGGER_FISH:
+      case Fix.DAGGER_FISH_JP:
+        SetupParameter(820, 380, 600, 1600, 70, 7, 9800, 6600);
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_WATER_GUN);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss21;
+        this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
         break;
+
+      case Fix.FLOATING_MANTA:
+      case Fix.FLOATING_MANTA_JP:
+        SetupParameter(610, 390, 820, 1680, 70, 2, 10200, 7100);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_WATER_DANCE);
+        list.Add(Fix.COMMAND_WATER_SHOT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area51;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.SKYBLUE_BIRD:
+      case Fix.SKYBLUE_BIRD_JP:
+        SetupParameter(710, 450, 730, 1550, 70, 6, 10600, 7600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        list.Add(Fix.COMMAND_SKY_FEATHER);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area51;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.RAINBOW_CLIONE:
+      case Fix.RAINBOW_CLIONE_JP:
+        SetupParameter(630, 410, 840, 1740, 70, 9, 11000, 8200);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_RAINBOW_BUBBLE);
+        list.Add(Fix.COMMAND_WATER_CIRCLE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area51;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ROLLING_MAGURO:
+      case Fix.ROLLING_MAGURO_JP:
+        SetupParameter(850, 400, 550, 1960, 70, 5, 11500, 8800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ROLLING_CHARGE);
+        list.Add(Fix.COMMAND_JET_RUN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area51;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.BEAUTY_SEA_LILY:
+      case Fix.BEAUTY_SEA_LILY_JP:
+        SetupParameter(600, 430, 860, 1800, 70, 8, 12100, 9500);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_INVISIBLE_POISON);
+        list.Add(Fix.COMMAND_BEAUTY_AROMA);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area51;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.DEVIL_STAR_DEATH_FLODIETE:
+      case Fix.DEVIL_STAR_DEATH_FLODIETE_JP:
+      case Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW:
+        SetupParameter(1500, 650, 2000, 300000, 85, 0, 60000, 70000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.BLUE_BULLET);
+        list.Add(Fix.COMMAND_BEAUTY_AROMA);
+        list.Add(Fix.COMMAND_AQUA_BLOSSOM);
+        list.Add(Fix.COMMAND_DEATH_STROKE);
+        list.Add(Fix.COMMAND_DEVIL_EMBLEM);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss5;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LIMBER_SEAEAGLE:
+      case Fix.LIMBER_SEAEAGLE_JP:
+        SetupParameter(920, 490, 900, 1900, 80, 8, 13000, 10500);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_COLD_WIND);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.FLUFFY_CORAL:
+      case Fix.FLUFFY_CORAL_JP:
+        SetupParameter(720, 450, 960, 2000, 80, 6, 13600, 11000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_PARALYZE_TENTACLE);
+        list.Add(Fix.COMMAND_SCREAMING_SOUND);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.BLACK_OCTOPUS:
+      case Fix.BLACK_OCTOPUS_JP:
+        SetupParameter(970, 480, 730, 2120, 80, 4, 14200, 11500);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_KUROZUMI_FIELD);
+        list.Add(Fix.COMMAND_CONSTRICT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.STEAL_SQUID:
+      case Fix.STEAL_SQUID_JP:
+        SetupParameter(760, 500, 990, 2360, 80, 1, 14800, 12000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SOLID_SQUARE_WATER);
+        list.Add(Fix.COMMAND_BRIGHT_EYE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.PROUD_VIKING:
+      case Fix.PROUD_VIKING_JP:
+        SetupParameter(980, 470, 750, 2420, 80, 4, 15500, 12600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add("アクス・ドライバー");
+        list.Add("アース・クラップ");
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GAN_GAME:
+      case Fix.GAN_GAME_JP:
+        SetupParameter(1000, 460, 710, 2480, 80, 3, 16200, 13200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_STONE_KOURA);
+        list.Add(Fix.COMMAND_OOABARE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.JUMPING_KAMASU:
+      case Fix.JUMPING_KAMASU_JP:
+        SetupParameter(740, 510, 950, 2370, 80, 8, 16900, 13800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_JUMP_SMASH);
+        list.Add(Fix.COMMAND_STRANGE_SPELL);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.RECKLESS_WALRUS:
+      case Fix.RECKLESS_WALRUS_JP:
+        SetupParameter(990, 520, 730, 2530, 80, 5, 17600, 14400);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_THROWING_CRASH);
+        list.Add(Fix.COMMAND_BAIRIKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area52;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.THE_BIGHAND_OF_KRAKEN:
+      case Fix.THE_BIGHAND_OF_KRAKEN_JP:
+      case Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW:
+        SetupParameter(2300, 700, 1700, 45000, 95, 0, 70000, 85000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_NAGITAOSHI);
+        list.Add(Fix.COMMAND_WASHIZUKAMI);
+        list.Add(Fix.COMMAND_ZINARASHI);
+        list.Add(Fix.COMMAND_SUIKOMI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss52;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WRECHED_ANEMONE:
+      case Fix.WRECHED_ANEMONE_JP:
+        SetupParameter(850, 550, 1050, 3200, 90, 7, 18500, 15600);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SCARLET_SEED);
+        list.Add(Fix.COMMAND_POISON_GERMINATION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.DEEPSEA_HAND:
+      case Fix.DEEPSEA_HAND_JP:
+        SetupParameter(1070, 570, 860, 3340, 90, 4, 19200, 16200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_WAVE_SIGN);
+        list.Add(Fix.COMMAND_SILENT_SIGN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ASSULT_SERPENT:
+      case Fix.ASSULT_SERPENT_JP:
+        SetupParameter(1080, 600, 870, 3480, 90, 5, 19900, 16800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_HIKKAKI_CLAW);
+        list.Add(Fix.COMMAND_BATTLE_DANCE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GIANT_SEA_SPIDER:
+      case Fix.GIANT_SEA_SPIDER_JP:
+        SetupParameter(880, 580, 1050, 3570, 90, 2, 20600, 17600);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_DRAIN_WEB);
+        list.Add(Fix.COMMAND_SAND_SMOKE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ESCORT_HERMIT_CLUB:
+      case Fix.ESCORT_HERMIT_CLUB_JP:
+        SetupParameter(1000, 610, 1000, 3660, 90, 8, 21400, 18300);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GUT_SLASH);
+        list.Add(Fix.COMMAND_GUARDIAN_SONG);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.MOGUL_MANTA:
+      case Fix.MOGUL_MANTA_JP:
+        SetupParameter(890, 590, 1080, 3790, 90, 7, 22200, 19000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_WATER_FLAPPING);
+        list.Add(Fix.COMMAND_INVISIBLE_THREAD);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GLUTTONY_COELACANTH:
+      case Fix.GLUTTONY_COELACANTH_JP:
+        SetupParameter(1130, 560, 910, 3980, 90, 6, 23000, 19700);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_INTENSE_BREATH);
+        list.Add(Fix.COMMAND_BIG_SWIM);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.FEROCIOUS_WHALE:
+      case Fix.FEROCIOUS_WHALE_JP:
+        SetupParameter(1160, 600, 1160, 4100, 90, 9, 23800, 20400);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ROAR);
+        list.Add(Fix.COMMAND_BITING);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area53;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GUARDIAN_ROYAL_NAGA:
+      case Fix.GUARDIAN_ROYAL_NAGA_JP:
+      case Fix.GUARDIAN_ROYAL_NAGA_JP_VIEW:
+        SetupParameter(1900, 850, 2600, 60000, 105, 0, 80000, 100000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SAINT_DROP);
+        list.Add(Fix.COMMAND_AMPLIFY_SEAL);
+        list.Add(Fix.COMMAND_PHANTOM_SEAL);
+        list.Add(Fix.COMMAND_TEN_BULLET);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss53;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WEEPING_MIST:
+      case Fix.WEEPING_MIST_JP:
+        SetupParameter(1020, 710, 1270, 5500, 100, 5, 25000, 21000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_HOLLOW_MIST);
+        list.Add(Fix.COMMAND_POLLUTED_POISON);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.AMBUSH_ANGLERFISH:
+      case Fix.AMBUSH_ANGLERFISH_JP:
+        SetupParameter(1260, 720, 1030, 5600, 100, 7, 25900, 21800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BUBBLE_BULLET);
+        list.Add(Fix.COMMAND_AMBUSH_ATTACK);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.EMERALD_LOBSTER:
+      case Fix.EMERALD_LOBSTER_JP:
+        SetupParameter(1280, 740, 1040, 5700, 100, 3, 26800, 22600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GROUND_THUNDER);
+        list.Add(Fix.COMMAND_CONTINUOUS_CHARGE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.STICKY_STARFISH:
+      case Fix.STICKY_STARFISH_JP:
+        SetupParameter(1050, 730, 1290, 5550, 100, 9, 27700, 23400);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_STAR_EMBLEM);
+        list.Add(Fix.COMMAND_MUD_PISTOL);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.RAMPAGE_BIGSHARK:
+      case Fix.RAMPAGE_BIGSHARK_JP:
+        SetupParameter(1300, 750, 1060, 6000, 100, 4, 28600, 24200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_RIPPER_CLAW);
+        list.Add(Fix.COMMAND_HIKICHIGIRI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.BIGMOUSE_JOE:
+      case Fix.BIGMOUSE_JOE_JP:
+        SetupParameter(1200, 770, 1200, 5850, 100, 1, 29500, 25000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_RUBBER_TONG);
+        list.Add(Fix.COMMAND_SPANNING_SLASH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.SEA_STAR_KNIGHT:
+      case Fix.SEA_STAR_KNIGHT_JP:
+        SetupParameter(1250, 760, 1150, 5800, 100, 2, 30400, 25800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_STARSWORD_KAI);
+        list.Add(Fix.COMMAND_SEASTAR_EYE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area54;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.SEA_ELEMENTAL:
+      case Fix.SEA_ELEMENTAL_JP:
+        SetupParameter(1200, 800, 1420, 6500, 110, 8, 31400, 26700);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_WATER_CANNON);
+        list.Add(Fix.COMMAND_PROTECTION_SEAL);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.EDGED_HIGH_SHARK:
+      case Fix.EDGED_HIGH_SHARK_JP:
+        SetupParameter(1450, 810, 1220, 6650, 110, 3, 32400, 27600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BLOODSHOT_EYE);
+        list.Add(Fix.COMMAND_FRENZY_DRIVE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.THOUGHTFUL_NAUTILUS:
+      case Fix.THOUGHTFUL_NAUTILUS_JP:
+        SetupParameter(1230, 820, 1460, 6800, 110, 2, 33400, 28500);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_THOUGHT_EATER);
+        list.Add(Fix.COMMAND_VACUUM_SHOT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GHOST_SHIP:
+      case Fix.GHOST_SHIP_JP:
+        SetupParameter(1350, 830, 1350, 6880, 110, 6, 34400, 29400);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_PHANTOM_EATER);
+        list.Add(Fix.COMMAND_GHOST_KILL);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.DEFENSIVE_DATSU:
+      case Fix.DEFENSIVE_DATSU_JP:
+        SetupParameter(1520, 850, 1260, 7000, 110, 8, 35400, 30300);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_ZERO_ATTACK);
+        list.Add(Fix.COMMAND_JU_STYLE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SEA_SONG_MARMAID:
+      case Fix.SEA_SONG_MARMAID_JP:
+        SetupParameter(1280, 840, 1500, 6970, 110, 1, 36400, 31200);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_CLEANSING_SONG);
+        list.Add(Fix.COMMAND_WASH_AWAY);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area55;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.SHELL_THE_SWORD_KNIGHT:
+      case Fix.SHELL_THE_SWORD_KNIGHT_JP:
+      case Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW:
+        SetupParameter(3200, 900, 2100, 80000, 120, 0, 90000, 110000);
+        list.Add(Fix.COMMAND_CHARGE);
+        list.Add(Fix.COMMAND_SEA_STRIVE);
+        list.Add(Fix.COMMAND_BLINK_SHELL);
+        list.Add(Fix.COMMAND_PLATINUM_BLADE);
+        list.Add(Fix.COMMAND_SEASTAR_OATH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_1;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SEA_STAR_KNIGHT_AEGIRU:
+      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP:
+        SetupParameter(3600, 950, 2400, 106000, 120, 0, 100000, 120000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_STARSWORD_KIRAMEKI);
+        list.Add(Fix.COMMAND_BARRIER_FIELD);
+        list.Add(Fix.COMMAND_CIRCULAR_SLASH);
+        list.Add(Fix.COMMAND_TORPEDO_BUSTER);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_2;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SEA_STAR_KNIGHT_AMARA:
+      case Fix.SEA_STAR_KNIGHT_AMARA_JP:
+        SetupParameter(2400, 960, 3600, 106000, 120, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_STARSWORD_TSUYA);
+        list.Add(Fix.COMMAND_INVASION_FIELD);
+        list.Add(Fix.COMMAND_ILLUSION_BOLT);
+        list.Add(Fix.COMMAND_VORTEX_BLAST);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_2;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.JELLY_EYE_BRIGHT_RED:
+      case Fix.JELLY_EYE_BRIGHT_RED_JP:
+        SetupParameter(2800, 1000, 4000, 132000, 130, 0, 110000, 140000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_FIRE_BULLET);
+        list.Add(Fix.COMMAND_BLAZING_STORM);
+        list.Add(Fix.COMMAND_FLARE_BURN);
+        list.Add(Fix.COMMAND_PENETRATION_EYE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_3;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.JELLY_EYE_DEEP_BLUE:
+      case Fix.JELLY_EYE_DEEP_BLUE_JP:
+        SetupParameter(2800, 1010, 4000, 132000, 130, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_FROZEN_BULLET);
+        list.Add(Fix.COMMAND_FREEZING_STORM);
+        list.Add(Fix.COMMAND_BUBBLE_TURRET);
+        list.Add(Fix.COMMAND_HALLUCINATE_EYE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_3;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.BRILLIANT_SEA_PRINCE:
+      case Fix.BRILLIANT_SEA_PRINCE_JP:
+        SetupParameter(4500, 1100, 3000, 180000, 140, 0, 120000, 160000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BRAVE_ROAR);
+        list.Add(Fix.COMMAND_SEASLIDE_WATER);
+        list.Add(Fix.COMMAND_GUNGNIR_SLASH);
+        list.Add(Fix.COMMAND_GUNGNIR_LIGHT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_4;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.ORIGIN_STAR_CORAL_QUEEN:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
+        SetupParameter(3000, 1050, 4500, 160000, 140, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_LIFE_WATER);
+        list.Add(Fix.COMMAND_SALMAN_CHANT);
+        list.Add(Fix.COMMAND_ANDATE_CHANT);
+        list.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_4;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR:
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
+        SetupParameter(4800, 1150, 4800, 200000, 140, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SEASTAR_ORIGIN_SEAL);
+        list.Add(Fix.FRESH_HEAL);
+        list.Add(Fix.FREEZING_CUBE);
+        list.Add(Fix.FORTUNE_SPIRIT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_4;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.GROUND_VORTEX_LEVIATHAN:
+      case Fix.GROUND_VORTEX_LEVIATHAN_JP:
+      case Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW:
+        SetupParameter(5500, 1300, 5500, 240000, 150, 0, 130000, 200000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SEASTARKING_ROAR);
+        list.Add(Fix.COMMAND_BURST_CLOUD);
+        list.Add(Fix.COMMAND_HUGE_SHOCKWAVE);
+        list.Add(Fix.COMMAND_SURGETIC_BIND);
+        list.Add(Fix.COMMAND_TIDAL_WAVE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss55;
+        this.CannotCritical = true;
+        break;
+
       #endregion
 
       case Fix.DUMMY_SUBURI:
@@ -7298,286 +7836,6 @@ public partial class Character : MonoBehaviour
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
-        break;
-
-      case Fix.DAGGER_FISH:
-      case Fix.DAGGER_FISH_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.FLOATING_MANTA:
-      case Fix.FLOATING_MANTA_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SKYBLUE_BIRD:
-      case Fix.SKYBLUE_BIRD_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.RAINBOW_CLIONE:
-      case Fix.RAINBOW_CLIONE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ROLLING_MAGURO:
-      case Fix.ROLLING_MAGURO_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.LIMBER_SEAEAGLE:
-      case Fix.LIMBER_SEAEAGLE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.FLUFFY_CORAL:
-      case Fix.FLUFFY_CORAL_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.BLACK_OCTOPUS:
-      case Fix.BLACK_OCTOPUS_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.STEAL_SQUID:
-      case Fix.STEAL_SQUID_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.THE_BIGHAND_OF_KRAKEN:
-      case Fix.THE_BIGHAND_OF_KRAKEN_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.PROUD_VIKING:
-      case Fix.PROUD_VIKING_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GAN_GAME:
-      case Fix.GAN_GAME_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.JUMPING_KAMASU:
-      case Fix.JUMPING_KAMASU_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.WRECHED_ANEMONE:
-      case Fix.WRECHED_ANEMONE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.DEEPSEA_HAND:
-      case Fix.DEEPSEA_HAND_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ASSULT_SERPENT:
-      case Fix.ASSULT_SERPENT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ESCORT_HERMIT_CLUB:
-      case Fix.ESCORT_HERMIT_CLUB_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GLUTTONY_COELACANTH:
-      case Fix.GLUTTONY_COELACANTH_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GIANT_SEA_SPIDER:
-      case Fix.GIANT_SEA_SPIDER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SHELL_THE_SWORD_KNIGHT:
-      case Fix.SHELL_THE_SWORD_KNIGHT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.MOGUL_MANTA:
-      case Fix.MOGUL_MANTA_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.WEEPING_MIST:
-      case Fix.WEEPING_MIST_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.AMBUSH_ANGLERFISH:
-      case Fix.AMBUSH_ANGLERFISH_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.EMERALD_LOBSTER:
-      case Fix.EMERALD_LOBSTER_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.BIGMOUSE_JOE:
-      case Fix.BIGMOUSE_JOE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.RAMPAGE_BIGSHARK:
-      case Fix.RAMPAGE_BIGSHARK_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.STICKY_STARFISH:
-      case Fix.STICKY_STARFISH_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SEA_ELEMENTAL:
-      case Fix.SEA_ELEMENTAL_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.EDGED_HIGH_SHARK:
-      case Fix.EDGED_HIGH_SHARK_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GUARDIAN_ROYAL_NAGA:
-      case Fix.GUARDIAN_ROYAL_NAGA_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
-        break;
-
-      case Fix.THOUGHTFUL_NAUTILUS:
-      case Fix.THOUGHTFUL_NAUTILUS_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.FEROCIOUS_WHALE:
-      case Fix.FEROCIOUS_WHALE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.GHOST_SHIP:
-      case Fix.GHOST_SHIP_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.RECKLESS_WALRUS:
-      case Fix.RECKLESS_WALRUS_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.BEAUTY_SEA_LILY:
-      case Fix.BEAUTY_SEA_LILY_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.DEFENSIVE_DATSU:
-      case Fix.DEFENSIVE_DATSU_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SEA_STAR_KNIGHT:
-      case Fix.SEA_STAR_KNIGHT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.SEA_SONG_MARMAID:
-      case Fix.SEA_SONG_MARMAID_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.BRILLIANT_SEA_PRINCE:
-      case Fix.BRILLIANT_SEA_PRINCE_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.VELGAS_THE_KING_OF_SEA_STAR:
-      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = false;
         break;
 
       case Fix.STONE_STATUE_SEIHITSU:

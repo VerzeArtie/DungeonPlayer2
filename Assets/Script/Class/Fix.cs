@@ -167,7 +167,18 @@ public static partial class Fix
     Boss42,
     TruthBoss4,
     Area51,
+    Area52,
+    Area53,
+    Area54,
+    Area55,
     Boss5,
+    Boss52,
+    Boss53,
+    Boss54_1,
+    Boss54_2,
+    Boss54_3,
+    Boss54_4,
+    Boss55,
     TruthBoss5,
     Area46,
     Duel,
@@ -1524,6 +1535,121 @@ public static partial class Fix
   public const string COMMAND_HEAVEN_VOICE = "天空の呼び声";
   public const string COMMAND_PLASMA_STORM = "プラズマ・ストーム";
   public const string COMMAND_APOCALYPSE_SWORD = "アポカリプス・ソード";
+
+  public const string COMMAND_WATER_GUN = "ウォーター・ガン";
+  public const string COMMAND_WATER_DANCE = "水中ダンス";
+  public const string COMMAND_WATER_SHOT = "水中射出";
+  public const string COMMAND_SKY_FEATHER = "スカイ・フェザー";
+  public const string COMMAND_RAINBOW_BUBBLE = "虹色バブル";
+  public const string COMMAND_WATER_CIRCLE = "ウォーター・サークル";
+  public const string COMMAND_ROLLING_CHARGE = "ローリング・突撃";
+  public const string COMMAND_JET_RUN = "ジェット・ラン";
+  public const string COMMAND_INVISIBLE_POISON = "インビジブル・ポイゾン";
+  public const string COMMAND_BEAUTY_AROMA = "かぐわしい芳香";
+  public const string COMMAND_AQUA_BLOSSOM = "アクア・ブラッサム";
+  public const string COMMAND_DEATH_STROKE = "デス・ストローク";
+  public const string COMMAND_DEVIL_EMBLEM = "デビル・エムブレム";
+  public const string COMMAND_COLD_WIND = "コールド・ウィンド";
+  public const string COMMAND_PARALYZE_TENTACLE = "痺れ触手";
+  public const string COMMAND_SCREAMING_SOUND = "奇声音波";
+  public const string COMMAND_KUROZUMI_FIELD = "黒墨フィールド";
+  // public const string COMMAND_CONSTRICT = "締めつけ";
+  public const string COMMAND_SOLID_SQUARE_WATER = "ソリッド・スクエア・ウォータ";
+  public const string COMMAND_BRIGHT_EYE = "ブライト・アイ";
+  public const string COMMAND_STONE_KOURA = "石の甲羅";
+  public const string COMMAND_OOABARE = "大暴れ";
+  public const string COMMAND_JUMP_SMASH = "跳躍スマッシュ";
+  public const string COMMAND_STRANGE_SPELL = "奇妙な詠唱";
+  public const string COMMAND_THROWING_CRASH = "スローイング・クラッシュ";
+  public const string COMMAND_BAIRIKI = "倍力";
+  public const string COMMAND_NAGITAOSHI = "なぎ倒し";
+  public const string COMMAND_WASHIZUKAMI = "鷲掴み";
+  public const string COMMAND_ZINARASHI = "地鳴らし";
+  public const string COMMAND_SUIKOMI = "吸い込み";
+  public const string COMMAND_SCARLET_SEED = "緋色の種";
+  public const string COMMAND_POISON_GERMINATION = "猛毒の発芽";
+  public const string COMMAND_WAVE_SIGN = "ウェーブ・サイン";
+  public const string COMMAND_SILENT_SIGN = "無音のサイン";
+  public const string COMMAND_HIKKAKI_CLAW = "引掻き爪";
+  public const string COMMAND_BATTLE_DANCE = "闘いの舞";
+  public const string COMMAND_DRAIN_WEB = "ドレイン・ウェブ";
+  public const string COMMAND_SAND_SMOKE = "砂煙";
+  public const string COMMAND_GUT_SLASH = "ガット・スラッシュ";
+  public const string COMMAND_GUARDIAN_SONG = "護衛の賛歌";
+  public const string COMMAND_WATER_FLAPPING = "水中はばたき";
+  public const string COMMAND_INVISIBLE_THREAD = "不可視の縛糸";
+  public const string COMMAND_INTENSE_BREATH = "激しいブレス";
+  public const string COMMAND_BIG_SWIM = "大泳ぎ";
+  public const string COMMAND_ROAR = "雄たけび";
+  public const string COMMAND_BITING = "かぶりつき";
+  public const string COMMAND_SAINT_DROP = "神聖の雫";
+  public const string COMMAND_AMPLIFY_SEAL = "増幅の戦闘印";
+  public const string COMMAND_PHANTOM_SEAL = "幻影の守護印";
+  public const string COMMAND_TEN_BULLET = "十連飛礫";
+  public const string COMMAND_HOLLOW_MIST = "嘆きの霧";
+  public const string COMMAND_POLLUTED_POISON = "汚染された毒液";
+  public const string COMMAND_BUBBLE_BULLET = "気泡弾";
+  public const string COMMAND_AMBUSH_ATTACK = "潜伏攻撃";
+  public const string COMMAND_GROUND_THUNDER = "グラウンド・サンダー";
+  public const string COMMAND_CONTINUOUS_CHARGE = "連続特攻";
+  public const string COMMAND_STAR_EMBLEM = "スターの紋様";
+  public const string COMMAND_MUD_PISTOL = "泥鉄砲";
+  public const string COMMAND_RIPPER_CLAW = "切り裂きクロー";
+  public const string COMMAND_HIKICHIGIRI = "引きちぎり";
+  public const string COMMAND_RUBBER_TONG = "ゴム舌";
+  public const string COMMAND_SPANNING_SLASH = "スパニング・ラッシュ";
+  public const string COMMAND_STARSWORD_KAI = "スター・ソード【改】";
+  public const string COMMAND_SEASTAR_EYE = "海星の眼";
+  public const string COMMAND_WATER_CANNON = "キャノン・ウォータ";
+  public const string COMMAND_PROTECTION_SEAL = "プロテクション・シール";
+  public const string COMMAND_BLOODSHOT_EYE = "血走った眼";
+  public const string COMMAND_FRENZY_DRIVE = "狂暴ドライブ";
+  public const string COMMAND_THOUGHT_EATER = "思考食い";
+  public const string COMMAND_VACUUM_SHOT = "真空砲弾";
+  public const string COMMAND_PHANTOM_EATER = "ファントム・イーター";
+  public const string COMMAND_GHOST_KILL = "ゴースト・キル";
+  public const string COMMAND_ZERO_ATTACK = "零の一閃";
+  public const string COMMAND_JU_STYLE = "十の太刀";
+  public const string COMMAND_CLEANSING_SONG = "洗礼の歌声";
+  public const string COMMAND_WASH_AWAY = "洗い流し";
+  public const string COMMAND_CHARGE = "突撃";
+  public const string COMMAND_SEA_STRIVE = "シー・ストライヴ";
+  public const string COMMAND_BLINK_SHELL = "ブリンク・シェル";
+  public const string COMMAND_PLATINUM_BLADE = "プラチナ・ブレード";
+  public const string COMMAND_SEASTAR_OATH = "海星源への誓い";
+  public const string COMMAND_STARSWORD_KIRAMEKI = "スター・ソード【煌】";
+  public const string COMMAND_BARRIER_FIELD = "結界フィールド";
+  public const string COMMAND_CIRCULAR_SLASH = "サーキュラー・スラッシュ";
+  public const string COMMAND_TORPEDO_BUSTER = "トルペード・バスター";
+  public const string COMMAND_STARSWORD_TSUYA = "スター・ソード【艶】";
+  public const string COMMAND_INVASION_FIELD = "侵攻フィールド";
+  public const string COMMAND_ILLUSION_BOLT = "イリュージョン・ボルト";
+  public const string COMMAND_VORTEX_BLAST = "ヴォーテクス・ブラスト";
+  public const string COMMAND_FIRE_BULLET = "燃え盛る炎弾丸";
+  public const string COMMAND_BLAZING_STORM = "ブレイジング・ストーム";
+  public const string COMMAND_FLARE_BURN = "フレア・バーン";
+  public const string COMMAND_PENETRATION_EYE = "ペネトレーション・アイ";
+  public const string COMMAND_FROZEN_BULLET = "凍てつく氷炎弾丸";
+  public const string COMMAND_FREEZING_STORM = "フリージング・ストーム";
+  public const string COMMAND_BUBBLE_TURRET = "バブル・タレット";
+  public const string COMMAND_HALLUCINATE_EYE = "ハルシネイト・アイ";
+  public const string COMMAND_BRAVE_ROAR = "勇敢な雄叫び";
+  public const string COMMAND_SEASLIDE_WATER = "シースライド・ウォータ";
+  public const string COMMAND_GUNGNIR_SLASH= "グングニル・スラッシュ";
+  public const string COMMAND_GUNGNIR_LIGHT = "グングニルの閃光";
+  public const string COMMAND_LIFE_WATER = "生命の龍水";
+  public const string COMMAND_SALMAN_CHANT = "サルマンの詠唱";
+  public const string COMMAND_ANDATE_CHANT = "アンダートの詠唱";
+  public const string COMMAND_ELEMENTAL_SPLASH = "エレメンタル・スプラッシュ";
+  public const string COMMAND_SEASTAR_ORIGIN_SEAL = "海星源の授印";
+  //public const string COMMAND_ = "フレッシュ・ヒール";
+  //public const string COMMAND_ = "フリージング・キューブ";
+  //public const string COMMAND_ = "フォーチュン・スピリット";
+  public const string COMMAND_SEASTARKING_ROAR = "海王の咆哮";
+  public const string COMMAND_BURST_CLOUD = "バースト・クラウド";
+  public const string COMMAND_HUGE_SHOCKWAVE = "大激衝";
+  public const string COMMAND_SURGETIC_BIND = "サージェティック・バインド";
+  public const string COMMAND_TIDAL_WAVE = "タイダル・ウェイブ";
 
   public const string COMMAND_NOTHING = "なし";
   #endregion
