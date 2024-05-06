@@ -11,6 +11,7 @@ public class NodeCharaExp : MonoBehaviour
   public Image objCurrentExpGauge;
   public Image objCurrentExpBorder;
 
+  public Character SourceCharacter;
   public int BeforeExpThreshold;
   public int BeforeExp;
   public int AfterExp;

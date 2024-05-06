@@ -296,6 +296,14 @@ public partial class BattleEnemy : MotherBase
       counter++;
     }
 
+    // Expパネルの作成
+    if (One.TF.BattlePlayer1 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer1)); }
+    if (One.TF.BattlePlayer2 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer2)); }
+    if (One.TF.BattlePlayer3 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer3)); }
+    if (One.TF.BattlePlayer4 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer4)); }
+    if (One.TF.BattlePlayer5 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer5)); }
+    if (One.TF.BattlePlayer6 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer6)); }
+
     // 味方グループの作成
     float allyBaseStart = AP.Math.RandomInteger(30) + 30.0f;
     for (int ii = 0; ii < playerList.Count; ii++)
@@ -319,33 +327,6 @@ public partial class BattleEnemy : MotherBase
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
       AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii], this.PanelPlayerField);
-
-      NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
-      node_charaExp.txtPlayerName.text = playerList[ii].FullName;
-      if (playerList[ii].Exp < playerList[ii].GetNextExp())
-      {
-        node_charaExp.txtPlayerExp.text = playerList[ii].Exp + " / " + playerList[ii].GetNextExp();
-      }
-      else
-      {
-        node_charaExp.txtPlayerExp.text = "Max";
-      }
-      float dx = (float)playerList[ii].Exp / (float)playerList[ii].GetNextExp();
-      node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
-
-      if (playerList[ii].Exp < playerList[ii].GetNextExp())
-      {
-        node_charaExp.objCurrentExpBorder.gameObject.SetActive(true);
-      }
-      else
-      {
-        node_charaExp.objCurrentExpBorder.gameObject.SetActive(false);
-      }
-      node_charaExp.BeforeExpThreshold = playerList[ii].GetNextExp();
-      node_charaExp.BeforeExp = playerList[ii].Exp;
-      node_charaExp.gameObject.SetActive(true);
-      node_charaExp.transform.SetParent(panelGameEndExpList.transform);
-      CharaExpList.Add(node_charaExp);
 
       // キャラクターグループのリストに追加
       playerList[ii].Ally = Fix.Ally.Ally;
@@ -851,24 +832,6 @@ public partial class BattleEnemy : MotherBase
         if (AutoExit > 0)
         {
           AutoExit--;
-          if (AutoExit == Fix.BATTLEEND_AUTOEXIT - 1)
-          {
-            for (int ii = 0; ii < CharaExpList.Count; ii++)
-            {
-              for (int jj = 0; jj < PlayerList.Count; jj++)
-              {
-                if (PlayerList[jj].FullName == CharaExpList[ii].txtPlayerName.text)
-                {
-                  CharaExpList[ii].AfterExp = PlayerList[jj].Exp;
-                  if (PlayerList[jj].Exp >= PlayerList[jj].GetNextExp())
-                  {
-                    CharaExpList[ii].AfterExp = PlayerList[jj].GetNextExp();
-                  }
-                  Debug.Log("after exp detect: " + CharaExpList[ii].AfterExp);
-                }
-              }
-            }
-          }
 
           int start_time = Fix.BATTLEEND_AUTOEXIT - 50;
           int end_time = Fix.BATTLEEND_AUTOEXIT - 100;
@@ -878,46 +841,43 @@ public partial class BattleEnemy : MotherBase
             {
               for (int jj = 0; jj < PlayerList.Count; jj++)
               {
-                if (PlayerList[jj].FullName == CharaExpList[ii].txtPlayerName.text)
+                // レベルアップの場合MAXで止めるアニメーションにする。
+                if (CharaExpList[ii].AfterExp <= CharaExpList[ii].BeforeExp)
                 {
-                  // レベルアップの場合MAXで止めるアニメーションにする。
-                  if (CharaExpList[ii].AfterExp <= CharaExpList[ii].BeforeExp)
+                  //Debug.Log("CharaExpList detect Levelup");
+                  float div_value = (float)((float)CharaExpList[ii].BeforeExpThreshold - (float)CharaExpList[ii].BeforeExp + CharaExpList[ii].AfterExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
+                  float current = (CharaExpList[ii].BeforeExp + div_value);
+                  float dx = current / (float)(CharaExpList[ii].BeforeExpThreshold); // (float)CharaExpList[ii].SourceCharacter.GetNextExp();
+                  if (dx < 1.0f)
                   {
-                    //Debug.Log("CharaExpList detect Levelup");
-                    float div_value = (float)((float)CharaExpList[ii].BeforeExpThreshold - (float)CharaExpList[ii].BeforeExp + CharaExpList[ii].AfterExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
-                    float current = (CharaExpList[ii].BeforeExp + div_value);
-                    float dx = current / (float)(CharaExpList[ii].BeforeExpThreshold); // (float)PlayerList[jj].GetNextExp();
-                    if (dx < 1.0f)
-                    {
-                      CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
-                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
-                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + CharaExpList[ii].BeforeExpThreshold;
-                    }
-                    else
-                    {
-                      CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(1.0f, 1.0f);
-                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
-                      CharaExpList[ii].txtPlayerExp.text = "Max";
-                    }
+                    CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
+                    CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + CharaExpList[ii].BeforeExpThreshold;
                   }
-                  // それ以外は通常のアニメーション
                   else
                   {
-                    //Debug.Log("CharaExpList normal");
-                    float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
-                    float current = (CharaExpList[ii].BeforeExp + div_value);
-                    float dx = current / (float)PlayerList[jj].GetNextExp();
-                    CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
-                    if (dx < 1.0f)
-                    {
-                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
-                      CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + PlayerList[jj].GetNextExp();
-                    }
-                    else
-                    {
-                      CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
-                      CharaExpList[ii].txtPlayerExp.text = "Max";
-                    }
+                    CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(1.0f, 1.0f);
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
+                    CharaExpList[ii].txtPlayerExp.text = "Max";
+                  }
+                }
+                // それ以外は通常のアニメーション
+                else
+                {
+                  //Debug.Log("CharaExpList normal");
+                  float div_value = (float)((float)CharaExpList[ii].AfterExp - (float)CharaExpList[ii].BeforeExp) * (float)(1.00f / (start_time - end_time)) * (start_time - AutoExit);
+                  float current = (CharaExpList[ii].BeforeExp + div_value);
+                  float dx = current / (float)CharaExpList[ii].SourceCharacter.GetNextExp();
+                  CharaExpList[ii].objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+                  if (dx < 1.0f)
+                  {
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(true);
+                    CharaExpList[ii].txtPlayerExp.text = (int)current + " / " + CharaExpList[ii].SourceCharacter.GetNextExp();
+                  }
+                  else
+                  {
+                    CharaExpList[ii].objCurrentExpBorder.gameObject.SetActive(false);
+                    CharaExpList[ii].txtPlayerExp.text = "Max";
                   }
                 }
               }
@@ -977,43 +937,13 @@ public partial class BattleEnemy : MotherBase
           gainGold += One.EnemyList[ii].Gold;
         }
 
-        for (int ii = 0; ii < PlayerList.Count; ii++)
-        {
-          if (PlayerList[ii].Exp < PlayerList[ii].GetNextExp())
-          {
-            PlayerList[ii].GainExp(gainExp);
+        if (One.TF.BattlePlayer1 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer1), gainExp); }
+        if (One.TF.BattlePlayer2 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer2), gainExp); }
+        if (One.TF.BattlePlayer3 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer3), gainExp); }
+        if (One.TF.BattlePlayer4 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer4), gainExp); }
+        if (One.TF.BattlePlayer5 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer5), gainExp); }
+        if (One.TF.BattlePlayer6 != String.Empty) { UpdateExp(One.SelectCharacter(One.TF.BattlePlayer6), gainExp); }
 
-            if (PlayerList[ii].Exp >= PlayerList[ii].GetNextExp())
-            {
-              string newCommand = string.Empty;
-              PlayerList[ii].Exp = PlayerList[ii].Exp - PlayerList[ii].GetNextExp();
-              PlayerList[ii].UpdateLevelup(ref newCommand, One.TF.AvailableFirstEssence, One.TF.AvailableSecondEssence, One.TF.AvailableThirdEssence, One.TF.AvailableFourthEssence);
-
-              DetectLvup.Add(true);
-              DetectLvupTitle.Add( PlayerList[ii].FullName + "が Lv " + PlayerList[ii].Level.ToString() + " にレベルアップしました！");
-              DetectLvupMaxLife.Add("最大ライフが " + PlayerList[ii].LevelupBaseLife() + " 上昇した！");
-              DetectLvupMaxManaPoint.Add("最大マナが " + PlayerList[ii].LevelupBaseManaPoint() + " 上昇した！");
-              DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが " + PlayerList[ii].LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
-              DetectLvupRemainPoint.Add("コア・パラメタポイントを " + PlayerList[ii].LevelupRemainPoint() +" 獲得！");
-              if (PlayerList[ii].LevelupSoulEssence() > 0)
-              {
-                DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + PlayerList[ii].LevelupSoulEssence() + " 獲得！");
-              }
-              else
-              {
-                //DetectLvupSoulEssence.Add("");
-              }
-              if (newCommand != String.Empty)
-              {
-                DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(newCommand) + " 】を習得した！");
-              }
-              else
-              {
-                DetectLvupSpecial.Add("");
-              }
-            }
-          }
-        }
         One.TF.Gold += gainGold;
 
         txtGameEndMessage.text = "敵を倒した。\r\n" + gainExp + "経験値を獲得。\r\n" + gainGold + "ゴールドを獲得";
@@ -6825,6 +6755,81 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
 
     return true;
+  }
+
+  private void UpdateExp(Character character, int gain_exp)
+  {
+    if (character.Exp < character.GetNextExp())
+    {
+      character.GainExp(gain_exp);
+
+      if (character.Exp >= character.GetNextExp())
+      {
+        string newCommand = string.Empty;
+        character.Exp = character.Exp - character.GetNextExp();
+        character.UpdateLevelup(ref newCommand, One.TF.AvailableFirstEssence, One.TF.AvailableSecondEssence, One.TF.AvailableThirdEssence, One.TF.AvailableFourthEssence);
+
+        DetectLvup.Add(true);
+        DetectLvupTitle.Add(character.FullName + "が Lv " + character.Level.ToString() + " にレベルアップしました！");
+        DetectLvupMaxLife.Add("最大ライフが " + character.LevelupBaseLife() + " 上昇した！");
+        DetectLvupMaxManaPoint.Add("最大マナが " + character.LevelupBaseManaPoint() + " 上昇した！");
+        DetectLvupMaxSkillPoint.Add(""); // 最大スキルポイントが " + character.LevelupBaseSkillPoint() + " 上昇した！"); // スキルポイントは原則上昇しない。
+        DetectLvupRemainPoint.Add("コア・パラメタポイントを " + character.LevelupRemainPoint() + " 獲得！");
+        if (character.LevelupSoulEssence() > 0)
+        {
+          DetectLvupSoulEssence.Add("ソウル・エッセンスポイントを " + character.LevelupSoulEssence() + " 獲得！");
+        }
+        else
+        {
+          //DetectLvupSoulEssence.Add("");
+        }
+        if (newCommand != String.Empty)
+        {
+          DetectLvupSpecial.Add("【 " + ActionCommand.To_JP(newCommand) + " 】を習得した！");
+        }
+        else
+        {
+          DetectLvupSpecial.Add("");
+        }
+      }
+    }
+  }
+
+  private void ConstructNodeCharaExp(Character character)
+  {
+    NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
+    node_charaExp.txtPlayerName.text = character.FullName;
+    if (character.Exp < character.GetNextExp())
+    {
+      node_charaExp.txtPlayerExp.text = character.Exp + " / " + character.GetNextExp();
+    }
+    else
+    {
+      node_charaExp.txtPlayerExp.text = "Max";
+    }
+    float dx = (float)character.Exp / (float)character.GetNextExp();
+    node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+
+    if (character.Exp < character.GetNextExp())
+    {
+      node_charaExp.objCurrentExpBorder.gameObject.SetActive(true);
+    }
+    else
+    {
+      node_charaExp.objCurrentExpBorder.gameObject.SetActive(false);
+    }
+    node_charaExp.BeforeExpThreshold = character.GetNextExp();
+    node_charaExp.BeforeExp = character.Exp;
+    node_charaExp.gameObject.SetActive(true);
+    node_charaExp.transform.SetParent(panelGameEndExpList.transform);
+
+    node_charaExp.SourceCharacter = character;
+    node_charaExp.AfterExp = character.Exp;
+    if (character.Exp >= character.GetNextExp())
+    {
+      node_charaExp.AfterExp = character.GetNextExp();
+    }
+    CharaExpList.Add(node_charaExp);
   }
   #endregion
   #endregion
