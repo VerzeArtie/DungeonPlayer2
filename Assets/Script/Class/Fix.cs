@@ -838,7 +838,7 @@ public static partial class Fix
   public const string FOOD_NEGIYAKI_DON = "ネギ焼き丼";
   public const string FOOD_NANAIRO_BUNA_NITSUKE = "七色ブナの煮つけ";
 
-  // ３階
+  // パルメティシア神殿
   public const string FOOD_HINYARI_YASAI = @"ヒンヤリ・カリっと野菜定食";
   public const string FOOD_AZARASI_SHIOYAKI = @"白アザラシの塩焼き";
   public const string FOOD_WINTER_BEEF_CURRY = @"ウィンター・ビーフカレー";

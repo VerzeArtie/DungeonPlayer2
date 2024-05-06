@@ -4212,6 +4212,28 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
     }
+    else if (area_name == Fix.TOWN_PARMETYSIA)
+    {
+      shopList.Add(new Item(Fix.MASTER_SWORD));
+      shopList.Add(new Item(Fix.MASTER_LANCE));
+      shopList.Add(new Item(Fix.MASTER_AXE));
+      shopList.Add(new Item(Fix.MASTER_CLAW));
+      shopList.Add(new Item(Fix.MASTER_ROD));
+      shopList.Add(new Item(Fix.MASTER_BOOK));
+      shopList.Add(new Item(Fix.MASTER_ORB));
+      shopList.Add(new Item(Fix.MASTER_LARGE_SWORD));
+      shopList.Add(new Item(Fix.MASTER_LARGE_LANCE));
+      shopList.Add(new Item(Fix.MASTER_LARGE_AXE));
+      shopList.Add(new Item(Fix.MASTER_BOW));
+      shopList.Add(new Item(Fix.MASTER_LARGE_STAFF));
+      shopList.Add(new Item(Fix.MASTER_SHIELD));
+      shopList.Add(new Item(Fix.MASTER_ARMOR));
+      shopList.Add(new Item(Fix.MASTER_CROSS));
+      shopList.Add(new Item(Fix.MASTER_ROBE));
+      shopList.Add(new Item(Fix.HQ_RED_POTION));
+      shopList.Add(new Item(Fix.HQ_BLUE_POTION));
+      shopList.Add(new Item(Fix.HQ_GREEN_POTION));
+    }
     else if (area_name == Fix.TOWN_ARCANEDINE)
     {
       shopList.Add(new Item(Fix.FINE_SWORD));
@@ -4264,6 +4286,14 @@ public partial class HomeTown : MotherBase
       foodList.Add(Fix.FOOD_SYOI_KINOKO_SUGATAYAKI);
       foodList.Add(Fix.FOOD_NEGIYAKI_DON);
       foodList.Add(Fix.FOOD_NANAIRO_BUNA_NITSUKE);
+    }
+    else if (area_name == Fix.TOWN_PARMETYSIA)
+    {
+      foodList.Add(Fix.FOOD_HINYARI_YASAI);
+      foodList.Add(Fix.FOOD_AZARASI_SHIOYAKI);
+      foodList.Add(Fix.FOOD_WINTER_BEEF_CURRY);
+      foodList.Add(Fix.FOOD_GATTURI_GOZEN);
+      foodList.Add(Fix.FOOD_KOGOERU_DESSERT);
     }
 
     return foodList;
