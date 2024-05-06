@@ -10441,24 +10441,31 @@ public class DungeonField : MotherBase
 
         if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_11_X, Fix.VELGUS_TRIGGERTILE_11_Y, Fix.VELGUS_TRIGGERTILE_11_Z))
         {
-          MessagePack.Message1000021(ref QuestMessageList, ref QuestEventList);
-          // 表
-          if (One.TF.Event_Message1000021 == false && One.TF.Event_Message1000022 == false && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+          if (One.TF.Event_Message1000021 == false)
           {
             One.TF.Event_Message1000021 = true;
-          }
-          else
-          {
-            One.TF.Event_Message1000020_Fail = true;
-          }
-          // 裏
-          if (One.TF.Event_Message1000021_2 == true && One.TF.Event_Message1000022_2 == true && One.TF.Event_Message1000023_2 == false && One.TF.Event_Message1000024_2 == false)
-          {
-            One.TF.Event_Message1000023_2 = true;
-          }
-          else
-          {
-            One.TF.Event_Message1000020_2_Fail = true;
+
+            MessagePack.Message1000021(ref QuestMessageList, ref QuestEventList);
+            if (One.TF.Velgus_Center_Number1 == -1)
+            {
+              One.TF.Velgus_Center_Number1 = 1;
+            }
+            else if (One.TF.Velgus_Center_Number2 == -1)
+            {
+              One.TF.Velgus_Center_Number2 = 1;
+            }
+            else if (One.TF.Velgus_Center_Number3 == -1)
+            {
+              One.TF.Velgus_Center_Number3 = 1;
+            }
+            else if (One.TF.Velgus_Center_Number4 == -1)
+            {
+              One.TF.Velgus_Center_Number4 = 1;
+            }
+
+            Debug.Log("Num1: " + One.TF.Velgus_Center_Number1 + "  Num2: " + One.TF.Velgus_Center_Number2 + "  Num3: " + One.TF.Velgus_Center_Number3 + "  Num4: " + One.TF.Velgus_Center_Number4);
+
+            DetectVelgusCenterRoomEvent();
           }
 
           TapOK();
@@ -10466,24 +10473,30 @@ public class DungeonField : MotherBase
         }
         if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_12_X, Fix.VELGUS_TRIGGERTILE_12_Y, Fix.VELGUS_TRIGGERTILE_12_Z))
         {
-          MessagePack.Message1000022(ref QuestMessageList, ref QuestEventList);
-          // 表
-          if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == false && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+          if (One.TF.Event_Message1000022 == false)
           {
             One.TF.Event_Message1000022 = true;
-          }
-          else
-          {
-            One.TF.Event_Message1000020_Fail = true;
-          }
-          // 裏
-          if (One.TF.Event_Message1000021_2 == false && One.TF.Event_Message1000022_2 == false && One.TF.Event_Message1000023_2 == false && One.TF.Event_Message1000024_2 == false)
-          {
-            One.TF.Event_Message1000021_2 = true;
-          }
-          else
-          {
-            One.TF.Event_Message1000020_2_Fail = true;
+            MessagePack.Message1000022(ref QuestMessageList, ref QuestEventList);
+            if (One.TF.Velgus_Center_Number1 == -1)
+            {
+              One.TF.Velgus_Center_Number1 = 2;
+            }
+            else if (One.TF.Velgus_Center_Number2 == -1)
+            {
+              One.TF.Velgus_Center_Number2 = 2;
+            }
+            else if (One.TF.Velgus_Center_Number3 == -1)
+            {
+              One.TF.Velgus_Center_Number3 = 2;
+            }
+            else if (One.TF.Velgus_Center_Number4 == -1)
+            {
+              One.TF.Velgus_Center_Number4 = 2;
+            }
+
+            Debug.Log("Num1: " + One.TF.Velgus_Center_Number1 + "  Num2: " + One.TF.Velgus_Center_Number2 + "  Num3: " + One.TF.Velgus_Center_Number3 + "  Num4: " + One.TF.Velgus_Center_Number4);
+
+            DetectVelgusCenterRoomEvent();
           }
 
           TapOK();
@@ -10491,27 +10504,30 @@ public class DungeonField : MotherBase
         }
         if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_13_X, Fix.VELGUS_TRIGGERTILE_13_Y, Fix.VELGUS_TRIGGERTILE_13_Z))
         {
-          MessagePack.Message1000023(ref QuestMessageList, ref QuestEventList);
-          // 表
-          if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == true && One.TF.Event_Message1000023 == false && One.TF.Event_Message1000024 == false)
+          if (One.TF.Event_Message1000023 == false)
           {
             One.TF.Event_Message1000023 = true;
-          }
-          else
-          {
-            One.TF.Event_Message1000020_Fail = true;
-          }
-          // 裏
-          Debug.Log("13 21_2:" + One.TF.Event_Message1000021_2.ToString() + " 22_2:" + One.TF.Event_Message1000022_2.ToString() + " 23_2:" + One.TF.Event_Message1000023_2.ToString() + " 24_2:" + One.TF.Event_Message1000024_2.ToString() + " 20_2_fail:" + One.TF.Event_Message1000020_2_Fail.ToString());
-          if (One.TF.Event_Message1000021_2 == true && One.TF.Event_Message1000022_2 == true && One.TF.Event_Message1000023_2 == true && One.TF.Event_Message1000024_2 == false && One.TF.Event_Message1000020_2_Fail == false)
-          {
-            One.TF.Event_Message1000024_2 = true;
-            MessagePack.Message1000029(ref QuestMessageList, ref QuestEventList);
-          }
-          else
-          {
-            One.TF.Event_Message1000020_2_Fail = true;
-            MessagePack.Message1000030(ref QuestMessageList, ref QuestEventList);
+            MessagePack.Message1000023(ref QuestMessageList, ref QuestEventList);
+            if (One.TF.Velgus_Center_Number1 == -1)
+            {
+              One.TF.Velgus_Center_Number1 = 3;
+            }
+            else if (One.TF.Velgus_Center_Number2 == -1)
+            {
+              One.TF.Velgus_Center_Number2 = 3;
+            }
+            else if (One.TF.Velgus_Center_Number3 == -1)
+            {
+              One.TF.Velgus_Center_Number3 = 3;
+            }
+            else if (One.TF.Velgus_Center_Number4 == -1)
+            {
+              One.TF.Velgus_Center_Number4 = 3;
+            }
+
+            Debug.Log("Num1: " + One.TF.Velgus_Center_Number1 + "  Num2: " + One.TF.Velgus_Center_Number2 + "  Num3: " + One.TF.Velgus_Center_Number3 + "  Num4: " + One.TF.Velgus_Center_Number4);
+
+            DetectVelgusCenterRoomEvent();
           }
 
           TapOK();
@@ -10519,35 +10535,32 @@ public class DungeonField : MotherBase
         }
         if (LocationDetect(tile, Fix.VELGUS_TRIGGERTILE_14_X, Fix.VELGUS_TRIGGERTILE_14_Y, Fix.VELGUS_TRIGGERTILE_14_Z))
         {
-          MessagePack.Message1000024(ref QuestMessageList, ref QuestEventList);
-          // 裏ルート失敗なら表ルートでメッセージ表示とする。
-          if (One.TF.Event_Message1000020_2_Fail)
+          if (One.TF.Event_Message1000024 == false)
           {
-            // 表
-            if (One.TF.Event_Message1000021 == true && One.TF.Event_Message1000022 == true && One.TF.Event_Message1000023 == true && One.TF.Event_Message1000024 == false && One.TF.Event_Message1000020_Fail == false)
+            One.TF.Event_Message1000024 = true;
+            MessagePack.Message1000024(ref QuestMessageList, ref QuestEventList);
+            if (One.TF.Velgus_Center_Number1 == -1)
             {
-              One.TF.Event_Message1000024 = true;
-              MessagePack.Message1000026(ref QuestMessageList, ref QuestEventList);
+              One.TF.Velgus_Center_Number1 = 4;
             }
-            else
+            else if (One.TF.Velgus_Center_Number2 == -1)
             {
-              One.TF.Event_Message1000020_Fail = true;
-              MessagePack.Message1000027(ref QuestMessageList, ref QuestEventList);
+              One.TF.Velgus_Center_Number2 = 4;
             }
+            else if (One.TF.Velgus_Center_Number3 == -1)
+            {
+              One.TF.Velgus_Center_Number3 = 4;
+            }
+            else if (One.TF.Velgus_Center_Number4 == -1)
+            {
+              One.TF.Velgus_Center_Number4 = 4;
+            }
+
+            Debug.Log("Num1: " + One.TF.Velgus_Center_Number1 + "  Num2: " + One.TF.Velgus_Center_Number2 + "  Num3: " + One.TF.Velgus_Center_Number3 + "  Num4: " + One.TF.Velgus_Center_Number4);
+
+            DetectVelgusCenterRoomEvent();
           }
-          else
-          {
-            Debug.Log("14 21_2:" + One.TF.Event_Message1000021_2.ToString() + " 22_2:" + One.TF.Event_Message1000022_2.ToString() + " 23_2:" + One.TF.Event_Message1000023_2.ToString() + " 24_2:" + One.TF.Event_Message1000024_2.ToString() + " 20_2_fail:" + One.TF.Event_Message1000020_2_Fail.ToString());
-            // 裏
-            if (One.TF.Event_Message1000021_2 == true && One.TF.Event_Message1000022_2 == false && One.TF.Event_Message1000023_2 == false && One.TF.Event_Message1000024_2 == false)
-            {
-              One.TF.Event_Message1000022_2 = true;
-            }
-            else
-            {
-              One.TF.Event_Message1000020_2_Fail = true;
-            }
-          }
+
           TapOK();
           return true;
         }
@@ -17633,5 +17646,30 @@ public class DungeonField : MotherBase
       return true;
     }
     return false;
+  }
+
+  private void DetectVelgusCenterRoomEvent()
+  {
+    if (One.TF.Velgus_Center_Number1 != -1 &&
+        One.TF.Velgus_Center_Number2 != -1 &&
+        One.TF.Velgus_Center_Number3 != -1 &&
+        One.TF.Velgus_Center_Number4 != -1)
+    {
+      // 表の解答
+      if (One.TF.Velgus_Center_Number1 == 1 && One.TF.Velgus_Center_Number2 == 2 && One.TF.Velgus_Center_Number3 == 3 && One.TF.Velgus_Center_Number4 == 4)
+      {
+        MessagePack.Message1000026(ref QuestMessageList, ref QuestEventList);
+      }
+      // 裏の解答
+      else if (One.TF.Velgus_Center_Number1 == 2 && One.TF.Velgus_Center_Number2 == 4 && One.TF.Velgus_Center_Number3 == 1 && One.TF.Velgus_Center_Number4 == 3)
+      {
+        MessagePack.Message1000029(ref QuestMessageList, ref QuestEventList);
+      }
+      // ハズレ
+      else
+      {
+        MessagePack.Message1000027(ref QuestMessageList, ref QuestEventList);
+      }
+    }
   }
 }

@@ -15859,13 +15859,17 @@ public static class MessagePack
 
   public static void Message1000020(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1000020_Complete == false)
+    if (One.TF.Event_Message1000020_Complete == false || One.TF.Event_Message1000020_2_Complete == false)
     {
       One.TF.Event_Message1000020_Fail = false;
       One.TF.Event_Message1000021 = false;
       One.TF.Event_Message1000022 = false;
       One.TF.Event_Message1000023 = false;
       One.TF.Event_Message1000024 = false;
+      One.TF.Velgus_Center_Number1 = -1;
+      One.TF.Velgus_Center_Number2 = -1;
+      One.TF.Velgus_Center_Number3 = -1;
+      One.TF.Velgus_Center_Number4 = -1;
     }
 
     if (One.TF.Event_Message1000020 == false)
@@ -16109,6 +16113,14 @@ public static class MessagePack
         Message(ref m_list, ref e_list, "アイン：そうだった。看板の所へ行こう。", ActionEvent.None);
       }
     }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：特に、何も起きないな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：タイルを踏む順序を間違えてるのかしらね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もう一度最初からやってみる。看板の所へ行こう。", ActionEvent.None);
+    }
   }
 
   public static void Message1000028(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -16145,8 +16157,11 @@ public static class MessagePack
 
   public static void Message1000029(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Debug.Log("Message1000029(S) " + One.TF.Event_Message1000020_2_Complete);
+
     if (One.TF.Event_Message1000020_2_Complete == false)
     {
+      Debug.Log("Event_Message1000020_2_Complete == false");
       One.TF.Event_Message1000020_2_Complete = true;
 
       Message(ref m_list, ref e_list, "（ッゴゴゴゴ・・・ズウウゥゥゥン・・・）", ActionEvent.None);
@@ -16182,6 +16197,10 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よし。ここはクリアだ。先へ進めてみよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おうよ！", ActionEvent.None);
+    }
+    else
+    {
+      Debug.Log("Event_Message1000020_2_Complete == true, (no action)");
     }
   }
 

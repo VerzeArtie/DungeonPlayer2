@@ -1354,19 +1354,18 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1000023 { get { return _event_message1000023; } set { _event_message1000023 = value; } }
   [SerializeField] protected bool _event_message1000024 = false;
   public bool Event_Message1000024 { get { return _event_message1000024; } set { _event_message1000024 = value; } }
-  [SerializeField] protected bool _event_message1000021_2 = false;
-  public bool Event_Message1000021_2 { get { return _event_message1000021_2; } set { _event_message1000021_2 = value; } }
-  [SerializeField] protected bool _event_message1000022_2 = false;
-  public bool Event_Message1000022_2 { get { return _event_message1000022_2; } set { _event_message1000022_2 = value; } }
-  [SerializeField] protected bool _event_message1000023_2 = false;
-  public bool Event_Message1000023_2 { get { return _event_message1000023_2; } set { _event_message1000023_2 = value; } }
-  [SerializeField] protected bool _event_message1000024_2 = false;
-  public bool Event_Message1000024_2 { get { return _event_message1000024_2; } set { _event_message1000024_2 = value; } }
+
+  [SerializeField] protected int _velgus_center_number1 = -1;
+  public int Velgus_Center_Number1 { get { return _velgus_center_number1; } set { _velgus_center_number1 = value; } }
+  [SerializeField] protected int _velgus_center_number2 = -1;
+  public int Velgus_Center_Number2 { get { return _velgus_center_number2; } set { _velgus_center_number2 = value; } }
+  [SerializeField] protected int _velgus_center_number3 = -1;
+  public int Velgus_Center_Number3 { get { return _velgus_center_number3; } set { _velgus_center_number3 = value; } }
+  [SerializeField] protected int _velgus_center_number4 = -1;
+  public int Velgus_Center_Number4 { get { return _velgus_center_number4; } set { _velgus_center_number4 = value; } }
 
   [SerializeField] protected bool _event_message1000020_fail = false;
   public bool Event_Message1000020_Fail { get { return _event_message1000020_fail; } set { _event_message1000020_fail = value; } }
-  [SerializeField] protected bool _event_message1000020_2_fail = false;
-  public bool Event_Message1000020_2_Fail { get { return _event_message1000020_2_fail; } set { _event_message1000020_2_fail = value; } }
 
   [SerializeField] protected bool _event_message1000020_failedmessage1 = false;
   public bool Event_Message1000020_FailedMessage1 { get { return _event_message1000020_failedmessage1; } set { _event_message1000020_failedmessage1 = value; } }
