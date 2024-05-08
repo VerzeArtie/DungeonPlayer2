@@ -638,6 +638,7 @@ public static partial class Fix
   public const int MAX_ENEMY_MEMBER = 3;
   public const int MAX_INSTANT_NUM = 9;
   public const int BASIC_SKILLPOINT = 100;
+  public const int PARAMETER_MAX = 9999;
   #endregion
 
   public static int CHARACTER_MAX_LEVEL1 = 10; // エスミリア草原区域まで

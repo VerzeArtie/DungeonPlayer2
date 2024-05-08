@@ -508,8 +508,11 @@ public static class PrimaryLogic
   /// </summary>
   public static double BattleSpeed(Character player)
   {
-    double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
-    //Debug.Log(player.FullName +  " battlespeed: " + result.ToString());
+    // double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
+    double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
+    // Debug.Log(player.FullName + " factor: " + factor.ToString());
+    double result = 0.30f + factor * 0.70f; // 0.30fがベース値。最大Agility9999、Mind9999の場合 +0.70fで、総合計は1.00fまで。
+    // Debug.Log(player.FullName +  " battlespeed1: " + result.ToString());
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
     result += (player.MainArmor?.BattleSpeed ?? 0);
@@ -557,6 +560,7 @@ public static class PrimaryLogic
     if (player.Artifact != null && player.Artifact.AmplifyBattleSpeed > 1.00f) { result = result * player.Artifact.AmplifyBattleSpeed; }
 
     if (result <= 0.0f) { result = 0.0f; }
+    // Debug.Log(player.FullName + " battlespeed2: " + result.ToString());
     return result;
   }
 
@@ -565,7 +569,11 @@ public static class PrimaryLogic
   /// </summary>
   public static double BattleResponse(Character player)
   {
-    double result = 1.00f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 4.0f;
+    // double result = 1.00f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 4.0f;
+    double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
+    // Debug.Log(player.FullName + " factor: " + factor.ToString());
+    double result = 1.00f + factor * 4.00f; // 1.00fがベース値。最大Agility9999、Mind9999の場合 +4.00fで、総合計は5.00fまで。
+
     result += (player.MainWeapon?.BattleResponse ?? 0);
     result += (player.SubWeapon?.BattleResponse ?? 0);
     result += (player.MainArmor?.BattleResponse ?? 0);
