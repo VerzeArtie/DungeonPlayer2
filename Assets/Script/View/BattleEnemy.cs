@@ -832,6 +832,17 @@ public partial class BattleEnemy : MotherBase
         if (AutoExit > 0)
         {
           AutoExit--;
+          if (AutoExit == Fix.BATTLEEND_AUTOEXIT - 1)
+          {
+            for (int ii = 0; ii < CharaExpList.Count; ii++)
+            {
+              CharaExpList[ii].AfterExp = CharaExpList[ii].SourceCharacter.Exp;
+              if (CharaExpList[ii].SourceCharacter.Exp >= CharaExpList[ii].SourceCharacter.GetNextExp())
+              {
+                CharaExpList[ii].AfterExp = CharaExpList[ii].SourceCharacter.GetNextExp();
+              }
+            }
+          }
 
           int start_time = Fix.BATTLEEND_AUTOEXIT - 50;
           int end_time = Fix.BATTLEEND_AUTOEXIT - 100;
@@ -6824,11 +6835,6 @@ public partial class BattleEnemy : MotherBase
     node_charaExp.transform.SetParent(panelGameEndExpList.transform);
 
     node_charaExp.SourceCharacter = character;
-    node_charaExp.AfterExp = character.Exp;
-    if (character.Exp >= character.GetNextExp())
-    {
-      node_charaExp.AfterExp = character.GetNextExp();
-    }
     CharaExpList.Add(node_charaExp);
   }
   #endregion
