@@ -84,6 +84,21 @@ public static partial class Fix
     Archery, // 弓術
     Truth, // 心眼
     Mindfulness, // 無心
+    HolyLight_DarkMagic, // 聖＋闇
+    HolyLight_Fire, // 聖＋炎
+    HolyLight_Ice, // 聖＋氷
+    HolyLight_Force, // 聖＋理
+    HolyLight_VoidChant, // 聖＋空唱
+    DarkMagic_Fire, // 闇＋炎
+    DarkMagic_Ice, // 闇＋氷
+    DarkMagic_Force, // 闇＋理
+    DarkMagic_VoidChant, // 闇＋空唱
+    Fire_Ice, // 炎＋氷
+    Fire_Force, // 炎＋理
+    Fire_VoidChant, // 炎＋空唱
+    Ice_Force, // 氷＋理
+    Ice_VoidChant, // 氷＋空唱
+    Force_VoidChant, // 理＋空唱
     None,
   }
 
@@ -1143,8 +1158,6 @@ public static partial class Fix
   public const string IDEOLOGY_OF_SOPHISTICATION_JP = "イデオロギー・洗練";
   public const string STANCE_OF_THE_GUARD = "Stance of the Guard";
   public const string STANCE_OF_THE_GUARD_JP = "スタンス・オブ・ガード";
-  public const string SKY_SHIELD = "Sky Shield";
-  public const string SKY_SHIELD_JP = "スカイ・シールド";
   public const string FLASH_COUNTER = "Flash Counter";
   public const string FLASH_COUNTER_JP = "フラッシュ・カウンター";
   public const string FORTUNE_SPIRIT = "Fortune Spirit";
@@ -1265,8 +1278,6 @@ public static partial class Fix
   public const string OATH_OF_AEGIS_JP = "オース・オブ・イージス";
   public const string EVERFLOW_MIND = "Everflow Mind";
   public const string EVERFLOW_MIND_JP = "エバーフロー・マインド";
-  public const string ABYSS_EYE = "Abyss Eye";
-  public const string ABYSS_EYE_JP = "アビス・アイ";
   public const string MIND_FORCE = "Mind Force";
   public const string MIND_FORCE_JP = "精神の波動";
   public const string INNER_INSPIRATION = "Inner Inspiration";
@@ -1340,8 +1351,6 @@ public static partial class Fix
   public const string ONE_IMMUNITY_JP = "ワン・イムーニティ";
   public const string CATASTROPHE = "Catastrophe";
   public const string CATASTROPHE_JP = "カタストロフィ";
-  public const string AUSTERITY_MATRIX = "Austerity Matrix";
-  public const string AUSTERITY_MATRIX_JP = "アウステリティ・マトリクス";
   public const string ESSENCE_OVERFLOW = "Essence Overflow";
   public const string ESSENCE_OVERFLOW_JP = "エッセンス・オーバーフロー";
   public const string OVERWHELMING_DESTINY = "Overwhelming Destiny";
@@ -1354,6 +1363,114 @@ public static partial class Fix
   public const string TIME_SKIP_JP = "タイム・スキップ";
   public const string GENESIS = "Genesis";
   public const string GENESIS_JP = "ジェネシス";
+
+  #region "【複合魔法】"
+  // 聖＋闇 [完全逆]
+  public const string PSYCHIC_TRANCE = "Psychic Trance";
+  public const string PSYCHIC_TRANCE_JP = "サイキック・トランス";
+  public const string BLIND_JUSTICE = "Blind Justice";
+  public const string BLIND_JUSTICE_JP = "ブラインド・ジャスティス";
+  public const string DEATH_DENY = "Death Deny";
+  public const string DEATH_DENY_JP = "デス・ディナイ";
+  // 聖＋炎
+  public const string FLASH_BLAZE = "Flash Blaze";
+  public const string FLASH_BLAZE_JP = "フラッシュ・ブレイズ";
+  public const string LIGHT_DETONATOR = "Light Detonator";
+  public const string LIGHT_DETONATOR_JP = "ライト・デトネイター";
+  public const string ASCENDANT_METEOR = "Ascendant Meteor";
+  public const string ASCENDANT_METEOR_JP = "アセンダント・メテオ";
+  // 聖＋氷
+  public const string SKY_SHIELD = "Sky Shield";
+  public const string SKY_SHIELD_JP = "スカイ・シールド";
+  public const string SACRED_FIELD = "Sacred Field";
+  public const string SACRED_FIELD_JP = "サークレッド・フィールド";
+  public const string SAINT_JUDGEMENT = "Saint Judgement";
+  public const string SAINT_JUDGEMENT_JP = "セイント・ジャッジメント";
+  // 聖＋理
+  public const string HOLY_BREAKER = "Holy Breaker";
+  public const string HOLY_BREAKER_JP = "ホーリー・ブレイカー";
+  public const string EXALTED_FIELD = "Exalted Field";
+  public const string EXALTED_FIELD_JP = "イグザルテッド・フィールド";
+  public const string HYMN_CONTRACT = "Hymn Contract";
+  public const string HYMN_CONTRACT_JP = "ヒムン・コントラクト";
+  // 聖＋空唱
+  public const string VOID_THUNDER = "Void Thunder";
+  public const string VOID_THUNDER_JP = "ヴォイド・サンダー";
+  public const string ANGEL_INTERVENTION = "Angel Intervention";
+  public const string ANGEL_INTERVENTION_JP = "エンジェル・インターベンション";
+  public const string ENDLESS_ANTHEM = "Endless Anthem";
+  public const string ENDLESS_ANTHEM_JP = "エンドレス・アンセム";
+  // 闇＋炎
+  public const string BLACK_FIRE = "Black Fire";
+  public const string BLACK_FIRE_JP = "ブラック・ファイア";
+  public const string BLAZING_FIELD = "Blazing Field";
+  public const string BLAZING_FIELD_JP = "ブレイジング・フィールド";
+  public const string DEMONIC_IGNITE = "Demonic Ignite";
+  public const string DEMONIC_IGNITE_JP = "デーモニック・イグナイト";
+  // 闇＋氷
+  public const string DEEP_MIRROR = "Deep Mirror";
+  public const string DEEP_MIRROR_JP = "ディープ・ミラー";
+  public const string STORM_SHARD = "Storm Shard";
+  public const string STORM_SHARD_JP = "ストーム・シャード";
+  public const string ABYSS_EYE = "Abyss Eye";
+  public const string ABYSS_EYE_JP = "アビス・アイ";
+  // 闇＋理
+  public const string WORD_OF_MALICE = "Word of Malice";
+  public const string WORD_OF_MALICE_JP = "ワード・オブ・マリス";
+  public const string SIN_FORTUNE = "Sin Fortune";
+  public const string SIN_FORTUNE_JP = "シン・フォーチュン";
+  public const string BLOOD_SHACKLE = "Blood Shackle";
+  public const string BLOOD_SHACKLE_JP = "ブラッド・シャックル";
+  // 闇＋空唱
+  public const string ACHROMA_BLAST = "Achroma Blast";
+  public const string ACHROMA_BLAST_JP = "アクローマ・ブラスト";
+  public const string DOOM_BLADE = "Doom Blade";
+  public const string DOOM_BLADE_JP = "ドゥーム・ブレイド";
+  public const string ECLIPSE_END = "Eclipse End";
+  public const string ECLIPSE_END_JP = "エクリプス・エンド";
+  // 炎＋氷 [完全逆]
+  public const string CHILL_BURN = "Chill Burn";
+  public const string CHILL_BURN_JP = "チル・バーン";
+  public const string SWORD_OF_FREEZING_FIRE = "Sword of Freezing-Fire";
+  public const string SWORD_OF_FREEZING_FIRE_JP = "ソード・オブ・フリージングファイア";
+  public const string ZETA_EXPLOSION = "Zeta Explosion";
+  public const string ZETA_EXPLOSION_JP = "ゼータ・エクスプロージョン";
+  // 炎＋理
+  public const string BURST_INFERNO = "Burst Inferno";
+  public const string BURST_INFERNO_JP = "バースト・インフェルノ";
+  public const string PIERCING_FLAME = "Piercing Flame";
+  public const string PIERCING_FLAME_JP = "ピアッシング・フレイム";
+  public const string SIGIL_OF_HOMURA = "Sigil of Homura";
+  public const string SIGIL_OF_HOMURA_JP = "シギル・オブ・焔";
+  // 炎＋空唱
+  public const string ERRATIC_THUNDERBOLT = "Erratic Thunderbolt";
+  public const string ERRATIC_THUNDERBOLT_JP = "エラティック・サンダーボルト";
+  public const string STEAM_MIRROR = "Steam Mirror";
+  public const string STEAM_MIRROR_JP = "スチーム・ミラー";
+  public const string RED_DRAGON_WILL = "Red Dragon Will";
+  public const string RED_DRAGON_WILL_JP = "レッド・ドラゴン・ウィル";
+  // 氷＋理
+  public const string WORD_OF_ATTITUDE = "Word Of Attitude";
+  public const string WORD_OF_ATTITUDE_JP = "ワード・オブ・アティチュード";
+  public const string ICICLE_BARRIER = "Icicle Barrier";
+  public const string ICICLE_BARRIER_JP = "アイシクル・バリア";
+  public const string AUSTERITY_MATRIX = "Austerity Matrix";
+  public const string AUSTERITY_MATRIX_JP = "アウステリティ・マトリクス";
+  // 氷＋空唱
+  public const string GLACIAL_CIRCLE = "Glacial Circle";
+  public const string GLACIAL_CIRCLE_JP = "グラシィアル・サークル";
+  public const string VORTEX_SONG = "Vortex Song";
+  public const string VORTEX_SONG_JP = "ヴォーテクス・ソング";
+  public const string BLUE_DRAGON_WILL = "Blue Dragon Will";
+  public const string BLUE_DRAGON_WILL_JP = "ブルー・ドラゴン・ウィル";
+  // 理＋空唱 [完全逆]
+  public const string WORD_OF_NINE = "Word of Nine";
+  public const string WORD_OF_NINE_JP = "ワード・オブ・ナイン";
+  public const string PARADOX_IMAGE = "Paradox Image";
+  public const string PARADOX_IMAGE_JP = "パラドックス・イメージ";
+  public const string WARP_GATE = "Warp Gate";
+  public const string WARP_GATE_JP = "ワープ・ゲート";
+  #endregion
 
   //public const string DESTROYER_SMASH = "Destroyer Smash";
   //public const string DEADLY_ARROW = "Deadly Arrow";

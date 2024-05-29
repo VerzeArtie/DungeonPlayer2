@@ -35,6 +35,8 @@ public static class ActionCommand
     EnemyField,
     AllyField,
     AllMember,  
+    AllField,
+    ALLFieldMember,
     InstantTarget
   }
 
@@ -179,6 +181,96 @@ public static class ActionCommand
       result.Add(Fix.INNER_INSPIRATION);
       result.Add(Fix.ZERO_IMMUNITY);
       result.Add(Fix.TRANSCENDENCE_REACHED);
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight_DarkMagic)
+    {
+      result.Add(Fix.PSYCHIC_TRANCE);
+      result.Add(Fix.BLIND_JUSTICE);
+      result.Add(Fix.DEATH_DENY);
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight_Fire)
+    {
+      result.Add(Fix.FLASH_BLAZE);
+      result.Add(Fix.LIGHT_DETONATOR);
+      result.Add(Fix.ASCENDANT_METEOR);
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight_Ice)
+    {
+      result.Add(Fix.SKY_SHIELD);
+      result.Add(Fix.SACRED_FIELD);
+      result.Add(Fix.SAINT_JUDGEMENT);
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight_Force)
+    {
+      result.Add(Fix.HOLY_BREAKER);
+      result.Add(Fix.EXALTED_FIELD);
+      result.Add(Fix.HYMN_CONTRACT);
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight_VoidChant)
+    {
+      result.Add(Fix.VOID_THUNDER);
+      result.Add(Fix.ANGEL_INTERVENTION);
+      result.Add(Fix.ENDLESS_ANTHEM);
+    }
+    else if (attr == Fix.CommandAttribute.DarkMagic_Fire)
+    {
+      result.Add(Fix.BLACK_FIRE);
+      result.Add(Fix.BLAZING_FIELD);
+      result.Add(Fix.DEMONIC_IGNITE);
+    }
+    else if (attr == Fix.CommandAttribute.DarkMagic_Ice)
+    {
+      result.Add(Fix.DEEP_MIRROR);
+      result.Add(Fix.STORM_SHARD);
+      result.Add(Fix.ABYSS_EYE);
+    }
+    else if (attr == Fix.CommandAttribute.DarkMagic_Force)
+    {
+      result.Add(Fix.WORD_OF_MALICE);
+      result.Add(Fix.SIN_FORTUNE);
+      result.Add(Fix.BLOOD_SHACKLE);
+    }
+    else if (attr == Fix.CommandAttribute.DarkMagic_VoidChant)
+    {
+      result.Add(Fix.ACHROMA_BLAST);
+      result.Add(Fix.DOOM_BLADE);
+      result.Add(Fix.ECLIPSE_END);
+    }
+    else if (attr == Fix.CommandAttribute.Fire_Ice)
+    {
+      result.Add(Fix.CHILL_BURN);
+      result.Add(Fix.SWORD_OF_FREEZING_FIRE);
+      result.Add(Fix.ZETA_EXPLOSION);
+    }
+    else if (attr == Fix.CommandAttribute.Fire_Force)
+    {
+      result.Add(Fix.BURST_INFERNO);
+      result.Add(Fix.PIERCING_FLAME);
+      result.Add(Fix.SIGIL_OF_HOMURA);
+    }
+    else if (attr == Fix.CommandAttribute.Fire_VoidChant)
+    {
+      result.Add(Fix.ERRATIC_THUNDERBOLT);
+      result.Add(Fix.STEAM_MIRROR);
+      result.Add(Fix.RED_DRAGON_WILL);
+    }
+    else if (attr == Fix.CommandAttribute.Ice_Force)
+    {
+      result.Add(Fix.WORD_OF_ATTITUDE);
+      result.Add(Fix.ICICLE_BARRIER);
+      result.Add(Fix.AUSTERITY_MATRIX);
+    }
+    else if (attr == Fix.CommandAttribute.Ice_VoidChant)
+    {
+      result.Add(Fix.GLACIAL_CIRCLE);
+      result.Add(Fix.VORTEX_SONG);
+      result.Add(Fix.BLUE_DRAGON_WILL);
+    }
+    else if (attr == Fix.CommandAttribute.Force_VoidChant)
+    {
+      result.Add(Fix.WORD_OF_NINE);
+      result.Add(Fix.PARADOX_IMAGE);
+      result.Add(Fix.WARP_GATE);
     }
     else
     {
@@ -590,6 +682,69 @@ public static class ActionCommand
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return Attribute.Skill; }
     #endregion
 
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return Attribute.Magic; }
+    if (command_name == Fix.BLIND_JUSTICE) { return Attribute.Magic; }
+    if (command_name == Fix.DEATH_DENY) { return Attribute.Magic; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return Attribute.Magic; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return Attribute.Magic; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return Attribute.Magic; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return Attribute.Magic; }
+    if (command_name == Fix.SACRED_FIELD) { return Attribute.Magic; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return Attribute.Magic; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return Attribute.Magic; }
+    if (command_name == Fix.EXALTED_FIELD) { return Attribute.Magic; }
+    if (command_name == Fix.HYMN_CONTRACT) { return Attribute.Magic; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return Attribute.Magic; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return Attribute.Magic; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return Attribute.Magic; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return Attribute.Magic; }
+    if (command_name == Fix.BLAZING_FIELD) { return Attribute.Magic; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return Attribute.Magic; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return Attribute.Magic; }
+    if (command_name == Fix.STORM_SHARD) { return Attribute.Magic; }
+    if (command_name == Fix.ABYSS_EYE) { return Attribute.Magic; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return Attribute.Magic; }
+    if (command_name == Fix.SIN_FORTUNE) { return Attribute.Magic; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return Attribute.Magic; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return Attribute.Magic; }
+    if (command_name == Fix.DOOM_BLADE) { return Attribute.Magic; }
+    if (command_name == Fix.ECLIPSE_END) { return Attribute.Magic; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return Attribute.Magic; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return Attribute.Magic; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return Attribute.Magic; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return Attribute.Magic; }
+    if (command_name == Fix.PIERCING_FLAME) { return Attribute.Magic; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return Attribute.Magic; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return Attribute.Magic; }
+    if (command_name == Fix.STEAM_MIRROR) { return Attribute.Magic; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return Attribute.Magic; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return Attribute.Magic; }
+    if (command_name == Fix.ICICLE_BARRIER) { return Attribute.Magic; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return Attribute.Magic; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return Attribute.Magic; }
+    if (command_name == Fix.VORTEX_SONG) { return Attribute.Magic; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return Attribute.Magic; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return Attribute.Magic; }
+    if (command_name == Fix.PARADOX_IMAGE) { return Attribute.Magic; }
+    if (command_name == Fix.WARP_GATE) { return Attribute.Magic; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
     #endregion
@@ -761,6 +916,69 @@ public static class ActionCommand
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return TimingType.Instant; }
     #endregion
 
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return TimingType.Instant; }
+    if (command_name == Fix.BLIND_JUSTICE) { return TimingType.Instant; }
+    if (command_name == Fix.DEATH_DENY) { return TimingType.Instant; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return TimingType.Instant; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return TimingType.Instant; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return TimingType.Sorcery; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return TimingType.Sorcery; }
+    if (command_name == Fix.SACRED_FIELD) { return TimingType.Sorcery; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return TimingType.Instant; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return TimingType.Sorcery; }
+    if (command_name == Fix.EXALTED_FIELD) { return TimingType.Sorcery; }
+    if (command_name == Fix.HYMN_CONTRACT) { return TimingType.Sorcery; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return TimingType.Normal; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return TimingType.Sorcery; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return TimingType.Sorcery; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return TimingType.Instant; }
+    if (command_name == Fix.BLAZING_FIELD) { return TimingType.Normal; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return TimingType.Instant; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return TimingType.StackCommand; }
+    if (command_name == Fix.STORM_SHARD) { return TimingType.Instant; }
+    if (command_name == Fix.ABYSS_EYE) { return TimingType.Normal; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return TimingType.Instant; }
+    if (command_name == Fix.SIN_FORTUNE) { return TimingType.Instant; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return TimingType.Normal; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return TimingType.Instant; }
+    if (command_name == Fix.DOOM_BLADE) { return TimingType.Normal; }
+    if (command_name == Fix.ECLIPSE_END) { return TimingType.Sorcery; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return TimingType.Instant; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return TimingType.Normal; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return TimingType.Sorcery; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return TimingType.Sorcery; }
+    if (command_name == Fix.PIERCING_FLAME) { return TimingType.Instant; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return TimingType.Instant; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return TimingType.Instant; }
+    if (command_name == Fix.STEAM_MIRROR) { return TimingType.Instant; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return TimingType.Instant; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return TimingType.Instant; }
+    if (command_name == Fix.ICICLE_BARRIER) { return TimingType.Instant; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return TimingType.Sorcery; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return TimingType.StackCommand; }
+    if (command_name == Fix.VORTEX_SONG) { return TimingType.StackCommand; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return TimingType.Instant; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return TimingType.Normal; }
+    if (command_name == Fix.PARADOX_IMAGE) { return TimingType.Instant; }
+    if (command_name == Fix.WARP_GATE) { return TimingType.Instant; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
     #endregion
@@ -930,6 +1148,69 @@ public static class ActionCommand
     if (command_name == Fix.PIERCING_ARROW) { return TargetType.Enemy; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TargetType.Own; } // todo 仮
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return TargetType.Ally; } // todo 仮
+    #endregion
+
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return TargetType.Ally; }
+    if (command_name == Fix.BLIND_JUSTICE) { return TargetType.Ally; }
+    if (command_name == Fix.DEATH_DENY) { return TargetType.Ally; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return TargetType.Enemy; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return TargetType.Enemy; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return TargetType.EnemyGroup; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return TargetType.Ally; }
+    if (command_name == Fix.SACRED_FIELD) { return TargetType.AllyField; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return TargetType.Enemy; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return TargetType.Ally; }
+    if (command_name == Fix.EXALTED_FIELD) { return TargetType.AllyField; }
+    if (command_name == Fix.HYMN_CONTRACT) { return TargetType.Ally; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return TargetType.Enemy; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return TargetType.AllyField; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return TargetType.Ally; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return TargetType.Enemy; }
+    if (command_name == Fix.BLAZING_FIELD) { return TargetType.EnemyField; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return TargetType.Enemy; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return TargetType.InstantTarget; }
+    if (command_name == Fix.STORM_SHARD) { return TargetType.EnemyField; }
+    if (command_name == Fix.ABYSS_EYE) { return TargetType.Enemy; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return TargetType.Enemy; }
+    if (command_name == Fix.SIN_FORTUNE) { return TargetType.Own; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return TargetType.Enemy; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return TargetType.Enemy; }
+    if (command_name == Fix.DOOM_BLADE) { return TargetType.Own; }
+    if (command_name == Fix.ECLIPSE_END) { return TargetType.ALLFieldMember; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return TargetType.Enemy; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return TargetType.Own; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return TargetType.Enemy; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return TargetType.EnemyField; }
+    if (command_name == Fix.PIERCING_FLAME) { return TargetType.Enemy; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return TargetType.Enemy; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return TargetType.Enemy; }
+    if (command_name == Fix.STEAM_MIRROR) { return TargetType.Ally; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return TargetType.Ally; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return TargetType.Ally; }
+    if (command_name == Fix.ICICLE_BARRIER) { return TargetType.Ally; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return TargetType.Enemy; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return TargetType.InstantTarget; }
+    if (command_name == Fix.VORTEX_SONG) { return TargetType.InstantTarget; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return TargetType.Ally; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return TargetType.Ally; }
+    if (command_name == Fix.PARADOX_IMAGE) { return TargetType.Own; }
+    if (command_name == Fix.WARP_GATE) { return TargetType.Own; }
     #endregion
 
     #region "Archetype"
@@ -1191,6 +1472,69 @@ public static class ActionCommand
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return 100; } // todo 仮
     #endregion
 
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return 1500; }
+    if (command_name == Fix.BLIND_JUSTICE) { return 1500; }
+    if (command_name == Fix.DEATH_DENY) { return 2500; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return 600; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return 750; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return 1500; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return 650; }
+    if (command_name == Fix.SACRED_FIELD) { return 800; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return 1200; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return 650; }
+    if (command_name == Fix.EXALTED_FIELD) { return 1200; }
+    if (command_name == Fix.HYMN_CONTRACT) { return 1600; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return 550; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return 1400; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return 1800; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return 700; }
+    if (command_name == Fix.BLAZING_FIELD) { return 1200; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return 1500; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return 350; }
+    if (command_name == Fix.STORM_SHARD) { return 900; }
+    if (command_name == Fix.ABYSS_EYE) { return 1200; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return 700; }
+    if (command_name == Fix.SIN_FORTUNE) { return 1300; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return 1600; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return 750; }
+    if (command_name == Fix.DOOM_BLADE) { return 1400; }
+    if (command_name == Fix.ECLIPSE_END) { return 2000; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return 1000; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return 1400; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return 3000; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return 800; }
+    if (command_name == Fix.PIERCING_FLAME) { return 1100; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return 1500; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return 600; }
+    if (command_name == Fix.STEAM_MIRROR) { return 900; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return 1600; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return 400; }
+    if (command_name == Fix.ICICLE_BARRIER) { return 750; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return 1600; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return 800; }
+    if (command_name == Fix.VORTEX_SONG) { return 1200; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return 1600; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return 1600; }
+    if (command_name == Fix.PARADOX_IMAGE) { return 2000; }
+    if (command_name == Fix.WARP_GATE) { return 2400; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
     #endregion
@@ -1444,6 +1788,69 @@ public static class ActionCommand
     if (command_name == Fix.PIERCING_ARROW) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.BuffType.Positive; } // todo 仮
+    #endregion
+
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BLIND_JUSTICE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.DEATH_DENY) { return Fix.BuffType.Negative; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return Fix.BuffType.None; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SACRED_FIELD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return Fix.BuffType.Negative; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.EXALTED_FIELD) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.HYMN_CONTRACT) { return Fix.BuffType.Positive; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return Fix.BuffType.Neutral; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return Fix.BuffType.Positive; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BLAZING_FIELD) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return Fix.BuffType.Negative; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return Fix.BuffType.None; }
+    if (command_name == Fix.STORM_SHARD) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.ABYSS_EYE) { return Fix.BuffType.None; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.SIN_FORTUNE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return Fix.BuffType.Negative; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.DOOM_BLADE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.ECLIPSE_END) { return Fix.BuffType.Neutral; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return Fix.BuffType.None; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.PIERCING_FLAME) { return Fix.BuffType.None; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return Fix.BuffType.Negative; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.STEAM_MIRROR) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return Fix.BuffType.Positive; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return Fix.BuffType.None; }
+    if (command_name == Fix.ICICLE_BARRIER) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return Fix.BuffType.Negative; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.VORTEX_SONG) { return Fix.BuffType.None; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return Fix.BuffType.Positive; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.PARADOX_IMAGE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.WARP_GATE) { return Fix.BuffType.None; }
     #endregion
 
     #region "Archetype"
@@ -1742,6 +2149,69 @@ public static class ActionCommand
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return false; } // todo 仮
     #endregion
 
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return false; }
+    if (command_name == Fix.BLIND_JUSTICE) { return false; }
+    if (command_name == Fix.DEATH_DENY) { return false; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return true; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return true; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return true; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return false; }
+    if (command_name == Fix.SACRED_FIELD) { return false; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return true; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return false; }
+    if (command_name == Fix.EXALTED_FIELD) { return false; }
+    if (command_name == Fix.HYMN_CONTRACT) { return false; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return true; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return false; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return false; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return true; }
+    if (command_name == Fix.BLAZING_FIELD) { return false; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return true; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return false; }
+    if (command_name == Fix.STORM_SHARD) { return false; }
+    if (command_name == Fix.ABYSS_EYE) { return true; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return true; }
+    if (command_name == Fix.SIN_FORTUNE) { return false; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return false; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return true; }
+    if (command_name == Fix.DOOM_BLADE) { return false; }
+    if (command_name == Fix.ECLIPSE_END) { return false; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return true; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return false; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return true; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return false; }
+    if (command_name == Fix.PIERCING_FLAME) { return true; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return false; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return true; }
+    if (command_name == Fix.STEAM_MIRROR) { return false; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return false; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return false; }
+    if (command_name == Fix.ICICLE_BARRIER) { return false; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return false; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return false; }
+    if (command_name == Fix.VORTEX_SONG) { return false; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return false; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return false; }
+    if (command_name == Fix.PARADOX_IMAGE) { return false; }
+    if (command_name == Fix.WARP_GATE) { return false; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return false; }
     #endregion
@@ -1909,6 +2379,69 @@ public static class ActionCommand
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.TRANSCENDENCE_REACHED_JP; }
     #endregion
 
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return Fix.PSYCHIC_TRANCE_JP; }
+    if (command_name == Fix.BLIND_JUSTICE) { return Fix.BLIND_JUSTICE_JP; }
+    if (command_name == Fix.DEATH_DENY) { return Fix.DEATH_DENY_JP; }
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return Fix.FLASH_BLAZE_JP; }
+    if (command_name == Fix.LIGHT_DETONATOR) { return Fix.LIGHT_DETONATOR_JP; }
+    if (command_name == Fix.ASCENDANT_METEOR) { return Fix.ASCENDANT_METEOR_JP; }
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return Fix.SKY_SHIELD_JP; }
+    if (command_name == Fix.SACRED_FIELD) { return Fix.SACRED_FIELD_JP; }
+    if (command_name == Fix.SAINT_JUDGEMENT) { return Fix.SAINT_JUDGEMENT_JP; }
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return Fix.HOLY_BREAKER_JP; }
+    if (command_name == Fix.EXALTED_FIELD) { return Fix.EXALTED_FIELD_JP; }
+    if (command_name == Fix.HYMN_CONTRACT) { return Fix.HYMN_CONTRACT_JP; }
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return Fix.VOID_THUNDER_JP; }
+    if (command_name == Fix.ANGEL_INTERVENTION) { return Fix.ANGEL_INTERVENTION_JP; }
+    if (command_name == Fix.ENDLESS_ANTHEM) { return Fix.ENDLESS_ANTHEM_JP; }
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return Fix.BLACK_FIRE_JP; }
+    if (command_name == Fix.BLAZING_FIELD) { return Fix.BLAZING_FIELD_JP; }
+    if (command_name == Fix.DEMONIC_IGNITE) { return Fix.DEMONIC_IGNITE_JP; }
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return Fix.DEEP_MIRROR_JP; }
+    if (command_name == Fix.STORM_SHARD) { return Fix.STORM_SHARD_JP; }
+    if (command_name == Fix.ABYSS_EYE) { return Fix.ABYSS_EYE_JP; }
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return Fix.WORD_OF_MALICE_JP; }
+    if (command_name == Fix.SIN_FORTUNE) { return Fix.SIN_FORTUNE_JP; }
+    if (command_name == Fix.BLOOD_SHACKLE) { return Fix.BLOOD_SHACKLE_JP; }
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return Fix.ACHROMA_BLAST_JP; }
+    if (command_name == Fix.DOOM_BLADE) { return Fix.DOOM_BLADE_JP; }
+    if (command_name == Fix.ECLIPSE_END) { return Fix.ECLIPSE_END_JP; }
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return Fix.CHILL_BURN_JP; }
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return Fix.SWORD_OF_FREEZING_FIRE_JP; }
+    if (command_name == Fix.ZETA_EXPLOSION) { return Fix.ZETA_EXPLOSION_JP; }
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return Fix.BURST_INFERNO_JP; }
+    if (command_name == Fix.PIERCING_FLAME) { return Fix.PIERCING_FLAME_JP; }
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return Fix.SIGIL_OF_HOMURA_JP; }
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return Fix.ERRATIC_THUNDERBOLT_JP; }
+    if (command_name == Fix.STEAM_MIRROR) { return Fix.STEAM_MIRROR_JP; }
+    if (command_name == Fix.RED_DRAGON_WILL) { return Fix.RED_DRAGON_WILL_JP; }
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return Fix.WORD_OF_ATTITUDE_JP; }
+    if (command_name == Fix.ICICLE_BARRIER) { return Fix.ICICLE_BARRIER_JP; }
+    if (command_name == Fix.AUSTERITY_MATRIX) { return Fix.AUSTERITY_MATRIX_JP; }
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return Fix.GLACIAL_CIRCLE_JP; }
+    if (command_name == Fix.VORTEX_SONG) { return Fix.VORTEX_SONG_JP; }
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return Fix.BLUE_DRAGON_WILL_JP; }
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return Fix.WORD_OF_NINE_JP; }
+    if (command_name == Fix.PARADOX_IMAGE) { return Fix.PARADOX_IMAGE_JP; }
+    if (command_name == Fix.WARP_GATE) { return Fix.WARP_GATE_JP; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
     #endregion
@@ -2067,6 +2600,69 @@ public static class ActionCommand
     if (command_name == Fix.PIERCING_ARROW) { return ""; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; } // todo 仮
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; } // todo 仮
+    #endregion
+
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
+    if (command_name == Fix.BLIND_JUSTICE) { return ""; } // todo 仮
+    if (command_name == Fix.DEATH_DENY) { return ""; } // todo 仮
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return ""; } // todo 仮
+    if (command_name == Fix.LIGHT_DETONATOR) { return ""; } // todo 仮
+    if (command_name == Fix.ASCENDANT_METEOR) { return ""; } // todo 仮
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return ""; } // todo 仮
+    if (command_name == Fix.SACRED_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.SAINT_JUDGEMENT) { return ""; } // todo 仮
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return ""; } // todo 仮
+    if (command_name == Fix.EXALTED_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.HYMN_CONTRACT) { return ""; } // todo 仮
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return ""; } // todo 仮
+    if (command_name == Fix.ANGEL_INTERVENTION) { return ""; } // todo 仮
+    if (command_name == Fix.ENDLESS_ANTHEM) { return ""; } // todo 仮
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return ""; } // todo 仮
+    if (command_name == Fix.BLAZING_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.DEMONIC_IGNITE) { return ""; } // todo 仮
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return ""; } // todo 仮
+    if (command_name == Fix.STORM_SHARD) { return ""; } // todo 仮
+    if (command_name == Fix.ABYSS_EYE) { return ""; } // todo 仮
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return ""; } // todo 仮
+    if (command_name == Fix.SIN_FORTUNE) { return ""; } // todo 仮
+    if (command_name == Fix.BLOOD_SHACKLE) { return ""; } // todo 仮
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return ""; } // todo 仮
+    if (command_name == Fix.DOOM_BLADE) { return ""; } // todo 仮
+    if (command_name == Fix.ECLIPSE_END) { return ""; } // todo 仮
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return ""; } // todo 仮
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return ""; } // todo 仮
+    if (command_name == Fix.ZETA_EXPLOSION) { return ""; } // todo 仮
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return ""; } // todo 仮
+    if (command_name == Fix.PIERCING_FLAME) { return ""; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return ""; } // todo 仮
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return ""; } // todo 仮
+    if (command_name == Fix.STEAM_MIRROR) { return ""; } // todo 仮
+    if (command_name == Fix.RED_DRAGON_WILL) { return ""; } // todo 仮
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return ""; } // todo 仮
+    if (command_name == Fix.ICICLE_BARRIER) { return ""; } // todo 仮
+    if (command_name == Fix.AUSTERITY_MATRIX) { return ""; } // todo 仮
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return ""; } // todo 仮
+    if (command_name == Fix.VORTEX_SONG) { return ""; } // todo 仮
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return ""; } // todo 仮
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return ""; } // todo 仮
+    if (command_name == Fix.PARADOX_IMAGE) { return ""; } // todo 仮
+    if (command_name == Fix.WARP_GATE) { return ""; } // todo 仮
     #endregion
 
     #region "Archetype"
@@ -2269,6 +2865,69 @@ public static class ActionCommand
     if (command_name == Fix.PIERCING_ARROW) { return ""; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; } // todo 仮
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; } // todo 仮
+    #endregion
+
+    #region "複合魔法"
+    // 聖＋闇 [完全逆]
+    if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
+    if (command_name == Fix.BLIND_JUSTICE) { return ""; } // todo 仮
+    if (command_name == Fix.DEATH_DENY) { return ""; } // todo 仮
+    // 聖＋炎
+    if (command_name == Fix.FLASH_BLAZE) { return ""; } // todo 仮
+    if (command_name == Fix.LIGHT_DETONATOR) { return ""; } // todo 仮
+    if (command_name == Fix.ASCENDANT_METEOR) { return ""; } // todo 仮
+    // 聖＋氷
+    if (command_name == Fix.SKY_SHIELD) { return ""; } // todo 仮
+    if (command_name == Fix.SACRED_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.SAINT_JUDGEMENT) { return ""; } // todo 仮
+    // 聖＋理
+    if (command_name == Fix.HOLY_BREAKER) { return ""; } // todo 仮
+    if (command_name == Fix.EXALTED_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.HYMN_CONTRACT) { return ""; } // todo 仮
+    // 聖＋空唱
+    if (command_name == Fix.VOID_THUNDER) { return ""; } // todo 仮
+    if (command_name == Fix.ANGEL_INTERVENTION) { return ""; } // todo 仮
+    if (command_name == Fix.ENDLESS_ANTHEM) { return ""; } // todo 仮
+    // 闇＋炎
+    if (command_name == Fix.BLACK_FIRE) { return ""; } // todo 仮
+    if (command_name == Fix.BLAZING_FIELD) { return ""; } // todo 仮
+    if (command_name == Fix.DEMONIC_IGNITE) { return ""; } // todo 仮
+    // 闇＋氷
+    if (command_name == Fix.DEEP_MIRROR) { return ""; } // todo 仮
+    if (command_name == Fix.STORM_SHARD) { return ""; } // todo 仮
+    if (command_name == Fix.ABYSS_EYE) { return ""; } // todo 仮
+    // 闇＋理
+    if (command_name == Fix.WORD_OF_MALICE) { return ""; } // todo 仮
+    if (command_name == Fix.SIN_FORTUNE) { return ""; } // todo 仮
+    if (command_name == Fix.BLOOD_SHACKLE) { return ""; } // todo 仮
+    // 闇＋空唱
+    if (command_name == Fix.ACHROMA_BLAST) { return ""; } // todo 仮
+    if (command_name == Fix.DOOM_BLADE) { return ""; } // todo 仮
+    if (command_name == Fix.ECLIPSE_END) { return ""; } // todo 仮
+    // 炎＋氷 [完全逆]
+    if (command_name == Fix.CHILL_BURN) { return ""; } // todo 仮
+    if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return ""; } // todo 仮
+    if (command_name == Fix.ZETA_EXPLOSION) { return ""; } // todo 仮
+    // 炎＋理
+    if (command_name == Fix.BURST_INFERNO) { return ""; } // todo 仮
+    if (command_name == Fix.PIERCING_FLAME) { return ""; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_HOMURA) { return ""; } // todo 仮
+    // 炎＋空唱
+    if (command_name == Fix.ERRATIC_THUNDERBOLT) { return ""; } // todo 仮
+    if (command_name == Fix.STEAM_MIRROR) { return ""; } // todo 仮
+    if (command_name == Fix.RED_DRAGON_WILL) { return ""; } // todo 仮
+    // 氷＋理
+    if (command_name == Fix.WORD_OF_ATTITUDE) { return ""; } // todo 仮
+    if (command_name == Fix.ICICLE_BARRIER) { return ""; } // todo 仮
+    if (command_name == Fix.AUSTERITY_MATRIX) { return ""; } // todo 仮
+    // 氷＋空唱
+    if (command_name == Fix.GLACIAL_CIRCLE) { return ""; } // todo 仮
+    if (command_name == Fix.VORTEX_SONG) { return ""; } // todo 仮
+    if (command_name == Fix.BLUE_DRAGON_WILL) { return ""; } // todo 仮
+    // 理＋空唱 [完全逆]
+    if (command_name == Fix.WORD_OF_NINE) { return ""; } // todo 仮
+    if (command_name == Fix.PARADOX_IMAGE) { return ""; } // todo 仮
+    if (command_name == Fix.WARP_GATE) { return ""; } // todo 仮
     #endregion
 
     return String.Empty;
