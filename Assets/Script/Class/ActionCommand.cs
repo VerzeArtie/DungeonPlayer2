@@ -272,6 +272,81 @@ public static class ActionCommand
       result.Add(Fix.PARADOX_IMAGE);
       result.Add(Fix.WARP_GATE);
     }
+    else if (attr == Fix.CommandAttribute.Warrior_Guardian)
+    {
+      result.Add(Fix.NEUTRAL_SMASH);
+      result.Add(Fix.STANCE_OF_DOUBLE);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior_MartialArts)
+    {
+      result.Add(Fix.BLITZ_STRIKE);
+      result.Add(Fix.ASSASSINATION_HIT);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior_Archery)
+    {
+      result.Add(Fix.PHOENIX_EYE);
+      result.Add(Fix.HARDENED_INSIGHT);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior_Truth)
+    {
+      result.Add(Fix.CHALLENGING_SHOUT);
+      result.Add(Fix.ONSLAUGHT_HIT);
+    }
+    else if (attr == Fix.CommandAttribute.Warrior_Mindfulness)
+    {
+      result.Add(Fix.FORMLESS_STYLE);
+      result.Add(Fix.HARDEST_PARRY);
+    }
+    else if (attr == Fix.CommandAttribute.Guardian_MartialArts)
+    {
+      result.Add(Fix.TACTICAL_VISION);
+      result.Add(Fix.SWIFT_RESPONSE);
+    }
+    else if (attr == Fix.CommandAttribute.Guardian_Archery)
+    {
+      result.Add(Fix.RIGHTEOUSNESS_ARROW);
+      result.Add(Fix.PERFECT_EVASION);
+    }
+    else if (attr == Fix.CommandAttribute.Guardian_Truth)
+    {
+      result.Add(Fix.REFLEX_ESSENCE);
+      result.Add(Fix.SELF_PERSUASION);
+    }
+    else if (attr == Fix.CommandAttribute.Guardian_Mindfulness)
+    {
+      result.Add(Fix.TRUST_SILENCE);
+      result.Add(Fix.NOURISH_POWER);
+    }
+    else if (attr == Fix.CommandAttribute.MartialArts_Archery)
+    {
+      result.Add(Fix.SUDDEN_STRIKEARROW);
+      result.Add(Fix.STANCE_OF_MYSTIC);
+    }
+    else if (attr == Fix.CommandAttribute.MartialArts_Truth)
+    {
+      result.Add(Fix.PSYCHIC_WAVE);
+      result.Add(Fix.FLARE_OF_FIGHTING);
+    }
+    else if (attr == Fix.CommandAttribute.MartialArts_Mindfulness)
+    {
+      result.Add(Fix.INFINITY_IMAGE);
+      result.Add(Fix.UNIFIED_CONVICTION);
+    }
+    else if (attr == Fix.CommandAttribute.Archery_Truth)
+    {
+      result.Add(Fix.ABSOLUTE_ARROW);
+      result.Add(Fix.HEAVENS_WISDOM);
+    }
+    else if (attr == Fix.CommandAttribute.Archery_Mindfulness)
+    {
+      result.Add(Fix.SILENT_MEDITATION);
+      result.Add(Fix.COLORLESS_FORM);
+    }
+    else if (attr == Fix.CommandAttribute.Truth_Mindfulness)
+    {
+      result.Add(Fix.OVERWHELMING_DESTINY);
+      result.Add(Fix.WORLD_CHANT);
+    }
     else
     {
       result.Add(Fix.AIR_CUTTER);
@@ -745,6 +820,54 @@ public static class ActionCommand
     if (command_name == Fix.WARP_GATE) { return Attribute.Magic; }
     #endregion
 
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return Attribute.Skill; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return Attribute.Skill; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return Attribute.Skill; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return Attribute.Skill; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return Attribute.Skill; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return Attribute.Skill; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return Attribute.Skill; }
+    if (command_name == Fix.ONSLAUGHT_HIT) { return Attribute.Skill; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return Attribute.Skill; }
+    if (command_name == Fix.HARDEST_PARRY) { return Attribute.Skill; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return Attribute.Skill; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return Attribute.Skill; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return Attribute.Skill; }
+    if (command_name == Fix.PERFECT_EVASION) { return Attribute.Skill; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return Attribute.Skill; }
+    if (command_name == Fix.SELF_PERSUASION) { return Attribute.Skill; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return Attribute.Skill; }
+    if (command_name == Fix.NOURISH_POWER) { return Attribute.Skill; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return Attribute.Skill; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return Attribute.Skill; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return Attribute.Skill; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return Attribute.Skill; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return Attribute.Skill; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return Attribute.Skill; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return Attribute.Skill; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return Attribute.Skill; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return Attribute.Skill; }
+    if (command_name == Fix.COLORLESS_FORM) { return Attribute.Skill; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return Attribute.Skill; }
+    if (command_name == Fix.WORLD_CHANT) { return Attribute.Skill; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Attribute.Archetype; }
     #endregion
@@ -979,6 +1102,54 @@ public static class ActionCommand
     if (command_name == Fix.WARP_GATE) { return TimingType.Instant; }
     #endregion
 
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return TimingType.Instant; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return TimingType.Sorcery; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return TimingType.StackCommand; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return TimingType.Instant; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return TimingType.Normal; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return TimingType.Normal; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return TimingType.Instant; }
+    if (command_name == Fix.ONSLAUGHT_HIT) { return TimingType.Instant; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return TimingType.StackCommand; }
+    if (command_name == Fix.HARDEST_PARRY) { return TimingType.StackCommand; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return TimingType.Sorcery; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return TimingType.StackCommand; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return TimingType.Instant; }
+    if (command_name == Fix.PERFECT_EVASION) { return TimingType.StackCommand; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return TimingType.Instant; }
+    if (command_name == Fix.SELF_PERSUASION) { return TimingType.Instant; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return TimingType.Instant; }
+    if (command_name == Fix.NOURISH_POWER) { return TimingType.Instant; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return TimingType.Instant; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return TimingType.Instant; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return TimingType.Instant; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return TimingType.Normal; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return TimingType.Instant; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return TimingType.Sorcery; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return TimingType.Instant; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return TimingType.Normal; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return TimingType.Instant; }
+    if (command_name == Fix.COLORLESS_FORM) { return TimingType.Normal; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return TimingType.StackCommand; }
+    if (command_name == Fix.WORLD_CHANT) { return TimingType.Sorcery; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return TimingType.Archetype; }
     #endregion
@@ -1211,6 +1382,54 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_NINE) { return TargetType.Ally; }
     if (command_name == Fix.PARADOX_IMAGE) { return TargetType.Own; }
     if (command_name == Fix.WARP_GATE) { return TargetType.Own; }
+    #endregion
+
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return TargetType.Enemy; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return TargetType.Own; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return TargetType.InstantTarget; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return TargetType.Enemy; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return TargetType.Own; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return TargetType.Own; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return TargetType.Own; } // ただし敵全員もある
+    if (command_name == Fix.ONSLAUGHT_HIT) { return TargetType.Enemy; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return TargetType.InstantTarget; }
+    if (command_name == Fix.HARDEST_PARRY) { return TargetType.InstantTarget; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return TargetType.AllyField; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return TargetType.InstantTarget; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return TargetType.Ally; }
+    if (command_name == Fix.PERFECT_EVASION) { return TargetType.InstantTarget; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return TargetType.Own; }
+    if (command_name == Fix.SELF_PERSUASION) { return TargetType.Ally; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return TargetType.Ally; }
+    if (command_name == Fix.NOURISH_POWER) { return TargetType.Ally; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return TargetType.Enemy; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return TargetType.Own; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return TargetType.Enemy; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return TargetType.AllyField; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return TargetType.Own; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return TargetType.Ally; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return TargetType.Enemy; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return TargetType.Ally; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return TargetType.Ally; }
+    if (command_name == Fix.COLORLESS_FORM) { return TargetType.Own; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return TargetType.InstantTarget; }
+    if (command_name == Fix.WORLD_CHANT) { return TargetType.Own; }
     #endregion
 
     #region "Archetype"
@@ -1535,6 +1754,54 @@ public static class ActionCommand
     if (command_name == Fix.WARP_GATE) { return 2400; }
     #endregion
 
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return 0; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return 100; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return 20; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return 40; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return 30; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return 40; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return 25; } // ただし敵全員もある
+    if (command_name == Fix.ONSLAUGHT_HIT) { return 30; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return 10; }
+    if (command_name == Fix.HARDEST_PARRY) { return 20; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return 15; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return 30; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return 20; }
+    if (command_name == Fix.PERFECT_EVASION) { return 30; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return 15; }
+    if (command_name == Fix.SELF_PERSUASION) { return 50; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return 15; }
+    if (command_name == Fix.NOURISH_POWER) { return 30; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return 25; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return 50; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return 15; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return 30; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return 0; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return 50; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return 20; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return 50; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return 20; }
+    if (command_name == Fix.COLORLESS_FORM) { return 40; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return 110; }
+    if (command_name == Fix.WORLD_CHANT) { return 120; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return 0; }
     #endregion
@@ -1851,6 +2118,54 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_NINE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.PARADOX_IMAGE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.WARP_GATE) { return Fix.BuffType.None; }
+    #endregion
+
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return Fix.BuffType.None; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return Fix.BuffType.Positive; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return Fix.BuffType.Positive ; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return Fix.BuffType.None; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return Fix.BuffType.Positive; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return Fix.BuffType.Positive; } // ただし敵全員はNegative
+    if (command_name == Fix.ONSLAUGHT_HIT) { return Fix.BuffType.Negative; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return Fix.BuffType.None; }
+    if (command_name == Fix.HARDEST_PARRY) { return Fix.BuffType.None; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return Fix.BuffType.None; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.PERFECT_EVASION) { return Fix.BuffType.None; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return Fix.BuffType.None; }
+    if (command_name == Fix.SELF_PERSUASION) { return Fix.BuffType.Positive; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.NOURISH_POWER) { return Fix.BuffType.Positive; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return Fix.BuffType.None; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return Fix.BuffType.Positive; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return Fix.BuffType.None; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return Fix.BuffType.Positive; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return Fix.BuffType.None; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return Fix.BuffType.Positive; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return Fix.BuffType.None; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return Fix.BuffType.Positive; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COLORLESS_FORM) { return Fix.BuffType.Neutral; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return Fix.BuffType.None; }
+    if (command_name == Fix.WORLD_CHANT) { return Fix.BuffType.Positive; }
     #endregion
 
     #region "Archetype"
@@ -2212,6 +2527,54 @@ public static class ActionCommand
     if (command_name == Fix.WARP_GATE) { return false; }
     #endregion
 
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return true; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return false; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return false; } // カウンター後にダメージを与えるが、原点はカウンターであるため、falseでよい。
+    if (command_name == Fix.ASSASSINATION_HIT) { return true; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return false; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return false; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return false; }
+    if (command_name == Fix.ONSLAUGHT_HIT) { return true; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return false; }
+    if (command_name == Fix.HARDEST_PARRY) { return false; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return false; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return false; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return false; }
+    if (command_name == Fix.PERFECT_EVASION) { return false; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return false; }
+    if (command_name == Fix.SELF_PERSUASION) { return false; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return false; }
+    if (command_name == Fix.NOURISH_POWER) { return false;}
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return true; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return false; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return true; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return false; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return false; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return false; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return true; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return false; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return false; }
+    if (command_name == Fix.COLORLESS_FORM) { return false; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return false; }
+    if (command_name == Fix.WORLD_CHANT) { return false; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return false; }
     #endregion
@@ -2442,6 +2805,54 @@ public static class ActionCommand
     if (command_name == Fix.WARP_GATE) { return Fix.WARP_GATE_JP; }
     #endregion
 
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return Fix.NEUTRAL_SMASH_JP; }
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return Fix.STANCE_OF_DOUBLE_JP; }
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return Fix.BLITZ_STRIKE_JP; }
+    if (command_name == Fix.ASSASSINATION_HIT) { return Fix.ASSASSINATION_HIT_JP; }
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return Fix.PHOENIX_EYE_JP; }
+    if (command_name == Fix.HARDENED_INSIGHT) { return Fix.HARDENED_INSIGHT_JP; }
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return Fix.CHALLENGING_SHOUT_JP; }
+    if (command_name == Fix.ONSLAUGHT_HIT) { return Fix.ONSLAUGHT_HIT_JP; }
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return Fix.FORMLESS_STYLE_JP; }
+    if (command_name == Fix.HARDEST_PARRY) { return Fix.HARDEST_PARRY_JP; }
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return Fix.TACTICAL_VISION_JP; }
+    if (command_name == Fix.SWIFT_RESPONSE) { return Fix.SWIFT_RESPONSE_JP; }
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return Fix.RIGHTEOUSNESS_ARROW_JP; }
+    if (command_name == Fix.PERFECT_EVASION) { return Fix.PERFECT_EVASION_JP; }
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return Fix.REFLEX_ESSENCE_JP; }
+    if (command_name == Fix.SELF_PERSUASION) { return Fix.SELF_PERSUASION_JP; }
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return Fix.TRUST_SILENCE_JP; }
+    if (command_name == Fix.NOURISH_POWER) { return Fix.NOURISH_POWER_JP; }
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return Fix.SUDDEN_STRIKEARROW_JP; }
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return Fix.STANCE_OF_MYSTIC_JP; }
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return Fix.PSYCHIC_WAVE_JP; }
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return Fix.FLARE_OF_FIGHTING_JP; }
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return Fix.INFINITY_IMAGE_JP; }
+    if (command_name == Fix.UNIFIED_CONVICTION) { return Fix.UNIFIED_CONVICTION_JP; }
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return Fix.ABSOLUTE_ARROW_JP; }
+    if (command_name == Fix.HEAVENS_WISDOM) { return Fix.HEAVENS_WISDOM_JP; }
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return Fix.SILENT_MEDITATION_JP; }
+    if (command_name == Fix.COLORLESS_FORM) { return Fix.COLORLESS_FORM_JP; }
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return Fix.OVERWHELMING_DESTINY_JP; }
+    if (command_name == Fix.WORLD_CHANT) { return Fix.WORLD_CHANT; }
+    #endregion
+
     #region "Archetype"
     if (command_name == Fix.ARCHETYPE_EIN_1) { return Fix.ARCHETYPE_EIN_1; }
     #endregion
@@ -2663,6 +3074,54 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_NINE) { return ""; } // todo 仮
     if (command_name == Fix.PARADOX_IMAGE) { return ""; } // todo 仮
     if (command_name == Fix.WARP_GATE) { return ""; } // todo 仮
+    #endregion
+
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return ""; } // todo 仮
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return ""; } // todo 仮
+    if (command_name == Fix.ASSASSINATION_HIT) { return ""; } // todo 仮
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return ""; } // todo 仮
+    if (command_name == Fix.HARDENED_INSIGHT) { return ""; } // todo 仮
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return ""; } // todo 仮
+    if (command_name == Fix.ONSLAUGHT_HIT) { return ""; } // todo 仮
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return ""; } // todo 仮
+    if (command_name == Fix.HARDEST_PARRY) { return ""; } // todo 仮
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return ""; } // todo 仮
+    if (command_name == Fix.SWIFT_RESPONSE) { return ""; } // todo 仮
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return ""; } // todo 仮
+    if (command_name == Fix.PERFECT_EVASION) { return ""; } // todo 仮
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return ""; } // todo 仮
+    if (command_name == Fix.SELF_PERSUASION) { return ""; } // todo 仮
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return ""; } // todo 仮
+    if (command_name == Fix.NOURISH_POWER) { return ""; } // todo 仮
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return ""; } // todo 仮
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return ""; } // todo 仮
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return ""; } // todo 仮
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return ""; } // todo 仮
+    if (command_name == Fix.UNIFIED_CONVICTION) { return ""; } // todo 仮
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return ""; } // todo 仮
+    if (command_name == Fix.HEAVENS_WISDOM) { return ""; } // todo 仮
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return ""; } // todo 仮
+    if (command_name == Fix.COLORLESS_FORM) { return ""; } // todo 仮
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return ""; } // todo 仮
+    if (command_name == Fix.WORLD_CHANT) { return ""; } // todo 仮
     #endregion
 
     #region "Archetype"
@@ -2928,6 +3387,54 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_NINE) { return ""; } // todo 仮
     if (command_name == Fix.PARADOX_IMAGE) { return ""; } // todo 仮
     if (command_name == Fix.WARP_GATE) { return ""; } // todo 仮
+    #endregion
+
+    #region "複合スキル"
+    // 戦士＋護衛 [完全逆]
+    if (command_name == Fix.NEUTRAL_SMASH) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_DOUBLE) { return ""; } // todo 仮
+    // 戦士＋格闘
+    if (command_name == Fix.BLITZ_STRIKE) { return ""; } // todo 仮
+    if (command_name == Fix.ASSASSINATION_HIT) { return ""; } // todo 仮
+    // 戦士＋弓術
+    if (command_name == Fix.PHOENIX_EYE) { return ""; } // todo 仮
+    if (command_name == Fix.HARDENED_INSIGHT) { return ""; } // todo 仮
+    // 戦士＋心眼
+    if (command_name == Fix.CHALLENGING_SHOUT) { return ""; } // todo 仮
+    if (command_name == Fix.ONSLAUGHT_HIT) { return ""; } // todo 仮
+    // 戦士＋無心
+    if (command_name == Fix.FORMLESS_STYLE) { return ""; } // todo 仮
+    if (command_name == Fix.HARDEST_PARRY) { return ""; } // todo 仮
+    // 護衛＋格闘
+    if (command_name == Fix.TACTICAL_VISION) { return ""; } // todo 仮
+    if (command_name == Fix.SWIFT_RESPONSE) { return ""; } // todo 仮
+    // 護衛＋弓術
+    if (command_name == Fix.RIGHTEOUSNESS_ARROW) { return ""; } // todo 仮
+    if (command_name == Fix.PERFECT_EVASION) { return ""; } // todo 仮
+    // 護衛＋心眼
+    if (command_name == Fix.REFLEX_ESSENCE) { return ""; } // todo 仮
+    if (command_name == Fix.SELF_PERSUASION) { return ""; } // todo 仮
+    // 護衛＋無心
+    if (command_name == Fix.TRUST_SILENCE) { return ""; } // todo 仮
+    if (command_name == Fix.NOURISH_POWER) { return ""; } // todo 仮
+    // 格闘＋弓術 [完全逆]
+    if (command_name == Fix.SUDDEN_STRIKEARROW) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_MYSTIC) { return ""; } // todo 仮
+    // 格闘＋心眼
+    if (command_name == Fix.PSYCHIC_WAVE) { return ""; } // todo 仮
+    if (command_name == Fix.FLARE_OF_FIGHTING) { return ""; } // todo 仮
+    // 格闘＋無心
+    if (command_name == Fix.INFINITY_IMAGE) { return ""; } // todo 仮
+    if (command_name == Fix.UNIFIED_CONVICTION) { return ""; } // todo 仮
+    // 弓術＋心眼
+    if (command_name == Fix.ABSOLUTE_ARROW) { return ""; } // todo 仮
+    if (command_name == Fix.HEAVENS_WISDOM) { return ""; } // todo 仮
+    // 弓術＋無心
+    if (command_name == Fix.SILENT_MEDITATION) { return ""; } // todo 仮
+    if (command_name == Fix.COLORLESS_FORM) { return ""; } // todo 仮
+    // 心眼＋無心 [完全逆]
+    if (command_name == Fix.OVERWHELMING_DESTINY) { return ""; } // todo 仮
+    if (command_name == Fix.WORLD_CHANT) { return ""; } // todo 仮
     #endregion
 
     return String.Empty;

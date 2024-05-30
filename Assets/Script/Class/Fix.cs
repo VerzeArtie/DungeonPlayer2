@@ -99,6 +99,21 @@ public static partial class Fix
     Ice_Force, // 氷＋理
     Ice_VoidChant, // 氷＋空唱
     Force_VoidChant, // 理＋空唱
+    Warrior_Guardian, // 戦士＋護衛
+    Warrior_MartialArts, // 戦士＋格闘
+    Warrior_Archery, // 戦士＋弓術
+    Warrior_Truth, // 戦士＋心眼
+    Warrior_Mindfulness, // 戦士＋無心
+    Guardian_MartialArts, // 護衛＋格闘
+    Guardian_Archery, // 護衛＋弓術
+    Guardian_Truth, // 護衛＋心眼
+    Guardian_Mindfulness, // 護衛＋無心
+    MartialArts_Archery, // 格闘＋弓術
+    MartialArts_Truth, // 格闘＋心眼
+    MartialArts_Mindfulness, // 格闘＋無心
+    Archery_Truth, // 弓術＋心眼
+    Archery_Mindfulness, // 弓術＋無心
+    Truth_Mindfulness, // 心眼＋無心
     None,
   }
 
@@ -1226,8 +1241,6 @@ public static partial class Fix
   public const string PENETRATION_ARROW_JP = "ペネトレーション・アロー";
   public const string DEADLY_DRIVE = "Deadly Drive";
   public const string DEADLY_DRIVE_JP = "デッドリー・ドライブ";
-  public const string ASSASSINATION_HIT = "Assassination Hit";
-  public const string ASSASSINATION_HIT_JP = "アサシネーション・ヒット";
   public const string PHANTOM_OBORO = "Phantom Oboro";
   public const string PHANTOM_OBORO_JP = "ファントム・朧";
   public const string DOMINATION_FIELD = "Domination Field";
@@ -1270,8 +1283,6 @@ public static partial class Fix
   public const string COUNTER_DISALLOW_JP = "カウンター・ディスアロウ";
   public const string SIGIL_OF_THE_HOMURA = "Sigil of the Homura";
   public const string SIGIL_OF_THE_HOMURA_JP = "シギル・オブ・ホムラ";
-  public const string HARDEST_PARRY = "Hardest Parry";
-  public const string HARDEST_PARRY_JP = "ハーデスト・パリィ";
   public const string REVOLUTION_AURA = "Revolution Aura";
   public const string REVOLUTION_AURA_JP = "レボリューション・オーラ";
   public const string OATH_OF_AEGIS = "Oath of Aegis";
@@ -1353,8 +1364,6 @@ public static partial class Fix
   public const string CATASTROPHE_JP = "カタストロフィ";
   public const string ESSENCE_OVERFLOW = "Essence Overflow";
   public const string ESSENCE_OVERFLOW_JP = "エッセンス・オーバーフロー";
-  public const string OVERWHELMING_DESTINY = "Overwhelming Destiny";
-  public const string OVERWHELMING_DESTINY_JP = "オーバーウェルミング・デスティニー";
   public const string DEMON_CONTRACT = "Demon Contract";
   public const string DEMON_CONTRACT_JP = "デーモン・コントラクト";
   public const string STANCE_OF_THE_KOKOROE = "Stance of the Kokoroe";
@@ -1470,6 +1479,84 @@ public static partial class Fix
   public const string PARADOX_IMAGE_JP = "パラドックス・イメージ";
   public const string WARP_GATE = "Warp Gate";
   public const string WARP_GATE_JP = "ワープ・ゲート";
+  #endregion
+
+  #region "【複合スキル】"
+  // 戦士＋護衛 [完全逆]
+  public const string NEUTRAL_SMASH = "Neutral Smash";
+  public const string NEUTRAL_SMASH_JP = "ニュートラル・スマッシュ";
+  public const string STANCE_OF_DOUBLE = "Stance of Double";
+  public const string STANCE_OF_DOUBLE_JP = "スタンス・オブ・ダブル";
+  // 戦士＋格闘
+  public const string BLITZ_STRIKE = "Blitz Strike";
+  public const string BLITZ_STRIKE_JP = "ブリッツ・ストライク";
+  public const string ASSASSINATION_HIT = "Assassination Hit";
+  public const string ASSASSINATION_HIT_JP = "アサシネーション・ヒット";
+  // 戦士＋弓術
+  public const string PHOENIX_EYE = "Phoenix Eye";
+  public const string PHOENIX_EYE_JP = "フェニックス・アイ";
+  public const string HARDENED_INSIGHT = "Hardened Insight";
+  public const string HARDENED_INSIGHT_JP = "ハーディンド・インサイト";
+  // 戦士＋心眼
+  public const string CHALLENGING_SHOUT = "Challenging Shout";
+  public const string CHALLENGING_SHOUT_JP = "チャレンジング・シャウト";
+  public const string ONSLAUGHT_HIT = "Onslaught Hit";
+  public const string ONSLAUGHT_HIT_JP = "オンスロート・ヒット";
+  // 戦士＋無心
+  public const string FORMLESS_STYLE = "Formless Style";
+  public const string FORMLESS_STYLE_JP = "フォームレス・スタイル";
+  public const string HARDEST_PARRY = "Hardest Parry";
+  public const string HARDEST_PARRY_JP = "ハーデスト・パリィ";
+  // 護衛＋格闘
+  public const string TACTICAL_VISION = "Tactical Vision";
+  public const string TACTICAL_VISION_JP = "タクティカル・ビジョン";
+  public const string SWIFT_RESPONSE = "Swift Response";
+  public const string SWIFT_RESPONSE_JP = "スウィフト・レスポンス";
+  // 護衛＋弓術
+  public const string RIGHTEOUSNESS_ARROW = "Righteousness Arrow";
+  public const string RIGHTEOUSNESS_ARROW_JP = "ライティアスネス・アロー";
+  public const string PERFECT_EVASION = "Perfect Evasion";
+  public const string PERFECT_EVASION_JP = "パーフェクト・イヴェイジョン";
+  // 護衛＋心眼
+  public const string REFLEX_ESSENCE = "Reflex Essence";
+  public const string REFLEX_ESSENCE_JP = "リフレックス・エッセンス";
+  public const string SELF_PERSUASION = "Self Persuasion";
+  public const string SELF_PERSUASION_JP = "セルフ・パースエイジョン";
+  // 護衛＋無心
+  public const string TRUST_SILENCE = "Trust Silence";
+  public const string TRUST_SILENCE_JP = "トラスト・サイレンス";
+  public const string NOURISH_POWER = "Nourish Power";
+  public const string NOURISH_POWER_JP = "ノゥリッシュ・パワー";
+  // 格闘＋弓術 [完全逆]
+  public const string SUDDEN_STRIKEARROW = "Sudden StrikeArrow";
+  public const string SUDDEN_STRIKEARROW_JP = "サドン・ストライクアロー";
+  public const string STANCE_OF_MYSTIC = "Stance of Mystic";
+  public const string STANCE_OF_MYSTIC_JP = "スタンス・オブ・ミスティック";
+  // 格闘＋心眼
+  public const string PSYCHIC_WAVE = "Psychic Wave";
+  public const string PSYCHIC_WAVE_JP = "サイキック・ウェイヴ";
+  public const string FLARE_OF_FIGHTING = "Flare of Fighting";
+  public const string FLARE_OF_FIGHTING_JP = "闘いの閃光";
+  // 格闘＋無心
+  public const string INFINITY_IMAGE = "Infinity Image";
+  public const string INFINITY_IMAGE_JP = "インフィニティ・イメージ";
+  public const string UNIFIED_CONVICTION = "Unified Conviction";
+  public const string UNIFIED_CONVICTION_JP = "ユニファイド・コンヴィクション";
+  // 弓術＋心眼
+  public const string ABSOLUTE_ARROW = "Absolute Arrow";
+  public const string ABSOLUTE_ARROW_JP = "アブソリュート・アロー";
+  public const string HEAVENS_WISDOM = "Heavens Wisdom";
+  public const string HEAVENS_WISDOM_JP = "ヘブンズ・ウィズダム";
+  // 弓術＋無心
+  public const string SILENT_MEDITATION = "Silent Meditation";
+  public const string SILENT_MEDITATION_JP = "サイレント・メディテーション";
+  public const string COLORLESS_FORM = "Colorless Form";
+  public const string COLORLESS_FORM_JP = "カラレス・フォーム";
+  // 心眼＋無心
+  public const string OVERWHELMING_DESTINY = "Overwhelming Destiny";
+  public const string OVERWHELMING_DESTINY_JP = "オーバーウェルミング・デスティニー";
+  public const string WORLD_CHANT = "World Chant";
+  public const string WORLD_CHANT_JP = "世界の詠唱";
   #endregion
 
   //public const string DESTROYER_SMASH = "Destroyer Smash";
