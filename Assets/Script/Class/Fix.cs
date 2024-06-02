@@ -209,6 +209,18 @@ public static partial class Fix
     Boss54_3,
     Boss54_4,
     Boss55,
+    Area61,
+    Area62,
+    Area63,
+    Area64,
+    Area65,
+    Boss6,
+    Boss62,
+    Boss63_1,      
+    Boss63_2,      
+    Boss63_3,      
+    Boss64,      
+    Boss64_2,      
     TruthBoss5,
     Area46,
     Duel,
@@ -1856,6 +1868,115 @@ public static partial class Fix
   public const string COMMAND_SURGETIC_BIND = "サージェティック・バインド";
   public const string COMMAND_TIDAL_WAVE = "タイダル・ウェイブ";
 
+  public const string COMMAND_BACKSTAB_ARROW = "バックスタッブ・アロー";
+  public const string COMMAND_KARAME_BIND = "絡め捕り";
+  public const string COMMAND_BEAST_SPIRIT = "野獣の魂";
+  public const string COMMAND_BEAST_HOUND = "ビースト・ハウンド";
+  public const string COMMAND_DATOTSU = "打突";
+  public const string COMMAND_ASSASSIN_POISONNEEDLE = "アサシンの毒針";
+  public const string COMMAND_SAINT_SLASH = "セイント・スラッシュ";
+  public const string COMMAND_DEMON_CONTRACT = "悪魔との契約";
+  public const string COMMAND_DARKM_SPELL = "暗黒呪文";
+  public const string COMMAND_HELLFIRE_SPELL = "煉獄の禁術";
+  public const string COMMAND_RENZOKU_HOUSYA = "連続放射";
+  public const string COMMAND_STEAM_ARROW = "スチーム・アロー";
+  public const string COMMAND_BLACKDRAGON_WHISPER = "黒龍のささやき";
+  public const string COMMAND_DEATH_HAITOKU = "死への背徳";
+  public const string COMMAND_SUPERIOR_FIELD = "スペリオル・フィールド";
+  public const string COMMAND_SHINDOWKEN = "振動剣";
+  public const string COMMAND_DEATH_STRIKE = "デス・ストライク";
+  public const string COMMAND_SOUL_FROZEN = "魂への凍結";
+  public const string COMMAND_CURSED_THREAD = "呪いの糸";
+  public const string COMMAND_HORROR_VISION = "ホラー・ヴィジョン";
+  public const string COMMAND_RASEN_KOKUEN = "螺旋黒炎";
+  public const string COMMAND_RANSO_RENGEKI = "乱奏連撃";
+  public const string COMMAND_DEMON_BOLT = "デーモン・ボルト";
+  public const string COMMAND_ARCANE_DESTRUCTION = "アーケン・デストラクション";
+  public const string COMMAND_TOWER_FALL = "タワー・フォール";
+  public const string COMMAND_ROUND_DIVIDE = "ラウンド・ディバイド";
+  public const string COMMAND_BLACK_FLARE = "ブラック・フレア";
+  public const string COMMAND_SATELLITE_SWORD = "サテライト・ソード";
+  public const string COMMAND_SIGIL_OF_SUN_FALLEN = "太陽の滅印";
+  public const string COMMAND_LIFE_BRILLIANT = "生命の輝き";
+  public const string COMMAND_ALL_DUST = "全ては灰に";
+  public const string COMMAND_LVEL_SONG = "レヴェルの唄";
+  public const string COMMAND_GIGANT_SLAYER = "ギガント・スレイヤー";
+  public const string COMMAND_JUONSATSU = "呪怨殺";
+  public const string COMMAND_ABYSS_LOGIC = "深淵の理";
+  public const string COMMAND_BONE_TORNADO = "ボーン・トルネード";
+  public const string COMMAND_OMINOUS_LAUGH = "不気味な笑い声";
+  public const string COMMAND_SKULL_CRASH = "スカル・クラッシュ";
+  public const string COMMAND_WAZAWAI_FLAME = "禍の炎";
+  public const string COMMAND_THE_END = "ジ・エンド";
+  public const string COMMAND_HELLFLAME_BULLET = "煉獄弾";
+  public const string COMMAND_CHROMATIC_BULLET = "クロマティック・バレット";
+  public const string COMMAND_SUPER_MAX_WAVE = "超高温熱波動";
+  public const string COMMAND_IRREGULAR_REGENERATION = "異常再生";
+  public const string COMMAND_ETERNAL_CIRCLE = "循環の紋様";
+  public const string COMMAND_DESTRUCTION_CIRCLE = "破滅の紋様";
+  public const string COMMAND_PERFECT_STOP = "完全停止";
+  public const string COMMAND_SPECTOR_VOICE = "スペクター・ヴォイス";
+  public const string COMMAND_NOMERCY_SCREAM = "無慈悲な叫び声";
+  public const string COMMAND_DARK_SIMULACRUM = "ダーク・シミュラクラム";
+  public const string COMMAND_FABRIOLE_SPEAR = "フェイブリオル・スピア";
+  public const string COMMAND_REST_IN_DREAM = "安らかなる夢";
+  public const string COMMAND_DANCING_LANCER = "ダンシング・ランサー";
+  public const string COMMAND_CHAOS_DEATHPERADE = "カオス・デスペラーテ";
+  public const string COMMAND_MARIA_DANSEL = "マリア・ダンセル";
+  public const string COMMAND_DESTRUCT_TUNING = "調律への破壊";
+  public const string COMMAND_GROUND_CRACK = "大地の裂け目";
+  public const string COMMAND_BLACK_DARK_LANCE = "不朽の暗黒槍";
+  public const string COMMAND_UNDEAD_WISH = "不死への渇望";
+  public const string COMMAND_HELL_CIRCLE = "ヘル・サークル";
+  public const string COMMAND_INNOCENT_SLASH = "無垢の一振り";
+  public const string COMMAND_HARSH_CUTTER = "ハーシュ・カッター";
+  public const string COMMAND_JUDGEMENT_LIGHTNING = "裁きの雷砲";
+  public const string COMMAND_BLACKHOLE = "ブラック・ホール";
+  public const string COMMAND_ERROR_OCCUR = "異常発生";
+  public const string COMMAND_FUMBLE_SIGN = "ファンブル・サイン";
+  public const string COMMAND_AREA_TWIST = "空間ねじ曲げ";
+  public const string COMMAND_PARADOXICAL_SLICER = "パラドキシカル・スライサー";
+  public const string COMMAND_OAHN_VOICE = "オーンの呼び声";
+  public const string COMMAND_MOMENT_MAGIC = "瞬間魔法";
+  public const string COMMAND_DESPIAR_RAIN = "破滅の雨";
+  public const string COMMAND_SWORD_OF_WIND = "ソード・オブ・ウィンド";
+  public const string COMMAND_SKY_CUTTER = "断空";
+  public const string COMMAND_SONIC_BLADE = "高速剣";
+  public const string COMMAND_SCREAMING_FROM_VOICE = "地獄からの呼び声";
+  public const string COMMAND_DESPAIR_SHIELD = "絶望の槍";
+  public const string COMMAND_KUUKAN_MATEN = "空間魔天";
+  public const string COMMAND_METEOR_STORM = "メテオ・ストーム";
+  public const string COMMAND_CROSS_GATE = "クロス・ゲート";
+  public const string COMMAND_PRISMATIC_BULLET = "プリズマティック・バレット";
+  public const string COMMAND_PHOTON_LASER = "フォトン・レーザー";
+  public const string COMMAND_SEALED_STONE = "封印石";
+  public const string COMMAND_SUPER_EXPLOSION = "大暴走";
+  public const string COMMAND_POWER_EXPLOSION = "パワー・エクスプロージョン";
+  public const string COMMAND_PERFECT_HIT = "パーフェクト・ヒット";
+  public const string COMMAND_FUSION_CHARGE = "フュージョン・チャージ";
+  public const string COMMAND_LEGION_DRIVE = "レギオン・ドライブ";
+  public const string COMMAND_BERSERKER_RUSH = "バーサーカー・ラッシュ";
+  public const string COMMAND_GOLDEN_MATRIX = "ゴールデン・マトリクス";
+  public const string COMMAND_METSU_INCARNATION = "滅・インカーネーション";
+  public const string COMMAND_THOUSAND_SQUALL = "サウザンド・スコール";
+  public const string COMMAND_AURORA_BLADE = "オーロラ・ブレイド";
+  public const string COMMAND_MEGIDO_BLAZE = "メギド・ブレイズ";
+  public const string COMMAND_ABYSS_WILL = "アビスの意志";
+  public const string COMMAND_ONE_HOMURA = "壱なる焔";
+  public const string COMMAND_ABYSS_FIRE = "アビス・ファイア";
+  public const string COMMAND_ETERNAL_DROPLET = "エターナル・ドロップレット";
+  public const string COMMAND_AUSTERITY_MATRIX_OMEGA = "アウステリティ・マトリクスΩ";
+  public const string COMMAND_VOID_BEAT = "虚無の鼓動";
+  public const string COMMAND_PERFECT_PROPHECY = "完全なる予見";
+  public const string COMMAND_HOLY_WISDOM = "ホーリー・ウィズダム";
+  public const string COMMAND_ETERNAL_PRESENCE = "信念：エターナル・プリゼンス";
+  public const string COMMAND_ULTIMATE_FLARE = "天啓：アルティメット・フレア";
+  public const string COMMAND_TIME_EXPANSION = "時間の跳躍";
+  public const string COMMAND_STARSWORD_ZETSU = "スター・ソード【絶剣】";
+  public const string COMMAND_STARSWORD_ZETSU_HOMURA = "スター・ソード【焔絶剣】";
+
+  public const string COMMAND_ = "";
+
   public const string COMMAND_NOTHING = "なし";
   #endregion
 
@@ -2893,6 +3014,8 @@ public static partial class Fix
   public const string GO_FLAME_SLASHER_JP = "業・フレイムスラッシャー";
   public const string DEVIL_CHILDREN = "Devil Children";
   public const string DEVIL_CHILDREN_JP = "デビル・チルドレン";
+  public const string ANCIENT_DISK = "Ancient Disk";
+  public const string ANCIENT_DISK_JP = "古代紋様の円盤";
   public const string HOWLING_HORROR = "Howling Horror";
   public const string HOWLING_HORROR_JP = "ハウリングホラー";
   public const string PAIN_ANGEL = "Pain Angel";
@@ -2931,7 +3054,7 @@ public static partial class Fix
   public const string LEGIN_ARZE_2_JP_VIEW = "【　　闇焔　＜無音＞　】\r\nレギィン・アーゼ";
   public const string LEGIN_ARZE_3 = "Legin-Arze <Abyss>";
   public const string LEGIN_ARZE_3_JP = "闇焔レギィン・アーゼ【深淵】";
-  public const string LEGIN_ARZE_3_JP_VIEW = "闇焔レギィン・アーゼ【深淵】";
+  public const string LEGIN_ARZE_3_JP_VIEW = "【　　闇焔　＜深淵＞　】\r\nレギィン・アーゼ";
   public const string EMPEROR_LEGAL_ORPHSTEIN = "The Emperor: Legal Orphstein";
   public const string EMPEROR_LEGAL_ORPHSTEIN_JP = "皇帝：リガール・オルフシュタイン";
   public const string EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW = "【　　皇帝　　】\r\nリガール・オルフシュタイン";

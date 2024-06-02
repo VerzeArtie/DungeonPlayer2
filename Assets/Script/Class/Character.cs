@@ -7790,6 +7790,487 @@ public partial class Character : MonoBehaviour
 
       #endregion
 
+      #region "エデルガイゼン城"
+      case Fix.PHANTOM_HUNTER:
+      case Fix.PHANTOM_HUNTER_JP:
+        SetupParameter(1800, 1090, 1500, 16000, 200, 0, 40000, 33000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BACKSTAB_ARROW);
+        list.Add(Fix.COMMAND_KARAME_BIND);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.BEAST_MASTER:
+      case Fix.BEAST_MASTER_JP:
+        SetupParameter(1550, 1070, 1900, 19000, 200, 0, 41000, 33900);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_BEAST_SPIRIT);
+        list.Add(Fix.COMMAND_BEAST_HOUND);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ELDER_ASSASSIN:
+      case Fix.ELDER_ASSASSIN_JP:
+        SetupParameter(1850, 1150, 1550, 17000, 200, 0, 42000, 34800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_DATOTSU);
+        list.Add(Fix.COMMAND_ASSASSIN_POISONNEEDLE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.FALLEN_SEEKER:
+      case Fix.FALLEN_SEEKER_JP:
+        SetupParameter(1900, 1100, 1660, 18000, 200, 0, 43000, 35700);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SAINT_SLASH);
+        list.Add(Fix.COMMAND_DEMON_CONTRACT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.MEPHISTO_RIGHTARM:
+      case Fix.MEPHISTO_RIGHTARM_JP:
+        SetupParameter(1700, 1120, 1950, 21000, 200, 0, 44000, 36600);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_DARKM_SPELL);
+        list.Add(Fix.COMMAND_HELLFIRE_SPELL);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.POWERED_STEAM_BOW:
+      case Fix.POWERED_STEAM_BOW_JP:
+        SetupParameter(2000, 1050, 1700, 20000, 200, 0, 45000, 37500);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_RENZOKU_HOUSYA);
+        list.Add(Fix.COMMAND_STEAM_ARROW);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area61;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DARK_MESSENGER:
+      case Fix.DARK_MESSENGER_JP:
+        SetupParameter(1800, 1200, 2200, 24000, 225, 0, 47000, 39000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_BLACKDRAGON_WHISPER);
+        list.Add(Fix.COMMAND_DEATH_HAITOKU);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.MASTER_LOAD:
+      case Fix.MASTER_LOAD_JP:
+        SetupParameter(2280, 1340, 1830, 25000, 225, 0, 48200, 40000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SUPERIOR_FIELD);
+        list.Add(Fix.COMMAND_SHINDOWKEN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.EXECUTIONER:
+      case Fix.EXECUTIONER_JP:
+        SetupParameter(2360, 1300, 1810, 26000, 225, 0, 49400, 41000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_DEATH_STRIKE);
+        list.Add(Fix.COMMAND_SOUL_FROZEN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.MARIONETTE_NEMESIS:
+      case Fix.MARIONETTE_NEMESIS_JP:
+        SetupParameter(1840, 1360, 2400, 27000, 225, 0, 50600, 42000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_CURSED_THREAD);
+        list.Add(Fix.COMMAND_HORROR_VISION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.BLACKFIRE_MASTER_BLADE:
+      case Fix.BLACKFIRE_MASTER_BLADE_JP:
+        SetupParameter(2420, 1420, 1870, 29000, 225, 0, 51800, 43000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_RASEN_KOKUEN);
+        list.Add(Fix.COMMAND_RANSO_RENGEKI);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.SIN_THE_DARKELF:
+      case Fix.SIN_THE_DARKELF_JP:
+        SetupParameter(1860, 1380, 2460, 28000, 225, 0, 53000, 44000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_DEMON_BOLT);
+        list.Add(Fix.COMMAND_ARCANE_DESTRUCTION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.IMPERIAL_KNIGHT:
+      case Fix.IMPERIAL_KNIGHT_JP:
+        SetupParameter(2450, 1390, 1880, 30000, 225, 0, 54200, 45000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_TOWER_FALL);
+        list.Add(Fix.COMMAND_ROUND_DIVIDE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area62;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.SUN_STRIDER:
+      case Fix.SUN_STRIDER_JP:
+        SetupParameter(2550, 1480, 1900, 32000, 250, 0, 56000, 47000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BLACK_FLARE);
+        list.Add(Fix.COMMAND_SATELLITE_SWORD);
+        list.Add(Fix.COMMAND_SIGIL_OF_SUN_FALLEN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.BALANCE_IDLE:
+      case Fix.BALANCE_IDLE_JP:
+        SetupParameter(2580, 1500, 2580, 38000, 250, 0, 57400, 48100);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_LIFE_BRILLIANT);
+        list.Add(Fix.COMMAND_ALL_DUST);
+        list.Add(Fix.COMMAND_LVEL_SONG);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ARCHDEMON:
+      case Fix.ARCHDEMON_JP:
+        SetupParameter(2620, 1460, 1920, 34000, 250, 0, 58600, 49200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GIGANT_SLAYER);
+        list.Add(Fix.COMMAND_JUONSATSU);
+        list.Add(Fix.COMMAND_ABYSS_LOGIC);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.UNDEAD_WYVERN:
+      case Fix.UNDEAD_WYVERN_JP:
+        SetupParameter(1940, 1520, 2660, 36000, 250, 0, 59800, 50300);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_BONE_TORNADO);
+        list.Add(Fix.COMMAND_OMINOUS_LAUGH);
+        list.Add(Fix.COMMAND_SKULL_CRASH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.GO_FLAME_SLASHER:
+      case Fix.GO_FLAME_SLASHER_JP:
+        SetupParameter(2640, 1550, 1950, 44000, 250, 0, 61000, 51400);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_WAZAWAI_FLAME);
+        list.Add(Fix.COMMAND_THE_END);
+        list.Add(Fix.COMMAND_HELLFLAME_BULLET);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DEVIL_CHILDREN:
+      case Fix.DEVIL_CHILDREN_JP:
+        SetupParameter(1980, 1540, 2680, 40000, 250, 0, 62200, 52500);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_CHROMATIC_BULLET);
+        list.Add(Fix.COMMAND_SUPER_MAX_WAVE);
+        list.Add(Fix.COMMAND_IRREGULAR_REGENERATION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ANCIENT_DISK:
+      case Fix.ANCIENT_DISK_JP:
+        SetupParameter(1990, 1530, 2700, 42000, 250, 0, 63400, 53600);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_ETERNAL_CIRCLE);
+        list.Add(Fix.COMMAND_DESTRUCTION_CIRCLE);
+        list.Add(Fix.COMMAND_PERFECT_STOP);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area63;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.HOWLING_HORROR:
+      case Fix.HOWLING_HORROR_JP:
+        SetupParameter(2100, 1620, 2850, 45000, 275, 0, 65000, 55000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SPECTOR_VOICE);
+        list.Add(Fix.COMMAND_NOMERCY_SCREAM);
+        list.Add(Fix.COMMAND_DARK_SIMULACRUM);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.PAIN_ANGEL:
+      case Fix.PAIN_ANGEL_JP:
+        SetupParameter(2900, 1660, 2120, 47000, 275, 0, 66300, 56200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_FABRIOLE_SPEAR);
+        list.Add(Fix.COMMAND_REST_IN_DREAM);
+        list.Add(Fix.COMMAND_DANCING_LANCER);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.CHAOS_WARDEN:
+      case Fix.CHAOS_WARDEN_JP:
+        SetupParameter(2140, 1700, 2950, 49000, 275, 0, 67600, 57400);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_CHAOS_DEATHPERADE);
+        list.Add(Fix.COMMAND_MARIA_DANSEL);
+        list.Add(Fix.COMMAND_DESTRUCT_TUNING);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.HELL_DREAD_KNIGHT:
+      case Fix.HELL_DREAD_KNIGHT_JP:
+        SetupParameter(2980, 1740, 2170, 53000, 275, 0, 68900, 58600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_GROUND_CRACK);
+        list.Add(Fix.COMMAND_BLACK_DARK_LANCE);
+        list.Add(Fix.COMMAND_UNDEAD_WISH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DOOM_BRINGER:
+      case Fix.DOOM_BRINGER_JP:
+        SetupParameter(3050, 1720, 2200, 57000, 275, 0, 70200, 59800);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_HELL_CIRCLE);
+        list.Add(Fix.COMMAND_INNOCENT_SLASH);
+        list.Add(Fix.COMMAND_HARSH_CUTTER);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.BLACK_LIGHTNING_SPHERE:
+      case Fix.BLACK_LIGHTNING_SPHERE_JP:
+        SetupParameter(2240, 1760, 3030, 51000, 275, 0, 71500, 61000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_JUDGEMENT_LIGHTNING);
+        list.Add(Fix.COMMAND_BLACKHOLE);
+        list.Add(Fix.COMMAND_ERROR_OCCUR);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.DISTORTED_SENSOR:
+      case Fix.DISTORTED_SENSOR_JP:
+        SetupParameter(3000, 1800, 3000, 55000, 275, 0, 72800, 62200);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_FUMBLE_SIGN);
+        list.Add(Fix.COMMAND_AREA_TWIST);
+        list.Add(Fix.COMMAND_PARADOXICAL_SLICER);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area64;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.ELDER_BAPHOMET:
+      case Fix.ELDER_BAPHOMET_JP:
+        SetupParameter(2280, 1900, 3180, 60000, 300, 0, 74000, 64000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_OAHN_VOICE);
+        list.Add(Fix.COMMAND_MOMENT_MAGIC);
+        list.Add(Fix.COMMAND_DESPIAR_RAIN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area65;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.WIND_BREAKER:
+      case Fix.WIND_BREAKER_JP:
+        SetupParameter(3300, 2020, 2300, 70000, 300, 0, 75500, 65400);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SWORD_OF_WIND);
+        list.Add(Fix.COMMAND_SKY_CUTTER);
+        list.Add(Fix.COMMAND_SONIC_BLADE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area65;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.HOLLOW_SPECTOR:
+      case Fix.HOLLOW_SPECTOR_JP:
+        SetupParameter(2320, 1950, 3260, 66000, 300, 0, 77000, 66800);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_SCREAMING_FROM_VOICE);
+        list.Add(Fix.COMMAND_DESPAIR_SHIELD);
+        list.Add(Fix.COMMAND_KUUKAN_MATEN);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area65;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.VENERABLE_WIZARD:
+      case Fix.VENERABLE_WIZARD_JP:
+        SetupParameter(2340, 1980, 3330, 63000, 300, 0, 78500, 68200);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_METEOR_STORM);
+        list.Add(Fix.COMMAND_CROSS_GATE);
+        list.Add(Fix.COMMAND_PRISMATIC_BULLET);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area65;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.UNKNOWN_FLOATING_BALL:
+      case Fix.UNKNOWN_FLOATING_BALL_JP:
+        SetupParameter(3220, 1920, 2360, 68000, 300, 0, 80000, 68600);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_PHOTON_LASER);
+        list.Add(Fix.COMMAND_SEALED_STONE);
+        list.Add(Fix.COMMAND_SUPER_EXPLOSION);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Area65;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.MASCLEWARRIOR_HARDIL:
+      case Fix.MASCLEWARRIOR_HARDIL_JP:
+      case Fix.MASCLEWARRIOR_HARDIL_JP_VIEW:
+        SetupParameter(6000, 2500, 4000, 300000, 350, 0, 150000, 250000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_POWER_EXPLOSION);
+        list.Add(Fix.COMMAND_PERFECT_HIT);
+        list.Add(Fix.COMMAND_FUSION_CHARGE);
+        list.Add(Fix.COMMAND_LEGION_DRIVE);
+        list.Add(Fix.COMMAND_BERSERKER_RUSH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss6;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.HUGE_MAGICIAN_ZAGAN:
+      case Fix.HUGE_MAGICIAN_ZAGAN_JP:
+      case Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW:
+        SetupParameter(4000, 2600, 6000, 320000, 360, 0, 160000, 300000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_GOLDEN_MATRIX);
+        list.Add(Fix.COMMAND_METSU_INCARNATION);
+        list.Add(Fix.COMMAND_THOUSAND_SQUALL);
+        list.Add(Fix.COMMAND_AURORA_BLADE);
+        list.Add(Fix.COMMAND_MEGIDO_BLAZE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss62;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LEGIN_ARZE_1:
+      case Fix.LEGIN_ARZE_1_JP:
+      case Fix.LEGIN_ARZE_1_JP_VIEW:
+        SetupParameter(4500, 3000, 6500, 400000, 370, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_ABYSS_WILL);
+        list.Add(Fix.COMMAND_ONE_HOMURA);
+        list.Add(Fix.COMMAND_ABYSS_FIRE);
+        list.Add(Fix.COMMAND_ETERNAL_DROPLET);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss63_1;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LEGIN_ARZE_2:
+      case Fix.LEGIN_ARZE_2_JP:
+      case Fix.LEGIN_ARZE_2_JP_VIEW:
+        SetupParameter(4500, 3100, 6600, 450000, 380, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_ABYSS_WILL);
+        list.Add(Fix.COMMAND_ONE_HOMURA);
+        list.Add(Fix.COMMAND_ABYSS_FIRE);
+        list.Add(Fix.COMMAND_ETERNAL_DROPLET);
+        list.Add(Fix.COMMAND_AUSTERITY_MATRIX_OMEGA);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss63_2;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.LEGIN_ARZE_3:
+      case Fix.LEGIN_ARZE_3_JP:
+      case Fix.LEGIN_ARZE_3_JP_VIEW:
+        SetupParameter(4500, 3200, 6700, 500000, 390, 0, 200000, 350000);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_ABYSS_WILL);
+        list.Add(Fix.COMMAND_ONE_HOMURA);
+        list.Add(Fix.COMMAND_ABYSS_FIRE);
+        list.Add(Fix.COMMAND_ETERNAL_DROPLET);
+        list.Add(Fix.COMMAND_AUSTERITY_MATRIX_OMEGA);
+        list.Add(Fix.COMMAND_VOID_BEAT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss63_3;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN:
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP:
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
+        SetupParameter(7500, 3500, 7500, 1000000, 500, 0, 0, 0);
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        list.Add(Fix.COMMAND_PERFECT_PROPHECY);
+        list.Add(Fix.COMMAND_HOLY_WISDOM);
+        list.Add(Fix.COMMAND_ETERNAL_PRESENCE);
+        list.Add(Fix.COMMAND_ULTIMATE_FLARE);
+        list.Add(Fix.COMMAND_TIME_EXPANSION);
+        list.Add(Fix.COMMAND_STARSWORD_ZETSU);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss64;
+        this.CannotCritical = true;
+        break;
+
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN:
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP:
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
+        SetupParameter(8000, 3800, 8000, 1500000, 600, 0, 0, 0);
+        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        list.Add(Fix.COMMAND_PERFECT_PROPHECY);
+        list.Add(Fix.COMMAND_HOLY_WISDOM);
+        list.Add(Fix.COMMAND_ETERNAL_PRESENCE);
+        list.Add(Fix.COMMAND_ULTIMATE_FLARE);
+        list.Add(Fix.COMMAND_TIME_EXPANSION);
+        list.Add(Fix.COMMAND_STARSWORD_ZETSU_HOMURA);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss64_2;
+        this.CannotCritical = true;
+        break;
+
+      #endregion
+
       case Fix.DUMMY_SUBURI:
         SetupParameter(10, 10, 10, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
@@ -7845,14 +8326,6 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-
-      case Fix.DISTORTED_SENSOR:
-      case Fix.DISTORTED_SENSOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
       case Fix.THE_GALVADAZER:
       case Fix.THE_GALVADAZER_JP:
       case Fix.THE_GALVADAZER_JP_VIEW:
@@ -7860,28 +8333,6 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         this.Area = Fix.MonsterArea.Boss1;
-        break;
-
-
-      case Fix.IMPERIAL_KNIGHT:
-      case Fix.IMPERIAL_KNIGHT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.VENERABLE_WIZARD:
-      case Fix.VENERABLE_WIZARD_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.HOLLOW_SPECTOR:
-      case Fix.HOLLOW_SPECTOR_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
         break;
 
       case Fix.LIGHTNING_SPHERE:
@@ -7915,13 +8366,6 @@ public partial class Character : MonoBehaviour
       case Fix.DANCING_BLADE:
       case Fix.DANCING_BLADE_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.MASCLEWARRIOR_HARDIL:
-      case Fix.MASCLEWARRIOR_HARDIL_JP:
-        SetupParameter(1, 1, 1, 1, 1, 10, 7500, 2000);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -7961,22 +8405,8 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
-      case Fix.UNKNOWN_FLOATING_BALL:
-      case Fix.UNKNOWN_FLOATING_BALL_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
       case Fix.AURORA_SPIRIT:
       case Fix.AURORA_SPIRIT_JP:
-        SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
-        list.Add(Fix.NORMAL_ATTACK);
-        this.CannotCritical = true;
-        break;
-
-      case Fix.HUGE_MAGICIAN_ZAGAN:
-      case Fix.HUGE_MAGICIAN_ZAGAN_JP:
         SetupParameter(1, 1, 1, 1, 1, 1, 1, 1);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
