@@ -7296,7 +7296,7 @@ public static partial class Fix
   public const string VELGUS_TRIGGERTILE_30_O = "30";
   public const float VELGUS_TRIGGERTILE_30_X = 11.0f;
   public const float VELGUS_TRIGGERTILE_30_Y = 0.0f;
-  public const float VELGUS_TRIGGERTILE_30_Z = -1.0f;
+  public const float VELGUS_TRIGGERTILE_30_Z = -2.0f;
 
   // 右方、天の物語「詩』２
   public const string VELGUS_TRIGGERTILE_31_C = "TriggerTile";
