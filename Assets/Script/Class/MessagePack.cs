@@ -16526,23 +16526,6 @@ public static class MessagePack
 
             Message(ref m_list, ref e_list, "アイン：よし、じゃあ行こう。", ActionEvent.None);
           }
-          else if (One.TF.Event_Message1000040_Reading_1 &&
-                   One.TF.Event_Message1000040_Reading_2 &&
-                   One.TF.Event_Message1000040_Reading_3 &&
-                   One.TF.Event_Message1000040_Reading_4 &&
-                   One.TF.Event_Message1000040_Reading_5 &&
-                   One.TF.Event_Message1000040_Reading_6 &&
-                   One.TF.Event_Message1000040_Reading_7 &&
-                   One.TF.Event_Message1000040_Reading_8 &&
-                   One.TF.Event_Message1000040_Reading_9 &&
-                   One.TF.Event_Message1000040_Reading_10 &&
-                   One.TF.Event_Message1000040_Reading_11 &&
-                   One.TF.Event_Message1000040_Reading_12 &&
-                   One.TF.Event_Message1000040_Reading_13 &&
-                   One.TF.Event_Message1000040_Reading_14 &&
-                   One.TF.Event_Message1000040_Reading_15)
-          {
-          }
         }
       }
     }
