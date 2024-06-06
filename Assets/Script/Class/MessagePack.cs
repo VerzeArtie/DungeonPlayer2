@@ -17964,7 +17964,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, " ～　THE　END　～　（記憶の断片）", ActionEvent.None);
+        Message(ref m_list, ref e_list, " ～　THE　END　～　（夢幻の始まり）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
       }
