@@ -2828,6 +2828,18 @@ public class DungeonField : MotherBase
         }
         return;
       }
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_64_X, Fix.VELGUS_SECRETWALL_64_Y, Fix.VELGUS_SECRETWALL_64_Z))
+      {
+        if (direction == Fix.Direction.Left && One.TF.Event_Message1000060)
+        {
+          MessagePack.Message1000069(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        else
+        {
+          One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+        }
+        return;
+      }
 
       // 第二階層
       if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_245_X, Fix.VELGUS_SECRETWALL_245_Y, Fix.VELGUS_SECRETWALL_245_Z))
@@ -8995,6 +9007,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_SECRETWALL_63_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_63_X, Fix.VELGUS_SECRETWALL_63_Y, Fix.VELGUS_SECRETWALL_63_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_64_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_64_X, Fix.VELGUS_SECRETWALL_64_Y, Fix.VELGUS_SECRETWALL_64_Z));
             }
             if (currentMessage == Fix.VELGUS_DOOR_86_O)
             {

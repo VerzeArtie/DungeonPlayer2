@@ -781,6 +781,13 @@ public class AkashicRecord : MonoBehaviour
     get { return _velgus_chant_achivement; }
   }
 
+  [SerializeField] protected bool _velgus_badend_genesisgate = false;
+  public bool Velgus_BadEnd_GenesisGate
+  {
+    set { _velgus_badend_genesisgate = value; }
+    get { return _velgus_badend_genesisgate; }
+  }
+
   public void Velgus_Chant_Sequence(int number)
   {
     if (number == One.AR.Velgus_Chant_Sequence_2 ||

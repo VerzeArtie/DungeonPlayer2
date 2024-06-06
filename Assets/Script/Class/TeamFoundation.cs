@@ -1424,7 +1424,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000059 = false;
   public bool Event_Message1000059 { get { return _event_message1000059; } set { _event_message1000059 = value; } }
   [SerializeField] protected bool _event_message1000060 = false;
-  public bool Event_Message1000060 { get { return _event_message1000060; } set { _event_message1000060 = value; } }
+  public bool Event_Message1000060 { get { return _event_message1000060; } set { _event_message1000060 = value; } } // １６の節を発見した時のイベント
   [SerializeField] protected bool _event_message1000061 = false;
   public bool Event_Message1000061 { get { return _event_message1000061; } set { _event_message1000061 = value; } }
   [SerializeField] protected bool _event_message1000062 = false;
@@ -1461,6 +1461,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1000077 { get { return _event_message1000077; } set { _event_message1000077 = value; } }
   [SerializeField] protected bool _event_message1000078 = false;
   public bool Event_Message1000078 { get { return _event_message1000078; } set { _event_message1000078 = value; } }
+  [SerializeField] protected bool _event_message1000079 = false;
+  public bool Event_Message1000079 { get { return _event_message1000079; } set { _event_message1000079 = value; } }
 
   [SerializeField] protected bool _event_message1000040_complete = false;
   public bool Event_Message1000040_Complete { get { return _event_message1000040_complete; } set { _event_message1000040_complete = value; } }
@@ -1513,9 +1515,11 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000040_complete_7 = false;
   public bool Event_Message1000040_Complete_7 { get { return _event_message1000040_complete_7; } set { _event_message1000040_complete_7 = value; } }
 
+  // 球体に取り込まれた際の神々の詠唱に成功
   [SerializeField] protected bool _event_message1000040_velgus_chant_success = false;
   public bool Event_Message1000040_VelgusChantSuccess { get { return _event_message1000040_velgus_chant_success; } set { _event_message1000040_velgus_chant_success = value; } }
 
+  // １６の節を見つける前の隠し扉開錠イベント
   [SerializeField] protected bool _event_message1000040_complete_8 = false;
   public bool Event_Message1000040_Complete_8 { get { return _event_message1000040_complete_8; } set { _event_message1000040_complete_8 = value; } }
 
