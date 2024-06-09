@@ -56,6 +56,7 @@ public static class MessagePack
     VelgusSpeedRunStart_4,
     VelgusSpeedRunStart_5,
     VelgusCirculate3_Switch,
+    VelgusCirculate4_Switch,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -22544,6 +22545,96 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：まあ待て。まずは、宝箱を取らせてくれ。", ActionEvent.None);
     }
   }
+
+  public static void Message1000227(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000227 == false)
+    {
+      One.TF.Event_Message1000227 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここは、まあここだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッカチ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_259_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：普通に開けたな。単なるスイッチか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そんな所だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：よし、じゃあ早速進んでみようぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000228(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000228 == false)
+    {
+      One.TF.Event_Message1000228 = true;
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは周囲一帯を全体的に見回した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "9", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン、行けそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。思ってたよりシンプルかも知れない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：想定ではもうちょっと複雑なものを考えていたんだけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：構造的に気になる点は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：特に無いな。そのままやれば良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃ、ここも任せたわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000229(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "1", ActionEvent.VelgusCirculate4_Switch);
+  }
+  public static void Message1000230(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "2", ActionEvent.VelgusCirculate4_Switch);
+  }
+  public static void Message1000231(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3", ActionEvent.VelgusCirculate4_Switch);
+  }
+  public static void Message1000232(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "4", ActionEvent.VelgusCirculate4_Switch);
+  }
+
+  public static void Message1000233(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventSeaCirculate4_Complete == false)
+    {
+      One.TF.EventSeaCirculate4_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、鍵ゲット！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：このエリアはこれで完了かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく、そうだな。これ以上の仕掛けは無いと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：戻るのがメンドクセーな。何もねえなら例の青水晶で一旦戻ろうぜ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった。そうしよう。", ActionEvent.None);
+    }
+  }
+
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

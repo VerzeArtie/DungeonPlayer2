@@ -2561,6 +2561,9 @@ public static partial class Fix
   public const string VELGUS_KEY1 = "ヴェルガス海底神殿の鍵【１】";
   public const string VELGUS_KEY2 = "ヴェルガス海底神殿の鍵【２】";
   public const string VELGUS_KEY3 = "ヴェルガス海底神殿の鍵【３】";
+  public const string VELGUS2_KEY1 = "ヴェルガス海底神殿の鍵【静穏】";
+  public const string VELGUS2_KEY2 = "ヴェルガス海底神殿の鍵【疾走】";
+  public const string VELGUS2_KEY3 = "ヴェルガス海底神殿の鍵【順応】";
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
   public const string ZHALMAN_NECKLACE = "ツァルマン里の首飾り";
@@ -8879,19 +8882,50 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_258_Y = 0.0f;
   public const float VELGUS_EVENTTILE_258_Z = -5.0f;
 
-  //// 海渡りの間４、開始地点
-  //public const string VELGUS_EVENTTILE_224_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_224_O = "224";
-  //public const float VELGUS_EVENTTILE_224_X = 2.0f;
-  //public const float VELGUS_EVENTTILE_224_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_224_Z = -6.0f;
+  // 海渡りの間３ー４、隠し壁ドア
+  public const string VELGUS_SECRETWALL_259_C = "EventTile";
+  public const string VELGUS_SECRETWALL_259_O = "259";
+  public const float VELGUS_SECRETWALL_259_X = 6.0f;
+  public const float VELGUS_SECRETWALL_259_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_259_Z = -2.0f;
 
-  //// 海渡りの間４、終了地点
-  //public const string VELGUS_EVENTTILE_225_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_225_O = "225";
-  //public const float VELGUS_EVENTTILE_225_X = 2.0f;
-  //public const float VELGUS_EVENTTILE_225_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_225_Z = -15.0f;
+  // 海渡りの間４、開始地点
+  public const string VELGUS_EVENTTILE_260_C = "EventTile";
+  public const string VELGUS_EVENTTILE_260_O = "260";
+  public const float VELGUS_EVENTTILE_260_X = 16.0f;
+  public const float VELGUS_EVENTTILE_260_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_260_Z = -1.0f;
+
+  // 海渡りの間４、スイッチ地点１
+  public const string VELGUS_EVENTTILE_261_C = "EventTile";
+  public const string VELGUS_EVENTTILE_261_O = "261";
+  public const float VELGUS_EVENTTILE_261_X = 19.0f;
+  public const float VELGUS_EVENTTILE_261_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_261_Z = -2.0f;
+
+  // 海渡りの間４、スイッチ地点２
+  public const string VELGUS_EVENTTILE_262_C = "EventTile";
+  public const string VELGUS_EVENTTILE_262_O = "262";
+  public const float VELGUS_EVENTTILE_262_X = 19.0f;
+  public const float VELGUS_EVENTTILE_262_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_262_Z = -3.0f;
+
+  // 海渡りの間４、スイッチ地点３
+  public const string VELGUS_EVENTTILE_263_C = "EventTile";
+  public const string VELGUS_EVENTTILE_263_O = "263";
+  public const float VELGUS_EVENTTILE_263_X = 19.0f;
+  public const float VELGUS_EVENTTILE_263_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_263_Z = -4.0f;
+
+  // 海渡りの間４、スイッチ地点４
+  public const string VELGUS_EVENTTILE_264_C = "EventTile";
+  public const string VELGUS_EVENTTILE_264_O = "264";
+  public const float VELGUS_EVENTTILE_264_X = 19.0f;
+  public const float VELGUS_EVENTTILE_264_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_264_Z = -5.0f;
+
+  // 海渡りの間４、終了地点
+  // 終了地点＝宝箱のため、定義不要。
 
   //// 海渡りの間５、開始地点
   //public const string VELGUS_EVENTTILE_226_C = "EventTile";
@@ -9223,7 +9257,7 @@ public static partial class Fix
   public const string VELGUS_2_TREASURE_13_O = "13";
   public const float VELGUS_2_TREASURE_13_X = 22.0f;
   public const float VELGUS_2_TREASURE_13_Y = 1.0f;
-  public const float VELGUS_2_TREASURE_13_Z = -2.0f;
+  public const float VELGUS_2_TREASURE_13_Z = -6.0f;
 
   // ランダムの間１
   public const string VELGUS_2_TREASURE_14_C = "Treasure";

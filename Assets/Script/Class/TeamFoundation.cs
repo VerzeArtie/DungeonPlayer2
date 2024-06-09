@@ -1774,6 +1774,13 @@ public class TeamFoundation : MonoBehaviour
   public bool EventSseaCirculate3_TileStart4 { get { return _event_seacirculate3_tilestart4; } set { _event_seacirculate3_tilestart4 = value; } }
   [SerializeField] protected bool _event_seacirculate3_complete = false;
   public bool EventSeaCirculate3_Complete { get { return _event_seacirculate3_complete; } set { _event_seacirculate3_complete = value; } }
+  [SerializeField] protected bool _event_seacirculate4_complete = false;
+  public bool EventSeaCirculate4_Complete { get { return _event_seacirculate4_complete; } set { _event_seacirculate4_complete = value; } }
+
+  [SerializeField] protected bool _event_message1000227 = false;
+  public bool Event_Message1000227 { get { return _event_message1000227; } set { _event_message1000227 = value; } } // 
+  [SerializeField] protected bool _event_message1000228 = false;
+  public bool Event_Message1000228 { get { return _event_message1000228; } set { _event_message1000228 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
