@@ -22635,6 +22635,158 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000234(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000234 == false)
+    {
+      One.TF.Event_Message1000234 = true;
+
+      Message(ref m_list, ref e_list, "アイン：この扉は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうも鍵がかかってるみたいよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：仕組みとしては３つの鍵穴。それぞれにメッセージが刻まれてるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何て書いてあるんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：【静穏】、【疾走】、【順応】と記されてあるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほどな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どうなんだ？行けんのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、多分大丈夫だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい待て。どう大丈夫なんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうって言われてもな。仕掛け自体はシンプルって事さ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どの辺りがシンプルなんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：メッセージと合致する鍵を探せば良い。それ以外に考えるべき要素はないって所だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：それ以外はないって何で言い切れるんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２階層に入ってきた階段の近辺にあるんだ。間違いないと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：それはそー思わせるトラップかも知れないぜ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そうかもな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだよそれ、じゃマジで本物のトラップだったらどうすんだよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、それはもうその時さ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：適当言いやがって・・・ったくよー、頼んだぜホント。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かっている。見立て自体に確証はないからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと、そうしたら・・・", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：例の扉だな。", ActionEvent.None);
+    }
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、鍵の入手状況はどうだ？", ActionEvent.None);
+
+    if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3))
+    {
+      One.TF.Event_Message1000234_2 = true;
+
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY1 + "、" + Fix.VELGUS2_KEY2 + "、" + Fix.VELGUS2_KEY3 + "、全て揃っているわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、行けそうだな。ラナ、開錠を頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、任せて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ ラナは３つの鍵穴に慎重に鍵を差し込んでいった ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと待ってちょうだいね。単に回しても開かない仕掛けになっているから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。ゆっくりで良いぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ん～と・・・どうかしらね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらくこれは同時タイミング系のやつね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと１回深呼吸してからやるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：（ッスウゥゥ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ッハイ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ ラナは差し込まれた３つの鍵をほぼ同時に瞬間的に回転させた！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "（ッカチチチ）（ッカチィ！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴ・・・ッゴゴゴゴ、ッゴゴゴゴ！ズズウウゥゥゥン・・・！！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_265_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：何だ今の技は！　スゲー奇麗だったな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：驚きました。こんな風に開ける事が出来るなんて・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：今の超絶カッコ良かったねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ッフフ、皆ありがと♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この手の開錠は本当にお前の専門領域だよ。スゲー助かるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：今回の件が一段落したらちゃんと何かおごってよね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ、もちろんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：よし、じゃあ早速進もうぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解だ。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3))
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY2 + "、" + Fix.VELGUS2_KEY3 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと１つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3))
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY1 + "、" + Fix.VELGUS2_KEY3 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと１つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3) == false)
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY1 + "、" + Fix.VELGUS2_KEY2 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと１つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3) == false)
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY1 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと２つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3) == false)
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY2 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと２つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else if (One.TF.FindBackPackItem(Fix.VELGUS2_KEY1) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY2) == false && One.TF.FindBackPackItem(Fix.VELGUS2_KEY3))
+    {
+      Message(ref m_list, ref e_list, "ラナ：" + Fix.VELGUS2_KEY3 + " を持っているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと２つか。他の区画を探してみよう。", ActionEvent.None);
+    }
+    else // １つも持っていない
+    {
+      Message(ref m_list, ref e_list, "ラナ：まだこの扉に合いそうな鍵は入手していないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだよな。じゃあ、鍵を探しに行くとするか。", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

@@ -3552,6 +3552,10 @@ public class DungeonField : MotherBase
           }
         }
       }
+      else if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_DOOR_265_X, Fix.VELGUS_DOOR_265_Y, Fix.VELGUS_DOOR_265_Z))
+      {
+        MessagePack.Message1000234(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
 
       Debug.Log("fieldObjBefore is Velgus_WallDoor, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
@@ -9432,6 +9436,11 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_SECRETWALL_259_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_259_X, Fix.VELGUS_SECRETWALL_259_Y, Fix.VELGUS_SECRETWALL_259_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_DOOR_265_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_265_X, Fix.VELGUS_DOOR_265_Y, Fix.VELGUS_DOOR_265_Z));
             }
           }
 
@@ -17341,6 +17350,10 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_259_X, Fix.VELGUS_SECRETWALL_259_Y, Fix.VELGUS_SECRETWALL_259_Z));
       }
 
+      if (One.TF.Event_Message1000234_2)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_265_X, Fix.VELGUS_DOOR_265_Y, Fix.VELGUS_DOOR_265_Z));
+      }
     }
     #endregion
     #region "ダルの門"
