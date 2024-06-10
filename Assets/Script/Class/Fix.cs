@@ -8934,20 +8934,6 @@ public static partial class Fix
   public const float VELGUS_DOOR_265_Y = 0.5f;
   public const float VELGUS_DOOR_265_Z = -23.0f;
 
-  //// 海渡りの間５、開始地点
-  //public const string VELGUS_EVENTTILE_226_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_226_O = "226";
-  //public const float VELGUS_EVENTTILE_226_X = 17.0f;
-  //public const float VELGUS_EVENTTILE_226_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_226_Z = -1.0f;
-
-  //// 海渡りの間５、終了地点
-  //public const string VELGUS_EVENTTILE_227_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_227_O = "227";
-  //public const float VELGUS_EVENTTILE_227_X = 27.0f;
-  //public const float VELGUS_EVENTTILE_227_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_227_Z = -4.0f;
-
   //// ランダムの間、地点１
   //public const string VELGUS_EVENTTILE_228_C = "EventTile";
   //public const string VELGUS_EVENTTILE_228_O = "228";
