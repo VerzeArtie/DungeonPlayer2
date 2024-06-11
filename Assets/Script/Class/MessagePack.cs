@@ -22787,6 +22787,70 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：そうだよな。じゃあ、鍵を探しに行くとするか。", ActionEvent.None);
     }
   }
+
+  public static void Message1000235(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000235 == false)
+    {
+      One.TF.Event_Message1000235 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板があるな。どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　一心不乱に追い求めるが如く、追い求めよ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ！　中々面白い内容だな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何か、アインのおにーちゃんはウキウキだねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となく、こういう挑発的なのは好きだな。悪い気はしない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：いつもみたいに思考巡らせるよーな事はしないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここはその必要性は無いと判断している。おそらく問題ない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：へーーー、何かものすごーーーく瞬間的だよね。それは何で？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そんな瞬間的ってわけじゃないけどな。何でって言われてもな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この階層に来た時、最初の区画が見えた時点で決まってる気がしたんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：その辺りもうちょっと詳しくー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの最初の区画を解いた時、扉が開いただろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うん、そうだねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、扉が開いたって事は次の探索場所が現れたって事だろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うーん、そうなのー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：必ずしもそうじゃないけどな。大体はそういう構造が多いんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、今実際にこうして進めてみた所、順調に看板を見て次に進めている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大枠の全体的な流れとして、外してないってわけさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん・・・？やっぱりちょっと分かり難いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ううん、分かりやすかったよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うん、ありがとな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：で？ここはお前に任せりゃいいのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。ちょっと挑戦してみたいんだ。ここはやらせてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ！じゃあ頑張ってこいや！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：任せておけ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　一心不乱に追い求めるが如く、追い求めよ　』", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

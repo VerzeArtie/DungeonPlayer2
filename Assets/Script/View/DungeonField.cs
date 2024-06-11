@@ -3027,6 +3027,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000217(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_6_X, Fix.VELGUS_2_MessageBoard_6_Y, Fix.VELGUS_2_MessageBoard_6_Z))
+        {
+          MessagePack.Message1000235(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
