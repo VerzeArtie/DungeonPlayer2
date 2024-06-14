@@ -153,6 +153,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_MovingTile4_3;
   public FieldObject prefab_Velgus_MovingTile4_4;
   public FieldObject prefab_Velgus_MovingTile4_5;
+  public FieldObject prefab_Velgus_RandomBall;
   public FieldObject prefab_Edelgarzen_Mirror;
   public FieldObject prefab_Edelgarzen_Door;
 
@@ -338,6 +339,9 @@ public class DungeonField : MotherBase
   private bool switchVelgusMovingTile4_4 = false;
   private int Velgus_Circulate4_Timer4_4 = 0;
 
+  private int VelgusRandomBallNumber = 0;
+  private List<int> VelgusRandomBallSequence = null;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -484,6 +488,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_MovingTile4_3");
     ObjectList.Add("Velgus_MovingTile4_4");
     ObjectList.Add("Velgus_MovingTile4_5");
+    ObjectList.Add("Velgus_RandomBall");
     ObjectList.Add("Edelgarzen_Mirror");
     ObjectList.Add("Edelgarzen_Door");
 
@@ -7701,6 +7706,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "10")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 13; jj++)
+            {
+              for (int kk = 0; kk < 13; kk++)
+              {
+                numbers.Add(0 * 50 + 29 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -8217,6 +8238,106 @@ public class DungeonField : MotherBase
           {
             this.switchVelgusMovingTile4_4 = !this.switchVelgusMovingTile4_4;
           }
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusTransferRandomBall)
+        {
+          Debug.Log("currentEvent: VelgusTransferRandomBall");
+          // if (currentMessage == "1")
+          {
+            if (CurrentEventObject != null)
+            {
+              VelgusRandomBallNumber++;
+              if (VelgusRandomBallNumber < VelgusRandomBallSequence.Count)
+              {
+                if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 1)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_267_X,
+                                                              Fix.VELGUS_EVENTTILE_267_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_267_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 2)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_268_X,
+                                                              Fix.VELGUS_EVENTTILE_268_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_268_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 3)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_269_X,
+                                                              Fix.VELGUS_EVENTTILE_269_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_269_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 4)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_270_X,
+                                                              Fix.VELGUS_EVENTTILE_270_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_270_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 5)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_271_X,
+                                                              Fix.VELGUS_EVENTTILE_271_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_271_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 6)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_272_X,
+                                                              Fix.VELGUS_EVENTTILE_272_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_272_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 7)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_273_X,
+                                                              Fix.VELGUS_EVENTTILE_273_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_273_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 8)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_274_X,
+                                                              Fix.VELGUS_EVENTTILE_274_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_274_Z);
+                }
+                else if (VelgusRandomBallSequence[VelgusRandomBallNumber] == 9)
+                {
+                  this.CurrentEventObject.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_275_X,
+                                                              Fix.VELGUS_EVENTTILE_275_Y + 1.0f,
+                                                              Fix.VELGUS_EVENTTILE_275_Z);
+                }
+              }
+            }
+            else
+            {
+              Debug.Log("Cannot find SearchObject VelgusTransferRandomBall( " + currentMessage + " )...should debug it.");
+            }
+          }
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusResetRandomBall)
+        {
+          FieldObject obj = SearchObject(FieldObject.Content.Velgus_RandomBall);
+          if (obj != null)
+          {
+            obj.transform.position = new Vector3(Fix.VELGUS_EVENTTILE_267_X, Fix.VELGUS_EVENTTILE_267_Y + 1.0f, Fix.VELGUS_EVENTTILE_267_Z);
+          }
+          else
+          {
+            Debug.Log("VelgusResetRandomBall does not exist random ball...");
+          }
+          this.VelgusRandomBallNumber = 0;
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusRemoveRandomBall)
+        {
+          FieldObject obj = SearchObject(FieldObject.Content.Velgus_RandomBall);
+          if (obj != null)
+          {
+            RemoveFieldObject(FieldObjList, new Vector3(obj.transform.position.x, obj.transform.position.y, obj.transform.position.z));
+          }
+          else
+          {
+            Debug.Log("VelgusRemoveRandomBall does not exist random ball...");
+          }
+          continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.HidePlayer)
         {
@@ -9446,6 +9567,11 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_DOOR_265_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_265_X, Fix.VELGUS_DOOR_265_Y, Fix.VELGUS_DOOR_265_Z));
+            }
+
+            if (currentMessage == Fix.VELGUS_DOOR_276_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_276_X, Fix.VELGUS_DOOR_276_Y, Fix.VELGUS_DOOR_276_Z));
             }
           }
 
@@ -11972,6 +12098,145 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+
+      if (One.TF.Event_RandomBall_Complete == false)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_266_X, Fix.VELGUS_EVENTTILE_266_Y, Fix.VELGUS_EVENTTILE_266_Z))
+        {
+          VelgusRandomBallSequence?.Clear(); VelgusRandomBallSequence = null;
+          VelgusRandomBallSelect();
+          MessagePack.Message1000236(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_267_X, Fix.VELGUS_EVENTTILE_267_Y, Fix.VELGUS_EVENTTILE_267_Z))
+        {
+          CurrentEventObject = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_267_X, Fix.VELGUS_EVENTTILE_267_Y + 1.0f, Fix.VELGUS_EVENTTILE_267_Z));
+          if (CurrentEventObject != null)
+          {
+            MessagePack.Message1000237(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_268_X, Fix.VELGUS_EVENTTILE_268_Y, Fix.VELGUS_EVENTTILE_268_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_268_X, Fix.VELGUS_EVENTTILE_268_Y + 1.0f, Fix.VELGUS_EVENTTILE_268_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000238(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_269_X, Fix.VELGUS_EVENTTILE_269_Y, Fix.VELGUS_EVENTTILE_269_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_269_X, Fix.VELGUS_EVENTTILE_269_Y + 1.0f, Fix.VELGUS_EVENTTILE_269_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000239(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_270_X, Fix.VELGUS_EVENTTILE_270_Y, Fix.VELGUS_EVENTTILE_270_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_270_X, Fix.VELGUS_EVENTTILE_270_Y + 1.0f, Fix.VELGUS_EVENTTILE_270_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000240(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_271_X, Fix.VELGUS_EVENTTILE_271_Y, Fix.VELGUS_EVENTTILE_271_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_271_X, Fix.VELGUS_EVENTTILE_271_Y + 1.0f, Fix.VELGUS_EVENTTILE_271_Z));
+          if (currentObj != null)
+          {
+            Debug.Log("VELGUS_EVENTTILE_271_X, " + VelgusRandomBallNumber + " " + VelgusRandomBallSequence.Count);
+            if (VelgusRandomBallNumber == VelgusRandomBallSequence.Count - 1)
+            {
+              // クリア
+              MessagePack.Message1000247(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+            else
+            {
+              // 進行中
+              MessagePack.Message1000241(ref QuestMessageList, ref QuestEventList); TapOK();
+            }
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_272_X, Fix.VELGUS_EVENTTILE_272_Y, Fix.VELGUS_EVENTTILE_272_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_272_X, Fix.VELGUS_EVENTTILE_272_Y + 1.0f, Fix.VELGUS_EVENTTILE_272_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000242(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_273_X, Fix.VELGUS_EVENTTILE_273_Y, Fix.VELGUS_EVENTTILE_273_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_273_X, Fix.VELGUS_EVENTTILE_273_Y + 1.0f, Fix.VELGUS_EVENTTILE_273_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000243(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_274_X, Fix.VELGUS_EVENTTILE_274_Y, Fix.VELGUS_EVENTTILE_274_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_274_X, Fix.VELGUS_EVENTTILE_274_Y + 1.0f, Fix.VELGUS_EVENTTILE_274_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000244(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+        if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_275_X, Fix.VELGUS_EVENTTILE_275_Y, Fix.VELGUS_EVENTTILE_275_Z))
+        {
+          FieldObject currentObj = SearchObject(new Vector3(Fix.VELGUS_EVENTTILE_275_X, Fix.VELGUS_EVENTTILE_275_Y + 1.0f, Fix.VELGUS_EVENTTILE_275_Z));
+          if (currentObj != null)
+          {
+            MessagePack.Message1000245(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1000246(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          return true;
+        }
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -13970,6 +14235,12 @@ public class DungeonField : MotherBase
         obj = FieldObjList[ii];
         break;
       }
+      else if (FieldObjList[ii].content == FieldObject.Content.Velgus_RandomBall &&
+               obj_content == FieldObject.Content.Velgus_RandomBall)
+      {
+        obj = FieldObjList[ii];
+        break;
+      }
     }
     return obj;
   }
@@ -15278,6 +15549,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Velgus_MovingTile4_5, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Velgus_MovingTile4_5;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "Velgus_RandomBall")
+    {
+      current = Instantiate(prefab_Velgus_RandomBall, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.Velgus_RandomBall;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;
@@ -17359,6 +17638,16 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_265_X, Fix.VELGUS_DOOR_265_Y, Fix.VELGUS_DOOR_265_Z));
       }
+
+      if (One.TF.Event_RandomBall_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_276_X, Fix.VELGUS_DOOR_276_Y, Fix.VELGUS_DOOR_276_Z));
+      }
+
+      if (One.TF.Event_RandomBall_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_EVENTTILE_267_X, Fix.VELGUS_EVENTTILE_267_Y + 1.0f, Fix.VELGUS_EVENTTILE_267_Z));
+      }
     }
     #endregion
     #region "ダルの門"
@@ -18121,5 +18410,156 @@ public class DungeonField : MotherBase
         MessagePack.Message1000027(ref QuestMessageList, ref QuestEventList);
       }
     }
+  }
+
+  /// <summary>
+  /// ヴェルガス海底神殿のランダムボールの間にて
+  /// ボールをキャッチした時、次に転送されるボールの位置を決定する。
+  /// フェーズに応じて転送先が決められるようにする。
+  /// phase1 隣接, phase2 1つ飛ばし, phase3 2つ飛ばし phase4 5番で完了
+  /// ナンバーの位置づけは下記の通り。０～８ではない。
+  /// ---------------------------
+  ///    7       8       9      
+  /// ---------------------------
+  ///    4       5       6
+  /// ---------------------------
+  ///    1       2       3
+  /// ---------------------------
+  /// </summary>
+  /// <param name="position"></param>
+  private void VelgusRandomBallSelect()
+  {
+    Debug.Log("VelgusRandomBallSelect: ");
+    List<int> phase1 = new List<int>();
+    List<int> phase2 = new List<int>();
+    List<int> phase3 = new List<int>();
+    List<int> phase4 = new List<int>();
+
+    // phase 1
+    int random = AP.Math.RandomInteger(6);
+    if (random == 0) { phase1 = new List<int>() { 1, 2, 3, 6, 5, 4, 7, 8, 9 }; }
+    if (random == 1) { phase1 = new List<int>() { 1, 2, 3, 6, 9, 8, 5, 4, 7 }; }
+    // if (random == 2) { phase1 = new List<int>() { 1, 2, 3, 6, 9, 8, 7, 4, 5 }; } // 最後5は選択しない。
+    if (random == 2) { phase1 = new List<int>() { 1, 2, 5, 4, 7, 8, 9, 6, 3 }; }
+
+    if (random == 3) { phase1 = new List<int>() { 1, 4, 7, 8, 5, 2, 3, 6, 9 }; }
+    if (random == 4) { phase1 = new List<int>() { 1, 4, 7, 8, 9, 6, 5, 2, 3 }; }
+    // if (random == 5) { phase1 = new List<int>() { 1, 4, 7, 8, 9, 6, 3, 2, 5 }; } // 最後5は選択しない。
+    if (random == 5) { phase1 = new List<int>() { 1, 4, 5, 2, 3, 6, 9, 8, 7 }; }
+    Debug.Log("VelgusRandomBallSelect: phase 1");
+
+    // phase 2
+    int random2 = AP.Math.RandomInteger(8);
+    if (phase1[phase1.Count - 1] == 9)
+    {
+      if (random2 == 0) { phase2 = new List<int>() { 5, 3, 1, 7 }; }
+      if (random2 == 1) { phase2 = new List<int>() { 5, 7, 1, 3 }; }
+
+      if (random2 == 2) { phase2 = new List<int>() { 3, 5, 1, 7 }; }
+      if (random2 == 3) { phase2 = new List<int>() { 3, 5, 7, 1 }; }
+      if (random2 == 4) { phase2 = new List<int>() { 3, 1, 5, 7 }; }
+      // if (random2 == 4) { phase2 = new List<int>() { 3, 1, 7, 5 }; } // 最後5は選択しない。
+
+      if (random2 == 5) { phase2 = new List<int>() { 7, 5, 1, 3 }; }
+      if (random2 == 6) { phase2 = new List<int>() { 7, 5, 3, 1 }; }
+      if (random2 == 7) { phase2 = new List<int>() { 7, 1, 5, 3 }; }
+      // if (random2 == 7) { phase2 = new List<int>() { 7, 1, 3, 5 }; } // 最後5は選択しない。
+    }
+    else if (phase1[phase1.Count - 1] == 7)
+    {
+      if (random2 == 0) { phase2 = new List<int>() { 5, 1, 3, 9 }; }
+      if (random2 == 1) { phase2 = new List<int>() { 5, 9, 3, 1 }; }
+
+      if (random2 == 2) { phase2 = new List<int>() { 1, 5, 3, 9 }; }
+      if (random2 == 3) { phase2 = new List<int>() { 1, 5, 9, 3 }; }
+      if (random2 == 4) { phase2 = new List<int>() { 1, 3, 5, 9 }; }
+      // if (random2 == 4) { phase2 = new List<int>() { 1, 3, 9, 5 }; } // 最後5は選択しない。
+
+      if (random2 == 5) { phase2 = new List<int>() { 9, 5, 1, 3 }; }
+      if (random2 == 6) { phase2 = new List<int>() { 9, 5, 3, 1 }; }
+      if (random2 == 7) { phase2 = new List<int>() { 9, 3, 5, 1 }; }
+      // if (random2 == 7) { phase2 = new List<int>() { 9, 3, 1, 5 }; } // 最後5は選択しない。
+    }
+    else if (phase1[phase1.Count - 1] == 3)
+    {
+      if (random2 == 0) { phase2 = new List<int>() { 5, 1, 7, 9 }; }
+      if (random2 == 1) { phase2 = new List<int>() { 5, 9, 7, 1 }; }
+
+      if (random2 == 2) { phase2 = new List<int>() { 1, 5, 7, 9 }; }
+      if (random2 == 3) { phase2 = new List<int>() { 1, 5, 9, 7 }; }
+      if (random2 == 4) { phase2 = new List<int>() { 1, 7, 5, 9 }; }
+      // if (random2 == 4) { phase2 = new List<int>() { 1, 7, 9, 5 }; } // 最後5は選択しない。
+
+      if (random2 == 5) { phase2 = new List<int>() { 9, 5, 1, 7 }; }
+      if (random2 == 6) { phase2 = new List<int>() { 9, 5, 7, 1 }; }
+      if (random2 == 7) { phase2 = new List<int>() { 9, 7, 5, 1 }; }
+      // if (random2 == 7) { phase2 = new List<int>() { 9, 7, 1, 5 }; } // 最後5は選択しない。
+    }
+    Debug.Log("VelgusRandomBallSelect: phase 2");
+
+    // phase 3
+    int random3 = AP.Math.RandomInteger(2);
+    if (phase2[phase2.Count - 1] == 9)
+    {
+      if (random3 == 0) { phase3 = new List<int>() { 2, 7, 6, 1, 8, 3, 4 }; }
+      if (random3 == 1) { phase3 = new List<int>() { 4, 3, 8, 1, 6, 7, 2 }; }
+    }
+    else if (phase2[phase2.Count - 1] == 7)
+    {
+      if (random3 == 0) { phase3 = new List<int>() { 2, 9, 4, 3, 8, 1, 6 }; }
+      if (random3 == 1) { phase3 = new List<int>() { 6, 1, 8, 3, 4, 9, 2 }; }
+    }
+    else if (phase2[phase2.Count - 1] == 3)
+    {
+      if (random3 == 0) { phase3 = new List<int>() { 8, 1, 6, 7, 2, 9, 4 }; }
+      if (random3 == 1) { phase3 = new List<int>() { 4, 9, 2, 7, 6, 1, 8 }; }
+    }
+    else if (phase2[phase2.Count - 1] == 1)
+    {
+      if (random3 == 0) { phase3 = new List<int>() { 8, 3, 4, 9, 2, 7, 6 }; }
+      if (random3 == 1) { phase3 = new List<int>() { 6, 7, 2, 9, 4, 3, 8 }; }
+    }
+    Debug.Log("VelgusRandomBallSelect: phase 3");
+
+    // phase 4 (枝分かれなし)
+    phase4 = new List<int>() { 5 };
+    Debug.Log("VelgusRandomBallSelect: phase 4");
+
+    Debug.Log("phase1: ");
+    for (int ii = 0; ii < phase1.Count; ii++)
+    {
+      Debug.Log("" + phase1[ii] + " , ");
+    }
+    Debug.Log("phase2: ");
+    for (int ii = 0; ii < phase2.Count; ii++)
+    {
+      Debug.Log("" + phase2[ii] + " , ");
+    }
+    Debug.Log("phase3: ");
+    for (int ii = 0; ii < phase3.Count; ii++)
+    {
+      Debug.Log("" + phase3[ii] + " , ");
+    }
+    Debug.Log("phase4: ");
+    for (int ii = 0; ii < phase4.Count; ii++)
+    {
+      Debug.Log("" + phase4[ii] + " , ");
+    }
+
+    if (this.VelgusRandomBallSequence == null)
+    {
+      this.VelgusRandomBallSequence = new List<int>();
+    }
+    this.VelgusRandomBallSequence.AddRange(phase1);
+    this.VelgusRandomBallSequence.AddRange(phase2);
+    this.VelgusRandomBallSequence.AddRange(phase3);
+    this.VelgusRandomBallSequence.AddRange(phase4);
+    Debug.Log("VelgusRandomBallSequence: ");
+    string debug = "VelgusRandomBallSequence: ";
+    for (int ii = 0; ii < VelgusRandomBallSequence.Count; ii++)
+    {
+      debug += VelgusRandomBallSequence[ii] + " , ";
+    }
+    Debug.Log(debug);
   }
 }

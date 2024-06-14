@@ -57,6 +57,9 @@ public static class MessagePack
     VelgusSpeedRunStart_5,
     VelgusCirculate3_Switch,
     VelgusCirculate4_Switch,
+    VelgusTransferRandomBall,
+    VelgusResetRandomBall,
+    VelgusRemoveRandomBall,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -22849,6 +22852,290 @@ public static class MessagePack
     else
     {
       Message(ref m_list, ref e_list, "『　一心不乱に追い求めるが如く、追い求めよ　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000236(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000236 == false)
+    {
+      One.TF.Event_Message1000236 = true;
+      Message(ref m_list, ref e_list, "10", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：（そこにあるのは・・・ボールか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行ってくる！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何考えていたのか良く分かんないんだけど、気を付けてね。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000237(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000237 == false)
+    {
+      One.TF.Event_Message1000237 = true;
+      Message(ref m_list, ref e_list, "アイン：（よし、まずはこのボールを・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスがその球体に手を伸ばした瞬間　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.VelgusTransferRandomBall);
+
+      Message(ref m_list, ref e_list, "アイン：（あっ！　ボールが消えた！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（って、あっちか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（瞬間的に移動しているのか。厄介だな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ここは、考えてもしょうがない気がする）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（あのボールを追いかけていこう）", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.VelgusTransferRandomBall);
+    }
+  }
+  public static void Message1000238(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "2", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000239(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "3", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000240(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "4", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000241(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "5", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000242(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "6", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000243(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "7", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000244(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "8", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000245(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "9", ActionEvent.VelgusTransferRandomBall);
+  }
+  public static void Message1000246(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『ッブブー！！』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ！　何か警告音が！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（  アイン足元の床が突如開いた  ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "＜＜＜　ッパカ ＞＞＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "28:1:-10", ActionEvent.JumpToLocation);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusResetRandomBall);
+
+    Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
+
+    if (One.TF.Event_RandomBall_Failed1 == false)
+    {
+      One.TF.Event_RandomBall_Failed1 = true;
+      Message(ref m_list, ref e_list, "ラナ：大丈夫？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いっつつ。どうやら違ったみたいだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと何を狙ってるのか分からないんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・目の前の物体を追いかけてるのは確かなんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあちょっと。次こそ！", ActionEvent.None);
+    }
+    else if (One.TF.Event_RandomBall_Failed2 == false)
+    {
+      One.TF.Event_RandomBall_Failed2 = true;
+      Message(ref m_list, ref e_list, "ビリー：大丈夫かよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いってー。今のも失敗だったか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ところでさ。お前一体どの辺りを狙って追及してんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、分かっていたつもりだが、こうも失敗するとは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：むしろどういう考えで成功だって思ってんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：単純に追いかけるで合ってると思うんだがな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：どっか引っかけがあるんじゃねーのか？１段飛ばしとか、２段飛ばしとかよー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それだ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー！ビリー！たまには役に立つな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだとテメェ。後でぶっ飛ばすからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ！オーケーオーケー！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：ねえ、本当に大丈夫？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ正直痛いけどな。何とか大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫ってそういう意味じゃないんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：てめー、ちゃんとハッキリした物を追いかけてんだろーな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もちろんだ。当然の事を聞くな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・信じて良いのね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、任せておけ。次こそは突破してみせる！", ActionEvent.None);
+    }
+  }
+  public static void Message1000247(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_RandomBall_Complete == false)
+    {
+      One.TF.Event_RandomBall_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：（ック・・・長いな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（だが、今度こそ・・・！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（やっぱり掴む事はできないか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・あれ、そういえばあの球体はどこだ？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（見失ったな・・・失敗か・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_276_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_276_O, ActionEvent.VelgusRemoveRandomBall);
+
+      Message(ref m_list, ref e_list, "アイン：おっ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっしゃ、開いたぞ！皆、来てくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おー、やったじゃねえか！マジかよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：今のがクリアになるのね。不思議だったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：こ・・・これは・・・どういう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：あっちこっち飛び回っていたから、何してるのかなーって思ったね☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：一体どういうルートだったわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうって言われてもな。特別な事はしてないぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それ本当に言ってる？どう見ても不可解だったわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：妙な言われようだな。単に例の球体を追いかけていただけさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：だからそれよ。その例の球体って何なのよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何なのって言われてもな。形容し難い。球体としか言いようがないかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハハー☆　色々と嚙み合ってなさすぎで面白ーい☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・スマン。その物体が何なのかは上手く言えないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アインには、その・・・何か見えてたって事で良いかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ってどういう意味だ？お前らには見えてなかったのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：見えてないわよ。そんな球体なんてものは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ、なんだって！！？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハハ☆　アインのおにーちゃん、ホント面白過ぎー、アハハハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ど、これはどういう事だ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こっちが聞きたいわよ。どういう事なのよホント。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どういう事なんだろうな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なあビリー。お前としてはどうだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：壁が開く所を目撃してなかったら、テメーとはもうオサラバだって感じだったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エ、エオネは？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：すみませんが・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ、そうか。悪い・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ま、いーんじゃねーの。ぶっちゃけ壁が開いたわけだ。とっとと行こうぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー。そうしたら進めるとしますか！", ActionEvent.None);
     }
   }
   #endregion

@@ -8934,68 +8934,82 @@ public static partial class Fix
   public const float VELGUS_DOOR_265_Y = 0.5f;
   public const float VELGUS_DOOR_265_Z = -23.0f;
 
-  //// ランダムの間、地点１
-  //public const string VELGUS_EVENTTILE_228_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_228_O = "228";
-  //public const float VELGUS_EVENTTILE_228_X = 31.0f;
-  //public const float VELGUS_EVENTTILE_228_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_228_Z = -10.0f;
+  // ランダムの間、エリア表示（ランダム内容もここで決める）
+  public const string VELGUS_EVENTTILE_266_C = "EventTile";
+  public const string VELGUS_EVENTTILE_266_O = "266";
+  public const float VELGUS_EVENTTILE_266_X = 29.0f;
+  public const float VELGUS_EVENTTILE_266_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_266_Z = -10.0f;
 
-  //// ランダムの間、地点２
-  //public const string VELGUS_EVENTTILE_229_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_229_O = "229";
-  //public const float VELGUS_EVENTTILE_229_X = 35.0f;
-  //public const float VELGUS_EVENTTILE_229_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_229_Z = -10.0f;
+  // ランダムの間、地点１
+  public const string VELGUS_EVENTTILE_267_C = "EventTile";
+  public const string VELGUS_EVENTTILE_267_O = "267";
+  public const float VELGUS_EVENTTILE_267_X = 31.0f;
+  public const float VELGUS_EVENTTILE_267_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_267_Z = -10.0f;
 
-  //// ランダムの間、地点３
-  //public const string VELGUS_EVENTTILE_230_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_230_O = "230";
-  //public const float VELGUS_EVENTTILE_230_X = 39.0f;
-  //public const float VELGUS_EVENTTILE_230_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_230_Z = -10.0f;
+  // ランダムの間、地点２
+  public const string VELGUS_EVENTTILE_268_C = "EventTile";
+  public const string VELGUS_EVENTTILE_268_O = "268";
+  public const float VELGUS_EVENTTILE_268_X = 35.0f;
+  public const float VELGUS_EVENTTILE_268_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_268_Z = -10.0f;
 
-  //// ランダムの間、地点４
-  //public const string VELGUS_EVENTTILE_231_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_231_O = "231";
-  //public const float VELGUS_EVENTTILE_231_X = 31.0f;
-  //public const float VELGUS_EVENTTILE_231_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_231_Z = -6.0f;
+  // ランダムの間、地点３
+  public const string VELGUS_EVENTTILE_269_C = "EventTile";
+  public const string VELGUS_EVENTTILE_269_O = "269";
+  public const float VELGUS_EVENTTILE_269_X = 39.0f;
+  public const float VELGUS_EVENTTILE_269_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_269_Z = -10.0f;
 
-  //// ランダムの間、地点５
-  //public const string VELGUS_EVENTTILE_232_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_232_O = "232";
-  //public const float VELGUS_EVENTTILE_232_X = 35.0f;
-  //public const float VELGUS_EVENTTILE_232_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_232_Z = -6.0f;
+  // ランダムの間、地点４
+  public const string VELGUS_EVENTTILE_270_C = "EventTile";
+  public const string VELGUS_EVENTTILE_270_O = "270";
+  public const float VELGUS_EVENTTILE_270_X = 31.0f;
+  public const float VELGUS_EVENTTILE_270_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_270_Z = -6.0f;
 
-  //// ランダムの間、地点６
-  //public const string VELGUS_EVENTTILE_233_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_233_O = "233";
-  //public const float VELGUS_EVENTTILE_233_X = 39.0f;
-  //public const float VELGUS_EVENTTILE_233_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_233_Z = -6.0f;
+  // ランダムの間、地点５
+  public const string VELGUS_EVENTTILE_271_C = "EventTile";
+  public const string VELGUS_EVENTTILE_271_O = "271";
+  public const float VELGUS_EVENTTILE_271_X = 35.0f;
+  public const float VELGUS_EVENTTILE_271_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_271_Z = -6.0f;
 
-  //// ランダムの間、地点７
-  //public const string VELGUS_EVENTTILE_234_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_234_O = "234";
-  //public const float VELGUS_EVENTTILE_234_X = 31.0f;
-  //public const float VELGUS_EVENTTILE_234_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_234_Z = -6.0f;
+  // ランダムの間、地点６
+  public const string VELGUS_EVENTTILE_272_C = "EventTile";
+  public const string VELGUS_EVENTTILE_272_O = "272";
+  public const float VELGUS_EVENTTILE_272_X = 39.0f;
+  public const float VELGUS_EVENTTILE_272_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_272_Z = -6.0f;
 
-  //// ランダムの間、地点８
-  //public const string VELGUS_EVENTTILE_235_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_235_O = "235";
-  //public const float VELGUS_EVENTTILE_235_X = 35.0f;
-  //public const float VELGUS_EVENTTILE_235_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_235_Z = -6.0f;
+  // ランダムの間、地点７
+  public const string VELGUS_EVENTTILE_273_C = "EventTile";
+  public const string VELGUS_EVENTTILE_273_O = "273";
+  public const float VELGUS_EVENTTILE_273_X = 31.0f;
+  public const float VELGUS_EVENTTILE_273_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_273_Z = -2.0f;
 
-  //// ランダムの間、地点９
-  //public const string VELGUS_EVENTTILE_236_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_236_O = "236";
-  //public const float VELGUS_EVENTTILE_236_X = 39.0f;
-  //public const float VELGUS_EVENTTILE_236_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_236_Z = -6.0f;
+  // ランダムの間、地点８
+  public const string VELGUS_EVENTTILE_274_C = "EventTile";
+  public const string VELGUS_EVENTTILE_274_O = "274";
+  public const float VELGUS_EVENTTILE_274_X = 35.0f;
+  public const float VELGUS_EVENTTILE_274_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_274_Z = -2.0f;
+
+  // ランダムの間、地点９
+  public const string VELGUS_EVENTTILE_275_C = "EventTile";
+  public const string VELGUS_EVENTTILE_275_O = "275";
+  public const float VELGUS_EVENTTILE_275_X = 39.0f;
+  public const float VELGUS_EVENTTILE_275_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_275_Z = -2.0f;
+
+  // ランダムの間、壁ドア
+  public const string VELGUS_DOOR_276_C = "Velgus_Door";
+  public const string VELGUS_DOOR_276_O = "276";
+  public const float VELGUS_DOOR_276_X = 41.0f;
+  public const float VELGUS_DOOR_276_Y = 0.5f;
+  public const float VELGUS_DOOR_276_Z = -6.0f;
 
   //// 不規則の間、地点Ａ
   //public const string VELGUS_EVENTTILE_237_C = "EventTile";
