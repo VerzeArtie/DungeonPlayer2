@@ -23125,7 +23125,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：なあビリー。お前としてはどうだ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：壁が開く所を目撃してなかったら、テメーとはもうオサラバだって感じだったぜ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：壁が開く所を目撃してなかったら、テメーとはもうオサラバだなって感じだったぜ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：エ、エオネは？？", ActionEvent.None);
 
