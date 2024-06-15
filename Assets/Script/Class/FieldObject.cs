@@ -68,6 +68,7 @@ public class FieldObject : MonoBehaviour
     Velgus_MovingTile4_4,
     Velgus_MovingTile4_5,
     Velgus_RandomBall,
+    Velgus_RandomBall2,
     Edelgarzen_Mirror,
     Edelgarzen_Door,
     Boss,

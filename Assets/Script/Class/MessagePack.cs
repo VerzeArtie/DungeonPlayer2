@@ -60,6 +60,9 @@ public static class MessagePack
     VelgusTransferRandomBall,
     VelgusResetRandomBall,
     VelgusRemoveRandomBall,
+    VelgusTransferRandomBall2,
+    VelgusResetRandomBall2,
+    VelgusRemoveRandomBall2,
     InstantiateObject,
     GainSoulFragment,
     MessageDisplay,
@@ -22799,7 +22802,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：看板があるな。どれどれ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "『　一心不乱に追い求めるが如く、追い求めよ　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　一心不乱に目の前を追跡し、追い求めよ　』", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ッハッハッハ！　中々面白い内容だな！", ActionEvent.None);
 
@@ -22851,7 +22854,7 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　一心不乱に追い求めるが如く、追い求めよ　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　一心不乱に目の前を追跡し、追い求めよ　』", ActionEvent.None);
     }
   }
 
@@ -23067,7 +23070,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_276_O, ActionEvent.RemoveFieldObject);
 
-      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_276_O, ActionEvent.VelgusRemoveRandomBall);
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusRemoveRandomBall);
 
       Message(ref m_list, ref e_list, "アイン：おっ！！", ActionEvent.None);
 
@@ -23136,6 +23139,322 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：ま、いーんじゃねーの。ぶっちゃけ壁が開いたわけだ。とっとと行こうぜ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：サンキュー。そうしたら進めるとしますか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000248(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000248 == false)
+    {
+      One.TF.Event_Message1000248 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここにきて、看板があるな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　遠き道筋を経て、追い求めよ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さっき見た看板と対になるような表現だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ここでも思考巡らせるよーな事はしないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうな。ちょっとこの区画だけでは判断できないしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：他の区画か、あるいはこの先に・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、でも案外すんなり行けるルートとして現れてくれるかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あまり慎重になり過ぎず、意識はするがもう少し探索するしかないって所だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そーなんだー、解説ありがとー☆？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ看板があるって時点でこのエリアはまだ終わってはいないだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：探索を続けるとしよう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　遠き道筋を経て、追い求めよ　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000249(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000249 == false)
+    {
+      One.TF.Event_Message1000249 = true;
+
+      Message(ref m_list, ref e_list, "アイン：きっと、ここだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッカチ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_277_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "ビリー：今のはさすがに俺でも分かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さすがだぜ、ビリー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：この先へ進むんだろ？行こうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000250(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000250 == false)
+    {
+      One.TF.Event_Message1000250 = true;
+      Message(ref m_list, ref e_list, "11", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：（全体的には・・・どうだろうな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（さっきの場所よりは狭いエリアだが・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：例の球体というのは、今度も見えてるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、一か所だけな。相変わらず不思議な見え方だけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それって、ひょっとしてObsidianStoneじゃないの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構似ている気はするんだが、それじゃないと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：似てるんだったらObsidianStoneかも知れないんじゃねーのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、無い。ObsidianStoneはこんな形で出現したりはしないはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そーなのかよ。まあ、任せるけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここは任せておいてくれ。必ず解いてみせる。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000251(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "1", ActionEvent.VelgusTransferRandomBall2);
+  }
+  public static void Message1000252(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "2", ActionEvent.VelgusTransferRandomBall2);
+  }
+  public static void Message1000253(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "3", ActionEvent.VelgusTransferRandomBall2);
+  }
+  public static void Message1000254(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "4", ActionEvent.VelgusTransferRandomBall2);
+  }
+  public static void Message1000255(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "5", ActionEvent.VelgusTransferRandomBall2);
+  }
+  public static void Message1000256(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000256 == false)
+    {
+      One.TF.Event_Message1000256 = true;
+
+      Message(ref m_list, ref e_list, "アイン：（よし、このボールだな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "6", ActionEvent.VelgusTransferRandomBall2);
+
+      Message(ref m_list, ref e_list, "アイン：（やはり最初は捉えられないか・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（球体が見えなくなっているな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（ただし、最初との類似性はある。眼で見えなくても追従は可能だ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（遠き道筋を経て・・・か。ヒントはそれしかないな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（よし、周辺を探索しよう）", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその球体に手を伸ばした　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッパシュ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "6", ActionEvent.VelgusTransferRandomBall2);
+    }
+  }
+
+  public static void Message1000257(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『ッブブー！！』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ！　何か警告音が！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（  アイン足元の床が突如開いた  ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "＜＜＜　ッパカ ＞＞＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "48:1:-6", ActionEvent.JumpToLocation);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusResetRandomBall2);
+
+    Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
+
+    if (One.TF.Event_RandomBall_Failed2_1 == false)
+    {
+      One.TF.Event_RandomBall_Failed2_1 = true;
+      Message(ref m_list, ref e_list, "ラナ：大丈夫かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：痛いけどな。何とか大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：さっきのよりも難しそうなわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：球体は最初しか見えてない。その後はノーヒントだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいおい、そんなの分かんのかよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やってみるしかない。もう１回トライしてくる。", ActionEvent.None);
+    }
+    else if (One.TF.Event_RandomBall_Failed2_2 == false)
+    {
+      One.TF.Event_RandomBall_Failed2_2 = true;
+      Message(ref m_list, ref e_list, "ビリー：ノーヒントで何とかなるものなのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今のも駄目か・・・うーん・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何もねえ行き止まりに突っ込んでは戻ってるみたいだが、何か順序でもあんのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：順序はあると思う。むしろその考え方しか残されていない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前の言う【むしろ】ってのが既に意味不明だけどな。で、今の所失敗だからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：遠き道筋・・・うーん・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まー、任せたぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、任せとけ！", ActionEvent.None);
+    }
+    else if (One.TF.Event_RandomBall_Failed2_3 == false)
+    {
+      One.TF.Event_RandomBall_Failed2_3 = true;
+      Message(ref m_list, ref e_list, "ラナ：何か考える筋道は立ってるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：道筋の筋道なら掴んではいるんだがな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ややこしいわね。考えとして【遠き道筋】について考えてるのよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：考えているのはそこじゃない。原点がどこなのかを考えているんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：もー余計ややこしいわね。その球体とやらを最初に掴んだ位置が原点なのよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、それはそうなんだが・・・でもあれは単に開始地点だからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：開始＝終了なんじゃねーの？テメーのお得意の妙な思考パターンだとあり得るだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか！分かったぞ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：原点はズバリ３番目だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で・・・近くから取って行けば、自ずと遠き道筋になる！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３・・・４・・・２・・・５・・・１・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：６！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう、ビリー！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：危ねー独り言だな・・・まあ、分かったって事だな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ！今度こそクリアーしてみせる！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：遠き道筋は理解出来ているのよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ちょっとうっかり間違えてしまった。。。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：例の球体を取ってから、６か所の行き止まりを辿る。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、最後に辿り着く位置が球体が最初にあった場所だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この区画に来た箇所から一番近い行き止まりを番号振りしたとして", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３，４，２，５，１，６の順序で通過すればいいはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かってるみたいね、じゃあ頼んだわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ！今度こそクリアーしてみせる！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000258(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_RandomBall_Complete2 == false)
+    {
+      One.TF.Event_RandomBall_Complete2 = true;
+
+      Message(ref m_list, ref e_list, "アイン：（球体は見えないが・・・これで、どうだ！）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはその空間へ手を伸ばした　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_285_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusRemoveRandomBall2);
+
+      Message(ref m_list, ref e_list, "アイン：オッケーーー！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：皆、やったぞ！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テメー、本当はこういうの得意だったりするのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ダンジョン系なら任せろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そういう意味じゃねー。パズル的な要素って意味だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあこういうのもダンジョン系の類の一つだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：普段だったらどーなんだよ？パズルゲームでもやってんのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、そういうのは興味無いな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ほんっと不思議な奴だぜ。まあこういう局面は助かるから良いけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、日頃の慣れみたいなもんだ。あまり気にしないでくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：場慣れしているって事か。なら納得だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、それじゃあ進めて行こう。", ActionEvent.None);
     }
   }
   #endregion

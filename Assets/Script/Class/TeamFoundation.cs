@@ -1801,6 +1801,24 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_randomball_failed2 = false;
   public bool Event_RandomBall_Failed2 { get { return _event_randomball_failed2; } set { _event_randomball_failed2 = value; } }
 
+  [SerializeField] protected bool _event_message1000248 = false;
+  public bool Event_Message1000248 { get { return _event_message1000248; } set { _event_message1000248 = value; } }
+  [SerializeField] protected bool _event_message1000249 = false;
+  public bool Event_Message1000249 { get { return _event_message1000249; } set { _event_message1000249 = value; } }
+  [SerializeField] protected bool _event_message1000250 = false;
+  public bool Event_Message1000250 { get { return _event_message1000250; } set { _event_message1000250 = value; } }
+  [SerializeField] protected bool _event_message1000256 = false;
+  public bool Event_Message1000256 { get { return _event_message1000256; } set { _event_message1000256 = value; } }
+
+  [SerializeField] protected bool _event_randomball_complete2 = false;
+  public bool Event_RandomBall_Complete2 { get { return _event_randomball_complete2; } set { _event_randomball_complete2 = value; } }
+  [SerializeField] protected bool _event_randomball_failed2_1 = false;
+  public bool Event_RandomBall_Failed2_1 { get { return _event_randomball_failed2_1; } set { _event_randomball_failed2_1 = value; } }
+  [SerializeField] protected bool _event_randomball_failed2_2 = false;
+  public bool Event_RandomBall_Failed2_2 { get { return _event_randomball_failed2_2; } set { _event_randomball_failed2_2 = value; } }
+  [SerializeField] protected bool _event_randomball_failed2_3 = false;
+  public bool Event_RandomBall_Failed2_3 { get { return _event_randomball_failed2_3; } set { _event_randomball_failed2_3 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
