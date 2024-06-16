@@ -6519,7 +6519,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus2_00016 == false && location.x == Fix.VELGUS_2_TREASURE_16_X && location.y == Fix.VELGUS_2_TREASURE_16_Y && location.z == Fix.VELGUS_2_TREASURE_16_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.VELGUS2_KEY3;
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.Message1000259(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
         }
 
         if (treasureName == String.Empty)
@@ -9120,6 +9124,10 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_15_X, Fix.VELGUS_2_TREASURE_15_Y, Fix.VELGUS_2_TREASURE_15_Z))
             {
               One.TF.Treasure_Velgus2_00015 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_16_X, Fix.VELGUS_2_TREASURE_16_Y, Fix.VELGUS_2_TREASURE_16_Z))
+            {
+              One.TF.Treasure_Velgus2_00016 = true;
             }
           }
           #endregion
@@ -17829,6 +17837,10 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Velgus2_00015)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_2_TREASURE_15_X, Fix.VELGUS_2_TREASURE_15_Y, Fix.VELGUS_2_TREASURE_15_Z)));
+      }
+      if (One.TF.Treasure_Velgus2_00016)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_2_TREASURE_16_X, Fix.VELGUS_2_TREASURE_16_Y, Fix.VELGUS_2_TREASURE_16_Z)));
       }
 
       if (One.TF.Event_SpeedRun1_Complete)

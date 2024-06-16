@@ -23457,6 +23457,25 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よし、それじゃあ進めて行こう。", ActionEvent.None);
     }
   }
+
+  public static void Message1000259(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000259 == false)
+    {
+      One.TF.Event_Message1000259 = true;
+
+      Message(ref m_list, ref e_list, "アイン：オーケー、鍵だな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：これでこの区画は終わりかしらね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。鍵を手に入れたしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、一旦あの青水晶で戻らねえか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。じゃ青水晶で一度戻るとしよう。", ActionEvent.None);
+    }
+  }
+
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
