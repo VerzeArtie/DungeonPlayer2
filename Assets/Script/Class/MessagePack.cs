@@ -23476,6 +23476,63 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000260(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000260 == false)
+    {
+      One.TF.Event_Message1000260 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、鍵だな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：さっきの区画内に鍵がなかったのが気になってたんだけど、ここにあったのね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう、そういえば・・・そうなんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっとそこは気になったけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：もう少しどこか探索してみる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・まあ、正直どちらでも良いレベルだとは思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、お任せするわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000261(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000261 == false)
+    {
+      One.TF.Event_Message1000261 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほどな。こいつはさすがに気付く余力が無かったって事か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か見つけたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：壁の右下に少しだけ窪みがある。ラナ、チェックの方を頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええと・・・コレね・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃ、開けるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、頼んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_286_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ、サンキュー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：行ってみましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

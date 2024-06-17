@@ -3165,6 +3165,15 @@ public class DungeonField : MotherBase
         return;
       }
 
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_SECRETWALL_286_X, Fix.VELGUS_SECRETWALL_286_Y, Fix.VELGUS_SECRETWALL_286_Z))
+      {
+        if (direction == Fix.Direction.Right && One.TF.Event_Message1000261 == false)
+        {
+          MessagePack.Message1000261(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        return;
+      }
+
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -6474,7 +6483,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus2_00006 == false && location.x == Fix.VELGUS_2_TREASURE_6_X && location.y == Fix.VELGUS_2_TREASURE_6_Y && location.z == Fix.VELGUS_2_TREASURE_6_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.VELGUS2_KEY2;
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
+          MessagePack.Message1000261(ref QuestMessageList, ref QuestEventList);
+          TapOK();
+          return;
         }
         if (One.TF.Treasure_Velgus2_00007 == false && location.x == Fix.VELGUS_2_TREASURE_7_X && location.y == Fix.VELGUS_2_TREASURE_7_Y && location.z == Fix.VELGUS_2_TREASURE_7_Z)
         {
@@ -9706,6 +9719,12 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_285_X, Fix.VELGUS_DOOR_285_Y, Fix.VELGUS_DOOR_285_Z));
             }
+
+            if (currentMessage == Fix.VELGUS_SECRETWALL_286_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_286_X, Fix.VELGUS_SECRETWALL_286_Y, Fix.VELGUS_SECRETWALL_286_Z));
+            }
+
           }
 
           // 岩壁１
@@ -17922,6 +17941,11 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_EVENTTILE_284_X, Fix.VELGUS_EVENTTILE_284_Y + 1.0f, Fix.VELGUS_EVENTTILE_284_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_DOOR_285_X, Fix.VELGUS_DOOR_285_Y, Fix.VELGUS_DOOR_285_Z));
+      }
+
+      if (One.TF.Event_Message1000261)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_286_X, Fix.VELGUS_SECRETWALL_286_Y, Fix.VELGUS_SECRETWALL_286_Z));
       }
     }
     #endregion

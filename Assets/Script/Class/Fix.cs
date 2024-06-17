@@ -8883,7 +8883,7 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_258_Z = -5.0f;
 
   // 海渡りの間３ー４、隠し壁ドア
-  public const string VELGUS_SECRETWALL_259_C = "EventTile";
+  public const string VELGUS_SECRETWALL_259_C = "SecretWall";
   public const string VELGUS_SECRETWALL_259_O = "259";
   public const float VELGUS_SECRETWALL_259_X = 6.0f;
   public const float VELGUS_SECRETWALL_259_Y = 0.5f;
@@ -9012,7 +9012,7 @@ public static partial class Fix
   public const float VELGUS_DOOR_276_Z = -6.0f;
 
   // 遠点の間入口、隠し壁ドア
-  public const string VELGUS_SECRETWALL_277_C = "EventTile";
+  public const string VELGUS_SECRETWALL_277_C = "SecretWall";
   public const string VELGUS_SECRETWALL_277_O = "277";
   public const float VELGUS_SECRETWALL_277_X = 46.0f;
   public const float VELGUS_SECRETWALL_277_Y = 0.5f;
@@ -9074,6 +9074,12 @@ public static partial class Fix
   public const float VELGUS_DOOR_285_Y = 0.5f;
   public const float VELGUS_DOOR_285_Z = -14.0f;
 
+  // マップ右下、隠し壁ドア
+  public const string VELGUS_SECRETWALL_286_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_286_O = "286";
+  public const float VELGUS_SECRETWALL_286_X = 46.0f;
+  public const float VELGUS_SECRETWALL_286_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_286_Z = -27.0f;
 
   //// ボス前のイベント
   //public const string VELGUS_EVENTTILE_244_C = "EventTile";

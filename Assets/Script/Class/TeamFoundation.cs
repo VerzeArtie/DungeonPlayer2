@@ -1822,6 +1822,12 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000259 = false;
   public bool Event_Message1000259 { get { return _event_message1000259; } set { _event_message1000259 = value; } }
 
+  [SerializeField] protected bool _event_message1000260 = false;
+  public bool Event_Message1000260 { get { return _event_message1000260; } set { _event_message1000260 = value; } }
+
+  [SerializeField] protected bool _event_message1000261 = false;
+  public bool Event_Message1000261 { get { return _event_message1000261; } set { _event_message1000261 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
