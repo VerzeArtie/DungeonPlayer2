@@ -1828,6 +1828,12 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000261 = false;
   public bool Event_Message1000261 { get { return _event_message1000261; } set { _event_message1000261 = value; } }
 
+  [SerializeField] protected bool _event_message1000262 = false;
+  public bool Event_Message1000262 { get { return _event_message1000262; } set { _event_message1000262 = value; } }
+
+  [SerializeField] protected bool _event_message1000264 = false;
+  public bool Event_Message1000264 { get { return _event_message1000264; } set { _event_message1000264 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
@@ -2329,6 +2335,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_selmoi_ro = false;
   public bool DefeatSelmoiRo { get { return _defeat_selmoi_ro; } set { _defeat_selmoi_ro = value; } }
+
+  protected bool _defeat_bighand_kraken = false;
+  public bool DefeatBighandKraken { get { return _defeat_bighand_kraken; } set { _defeat_bighand_kraken = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

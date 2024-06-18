@@ -459,6 +459,11 @@ public partial class BattleEnemy : MotherBase
       {
         One.EnemyList[0].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
       }
+      else if (One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN)
+      {
+        One.EnemyList[0].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
+      }
+
       // 戦闘ゲージを設定
       One.EnemyList[0].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
       One.EnemyList[0].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
@@ -1025,6 +1030,12 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.THE_YODIRIAN_JP_VIEW)
         {
           One.TF.DefeatYodirian = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN ||
+                                       One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP ||
+                                       One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW)
+        {
+          One.TF.DefeatBighandKraken = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
         {

@@ -704,6 +704,13 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+      {
+        if (One.TF.DefeatBighandKraken && One.TF.Event_Message1000264 == false)
+        {
+          MessagePack.Message1000264(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       return;
     }
 
@@ -7307,10 +7314,19 @@ public class DungeonField : MotherBase
           {
             if (currentMessage == Fix.VELGUS_DOWNSTAIR_205_O)
             {
-              One.GoratrumHoleFalling2 = true;
               One.TF.Field_X = Fix.VELGUS_LOCATION_206_X;
               One.TF.Field_Y = Fix.VELGUS_LOCATION_206_Y + 1.0f;
               One.TF.Field_Z = Fix.VELGUS_LOCATION_206_Z;
+              continue; // 継続
+            }
+          }
+          else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+          {
+            if (currentMessage == Fix.VELGUS_DOWNSTAIR_289_O)
+            {
+              One.TF.Field_X = Fix.VELGUS_LOCATION_290_X;
+              One.TF.Field_Y = Fix.VELGUS_LOCATION_290_Y + 1.0f;
+              One.TF.Field_Z = Fix.VELGUS_LOCATION_290_Z;
               continue; // 継続
             }
           }
@@ -7765,6 +7781,22 @@ public class DungeonField : MotherBase
               for (int kk = 0; kk < 9; kk++)
               {
                 numbers.Add(7 * 50 + 41 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 && currentMessage == "12")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 7; jj++)
+            {
+              for (int kk = 0; kk < 8; kk++)
+              {
+                numbers.Add(22 * 50 + 2 + jj * 50 + kk);
               }
             }
             for (int jj = 0; jj < numbers.Count; jj++)
@@ -10172,6 +10204,19 @@ public class DungeonField : MotherBase
           One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss42 ||
           One.EnemyList[0].Area == Fix.MonsterArea.Boss5 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss52 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss53 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_1 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_2 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_4 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss6 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss62 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_1 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_2 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_3 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss64 ||
+          One.EnemyList[0].Area == Fix.MonsterArea.Boss64_2 ||
           One.EnemyList[0].Area == Fix.MonsterArea.LastBoss ||
           One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss1 ||
           One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss2 ||
@@ -12502,6 +12547,17 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_287_X, Fix.VELGUS_EVENTTILE_287_Y, Fix.VELGUS_EVENTTILE_287_Z))
+      {
+        MessagePack.Message1000262(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_288_X, Fix.VELGUS_BOSS_288_Y, Fix.VELGUS_BOSS_288_Z) && One.TF.DefeatBighandKraken == false)
+      {
+        MessagePack.Message1000263(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -12755,6 +12811,15 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, Fix.VELGUS_DOWNSTAIR_205_X, Fix.VELGUS_DOWNSTAIR_205_Y, Fix.VELGUS_DOWNSTAIR_205_Z))
         {
           DungeonCallSetup(Fix.MAPFILE_VELGUS_2, Fix.VELGUS_LOCATION_206_X, Fix.VELGUS_LOCATION_206_Y + 1.0f, Fix.VELGUS_LOCATION_206_Z);
+          return true;
+        }
+      }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_DOWNSTAIR_289_X, Fix.VELGUS_DOWNSTAIR_289_Y, Fix.VELGUS_DOWNSTAIR_289_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_VELGUS_3, Fix.VELGUS_LOCATION_290_X, Fix.VELGUS_LOCATION_290_Y + 1.0f, Fix.VELGUS_LOCATION_290_Z);
           return true;
         }
       }

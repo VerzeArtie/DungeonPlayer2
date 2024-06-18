@@ -2911,7 +2911,7 @@ public static partial class Fix
   public const string RECKLESS_WALRUS_JP = "猛突進ウォーラス";
   public const string THE_BIGHAND_OF_KRAKEN = "The Big-Hand of Kraken";
   public const string THE_BIGHAND_OF_KRAKEN_JP = "クラーケンの大手";
-  public const string THE_BIGHAND_OF_KRAKEN_JP_VIEW = "【　大海原の主　】クラーケンの大手";
+  public const string THE_BIGHAND_OF_KRAKEN_JP_VIEW = "【　大海原の主　】\r\nクラーケンの大手";
   public const string WRECHED_ANEMONE = "Wreched Anemone";
   public const string WRECHED_ANEMONE_JP = "浅ましいアネモネ";
   public const string DEEPSEA_HAND = "DeepSea Hand";
@@ -9081,27 +9081,37 @@ public static partial class Fix
   public const float VELGUS_SECRETWALL_286_Y = 0.5f;
   public const float VELGUS_SECRETWALL_286_Z = -27.0f;
 
-  //// ボス前のイベント
-  //public const string VELGUS_EVENTTILE_244_C = "EventTile";
-  //public const string VELGUS_EVENTTILE_244_O = "244";
-  //public const float VELGUS_EVENTTILE_244_X = 9.0f;
-  //public const float VELGUS_EVENTTILE_244_Y = 0.0f;
-  //public const float VELGUS_EVENTTILE_244_Z = -25.0f;
+  // ボス前のイベント
+  public const string VELGUS_EVENTTILE_287_C = "EventTile";
+  public const string VELGUS_EVENTTILE_287_O = "287";
+  public const float VELGUS_EVENTTILE_287_X = 9.0f;
+  public const float VELGUS_EVENTTILE_287_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_287_Z = -25.0f;
 
-  //// ボス戦
-  //public const string VELGUS_BOSS_245_C = "Event";
-  //public const string VELGUS_BOSS_245_O = "245";
-  //public const float VELGUS_BOSS_245_X = 7.0f;
-  //public const float VELGUS_BOSS_245_Y = 0.0f;
-  //public const float VELGUS_BOSS_245_Z = -25.0f;
+  // ボス戦
+  public const string VELGUS_BOSS_288_C = "Event";
+  public const string VELGUS_BOSS_288_O = "288";
+  public const float VELGUS_BOSS_288_X = 7.0f;
+  public const float VELGUS_BOSS_288_Y = 0.0f;
+  public const float VELGUS_BOSS_288_Z = -25.0f;
 
-  //// 下り階段
-  //public const string VELGUS_DOWNSTAIR_246_C = "Downstair";
-  //public const string VELGUS_DOWNSTAIR_246_O = "246";
-  //public const float VELGUS_DOWNSTAIR_246_X = 1.0f;
-  //public const float VELGUS_DOWNSTAIR_246_Y = 0.0f;
-  //public const float VELGUS_DOWNSTAIR_246_Z = -25.0f;
+  // 下り階段
+  public const string VELGUS_DOWNSTAIR_289_C = "Downstair";
+  public const string VELGUS_DOWNSTAIR_289_O = "289";
+  public const float VELGUS_DOWNSTAIR_289_X = 1.0f;
+  public const float VELGUS_DOWNSTAIR_289_Y = 0.0f;
+  public const float VELGUS_DOWNSTAIR_289_Z = -25.0f;
   #endregion
+  // 番号を1番に戻したいかもしれないが、番号識別による重複が同一ダンジョンにあると危険なので識別IDの連番は継続とする。
+  #region "第三階層"
+  // 下り階段
+  public const string VELGUS_LOCATION_290_C = "Location";
+  public const string VELGUS_LOCATION_290_O = "290";
+  public const float VELGUS_LOCATION_290_X = 2.0f;
+  public const float VELGUS_LOCATION_290_Y = 0.0f;
+  public const float VELGUS_LOCATION_290_Z = -25.0f;
+  #endregion
+
   #region "宝箱"
   #region "第一階層"
   // エントランスの上
