@@ -21068,18 +21068,18 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：きっちり取っていこう。行くぞ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.ORIGIN_STAR_CORAL_QUEEN_JP, ActionEvent.EncountBoss);
+    Message(ref m_list, ref e_list, Fix.DEVIL_STAR_DEATH_FLODIETE, ActionEvent.EncountBoss);
   }
 
   public static void Message1000183(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.DefeatOriginStarCoralQueen && One.TF.Event_Message1000183 == false)
+    if (One.TF.DefeatDeathFlodiete && One.TF.Event_Message1000183 == false)
     {
       One.TF.Event_Message1000183 = true;
 
-      Message(ref m_list, ref e_list, "珊瑚の女王：オ、オッ・・・・オオォッ・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "フローディーテ：オ、オッ・・・・オオォッ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "珊瑚の女王：・・・　・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "フローディーテ：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：終わったみたいだな。", ActionEvent.None);
 

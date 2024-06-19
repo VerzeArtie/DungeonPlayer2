@@ -459,6 +459,10 @@ public partial class BattleEnemy : MotherBase
       {
         One.EnemyList[0].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
       }
+      else if (One.EnemyList[0].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE)
+      {
+        One.EnemyList[0].txtName.text = Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW;
+      }
       else if (One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN)
       {
         One.EnemyList[0].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
@@ -1030,6 +1034,12 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.THE_YODIRIAN_JP_VIEW)
         {
           One.TF.DefeatYodirian = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE ||
+                                       One.EnemyList[0].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP ||
+                                       One.EnemyList[0].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW)
+        {
+          One.TF.DefeatDeathFlodiete = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN ||
                                        One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP ||

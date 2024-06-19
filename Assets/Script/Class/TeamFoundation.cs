@@ -2336,6 +2336,9 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_selmoi_ro = false;
   public bool DefeatSelmoiRo { get { return _defeat_selmoi_ro; } set { _defeat_selmoi_ro = value; } }
 
+  protected bool _defeat_death_flodiete = false;
+  public bool DefeatDeathFlodiete { get { return _defeat_death_flodiete; } set { _defeat_death_flodiete = value; } }
+
   protected bool _defeat_bighand_kraken = false;
   public bool DefeatBighandKraken { get { return _defeat_bighand_kraken; } set { _defeat_bighand_kraken = value; } }
 

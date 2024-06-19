@@ -694,7 +694,7 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000000(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        if (One.TF.DefeatOriginStarCoralQueen && One.TF.Event_Message1000183 == false)
+        if (One.TF.DefeatDeathFlodiete && One.TF.Event_Message1000183 == false)
         {
           MessagePack.Message1000183(ref QuestMessageList, ref QuestEventList); TapOK();
         }
@@ -12046,7 +12046,7 @@ public class DungeonField : MotherBase
         return true;
       }
 
-      if (LocationDetect(tile, Fix.VELGUS_BOSS_204_X, Fix.VELGUS_BOSS_204_Y, Fix.VELGUS_BOSS_204_Z) && One.TF.DefeatOriginStarCoralQueen == false)
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_204_X, Fix.VELGUS_BOSS_204_Y, Fix.VELGUS_BOSS_204_Z) && One.TF.DefeatDeathFlodiete == false)
       {
         MessagePack.Message1000182(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
