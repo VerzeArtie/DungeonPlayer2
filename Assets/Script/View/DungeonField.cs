@@ -7813,6 +7813,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_2[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "1")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 8; jj++)
+            {
+              for (int kk = 0; kk < 7; kk++)
+              {
+                numbers.Add(20 * 50 + 4 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -12564,6 +12580,14 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_288_X, Fix.VELGUS_BOSS_288_Y, Fix.VELGUS_BOSS_288_Z) && One.TF.DefeatBighandKraken == false)
       {
         MessagePack.Message1000263(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+    {
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_293_X, Fix.VELGUS_EVENTTILE_293_Y, Fix.VELGUS_EVENTTILE_293_Z))
+      {
+        MessagePack.Message1000266(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

@@ -23787,6 +23787,11 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "『　汝　力を示せ　』", ActionEvent.None);
     }
   }
+
+  public static void Message1000266(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

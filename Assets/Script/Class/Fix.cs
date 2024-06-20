@@ -9134,6 +9134,14 @@ public static partial class Fix
   public const float VELGUS_UPSTAIR_292_X = 1.0f;
   public const float VELGUS_UPSTAIR_292_Y = 0.0f;
   public const float VELGUS_UPSTAIR_292_Z = -25.0f;
+
+  // エリア可視化（１）
+  public const string VELGUS_EVENTTILE_293_C = "EventTile";
+  public const string VELGUS_EVENTTILE_293_O = "293";
+  public const float VELGUS_EVENTTILE_293_X = 7.0f;
+  public const float VELGUS_EVENTTILE_293_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_293_Z = -27.0f;
+
   #endregion
 
   #region "宝箱"
