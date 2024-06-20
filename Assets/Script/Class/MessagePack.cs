@@ -23760,6 +23760,35 @@ public static class MessagePack
   }
   #endregion
 
+  #region "第三階層"
+  public static void Message1000265(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000265 == false)
+    {
+      One.TF.Event_Message1000265 = true;
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　汝　力を示せ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか・・・【力】ときたか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：選択肢を問われる様な事はなさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。ここはおそらくそういった類はないと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・勝負していくしかない。一本道だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いつものノリで突き進んで行こうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー。気を引き締めて行こう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　汝　力を示せ　』", ActionEvent.None);
+    }
+  }
+  #endregion
+
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)

@@ -474,6 +474,9 @@ public static partial class Fix
   public const int MAPSIZE_X_VELGUS_SEATEMPLE_2 = 50;
   public const int MAPSIZE_Z_VELGUS_SEATEMPLE_2 = 30;
 
+  public const int MAPSIZE_X_VELGUS_SEATEMPLE_3 = 50;
+  public const int MAPSIZE_Z_VELGUS_SEATEMPLE_3 = 30;
+
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
@@ -7071,6 +7074,13 @@ public static partial class Fix
   public const float VELGUS_2_MessageBoard_7_Y = 1.0f;
   public const float VELGUS_2_MessageBoard_7_Z = -2.0f;
 
+  // 第三階層、入口の看板
+  public const string VELGUS_3_MessageBoard_1_C = "MessageBoard";
+  public const string VELGUS_3_MessageBoard_1_O = "1";
+  public const float VELGUS_3_MessageBoard_1_X = 7.0f;
+  public const float VELGUS_3_MessageBoard_1_Y = 1.0f;
+  public const float VELGUS_3_MessageBoard_1_Z = -24.0f;
+
   #endregion
   #region "第一階層"
   #region "階段(上り)"
@@ -9101,15 +9111,29 @@ public static partial class Fix
   public const float VELGUS_DOWNSTAIR_289_X = 1.0f;
   public const float VELGUS_DOWNSTAIR_289_Y = 0.0f;
   public const float VELGUS_DOWNSTAIR_289_Z = -25.0f;
-  #endregion
-  // 番号を1番に戻したいかもしれないが、番号識別による重複が同一ダンジョンにあると危険なので識別IDの連番は継続とする。
-  #region "第三階層"
-  // 下り階段
+
+  // 第三階層から登って来た時の開始地点
   public const string VELGUS_LOCATION_290_C = "Location";
   public const string VELGUS_LOCATION_290_O = "290";
   public const float VELGUS_LOCATION_290_X = 2.0f;
   public const float VELGUS_LOCATION_290_Y = 0.0f;
   public const float VELGUS_LOCATION_290_Z = -25.0f;
+  #endregion
+  // 番号を1番に戻したいかもしれないが、番号識別による重複が同一ダンジョンにあると危険なので識別IDの連番は継続とする。
+  #region "第三階層"
+  // 第二階層から降りて来た時の開始地点
+  public const string VELGUS_LOCATION_291_C = "Location";
+  public const string VELGUS_LOCATION_291_O = "291";
+  public const float VELGUS_LOCATION_291_X = 2.0f;
+  public const float VELGUS_LOCATION_291_Y = 0.0f;
+  public const float VELGUS_LOCATION_291_Z = -25.0f;
+
+  // 上り階段
+  public const string VELGUS_UPSTAIR_292_C = "Upstair";
+  public const string VELGUS_UPSTAIR_292_O = "292";
+  public const float VELGUS_UPSTAIR_292_X = 1.0f;
+  public const float VELGUS_UPSTAIR_292_Y = 0.0f;
+  public const float VELGUS_UPSTAIR_292_Z = -25.0f;
   #endregion
 
   #region "宝箱"

@@ -7654,7 +7654,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_JU_STYLE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.SEA_SONG_MARMAID:
@@ -7665,7 +7665,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_WASH_AWAY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
-        this.CannotCritical = false;
+        this.CannotCritical = true;
         break;
 
       case Fix.SHELL_THE_SWORD_KNIGHT:
@@ -7679,7 +7679,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_SEASTAR_OATH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_1;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.SEA_STAR_KNIGHT_AEGIRU:
@@ -7692,7 +7692,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_TORPEDO_BUSTER);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_2;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.SEA_STAR_KNIGHT_AMARA:
@@ -7705,7 +7705,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_VORTEX_BLAST);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_2;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.JELLY_EYE_BRIGHT_RED:
@@ -7718,7 +7718,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_PENETRATION_EYE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_3;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.JELLY_EYE_DEEP_BLUE:
@@ -7731,52 +7731,13 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_HALLUCINATE_EYE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_3;
-        this.CannotCritical = true;
-        break;
-
-      case Fix.BRILLIANT_SEA_PRINCE:
-      case Fix.BRILLIANT_SEA_PRINCE_JP:
-        SetupParameter(4500, 1100, 3000, 180000, 140, 0, 120000, 160000);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_BRAVE_ROAR);
-        list.Add(Fix.COMMAND_SEASLIDE_WATER);
-        list.Add(Fix.COMMAND_GUNGNIR_SLASH);
-        list.Add(Fix.COMMAND_GUNGNIR_LIGHT);
-        this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_4;
-        this.CannotCritical = true;
-        break;
-
-      case Fix.ORIGIN_STAR_CORAL_QUEEN:
-      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
-        SetupParameter(3000, 1050, 4500, 160000, 140, 0, 0, 0);
-        list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_LIFE_WATER);
-        list.Add(Fix.COMMAND_SALMAN_CHANT);
-        list.Add(Fix.COMMAND_ANDATE_CHANT);
-        list.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
-        this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_4;
-        this.CannotCritical = true;
-        break;
-
-      case Fix.VELGAS_THE_KING_OF_SEA_STAR:
-      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
-        SetupParameter(4800, 1150, 4800, 200000, 140, 0, 0, 0);
-        list.Add(Fix.NORMAL_ATTACK);
-        list.Add(Fix.COMMAND_SEASTAR_ORIGIN_SEAL);
-        list.Add(Fix.FRESH_HEAL);
-        list.Add(Fix.FREEZING_CUBE);
-        list.Add(Fix.FORTUNE_SPIRIT);
-        this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_4;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.GROUND_VORTEX_LEVIATHAN:
       case Fix.GROUND_VORTEX_LEVIATHAN_JP:
       case Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW:
-        SetupParameter(5500, 1300, 5500, 240000, 150, 0, 130000, 200000);
+        SetupParameter(4300, 1050, 4300, 160000, 140, 0, 120000, 160000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SEASTARKING_ROAR);
         list.Add(Fix.COMMAND_BURST_CLOUD);
@@ -7784,8 +7745,47 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_SURGETIC_BIND);
         list.Add(Fix.COMMAND_TIDAL_WAVE);
         this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_4;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.BRILLIANT_SEA_PRINCE:
+      case Fix.BRILLIANT_SEA_PRINCE_JP:
+        SetupParameter(4600, 1200, 3300, 200000, 150, 0, 130000, 200000);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BRAVE_ROAR);
+        list.Add(Fix.COMMAND_SEASLIDE_WATER);
+        list.Add(Fix.COMMAND_GUNGNIR_SLASH);
+        list.Add(Fix.COMMAND_GUNGNIR_LIGHT);
+        this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss55;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ORIGIN_STAR_CORAL_QUEEN:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
+        SetupParameter(3300, 1150, 4600, 220000, 150, 0, 0, 0);
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_LIFE_WATER);
+        list.Add(Fix.COMMAND_SALMAN_CHANT);
+        list.Add(Fix.COMMAND_ANDATE_CHANT);
+        list.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss55;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR:
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
+        SetupParameter(5000, 1100, 5000, 250000, 150, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_SEASTAR_ORIGIN_SEAL);
+        list.Add(Fix.FRESH_HEAL);
+        list.Add(Fix.FREEZING_CUBE);
+        list.Add(Fix.FORTUNE_SPIRIT);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss55;
+        this.CannotCritical = false;
         break;
 
       #endregion

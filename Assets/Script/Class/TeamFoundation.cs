@@ -655,6 +655,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_VelgusSeaTemple_2 = value; }
     get { return _knownTileList_VelgusSeaTemple_2; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_VelgusSeaTemple_3 = new List<bool>(Fix.MAPSIZE_X_VELGUS_SEATEMPLE_3 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_3);
+  public List<bool> KnownTileList_VelgusSeaTemple_3
+  {
+    set { _knownTileList_VelgusSeaTemple_3 = value; }
+    get { return _knownTileList_VelgusSeaTemple_3; }
+  }
   #endregion
 
   #region "Event"
@@ -1833,6 +1840,10 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _event_message1000264 = false;
   public bool Event_Message1000264 { get { return _event_message1000264; } set { _event_message1000264 = value; } }
+
+  // ヴェルガス海底神殿：第三階層
+  [SerializeField] protected bool _event_message1000265 = false;
+  public bool Event_Message1000265 { get { return _event_message1000265; } set { _event_message1000265 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }

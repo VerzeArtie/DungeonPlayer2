@@ -89,6 +89,7 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Unknown_MysticForest;
   public TileInformation prefab_Unknown_Velgus;
   public TileInformation prefab_Unknown_Velgus_2;
+  public TileInformation prefab_Unknown_Velgus_3;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -3053,6 +3054,13 @@ public class DungeonField : MotherBase
         if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_2_MessageBoard_7_X, Fix.VELGUS_2_MessageBoard_7_Y, Fix.VELGUS_2_MessageBoard_7_Z))
         {
           MessagePack.Message1000248(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_3_MessageBoard_1_X, Fix.VELGUS_3_MessageBoard_1_Y, Fix.VELGUS_3_MessageBoard_1_Z))
+        {
+          MessagePack.Message1000265(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -7324,9 +7332,9 @@ public class DungeonField : MotherBase
           {
             if (currentMessage == Fix.VELGUS_DOWNSTAIR_289_O)
             {
-              One.TF.Field_X = Fix.VELGUS_LOCATION_290_X;
-              One.TF.Field_Y = Fix.VELGUS_LOCATION_290_Y + 1.0f;
-              One.TF.Field_Z = Fix.VELGUS_LOCATION_290_Z;
+              One.TF.Field_X = Fix.VELGUS_LOCATION_291_X;
+              One.TF.Field_Y = Fix.VELGUS_LOCATION_291_Y + 1.0f;
+              One.TF.Field_Z = Fix.VELGUS_LOCATION_291_Z;
               continue; // 継続
             }
           }
@@ -12720,6 +12728,14 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_UPSTAIR_292_X, Fix.VELGUS_UPSTAIR_292_Y, Fix.VELGUS_UPSTAIR_292_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_VELGUS_2, Fix.VELGUS_LOCATION_290_X, Fix.VELGUS_LOCATION_290_Y + 1.0f, Fix.VELGUS_LOCATION_290_Z);
+          return true;
+        }
+      }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
@@ -12819,7 +12835,7 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.VELGUS_DOWNSTAIR_289_X, Fix.VELGUS_DOWNSTAIR_289_Y, Fix.VELGUS_DOWNSTAIR_289_Z))
         {
-          DungeonCallSetup(Fix.MAPFILE_VELGUS_3, Fix.VELGUS_LOCATION_290_X, Fix.VELGUS_LOCATION_290_Y + 1.0f, Fix.VELGUS_LOCATION_290_Z);
+          DungeonCallSetup(Fix.MAPFILE_VELGUS_3, Fix.VELGUS_LOCATION_291_X, Fix.VELGUS_LOCATION_291_Y + 1.0f, Fix.VELGUS_LOCATION_291_Z);
           return true;
         }
       }
@@ -14775,6 +14791,10 @@ public class DungeonField : MotherBase
         {
           One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
         }
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
+        }
       }
 
       //１歩移動先が移動可能な場合その先の縦横クロス１マス分だけ可視化する。
@@ -14831,6 +14851,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
+            }
           }
 
           if (rightPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < rightPos.x + 0.01f
@@ -14860,6 +14884,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
             }
           }
         }
@@ -14916,6 +14944,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
+            }
           }
 
           if (leftPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < leftPos.x + 0.01f
@@ -14945,6 +14977,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
             }
           }
         }
@@ -15001,6 +15037,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
+            }
           }
 
           if (topPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < topPos.x + 0.01f
@@ -15030,6 +15070,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
             }
           }
         }
@@ -15086,6 +15130,10 @@ public class DungeonField : MotherBase
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
             }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
+            }
           }
 
           if (bottomPos.x - 0.01f < UnknownTileList[ii].transform.position.x && UnknownTileList[ii].transform.position.x < bottomPos.x + 0.01f
@@ -15115,6 +15163,10 @@ public class DungeonField : MotherBase
             if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
             {
               One.TF.KnownTileList_VelgusSeaTemple_2[ii] = true;
+            }
+            if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+            {
+              One.TF.KnownTileList_VelgusSeaTemple_3[ii] = true;
             }
           }
         }
@@ -15422,6 +15474,10 @@ public class DungeonField : MotherBase
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
       {
         current = Instantiate(prefab_Unknown_Velgus_2, position, Quaternion.identity) as TileInformation;
+      }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        current = Instantiate(prefab_Unknown_Velgus_3, position, Quaternion.identity) as TileInformation;
       }
       else
       {
@@ -16261,6 +16317,26 @@ public class DungeonField : MotherBase
       for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_2 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_2; ii++)
       {
         if (One.TF.KnownTileList_VelgusSeaTemple_2[ii])
+        {
+          UnknownTileList[ii].gameObject.SetActive(false);
+        }
+      }
+    }
+
+    if (map_data == Fix.MAPFILE_VELGUS_3)
+    {
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_3; ii++)
+      {
+        for (int jj = 0; jj < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_3; jj++)
+        {
+          Vector3 position = new Vector3(jj, 1.0f, -ii);
+          AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
+          UnknownTileList[UnknownTileList.Count - 1].gameObject.SetActive(true);
+        }
+      }
+      for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_3 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_3; ii++)
+      {
+        if (One.TF.KnownTileList_VelgusSeaTemple_3[ii])
         {
           UnknownTileList[ii].gameObject.SetActive(false);
         }

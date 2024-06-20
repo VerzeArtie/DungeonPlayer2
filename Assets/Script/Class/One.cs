@@ -226,6 +226,10 @@ public static class One
     {
       TF.KnownTileList_VelgusSeaTemple_2.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_3 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_3; ii++)
+    {
+      TF.KnownTileList_VelgusSeaTemple_3.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
