@@ -1047,6 +1047,18 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatBighandKraken = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE ||
+                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_JP ||
+                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW)
+        {
+          One.TF.DefeatBrilliantSeaPrince = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT ||
+                                       One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP ||
+                                       One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
+        {
+          One.TF.DefeatShellSwordKnight = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
         {
           One.TF.DefeatFlansisQueenOfVerdant = true;

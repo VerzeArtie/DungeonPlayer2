@@ -23792,6 +23792,332 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
   }
+
+  public static void Message1000267(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000267 == false)
+    {
+      One.TF.Event_Message1000267 = true;
+
+      Message(ref m_list, ref e_list, "アイン：さっそくご登場の様だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いきなりこの強い気配かよ。シャレになんねーな、ココは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと様子を見てくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "1.0", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveBottom);
+
+      Message(ref m_list, ref e_list, "ビリー：どうだ？どんな感じの奴だった？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構、まともな感じだった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：多少の隙は作れるが、勢いとチャンスをモノにしてくるタイプじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：下手に作戦を構築し過ぎるのは得策じゃない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なので、手強いと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：戦術はどうするわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：下手な奇策は打たない。真っ向勝負だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いつも通りのメインパターンで皆頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：決まりみたいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ準備を万全にして挑もう！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000268(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：ここに人間族が訪れるとはね。正直、久しぶりだね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：対話が・・・出来るのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：我々はこの神聖な神殿を護りし者。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ボクの名は" + Fix.BRILLIANT_SEA_PRINCE_JP + "だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海の王子：さて、そちらも名も聞こうか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海の王子：良い名だ。発声も心地良い響きだね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海の王子：さて、どの程度の力量なのか、見極めさせてもらうよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：皆、構えてくれ。戦闘開始だ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.BRILLIANT_SEA_PRINCE, ActionEvent.EncountBoss);
+  }
+
+  public static void Message1000269(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000269 == false)
+    {
+      One.TF.Event_Message1000269 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ソコだ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン、その刹那において敵の急所を狙い撃ちする！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ッガキイイイィィィィン・・・！！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っな！　と、止められた！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：そこまでじゃ。王子よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海の王子：ちぇっ、潮時か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だ、誰だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我は海星源の王。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：この神殿を司るものである。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：海星源の・・・王・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：アイン・ウォーレンスと申したな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：ここは貴公らの勝利である。先へ進むがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良いのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：勝負は決しておる。進めるがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：進める前に。一つ、お願いがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このダンジョンから帰還した後、もう一度ここへやってこようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その時はこの区画はクリアしたと見なし、無条件で通してもらいたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：良いだろう。元より、そのつもりである。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：助かるぜ・・・。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海星源の王：では、退くぞ。王子よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "海の王子：しょうがないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　海の王子、海星源の王は静かに姿を消失させた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、先へ進めよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構、これが続く感じかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。この調子が何度も続くと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：無理に突っ込み過ぎず、１回終える度に帰還しても良いかも知れない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：さすがにこのレベルを連戦ってのはきついぜ。賛成だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、そうしたら一旦戻って休息を取ろう。", ActionEvent.None);
+    }
+  }
+
+
+  public static void Message1000270(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000270 == false)
+    {
+      One.TF.Event_Message1000270 = true;
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・次のおでましか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ココもマジレベルの気配を感じるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと偵察してくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "1.0", ActionEvent.ForceMoveRight);
+
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveLeft);
+
+      Message(ref m_list, ref e_list, "アデル：どうだったー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：強そうだったー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここはもう強い奴しか出てこない。そこは良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そこは良いんだ。おもしろーい☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：いつもの作戦についてはー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：いつものフォーメーションで構築するのかなー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・それでも良いんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：何か決まりきらないねー。どうしたどうしたー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・なんだろうなあ・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：戦術論で迷ってるわけじゃなさそうよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいテメェ。はっきり言えやコラ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハー、ちょっと待ってあげようよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな、頼みがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この勝負、俺一人でやらせてもらえないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：DUEL形式って事かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういう事になる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：へぇ、驚いたぜ。テメェがガチバトルをやってみたいと言い出すはな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：勝算あんのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：五分五分だと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ほおぉぉぉ・・・やけに自信あるじゃねーか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、五分五分だと言っている。勝てる保証はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ビリーは真剣な視線をアインに向けた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：勝ってこいよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000271(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000271 == false)
+    {
+      One.TF.Event_Message1000271 = true;
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：貴公１人で挑むつもりか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：双方、名を名乗ろうではないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我はシェル・ザ・ソードナイト。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺はアイン・ウォーレンスだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：では、カウントダウンを始めるぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、勝負だ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.SHELL_THE_SWORD_KNIGHT, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void Message1000272(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000272 == false)
+    {
+      One.TF.Event_Message1000272 = true;
+
+      Message(ref m_list, ref e_list, "ソードナイト：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ソード・ナイトは静かに一定の距離を置いた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：この勝負、貴公の勝利である。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソード・ナイト：この先へ行くがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今のは致命傷ではないはず。こちらの勝利だと判定した理由は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：今の攻撃こそが、こちらにとって致命傷。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ソードナイト：貴公の動き、見事であった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　シェル・ザ・ソードナイトは静かに姿を消失させた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っふぅ・・・・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おお！やるじゃねーか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやあ・・・何とかな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：えーー　【何とかな】ってどういう意味ー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：え？ええっと何だろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：意味・・・意味・・・うーん", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：自然に喋って出てきた言葉だ。意味はないと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：えーー、それって何か絶対おかしいよねー、アハハハ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あれ、おかしいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：だって、そのセリフ。最初からある程度何とかなると思ってるって事だよねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいやいや、それはないって。勝ち目は薄かったからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ゼロじゃなかったんでしょー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さすがにゼロではないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：やっぱりー、アハハハハ、面白いなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、面白いのかな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、さすがにちょっとスタミナを使ってしまったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：出来れば一旦戻っておきたいが、良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：私は別に良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ご自由に・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃ、とっとと戻ろうぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪い。そうしたら一旦戻るとしよう。", ActionEvent.None);
+    }
+  }
+
+
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

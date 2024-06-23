@@ -1845,6 +1845,21 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000265 = false;
   public bool Event_Message1000265 { get { return _event_message1000265; } set { _event_message1000265 = value; } }
 
+  [SerializeField] protected bool _event_message1000267 = false;
+  public bool Event_Message1000267 { get { return _event_message1000267; } set { _event_message1000267 = value; } }
+
+  [SerializeField] protected bool _event_message1000269 = false;
+  public bool Event_Message1000269 { get { return _event_message1000269; } set { _event_message1000269 = value; } }
+
+  [SerializeField] protected bool _event_message1000270 = false;
+  public bool Event_Message1000270 { get { return _event_message1000270; } set { _event_message1000270 = value; } }
+
+  [SerializeField] protected bool _event_message1000271 = false;
+  public bool Event_Message1000271 { get { return _event_message1000271; } set { _event_message1000271 = value; } }
+
+  [SerializeField] protected bool _event_message1000272 = false;
+  public bool Event_Message1000272 { get { return _event_message1000272; } set { _event_message1000272 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
@@ -2352,6 +2367,12 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_bighand_kraken = false;
   public bool DefeatBighandKraken { get { return _defeat_bighand_kraken; } set { _defeat_bighand_kraken = value; } }
+
+  protected bool _defeat_brilliant_sea_prince = false;
+  public bool DefeatBrilliantSeaPrince { get { return _defeat_brilliant_sea_prince; } set { _defeat_brilliant_sea_prince = value; } }
+
+  protected bool _defeat_shell_sword_knight = false;
+  public bool DefeatShellSwordKnight { get { return _defeat_shell_sword_knight; } set { _defeat_shell_sword_knight = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

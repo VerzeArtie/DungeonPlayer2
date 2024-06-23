@@ -712,6 +712,19 @@ public class DungeonField : MotherBase
           MessagePack.Message1000264(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        if (One.TF.DefeatBrilliantSeaPrince && One.TF.Event_Message1000269 == false)
+        {
+          MessagePack.Message1000269(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+
+        if (One.TF.DefeatShellSwordKnight && One.TF.Event_Message1000272 == false)
+        {
+          MessagePack.Message1000272(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       return;
     }
 
@@ -7829,6 +7842,38 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "2")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 9; jj++)
+            {
+              for (int kk = 0; kk < 9; kk++)
+              {
+                numbers.Add(11 * 50 + 3 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "3")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 11; jj++)
+            {
+              for (int kk = 0; kk < 9; kk++)
+              {
+                numbers.Add(1 * 50 + 3 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10122,6 +10167,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.EncountBoss)
         {
           One.CannotRunAway = true;
+          One.BattleMode = Fix.BattleMode.Boss;
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
           PrepareCallTruthBattleEnemy();
@@ -10129,6 +10175,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
         {
           One.CannotRunAway = true;
+          One.BattleMode = Fix.BattleMode.Duel;
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
           PrepareCallTruthBattleEnemy();
@@ -10249,15 +10296,20 @@ public class DungeonField : MotherBase
           One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss5
           )
       {
+        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Boss");
         One.BattleMode = Fix.BattleMode.Boss;
       }
-      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
-               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
+
+      if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
+               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO ||
+               One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
       {
+        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Duel");
         One.BattleMode = Fix.BattleMode.Duel;
       }
       else
       {
+        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Normal");
         One.BattleMode = Fix.BattleMode.Normal;
       }
     }
@@ -12588,6 +12640,30 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_293_X, Fix.VELGUS_EVENTTILE_293_Y, Fix.VELGUS_EVENTTILE_293_Z))
       {
         MessagePack.Message1000266(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_294_X, Fix.VELGUS_EVENTTILE_294_Y, Fix.VELGUS_EVENTTILE_294_Z))
+      {
+        MessagePack.Message1000267(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_295_X, Fix.VELGUS_BOSS_295_Y, Fix.VELGUS_BOSS_295_Z) && One.TF.DefeatBrilliantSeaPrince == false)
+      {
+        MessagePack.Message1000268(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_296_X, Fix.VELGUS_EVENTTILE_296_Y, Fix.VELGUS_EVENTTILE_296_Z))
+      {
+        MessagePack.Message1000270(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_297_X, Fix.VELGUS_BOSS_297_Y, Fix.VELGUS_BOSS_297_Z) && One.TF.DefeatShellSwordKnight == false)
+      {
+        MessagePack.Message1000271(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
