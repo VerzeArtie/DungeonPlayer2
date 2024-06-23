@@ -24091,7 +24091,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あれ、おかしいか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：だって、そのセリフ。最初からある程度何とかなると思ってるって事だよねー☆", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：だって、そのセリフ。最初から何とかなると思ってるんだよねー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：いやいやいや、それはないって。勝ち目は薄かったからな。", ActionEvent.None);
 
