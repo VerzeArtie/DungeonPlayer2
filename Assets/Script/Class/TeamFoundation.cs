@@ -1854,11 +1854,14 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000270 = false;
   public bool Event_Message1000270 { get { return _event_message1000270; } set { _event_message1000270 = value; } }
 
-  [SerializeField] protected bool _event_message1000271 = false;
-  public bool Event_Message1000271 { get { return _event_message1000271; } set { _event_message1000271 = value; } }
-
   [SerializeField] protected bool _event_message1000272 = false;
   public bool Event_Message1000272 { get { return _event_message1000272; } set { _event_message1000272 = value; } }
+
+  [SerializeField] protected bool _event_message1000273 = false;
+  public bool Event_Message1000273 { get { return _event_message1000273; } set { _event_message1000273 = value; } }
+
+  [SerializeField] protected bool _event_message1000275 = false;
+  public bool Event_Message1000275 { get { return _event_message1000275; } set { _event_message1000275 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
@@ -2373,6 +2376,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_shell_sword_knight = false;
   public bool DefeatShellSwordKnight { get { return _defeat_shell_sword_knight; } set { _defeat_shell_sword_knight = value; } }
+
+  protected bool _defeat_aegiru_amara = false;
+  public bool DefeatAegiruAmara { get { return _defeat_aegiru_amara; } set { _defeat_aegiru_amara = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

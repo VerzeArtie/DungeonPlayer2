@@ -444,38 +444,57 @@ public partial class BattleEnemy : MotherBase
     }
     else if (BattleType == Fix.BattleMode.Boss)
     {
-      NodeBattleChara node = Instantiate(node_BattleChara_EnemyBoss) as NodeBattleChara;
-      node.gameObject.SetActive(true);
-      node.ParentPanel.SetActive(true);
-      node.transform.SetParent(GroupParentEnemy.transform);
-      One.EnemyList[0].IsEnemy = true;
-      if (One.EnemyList[0] == null) { Debug.Log("null enemylist"); }
-      if (EnemyArrowList[0] == null) { Debug.Log("enemyarrowlist null"); }
-      AddPlayerFromOne(One.EnemyList[0], node, EnemyArrowList[0], null, null, null, null, this.PanelEnemyField);
-
-      // ただし、ボス戦のテキストは誇大表示したいため、個別対応
-      // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
-      if (One.EnemyList[0].FullName == Fix.THE_YODIRIAN)
+      for (int ii = 0; ii < One.EnemyList.Count; ii++)
       {
-        One.EnemyList[0].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
-      }
-      else if (One.EnemyList[0].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE)
-      {
-        One.EnemyList[0].txtName.text = Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW;
-      }
-      else if (One.EnemyList[0].FullName == Fix.THE_BIGHAND_OF_KRAKEN)
-      {
-        One.EnemyList[0].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
-      }
+        NodeBattleChara node = Instantiate(node_BattleChara_EnemyBoss) as NodeBattleChara;
+        node.gameObject.SetActive(true);
+        node.ParentPanel.SetActive(true);
+        node.transform.SetParent(GroupParentEnemy.transform);
+        One.EnemyList[ii].IsEnemy = true;
+        if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
+        if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
+        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
 
-      // 戦闘ゲージを設定
-      One.EnemyList[0].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
-      One.EnemyList[0].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+        // ただし、ボス戦のテキストは誇大表示したいため、個別対応
+        // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
+        if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN)
+        {
+          One.EnemyList[ii].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE)
+        {
+          One.EnemyList[ii].txtName.text = Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN)
+        {
+          One.EnemyList[ii].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE)
+        {
+          One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
+        {
+          One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU)
+        {
+          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW;
+        }
+        else if (One.EnemyList.Count > 0 && One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA)
+        {
+          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW;
+        }
 
-      // キャラクターグループのリストに追加
-      One.EnemyList[0].Ally = Fix.Ally.Enemy;
-      EnemyList.Add(One.EnemyList[0]);
-      AllList.Add(One.EnemyList[0]);
+        // 戦闘ゲージを設定
+        One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
+        One.EnemyList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+        // キャラクターグループのリストに追加
+        One.EnemyList[ii].Ally = Fix.Ally.Enemy;
+        EnemyList.Add(One.EnemyList[ii]);
+        AllList.Add(One.EnemyList[ii]);
+      }
     }
 
     // 敵コマンドの最初の設定を行う。
@@ -1058,6 +1077,12 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
         {
           One.TF.DefeatShellSwordKnight = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU ||
+                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP ||
+                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW)
+        {
+          One.TF.DefeatAegiruAmara = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
         {

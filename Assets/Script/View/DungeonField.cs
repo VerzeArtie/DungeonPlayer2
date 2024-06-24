@@ -724,6 +724,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000272(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (One.TF.DefeatAegiruAmara && One.TF.Event_Message1000275 == false)
+        {
+          MessagePack.Message1000275(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -7874,6 +7879,22 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
             }
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "4")
+          {
+            List<int> numbers = new List<int>();
+            for (int jj = 0; jj < 11; jj++)
+            {
+              for (int kk = 0; kk < 11; kk++)
+              {
+                numbers.Add(3 * 50 + 21 + jj * 50 + kk);
+              }
+            }
+            for (int jj = 0; jj < numbers.Count; jj++)
+            {
+              UnknownTileList[numbers[jj]].gameObject.SetActive(false);
+              One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
+            }
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10170,6 +10191,12 @@ public class DungeonField : MotherBase
           One.BattleMode = Fix.BattleMode.Boss;
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
+          Debug.Log("EncountBoss: " + currentMessage);
+          if (currentMessage == Fix.SEA_STAR_KNIGHT_AEGIRU)
+          {
+            Debug.Log("EncountBoss: Plus Amara");
+            One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT_AMARA);
+          }
           PrepareCallTruthBattleEnemy();
         }
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
@@ -10264,52 +10291,58 @@ public class DungeonField : MotherBase
       character.Construction(One.BattleEnemyList[ii]);
       One.EnemyList.Add(character);
 
-      if (One.EnemyList[0].Area == Fix.MonsterArea.Boss1 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss21 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss22 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss23 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss24 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss25 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss3 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss4 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss42 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss5 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss52 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss53 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_1 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_3 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss54_4 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss6 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss62 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_1 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss63_3 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss64 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.Boss64_2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.LastBoss ||
-          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss1 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss2 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss3 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss4 ||
-          One.EnemyList[0].Area == Fix.MonsterArea.TruthBoss5
+      if (character.Area == Fix.MonsterArea.Boss1 ||
+          character.Area == Fix.MonsterArea.Boss2 ||
+          character.Area == Fix.MonsterArea.Boss21 ||
+          character.Area == Fix.MonsterArea.Boss22 ||
+          character.Area == Fix.MonsterArea.Boss23 ||
+          character.Area == Fix.MonsterArea.Boss24 ||
+          character.Area == Fix.MonsterArea.Boss25 ||
+          character.Area == Fix.MonsterArea.Boss3 ||
+          character.Area == Fix.MonsterArea.Boss4 ||
+          character.Area == Fix.MonsterArea.Boss42 ||
+          character.Area == Fix.MonsterArea.Boss5 ||
+          character.Area == Fix.MonsterArea.Boss52 ||
+          character.Area == Fix.MonsterArea.Boss53 ||
+          character.Area == Fix.MonsterArea.Boss54_1 ||
+          character.Area == Fix.MonsterArea.Boss54_2 ||
+          character.Area == Fix.MonsterArea.Boss54_2 ||
+          character.Area == Fix.MonsterArea.Boss54_3 ||
+          character.Area == Fix.MonsterArea.Boss54_4 ||
+          character.Area == Fix.MonsterArea.Boss55 ||
+          character.Area == Fix.MonsterArea.Boss6 ||
+          character.Area == Fix.MonsterArea.Boss62 ||
+          character.Area == Fix.MonsterArea.Boss63_1 ||
+          character.Area == Fix.MonsterArea.Boss63_2 ||
+          character.Area == Fix.MonsterArea.Boss63_3 ||
+          character.Area == Fix.MonsterArea.Boss64 ||
+          character.Area == Fix.MonsterArea.Boss64_2 ||
+          character.Area == Fix.MonsterArea.LastBoss ||
+          character.Area == Fix.MonsterArea.TruthBoss1 ||
+          character.Area == Fix.MonsterArea.TruthBoss2 ||
+          character.Area == Fix.MonsterArea.TruthBoss3 ||
+          character.Area == Fix.MonsterArea.TruthBoss4 ||
+          character.Area == Fix.MonsterArea.TruthBoss5
           )
       {
-        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Boss");
+        Debug.Log("Enemy: " + character.FullName + ", BattleMode is Boss");
         One.BattleMode = Fix.BattleMode.Boss;
-      }
 
-      if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
-               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO ||
-               One.EnemyList[0].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
+        // SHELL_THE_SWORD_KNIGHTは例外的にDUELモード
+        if (character.FullName == Fix.SHELL_THE_SWORD_KNIGHT)
+        {
+          One.BattleMode = Fix.BattleMode.Duel;
+        }
+      }
+      else if (character.FullName == Fix.NAME_EONE_FULNEA ||
+               character.FullName == Fix.NAME_SELMOI_RO)
       {
-        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Duel");
+        Debug.Log("Enemy: " + character.FullName + ", BattleMode is Duel");
         One.BattleMode = Fix.BattleMode.Duel;
       }
       else
       {
-        Debug.Log("Enemy: " + One.EnemyList[0].FullName + ", BattleMode is Normal");
+        Debug.Log("Enemy: " + character.FullName + ", BattleMode is Normal");
         One.BattleMode = Fix.BattleMode.Normal;
       }
     }
@@ -12664,6 +12697,18 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_297_X, Fix.VELGUS_BOSS_297_Y, Fix.VELGUS_BOSS_297_Z) && One.TF.DefeatShellSwordKnight == false)
       {
         MessagePack.Message1000271(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_298_X, Fix.VELGUS_EVENTTILE_298_Y, Fix.VELGUS_EVENTTILE_298_Z))
+      {
+        MessagePack.Message1000273(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_299_X, Fix.VELGUS_BOSS_299_Y, Fix.VELGUS_BOSS_299_Z) && One.TF.DefeatAegiruAmara == false)
+      {
+        MessagePack.Message1000274(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

@@ -2965,8 +2965,10 @@ public static partial class Fix
   public const string SHELL_THE_SWORD_KNIGHT_JP_VIEW = "【　海星源の護り手　】\r\nシェル ザ ソードナイト";
   public const string SEA_STAR_KNIGHT_AEGIRU = "Sea-StarKnight Aegir";
   public const string SEA_STAR_KNIGHT_AEGIRU_JP = "海星騎士・エーギル";
+  public const string SEA_STAR_KNIGHT_AEGIRU_JP_VIEW = "【　天秤を携えし者　】\r\n海星騎士・エーギル";
   public const string SEA_STAR_KNIGHT_AMARA = "Sea-StarKnight Amara";
   public const string SEA_STAR_KNIGHT_AMARA_JP = "海星騎士・アマラ";
+  public const string SEA_STAR_KNIGHT_AMARA_JP_VIEW = "【　天秤を見据えし者　】\r\n海星騎士・アマラ";
   public const string JELLY_EYE_BRIGHT_RED = "Jelly-Eye Bright-Red";
   public const string JELLY_EYE_BRIGHT_RED_JP = "ジェリーアイ・熱光";
   public const string JELLY_EYE_DEEP_BLUE = "Jelly-Eye Deep-Blue";
@@ -9170,6 +9172,76 @@ public static partial class Fix
   public const float VELGUS_BOSS_297_X = 5.0f;
   public const float VELGUS_BOSS_297_Y = 0.0f;
   public const float VELGUS_BOSS_297_Z = -6.0f;
+
+  // ボス戦３前のイベント
+  public const string VELGUS_EVENTTILE_298_C = "EventTile";
+  public const string VELGUS_EVENTTILE_298_O = "298";
+  public const float VELGUS_EVENTTILE_298_X = 26.0f;
+  public const float VELGUS_EVENTTILE_298_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_298_Z = -3.0f;
+
+  // ボス戦３
+  public const string VELGUS_BOSS_299_C = "Boss";
+  public const string VELGUS_BOSS_299_O = "298";
+  public const float VELGUS_BOSS_299_X = 26.0f;
+  public const float VELGUS_BOSS_299_Y = 0.0f;
+  public const float VELGUS_BOSS_299_Z = -5.0f;
+
+  // ボス戦４前のイベント
+  public const string VELGUS_EVENTTILE_300_C = "EventTile";
+  public const string VELGUS_EVENTTILE_300_O = "300";
+  public const float VELGUS_EVENTTILE_300_X = 47.0f;
+  public const float VELGUS_EVENTTILE_300_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_300_Z = -7.0f;
+
+  // ボス戦４
+  public const string VELGUS_BOSS_301_C = "Boss";
+  public const string VELGUS_BOSS_301_O = "301";
+  public const float VELGUS_BOSS_301_X = 45.0f;
+  public const float VELGUS_BOSS_301_Y = 0.0f;
+  public const float VELGUS_BOSS_301_Z = -7.0f;
+
+  // ボス戦５前のイベント
+  public const string VELGUS_EVENTTILE_302_C = "EventTile";
+  public const string VELGUS_EVENTTILE_302_O = "302";
+  public const float VELGUS_EVENTTILE_302_X = 41.0f;
+  public const float VELGUS_EVENTTILE_302_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_302_Z = -17.0f;
+
+  // ボス戦５
+  public const string VELGUS_BOSS_303_C = "Boss";
+  public const string VELGUS_BOSS_303_O = "303";
+  public const float VELGUS_BOSS_303_X = 41.0f;
+  public const float VELGUS_BOSS_303_Y = 0.0f;
+  public const float VELGUS_BOSS_303_Z = -19.0f;
+
+  // ボス戦６前のイベント
+  public const string VELGUS_EVENTTILE_304_C = "EventTile";
+  public const string VELGUS_EVENTTILE_304_O = "304";
+  public const float VELGUS_EVENTTILE_304_X = 17.0f;
+  public const float VELGUS_EVENTTILE_304_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_304_Z = -9.0f;
+
+  // ボス戦６
+  public const string VELGUS_BOSS_305_C = "Boss";
+  public const string VELGUS_BOSS_305_O = "305";
+  public const float VELGUS_BOSS_305_X = 17.0f;
+  public const float VELGUS_BOSS_305_Y = 0.0f;
+  public const float VELGUS_BOSS_305_Z = -11.0f;
+
+  // ボス戦７前のイベント
+  public const string VELGUS_EVENTTILE_306_C = "EventTile";
+  public const string VELGUS_EVENTTILE_306_O = "306";
+  public const float VELGUS_EVENTTILE_306_X = 26.0f;
+  public const float VELGUS_EVENTTILE_306_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_306_Z = -23.0f;
+
+  // ボス戦７
+  public const string VELGUS_BOSS_307_C = "Boss";
+  public const string VELGUS_BOSS_307_O = "307";
+  public const float VELGUS_BOSS_307_X = 26.0f;
+  public const float VELGUS_BOSS_307_Y = 0.0f;
+  public const float VELGUS_BOSS_307_Z = -21.0f;
 
   #endregion
 
