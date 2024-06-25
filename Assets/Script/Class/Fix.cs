@@ -2976,8 +2976,9 @@ public static partial class Fix
   public const string BRILLIANT_SEA_PRINCE = "Brilliant Sea-Prince";
   public const string BRILLIANT_SEA_PRINCE_JP = "輝ける海の王子";
   public const string BRILLIANT_SEA_PRINCE_JP_VIEW = "【　海星源の清流　】\r\n輝ける海の王子";
-  public const string ORIGIN_STAR_CORAL_QUEEN = "Origin-Star Coral-Queen";
-  public const string ORIGIN_STAR_CORAL_QUEEN_JP = "源星・珊瑚の女王";
+  public const string ORIGIN_STAR_CORAL_QUEEN = "Origin-Star Coral-Queen Meril-Sieju";
+  public const string ORIGIN_STAR_CORAL_QUEEN_JP = "源星・珊瑚の女王：メリル・セイジュ";
+  public const string ORIGIN_STAR_CORAL_QUEEN_JP_VIEW = "【源星・珊瑚の女王】\r\nメリル・セイジュ";
   public const string VELGAS_THE_KING_OF_SEA_STAR = "Velgas, The king of Sea-Star";
   public const string VELGAS_THE_KING_OF_SEA_STAR_JP = "海星源の王：ヴェルガス";
   public const string GROUND_VORTEX_LEVIATHAN = "Ground-Vortex Leviathan";

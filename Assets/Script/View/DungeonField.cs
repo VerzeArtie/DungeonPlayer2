@@ -729,6 +729,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000275(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (One.TF.DefeatOriginStarCoralQueen && One.TF.Event_Message1000278 == false)
+        {
+          MessagePack.Message1000278(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -7895,6 +7900,11 @@ public class DungeonField : MotherBase
               One.TF.KnownTileList_VelgusSeaTemple_3[numbers[jj]] = true;
             }
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "5")
+          {
+            UpdateUnknownTileArea(9, 11, 3, 37, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -12709,6 +12719,18 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_299_X, Fix.VELGUS_BOSS_299_Y, Fix.VELGUS_BOSS_299_Z) && One.TF.DefeatAegiruAmara == false)
       {
         MessagePack.Message1000274(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_300_X, Fix.VELGUS_EVENTTILE_300_Y, Fix.VELGUS_EVENTTILE_300_Z))
+      {
+        MessagePack.Message1000276(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_301_X, Fix.VELGUS_BOSS_301_Y, Fix.VELGUS_BOSS_301_Z) && One.TF.DefeatOriginStarCoralQueen == false)
+      {
+        MessagePack.Message1000277(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -19178,5 +19200,31 @@ public class DungeonField : MotherBase
       debug += VelgusRandomBallSequence2[ii] + " , ";
     }
     Debug.Log(debug);
+  }
+
+  /// <summary>
+  /// 未到達タイルをエリア指定で更新する
+  /// </summary>
+  /// <param name="vertical_length">縦の長さ</param>
+  /// <param name="horizontal_length">横の長さ</param>
+  /// <param name="pos_x">横の初期位置</param>
+  /// <param name="pos_z">縦の初期位置</param>
+  /// <param name="max_area_len">エリアの最大長さ</param>
+  /// <param name="tile_list">未到達タイルのリスト</param>
+  private void UpdateUnknownTileArea(int vertical_length, int horizontal_length, int pos_x, int pos_z, int max_area_len, List<bool> tile_list)
+  {
+    List<int> numbers = new List<int>();
+    for (int ii = 0; ii < vertical_length; ii++)
+    {
+      for (int jj = 0; jj < horizontal_length; jj++)
+      {
+        numbers.Add(pos_x * max_area_len + pos_z + ii * max_area_len + jj);
+      }
+    }
+    for (int ii = 0; ii < numbers.Count; ii++)
+    {
+      UnknownTileList[numbers[ii]].gameObject.SetActive(false);
+      tile_list[numbers[ii]] = true;
+    }
   }
 }

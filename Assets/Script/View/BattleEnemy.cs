@@ -481,9 +481,13 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW;
         }
-        else if (One.EnemyList.Count > 0 && One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA)
+        else if (One.EnemyList.Count > 1 && One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA)
         {
           One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN)
+        {
+          One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
         }
 
         // 戦闘ゲージを設定
@@ -1084,6 +1088,12 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAegiruAmara = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
+        {
+          One.TF.DefeatOriginStarCoralQueen = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
         {
           One.TF.DefeatFlansisQueenOfVerdant = true;
@@ -1097,10 +1107,6 @@ public partial class BattleEnemy : MotherBase
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;
-        }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP)
-        {
-          One.TF.DefeatOriginStarCoralQueen = true;
         }
       }
       AutoExit = Fix.BATTLEEND_AUTOEXIT;
