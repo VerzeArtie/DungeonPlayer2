@@ -734,6 +734,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000278(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (One.TF.DefeatBlueRedEye && One.TF.Event_Message1000281 == false)
+        {
+          MessagePack.Message1000281(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -7905,6 +7910,10 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(9, 11, 3, 37, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "6")
+          {
+            UpdateUnknownTileArea(10, 11, 17, 36, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10212,6 +10221,11 @@ public class DungeonField : MotherBase
             Debug.Log("EncountBoss: Plus Royal-Naga");
             One.BattleEnemyList.Add(Fix.GUARDIAN_ROYAL_NAGA);
             One.BattleEnemyList.Add(Fix.GUARDIAN_ROYAL_NAGA);
+          }
+          else if (currentMessage == Fix.JELLY_EYE_BRIGHT_RED)
+          {
+            Debug.Log("EncountBoss: Plus Jelly-Eye Deep-Blue");
+            One.BattleEnemyList.Add(Fix.JELLY_EYE_DEEP_BLUE);
           }
           PrepareCallTruthBattleEnemy();
         }
@@ -12737,6 +12751,18 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_301_X, Fix.VELGUS_BOSS_301_Y, Fix.VELGUS_BOSS_301_Z) && One.TF.DefeatOriginStarCoralQueen == false)
       {
         MessagePack.Message1000277(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_302_X, Fix.VELGUS_EVENTTILE_302_Y, Fix.VELGUS_EVENTTILE_302_Z))
+      {
+        MessagePack.Message1000279(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_303_X, Fix.VELGUS_BOSS_303_Y, Fix.VELGUS_BOSS_303_Z) && One.TF.DefeatBlueRedEye == false)
+      {
+        MessagePack.Message1000280(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

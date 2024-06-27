@@ -489,6 +489,14 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
         }
+        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED)
+        {
+          One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE)
+        {
+          One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW;
+        }
 
         // 戦闘ゲージを設定
         One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
@@ -1103,6 +1111,12 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW)
         {
           One.TF.DefeatLightThunderLancebolts = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.JELLY_EYE_BRIGHT_RED ||
+                                       One.EnemyList[0].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP ||
+                                       One.EnemyList[0].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW)
+        {
+          One.TF.DefeatBlueRedEye = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
         {

@@ -24315,7 +24315,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　ビリーは広間に向かって正面から突っ込んでいった ～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile); // UpdateUnknownを更新してください
+      Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
 
       Message(ref m_list, ref e_list, "？？？：何奴よ？", ActionEvent.None);
 
@@ -24555,6 +24555,179 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アデル：ありがとー、良いよー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ今度こそ戻ろう！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000279(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000279 == false)
+    {
+      One.TF.Event_Message1000279 = true;
+
+      Message(ref m_list, ref e_list, "アイン：んっ・・・近いな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：偵察はどうする？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まだ遠く離れているが、それでも相当の攻撃的性質を放ってるな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一瞬だけ。行ってくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "6", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+      Message(ref m_list, ref e_list, "？？？：（・・・ギョロ・・・）　　？？？：（・・・ギョロロ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "アイン：しまった！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫だった？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ぎりぎりアウトだったと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：つっても、攻められてねーだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そうだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何というか、見られてしまったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：別に良いじゃねえか。偵察は相手に見られるもんだって言ってただろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：上手く言えないが・・・ちょっと今回は俺のミスだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分が悪くなったって事かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・完全に警戒される形になってしまった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：警戒されてない状態なら、奇襲や先制攻撃が出来たはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：特にこういった異形系のモンスターはその方が倒しやすい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、今回睨まれちまったって事は、もう隙がねえ状態なんだな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そういう事になる。申し訳ないが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：気にすんな！むしろ上等だぜ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・そう言ってもらえると助かる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：その異形系のモンスターってどんな感じだったの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：非常に大きい目玉が２体。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一方が赤色、もう一方が青色をしていたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、それぞれの目玉がこちらを向き、何か仕掛けて来る感じだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：き・・・気持ち悪いわね・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと、目玉が大きな特徴に見えるかもしれないが、おそらくだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：純粋な魔法系統に気を付けた方が良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：炎とか氷の魔法耐性は上げておいた方が良いかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。必須事項だと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：陣形的なものは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いつものパターンで問題ない。その辺りはおそらく大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：他に気を付ける事はあるかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：基本的に状態異常は受けない様に装備を整えておこう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと、ライフが低くなりすぎないように。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そのぐらいかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃあ！とっとと突撃しようぜ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000280(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：ッギョロロ！！　　？？？：ギョロギョロ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうやら会話は無しの様だな", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ほんっと、気持ち悪いわ・・・とっととやっつけちゃいましょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハハハ・・・そうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：今回の相手は待ったなしだろ！ガンガン行こうぜ！。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケー！戦闘開始だ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.JELLY_EYE_BRIGHT_RED, ActionEvent.EncountBoss);
+  }
+
+  public static void Message1000281(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000281 == false)
+    {
+      One.TF.Event_Message1000281 = true;
+
+      Message(ref m_list, ref e_list, "アイン：これで決まりだ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ッザシュッ！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ジェリーアイ：ギョオオオォォォ・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　２体のジェリーアイは静かに姿を消失させた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし・・・やったみたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ！　やったじゃねーか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。真正面でも全然オッケーだったじゃねえか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんなのおかげさ。俺だけじゃこの結果は出せなかった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：・・・ちょ、お前まてよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何だ？なんか変な事言ったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いや・・・まあ、良いけどよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン。一つだけ聞くぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：戦闘中、すげえ反応速度でおまえ対応してたぞ。自覚あるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：自覚・・・と言われると正直分からない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんながサポートしてくれてるおかげで、いつもより動きやすいんじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そーかよ。まあ分かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、そしてだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、マップ的にはそろそろか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしらね。この感じだと次でラストって保証はできないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか。まあ、まだ警戒しつつで進めるとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あの・・・少し提案ですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：１度休息したいので、帰還しませんか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだった。なんか忘れてた！ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、そしたらここで一旦戻るとしよう。", ActionEvent.None);
     }
   }
   #endregion

@@ -2971,8 +2971,10 @@ public static partial class Fix
   public const string SEA_STAR_KNIGHT_AMARA_JP_VIEW = "【　天秤を見据えし者　】\r\n海星騎士・アマラ";
   public const string JELLY_EYE_BRIGHT_RED = "Jelly-Eye Bright-Red";
   public const string JELLY_EYE_BRIGHT_RED_JP = "ジェリーアイ・熱光";
+  public const string JELLY_EYE_BRIGHT_RED_JP_VIEW = "【巨眼の監視者】\r\nジェリーアイ・熱光";
   public const string JELLY_EYE_DEEP_BLUE = "Jelly-Eye Deep-Blue";
   public const string JELLY_EYE_DEEP_BLUE_JP = "ジェリーアイ・流冷";
+  public const string JELLY_EYE_DEEP_BLUE_JP_VIEW = "【巨眼の監視者】\r\nジェリーアイ・流冷";
   public const string BRILLIANT_SEA_PRINCE = "Brilliant Sea-Prince";
   public const string BRILLIANT_SEA_PRINCE_JP = "輝ける海の王子";
   public const string BRILLIANT_SEA_PRINCE_JP_VIEW = "【　海星源の清流　】\r\n輝ける海の王子";
