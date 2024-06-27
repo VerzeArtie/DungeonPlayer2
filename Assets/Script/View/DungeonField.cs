@@ -739,6 +739,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000281(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (One.TF.DefeatLeviathan && One.TF.Event_Message1000284 == false)
+        {
+          MessagePack.Message1000284(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -7914,6 +7919,10 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(10, 11, 17, 36, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "7")
+          {
+            UpdateUnknownTileArea(9, 9, 9, 13, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -12763,6 +12772,18 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_303_X, Fix.VELGUS_BOSS_303_Y, Fix.VELGUS_BOSS_303_Z) && One.TF.DefeatBlueRedEye == false)
       {
         MessagePack.Message1000280(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_304_X, Fix.VELGUS_EVENTTILE_304_Y, Fix.VELGUS_EVENTTILE_304_Z))
+      {
+        MessagePack.Message1000282(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_305_X, Fix.VELGUS_BOSS_305_Y, Fix.VELGUS_BOSS_305_Z) && One.TF.DefeatLeviathan == false)
+      {
+        MessagePack.Message1000283(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

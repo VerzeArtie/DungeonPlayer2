@@ -1875,6 +1875,12 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000281 = false;
   public bool Event_Message1000281 { get { return _event_message1000281; } set { _event_message1000281 = value; } }
 
+  [SerializeField] protected bool _event_message1000282 = false;
+  public bool Event_Message1000282 { get { return _event_message1000282; } set { _event_message1000282 = value; } }
+
+  [SerializeField] protected bool _event_message1000284 = false;
+  public bool Event_Message1000284 { get { return _event_message1000284; } set { _event_message1000284 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
@@ -2397,6 +2403,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_bluered_eye = false;
   public bool DefeatBlueRedEye { get { return _defeat_bluered_eye; } set { _defeat_bluered_eye = value; } }
+
+  protected bool _defeat_leviathan = false;
+  public bool DefeatLeviathan { get { return _defeat_leviathan; } set { _defeat_leviathan = value; } }
 
   protected bool _defeat_eone_fulnea = false;
   public bool DefeatEoneFulnea { get { return _defeat_eone_fulnea; } set { _defeat_eone_fulnea = value; } }
