@@ -24399,7 +24399,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "？？？：これは・・・相応の【徳】を積んでいると見て取れるの。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "？？？：妾も名乗るとしよう。源星の女王：メリル・セイジュである。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "？？？：妾も名乗るとしよう。海星の女王：メリル・セイジュである。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -24431,7 +24431,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "セイジュ：良かろう、では。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～　源星の女王は、大きな杖をドラゴン達に向けて２度かざした ～", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "～　海星の女王は、大きな杖をドラゴン達に向けて２度かざした ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "（ッシュウウウン・・・・・・）", ActionEvent.None);
 
@@ -24538,7 +24538,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "セイジュ：次の相手は間違いなく本物のモンスターじゃぞ。気を付けて進むがよかろうて。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【　源星の女王は静かに姿を消失させた　】", ActionEvent.None);
+      Message(ref m_list, ref e_list, "【　海星の女王は静かに姿を消失させた　】", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・っふう", ActionEvent.None);
 
