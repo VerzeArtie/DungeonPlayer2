@@ -744,6 +744,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000284(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (One.TF.DefeatKingOfVelgus && One.TF.Event_Message1000287 == false)
+        {
+          MessagePack.Message1000287(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       return;
     }
@@ -7923,6 +7928,10 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(9, 9, 9, 13, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "8")
+          {
+            UpdateUnknownTileArea(11, 11, 13, 21, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10235,6 +10244,12 @@ public class DungeonField : MotherBase
           {
             Debug.Log("EncountBoss: Plus Jelly-Eye Deep-Blue");
             One.BattleEnemyList.Add(Fix.JELLY_EYE_DEEP_BLUE);
+          }
+          else if (currentMessage == Fix.VELGAS_THE_KING_OF_SEA_STAR)
+          {
+            Debug.Log("EncountBoss: Plus Sea-Star Queen and Prince");
+            One.BattleEnemyList.Add(Fix.ORIGIN_STAR_CORAL_QUEEN);
+            One.BattleEnemyList.Add(Fix.BRILLIANT_SEA_PRINCE);
           }
           PrepareCallTruthBattleEnemy();
         }
@@ -12786,6 +12801,19 @@ public class DungeonField : MotherBase
         MessagePack.Message1000283(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_306_X, Fix.VELGUS_EVENTTILE_306_Y, Fix.VELGUS_EVENTTILE_306_Z))
+      {
+        MessagePack.Message1000285(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_307_X, Fix.VELGUS_BOSS_307_Y, Fix.VELGUS_BOSS_307_Z) && One.TF.DefeatKingOfVelgus == false)
+      {
+        MessagePack.Message1000286(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {

@@ -23841,17 +23841,17 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "？？？：我々はこの神聖な神殿を護りし者。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "？？？：ボクの名は" + Fix.BRILLIANT_SEA_PRINCE_JP + "だ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "？？？：ボクの名は、海星の王子：レーヴァ・ラウルだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "海の王子：さて、そちらも名も聞こうか。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "レーヴァ：さて、そちらの名も聞かせてもらおうか。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "海の王子：良い名だ。発声も心地良い響きだね。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "レーヴァ：良い名だ。発声も心地良い響きだね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "海の王子：さて、どの程度の力量なのか、見極めさせてもらうよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "レーヴァ：さて、どの程度の力量なのか、見極めさせてもらうよ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：皆、構えてくれ。戦闘開始だ！", ActionEvent.None);
 
@@ -23874,7 +23874,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "？？？：そこまでじゃ。王子よ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "海の王子：ちぇっ、潮時か。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "レーヴァ：ちぇっ、潮時か。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：だ、誰だ！", ActionEvent.None);
 
@@ -23906,9 +23906,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "海星源の王：では、退くぞ。王子よ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "海の王子：しょうがないな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "レーヴァ：しょうがないな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【　海の王子、海星源の王は静かに姿を消失させた　】", ActionEvent.None);
+      Message(ref m_list, ref e_list, "【　海星の王子、海星源の王は静かに姿を消失させた　】", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -24399,7 +24399,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "？？？：これは・・・相応の【徳】を積んでいると見て取れるの。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "？？？：妾も名乗るとしよう。源星・珊瑚の女王：メリル・セイジュである。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "？？？：妾も名乗るとしよう。源星の女王：メリル・セイジュである。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -24431,7 +24431,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "セイジュ：良かろう、では。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "～　源星・珊瑚の女王は、大きな杖をドラゴン達に向けて２度かざした ～", ActionEvent.MessageDisplay);
+    Message(ref m_list, ref e_list, "～　源星の女王は、大きな杖をドラゴン達に向けて２度かざした ～", ActionEvent.MessageDisplay);
 
     Message(ref m_list, ref e_list, "（ッシュウウウン・・・・・・）", ActionEvent.None);
 
@@ -24528,7 +24528,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "セイジュ：次の相手は間違いなく本物のモンスターじゃぞ。気を付けて進むがよかろうて。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【　源星・珊瑚の女王は静かに姿を消失させた　】", ActionEvent.None);
+      Message(ref m_list, ref e_list, "【　源星の女王は静かに姿を消失させた　】", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・っふう", ActionEvent.None);
 
@@ -24984,6 +24984,370 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ、そうだな。じゃ、一旦戻るぞ。", ActionEvent.None);
 
+    }
+  }
+
+
+  public static void Message1000285(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000285 == false)
+    {
+      One.TF.Event_Message1000285 = true;
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・いよいよか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：マップとしてはおそらくここが最終ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう。じゃあまずは偵察して来るんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、偵察は不要だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そうなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。待ち構えている相手が分かっているからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：見てもねーのに分かるのかよ。一体誰なんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：海星源の王だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あー、そういえば最初の時に出現してたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく、あいつが待ち構えていると思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：王様が最後って事か。なるほどな・・・燃えてきたぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、それじゃ行こう！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000286(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "【　アインが広間の入口に足を踏み入れた瞬間　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "8", ActionEvent.UpdateUnknownTile);
+
+    Message(ref m_list, ref e_list, "【　彼らは突如、その場に姿を現した　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海星源の王：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海星の女王：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海星の王子：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：３体・・・か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海星源の王：まず、我の名を教えてしんぜよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "海星源の王：我の名はヴェルガス。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は、アイン・ウォーレンスだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：ふむ、良き心構えである。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：セイジュ、レーヴァ。全力を持ってして相対してあげなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "レーヴァ：アイン・ウォーレンス。今度は本気だすからな。覚悟しろよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "セイジュ：アイン・ウォーレンス。妾の本気を受けるがよい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：この戦い。我自身も参戦する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：アイン・ウォーレンスよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：この海底神殿の地にて", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴェルガス：我々を倒してみせよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "【　海星源の３体が、一斉に戦闘態勢となる！　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：みんな、構えてくれ！戦闘開始だ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.VELGAS_THE_KING_OF_SEA_STAR, ActionEvent.EncountBoss);
+  }
+
+  public static void Message1000287(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000287 == false)
+    {
+      One.TF.Event_Message1000287 = true;
+
+      Message(ref m_list, ref e_list, "レーヴァ：アイン・ウォーレンス！　打ち取ったり！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：！！レーヴァ、いかん！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンス、グングニルの槍を真正面から受ける直前　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　その姿はその場から完全に消失していた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レーヴァ：なっ！！！　どこだ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスの瞳の色が色濃く変化し始める　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まずは", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：しまった！やはりセイジュか！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ひとつ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　その刻　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　女王セイジュはその場で崩れ落ちる　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：つぎに", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ふたつ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　同時刻　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　海星源の王ヴェルガスの前に影が一つ　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レーヴァ：ッグ・・・っくっそおおぉぉ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　王をかばう形で海星の王子レーヴァがその場で果てる　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さいごに", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みっつ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　刻が進もうとする中　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　海星源の王、決死の防衛姿勢を取る　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：むうん！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ッギイイィイン！！！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：見えた", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：む！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ッギイィン！　ッギン、ッギン、ッギイイイィイン！！！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これで", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さいごだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ッザシュ！！！　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：ッグ・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：み・・・　見事・・・　だ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アインの周囲に３体が奇麗に円を描くように倒れる形となる　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンスはしばらくその場で立ち尽くす形となった　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンス、ラナ・アミリアの方へ振り向かず　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　戦闘姿勢を崩さないまま　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ターゲットを取らない状態下で、武器を構えたままとなった　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おいおい・・・一体どうしちまったんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ビリー・ラキ、アイン・ウォーレンスへ近づこうとした瞬間　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：離れてください！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：え！？あ！？お、俺か！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：離れて！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　ビリー・ラキの眼前に　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　攻撃の軌跡が　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　放たれていた　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：あ・・・危なかった・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ！　こんな離れてるのにか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ってか何で攻撃されてんだよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン！？　おまえ大丈夫かよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺は今", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここにいる", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　アイン・ウォーレンス、瞳の色が元に戻り始める　】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：大丈夫なのかよ。そいつは良かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、ちょっと戦闘態勢を解除したらこっちにきて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、了解だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：顔、見せてごらんなさい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：え？　顔か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんか付いてしまったかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ふーん・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いつものバカアインに戻ってるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃ、戻ってよし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんか診断されちまったな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：あっ、ねーねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：この先、奥へ続く階段があるんだけど", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：その前に、例の３体が復活しちゃってるよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っげ！！　ウソだろ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　海星源の３体は、初期位置に再び立っていた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：復活できるなんて・・・さすがに冗談キツイな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：でも、どーかなー。何か雰囲気が違うみたいだけど☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？そういえば・・・何か違う感じがするな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：対話したい内容があるんじゃないかな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・ならちょっと話しかけてみるか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな、多分戦闘は終了だが、もうちょっと待っていてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあちょっと会話してくる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは海星源の３体の前に再び立つ形を取った　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：先の闘い。見事であった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：我々３体を相手にし、ほぼ同時に仕掛けた行動。恐るべき素質である。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：我々の敗北である。ここを通るがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、でもちょっと待ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そもそも、何故戦う必要があったんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：それは、この海底神殿における試練だからに他ならない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：我々は貴君の素質や力量、考え方などをはかる存在である。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：貴君が至らぬ存在であれば、ただそれまでという結果が残るだけの事。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そうなんだろうけど・・・何て言うんだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：戦う必要性があるのか？って言えば、分かるかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今回の戦闘にしても、感じたんだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：戦闘の最中において、何度か危ない目にはあってるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：本当の意味で命に関わるデッドラインを超えていない気がしたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：ほぅ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：「力量をはかる」とかそういう考えで相対してくれている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：殺気は確かに感じとってはいるが、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何て言うのかな・・・ちょっと上手く言えないが、何かが違う気がしたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ともかく、命の取り合いにはならなかった事について", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：感謝している。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：ふむ。不思議な存在よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：かの者達と同じセンスを保持しておるとはな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：良かろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：次の階層に関する助言を授けるとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "セイジュ：王よ。そこまで譲歩せずとも・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：セイジュよ、よいのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：この者であれば、きっと辿り着いてくれよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レーヴァ：でも、辿り着けるとは限らないよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：そこは重要ではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：この者を信じてみたくなったのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：アイン・ウォーレンスよ。聴くがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：はい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：次の階層においては", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：何もすべきではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：己が心に問いかけるとよいだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：さすれば・・・あるいは", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：いや、助言はここまでか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴェルガス：貴君に天の導きがあらん事を。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【　海星源の３体は、光に包まれ、その姿を消失させた　】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　己が心に問いかける・・・か　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：会話、終わったみたいだねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：階段には進んでも良いのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの内容からして、次の階層でモンスターは発生しない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何らかの仕掛けを解くだけになるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、そのまま進行しても良いのね。どうする？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行ってみようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。でも十分に気を付けてね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解。", ActionEvent.None);
     }
   }
   #endregion
