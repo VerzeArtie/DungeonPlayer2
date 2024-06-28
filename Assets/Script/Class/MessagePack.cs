@@ -24371,7 +24371,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：威嚇は俺には効かないぜ。いくらでも受けて立ってやるさ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あれは威嚇じゃない。明らかに本気だ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：あれは威嚇じゃない。明らかに本物だ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：交渉次第なら、もう少し違う形になったはずだ。", ActionEvent.None);
 
