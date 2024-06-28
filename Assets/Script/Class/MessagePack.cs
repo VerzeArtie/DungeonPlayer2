@@ -24490,6 +24490,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：だが、召喚後においても何一つとして変化は見られなかった。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "アイン：だとすると、そもそも魔力を消費しても永続的な供給源があると思ったのさ。", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "セイジュ：確かにの。ほかには？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：戦闘中のあの妙な防御壁の事だが・・・", ActionEvent.None);
@@ -24512,9 +24514,17 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：もうあるとしたら、あれしかない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：無効化系統だろ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：無効化系統だ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "セイジュ：やはり【徳】を積んだ者は一味違う気がするの。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：当然、無効化の類のものは効果時間が短く消費も著しいはず。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だが、あの防御壁はかなり長い時間続くものだった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だが、詠唱者本体はまったく消費している気配はなかった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、この海底神殿自体が詠唱者へ魔力を流し込んでるんだろうと思ったわけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "セイジュ：ご名答。やはり【徳】を積んだ者は一味違う気がするの。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "セイジュ：よろしい。通過するがよいぞ。", ActionEvent.None);
 
