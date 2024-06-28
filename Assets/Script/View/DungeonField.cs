@@ -12984,6 +12984,14 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_UPSTAIR_311_X, Fix.VELGUS_UPSTAIR_311_Y, Fix.VELGUS_UPSTAIR_311_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_VELGUS_3, Fix.VELGUS_LOCATION_309_X, Fix.VELGUS_LOCATION_309_Y + 1.0f, Fix.VELGUS_LOCATION_309_Z);
+          return true;
+        }
+      }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
@@ -13084,6 +13092,15 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, Fix.VELGUS_DOWNSTAIR_289_X, Fix.VELGUS_DOWNSTAIR_289_Y, Fix.VELGUS_DOWNSTAIR_289_Z))
         {
           DungeonCallSetup(Fix.MAPFILE_VELGUS_3, Fix.VELGUS_LOCATION_291_X, Fix.VELGUS_LOCATION_291_Y + 1.0f, Fix.VELGUS_LOCATION_291_Z);
+          return true;
+        }
+      }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        if (LocationDetect(tile, Fix.VELGUS_DOWNSTAIR_308_X, Fix.VELGUS_DOWNSTAIR_308_Y, Fix.VELGUS_DOWNSTAIR_308_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_VELGUS_4, Fix.VELGUS_LOCATION_310_X, Fix.VELGUS_LOCATION_310_Y + 1.0f, Fix.VELGUS_LOCATION_310_Z);
           return true;
         }
       }

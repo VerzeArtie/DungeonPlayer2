@@ -9247,6 +9247,35 @@ public static partial class Fix
   public const float VELGUS_BOSS_307_Y = 0.0f;
   public const float VELGUS_BOSS_307_Z = -21.0f;
 
+  // 下り階段
+  public const string VELGUS_DOWNSTAIR_308_C = "Downstair";
+  public const string VELGUS_DOWNSTAIR_308_O = "308";
+  public const float VELGUS_DOWNSTAIR_308_X = 26.0f;
+  public const float VELGUS_DOWNSTAIR_308_Y = 0.0f;
+  public const float VELGUS_DOWNSTAIR_308_Z = -14.0f;
+
+  // 第四階層から登って来た時の開始地点
+  public const string VELGUS_LOCATION_309_C = "Location";
+  public const string VELGUS_LOCATION_309_O = "309";
+  public const float VELGUS_LOCATION_309_X = 26.0f;
+  public const float VELGUS_LOCATION_309_Y = 0.0f;
+  public const float VELGUS_LOCATION_309_Z = -15.0f;
+
+  #endregion
+  #region "第四階層"
+  // 第三階層から降りて来た時の開始地点
+  public const string VELGUS_LOCATION_310_C = "Location";
+  public const string VELGUS_LOCATION_310_O = "310";
+  public const float VELGUS_LOCATION_310_X = 26.0f;
+  public const float VELGUS_LOCATION_310_Y = 0.0f;
+  public const float VELGUS_LOCATION_310_Z = -15.0f;
+
+  // 上り階段
+  public const string VELGUS_UPSTAIR_311_C = "Upstair";
+  public const string VELGUS_UPSTAIR_311_O = "311";
+  public const float VELGUS_UPSTAIR_311_X = 26.0f;
+  public const float VELGUS_UPSTAIR_311_Y = 0.0f;
+  public const float VELGUS_UPSTAIR_311_Z = -14.0f;
   #endregion
 
   #region "宝箱"
