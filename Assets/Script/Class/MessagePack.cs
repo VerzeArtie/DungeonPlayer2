@@ -25360,6 +25360,184 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：了解。", ActionEvent.None);
     }
   }
+
+  public static void Message1000288(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000288 == false)
+    {
+      One.TF.Event_Message1000288 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ん？これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：僅かに隙間があるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：調べてみましょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃ、ちょっと前空けて。見てみるから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：意外とシンプルよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：開けられそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ここの右側にあるくぼみを横に回転させて・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、左側のこれを少し押せば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_310_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：おお、開いた！　サンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ッフフ、バッチリかしら♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあお宝ゲットと行きますか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000289(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000289 == false)
+    {
+      One.TF.Event_Message1000289 = true;
+
+      Message(ref m_list, ref e_list, "アイン：おっと・・・待てよ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここの壁だけ、微妙に色が違うな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何らかの仕掛けで動かせる類のものじゃないかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと見てもらえるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いわよ。じゃあ、ちょっとそこどいて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：仕掛けってほどじゃないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：小さくて分かり難いけど、両サイドに取っ手があるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：引っ張っても押しても駄目で、正解は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：横にスライドさせれば行けるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：せーの！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_311_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よしきた！　いやあさすがラナ！　有り難い！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：まあ、お手のものって所かしらね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー！　そうしたら、お宝を頂くとするか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000290(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000290 == false)
+    {
+      One.TF.Event_Message1000290 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ん？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：妙だな。ほんの少しだけ水路の高さが異なっているように見える。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、きっちり調べてもらって良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何かありそうなのね。分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：水路の中に極めて小さい石ころをはめ込む箇所があるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：小さければ何でもよさそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ。何か持ってる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、さっきなんか使うかなと思って手に入れておいた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何処で拾ったのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この部屋の入口だ。見落としやすい場所だが、念のため取っておいた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、おそらくそれで決まりね。水路のはめ込み位置に置いてみるわよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、頼むぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この辺りかしら・・・よいしょっと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：うーん・・・何かはめ込みにくいわね。これ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、そういう事ね。はめ込む方向がきっちり合ってないと駄目な仕掛けね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ゆっくりと回転させて・・・ちょうど収まる所を・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、多分コレね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_312_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_FAKESEA_313_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_FAKESEA_314_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：おおお！ビンゴ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：仕掛けとしては面白かったわね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ホントありがとな！　よし、お宝ゲットと行きますか！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000291(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000291 == false)
+    {
+      One.TF.Event_Message1000291 = true;
+
+      Message(ref m_list, ref e_list, "アイン：位置的に・・・この辺りかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か気付いた事でもあるわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：漫然と進んでいたら気付かなかったかも知れないが、おそらくこの辺りに仕掛けがある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：一通り調べて見れば良いのね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。そうしてもらえると助かる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。ええと・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：うん、星型の紋様が刻まれているわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：カラクリの難易度としては難しそうなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫でしょ、印象的な紋様なワケだし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらく、一筆書きでこうやって・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、最後に中央の５角形を描けば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_315_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ様！ありがとう！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、変な言い方は止めてよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやいや、悪かった。本当に助かってるんだよ。サンキューな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：位置的にはお宝ね。行ってらっしゃい♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし！　待ってろよお宝！！", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

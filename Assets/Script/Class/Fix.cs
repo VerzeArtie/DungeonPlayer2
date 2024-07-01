@@ -9264,6 +9264,48 @@ public static partial class Fix
   public const float VELGUS_LOCATION_309_Y = 0.0f;
   public const float VELGUS_LOCATION_309_Z = -15.0f;
 
+  // 隠し扉１
+  // シークレット壁（１）
+  public const string VELGUS_SECRETWALL_310_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_310_O = "310";
+  public const float VELGUS_SECRETWALL_310_X = 10.0f;
+  public const float VELGUS_SECRETWALL_310_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_310_Z = -21.0f;
+
+  // シークレット壁（２）
+  public const string VELGUS_SECRETWALL_311_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_311_O = "311";
+  public const float VELGUS_SECRETWALL_311_X = 19.0f;
+  public const float VELGUS_SECRETWALL_311_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_311_Z = -4.0f;
+
+  // シークレット壁（３）
+  public const string VELGUS_SECRETWALL_312_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_312_O = "312";
+  public const float VELGUS_SECRETWALL_312_X = 47.0f;
+  public const float VELGUS_SECRETWALL_312_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_312_Z = -10.0f;
+
+  // シークレット壁（３）(FakeSea 通路タイル１)
+  public const string VELGUS_FAKESEA_313_C = "FakeSea";
+  public const string VELGUS_FAKESEA_313_O = "313";
+  public const float VELGUS_FAKESEA_313_X = 45.0f;
+  public const float VELGUS_FAKESEA_313_Y = 0.0f;
+  public const float VELGUS_FAKESEA_313_Z = -10.0f;
+
+  // シークレット壁（３）(FakeSea 通路タイル２)
+  public const string VELGUS_FAKESEA_314_C = "FakeSea";
+  public const string VELGUS_FAKESEA_314_O = "314";
+  public const float VELGUS_FAKESEA_314_X = 46.0f;
+  public const float VELGUS_FAKESEA_314_Y = 0.0f;
+  public const float VELGUS_FAKESEA_314_Z = -10.0f;
+
+  // シークレット壁（４）
+  public const string VELGUS_SECRETWALL_315_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_315_O = "315";
+  public const float VELGUS_SECRETWALL_315_X = 33.0f;
+  public const float VELGUS_SECRETWALL_315_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_315_Z = -26.0f;
   #endregion
   #region "第四階層"
   // 第三階層から降りて来た時の開始地点
