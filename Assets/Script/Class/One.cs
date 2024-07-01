@@ -230,6 +230,10 @@ public static class One
     {
       TF.KnownTileList_VelgusSeaTemple_3.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_VELGUS_SEATEMPLE_4 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_4; ii++)
+    {
+      TF.KnownTileList_VelgusSeaTemple_4.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {

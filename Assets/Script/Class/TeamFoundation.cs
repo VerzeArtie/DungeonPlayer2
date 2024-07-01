@@ -662,6 +662,13 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_VelgusSeaTemple_3 = value; }
     get { return _knownTileList_VelgusSeaTemple_3; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_VelgusSeaTemple_4 = new List<bool>(Fix.MAPSIZE_X_VELGUS_SEATEMPLE_4 * Fix.MAPSIZE_Z_VELGUS_SEATEMPLE_4);
+  public List<bool> KnownTileList_VelgusSeaTemple_4
+  {
+    set { _knownTileList_VelgusSeaTemple_4 = value; }
+    get { return _knownTileList_VelgusSeaTemple_4; }
+  }
   #endregion
 
   #region "Event"

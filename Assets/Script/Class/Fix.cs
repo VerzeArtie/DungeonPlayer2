@@ -477,6 +477,9 @@ public static partial class Fix
   public const int MAPSIZE_X_VELGUS_SEATEMPLE_3 = 50;
   public const int MAPSIZE_Z_VELGUS_SEATEMPLE_3 = 30;
 
+  public const int MAPSIZE_X_VELGUS_SEATEMPLE_4 = 50;
+  public const int MAPSIZE_Z_VELGUS_SEATEMPLE_4 = 30;
+
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
