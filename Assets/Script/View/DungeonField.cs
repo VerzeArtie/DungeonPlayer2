@@ -6602,6 +6602,62 @@ public class DungeonField : MotherBase
           MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+      {
+        string treasureName = String.Empty;
+        if (One.TF.Treasure_Velgus3_00001 == false && location.x == Fix.VELGUS_3_TREASURE_1_X && location.y == Fix.VELGUS_3_TREASURE_1_Y && location.z == Fix.VELGUS_3_TREASURE_1_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00002 == false && location.x == Fix.VELGUS_3_TREASURE_2_X && location.y == Fix.VELGUS_3_TREASURE_2_Y && location.z == Fix.VELGUS_3_TREASURE_2_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00003 == false && location.x == Fix.VELGUS_3_TREASURE_3_X && location.y == Fix.VELGUS_3_TREASURE_3_Y && location.z == Fix.VELGUS_3_TREASURE_3_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00004 == false && location.x == Fix.VELGUS_3_TREASURE_4_X && location.y == Fix.VELGUS_3_TREASURE_4_Y && location.z == Fix.VELGUS_3_TREASURE_4_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00005 == false && location.x == Fix.VELGUS_3_TREASURE_5_X && location.y == Fix.VELGUS_3_TREASURE_5_Y && location.z == Fix.VELGUS_3_TREASURE_5_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00006 == false && location.x == Fix.VELGUS_3_TREASURE_6_X && location.y == Fix.VELGUS_3_TREASURE_6_Y && location.z == Fix.VELGUS_3_TREASURE_6_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00007 == false && location.x == Fix.VELGUS_3_TREASURE_7_X && location.y == Fix.VELGUS_3_TREASURE_7_Y && location.z == Fix.VELGUS_3_TREASURE_7_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00008 == false && location.x == Fix.VELGUS_3_TREASURE_8_X && location.y == Fix.VELGUS_3_TREASURE_7_Y && location.z == Fix.VELGUS_3_TREASURE_8_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00009 == false && location.x == Fix.VELGUS_3_TREASURE_9_X && location.y == Fix.VELGUS_3_TREASURE_9_Y && location.z == Fix.VELGUS_3_TREASURE_9_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00010 == false && location.x == Fix.VELGUS_3_TREASURE_10_X && location.y == Fix.VELGUS_3_TREASURE_10_Y && location.z == Fix.VELGUS_3_TREASURE_10_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (One.TF.Treasure_Velgus3_00011 == false && location.x == Fix.VELGUS_3_TREASURE_11_X && location.y == Fix.VELGUS_3_TREASURE_11_Y && location.z == Fix.VELGUS_3_TREASURE_11_Z)
+        {
+          treasureName = Fix.MASTER_SWORD;
+        }
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+      }
       #endregion
 
       #region "ダルの門"
@@ -9301,6 +9357,53 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.VELGUS_2_TREASURE_16_X, Fix.VELGUS_2_TREASURE_16_Y, Fix.VELGUS_2_TREASURE_16_Z))
             {
               One.TF.Treasure_Velgus2_00016 = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+          {
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_1_X, Fix.VELGUS_3_TREASURE_1_Y, Fix.VELGUS_3_TREASURE_1_Z))
+            {
+              One.TF.Treasure_Velgus3_00001 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_2_X, Fix.VELGUS_3_TREASURE_2_Y, Fix.VELGUS_3_TREASURE_2_Z))
+            {
+              One.TF.Treasure_Velgus3_00002 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_3_X, Fix.VELGUS_3_TREASURE_3_Y, Fix.VELGUS_3_TREASURE_3_Z))
+            {
+              One.TF.Treasure_Velgus3_00003 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_4_X, Fix.VELGUS_3_TREASURE_4_Y, Fix.VELGUS_3_TREASURE_4_Z))
+            {
+              One.TF.Treasure_Velgus3_00004 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_5_X, Fix.VELGUS_3_TREASURE_5_Y, Fix.VELGUS_3_TREASURE_5_Z))
+            {
+              One.TF.Treasure_Velgus3_00005 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_6_X, Fix.VELGUS_3_TREASURE_6_Y, Fix.VELGUS_3_TREASURE_6_Z))
+            {
+              One.TF.Treasure_Velgus3_00006 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_7_X, Fix.VELGUS_3_TREASURE_7_Y, Fix.VELGUS_3_TREASURE_7_Z))
+            {
+              One.TF.Treasure_Velgus3_00007 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_8_X, Fix.VELGUS_3_TREASURE_8_Y, Fix.VELGUS_3_TREASURE_8_Z))
+            {
+              One.TF.Treasure_Velgus3_00008 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_9_X, Fix.VELGUS_3_TREASURE_9_Y, Fix.VELGUS_3_TREASURE_9_Z))
+            {
+              One.TF.Treasure_Velgus3_00009 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_10_X, Fix.VELGUS_3_TREASURE_10_Y, Fix.VELGUS_3_TREASURE_10_Z))
+            {
+              One.TF.Treasure_Velgus3_00010 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.VELGUS_3_TREASURE_11_X, Fix.VELGUS_3_TREASURE_11_Y, Fix.VELGUS_3_TREASURE_11_Z))
+            {
+              One.TF.Treasure_Velgus3_00011 = true;
             }
           }
           #endregion
@@ -18413,6 +18516,53 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000261)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_286_X, Fix.VELGUS_SECRETWALL_286_Y, Fix.VELGUS_SECRETWALL_286_Z));
+      }
+    }
+    if (map_data == Fix.MAPFILE_VELGUS_3)
+    {
+      if (One.TF.Treasure_Velgus3_00001)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_1_X, Fix.VELGUS_3_TREASURE_1_Y, Fix.VELGUS_3_TREASURE_1_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00002)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_2_X, Fix.VELGUS_3_TREASURE_2_Y, Fix.VELGUS_3_TREASURE_2_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00003)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_3_X, Fix.VELGUS_3_TREASURE_3_Y, Fix.VELGUS_3_TREASURE_3_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00004)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_4_X, Fix.VELGUS_3_TREASURE_4_Y, Fix.VELGUS_3_TREASURE_4_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00005)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_5_X, Fix.VELGUS_3_TREASURE_5_Y, Fix.VELGUS_3_TREASURE_5_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00006)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_6_X, Fix.VELGUS_3_TREASURE_6_Y, Fix.VELGUS_3_TREASURE_6_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00007)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_7_X, Fix.VELGUS_3_TREASURE_7_Y, Fix.VELGUS_3_TREASURE_7_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00008)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_8_X, Fix.VELGUS_3_TREASURE_8_Y, Fix.VELGUS_3_TREASURE_8_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00009)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_9_X, Fix.VELGUS_3_TREASURE_9_Y, Fix.VELGUS_3_TREASURE_9_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00010)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_10_X, Fix.VELGUS_3_TREASURE_10_Y, Fix.VELGUS_3_TREASURE_10_Z)));
+      }
+      if (One.TF.Treasure_Velgus3_00011)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_3_TREASURE_11_X, Fix.VELGUS_3_TREASURE_11_Y, Fix.VELGUS_3_TREASURE_11_Z)));
       }
     }
     #endregion

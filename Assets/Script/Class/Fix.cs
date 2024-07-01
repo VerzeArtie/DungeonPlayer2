@@ -9488,6 +9488,74 @@ public static partial class Fix
   public const float VELGUS_2_TREASURE_16_Z = -24.0f;
 
   #endregion
+  #region "第三階層"
+  public const string VELGUS_3_TREASURE_1_C = "Treasure";
+  public const string VELGUS_3_TREASURE_1_O = "1";
+  public const float VELGUS_3_TREASURE_1_X = 9.0f;
+  public const float VELGUS_3_TREASURE_1_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_1_Z = -28.0f;
+
+  public const string VELGUS_3_TREASURE_2_C = "Treasure";
+  public const string VELGUS_3_TREASURE_2_O = "2";
+  public const float VELGUS_3_TREASURE_2_X = 7.0f;
+  public const float VELGUS_3_TREASURE_2_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_2_Z = -12.0f;
+
+  public const string VELGUS_3_TREASURE_3_C = "Treasure";
+  public const string VELGUS_3_TREASURE_3_O = "3";
+  public const float VELGUS_3_TREASURE_3_X = 2.0f;
+  public const float VELGUS_3_TREASURE_3_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_3_Z = -23.0f;
+
+  public const string VELGUS_3_TREASURE_4_C = "Treasure";
+  public const string VELGUS_3_TREASURE_4_O = "4";
+  public const float VELGUS_3_TREASURE_4_X = 18.0f;
+  public const float VELGUS_3_TREASURE_4_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_4_Z = -2.0f;
+
+  public const string VELGUS_3_TREASURE_5_C = "Treasure";
+  public const string VELGUS_3_TREASURE_5_O = "5";
+  public const float VELGUS_3_TREASURE_5_X = 26.0f;
+  public const float VELGUS_3_TREASURE_5_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_5_Z = -12.0f;
+
+  public const string VELGUS_3_TREASURE_6_C = "Treasure";
+  public const string VELGUS_3_TREASURE_6_O = "6";
+  public const float VELGUS_3_TREASURE_6_X = 35.0f;
+  public const float VELGUS_3_TREASURE_6_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_6_Z = -10.0f;
+
+  public const string VELGUS_3_TREASURE_7_C = "Treasure";
+  public const string VELGUS_3_TREASURE_7_O = "7";
+  public const float VELGUS_3_TREASURE_7_X = 45.0f;
+  public const float VELGUS_3_TREASURE_7_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_7_Z = -14.0f;
+
+  public const string VELGUS_3_TREASURE_8_C = "Treasure";
+  public const string VELGUS_3_TREASURE_8_O = "8";
+  public const float VELGUS_3_TREASURE_8_X = 35.0f;
+  public const float VELGUS_3_TREASURE_8_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_8_Z = -23.0f;
+
+  public const string VELGUS_3_TREASURE_9_C = "Treasure";
+  public const string VELGUS_3_TREASURE_9_O = "9";
+  public const float VELGUS_3_TREASURE_9_X = 48.0f;
+  public const float VELGUS_3_TREASURE_9_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_9_Z = -18.0f;
+
+  public const string VELGUS_3_TREASURE_10_C = "Treasure";
+  public const string VELGUS_3_TREASURE_10_O = "10";
+  public const float VELGUS_3_TREASURE_10_X = 35.0f;
+  public const float VELGUS_3_TREASURE_10_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_10_Z = -25.0f;
+
+  public const string VELGUS_3_TREASURE_11_C = "Treasure";
+  public const string VELGUS_3_TREASURE_11_O = "11";
+  public const float VELGUS_3_TREASURE_11_X = 19.0f;
+  public const float VELGUS_3_TREASURE_11_Y = 1.0f;
+  public const float VELGUS_3_TREASURE_11_Z = -19.0f;
+
+  #endregion
   #endregion
   #region "ObsidianPortal"
   // Odsidian Portal
