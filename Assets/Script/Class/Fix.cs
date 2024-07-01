@@ -9309,18 +9309,18 @@ public static partial class Fix
   #endregion
   #region "第四階層"
   // 第三階層から降りて来た時の開始地点
-  public const string VELGUS_LOCATION_310_C = "Location";
-  public const string VELGUS_LOCATION_310_O = "310";
-  public const float VELGUS_LOCATION_310_X = 26.0f;
-  public const float VELGUS_LOCATION_310_Y = 0.0f;
-  public const float VELGUS_LOCATION_310_Z = -15.0f;
+  public const string VELGUS_LOCATION_316_C = "Location";
+  public const string VELGUS_LOCATION_316_O = "316";
+  public const float VELGUS_LOCATION_316_X = 26.0f;
+  public const float VELGUS_LOCATION_316_Y = 0.0f;
+  public const float VELGUS_LOCATION_316_Z = -15.0f;
 
   // 上り階段
-  public const string VELGUS_UPSTAIR_311_C = "Upstair";
-  public const string VELGUS_UPSTAIR_311_O = "311";
-  public const float VELGUS_UPSTAIR_311_X = 26.0f;
-  public const float VELGUS_UPSTAIR_311_Y = 0.0f;
-  public const float VELGUS_UPSTAIR_311_Z = -14.0f;
+  public const string VELGUS_UPSTAIR_317_C = "Upstair";
+  public const string VELGUS_UPSTAIR_317_O = "317";
+  public const float VELGUS_UPSTAIR_317_X = 26.0f;
+  public const float VELGUS_UPSTAIR_317_Y = 0.0f;
+  public const float VELGUS_UPSTAIR_317_Z = -14.0f;
   #endregion
 
   #region "宝箱"
