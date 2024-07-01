@@ -25573,7 +25573,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：それだけだと、ちょっと抽象的過ぎるわね・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そうなんだ。だからどうすべきかなとは考えているんだが", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：そうなんだ。だからどうすべきかなとは考えているんだが・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：おそらく１人で考え込んでもしょうがない気はしている。", ActionEvent.None);
 
