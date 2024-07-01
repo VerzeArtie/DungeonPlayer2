@@ -751,6 +751,14 @@ public class DungeonField : MotherBase
           MessagePack.Message1000287(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4)
+      {
+        if (One.TF.Event_Message1000292 == false)
+        {
+          MessagePack.Message1000292(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       return;
     }
 
@@ -8027,6 +8035,11 @@ public class DungeonField : MotherBase
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3 && currentMessage == "8")
           {
             UpdateUnknownTileArea(11, 11, 13, 21, 50, One.TF.KnownTileList_VelgusSeaTemple_3);
+          }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && currentMessage == "1")
+          {
+            UpdateUnknownTileArea(11, 11, 9, 21, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
           }
         }
         // マップ上を自動移動（左）

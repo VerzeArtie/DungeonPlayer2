@@ -25538,6 +25538,64 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よし！　待ってろよお宝！！", ActionEvent.None);
     }
   }
+
+  public static void Message1000292(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000292 == false)
+    {
+      One.TF.Event_Message1000292 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスはその場に立ち、周囲を見回した　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何も・・・無いわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んなもん、どっかに仕掛けぐらいあるんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうかな。見つけられると良いんだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ヤケに自信なさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：上の階層で最後に海星源の王ヴェルガスと会話しただろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そういえば、何か話してたわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ガイドはもらってるんだけど、ちょっと不可解な内容だったんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何て言われたわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：『己が心に問いかけるとよいだろう。』と言っていた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それだけだと、ちょっと抽象的過ぎるわね・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうなんだ。だからどうすべきかなとは考えているんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく１人で考え込んでもしょうがない気はしている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこでだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：みんな、何か気付いた事があれば教えて欲しいんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前にしては珍しい提案だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何でも良い。何かあったら知らせてくれ。頼む！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：了解よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：任せとけや！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うん、分かったー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：気付ける範囲でよろしければ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし。じゃあ、探索開始だ！", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)

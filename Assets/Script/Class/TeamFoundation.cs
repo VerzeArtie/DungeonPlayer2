@@ -1906,6 +1906,9 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000291 = false;
   public bool Event_Message1000291 { get { return _event_message1000291; } set { _event_message1000291 = value; } }
 
+  [SerializeField] protected bool _event_message1000292 = false;
+  public bool Event_Message1000292 { get { return _event_message1000292; } set { _event_message1000292 = value; } }
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;
