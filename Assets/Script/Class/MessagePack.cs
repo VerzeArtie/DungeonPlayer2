@@ -25538,7 +25538,9 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よし！　待ってろよお宝！！", ActionEvent.None);
     }
   }
+  #endregion
 
+  #region "第四階層"
   public static void Message1000292(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1000292 == false)
@@ -25594,6 +25596,121 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "エオネ：気付ける範囲でよろしければ・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし。じゃあ、探索開始だ！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000293(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_MindRoom_Complete == false)
+    {
+      One.TF.Event_MindRoom_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたの？だいぶ考えてこんでいる様だけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、何かを考えているわけじゃないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となくだが、集中してみようと思って・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もう少しだと思うんだ。待っててくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：別に良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（己が心に・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（問いかける・・・か・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（この手が一番難しいかも知れないな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（もう少しだ・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（集中・・・集中・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_322_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_323_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_324_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_325_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "エオネ：！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、オッケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいおいマジかよ！どんな手を使ったんだよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、手は使ってないんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃ、どんな技を使ったんだよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、技は使ってないんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：てことは何か知力を使ったのかよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、知は使ってないんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まさか、見えない速さで力任せに鉄拳かましたのかよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、力は使ってないんだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃなんだ？？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直な所、俺自信もよく分かってないんだ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：テメーのはマジで分かんねーな・・・まったく。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（まさか・・・そんな・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：（精神・・・波動を・・・？）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？エオネ、何か言ったか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：いえ、何でもありません。開いて良かったと思います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、おお。そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ開いたところを引き続き探索っと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、バカアイン。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：はい、なんでしょうか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：少し、額に汗かいてるわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、確かに。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺なら、大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そう。何とも無いなら良いんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んじゃまあ、せっかく開いた事だし、探索しに行こうぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
   }
   #endregion

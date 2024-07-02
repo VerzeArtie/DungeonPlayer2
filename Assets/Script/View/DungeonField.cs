@@ -348,6 +348,8 @@ public class DungeonField : MotherBase
   private int VelgusRandomBallNumber2 = 0;
   private List<int> VelgusRandomBallSequence2 = null;
 
+  private int Velgus_MindRoomTimer = 0;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -2000,6 +2002,27 @@ public class DungeonField : MotherBase
         RefleshMainCamera();
       }
 
+    }
+
+    // ヴェルガスの海底神殿、第四階層、タイマーカウント
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && One.TF.Event_MindRoom_Complete == false)
+    {
+      if (this.Player.transform.position == new Vector3(Fix.VELGUS_EVENTTILE_318_X, Fix.VELGUS_EVENTTILE_318_Y + 1.0f, Fix.VELGUS_EVENTTILE_318_Z) ||
+          this.Player.transform.position == new Vector3(Fix.VELGUS_EVENTTILE_319_X, Fix.VELGUS_EVENTTILE_319_Y + 1.0f, Fix.VELGUS_EVENTTILE_319_Z) ||
+          this.Player.transform.position == new Vector3(Fix.VELGUS_EVENTTILE_320_X, Fix.VELGUS_EVENTTILE_320_Y + 1.0f, Fix.VELGUS_EVENTTILE_320_Z) ||
+          this.Player.transform.position == new Vector3(Fix.VELGUS_EVENTTILE_321_X, Fix.VELGUS_EVENTTILE_321_Y + 1.0f, Fix.VELGUS_EVENTTILE_321_Z))
+      {
+        Velgus_MindRoomTimer++;
+        if (Velgus_MindRoomTimer >= 1000)
+        {
+          MessagePack.Message1000293(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+      else
+      {
+        Velgus_MindRoomTimer = 0;
+      }
     }
 
     bool detectKey = false;
@@ -10067,6 +10090,26 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_SECRETWALL_315_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_315_X, Fix.VELGUS_SECRETWALL_315_Y, Fix.VELGUS_SECRETWALL_315_Z));
+            }
+          }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4)
+          {
+            if (currentMessage == Fix.VELGUS_SECRETWALL_322_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_322_X, Fix.VELGUS_SECRETWALL_322_Y, Fix.VELGUS_SECRETWALL_322_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_323_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_323_X, Fix.VELGUS_SECRETWALL_323_Y, Fix.VELGUS_SECRETWALL_323_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_324_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_324_X, Fix.VELGUS_SECRETWALL_324_Y, Fix.VELGUS_SECRETWALL_324_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_325_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_325_X, Fix.VELGUS_SECRETWALL_325_Y, Fix.VELGUS_SECRETWALL_325_Z));
             }
           }
 
@@ -18662,6 +18705,16 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000291)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_315_X, Fix.VELGUS_SECRETWALL_315_Y, Fix.VELGUS_SECRETWALL_315_Z));
+      }
+    }
+    if (map_data == Fix.MAPFILE_VELGUS_4)
+    {
+      if (One.TF.Event_MindRoom_Complete)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_322_X, Fix.VELGUS_SECRETWALL_322_Y, Fix.VELGUS_SECRETWALL_322_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_324_X, Fix.VELGUS_SECRETWALL_324_Y, Fix.VELGUS_SECRETWALL_324_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_323_X, Fix.VELGUS_SECRETWALL_323_Y, Fix.VELGUS_SECRETWALL_323_Z));
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_325_X, Fix.VELGUS_SECRETWALL_325_Y, Fix.VELGUS_SECRETWALL_325_Z));
       }
     }
     #endregion

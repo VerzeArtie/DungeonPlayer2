@@ -9264,7 +9264,6 @@ public static partial class Fix
   public const float VELGUS_LOCATION_309_Y = 0.0f;
   public const float VELGUS_LOCATION_309_Z = -15.0f;
 
-  // 隠し扉１
   // シークレット壁（１）
   public const string VELGUS_SECRETWALL_310_C = "SecretWall";
   public const string VELGUS_SECRETWALL_310_O = "310";
@@ -9321,6 +9320,63 @@ public static partial class Fix
   public const float VELGUS_UPSTAIR_317_X = 26.0f;
   public const float VELGUS_UPSTAIR_317_Y = 0.0f;
   public const float VELGUS_UPSTAIR_317_Z = -14.0f;
+
+  // 待機タイル：上
+  public const string VELGUS_EVENTTILE_318_C = "EventTile";
+  public const string VELGUS_EVENTTILE_318_O = "318";
+  public const float VELGUS_EVENTTILE_318_X = 26.0f;
+  public const float VELGUS_EVENTTILE_318_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_318_Z = -10.0f;
+
+  // 待機タイル：左
+  public const string VELGUS_EVENTTILE_319_C = "EventTile";
+  public const string VELGUS_EVENTTILE_319_O = "319";
+  public const float VELGUS_EVENTTILE_319_X = 22.0f;
+  public const float VELGUS_EVENTTILE_319_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_319_Z = -14.0f;
+
+  // 待機タイル：右
+  public const string VELGUS_EVENTTILE_320_C = "EventTile";
+  public const string VELGUS_EVENTTILE_320_O = "320";
+  public const float VELGUS_EVENTTILE_320_X = 30.0f;
+  public const float VELGUS_EVENTTILE_320_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_320_Z = -14.0f;
+
+  // 待機タイル：下
+  public const string VELGUS_EVENTTILE_321_C = "EventTile";
+  public const string VELGUS_EVENTTILE_321_O = "321";
+  public const float VELGUS_EVENTTILE_321_X = 26.0f;
+  public const float VELGUS_EVENTTILE_321_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_321_Z = -18.0f;
+
+  // シークレット壁（上）
+  public const string VELGUS_SECRETWALL_322_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_322_O = "322";
+  public const float VELGUS_SECRETWALL_322_X = 26.0f;
+  public const float VELGUS_SECRETWALL_322_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_322_Z = -9.0f;
+
+  // シークレット壁（左）
+  public const string VELGUS_SECRETWALL_323_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_323_O = "323";
+  public const float VELGUS_SECRETWALL_323_X = 21.0f;
+  public const float VELGUS_SECRETWALL_323_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_323_Z = -14.0f;
+
+  // シークレット壁（右）
+  public const string VELGUS_SECRETWALL_324_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_324_O = "324";
+  public const float VELGUS_SECRETWALL_324_X = 31.0f;
+  public const float VELGUS_SECRETWALL_324_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_324_Z = -14.0f;
+
+  // シークレット壁（下）
+  public const string VELGUS_SECRETWALL_325_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_325_O = "325";
+  public const float VELGUS_SECRETWALL_325_X = 26.0f;
+  public const float VELGUS_SECRETWALL_325_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_325_Z = -19.0f;
+
   #endregion
 
   #region "宝箱"
