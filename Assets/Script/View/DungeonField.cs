@@ -10150,6 +10150,11 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_326_X, Fix.VELGUS_SECRETWALL_326_Y, Fix.VELGUS_SECRETWALL_326_Z));
             }
+
+            if (currentMessage == Fix.VELGUS_SECRETWALL_332_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_332_X, Fix.VELGUS_SECRETWALL_332_Y, Fix.VELGUS_SECRETWALL_332_Z));
+            }
           }
 
           // 岩壁１
@@ -13103,7 +13108,13 @@ public class DungeonField : MotherBase
         MessagePack.Message1000301(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_331_X, Fix.VELGUS_EVENTTILE_331_Y, Fix.VELGUS_EVENTTILE_331_Z))
+      {
+        MessagePack.Message1000302(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
 
+      
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -18783,6 +18794,11 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_326_X, Fix.VELGUS_SECRETWALL_326_Y, Fix.VELGUS_SECRETWALL_326_Z));
+      }
+
+      if (One.TF.Event_Message1000302)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_332_X, Fix.VELGUS_SECRETWALL_332_Y, Fix.VELGUS_SECRETWALL_332_Z));
       }
     }
     #endregion

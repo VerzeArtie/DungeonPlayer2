@@ -9440,6 +9440,27 @@ public static partial class Fix
   public const float VELGUS_EVENTTILE_330_Y = 0.0f;
   public const float VELGUS_EVENTTILE_330_Z = -20.0f;
 
+  // 真実の間、入口
+  public const string VELGUS_EVENTTILE_331_C = "EventTile";
+  public const string VELGUS_EVENTTILE_331_O = "331";
+  public const float VELGUS_EVENTTILE_331_X = 5.0f;
+  public const float VELGUS_EVENTTILE_331_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_331_Z = -11.0f;
+
+  // 真実の間、隠し扉
+  public const string VELGUS_SECRETWALL_332_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_332_O = "332";
+  public const float VELGUS_SECRETWALL_332_X = 5.0f;
+  public const float VELGUS_SECRETWALL_332_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_332_Z = -10.0f;
+
+  // ObsidianStone
+  public const string VELGUS_ObsidianStone_1_C = "ObsidianStone";
+  public const string VELGUS_ObsidianStone_1_O = "1";
+  public const float VELGUS_ObsidianStone_1_X = 5.0f;
+  public const float VELGUS_ObsidianStone_1_Y = 1.0f;
+  public const float VELGUS_ObsidianStone_1_Z = -4.0f;
+
   #endregion
 
   #region "宝箱"

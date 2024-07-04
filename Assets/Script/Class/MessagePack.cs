@@ -25923,6 +25923,45 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
   }
 
+  public static void Message1000302(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000302 == false)
+    {
+      One.TF.Event_Message1000302 = true;
+      Message(ref m_list, ref e_list, "アイン：ここか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、真剣な表情で壁に視点を置く ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：微妙に汗をかいてるみたいだけど、大丈夫？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ・・・大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_332_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：っふう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいおい、結構疲れたんじゃねーのか？行けんのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：心配ない。大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：無理だけはしないでね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+    }
+  }
+
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)
