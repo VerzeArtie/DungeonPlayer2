@@ -9454,6 +9454,13 @@ public static partial class Fix
   public const float VELGUS_SECRETWALL_332_Y = 0.5f;
   public const float VELGUS_SECRETWALL_332_Z = -10.0f;
 
+  // 真実の間、未タイル開放ポイント
+  public const string VELGUS_EVENTTILE_333_C = "EventTile";
+  public const string VELGUS_EVENTTILE_333_O = "333";
+  public const float VELGUS_EVENTTILE_333_X = 5.0f;
+  public const float VELGUS_EVENTTILE_333_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_333_Z = -9.0f;
+
   // ObsidianStone
   public const string VELGUS_ObsidianStone_1_C = "ObsidianStone";
   public const string VELGUS_ObsidianStone_1_O = "1";

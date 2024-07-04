@@ -25962,6 +25962,11 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000303(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "6", ActionEvent.UpdateUnknownTile);
+  }
+
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1009010 == false)
