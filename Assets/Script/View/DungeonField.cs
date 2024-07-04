@@ -3133,6 +3133,25 @@ public class DungeonField : MotherBase
           MessagePack.Message1000265(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_4_MessageBoard_1_X, Fix.VELGUS_4_MessageBoard_1_Y, Fix.VELGUS_4_MessageBoard_1_Z))
+        {
+          MessagePack.Message1000294(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_4_MessageBoard_2_X, Fix.VELGUS_4_MessageBoard_2_Y, Fix.VELGUS_4_MessageBoard_2_Z))
+        {
+          MessagePack.Message1000295(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_4_MessageBoard_3_X, Fix.VELGUS_4_MessageBoard_3_Y, Fix.VELGUS_4_MessageBoard_3_Z))
+        {
+          MessagePack.Message1000296(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_4_MessageBoard_4_X, Fix.VELGUS_4_MessageBoard_4_Y, Fix.VELGUS_4_MessageBoard_4_Z))
+        {
+          MessagePack.Message1000297(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       return;
     }
 
@@ -8064,6 +8083,22 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(11, 11, 9, 21, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && currentMessage == "2")
+          {
+            UpdateUnknownTileArea(9, 9, 1, 22, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && currentMessage == "3")
+          {
+            UpdateUnknownTileArea(9, 9, 10, 13, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && currentMessage == "4")
+          {
+            UpdateUnknownTileArea(9, 9, 10, 31, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4 && currentMessage == "5")
+          {
+            UpdateUnknownTileArea(9, 9, 19, 22, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -10110,6 +10145,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.VELGUS_SECRETWALL_325_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_325_X, Fix.VELGUS_SECRETWALL_325_Y, Fix.VELGUS_SECRETWALL_325_Z));
+            }
+            if (currentMessage == Fix.VELGUS_SECRETWALL_326_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_326_X, Fix.VELGUS_SECRETWALL_326_Y, Fix.VELGUS_SECRETWALL_326_Z));
             }
           }
 
@@ -13038,6 +13077,30 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.VELGUS_BOSS_307_X, Fix.VELGUS_BOSS_307_Y, Fix.VELGUS_BOSS_307_Z) && One.TF.DefeatKingOfVelgus == false)
       {
         MessagePack.Message1000286(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_4)
+    {
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_327_X, Fix.VELGUS_EVENTTILE_327_Y, Fix.VELGUS_EVENTTILE_327_Z))
+      {
+        MessagePack.Message1000298(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_328_X, Fix.VELGUS_EVENTTILE_328_Y, Fix.VELGUS_EVENTTILE_328_Z))
+      {
+        MessagePack.Message1000299(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_329_X, Fix.VELGUS_EVENTTILE_329_Y, Fix.VELGUS_EVENTTILE_329_Z))
+      {
+        MessagePack.Message1000300(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_330_X, Fix.VELGUS_EVENTTILE_330_Y, Fix.VELGUS_EVENTTILE_330_Z))
+      {
+        MessagePack.Message1000301(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
 
@@ -18715,6 +18778,11 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_324_X, Fix.VELGUS_SECRETWALL_324_Y, Fix.VELGUS_SECRETWALL_324_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_323_X, Fix.VELGUS_SECRETWALL_323_Y, Fix.VELGUS_SECRETWALL_323_Z));
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_325_X, Fix.VELGUS_SECRETWALL_325_Y, Fix.VELGUS_SECRETWALL_325_Z));
+      }
+
+      if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_326_X, Fix.VELGUS_SECRETWALL_326_Y, Fix.VELGUS_SECRETWALL_326_Z));
       }
     }
     #endregion

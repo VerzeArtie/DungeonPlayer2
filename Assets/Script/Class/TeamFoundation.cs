@@ -1913,6 +1913,19 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_mindroom_complete = false;
   public bool Event_MindRoom_Complete { get { return _event_mindroom_complete; } set { _event_mindroom_complete = value; } }
 
+  [SerializeField] protected bool _event_message1000294 = false;
+  public bool Event_Message1000294 { get { return _event_message1000294; } set { _event_message1000294 = value; } }
+
+  [SerializeField] protected bool _event_message1000295 = false;
+  public bool Event_Message1000295 { get { return _event_message1000295; } set { _event_message1000295 = value; } }
+
+  [SerializeField] protected bool _event_message1000296 = false;
+  public bool Event_Message1000296 { get { return _event_message1000296; } set { _event_message1000296 = value; } }
+
+  [SerializeField] protected bool _event_message1000297 = false;
+  public bool Event_Message1000297 { get { return _event_message1000297; } set { _event_message1000297 = value; } }
+
+
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
   [SerializeField] protected bool _event_message1010010 = false;

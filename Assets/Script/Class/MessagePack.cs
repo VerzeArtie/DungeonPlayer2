@@ -25713,7 +25713,215 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
   }
-  #endregion
+
+  public static void Message1000294(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000294 == false)
+    {
+      One.TF.Event_Message1000294 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読もう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　力のみに非ず、技のみに非ず、知のみに非ず、心のみに非ず　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：覚えておくしかないな。メモは取れそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いわよ。また思い出したくなったら言ってちょうだい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、サンキュー。", ActionEvent.None);
+
+      if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+      {
+        Message_FourMessageBoard_Clear(ref m_list, ref e_list);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ビリー：っしゃ。他も当たってみようぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：分かった。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　力のみに非ず、技のみに非ず、知のみに非ず、心のみに非ず　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000295(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000295 == false)
+    {
+      One.TF.Event_Message1000295 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読もう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　源泉なる知が、技の体現と成す　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何かを示しているのかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうな・・・", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "ラナ：メモはしておいたから。また何かあれば言ってちょうだい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー。", ActionEvent.None);
+
+      if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+      {
+        Message_FourMessageBoard_Clear(ref m_list, ref e_list);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ビリー：っしゃ。他も当たってみようぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：分かった。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　源泉なる知が、技の体現と成す　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000296(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000296 == false)
+    {
+      One.TF.Event_Message1000296 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読もう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　技の体現が、力への理を示す　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：やっぱ力って事だよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、そういう類じゃなさそうなのは確かだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：メモしておいたわよ。後で必要になったら言ってちょうだい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう。", ActionEvent.None);
+
+      if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+      {
+        Message_FourMessageBoard_Clear(ref m_list, ref e_list);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ビリー：っしゃ。他も当たってみようぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：分かった。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　技の体現が、力への理を示す　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message1000297(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000297 == false)
+    {
+      One.TF.Event_Message1000297 = true;
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読もう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　力への理から、心との同化を経て、森羅万象へと至る　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：けっこう読み解こうとしてるよねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：変に考え込んでしまうクセかな。ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ひとまず、内容はメモに書いておいたわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：助かる。", ActionEvent.None);
+
+      if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+      {
+        Message_FourMessageBoard_Clear(ref m_list, ref e_list);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ビリー：っしゃ。他も当たってみようぜ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：分かった。", ActionEvent.None);
+      }
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　力への理から、心との同化を経て、森羅万象へと至る　』", ActionEvent.None);
+    }
+  }
+
+  public static void Message_FourMessageBoard_Clear(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ビリー：これで一通り回った事になるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.VELGUS_SECRETWALL_326_O, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "アイン：開いたみたいだな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：お前が開けたんじゃねーのかよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、今回は本当に何もしていない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：単に４つの看板を見て回っただけだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：よく見ると私達の足元の床が僅かにスイッチ形式になってるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、看板を読んできた事自体がトリガーになってたわけだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：最初の念じて開けたのとは違うのかよ。マジややこしいな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかし・・・それにしても・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：看板のメモは取ってもらってるんだろ？突き進むしかねーと思うんだが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、それはそうなんだが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この次、おそらくは例の件じゃないかなと思ってさ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、何処を見る事もなく静謐な眼差しとなる ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
+  }
+
+  public static void Message1000298(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1000299(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1000300(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "4", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1000301(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
+  }
 
   public static void Message1009010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -25995,7 +26203,9 @@ public static class MessagePack
       Message(ref m_list, ref e_list, Fix.NAME_EONE_FULNEA, ActionEvent.EncountDuel);
     }
   }
+  #endregion
 
+  #region "海底神殿クリア後の帰還イベント"
   public static void Message1010010(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message1010010 == false)
@@ -26587,6 +26797,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：じゃあエデルガイゼン城へ行くとするか！", ActionEvent.None);
     }
   }
+  #endregion
   #endregion
 
   #region "アーケンダインの街"

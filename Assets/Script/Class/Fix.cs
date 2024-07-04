@@ -7091,6 +7091,34 @@ public static partial class Fix
   public const float VELGUS_3_MessageBoard_1_Y = 1.0f;
   public const float VELGUS_3_MessageBoard_1_Z = -24.0f;
 
+  // 第四階層、上の看板
+  public const string VELGUS_4_MessageBoard_1_C = "MessageBoard";
+  public const string VELGUS_4_MessageBoard_1_O = "1";
+  public const float VELGUS_4_MessageBoard_1_X = 26.0f;
+  public const float VELGUS_4_MessageBoard_1_Y = 1.0f;
+  public const float VELGUS_4_MessageBoard_1_Z = -5.0f;
+
+  // 第四階層、左の看板
+  public const string VELGUS_4_MessageBoard_2_C = "MessageBoard";
+  public const string VELGUS_4_MessageBoard_2_O = "2";
+  public const float VELGUS_4_MessageBoard_2_X = 17.0f;
+  public const float VELGUS_4_MessageBoard_2_Y = 1.0f;
+  public const float VELGUS_4_MessageBoard_2_Z = -14.0f;
+
+  // 第四階層、右の看板
+  public const string VELGUS_4_MessageBoard_3_C = "MessageBoard";
+  public const string VELGUS_4_MessageBoard_3_O = "3";
+  public const float VELGUS_4_MessageBoard_3_X = 35.0f;
+  public const float VELGUS_4_MessageBoard_3_Y = 1.0f;
+  public const float VELGUS_4_MessageBoard_3_Z = -14.0f;
+
+  // 第四階層、下の看板
+  public const string VELGUS_4_MessageBoard_4_C = "MessageBoard";
+  public const string VELGUS_4_MessageBoard_4_O = "4";
+  public const float VELGUS_4_MessageBoard_4_X = 26.0f;
+  public const float VELGUS_4_MessageBoard_4_Y = 1.0f;
+  public const float VELGUS_4_MessageBoard_4_Z = -23.0f;
+
   #endregion
   #region "第一階層"
   #region "階段(上り)"
@@ -9376,6 +9404,41 @@ public static partial class Fix
   public const float VELGUS_SECRETWALL_325_X = 26.0f;
   public const float VELGUS_SECRETWALL_325_Y = 0.5f;
   public const float VELGUS_SECRETWALL_325_Z = -19.0f;
+
+  // シークレット壁（下の下）
+  public const string VELGUS_SECRETWALL_326_C = "SecretWall";
+  public const string VELGUS_SECRETWALL_326_O = "326";
+  public const float VELGUS_SECRETWALL_326_X = 26.0f;
+  public const float VELGUS_SECRETWALL_326_Y = 0.5f;
+  public const float VELGUS_SECRETWALL_326_Z = -27.0f;
+
+  // 未タイル開放ポイント：上
+  public const string VELGUS_EVENTTILE_327_C = "EventTile";
+  public const string VELGUS_EVENTTILE_327_O = "327";
+  public const float VELGUS_EVENTTILE_327_X = 26.0f;
+  public const float VELGUS_EVENTTILE_327_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_327_Z = -8.0f;
+
+  // 未タイル開放ポイント：左
+  public const string VELGUS_EVENTTILE_328_C = "EventTile";
+  public const string VELGUS_EVENTTILE_328_O = "328";
+  public const float VELGUS_EVENTTILE_328_X = 20.0f;
+  public const float VELGUS_EVENTTILE_328_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_328_Z = -14.0f;
+
+  // 未タイル開放ポイント：右
+  public const string VELGUS_EVENTTILE_329_C = "EventTile";
+  public const string VELGUS_EVENTTILE_329_O = "329";
+  public const float VELGUS_EVENTTILE_329_X = 32.0f;
+  public const float VELGUS_EVENTTILE_329_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_329_Z = -14.0f;
+
+  // 未タイル開放ポイント：下
+  public const string VELGUS_EVENTTILE_330_C = "EventTile";
+  public const string VELGUS_EVENTTILE_330_O = "330";
+  public const float VELGUS_EVENTTILE_330_X = 26.0f;
+  public const float VELGUS_EVENTTILE_330_Y = 0.0f;
+  public const float VELGUS_EVENTTILE_330_Z = -20.0f;
 
   #endregion
 
