@@ -1317,17 +1317,6 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message900120 = value; }
   }
 
-  [SerializeField] protected bool _event_message1009010 = false;
-  public bool Event_Message1009010 { get { return _event_message1009010; } set { _event_message1009010 = value; } }
-  [SerializeField] protected bool _event_message1009020 = false;
-  public bool Event_Message1009020 { get { return _event_message1009020; } set { _event_message1009020 = value; } }
-  [SerializeField] protected bool _event_message1009030 = false;
-  public bool Event_Message1009030 { get { return _event_message1009030; } set { _event_message1009030 = value; } }
-  [SerializeField] protected bool _event_message1009040 = false;
-  public bool Event_Message1009040 { get { return _event_message1009040; } set { _event_message1009040 = value; } }
-  [SerializeField] protected bool _event_message1009050 = false;
-  public bool Event_Message1009050 { get { return _event_message1009050; } set { _event_message1009050 = value; } }
-
   // ヴェルガスの海底神殿
   [SerializeField] protected bool _event_message1000000 = false;
   public bool Event_Message1000000 { get { return _event_message1000000; } set { _event_message1000000 = value; } }
@@ -1928,6 +1917,11 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1000302 = false;
   public bool Event_Message1000302 { get { return _event_message1000302; } set { _event_message1000302 = value; } }
 
+  [SerializeField] protected bool _event_message1009010 = false;
+  public bool Event_Message1009010 { get { return _event_message1009010; } set { _event_message1009010 = value; } }
+
+  [SerializeField] protected bool _event_message1009070 = false;
+  public bool Event_Message1009070 { get { return _event_message1009070; } set { _event_message1009070 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }

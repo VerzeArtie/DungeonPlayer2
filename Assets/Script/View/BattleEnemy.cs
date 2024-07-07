@@ -1138,6 +1138,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatKingOfVelgus = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
+        {
+          One.TF.DefeatEoneFulnea = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;

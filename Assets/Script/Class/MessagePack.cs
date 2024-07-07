@@ -25973,41 +25973,33 @@ public static class MessagePack
     {
       One.TF.Event_Message1009010 = true;
 
-      Message(ref m_list, ref e_list, "アイン：よし、ついに教皇の間に到達っと。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：あれを見て。何か中央にあるわよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、不思議な球体に手を伸ばした ～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：本当だな・・・どれどれ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ッグ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：なんだか不思議な石像だな・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：あ・・・あれは何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスの前に不思議な石像が出現した　～", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "石像：天に仕え、子に捧げしは、現世の理と、慈悲によるお導き。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：うお！喋ってきたな！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：これは・・・一体・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ救済を示すがよい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "石像：子よ。救済とは何かを示すがよい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：救済か・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：救済・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：石像よ。応えてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺はそれに対して、何かを行えば良いのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "石像：設置された天の皿に収めるべき事象を示すがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：収めるべき・・・事象・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：そんな慎重になる所か？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：まあ、大丈夫だとは思うんだが、念のためだな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：石像の両手に大きな皿が添えられているわね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そうだな・・・どうすっかな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_1, ActionEvent.CallDecision);
-    }
-    else
-    {
-      Message(ref m_list, ref e_list, "石像：天に仕え、子に捧げしは、現世の理と、慈悲によるお導き。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ救済を示すがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：さてと、どうすっかな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_1, ActionEvent.CallDecision);
     }
@@ -26019,92 +26011,129 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：駄目か・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：他を当たってみましょう。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "（　ここは・・・一体どこなんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　還るべき場所がなくなってしまってる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　他のみんなの姿も、もう見えない・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　石像はもう何も示さない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　俺は一体どこで間違ったんだろうか　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　いや、間違ったとかそういう類ではなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　思考が至らなかったんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　もっと思考を巡らせていれば・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　THE　END　～　（終わらない終焉）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
   }
 
   public static void Message1009020(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1009020 == false)
-    {
-      One.TF.Event_Message1009020 = true;
+    Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "石像：子よ。時間とは何かを示すがよい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ追憶を示すがよい。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：時間か・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：追憶・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_2, ActionEvent.CallDecision);
-    }
-    else
-    {
-      Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ追憶を示すがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_2, ActionEvent.CallDecision);
-    }
+    Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_2, ActionEvent.CallDecision);
   }
 
   public static void Message1009030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1009030 == false)
-    {
-      One.TF.Event_Message1009030 = true;
+    Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "石像：子よ。自由とは何かを示すがよい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ目的を示すがよい。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：自由・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：目的・・・か・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_3, ActionEvent.CallDecision);
-    }
-    else
-    {
-      Message(ref m_list, ref e_list, "石像：示された事象を検出。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "石像：子よ。ヴェルガス海底神殿へ目的を示すがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_3, ActionEvent.CallDecision);
-    }
+    Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_3, ActionEvent.CallDecision);
   }
 
   public static void Message1009040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1009040 == false)
+    Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "石像：子よ。存在とは何かを示すがよい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：存在・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_4, ActionEvent.CallDecision);
+  }
+
+  public static void Message1009050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "石像：子よ。双極とは何かを示すがよい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：双極・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_5, ActionEvent.CallDecision);
+  }
+
+  public static void Message1009060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "石像：示されし事象を検出。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "石像：子よ。理とは何かを示すがよい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：理・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.CHOICE_VELGUS_JUDGE_6, ActionEvent.CallDecision);
+  }
+
+  public static void Message1009070(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1009070 == false)
     {
-      One.TF.Event_Message1009040 = true;
+      One.TF.Event_Message1009070 = true;
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：どうしたの？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：おい、アイン？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：随分と長い間立ち尽くしてるみたいだけど、大丈夫かしら。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：待ってくれ。今、接触中だ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：おいアイン！？テメー大丈夫かよ！？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：そんな・・・まさか、そ、そんな・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "石像：", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：びくともしないねー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：（そんな・・・まさか、そ、そんな・・・）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "石像：～～～　目的　を　検出　～～～", ActionEvent.None);
 
@@ -26112,7 +26141,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "石像：子よ。無限なる道標を辿りしものよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "石像：ヴェルガス神、今ここに、天の名を授ける。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "石像：今ここに、天の名を授ける。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "石像：ObsidianStoneとの接触を経て受諾とせよ。", ActionEvent.None);
+
+      InscribeMatrixDragon_1(ref m_list, ref e_list);
+
+      Message(ref m_list, ref e_list, Fix.VELGUS_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "【 アイン・ウォーレンスは天の名を獲得した！ 】", ActionEvent.MessageDisplay);
 
@@ -26122,29 +26157,47 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、パーティの方へと振り返った　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
       Message(ref m_list, ref e_list, "アイン：よし、獲得出来たみたいだな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：えっ、ちょっと一体どうなったわけ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：石像から天の名を授かったんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ここで天の名を授かったんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：どうやって？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：何もないじゃない？？　どうやって？？　何をやったわけ？？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：良く分からねえが、直接声が俺の中に届いてきたんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや、まずそこに石像があるだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いや、まず石像なんてものは無いけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあまあ。で、どうやったかっていうと、石像にイメージを投影してだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何もねえ所にイメージ投影とか意味不明だろ。オイ聞いてんのか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それで、解の開示が出来ているかどうかも分からないが、ともかく集中して応答していたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：開示先が見つかんねーのに、何かそこでやってたのかよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうするうちに、直接声が俺の中に届いてきたんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：直接・・・ねえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと、正直信じられないわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：アデルさ。この海底神殿って、お前のじーちゃんは何か知ってるのか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：うん、もちろん知ってるよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：天の名ってのは、この石像から教えられるもんなのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：天の名っていうのも、この場で授かるもんなのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：そうだよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：詳しい事は知らないけど、伝承としてはそうだねー☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：それって、誰でももらえるのか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ビリー：で、それって誰でももらえるのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：そうだねー。。。でも人によるかもね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "～　アデル・ブリガンディはいつもの笑顔を止め、澄み切った顔となり、静かに瞳を閉じた　～", ActionEvent.MessageDisplay);
 
@@ -26162,7 +26215,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：・・・っ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：っしゃ！じゃあパルメテイシア神殿へ戻るとするか！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、そうしたらこれで終わりだ。パルメテイシア神殿へ戻るとするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：遠見の青水晶を使うわよ。良いわね？", ActionEvent.None);
 
@@ -26174,7 +26227,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：何かまだあるの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：この教皇の間を少し見ておきたいんだ。造りが奇麗だからな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：この部屋を少しだけ見ておきたいんだ。造りが奇麗だからな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：無関心オンパレードのバカアインからそんな言葉が出るとは驚きだわ。", ActionEvent.None);
 
@@ -26186,7 +26239,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：ヘヘー、じゃ、あたしもー☆", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アデル：じゃ、あたしもー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
 
@@ -26196,25 +26249,25 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
 
-      // todo　ストーリー未完成
+      Message1010000(ref m_list, ref e_list);
     }
   }
 
-  public static void Message1009050(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.TF.Event_Message1009050 == false)
-    {
-      One.TF.Event_Message1009050 = true;
+  //public static void Message1009050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  //{
+  //  if (One.TF.Event_Message1009050 == false)
+  //  {
+  //    One.TF.Event_Message1009050 = true;
 
-      Message(ref m_list, ref e_list, "アイン：（石が見えるな・・・）", ActionEvent.None);
+  //    Message(ref m_list, ref e_list, "アイン：（石が見えるな・・・）", ActionEvent.None);
 
-      Inscribe_MatrixDragon_X(ref m_list, ref e_list);
+  //    Inscribe_MatrixDragon_X(ref m_list, ref e_list);
 
-      Message(ref m_list, ref e_list, Fix.VELGUS_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
+  //    Message(ref m_list, ref e_list, Fix.VELGUS_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
 
-      // todo　ストーリー未完成
-    }
-  }
+  //    // todo　ストーリー未完成
+  //  }
+  //}
 
   public static void Message1010000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -26222,25 +26275,27 @@ public static class MessagePack
     {
       One.TF.Event_Message1010000 = true;
 
-      Message(ref m_list, ref e_list, "（ その時だった ）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：待って。", ActionEvent.None);
-
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：アイン・ウォーレンス。本当に天の名まで授かるとは思ってなかったわよ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：アイン・ウォーレンス。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：本当に天の名まで授かるとは思ってなかったわよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：天の名を授からなかった場合は？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：私に質問しないでちょうだい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：天の名をこの神殿から授かりし者。これ以上の進行を見逃すわけにはいかない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：天の名をこの神殿から授かりし者。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：これ以上の進行を見逃すわけにはいかない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エオネ・・・避けられないのか・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "【 エオネ・フルネアはこれまで見せた事がない殺気を放ち始めた！！ 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：抹殺してやる。アイン・ウォーレンス！！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：今度こそ、この場で抹殺してやる。アイン・ウォーレンス！！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ック・・・！", ActionEvent.None);
 
@@ -26264,7 +26319,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：バッ・・・バカな！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：アイン・ウォーレンス！どうして！どうして！どうしてよ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エオネ：アイン・ウォーレンス！どうして・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：どうして！どうして！どうしてよ！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：もうやめろ。勝負はついている。", ActionEvent.None);
 

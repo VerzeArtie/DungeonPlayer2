@@ -566,13 +566,6 @@ public partial class HomeTown : MotherBase
         MessagePack.Message2200000(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-
-      // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
-      if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
-      {
-        MessagePack.Message1010020(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN)
     {
@@ -589,6 +582,15 @@ public partial class HomeTown : MotherBase
       if (One.TF.Event_Message500010 == false)
       {
         MessagePack.Message500010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    {
+      // ヴェルガス海底神殿、DUELエオネ戦闘後の帰還
+      if (One.TF.Event_Message1010010 && One.TF.Event_Message1010020 == false)
+      {
+        MessagePack.Message1010020(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }

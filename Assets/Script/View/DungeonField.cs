@@ -350,6 +350,8 @@ public class DungeonField : MotherBase
 
   private int Velgus_MindRoomTimer = 0;
 
+  private int VelgusMindQuestion = 0;
+
   // Start is called before the first frame update
   public override void Start()
   {
@@ -702,10 +704,6 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000183(ref QuestMessageList, ref QuestEventList); TapOK();
         }
-        if (One.TF.DefeatEoneFulnea && One.TF.Event_Message1010010 == false)
-        {
-          MessagePack.Message1010010(ref QuestMessageList, ref QuestEventList); TapOK();
-        }
       }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
@@ -759,6 +757,10 @@ public class DungeonField : MotherBase
         if (One.TF.Event_Message1000292 == false)
         {
           MessagePack.Message1000292(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        if (One.TF.DefeatEoneFulnea && One.TF.Event_Message1010010 == false)
+        {
+          MessagePack.Message1010010(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
       return;
@@ -2429,57 +2431,60 @@ public class DungeonField : MotherBase
     GroupChoice.SetActive(false);
     if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_1)
     {
-      if (number == 1)
-      {
-        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else if (number == 2)
-      {
-        MessagePack.Message1009020(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else if (number == 3)
-      {
-        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
+      if (number == 1) { this.VelgusMindQuestion += 2; }
+      else if (number == 2) { this.VelgusMindQuestion += 1; }
+      else if (number == 3) { this.VelgusMindQuestion += 0; }
+      MessagePack.Message1009020(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
     }
     else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_2)
     {
-      if (number == 1)
-      {
-        MessagePack.Message1009030(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else if (number == 2)
-      {
-        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-      else if (number == 3)
-      {
-        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      } 
+      if (number == 1) { this.VelgusMindQuestion += 0; }
+      else if (number == 2) { this.VelgusMindQuestion += 1; }
+      else if (number == 3) { this.VelgusMindQuestion += 2; }
+      MessagePack.Message1009030(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
     }
     else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_3)
     {
-      if (number == 1)
+      if (number == 1) { this.VelgusMindQuestion += 0; }
+      else if (number == 2) { this.VelgusMindQuestion += 1; }
+      else if (number == 3) { this.VelgusMindQuestion += 2; }
+      MessagePack.Message1009040(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_4)
+    {
+      if (number == 1) { this.VelgusMindQuestion += 1; }
+      else if (number == 2) { this.VelgusMindQuestion += 2; }
+      else if (number == 3) { this.VelgusMindQuestion += 0; }
+      MessagePack.Message1009050(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_5)
+    {
+      if (number == 1) { this.VelgusMindQuestion += 2; }
+      else if (number == 2) { this.VelgusMindQuestion += 0; }
+      else if (number == 3) { this.VelgusMindQuestion += 1; }
+      MessagePack.Message1009060(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+    else if (this.currentChoice == Fix.CHOICE_VELGUS_JUDGE_6)
+    {
+      if (number == 1) { this.VelgusMindQuestion += 0; }
+      else if (number == 2) { this.VelgusMindQuestion += 1; }
+      else if (number == 3) { this.VelgusMindQuestion += 2; }
+
+      // 判定
+      if (this.VelgusMindQuestion < 10)
       {
         MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
       }
-      else if (number == 2)
+      else
       {
-        MessagePack.Message1009011(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
+        MessagePack.Message1009070(ref QuestMessageList, ref QuestEventList); TapOK();
       }
-      else if (number == 3)
-      {
-        MessagePack.Message1009040(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
+      return;
     }
   }
 
@@ -3597,6 +3602,13 @@ public class DungeonField : MotherBase
         MessagePack.Message801000(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_ObsidianStone_1_X, Fix.VELGUS_ObsidianStone_1_Y, Fix.VELGUS_ObsidianStone_1_Z))
+      {
+        MessagePack.Message1009010(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
     }
     // オブジェクト（岩）の判定
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Rock)
@@ -10159,6 +10171,11 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_332_X, Fix.VELGUS_SECRETWALL_332_Y, Fix.VELGUS_SECRETWALL_332_Z));
             }
+
+            if (currentMessage == Fix.VELGUS_ObsidianStone_1_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_ObsidianStone_1_X, Fix.VELGUS_ObsidianStone_1_Y, Fix.VELGUS_ObsidianStone_1_Z));
+            }
           }
 
           // 岩壁１
@@ -10464,11 +10481,10 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
-            txtChoiceMessage.text = "";
-            txtChoiceA.text = "赤ポーションを皿の上に置く";
-            txtChoiceB.text = "青ポーションを皿の上の置く";
-            txtChoiceC.text = "何もしない";
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "破壊の心を示す"; // +2
+            txtChoiceB.text = "慈愛の心を示す"; // +1
+            txtChoiceC.text = "何も心を示さない"; // 0
             GroupChoice.SetActive(true);
             return;
           }
@@ -10476,11 +10492,10 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
-            txtChoiceMessage.text = "";
-            txtChoiceA.text = "水晶を皿の上に置く";
-            txtChoiceB.text = "本を皿の上の置く";
-            txtChoiceC.text = "何もしない";
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "過去の自分自身をイメージする"; // +0
+            txtChoiceB.text = "未来の自分自身をイメージする"; // +1
+            txtChoiceC.text = "現在の自分自身をイメージする"; // +2
             GroupChoice.SetActive(true);
             return;
           }
@@ -10488,11 +10503,43 @@ public class DungeonField : MotherBase
           {
             this.currentChoice = currentMessage;
             txtChoiceTitle.text = currentMessage;
-            txtChoiceMessage.text = "石像に対してどのような行動をするか選択してください。";
-            txtChoiceMessage.text = "";
-            txtChoiceA.text = "剣を皿の上に置く";
-            txtChoiceB.text = "盾を皿の上の置く";
-            txtChoiceC.text = "何もしない";
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "神々からの意志"; // 0
+            txtChoiceB.text = "人々による意志"; // +1
+            txtChoiceC.text = "意志からの脱却"; // +2
+            GroupChoice.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_4)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "生命そのもの"; // +1
+            txtChoiceB.text = "波動そのもの"; // +2
+            txtChoiceC.text = "存在しえない"; // 0
+            GroupChoice.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_5)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "同一であり相反である"; // +2
+            txtChoiceB.text = "対称的であり排他的である"; // 0
+            txtChoiceC.text = "絶対的な円環"; // +1
+            GroupChoice.SetActive(true);
+            return;
+          }
+          if (currentMessage == Fix.CHOICE_VELGUS_JUDGE_6)
+          {
+            this.currentChoice = currentMessage;
+            txtChoiceTitle.text = currentMessage;
+            txtChoiceMessage.text = "どのような内容を示すか選択してください。";
+            txtChoiceA.text = "古来より定められし絶対根源法則"; // 0
+            txtChoiceB.text = "時空変化し続ける万物の色空"; // +1
+            txtChoiceC.text = "全ての因果関係を示す無限連鎖"; // +2
             GroupChoice.SetActive(true);
             return;
           }
@@ -18808,6 +18855,11 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1000302)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_332_X, Fix.VELGUS_SECRETWALL_332_Y, Fix.VELGUS_SECRETWALL_332_Z));
+      }
+
+      if (One.TF.Event_Message1009070)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_ObsidianStone_1_X, Fix.VELGUS_ObsidianStone_1_Y, Fix.VELGUS_ObsidianStone_1_Z));
       }
     }
     #endregion

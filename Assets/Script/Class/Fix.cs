@@ -841,9 +841,12 @@ public static partial class Fix
   public const string DECISION_ARTHARIUM_CRASH_DOOR2 = "アーサリウム工場跡地：扉を蹴破れ！（２）";
   public const string DECISION_PARTY_JOIN_SELMOI_RO = "セルモイ・ロウを仲間に引き入れる";
 
-  public const string CHOICE_VELGUS_JUDGE_1 = "ヴェルガス海底神殿：石像への解【１】";
-  public const string CHOICE_VELGUS_JUDGE_2 = "ヴェルガス海底神殿：石像への解【２】";
-  public const string CHOICE_VELGUS_JUDGE_3 = "ヴェルガス海底神殿：石像への解【３】";
+  public const string CHOICE_VELGUS_JUDGE_1 = "ヴェルガス海底神殿：心の解【１】";
+  public const string CHOICE_VELGUS_JUDGE_2 = "ヴェルガス海底神殿：心の解【２】";
+  public const string CHOICE_VELGUS_JUDGE_3 = "ヴェルガス海底神殿：心の解【３】";
+  public const string CHOICE_VELGUS_JUDGE_4 = "ヴェルガス海底神殿：心の解【４】";
+  public const string CHOICE_VELGUS_JUDGE_5 = "ヴェルガス海底神殿：心の解【５】";
+  public const string CHOICE_VELGUS_JUDGE_6 = "ヴェルガス海底神殿：心の解【６】";
   #endregion
   #region "Area Description"
   public const string AREA_INFO_ANSHET = "アンシェットの町はファージル宮殿から南方面への川沿いを下った所でひっそりと栄えている町である。行商人の行き来は少ないが、町全体としては安定しており、人々は穏やかな生活を送っている。";
