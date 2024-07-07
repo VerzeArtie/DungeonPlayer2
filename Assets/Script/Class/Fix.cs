@@ -480,6 +480,9 @@ public static partial class Fix
   public const int MAPSIZE_X_VELGUS_SEATEMPLE_4 = 50;
   public const int MAPSIZE_Z_VELGUS_SEATEMPLE_4 = 30;
 
+  public const int MAPSIZE_X_EDELGARZEN_1 = 60;
+  public const int MAPSIZE_Z_EDELGARZEN_1 = 40;
+
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";

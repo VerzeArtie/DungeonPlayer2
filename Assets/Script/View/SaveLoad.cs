@@ -703,6 +703,17 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
 
+      // ダンジョンKnownTileInfo ( Edelgarzen_1 )
+      xmlWriter.WriteStartElement("Edelgarzen_1");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_1.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_1" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_1[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -1419,6 +1430,23 @@ public class SaveLoad : MotherBase
         else
         {
           One.TF.KnownTileList_VelgusSeaTemple_4[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_1= xml.GetElementsByTagName("Edelgarzen_1");
+    for (int ii = 0; ii < parentEdelgarzen_1.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_1[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_1[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_1[jj] = false;
         }
       }
     }

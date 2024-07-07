@@ -234,6 +234,10 @@ public static class One
     {
       TF.KnownTileList_VelgusSeaTemple_4.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_1 * Fix.MAPSIZE_Z_EDELGARZEN_1; ii++)
+    {
+      TF.KnownTileList_Edelgarzen_1.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
