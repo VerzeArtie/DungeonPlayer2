@@ -692,6 +692,7 @@ public class DungeonField : MotherBase
         if (One.TF.Event_Message1200010 == false)
         {
           MessagePack.Message1200010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
       }
 
@@ -700,10 +701,12 @@ public class DungeonField : MotherBase
         if (One.TF.Event_Message1000000 == false)
         {
           MessagePack.Message1000000(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
         if (One.TF.DefeatDeathFlodiete && One.TF.Event_Message1000183 == false)
         {
           MessagePack.Message1000183(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
       }
 
@@ -712,6 +715,7 @@ public class DungeonField : MotherBase
         if (One.TF.DefeatBighandKraken && One.TF.Event_Message1000264 == false)
         {
           MessagePack.Message1000264(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
       }
 
@@ -720,36 +724,43 @@ public class DungeonField : MotherBase
         if (One.TF.DefeatBrilliantSeaPrince && One.TF.Event_Message1000269 == false)
         {
           MessagePack.Message1000269(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatShellSwordKnight && One.TF.Event_Message1000272 == false)
         {
           MessagePack.Message1000272(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatAegiruAmara && One.TF.Event_Message1000275 == false)
         {
           MessagePack.Message1000275(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatOriginStarCoralQueen && One.TF.Event_Message1000278 == false)
         {
           MessagePack.Message1000278(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatBlueRedEye && One.TF.Event_Message1000281 == false)
         {
           MessagePack.Message1000281(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatLeviathan && One.TF.Event_Message1000284 == false)
         {
           MessagePack.Message1000284(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
 
         if (One.TF.DefeatKingOfVelgus && One.TF.Event_Message1000287 == false)
         {
           MessagePack.Message1000287(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
       }
 
@@ -758,10 +769,21 @@ public class DungeonField : MotherBase
         if (One.TF.Event_Message1000292 == false)
         {
           MessagePack.Message1000292(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
         if (One.TF.DefeatEoneFulnea && One.TF.Event_Message1010010 == false)
         {
           MessagePack.Message1010010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
+      {
+        if (One.TF.Event_Message1900010 == false)
+        {
+          MessagePack.Message1900010(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
         }
       }
       return;
@@ -3622,6 +3644,13 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Brushwood)
     {
       Debug.Log("fieldObjBefore is Brushwood, then no move");
+      One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
+      return;
+    }
+    // オブジェクト（エデルガイゼン城の扉）の判定
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Edelgarzen_Door)
+    {
+      Debug.Log("fieldObjBefore is Edelgarzen_Door, then no move");
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -15447,7 +15476,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
-            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
         {
           // 可視化しない
         }
@@ -15556,7 +15586,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
-            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
         {
           // 可視化しない
         }
@@ -15665,7 +15696,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
-            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
         {
           // 可視化しない
         }
@@ -15774,7 +15806,8 @@ public class DungeonField : MotherBase
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
             field_obj != null && field_obj.content == FieldObject.Content.MysticForest_EventWall ||
             field_obj != null && field_obj.content == FieldObject.Content.Velgus_WallDoor ||
-            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall)
+            field_obj != null && field_obj.content == FieldObject.Content.Velgus_SecretWall ||
+            field_obj != null && field_obj.content == FieldObject.Content.Edelgarzen_Door)
         {
           // 可視化しない
         }

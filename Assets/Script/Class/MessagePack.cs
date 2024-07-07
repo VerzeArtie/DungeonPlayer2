@@ -27748,6 +27748,21 @@ public static class MessagePack
     if (One.TF.Event_Message1900010 == false)
     {
       One.TF.Event_Message1900010 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、では探索開始するか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、城の中に入る所がなさそうね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おい、目の前に扉があるじゃねーか。これを開ければ良いんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "ビリー：ッグ・・・この！！開け！！", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "アイン：扉は閉まっているみたいだな・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：鍵穴の様なものは見当たらないわね。", ActionEvent.None);
