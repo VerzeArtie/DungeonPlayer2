@@ -1817,6 +1817,15 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    // パルメテイシア神殿、エオネDUEL戦闘後
+    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
+    {
+      Debug.Log("TOWN_PARMETYSIA event Event_Message1010030");
+      MessagePack.Message1010030(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
     Debug.Log("TapInnAccept normal");
     MessagePack.MessageX00006(ref QuestMessageList, ref QuestEventList, sender.text, One.TF.CurrentAreaName);
     TapOK();
@@ -3815,8 +3824,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
     if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
     if (One.TF.Event_Message2200020) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE, true, counter); counter++; }
-    // todo
-    /*if (One.TF.Event_Message1900000) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE, true, counter); counter++; } */
+    if (One.TF.Event_Message1010030) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE, true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)

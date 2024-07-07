@@ -26847,11 +26847,30 @@ public static class MessagePack
     }
   }
 
-  public static void Message1010030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message1010030(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
   {
     if (One.TF.Event_Message1010030 == false)
     {
       One.TF.Event_Message1010030 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：朝か・・・よし。", ActionEvent.None);
 
