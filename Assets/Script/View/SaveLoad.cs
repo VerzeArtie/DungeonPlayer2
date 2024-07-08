@@ -714,6 +714,39 @@ public class SaveLoad : MotherBase
       xmlWriter.WriteWhitespace("\r\n");
       xmlWriter.WriteWhitespace("\r\n");
 
+      // ダンジョンKnownTileInfo ( Edelgarzen_2 )
+      xmlWriter.WriteStartElement("Edelgarzen_2");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_2.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_2" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_2[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_3 )
+      xmlWriter.WriteStartElement("Edelgarzen_3");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_3.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_3" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_3[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_4 )
+      xmlWriter.WriteStartElement("Edelgarzen_4");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_4.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_4" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_4[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
       // TeamFoundation終了
       xmlWriter.WriteEndElement();
       xmlWriter.WriteWhitespace("\r\n");
@@ -1450,6 +1483,58 @@ public class SaveLoad : MotherBase
         }
       }
     }
+
+    XmlNodeList parentEdelgarzen_2 = xml.GetElementsByTagName("Edelgarzen_2");
+    for (int ii = 0; ii < parentEdelgarzen_2.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_2[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_2[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_2[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_3 = xml.GetElementsByTagName("Edelgarzen_3");
+    for (int ii = 0; ii < parentEdelgarzen_3.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_3[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_3[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_3[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_4 = xml.GetElementsByTagName("Edelgarzen_4");
+    for (int ii = 0; ii < parentEdelgarzen_4.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_4[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_4[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_4[jj] = false;
+        }
+      }
+    }
+
     Debug.Log("ExecLoad 9-2");
 
     if (forceLoad == false)
@@ -1544,6 +1629,9 @@ public class SaveLoad : MotherBase
     else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return saveDungeonAreaString + Fix.DUNGEON_GATE_OF_DHAL; }
     else if (map_file == Fix.MAPFILE_DISKEL) { return saveDungeonAreaString + Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
     else if (map_file == Fix.MAPFILE_EDELGARZEN) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_2) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_3) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_4) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
     else if (map_file == Fix.MAPFILE_SNOWTREE_LATA) { return saveDungeonAreaString + Fix.DUNGEON_SNOWTREE_LATA; }
     else if (map_file == Fix.MAPFILE_GENESISGATE) { return saveDungeonAreaString + Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
 

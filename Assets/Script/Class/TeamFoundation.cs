@@ -676,6 +676,27 @@ public class TeamFoundation : MonoBehaviour
     set { _knownTileList_Edelgarzen_1 = value; }
     get { return _knownTileList_Edelgarzen_1; }
   }
+
+  [SerializeField] protected List<bool> _knownTileList_Edelgarzen_2 = new List<bool>(Fix.MAPSIZE_X_EDELGARZEN_2 * Fix.MAPSIZE_Z_EDELGARZEN_2);
+  public List<bool> KnownTileList_Edelgarzen_2
+  {
+    set { _knownTileList_Edelgarzen_2 = value; }
+    get { return _knownTileList_Edelgarzen_2; }
+  }
+
+  [SerializeField] protected List<bool> _knownTileList_Edelgarzen_3 = new List<bool>(Fix.MAPSIZE_X_EDELGARZEN_3 * Fix.MAPSIZE_Z_EDELGARZEN_3);
+  public List<bool> KnownTileList_Edelgarzen_3
+  {
+    set { _knownTileList_Edelgarzen_3 = value; }
+    get { return _knownTileList_Edelgarzen_3; }
+  }
+
+  [SerializeField] protected List<bool> _knownTileList_Edelgarzen_4 = new List<bool>(Fix.MAPSIZE_X_EDELGARZEN_4 * Fix.MAPSIZE_Z_EDELGARZEN_4);
+  public List<bool> KnownTileList_Edelgarzen_4
+  {
+    set { _knownTileList_Edelgarzen_4 = value; }
+    get { return _knownTileList_Edelgarzen_4; }
+  }
   #endregion
 
   #region "Event"

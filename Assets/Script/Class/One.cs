@@ -238,6 +238,18 @@ public static class One
     {
       TF.KnownTileList_Edelgarzen_1.Add(false);
     }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_2 * Fix.MAPSIZE_Z_EDELGARZEN_2; ii++)
+    {
+      TF.KnownTileList_Edelgarzen_2.Add(false);
+    }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_3 * Fix.MAPSIZE_Z_EDELGARZEN_3; ii++)
+    {
+      TF.KnownTileList_Edelgarzen_3.Add(false);
+    }
+    for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_4 * Fix.MAPSIZE_Z_EDELGARZEN_4; ii++)
+    {
+      TF.KnownTileList_Edelgarzen_4.Add(false);
+    }
 
     for (int ii = 0; ii < Fix.CHARACTER_LIST_NUM; ii++)
     {
