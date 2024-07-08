@@ -10175,7 +10175,7 @@ public static partial class Fix
   public const float GATEOFDHAL_Treasure_51_Z = 11f;
   #endregion
   #region "エデルガイゼン城"
-
+  #region "1F"
   #region "ワープ鏡"
   // ワープ鏡１
   public const string EDELGARZEN_1_MIRROR_1_C = "Mirror";
@@ -11072,6 +11072,18 @@ public static partial class Fix
   public const float EDELGARZEN_1_Event_2_X = 34.0f;
   public const float EDELGARZEN_1_Event_2_Y = 0.0f;
   public const float EDELGARZEN_1_Event_2_Z = -9.0f;
+  #endregion
+  #endregion
+
+  #region "2F"
+  #region "階段"
+  // 下り階段( 中央左 )
+  public const string EDELGARZEN_2_DOWNSTAIR_1_C = "Downstair";
+  public const string EDELGARZEN_2_DOWNSTAIR_1_O = "1";
+  public const float EDELGARZEN_2_DOWNSTAIR_1_X = 29.0f;
+  public const float EDELGARZEN_2_DOWNSTAIR_1_Y = 0.0f;
+  public const float EDELGARZEN_2_DOWNSTAIR_1_Z = -7.0f;
+  #endregion
   #endregion
 
   #region "ObsidianPortal"

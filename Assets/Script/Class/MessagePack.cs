@@ -27930,6 +27930,64 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：この扉は固く閉ざされているな。他をあたろう。", ActionEvent.None);
   }
 
+  public static void Message1900040(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900040 == false)
+    {
+      One.TF.Event_Message1900040 = true;
+      Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょっと待って。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？どうかしたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この扉。左右中央に小さな紋様があるわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：開錠のスキルを使ってみるわ。しばらく待ってて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、頼んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：こうかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアの両手がうっすらと薄白色に輝く　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_5_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：おぉ！開いたな！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：難易度の高い施錠だったけど、成功したみたいね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやあ助かったぜ。開錠のスキル、俺は持ってないからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：また扉が出てきたら私に言ってね。調べてあげるから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900050 == false)
+    {
+      One.TF.Event_Message1900050 = true;
+      Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：左右中央に小さな紋様があるわ。任せておいて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアの両手がうっすらと薄白色に輝く　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_6_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし、サンキュー！", ActionEvent.None);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
