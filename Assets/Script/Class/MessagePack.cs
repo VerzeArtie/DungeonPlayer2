@@ -27925,6 +27925,11 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：この扉は固く閉ざされているな。他をあたろう。", ActionEvent.None);
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
@@ -28270,7 +28275,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "", ActionEvent.HomeTownCallSaveLoad);
   }
 
-  public static void Message1900030(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message1901030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);
 

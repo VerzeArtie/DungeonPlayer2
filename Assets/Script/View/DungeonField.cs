@@ -3651,6 +3651,13 @@ public class DungeonField : MotherBase
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Edelgarzen_Door)
     {
       Debug.Log("fieldObjBefore is Edelgarzen_Door, then no move");
+
+      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_1_X, Fix.EDELGARZEN_1_DOOR_1_Y, Fix.EDELGARZEN_1_DOOR_1_Z) ||
+          LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z))
+      {
+        MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
+      }
+
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -5720,12 +5727,12 @@ public class DungeonField : MotherBase
     // エデルガイゼン城の鏡
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Edelgarzen_Mirror)
     {
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_MIRROR_1_X, Fix.EDELGARZEN_MIRROR_1_Y, Fix.EDELGARZEN_MIRROR_1_Z))
+      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1_X, Fix.EDELGARZEN_1_MIRROR_1_Y, Fix.EDELGARZEN_1_MIRROR_1_Z))
       {
         MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "17:1:-37"); TapOK();
         return;
       }
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_MIRROR_2_X, Fix.EDELGARZEN_MIRROR_2_Y, Fix.EDELGARZEN_MIRROR_2_Z))
+      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1B_X, Fix.EDELGARZEN_1_MIRROR_1B_Y, Fix.EDELGARZEN_1_MIRROR_1B_Z))
       {
         MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "12:1:-3"); TapOK();
         return;
