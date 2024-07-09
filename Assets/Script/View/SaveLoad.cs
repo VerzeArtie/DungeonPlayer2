@@ -1629,9 +1629,9 @@ public class SaveLoad : MotherBase
     else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return saveDungeonAreaString + Fix.DUNGEON_GATE_OF_DHAL; }
     else if (map_file == Fix.MAPFILE_DISKEL) { return saveDungeonAreaString + Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
     else if (map_file == Fix.MAPFILE_EDELGARZEN) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_2) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_3) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_4) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_2) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_2; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_3) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_3; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_4) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_4; }
     else if (map_file == Fix.MAPFILE_SNOWTREE_LATA) { return saveDungeonAreaString + Fix.DUNGEON_SNOWTREE_LATA; }
     else if (map_file == Fix.MAPFILE_GENESISGATE) { return saveDungeonAreaString + Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
 
