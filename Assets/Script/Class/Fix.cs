@@ -12078,6 +12078,927 @@ public static partial class Fix
   #endregion
   #endregion
 
+  #region "3F"
+  #region "ワープ鏡"
+  // ワープ鏡１
+  public const string EDELGARZEN_3_MIRROR_1_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_1_O = "1";
+  public const float EDELGARZEN_3_MIRROR_1_X = 15.0f;
+  public const float EDELGARZEN_3_MIRROR_1_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_1_Z = -5.0f;
+
+  // ワープ鏡１Ｂ
+  public const string EDELGARZEN_3_MIRROR_1B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_1B_O = "1B";
+  public const float EDELGARZEN_3_MIRROR_1B_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_1B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_1B_Z = -20.0f;
+
+  // ワープ鏡２
+  public const string EDELGARZEN_3_MIRROR_2_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_2_O = "2";
+  public const float EDELGARZEN_3_MIRROR_2_X = 35.0f;
+  public const float EDELGARZEN_3_MIRROR_2_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_2_Z = -27.0f;
+
+  // ワープ鏡２Ｂ
+  public const string EDELGARZEN_3_MIRROR_2B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_2B_O = "2B";
+  public const float EDELGARZEN_3_MIRROR_2B_X = 16.0f;
+  public const float EDELGARZEN_3_MIRROR_2B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_2B_Z = -26.0f;
+
+  // ワープ鏡３
+  public const string EDELGARZEN_3_MIRROR_3_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_3_O = "3";
+  public const float EDELGARZEN_3_MIRROR_3_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_3_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_3_Z = -27.0f;
+
+  // ワープ鏡３Ｂ
+  public const string EDELGARZEN_3_MIRROR_3B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_3B_O = "3B";
+  public const float EDELGARZEN_3_MIRROR_3B_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_3B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_3B_Z = -13.0f;
+
+  // ワープ鏡４
+  public const string EDELGARZEN_3_MIRROR_4_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_4_O = "4";
+  public const float EDELGARZEN_3_MIRROR_4_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_4_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_4_Z = -27.0f;
+
+  // ワープ鏡４Ｂ
+  public const string EDELGARZEN_3_MIRROR_4B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_4B_O = "4B";
+  public const float EDELGARZEN_3_MIRROR_4B_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_4B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_4B_Z = -5.0f;
+
+  // ワープ鏡５
+  public const string EDELGARZEN_3_MIRROR_5_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_5_O = "5";
+  public const float EDELGARZEN_3_MIRROR_5_X = 15.0f;
+  public const float EDELGARZEN_3_MIRROR_5_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_5_Z = -32.0f;
+
+  // ワープ鏡５Ｂ
+  public const string EDELGARZEN_3_MIRROR_5B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_5B_O = "5B";
+  public const float EDELGARZEN_3_MIRROR_5B_X = 52.0f;
+  public const float EDELGARZEN_3_MIRROR_5B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_5B_Z = -14.0f;
+
+  // ワープ鏡６
+  public const string EDELGARZEN_3_MIRROR_6_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_6_O = "6";
+  public const float EDELGARZEN_3_MIRROR_6_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_6_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_6_Z = -32.0f;
+
+  // ワープ鏡６Ｂ
+  public const string EDELGARZEN_3_MIRROR_6B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_6B_O = "6B";
+  public const float EDELGARZEN_3_MIRROR_6B_X = 41.0f;
+  public const float EDELGARZEN_3_MIRROR_6B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_6B_Z = -16.0f;
+
+  // ワープ鏡７
+  public const string EDELGARZEN_3_MIRROR_7_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_7_O = "7";
+  public const float EDELGARZEN_3_MIRROR_7_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_7_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_7_Z = -9.0f;
+
+  // ワープ鏡７Ｂ
+  public const string EDELGARZEN_3_MIRROR_7B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_7B_O = "7B";
+  public const float EDELGARZEN_3_MIRROR_7B_X = 7.0f;
+  public const float EDELGARZEN_3_MIRROR_7B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_7B_Z = -26.0f;
+
+  // ワープ鏡８
+  public const string EDELGARZEN_3_MIRROR_8_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_8_O = "8";
+  public const float EDELGARZEN_3_MIRROR_8_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_8_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_8_Z = -9.0f;
+
+  // ワープ鏡８Ｂ
+  public const string EDELGARZEN_3_MIRROR_8B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_8B_O = "8B";
+  public const float EDELGARZEN_3_MIRROR_8B_X = 33.0f;
+  public const float EDELGARZEN_3_MIRROR_8B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_8B_Z = -20.0f;
+
+  // ワープ鏡９
+  public const string EDELGARZEN_3_MIRROR_9_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_9_O = "9";
+  public const float EDELGARZEN_3_MIRROR_9_X = 5.0f;
+  public const float EDELGARZEN_3_MIRROR_9_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_9_Z = -4.0f;
+
+  // ワープ鏡９Ｂ
+  public const string EDELGARZEN_3_MIRROR_9B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_9B_O = "9B";
+  public const float EDELGARZEN_3_MIRROR_9B_X = 52.0f;
+  public const float EDELGARZEN_3_MIRROR_9B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_9B_Z = -22.0f;
+
+  // ワープ鏡１０
+  public const string EDELGARZEN_3_MIRROR_10_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_10_O = "10";
+  public const float EDELGARZEN_3_MIRROR_10_X = 5.0f;
+  public const float EDELGARZEN_3_MIRROR_10_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_10_Z = -6.0f;
+
+  // ワープ鏡１０Ｂ
+  public const string EDELGARZEN_3_MIRROR_10B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_10B_O = "10B";
+  public const float EDELGARZEN_3_MIRROR_10B_X = 41.0f;
+  public const float EDELGARZEN_3_MIRROR_10B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_10B_Z = -18.0f;
+
+  // ワープ鏡１１
+  public const string EDELGARZEN_3_MIRROR_11_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_11_O = "11";
+  public const float EDELGARZEN_3_MIRROR_11_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_11_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_11_Z = -12.0f;
+  // ワープ鏡１１Ｂ（なし）
+
+  // ワープ鏡１２
+  public const string EDELGARZEN_3_MIRROR_12_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_12_O = "12";
+  public const float EDELGARZEN_3_MIRROR_12_X = 45.0f;
+  public const float EDELGARZEN_3_MIRROR_12_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_12_Z = -12.0f;
+  // ワープ鏡１２Ｂ（なし）
+
+  // ワープ鏡１３
+  public const string EDELGARZEN_3_MIRROR_13_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_13_O = "13";
+  public const float EDELGARZEN_3_MIRROR_13_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_13_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_13_Z = -12.0f;
+  // ワープ鏡１３Ｂ（なし）
+
+  // ワープ鏡１４
+  public const string EDELGARZEN_3_MIRROR_14_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_14_O = "14";
+  public const float EDELGARZEN_3_MIRROR_14_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_14_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_14_Z = -16.0f;
+  // ワープ鏡１４Ｂ（なし）
+
+  // ワープ鏡１５
+  public const string EDELGARZEN_3_MIRROR_15_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_15_O = "15";
+  public const float EDELGARZEN_3_MIRROR_15_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_15_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_15_Z = -18.0f;
+  // ワープ鏡１５Ｂ（なし）
+
+  // ワープ鏡１６
+  public const string EDELGARZEN_3_MIRROR_16_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_16_O = "16";
+  public const float EDELGARZEN_3_MIRROR_16_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_16_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_16_Z = -20.0f;
+  // ワープ鏡１６Ｂ（なし）
+
+  // ワープ鏡１７
+  public const string EDELGARZEN_3_MIRROR_17_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_17_O = "17";
+  public const float EDELGARZEN_3_MIRROR_17_X = 8.0f;
+  public const float EDELGARZEN_3_MIRROR_17_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_17_Z = -28.0f;
+  // ワープ鏡１７Ｂ（なし）
+
+  // ワープ鏡１８
+  public const string EDELGARZEN_3_MIRROR_18_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_18_O = "18";
+  public const float EDELGARZEN_3_MIRROR_18_X = 9.0f;
+  public const float EDELGARZEN_3_MIRROR_18_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_18_Z = -29.0f;
+  // ワープ鏡１８Ｂ（なし）
+
+  // ワープ鏡１９
+  public const string EDELGARZEN_3_MIRROR_19_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_19_O = "19";
+  public const float EDELGARZEN_3_MIRROR_19_X = 10.0f;
+  public const float EDELGARZEN_3_MIRROR_19_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_19_Z = -30.0f;
+  // ワープ鏡１９Ｂ（なし）
+
+  // ワープ鏡２０
+  public const string EDELGARZEN_3_MIRROR_20_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_20_O = "20";
+  public const float EDELGARZEN_3_MIRROR_20_X = 33.0f;
+  public const float EDELGARZEN_3_MIRROR_20_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_20_Z = -34.0f;
+  // ワープ鏡２０Ｂ（なし）
+
+  // ワープ鏡２１
+  public const string EDELGARZEN_3_MIRROR_21_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_21_O = "21";
+  public const float EDELGARZEN_3_MIRROR_21_X = 35.0f;
+  public const float EDELGARZEN_3_MIRROR_21_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_21_Z = -34.0f;
+  // ワープ鏡２１Ｂ（なし）
+
+  // ワープ鏡２２
+  public const string EDELGARZEN_3_MIRROR_22_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_22_O = "22";
+  public const float EDELGARZEN_3_MIRROR_22_X = 55.0f;
+  public const float EDELGARZEN_3_MIRROR_22_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_22_Z = -16.0f;
+  // ワープ鏡２２Ｂ（なし）
+
+  // ワープ鏡２３
+  public const string EDELGARZEN_3_MIRROR_23_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_23_O = "23";
+  public const float EDELGARZEN_3_MIRROR_23_X = 55.0f;
+  public const float EDELGARZEN_3_MIRROR_23_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_23_Z = -18.0f;
+  // ワープ鏡２３Ｂ（なし）
+
+  // ワープ鏡２４
+  public const string EDELGARZEN_3_MIRROR_24_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_24_O = "24";
+  public const float EDELGARZEN_3_MIRROR_24_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_24_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_24_Z = -22.0f;
+  // ワープ鏡２４Ｂ（なし）
+
+  // ワープ鏡２５
+  public const string EDELGARZEN_3_MIRROR_25_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_25_O = "25";
+  public const float EDELGARZEN_3_MIRROR_25_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_25_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_25_Z = -22.0f;
+  // ワープ鏡２５Ｂ（なし）
+
+  // ワープ鏡２６
+  public const string EDELGARZEN_3_MIRROR_26_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_26_O = "26";
+  public const float EDELGARZEN_3_MIRROR_26_X = 41.0f;
+  public const float EDELGARZEN_3_MIRROR_26_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_26_Z = -28.0f;
+  // ワープ鏡２６Ｂ（なし）
+
+  // ワープ鏡２７
+  public const string EDELGARZEN_3_MIRROR_27_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_27_O = "27";
+  public const float EDELGARZEN_3_MIRROR_27_X = 15.0f;
+  public const float EDELGARZEN_3_MIRROR_27_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_27_Z = -7.0f;
+
+  // ワープ鏡２７Ｂ
+  public const string EDELGARZEN_3_MIRROR_27B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_27B_O = "27B";
+  public const float EDELGARZEN_3_MIRROR_27B_X = 49.0f;
+  public const float EDELGARZEN_3_MIRROR_27B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_27B_Z = -7.0f;
+
+  // ワープ鏡２８
+  public const string EDELGARZEN_3_MIRROR_28_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_28_O = "28";
+  public const float EDELGARZEN_3_MIRROR_28_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_28_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_28_Z = -8.0f;
+
+  // ワープ鏡２８Ｂ
+  public const string EDELGARZEN_3_MIRROR_28B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_28B_O = "28B";
+  public const float EDELGARZEN_3_MIRROR_28B_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_28B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_28B_Z = -7.0f;
+
+  // ワープ鏡２９
+  public const string EDELGARZEN_3_MIRROR_29_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_29_O = "29";
+  public const float EDELGARZEN_3_MIRROR_29_X = 45.0f;
+  public const float EDELGARZEN_3_MIRROR_29_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_29_Z = -8.0f;
+
+  // ワープ鏡２９Ｂ
+  public const string EDELGARZEN_3_MIRROR_29B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_29B_O = "29B";
+  public const float EDELGARZEN_3_MIRROR_29B_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_29B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_29B_Z = -33.0f;
+
+  // ワープ鏡３０
+  public const string EDELGARZEN_3_MIRROR_30_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_30_O = "30";
+  public const float EDELGARZEN_3_MIRROR_30_X = 47.0f;
+  public const float EDELGARZEN_3_MIRROR_30_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_30_Z = -8.0f;
+
+  // ワープ鏡３０Ｂ
+  public const string EDELGARZEN_3_MIRROR_30B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_30B_O = "30B";
+  public const float EDELGARZEN_3_MIRROR_30B_X = 5.0f;
+  public const float EDELGARZEN_3_MIRROR_30B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_30B_Z = -8.0f;
+
+  // ワープ鏡３１
+  public const string EDELGARZEN_3_MIRROR_31_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_31_O = "31";
+  public const float EDELGARZEN_3_MIRROR_31_X = 19.0f;
+  public const float EDELGARZEN_3_MIRROR_31_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_31_Z = -17.0f;
+
+  // ワープ鏡３１Ｂ
+  public const string EDELGARZEN_3_MIRROR_31B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_31B_O = "31B";
+  public const float EDELGARZEN_3_MIRROR_31B_X = 27.0f;
+  public const float EDELGARZEN_3_MIRROR_31B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_31B_Z = -17.0f;
+
+  // ワープ鏡３２
+  public const string EDELGARZEN_3_MIRROR_32_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_32_O = "32";
+  public const float EDELGARZEN_3_MIRROR_32_X = 21.0f;
+  public const float EDELGARZEN_3_MIRROR_32_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_32_Z = -17.0f;
+
+  // ワープ鏡３２Ｂ
+  public const string EDELGARZEN_3_MIRROR_32B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_32B_O = "32B";
+  public const float EDELGARZEN_3_MIRROR_32B_X = 49.0f;
+  public const float EDELGARZEN_3_MIRROR_32B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_32B_Z = -12.0f;
+
+  // ワープ鏡３３
+  public const string EDELGARZEN_3_MIRROR_33_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_33_O = "33";
+  public const float EDELGARZEN_3_MIRROR_33_X = 35.0f;
+  public const float EDELGARZEN_3_MIRROR_33_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_33_Z = -29.0f;
+
+  // ワープ鏡３３Ｂ
+  public const string EDELGARZEN_3_MIRROR_33B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_33B_O = "33B";
+  public const float EDELGARZEN_3_MIRROR_33B_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_33B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_33B_Z = -12.0f;
+
+  // ワープ鏡３４
+  public const string EDELGARZEN_3_MIRROR_34_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_34_O = "34";
+  public const float EDELGARZEN_3_MIRROR_34_X = 35.0f;
+  public const float EDELGARZEN_3_MIRROR_34_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_34_Z = -31.0f;
+
+  // ワープ鏡３４Ｂ
+  public const string EDELGARZEN_3_MIRROR_34B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_34B_O = "34B";
+  public const float EDELGARZEN_3_MIRROR_34B_X = 48.0f;
+  public const float EDELGARZEN_3_MIRROR_34B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_34B_Z = -31.0f;
+
+  // ワープ鏡３５
+  public const string EDELGARZEN_3_MIRROR_35_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_35_O = "35";
+  public const float EDELGARZEN_3_MIRROR_35_X = 4.0f;
+  public const float EDELGARZEN_3_MIRROR_35_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_35_Z = -14.0f;
+
+  // ワープ鏡３５Ｂ
+  public const string EDELGARZEN_3_MIRROR_35B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_35B_O = "35B";
+  public const float EDELGARZEN_3_MIRROR_35B_X = 27.0f;
+  public const float EDELGARZEN_3_MIRROR_35B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_35B_Z = -25.0f;
+
+  // ワープ鏡３６
+  public const string EDELGARZEN_3_MIRROR_36_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_36_O = "36";
+  public const float EDELGARZEN_3_MIRROR_36_X = 6.0f;
+  public const float EDELGARZEN_3_MIRROR_36_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_36_Z = -18.0f;
+
+  // ワープ鏡３６Ｂ
+  public const string EDELGARZEN_3_MIRROR_36B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_36B_O = "36B";
+  public const float EDELGARZEN_3_MIRROR_36B_X = 8.0f;
+  public const float EDELGARZEN_3_MIRROR_36B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_36B_Z = -19.0f;
+
+  // ワープ鏡３７
+  public const string EDELGARZEN_3_MIRROR_37_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_37_O = "37";
+  public const float EDELGARZEN_3_MIRROR_37_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_37_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_37_Z = -13.0f;
+  // ワープ鏡３７Ｂ（なし）
+
+  // ワープ鏡３８
+  public const string EDELGARZEN_3_MIRROR_38_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_38_O = "38";
+  public const float EDELGARZEN_3_MIRROR_38_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_38_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_38_Z = -15.0f;
+  // ワープ鏡３８Ｂ（なし）
+
+  // ワープ鏡３９
+  public const string EDELGARZEN_3_MIRROR_39_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_39_O = "39";
+  public const float EDELGARZEN_3_MIRROR_39_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_39_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_39_Z = -17.0f;
+  // ワープ鏡３９Ｂ（なし）
+
+  // ワープ鏡４０
+  public const string EDELGARZEN_3_MIRROR_40_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_40_O = "40";
+  public const float EDELGARZEN_3_MIRROR_40_X = 54.0f;
+  public const float EDELGARZEN_3_MIRROR_40_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_40_Z = -14.0f;
+  // ワープ鏡４０Ｂ（なし）
+
+  // ワープ鏡４１
+  public const string EDELGARZEN_3_MIRROR_41_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_41_O = "41";
+  public const float EDELGARZEN_3_MIRROR_41_X = 56.0f;
+  public const float EDELGARZEN_3_MIRROR_41_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_41_Z = -14.0f;
+  // ワープ鏡４１Ｂ（なし）
+
+  // ワープ鏡４２
+  public const string EDELGARZEN_3_MIRROR_42_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_42_O = "42";
+  public const float EDELGARZEN_3_MIRROR_42_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_42_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_42_Z = -7.0f;
+  // ワープ鏡４２Ｂ（なし）
+
+  // ワープ鏡４３
+  public const string EDELGARZEN_3_MIRROR_43_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_43_O = "43";
+  public const float EDELGARZEN_3_MIRROR_43_X = 19.0f;
+  public const float EDELGARZEN_3_MIRROR_43_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_43_Z = -7.0f;
+  // ワープ鏡４３Ｂ（なし）
+
+  // ワープ鏡４４
+  public const string EDELGARZEN_3_MIRROR_44_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_44_O = "44";
+  public const float EDELGARZEN_3_MIRROR_44_X = 21.0f;
+  public const float EDELGARZEN_3_MIRROR_44_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_44_Z = -7.0f;
+  // ワープ鏡４４Ｂ（なし）
+
+  // ワープ鏡４５
+  public const string EDELGARZEN_3_MIRROR_45_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_45_O = "45";
+  public const float EDELGARZEN_3_MIRROR_45_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_45_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_45_Z = -30.0f;
+  // ワープ鏡４５Ｂ（なし）
+
+  // ワープ鏡４６
+  public const string EDELGARZEN_3_MIRROR_46_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_46_O = "46";
+  public const float EDELGARZEN_3_MIRROR_46_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_46_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_46_Z = -32.0f;
+  // ワープ鏡４６Ｂ（なし）
+
+  // ワープ鏡４７
+  public const string EDELGARZEN_3_MIRROR_47_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_47_O = "47";
+  public const float EDELGARZEN_3_MIRROR_47_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_47_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_47_Z = -23.0f;
+  // ワープ鏡４７Ｂ（なし）
+
+  // ワープ鏡４８
+  public const string EDELGARZEN_3_MIRROR_48_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_48_O = "48";
+  public const float EDELGARZEN_3_MIRROR_48_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_48_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_48_Z = -25.0f;
+  // ワープ鏡４８Ｂ（なし）
+
+  // ワープ鏡４９
+  public const string EDELGARZEN_3_MIRROR_49_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_49_O = "49";
+  public const float EDELGARZEN_3_MIRROR_49_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_49_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_49_Z = -27.0f;
+  // ワープ鏡４９Ｂ（なし）
+
+  // ワープ鏡５０
+  public const string EDELGARZEN_3_MIRROR_50_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_50_O = "50";
+  public const float EDELGARZEN_3_MIRROR_50_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_50_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_50_Z = -14.0f;
+  // ワープ鏡５０Ｂ（なし）
+
+  // ワープ鏡５１
+  public const string EDELGARZEN_3_MIRROR_51_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_51_O = "51";
+  public const float EDELGARZEN_3_MIRROR_51_X = 22.0f;
+  public const float EDELGARZEN_3_MIRROR_51_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_51_Z = -19.0f;
+  // ワープ鏡５１Ｂ（なし）
+
+  // ワープ鏡５２
+  public const string EDELGARZEN_3_MIRROR_52_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_52_O = "52";
+  public const float EDELGARZEN_3_MIRROR_52_X = 17.0f;
+  public const float EDELGARZEN_3_MIRROR_52_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_52_Z = -24.0f;
+  // ワープ鏡５２Ｂ（なし）
+
+  // ワープ鏡５３
+  public const string EDELGARZEN_3_MIRROR_53_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_53_O = "53";
+  public const float EDELGARZEN_3_MIRROR_53_X = 15.0f;
+  public const float EDELGARZEN_3_MIRROR_53_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_53_Z = -9.0f;
+
+  // ワープ鏡５３Ｂ
+  public const string EDELGARZEN_3_MIRROR_53B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_53B_O = "53B";
+  public const float EDELGARZEN_3_MIRROR_53B_X = 50.0f;
+  public const float EDELGARZEN_3_MIRROR_53B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_53B_Z = -30.0f;
+
+  // ワープ鏡５４
+  public const string EDELGARZEN_3_MIRROR_54_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_54_O = "54";
+  public const float EDELGARZEN_3_MIRROR_54_X = 49.0f;
+  public const float EDELGARZEN_3_MIRROR_54_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_54_Z = -21.0f;
+
+  // ワープ鏡５４Ｂ
+  public const string EDELGARZEN_3_MIRROR_54B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_54B_O = "54B";
+  public const float EDELGARZEN_3_MIRROR_54B_X = 12.0f;
+  public const float EDELGARZEN_3_MIRROR_54B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_54B_Z = -31.0f;
+
+  // ワープ鏡５５
+  public const string EDELGARZEN_3_MIRROR_55_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_55_O = "55";
+  public const float EDELGARZEN_3_MIRROR_55_X = 49.0f;
+  public const float EDELGARZEN_3_MIRROR_55_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_55_Z = -24.0f;
+
+  // ワープ鏡５５Ｂ
+  public const string EDELGARZEN_3_MIRROR_55B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_55B_O = "55B";
+  public const float EDELGARZEN_3_MIRROR_55B_X = 50.0f;
+  public const float EDELGARZEN_3_MIRROR_55B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_55B_Z = -10.0f;
+
+  // ワープ鏡５６
+  public const string EDELGARZEN_3_MIRROR_56_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_56_O = "56";
+  public const float EDELGARZEN_3_MIRROR_56_X = 49.0f;
+  public const float EDELGARZEN_3_MIRROR_56_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_56_Z = -27.0f;
+
+  // ワープ鏡５６Ｂ
+  public const string EDELGARZEN_3_MIRROR_56B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_56B_O = "56B";
+  public const float EDELGARZEN_3_MIRROR_56B_X = 22.0f;
+  public const float EDELGARZEN_3_MIRROR_56B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_56B_Z = -33.0f;
+
+  // ワープ鏡５７
+  public const string EDELGARZEN_3_MIRROR_57_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_57_O = "57";
+  public const float EDELGARZEN_3_MIRROR_57_X = 13.0f;
+  public const float EDELGARZEN_3_MIRROR_57_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_57_Z = -21.0f;
+
+  // ワープ鏡５７Ｂ
+  public const string EDELGARZEN_3_MIRROR_57B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_57B_O = "57B";
+  public const float EDELGARZEN_3_MIRROR_57B_X = 27.0f;
+  public const float EDELGARZEN_3_MIRROR_57B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_57B_Z = -27.0f;
+
+  // ワープ鏡５８
+  public const string EDELGARZEN_3_MIRROR_58_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_58_O = "58";
+  public const float EDELGARZEN_3_MIRROR_58_X = 15.0f;
+  public const float EDELGARZEN_3_MIRROR_58_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_58_Z = -21.0f;
+
+  // ワープ鏡５８Ｂ
+  public const string EDELGARZEN_3_MIRROR_58B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_58B_O = "58B";
+  public const float EDELGARZEN_3_MIRROR_58B_X = 51.0f;
+  public const float EDELGARZEN_3_MIRROR_58B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_58B_Z = -3.0f;
+
+  // ワープ鏡５９
+  public const string EDELGARZEN_3_MIRROR_59_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_59_O = "59";
+  public const float EDELGARZEN_3_MIRROR_59_X = 41.0f;
+  public const float EDELGARZEN_3_MIRROR_59_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_59_Z = -5.0f;
+
+  // ワープ鏡５９Ｂ
+  public const string EDELGARZEN_3_MIRROR_59B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_59B_O = "59B";
+  public const float EDELGARZEN_3_MIRROR_59B_X = 48.0f;
+  public const float EDELGARZEN_3_MIRROR_59B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_59B_Z = -29.0f;
+
+  // ワープ鏡６０
+  public const string EDELGARZEN_3_MIRROR_60_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_60_O = "60";
+  public const float EDELGARZEN_3_MIRROR_60_X = 41.0f;
+  public const float EDELGARZEN_3_MIRROR_60_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_60_Z = -14.0f;
+
+  // ワープ鏡６０Ｂ
+  public const string EDELGARZEN_3_MIRROR_60B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_60B_O = "60B";
+  public const float EDELGARZEN_3_MIRROR_60B_X = 33.0f;
+  public const float EDELGARZEN_3_MIRROR_60B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_60B_Z = -18.0f;
+
+  // ワープ鏡６１
+  public const string EDELGARZEN_3_MIRROR_61_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_61_O = "61";
+  public const float EDELGARZEN_3_MIRROR_61_X = 21.0f;
+  public const float EDELGARZEN_3_MIRROR_61_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_61_Z = -23.0f;
+
+  // ワープ鏡６１Ｂ
+  public const string EDELGARZEN_3_MIRROR_61B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_61B_O = "61B";
+  public const float EDELGARZEN_3_MIRROR_61B_X = 12.0f;
+  public const float EDELGARZEN_3_MIRROR_61B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_61B_Z = -17.0f;
+
+  // ワープ鏡６２
+  public const string EDELGARZEN_3_MIRROR_62_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_62_O = "62";
+  public const float EDELGARZEN_3_MIRROR_62_X = 21.0f;
+  public const float EDELGARZEN_3_MIRROR_62_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_62_Z = -31.0f;
+
+  // ワープ鏡６２Ｂ
+  public const string EDELGARZEN_3_MIRROR_62B_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_62B_O = "62B";
+  public const float EDELGARZEN_3_MIRROR_62B_X = 18.0f;
+  public const float EDELGARZEN_3_MIRROR_62B_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_62B_Z = -26.0f;
+
+  // ワープ鏡６３
+  public const string EDELGARZEN_3_MIRROR_63_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_63_O = "63";
+  public const float EDELGARZEN_3_MIRROR_63_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_63_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_63_Z = -29.0f;
+  // ワープ鏡６３Ｂ（なし）
+
+  // ワープ鏡６４
+  public const string EDELGARZEN_3_MIRROR_64_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_64_O = "64";
+  public const float EDELGARZEN_3_MIRROR_64_X = 25.0f;
+  public const float EDELGARZEN_3_MIRROR_64_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_64_Z = -30.0f;
+  // ワープ鏡６４Ｂ（なし）
+
+  // ワープ鏡６５
+  public const string EDELGARZEN_3_MIRROR_65_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_65_O = "65";
+  public const float EDELGARZEN_3_MIRROR_65_X = 23.0f;
+  public const float EDELGARZEN_3_MIRROR_65_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_65_Z = -31.0f;
+  // ワープ鏡６５Ｂ（なし）
+
+  // ワープ鏡６６
+  public const string EDELGARZEN_3_MIRROR_66_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_66_O = "66";
+  public const float EDELGARZEN_3_MIRROR_66_X = 25.0f;
+  public const float EDELGARZEN_3_MIRROR_66_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_66_Z = -32.0f;
+  // ワープ鏡６６Ｂ（なし）
+
+  // ワープ鏡６７
+  public const string EDELGARZEN_3_MIRROR_67_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_67_O = "67";
+  public const float EDELGARZEN_3_MIRROR_67_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_67_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_67_Z = -7.0f;
+  // ワープ鏡６７Ｂ（なし）
+
+  // ワープ鏡６８
+  public const string EDELGARZEN_3_MIRROR_68_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_68_O = "68";
+  public const float EDELGARZEN_3_MIRROR_68_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_68_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_68_Z = -7.0f;
+  // ワープ鏡６８Ｂ（なし）
+
+  // ワープ鏡６９
+  public const string EDELGARZEN_3_MIRROR_69_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_69_O = "69";
+  public const float EDELGARZEN_3_MIRROR_69_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_69_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_69_Z = -24.0f;
+  // ワープ鏡６９Ｂ（なし）
+
+  // ワープ鏡７０
+  public const string EDELGARZEN_3_MIRROR_70_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_70_O = "70";
+  public const float EDELGARZEN_3_MIRROR_70_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_70_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_70_Z = -26.0f;
+  // ワープ鏡７０Ｂ（なし）
+
+  // ワープ鏡７１
+  public const string EDELGARZEN_3_MIRROR_71_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_71_O = "71";
+  public const float EDELGARZEN_3_MIRROR_71_X = 43.0f;
+  public const float EDELGARZEN_3_MIRROR_71_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_71_Z = -28.0f;
+  // ワープ鏡７１Ｂ（なし）
+
+  // ワープ鏡７２
+  public const string EDELGARZEN_3_MIRROR_72_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_72_O = "72";
+  public const float EDELGARZEN_3_MIRROR_72_X = 35.0f;
+  public const float EDELGARZEN_3_MIRROR_72_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_72_Z = -18.0f;
+  // ワープ鏡７２Ｂ（なし）
+
+  // ワープ鏡７３
+  public const string EDELGARZEN_3_MIRROR_73_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_73_O = "73";
+  public const float EDELGARZEN_3_MIRROR_73_X = 37.0f;
+  public const float EDELGARZEN_3_MIRROR_73_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_73_Z = -18.0f;
+  // ワープ鏡７３Ｂ（なし）
+
+  // ワープ鏡７４
+  public const string EDELGARZEN_3_MIRROR_74_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_74_O = "74";
+  public const float EDELGARZEN_3_MIRROR_74_X = 39.0f;
+  public const float EDELGARZEN_3_MIRROR_74_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_74_Z = -18.0f;
+  // ワープ鏡７４Ｂ（なし）
+
+  // ワープ鏡７５
+  public const string EDELGARZEN_3_MIRROR_75_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_75_O = "75";
+  public const float EDELGARZEN_3_MIRROR_75_X = 12.0f;
+  public const float EDELGARZEN_3_MIRROR_75_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_75_Z = -11.0f;
+  // ワープ鏡７５Ｂ（なし）
+
+  // ワープ鏡７６
+  public const string EDELGARZEN_3_MIRROR_76_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_76_O = "76";
+  public const float EDELGARZEN_3_MIRROR_76_X = 12.0f;
+  public const float EDELGARZEN_3_MIRROR_76_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_76_Z = -13.0f;
+  // ワープ鏡７６Ｂ（なし）
+
+  // ワープ鏡７７
+  public const string EDELGARZEN_3_MIRROR_77_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_77_O = "77";
+  public const float EDELGARZEN_3_MIRROR_77_X = 12.0f;
+  public const float EDELGARZEN_3_MIRROR_77_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_77_Z = -15.0f;
+  // ワープ鏡７７Ｂ（なし）
+
+  // ワープ鏡７８
+  public const string EDELGARZEN_3_MIRROR_78_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_78_O = "78";
+  public const float EDELGARZEN_3_MIRROR_78_X = 24.0f;
+  public const float EDELGARZEN_3_MIRROR_78_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_78_Z = -19.0f;
+  // ワープ鏡７８Ｂ（なし）
+
+  // ワープ鏡７９
+  public const string EDELGARZEN_3_MIRROR_79_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_79_O = "79";
+  public const float EDELGARZEN_3_MIRROR_79_X = 27.0f;
+  public const float EDELGARZEN_3_MIRROR_79_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_79_Z = -23.0f;
+  // ワープ鏡７９Ｂ（なし）
+
+  // ワープ鏡８０（Ａルート１）
+  public const string EDELGARZEN_3_MIRROR_80_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_80_O = "80";
+  public const float EDELGARZEN_3_MIRROR_80_X = 7.0f;
+  public const float EDELGARZEN_3_MIRROR_80_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_80_Z = -2.0f;
+
+  // ワープ鏡８１（Ａルート２）
+  public const string EDELGARZEN_3_MIRROR_81_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_81_O = "81";
+  public const float EDELGARZEN_3_MIRROR_81_X = 3.0f;
+  public const float EDELGARZEN_3_MIRROR_81_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_81_Z = -8.0f;
+
+  // ワープ鏡８２（Ａルート３）
+  public const string EDELGARZEN_3_MIRROR_82_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_82_O = "82";
+  public const float EDELGARZEN_3_MIRROR_82_X = 3.0f;
+  public const float EDELGARZEN_3_MIRROR_82_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_82_Z = -33.0f;
+
+  // ワープ鏡８３（Ａルート４）
+  public const string EDELGARZEN_3_MIRROR_83_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_83_O = "83";
+  public const float EDELGARZEN_3_MIRROR_83_X = 7.0f;
+  public const float EDELGARZEN_3_MIRROR_83_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_83_Z = -37.0f;
+
+  // ワープ鏡８４（Ａルート５）
+  public const string EDELGARZEN_3_MIRROR_84_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_84_O = "84";
+  public const float EDELGARZEN_3_MIRROR_84_X = 27.0f;
+  public const float EDELGARZEN_3_MIRROR_84_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_84_Z = -37.0f;
+
+  // ワープ鏡８５（Ｂルート１）
+  public const string EDELGARZEN_3_MIRROR_85_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_85_O = "85";
+  public const float EDELGARZEN_3_MIRROR_85_X = 53.0f;
+  public const float EDELGARZEN_3_MIRROR_85_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_85_Z = -2.0f;
+
+  // ワープ鏡８６（Ｂルート２）
+  public const string EDELGARZEN_3_MIRROR_86_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_86_O = "86";
+  public const float EDELGARZEN_3_MIRROR_86_X = 57.0f;
+  public const float EDELGARZEN_3_MIRROR_86_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_86_Z = -8.0f;
+
+  // ワープ鏡８７（Ｂルート３）
+  public const string EDELGARZEN_3_MIRROR_87_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_87_O = "87";
+  public const float EDELGARZEN_3_MIRROR_87_X = 57.0f;
+  public const float EDELGARZEN_3_MIRROR_87_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_87_Z = -33.0f;
+
+  // ワープ鏡８８（Ｂルート４）
+  public const string EDELGARZEN_3_MIRROR_88_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_88_O = "88";
+  public const float EDELGARZEN_3_MIRROR_88_X = 53.0f;
+  public const float EDELGARZEN_3_MIRROR_88_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_88_Z = -37.0f;
+
+  // ワープ鏡８９（Ｂルート５）
+  public const string EDELGARZEN_3_MIRROR_89_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_89_O = "89";
+  public const float EDELGARZEN_3_MIRROR_89_X = 33.0f;
+  public const float EDELGARZEN_3_MIRROR_89_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_89_Z = -37.0f;
+
+  // ワープ鏡９０（Ｃルート）
+  public const string EDELGARZEN_3_MIRROR_90_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_90_O = "90";
+  public const float EDELGARZEN_3_MIRROR_90_X = 30.0f;
+  public const float EDELGARZEN_3_MIRROR_90_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_90_Z = -21.0f;
+
+  // ワープ鏡９１（Ｄルート１）
+  public const string EDELGARZEN_3_MIRROR_91_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_91_O = "91";
+  public const float EDELGARZEN_3_MIRROR_91_X = 30.0f;
+  public const float EDELGARZEN_3_MIRROR_91_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_91_Z = -19.0f;
+
+  // ワープ鏡９２（Ｄルート左）
+  public const string EDELGARZEN_3_MIRROR_92_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_92_O = "92";
+  public const float EDELGARZEN_3_MIRROR_92_X = 29.0f;
+  public const float EDELGARZEN_3_MIRROR_92_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_92_Z = -15.0f;
+
+  // ワープ鏡９３（Ｄルート右）
+  public const string EDELGARZEN_3_MIRROR_93_C = "Mirror";
+  public const string EDELGARZEN_3_MIRROR_93_O = "93";
+  public const float EDELGARZEN_3_MIRROR_93_X = 31.0f;
+  public const float EDELGARZEN_3_MIRROR_93_Y = 0.5f;
+  public const float EDELGARZEN_3_MIRROR_93_Z = -15.0f;
+  #endregion
+  #region "Treasure"
+  public const string EDELGARZEN_3_Treasure_1_C = "Treasure";
+  public const string EDELGARZEN_3_Treasure_1_O = "1";
+  public const float EDELGARZEN_3_Treasure_1_X = 45.0f;
+  public const float EDELGARZEN_3_Treasure_1_Y = 1.0f;
+  public const float EDELGARZEN_3_Treasure_1_Z = -6.0f;
+  #endregion
+  #endregion
+
   #region "ObsidianPortal"
   // Odsidian Portal
   public const string EDELGARZEN_ObsidianPortal_1_C = "ObsidianPortal";
