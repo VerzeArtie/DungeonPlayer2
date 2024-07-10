@@ -27919,10 +27919,17 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, dst_mirror, ActionEvent.JumpToLocation);
-
-      Message(ref m_list, ref e_list, "（ッパシュ！）", ActionEvent.None);
+      Message1900021(ref m_list, ref e_list, dst_mirror);
     }
+  }
+
+  public static void Message1900021(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_mirror)
+  {
+    Message(ref m_list, ref e_list, "（　ラナは鏡に向かって静かに手をかざした　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, dst_mirror, ActionEvent.JumpToLocation);
+
+    Message(ref m_list, ref e_list, "（ッパシュ！）", ActionEvent.None);
   }
 
   public static void Message1900030(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -27974,19 +27981,25 @@ public static class MessagePack
     if (One.TF.Event_Message1900050 == false)
     {
       One.TF.Event_Message1900050 = true;
-      Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：左右中央に小さな紋様があるわ。任せておいて。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　ラナ・アミリアの両手がうっすらと薄白色に輝く　～", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_6_O, ActionEvent.RemoveFieldObject);
-
-      Message(ref m_list, ref e_list, "アイン：よし、サンキュー！", ActionEvent.None);
+      EdelgarzenOpenDoor(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_6_O);
     }
   }
+
+  public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
+  {
+    Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：左右中央に小さな紋様があるわ。任せておいて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　ラナ・アミリアの両手がうっすらと薄白色に輝く　～", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, dst_door, ActionEvent.RemoveFieldObject);
+
+    Message(ref m_list, ref e_list, "アイン：よし、サンキュー！", ActionEvent.None);
+  }
+
 
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
