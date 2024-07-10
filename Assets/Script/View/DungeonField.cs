@@ -3679,6 +3679,7 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -5748,15 +5749,18 @@ public class DungeonField : MotherBase
     // エデルガイゼン城の鏡
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Edelgarzen_Mirror)
     {
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1_X, Fix.EDELGARZEN_1_MIRROR_1_Y, Fix.EDELGARZEN_1_MIRROR_1_Z))
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
       {
-        MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "17:1:-37"); TapOK();
-        return;
-      }
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1B_X, Fix.EDELGARZEN_1_MIRROR_1B_Y, Fix.EDELGARZEN_1_MIRROR_1B_Z))
-      {
-        MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, "12:1:-3"); TapOK();
-        return;
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1_X, Fix.EDELGARZEN_1_MIRROR_1_Y, Fix.EDELGARZEN_1_MIRROR_1_Z))
+        {
+          MessagePack.Message1900020(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_1B_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_1B_Z); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_1B_X, Fix.EDELGARZEN_1_MIRROR_1B_Y, Fix.EDELGARZEN_1_MIRROR_1B_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_1_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_1_Z); TapOK();
+          return;
+        }
       }
 
       return;
