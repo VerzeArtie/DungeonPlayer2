@@ -3655,31 +3655,33 @@ public class DungeonField : MotherBase
     {
       Debug.Log("fieldObjBefore is Edelgarzen_Door, then no move");
 
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_1_X, Fix.EDELGARZEN_1_DOOR_1_Y, Fix.EDELGARZEN_1_DOOR_1_Z) ||
-          LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z))
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
       {
-        MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
-        return;
-      }
-
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_5_X, Fix.EDELGARZEN_1_DOOR_5_Y, Fix.EDELGARZEN_1_DOOR_5_Z))
-      {
-        if (direction == Fix.Direction.Right)
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_1_X, Fix.EDELGARZEN_1_DOOR_1_Y, Fix.EDELGARZEN_1_DOOR_1_Z) ||
+            LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z))
         {
-          MessagePack.Message1900040(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
-      }
 
-      if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z))
-      {
-        if (direction == Fix.Direction.Top)
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_5_X, Fix.EDELGARZEN_1_DOOR_5_Y, Fix.EDELGARZEN_1_DOOR_5_Z))
         {
-          MessagePack.Message1900050(ref QuestMessageList, ref QuestEventList); TapOK();
-          return;
+          if (direction == Fix.Direction.Right)
+          {
+            MessagePack.Message1900040(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z))
+        {
+          if (direction == Fix.Direction.Top)
+          {
+            MessagePack.Message1900050(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
         }
       }
-
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
       {
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_DOOR_1_X, Fix.EDELGARZEN_2_DOOR_1_Y, Fix.EDELGARZEN_2_DOOR_1_Z))
