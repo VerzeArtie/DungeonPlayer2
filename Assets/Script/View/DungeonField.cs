@@ -3680,6 +3680,22 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_DOOR_1_X, Fix.EDELGARZEN_2_DOOR_1_Y, Fix.EDELGARZEN_2_DOOR_1_Z))
+        {
+          if (direction == Fix.Direction.Left)
+          {
+            MessagePack.Message1900051(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+        }
+      }
+
       One.PlaySoundEffect(Fix.SOUND_WALL_HIT);
       return;
     }
@@ -10262,6 +10278,14 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.EDELGARZEN_1_DOOR_6_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z));
+            }
+          }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+          {
+            if (currentMessage == Fix.EDELGARZEN_2_DOOR_1_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_2_DOOR_1_X, Fix.EDELGARZEN_2_DOOR_1_Y, Fix.EDELGARZEN_2_DOOR_1_Z));
             }
           }
 
@@ -19218,6 +19242,13 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1900050)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z));
+      }
+    }
+    if (map_data == Fix.MAPFILE_EDELGARZEN_2)
+    {
+      if (One.TF.Event_Message1900051)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_2_DOOR_1_X, Fix.EDELGARZEN_2_DOOR_1_Y, Fix.EDELGARZEN_2_DOOR_1_Z));
       }
     }
     #endregion
