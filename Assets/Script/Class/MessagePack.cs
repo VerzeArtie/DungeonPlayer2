@@ -28540,14 +28540,6 @@ public static class MessagePack
     Message(ref m_list, ref e_list, Fix.NAME_OL_LANDIS_FULL, ActionEvent.HomeTownCallDuel);
   }
 
-  public static void xxx(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Inscribe_MatrixDragon_X(ref m_list, ref e_list);
-
-    Message(ref m_list, ref e_list, Fix.EDELGARZEN_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
-
-    // todo ストーリー未完成
-  }
   #endregion
 
   #region "ゼールマンの里"
