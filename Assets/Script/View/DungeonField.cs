@@ -5792,6 +5792,17 @@ public class DungeonField : MotherBase
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_2_MIRROR_1_X + ":1:" + Fix.EDELGARZEN_2_MIRROR_1_Z); TapOK();
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_MIRROR_2_X, Fix.EDELGARZEN_2_MIRROR_2_Y, Fix.EDELGARZEN_2_MIRROR_2_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_2_MIRROR_2B_X + ":1:" + Fix.EDELGARZEN_2_MIRROR_2B_Z); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_MIRROR_2B_X, Fix.EDELGARZEN_2_MIRROR_2B_Y, Fix.EDELGARZEN_2_MIRROR_2B_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_2_MIRROR_2_X + ":1:" + Fix.EDELGARZEN_2_MIRROR_2_Z); TapOK();
+          return;
+        }
       }
 
       return;
