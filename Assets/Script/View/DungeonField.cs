@@ -17616,9 +17616,9 @@ public class DungeonField : MotherBase
 
     if (map_data == Fix.MAPFILE_EDELGARZEN)
     {
-      for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_1; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_EDELGARZEN_1; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_EDELGARZEN_1; jj++)
+        for (int jj = 0; jj < Fix.MAPSIZE_X_EDELGARZEN_1; jj++)
         {
           Vector3 position = new Vector3(jj, 1.0f, -ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
@@ -17636,9 +17636,9 @@ public class DungeonField : MotherBase
 
     if (map_data == Fix.MAPFILE_EDELGARZEN_2)
     {
-      for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_2; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_EDELGARZEN_2; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_EDELGARZEN_2; jj++)
+        for (int jj = 0; jj < Fix.MAPSIZE_X_EDELGARZEN_2; jj++)
         {
           Vector3 position = new Vector3(jj, 1.0f, -ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
@@ -17656,9 +17656,9 @@ public class DungeonField : MotherBase
 
     if (map_data == Fix.MAPFILE_EDELGARZEN_3)
     {
-      for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_3; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_EDELGARZEN_3; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_EDELGARZEN_3; jj++)
+        for (int jj = 0; jj < Fix.MAPSIZE_X_EDELGARZEN_3; jj++)
         {
           Vector3 position = new Vector3(jj, 1.0f, -ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);
@@ -17676,9 +17676,9 @@ public class DungeonField : MotherBase
 
     if (map_data == Fix.MAPFILE_EDELGARZEN_4)
     {
-      for (int ii = 0; ii < Fix.MAPSIZE_X_EDELGARZEN_4; ii++)
+      for (int ii = 0; ii < Fix.MAPSIZE_Z_EDELGARZEN_4; ii++)
       {
-        for (int jj = 0; jj < Fix.MAPSIZE_Z_EDELGARZEN_4; jj++)
+        for (int jj = 0; jj < Fix.MAPSIZE_X_EDELGARZEN_4; jj++)
         {
           Vector3 position = new Vector3(jj, 1.0f, -ii);
           AddUnknown("Unknown", position, "X" + ii + "_Z" + jj);

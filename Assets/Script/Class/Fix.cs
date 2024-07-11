@@ -483,17 +483,17 @@ public static partial class Fix
   public const int MAPSIZE_X_VELGUS_SEATEMPLE_4 = 50;
   public const int MAPSIZE_Z_VELGUS_SEATEMPLE_4 = 30;
 
-  public const int MAPSIZE_X_EDELGARZEN_1 = 60;
-  public const int MAPSIZE_Z_EDELGARZEN_1 = 40;
+  public const int MAPSIZE_X_EDELGARZEN_1 = 61;
+  public const int MAPSIZE_Z_EDELGARZEN_1 = 41;
 
-  public const int MAPSIZE_X_EDELGARZEN_2 = 60;
-  public const int MAPSIZE_Z_EDELGARZEN_2 = 40;
+  public const int MAPSIZE_X_EDELGARZEN_2 = 61;
+  public const int MAPSIZE_Z_EDELGARZEN_2 = 41;
 
-  public const int MAPSIZE_X_EDELGARZEN_3 = 60;
-  public const int MAPSIZE_Z_EDELGARZEN_3 = 40;
+  public const int MAPSIZE_X_EDELGARZEN_3 = 61;
+  public const int MAPSIZE_Z_EDELGARZEN_3 = 41;
 
-  public const int MAPSIZE_X_EDELGARZEN_4 = 60;
-  public const int MAPSIZE_Z_EDELGARZEN_4 = 40;
+  public const int MAPSIZE_X_EDELGARZEN_4 = 61;
+  public const int MAPSIZE_Z_EDELGARZEN_4 = 41;
 
   #endregion
   #region "Sound File"
