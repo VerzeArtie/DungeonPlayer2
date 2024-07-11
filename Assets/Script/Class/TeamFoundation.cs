@@ -1999,6 +1999,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900064 = false;
   [SerializeField] protected bool _event_message1900065 = false;
   [SerializeField] protected bool _event_message1900066 = false;
+  [SerializeField] protected bool _event_message1900067 = false;
   public bool Event_Message1900010 { get { return _event_message1900010; } set { _event_message1900010 = value; } } // 始めの探索開始イベント
   public bool Event_Message1900020 { get { return _event_message1900020; } set { _event_message1900020 = value; } } // 1F：ワープ鏡１
   public bool Event_Message1900040 { get { return _event_message1900040; } set { _event_message1900040 = value; } } // 1F：扉５
@@ -2019,6 +2020,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900064 { get { return _event_message1900064; } set { _event_message1900064 = value; } } // 2F：扉１４
   public bool Event_Message1900065 { get { return _event_message1900065; } set { _event_message1900065 = value; } } // 2F：扉１５
   public bool Event_Message1900066 { get { return _event_message1900066; } set { _event_message1900066 = value; } } // 2F：扉１６
+  public bool Event_Message1900067 { get { return _event_message1900067; } set { _event_message1900067 = value; } } // 2F：扉１７
 
   #endregion
 
