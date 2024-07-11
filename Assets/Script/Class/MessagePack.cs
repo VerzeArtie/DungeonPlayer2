@@ -28039,6 +28039,15 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900057(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900057 == false)
+    {
+      One.TF.Event_Message1900057 = true;
+      EdelgarzenOpenDoor(ref m_list, ref e_list, Fix.EDELGARZEN_2_DOOR_7_O);
+    }
+  }
+
   public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
   {
     Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
