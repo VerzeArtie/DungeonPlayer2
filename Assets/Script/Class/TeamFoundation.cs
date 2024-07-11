@@ -1984,11 +1984,13 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900040 = false;
   [SerializeField] protected bool _event_message1900050 = false;
   [SerializeField] protected bool _event_message1900051 = false;
+  [SerializeField] protected bool _event_message1900052 = false;
   public bool Event_Message1900010 { get { return _event_message1900010; } set { _event_message1900010 = value; } } // 始めの探索開始イベント
   public bool Event_Message1900020 { get { return _event_message1900020; } set { _event_message1900020 = value; } } // 1F：ワープ鏡１
   public bool Event_Message1900040 { get { return _event_message1900040; } set { _event_message1900040 = value; } } // 1F：扉５
   public bool Event_Message1900050 { get { return _event_message1900050; } set { _event_message1900050 = value; } } // 1F：扉６
   public bool Event_Message1900051 { get { return _event_message1900051; } set { _event_message1900051 = value; } } // 2F：扉１
+  public bool Event_Message1900052 { get { return _event_message1900052; } set { _event_message1900052 = value; } } // 2F：扉２
 
   #endregion
 
