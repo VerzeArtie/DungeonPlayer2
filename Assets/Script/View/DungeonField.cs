@@ -3657,10 +3657,23 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
       {
-        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_1_X, Fix.EDELGARZEN_1_DOOR_1_Y, Fix.EDELGARZEN_1_DOOR_1_Z) ||
-            LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z))
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_1_X, Fix.EDELGARZEN_1_DOOR_1_Y, Fix.EDELGARZEN_1_DOOR_1_Z))
         {
           MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z))
+        {
+          if (direction == Fix.Direction.Top)
+          {
+            MessagePack.Message1900071(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message1900030(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
           return;
         }
 
@@ -10739,6 +10752,10 @@ public class DungeonField : MotherBase
             if (currentMessage == Fix.EDELGARZEN_1_DOOR_6_O)
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z));
+            }
+            if (currentMessage == Fix.EDELGARZEN_1_DOOR_2_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z));
             }
           }
 
@@ -19789,6 +19806,10 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1900050)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_6_X, Fix.EDELGARZEN_1_DOOR_6_Y, Fix.EDELGARZEN_1_DOOR_6_Z));
+      }
+      if (One.TF.Event_Message1900071)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_1_DOOR_2_X, Fix.EDELGARZEN_1_DOOR_2_Y, Fix.EDELGARZEN_1_DOOR_2_Z));
       }
     }
     if (map_data == Fix.MAPFILE_EDELGARZEN_2)
