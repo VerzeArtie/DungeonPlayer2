@@ -6057,6 +6057,28 @@ public class DungeonField : MotherBase
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_2_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_2_Z); TapOK();
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_3_X, Fix.EDELGARZEN_1_MIRROR_3_Y, Fix.EDELGARZEN_1_MIRROR_3_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_3B_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_3B_Z); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_3B_X, Fix.EDELGARZEN_1_MIRROR_3B_Y, Fix.EDELGARZEN_1_MIRROR_3B_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_3_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_3_Z); TapOK();
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_4_X, Fix.EDELGARZEN_1_MIRROR_4_Y, Fix.EDELGARZEN_1_MIRROR_4_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_4B_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_4B_Z); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_4B_X, Fix.EDELGARZEN_1_MIRROR_4B_Y, Fix.EDELGARZEN_1_MIRROR_4B_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_4_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_4_Z); TapOK();
+          return;
+        }
       }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
       {
