@@ -10855,15 +10855,15 @@ public static partial class Fix
 
   public const string EDELGARZEN_1_DOOR_23_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_23_O = "23";
-  public const float EDELGARZEN_1_DOOR_23_X = 43.0f;
+  public const float EDELGARZEN_1_DOOR_23_X = 24.0f;
   public const float EDELGARZEN_1_DOOR_23_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_23_Z = -15.0f;
+  public const float EDELGARZEN_1_DOOR_23_Z = -34.0f;
 
   public const string EDELGARZEN_1_DOOR_24_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_24_O = "24";
-  public const float EDELGARZEN_1_DOOR_24_X = 24.0f;
+  public const float EDELGARZEN_1_DOOR_24_X = 43.0f;
   public const float EDELGARZEN_1_DOOR_24_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_24_Z = -34.0f;
+  public const float EDELGARZEN_1_DOOR_24_Z = -15.0f;
 
   public const string EDELGARZEN_1_DOOR_25_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_25_O = "25";
