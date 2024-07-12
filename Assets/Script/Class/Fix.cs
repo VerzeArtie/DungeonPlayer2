@@ -10789,49 +10789,49 @@ public static partial class Fix
 
   public const string EDELGARZEN_1_DOOR_12_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_12_O = "12";
-  public const float EDELGARZEN_1_DOOR_12_X = 43.0f;
+  public const float EDELGARZEN_1_DOOR_12_X = 46.0f;
   public const float EDELGARZEN_1_DOOR_12_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_12_Z = -15.0f;
+  public const float EDELGARZEN_1_DOOR_12_Z = -13.0f;
 
   public const string EDELGARZEN_1_DOOR_13_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_13_O = "13";
-  public const float EDELGARZEN_1_DOOR_13_X = 46.0f;
+  public const float EDELGARZEN_1_DOOR_13_X = 45.0f;
   public const float EDELGARZEN_1_DOOR_13_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_13_Z = -13.0f;
+  public const float EDELGARZEN_1_DOOR_13_Z = -18.0f;
 
   public const string EDELGARZEN_1_DOOR_14_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_14_O = "14";
-  public const float EDELGARZEN_1_DOOR_14_X = 45.0f;
+  public const float EDELGARZEN_1_DOOR_14_X = 46.0f;
   public const float EDELGARZEN_1_DOOR_14_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_14_Z = -18.0f;
+  public const float EDELGARZEN_1_DOOR_14_Z = -20.0f;
 
   public const string EDELGARZEN_1_DOOR_15_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_15_O = "15";
   public const float EDELGARZEN_1_DOOR_15_X = 46.0f;
   public const float EDELGARZEN_1_DOOR_15_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_15_Z = -20.0f;
+  public const float EDELGARZEN_1_DOOR_15_Z = -27.0f;
 
   public const string EDELGARZEN_1_DOOR_16_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_16_O = "16";
   public const float EDELGARZEN_1_DOOR_16_X = 46.0f;
   public const float EDELGARZEN_1_DOOR_16_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_16_Z = -27.0f;
+  public const float EDELGARZEN_1_DOOR_16_Z = -33.0f;
 
   public const string EDELGARZEN_1_DOOR_17_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_17_O = "17";
-  public const float EDELGARZEN_1_DOOR_17_X = 46.0f;
+  public const float EDELGARZEN_1_DOOR_17_X = 44.0f;
   public const float EDELGARZEN_1_DOOR_17_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_17_Z = -33.0f;
+  public const float EDELGARZEN_1_DOOR_17_Z = -31.0f;
 
   public const string EDELGARZEN_1_DOOR_18_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_18_O = "18";
-  public const float EDELGARZEN_1_DOOR_18_X = 44.0f;
+  public const float EDELGARZEN_1_DOOR_18_X = 40.0f;
   public const float EDELGARZEN_1_DOOR_18_Y = 0.5f;
   public const float EDELGARZEN_1_DOOR_18_Z = -31.0f;
 
   public const string EDELGARZEN_1_DOOR_19_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_19_O = "19";
-  public const float EDELGARZEN_1_DOOR_19_X = 40.0f;
+  public const float EDELGARZEN_1_DOOR_19_X = 36.0f;
   public const float EDELGARZEN_1_DOOR_19_Y = 0.5f;
   public const float EDELGARZEN_1_DOOR_19_Z = -31.0f;
 
@@ -10839,25 +10839,25 @@ public static partial class Fix
   public const string EDELGARZEN_1_DOOR_20_O = "20";
   public const float EDELGARZEN_1_DOOR_20_X = 36.0f;
   public const float EDELGARZEN_1_DOOR_20_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_20_Z = -31.0f;
+  public const float EDELGARZEN_1_DOOR_20_Z = -25.0f;
 
   public const string EDELGARZEN_1_DOOR_21_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_21_O = "21";
-  public const float EDELGARZEN_1_DOOR_21_X = 36.0f;
+  public const float EDELGARZEN_1_DOOR_21_X = 40.0f;
   public const float EDELGARZEN_1_DOOR_21_Y = 0.5f;
   public const float EDELGARZEN_1_DOOR_21_Z = -25.0f;
 
   public const string EDELGARZEN_1_DOOR_22_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_22_O = "22";
-  public const float EDELGARZEN_1_DOOR_22_X = 40.0f;
+  public const float EDELGARZEN_1_DOOR_22_X = 44.0f;
   public const float EDELGARZEN_1_DOOR_22_Y = 0.5f;
   public const float EDELGARZEN_1_DOOR_22_Z = -25.0f;
 
   public const string EDELGARZEN_1_DOOR_23_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_23_O = "23";
-  public const float EDELGARZEN_1_DOOR_23_X = 44.0f;
+  public const float EDELGARZEN_1_DOOR_23_X = 43.0f;
   public const float EDELGARZEN_1_DOOR_23_Y = 0.5f;
-  public const float EDELGARZEN_1_DOOR_23_Z = -25.0f;
+  public const float EDELGARZEN_1_DOOR_23_Z = -15.0f;
 
   public const string EDELGARZEN_1_DOOR_24_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_24_O = "24";
