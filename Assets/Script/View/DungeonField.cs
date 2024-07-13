@@ -7095,6 +7095,11 @@ public class DungeonField : MotherBase
           {
             MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_37B_X - 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_37B_Z); TapOK();
           }
+          // 鏡面ルート
+          if (direction == Fix.Direction.Right)
+          {
+            MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_37B_X + 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_37B_Z); TapOK();
+          }
           return;
         }
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_MIRROR_37B_X, Fix.EDELGARZEN_2_MIRROR_37B_Y, Fix.EDELGARZEN_2_MIRROR_37B_Z))
@@ -7102,6 +7107,11 @@ public class DungeonField : MotherBase
           if (direction == Fix.Direction.Right)
           {
             MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_37_X + 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_37_Z); TapOK();
+          }
+          // 鏡面ルート
+          if (direction == Fix.Direction.Left)
+          {
+            MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_37_X - 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_37_Z); TapOK();
           }
           return;
         }
