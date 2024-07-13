@@ -11593,16 +11593,16 @@ public static partial class Fix
   // ワープ鏡３７
   public const string EDELGARZEN_2_MIRROR_37_C = "Mirror";
   public const string EDELGARZEN_2_MIRROR_37_O = "37";
-  public const float EDELGARZEN_2_MIRROR_37_X = 43.0f;
+  public const float EDELGARZEN_2_MIRROR_37_X = 51.0f;
   public const float EDELGARZEN_2_MIRROR_37_Y = 0.5f;
-  public const float EDELGARZEN_2_MIRROR_37_Z = -28.0f;
+  public const float EDELGARZEN_2_MIRROR_37_Z = -11.0f;
 
   // ワープ鏡３７Ｂ
   public const string EDELGARZEN_2_MIRROR_37B_C = "Mirror";
   public const string EDELGARZEN_2_MIRROR_37B_O = "37B";
-  public const float EDELGARZEN_2_MIRROR_37B_X = 51.0f;
+  public const float EDELGARZEN_2_MIRROR_37B_X = 43.0f;
   public const float EDELGARZEN_2_MIRROR_37B_Y = 0.5f;
-  public const float EDELGARZEN_2_MIRROR_37B_Z = -11.0f;
+  public const float EDELGARZEN_2_MIRROR_37B_Z = -28.0f;
 
   // ワープ鏡３８
   public const string EDELGARZEN_2_MIRROR_38_C = "Mirror";
