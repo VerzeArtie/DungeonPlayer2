@@ -7052,7 +7052,24 @@ public class DungeonField : MotherBase
           return;
         }
 
-        // 35
+        // 出現先１マスずらす（横→←）
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_MIRROR_35_X, Fix.EDELGARZEN_2_MIRROR_35_Y, Fix.EDELGARZEN_2_MIRROR_35_Z))
+        {
+          if (direction == Fix.Direction.Right)
+          {
+            MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_35B_X + 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_35B_Z); TapOK();
+          }
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_2_MIRROR_35B_X, Fix.EDELGARZEN_2_MIRROR_35B_Y, Fix.EDELGARZEN_2_MIRROR_35B_Z))
+        {
+          if (direction == Fix.Direction.Left)
+          {
+            MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, (Fix.EDELGARZEN_2_MIRROR_35_X - 1) + ":1:" + Fix.EDELGARZEN_2_MIRROR_35_Z); TapOK();
+          }
+          return;
+        }
+
         // 36
 
         // 出現先１マスずらす（横←→）
