@@ -13167,6 +13167,13 @@ public static partial class Fix
   public const float EDELGARZEN_3_Event_4_Y = 0.0f;
   public const float EDELGARZEN_3_Event_4_Z = -11.0f;
 
+  // 区画４( -> 9,10 )
+  public const string EDELGARZEN_3_Event_5_C = "Event";
+  public const string EDELGARZEN_3_Event_5_O = "5";
+  public const float EDELGARZEN_3_Event_5_X = 7.0f;
+  public const float EDELGARZEN_3_Event_5_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_5_Z = -5.0f;
+
   // Ｃルートの中央下
   public const string EDELGARZEN_3_Event_99_C = "Event";
   public const string EDELGARZEN_3_Event_99_O = "99";
