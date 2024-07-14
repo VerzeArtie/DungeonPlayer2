@@ -6616,6 +6616,17 @@ public class DungeonField : MotherBase
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_21_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_21_Z); TapOK();
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_23_X, Fix.EDELGARZEN_1_MIRROR_23_Y, Fix.EDELGARZEN_1_MIRROR_23_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_23B_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_23B_Z); TapOK();
+          return;
+        }
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_1_MIRROR_23B_X, Fix.EDELGARZEN_1_MIRROR_23B_Y, Fix.EDELGARZEN_1_MIRROR_23B_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_1_MIRROR_23_X + ":1:" + Fix.EDELGARZEN_1_MIRROR_23_Z); TapOK();
+          return;
+        }
       }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
       {
