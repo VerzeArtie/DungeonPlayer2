@@ -15406,6 +15406,14 @@ public class DungeonField : MotherBase
           return true;
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+      {
+        if (LocationDetect(tile, Fix.EDELGARZEN_2_UPSTAIR_6_X, Fix.EDELGARZEN_2_UPSTAIR_6_Y, Fix.EDELGARZEN_2_UPSTAIR_6_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_EDELGARZEN_3, Fix.EDELGARZEN_3_DOWNSTAIR_1_X + 1.0f, Fix.EDELGARZEN_3_DOWNSTAIR_1_Y + 1.0f, Fix.EDELGARZEN_3_DOWNSTAIR_1_Z);
+          return true;
+        }
+      }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
       {
         DungeonCallSetup(Fix.MAPFILE_BASE_FIELD, -109, 1.5f, 33);
@@ -15543,6 +15551,15 @@ public class DungeonField : MotherBase
         if (LocationDetect(tile, Fix.EDELGARZEN_2_DOWNSTAIR_5_X, Fix.EDELGARZEN_2_DOWNSTAIR_5_Y, Fix.EDELGARZEN_2_DOWNSTAIR_5_Z))
         {
           DungeonCallSetup(Fix.MAPFILE_EDELGARZEN, Fix.EDELGARZEN_1_UPSTAIR_6_X, Fix.EDELGARZEN_1_UPSTAIR_6_Y + 1.0f, Fix.EDELGARZEN_1_UPSTAIR_6_Z - 1.0f);
+          return true;
+        }
+      }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        if (LocationDetect(tile, Fix.EDELGARZEN_3_DOWNSTAIR_1_X, Fix.EDELGARZEN_3_DOWNSTAIR_1_Y, Fix.EDELGARZEN_3_DOWNSTAIR_1_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_EDELGARZEN_2, Fix.EDELGARZEN_2_UPSTAIR_6_X, Fix.EDELGARZEN_2_UPSTAIR_6_Y + 1.0f, Fix.EDELGARZEN_2_UPSTAIR_6_Z - 1.0f);
           return true;
         }
       }
