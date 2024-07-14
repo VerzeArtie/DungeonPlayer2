@@ -2043,6 +2043,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900108 = false;
   [SerializeField] protected bool _event_message1900109 = false;
   [SerializeField] protected bool _event_message1900110 = false;
+  [SerializeField] protected bool _event_message1900116 = false;
   public bool Event_Message1900010 { get { return _event_message1900010; } set { _event_message1900010 = value; } } // 始めの探索開始イベント
   public bool Event_Message1900020 { get { return _event_message1900020; } set { _event_message1900020 = value; } } // 1F：ワープ鏡１
   public bool Event_Message1900040 { get { return _event_message1900040; } set { _event_message1900040 = value; } } // 1F：扉５
@@ -2107,6 +2108,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900108 { get { return _event_message1900108; } set { _event_message1900108 = value; } } // 1F：扉４１
   public bool Event_Message1900109 { get { return _event_message1900109; } set { _event_message1900109 = value; } } // 1F：扉４２
   public bool Event_Message1900110 { get { return _event_message1900110; } set { _event_message1900110 = value; } } // 3F：区画の表示
+  public bool Event_Message1900116 { get { return _event_message1900116; } set { _event_message1900116 = value; } } // 3F：「遠見の青水晶」禁止
 
   #endregion
 

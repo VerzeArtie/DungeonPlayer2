@@ -28643,6 +28643,72 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "5", ActionEvent.UpdateUnknownTile);
   }
 
+  public static void Message1900116(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900116 == false)
+    {
+      One.TF.Event_Message1900116 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ん？これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、遠見の青水晶だが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いつもの様に情景が映し出されないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：本当ね。こんな事は初めてだわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：所詮水晶だしな。ぶっ壊れたんじゃねーのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや・・・このアイテムに限ってそれはない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んじゃ、何かの故障じゃねーのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、それもない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：実はテメーが念じすぎたのが問題じゃねえのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それもない。このアイテムは俺の意志でどうにかなる代物じゃない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ何だっつうんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この場が、そういう場なんじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この城の事？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの看板の内容とも少し関連性がある気がする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ともかく、途中で引き返したり、抜ける事が許されない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：慎重に進めるしかないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：まあ使えないつったってこの階層だけなんだろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらくな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃあ、完全にアウトって状況にはならねーと信じて突っ切るしかねえな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ！ビリー、お前ってすげえな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お前の言うとおりだ。ここは突っ切るしかない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おう、やる気になったじゃねーか。青水晶無しで突破してやろーぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：（遠見の青水晶は情景が映らない。今は使えないな。）", ActionEvent.None);
+    }
+  }
+
   public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
   {
     Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);

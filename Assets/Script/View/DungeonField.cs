@@ -2358,6 +2358,12 @@ public class DungeonField : MotherBase
     }
     else
     {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        MessagePack.Message1900116(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
       txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
       txtDecisionMessage.text = "ダンジョンから出た場合、その日は再びダンジョン内に入る事は出来なくなります。";
