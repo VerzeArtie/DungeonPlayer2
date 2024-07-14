@@ -7522,6 +7522,18 @@ public class DungeonField : MotherBase
           return;
         }
 
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_7_X, Fix.EDELGARZEN_3_MIRROR_7_Y, Fix.EDELGARZEN_3_MIRROR_7_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_7B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_7B_Z); TapOK();
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_8_X, Fix.EDELGARZEN_3_MIRROR_8_Y, Fix.EDELGARZEN_3_MIRROR_8_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_8B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_8B_Z); TapOK();
+          return;
+        }
+
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_27_X, Fix.EDELGARZEN_3_MIRROR_27_Y, Fix.EDELGARZEN_3_MIRROR_27_Z))
         {
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_27B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_27B_Z); TapOK();
@@ -9960,6 +9972,10 @@ public class DungeonField : MotherBase
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "3")
           {
             UpdateUnknownTileArea(7, 5, 27, 14, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "4")
+          {
+            UpdateUnknownTileArea(5, 5, 8, 36, 61, One.TF.KnownTileList_Edelgarzen_3);
           }
         }
         // マップ上を自動移動（左）
@@ -15287,6 +15303,12 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_3_X, Fix.EDELGARZEN_3_Event_3_Y, Fix.EDELGARZEN_3_Event_3_Z))
       {
         MessagePack.Message1900113(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_4_X, Fix.EDELGARZEN_3_Event_4_Y, Fix.EDELGARZEN_3_Event_4_Z))
+      {
+        MessagePack.Message1900114(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
