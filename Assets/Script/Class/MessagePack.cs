@@ -28681,9 +28681,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そうだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あの看板の内容とも少し関連性がある気がする。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ともかく、途中で引き返したり、抜ける事が許されない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：遠見の青水晶が使えない以上、途中で引き返したり、抜ける事が許されない。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：慎重に進めるしかないな。", ActionEvent.None);
 
