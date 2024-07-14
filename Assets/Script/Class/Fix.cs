@@ -10915,7 +10915,7 @@ public static partial class Fix
 
   public const string EDELGARZEN_1_DOOR_33_C = "Edelgarzen_Door";
   public const string EDELGARZEN_1_DOOR_33_O = "33";
-  public const float EDELGARZEN_1_DOOR_33_X = 14.0f;
+  public const float EDELGARZEN_1_DOOR_33_X = 13.0f;
   public const float EDELGARZEN_1_DOOR_33_Y = 0.5f;
   public const float EDELGARZEN_1_DOOR_33_Z = -32.0f;
 
