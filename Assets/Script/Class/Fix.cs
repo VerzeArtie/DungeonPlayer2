@@ -13146,12 +13146,19 @@ public static partial class Fix
   public const float EDELGARZEN_3_Event_1_Y = 0.0f;
   public const float EDELGARZEN_3_Event_1_Z = -7.0f;
 
-  // Ｃルートの中央下
+  // 区画１( -> 2,3,4 )
   public const string EDELGARZEN_3_Event_2_C = "Event";
   public const string EDELGARZEN_3_Event_2_O = "2";
-  public const float EDELGARZEN_3_Event_2_X = 30.0f;
+  public const float EDELGARZEN_3_Event_2_X = 35.0f;
   public const float EDELGARZEN_3_Event_2_Y = 0.0f;
-  public const float EDELGARZEN_3_Event_2_Z = -33.0f;
+  public const float EDELGARZEN_3_Event_2_Z = -24.0f;
+
+  // Ｃルートの中央下
+  public const string EDELGARZEN_3_Event_99_C = "Event";
+  public const string EDELGARZEN_3_Event_99_O = "99";
+  public const float EDELGARZEN_3_Event_99_X = 30.0f;
+  public const float EDELGARZEN_3_Event_99_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_99_Z = -33.0f;
   #endregion
   #region "看板"
   public const string EDELGARZEN_3_MessageBoard_1_C = "MessageBoard";
