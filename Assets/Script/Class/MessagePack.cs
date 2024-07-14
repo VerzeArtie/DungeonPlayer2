@@ -28516,6 +28516,113 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900110(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900110 == false)
+    {
+      One.TF.Event_Message1900110 = true;
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　正解、無限解、原点解　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どう？分かりそう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これは・・・。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直な所、本当に分からない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か考える糸口はあるのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：鏡が３つ見えてるよな。正解、無限、原点ってそれぞれを指してるんねーのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうだろうな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そうだとしても、どれがどれに相当するかは想像付かないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう・・・かも知れない・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んだよ。全然違うとでも言いたいのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、その辺りは・・・何て言うんだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：違うと言っても、そもそも見えてない対象に違うとは言えないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：意味わかんねーな。まあ、当てずっぽじゃダメなんだろーけどよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一歩間違えると路頭に迷う気がしているんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もう少し、考えさせてくれ。頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～～～　しばらくして ～～～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そろそろね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ラナのおねーちゃん、すごいねー。どうやって感知してるのー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアインの考える所は何度か見てきてるから、経験的なものかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：あ・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：なんとなく、分かった☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、進めるとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：目星は付いたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、付いてないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：探索の方向性は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まだ決めてはいないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そもそも看板の意図は読み切ったのかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこは読み切ってないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：で、行けそうって事かしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハハハー、本当に面白ーい☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アインのおにーちゃんってさー。いつもそうなの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・確かにいつもこんな感じではあるな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いつもの事よ。こんな調子だから変に不安とか期待とか持たないようにしてるわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、ちょっとやそっとじゃ説明しきれない所なんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただし、ターゲットは捉えたつもりだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：終わったら後で説明する。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、頼んだわよ。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900111(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　正解、無限解、原点解　』", ActionEvent.None);
+  }
+
   public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
   {
     Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);

@@ -3183,6 +3183,13 @@ public class DungeonField : MotherBase
           MessagePack.Message1000297(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MessageBoard_1_X, Fix.EDELGARZEN_3_MessageBoard_1_Y, Fix.EDELGARZEN_3_MessageBoard_1_Z))
+        {
+          MessagePack.Message1900111(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       return;
     }
 
@@ -9892,6 +9899,11 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(9, 9, 2, 1, 50, One.TF.KnownTileList_VelgusSeaTemple_4);
           }
+
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "1")
+          {
+            UpdateUnknownTileArea(7, 6, 4, 11, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -15201,6 +15213,15 @@ public class DungeonField : MotherBase
 
 
     }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+    {
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_1_X, Fix.EDELGARZEN_3_Event_1_Y, Fix.EDELGARZEN_3_Event_1_Z))
+      {
+        MessagePack.Message1900110(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
       if (LocationDetect(tile, 1, 0, 0) && One.TF.AvailableSelmoiRo == false)
