@@ -28608,11 +28608,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：いつもの事よ。こんな調子だから変に不安とか期待とか持たないようにしてるわ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあ、ちょっとやそっとじゃ説明しきれない所なんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあ、今回に限り、ちょっとやそっとじゃ説明しきれない所なんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ただし、ターゲットは捉えたつもりだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：終わったら後で説明する。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：終わったら後で説明する。今は俺に付いてきてくれ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：ええ、頼んだわよ。", ActionEvent.None);
     }
