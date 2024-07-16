@@ -13314,6 +13314,48 @@ public static partial class Fix
   public const float EDELGARZEN_3_Event_25_Y = 0.0f;
   public const float EDELGARZEN_3_Event_25_Z = -28.0f;
 
+  // 区画５７( -> 63,64,65,66 )
+  public const string EDELGARZEN_3_Event_26_C = "Event";
+  public const string EDELGARZEN_3_Event_26_O = "26";
+  public const float EDELGARZEN_3_Event_26_X = 24.0f;
+  public const float EDELGARZEN_3_Event_26_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_26_Z = -34.0f;
+
+  // 区画５８( -> 67,68 )
+  public const string EDELGARZEN_3_Event_27_C = "Event";
+  public const string EDELGARZEN_3_Event_27_O = "27";
+  public const float EDELGARZEN_3_Event_27_X = 37.0f;
+  public const float EDELGARZEN_3_Event_27_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_27_Z = -5.0f;
+
+  // 区画５９( -> 69,70,71 )
+  public const string EDELGARZEN_3_Event_28_C = "Event";
+  public const string EDELGARZEN_3_Event_28_O = "28";
+  public const float EDELGARZEN_3_Event_28_X = 45.0f;
+  public const float EDELGARZEN_3_Event_28_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_28_Z = -24.0f;
+
+  // 区画６０( -> 72,73,74 )
+  public const string EDELGARZEN_3_Event_29_C = "Event";
+  public const string EDELGARZEN_3_Event_29_O = "29";
+  public const float EDELGARZEN_3_Event_29_X = 37.0f;
+  public const float EDELGARZEN_3_Event_29_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_29_Z = -15.0f;
+
+  // 区画６１( -> 75,76,77 )
+  public const string EDELGARZEN_3_Event_30_C = "Event";
+  public const string EDELGARZEN_3_Event_30_O = "30";
+  public const float EDELGARZEN_3_Event_30_X = 15.0f;
+  public const float EDELGARZEN_3_Event_30_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_30_Z = -15.0f;
+
+  // 区画６２( -> 78,79 )
+  public const string EDELGARZEN_3_Event_31_C = "Event";
+  public const string EDELGARZEN_3_Event_31_O = "31";
+  public const float EDELGARZEN_3_Event_31_X = 27.0f;
+  public const float EDELGARZEN_3_Event_31_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_31_Z = -21.0f;
+
   // Ｃルートの中央下
   public const string EDELGARZEN_3_Event_99_C = "Event";
   public const string EDELGARZEN_3_Event_99_O = "99";
