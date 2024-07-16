@@ -28742,6 +28742,11 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "12", ActionEvent.UpdateUnknownTile);
   }
 
+  public static void Message1900124(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "13", ActionEvent.UpdateUnknownTile);
+  }
+
   public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
   {
     Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);
