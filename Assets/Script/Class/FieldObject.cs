@@ -77,4 +77,6 @@ public class FieldObject : MonoBehaviour
   public Content content = Content.None;
 
   public string ObjectId = String.Empty;
+
+  public Vector3 InitPosition = Vector3.zero;
 }

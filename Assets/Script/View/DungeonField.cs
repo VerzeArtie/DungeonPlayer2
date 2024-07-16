@@ -17452,6 +17452,20 @@ public class DungeonField : MotherBase
     return true;
   }
 
+  private FieldObject IsExistObject(Vector3 location)
+  {
+    for (int ii = 0; ii < FieldObjList.Count; ii++)
+    {
+      if (location.x == FieldObjList[ii].InitPosition.x &&
+          (location.y == FieldObjList[ii].InitPosition.y || location.y + 0.5 <= FieldObjList[ii].InitPosition.y) &&
+          location.z == FieldObjList[ii].InitPosition.z)
+      {
+        return FieldObjList[ii];
+      }
+    }
+    return null;
+  }
+
   private FieldObject SearchObject(Vector3 player)
   {
     FieldObject obj = null;
@@ -17733,14 +17747,7 @@ public class DungeonField : MotherBase
       if (currentRight != null && currentRight.MoveCost != 999)
       {
         Vector3 vector = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 0.5f, currentRight.transform.position.z);
-        FieldObject field_obj = SearchObject(vector);
-        if (field_obj == null)
-        {
-          // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentRight.transform.position.x, currentRight.transform.position.y + 1.0f, currentRight.transform.position.z);
-          field_obj = SearchObject(vector2);
-        }
-
+        FieldObject field_obj = IsExistObject(vector);
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
@@ -17868,13 +17875,7 @@ public class DungeonField : MotherBase
       if (currentLeft != null && currentLeft.MoveCost != 999)
       {
         Vector3 vector = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 0.5f, currentLeft.transform.position.z);
-        FieldObject field_obj = SearchObject(vector);
-        if (field_obj == null)
-        {
-          // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentLeft.transform.position.x, currentLeft.transform.position.y + 1.0f, currentLeft.transform.position.z);
-          field_obj = SearchObject(vector2);
-        }
+        FieldObject field_obj = IsExistObject(vector);
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
@@ -18002,13 +18003,7 @@ public class DungeonField : MotherBase
       if (currentTop != null && currentTop.MoveCost != 999)
       {
         Vector3 vector = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 0.5f, currentTop.transform.position.z);
-        FieldObject field_obj = SearchObject(vector);
-        if (field_obj == null)
-        {
-          // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentTop.transform.position.x, currentTop.transform.position.y + 1.0f, currentTop.transform.position.z);
-          field_obj = SearchObject(vector2);
-        }
+        FieldObject field_obj = IsExistObject(vector);
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
@@ -18136,13 +18131,7 @@ public class DungeonField : MotherBase
       if (currentBottom != null && currentBottom.MoveCost != 999)
       {
         Vector3 vector = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 0.5f, currentBottom.transform.position.z);
-        FieldObject field_obj = SearchObject(vector);
-        if (field_obj == null)
-        {
-          // 1.0f段差は判定に含める
-          Vector3 vector2 = new Vector3(currentBottom.transform.position.x, currentBottom.transform.position.y + 1.0f, currentBottom.transform.position.z);
-          field_obj = SearchObject(vector2);
-        }
+        FieldObject field_obj = IsExistObject(vector);
         if (field_obj != null && field_obj.content == FieldObject.Content.Rock ||
             field_obj != null && field_obj.content == FieldObject.Content.Door_Copper ||
             field_obj != null && field_obj.content == FieldObject.Content.Brushwood ||
@@ -19098,6 +19087,7 @@ public class DungeonField : MotherBase
 
     if (current != null)
     {
+      current.InitPosition = new Vector3(current.transform.position.x, current.transform.position.y, current.transform.position.z);
       current.gameObject.SetActive(true);
       FieldObjList.Add(current);
     }
@@ -19590,6 +19580,7 @@ public class DungeonField : MotherBase
       ContentFieldObj.GetComponent<RectTransform>().sizeDelta = new Vector2(ContentFieldObj.GetComponent<RectTransform>().sizeDelta.x, ContentFieldObj.GetComponent<RectTransform>().sizeDelta.y + HEIGHT);
       // debug
 
+      current.InitPosition = new Vector3(current.transform.position.x, current.transform.position.y, current.transform.position.z);
       this.FieldObjList.Add(current);
     }
   }
