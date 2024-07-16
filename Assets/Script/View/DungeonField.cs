@@ -7751,6 +7751,18 @@ public class DungeonField : MotherBase
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_60B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_60B_Z); TapOK();
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_61_X, Fix.EDELGARZEN_3_MIRROR_61_Y, Fix.EDELGARZEN_3_MIRROR_61_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_61B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_61B_Z); TapOK();
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_62_X, Fix.EDELGARZEN_3_MIRROR_62_Y, Fix.EDELGARZEN_3_MIRROR_62_Z))
+        {
+          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_62B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_62B_Z); TapOK();
+          return;
+        }
       }
       return;
     }
@@ -10268,6 +10280,10 @@ public class DungeonField : MotherBase
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "24")
           {
             UpdateUnknownTileArea(12, 3, 4, 40, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "25")
+          {
+            UpdateUnknownTileArea(11, 3, 22, 20, 61, One.TF.KnownTileList_Edelgarzen_3);
           }
         }
         // マップ上を自動移動（左）
@@ -15721,6 +15737,12 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_24_X, Fix.EDELGARZEN_3_Event_24_Y, Fix.EDELGARZEN_3_Event_24_Z))
       {
         MessagePack.Message1900135(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_25_X, Fix.EDELGARZEN_3_Event_25_Y, Fix.EDELGARZEN_3_Event_25_Z))
+      {
+        MessagePack.Message1900136(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
