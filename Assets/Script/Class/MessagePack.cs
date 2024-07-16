@@ -28757,6 +28757,36 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "15", ActionEvent.UpdateUnknownTile);
   }
 
+  public static void Message1900127(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "16", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1900128(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "17", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1900129(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "18", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1900130(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "19", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1900131(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "20", ActionEvent.UpdateUnknownTile);
+  }
+
+  public static void Message1900132(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "21", ActionEvent.UpdateUnknownTile);
+  }
+
   public static void EdelgarzenOpenDoor(ref List<string> m_list, ref List<ActionEvent> e_list, string dst_door)
   {
     Message(ref m_list, ref e_list, "アイン：扉か・・・固く閉ざされているな。", ActionEvent.None);

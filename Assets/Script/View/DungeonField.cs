@@ -10189,6 +10189,31 @@ public class DungeonField : MotherBase
             UpdateUnknownTileArea(6, 5, 10, 3, 61, One.TF.KnownTileList_Edelgarzen_3);
             UpdateUnknownTileArea(4, 4, 16, 4, 61, One.TF.KnownTileList_Edelgarzen_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "16")
+          {
+            UpdateUnknownTileArea(7, 5, 12, 22, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "17")
+          {
+            UpdateUnknownTileArea(5, 5, 11, 53, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "18")
+          {
+            UpdateUnknownTileArea(5, 7, 6, 16, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "19")
+          {
+            UpdateUnknownTileArea(5, 5, 29, 42, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "20")
+          {
+            UpdateUnknownTileArea(7, 5, 22, 22, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "21")
+          {
+            UpdateUnknownTileArea(13, 3, 13, 16, 61, One.TF.KnownTileList_Edelgarzen_3);
+            UpdateUnknownTileArea(3, 5, 18, 19, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -15587,6 +15612,42 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_15_X, Fix.EDELGARZEN_3_Event_15_Y, Fix.EDELGARZEN_3_Event_15_Z))
       {
         MessagePack.Message1900126(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_16_X, Fix.EDELGARZEN_3_Event_16_Y, Fix.EDELGARZEN_3_Event_16_Z))
+      {
+        MessagePack.Message1900127(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_17_X, Fix.EDELGARZEN_3_Event_17_Y, Fix.EDELGARZEN_3_Event_17_Z))
+      {
+        MessagePack.Message1900128(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_18_X, Fix.EDELGARZEN_3_Event_18_Y, Fix.EDELGARZEN_3_Event_18_Z))
+      {
+        MessagePack.Message1900129(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_19_X, Fix.EDELGARZEN_3_Event_19_Y, Fix.EDELGARZEN_3_Event_19_Z))
+      {
+        MessagePack.Message1900130(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_20_X, Fix.EDELGARZEN_3_Event_20_Y, Fix.EDELGARZEN_3_Event_20_Z))
+      {
+        MessagePack.Message1900131(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_21_X, Fix.EDELGARZEN_3_Event_21_Y, Fix.EDELGARZEN_3_Event_21_Z))
+      {
+        MessagePack.Message1900132(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
