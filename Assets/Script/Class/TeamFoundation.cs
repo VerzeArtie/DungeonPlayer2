@@ -2110,6 +2110,16 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900110 { get { return _event_message1900110; } set { _event_message1900110 = value; } } // 3F：区画の表示
   public bool Event_Message1900116 { get { return _event_message1900116; } set { _event_message1900116 = value; } } // 3F：「遠見の青水晶」禁止
 
+  [SerializeField] protected int _edelgarzen_mirror_sequence_1 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_2 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_3 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_4 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_5 = 0;
+  public int EdelgarzenMirrorSequence_1 { get { return _edelgarzen_mirror_sequence_1; } set { _edelgarzen_mirror_sequence_1 = value; } } // 3F：鏡正解ルート１
+  public int EdelgarzenMirrorSequence_2 { get { return _edelgarzen_mirror_sequence_2; } set { _edelgarzen_mirror_sequence_2 = value; } } // 3F：鏡正解ルート２
+  public int EdelgarzenMirrorSequence_3 { get { return _edelgarzen_mirror_sequence_3; } set { _edelgarzen_mirror_sequence_3 = value; } } // 3F：鏡正解ルート３
+  public int EdelgarzenMirrorSequence_4 { get { return _edelgarzen_mirror_sequence_4; } set { _edelgarzen_mirror_sequence_4 = value; } } // 3F：鏡正解ルート４
+  public int EdelgarzenMirrorSequence_5 { get { return _edelgarzen_mirror_sequence_5; } set { _edelgarzen_mirror_sequence_5 = value; } } // 3F：鏡正解ルート５
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;

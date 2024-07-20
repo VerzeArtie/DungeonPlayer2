@@ -7556,7 +7556,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_12_X, Fix.EDELGARZEN_3_MIRROR_12_Y, Fix.EDELGARZEN_3_MIRROR_12_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_13_X, Fix.EDELGARZEN_3_MIRROR_13_Y, Fix.EDELGARZEN_3_MIRROR_13_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
@@ -7564,7 +7564,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_15_X, Fix.EDELGARZEN_3_MIRROR_15_Y, Fix.EDELGARZEN_3_MIRROR_15_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_16_X, Fix.EDELGARZEN_3_MIRROR_16_Y, Fix.EDELGARZEN_3_MIRROR_16_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
@@ -7572,21 +7572,21 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_18_X, Fix.EDELGARZEN_3_MIRROR_18_Y, Fix.EDELGARZEN_3_MIRROR_18_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_19_X, Fix.EDELGARZEN_3_MIRROR_19_Y, Fix.EDELGARZEN_3_MIRROR_19_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_20_X, Fix.EDELGARZEN_3_MIRROR_20_Y, Fix.EDELGARZEN_3_MIRROR_20_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_21_X, Fix.EDELGARZEN_3_MIRROR_21_Y, Fix.EDELGARZEN_3_MIRROR_21_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_22_X, Fix.EDELGARZEN_3_MIRROR_22_Y, Fix.EDELGARZEN_3_MIRROR_22_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_23_X, Fix.EDELGARZEN_3_MIRROR_23_Y, Fix.EDELGARZEN_3_MIRROR_23_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
@@ -7594,7 +7594,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_25_X, Fix.EDELGARZEN_3_MIRROR_25_Y, Fix.EDELGARZEN_3_MIRROR_25_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_26_X, Fix.EDELGARZEN_3_MIRROR_26_Y, Fix.EDELGARZEN_3_MIRROR_26_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror(fieldObjBefore);
           return;
         }
 
@@ -7808,6 +7808,32 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_79_X, Fix.EDELGARZEN_3_MIRROR_79_Y, Fix.EDELGARZEN_3_MIRROR_79_Z))
         {
           MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          return;
+        }
+
+        // 80は記述不要。
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_81_X, Fix.EDELGARZEN_3_MIRROR_81_Y, Fix.EDELGARZEN_3_MIRROR_81_Z))
+        {
+          ChooseDstMirror(82);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_82_X, Fix.EDELGARZEN_3_MIRROR_82_Y, Fix.EDELGARZEN_3_MIRROR_82_Z))
+        {
+          ChooseDstMirror(83);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_83_X, Fix.EDELGARZEN_3_MIRROR_83_Y, Fix.EDELGARZEN_3_MIRROR_83_Z))
+        {
+          ChooseDstMirror(84);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_84_X, Fix.EDELGARZEN_3_MIRROR_84_Y, Fix.EDELGARZEN_3_MIRROR_84_Z))
+        {
+          ChooseDstMirror(0);
           return;
         }
       }
@@ -23074,5 +23100,397 @@ public class DungeonField : MotherBase
       UnknownTileList[numbers[ii]].gameObject.SetActive(false);
       tile_list[numbers[ii]] = true;
     }
+  }
+
+  /// <summary>
+  /// 鏡の位置情報から鏡の番号を取得する。
+  /// </summary>
+  /// <param name="location">鏡の位置情報</param>
+  /// <returns>鏡の番号</returns>
+  private int MirrorNumberFromLocation(Vector3 location)
+  {
+    if (location.x == Fix.EDELGARZEN_3_MIRROR_1_X && location.y == Fix.EDELGARZEN_3_MIRROR_1_Y && location.z == Fix.EDELGARZEN_3_MIRROR_1_Z) { return 1; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_2_X && location.y == Fix.EDELGARZEN_3_MIRROR_2_Y && location.z == Fix.EDELGARZEN_3_MIRROR_2_Z) { return 2; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_3_X && location.y == Fix.EDELGARZEN_3_MIRROR_3_Y && location.z == Fix.EDELGARZEN_3_MIRROR_3_Z) { return 3; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_4_X && location.y == Fix.EDELGARZEN_3_MIRROR_4_Y && location.z == Fix.EDELGARZEN_3_MIRROR_4_Z) { return 4; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_5_X && location.y == Fix.EDELGARZEN_3_MIRROR_5_Y && location.z == Fix.EDELGARZEN_3_MIRROR_5_Z) { return 5; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_6_X && location.y == Fix.EDELGARZEN_3_MIRROR_6_Y && location.z == Fix.EDELGARZEN_3_MIRROR_6_Z) { return 6; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_7_X && location.y == Fix.EDELGARZEN_3_MIRROR_7_Y && location.z == Fix.EDELGARZEN_3_MIRROR_7_Z) { return 7; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_8_X && location.y == Fix.EDELGARZEN_3_MIRROR_8_Y && location.z == Fix.EDELGARZEN_3_MIRROR_8_Z) { return 8; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_9_X && location.y == Fix.EDELGARZEN_3_MIRROR_9_Y && location.z == Fix.EDELGARZEN_3_MIRROR_9_Z) { return 9; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_10_X && location.y == Fix.EDELGARZEN_3_MIRROR_10_Y && location.z == Fix.EDELGARZEN_3_MIRROR_10_Z) { return 10; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_11_X && location.y == Fix.EDELGARZEN_3_MIRROR_11_Y && location.z == Fix.EDELGARZEN_3_MIRROR_11_Z) { return 11; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_12_X && location.y == Fix.EDELGARZEN_3_MIRROR_12_Y && location.z == Fix.EDELGARZEN_3_MIRROR_12_Z) { return 12; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_13_X && location.y == Fix.EDELGARZEN_3_MIRROR_13_Y && location.z == Fix.EDELGARZEN_3_MIRROR_13_Z) { return 13; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_14_X && location.y == Fix.EDELGARZEN_3_MIRROR_14_Y && location.z == Fix.EDELGARZEN_3_MIRROR_14_Z) { return 14; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_15_X && location.y == Fix.EDELGARZEN_3_MIRROR_15_Y && location.z == Fix.EDELGARZEN_3_MIRROR_15_Z) { return 15; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_16_X && location.y == Fix.EDELGARZEN_3_MIRROR_16_Y && location.z == Fix.EDELGARZEN_3_MIRROR_16_Z) { return 16; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_17_X && location.y == Fix.EDELGARZEN_3_MIRROR_17_Y && location.z == Fix.EDELGARZEN_3_MIRROR_17_Z) { return 17; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_18_X && location.y == Fix.EDELGARZEN_3_MIRROR_18_Y && location.z == Fix.EDELGARZEN_3_MIRROR_18_Z) { return 18; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_19_X && location.y == Fix.EDELGARZEN_3_MIRROR_19_Y && location.z == Fix.EDELGARZEN_3_MIRROR_19_Z) { return 19; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_20_X && location.y == Fix.EDELGARZEN_3_MIRROR_20_Y && location.z == Fix.EDELGARZEN_3_MIRROR_20_Z) { return 20; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_21_X && location.y == Fix.EDELGARZEN_3_MIRROR_21_Y && location.z == Fix.EDELGARZEN_3_MIRROR_21_Z) { return 21; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_22_X && location.y == Fix.EDELGARZEN_3_MIRROR_22_Y && location.z == Fix.EDELGARZEN_3_MIRROR_22_Z) { return 22; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_23_X && location.y == Fix.EDELGARZEN_3_MIRROR_23_Y && location.z == Fix.EDELGARZEN_3_MIRROR_23_Z) { return 23; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_24_X && location.y == Fix.EDELGARZEN_3_MIRROR_24_Y && location.z == Fix.EDELGARZEN_3_MIRROR_24_Z) { return 24; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_25_X && location.y == Fix.EDELGARZEN_3_MIRROR_25_Y && location.z == Fix.EDELGARZEN_3_MIRROR_25_Z) { return 25; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_26_X && location.y == Fix.EDELGARZEN_3_MIRROR_26_Y && location.z == Fix.EDELGARZEN_3_MIRROR_26_Z) { return 26; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_27_X && location.y == Fix.EDELGARZEN_3_MIRROR_27_Y && location.z == Fix.EDELGARZEN_3_MIRROR_27_Z) { return 27; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_28_X && location.y == Fix.EDELGARZEN_3_MIRROR_28_Y && location.z == Fix.EDELGARZEN_3_MIRROR_28_Z) { return 28; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_29_X && location.y == Fix.EDELGARZEN_3_MIRROR_29_Y && location.z == Fix.EDELGARZEN_3_MIRROR_29_Z) { return 29; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_30_X && location.y == Fix.EDELGARZEN_3_MIRROR_30_Y && location.z == Fix.EDELGARZEN_3_MIRROR_30_Z) { return 30; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_31_X && location.y == Fix.EDELGARZEN_3_MIRROR_31_Y && location.z == Fix.EDELGARZEN_3_MIRROR_31_Z) { return 31; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_32_X && location.y == Fix.EDELGARZEN_3_MIRROR_32_Y && location.z == Fix.EDELGARZEN_3_MIRROR_32_Z) { return 32; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_33_X && location.y == Fix.EDELGARZEN_3_MIRROR_33_Y && location.z == Fix.EDELGARZEN_3_MIRROR_33_Z) { return 33; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_34_X && location.y == Fix.EDELGARZEN_3_MIRROR_34_Y && location.z == Fix.EDELGARZEN_3_MIRROR_34_Z) { return 34; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_35_X && location.y == Fix.EDELGARZEN_3_MIRROR_35_Y && location.z == Fix.EDELGARZEN_3_MIRROR_35_Z) { return 35; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_36_X && location.y == Fix.EDELGARZEN_3_MIRROR_36_Y && location.z == Fix.EDELGARZEN_3_MIRROR_36_Z) { return 36; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_37_X && location.y == Fix.EDELGARZEN_3_MIRROR_37_Y && location.z == Fix.EDELGARZEN_3_MIRROR_37_Z) { return 37; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_38_X && location.y == Fix.EDELGARZEN_3_MIRROR_38_Y && location.z == Fix.EDELGARZEN_3_MIRROR_38_Z) { return 38; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_39_X && location.y == Fix.EDELGARZEN_3_MIRROR_39_Y && location.z == Fix.EDELGARZEN_3_MIRROR_39_Z) { return 39; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_40_X && location.y == Fix.EDELGARZEN_3_MIRROR_40_Y && location.z == Fix.EDELGARZEN_3_MIRROR_40_Z) { return 40; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_41_X && location.y == Fix.EDELGARZEN_3_MIRROR_41_Y && location.z == Fix.EDELGARZEN_3_MIRROR_41_Z) { return 41; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_42_X && location.y == Fix.EDELGARZEN_3_MIRROR_42_Y && location.z == Fix.EDELGARZEN_3_MIRROR_42_Z) { return 42; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_43_X && location.y == Fix.EDELGARZEN_3_MIRROR_43_Y && location.z == Fix.EDELGARZEN_3_MIRROR_43_Z) { return 43; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_44_X && location.y == Fix.EDELGARZEN_3_MIRROR_44_Y && location.z == Fix.EDELGARZEN_3_MIRROR_44_Z) { return 44; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_45_X && location.y == Fix.EDELGARZEN_3_MIRROR_45_Y && location.z == Fix.EDELGARZEN_3_MIRROR_45_Z) { return 45; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_46_X && location.y == Fix.EDELGARZEN_3_MIRROR_46_Y && location.z == Fix.EDELGARZEN_3_MIRROR_46_Z) { return 46; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_47_X && location.y == Fix.EDELGARZEN_3_MIRROR_47_Y && location.z == Fix.EDELGARZEN_3_MIRROR_47_Z) { return 47; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_48_X && location.y == Fix.EDELGARZEN_3_MIRROR_48_Y && location.z == Fix.EDELGARZEN_3_MIRROR_48_Z) { return 48; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_49_X && location.y == Fix.EDELGARZEN_3_MIRROR_49_Y && location.z == Fix.EDELGARZEN_3_MIRROR_49_Z) { return 49; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_50_X && location.y == Fix.EDELGARZEN_3_MIRROR_50_Y && location.z == Fix.EDELGARZEN_3_MIRROR_50_Z) { return 50; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_51_X && location.y == Fix.EDELGARZEN_3_MIRROR_51_Y && location.z == Fix.EDELGARZEN_3_MIRROR_51_Z) { return 51; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_52_X && location.y == Fix.EDELGARZEN_3_MIRROR_52_Y && location.z == Fix.EDELGARZEN_3_MIRROR_52_Z) { return 52; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_53_X && location.y == Fix.EDELGARZEN_3_MIRROR_53_Y && location.z == Fix.EDELGARZEN_3_MIRROR_53_Z) { return 53; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_54_X && location.y == Fix.EDELGARZEN_3_MIRROR_54_Y && location.z == Fix.EDELGARZEN_3_MIRROR_54_Z) { return 54; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_55_X && location.y == Fix.EDELGARZEN_3_MIRROR_55_Y && location.z == Fix.EDELGARZEN_3_MIRROR_55_Z) { return 55; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_56_X && location.y == Fix.EDELGARZEN_3_MIRROR_56_Y && location.z == Fix.EDELGARZEN_3_MIRROR_56_Z) { return 56; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_57_X && location.y == Fix.EDELGARZEN_3_MIRROR_57_Y && location.z == Fix.EDELGARZEN_3_MIRROR_57_Z) { return 57; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_58_X && location.y == Fix.EDELGARZEN_3_MIRROR_58_Y && location.z == Fix.EDELGARZEN_3_MIRROR_58_Z) { return 58; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_59_X && location.y == Fix.EDELGARZEN_3_MIRROR_59_Y && location.z == Fix.EDELGARZEN_3_MIRROR_59_Z) { return 59; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_60_X && location.y == Fix.EDELGARZEN_3_MIRROR_60_Y && location.z == Fix.EDELGARZEN_3_MIRROR_60_Z) { return 60; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_61_X && location.y == Fix.EDELGARZEN_3_MIRROR_61_Y && location.z == Fix.EDELGARZEN_3_MIRROR_61_Z) { return 61; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_62_X && location.y == Fix.EDELGARZEN_3_MIRROR_62_Y && location.z == Fix.EDELGARZEN_3_MIRROR_62_Z) { return 62; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_63_X && location.y == Fix.EDELGARZEN_3_MIRROR_63_Y && location.z == Fix.EDELGARZEN_3_MIRROR_63_Z) { return 63; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_64_X && location.y == Fix.EDELGARZEN_3_MIRROR_64_Y && location.z == Fix.EDELGARZEN_3_MIRROR_64_Z) { return 64; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_65_X && location.y == Fix.EDELGARZEN_3_MIRROR_65_Y && location.z == Fix.EDELGARZEN_3_MIRROR_65_Z) { return 65; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_66_X && location.y == Fix.EDELGARZEN_3_MIRROR_66_Y && location.z == Fix.EDELGARZEN_3_MIRROR_66_Z) { return 66; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_67_X && location.y == Fix.EDELGARZEN_3_MIRROR_67_Y && location.z == Fix.EDELGARZEN_3_MIRROR_67_Z) { return 67; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_68_X && location.y == Fix.EDELGARZEN_3_MIRROR_68_Y && location.z == Fix.EDELGARZEN_3_MIRROR_68_Z) { return 68; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_69_X && location.y == Fix.EDELGARZEN_3_MIRROR_69_Y && location.z == Fix.EDELGARZEN_3_MIRROR_69_Z) { return 69; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_70_X && location.y == Fix.EDELGARZEN_3_MIRROR_70_Y && location.z == Fix.EDELGARZEN_3_MIRROR_70_Z) { return 70; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_71_X && location.y == Fix.EDELGARZEN_3_MIRROR_71_Y && location.z == Fix.EDELGARZEN_3_MIRROR_71_Z) { return 71; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_72_X && location.y == Fix.EDELGARZEN_3_MIRROR_72_Y && location.z == Fix.EDELGARZEN_3_MIRROR_72_Z) { return 72; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_73_X && location.y == Fix.EDELGARZEN_3_MIRROR_73_Y && location.z == Fix.EDELGARZEN_3_MIRROR_73_Z) { return 73; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_74_X && location.y == Fix.EDELGARZEN_3_MIRROR_74_Y && location.z == Fix.EDELGARZEN_3_MIRROR_74_Z) { return 74; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_75_X && location.y == Fix.EDELGARZEN_3_MIRROR_75_Y && location.z == Fix.EDELGARZEN_3_MIRROR_75_Z) { return 75; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_76_X && location.y == Fix.EDELGARZEN_3_MIRROR_76_Y && location.z == Fix.EDELGARZEN_3_MIRROR_76_Z) { return 76; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_77_X && location.y == Fix.EDELGARZEN_3_MIRROR_77_Y && location.z == Fix.EDELGARZEN_3_MIRROR_77_Z) { return 77; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_78_X && location.y == Fix.EDELGARZEN_3_MIRROR_78_Y && location.z == Fix.EDELGARZEN_3_MIRROR_78_Z) { return 78; }
+    else if (location.x == Fix.EDELGARZEN_3_MIRROR_79_X && location.y == Fix.EDELGARZEN_3_MIRROR_79_Y && location.z == Fix.EDELGARZEN_3_MIRROR_79_Z) { return 79; }
+    return 0;
+  }
+
+  private void ChainLogicMirror(FieldObject fieldObj)
+  {
+    if (One.TF.EdelgarzenMirrorSequence_1 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_1 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(1);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_1 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        ChoiceMirrorSequence(1);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_2 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_2 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(2);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_2 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        ChoiceMirrorSequence(2);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_3 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_3 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(3);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_3 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        ChoiceMirrorSequence(3);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_4 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_4 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(4);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_4 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        ChoiceMirrorSequence(4);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_5 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_5 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(5);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_5 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        ChoiceMirrorSequence(5);
+        return;
+      }
+    }
+
+    ChoiceMirrorSequence(0);
+  }
+
+  private void ChoiceMirrorSequence(int sequence)
+  {
+    Debug.Log("ChoiceMirrorSequence(S) " + sequence);
+    if (sequence == 0)
+    {
+      ChooseDstMirror(0);
+    }
+    else if (sequence == 1)
+    {
+      if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1)) == 2)
+      {
+        ChooseDstMirror(3);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1)) == 3)
+      {
+        ChooseDstMirror(4);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1)) == 4)
+      {
+        ChooseDstMirror(2);
+      }
+      else
+      {
+        Debug.Log("ChoiceMirrorSequence Error Sequence!");
+      }
+    }
+    else if (sequence == 2)
+    {
+      List<int> futureNumber = new List<int>() { 2, 3, 4 };
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1)));
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_2)));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 3)
+    {
+      List<int> futureNumber = new List<int>() { 5, 6, 7, 8, 9, 10 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_2));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_3));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 4)
+    {
+      List<int> futureNumber = new List<int>() { 5, 6, 7, 8, 9, 10 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_2));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_3));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_4));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 5)
+    {
+      ChooseDstMirror(80);
+      return;
+    }
+  }
+  // // 戻った後に会話イベントを発生させたいのでChooseDstMirrorは使わずに記述する。
+
+  private void ChooseDstMirror(int number)
+  {
+    if (number == 0) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK(); return; }
+    if (number == 1) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_1B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_1B_Z); TapOK(); return; }
+    if (number == 2) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_2B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_2B_Z); TapOK(); return; }
+    if (number == 3) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_3B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_3B_Z); TapOK(); return; }
+    if (number == 4) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_4B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_4B_Z); TapOK(); return; }
+    if (number == 5) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_5B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_5B_Z); TapOK(); return; }
+    if (number == 6) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_6B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_6B_Z); TapOK(); return; }
+    if (number == 7) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_7B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_7B_Z); TapOK(); return; }
+    if (number == 8) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_8B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_8B_Z); TapOK(); return; }
+    if (number == 9) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_9B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_9B_Z); TapOK(); return; }
+    if (number == 10) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_10B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_10B_Z); TapOK(); return; }
+    // 11～26はBが存在しない。
+    //if (number == 11) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_11B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_11B_Z); TapOK(); return; }
+    //if (number == 12) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_12B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_12B_Z); TapOK(); return; }
+    //if (number == 13) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_13B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_13B_Z); TapOK(); return; }
+    //if (number == 14) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_14B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_14B_Z); TapOK(); return; }
+    //if (number == 15) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_15B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_15B_Z); TapOK(); return; }
+    //if (number == 16) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_16B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_16B_Z); TapOK(); return; }
+    //if (number == 17) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_17B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_17B_Z); TapOK(); return; }
+    //if (number == 18) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_18B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_18B_Z); TapOK(); return; }
+    //if (number == 19) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_19B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_19B_Z); TapOK(); return; }
+    //if (number == 20) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_20B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_20B_Z); TapOK(); return; }
+    //if (number == 21) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_21B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_21B_Z); TapOK(); return; }
+    //if (number == 22) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_22B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_22B_Z); TapOK(); return; }
+    //if (number == 23) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_23B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_23B_Z); TapOK(); return; }
+    //if (number == 24) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_24B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_24B_Z); TapOK(); return; }
+    //if (number == 25) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_25B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_25B_Z); TapOK(); return; }
+    //if (number == 26) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_26B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_26B_Z); TapOK(); return; }
+    if (number == 27) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_27B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_27B_Z); TapOK(); return; }
+    if (number == 28) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_28B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_28B_Z); TapOK(); return; }
+    if (number == 29) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_29B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_29B_Z); TapOK(); return; }
+    if (number == 30) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_30B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_30B_Z); TapOK(); return; }
+    if (number == 31) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_31B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_31B_Z); TapOK(); return; }
+    if (number == 32) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_32B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_32B_Z); TapOK(); return; }
+    if (number == 33) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_33B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_33B_Z); TapOK(); return; }
+    if (number == 34) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_34B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_34B_Z); TapOK(); return; }
+    if (number == 35) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_35B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_35B_Z); TapOK(); return; }
+    if (number == 36) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_36B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_36B_Z); TapOK(); return; }
+    // 37～52はBが存在しない。
+    //if (number == 37) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_37B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_37B_Z); TapOK(); return; }
+    //if (number == 38) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_38B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_38B_Z); TapOK(); return; }
+    //if (number == 39) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_39B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_39B_Z); TapOK(); return; }
+    //if (number == 40) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_40B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_40B_Z); TapOK(); return; }
+    //if (number == 41) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_41B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_41B_Z); TapOK(); return; }
+    //if (number == 42) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_42B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_42B_Z); TapOK(); return; }
+    //if (number == 43) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_43B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_43B_Z); TapOK(); return; }
+    //if (number == 44) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_44B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_44B_Z); TapOK(); return; }
+    //if (number == 45) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_45B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_45B_Z); TapOK(); return; }
+    //if (number == 46) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_46B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_46B_Z); TapOK(); return; }
+    //if (number == 47) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_47B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_47B_Z); TapOK(); return; }
+    //if (number == 48) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_48B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_48B_Z); TapOK(); return; }
+    //if (number == 49) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_49B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_49B_Z); TapOK(); return; }
+    //if (number == 50) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_50B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_50B_Z); TapOK(); return; }
+    //if (number == 51) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_51B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_51B_Z); TapOK(); return; }
+    //if (number == 52) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_52B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_52B_Z); TapOK(); return; }
+    if (number == 53) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_53B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_53B_Z); TapOK(); return; }
+    if (number == 54) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_54B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_54B_Z); TapOK(); return; }
+    if (number == 55) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_55B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_55B_Z); TapOK(); return; }
+    if (number == 56) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_56B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_56B_Z); TapOK(); return; }
+    if (number == 57) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_57B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_57B_Z); TapOK(); return; }
+    if (number == 58) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_58B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_58B_Z); TapOK(); return; }
+    if (number == 59) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_59B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_59B_Z); TapOK(); return; }
+    if (number == 60) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_60B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_60B_Z); TapOK(); return; }
+    if (number == 61) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_61B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_61B_Z); TapOK(); return; }
+    if (number == 62) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_62B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_62B_Z); TapOK(); return; }
+    // 63～79はBが存在しない。
+    //if (number == 63) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_63B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_63B_Z); TapOK(); return; }
+    //if (number == 64) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_64B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_64B_Z); TapOK(); return; }
+    //if (number == 65) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_65B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_65B_Z); TapOK(); return; }
+    //if (number == 66) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_66B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_66B_Z); TapOK(); return; }
+    //if (number == 67) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_67B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_67B_Z); TapOK(); return; }
+    //if (number == 68) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_68B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_68B_Z); TapOK(); return; }
+    //if (number == 69) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_69B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_69B_Z); TapOK(); return; }
+    //if (number == 70) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_70B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_70B_Z); TapOK(); return; }
+    //if (number == 71) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_71B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_71B_Z); TapOK(); return; }
+    //if (number == 72) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_72B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_72B_Z); TapOK(); return; }
+    //if (number == 73) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_73B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_73B_Z); TapOK(); return; }
+    //if (number == 74) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_74B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_74B_Z); TapOK(); return; }
+    //if (number == 75) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_75B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_75B_Z); TapOK(); return; }
+    //if (number == 76) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_76B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_76B_Z); TapOK(); return; }
+    //if (number == 77) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_77B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_77B_Z); TapOK(); return; }
+    //if (number == 78) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_78B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_78B_Z); TapOK(); return; }
+    //if (number == 79) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_79B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_79B_Z); TapOK(); return; }
+    if (number == 80) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_80_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_80_Z); TapOK(); return; }
+    if (number == 81) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_81_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_81_Z); TapOK(); return; }
+    if (number == 82) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_82_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_82_Z); TapOK(); return; }
+    if (number == 83) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_83_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_83_Z); TapOK(); return; }
+    if (number == 84) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_84_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_84_Z); TapOK(); return; }
+    if (number == 85) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_85_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_85_Z); TapOK(); return; }
+    if (number == 86) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_86_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_86_Z); TapOK(); return; }
+    if (number == 87) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_87_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_87_Z); TapOK(); return; }
+    if (number == 88) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_88_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_88_Z); TapOK(); return; }
+    if (number == 89) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_89_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_89_Z); TapOK(); return; }
+    if (number == 90) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_90_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_90_Z); TapOK(); return; }
+    if (number == 91) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_91_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_91_Z); TapOK(); return; }
+    if (number == 92) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_92_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_92_Z); TapOK(); return; }
+    if (number == 93) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_93_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_93_Z); TapOK(); return; }
+    if (number == 94) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_94_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_94_Z); TapOK(); return; }
+
+    Debug.Log("Cannot Locate Mirror Sequence!");
+    MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+    return;
+  }
+
+  /// <summary>
+  /// 元の鏡グループ番号によって、どの区画番号に属しているかを返します。
+  /// </summary>
+  /// <param name="src">元の鏡のグループ番号</param>
+  /// <returns>区画番号</returns>
+  private int MirrorAreaNumber(int src)
+  {
+    if (src == 5 || src == 6) { return 2; }
+    if (src == 7 || src == 8) { return 3; }
+    if (src == 9 || src == 10) { return 4; }
+
+    if (src == 31 || src == 32) { return 102; }
+    if (src == 33 || src == 34) { return 103; }
+    if (src == 35 || src == 36) { return 104; }
+
+    if (src == 57 || src == 58) { return 202; }
+    if (src == 59 || src == 60) { return 203; }
+    if (src == 61 || src == 62) { return 204; }
+
+    return 0;
+  }
+
+  /// <summary>
+  /// 元の鏡番号によってどのグループ番号に属しているかを返します。
+  /// </summary>
+  /// <param name="src">元の鏡番号</param>
+  /// <returns>グループ番号</returns>
+  private int MirrorGroupNumber(int src)
+  {
+    if (src == 11 || src == 12 || src == 13) { return 5; }
+    if (src == 14 || src == 15 || src == 16) { return 6; }
+    if (src == 17 || src == 18 || src == 19) { return 7; }
+    if (src == 20 || src == 21)              { return 8; }
+    if (src == 22 || src == 23)              { return 9; }
+    if (src == 24 || src == 25 || src == 26) { return 10; }
+
+    if (src == 37 || src == 38 || src == 39) { return 31; }
+    if (src == 40 || src == 41)              { return 32; }
+    if (src == 42 || src == 43 || src == 44) { return 33; }
+    if (src == 45 || src == 46)              { return 34; }
+    if (src == 47 || src == 48 || src == 49) { return 35; }
+    if (src == 50 || src == 51 || src == 52) { return 36; }
+
+    if (src == 63 || src == 64 || src == 65 || src == 66) { return 57; }
+    if (src == 67 || src == 68)                           { return 58; }
+    if (src == 69 || src == 70 || src == 71)              { return 59; }
+    if (src == 72 || src == 73 || src == 74)              { return 60; }
+    if (src == 75 || src == 76 || src == 77)              { return 61; }
+    if (src == 78 || src == 79)                           { return 62; }
+
+    return 0;
   }
 }

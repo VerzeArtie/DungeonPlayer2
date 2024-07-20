@@ -781,6 +781,41 @@ public class AkashicRecord : MonoBehaviour
     get { return _velgus_chant_achivement; }
   }
 
+  [SerializeField] protected int _edelgarzen_mirror_sequence_1 = 0;
+  public int EdelgarzenMirrorSequence_1
+  {
+    set { _edelgarzen_mirror_sequence_1 = value; }
+    get { return _edelgarzen_mirror_sequence_1; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_2 = 0;
+  public int EdelgarzenMirrorSequence_2
+  {
+    set { _edelgarzen_mirror_sequence_2 = value; }
+    get { return _edelgarzen_mirror_sequence_2; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_3 = 0;
+  public int EdelgarzenMirrorSequence_3
+  {
+    set { _edelgarzen_mirror_sequence_3 = value; }
+    get { return _edelgarzen_mirror_sequence_3; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_4 = 0;
+  public int EdelgarzenMirrorSequence_4
+  {
+    set { _edelgarzen_mirror_sequence_4 = value; }
+    get { return _edelgarzen_mirror_sequence_4; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_5 = 0;
+  public int EdelgarzenMirrorSequence_5
+  {
+    set { _edelgarzen_mirror_sequence_5 = value; }
+    get { return _edelgarzen_mirror_sequence_5; }
+  }
+
   [SerializeField] protected bool _velgus_badend_genesisgate = false;
   public bool Velgus_BadEnd_GenesisGate
   {
