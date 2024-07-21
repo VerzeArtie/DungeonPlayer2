@@ -2115,11 +2115,37 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected int _edelgarzen_mirror_sequence_3 = 0;
   [SerializeField] protected int _edelgarzen_mirror_sequence_4 = 0;
   [SerializeField] protected int _edelgarzen_mirror_sequence_5 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_6 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_7 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_8 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_9 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_10 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_11 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_12 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_13 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_14 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_15 = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_A = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_B = 0;
+  [SerializeField] protected int _edelgarzen_mirror_sequence_C = 0;
   public int EdelgarzenMirrorSequence_1 { get { return _edelgarzen_mirror_sequence_1; } set { _edelgarzen_mirror_sequence_1 = value; } } // 3F：鏡正解ルート１
   public int EdelgarzenMirrorSequence_2 { get { return _edelgarzen_mirror_sequence_2; } set { _edelgarzen_mirror_sequence_2 = value; } } // 3F：鏡正解ルート２
   public int EdelgarzenMirrorSequence_3 { get { return _edelgarzen_mirror_sequence_3; } set { _edelgarzen_mirror_sequence_3 = value; } } // 3F：鏡正解ルート３
   public int EdelgarzenMirrorSequence_4 { get { return _edelgarzen_mirror_sequence_4; } set { _edelgarzen_mirror_sequence_4 = value; } } // 3F：鏡正解ルート４
   public int EdelgarzenMirrorSequence_5 { get { return _edelgarzen_mirror_sequence_5; } set { _edelgarzen_mirror_sequence_5 = value; } } // 3F：鏡正解ルート５
+  public int EdelgarzenMirrorSequence_6 { get { return _edelgarzen_mirror_sequence_6; } set { _edelgarzen_mirror_sequence_6 = value; } } // 3F：鏡正解ルート６
+  public int EdelgarzenMirrorSequence_7 { get { return _edelgarzen_mirror_sequence_7; } set { _edelgarzen_mirror_sequence_7 = value; } } // 3F：鏡正解ルート７
+  public int EdelgarzenMirrorSequence_8 { get { return _edelgarzen_mirror_sequence_8; } set { _edelgarzen_mirror_sequence_8 = value; } } // 3F：鏡正解ルート８
+  public int EdelgarzenMirrorSequence_9 { get { return _edelgarzen_mirror_sequence_9; } set { _edelgarzen_mirror_sequence_9 = value; } } // 3F：鏡正解ルート９
+  public int EdelgarzenMirrorSequence_10 { get { return _edelgarzen_mirror_sequence_10; } set { _edelgarzen_mirror_sequence_10 = value; } } // 3F：鏡正解ルート１０
+  public int EdelgarzenMirrorSequence_11 { get { return _edelgarzen_mirror_sequence_11; } set { _edelgarzen_mirror_sequence_11 = value; } } // 3F：鏡正解ルート１１
+  public int EdelgarzenMirrorSequence_12 { get { return _edelgarzen_mirror_sequence_12; } set { _edelgarzen_mirror_sequence_12 = value; } } // 3F：鏡正解ルート１２
+  public int EdelgarzenMirrorSequence_13 { get { return _edelgarzen_mirror_sequence_13; } set { _edelgarzen_mirror_sequence_13 = value; } } // 3F：鏡正解ルート１３
+  public int EdelgarzenMirrorSequence_14 { get { return _edelgarzen_mirror_sequence_14; } set { _edelgarzen_mirror_sequence_14 = value; } } // 3F：鏡正解ルート１４
+  public int EdelgarzenMirrorSequence_15 { get { return _edelgarzen_mirror_sequence_15; } set { _edelgarzen_mirror_sequence_15 = value; } } // 3F：鏡正解ルート１５
+  public int EdelgarzenMirrorSequence_A { get { return _edelgarzen_mirror_sequence_A; } set { _edelgarzen_mirror_sequence_A = value; } } // 3F：鏡正解ルートＡ
+  public int EdelgarzenMirrorSequence_B { get { return _edelgarzen_mirror_sequence_B; } set { _edelgarzen_mirror_sequence_B = value; } } // 3F：鏡正解ルートＢ
+  public int EdelgarzenMirrorSequence_C { get { return _edelgarzen_mirror_sequence_C; } set { _edelgarzen_mirror_sequence_C = value; } } // 3F：鏡正解ルートＣ
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;

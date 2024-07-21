@@ -7662,14 +7662,14 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_38_X, Fix.EDELGARZEN_3_MIRROR_38_Y, Fix.EDELGARZEN_3_MIRROR_38_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_39_X, Fix.EDELGARZEN_3_MIRROR_39_Y, Fix.EDELGARZEN_3_MIRROR_39_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_40_X, Fix.EDELGARZEN_3_MIRROR_40_Y, Fix.EDELGARZEN_3_MIRROR_40_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_41_X, Fix.EDELGARZEN_3_MIRROR_41_Y, Fix.EDELGARZEN_3_MIRROR_41_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
@@ -7677,14 +7677,14 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_43_X, Fix.EDELGARZEN_3_MIRROR_43_Y, Fix.EDELGARZEN_3_MIRROR_43_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_44_X, Fix.EDELGARZEN_3_MIRROR_44_Y, Fix.EDELGARZEN_3_MIRROR_44_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_45_X, Fix.EDELGARZEN_3_MIRROR_45_Y, Fix.EDELGARZEN_3_MIRROR_45_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_46_X, Fix.EDELGARZEN_3_MIRROR_46_Y, Fix.EDELGARZEN_3_MIRROR_46_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
@@ -7692,7 +7692,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_48_X, Fix.EDELGARZEN_3_MIRROR_48_Y, Fix.EDELGARZEN_3_MIRROR_48_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_49_X, Fix.EDELGARZEN_3_MIRROR_49_Y, Fix.EDELGARZEN_3_MIRROR_49_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
@@ -7700,7 +7700,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_51_X, Fix.EDELGARZEN_3_MIRROR_51_Y, Fix.EDELGARZEN_3_MIRROR_51_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_52_X, Fix.EDELGARZEN_3_MIRROR_52_Y, Fix.EDELGARZEN_3_MIRROR_52_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror2(fieldObjBefore);
           return;
         }
 
@@ -7769,14 +7769,14 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_65_X, Fix.EDELGARZEN_3_MIRROR_65_Y, Fix.EDELGARZEN_3_MIRROR_65_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_66_X, Fix.EDELGARZEN_3_MIRROR_66_Y, Fix.EDELGARZEN_3_MIRROR_66_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_67_X, Fix.EDELGARZEN_3_MIRROR_67_Y, Fix.EDELGARZEN_3_MIRROR_67_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_68_X, Fix.EDELGARZEN_3_MIRROR_68_Y, Fix.EDELGARZEN_3_MIRROR_68_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
@@ -7784,7 +7784,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_70_X, Fix.EDELGARZEN_3_MIRROR_70_Y, Fix.EDELGARZEN_3_MIRROR_70_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_71_X, Fix.EDELGARZEN_3_MIRROR_71_Y, Fix.EDELGARZEN_3_MIRROR_71_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
@@ -7792,7 +7792,7 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_73_X, Fix.EDELGARZEN_3_MIRROR_73_Y, Fix.EDELGARZEN_3_MIRROR_73_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_74_X, Fix.EDELGARZEN_3_MIRROR_74_Y, Fix.EDELGARZEN_3_MIRROR_74_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
@@ -7800,14 +7800,14 @@ public class DungeonField : MotherBase
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_76_X, Fix.EDELGARZEN_3_MIRROR_76_Y, Fix.EDELGARZEN_3_MIRROR_76_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_77_X, Fix.EDELGARZEN_3_MIRROR_77_Y, Fix.EDELGARZEN_3_MIRROR_77_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_78_X, Fix.EDELGARZEN_3_MIRROR_78_Y, Fix.EDELGARZEN_3_MIRROR_78_Z) ||
             LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_79_X, Fix.EDELGARZEN_3_MIRROR_79_Y, Fix.EDELGARZEN_3_MIRROR_79_Z))
         {
-          MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK();
+          ChainLogicMirror3(fieldObjBefore);
           return;
         }
 
@@ -7832,6 +7832,44 @@ public class DungeonField : MotherBase
         }
 
         if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_84_X, Fix.EDELGARZEN_3_MIRROR_84_Y, Fix.EDELGARZEN_3_MIRROR_84_Z))
+        {
+          ChooseDstMirror(0);
+          return;
+        }
+
+        // 85は記述不要
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_86_X, Fix.EDELGARZEN_3_MIRROR_86_Y, Fix.EDELGARZEN_3_MIRROR_86_Z))
+        {
+          ChooseDstMirror(87);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_87_X, Fix.EDELGARZEN_3_MIRROR_87_Y, Fix.EDELGARZEN_3_MIRROR_87_Z))
+        {
+          ChooseDstMirror(88);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_87_X, Fix.EDELGARZEN_3_MIRROR_87_Y, Fix.EDELGARZEN_3_MIRROR_87_Z))
+        {
+          ChooseDstMirror(88);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_88_X, Fix.EDELGARZEN_3_MIRROR_88_Y, Fix.EDELGARZEN_3_MIRROR_88_Z))
+        {
+          ChooseDstMirror(89);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_89_X, Fix.EDELGARZEN_3_MIRROR_89_Y, Fix.EDELGARZEN_3_MIRROR_89_Z))
+        {
+          ChooseDstMirror(0);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_90_X, Fix.EDELGARZEN_3_MIRROR_90_Y, Fix.EDELGARZEN_3_MIRROR_90_Z))
         {
           ChooseDstMirror(0);
           return;
@@ -23205,6 +23243,7 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_1 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        One.TF.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(1);
         return;
       }
@@ -23221,6 +23260,7 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_2 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        One.TF.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(2);
         return;
       }
@@ -23237,6 +23277,7 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_3 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        One.TF.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(3);
         return;
       }
@@ -23253,6 +23294,7 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_4 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        One.TF.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(4);
         return;
       }
@@ -23269,7 +23311,207 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_5 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        One.TF.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(5);
+        return;
+      }
+    }
+
+    ChoiceMirrorSequence(0);
+  }
+
+  private void ChainLogicMirror2(FieldObject fieldObj)
+  {
+    Debug.Log("ChainLogicMirror2(S)");
+    if (One.TF.EdelgarzenMirrorSequence_6 == 0)
+    {
+      Debug.Log("ChainLogicMirror2 6");
+      if (One.AR.EdelgarzenMirrorSequence_6 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
+        Debug.Log("ChainLogicMirror2 6 0 -> " + One.TF.EdelgarzenMirrorSequence_6 + " " + One.AR.EdelgarzenMirrorSequence_6);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(6);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_6 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        Debug.Log("ChainLogicMirror2 6 X -> " + One.AR.EdelgarzenMirrorSequence_6);
+        One.TF.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(6);
+        return;
+      }
+      else
+      {
+        Debug.Log("ChainLogicMirror2 6 fail...");
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_7 == 0)
+    {
+      Debug.Log("ChainLogicMirror2 7");
+      if (One.AR.EdelgarzenMirrorSequence_7 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(7);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_7 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(7);
+        return;
+      }
+      else
+      {
+        Debug.Log("ChainLogicMirror2 7 fail...");
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_8 == 0)
+    {
+      Debug.Log("ChainLogicMirror2 8");
+      if (One.AR.EdelgarzenMirrorSequence_8 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(8);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_8 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(8);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_9 == 0)
+    {
+      Debug.Log("ChainLogicMirror2 9");
+      if (One.AR.EdelgarzenMirrorSequence_9 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(9);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_9 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(9);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_10 == 0)
+    {
+      Debug.Log("ChainLogicMirror2 10");
+      if (One.AR.EdelgarzenMirrorSequence_10 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(10);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_10 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(10);
+        return;
+      }
+    }
+
+    Debug.Log("ChainLogicMirror2 Fail-Routine... ");
+    ChoiceMirrorSequence(0);
+  }
+
+  private void ChainLogicMirror3(FieldObject fieldObj)
+  {
+    if (One.TF.EdelgarzenMirrorSequence_11 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_11 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(11);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_11 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(11);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_12 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_12 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(12);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_12 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(12);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_13 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_13 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(13);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_13 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(13);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_14 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_14 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(14);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_14 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(14);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_15 == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_15 == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.TF.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
+        One.UpdateAkashicRecord();
+        ChoiceMirrorSequence(15);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_15 == MirrorNumberFromLocation(fieldObj.transform.position))
+      {
+        One.TF.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
+        ChoiceMirrorSequence(15);
         return;
       }
     }
@@ -23329,11 +23571,193 @@ public class DungeonField : MotherBase
     }
     else if (sequence == 5)
     {
-      ChooseDstMirror(80);
+      // 5,6,7,8,9,10のうちいずれか１つが残っている状態
+      // １つ残った箇所を対象とする
+      List<int> futureNumber = new List<int>() { 5, 6, 7, 8, 9, 10 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_1));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_2));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_3));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_4));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_5));
+      ChoiceMirrorGoal(futureNumber[0]);
       return;
     }
+    else if (sequence == 6)
+    {
+      if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6)) == 28)
+      {
+        ChooseDstMirror(29);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6)) == 29)
+      {
+        ChooseDstMirror(30);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6)) == 30)
+      {
+        ChooseDstMirror(28);
+      }
+      else
+      {
+        Debug.Log("ChoiceMirrorSequence Error Sequence!");
+      }
+
+      return;
+    }
+    else if (sequence == 7)
+    {
+      List<int> futureNumber = new List<int>() { 28, 29, 30 };
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6)));
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_7)));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 8)
+    {
+      List<int> futureNumber = new List<int>() { 31, 32, 33, 34, 35, 36 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_7));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_8));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 9)
+    {
+      List<int> futureNumber = new List<int>() { 31, 32, 33, 34, 35, 36 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_7));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_8));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_9));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 10)
+    {
+      // 31,32,33,34,35,36のうちいずれか１つが残っている状態
+      // １つ残った箇所を対象とする
+      List<int> futureNumber = new List<int>() { 31, 32, 33, 34, 35, 36 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_6));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_7));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_8));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_9));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_10));
+      ChoiceMirrorGoal(futureNumber[0]);
+      return;
+    }
+    else if (sequence == 11)
+    {
+      if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11)) == 54)
+      {
+        ChooseDstMirror(56);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11)) == 55)
+      {
+        ChooseDstMirror(54);
+      }
+      else if (MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11)) == 56)
+      {
+        ChooseDstMirror(55);
+      }
+      else
+      {
+        Debug.Log("ChoiceMirrorSequence Error Sequence!");
+      }
+
+      return;
+    }
+    else if (sequence == 12)
+    {
+      List<int> futureNumber = new List<int>() { 54, 55, 56 };
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11)));
+      futureNumber.Remove(MirrorAreaNumber(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_12)));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 13)
+    {
+      List<int> futureNumber = new List<int>() { 57, 58, 59, 60, 61, 62 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_12));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_13));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 14)
+    {
+      List<int> futureNumber = new List<int>() { 57, 58, 59, 60, 61, 62 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_12));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_13));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_14));
+      ChooseDstMirror(futureNumber[0]);
+    }
+    else if (sequence == 15)
+    {
+      // 57,58,59,60,61,62のうちいずれか１つが残っている状態
+      // １つ残った箇所を対象とする
+      List<int> futureNumber = new List<int>() { 57, 58, 59, 60, 61, 62 };
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_11));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_12));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_13));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_14));
+      futureNumber.Remove(MirrorGroupNumber(One.AR.EdelgarzenMirrorSequence_15));
+      ChoiceMirrorGoal(futureNumber[0]);
+      return;
+    }
+
   }
   // // 戻った後に会話イベントを発生させたいのでChooseDstMirrorは使わずに記述する。
+
+  private void ChoiceMirrorGoal(int future_number)
+  {
+    if (One.TF.EdelgarzenMirrorSequence_A == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_A == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_A = future_number;
+        One.TF.EdelgarzenMirrorSequence_A = future_number;
+        One.UpdateAkashicRecord();
+        ChooseDstMirror(80);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_A == future_number)
+      {
+        One.TF.EdelgarzenMirrorSequence_A = future_number;
+        ChooseDstMirror(80);
+        return;
+      }
+    }
+    else if (One.TF.EdelgarzenMirrorSequence_B == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_B == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_B = future_number;
+        One.TF.EdelgarzenMirrorSequence_B = future_number;
+        One.UpdateAkashicRecord();
+        ChooseDstMirror(85);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_B == future_number)
+      {
+        One.TF.EdelgarzenMirrorSequence_B = future_number;
+        ChooseDstMirror(85);
+        return;
+      }
+    }
+    else if (One.AR.EdelgarzenMirrorSequence_C == 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_C == 0)
+      {
+        One.AR.EdelgarzenMirrorSequence_C = future_number;
+        One.TF.EdelgarzenMirrorSequence_C = future_number;
+        One.UpdateAkashicRecord();
+        ChooseDstMirror(90);
+        return;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_C == future_number)
+      {
+        One.TF.EdelgarzenMirrorSequence_C = future_number;
+        ChooseDstMirror(90);
+        return;
+      }
+    }
+
+    ChooseDstMirror(0);
+  }
 
   private void ChooseDstMirror(int number)
   {
@@ -23452,13 +23876,13 @@ public class DungeonField : MotherBase
     if (src == 7 || src == 8) { return 3; }
     if (src == 9 || src == 10) { return 4; }
 
-    if (src == 31 || src == 32) { return 102; }
-    if (src == 33 || src == 34) { return 103; }
-    if (src == 35 || src == 36) { return 104; }
+    if (src == 31 || src == 32) { return 28; }
+    if (src == 33 || src == 34) { return 29; }
+    if (src == 35 || src == 36) { return 30; }
 
-    if (src == 57 || src == 58) { return 202; }
-    if (src == 59 || src == 60) { return 203; }
-    if (src == 61 || src == 62) { return 204; }
+    if (src == 57 || src == 58) { return 54; }
+    if (src == 59 || src == 60) { return 55; }
+    if (src == 61 || src == 62) { return 56; }
 
     return 0;
   }

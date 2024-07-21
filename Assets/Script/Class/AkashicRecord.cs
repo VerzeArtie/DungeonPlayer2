@@ -816,6 +816,97 @@ public class AkashicRecord : MonoBehaviour
     get { return _edelgarzen_mirror_sequence_5; }
   }
 
+  [SerializeField] protected int _edelgarzen_mirror_sequence_6 = 0;
+  public int EdelgarzenMirrorSequence_6
+  {
+    set { _edelgarzen_mirror_sequence_6 = value; }
+    get { return _edelgarzen_mirror_sequence_6; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_7 = 0;
+  public int EdelgarzenMirrorSequence_7
+  {
+    set { _edelgarzen_mirror_sequence_7 = value; }
+    get { return _edelgarzen_mirror_sequence_7; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_8 = 0;
+  public int EdelgarzenMirrorSequence_8
+  {
+    set { _edelgarzen_mirror_sequence_8 = value; }
+    get { return _edelgarzen_mirror_sequence_8; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_9 = 0;
+  public int EdelgarzenMirrorSequence_9
+  {
+    set { _edelgarzen_mirror_sequence_9 = value; }
+    get { return _edelgarzen_mirror_sequence_9; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_10 = 0;
+  public int EdelgarzenMirrorSequence_10
+  {
+    set { _edelgarzen_mirror_sequence_10 = value; }
+    get { return _edelgarzen_mirror_sequence_10; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_11 = 0;
+  public int EdelgarzenMirrorSequence_11
+  {
+    set { _edelgarzen_mirror_sequence_11 = value; }
+    get { return _edelgarzen_mirror_sequence_11; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_12 = 0;
+  public int EdelgarzenMirrorSequence_12
+  {
+    set { _edelgarzen_mirror_sequence_12 = value; }
+    get { return _edelgarzen_mirror_sequence_12; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_13 = 0;
+  public int EdelgarzenMirrorSequence_13
+  {
+    set { _edelgarzen_mirror_sequence_13 = value; }
+    get { return _edelgarzen_mirror_sequence_13; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_14 = 0;
+  public int EdelgarzenMirrorSequence_14
+  {
+    set { _edelgarzen_mirror_sequence_14 = value; }
+    get { return _edelgarzen_mirror_sequence_14; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_15 = 0;
+  public int EdelgarzenMirrorSequence_15
+  {
+    set { _edelgarzen_mirror_sequence_15 = value; }
+    get { return _edelgarzen_mirror_sequence_15; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_A = 0;
+  public int EdelgarzenMirrorSequence_A
+  {
+    set { _edelgarzen_mirror_sequence_A = value; }
+    get { return _edelgarzen_mirror_sequence_A; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_B = 0;
+  public int EdelgarzenMirrorSequence_B
+  {
+    set { _edelgarzen_mirror_sequence_B = value; }
+    get { return _edelgarzen_mirror_sequence_B; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_sequence_C = 0;
+  public int EdelgarzenMirrorSequence_C
+  {
+    set { _edelgarzen_mirror_sequence_C = value; }
+    get { return _edelgarzen_mirror_sequence_C; }
+  }
+
   [SerializeField] protected bool _velgus_badend_genesisgate = false;
   public bool Velgus_BadEnd_GenesisGate
   {
