@@ -7874,6 +7874,26 @@ public class DungeonField : MotherBase
           ChooseDstMirror(0);
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_91_X, Fix.EDELGARZEN_3_MIRROR_91_Y, Fix.EDELGARZEN_3_MIRROR_91_Z))
+        {
+          ChooseDstMirror(94);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_92_X, Fix.EDELGARZEN_3_MIRROR_92_Y, Fix.EDELGARZEN_3_MIRROR_92_Z))
+        {
+          // bad-end(1)
+          ChooseDstMirror(0);
+          return;
+        }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_93_X, Fix.EDELGARZEN_3_MIRROR_93_Y, Fix.EDELGARZEN_3_MIRROR_93_Z))
+        {
+          // bad-end(2)
+          ChooseDstMirror(0);
+          return;
+        }
       }
       return;
     }
@@ -23317,6 +23337,11 @@ public class DungeonField : MotherBase
       }
     }
 
+    if (ChoiceMirrorFinal(fieldObj.transform.position))
+    {
+      return;
+    }
+
     ChoiceMirrorSequence(0);
   }
 
@@ -23424,6 +23449,11 @@ public class DungeonField : MotherBase
       }
     }
 
+    if (ChoiceMirrorFinal(fieldObj.transform.position))
+    {
+      return;
+    }
+
     Debug.Log("ChainLogicMirror2 Fail-Routine... ");
     ChoiceMirrorSequence(0);
   }
@@ -23514,6 +23544,11 @@ public class DungeonField : MotherBase
         ChoiceMirrorSequence(15);
         return;
       }
+    }
+
+    if (ChoiceMirrorFinal(fieldObj.transform.position))
+    {
+      return;
     }
 
     ChoiceMirrorSequence(0);
@@ -23700,7 +23735,6 @@ public class DungeonField : MotherBase
     }
 
   }
-  // // 戻った後に会話イベントを発生させたいのでChooseDstMirrorは使わずに記述する。
 
   private void ChoiceMirrorGoal(int future_number)
   {
@@ -23757,6 +23791,60 @@ public class DungeonField : MotherBase
     }
 
     ChooseDstMirror(0);
+  }
+
+  private bool ChoiceMirrorFinal(Vector3 position)
+  {
+    Debug.Log("ChoiceMirrorFinal(S)");
+
+    if (One.TF.EdelgarzenMirrorSequence_A != 0 && One.TF.EdelgarzenMirrorSequence_B != 0 && One.TF.EdelgarzenMirrorSequence_C != 0)
+    {
+      if (One.AR.EdelgarzenMirrorSequence_A == MirrorGroupNumber(MirrorNumberFromLocation(position)))
+      {
+        Debug.Log("ChoiceMirrorFinal A");
+        One.TF.EdelgarzenMirrorFinal_A = MirrorGroupNumber(MirrorNumberFromLocation(position));
+        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        {
+          ChooseDstMirror(91);
+        }
+        else
+        {
+          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_B);
+        }
+        return true;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_B == MirrorGroupNumber(MirrorNumberFromLocation(position)))
+      {
+        Debug.Log("ChoiceMirrorFinal B");
+        One.TF.EdelgarzenMirrorFinal_B = MirrorGroupNumber(MirrorNumberFromLocation(position));
+        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        {
+          ChooseDstMirror(91);
+        }
+        else
+        {
+          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_C);
+        }
+        return true;
+      }
+      else if (One.AR.EdelgarzenMirrorSequence_C == MirrorGroupNumber(MirrorNumberFromLocation(position)))
+      {
+        Debug.Log("ChoiceMirrorFinal C");
+        One.TF.EdelgarzenMirrorFinal_C = MirrorGroupNumber(MirrorNumberFromLocation(position));
+        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        {
+          ChooseDstMirror(91);
+        }
+        else
+        {
+          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_A);
+        }
+        return true;
+      }
+    }
+
+    Debug.Log("ChoiceMirrorFinal Fail routine...");
+    return false;
   }
 
   private void ChooseDstMirror(int number)
