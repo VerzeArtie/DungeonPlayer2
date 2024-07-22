@@ -23835,44 +23835,92 @@ public class DungeonField : MotherBase
       if (One.AR.EdelgarzenMirrorSequence_A == MirrorGroupNumber(MirrorNumberFromLocation(position)))
       {
         Debug.Log("ChoiceMirrorFinal A");
-        One.TF.EdelgarzenMirrorFinal_A = MirrorGroupNumber(MirrorNumberFromLocation(position));
-        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        bool detect = false;
+        if (One.AR.EdelgarzenMirrorFinal_A == 0)
         {
-          ChooseDstMirror(91);
+          One.TF.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
+          One.AR.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
+          One.UpdateAkashicRecord();
+          detect = true;
         }
-        else
+        else if (One.AR.EdelgarzenMirrorFinal_A == MirrorNumberFromLocation(position))
         {
-          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_B);
+          One.TF.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
+          detect = true;
         }
-        return true;
+
+        if (detect)
+        {
+          if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+          {
+            ChooseDstMirror(91);
+          }
+          else
+          {
+            ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_B);
+          }
+          return true;
+        }
       }
       else if (One.AR.EdelgarzenMirrorSequence_B == MirrorGroupNumber(MirrorNumberFromLocation(position)))
       {
         Debug.Log("ChoiceMirrorFinal B");
-        One.TF.EdelgarzenMirrorFinal_B = MirrorGroupNumber(MirrorNumberFromLocation(position));
-        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        bool detect = false;
+        if (One.AR.EdelgarzenMirrorFinal_B == 0)
         {
-          ChooseDstMirror(91);
+          One.TF.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
+          One.AR.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
+          One.UpdateAkashicRecord();
+          detect = true;
         }
-        else
+        else if (One.AR.EdelgarzenMirrorFinal_B == MirrorNumberFromLocation(position))
         {
-          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_C);
+          One.TF.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
+          detect = true;
         }
-        return true;
+
+        if (detect)
+        {
+          if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+          {
+            ChooseDstMirror(91);
+          }
+          else
+          {
+            ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_C);
+          }
+          return true;
+        }
       }
       else if (One.AR.EdelgarzenMirrorSequence_C == MirrorGroupNumber(MirrorNumberFromLocation(position)))
       {
         Debug.Log("ChoiceMirrorFinal C");
-        One.TF.EdelgarzenMirrorFinal_C = MirrorGroupNumber(MirrorNumberFromLocation(position));
-        if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+        bool detect = false;
+        if (One.AR.EdelgarzenMirrorFinal_C == 0)
         {
-          ChooseDstMirror(91);
+          One.TF.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
+          One.AR.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
+          One.UpdateAkashicRecord();
+          detect = true;
         }
-        else
+        else if (One.AR.EdelgarzenMirrorFinal_C == MirrorNumberFromLocation(position))
         {
-          ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_A);
+          One.TF.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
+          detect = true;
         }
-        return true;
+
+        if (detect)
+        {
+          if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
+          {
+            ChooseDstMirror(91);
+          }
+          else
+          {
+            ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_A);
+          }
+          return true;
+        }
       }
     }
 

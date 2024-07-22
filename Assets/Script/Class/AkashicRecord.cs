@@ -907,6 +907,27 @@ public class AkashicRecord : MonoBehaviour
     get { return _edelgarzen_mirror_sequence_C; }
   }
 
+  [SerializeField] protected int _edelgarzen_mirror_final_A = 0;
+  public int EdelgarzenMirrorFinal_A
+  {
+    set { _edelgarzen_mirror_final_A = value; }
+    get { return _edelgarzen_mirror_final_A; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_final_B = 0;
+  public int EdelgarzenMirrorFinal_B
+  {
+    set { _edelgarzen_mirror_final_B = value; }
+    get { return _edelgarzen_mirror_final_B; }
+  }
+
+  [SerializeField] protected int _edelgarzen_mirror_final_C = 0;
+  public int EdelgarzenMirrorFinal_C
+  {
+    set { _edelgarzen_mirror_final_C = value; }
+    get { return _edelgarzen_mirror_final_C; }
+  }
+
   [SerializeField] protected bool _velgus_badend_genesisgate = false;
   public bool Velgus_BadEnd_GenesisGate
   {
