@@ -28995,7 +28995,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：いや・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、鏡のある方へ視線を送る　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、鏡の方へ視線を送る　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：在る", ActionEvent.None);
 
@@ -29015,17 +29015,23 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：卑怯なマネはしてこない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：正面から立ち向かう様な構造になっている。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：正面から相対する様な構造になっている。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：だから、ここの鏡についても、きっと他を当たる必要はない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：だから、ここの鏡についても、他を当たる必要はない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：この看板の所から探し当ててみせる。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：この看板がスタート地点だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここから探し当ててみせる。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：幼き子、アイン・ウォーレンスよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：今は、己が道を信じて進むが良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：赴き、語りかけ、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：真実への旅を続けるがよい", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
 
@@ -29043,7 +29049,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：つまり、通り切れなかった箇所が無いかどうかを探すしかないって事ね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：下手するとしらみつぶしになるかもしれないが", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：下手すると、しらみつぶしになるかもしれないが", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：このエデルガイゼン城はそういう所だと思った方が良い。", ActionEvent.None);
 
