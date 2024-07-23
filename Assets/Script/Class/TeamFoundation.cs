@@ -2152,6 +2152,11 @@ public class TeamFoundation : MonoBehaviour
   public int EdelgarzenMirrorFinal_A { get { return _edelgarzen_mirror_final_A; } set { _edelgarzen_mirror_final_A = value; } } // 3F：鏡無限解ルートＡ
   public int EdelgarzenMirrorFinal_B { get { return _edelgarzen_mirror_final_B; } set { _edelgarzen_mirror_final_B = value; } } // 3F：鏡無限解ルートＢ
   public int EdelgarzenMirrorFinal_C { get { return _edelgarzen_mirror_final_C; } set { _edelgarzen_mirror_final_C = value; } } // 3F：鏡無限解ルートＣ
+
+  [SerializeField] protected bool _event_message1900143 = false;
+  [SerializeField] protected bool _event_message1900144 = false;
+  public bool Event_Message1900143 { get { return _event_message1900143; } set { _event_message1900143 = value; } } // 3F：鏡ルートＣ、行き止まり到達時の会話
+  public bool Event_Message1900144 { get { return _event_message1900144; } set { _event_message1900144 = value; } } // 3F：鏡ルートＣから戻った時の会話
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;

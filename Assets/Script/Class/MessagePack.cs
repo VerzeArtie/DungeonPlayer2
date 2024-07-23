@@ -28852,6 +28852,208 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：よし、サンキュー！", ActionEvent.None);
   }
 
+  public static void Message1900143(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900143 == false)
+    {
+      One.TF.Event_Message1900143 = true;
+      Message(ref m_list, ref e_list, "32", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "ビリー：おっ！見ろよ、階段があるじゃねーか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ビリーは階段に向かって勢いよくダッシュした！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：あ！ちょ、待てって！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ん？なんでだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この先のタイルだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おそらく足の踏み場は無い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：マジかよ・・・どれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+      Message(ref m_list, ref e_list, "0.3", ActionEvent.ForceMoveFall);
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveRise);
+      Message(ref m_list, ref e_list, "0.2", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "ビリー：ウォ！ホントだ！！　あっぶねーな！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここで行き止まり・・・か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この先、どうするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一旦引き返そう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：引き返すってどこに？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：例の看板があった場所だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おいおい。目の前に階段が見えてるんだぞ。ここから強引に飛んで行けねーのか？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：止めておいた方がいいだろうな。何らかの障壁があると思った方がいい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：じゃまあ良いけどよ。戻ってどうすんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、真剣な眼差しで宙を見つめる　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少しだけ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：考える", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おうよ。じゃあ例の通ってきた鏡に戻れば良いんだな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。すまないが頼む。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900144(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900144 == false)
+    {
+      One.TF.Event_Message1900144 = true;
+      Message(ref m_list, ref e_list, "アイン：よし、戻ってきたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：考える時間が必要だったら、少し経ってからにする？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、みんなに聞いてみたい事もあるし、ここで会話しながらにしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：でだ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：いきなり煮詰まってんじゃねーよ、会話するんじゃなかったのかよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・悪い悪い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここの構成についてだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直、驚異的な結果に驚いている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どういう意味？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、俺達がこれまでに潜った鏡の数だが、何回潜った？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：正確な回数はあまり覚えてないけど、３０回は超えてたと思うわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、ビリー。鏡って結構並んでいたと思うんだが、お前、あれで合ってたと思うか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：合ってるに決まってるだろ。例の階段を見つけたんだしな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３０回潜る中で幾つ鏡が並んでた？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大体、２～４個って所かしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう。つまり連続で正解し続けたって事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お前、そういう考え方好きだよな。海底神殿の時もそうだったし。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・そうかもしれないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、実際に潜り抜けてきた確率を考えると・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：0.00004%程度。正直ほぼゼロに等しい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも今回の場合、階段が見えただけでクリアはしてないわよね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう、まだクリアはできていない。ゴールじゃないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：って事は？何なんだよ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここがある意味スタート地点なんだと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あんだけ回ったのにか？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：スタート地点ていうのは言い過ぎかもしれないが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：【正解】には辿り着いたと俺は考えている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：それって看板の事ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。となると次は【無限解】を探す事になる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：んなもん、全然分からねーじゃねえか。何処を探すんだよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ここの鏡の事か？それならもう通ってきただろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、鏡のある方へ視線を送る　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：在る", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの中から見つけるんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：当てはあるのかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この城の外側に隔離領域があるとは思えない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だったら内側だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：加えて、この城の構造だが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あちこちに飛びまわされている感覚はあるが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：卑怯なマネはしてこない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正面から立ち向かう様な構造になっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、ここの鏡についても、きっと他を当たる必要はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この看板の所から探し当ててみせる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：幼き子、アイン・ウォーレンスよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：今は、己が道を信じて進むが良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ハイ、以上～☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう。アデルのその言い方は不思議と良い感覚が生まれるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、具体的にどの鏡を選ぶかは決まっているの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少し考えはある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これまで通ってきたのが【正解】なら", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これまで通ってきていない所が【無限解】だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：つまり、通り切れなかった箇所が無いかどうかを探すしかないって事ね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：下手するとしらみつぶしになるかもしれないが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このエデルガイゼン城はそういう所だと思った方が良い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：多少の疲労感は覚悟の上で探そう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、マップで通過済になった箇所のマーキングを頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：了解よ。", ActionEvent.None);
+    }
+  }
 
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
