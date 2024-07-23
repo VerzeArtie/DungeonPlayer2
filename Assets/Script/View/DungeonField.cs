@@ -23805,7 +23805,7 @@ public class DungeonField : MotherBase
         return;
       }
     }
-    else if (One.AR.EdelgarzenMirrorSequence_C == 0)
+    else if (One.TF.EdelgarzenMirrorSequence_C == 0)
     {
       if (One.AR.EdelgarzenMirrorSequence_C == 0)
       {
