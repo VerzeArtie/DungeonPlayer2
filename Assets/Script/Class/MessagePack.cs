@@ -29061,6 +29061,51 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900145(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900145 == false)
+    {
+      One.TF.Event_Message1900145 = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、見つけた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは一歩前へと踏み出した ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveTop);
+      Message(ref m_list, ref e_list, "33", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：看板だな。読んでみよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　【原点解への到達】  ＜左は聖者＞　＜右は愚者＞　〖究極解〗を選択せよ　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、どういう事か分かる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと待ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：決めた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：鏡を潜ろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どれにするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こっちだ。付いてきてくれ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　【原点解への到達】  ＜左は聖者＞　＜右は愚者＞　〖究極解〗を選択せよ　』", ActionEvent.None);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);

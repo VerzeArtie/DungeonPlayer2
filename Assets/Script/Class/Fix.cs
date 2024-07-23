@@ -13362,6 +13362,13 @@ public static partial class Fix
   public const float EDELGARZEN_3_Event_32_X = 30.0f;
   public const float EDELGARZEN_3_Event_32_Y = 0.0f;
   public const float EDELGARZEN_3_Event_32_Z = -33.0f;
+
+  // Ｄルート
+  public const string EDELGARZEN_3_Event_33_C = "Event";
+  public const string EDELGARZEN_3_Event_33_O = "33";
+  public const float EDELGARZEN_3_Event_33_X = 30.0f;
+  public const float EDELGARZEN_3_Event_33_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_33_Z = -18.0f;
   #endregion
   #region "看板"
   public const string EDELGARZEN_3_MessageBoard_1_C = "MessageBoard";
@@ -13369,6 +13376,12 @@ public static partial class Fix
   public const float EDELGARZEN_3_MessageBoard_1_X = 13.0f;
   public const float EDELGARZEN_3_MessageBoard_1_Y = 1.0f;
   public const float EDELGARZEN_3_MessageBoard_1_Z = -7.0f;
+
+  public const string EDELGARZEN_3_MessageBoard_2_C = "MessageBoard";
+  public const string EDELGARZEN_3_MessageBoard_2_O = "2";
+  public const float EDELGARZEN_3_MessageBoard_2_X = 30.0f;
+  public const float EDELGARZEN_3_MessageBoard_2_Y = 1.0f;
+  public const float EDELGARZEN_3_MessageBoard_2_Z = -16.0f;
   #endregion
   #endregion
 
