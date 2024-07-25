@@ -928,6 +928,20 @@ public class AkashicRecord : MonoBehaviour
     get { return _edelgarzen_mirror_final_C; }
   }
 
+  [SerializeField] protected bool _edelgarzen_holy_answer = false;
+  public bool EdelgarzenHolyAnswer
+  {
+    set { _edelgarzen_holy_answer = value; }
+    get { return _edelgarzen_holy_answer; }
+  }
+
+  [SerializeField] protected bool _edelgarzen_fool_answer = false;
+  public bool EdelgarzenFoolAnswer
+  {
+    set { _edelgarzen_fool_answer = value; }
+    get { return _edelgarzen_fool_answer; }
+  }
+
   [SerializeField] protected bool _velgus_badend_genesisgate = false;
   public bool Velgus_BadEnd_GenesisGate
   {

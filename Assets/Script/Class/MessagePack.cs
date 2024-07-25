@@ -29100,9 +29100,332 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：こっちだ。付いてきてくれ。", ActionEvent.None);
     }
-    else
+  }
+
+  public static void Message1900146(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　【原点解への到達】  ＜左は聖者＞　＜右は愚者＞　〖究極解〗を選択せよ　』", ActionEvent.None);
+  }
+
+  public static void Message1900147(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.EdelgarzenHolyAnswer = true;
+    One.UpdateAkashicRecord();
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToWhite);
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
+    Message(ref m_list, ref e_list, "アイン：（俺は聖者ルートの鏡を潜った）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（その結果、この世界の全容を認識する）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ObsidianStoneとは・・・そうか・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（あらゆる事象発生の根源であり）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そして最終的な結果でもある）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（始まり／終わり）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（創生／消滅）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（離散／回帰）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（あらゆる事象は双極としての理をもって形成されるが）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（本質は全てゼロへと回帰し）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そのゼロからまた万物の事象が形成される）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（事象の形成には必ず始まりがあり）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そして終える）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺がこのエデルガイゼン城を目指したのは）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（依頼があったからというのも一つの理由だが）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（その他にも根源的理由があった気がしてならない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ラナ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（お前はいつも俺と共に行動してくれた）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺が困った時はフォローに入ってくれるし）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺が考えている時はいつも待ってくれている）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺が聞いた事については常に応えてくれる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（本当に、感謝している）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ラナだけじゃない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（エルミ国王、ファラ王妃）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（各地であったエオネ、ビリー、アデル）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（みんなどこかで繋がっている）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺一人の意志や誰かの意志だけで決まるのではなく）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（世界に対して万物の理を制定するのは）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（神という概念）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（その神という概念こそが）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（生きとし生ける者）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（全ての生命体が）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（容を成していると言える）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（あたりは白い光に包まれていった）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺はすでに自分という認識はなくなりつつある）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（あらゆる事象、あらゆる生命が見える）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（手のひらにはObsidianStoneがある）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（今ならはっきりとそれが知覚／認識ができる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺はこの世界で）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（成すべき事を果たそうと思う）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（因果律の掌握と永劫回帰の理にて）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（世界を創生する）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ラナ、もうすこしだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（待ってろ、ラナ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（今から、お前の傍に行く）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（必ずだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　THE　END　～　（　聖者　『究極解』を会得せし者　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+  }
+
+  public static void Message1900148(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.AR.EdelgarzenFoolAnswer = true;
+    One.UpdateAkashicRecord();
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+    Message(ref m_list, ref e_list, "", ActionEvent.StopMusic);
+
+    Message(ref m_list, ref e_list, "アイン：（俺は愚者ルートの鏡を潜った）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（鏡の先には）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（更に無限に拡がる鏡が存在し続けた）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（鏡の先に終わりの地点が来る事はなかった）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（鏡を潜る度に色々と思考が巡る）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ObsidianStoneとは何なのか）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（エルミ国王の真意）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（エオネが何故海底神殿の後も付いてきてくれるのか）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ビリーはいつもあんな感じで居てくれるが実際の所はどうなのか）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ラナもいつも気遣ってくれている。感謝しないとな。）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そう、皆のためにも）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（この鏡についてはクリアしないといけないんだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（例え究極的な解に辿り着けなかったとしても）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（潜り続けなくちゃいけない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（止めるわけにはいかないんだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（途中でゴールしたかのような感覚や最終地点に到達したかのような感じを覚えたものの）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（一旦少し戻り別のルートを潜ると新たな道が拓ける）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そこを探索していくうちにまた新たな考え方や突破口が見えてくる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（それを軸として考えると）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（だいぶ最初の方に戻って全て潜りなおす事も考えないといけない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（実際、そういったルートを施行した所、以前通ったルートよりは最適だと気付く事ができる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（悪くはない。ただ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（究極的な最適解だったのかどうか）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（いや、いまだに）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（それが解なのかどうか分からないままであると言える）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（それを追及し続ける事でしか応えられないと思えた）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（気が付くと、辺りは既に真っ暗な空間になっていた）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（光として感じられる空間はなくなり）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（俺は他の皆とは遠く離れた位置に到達しまっていた）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ただ、ここで怯むわけにはいかない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（皆の所に戻る前に）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（原点となる究極解を手にして）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（それをもって皆の元へと戻ろう）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・いや、その前に・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（この世界に挑むためには、まだまだ足りないんだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ObsidianStoneはこの経路を通る中で幾つか入手したが）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（それだけでは足りないんだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（今、ここで戻る事はできない）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（これからも鏡を潜り続けて、究極的な解を選択してみせる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（そして必ず、原点解へと辿り着いて見せる）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（必ずだ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　THE　END　～　（　愚者　『究極解』を追及せし者　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+  }
+
+  public static void Message1900149(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900149 == false)
     {
-      Message(ref m_list, ref e_list, "『　【原点解への到達】  ＜左は聖者＞　＜右は愚者＞　〖究極解〗を選択せよ　』", ActionEvent.None);
+      One.TF.Event_Message1900149 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・よし！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveTop);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_3_DOOR_1_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：オーケーオーケー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：お、おおお！　やったじゃねえか！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：この辺りはさすがね。あそこで引き返そうとは思えなかったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：おし、じゃあ、突き進・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：でもでも、待ってー！　ちょっと質問～～～☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、アデル。何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：どう考えて選んだのかを教えて欲しいな☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだなあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：あ、ちょーっと待って。もう一つ条件", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：選ぶ際にどういうイメージをしたかも合わせて教えて欲しいな☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、分かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず、この看板の内容についてだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：「聖者」とか「愚者」って表現がされているが、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直な所、どちらもうさん臭い印象でしかないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：それってどういう解釈をしたのかなー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うさん臭いというのはちょっと違うか。。。何て言うんだろうな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どちらも選んでみたいし、どちらも妥当な気がするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：で、これまで鏡を潜ってきた感じだと、ヒントらしい情報は一切ない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そして最後にきてコレが来たわけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：コレが来たワケですねー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ、アデルの相づちは何か面白いな。まあ、続けるぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ともかく、ココにきて「聖者」「愚者」と言われてもピンと来なかったんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：そうなのか？？俺はもうこれどっちなんだよってスゲー考えたぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、まあ考えはするけどな。何て言うんだろうな", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：率直に言えばトラップみたいな印象だったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：へーー、そんな風に感じるんだ☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、こういう抽象的かつ印象的な表現ほどついつい選びたくるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：イメージ的にはこれ。仕組まれた内容の類に入るんだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：それってどういう意味なのかなー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：選択をする際、色々タイプがあるんだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：思考分析・示唆・試練・誘導・脅迫・無意図などジャンルを挙げるとキリがないが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今回の場合、これはそのどれにも当たらない感じがしたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：アハハハ、余計分からなくなったけどー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まあ・・何て言うんだ。例外的な印象を受けたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：選ぶこと自体に色の違いを感じたっていえば良いかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：てことは、イメージとしては例外的な印象だから、色の違いを察知した上で動いたって事かなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、そうなる。どうだ、答えになってるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うーん、でもー。もう１個お願いね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そういうのって理論を逸脱してると思うんだけど、どうやって鍛錬したのかな☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：鍛錬・・・鍛錬か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それはやっぱり、ボケ師匠に鍛えられてるのもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ボケ師匠って誰の事ー？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうか。オル・ランディスの事を指しているんだ。知ってるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：支離滅裂な言動で、奇麗な戦術を使う人の事だねー。知ってるよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・やっぱ有名なんだな。そう・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この到達は師匠のおかげかもしれない。ホント色んな人に助けてもらってるよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：うん、ありがとー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、そしたらいよいよだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：敵は近いのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。次すぐじゃないが、もう少しだと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：っしゃ、気合入れていこーぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
   }
 
