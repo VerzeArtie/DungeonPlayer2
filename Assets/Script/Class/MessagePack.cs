@@ -29325,7 +29325,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：お、おおお！　やったじゃねえか！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：この辺りはさすがね。あそこで引き返そうとは思えなかったわ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：この辺りはさすがね。あそこで引き返す発想はなかったわ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おし、じゃあ、突き進・・・", ActionEvent.None);
 
