@@ -29429,6 +29429,15 @@ public static class MessagePack
     }
   }
 
+  public static void Message19000150(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900150 == false)
+    {
+      One.TF.Event_Message1900150 = true;
+      EdelgarzenOpenDoor(ref m_list, ref e_list, Fix.EDELGARZEN_2_DOOR_22_O);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);

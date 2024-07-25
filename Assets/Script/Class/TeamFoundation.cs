@@ -2157,10 +2157,12 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900144 = false;
   [SerializeField] protected bool _event_message1900145 = false;
   [SerializeField] protected bool _event_message1900149 = false;
+  [SerializeField] protected bool _event_message1900150 = false;
   public bool Event_Message1900143 { get { return _event_message1900143; } set { _event_message1900143 = value; } } // 3F：鏡ルートＣ、行き止まり到達時の会話
   public bool Event_Message1900144 { get { return _event_message1900144; } set { _event_message1900144 = value; } } // 3F：鏡ルートＣから戻った時の会話
   public bool Event_Message1900145 { get { return _event_message1900145; } set { _event_message1900145 = value; } } // 3F：鏡ルートＤへ到達時の会話
   public bool Event_Message1900149 { get { return _event_message1900149; } set { _event_message1900149 = value; } } // 3F：鏡ルートＤから次の鏡へ到達できた時の会話
+  public bool Event_Message1900150 { get { return _event_message1900150; } set { _event_message1900150 = value; } } // 2F：外壁ルート左の扉
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;
