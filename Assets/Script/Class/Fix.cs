@@ -11702,7 +11702,7 @@ public static partial class Fix
   // ワープ鏡４４Ｂ
   public const string EDELGARZEN_2_MIRROR_44B_C = "Mirror";
   public const string EDELGARZEN_2_MIRROR_44B_O = "44B";
-  public const float EDELGARZEN_2_MIRROR_44B_X = 23.0f;
+  public const float EDELGARZEN_2_MIRROR_44B_X = 34.0f;
   public const float EDELGARZEN_2_MIRROR_44B_Y = 0.5f;
   public const float EDELGARZEN_2_MIRROR_44B_Z = -2.0f;
 
