@@ -27936,6 +27936,10 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：この扉は固く閉ざされているな。他をあたろう。", ActionEvent.None);
   }
+  public static void Message1900031(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：この扉は鍵がかかっているな。他をあたろう。", ActionEvent.None);
+  }
 
   public static void Message1900040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -29489,6 +29493,26 @@ public static class MessagePack
     {
       One.TF.Event_Message1900156 = true;
       EdelgarzenOpenDoor(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_44_O);
+    }
+  }
+
+  public static void Message1900157(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900157 == false)
+    {
+      One.TF.Event_Message1900157 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉か・・・鍵がかかっているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：鍵を差し込んでみるわね。ちょっと待ってて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアが扉に鍵を差し込んだ　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_1_DOOR_46_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし、サンキュー！", ActionEvent.None);
     }
   }
 
