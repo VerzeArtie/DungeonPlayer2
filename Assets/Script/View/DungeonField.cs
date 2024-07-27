@@ -16579,6 +16579,15 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
+      {
+        if (LocationDetect(tile, Fix.EDELGARZEN_1_DOWNSTAIR_8_X, Fix.EDELGARZEN_1_DOWNSTAIR_8_Y, Fix.EDELGARZEN_1_DOWNSTAIR_8_Z))
+        {
+          this.HomeTownCall = Fix.TOWN_PARMETYSIA;
+          return true;
+        }
+      }
+
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
       {
         if (LocationDetect(tile, Fix.EDELGARZEN_2_DOWNSTAIR_1_X, Fix.EDELGARZEN_2_DOWNSTAIR_1_Y, Fix.EDELGARZEN_2_DOWNSTAIR_1_Z))

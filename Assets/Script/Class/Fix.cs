@@ -13523,6 +13523,8 @@ public static partial class Fix
   public const string DUNGEON_GANRO_FORTRESS = "ガンロー要塞";
   public const string DUNGEON_LOSLON_CAVE = "ロスロンの洞窟";
   public const string DUNGEON_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
+
+  public const string DUNGEON_EDELGARZEN_CASTLE_CENTER = "エデルガイゼン城 正面ゲート";
   #endregion
   #region "Field"
   public const string FIELD_ESMILIA_GRASS_AREA = "エスミリア草原区域";

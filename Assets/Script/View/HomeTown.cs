@@ -1271,9 +1271,11 @@ public partial class HomeTown : MotherBase
     }
     else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE)
     {
-      // todo
-      // エデルガイゼン入口は複数あり、分岐条件は進行状況に応じて異なる。
       CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_EDELGARZEN, 6.0f, 1.0f, -39.0f);
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER)
+    {
+      CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_EDELGARZEN, 30.0f, 1.0f, -39.0f);
     }
     else if (this.DungeonMap == Fix.DUNGEON_SNOWTREE_LATA)
     {
@@ -3825,6 +3827,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
     if (One.TF.Event_Message2200020) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE, true, counter); counter++; }
     if (One.TF.Event_Message1010030) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE, true, counter); counter++; }
+    if (One.TF.Event_Message1900157) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER, true, counter); counter++; }
   }
 
   private void AddQuestEvent(string quest_name, bool complete, int counter)
