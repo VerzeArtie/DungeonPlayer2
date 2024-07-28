@@ -29536,6 +29536,109 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900159(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900159 == false)
+    {
+      One.TF.Event_Message1900159 = true;
+      Message(ref m_list, ref e_list, "（　その刻、アイン・ウォーレンスは明確な波動を感じた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：扉を　開けし者よ　", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：名を　聞こう", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我の名は　ハーディル", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：言葉は　不要", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：その力　示すがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我　誠意を　持ちて", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：貴君を　屠ろう", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行くぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.MASCLEWARRIOR_HARDIL, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message1900160(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatMuscleHardil && One.TF.Event_Message1900160 == false)
+    {
+      One.TF.Event_Message1900160 = true;
+
+      Message(ref m_list, ref e_list, "（　アインはその一瞬のスキを見逃さなかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ハーディル、瞬間的に防衛姿勢に入るが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アインが繰り出したのは一撃必殺ではなく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　瞬間的な多段攻撃だった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：ッグオ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　一撃には決して怯まないハーディルが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　一撃目で崩れた様に周囲からは見て取れたのである　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　その内容はアインとハーディルの間でのみ交わされる　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　完全なる対話だった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：ック・・・ッグ・・・ォォォォ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ハーディルの肉体から、鮮血が宙を舞う　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アイン、幾つかの返り血を浴びつつ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　戦闘体制をその場で維持し続けた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：貫通耐性を　超えるか", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：見事なり　アイン・ウォーレンス", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハーディル：ッグ・・・ッッ・・・・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ハーディル、その場で拳を床に突きつけた状態で息を引き取った　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン？大丈夫？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アイン・ウォーレンスは姿勢を変えず、視線のみラナに返す　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っふう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：悪い、なんか変な視線を送ってしまったかもしれない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：別にこっちは良いけど、アンタの方は大丈夫なわけ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ・・・大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：次へ・・・進むとしよう。", ActionEvent.None);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);

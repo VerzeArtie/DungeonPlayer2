@@ -788,6 +788,12 @@ public class DungeonField : MotherBase
           MessagePack.Message1900010(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+
+        if (One.TF.DefeatMuscleHardil && One.TF.Event_Message1900160 == false)
+        {
+          MessagePack.Message1900160(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
       }
       return;
     }
@@ -10681,6 +10687,14 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(7, 5, 14, 28, 61, One.TF.KnownTileList_Edelgarzen_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN && currentMessage == "1")
+          {
+            UpdateUnknownTileArea(9, 9, 25, 26, 61, One.TF.KnownTileList_Edelgarzen_1);
+            UpdateUnknownTileArea(1, 7, 24, 27, 61, One.TF.KnownTileList_Edelgarzen_1);
+            UpdateUnknownTileArea(1, 5, 23, 28, 61, One.TF.KnownTileList_Edelgarzen_1);
+            UpdateUnknownTileArea(1, 3, 22, 29, 61, One.TF.KnownTileList_Edelgarzen_1);
+            UpdateUnknownTileArea(1, 1, 21, 30, 61, One.TF.KnownTileList_Edelgarzen_1);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -16032,6 +16046,14 @@ public class DungeonField : MotherBase
       }
 
 
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
+    {
+      if (LocationDetect(tile, Fix.EDELGARZEN_1_Event_1_X, Fix.EDELGARZEN_1_Event_1_Y, Fix.EDELGARZEN_1_Event_1_Z))
+      {
+        MessagePack.Message1900159(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
     {

@@ -505,6 +505,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW;
         }
+        else if (One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL)
+        {
+          One.EnemyList[ii].txtName.text = Fix.MASCLEWARRIOR_HARDIL_JP_VIEW;
+        }
 
         // 戦闘ゲージを設定
         One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
@@ -1141,6 +1145,12 @@ public partial class BattleEnemy : MotherBase
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA)
         {
           One.TF.DefeatEoneFulnea = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
+        {
+          One.TF.DefeatMuscleHardil = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
         {

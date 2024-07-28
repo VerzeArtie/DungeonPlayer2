@@ -11073,19 +11073,12 @@ public static partial class Fix
   public const float EDELGARZEN_1_UPSTAIR_9_Z = -23.0f;
   #endregion
   #region "Event"
-  // 城内中央部の左側
+  // ボス戦開始位置
   public const string EDELGARZEN_1_Event_1_C = "Event";
   public const string EDELGARZEN_1_Event_1_O = "1";
-  public const float EDELGARZEN_1_Event_1_X = 25.0f;
+  public const float EDELGARZEN_1_Event_1_X = 30.0f;
   public const float EDELGARZEN_1_Event_1_Y = 0.0f;
-  public const float EDELGARZEN_1_Event_1_Z = -17.0f;
-
-  // 城内中央部の右側
-  public const string EDELGARZEN_1_Event_2_C = "Event";
-  public const string EDELGARZEN_1_Event_2_O = "2";
-  public const float EDELGARZEN_1_Event_2_X = 34.0f;
-  public const float EDELGARZEN_1_Event_2_Y = 0.0f;
-  public const float EDELGARZEN_1_Event_2_Z = -9.0f;
+  public const float EDELGARZEN_1_Event_1_Z = -33.0f;
   #endregion
   #endregion
 

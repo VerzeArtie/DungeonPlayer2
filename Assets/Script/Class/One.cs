@@ -67,7 +67,7 @@ public static class One
   public static int EnableBGM = 100; // ミュージック、デフォルトは100
   public static int EnableSoundEffect = 100; // 効果音、デフォルトは100
   public static int BattleSpeed = 3;
-  public static int Difficulty = 2; // ゲーム難易度 デフォルトは２：普通
+  public static int Difficulty = -1; // ゲーム難易度 デフォルトは２：普通
   public static GameLanguage Language = GameLanguage.English; // ゲームサポート言語
   public static bool SupportLog = true; // SQLサーバーに操作ログを残す　デフォルトはON
 
