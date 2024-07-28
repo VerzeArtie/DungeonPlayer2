@@ -13406,6 +13406,14 @@ public static partial class Fix
   public const float EDELGARZEN_ObsidianStone_1_Y = 1.0f;
   public const float EDELGARZEN_ObsidianStone_1_Z = -33.0f;
   #endregion
+  #region "階段"
+  // 下り階段( 最上部 )
+  public const string EDELGARZEN_4_DOWNSTAIR_1_C = "Downstair";
+  public const string EDELGARZEN_4_DOWNSTAIR_1_O = "1";
+  public const float EDELGARZEN_4_DOWNSTAIR_1_X = 30.0f;
+  public const float EDELGARZEN_4_DOWNSTAIR_1_Y = 0.0f;
+  public const float EDELGARZEN_4_DOWNSTAIR_1_Z = -2.0f;
+  #endregion
   #region "Event"
   // 最後の奥部屋
   public const string EDELGARZEN_4_Event_1_C = "Event";
