@@ -29663,6 +29663,129 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900162(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900162 == false)
+    {
+      One.TF.Event_Message1900162 = true;
+      Message(ref m_list, ref e_list, "（　アイン・ウォーレンス、静かに歩を止める　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：既に　我の射程圏内だが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：足を　踏み入れてきたか", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：名を　名乗るがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンス", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我が名は　ザガン", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ハーディルと　おなじく", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：言葉は　不要", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：己の全力　示すがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行くぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.HUGE_MAGICIAN_ZAGAN, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message1900163(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatHugeZagan && One.TF.Event_Message1900163 == false)
+    {
+      One.TF.Event_Message1900163 = true;
+
+      Message(ref m_list, ref e_list, "（　ザガンが放つ連続魔法に一瞬の思考が混じった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　それはザガン本人に迷いを生じた訳ではなく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アイン・ウォーレンスが戦闘の最中で蓄積させた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　意図的な余白　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アイン、その思考の混じりにタイミングを合わせ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　相手の魔法詠唱に対して魔法カウンター攻撃を繰り出した　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　その瞬間、ザガンの手から詠唱されるはずの魔法が消失し　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　勝敗が決せられた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：コオォオォォォ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ザガン、アインとの距離を置こうとするが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　アイン、既にその行動を予期　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ザガンが瞬間移動で着地した地点に対して　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　致命傷となる一撃を与えるに至った　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：オ！オオォォォ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：その動作・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：リガール王の・・・【予見の光剣】と・・・同じ本質を有するか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ザガン：見事なり　アイン・ウォーレンス", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ザガン、両手の杖を静かに胸に収め、息を引き取った　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何なんだ今の動きは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やべえ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、突如メンバーの方へと振り返った　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：皆、大丈夫か！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：あぁ？　なんで俺らの心配してんだよ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、いや。。。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：大丈夫だった様だな。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：？？？　ったくよー、意味分かんねえぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：集中し過ぎていたせいか、皆の姿を確認していなかったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：相手が最後、お前らに何か仕掛けてないか心配だったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：別に最後は何も食らってないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良かった・・・本当に・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ってか、むしろお前が大丈夫かよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直・・・結構厳しいな・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ったく、無理すんじゃねーぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);

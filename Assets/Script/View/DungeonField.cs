@@ -795,6 +795,15 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+      {
+        if (One.TF.DefeatHugeZagan && One.TF.Event_Message1900163 == false)
+        {
+          MessagePack.Message1900163(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
       return;
     }
 
@@ -10707,6 +10716,11 @@ public class DungeonField : MotherBase
             UpdateUnknownTileArea(1, 3, 22, 29, 61, One.TF.KnownTileList_Edelgarzen_1);
             UpdateUnknownTileArea(1, 1, 21, 30, 61, One.TF.KnownTileList_Edelgarzen_1);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2 && currentMessage == "1")
+          {
+            UpdateUnknownTileArea(9, 7, 13, 27, 61, One.TF.KnownTileList_Edelgarzen_2);
+            UpdateUnknownTileArea(1, 3, 12, 29, 61, One.TF.KnownTileList_Edelgarzen_2);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -16068,6 +16082,14 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_1_Event_1_X, Fix.EDELGARZEN_1_Event_1_Y, Fix.EDELGARZEN_1_Event_1_Z))
       {
         MessagePack.Message1900159(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+    {
+      if (LocationDetect(tile, Fix.EDELGARZEN_2_Event_1_X, Fix.EDELGARZEN_2_Event_1_Y, Fix.EDELGARZEN_2_Event_1_Z))
+      {
+        MessagePack.Message1900162(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
