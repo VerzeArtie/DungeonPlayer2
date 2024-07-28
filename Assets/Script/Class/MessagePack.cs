@@ -29786,6 +29786,28 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900164(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900164 == false)
+    {
+      One.TF.Event_Message1900164 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉か・・・ラナ。例の鍵で開けられそうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おそらく行けるわ。待ってて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアが扉に鍵を差し込んだ　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_3_DOOR_2_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+    }
+  }
+
   public static void Message1901000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：！？", ActionEvent.None);
