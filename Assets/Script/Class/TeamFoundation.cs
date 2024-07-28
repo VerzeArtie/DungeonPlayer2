@@ -2172,6 +2172,8 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900162 = false;
   [SerializeField] protected bool _event_message1900163 = false;
   [SerializeField] protected bool _event_message1900164 = false;
+  [SerializeField] protected bool _event_message1900165 = false;
+  [SerializeField] protected bool _event_message1900166 = false;
   public bool Event_Message1900143 { get { return _event_message1900143; } set { _event_message1900143 = value; } } // 3F：鏡ルートＣ、行き止まり到達時の会話
   public bool Event_Message1900144 { get { return _event_message1900144; } set { _event_message1900144 = value; } } // 3F：鏡ルートＣから戻った時の会話
   public bool Event_Message1900145 { get { return _event_message1900145; } set { _event_message1900145 = value; } } // 3F：鏡ルートＤへ到達時の会話
@@ -2191,6 +2193,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900162 { get { return _event_message1900162; } set { _event_message1900162 = value; } } // 2F：ボス戦
   public bool Event_Message1900163 { get { return _event_message1900163; } set { _event_message1900163 = value; } } // 2F：ボス戦撃破後
   public bool Event_Message1900164 { get { return _event_message1900164; } set { _event_message1900164 = value; } } // 3F：ボス前の扉２
+  public bool Event_Message1900165 { get { return _event_message1900165; } set { _event_message1900165 = value; } } // 3F：ボス戦
+  public bool Event_Message1900166 { get { return _event_message1900166; } set { _event_message1900166 = value; } } // 3F：ボス戦撃破後
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;
@@ -2718,6 +2722,9 @@ public class TeamFoundation : MonoBehaviour
 
   protected bool _defeat_huge_zagan = false;
   public bool DefeatHugeZagan { get { return _defeat_huge_zagan; } set { _defeat_huge_zagan = value; } }
+
+  protected bool _defeat_legin_arze = false;
+  public bool DefeatLeginArze { get { return _defeat_legin_arze; } set { _defeat_legin_arze = value; } }
 
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }

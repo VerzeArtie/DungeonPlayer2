@@ -804,6 +804,15 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+      {
+        if (One.TF.DefeatLeginArze && One.TF.Event_Message1900166 == false)
+        {
+          MessagePack.Message1900166(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
       return;
     }
 
@@ -10737,6 +10746,10 @@ public class DungeonField : MotherBase
             UpdateUnknownTileArea(9, 7, 13, 27, 61, One.TF.KnownTileList_Edelgarzen_2);
             UpdateUnknownTileArea(1, 3, 12, 29, 61, One.TF.KnownTileList_Edelgarzen_2);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3 && currentMessage == "34")
+          {
+            UpdateUnknownTileArea(11, 12, 2, 24, 61, One.TF.KnownTileList_Edelgarzen_3);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -16310,6 +16323,12 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_33_X, Fix.EDELGARZEN_3_Event_33_Y, Fix.EDELGARZEN_3_Event_33_Z))
       {
         MessagePack.Message1900145(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.EDELGARZEN_3_Event_34_X, Fix.EDELGARZEN_3_Event_34_Y, Fix.EDELGARZEN_3_Event_34_Z))
+      {
+        MessagePack.Message1900165(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

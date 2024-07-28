@@ -29559,13 +29559,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ハーディル：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：言葉は　不要", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハーディル：言葉は　不要", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：その力　示すがよい", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハーディル：その力　示すがよい", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：我　誠意を　持ちて", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハーディル：我　誠意を　持ちて", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：貴君を　屠ろう", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ハーディル：貴君を　屠ろう", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：行くぞ！", ActionEvent.None);
 
@@ -29688,11 +29688,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ザガン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：ハーディルと　おなじく", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ザガン：ハーディルと　おなじく", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：言葉は　不要", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ザガン：言葉は　不要", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：己の全力　示すがよい", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ザガン：己の全力　示すがよい", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：行くぞ！", ActionEvent.None);
 
@@ -29803,6 +29803,162 @@ public static class MessagePack
       Message(ref m_list, ref e_list, Fix.EDELGARZEN_3_DOOR_2_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "アイン：よし・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900165(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900165 == false)
+    {
+      One.TF.Event_Message1900165 = true;
+
+      Message(ref m_list, ref e_list, "（　突如、部屋全体に何らかの気配が発生し始めた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "34", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：こ・・・これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我が名はレギィン・アーゼ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：愚かしくもこの地に足を踏み入れた者よ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：名を　名乗るがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：其方に答えてもらいたい事がある", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：理とは何かについて心得ている事はあるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：理・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：全容、つまり完全なる理論そのものだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：愚かなり、アイン・ウォーレンス", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：その、パーティとやらと話あってきた結果がそれか", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：理とは理論に非ず", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：理とは全容に非ず", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：その程度のレベル、其方が知らぬはずがあるまい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・どういう意味だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：知らぬはずがあるまい。そう言っているのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：何かを意識してか、あるいは", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：何かを意識しないようにしてきたか", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：我は理を極めし者、レギィン・アーゼ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：其方の心はすでに掴んでいる", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：今の発言は、完全なる嘘であると思い知るがよい", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：別に嘘を言っているわけじゃない。場の構築として最善を考えているだけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：愚かしい・・・これほどまでに愚かしいとは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：これ以上の言葉は不要", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：我の示す深淵を受諾するがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：来る！　皆行くぞ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.LEGIN_ARZE_1, ActionEvent.EncountBoss);
+    }
+  }
+
+  public static void Message1900166(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.DefeatLeginArze && One.TF.Event_Message1900166 == false)
+    {
+      One.TF.Event_Message1900166 = true;
+
+      Message(ref m_list, ref e_list, "（　レギィンの放つ瘴気はより色濃く全体を覆う形となった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：コ・・・コ・・・理・・・とは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ック・・・まだか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：ゲ・・・ゲ・・・解せぬ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "レギィン：解せぬゾオオオォォ、ア、ア、アイン、ウォーレンスーーー！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：う、うわああぁぁ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　瘴気の闇がアイン・ウォーレンスの身体全体を包み込んだ！　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：や！　やべぇ！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫！？アイン！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ぐっ・・・こ・・・これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ぐっ・・・ック・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　やがて、瘴気の闇がアイン・ウォーレンスから取り払われていった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッグ・・・や、やばかったな・・・今のは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫！？本当に大丈夫よね！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ・・・なんとかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何だったんだ今のは・・・薄気味わりー野郎だったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：ご気分は・・・本当に大丈夫でしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少しだけ圧迫感はあるが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：フウウゥゥ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そう・・・だと良いのですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、皆心配かけた。もう問題ないぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：てめえが問題ないっていう内容ほど、うさんくせーモノはないけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハハハ・・・一本取られたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょ、ちょっと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン、貴方の眼・・・おかしいわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　あ　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：戻ったわね。気のせいかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構な戦闘だったからな。そのせいだろう、きっと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：よく、分からない理屈ね。。。まあ良いけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・いよいよ次で頂上か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：この上の階層に居るってのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ここからでも僅かな気配を感じる・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
     }

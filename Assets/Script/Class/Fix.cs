@@ -13360,6 +13360,13 @@ public static partial class Fix
   public const float EDELGARZEN_3_Event_33_X = 30.0f;
   public const float EDELGARZEN_3_Event_33_Y = 0.0f;
   public const float EDELGARZEN_3_Event_33_Z = -18.0f;
+
+  // ボス戦開始位置
+  public const string EDELGARZEN_3_Event_34_C = "Event";
+  public const string EDELGARZEN_3_Event_34_O = "34";
+  public const float EDELGARZEN_3_Event_34_X = 30.0f;
+  public const float EDELGARZEN_3_Event_34_Y = 0.0f;
+  public const float EDELGARZEN_3_Event_34_Z = -10.0f;
   #endregion
   #region "看板"
   public const string EDELGARZEN_3_MessageBoard_1_C = "MessageBoard";
