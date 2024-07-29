@@ -27940,6 +27940,10 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：この扉は鍵がかかっているな。他をあたろう。", ActionEvent.None);
   }
+  public static void Message1900032(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：鍵がかかっているな・・・鍵を探しに戻るしかないか。", ActionEvent.None);
+  }
 
   public static void Message1900040(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -29959,6 +29963,40 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：ああ、ここからでも僅かな気配を感じる・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
+    }
+  }
+
+  public static void Message1900167(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900167 == false)
+    {
+      One.TF.Event_Message1900167 = true;
+
+      Message(ref m_list, ref e_list, "アイン：扉か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうする？鍵を使えば、開けられそうだけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：物凄い威圧感だな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ふう", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、ラナ。頼んだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアが扉に鍵を差し込んだ　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_4_DOOR_1_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "アイン：行こう。", ActionEvent.None);
     }
