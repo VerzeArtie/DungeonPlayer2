@@ -2177,6 +2177,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900167 = false;
   [SerializeField] protected bool _event_message1900168 = false;
   [SerializeField] protected bool _event_message1900169 = false;
+  [SerializeField] protected bool _event_message1900170 = false;
   public bool Event_Message1900143 { get { return _event_message1900143; } set { _event_message1900143 = value; } } // 3F：鏡ルートＣ、行き止まり到達時の会話
   public bool Event_Message1900144 { get { return _event_message1900144; } set { _event_message1900144 = value; } } // 3F：鏡ルートＣから戻った時の会話
   public bool Event_Message1900145 { get { return _event_message1900145; } set { _event_message1900145 = value; } } // 3F：鏡ルートＤへ到達時の会話
@@ -2201,6 +2202,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900167 { get { return _event_message1900167; } set { _event_message1900167 = value; } } // 4F：扉１
   public bool Event_Message1900168 { get { return _event_message1900168; } set { _event_message1900168 = value; } } // 4F：ボス戦
   public bool Event_Message1900169 { get { return _event_message1900169; } set { _event_message1900169 = value; } } // 4F：ボス戦撃破後
+  public bool Event_Message1900170 { get { return _event_message1900170; } set { _event_message1900170 = value; } } // 4F：扉２
   #endregion
 
   [SerializeField] protected bool _event_message2200000 = false;

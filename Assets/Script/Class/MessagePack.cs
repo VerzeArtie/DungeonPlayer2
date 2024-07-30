@@ -30551,6 +30551,28 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900170(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900170 == false)
+    {
+      One.TF.Event_Message1900170 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：開けるわね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、頼む。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ラナ・アミリアの両手がうっすらと薄白色に輝く　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（ッゴゴゴゴ、ズズウウゥゥゥン・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_4_DOOR_2_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
+    }
+  }
+
   public static void Message1901030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);
