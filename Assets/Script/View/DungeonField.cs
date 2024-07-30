@@ -2396,6 +2396,11 @@ public class DungeonField : MotherBase
         MessagePack.Message1900116(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && One.TF.DefeatLegalOrphstein)
+      {
+        MessagePack.Message1900171(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
 
       this.currentDecision = Fix.DECISION_ESCAPE_FROM_DUNGEON;
       txtDecisionTitle.text = "ダンジョンの外へと帰還しますか？";
@@ -16869,7 +16874,14 @@ public class DungeonField : MotherBase
       {
         if (LocationDetect(tile, Fix.EDELGARZEN_4_DOWNSTAIR_1_X, Fix.EDELGARZEN_4_DOWNSTAIR_1_Y, Fix.EDELGARZEN_4_DOWNSTAIR_1_Z))
         {
-          DungeonCallSetup(Fix.MAPFILE_EDELGARZEN_3, Fix.EDELGARZEN_3_UPSTAIR_6_X, Fix.EDELGARZEN_3_UPSTAIR_6_Y + 1.0f, Fix.EDELGARZEN_3_UPSTAIR_6_Z - 1.0f);
+          if (One.TF.DefeatLegalOrphstein)
+          {
+            MessagePack.Message1900172(ref QuestMessageList, ref QuestEventList); TapOK();            
+          }
+          else
+          {
+            DungeonCallSetup(Fix.MAPFILE_EDELGARZEN_3, Fix.EDELGARZEN_3_UPSTAIR_6_X, Fix.EDELGARZEN_3_UPSTAIR_6_Y + 1.0f, Fix.EDELGARZEN_3_UPSTAIR_6_Z - 1.0f);
+          }
           return true;
         }
       }

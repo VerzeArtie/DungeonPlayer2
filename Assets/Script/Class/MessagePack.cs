@@ -30573,6 +30573,16 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900171(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　今、遠見の青水晶を使う必要はない　）", ActionEvent.None);
+  }
+
+  public static void Message1900172(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　今、引き返すわけにはいかない　）", ActionEvent.None);
+  }
+
   public static void Message1901030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);
