@@ -30497,11 +30497,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "リガール：良き友として歩んでやってくれ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：分かりました。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：もちろんです。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "リガール：・・・っ・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "リガール：頼んだぞ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "リガール：頼んだぞ", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "リガール：・・・　・・・", ActionEvent.None);
 
