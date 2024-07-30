@@ -13415,12 +13415,19 @@ public static partial class Fix
   public const float EDELGARZEN_4_DOWNSTAIR_1_Z = -2.0f;
   #endregion
   #region "Event"
-  // 最後の奥部屋
+  // ボス戦
   public const string EDELGARZEN_4_Event_1_C = "Event";
   public const string EDELGARZEN_4_Event_1_O = "1";
   public const float EDELGARZEN_4_Event_1_X = 30.0f;
   public const float EDELGARZEN_4_Event_1_Y = 0.0f;
-  public const float EDELGARZEN_4_Event_1_Z = -35.0f;
+  public const float EDELGARZEN_4_Event_1_Z = -5.0f;
+
+  // 最後の奥部屋
+  public const string EDELGARZEN_4_Event_2_C = "Event";
+  public const string EDELGARZEN_4_Event_2_O = "2";
+  public const float EDELGARZEN_4_Event_2_X = 30.0f;
+  public const float EDELGARZEN_4_Event_2_Y = 0.0f;
+  public const float EDELGARZEN_4_Event_2_Z = -35.0f;
   #endregion
   #endregion
 

@@ -813,6 +813,15 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
+      {
+        if (One.TF.DefeatLegalOrphstein && One.TF.Event_Message1900169 == false)
+        {
+          MessagePack.Message1900169(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
       return;
     }
 
@@ -10766,6 +10775,39 @@ public class DungeonField : MotherBase
           {
             UpdateUnknownTileArea(11, 12, 2, 24, 61, One.TF.KnownTileList_Edelgarzen_3);
           }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "1")
+          {
+            UpdateUnknownTileArea(2, 7, 4, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "2")
+          {
+            UpdateUnknownTileArea(2, 7, 6, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "3")
+          {
+            UpdateUnknownTileArea(2, 7, 8, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "4")
+          {
+            UpdateUnknownTileArea(2, 7, 10, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "5")
+          {
+            UpdateUnknownTileArea(2, 7, 12, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "6")
+          {
+            UpdateUnknownTileArea(2, 7, 14, 27, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "7")
+          {
+            UpdateUnknownTileArea(2, 9, 16, 26, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && currentMessage == "8")
+          {
+            UpdateUnknownTileArea(7, 13, 17, 24, 61, One.TF.KnownTileList_Edelgarzen_4);
+            UpdateUnknownTileArea(1, 9, 24, 26, 61, One.TF.KnownTileList_Edelgarzen_4);
+          }
         }
         // マップ上を自動移動（左）
         else if (currentEvent == MessagePack.ActionEvent.MoveLeft)
@@ -15676,7 +15718,7 @@ public class DungeonField : MotherBase
           return true;
         }
       }
-      
+
       if (LocationDetect(tile, Fix.VELGUS_EVENTTILE_253_X, Fix.VELGUS_EVENTTILE_253_Y, Fix.VELGUS_EVENTTILE_253_Z))
       {
         MessagePack.Message1000221(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -16355,7 +16397,14 @@ public class DungeonField : MotherBase
         return true;
       }
     }
-
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
+    {
+      if (LocationDetect(tile, Fix.EDELGARZEN_4_Event_1_X, Fix.EDELGARZEN_4_Event_1_Y, Fix.EDELGARZEN_4_Event_1_Z))
+      {
+        MessagePack.Message1900168(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
       if (LocationDetect(tile, 1, 0, 0) && One.TF.AvailableSelmoiRo == false)
