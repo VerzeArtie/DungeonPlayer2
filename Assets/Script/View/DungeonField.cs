@@ -13200,6 +13200,10 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_4_DOOR_2_X, Fix.EDELGARZEN_4_DOOR_2_Y, Fix.EDELGARZEN_4_DOOR_2_Z));
             }
+            if (currentMessage == Fix.EDELGARZEN_ObsidianStone_1_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_ObsidianStone_1_X, Fix.EDELGARZEN_ObsidianStone_1_Y, Fix.EDELGARZEN_ObsidianStone_1_Z));
+            }
           }
 
           // 岩壁１
@@ -16423,6 +16427,11 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_4_Event_1_X, Fix.EDELGARZEN_4_Event_1_Y, Fix.EDELGARZEN_4_Event_1_Z))
       {
         MessagePack.Message1900168(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.EDELGARZEN_4_Event_2_X, Fix.EDELGARZEN_4_Event_2_Y, Fix.EDELGARZEN_4_Event_2_Z))
+      {
+        MessagePack.Message1900173(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
@@ -22831,6 +22840,10 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1900170)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_4_DOOR_2_X, Fix.EDELGARZEN_4_DOOR_2_Y, Fix.EDELGARZEN_4_DOOR_2_Z));
+      }
+      if (One.TF.Event_Message1900173)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_ObsidianStone_1_X, Fix.EDELGARZEN_ObsidianStone_1_Y, Fix.EDELGARZEN_ObsidianStone_1_Z));
       }
     }
     #endregion

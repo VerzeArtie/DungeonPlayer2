@@ -30583,6 +30583,54 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：（　今、引き返すわけにはいかない　）", ActionEvent.None);
   }
 
+  public static void Message1900173(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1900173 == false)
+    {
+      One.TF.Event_Message1900173 = true;
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      InscribeMatrixDragon_6(ref m_list, ref e_list);
+
+      Message(ref m_list, ref e_list, Fix.EDELGARZEN_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：アイン？大丈夫なの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、大丈夫だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そこの空間に", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：奇妙な物体があるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：え？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：触れてみようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：きっとここから", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、違うな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここからきっと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺は抜けられていないんだと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今度こそ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：触れてみせる", ActionEvent.None);
+    }
+  }
+
   public static void Message1901030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);
