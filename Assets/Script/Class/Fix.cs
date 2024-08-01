@@ -13429,12 +13429,19 @@ public static partial class Fix
   public const float EDELGARZEN_4_Event_2_Y = 0.0f;
   public const float EDELGARZEN_4_Event_2_Z = -32.0f;
 
-  // 最後の奥部屋
+  // ObsidianStone到達後の移動制限
   public const string EDELGARZEN_4_Event_3_C = "Event";
   public const string EDELGARZEN_4_Event_3_O = "3";
   public const float EDELGARZEN_4_Event_3_X = 30.0f;
   public const float EDELGARZEN_4_Event_3_Y = 0.0f;
-  public const float EDELGARZEN_4_Event_3_Z = -35.0f;
+  public const float EDELGARZEN_4_Event_3_Z = -31.0f;
+
+  // 最後の奥部屋
+  public const string EDELGARZEN_4_Event_4_C = "Event";
+  public const string EDELGARZEN_4_Event_4_O = "4";
+  public const float EDELGARZEN_4_Event_4_X = 30.0f;
+  public const float EDELGARZEN_4_Event_4_Y = 0.0f;
+  public const float EDELGARZEN_4_Event_4_Z = -35.0f;
   #endregion
   #endregion
 

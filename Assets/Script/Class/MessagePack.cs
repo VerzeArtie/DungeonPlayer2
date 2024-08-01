@@ -30631,6 +30631,13 @@ public static class MessagePack
     }
   }
 
+  public static void Message1900174(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　もう、戻るつもりはない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.01", ActionEvent.ForceMoveBottom);
+  }
+
   public static void Message1901030(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "ラナ：バカアイン、ちょっと黙ってないで答えなさいよ！？", ActionEvent.None);

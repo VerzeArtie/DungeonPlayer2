@@ -16434,6 +16434,16 @@ public class DungeonField : MotherBase
         MessagePack.Message1900173(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+      if (LocationDetect(tile, Fix.EDELGARZEN_4_Event_3_X, Fix.EDELGARZEN_4_Event_3_Y, Fix.EDELGARZEN_4_Event_3_Z))
+      {
+        if (One.TF.Event_Message1900173 && One.TF.Event_Message1900175 == false)
+        {
+          MessagePack.Message1900174(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+        return true;
+      }
+
+      
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
