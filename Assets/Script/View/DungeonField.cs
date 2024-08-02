@@ -95,6 +95,9 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Unknown_Edelgarzen_2;
   public TileInformation prefab_Unknown_Edelgarzen_3;
   public TileInformation prefab_Unknown_Edelgarzen_4;
+  public TileInformation prefab_Wosm_Normal;
+  public TileInformation prefab_Wosm_Wall;
+  public TileInformation prefab_Wosm_Sea;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -442,6 +445,9 @@ public class DungeonField : MotherBase
     PrefabList.Add("Edelgarzen_Wall");
     PrefabList.Add("Edelgarzen_Cloud");
     PrefabList.Add("Edelgarzen_Cloud_Secret");
+    PrefabList.Add("Wosm_Normal");
+    PrefabList.Add("Wosm_Wall");
+    PrefabList.Add("Wosm_Sea");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -19668,6 +19674,18 @@ public class DungeonField : MotherBase
     else if (tile_name == "Edelgarzen_Cloud_Secret")
     {
       current = Instantiate(prefab_Edelgarzen_Cloud_Secret, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Wosm_Normal")
+    {
+      current = Instantiate(prefab_Wosm_Normal, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Wosm_Wall")
+    {
+      current = Instantiate(prefab_Wosm_Wall, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Wosm_Sea")
+    {
+      current = Instantiate(prefab_Wosm_Sea, position, Quaternion.identity) as TileInformation;
     }
     else if (tile_name == "Upstair")
     {

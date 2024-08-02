@@ -81,6 +81,11 @@ public class TileInformation : MonoBehaviour
     Edelgarzen_Wall = 6002,
     Edelgarzen_Cloud = 6003,
     Edelgarzen_Cloud_Secret = 6004,
+
+    // 離島ウォズム
+    Wosm_Normal = 7001,
+    Wosm_Wall = 7002,
+    Wosm_Sea = 7003,
   }
   public enum Area
   {
@@ -183,6 +188,11 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Edelgarzen_Wall) { return 999; }
       if (field == Field.Edelgarzen_Cloud) { return 999; }
       if (field == Field.Edelgarzen_Cloud_Secret) { return 1; }
+
+      // 離島ウォズム
+      if (field == Field.Wosm_Normal) { return 1; }
+      if (field == Field.Wosm_Wall) { return 999; }
+      if (field == Field.Wosm_Sea) { return 999; }
 
       return 999;
     }
