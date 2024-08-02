@@ -163,6 +163,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Velgus_RandomBall2;
   public FieldObject prefab_Edelgarzen_Mirror;
   public FieldObject prefab_Edelgarzen_Door;
+  public FieldObject prefab_ObsidianPortal;
 
   // Decision
   public GameObject GroupDecision;
@@ -506,6 +507,7 @@ public class DungeonField : MotherBase
     ObjectList.Add("Velgus_RandomBall2");
     ObjectList.Add("Edelgarzen_Mirror");
     ObjectList.Add("Edelgarzen_Door");
+    ObjectList.Add("ObsidianPortal");
 
     // プレイヤーを設置
     this.Player = Instantiate(prefab_Player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject; // インスタント生成で位置情報は無意味とする。
@@ -8221,6 +8223,24 @@ public class DungeonField : MotherBase
         }
       }
       return;
+    }
+
+    if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.ObsidianPortal)
+    {
+      Debug.Log("detect FieldObject.Content.ObsidianPortal");
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4)
+      {
+        Debug.Log("detect Fix.MAPFILE_EDELGARZEN_4");
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_4_Event_4_X, Fix.EDELGARZEN_4_Event_4_Y, Fix.EDELGARZEN_4_Event_4_Z))
+        {
+          if (One.TF.Event_Message1900173 && One.TF.Event_Message1900175 == false)
+          {
+            MessagePack.Message1900175(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
     }
 
     tile = SearchNextTile(this.Player.transform.position, direction);
@@ -16443,7 +16463,6 @@ public class DungeonField : MotherBase
         return true;
       }
 
-      
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
@@ -20231,6 +20250,14 @@ public class DungeonField : MotherBase
     {
       current = Instantiate(prefab_Edelgarzen_Door, position, Quaternion.identity) as FieldObject;
       current.content = FieldObject.Content.Edelgarzen_Door;
+      current.ObjectId = id;
+      current.transform.SetParent(this.transform);
+      current.transform.rotation = q * current.transform.rotation;
+    }
+    else if (obj_name == "ObsidianPortal")
+    {
+      current = Instantiate(prefab_ObsidianPortal, position, Quaternion.identity) as FieldObject;
+      current.content = FieldObject.Content.ObsidianPortal;
       current.ObjectId = id;
       current.transform.SetParent(this.transform);
       current.transform.rotation = q * current.transform.rotation;

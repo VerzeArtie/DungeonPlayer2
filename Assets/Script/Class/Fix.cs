@@ -13436,11 +13436,11 @@ public static partial class Fix
   public const float EDELGARZEN_4_Event_3_Y = 0.0f;
   public const float EDELGARZEN_4_Event_3_Z = -31.0f;
 
-  // 最後の奥部屋
+  // Obsidian Portal
   public const string EDELGARZEN_4_Event_4_C = "Event";
   public const string EDELGARZEN_4_Event_4_O = "4";
   public const float EDELGARZEN_4_Event_4_X = 30.0f;
-  public const float EDELGARZEN_4_Event_4_Y = 0.0f;
+  public const float EDELGARZEN_4_Event_4_Y = 0.5f;
   public const float EDELGARZEN_4_Event_4_Z = -35.0f;
   #endregion
   #endregion

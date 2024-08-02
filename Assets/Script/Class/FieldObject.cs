@@ -72,6 +72,7 @@ public class FieldObject : MonoBehaviour
     Edelgarzen_Mirror,
     Edelgarzen_Door,
     Boss,
+    ObsidianPortal,
   }
 
   public Content content = Content.None;
