@@ -30720,15 +30720,15 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, " 　　　　　＜　何かが　＞", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 　　　　　＜　始まる気がした　＞", ActionEvent.None);
+      Message(ref m_list, ref e_list, " 　　　　　　＜　始まる気がした　＞", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 　　　　　＜　今までの現実は　＞", ActionEvent.None);
+      Message(ref m_list, ref e_list, " 　　　　　　　＜　今までの現実は　＞", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 　　　　　＜　虚像　＞", ActionEvent.None);
+      Message(ref m_list, ref e_list, " 　　　　　　　　＜　虚像　＞", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 　　　　　＜　ここからが本当の　＞", ActionEvent.None);
+      Message(ref m_list, ref e_list, " 　　　　　　　　　＜　ここからが本当の　＞", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 　　　　　＜　世界の始まり　＞", ActionEvent.None);
+      Message(ref m_list, ref e_list, " 　　　　　　　　　　＜　世界の始まり　＞", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "", ActionEvent.EnterSeekerMode);
     }
