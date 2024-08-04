@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,12 +12,61 @@ public class Title : MotherBase
 {
   public SaveLoad groupSaveLoad;
   public GameObject groupConfig;
+  public GameObject groupSeekerMode;
 
   bool firstAction = false;
   // Start is called before the first frame update
   public override void Start()
   {
     base.Start();
+
+    // debug
+    XmlDocument xml2 = new XmlDocument();
+    xml2.Load(One.PathForRootFile(Fix.AR_FILE));
+    Type typeAR = One.AR.GetType();
+    foreach (PropertyInfo pi in typeAR.GetProperties())
+    {
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Double))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+    }
   }
 
   // Update is called once per frame
@@ -25,6 +77,11 @@ public class Title : MotherBase
       this.firstAction = true;
       // 初期開始時、ファイルが無い場合準備しておく。
       One.MakeDirectory();
+
+      if (One.AR.EnterSeekerMode)
+      {
+        groupSeekerMode.SetActive(true);
+      }
     }
   }
 

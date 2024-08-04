@@ -942,6 +942,13 @@ public class AkashicRecord : MonoBehaviour
     get { return _edelgarzen_fool_answer; }
   }
 
+  [SerializeField] protected bool _enter_seeker_mode = false;
+  public bool EnterSeekerMode
+  {
+    set { _enter_seeker_mode = value; }
+    get { return _enter_seeker_mode; }
+  }
+
   [SerializeField] protected bool _velgus_badend_genesisgate = false;
   public bool Velgus_BadEnd_GenesisGate
   {

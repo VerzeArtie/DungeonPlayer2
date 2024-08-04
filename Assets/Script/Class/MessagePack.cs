@@ -81,6 +81,7 @@ public static class MessagePack
     HomeTownCallRestInn,
     HomeTownExecRestInn,
     HomeTownResetMenuView,
+    EnterSeekerMode,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -30619,15 +30620,117 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：いや、違うな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ここからきっと。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ここを基点として。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：俺は抜けられていないんだと思う。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：俺はずっと抜けられていないんだと思う。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：今度こそ", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：触れてみせる", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+      Message(ref m_list, ref e_list, "ラナ：ちょ、ちょっと！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+      Message(ref m_list, ref e_list, "ビリー：おいアイン！てめーどこ行くつもりだ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "0.5", ActionEvent.ForceMoveBottom);
+
+      Message(ref m_list, ref e_list, "（　この時　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+      Message(ref m_list, ref e_list, "（　一切の感覚が失われた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　自分自身、どう考え、どう行動したのかすら覚えていない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ただ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何も見えない空間に　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　手を伸ばしただけだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　辺りは暗闇に包まれ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　同時に真っ白な空間に包まれた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何も見えなくなり　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何も聞こえなくなった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　あらゆる事象が認識という形で介入してくるが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　それを捉えたり、掴んだり、干渉したりする事はできない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　光速を超え　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　全てが過ぎ去っていく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ラナ・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺はお前に・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　まだ・・・何も・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　完全に　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　全てが消失した　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　これが本当の　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　終わり　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　いや、ひょっとすると　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何も始まっていなかったのかも知れない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　今まで体験してきたこと全てが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　虚像であり　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　あの石に触れてからの事象こそが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　本来の像だとしたら　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この始まり続けなかった世界こそが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　本来の世界であり　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺自身が　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　拒絶し続けていた世界　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　だとしたら・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　何かが　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　始まる気がした　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　今までの現実は　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　虚像　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　ここからが本当の　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, " 　　　　　＜　世界の始まり　＞", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.EnterSeekerMode);
     }
   }
 
@@ -32325,7 +32428,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "　　（　俺はこの場所で　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　（　彼に既に出会っているんだ　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　（　既に出会っているんだ　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　（　触れた対象というのは石ではなく　）", ActionEvent.None);
 
@@ -32399,9 +32502,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：永久なる現世のオラクルは", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：エレミティア・リーマ・セフェラーデ", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：エレミティア・シエル・フィオルディーネ", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：エレミティア・リーマ・セフェラーデ・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：エレミティア・シエル・フィオルディーネ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：真実の・・・名か・・・", ActionEvent.None);
 

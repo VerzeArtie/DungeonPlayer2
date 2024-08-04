@@ -13668,6 +13668,14 @@ public class DungeonField : MotherBase
         {
           this.HomeTownCall = currentMessage;
         }
+        else if (currentEvent == MessagePack.ActionEvent.EnterSeekerMode)
+        {
+          One.AR.EnterSeekerMode = true;
+          One.UpdateAkashicRecord();
+          One.ReInitializeGroundOne(false);
+          One.StopDungeonMusic();
+          SceneDimension.JumpToTitle();
+        }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
         {
