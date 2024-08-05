@@ -312,6 +312,11 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：いや、今これを使う必要はないだろう。", ActionEvent.None);
   }
 
+  public static void MessageX00014(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン・ウォーレンス、並行世界への突入により、選択する事ができない。", ActionEvent.None);
+  }
+
   #endregion
 
   #region "エスミリア草原区域"
@@ -31611,9 +31616,46 @@ public static class MessagePack
   }
   #endregion
 
-  #region "天上界ジェネシスゲート"
-  public static void Message2600010(ref List<string> m_list, ref List<ActionEvent> e_list)
+  #region "天上界ジェネシスゲート／StartSeeker"
+  public static void Message2600001(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    if (One.AR.Event_Message2600001 == false)
+    {
+      One.AR.Event_Message2600001 = true;
+
+      Message(ref m_list, ref e_list, "アイン：っしゃ・・・これで準備OKかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "～ " + Fix.TOWN_ANSHET + "にて ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。あと装備品もチェックして・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、これでオーケーかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、それにしても・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：国内遠征許可証を正式に発行する・・・か", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ファージル国王。一体どうして今頃になって・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：考えてもしょうがない。行くしかないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このアンシェットの街からエスミリア草原区域に向けて進めば", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ファージル宮殿に着けるはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
+    }
+  }
+
+  public static void Message2600002(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：今、そこへ行く必要はないな。", ActionEvent.None);
   }
   #endregion
 

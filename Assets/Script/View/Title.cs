@@ -13,6 +13,8 @@ public class Title : MotherBase
   public SaveLoad groupSaveLoad;
   public GameObject groupConfig;
   public GameObject groupSeekerMode;
+  public GameObject GroupSystemMessage;
+  public Text SystemMessageText;
 
   bool firstAction = false;
   // Start is called before the first frame update
@@ -85,9 +87,35 @@ public class Title : MotherBase
     }
   }
 
+  public void TapStartSeeker()
+  {
+    Debug.Log("TapStartSeeker ok");
+    TapCancelSystemMessage();
+
+    One.TF.AvailableEinWolence = true;
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+    One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
+    One.StopDungeonMusic();
+    SceneDimension.JumpToHomeTown();
+  }
+
+  public void TapCancelSystemMessage()
+  {
+    this.SystemMessageText.text = "";
+    this.GroupSystemMessage.SetActive(false);
+  }
+
   public void TapGameStart()
   {
     Debug.Log("TapGameStart ok");
+
+    if (One.AR.EnterSeekerMode)
+    {
+      SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
+      GroupSystemMessage.SetActive(true);
+      return;
+    }
 
     if (System.IO.File.Exists(One.PathForRootFile(Fix.AR_FILE)) == false)
     {
@@ -134,6 +162,13 @@ public class Title : MotherBase
 
   public void TapGameLoad()
   {
+    if (One.AR.EnterSeekerMode)
+    {
+      SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
+      GroupSystemMessage.SetActive(true);
+      return;
+    }
+
     One.SaveMode = false;
     One.AfterBacktoTitle = false;
     One.SaveAndExit = false;
@@ -142,8 +177,14 @@ public class Title : MotherBase
     //SceneDimension.CallSaveLoad(this, false, false);
   }
 
+  public void TapExit()
+  {
+    Application.Quit();
+  }
+
   public void TapConfig()
   {
+    TapCancelSystemMessage();
     groupConfig.SetActive(true);
   }
 
