@@ -3535,6 +3535,12 @@ public partial class HomeTown : MotherBase
     // DungeonPlayerの行き先リストを設定
     RefreshSelectAreaList();
 
+    // SeekerModeではエスミリア草原区域のみを見せる
+    if (One.AR.EnterSeekerMode)
+    {
+      ViewSelectAreaEvent(Fix.DUNGEON_ESMILIA_GRASSFIELD);
+    }
+
     // debug
     //for (int ii = 0; ii < Fix.QUEST_EVENT_TITLE.Count; ii++)
     //{
@@ -3867,9 +3873,10 @@ public partial class HomeTown : MotherBase
     }
     int counter = 0;
 
+    // SeekerModeでクエストは見せない
     if (One.AR.EnterSeekerMode)
     {
-      AddQuestEvent("？？？", false, 0);
+      AddQuestEvent("", false, 0);
       return;
     }
 
@@ -3983,6 +3990,12 @@ public partial class HomeTown : MotherBase
   
   private void ViewQuestEvent(string quest_name)
   {
+    // SeekerModeの場合、何もしない
+    if (One.AR.EnterSeekerMode)
+    {
+      return;
+    }
+
     // same DungeonField, HomeTown
     txtEventTitle.text = quest_name;
     //txtGoButton.text = "GO";
