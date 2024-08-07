@@ -11,6 +11,12 @@ using UnityEngine.EventSystems;
 public partial class HomeTown : MotherBase
 {
   #region "Core"
+
+  // MenuButton
+  public Button btnParty;
+  public Button btnBlueSphere;
+  public Button btnSystem;
+
   // HomeTown
   public Image backgroundData;
   public Text dayLabel;
@@ -3517,6 +3523,11 @@ public partial class HomeTown : MotherBase
 
   public override void RefreshAllView()
   {
+    // 基本固定
+    btnParty.gameObject.SetActive(true);
+    btnBlueSphere.gameObject.SetActive(false);
+    btnSystem.gameObject.SetActive(true);
+
     // ゲーム終了ボタン
     if (One.AR.EnterSeekerMode)
     {
