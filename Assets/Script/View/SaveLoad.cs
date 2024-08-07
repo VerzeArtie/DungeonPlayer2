@@ -414,11 +414,6 @@ public class SaveLoad : MotherBase
     //}
   }
 
-  public void RealWorldSave()
-  {
-    //ExecSave(null, Fix.WorldSaveNum, true);
-  }
-
   private bool TryExecSave(Text sender, string targetFileName)
   {
     foreach (string overwriteData in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))

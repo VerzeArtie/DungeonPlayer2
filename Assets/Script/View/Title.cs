@@ -80,7 +80,7 @@ public class Title : MotherBase
       // 初期開始時、ファイルが無い場合準備しておく。
       One.MakeDirectory();
 
-      if (One.AR.EnterSeekerMode)
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
         groupSeekerMode.SetActive(true);
       }
@@ -92,10 +92,7 @@ public class Title : MotherBase
     Debug.Log("TapStartSeeker ok");
     TapCancelSystemMessage();
 
-    One.TF.AvailableEinWolence = true;
-    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
-    One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
-    One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
+    One.RealWorldLoad();
     One.StopDungeonMusic();
     SceneDimension.JumpToHomeTown();
   }
@@ -110,7 +107,7 @@ public class Title : MotherBase
   {
     Debug.Log("TapGameStart ok");
 
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
       GroupSystemMessage.SetActive(true);
@@ -162,7 +159,7 @@ public class Title : MotherBase
 
   public void TapGameLoad()
   {
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
       GroupSystemMessage.SetActive(true);

@@ -13653,7 +13653,9 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.EnterSeekerMode)
         {
           One.AR.EnterSeekerMode = true;
+          One.AR.LeaveSeekerMode = false;
           One.UpdateAkashicRecord();
+          One.RealWorldSave();
           One.ReInitializeGroundOne(false);
           One.StopDungeonMusic();
           SceneDimension.JumpToTitle();

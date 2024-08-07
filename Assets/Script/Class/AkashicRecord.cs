@@ -7,19 +7,11 @@ public class AkashicRecord : MonoBehaviour
   // 新規ゲーム、ロード、リロードに関わらず常に記憶されるクラス
 
   // SeekerMode
-  [SerializeField] protected bool _save_by_dungeon = false;
-  public bool SaveByDungeon
-  {
-    set { _save_by_dungeon = value; }
-    get { return _save_by_dungeon; }
-  }
+  [SerializeField] protected bool _enter_seeker_mode = false;
+  public bool EnterSeekerMode { set { _enter_seeker_mode = value; } get { return _enter_seeker_mode; } }
 
-  [SerializeField] protected bool _already_rest_inn = false;
-  public bool AlreadyRestInn
-  {
-    set { _already_rest_inn = value; }
-    get { return _already_rest_inn; }
-  }
+  [SerializeField] protected bool _leave_seeker_mode = false;
+  public bool LeaveSeekerMode { set { _leave_seeker_mode = value; } get { return _leave_seeker_mode; } }
 
   [SerializeField] protected bool _event_message2600001 = false;
   public bool Event_Message2600001 { get { return _event_message2600001; } set { _event_message2600001 = value; } } // ゲーム開始時
@@ -958,13 +950,6 @@ public class AkashicRecord : MonoBehaviour
   {
     set { _edelgarzen_fool_answer = value; }
     get { return _edelgarzen_fool_answer; }
-  }
-
-  [SerializeField] protected bool _enter_seeker_mode = false;
-  public bool EnterSeekerMode
-  {
-    set { _enter_seeker_mode = value; }
-    get { return _enter_seeker_mode; }
   }
 
   [SerializeField] protected bool _velgus_badend_genesisgate = false;

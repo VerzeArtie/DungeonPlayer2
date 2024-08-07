@@ -525,17 +525,25 @@ public partial class HomeTown : MotherBase
     #endregion
 
     // イベント進行
-
-    if (One.AR.EnterSeekerMode)
+    
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       if (One.AR.Event_Message2600001 == false)
       {
-        One.AR.AlreadyRestInn = true;
+        One.TF.AvailableEinWolence = true;
+        One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+        One.TF.CurrentAreaName = Fix.TOWN_ANSHET;
+        One.TF.BeforeAreaName = Fix.TOWN_ANSHET;
+        One.TF.SaveByDungeon = false;
+        One.TF.AlreadyDungeon = false;
+        One.TF.AlreadyRestInn = true;
+        RefreshAllView();
         UpdateBackgroundData(Fix.BACKGROUND_MORNING);
         objBlackOut.SetActive(true);
         GroupQuestMessage.SetActive(true);
-
         MessagePack.Message2600001(ref QuestMessageList, ref QuestEventList); TapOK();
+        One.UpdateAkashicRecord();
+        One.RealWorldSave();
         return;
       }
 
@@ -735,7 +743,7 @@ public partial class HomeTown : MotherBase
 
   public void TapSave()
   {
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       MessagePack.MessageX00014(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -751,7 +759,7 @@ public partial class HomeTown : MotherBase
 
   public void TapLoad()
   {
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       MessagePack.MessageX00014(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -774,6 +782,7 @@ public partial class HomeTown : MotherBase
   public void TapExit()
   {
     One.UpdateAkashicRecord();
+    One.RealWorldSave();
     SceneDimension.JumpToTitle();
     return;
   }
@@ -883,7 +892,7 @@ public partial class HomeTown : MotherBase
 
   public void TapShop()
   {
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       MessagePack.Message2600002(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -957,7 +966,7 @@ public partial class HomeTown : MotherBase
 
   public void TapInn()
   {
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       MessagePack.Message2600002(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -3529,7 +3538,7 @@ public partial class HomeTown : MotherBase
     btnSystem.gameObject.SetActive(true);
 
     // ゲーム終了ボタン
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       btnGameExit.gameObject.SetActive(true);
     }
@@ -3547,7 +3556,7 @@ public partial class HomeTown : MotherBase
     RefreshSelectAreaList();
 
     // SeekerModeではエスミリア草原区域のみを見せる
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       ViewSelectAreaEvent(Fix.DUNGEON_ESMILIA_GRASSFIELD);
     }
@@ -3589,6 +3598,15 @@ public partial class HomeTown : MotherBase
       txtSkillTree.text = string.Empty;
     }
 
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    {
+      btnCustomEvent1.gameObject.SetActive(false);
+      txtCustomEvent1.text = string.Empty;
+      btnCustomEvent2.gameObject.SetActive(false);
+      txtCustomEvent2.text = string.Empty;
+      btnCustomEvent3.gameObject.SetActive(false);
+      txtCustomEvent3.text = string.Empty;
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
       btnCustomEvent1.gameObject.SetActive(true);
@@ -3765,27 +3783,13 @@ public partial class HomeTown : MotherBase
     //  BlackOut();
     //  UpdateBackgroundData(Database.BaseResourceFolder + Database.BACKGROUND_FIELD_OF_FIRSTPLACE);
     //}
-    if (One.AR.EnterSeekerMode == false)
+    if (One.TF.AlreadyRestInn == false)
     {
-      if (One.TF.AlreadyRestInn == false)
-      {
-        UpdateBackgroundData(Fix.BACKGROUND_EVENING);
-      }
-      else
-      {
-        UpdateBackgroundData(Fix.BACKGROUND_MORNING);
-      }
+      UpdateBackgroundData(Fix.BACKGROUND_EVENING);
     }
     else
     {
-      if (One.AR.AlreadyRestInn == false)
-      {
-        UpdateBackgroundData(Fix.BACKGROUND_EVENING);
-      }
-      else
-      {
-        UpdateBackgroundData(Fix.BACKGROUND_MORNING);
-      }
+      UpdateBackgroundData(Fix.BACKGROUND_MORNING);
     }
   }
 
@@ -3885,7 +3889,7 @@ public partial class HomeTown : MotherBase
     int counter = 0;
 
     // SeekerModeでクエストは見せない
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       AddQuestEvent("", false, 0);
       return;
@@ -3918,7 +3922,7 @@ public partial class HomeTown : MotherBase
     }
     int counter = 0;
 
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, 0);
       return;
@@ -4002,7 +4006,7 @@ public partial class HomeTown : MotherBase
   private void ViewQuestEvent(string quest_name)
   {
     // SeekerModeの場合、何もしない
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       return;
     }

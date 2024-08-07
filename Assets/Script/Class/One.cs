@@ -705,6 +705,13 @@ public static class One
     {
       List<Character> list = new List<Character>();
       int playerCounter = 0;
+
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+      {
+        if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
+        return list;
+      }
+
       if (TF.AvailableEinWolence) { list.Add(_characters[playerCounter]); }
       playerCounter++;
       if (TF.AvailableLanaAmiria) { list.Add(_characters[playerCounter]); }
@@ -1501,6 +1508,1045 @@ public static class One
       xmlWriter.Close();
     }
   }
+
+  public static void RealWorldSave()
+  {
+    ExecSave(Fix.WorldSaveNum, true);
+  }
+
+  private static void ExecSave(string targetFileName, bool forceSave)
+  {
+    DateTime now = DateTime.Now;
+
+    foreach (string overwriteData in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))
+    {
+      if (overwriteData.Contains(targetFileName))
+      {
+        if (forceSave == false) // if 後編追加
+        {
+          //this.currentSaveText = sender;
+          //this.currentTargetFileName = targetFileName;
+          //this.yesnoSystemMessage.text = this.MESSAGE_OVERWRITE;
+          //this.groupYesnoSystemMessage.SetActive(true);
+          //this.Filter.SetActive(true);
+          return;
+        }
+        else
+        {
+          System.IO.File.Delete(overwriteData); // 後編追加
+        }
+      }
+    }
+
+    targetFileName += now.Year.ToString("D4") + now.Month.ToString("D2") + now.Day.ToString("D2") + now.Hour.ToString("D2") + now.Minute.ToString("D2") + now.Second.ToString("D2") + One.TF.GameDay.ToString("D3");
+    targetFileName += Convert.ToString(1);
+    targetFileName += ".xml";
+
+    XmlTextWriter xmlWriter = new XmlTextWriter(One.pathForDocumentsFile(targetFileName), Encoding.UTF8);
+    try
+    {
+      xmlWriter.WriteStartDocument();
+      xmlWriter.WriteWhitespace("\r\n");
+
+      xmlWriter.WriteStartElement("Body");
+      xmlWriter.WriteElementString("DateTime", DateTime.Now.ToString());
+      xmlWriter.WriteElementString("Version", Fix.VERSION.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ワールド環境
+      xmlWriter.WriteStartElement("TeamFoundation");
+      xmlWriter.WriteWhitespace("\r\n");
+      if (One.TF != null)
+      {
+        Type typeWE2 = One.TF.GetType();
+        foreach (PropertyInfo pi in typeWE2.GetProperties())
+        {
+          if (pi.PropertyType == typeof(System.Int32))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.String))
+          {
+            xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(One.TF, null)));
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Double)(pi.GetValue(One.TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.TF, null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Boolean))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Boolean)pi.GetValue(One.TF, null)).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+        }
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // バックパック
+      xmlWriter.WriteStartElement("Backpack");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.BackpackList.Count; ii++)
+      {
+        xmlWriter.WriteElementString("Item_" + ii.ToString("D8"), One.TF.BackpackList[ii].ItemName);
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_Stack", One.TF.BackpackList[ii].StackValue.ToString());
+        xmlWriter.WriteWhitespace("\r\n");
+        if (One.TF.BackpackList[ii].CanbeSocket1 && One.TF.BackpackList[ii].SocketedItem1 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket1", One.TF.BackpackList[ii].SocketedItem1.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket2 && One.TF.BackpackList[ii].SocketedItem2 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket2", One.TF.BackpackList[ii].SocketedItem2.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket3 && One.TF.BackpackList[ii].SocketedItem3 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket3", One.TF.BackpackList[ii].SocketedItem3.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket4 && One.TF.BackpackList[ii].SocketedItem4 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket4", One.TF.BackpackList[ii].SocketedItem4.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+        if (One.TF.BackpackList[ii].CanbeSocket5 && One.TF.BackpackList[ii].SocketedItem5 != null)
+        {
+          xmlWriter.WriteElementString("Item_" + ii.ToString("D8") + "_JewelSocket5", One.TF.BackpackList[ii].SocketedItem5.ItemName);
+          xmlWriter.WriteWhitespace("\r\n");
+        }
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+
+      // プレイヤー情報
+      for (int ii = 0; ii < One.PlayerList.Count; ii++)
+      {
+        Type type = One.PlayerList[ii].GetType();
+        xmlWriter.WriteStartElement("Character_" + ii.ToString());
+        xmlWriter.WriteWhitespace("\r\n");
+        foreach (PropertyInfo pi in type.GetProperties())
+        {
+          if (pi.PropertyType == typeof(System.Int32))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.String))
+          {
+            xmlWriter.WriteElementString(pi.Name, (string)(pi.GetValue(One.PlayerList[ii], null)));
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Double))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Double)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Single))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Single)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(System.Boolean))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Boolean)pi.GetValue(One.PlayerList[ii], null)).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(Fix.JobClass))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((System.Int32)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+          else if (pi.PropertyType == typeof(Fix.CommandAttribute))
+          {
+            xmlWriter.WriteElementString(pi.Name, ((Fix.CommandAttribute)(pi.GetValue(One.PlayerList[ii], null))).ToString());
+            xmlWriter.WriteWhitespace("\r\n");
+          }
+        }
+        xmlWriter.WriteElementString("MainWeapon", (One.PlayerList[ii].MainWeapon?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("SubWeapon", (One.PlayerList[ii].SubWeapon?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("MainArmor", (One.PlayerList[ii].MainArmor?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("Accessory1", (One.PlayerList[ii].Accessory1?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("Accessory2", (One.PlayerList[ii].Accessory2?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteElementString("Artifact", (One.PlayerList[ii].Artifact?.ItemName ?? String.Empty));
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteEndElement();
+        xmlWriter.WriteWhitespace("\r\n");
+        xmlWriter.WriteWhitespace("\r\n");
+      }
+
+
+      // ダンジョンKnownTileInfo
+      xmlWriter.WriteStartElement("EsmiliaGrassField");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_EsmiliaGrassField.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_EsmiliaGrassField_" + ii.ToString("D8"), One.TF.KnownTileList_EsmiliaGrassField[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Goratrum )
+      xmlWriter.WriteStartElement("Goratrum");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Goratrum.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_Goratrum_" + ii.ToString("D8"), One.TF.KnownTileList_Goratrum[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+      // ダンジョンKnownTileInfo ( Goratrum_2 )
+      xmlWriter.WriteStartElement("Goratrum_2");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Goratrum_2.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_Goratrum_2_" + ii.ToString("D8"), One.TF.KnownTileList_Goratrum_2[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( MysticForest )
+      xmlWriter.WriteStartElement("MysticForest");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_MysticForest.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileInfo_MysticForest_" + ii.ToString("D8"), One.TF.KnownTileList_MysticForest[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( VelgusSeaTemple )
+      xmlWriter.WriteStartElement("VelgusSeaTemple");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_VelgusSeaTemple.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_VelgusSeaTemple" + ii.ToString("D8"), One.TF.KnownTileList_VelgusSeaTemple[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( VelgusSeaTemple_2 )
+      xmlWriter.WriteStartElement("VelgusSeaTemple_2");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_VelgusSeaTemple_2.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_VelgusSeaTemple_2" + ii.ToString("D8"), One.TF.KnownTileList_VelgusSeaTemple_2[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( VelgusSeaTemple_3 )
+      xmlWriter.WriteStartElement("VelgusSeaTemple_3");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_VelgusSeaTemple_3.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_VelgusSeaTemple_3" + ii.ToString("D8"), One.TF.KnownTileList_VelgusSeaTemple_3[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( VelgusSeaTemple_4 )
+      xmlWriter.WriteStartElement("VelgusSeaTemple_4");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_VelgusSeaTemple_4.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_VelgusSeaTemple_4" + ii.ToString("D8"), One.TF.KnownTileList_VelgusSeaTemple_4[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_1 )
+      xmlWriter.WriteStartElement("Edelgarzen_1");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_1.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_1" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_1[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_2 )
+      xmlWriter.WriteStartElement("Edelgarzen_2");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_2.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_2" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_2[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_3 )
+      xmlWriter.WriteStartElement("Edelgarzen_3");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_3.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_3" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_3[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // ダンジョンKnownTileInfo ( Edelgarzen_4 )
+      xmlWriter.WriteStartElement("Edelgarzen_4");
+      xmlWriter.WriteWhitespace("\r\n");
+      for (int ii = 0; ii < One.TF.KnownTileList_Edelgarzen_4.Count; ii++)
+      {
+        xmlWriter.WriteElementString("KnownTileList_Edelgarzen_4" + ii.ToString("D8"), One.TF.KnownTileList_Edelgarzen_4[ii].ToString());
+      }
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteWhitespace("\r\n");
+
+      // TeamFoundation終了
+      xmlWriter.WriteEndElement();
+      xmlWriter.WriteWhitespace("\r\n");
+
+      xmlWriter.WriteEndDocument();
+    }
+    finally
+    {
+      xmlWriter.Close();
+
+      //if ((Text)sender != null) // if 後編追加
+      //{
+      //  ((Text)sender).text = DateTime.Now.ToString() + "\r\n経過日数：" + One.TF.GameDay.ToString("D3") + "日 ";
+      //  if (One.TF.SaveByDungeon)
+      //  {
+      //    ((Text)sender).text += ConvertMapFileToDungeonName(One.TF.CurrentDungeonField);
+      //  }
+      //  else
+      //  {
+      //    ((Text)sender).text += saveDungeonAreaString + One.TF.CurrentAreaName;
+      //  }
+
+      //  if (!((Text)sender).Equals(buttonText[0])) back_button[0].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[1])) back_button[1].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[2])) back_button[2].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[3])) back_button[3].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[4])) back_button[4].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[5])) back_button[5].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[6])) back_button[6].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[7])) back_button[7].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[8])) back_button[8].GetComponent<Image>().sprite = null;
+      //  if (!((Text)sender).Equals(buttonText[9])) back_button[9].GetComponent<Image>().sprite = null;
+      //  for (int ii = 0; ii < buttonText.Length; ii++)
+      //  {
+      //    if (sender.Equals(buttonText[ii]))
+      //    {
+      //      back_button[ii].GetComponent<Image>().sprite = Resources.Load<Sprite>(Fix.SAVELOAD_NEW);
+      //    }
+      //  }
+      //}
+    }
+
+    // セーブデータをサーバーへ転送する。
+    //try
+    //{
+    //  Debug.Log("Call UpdateSaveData");
+    //  using (FileStream fs = new FileStream(One.pathForDocumentsFile(targetFileName), FileMode.Open))
+    //  {
+    //    using (BinaryReader br = new BinaryReader(fs))
+    //    {
+    //      byte[] save_current = br.ReadBytes((int)fs.Length);
+    //      using (FileStream fs2 = new FileStream(One.PathForRootFile(Fix.WE2_FILE), FileMode.Open))
+    //      {
+    //        using (BinaryReader br2 = new BinaryReader(fs2))
+    //        {
+    //          byte[] save_we2 = br2.ReadBytes((int)fs2.Length);
+    //          One.SQL.UpdaeSaveData(save_current, save_we2, sender.text, this.pageNumber.ToString());
+    //        }
+    //      }
+    //    }
+    //  }
+
+    //  Debug.Log("Call UpdateSaveData ok");
+    //}
+    //catch (Exception ex)
+    //{
+    //  Debug.Log("ExecSave error: " + ex.ToString());
+    //}
+  }
+
+  public static void RealWorldLoad()
+  {
+    ExecLoad(Fix.WorldSaveNum, true);
+  }
+
+  private static void ExecLoad(string targetFileName, bool forceLoad)
+  {
+    //if (this.nowAutoKill) { return; }
+    //Debug.Log("ExecLoad 0 " + DateTime.Now);
+
+    One.ReInitializeGroundOne(true);
+
+    XmlDocument xml = new XmlDocument();
+    DateTime now = DateTime.Now;
+    string yearData = String.Empty;
+    string monthData = String.Empty;
+    string dayData = String.Empty;
+    string hourData = String.Empty;
+    string minuteData = String.Empty;
+    string secondData = String.Empty;
+    string gamedayData = String.Empty;
+    //string completeareaData = String.Empty;
+
+    Debug.Log("ExecLoad 1 " + DateTime.Now);
+    //if (((Text)sender) != null)
+    //{
+    //  yearData = ((Text)sender).text.Substring(0, 4);
+    //  monthData = ((Text)sender).text.Substring(5, 2);
+    //  dayData = ((Text)sender).text.Substring(8, 2);
+    //  hourData = ((Text)sender).text.Substring(11, 2);
+    //  minuteData = ((Text)sender).text.Substring(14, 2);
+    //  secondData = ((Text)sender).text.Substring(17, 2);
+    //  gamedayData = ((Text)sender).text.Substring(this.gameDayString.Length + 19, 3);
+    //  //completeareaData = ((Text)sender).text.Substring(this.gameDayString.Length + this.gameDayString2.Length + this.archiveAreaString.Length + 22, 1);
+
+    //  //if (completeareaData == "制")
+    //  //{
+    //  //  this.systemMessage.text = MESSAGE_1;
+    //  //  this.back_SystemMessage.SetActive(true);
+    //  //  this.Filter.SetActive(true);
+    //  //  return;
+    //  //}
+    //  targetFileName += yearData + monthData + dayData + hourData + minuteData + secondData + gamedayData + /* completeareaData + */ "1.xml";
+    //}
+    //else
+    {
+      foreach (string currentFile in System.IO.Directory.GetFiles(One.PathForSaveFile(), "*.xml"))
+      {
+        if (currentFile.Contains(Fix.WorldSaveNum))
+        {
+          targetFileName = System.IO.Path.GetFileName(currentFile);
+          break;
+        }
+      }
+    }
+
+    xml.Load(One.pathForDocumentsFile(targetFileName));
+    One.CurrentLoadFileName = targetFileName;
+    Debug.Log("ExecLoad 2 " + DateTime.Now);
+
+    // TeamFoundation
+    List<string> listTFName = new List<string>();
+    List<string> listTFValue = new List<string>();
+    XmlNodeList parent = xml.GetElementsByTagName("TeamFoundation");
+    for (int ii = 0; ii < parent.Count; ii++)
+    {
+      Debug.Log("node: " + parent[ii].Name.ToString());
+      XmlNodeList current = parent[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        // Debug.Log("TF child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
+        listTFName.Add(current[jj].Name);
+        listTFValue.Add(current[jj].InnerText);
+      }
+    }
+
+    Type typeTF = One.TF.GetType();
+    Debug.Log("ExecLoad 6 " + DateTime.Now);
+
+
+    PropertyInfo[] tempTF = typeTF.GetProperties();
+    Debug.Log(tempTF.Length.ToString());
+    for (int ii = 0; ii < tempTF.Length; ii++)
+    {
+      // Debug.Log("TF: " + tempTF[ii].Name);
+      PropertyInfo pi = tempTF[ii];
+      // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          for (int jj = 0; jj < listTFName.Count; jj++)
+          {
+            if (listTFName[jj] == pi.Name)
+            {
+              pi.SetValue(One.TF, Convert.ToInt32(listTFValue[jj]), null);
+              break;
+            }
+          }
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          for (int jj = 0; jj < listTFName.Count; jj++)
+          {
+            if (listTFName[jj] == pi.Name)
+            {
+              pi.SetValue(One.TF, Convert.ToSingle(listTFValue[jj]), null);
+              break;
+            }
+          }
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          for (int jj = 0; jj < listTFName.Count; jj++)
+          {
+            if (listTFName[jj] == pi.Name)
+            {
+              pi.SetValue(One.TF, listTFValue[jj], null);
+              break;
+            }
+          }
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          for (int jj = 0; jj < listTFName.Count; jj++)
+          {
+            if (listTFName[jj] == pi.Name)
+            {
+              pi.SetValue(One.TF, Convert.ToBoolean(listTFValue[jj]), null);
+              break;
+            }
+          }
+        }
+        catch { }
+      }
+    }
+
+    // Backpack
+    List<string> listItemValue = new List<string>();
+    List<string> listItemStack = new List<string>();
+    List<string> listItemJewelSocket1 = new List<string>();
+    List<string> listItemJewelSocket2 = new List<string>();
+    List<string> listItemJewelSocket3 = new List<string>();
+    List<string> listItemJewelSocket4 = new List<string>();
+    List<string> listItemJewelSocket5 = new List<string>();
+    XmlNodeList parentBackpack = xml.GetElementsByTagName("Backpack");
+    for (int ii = 0; ii < parentBackpack.Count; ii++)
+    {
+      XmlNodeList current = parentBackpack[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].Name.Contains("Stack") == false && current[jj].Name.Contains("JewelSocket") == false)
+        {
+          listItemValue.Add(current[jj].InnerText);
+          XmlNodeList temp2 = xml.GetElementsByTagName(current[jj].Name + "_Stack");
+          listItemStack.Add(temp2[0]?.InnerText ?? String.Empty);
+
+          XmlNodeList temp3_1 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket1");
+          listItemJewelSocket1.Add(temp3_1[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_2 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket2");
+          listItemJewelSocket2.Add(temp3_2[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_3 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket3");
+          listItemJewelSocket3.Add(temp3_3[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_4 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket4");
+          listItemJewelSocket4.Add(temp3_4[0]?.InnerText ?? string.Empty);
+
+          XmlNodeList temp3_5 = xml.GetElementsByTagName(current[jj].Name + "_JewelSocket5");
+          listItemJewelSocket5.Add(temp3_5[0]?.InnerText ?? string.Empty);
+        }
+      }
+    }
+
+    for (int ii = 0; ii < listItemValue.Count; ii++)
+    {
+      Debug.Log("listItemStack: " + listItemStack[ii]);
+      for (int jj = 0; jj < Convert.ToInt32(listItemStack[ii]); jj++)
+      {
+        Item current = new Item(listItemValue[ii]);
+        if (listItemJewelSocket1[ii] != string.Empty)
+        {
+          current.AddJewelSocket1(listItemJewelSocket1[ii]);
+        }
+        if (listItemJewelSocket2[ii] != string.Empty)
+        {
+          current.AddJewelSocket2(listItemJewelSocket2[ii]);
+        }
+        if (listItemJewelSocket3[ii] != string.Empty)
+        {
+          current.AddJewelSocket3(listItemJewelSocket3[ii]);
+        }
+        if (listItemJewelSocket4[ii] != string.Empty)
+        {
+          current.AddJewelSocket4(listItemJewelSocket4[ii]);
+        }
+        if (listItemJewelSocket5[ii] != string.Empty)
+        {
+          current.AddJewelSocket5(listItemJewelSocket5[ii]);
+        }
+        One.TF.AddBackPack(current);
+      }
+    }
+
+    // Character
+    for (int ii = 0; ii < Fix.INFINITY; ii++)
+    {
+      List<string> listName = new List<string>();
+      List<string> listValue = new List<string>();
+      XmlNodeList character = xml.GetElementsByTagName("Character_" + ii.ToString());
+      if (character == null)
+      {
+        Debug.Log("character list is null, then no action");
+        break;
+      }
+      if (character.Count <= 0)
+      {
+        Debug.Log("character list count is 0, then no action");
+        break;
+      }
+      Debug.Log("character Detection ok");
+
+      XmlNodeList current = character[0].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        // Debug.Log("character child: " + current[jj].Name + " value: " + current[jj].InnerText.ToString());
+        listName.Add(current[jj].Name);
+        listValue.Add(current[jj].InnerText);
+      }
+
+      GameObject objDummy = new GameObject();
+      Character dummy = objDummy.AddComponent<Character>();
+      Type typeCharacter = dummy.GetType();
+      PropertyInfo[] tempCharacter = typeCharacter.GetProperties();
+      for (int jj = 0; jj < tempCharacter.Length; jj++)
+      {
+        // Debug.Log("character: " + tempCharacter[jj].Name);
+        PropertyInfo pi = tempCharacter[jj];
+        // [警告]：catch構文はSetプロパティがない場合だが、それ以外のケースも見えなくなってしまうので要分析方法検討。
+        if (pi.PropertyType == typeof(System.Int32))
+        {
+          try
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                pi.SetValue(One.Characters[ii], Convert.ToInt32(listValue[kk]), null);
+                break;
+              }
+            }
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.String))
+        {
+          try
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                pi.SetValue(One.Characters[ii], listValue[kk], null);
+                break;
+              }
+            }
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Boolean))
+        {
+          try
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                pi.SetValue(One.Characters[ii], Convert.ToBoolean(listValue[kk]), null);
+                break;
+              }
+            }
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(Item))
+        {
+
+          // Debug.Log("Detect Item: " + pi.Name);
+          if (pi.Name == "MainWeapon")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].MainWeapon = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+          else if (pi.Name == "SubWeapon")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].SubWeapon = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+          else if (pi.Name == "MainArmor")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].MainArmor = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+          else if (pi.Name == "Accessory1")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].Accessory1 = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+          else if (pi.Name == "Accessory2")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].Accessory2 = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+          else if (pi.Name == "Artifact")
+          {
+            for (int kk = 0; kk < listName.Count; kk++)
+            {
+              if (listName[kk] == pi.Name)
+              {
+                One.Characters[ii].Artifact = new Item(listValue[kk]);
+                break;
+              }
+            }
+          }
+        }
+        else if (pi.PropertyType == typeof(Fix.JobClass))
+        {
+          for (int kk = 0; kk < listName.Count; kk++)
+          {
+            if (listName[kk] == "Job")
+            {
+              One.Characters[ii].Job = (Fix.JobClass)Enum.Parse(typeof(Fix.JobClass), listValue[kk]);
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    Debug.Log(DateTime.Now.ToString());
+    Debug.Log("ExecLoad 8-1 " + DateTime.Now + DateTime.Now.Millisecond);
+
+    XmlDocument xml2 = new XmlDocument();
+    xml2.Load(One.PathForRootFile(Fix.AR_FILE));
+    Type typeAR = One.AR.GetType();
+    foreach (PropertyInfo pi in typeAR.GetProperties())
+    {
+      if (pi.PropertyType == typeof(System.Int32))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToInt32(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.String))
+      {
+        try
+        {
+          pi.SetValue(One.AR, (xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Double))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToDouble(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Single))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToSingle(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+      else if (pi.PropertyType == typeof(System.Boolean))
+      {
+        try
+        {
+          pi.SetValue(One.AR, Convert.ToBoolean(xml2.GetElementsByTagName(pi.Name)[0].InnerText), null);
+        }
+        catch { }
+      }
+    }
+
+    Debug.Log("ExecLoad 9-1");
+    // KnownTileInfo
+    XmlNodeList parentEsmiliaGrassField = xml.GetElementsByTagName("EsmiliaGrassField");
+    for (int ii = 0; ii < parentEsmiliaGrassField.Count; ii++)
+    {
+      XmlNodeList current = parentEsmiliaGrassField[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        //Debug.Log("ExecLoad current " + jj.ToString() + " " + current[jj].InnerText);
+        if (current[jj].InnerText.Contains("True"))
+        {
+          //Debug.Log("ExecLoad KnownTileList_EsmiliaGrassField KnownNumber: " + jj.ToString());
+          One.TF.KnownTileList_EsmiliaGrassField[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_EsmiliaGrassField[jj] = false;
+        }
+      }
+    }
+    XmlNodeList parentGoratrum = xml.GetElementsByTagName("Goratrum");
+    for (int ii = 0; ii < parentGoratrum.Count; ii++)
+    {
+      XmlNodeList current = parentGoratrum[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          //Debug.Log("ExecLoad KnownTileList_Goratrum KnownNumber: " + jj.ToString());
+          One.TF.KnownTileList_Goratrum[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Goratrum[jj] = false;
+        }
+      }
+    }
+    XmlNodeList parentGoratrum_2 = xml.GetElementsByTagName("Goratrum_2");
+    for (int ii = 0; ii < parentGoratrum_2.Count; ii++)
+    {
+      XmlNodeList current = parentGoratrum_2[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Goratrum_2[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Goratrum_2[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentMysticForest = xml.GetElementsByTagName("MysticForest");
+    for (int ii = 0; ii < parentMysticForest.Count; ii++)
+    {
+      XmlNodeList current = parentMysticForest[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_MysticForest[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_MysticForest[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentVelgusSeaTemple = xml.GetElementsByTagName("VelgusSeaTemple");
+    for (int ii = 0; ii < parentVelgusSeaTemple.Count; ii++)
+    {
+      XmlNodeList current = parentVelgusSeaTemple[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_VelgusSeaTemple[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_VelgusSeaTemple[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentVelgusSeaTemple_2 = xml.GetElementsByTagName("VelgusSeaTemple_2");
+    for (int ii = 0; ii < parentVelgusSeaTemple_2.Count; ii++)
+    {
+      XmlNodeList current = parentVelgusSeaTemple_2[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_2[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_2[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentVelgusSeaTemple_3 = xml.GetElementsByTagName("VelgusSeaTemple_3");
+    for (int ii = 0; ii < parentVelgusSeaTemple_3.Count; ii++)
+    {
+      XmlNodeList current = parentVelgusSeaTemple_3[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_3[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_3[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentVelgusSeaTemple_4 = xml.GetElementsByTagName("VelgusSeaTemple_4");
+    for (int ii = 0; ii < parentVelgusSeaTemple_4.Count; ii++)
+    {
+      XmlNodeList current = parentVelgusSeaTemple_4[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_4[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_VelgusSeaTemple_4[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_1 = xml.GetElementsByTagName("Edelgarzen_1");
+    for (int ii = 0; ii < parentEdelgarzen_1.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_1[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_1[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_1[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_2 = xml.GetElementsByTagName("Edelgarzen_2");
+    for (int ii = 0; ii < parentEdelgarzen_2.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_2[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_2[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_2[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_3 = xml.GetElementsByTagName("Edelgarzen_3");
+    for (int ii = 0; ii < parentEdelgarzen_3.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_3[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_3[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_3[jj] = false;
+        }
+      }
+    }
+
+    XmlNodeList parentEdelgarzen_4 = xml.GetElementsByTagName("Edelgarzen_4");
+    for (int ii = 0; ii < parentEdelgarzen_4.Count; ii++)
+    {
+      XmlNodeList current = parentEdelgarzen_4[ii].ChildNodes;
+      for (int jj = 0; jj < current.Count; jj++)
+      {
+        if (current[jj].InnerText.Contains("True"))
+        {
+          One.TF.KnownTileList_Edelgarzen_4[jj] = true;
+        }
+        else
+        {
+          One.TF.KnownTileList_Edelgarzen_4[jj] = false;
+        }
+      }
+    }
+
+    Debug.Log("ExecLoad 9-2");
+
+    //if (forceLoad == false)
+    //{
+    //  this.systemMessage.text = "ゲームデータの読み込みが完了しました。";
+    //  this.back_SystemMessage.SetActive(true);
+    //  this.autoKillTimer = 0;
+    //  this.nowAutoKill = true;
+    //  this.Filter.SetActive(true);
+    //}
+    Debug.Log("ExecLoad end");
+  }
+
 
   //// 街でオル・ランディスが外れる、４階最初でヴェルゼが外れる、４階エリア３でラナが外れるのを統合
   //public static void RemoveParty(MainCharacter player, bool initializeBank)
