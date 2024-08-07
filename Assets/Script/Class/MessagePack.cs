@@ -31631,7 +31631,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そうだ。あと装備品もチェックして・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、これでオーケーかな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：しかし、それにしても・・・", ActionEvent.None);
 
