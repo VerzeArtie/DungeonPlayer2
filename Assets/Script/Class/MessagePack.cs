@@ -31657,6 +31657,38 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "アイン：今、そこへ行く必要はないな。", ActionEvent.None);
   }
+
+  public static void Message2600003(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600003 == false)
+    {
+      One.AR.Event_Message2600003 = true;
+      Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・道のりだが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もしもラナが居たら・・・モンスターに十分注意とか言いそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "20", ActionEvent.MoveLeft);
+
+      Message(ref m_list, ref e_list, "0", ActionEvent.MoveLeft);
+
+      Message(ref m_list, ref e_list, "2", ActionEvent.UpdateUnknownTile);
+
+      Message(ref m_list, ref e_list, "アイン：看板を読んでおくとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　準備を怠るべからず、獣道には入るべからず　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：獣道には入らない様に・・・か", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、気を付けて行くとするか", ActionEvent.None);
+    }
+  }
+
   #endregion
 
   #region "支配竜との対話"

@@ -94,7 +94,14 @@ public class Title : MotherBase
 
     One.RealWorldLoad();
     One.StopDungeonMusic();
-    SceneDimension.JumpToHomeTown();
+    if (One.TF.SaveByDungeon)
+    {
+      SceneDimension.JumpToDungeonField();
+    }
+    else
+    {
+      SceneDimension.JumpToHomeTown();
+    }
   }
 
   public void TapCancelSystemMessage()

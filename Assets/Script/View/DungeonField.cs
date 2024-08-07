@@ -14,6 +14,11 @@ using TMPro;
 
 public class DungeonField : MotherBase
 {
+  // MenuButton
+  public Button btnParty;
+  public Button btnBlueSphere;
+  public Button btnSystem;
+
   // Blackout
   public GameObject objBlackOut;
   // Whiteout
@@ -217,6 +222,8 @@ public class DungeonField : MotherBase
   public Image imgEventIcon;
   public Text txtEventTitle;
   public Text txtEventDescription;
+
+  public Button btnGameExit;
 
   // Inner Value
   private GameObject Player;
@@ -589,6 +596,20 @@ public class DungeonField : MotherBase
     if (this.FirstAction == false)
     {
       this.FirstAction = true;
+
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+      {
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+        {
+          if (One.AR.Event_Message2600003 == false)
+          {
+            MessagePack.Message2600003(ref QuestMessageList, ref QuestEventList); TapOK();
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+            return;
+          }
+        }
+      }
 
       // 画面表示時のイベント進行
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
@@ -2883,6 +2904,12 @@ public class DungeonField : MotherBase
 
   public void TapSave()
   {
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      MessagePack.MessageX00014(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     One.SaveMode = true;
     One.AfterBacktoTitle = false;
     One.SaveAndExit = false;
@@ -2893,6 +2920,12 @@ public class DungeonField : MotherBase
 
   public void TapLoad()
   {
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      MessagePack.MessageX00014(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     One.SaveMode = false;
     One.AfterBacktoTitle = false;
     One.SaveAndExit = false;
@@ -2905,6 +2938,14 @@ public class DungeonField : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     SceneDimension.SceneAdd(Fix.SCENE_HELP_BOOK);
+  }
+
+  public void TapExit()
+  {
+    One.UpdateAkashicRecord();
+    One.RealWorldSave();
+    SceneDimension.JumpToTitle();
+    return;
   }
 
   public void TapBacktoTown()
@@ -23292,6 +23333,22 @@ public class DungeonField : MotherBase
   public override void RefreshAllView()
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+    // 基本固定
+    btnParty.gameObject.SetActive(true);
+    btnBlueSphere.gameObject.SetActive(true);
+    btnSystem.gameObject.SetActive(true);
+
+    // ゲーム終了ボタン
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      btnGameExit.gameObject.SetActive(true);
+    }
+    else
+    {
+      btnGameExit.gameObject.SetActive(false);
+    }
+
     // プレイヤーリストの反映
     foreach (Transform n in GroupCharacterList.transform)
     {
