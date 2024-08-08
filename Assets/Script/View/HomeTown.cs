@@ -966,7 +966,7 @@ public partial class HomeTown : MotherBase
 
   public void TapInn()
   {
-    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false && One.AR.Event_Message2600003 == false)
     {
       MessagePack.Message2600002(ref QuestMessageList, ref QuestEventList);
       TapOK();
