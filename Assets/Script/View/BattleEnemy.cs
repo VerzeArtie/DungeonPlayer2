@@ -248,6 +248,13 @@ public partial class BattleEnemy : MotherBase
       //if (ii == 3) { target = One.TF.BattlePlayer4; Debug.Log("target4 is " + target); }
 
       int counter = 0;
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+      {
+        if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.SelectCharacter(target)); }
+        counter++;
+        break;
+      }
+
       if (One.TF.AvailableEinWolence && target == Fix.NAME_EIN_WOLENCE) { playerList.Add(One.SelectCharacter(target)); }
       counter++;
       if (One.TF.AvailableLanaAmiria && target == Fix.NAME_LANA_AMIRIA) { playerList.Add(One.SelectCharacter(target)); }
@@ -297,12 +304,19 @@ public partial class BattleEnemy : MotherBase
     }
 
     // Expパネルの作成
-    if (One.TF.BattlePlayer1 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer1)); }
-    if (One.TF.BattlePlayer2 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer2)); }
-    if (One.TF.BattlePlayer3 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer3)); }
-    if (One.TF.BattlePlayer4 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer4)); }
-    if (One.TF.BattlePlayer5 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer5)); }
-    if (One.TF.BattlePlayer6 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer6)); }
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      if (One.TF.BattlePlayer1 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer1)); }
+    }
+    else
+    {
+      if (One.TF.BattlePlayer1 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer1)); }
+      if (One.TF.BattlePlayer2 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer2)); }
+      if (One.TF.BattlePlayer3 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer3)); }
+      if (One.TF.BattlePlayer4 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer4)); }
+      if (One.TF.BattlePlayer5 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer5)); }
+      if (One.TF.BattlePlayer6 != String.Empty) { ConstructNodeCharaExp(One.SelectCharacter(One.TF.BattlePlayer6)); }
+    }
 
     // 味方グループの作成
     float allyBaseStart = AP.Math.RandomInteger(30) + 30.0f;
