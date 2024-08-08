@@ -2201,19 +2201,32 @@ public static class MessagePack
 
   private static void UseMatockForRock(ref List<string> m_list, ref List<ActionEvent> e_list, string identity)
   {
-    Message(ref m_list, ref e_list, "ラナ：じゃあ、頼んだわよ。アイン。", ActionEvent.None);
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+    {
+      Message(ref m_list, ref e_list, "アイン：よし、この岩を崩すとするか。", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
 
-    Message(ref m_list, ref e_list, "アイン：よし、任せておけ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "アイン：あらよっと！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、頼んだわよ。アイン。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, "アイン：よし、任せておけ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "アイン：あらよっと！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：上手くいったみたいね♪", ActionEvent.None);
+      Message(ref m_list, ref e_list, identity, ActionEvent.RemoveFieldObject);
 
-    Message(ref m_list, ref e_list, "アイン：よし、じゃあ進もうぜ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "　～　アインはマトックで岩壁を崩しました！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：上手くいったみたいね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ進もうぜ！", ActionEvent.None);
+    }
   }
 
   public static void Message300040(ref List<string> m_list, ref List<ActionEvent> e_list)
