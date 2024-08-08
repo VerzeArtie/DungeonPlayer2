@@ -3117,31 +3117,80 @@ public class DungeonField : MotherBase
         }
         else if (LocationFieldDetect(fieldObjBefore, 12, 1, -4))
         {
-          MessagePack.Message000030(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600004(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000030(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         else if (LocationFieldDetect(fieldObjBefore, -9, 1, 11))
         {
-          MessagePack.Message000040(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600005(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000040(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         else if (LocationFieldDetect(fieldObjBefore, -5, 1, -3))
         {
-          MessagePack.Message000050(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600006(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000050(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         else if (LocationFieldDetect(fieldObjBefore, 7, 1, -3))
         {
-          MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600007(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000060(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         if (LocationFieldDetect(fieldObjBefore, 25, 1, 9))
         {
-          MessagePack.Message000070(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600008(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000070(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         if (LocationFieldDetect(fieldObjBefore, 5, 1, 4))
         {
-          MessagePack.Message000090(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600009(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000090(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
         if (LocationFieldDetect(fieldObjBefore, 3, 1, 7))
         {
-          MessagePack.Message000095(ref QuestMessageList, ref QuestEventList); TapOK();
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            MessagePack.Message2600010(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
+          else
+          {
+            MessagePack.Message000095(ref QuestMessageList, ref QuestEventList); TapOK();
+          }
         }
       }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)

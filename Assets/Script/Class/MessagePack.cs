@@ -425,7 +425,7 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　次へと、進むが良い　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　訪れし者よ。次へと進むが良い　』", ActionEvent.None);
     }
   }
 
@@ -31689,6 +31689,47 @@ public static class MessagePack
     }
   }
 
+  // こちら未確認
+  public static void Message2600004(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　急がば回れ、報酬は遠き道にあり　』", ActionEvent.None);
+  }
+
+  // こちら未確認
+  public static void Message2600005(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　訪れし者よ。次へと進むが良い　』", ActionEvent.None);
+  }
+
+  // こちら未確認
+  public static void Message2600006(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
+  }
+
+  // マトック入手看板、確認済
+  public static void Message2600007(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　訪れし者よ。手に取り、切り拓き、進むが良い。　』", ActionEvent.None);
+  }
+
+  // 右上はじめの看板、確認済
+  public static void Message2600008(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　準備を怠るべからず、獣道には入るべからず　』", ActionEvent.None);
+  }
+
+  // 中央下の看板、確認済
+  public static void Message2600009(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『　危険区域。立ち寄るべからず　』", ActionEvent.None);
+  }
+
+  // 中央左の看板、確認済
+  public static void Message2600010(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "『  ←　この先、ファージル宮殿　』", ActionEvent.None);
+  }
   #endregion
 
   #region "支配竜との対話"
