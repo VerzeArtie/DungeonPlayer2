@@ -460,6 +460,7 @@ public static partial class Fix
   public const string MAPFILE_EDELGARZEN_2 = "MapData_EdelGarzen_2.txt";
   public const string MAPFILE_EDELGARZEN_3 = "MapData_EdelGarzen_3.txt";
   public const string MAPFILE_EDELGARZEN_4 = "MapData_EdelGarzen_4.txt";
+  public const string MAPFILE_WOSM = "MapData_Wosm.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
 
   public const int MAPSIZE_X_ESMILIA_GRASSFIELD = 40;
@@ -3262,6 +3263,13 @@ public static partial class Fix
   public const float ESMILIA_Rock_8_X = -6.0f;
   public const float ESMILIA_Rock_8_Y = 1.0f;
   public const float ESMILIA_Rock_8_Z = 2.0f;
+  #endregion
+  #region "階段"
+  public const string ESMILIA_1_DOWNSTAIR_1_C = "Downstair";
+  public const string ESMILIA_1_DOWNSTAIR_1_O = "1";
+  public const float ESMILIA_1_DOWNSTAIR_1_X = 0.0f;
+  public const float ESMILIA_1_DOWNSTAIR_1_Y = 0.0f;
+  public const float ESMILIA_1_DOWNSTAIR_1_Z = 3.0f;
   #endregion
   #region "ObsidianStone"
   public const string ESMILIA_ObsidianStone_1_C = "ObsidianStone";
@@ -13452,6 +13460,13 @@ public static partial class Fix
   #endregion
   #endregion
 
+  #endregion
+  #region "離島ウォズム"
+  public const string WOSM_EVENT_1_C = "Event";
+  public const string WOSM_EVENT_1_O = "1";
+  public const float WOSM_EVENT_1_X = 10.0f;
+  public const float WOSM_EVENT_1_Y = 0.0f;
+  public const float WOSM_EVENT_1_Z = -18.0f;
   #endregion
   #endregion
 

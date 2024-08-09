@@ -31841,6 +31841,37 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
     }
   }
+
+  public static void Message2600012(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600012 == false)
+    {
+      One.AR.Event_Message2600012 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：離島・・・ウォズム・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　国王に一度だけ聞いた事がある　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この地こそが、ファージル王国の原点であると ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：荒れ果てている・・・酷いな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こんな状態の場所は見た事がない・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
+
+    }
+  }
   #endregion
 
   #region "支配竜との対話"

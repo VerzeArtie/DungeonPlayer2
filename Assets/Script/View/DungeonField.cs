@@ -609,6 +609,17 @@ public class DungeonField : MotherBase
             return;
           }
         }
+
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+        {
+          if (One.AR.Event_Message2600012 == false)
+          {
+            MessagePack.Message2600012(ref QuestMessageList, ref QuestEventList); TapOK();
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+            return;
+          }
+        }
       }
 
       // 画面表示時のイベント進行
@@ -13913,11 +13924,17 @@ public class DungeonField : MotherBase
     #region "エスミリア草原区域"
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
     {
-      // todo 資格があれば入れる事とする。
-      if (LocationDetect(tile, 0, 0, 2))
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
-        MessagePack.Message000130(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
+        // 何もしない
+      }
+      else
+      {
+        if (LocationDetect(tile, Fix.ESMILIA_1_DOWNSTAIR_1_X, Fix.ESMILIA_1_DOWNSTAIR_1_Y, Fix.ESMILIA_1_DOWNSTAIR_1_Z))
+        {
+          MessagePack.Message000130(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
       }
 
       if (LocationDetect(tile, -6, 0, 0) && One.TF.Event_Message000100 == false)
@@ -16817,6 +16834,15 @@ public class DungeonField : MotherBase
     }
     if (tile != null && tile.field == TileInformation.Field.Downstair)
     {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+      {
+        if (LocationDetect(tile, Fix.ESMILIA_1_DOWNSTAIR_1_X, Fix.ESMILIA_1_DOWNSTAIR_1_Y, Fix.ESMILIA_1_DOWNSTAIR_1_Z))
+        {
+          DungeonCallSetup(Fix.MAPFILE_WOSM, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
+          return true;
+        }
+      }
+
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
       {
         if (LocationDetect(tile, Fix.GORATRUM_Downstair_1_X, Fix.GORATRUM_Downstair_1_Y, Fix.GORATRUM_Downstair_1_Z))
