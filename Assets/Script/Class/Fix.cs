@@ -3263,6 +3263,13 @@ public static partial class Fix
   public const float ESMILIA_Rock_8_Y = 1.0f;
   public const float ESMILIA_Rock_8_Z = 2.0f;
   #endregion
+  #region "ObsidianStone"
+  public const string ESMILIA_ObsidianStone_1_C = "ObsidianStone";
+  public const string ESMILIA_ObsidianStone_1_O = "1";
+  public const float ESMILIA_ObsidianStone_1_X = 0.0f;
+  public const float ESMILIA_ObsidianStone_1_Y = 1.0f;
+  public const float ESMILIA_ObsidianStone_1_Z = 3.0f;
+  #endregion
   #endregion
   #region "ゴラトラム洞窟"
   #region "宝箱"

@@ -31743,6 +31743,104 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "『  ←　この先、ファージル宮殿　』", ActionEvent.None);
   }
+
+  public static void Message2600011(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600011 == false)
+    {
+      One.AR.Event_Message2600011 = true;
+
+      Message(ref m_list, ref e_list, "（　あまり、意識してここへ来たわけではなかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　どちらかというと、少し練習の場が欲しかっただけだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　人の通りがない場所、ある程度静かな場所　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　周囲を気にする事なく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　純粋な鍛錬が出来る場所　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この場所がそうだった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　いつの頃からだったかは覚えてないが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　不思議と何かに接触するような感触を覚えた　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この辺りはうまく形容できない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　存在しないが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　認識ができる　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　対象を物体として捉えるのではなく　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　事象の本質そのものを捉える　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　武器を振る舞う鍛錬でしかないが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　練度を上げていくうちに　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　自ずとそれを捉えるようになっていった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　始まりは認識していない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　終わりがあるとも思えなかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺はただ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　その頂に　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　その深淵に　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　その中枢に　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　触れたかっただけなんだと思う　）", ActionEvent.None);
+
+      InscribeMatrixDragon_1(ref m_list, ref e_list);
+
+      Message(ref m_list, ref e_list, Fix.ESMILIA_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この道の続きは　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　果てのない物語　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　終わりのない物語　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　永遠とも呼べる繰り返しの中で　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺は一つの結論に達した　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　それは　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　ファージル国王エルミ・ジョルジュと　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　最後の謁見を交わす事　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　それ以外に選択肢は　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　残されていない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この地で石に触れた刻から　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　全ては決定されし事象だったんだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　終わらせないといけない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　かの地にて　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　国王が待っている　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　俺は応えなくちゃならない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、その場で静かに目を開いた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
+
+      Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
+    }
+  }
   #endregion
 
   #region "支配竜との対話"
@@ -31883,13 +31981,13 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：少年が進むは過去への循環", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：少年が振り返しは未来への記録", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年が振り返りしは未来への記録", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　元核【集中と断絶】を習得 】", ActionEvent.MessageDisplay);
+    // Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　元核【集中と断絶】を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_2(ref List<string> m_list, ref List<ActionEvent> e_list)

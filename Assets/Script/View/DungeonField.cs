@@ -3764,6 +3764,15 @@ public class DungeonField : MotherBase
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.ObsidianStone)
     {
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z))
+        {
+          MessagePack.Message2600011(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
+
       if (LocationFieldDetect(fieldObjBefore, Fix.ARTHARIUM_ObsidianStone_1_X, Fix.ARTHARIUM_ObsidianStone_1_Y, Fix.ARTHARIUM_ObsidianStone_1_Z))
       {
         MessagePack.Message300210(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -12588,6 +12597,12 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_Rock_8_X, Fix.ESMILIA_Rock_8_Y, Fix.ESMILIA_Rock_8_Z));
             }
+
+            // ObsidianStone
+            if (currentMessage == Fix.ESMILIA_ObsidianStone_1_O)
+            {
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z));
+            }
           }
 
           if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
@@ -20936,6 +20951,12 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_EsmiliaGrassField_00009)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_Rock_8_X, Fix.ESMILIA_Rock_8_Y, Fix.ESMILIA_Rock_8_Z));
+      }
+
+      // ObsidianStone
+      if (One.AR.Event_Message2600011)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z));
       }
     }
     #endregion
