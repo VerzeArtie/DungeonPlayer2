@@ -20,7 +20,7 @@ public class AkashicRecord : MonoBehaviour
   public bool Event_Message2600003 { get { return _event_message2600003; } set { _event_message2600003 = value; } } // エスミリア草原区域 開始時
 
   [SerializeField] protected bool _event_message2600011 = false;
-  public bool Event_Message2600011 { get { return _event_message2600011; } set { _event_message2600011 = value; } } // エスミリア草原区域 開始時
+  public bool Event_Message2600011 { get { return _event_message2600011; } set { _event_message2600011 = value; } } // エスミリア草原区域 ObsidianStone
 
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
   [SerializeField] protected bool _FireBall = false;
