@@ -2739,6 +2739,9 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_legal_orphstein = false;
   public bool DefeatLegalOrphstein { get { return _defeat_legal_orphstein; } set { _defeat_legal_orphstein = value; } }
 
+  protected bool _defeat_aermi_jorzt = false;
+  public bool DefeatAermiJorzt { get { return _defeat_aermi_jorzt; } set { _defeat_aermi_jorzt = value; } }
+
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
 

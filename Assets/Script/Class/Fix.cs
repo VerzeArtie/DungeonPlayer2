@@ -13462,11 +13462,19 @@ public static partial class Fix
 
   #endregion
   #region "離島ウォズム"
+  // 最初の地点
   public const string WOSM_EVENT_1_C = "Event";
   public const string WOSM_EVENT_1_O = "1";
   public const float WOSM_EVENT_1_X = 10.0f;
   public const float WOSM_EVENT_1_Y = 0.0f;
   public const float WOSM_EVENT_1_Z = -18.0f;
+
+  // ボス戦
+  public const string WOSM_EVENT_2_C = "Event";
+  public const string WOSM_EVENT_2_O = "2";
+  public const float WOSM_EVENT_2_X = 10.0f;
+  public const float WOSM_EVENT_2_Y = 0.0f;
+  public const float WOSM_EVENT_2_Z = -12.0f;
   #endregion
   #endregion
 

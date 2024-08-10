@@ -535,6 +535,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW;
         }
+        else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT)
+        {
+          One.EnemyList[ii].txtName.text = Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW;
+        }
 
         // 戦闘ゲージを設定
         One.EnemyList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (enemyBaseStart - (10.0f * 0)));
@@ -1195,6 +1199,12 @@ public partial class BattleEnemy : MotherBase
             One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
         {
           One.TF.DefeatLegalOrphstein = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+        {
+          One.TF.DefeatAermiJorzt = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
         {

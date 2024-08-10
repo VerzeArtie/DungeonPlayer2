@@ -31872,6 +31872,176 @@ public static class MessagePack
 
     }
   }
+
+  public static void Message2600013(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "？？？：やあ、アイン君だね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その声は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ここに来たという事は、", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ObsidianStoneに接触できたみたいだね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：さすが、アイン君だよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ここまでObsidianStoneに接触できた者は、他にいない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：君は世界を変える力を保持してるんじゃないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ObsidianStoneとの接触で", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：世界は変えられない事を認識しました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：世界を変える力は持ち合わせていません。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ッフ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ッハッハハハハハハハハハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君は、何か勘違いしているんじゃないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：今いる、この地が", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：事象の変遷を示す地なんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：事象の・・・変遷？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：今、この瞬間も", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：変わり続けている", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：このウォズムの町は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：君の眼にも映っているはずだよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王に見えている景色は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺には見えません。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ObsidianStoneに接触したアイン君なら、見えていると思ったんだけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺に見えているのは", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今、目の前にいる国王エルミの存在そのものです。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：ありがとう、アイン君。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　エルミ・ジョルジュ、音を立てる事なく、剣を鞘から静かに開放する　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：待ってくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、静謐な雰囲気のもと、戦闘態勢に入る　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：国王よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺は貴方を", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エデルガイゼン城の王を", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そして、全ての人達を", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：信じている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だから、この勝負", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：全力でやらせてもらう", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：アイン君、僕も", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：君という存在を信じている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：全力でやらせてもらうよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：３", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：１", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.ETERNITY_KING_AERMI_JORZT, ActionEvent.EncountDuel);
+  }
+
+  public static void Message2600014(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "（　エルミ・ジョルジュの攻撃は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　一寸の狂いなく、アイン・ウォーレンスの心臓へと　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　突き刺さる形となった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　アイン・ウォーレンスの攻撃が　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　一寸の狂いなく、エルミ・ジョルジュの心臓へと　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　突き刺さる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エルミ：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, "（　離島ウォズムの地にて　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　エルミ・ジョルジュ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　アイン・ウォーレンス　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " ～　THE　END　～　（決別との対峙）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+
+    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+  }
   #endregion
 
   #region "支配竜との対話"

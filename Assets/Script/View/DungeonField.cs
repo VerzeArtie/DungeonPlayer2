@@ -862,6 +862,17 @@ public class DungeonField : MotherBase
           return;
         }
       }
+
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+      {
+        if (One.TF.DefeatAermiJorzt && One.AR.Event_Message2600014 == false)
+        {
+          MessagePack.Message2600014(ref QuestMessageList, ref QuestEventList); TapOK();
+          One.UpdateAkashicRecord();
+          One.RealWorldSave();
+          return;
+        }
+      }
       return;
     }
 
@@ -9782,6 +9793,11 @@ public class DungeonField : MotherBase
         // ゲームオーバー、タイトルへ
         else if (currentEvent == MessagePack.ActionEvent.DungeonBadEnd)
         {
+          if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+          {
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+          }
           One.ReInitializeGroundOne(false);
           One.StopDungeonMusic();
           SceneDimension.JumpToTitle();
@@ -16572,6 +16588,14 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.EDELGARZEN_4_Event_2_X, Fix.EDELGARZEN_4_Event_2_Y, Fix.EDELGARZEN_4_Event_2_Z))
       {
         MessagePack.Message1900173(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+    {
+      if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
+      {
+        MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }
