@@ -32042,8 +32042,6 @@ public static class MessagePack
       Message(ref m_list, ref e_list, " ～　THE　END　～　（決別との対峙）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
-
-      Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
     }
   }
   #endregion
