@@ -31996,51 +31996,55 @@ public static class MessagePack
 
   public static void Message2600014(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "（　エルミ・ジョルジュの攻撃は　）", ActionEvent.None);
+    if (One.AR.Event_Message2600014 == false)
+    {
+      One.AR.Event_Message2600014 = true;
+      Message(ref m_list, ref e_list, "（　エルミ・ジョルジュの攻撃は　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　一寸の狂いなく、アイン・ウォーレンスの心臓へと　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　一寸の狂いなく、アイン・ウォーレンスの心臓へと　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　突き刺さる形となった　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　突き刺さる形となった　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　アイン・ウォーレンスの攻撃が　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　アイン・ウォーレンスの攻撃が　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　一寸の狂いなく、エルミ・ジョルジュの心臓へと　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　一寸の狂いなく、エルミ・ジョルジュの心臓へと　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　突き刺さる　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　突き刺さる　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "エルミ：・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+      Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
-    Message(ref m_list, ref e_list, "（　離島ウォズムの地にて　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　離島ウォズムの地にて　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　エルミ・ジョルジュ　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　エルミ・ジョルジュ　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　同刻　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　アイン・ウォーレンス　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　アイン・ウォーレンス　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, " ～　THE　END　～　（決別との対峙）", ActionEvent.None);
+      Message(ref m_list, ref e_list, " ～　THE　END　～　（決別との対峙）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
+      Message(ref m_list, ref e_list, "", ActionEvent.DungeonBadEnd);
 
-    Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　死亡　）", ActionEvent.None);
+    }
   }
   #endregion
 
