@@ -16601,9 +16601,27 @@ public class DungeonField : MotherBase
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
     {
+      // ボス戦
       if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
       {
         MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // エンディング
+      if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
+      {
+        if (One.AR.Event_Message2600015 && One.AR.Event_Message2600016 == false)
+        {
+          MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+
+      // エンディング前、移動抑止
+      if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
+      {
+        MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

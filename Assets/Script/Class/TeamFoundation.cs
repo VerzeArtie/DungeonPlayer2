@@ -2207,6 +2207,13 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900173 { get { return _event_message1900173; } set { _event_message1900173 = value; } } // 4F：ObsidianStone
   #endregion
 
+  #region "ゲーム到達情報"
+  [SerializeField] protected bool _complete_area5 = false;
+  public bool CompleteArea5 { get { return _complete_area5; } set { _complete_area5 = value; } }
+  [SerializeField] protected int _complete_area5_day = 0;
+  public int CompleteArea5Day { get { return _complete_area5_day; } set { _complete_area5_day = value; } }
+  #endregion
+
   [SerializeField] protected bool _event_message2200000 = false;
   public bool Event_Message2200000 { get { return _event_message2200000; } set { _event_message2200000 = value; } }
   [SerializeField] protected bool _event_message2200010 = false;

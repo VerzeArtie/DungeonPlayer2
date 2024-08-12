@@ -32399,6 +32399,173 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：確かめてみよう。", ActionEvent.None);
     }
   }
+
+  public static void Message2600016(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600016 == false)
+    {
+      One.AR.Event_Message2600016 = true;
+
+      Message(ref m_list, ref e_list, "アイン：こ・・・これは！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.TOWN_FAZIL_CASTLE, ActionEvent.GotoHomeTownForce);
+    }
+  }
+
+  public static void Message2600016_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "", ActionEvent.Ending);
+  }
+
+  public static void Message2600017(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "　ラナ：アイン・・・本当にそれで良いの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ああ・・・これで良いんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ファージル国王エルミ・ジョルジュと", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ヴィンスガルデ領のリガール王からの勅令だ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【　ファージル領とヴィンスガルデ領を統合し　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【　新たな国の創立　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　【　未来への繁栄を願う　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：国王様とリガール王は、予期していたんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：俺はこれを、受け入れようと思う。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：アインが引き受けるの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ああ。ランディス師匠とも話したが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：師匠には予め話が通っていたみたいだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：そう・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：なあ、ラナ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：なによ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：これからも、一緒にいてくれるか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：それって、どういう意味かしら？　内容次第では殴るわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ハハハ・・・それだけは勘弁だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　俺と結婚してくれと言ったあの日　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　これまでにないほどの乱れ撃ちを喰らい続け、俺は何度も失神した　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　結婚後は俺が国王、ラナが王妃となり　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　ファージル領とヴィンスガルデ領を統治するようになった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　新たな国の名前は　【　新生ジルヴィンス王国　】　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　単純に２つのエリア名称を統合しただけだが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　市民達の間では、思いのほか人気を博している様だった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　リガール・オルフシュタイン王、エルミ・ジョルジュ国王、ファラ・フローレ王妃　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　死体はパルメテイシア神殿にある雪原の大樹ラナの元に安置される事となった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　パルメティシア神殿の教皇たっての願いであった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　不思議な事に誰もそれを反対する事なく、受け入れた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　エオネ・フルネアは今もパルメティシア神殿で従事している　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　リガール王との約束を果たすため、たまに謁見という名目で会話しに行っている　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　ビリー・ラキとは中々会えなくなったが、今でも会った時は勢いよく拳で上げてくれる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　アデル・ブリガンディは神秘の森へと還り、それ以降姿を現していない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　ラナと俺は・・・非常に多忙を極める毎日を送っているが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　悪くない日々だと感じている　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ラナ、日程的には問題ないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：時間をちょっと調整すれば行けそうね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：悪いな。ただ、どうしても寄っておきたいんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：会いに行くのね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：ああ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　この季節になると、離島ウォズムへ足を運ぶと決めている　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　国王エルミ、王妃ファラの心は今でもここに在り続ける　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　リガール王も元はここの出身だったそうだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　人々はこの地を瓦礫の山だと表現するだろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　だが、俺は確かに見つけたんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　この場所にも、小さき花が咲いていたんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　俺はこの小さき花に誓った　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　必ずこの離島ウォズムを復興し　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：（　新生ジルヴィンス王国の正式な王都にしてみせると・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：ねえアイン。その花なんだけど、花言葉は知ってる？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　アイン：いや、知らないな・・・教えてくれないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　ラナ：良いわよ。花言葉はね・・・", ActionEvent.None);
+  }
+  public static void Message2600017_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "Dungeon Player II\r\n ～ Obsidian Portal ～", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ストーリー　　【　湯淺　與範　】\r\n　　　　　　　【　辻谷　友紀　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "音楽　　【　湯淺　晋太郎　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "バトルシステム　　【　湯淺　與範　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "マップ制作　【　湯淺　與範　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "モンスター制作　　【　辻谷　友紀　】\r\n　　　　　　　　　【　湯淺　與範　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "イラストレーター　　【　Kouki.T　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "サウンドエフェクト　【　湯淺　與範　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイテム制作　　【　湯淺　與範　】\r\n　　　　　　　　【　石高　裕介　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "グラフィック　　　【　辻谷　友紀　】\r\n　　　　　　　　【　naonao　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "プログラマー　【　湯淺　與範　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "スペシャルサンクス　　【　KANAKO　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "スペシャルサンクス　　【　naonao　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "プロデューサー　　【　湯淺　與範　】", ActionEvent.None);
+  }
+  public static void Message2600017_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "＜　永遠の誓い　＞　って言うのよ。", ActionEvent.None);
+  }
+
+  public static void Message2600018(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveTop);
+  }
   #endregion
 
   #region "支配竜との対話"

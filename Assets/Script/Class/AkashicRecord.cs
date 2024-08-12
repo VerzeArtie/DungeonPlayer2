@@ -26,10 +26,13 @@ public class AkashicRecord : MonoBehaviour
   public bool Event_Message2600012 { get { return _event_message2600012; } set { _event_message2600012 = value; } } // 離島ウォズム　開始時
 
   [SerializeField] protected bool _event_message2600014 = false;
-  public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　開始時
+  public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　最終戦闘前
 
   [SerializeField] protected bool _event_message2600015 = false;
-  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // 離島ウォズム　開始時
+  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // 離島ウォズム　最終戦闘後
+
+  [SerializeField] protected bool _event_message2600016 = false;
+  public bool Event_Message2600016 { get { return _event_message2600016; } set { _event_message2600016 = value; } } // エンディング
 
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
   [SerializeField] protected bool _FireBall = false;

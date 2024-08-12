@@ -13475,6 +13475,21 @@ public static partial class Fix
   public const float WOSM_EVENT_2_X = 10.0f;
   public const float WOSM_EVENT_2_Y = 0.0f;
   public const float WOSM_EVENT_2_Z = -12.0f;
+
+  // エンディング
+  public const string WOSM_EVENT_3_C = "Event";
+  public const string WOSM_EVENT_3_O = "3";
+  public const float WOSM_EVENT_3_X = 10.0f;
+  public const float WOSM_EVENT_3_Y = 0.0f;
+  public const float WOSM_EVENT_3_Z = -10.0f;
+
+  // 移動抑止（エンディング）
+  public const string WOSM_EVENT_4_C = "Event";
+  public const string WOSM_EVENT_4_O = "4";
+  public const float WOSM_EVENT_4_X = 10.0f;
+  public const float WOSM_EVENT_4_Y = 0.0f;
+  public const float WOSM_EVENT_4_Z = -13.0f;
+
   #endregion
   #endregion
 
