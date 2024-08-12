@@ -619,6 +619,14 @@ public class DungeonField : MotherBase
             One.RealWorldSave();
             return;
           }
+
+          if (One.AR.Event_Message2600014 && One.AR.Event_Message2600015 == false)
+          {
+            MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+            return;
+          }
         }
       }
 

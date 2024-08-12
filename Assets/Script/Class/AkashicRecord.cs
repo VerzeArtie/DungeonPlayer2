@@ -28,6 +28,9 @@ public class AkashicRecord : MonoBehaviour
   [SerializeField] protected bool _event_message2600014 = false;
   public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　開始時
 
+  [SerializeField] protected bool _event_message2600015 = false;
+  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // 離島ウォズム　開始時
+
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
   [SerializeField] protected bool _FireBall = false;
   public bool FireBall
