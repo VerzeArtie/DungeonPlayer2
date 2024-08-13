@@ -32831,6 +32831,10 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
     Message(ref m_list, ref e_list, "　　（　自分の感覚としては今、形容する事の出来ない空間と時間の狭間にいる　）", ActionEvent.None);
@@ -32924,6 +32928,10 @@ public static class MessagePack
     One.UpdateAkashicRecord();
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
@@ -33298,6 +33306,10 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
     Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
     Message(ref m_list, ref e_list, "　　（　ココに訪れたのは何時だったか　）", ActionEvent.None);
@@ -33452,12 +33464,11 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：何時いかなる時間律においても我は呼びかけに応じるだろう", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
+  }
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
-
+  public static void MessageXXX(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
     Message(ref m_list, ref e_list, "　　　（　ここから先の事は　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　　（　事象の連鎖の繰り返しが続いた　）", ActionEvent.None);
