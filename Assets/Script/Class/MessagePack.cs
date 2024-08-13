@@ -6121,7 +6121,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：これは・・・", ActionEvent.None);
 
-      Inscribe_MatrixDragon_X(ref m_list, ref e_list);
+      InscribeMatrixDragon_1(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.GORATRUM_2_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
 
@@ -9230,7 +9230,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Inscribe_MatrixDragon_X(ref m_list, ref e_list);
+      InscribeMatrixDragon_3(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
 
@@ -14938,7 +14938,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：こ、この石は！！", ActionEvent.None);
 
-      Inscribe_MatrixDragon_X(ref m_list, ref e_list);
+      InscribeMatrixDragon_2(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.MYSTICFOREST_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
 
@@ -26164,7 +26164,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "石像：ObsidianStoneとの接触を経て受諾とせよ。", ActionEvent.None);
 
-      InscribeMatrixDragon_1(ref m_list, ref e_list);
+      InscribeMatrixDragon_4(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.VELGUS_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
 
@@ -26271,22 +26271,6 @@ public static class MessagePack
       Message1010000(ref m_list, ref e_list);
     }
   }
-
-  //public static void Message1009050(ref List<string> m_list, ref List<ActionEvent> e_list)
-  //{
-  //  if (One.TF.Event_Message1009050 == false)
-  //  {
-  //    One.TF.Event_Message1009050 = true;
-
-  //    Message(ref m_list, ref e_list, "アイン：（石が見えるな・・・）", ActionEvent.None);
-
-  //    Inscribe_MatrixDragon_X(ref m_list, ref e_list);
-
-  //    Message(ref m_list, ref e_list, Fix.VELGUS_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
-
-  //    // todo　ストーリー未完成
-  //  }
-  //}
 
   public static void Message1010000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -30610,7 +30594,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      InscribeMatrixDragon_6(ref m_list, ref e_list);
+      InscribeMatrixDragon_5(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.EDELGARZEN_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
 
@@ -31796,7 +31780,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（　触れたかっただけなんだと思う　）", ActionEvent.None);
 
-      InscribeMatrixDragon_1(ref m_list, ref e_list);
+      InscribeMatrixDragon_6(ref m_list, ref e_list);
 
       Message(ref m_list, ref e_list, Fix.ESMILIA_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
 
@@ -32569,38 +32553,6 @@ public static class MessagePack
   #endregion
 
   #region "支配竜との対話"
-  public static void Inscribe_MatrixDragon_X(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    if (One.AR.InscribeObsidianStone_1 == false)
-    {
-      InscribeMatrixDragon_1(ref m_list, ref e_list);
-    }
-    else if (One.AR.InscribeObsidianStone_2 == false)
-    {
-      InscribeMatrixDragon_2(ref m_list, ref e_list);
-    }
-    else if (One.AR.InscribeObsidianStone_3 == false)
-    {
-      InscribeMatrixDragon_3(ref m_list, ref e_list);
-    }
-    else if (One.AR.InscribeObsidianStone_4 == false)
-    {
-      InscribeMatrixDragon_4(ref m_list, ref e_list);
-    }
-    else if (One.AR.InscribeObsidianStone_5 == false)
-    {
-      InscribeMatrixDragon_5(ref m_list, ref e_list);
-    }
-    else if (One.AR.InscribeObsidianStone_6 == false)
-    {
-      InscribeMatrixDragon_6(ref m_list, ref e_list);
-    }
-    else
-    {
-      // elseは何もない
-    }
-  }
-
   public static void InscribeMatrixDragon_1(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     One.AR.InscribeObsidianStone_1 = true;
