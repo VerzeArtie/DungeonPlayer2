@@ -32819,11 +32819,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.MYSTICFOREST_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
-
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
+    // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第二属性＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_3(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -32915,11 +32913,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_2_O, ActionEvent.RemoveFieldObject);
-
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
+    // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在能力＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_4(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -33079,11 +33075,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：行くがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_2_O, ActionEvent.RemoveFieldObject);
-
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
+    // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜第三属性＞を習得 】", ActionEvent.MessageDisplay);
   }
 
 
@@ -33294,7 +33288,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンス　ObsidianStoneを取得 】", ActionEvent.MessageDisplay);
 
-    Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在意志＞を習得 】", ActionEvent.MessageDisplay);
+    // Message(ref m_list, ref e_list, "【 パーティ全員　エッセンス・ツリー＜潜在意志＞を習得 】", ActionEvent.MessageDisplay);
   }
 
   public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
