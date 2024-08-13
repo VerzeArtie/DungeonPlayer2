@@ -9514,6 +9514,23 @@ public class DungeonField : MotherBase
           MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+      {
+        string treasureName = String.Empty;
+        if (One.TF.Treasure_Edelgarzen2_00001 == false && location.x == Fix.EDELGARZEN_2_Treasure_1_X && location.y == Fix.EDELGARZEN_2_Treasure_1_Y && location.z == Fix.EDELGARZEN_2_Treasure_1_Z)
+        {
+          treasureName = Fix.EXTREME_SWORD;
+        }
+
+        if (treasureName == String.Empty)
+        {
+          // 何もしない
+        }
+        else
+        {
+          MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName); TapOK();
+        }
+      }
       #endregion
 
       #region "ダルの門"
@@ -12570,6 +12587,13 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_1_Treasure_21_X, Fix.EDELGARZEN_1_Treasure_21_Y, Fix.EDELGARZEN_1_Treasure_21_Z))
             {
               One.TF.Treasure_Edelgarzen_00021 = true;
+            }
+          }
+          if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2)
+          {
+            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_1_X, Fix.EDELGARZEN_2_Treasure_1_Y, Fix.EDELGARZEN_2_Treasure_1_Z))
+            {
+              One.TF.Treasure_Edelgarzen2_00001 = true;
             }
           }
           #endregion
@@ -23315,6 +23339,11 @@ public class DungeonField : MotherBase
       if (One.TF.Event_Message1900161)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_2_DOOR_24_X, Fix.EDELGARZEN_2_DOOR_24_Y, Fix.EDELGARZEN_2_DOOR_24_Z));
+      }
+
+      if (One.TF.Treasure_Edelgarzen2_00001)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.EDELGARZEN_2_Treasure_1_X, Fix.EDELGARZEN_2_Treasure_1_Y, Fix.EDELGARZEN_2_Treasure_1_Z)));
       }
     }
     if (map_data == Fix.MAPFILE_EDELGARZEN_3)
