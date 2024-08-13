@@ -12458,6 +12458,34 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.EDELGARZEN_KEY3:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "エデルガイゼン城で入手した鍵。【無為】の刻印が刻まれている。三階：中枢区画への扉を開く事が出来る。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
       case Fix.UNKNOWN_OBJECT:
         this._rarity = Rarity.Epic;
         this._itemType = ItemTypes.EventItem;
