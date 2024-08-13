@@ -9541,6 +9541,10 @@ public class DungeonField : MotherBase
         {
           treasureName = Fix.EXTREME_SWORD;
         }
+        if (One.TF.Treasure_Edelgarzen2_00007 == false && location.x == Fix.EDELGARZEN_2_Treasure_7_X && location.y == Fix.EDELGARZEN_2_Treasure_7_Y && location.z == Fix.EDELGARZEN_2_Treasure_7_Z)
+        {
+          treasureName = Fix.EXTREME_SWORD;
+        }
 
         if (treasureName == String.Empty)
         {
@@ -12634,6 +12638,10 @@ public class DungeonField : MotherBase
             if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_6_X, Fix.EDELGARZEN_2_Treasure_6_Y, Fix.EDELGARZEN_2_Treasure_6_Z))
             {
               One.TF.Treasure_Edelgarzen2_00006 = true;
+            }
+            if (this.Player.transform.position == new Vector3(Fix.EDELGARZEN_2_Treasure_7_X, Fix.EDELGARZEN_2_Treasure_7_Y, Fix.EDELGARZEN_2_Treasure_7_Z))
+            {
+              One.TF.Treasure_Edelgarzen2_00007 = true;
             }
           }
           #endregion
@@ -23404,6 +23412,10 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Edelgarzen2_00006)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.EDELGARZEN_2_Treasure_6_X, Fix.EDELGARZEN_2_Treasure_6_Y, Fix.EDELGARZEN_2_Treasure_6_Z)));
+      }
+      if (One.TF.Treasure_Edelgarzen2_00007)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.EDELGARZEN_2_Treasure_7_X, Fix.EDELGARZEN_2_Treasure_7_Y, Fix.EDELGARZEN_2_Treasure_7_Z)));
       }
     }
     if (map_data == Fix.MAPFILE_EDELGARZEN_3)
