@@ -12389,7 +12389,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "エデルガイゼン城で入手した正面ゲート扉の鍵。この鍵を使う事で正面ゲートの扉を開く事が出来る。";
+        this._description = "エデルガイゼン城で入手した鍵。この鍵を使う事で正面ゲートの扉を開く事が出来る。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
