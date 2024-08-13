@@ -2591,8 +2591,8 @@ public static partial class Fix
   public const string VELGUS2_KEY3 = "ヴェルガス海底神殿の鍵【順応】";
   public const string EDELGARZEN_KEY = "エデルガイゼン城：正面ゲートの鍵";
   public const string EDELGARZEN_KEY1 = "エデルガイゼン城の鍵【不屈】";
-  public const string EDELGARZEN_KEY2 = "エデルガイゼン城の鍵【無為】";
-  public const string EDELGARZEN_KEY3 = "エデルガイゼン城の鍵【意志】";
+  public const string EDELGARZEN_KEY2 = "エデルガイゼン城の鍵【意志】";
+  public const string EDELGARZEN_KEY3 = "エデルガイゼン城の鍵【無為】";
   public const string EDELGARZEN_KEY4 = "エデルガイゼン城の鍵【全知】";
   public const string UNKNOWN_OBJECT = "奇妙な物体";
   public const string MARBLE_STAR = "マーブル・スター";
