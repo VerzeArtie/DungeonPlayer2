@@ -16,6 +16,13 @@ public class Title : MotherBase
   public GameObject GroupSystemMessage;
   public Text SystemMessageText;
 
+  // debug
+  public Text txtEnemy1;
+  public Text txtEnemy2;
+  public Text txtEnemy3;
+  public Text txtDuel;
+  public Text txtBoss;
+
   bool firstAction = false;
   // Start is called before the first frame update
   public override void Start()
@@ -367,22 +374,24 @@ public class Title : MotherBase
     One.CreateShadowData();
 
     One.EnemyList.Clear();
-    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
-    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
-    //One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
-    //One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
+    if (txtEnemy1.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtEnemy1.text);
+    }
+    if (txtEnemy2.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtEnemy2.text);
+    }
+    if (txtEnemy3.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtEnemy3.text);
+    }
 
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
       Character character = objEC.AddComponent<Character>();
       character.Construction(One.BattleEnemyList[ii]);
-      character.Strength = 100;
-      character.Agility = 1;
-      character.Intelligence = 1;
-      character.Mind = 100;
-      character.BaseLife = 999999;
-      character.BaseManaPoint = 99999;
       character.MaxGain();
       One.EnemyList.Add(character);
     }
@@ -456,7 +465,10 @@ public class Title : MotherBase
     One.CreateShadowData();
 
     One.EnemyList.Clear();
-    One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);//.DUEL_JEDA_ARUS);
+    if (txtDuel.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtDuel.text);
+    }
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
@@ -532,7 +544,10 @@ public class Title : MotherBase
     One.CreateShadowData();
 
     One.EnemyList.Clear();
-    One.BattleEnemyList.Add(Fix.FLANSIS_OF_THE_FOREST_QUEEN);
+    if (txtBoss.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtBoss.text);
+    }
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());
