@@ -7172,7 +7172,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(497, 307, 641, 945, 45, 2, 6561, 4580);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_TYPHOON);
-        list.Add(Fix.COMMAND_UNIDENTIFIED_DISK);
+        list.Add(Fix.COMMAND_TAIKI_VANISH);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
@@ -8878,7 +8878,8 @@ public partial class Character : MonoBehaviour
 
     // コマンド名によって後方優先を設定する。
     if (result == Fix.COMMAND_AIUCHI_NERAI ||
-        result == Fix.COMMAND_HIDDEN_KNIFE)
+        result == Fix.COMMAND_HIDDEN_KNIFE ||
+        result == Fix.COMMAND_RENSYA)
     {
       Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
       for (int ii = opponent_group.Count - 1; ii >= 0; ii--)

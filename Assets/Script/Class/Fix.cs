@@ -1761,7 +1761,7 @@ public static partial class Fix
   public const string COMMAND_TRIPLE_TACTICS = "トリプル・タクティクス";
   public const string COMMAND_WIND_ARROW = "ウィンド・アロー";
   public const string COMMAND_TYPHOON = "タイフーン";
-  public const string COMMAND_UNIDENTIFIED_DISK = "奇妙な円盤";
+  public const string COMMAND_TAIKI_VANISH = "大気消滅";
   public const string COMMAND_HARD_CHARGE = "激突";
   public const string COMMAND_RAMPAGE = "大暴れ";
   public const string COMMAND_ICE_BURN = "アイス・バーン";

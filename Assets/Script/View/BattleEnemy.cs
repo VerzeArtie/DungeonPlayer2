@@ -1239,7 +1239,7 @@ public partial class BattleEnemy : MotherBase
     // プレイヤーのインスタントゲージを進行する。
     for (int ii = 0; ii < AllList.Count; ii++)
     {
-      if (AllList[ii].Dead == false && AllList[ii].IsSleep == false && AllList[ii].IsStun == false)
+      if (AllList[ii].Dead == false && AllList[ii].IsSleep == false && AllList[ii].IsStun == false && AllList[ii].IsFreeze == false)
       {
         if (AllList[ii].CurrentInstantPoint < AllList[ii].MaxInstantPoint)
         {
@@ -3227,6 +3227,109 @@ public partial class BattleEnemy : MotherBase
         ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.Ice, false, critical);
         break;
 
+      case Fix.COMMAND_TRIPLE_TACTICS:
+        rand = AP.Math.RandomInteger(3);
+        if (rand == 0)
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecBuffPoison(player, target, 3, 500);
+        }
+        else if (rand == 1)
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+        }
+        else if (rand == 2)
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecBuffPhysicalAttackUp(player, player, 5, 1.10f);
+        }
+        break;
+
+      case Fix.COMMAND_WIND_ARROW:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecBuffBind(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_TYPHOON:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          if (AP.Math.RandomInteger(4) == 0)
+          {
+            ExecBuffStun(player, target_list[ii], 2, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_TAIKI_VANISH:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Colorless, false, critical);
+        ExecBuffFreeze(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_HARD_CHARGE:
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffStun(player, player, 1, 0);
+        ExecBuffStun(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_RAMPAGE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Physical, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_ICE_BURN:
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecBuffBind(player, target, 2, 0);
+        ExecBuffSilent(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_FROST_SHARD:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Ice, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_DOKAAAAN:
+        if (AP.Math.RandomInteger(4) == 0)
+        {
+          target_list = GetOpponentGroupAlive(player);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 5.00f, Fix.DamageSource.Physical, false, critical);
+        }
+        else
+        {
+          StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        }
+        break;
+
+      case Fix.COMMAND_RENSYA:
+        for (int ii = 0; ii < 2; ii++)
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_ERRATIC_EXPLODE:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, false, critical);
+        ExecBuffSlip(player, target, 5, 500);
+        break;
+
+      case Fix.COMMAND_CYCLONE_FIELD:
+        ExecBuffPhysicalDefenseUp(player, player, 5, 1.20f);
+        ExecBuffMagicDefenceUp(player, player, 5, 1.20f);
+        break;
+
+      case Fix.COMMAND_ICE_RAY:
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, true, critical);
+        ExecBuffFreeze(player, target, 1, 0);
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
@@ -3551,6 +3654,12 @@ public partial class BattleEnemy : MotherBase
     //{
     //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
     //}
+
+    if (player.IsFreeze != null)
+    {
+      // 何もしないで終了
+      return;
+    }
 
     if (move_skip > 0 || move_skip < 0)
     {
@@ -4583,6 +4692,12 @@ public partial class BattleEnemy : MotherBase
     // 各BUFFによる効果
     for (int ii = 0; ii < AllList.Count; ii++)
     {
+      if (AllList[ii].IsFreeze != null)
+      {
+        // 何もしない
+        continue;
+      }
+
       AllList[ii].CurrentActionPoint += Fix.AP_BASE;
       //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
       AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
