@@ -18850,7 +18850,10 @@ public class DungeonField : MotherBase
       return;
     }
     #endregion
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
+    #region "ヴェルガスの海底神殿１Ｆ - ３Ｆ"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
     {
       int random = 300 + NoEncountNumber - CumulativeBattleCounter; // ヴェルガス海底神殿はパズル要素が多くしたので、基本値は低め
       if (random <= 0) { random = 0; }
@@ -19164,8 +19167,324 @@ public class DungeonField : MotherBase
         PrepareCallTruthBattleEnemy();
       }
     }
-    #region "ヴェルガス海底神殿"
+    #endregion
+    #region "エデルガイゼン城１Ｆ - ３Ｆ"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2 ||
+        One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+    {
+      int random = 350 + NoEncountNumber - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        Debug.Log("area_info is " + area_info);
+        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_1");
+          int rand_data = AP.Math.RandomInteger(6);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.PHANTOM_HUNTER);
+              One.BattleEnemyList.Add(Fix.BEAST_MASTER);
+              One.BattleEnemyList.Add(Fix.ELDER_ASSASSIN);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.FALLEN_SEEKER);
+              One.BattleEnemyList.Add(Fix.MEPHISTO_RIGHTARM);
+              One.BattleEnemyList.Add(Fix.POWERED_STEAM_BOW);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.BEAST_MASTER);
+              One.BattleEnemyList.Add(Fix.FALLEN_SEEKER);
+              One.BattleEnemyList.Add(Fix.ELDER_ASSASSIN);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.MEPHISTO_RIGHTARM);
+              One.BattleEnemyList.Add(Fix.POWERED_STEAM_BOW);
+              One.BattleEnemyList.Add(Fix.ELDER_ASSASSIN);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.FALLEN_SEEKER);
+              One.BattleEnemyList.Add(Fix.ELDER_ASSASSIN);
+              One.BattleEnemyList.Add(Fix.PHANTOM_HUNTER);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.BEAST_MASTER);
+              One.BattleEnemyList.Add(Fix.POWERED_STEAM_BOW);
+              One.BattleEnemyList.Add(Fix.PHANTOM_HUNTER);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_2)
+        {
+          Debug.Log("area_info is AREA_2");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.MASTER_LORD);
+              One.BattleEnemyList.Add(Fix.EXECUTIONER);
+              One.BattleEnemyList.Add(Fix.SIN_THE_DARKELF);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.IMPERIAL_KNIGHT);
+              One.BattleEnemyList.Add(Fix.SIN_THE_DARKELF);
+              One.BattleEnemyList.Add(Fix.DARK_MESSENGER);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.BLACKFIRE_MASTER_BLADE);
+              One.BattleEnemyList.Add(Fix.IMPERIAL_KNIGHT);
+              One.BattleEnemyList.Add(Fix.DARK_MESSENGER);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.MASTER_LORD);
+              One.BattleEnemyList.Add(Fix.EXECUTIONER);
+              One.BattleEnemyList.Add(Fix.MARIONETTE_NEMESIS);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.MARIONETTE_NEMESIS);
+              One.BattleEnemyList.Add(Fix.MARIONETTE_NEMESIS);
+              One.BattleEnemyList.Add(Fix.DARK_MESSENGER);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.MASTER_LORD);
+              One.BattleEnemyList.Add(Fix.EXECUTIONER);
+              One.BattleEnemyList.Add(Fix.DARK_MESSENGER);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.BLACKFIRE_MASTER_BLADE);
+              One.BattleEnemyList.Add(Fix.SIN_THE_DARKELF);
+              One.BattleEnemyList.Add(Fix.MARIONETTE_NEMESIS);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.MASTER_LORD);
+              One.BattleEnemyList.Add(Fix.EXECUTIONER);
+              One.BattleEnemyList.Add(Fix.IMPERIAL_KNIGHT);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.EXECUTIONER);
+              One.BattleEnemyList.Add(Fix.SIN_THE_DARKELF);
+              One.BattleEnemyList.Add(Fix.MARIONETTE_NEMESIS);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.BLACKFIRE_MASTER_BLADE);
+              One.BattleEnemyList.Add(Fix.IMPERIAL_KNIGHT);
+              One.BattleEnemyList.Add(Fix.DARK_MESSENGER);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_3)
+        {
+          Debug.Log("area_info is AREA_3");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.SUN_STRIDER);
+              One.BattleEnemyList.Add(Fix.ARCHDEMON);
+              One.BattleEnemyList.Add(Fix.BALANCE_IDLE);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.ARCHDEMON);
+              One.BattleEnemyList.Add(Fix.GO_FLAME_SLASHER);
+              One.BattleEnemyList.Add(Fix.BALANCE_IDLE);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              One.BattleEnemyList.Add(Fix.ANCIENT_DISK);
+              One.BattleEnemyList.Add(Fix.DEVIL_CHILDREN);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              One.BattleEnemyList.Add(Fix.SUN_STRIDER);
+              One.BattleEnemyList.Add(Fix.BALANCE_IDLE);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.DEVIL_CHILDREN);
+              One.BattleEnemyList.Add(Fix.ANCIENT_DISK);
+              One.BattleEnemyList.Add(Fix.BALANCE_IDLE);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.SUN_STRIDER);
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              One.BattleEnemyList.Add(Fix.DEVIL_CHILDREN);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.ARCHDEMON);
+              One.BattleEnemyList.Add(Fix.ANCIENT_DISK);
+              One.BattleEnemyList.Add(Fix.DEVIL_CHILDREN);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.GO_FLAME_SLASHER);
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.SUN_STRIDER);
+              One.BattleEnemyList.Add(Fix.GO_FLAME_SLASHER);
+              One.BattleEnemyList.Add(Fix.DEVIL_CHILDREN);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.ARCHDEMON);
+              One.BattleEnemyList.Add(Fix.UNDEAD_WYVERN);
+              One.BattleEnemyList.Add(Fix.BALANCE_IDLE);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_4)
+        {
+          Debug.Log("area_info is AREA_4");
+          int rand_data = AP.Math.RandomInteger(10);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.HELL_DREAD_KNIGHT);
+              One.BattleEnemyList.Add(Fix.HOWLING_HORROR);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.DOOM_BRINGER);
+              One.BattleEnemyList.Add(Fix.HELL_DREAD_KNIGHT);
+              One.BattleEnemyList.Add(Fix.DISTORTED_SENSOR);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.HOWLING_HORROR);
+              One.BattleEnemyList.Add(Fix.CHAOS_WARDEN);
+              One.BattleEnemyList.Add(Fix.DISTORTED_SENSOR);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.HELL_DREAD_KNIGHT);
+              One.BattleEnemyList.Add(Fix.CHAOS_WARDEN);
+              One.BattleEnemyList.Add(Fix.CHAOS_WARDEN);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.DOOM_BRINGER);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.HOWLING_HORROR);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              One.BattleEnemyList.Add(Fix.BLACK_LIGHTNING_SPHERE);
+              break;
+            case 6:
+              Debug.Log("rand_data 6");
+              One.BattleEnemyList.Add(Fix.HELL_DREAD_KNIGHT);
+              One.BattleEnemyList.Add(Fix.DISTORTED_SENSOR);
+              One.BattleEnemyList.Add(Fix.BLACK_LIGHTNING_SPHERE);
+              break;
+            case 7:
+              Debug.Log("rand_data 7");
+              One.BattleEnemyList.Add(Fix.DOOM_BRINGER);
+              One.BattleEnemyList.Add(Fix.HOWLING_HORROR);
+              One.BattleEnemyList.Add(Fix.BLACK_LIGHTNING_SPHERE);
+              break;
+            case 8:
+              Debug.Log("rand_data 8");
+              One.BattleEnemyList.Add(Fix.CHAOS_WARDEN);
+              One.BattleEnemyList.Add(Fix.DISTORTED_SENSOR);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              break;
+            case 9:
+              Debug.Log("rand_data 9");
+              One.BattleEnemyList.Add(Fix.CHAOS_WARDEN);
+              One.BattleEnemyList.Add(Fix.PAIN_ANGEL);
+              One.BattleEnemyList.Add(Fix.BLACK_LIGHTNING_SPHERE);
+              break;
+          }
+        }
+        else if (area_info == TileInformation.Area.AREA_5)
+        {
+          Debug.Log("area_info is AREA_5");
+          int rand_data = AP.Math.RandomInteger(6);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              Debug.Log("rand_data 0");
+              One.BattleEnemyList.Add(Fix.WIND_BREAKER);
+              One.BattleEnemyList.Add(Fix.ELDER_BAPHOMET);
+              One.BattleEnemyList.Add(Fix.HOLLOW_SPECTOR);
+              break;
+            case 1:
+              Debug.Log("rand_data 1");
+              One.BattleEnemyList.Add(Fix.ELDER_BAPHOMET);
+              One.BattleEnemyList.Add(Fix.HOLLOW_SPECTOR);
+              One.BattleEnemyList.Add(Fix.UNKNOWN_FLOATING_BALL);
+              break;
+            case 2:
+              Debug.Log("rand_data 2");
+              One.BattleEnemyList.Add(Fix.HOLLOW_SPECTOR);
+              One.BattleEnemyList.Add(Fix.WIND_BREAKER);
+              One.BattleEnemyList.Add(Fix.VENERABLE_WIZARD);
+              break;
+            case 3:
+              Debug.Log("rand_data 3");
+              One.BattleEnemyList.Add(Fix.WIND_BREAKER);
+              One.BattleEnemyList.Add(Fix.HOLLOW_SPECTOR);
+              One.BattleEnemyList.Add(Fix.VENERABLE_WIZARD);
+              break;
+            case 4:
+              Debug.Log("rand_data 4");
+              One.BattleEnemyList.Add(Fix.ELDER_BAPHOMET);
+              One.BattleEnemyList.Add(Fix.UNKNOWN_FLOATING_BALL);
+              One.BattleEnemyList.Add(Fix.VENERABLE_WIZARD);
+              break;
+            case 5:
+              Debug.Log("rand_data 5");
+              One.BattleEnemyList.Add(Fix.WIND_BREAKER);
+              One.BattleEnemyList.Add(Fix.VENERABLE_WIZARD);
+              One.BattleEnemyList.Add(Fix.UNKNOWN_FLOATING_BALL);
+              break;
+          }
+        }
 
+        One.CannotRunAway = false;
+        if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+        else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+        PrepareCallTruthBattleEnemy();
+      }
+    }
     #endregion
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
