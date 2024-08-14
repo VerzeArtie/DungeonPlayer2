@@ -8876,6 +8876,21 @@ public partial class Character : MonoBehaviour
         break;
     }
 
+    // コマンド名によって後方優先を設定する。
+    if (result == Fix.COMMAND_AIUCHI_NERAI ||
+        result == Fix.COMMAND_HIDDEN_KNIFE)
+    {
+      Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
+      for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
+      {
+        if (opponent_group[ii].Dead == false)
+        {
+          this.Target = opponent_group[ii];
+          break;
+        }
+      }
+    }
+
     if (skip_decision == false)
     {
       this.Decision = true;
