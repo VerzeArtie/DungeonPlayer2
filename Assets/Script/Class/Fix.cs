@@ -3030,8 +3030,8 @@ public static partial class Fix
   public const string POWERED_STEAM_BOW_JP = "パワード・スチームボウ";
   public const string DARK_MESSENGER = "The Dark Messenger";
   public const string DARK_MESSENGER_JP = "闇の眷属";
-  public const string MASTER_LOAD = "Master Lord";
-  public const string MASTER_LOAD_JP = "マスターロード";
+  public const string MASTER_LORD = "Master Lord";
+  public const string MASTER_LORD_JP = "マスターロード";
   public const string EXECUTIONER = "Executioner";
   public const string EXECUTIONER_JP = "エグゼキューショナー";
   public const string MARIONETTE_NEMESIS = "Marionette Nemesis";

@@ -7868,8 +7868,8 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.MASTER_LOAD:
-      case Fix.MASTER_LOAD_JP:
+      case Fix.MASTER_LORD:
+      case Fix.MASTER_LORD_JP:
         SetupParameter(2280, 1340, 1830, 25000, 225, 0, 48200, 40000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPERIOR_FIELD);
