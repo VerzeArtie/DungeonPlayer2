@@ -3141,6 +3141,92 @@ public partial class BattleEnemy : MotherBase
         ExecMagicAttack(player, target, 4.00f, Fix.DamageSource.HolyLight, false, critical);
         break;
 
+      case Fix.COMMAND_OVERRUN:
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, false, critical);
+        break;
+
+      case Fix.COMMAND_GLARE:
+        ExecBuffStun(player, target, 2, 0);
+        ExecBuffSilent(player, target, 3, 0);
+        break;
+
+      case Fix.COMMAND_ARC_BLASTER:
+        ExecMagicAttack(player, target, 1.80f, Fix.DamageSource.Colorless, false, critical);
+        ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+        break;
+
+      case Fix.COMMAND_DRAGON_BREATH:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, false, critical);
+          if (AP.Math.RandomInteger(2) == 0)
+          {
+            ExecBuffDizzy(player, target_list[ii], 2, 0);
+          }
+          else
+          {
+            ExecBuffSilent(player, target_list[ii], 1, 0);
+          }
+        }
+        ExecBuffBattleResponseUp(player, player, 5, 1.10f);
+        break;
+
+      case Fix.COMMAND_RENZOKU_BAKUHATSU:
+        for (int ii = 0; ii < 3; ii++)
+        {
+          target_list = GetOpponentGroupAlive(player);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Fire, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_AIUCHI_NERAI:
+        ExecLifeDown(player, 0.5f);
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Fire, false, critical);
+        break;
+
+      case Fix.COMMAND_HIDDEN_KNIFE:
+        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+        break;
+
+      case Fix.COMMAND_MYSTICAL_FIELD:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.10f);
+        }
+        break;
+
+      case Fix.COMMAND_SEIKUU_GUARDWALL:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.50f);
+        }
+        break;
+
+      case Fix.COMMAND_THUNDERCLOUD_INVASION:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, false, critical);
+          ExecBuffBattleResponseDown(player, target_list[ii], 5, 0.70f);
+        }
+        break;
+
+      case Fix.COMMAND_MIST_BARRIER:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.50f);
+        }
+        break;
+
+      case Fix.COMMAND_SUN_SLAYER:
+        ExecNormalAttack(player, target, 0.90f, Fix.DamageSource.Physical, false, critical);
+        ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.Ice, false, critical);
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
@@ -6047,6 +6133,11 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     AbstractHealCommand(null, target, effectValue);
+  }
+
+  private void ExecLifeDown(Character target, double decrease)
+  {
+    target.CurrentLife -= (int)((double)target.MaxLife * decrease);
   }
 
   private void ExecPoisonDamage(Character target, double effectValue)
