@@ -8748,6 +8748,46 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.THE_YODIRIAN:
+      case Fix.THE_YODIRIAN_JP:
+      case Fix.THE_YODIRIAN_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_CLEANSING_LANCE);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_STATUS_CHANGE);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_DEATH_DANCE);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_HEAVEN_VOICE);
+        }
+        else if (this.AI_Phase == 4)
+        {
+          current.Add(Fix.COMMAND_PLASMA_STORM);
+        }
+        else
+        {
+          if (AP.Math.RandomInteger(2) == 0)
+          {
+            current.Add(Fix.MAGIC_ATTACK);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         switch (AP.Math.RandomInteger(2))
         {

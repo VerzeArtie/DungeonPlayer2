@@ -1329,6 +1329,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.THE_YODIRIAN || EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP || EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_APOCALYPSE_SWORD, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
@@ -3328,6 +3336,170 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_ICE_RAY:
         ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, true, critical);
         ExecBuffFreeze(player, target, 1, 0);
+        break;
+
+      case Fix.COMMAND_CLEANSING_LANCE:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, true, critical);
+        target_list = GetOpponentGroup(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          target_list[ii].RemoveBuff(1, Fix.BuffType.Positive);
+        }
+        break;
+
+      case Fix.COMMAND_STATUS_CHANGE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          // Fear(恐怖)、Temptation(誘惑)、復活不可(Cannot Resurrect)は使用しない。
+          List<string> chooseList = new List<string>() { Fix.EFFECT_POISON,
+                                                       Fix.EFFECT_SILENT,
+                                                       Fix.EFFECT_BIND,
+                                                       Fix.EFFECT_SLEEP,
+                                                       Fix.EFFECT_STUN,
+                                                       Fix.EFFECT_PARALYZE,
+                                                       Fix.EFFECT_FREEZE,
+                                                       Fix.EFFECT_SLOW,
+                                                       Fix.EFFECT_DIZZY,
+                                                       Fix.EFFECT_SLIP };
+
+          rand = AP.Math.RandomInteger(9);
+
+          if (target_list[ii].IsStun == false)
+          {
+            chooseList.Remove(Fix.EFFECT_STUN);
+          }
+          else if (target_list[ii].IsBind == false)
+          {
+            chooseList.Remove(Fix.EFFECT_BIND);
+          }
+          else if (target_list[ii].IsSilent == false)
+          {
+            chooseList.Remove(Fix.EFFECT_SILENT);
+          }
+          else if (target_list[ii].IsFreeze == false)
+          {
+            chooseList.Remove(Fix.EFFECT_FREEZE);
+          }
+          else if (target_list[ii].IsSlip == false)
+          {
+            chooseList.Remove(Fix.EFFECT_SLIP);
+          }
+          else if (target_list[ii].IsSleep == false)
+          {
+            chooseList.Remove(Fix.EFFECT_SLEEP);
+          }
+          else if (target_list[ii].IsPoison == false)
+          {
+            chooseList.Remove(Fix.EFFECT_POISON);
+          }
+          else if (target_list[ii].IsParalyze == false)
+          {
+            chooseList.Remove(Fix.EFFECT_PARALYZE);
+          }
+          else if (target_list[ii].IsSlow == false)
+          {
+            chooseList.Remove(Fix.EFFECT_SLOW);
+          }
+          else if (target_list[ii].IsDizzy == false)
+          {
+            chooseList.Remove(Fix.EFFECT_DIZZY);
+          }
+
+          if (chooseList.Count > 0)
+          {
+            string choose = chooseList[AP.Math.RandomInteger(chooseList.Count)];
+            if (choose == Fix.EFFECT_POISON)
+            {
+              ExecBuffPoison(player, target_list[ii], 9, 750);
+            }
+            else if (choose == Fix.EFFECT_SILENT)
+            {
+              ExecBuffSilent(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_BIND)
+            {
+              ExecBuffBind(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_SLEEP)
+            {
+              ExecBuffSleep(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_STUN)
+            {
+              ExecBuffStun(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_PARALYZE)
+            {
+              ExecBuffParalyze(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_FREEZE)
+            {
+              ExecBuffFreeze(player, target_list[ii], 2, 0);
+            }
+            else if (choose == Fix.EFFECT_SLOW)
+            {
+              ExecBuffSlow(player, target_list[ii], 3, 0.4f);
+            }
+            else if (choose == Fix.EFFECT_DIZZY)
+            {
+              ExecBuffDizzy(player, target_list[ii], 3, 0);
+            }
+            else if (choose == Fix.EFFECT_SLIP)
+            {
+              ExecBuffSlip(player, target_list[ii], 9, 750);
+            }
+            else
+            {
+              ExecBuffFreeze(player, target_list[ii], 2, 0);
+            }
+          }
+          else
+          {
+            ExecBuffFreeze(player, target_list[ii], 2, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_DEATH_DANCE:
+        rand = AP.Math.RandomInteger(5);
+        if (rand == 0)
+        {
+          ExecLifeDown(target, 0.10f);
+        }
+        else if (rand == 1)
+        {
+          ExecLifeDown(target, 0.30f);
+        }
+        else if (rand == 2)
+        {
+          ExecLifeDown(target, 0.50f);
+        }
+        else if (rand == 3)
+        {
+          ExecLifeDown(target, 0.60f);
+        }
+        else
+        {
+          ExecLifeDown(target, 0.70f);
+        }
+        break;
+
+      case Fix.COMMAND_HEAVEN_VOICE:
+        ExecLifeGain(player, 2000.0f + AP.Math.RandomInteger(1000));
+        break;
+
+      case Fix.COMMAND_PLASMA_STORM:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          double additional = (double)(AP.Math.RandomInteger(100) * 0.01f);
+          ExecMagicAttack(player, target_list[ii], 0.85f + additional, Fix.DamageSource.Ice, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_APOCALYPSE_SWORD:
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, true, critical);
         break;
 
       case "絶望の魔手":
@@ -6252,7 +6424,10 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecLifeDown(Character target, double decrease)
   {
-    target.CurrentLife -= (int)((double)target.MaxLife * decrease);
+    int result = (int)((double)target.MaxLife * decrease);
+    Debug.Log("ExecLifeDown: " + target.FullName + " " + result.ToString() + " damage");
+    target.CurrentLife -= result;
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
   }
 
   private void ExecPoisonDamage(Character target, double effectValue)
