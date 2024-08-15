@@ -3502,6 +3502,336 @@ public partial class BattleEnemy : MotherBase
         ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, true, critical);
         break;
 
+      case Fix.COMMAND_WATER_GUN:
+        break;
+
+      case Fix.COMMAND_WATER_DANCE:
+        break;
+
+      case Fix.COMMAND_WATER_SHOT:
+        break;
+
+      case Fix.COMMAND_SKY_FEATHER:
+        break;
+
+      case Fix.COMMAND_RAINBOW_BUBBLE:
+        break;
+
+      case Fix.COMMAND_WATER_CIRCLE:
+        break;
+
+      case Fix.COMMAND_ROLLING_CHARGE:
+        break;
+
+      case Fix.COMMAND_JET_RUN:
+        break;
+
+      case Fix.COMMAND_INVISIBLE_POISON:
+        break;
+
+      case Fix.COMMAND_BEAUTY_AROMA:
+        break;
+
+      case Fix.COMMAND_AQUA_BLOSSOM:
+        break;
+
+      case Fix.COMMAND_DEATH_STROKE:
+        break;
+
+      case Fix.COMMAND_DEVIL_EMBLEM:
+        break;
+
+      case Fix.COMMAND_COLD_WIND:
+        break;
+
+      case Fix.COMMAND_PARALYZE_TENTACLE:
+        break;
+
+      case Fix.COMMAND_SCREAMING_SOUND:
+        break;
+
+      case Fix.COMMAND_KUROZUMI_FIELD:
+        break;
+
+      case Fix.COMMAND_SOLID_SQUARE_WATER:
+        break;
+
+      case Fix.COMMAND_BRIGHT_EYE:
+        break;
+
+      case Fix.COMMAND_STONE_KOURA:
+        break;
+
+      case Fix.COMMAND_DAIBOUSOU:
+        break;
+
+      case Fix.COMMAND_JUMP_SMASH:
+        break;
+
+      case Fix.COMMAND_STRANGE_SPELL:
+        break;
+
+      case Fix.COMMAND_THROWING_CRASH:
+        break;
+
+      case Fix.COMMAND_BAIRIKI:
+        break;
+
+      case Fix.COMMAND_NAGITAOSHI:
+        break;
+
+      case Fix.COMMAND_WASHIZUKAMI:
+        break;
+
+      case Fix.COMMAND_ZINARASHI:
+        break;
+
+      case Fix.COMMAND_SUIKOMI:
+        break;
+
+      case Fix.COMMAND_SCARLET_SEED:
+        break;
+
+      case Fix.COMMAND_POISON_GERMINATION:
+        break;
+
+      case Fix.COMMAND_WAVE_SIGN:
+        break;
+
+      case Fix.COMMAND_SILENT_SIGN:
+        break;
+
+      case Fix.COMMAND_HIKKAKI_CLAW:
+        break;
+
+      case Fix.COMMAND_BATTLE_DANCE:
+        break;
+
+      case Fix.COMMAND_DRAIN_WEB:
+        break;
+
+      case Fix.COMMAND_SAND_SMOKE:
+        break;
+
+      case Fix.COMMAND_GUT_SLASH:
+        break;
+
+      case Fix.COMMAND_GUARDIAN_SONG:
+        break;
+
+      case Fix.COMMAND_WATER_FLAPPING:
+        break;
+
+      case Fix.COMMAND_INVISIBLE_THREAD:
+        break;
+
+      case Fix.COMMAND_INTENSE_BREATH:
+        break;
+
+      case Fix.COMMAND_BIG_SWIM:
+        break;
+
+      case Fix.COMMAND_ROAR:
+        break;
+
+      case Fix.COMMAND_BITING:
+        break;
+
+      case Fix.COMMAND_SAINT_DROP:
+        break;
+
+      case Fix.COMMAND_AMPLIFY_SEAL:
+        break;
+
+      case Fix.COMMAND_PHANTOM_SEAL:
+        break;
+
+      case Fix.COMMAND_TEN_BULLET:
+        break;
+
+      case Fix.COMMAND_HOLLOW_MIST:
+        break;
+
+      case Fix.COMMAND_POLLUTED_POISON:
+        break;
+
+      case Fix.COMMAND_BUBBLE_BULLET:
+        break;
+
+      case Fix.COMMAND_AMBUSH_ATTACK:
+        break;
+
+      case Fix.COMMAND_GROUND_THUNDER:
+        break;
+
+      case Fix.COMMAND_CONTINUOUS_CHARGE:
+        break;
+
+      case Fix.COMMAND_STAR_EMBLEM:
+        break;
+
+      case Fix.COMMAND_MUD_PISTOL:
+        break;
+
+      case Fix.COMMAND_RIPPER_CLAW:
+        break;
+
+      case Fix.COMMAND_HIKICHIGIRI:
+        break;
+
+      case Fix.COMMAND_RUBBER_TONG:
+        break;
+
+      case Fix.COMMAND_SPANNING_SLASH:
+        break;
+
+      case Fix.COMMAND_STARSWORD_KAI:
+        break;
+
+      case Fix.COMMAND_SEASTAR_EYE:
+        break;
+
+      case Fix.COMMAND_WATER_CANNON:
+        break;
+
+      case Fix.COMMAND_PROTECTION_SEAL:
+        break;
+
+      case Fix.COMMAND_BLOODSHOT_EYE:
+        break;
+
+      case Fix.COMMAND_FRENZY_DRIVE:
+        break;
+
+      case Fix.COMMAND_THOUGHT_EATER:
+        break;
+
+      case Fix.COMMAND_VACUUM_SHOT:
+        break;
+
+      case Fix.COMMAND_PHANTOM_EATER:
+        break;
+
+      case Fix.COMMAND_GHOST_KILL:
+        break;
+
+      case Fix.COMMAND_ZERO_ATTACK:
+        break;
+
+      case Fix.COMMAND_JU_STYLE:
+        break;
+
+      case Fix.COMMAND_CLEANSING_SONG:
+        break;
+
+      case Fix.COMMAND_WASH_AWAY:
+        break;
+
+      case Fix.COMMAND_CHARGE:
+        break;
+
+      case Fix.COMMAND_SEA_STRIVE:
+        break;
+
+      case Fix.COMMAND_BLINK_SHELL:
+        break;
+
+      case Fix.COMMAND_PLATINUM_BLADE:
+        break;
+
+      case Fix.COMMAND_SEASTAR_OATH:
+        break;
+
+      case Fix.COMMAND_STARSWORD_KIRAMEKI:
+        break;
+
+      case Fix.COMMAND_BARRIER_FIELD:
+        break;
+
+      case Fix.COMMAND_CIRCULAR_SLASH:
+        break;
+
+      case Fix.COMMAND_TORPEDO_BUSTER:
+        break;
+
+      case Fix.COMMAND_STARSWORD_TSUYA:
+        break;
+
+      case Fix.COMMAND_INVASION_FIELD:
+        break;
+
+      case Fix.COMMAND_ILLUSION_BOLT:
+        break;
+
+      case Fix.COMMAND_VORTEX_BLAST:
+        break;
+
+      case Fix.COMMAND_FIRE_BULLET:
+        break;
+
+      case Fix.COMMAND_BLAZING_STORM:
+        break;
+
+      case Fix.COMMAND_FLARE_BURN:
+        break;
+
+      case Fix.COMMAND_PENETRATION_EYE:
+        break;
+
+      case Fix.COMMAND_FROZEN_BULLET:
+        break;
+
+      case Fix.COMMAND_FREEZING_STORM:
+        break;
+
+      case Fix.COMMAND_BUBBLE_TURRET:
+        break;
+
+      case Fix.COMMAND_HALLUCINATE_EYE:
+        break;
+
+      case Fix.COMMAND_BRAVE_ROAR:
+        break;
+
+      case Fix.COMMAND_SEASLIDE_WATER:
+        break;
+
+      case Fix.COMMAND_GUNGNIR_SLASH:
+        break;
+
+      case Fix.COMMAND_GUNGNIR_LIGHT:
+        break;
+
+      case Fix.COMMAND_LIFE_WATER:
+        break;
+
+      case Fix.COMMAND_SALMAN_CHANT:
+        break;
+
+      case Fix.COMMAND_ANDATE_CHANT:
+        break;
+
+      case Fix.COMMAND_ELEMENTAL_SPLASH:
+        break;
+
+      case Fix.COMMAND_SEASTAR_ORIGIN_SEAL:
+        break;
+
+      case Fix.COMMAND_SEASTARKING_ROAR:
+        break;
+
+      case Fix.COMMAND_BURST_CLOUD:
+        break;
+
+      case Fix.COMMAND_HUGE_SHOCKWAVE:
+        break;
+
+      case Fix.COMMAND_SURGETIC_BIND:
+        break;
+
+      case Fix.COMMAND_TIDAL_WAVE:
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);

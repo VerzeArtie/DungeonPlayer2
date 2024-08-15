@@ -7381,7 +7381,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(1000, 460, 710, 2480, 80, 3, 16200, 13200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STONE_KOURA);
-        list.Add(Fix.COMMAND_OOABARE);
+        list.Add(Fix.COMMAND_DAIBOUSOU);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;

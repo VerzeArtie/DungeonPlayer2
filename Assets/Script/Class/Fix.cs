@@ -1799,7 +1799,7 @@ public static partial class Fix
   public const string COMMAND_SOLID_SQUARE_WATER = "ソリッド・スクエア・ウォータ";
   public const string COMMAND_BRIGHT_EYE = "ブライト・アイ";
   public const string COMMAND_STONE_KOURA = "石の甲羅";
-  public const string COMMAND_OOABARE = "大暴れ";
+  public const string COMMAND_DAIBOUSOU = "大暴走";
   public const string COMMAND_JUMP_SMASH = "跳躍スマッシュ";
   public const string COMMAND_STRANGE_SPELL = "奇妙な詠唱";
   public const string COMMAND_THROWING_CRASH = "スローイング・クラッシュ";
