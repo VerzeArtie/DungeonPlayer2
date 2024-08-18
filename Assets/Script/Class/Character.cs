@@ -7311,6 +7311,7 @@ public partial class Character : MonoBehaviour
       case Fix.DEVIL_STAR_DEATH_FLODIETE_JP:
       case Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW:
         SetupParameter(1500, 650, 2000, 30000, 85, 0, 60000, 70000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.BLUE_BULLET);
         list.Add(Fix.COMMAND_AQUA_BLOSSOM);
