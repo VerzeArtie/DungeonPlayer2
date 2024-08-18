@@ -371,6 +371,12 @@ public class Title : MotherBase
     One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
     One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
 
+    One.RealWorldLoad();
+    List<Character> available = One.AvailableCharacters;
+    foreach (Character current in available)
+    {
+      current.MaxGain();
+    }
     One.CreateShadowData();
 
     One.EnemyList.Clear();
@@ -462,6 +468,12 @@ public class Title : MotherBase
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
 
+    One.RealWorldLoad();
+    List<Character> available = One.AvailableCharacters;
+    foreach (Character current in available)
+    {
+      current.MaxGain();
+    }
     One.CreateShadowData();
 
     One.EnemyList.Clear();
@@ -541,6 +553,12 @@ public class Title : MotherBase
     One.TF.BattlePlayer2 = Fix.NAME_EIN_WOLENCE;
     //One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
 
+    One.RealWorldLoad();
+    List<Character> available = One.AvailableCharacters;
+    foreach (Character current in available)
+    {
+      current.MaxGain();
+    }
     One.CreateShadowData();
 
     One.EnemyList.Clear();
