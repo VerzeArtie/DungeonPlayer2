@@ -2800,7 +2800,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_YOUEN_KISS:
-        ExecBuffTemptation(player, target, 2, 0);
+        ExecBuffPoison(player, target, 3, 50);
         break;
 
       case Fix.COMMAND_POISON_SPORE:
@@ -5716,7 +5716,7 @@ public partial class BattleEnemy : MotherBase
 
       if (AllList[ii].IsBlackSpore)
       {
-        int random = AP.Math.RandomInteger(5);
+        int random = AP.Math.RandomInteger(4);
         switch (random)
         {
           case 0:
@@ -5730,9 +5730,6 @@ public partial class BattleEnemy : MotherBase
             break;
           case 3:
             ExecBuffPoison(AllList[ii], AllList[ii], 5, 120);
-            break;
-          case 4:
-            ExecBuffTemptation(AllList[ii], AllList[ii], 2, 0);
             break;
         }
       }
@@ -7345,17 +7342,17 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FEAR, Fix.COLOR_NORMAL);
   }
 
-  private void ExecBuffTemptation(Character player, Character target, int turn, double effect_value)
-  {
-    if (target.GetResistTemptationLogic())
-    {
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_TEMPTATION, Fix.COLOR_NORMAL);
-      return;
-    }
+  //private void ExecBuffTemptation(Character player, Character target, int turn, double effect_value)
+  //{
+  //  if (target.GetResistTemptationLogic())
+  //  {
+  //    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_TEMPTATION, Fix.COLOR_NORMAL);
+  //    return;
+  //  }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_TEMPTATION, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_TEMPTATION, Fix.COLOR_NORMAL);
-  }
+  //  target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_TEMPTATION, turn, effect_value, 0, 0);
+  //  StartAnimation(target.objGroup.gameObject, Fix.EFFECT_TEMPTATION, Fix.COLOR_NORMAL);
+  //}
 
   private void ExecBuffSlow(Character player, Character target, int turn, double effect_value)
   {
