@@ -7348,7 +7348,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(970, 480, 730, 2120, 80, 4, 14200, 11500);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KUROZUMI_FIELD);
-        list.Add(Fix.COMMAND_CONSTRICT);
+        list.Add(Fix.COMMAND_HAGAIZIME);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
@@ -7413,6 +7413,7 @@ public partial class Character : MonoBehaviour
       case Fix.THE_BIGHAND_OF_KRAKEN_JP:
       case Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW:
         SetupParameter(2300, 700, 1700, 45000, 95, 0, 70000, 85000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_NAGITAOSHI);
         list.Add(Fix.COMMAND_WASHIZUKAMI);
@@ -8824,6 +8825,42 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.THE_BIGHAND_OF_KRAKEN:
+      case Fix.THE_BIGHAND_OF_KRAKEN_JP:
+      case Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_NAGITAOSHI);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_WASHIZUKAMI);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_ZINARASHI);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_SUIKOMI);
+        }
+        else
+        {
+          if (AP.Math.RandomInteger(2) == 0)
+          {
+            current.Add(Fix.MAGIC_ATTACK);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         switch (AP.Math.RandomInteger(2))
         {
@@ -8956,7 +8993,8 @@ public partial class Character : MonoBehaviour
     if (result == Fix.COMMAND_AIUCHI_NERAI ||
         result == Fix.COMMAND_HIDDEN_KNIFE ||
         result == Fix.COMMAND_RENSYA ||
-        result == Fix.COMMAND_INVISIBLE_POISON)
+        result == Fix.COMMAND_INVISIBLE_POISON ||
+        result == Fix.COMMAND_THROWING_CRASH)
     {
       Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
       for (int ii = opponent_group.Count - 1; ii >= 0; ii--)

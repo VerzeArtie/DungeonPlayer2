@@ -1797,9 +1797,11 @@ public static partial class Fix
   public const string COMMAND_PARALYZE_TENTACLE = "痺れ触手";
   public const string COMMAND_SCREAMING_SOUND = "奇声音波";
   public const string COMMAND_KUROZUMI_FIELD = "黒墨フィールド";
-  // public const string COMMAND_CONSTRICT = "締めつけ";
+  public const string COMMAND_HAGAIZIME = "羽交い絞め";
   public const string COMMAND_SOLID_SQUARE_WATER = "ソリッド・スクエア・ウォータ";
   public const string COMMAND_BRIGHT_EYE = "ブライト・アイ";
+  public const string COMMAND_AXE_DRIVER = "アクス・ドライバー";
+  public const string COMMAND_EARTH_CLAP = "アース・クラップ";
   public const string COMMAND_STONE_KOURA = "石の甲羅";
   public const string COMMAND_DAIBOUSOU = "大暴走";
   public const string COMMAND_JUMP_SMASH = "跳躍スマッシュ";
@@ -1810,6 +1812,7 @@ public static partial class Fix
   public const string COMMAND_WASHIZUKAMI = "鷲掴み";
   public const string COMMAND_ZINARASHI = "地鳴らし";
   public const string COMMAND_SUIKOMI = "吸い込み";
+  public const string COMMAND_EIGHT_ALL = "８つ手８つ眼８つ足";
   public const string COMMAND_SCARLET_SEED = "緋色の種";
   public const string COMMAND_POISON_GERMINATION = "猛毒の発芽";
   public const string COMMAND_WAVE_SIGN = "ウェーブ・サイン";
