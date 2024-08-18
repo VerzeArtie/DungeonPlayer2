@@ -414,6 +414,7 @@ public static partial class Fix
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
   public const string BUFF_BLACK_SPORE = "BlackSpore";
   public const string BUFF_VERDANT_VOICE = "VerdantVoice";
+  public const string BUFF_DEVIL_EMBLEM = "DevilEmblem";
   #endregion
   #region "Timer"
   public const int BATTLEEND_AUTOEXIT = 200;
@@ -1791,6 +1792,7 @@ public static partial class Fix
   public const string COMMAND_AQUA_BLOSSOM = "アクア・ブラッサム";
   public const string COMMAND_DEATH_STROKE = "デス・ストローク";
   public const string COMMAND_DEVIL_EMBLEM = "デビル・エムブレム";
+  public const string COMMAND_DEVILSPEAR_MISTELTEN = "魔槍：ミストルティン";
   public const string COMMAND_COLD_WIND = "コールド・ウィンド";
   public const string COMMAND_PARALYZE_TENTACLE = "痺れ触手";
   public const string COMMAND_SCREAMING_SOUND = "奇声音波";

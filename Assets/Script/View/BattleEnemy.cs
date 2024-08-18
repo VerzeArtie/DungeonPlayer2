@@ -1337,6 +1337,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE || EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP || EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_DEVILSPEAR_MISTELTEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
@@ -2917,7 +2925,7 @@ public partial class BattleEnemy : MotherBase
             int random = AP.Math.RandomInteger(3);
             if (random == 0)
             {
-              ExecBuffDizzy(player, target_list[ii], 3, 0);
+              ExecBuffDizzy(player, target_list[ii], 3, 0.30f);
             }
             else if (random == 1)
             {
@@ -3170,7 +3178,7 @@ public partial class BattleEnemy : MotherBase
           ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, false, critical);
           if (AP.Math.RandomInteger(2) == 0)
           {
-            ExecBuffDizzy(player, target_list[ii], 2, 0);
+            ExecBuffDizzy(player, target_list[ii], 2, 0.30f);
           }
           else
           {
@@ -3443,7 +3451,7 @@ public partial class BattleEnemy : MotherBase
             }
             else if (choose == Fix.EFFECT_DIZZY)
             {
-              ExecBuffDizzy(player, target_list[ii], 3, 0);
+              ExecBuffDizzy(player, target_list[ii], 3, 0.30f);
             }
             else if (choose == Fix.EFFECT_SLIP)
             {
@@ -3503,42 +3511,183 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WATER_GUN:
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecBuffDizzy(player, target, 3, 0.20f);
         break;
 
       case Fix.COMMAND_WATER_DANCE:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffMagicDefenceUp(player, target_list[ii], 9, 1.50f);
+        }
         break;
 
       case Fix.COMMAND_WATER_SHOT:
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecBuffStun(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_SKY_FEATHER:
+        if (player.IsBattleSpeedUp == false)
+        {
+          ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+        }
+        else if (player.IsPhysicalAttackUp == false)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 5, 1.10f);
+        }
+        else
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        }
         break;
 
       case Fix.COMMAND_RAINBOW_BUBBLE:
+        rand = AP.Math.RandomInteger(4);
+        if (rand == 0)
+        {
+          target_list = GetAllyGroupAlive(player);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.20f);
+          }
+        }
+        else if (rand == 1)
+        {
+          target_list = GetOpponentGroup(player);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            ExecBuffMagicDefenceDown(player, target_list[ii], 5, 1.20f);
+          }
+        }
+        else if (rand == 2)
+        {
+          target_list = GetAllyGroupAlive(player);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.20f);
+          }
+        }
+        else if (rand == 3)
+        {
+          target_list = GetOpponentGroup(player);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 1.20f);
+          }
+        }
         break;
 
       case Fix.COMMAND_WATER_CIRCLE:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecLifeGain(target_list[ii], 1000 + AP.Math.RandomInteger(500));
+        }
         break;
 
       case Fix.COMMAND_ROLLING_CHARGE:
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_JET_RUN:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[ii], 0.90f, Fix.DamageSource.Physical, true, critical);
+          ExecBuffSlow(player, target_list[ii], 3, 0.80f);
+        }
         break;
 
       case Fix.COMMAND_INVISIBLE_POISON:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecBuffPoison(player, target, 9, 1500);
         break;
 
       case Fix.COMMAND_BEAUTY_AROMA:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          rand = AP.Math.RandomInteger(3);
+          if (rand == 0)
+          {
+            if (target.IsSleep == false)
+            {
+              ExecBuffSleep(player, target_list[ii], 3, 0);
+            }
+            else
+            {
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+            }
+          }
+          else if (rand == 1)
+          {
+            if (target.IsDizzy == false)
+            {
+              ExecBuffDizzy(player, target_list[ii], 3, 0.20f);
+            }
+            else
+            {
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+            }
+          }
+          else if (rand == 2)
+          {
+            if (target.IsParalyze == false)
+            {
+              ExecBuffParalyze(player, target_list[ii], 3, 0);
+            }
+            else
+            {
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+            }
+          }
+        }
         break;
 
       case Fix.COMMAND_AQUA_BLOSSOM:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (target_list[ii].IsPoison == false)
+          {
+            ExecBuffPoison(player, target_list[ii], 9, 2500 + AP.Math.RandomInteger(500));
+          }
+          else if (target_list[ii].IsSlip == false)
+          {
+            ExecBuffSlip(player, target_list[ii], 9, 2500 + AP.Math.RandomInteger(500));
+          }
+          else
+          {
+            ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, false, critical);
+          }
+        }
         break;
 
       case Fix.COMMAND_DEATH_STROKE:
+        rand = AP.Math.RandomInteger(3);
+        if (rand == 0)
+        {
+          ExecLifeDown(target, 0.10f);
+        }
+        else if (rand == 1)
+        {
+          ExecLifeDown(target, 0.25f);
+        }
+        else
+        {
+          ExecLifeDown(target, 0.50f);
+        }
         break;
 
       case Fix.COMMAND_DEVIL_EMBLEM:
+        target.objFieldPanel.AddBuff(prefab_Buff, Fix.BUFF_DEVIL_EMBLEM, Fix.INFINITY, 0, 0, 0);
+        break;
+
+      case Fix.COMMAND_DEVILSPEAR_MISTELTEN:
+        ExecNormalAttack(player, target, 5.50f, Fix.DamageSource.Physical, true, critical);
         break;
 
       case Fix.COMMAND_COLD_WIND:
@@ -5141,6 +5290,16 @@ public partial class BattleEnemy : MotherBase
           if (PlayerList[jj].IsSigilOfThePending == null)
           {
             ExecElementalDamage(PlayerList[jj], Fix.DamageSource.Fire, buffPlayerFieldList[ii].EffectValue2);
+          }
+        }
+      }
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.BUFF_DEVIL_EMBLEM)
+      {
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          if (PlayerList[jj].IsSigilOfThePending == null)
+          {
+            ExecLifeDown(PlayerList[jj], 0.20f);
           }
         }
       }

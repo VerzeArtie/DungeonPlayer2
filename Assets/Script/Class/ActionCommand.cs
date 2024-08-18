@@ -1520,6 +1520,7 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_FIRE_BLAST) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_BLACK_SPORE) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_RENSOU_TOSSHIN) { return TargetType.EnemyGroup; }
+    if (command_name == Fix.COMMAND_DEVIL_EMBLEM) { return TargetType.EnemyField; }
     #endregion
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。

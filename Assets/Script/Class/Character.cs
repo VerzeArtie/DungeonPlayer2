@@ -7313,7 +7313,6 @@ public partial class Character : MonoBehaviour
         SetupParameter(1500, 650, 2000, 300000, 85, 0, 60000, 70000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.BLUE_BULLET);
-        list.Add(Fix.COMMAND_BEAUTY_AROMA);
         list.Add(Fix.COMMAND_AQUA_BLOSSOM);
         list.Add(Fix.COMMAND_DEATH_STROKE);
         list.Add(Fix.COMMAND_DEVIL_EMBLEM);
@@ -8788,6 +8787,42 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.DEVIL_STAR_DEATH_FLODIETE:
+      case Fix.DEVIL_STAR_DEATH_FLODIETE_JP:
+      case Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.BLUE_BULLET);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_AQUA_BLOSSOM);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_DEATH_STROKE);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_DEVIL_EMBLEM);
+        }
+        else
+        {
+          if (AP.Math.RandomInteger(2) == 0)
+          {
+            current.Add(Fix.MAGIC_ATTACK);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         switch (AP.Math.RandomInteger(2))
         {
@@ -8919,7 +8954,8 @@ public partial class Character : MonoBehaviour
     // コマンド名によって後方優先を設定する。
     if (result == Fix.COMMAND_AIUCHI_NERAI ||
         result == Fix.COMMAND_HIDDEN_KNIFE ||
-        result == Fix.COMMAND_RENSYA)
+        result == Fix.COMMAND_RENSYA ||
+        result == Fix.COMMAND_INVISIBLE_POISON)
     {
       Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
       for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
