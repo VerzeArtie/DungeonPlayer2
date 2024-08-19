@@ -1641,6 +1641,17 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    if (player.IsDizzy)
+    {
+      double random_seed = (double)((double)AP.Math.RandomInteger(100)) / 100.0f;
+      if (player.IsDizzy.EffectValue > random_seed)
+      {
+        Debug.Log("Player is Dizzy, then no action.");
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
+        return;
+      }
+    }
+
     if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy &&　target == null)
     {
       Debug.Log("Target is null, then no action.");
@@ -3987,7 +3998,7 @@ public partial class BattleEnemy : MotherBase
           {
             if (current_target.IsDizzy == false)
             {
-              ExecBuffDizzy(player, current_target, 8, 0);
+              ExecBuffDizzy(player, current_target, 8, 0.30f);
             }
             else
             {
@@ -4017,51 +4028,119 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SCARLET_SEED:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.20f);
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.20f);
+        }
         break;
 
       case Fix.COMMAND_POISON_GERMINATION:
+        ExecBuffPoison(player, target, 3, 4000);
         break;
 
       case Fix.COMMAND_WAVE_SIGN:
+        ExecBuffBattleSpeedUp(player, player, 5, 1.20f);
+        ExecBuffBattleSpeedDown(player, target, 5, 0.70f);
         break;
 
       case Fix.COMMAND_SILENT_SIGN:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffSilent(player, target_list[ii], 2, 0);
+        }
         break;
 
       case Fix.COMMAND_HIKKAKI_CLAW:
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, critical);
+        ExecBuffSlip(player, target, 3, 3500 + AP.Math.RandomInteger(500));
         break;
 
       case Fix.COMMAND_BATTLE_DANCE:
+        ExecBuffPhysicalAttackUp(player, player, 3, 1.20f);
+        ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
         break;
 
       case Fix.COMMAND_DRAIN_WEB:
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.DarkMagic, false, critical);
+        ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_SAND_SMOKE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffDizzy(player, target_list[ii], 2, 0.30f);
+        }
         break;
 
       case Fix.COMMAND_GUT_SLASH:
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffPhysicalDefenseDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_GUARDIAN_SONG:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 1.30f);
+        }
         break;
 
       case Fix.COMMAND_WATER_FLAPPING:
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecBuffBattleSpeedDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_INVISIBLE_THREAD:
+        ExecBuffBind(player, target, 3, 0);
+        ExecBuffSilent(player, target, 3, 0);
         break;
 
       case Fix.COMMAND_INTENSE_BREATH:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+        }
         break;
 
       case Fix.COMMAND_BIG_SWIM:
+        if (player.IsBattleSpeedUp == false)
+        {
+          ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
+        }
+        else if (player.IsPhysicalDefenseUp == false)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 3, 1.20f);
+        }
+        else
+        {
+          ExecBuffMagicDefenceUp(player, player, 3, 1.20f);
+        }
+        ExecLifeGain(player, 4000.0f + AP.Math.RandomInteger(2500));
         break;
 
       case Fix.COMMAND_ROAR:
+        target_list = GetOpponentGroup(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (target_list[ii].IsFear == false)
+          {
+            ExecBuffFear(player, target_list[ii], 2, 0);
+          }
+          else
+          {
+            ExecBuffStun(player, target_list[ii], 2, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_BITING:
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffPhysicalAttackUp(player, player, 3, 1.20f);
         break;
 
       case Fix.COMMAND_SAINT_DROP:
