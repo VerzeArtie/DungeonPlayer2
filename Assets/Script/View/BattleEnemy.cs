@@ -147,6 +147,11 @@ public partial class BattleEnemy : MotherBase
   protected Character NowIrregularStepTarget = null;
   protected double NowIrregularStepCounter = 0;
 
+  protected bool NowSeaStripeMode = false;
+  protected Character NowSeaStripePlayer = null;
+  protected Character NowSeaStripeTarget = null;
+  protected double NowSeaStripeCounter = 0;
+
   protected bool NowUnintentionalHitMode = false;
   protected Character NowUnintentionalHitPlayer = null;
   protected Character NowUnintentionalHitTarget = null;
@@ -850,6 +855,10 @@ public partial class BattleEnemy : MotherBase
       ExecPlayIrregularStep();
       return;
     }
+    if (NowSeaStripeMode)
+    {
+      ExecPlaySeaStripe();
+    }
     if (NowUnintentionalHitMode)
     {
       ExecPlayUnintentionalHit();
@@ -1350,6 +1359,14 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
           CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_EIGHT_ALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_JEWEL_BREAK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
@@ -4326,18 +4343,31 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CHARGE:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_SEA_STRIVE:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecSeaStripe(player, target);
         break;
 
       case Fix.COMMAND_BLINK_SHELL:
+        ExecFortuneSpirit(player, player);
         break;
 
       case Fix.COMMAND_PLATINUM_BLADE:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffPhysicalDefenseDown(player, target, 9, 0.60f);
         break;
 
       case Fix.COMMAND_SEASTAR_OATH:
+        ExecBuffPhysicalAttackUp(player, player, 9, 1.50f);
+        break;
+
+      case Fix.COMMAND_JEWEL_BREAK:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        target.RemoveBuff(2, Fix.BuffType.Positive);
         break;
 
       case Fix.COMMAND_STARSWORD_KIRAMEKI:
@@ -6918,6 +6948,33 @@ public partial class BattleEnemy : MotherBase
     if (success)
     {
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
+    }
+  }
+
+  public void ExecSeaStripe(Character player, Character target)
+  {
+    this.NowSeaStripePlayer = player;
+    this.NowSeaStripeTarget = target;
+    this.NowSeaStripeCounter = 0.30f * BATTLE_GAUGE_WITDH;
+    this.NowSeaStripeMode = true;
+  }
+
+  public void ExecPlaySeaStripe()
+  {
+    if (this.NowSeaStripeCounter > 0)
+    {
+      float factor = (float)PrimaryLogic.BattleSpeed(this.NowSeaStripePlayer) * 2.00f;
+      UpdatePlayerArrow(this.NowSeaStripePlayer, factor);
+      this.NowSeaStripeCounter = this.NowSeaStripeCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+    }
+
+    if (this.NowSeaStripeCounter <= 0.0f)
+    {
+      ExecNormalAttack(this.NowSeaStripePlayer, this.NowSeaStripeTarget, 2.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
+      this.NowSeaStripePlayer = null;
+      this.NowSeaStripeTarget = null;
+      this.NowSeaStripeCounter = 0;
+      this.NowSeaStripeMode = false;
     }
   }
 

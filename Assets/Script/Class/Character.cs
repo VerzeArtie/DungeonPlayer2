@@ -8861,6 +8861,53 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.SHELL_THE_SWORD_KNIGHT:
+      case Fix.SHELL_THE_SWORD_KNIGHT_JP:
+      case Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_PLATINUM_BLADE);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          if (this.IsFortuneSpirit == false)
+          {
+            current.Add(Fix.COMMAND_BLINK_SHELL);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_SEA_STRIVE);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          if (this.IsPhysicalAttackUp == false)
+          {
+            current.Add(Fix.COMMAND_SEASTAR_OATH);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        else if (this.AI_Phase == 4)
+        {
+          current.Add(Fix.COMMAND_CHARGE);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         switch (AP.Math.RandomInteger(2))
         {

@@ -1864,6 +1864,7 @@ public static partial class Fix
   public const string COMMAND_BLINK_SHELL = "ブリンク・シェル";
   public const string COMMAND_PLATINUM_BLADE = "プラチナ・ブレード";
   public const string COMMAND_SEASTAR_OATH = "海星源への誓い";
+  public const string COMMAND_JEWEL_BREAK = "ジュエル・ブレイク";
   public const string COMMAND_STARSWORD_KIRAMEKI = "スター・ソード【煌】";
   public const string COMMAND_BARRIER_FIELD = "結界フィールド";
   public const string COMMAND_CIRCULAR_SLASH = "サーキュラー・スラッシュ";
