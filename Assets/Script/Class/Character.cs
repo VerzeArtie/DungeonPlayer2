@@ -8995,7 +8995,8 @@ public partial class Character : MonoBehaviour
         result == Fix.COMMAND_RENSYA ||
         result == Fix.COMMAND_INVISIBLE_POISON ||
         result == Fix.COMMAND_THROWING_CRASH ||
-        result == Fix.COMMAND_INVISIBLE_THREAD)
+        result == Fix.COMMAND_INVISIBLE_THREAD ||
+        result == Fix.COMMAND_AMBUSH_ATTACK)
     {
       Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
       for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
