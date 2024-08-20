@@ -1792,13 +1792,6 @@ public partial class BattleEnemy : MotherBase
     }
 
     Fix.CriticalType critical = Fix.CriticalType.Random;
-    BuffImage fortune = player.IsFortuneSpirit;
-    if (fortune != null) // ダメージ系統かどうかに関係なく、フォーチュンがあれば、クリティカル判定とする。
-    {
-      Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
-      critical = Fix.CriticalType.Absolute;
-      fortune.CumulativeDown(1);
-    }
     BuffImage syutyuDanzetsu = player.IsSyutyuDanzetsu;
     if (ActionCommand.IsDamage(command_name) && syutyuDanzetsu)
     {
@@ -7847,6 +7840,16 @@ public partial class BattleEnemy : MotherBase
     int rand = AP.Math.RandomInteger(100);
     int current = SecondaryLogic.CriticalRate(player, target);
     Debug.Log("PhysicalDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
+
+    // フォーチュン・スピリットによるクリティカル判定
+    BuffImage fortune = player.IsFortuneSpirit;
+    if (fortune != null) // ダメージ系統かどうかに関係なく、フォーチュンがあれば、クリティカル判定とする。
+    {
+      Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
+      critical = Fix.CriticalType.Absolute;
+      fortune.CumulativeDown(1);
+    }
+
     if (player.CannotCritical == false &&
         ((critical == Fix.CriticalType.Random && rand <= current))
        )
@@ -8034,6 +8037,16 @@ public partial class BattleEnemy : MotherBase
     int rand = AP.Math.RandomInteger(100);
     int current = SecondaryLogic.CriticalRate(player, target);
     Debug.Log("MagicDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
+
+    // フォーチュン・スピリットによるクリティカル判定
+    BuffImage fortune = player.IsFortuneSpirit;
+    if (fortune != null) // ダメージ系統かどうかに関係なく、フォーチュンがあれば、クリティカル判定とする。
+    {
+      Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
+      critical = Fix.CriticalType.Absolute;
+      fortune.CumulativeDown(1);
+    }
+
     if (player.CannotCritical == false &&
         ((critical == Fix.CriticalType.Random && rand <= current))
        )
