@@ -7672,7 +7672,7 @@ public partial class Character : MonoBehaviour
       case Fix.SHELL_THE_SWORD_KNIGHT:
       case Fix.SHELL_THE_SWORD_KNIGHT_JP:
       case Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW:
-        SetupParameter(3200, 900, 2100, 80000, 120, 0, 90000, 110000);
+        SetupParameter(3200, 900, 2100, 8000, 120, 0, 90000, 110000);
         list.Add(Fix.COMMAND_CHARGE);
         list.Add(Fix.COMMAND_SEA_STRIVE);
         list.Add(Fix.COMMAND_BLINK_SHELL);
