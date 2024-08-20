@@ -1793,7 +1793,7 @@ public partial class BattleEnemy : MotherBase
 
     Fix.CriticalType critical = Fix.CriticalType.Random;
     BuffImage fortune = player.IsFortuneSpirit;
-    if (ActionCommand.IsDamage(command_name) && fortune != null)
+    if (fortune != null) // ダメージ系統かどうかに関係なく、フォーチュンがあれば、クリティカル判定とする。
     {
       Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
       critical = Fix.CriticalType.Absolute;
