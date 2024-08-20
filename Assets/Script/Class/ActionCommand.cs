@@ -2599,6 +2599,9 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return false; }
     if (command_name == Fix.KILLING_WAVE) { return false; }
     if (command_name == Fix.IRREGULAR_STEP) { return false; }
+    if (command_name == Fix.COMMAND_SEA_STRIVE) { return true; }
+    if (command_name == Fix.COMMAND_PLATINUM_BLADE) { return true; }
+    if (command_name == Fix.COMMAND_CHARGE) { return true; }
     //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
     #endregion
 
