@@ -6963,7 +6963,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowSeaStripeCounter <= 0.0f)
     {
-      ExecNormalAttack(this.NowSeaStripePlayer, this.NowSeaStripeTarget, 2.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
+      ExecNormalAttack(this.NowSeaStripePlayer, this.NowSeaStripeTarget, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
       this.NowSeaStripePlayer = null;
       this.NowSeaStripeTarget = null;
       this.NowSeaStripeCounter = 0;
