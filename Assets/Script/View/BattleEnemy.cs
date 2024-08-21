@@ -496,11 +496,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU)
+        else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU || One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW;
         }
-        else if (One.EnemyList.Count > 1 && One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA)
+        else if (One.EnemyList.Count > 1 && (One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA || One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP))
         {
           One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW;
         }
@@ -1367,6 +1367,22 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
           CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_JEWEL_BREAK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU || EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP || EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_TORPEDO_BUSTER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA || EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP || EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_VORTEX_BLAST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
@@ -4363,28 +4379,90 @@ public partial class BattleEnemy : MotherBase
         target.RemoveBuff(2, Fix.BuffType.Positive);
         break;
 
+      case Fix.COMMAND_STAR_DUST:
+        // UpdateBattleText(player.FirstName + "のスターソードが" + player.StackTarget.FirstName + "へ無数の星屑を落とす！\r\n");
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        if (AP.Math.RandomInteger(2) == 0)
+        {
+          ExecBuffDizzy(player, target, 5, 0.30f);
+        }
+        else
+        {
+          ExecBuffStun(player, target, 1, 0);
+        }
+        break;
+
       case Fix.COMMAND_STARSWORD_KIRAMEKI:
+        // UpdateBattleText(player.FirstName + "はスターソード『煌』を振りかざしてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.Physical, false, critical);
+        }
         break;
 
       case Fix.COMMAND_BARRIER_FIELD:
+        // UpdateBattleText(player.FirstName + "はスターソード『煌』を地面に差し込んだ！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 9, 1.50f);
+        }
         break;
 
       case Fix.COMMAND_CIRCULAR_SLASH:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[ii], 1.50f, Fix.DamageSource.Physical, false, critical);
+          ExecBuffSlip(player, target, 3, 5000 + AP.Math.RandomInteger(1000));
+        }
         break;
 
       case Fix.COMMAND_TORPEDO_BUSTER:
+        ExecNormalAttack(player, target, 3.00f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffFreeze(player, target, 2, 0);
+        ExecBuffSlow(player, target, 9, 0.30f);
+        break;
+
+      case Fix.COMMAND_STAR_FALL:
+        // UpdateBattleText(player.FirstName + "のスターソードが" + player.StackTarget.FirstName + "へ無数の星屑を落とす！\r\n");
+        ExecMagicAttack(player, target, 1.50f, Fix.DamageSource.HolyLight, false, critical);
+        ExecBuffSilent(player, target, 5, 0);
+        ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_TSUYA:
+        // UpdateBattleText(player.FirstName + "はスターソード『艶』を振りかざしてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.HolyLight, false, critical);
+        }
         break;
 
       case Fix.COMMAND_INVASION_FIELD:
+        //UpdateBattleText(player.FirstName + "はスターソード『艶』を地面に差し込んだ！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffMagicDefenceUp(player, target_list[ii], 9, 1.50f);
+        }
         break;
 
       case Fix.COMMAND_ILLUSION_BOLT:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.50f, Fix.DamageSource.HolyLight, false, critical);
+          ExecBuffPoison(player, target, 3, 5000 + AP.Math.RandomInteger(1000));
+        }
         break;
 
       case Fix.COMMAND_VORTEX_BLAST:
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, true, critical);
+        ExecBuffFreeze(player, target, 2, 0);
+        ExecBuffSlow(player, target, 9, 0.30f);
         break;
 
       case Fix.COMMAND_FIRE_BULLET:
