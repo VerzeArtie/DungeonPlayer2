@@ -22,6 +22,7 @@ public class Title : MotherBase
   public Text txtEnemy3;
   public Text txtDuel;
   public Text txtBoss;
+  public Text txtBoss2;
 
   bool firstAction = false;
   // Start is called before the first frame update
@@ -566,6 +567,11 @@ public class Title : MotherBase
     {
       One.BattleEnemyList.Add(txtBoss.text);
     }
+    if (txtBoss2.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtBoss2.text);
+    }
+
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
       GameObject objEC = new GameObject("objEC_" + ii.ToString());

@@ -7673,6 +7673,7 @@ public partial class Character : MonoBehaviour
       case Fix.SHELL_THE_SWORD_KNIGHT_JP:
       case Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW:
         SetupParameter(3200, 900, 2100, 8000, 120, 0, 90000, 110000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.COMMAND_CHARGE);
         list.Add(Fix.COMMAND_SEA_STRIVE);
         list.Add(Fix.COMMAND_BLINK_SHELL);
@@ -7686,11 +7687,12 @@ public partial class Character : MonoBehaviour
       case Fix.SEA_STAR_KNIGHT_AEGIRU:
       case Fix.SEA_STAR_KNIGHT_AEGIRU_JP:
         SetupParameter(3600, 950, 2400, 106000, 120, 0, 100000, 120000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_STAR_DUST);
         list.Add(Fix.COMMAND_STARSWORD_KIRAMEKI);
         list.Add(Fix.COMMAND_BARRIER_FIELD);
         list.Add(Fix.COMMAND_CIRCULAR_SLASH);
-        list.Add(Fix.COMMAND_TORPEDO_BUSTER);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_2;
         this.CannotCritical = false;
@@ -7699,11 +7701,12 @@ public partial class Character : MonoBehaviour
       case Fix.SEA_STAR_KNIGHT_AMARA:
       case Fix.SEA_STAR_KNIGHT_AMARA_JP:
         SetupParameter(2400, 960, 3600, 106000, 120, 0, 0, 0);
+        this._baseInstantPoint = 3650;
         list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_STAR_FALL);
         list.Add(Fix.COMMAND_STARSWORD_TSUYA);
         list.Add(Fix.COMMAND_INVASION_FIELD);
         list.Add(Fix.COMMAND_ILLUSION_BOLT);
-        list.Add(Fix.COMMAND_VORTEX_BLAST);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_2;
         this.CannotCritical = false;
@@ -8904,6 +8907,78 @@ public partial class Character : MonoBehaviour
         else
         {
           current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.SEA_STAR_KNIGHT_AEGIRU:
+      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP:
+      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_STAR_DUST);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_KIRAMEKI);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          if (this.IsPhysicalDefenseUp == false)
+          {
+            current.Add(Fix.COMMAND_BARRIER_FIELD);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_CIRCULAR_SLASH);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.SEA_STAR_KNIGHT_AMARA:
+      case Fix.SEA_STAR_KNIGHT_AMARA_JP:
+      case Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          if (this.IsPhysicalDefenseUp == false)
+          {
+            current.Add(Fix.COMMAND_INVASION_FIELD);
+          }
+          else
+          {
+            current.Add(Fix.NORMAL_ATTACK);
+          }
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_ILLUSION_BOLT);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_STAR_FALL);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_TSUYA);
+        }
+        else
+        {
+          current.Add(Fix.MAGIC_ATTACK);
         }
         result = RandomChoice(current);
         break;
