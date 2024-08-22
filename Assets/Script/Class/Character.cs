@@ -7746,12 +7746,12 @@ public partial class Character : MonoBehaviour
       case Fix.GROUND_VORTEX_LEVIATHAN_JP:
       case Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW:
         SetupParameter(4300, 1050, 4300, 160000, 140, 0, 120000, 160000);
+        this._baseInstantPoint = 5000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SEASTARKING_ROAR);
         list.Add(Fix.COMMAND_BURST_CLOUD);
-        list.Add(Fix.COMMAND_HUGE_SHOCKWAVE);
-        list.Add(Fix.COMMAND_SURGETIC_BIND);
         list.Add(Fix.COMMAND_TIDAL_WAVE);
+        list.Add(Fix.COMMAND_SURGETIC_BIND);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_4;
         this.CannotCritical = false;
@@ -9041,6 +9041,35 @@ public partial class Character : MonoBehaviour
         else
         {
           current.Add(Fix.COMMAND_FROZEN_BULLET);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.GROUND_VORTEX_LEVIATHAN:
+      case Fix.GROUND_VORTEX_LEVIATHAN_JP:
+      case Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_SEASTARKING_ROAR);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_TIDAL_WAVE);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_SURGETIC_BIND);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_BURST_CLOUD);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
         }
         result = RandomChoice(current);
         break;

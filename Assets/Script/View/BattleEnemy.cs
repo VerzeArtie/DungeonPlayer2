@@ -516,7 +516,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN)
+        else if (One.EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN || One.EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW;
         }
@@ -1399,6 +1399,14 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
           CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_HALLUCINATE_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN || EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP || EnemyList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_HUGE_SHOCKWAVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
@@ -4595,18 +4603,38 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SEASTARKING_ROAR:
+        ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
+        ExecBuffMagicAttackUp(player, player, 9, 1.20f);
+        ExecBuffBattleResponseUp(player, player, 9, 1.20f);
         break;
 
       case Fix.COMMAND_BURST_CLOUD:
-        break;
-
-      case Fix.COMMAND_HUGE_SHOCKWAVE:
-        break;
-
-      case Fix.COMMAND_SURGETIC_BIND:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 10; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.30f, Fix.DamageSource.Ice, false, critical);
+        }
         break;
 
       case Fix.COMMAND_TIDAL_WAVE:
+        UpdateMessage(player.FullName + "は体全体を大きくうならせ、大きな津波を発生させてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_SURGETIC_BIND:
+        // 巻きつきによるスタン＋出血ダメージ攻撃を行う。
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecBuffSlip(player, target, 9, 7000 + AP.Math.RandomInteger(1000));
+        ExecBuffStun(player, target, 2, 0);
+        break;
+
+      case Fix.COMMAND_HUGE_SHOCKWAVE:
+        // 一体に大ダメージ
+        ExecNormalAttack(player, target, 5.0F, Fix.DamageSource.Physical, true, critical);
         break;
 
       case "絶望の魔手":
