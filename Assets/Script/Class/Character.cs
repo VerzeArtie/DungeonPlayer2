@@ -7715,10 +7715,12 @@ public partial class Character : MonoBehaviour
       case Fix.JELLY_EYE_BRIGHT_RED:
       case Fix.JELLY_EYE_BRIGHT_RED_JP:
         SetupParameter(2800, 1000, 4000, 132000, 130, 0, 110000, 140000);
+        this._baseInstantPoint = 3600;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FIRE_BULLET);
         list.Add(Fix.COMMAND_BLAZING_STORM);
         list.Add(Fix.COMMAND_FLARE_BURN);
+        list.Add(Fix.COMMAND_FIRE_WALL);
         list.Add(Fix.COMMAND_PENETRATION_EYE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_3;
@@ -7728,10 +7730,12 @@ public partial class Character : MonoBehaviour
       case Fix.JELLY_EYE_DEEP_BLUE:
       case Fix.JELLY_EYE_DEEP_BLUE_JP:
         SetupParameter(2800, 1010, 4000, 132000, 130, 0, 0, 0);
+        this._baseInstantPoint = 3300;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FROZEN_BULLET);
         list.Add(Fix.COMMAND_FREEZING_STORM);
-        list.Add(Fix.COMMAND_BUBBLE_TURRET);
+        list.Add(Fix.COMMAND_SUDDEN_SQUALL);
+        list.Add(Fix.COMMAND_WATER_BUBBLE);
         list.Add(Fix.COMMAND_HALLUCINATE_EYE);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss54_3;
@@ -8979,6 +8983,64 @@ public partial class Character : MonoBehaviour
         else
         {
           current.Add(Fix.MAGIC_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.JELLY_EYE_BRIGHT_RED:
+      case Fix.JELLY_EYE_BRIGHT_RED_JP:
+      case Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_FIRE_BULLET);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_FLARE_BURN);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_BLAZING_STORM);
+        }
+        else
+        {
+          current.Add(Fix.COMMAND_FIRE_WALL);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.JELLY_EYE_DEEP_BLUE:
+      case Fix.JELLY_EYE_DEEP_BLUE_JP:
+      case Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SUDDEN_SQUALL);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_FREEZING_STORM);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_WATER_BUBBLE);
+        }
+        else
+        {
+          current.Add(Fix.COMMAND_FROZEN_BULLET);
         }
         result = RandomChoice(current);
         break;

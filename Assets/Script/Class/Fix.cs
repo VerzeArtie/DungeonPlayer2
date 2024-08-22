@@ -337,6 +337,9 @@ public static partial class Fix
   public const string EFFECT_POWERDOWN_WIND = "DOWN Wind";
   public const string EFFECT_POWERDOWN_EARTH = "DOWN Earth";
 
+  public const string EFFECT_RESIST_FIRE_UP = "ResistFireUp";
+  public const string EFFECT_RESIST_ICE_UP = "ResistIceUp";
+
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
   public const string EFFECT_BIND = "Bind";
@@ -1878,10 +1881,12 @@ public static partial class Fix
   public const string COMMAND_FIRE_BULLET = "燃え盛る炎弾丸";
   public const string COMMAND_BLAZING_STORM = "ブレイジング・ストーム";
   public const string COMMAND_FLARE_BURN = "フレア・バーン";
+  public const string COMMAND_FIRE_WALL = "ファイア・ウォール";
   public const string COMMAND_PENETRATION_EYE = "ペネトレーション・アイ";
   public const string COMMAND_FROZEN_BULLET = "凍てつく氷炎弾丸";
   public const string COMMAND_FREEZING_STORM = "フリージング・ストーム";
-  public const string COMMAND_BUBBLE_TURRET = "バブル・タレット";
+  public const string COMMAND_SUDDEN_SQUALL = "サドン・スコール";
+  public const string COMMAND_WATER_BUBBLE = "ウォータ・バブル";
   public const string COMMAND_HALLUCINATE_EYE = "ハルシネイト・アイ";
   public const string COMMAND_BRAVE_ROAR = "勇敢な雄叫び";
   public const string COMMAND_SEASLIDE_WATER = "シースライド・ウォータ";

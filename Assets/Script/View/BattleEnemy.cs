@@ -508,11 +508,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED)
+        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE)
+        else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE || One.EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW;
         }
@@ -1383,6 +1383,22 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
           CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_VORTEX_BLAST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP || EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_PENETRATION_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE || EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP || EnemyList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_HALLUCINATE_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
@@ -4380,7 +4396,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STAR_DUST:
-        // UpdateBattleText(player.FirstName + "のスターソードが" + player.StackTarget.FirstName + "へ無数の星屑を落とす！\r\n");
+        UpdateMessage(player.FullName + "のスターソードが" + target.FullName + "へ無数の星屑を落とす！\r\n");
         ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
         if (AP.Math.RandomInteger(2) == 0)
         {
@@ -4393,7 +4409,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STARSWORD_KIRAMEKI:
-        // UpdateBattleText(player.FirstName + "はスターソード『煌』を振りかざしてきた！\r\n");
+        UpdateMessage(player.FullName + "はスターソード『煌』を振りかざしてきた！\r\n");
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
@@ -4402,7 +4418,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BARRIER_FIELD:
-        // UpdateBattleText(player.FirstName + "はスターソード『煌』を地面に差し込んだ！\r\n");
+        UpdateMessage(player.FullName + "はスターソード『煌』を地面に差し込んだ！\r\n");
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
@@ -4426,14 +4442,14 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STAR_FALL:
-        // UpdateBattleText(player.FirstName + "のスターソードが" + player.StackTarget.FirstName + "へ無数の星屑を落とす！\r\n");
+        UpdateMessage(player.FullName + "のスターソードが" + target.FullName + "へ無数の星屑を落とす！\r\n");
         ExecMagicAttack(player, target, 1.50f, Fix.DamageSource.HolyLight, false, critical);
         ExecBuffSilent(player, target, 5, 0);
         ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_TSUYA:
-        // UpdateBattleText(player.FirstName + "はスターソード『艶』を振りかざしてきた！\r\n");
+        UpdateMessage(player.FullName + "はスターソード『艶』を振りかざしてきた！\r\n");
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
@@ -4442,7 +4458,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_INVASION_FIELD:
-        //UpdateBattleText(player.FirstName + "はスターソード『艶』を地面に差し込んだ！\r\n");
+        UpdateMessage(player.FullName + "はスターソード『艶』を地面に差し込んだ！\r\n");
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
@@ -4466,27 +4482,89 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FIRE_BULLET:
+        UpdateMessage(player.FullName + "は燃え盛る炎の弾丸を吐いてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Fire, false, critical);
+        }
         break;
 
       case Fix.COMMAND_BLAZING_STORM:
+        UpdateMessage(player.FullName + "の眼が大きくなる！ブレイジング・ストームを放射してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        }
         break;
 
       case Fix.COMMAND_FLARE_BURN:
+        UpdateMessage(player.FullName + "の目が一瞬、白い閃光を放ってきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffParalyze(player, target_list[ii], 4, 0);
+        }
+        break;
+
+      case Fix.COMMAND_FIRE_WALL:
+        // 蒼目の方にも火炎耐性を付ける。
+        UpdateMessage(player.FullName + "はファイア・ウォールを発生させた！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          BuffResistFireUp(player, target_list[ii], 9, 12000);
+        }
         break;
 
       case Fix.COMMAND_PENETRATION_EYE:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, false, critical);
+        ExecBuffStun(player, target, 2, 0);
+        ExecBuffFear(player, target, 3, 0);
         break;
 
       case Fix.COMMAND_FROZEN_BULLET:
+        UpdateMessage(player.FullName + "は凍てつく氷の弾丸を放ってきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Ice, false, critical);
+        }
         break;
 
       case Fix.COMMAND_FREEZING_STORM:
+        UpdateMessage(player.FullName + "の眼が大きくなる！フリージング・ストームを放射してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        }
         break;
 
-      case Fix.COMMAND_BUBBLE_TURRET:
+      case Fix.COMMAND_SUDDEN_SQUALL:
+        UpdateMessage(player.FullName + "の目から突如、無数の氷線が放たれた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffSilent(player, target_list[ii], 4, 0);
+        }
+        break;
+
+      case Fix.COMMAND_WATER_BUBBLE:
+        //　赤目の方に水耐性を付ける。
+        UpdateMessage(player.FullName + "はウォータ・バブルを発生させた！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          BuffResistIceUp(player, target_list[ii], 9, 12000);
+        }
         break;
 
       case Fix.COMMAND_HALLUCINATE_EYE:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        ExecBuffFreeze(player, target, 2, 0);
+        ExecBuffSlow(player, target, 3, 0);
         break;
 
       case Fix.COMMAND_BRAVE_ROAR:
@@ -7854,6 +7932,18 @@ public partial class BattleEnemy : MotherBase
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_EARTH, turn, effect_value, 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_EARTH, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffResistFireUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_RESIST_FIRE_UP, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FIRE_UP, Fix.COLOR_NORMAL);
+  }
+
+  private void BuffResistIceUp(Character player, Character target, int turn, double effect_value)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_RESIST_ICE_UP, turn, effect_value, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_ICE_UP, Fix.COLOR_NORMAL);
   }
 
   private void ExecBuffSyutyuDanzetsu(Character player, Character target, int turn, double effect_value)
