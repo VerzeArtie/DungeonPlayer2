@@ -476,11 +476,11 @@ public partial class BattleEnemy : MotherBase
 
         // ただし、ボス戦のテキストは誇大表示したいため、個別対応
         // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
-        if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN)
+        if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN || One.EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE)
+        else if (One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE || One.EnemyList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW;
         }
@@ -488,7 +488,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE)
+        else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_JP_VIEW;
         }
@@ -496,7 +496,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
+        else if (One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
         {
           One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
         }
@@ -508,7 +508,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN)
+        else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
         }
@@ -528,27 +528,35 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR)
+        else if (One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || One.EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL)
+        else if (One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL || One.EnemyList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.MASCLEWARRIOR_HARDIL_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN)
+        else if (One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN)
         {
           One.EnemyList[ii].txtName.text = Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1)
+        else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_1_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN)
+        else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_2_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.LEGIN_ARZE_3_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT)
+        else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW;
         }
