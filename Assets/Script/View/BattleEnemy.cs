@@ -492,6 +492,10 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_JP_VIEW;
         }
+        else if (One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1 || One.EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW;
+        }
         else if (One.EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT)
         {
           One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
@@ -507,6 +511,10 @@ public partial class BattleEnemy : MotherBase
         else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN)
         {
           One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || One.EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW;
         }
         else if (One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || One.EnemyList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP)
         {
@@ -1362,6 +1370,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1 || EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP || EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
@@ -1383,6 +1399,14 @@ public partial class BattleEnemy : MotherBase
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
           CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_VORTEX_BLAST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        if (EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
@@ -4576,27 +4600,86 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BRAVE_ROAR:
+        UpdateMessage(player.FullName + "は勇敢な雄叫びを上げた！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.40f);
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.30f);
+        }
         break;
 
       case Fix.COMMAND_SEASLIDE_WATER:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.40f);
+          ExecBuffBattleResponseUp(player, target_list[ii], 5, 1.30f);
+        }
         break;
 
       case Fix.COMMAND_GUNGNIR_SLASH:
+        UpdateMessage(player.FullName + "：食らえ、グングニルの力！　ッヤアァァァ！！\r\n");
+        ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.HolyLight, false, critical);
+        ExecBuffSilent(player, target, 3, 0);
+        break;
+
+      case Fix.COMMAND_ISONIC_WAVE:
+        UpdateMessage(player.FullName + "はアイソニック・ウェイヴを放ってきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+        }
         break;
 
       case Fix.COMMAND_GUNGNIR_LIGHT:
+        UpdateMessage(player.FullName + "：光輝け、グングニル！　ッハアァァァ！！\r\n");
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.HolyLight, false, critical);
         break;
 
       case Fix.COMMAND_LIFE_WATER:
+        UpdateMessage(player.FullName + "は生命の龍水を浴びせた！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecLifeGain(target_list[ii], 10000 + AP.Math.RandomInteger(2500));
+        }
         break;
 
       case Fix.COMMAND_SALMAN_CHANT:
+        UpdateMessage(player.FullName + "はサルマン神に対する誓いの詠唱を謡った！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.50f);
+          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.50f);
+        }
+        // PlayerSpellAbsorbWater(player, player);
+        // PlayerSpellMirrorImage(player, player);
         break;
 
       case Fix.COMMAND_ANDATE_CHANT:
+        UpdateMessage(player.FullName + "はアンダート神に対する誓いの詠唱を謡った！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.50f);
+          ExecBuffMagicDefenceDown(player, target_list[ii], 5, 0.50f);
+        }
         break;
 
       case Fix.COMMAND_ELEMENTAL_SPLASH:
+        UpdateMessage(player.FullName + "は宙にウォータエレメンタルを飛ばした！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+        }
+        break;
+
+      case Fix.COMMAND_BYAKURAN_FROZEN_ART:
+        ExecMagicAttack(player, target, 5.00f, Fix.DamageSource.Ice, false, critical);
         break;
 
       case Fix.COMMAND_SEASTAR_ORIGIN_SEAL:

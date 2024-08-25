@@ -7669,6 +7669,21 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.BRILLIANT_SEA_PRINCE_1:
+      case Fix.BRILLIANT_SEA_PRINCE_1_JP:
+      case Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW:
+        SetupParameter(2900, 880, 2000, 45000, 120, 0, 85000, 100000);
+        this._baseInstantPoint = 4000;
+        list.Add(Fix.NORMAL_ATTACK);
+        list.Add(Fix.COMMAND_BRAVE_ROAR);
+        list.Add(Fix.COMMAND_SEASLIDE_WATER);
+        list.Add(Fix.COMMAND_GUNGNIR_SLASH);
+        list.Add(Fix.COMMAND_ISONIC_WAVE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_1;
+        this.CannotCritical = false;
+        break;
+
       case Fix.SHELL_THE_SWORD_KNIGHT:
       case Fix.SHELL_THE_SWORD_KNIGHT_JP:
       case Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW:
@@ -7680,7 +7695,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_PLATINUM_BLADE);
         list.Add(Fix.COMMAND_SEASTAR_OATH);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_1;
+        this.Area = Fix.MonsterArea.Boss54_2;
         this.CannotCritical = false;
         break;
 
@@ -7694,7 +7709,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_BARRIER_FIELD);
         list.Add(Fix.COMMAND_CIRCULAR_SLASH);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_2;
+        this.Area = Fix.MonsterArea.Boss54_3_1;
         this.CannotCritical = false;
         break;
 
@@ -7708,7 +7723,22 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_INVASION_FIELD);
         list.Add(Fix.COMMAND_ILLUSION_BOLT);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_2;
+        this.Area = Fix.MonsterArea.Boss54_3_2;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW:
+        SetupParameter(2600, 980, 3800, 88000, 130, 0, 105000, 130000);
+        this._baseInstantPoint = 4000;
+        list.Add(Fix.MAGIC_ATTACK);
+        list.Add(Fix.COMMAND_LIFE_WATER);
+        list.Add(Fix.COMMAND_SALMAN_CHANT);
+        list.Add(Fix.COMMAND_ANDATE_CHANT);
+        list.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.Boss54_4;
         this.CannotCritical = false;
         break;
 
@@ -7723,7 +7753,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_FIRE_WALL);
         list.Add(Fix.COMMAND_PENETRATION_EYE);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_3;
+        this.Area = Fix.MonsterArea.Boss54_5_1;
         this.CannotCritical = false;
         break;
 
@@ -7738,7 +7768,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_WATER_BUBBLE);
         list.Add(Fix.COMMAND_HALLUCINATE_EYE);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_3;
+        this.Area = Fix.MonsterArea.Boss54_5_2;
         this.CannotCritical = false;
         break;
 
@@ -7753,7 +7783,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_TIDAL_WAVE);
         list.Add(Fix.COMMAND_SURGETIC_BIND);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss54_4;
+        this.Area = Fix.MonsterArea.Boss54_6;
         this.CannotCritical = false;
         break;
 
@@ -7766,7 +7796,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_GUNGNIR_SLASH);
         list.Add(Fix.COMMAND_GUNGNIR_LIGHT);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss55;
+        this.Area = Fix.MonsterArea.Boss54_7_1;
         this.CannotCritical = false;
         break;
 
@@ -7779,7 +7809,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_ANDATE_CHANT);
         list.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss55;
+        this.Area = Fix.MonsterArea.Boss54_7_2;
         this.CannotCritical = false;
         break;
 
@@ -7792,7 +7822,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.FREEZING_CUBE);
         list.Add(Fix.FORTUNE_SPIRIT);
         this.Rare = Fix.RareString.Black;
-        this.Area = Fix.MonsterArea.Boss55;
+        this.Area = Fix.MonsterArea.Boss54_7_3;
         this.CannotCritical = false;
         break;
 
@@ -8864,6 +8894,64 @@ public partial class Character : MonoBehaviour
           {
             current.Add(Fix.NORMAL_ATTACK);
           }
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.BRILLIANT_SEA_PRINCE_1:
+      case Fix.BRILLIANT_SEA_PRINCE_1_JP:
+      case Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_ISONIC_WAVE);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SEASLIDE_WATER);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_GUNGNIR_SLASH);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_BRAVE_ROAR);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_LIFE_WATER);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SALMAN_CHANT);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_ANDATE_CHANT);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
+        }
+        else
+        {
+          current.Add(Fix.MAGIC_ATTACK);
         }
         result = RandomChoice(current);
         break;

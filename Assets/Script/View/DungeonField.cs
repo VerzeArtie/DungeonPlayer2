@@ -14352,10 +14352,15 @@ public class DungeonField : MotherBase
           character.Area == Fix.MonsterArea.Boss53 ||
           character.Area == Fix.MonsterArea.Boss54_1 ||
           character.Area == Fix.MonsterArea.Boss54_2 ||
-          character.Area == Fix.MonsterArea.Boss54_2 ||
-          character.Area == Fix.MonsterArea.Boss54_3 ||
+          character.Area == Fix.MonsterArea.Boss54_3_1 ||
+          character.Area == Fix.MonsterArea.Boss54_3_2 ||
           character.Area == Fix.MonsterArea.Boss54_4 ||
-          character.Area == Fix.MonsterArea.Boss55 ||
+          character.Area == Fix.MonsterArea.Boss54_5_1 ||
+          character.Area == Fix.MonsterArea.Boss54_5_2 ||
+          character.Area == Fix.MonsterArea.Boss54_6 ||
+          character.Area == Fix.MonsterArea.Boss54_7_1 ||
+          character.Area == Fix.MonsterArea.Boss54_7_2 ||
+          character.Area == Fix.MonsterArea.Boss54_7_3 ||
           character.Area == Fix.MonsterArea.Boss6 ||
           character.Area == Fix.MonsterArea.Boss62 ||
           character.Area == Fix.MonsterArea.Boss63_1 ||

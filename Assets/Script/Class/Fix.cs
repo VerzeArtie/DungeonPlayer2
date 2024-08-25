@@ -169,58 +169,64 @@ public static partial class Fix
     Area12,
     Area13,
     Area14,
-    Boss1,
+    Boss1, // THE_GALVADAZER
     TruthBoss1,
     Area21,
     Area22,
     Area23,
     Area24,
-    Boss21,
-    Boss22,
-    Boss23,
-    Boss24,
-    Boss25,
-    Boss2,
+    Boss21, // unused
+    Boss22, // unused
+    Boss23, // unused
+    Boss24, // unused
+    Boss25, // unused
+    Boss2, // MAGICAL_HAIL_GUN
     TruthBoss2,
     Area31,
     Area32,
     Area33,
     Area34,
-    Boss3,
+    Boss3, // FLANSIS_OF_THE_FOREST_QUEEN
     TruthBoss3,
     Area41,
     Area42,
     Area43,
     Area44,
     Area45,
-    Boss4,
-    Boss42,
+    Boss4, // LIGHT_THUNDER_LANCEBOLTS
+    Boss42, // THE_YODIRIAN
     TruthBoss4,
     Area51,
     Area52,
     Area53,
     Area54,
     Area55,
-    Boss5,
-    Boss52,
-    Boss53,
-    Boss54_1,
-    Boss54_2,
-    Boss54_3,
-    Boss54_4,
-    Boss55,
+    Boss5, // DEVIL_STAR_DEATH_FLODIETE
+    Boss52, // THE_BIGHAND_OF_KRAKEN
+    Boss53, // GUARDIAN_ROYAL_NAGA
+    Boss54_1, // BRILLIANT_SEA_PRINCE_1
+    Boss54_2, // SHELL_THE_SWORD_KNIGHT
+    Boss54_3_1, // SEA_STAR_KNIGHT_AEGIRU
+    Boss54_3_2, // SEA_STAR_KNIGHT_AMARA
+    Boss54_4, // ORIGIN_STAR_CORAL_QUEEN_1
+    Boss54_5_1, // JELLY_EYE_BRIGHT_RED
+    Boss54_5_2, // JELLY_EYE_DEEP_BLUE
+    Boss54_6, // GROUND_VORTEX_LEVIATHAN
+    Boss54_7_1, // BRILLIANT_SEA_PRINCE
+    Boss54_7_2, // ORIGIN_STAR_CORAL_QUEEN
+    Boss54_7_3, // VELGAS_THE_KING_OF_SEA_STAR
     Area61,
     Area62,
     Area63,
     Area64,
     Area65,
-    Boss6,
-    Boss62,
-    Boss63_1,      
-    Boss63_2,      
-    Boss63_3,      
-    Boss64,      
-    Boss64_2,      
+    Boss6, // MASCLEWARRIOR_HARDIL
+    Boss62, // HUGE_MAGICIAN_ZAGAN
+    Boss63_1, // LEGIN_ARZE_1
+    Boss63_2, // LEGIN_ARZE_2
+    Boss63_3, // LEGIN_ARZE_3
+    Boss64, // EMPEROR_LEGAL_ORPHSTEIN
+    Boss64_2, // FIRE_EMPEROR_LEGAL_ORPHSTEIN
     TruthBoss5,
     Area46,
     Duel,
@@ -1891,11 +1897,13 @@ public static partial class Fix
   public const string COMMAND_BRAVE_ROAR = "勇敢な雄叫び";
   public const string COMMAND_SEASLIDE_WATER = "シースライド・ウォータ";
   public const string COMMAND_GUNGNIR_SLASH= "グングニル・スラッシュ";
+  public const string COMMAND_ISONIC_WAVE = "アイソニック・ウェイブ";
   public const string COMMAND_GUNGNIR_LIGHT = "グングニルの閃光";
   public const string COMMAND_LIFE_WATER = "生命の龍水";
   public const string COMMAND_SALMAN_CHANT = "サルマンの詠唱";
   public const string COMMAND_ANDATE_CHANT = "アンダートの詠唱";
   public const string COMMAND_ELEMENTAL_SPLASH = "エレメンタル・スプラッシュ";
+  public const string COMMAND_BYAKURAN_FROZEN_ART = "白蘭真氷術";
   public const string COMMAND_SEASTAR_ORIGIN_SEAL = "海星源の授印";
   //public const string COMMAND_ = "フレッシュ・ヒール";
   //public const string COMMAND_ = "フリージング・キューブ";
@@ -3000,6 +3008,9 @@ public static partial class Fix
   public const string DEFENSIVE_DATSU_JP = "身構えるダツ";
   public const string SEA_SONG_MARMAID = "Sea-Song Marmaid";
   public const string SEA_SONG_MARMAID_JP = "海の歌姫マーメイド";
+  public const string BRILLIANT_SEA_PRINCE_1 = "Sea-Star-Prince Leva-Laul ";
+  public const string BRILLIANT_SEA_PRINCE_1_JP = "海星の王子：レーヴァ・ラウル　";
+  public const string BRILLIANT_SEA_PRINCE_1_JP_VIEW = "【　海星の王子　】\r\nレーヴァ・ラウル　";
   public const string SHELL_THE_SWORD_KNIGHT = "Shell the Sword-Knight";
   public const string SHELL_THE_SWORD_KNIGHT_JP = "シェル ザ ソードナイト";
   public const string SHELL_THE_SWORD_KNIGHT_JP_VIEW = "【　海星源の護り手　】\r\nシェル ザ ソードナイト";
@@ -3009,6 +3020,9 @@ public static partial class Fix
   public const string SEA_STAR_KNIGHT_AMARA = "Sea-StarKnight Amara";
   public const string SEA_STAR_KNIGHT_AMARA_JP = "海星騎士・アマラ";
   public const string SEA_STAR_KNIGHT_AMARA_JP_VIEW = "【　天秤を見据えし者　】\r\n海星騎士・アマラ";
+  public const string ORIGIN_STAR_CORAL_QUEEN_1 = "Sea-Star-Queen Meril-Sieju ";
+  public const string ORIGIN_STAR_CORAL_QUEEN_1_JP = "源星の女王：メリル・セイジュ　";
+  public const string ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW = "【源星の女王】\r\nメリル・セイジュ　";
   public const string JELLY_EYE_BRIGHT_RED = "Jelly-Eye Bright-Red";
   public const string JELLY_EYE_BRIGHT_RED_JP = "ジェリーアイ・熱光";
   public const string JELLY_EYE_BRIGHT_RED_JP_VIEW = "【巨眼の監視者】\r\nジェリーアイ・熱光";
