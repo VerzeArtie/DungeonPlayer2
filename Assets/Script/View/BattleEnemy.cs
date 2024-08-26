@@ -1153,9 +1153,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatBighandKraken = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE ||
-                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_JP ||
-                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_1 ||
+                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP ||
+                                       One.EnemyList[0].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW)
         {
           One.TF.DefeatBrilliantSeaPrince = true;
         }
@@ -1171,9 +1171,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAegiruAmara = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP ||
+            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
         {
           One.TF.DefeatOriginStarCoralQueen = true;
         }
