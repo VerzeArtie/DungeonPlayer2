@@ -476,6 +476,14 @@ public partial class BattleEnemy : MotherBase
 
         // ただし、ボス戦のテキストは誇大表示したいため、個別対応
         // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
+        if (One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA || One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP)
+        {
+          One.EnemyList[ii].FullName = Fix.SCREAMING_RAFFLESIA_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN || One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP)
+        {
+          One.EnemyList[ii].FullName = Fix.MAGICAL_HAIL_GUN_JP_VIEW;
+        }
         if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN || One.EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.THE_YODIRIAN_JP_VIEW;

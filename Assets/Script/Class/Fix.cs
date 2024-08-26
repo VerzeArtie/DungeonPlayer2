@@ -2760,6 +2760,7 @@ public static partial class Fix
   public const string DAUNTLESS_HORSE_JP = "果敢な戦馬";
   public const string SCREAMING_RAFFLESIA = "Screaming Rafflesia";
   public const string SCREAMING_RAFFLESIA_JP = "叫喚のラフレシア";
+  public const string SCREAMING_RAFFLESIA_JP_VIEW = "【草原の女王】\r\n叫喚のラフレシア";
 
   public const string DEBRIS_SOLDIER = "Debris Soldier";
   public const string DEBRIS_SOLDIER_JP = "ガラクタ機甲兵";
@@ -2807,6 +2808,7 @@ public static partial class Fix
   public const string MAD_DOCTOR_JP = "マッド ドクター";
   public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
+  public const string MAGICAL_HAIL_GUN_JP_VIEW = "【　暴走機動隊　】魔法雹穴銃";
   public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
   public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー";
   public const string THE_GALVADAZER_JP_VIEW = "【　暴走破壊者　】\r\nガルヴァデイザー";
