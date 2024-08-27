@@ -1480,6 +1480,14 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        if (EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP || EnemyList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_SOUMEI_SEISOU_KEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.DUMMY_SUBURI)
         {
           if (EnemyList[ii].CurrentInstantPoint >= EnemyList[ii].MaxInstantPoint)
@@ -4651,7 +4659,6 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.40f);
-          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.30f);
         }
         break;
 
@@ -4659,7 +4666,6 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.40f);
           ExecBuffBattleResponseUp(player, target_list[ii], 5, 1.30f);
         }
         break;
@@ -4729,6 +4735,19 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SEASTAR_ORIGIN_SEAL:
+        UpdateMessage(player.FullName + "は海星源の場全体へ大きな授印を展開しはじめた！\r\n");
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.30f);
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.40f);
+          // Deflectionみたいな魔法はやはり欲しいか
+          // PlayerSpellDeflection(player, group[ii]);
+        }
+        break;
+
+      case Fix.COMMAND_SOUMEI_SEISOU_KEN:
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, false, critical);
         break;
 
       case Fix.COMMAND_SEASTARKING_ROAR:

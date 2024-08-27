@@ -1905,6 +1905,7 @@ public static partial class Fix
   public const string COMMAND_ELEMENTAL_SPLASH = "エレメンタル・スプラッシュ";
   public const string COMMAND_BYAKURAN_FROZEN_ART = "白蘭真氷術";
   public const string COMMAND_SEASTAR_ORIGIN_SEAL = "海星源の授印";
+  public const string COMMAND_SOUMEI_SEISOU_KEN = "爽鳴清双剣";
   //public const string COMMAND_ = "フレッシュ・ヒール";
   //public const string COMMAND_ = "フリージング・キューブ";
   //public const string COMMAND_ = "フォーチュン・スピリット";

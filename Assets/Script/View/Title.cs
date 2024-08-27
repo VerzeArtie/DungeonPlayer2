@@ -23,6 +23,7 @@ public class Title : MotherBase
   public Text txtDuel;
   public Text txtBoss;
   public Text txtBoss2;
+  public Text txtBoss3;
 
   bool firstAction = false;
   // Start is called before the first frame update
@@ -570,6 +571,10 @@ public class Title : MotherBase
     if (txtBoss2.text != String.Empty)
     {
       One.BattleEnemyList.Add(txtBoss2.text);
+    }
+    if (txtBoss3.text != String.Empty)
+    {
+      One.BattleEnemyList.Add(txtBoss3.text);
     }
 
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)

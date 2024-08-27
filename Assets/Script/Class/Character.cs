@@ -7790,6 +7790,7 @@ public partial class Character : MonoBehaviour
       case Fix.BRILLIANT_SEA_PRINCE:
       case Fix.BRILLIANT_SEA_PRINCE_JP:
         SetupParameter(4600, 1200, 3300, 200000, 150, 0, 130000, 200000);
+        this._baseInstantPoint = 4200;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BRAVE_ROAR);
         list.Add(Fix.COMMAND_SEASLIDE_WATER);
@@ -7802,7 +7803,9 @@ public partial class Character : MonoBehaviour
 
       case Fix.ORIGIN_STAR_CORAL_QUEEN:
       case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW:
         SetupParameter(3300, 1150, 4600, 220000, 150, 0, 0, 0);
+        this._baseInstantPoint = 3800;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_LIFE_WATER);
         list.Add(Fix.COMMAND_SALMAN_CHANT);
@@ -7815,10 +7818,12 @@ public partial class Character : MonoBehaviour
 
       case Fix.VELGAS_THE_KING_OF_SEA_STAR:
       case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW:
         SetupParameter(5000, 1100, 5000, 250000, 150, 0, 0, 0);
+        this._baseInstantPoint = 5000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SEASTAR_ORIGIN_SEAL);
-        list.Add(Fix.FRESH_HEAL);
+        list.Add(Fix.HOLY_BREATH);
         list.Add(Fix.FREEZING_CUBE);
         list.Add(Fix.FORTUNE_SPIRIT);
         this.Rare = Fix.RareString.Black;
@@ -9220,6 +9225,35 @@ public partial class Character : MonoBehaviour
         else
         {
           current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR:
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP:
+      case Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.FORTUNE_SPIRIT);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.FREEZING_CUBE);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_SEASTAR_ORIGIN_SEAL);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.HOLY_BREATH);
+        }
+        else
+        {
+          current.Add(Fix.MAGIC_ATTACK);
         }
         result = RandomChoice(current);
         break;
