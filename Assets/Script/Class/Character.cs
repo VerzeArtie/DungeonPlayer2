@@ -8927,9 +8927,71 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      // BRILLIANT_SEA_PRINCE_1と同一だが、違うキャラクターとして設定しているため、
+      // 別のコードとして記載しておく。
+      case Fix.BRILLIANT_SEA_PRINCE:
+      case Fix.BRILLIANT_SEA_PRINCE_JP:
+      case Fix.BRILLIANT_SEA_PRINCE_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_ISONIC_WAVE);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SEASLIDE_WATER);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_GUNGNIR_SLASH);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_BRAVE_ROAR);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
       case Fix.ORIGIN_STAR_CORAL_QUEEN_1:
       case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP:
       case Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_LIFE_WATER);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_SALMAN_CHANT);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_ANDATE_CHANT);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_ELEMENTAL_SPLASH);
+        }
+        else
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      // ORIGIN_STAR_CORAL_QUEEN_1と同一だが、違うキャラクターとして設定しているため、
+      // 別のコードとして記載しておく。
+      case Fix.ORIGIN_STAR_CORAL_QUEEN:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP:
+      case Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW:
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
 

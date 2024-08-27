@@ -3172,6 +3172,7 @@ public static partial class Fix
   public const string AURORA_SPIRIT_JP = "オーロラ・スピリット";
   public const string HELL_KERBEROS = "Hell Kerberos";
   public const string HELL_KERBEROS_JP = "地獄のケルベロス";
+  public const string HELL_KERBEROS_JP_VIEW = "【地獄の番人】\r\nヘル・ケルベロス";
 
   public const string DUMMY_SUBURI = "ダミー素振り君";
   #endregion

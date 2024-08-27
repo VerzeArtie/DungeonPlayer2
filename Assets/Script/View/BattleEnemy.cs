@@ -1119,19 +1119,27 @@ public partial class BattleEnemy : MotherBase
         }
 
         // todo ここでイベントフラグを制御してよいか、再考の余地はある。
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA ||
+                                       One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA_JP ||
+                                       One.EnemyList[0].FullName == Fix.SCREAMING_RAFFLESIA_JP_VIEW)
         {
           One.TF.DefeatScreamingRafflesia = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MAGICAL_HAIL_GUN)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MAGICAL_HAIL_GUN ||
+                                       One.EnemyList[0].FullName == Fix.MAGICAL_HAIL_GUN_JP ||
+                                       One.EnemyList[0].FullName == Fix.MAGICAL_HAIL_GUN_JP_VIEW)
         {
           One.TF.DefeatMagicalHailGun = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HELL_KERBEROS)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HELL_KERBEROS ||
+                                       One.EnemyList[0].FullName == Fix.HELL_KERBEROS_JP ||
+                                       One.EnemyList[0].FullName == Fix.HELL_KERBEROS_JP_VIEW)
         {
           One.TF.DefeatHellKerberos = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_GALVADAZER)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_GALVADAZER ||
+                                       One.EnemyList[0].FullName == Fix.THE_GALVADAZER_JP ||
+                                       One.EnemyList[0].FullName == Fix.THE_GALVADAZER_JP_VIEW)
         {
           One.TF.DefeatGalvadazer = true;
         }
@@ -1172,8 +1180,8 @@ public partial class BattleEnemy : MotherBase
           One.TF.DefeatAegiruAmara = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP ||
+                                       One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
         {
           One.TF.DefeatOriginStarCoralQueen = true;
         }
@@ -1210,32 +1218,32 @@ public partial class BattleEnemy : MotherBase
           One.TF.DefeatEoneFulnea = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP ||
+                                       One.EnemyList[0].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
         {
           One.TF.DefeatMuscleHardil = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HUGE_MAGICIAN_ZAGAN ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP ||
+                                       One.EnemyList[0].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW)
         {
           One.TF.DefeatHugeZagan = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1 ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1_JP ||
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1_JP_VIEW)
         {
           One.TF.DefeatLeginArze = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP ||
+                                       One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
         {
           One.TF.DefeatLegalOrphstein = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP ||
-            One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP ||
+                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
         {
           One.TF.DefeatAermiJorzt = true;
         }
@@ -1394,6 +1402,16 @@ public partial class BattleEnemy : MotherBase
           return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
         }
 
+        // BRILLIANT_SEA_PRINCE_1と同一だが、違うキャラクターとして設定しているため、
+        // 別のコードとして記載しておく。
+        if (EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP || EnemyList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
         if (EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP || EnemyList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
@@ -1419,6 +1437,16 @@ public partial class BattleEnemy : MotherBase
         }
 
         if (EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
+        {
+          EnemyList[ii].CurrentInstantPoint = 0;
+          EnemyList[ii].UpdateInstantPointGauge();
+          CreateStackObject(EnemyList[ii], EnemyList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+          return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+        }
+
+        // ORIGIN_STAR_CORAL_QUEEN_1と同一だが、違うキャラクターとして設定しているため、
+        // 別のコードとして記載しておく。
+        if (EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP || EnemyList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
         {
           EnemyList[ii].CurrentInstantPoint = 0;
           EnemyList[ii].UpdateInstantPointGauge();
