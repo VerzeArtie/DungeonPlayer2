@@ -1990,14 +1990,14 @@ public static partial class Fix
   public const string COMMAND_SKY_CUTTER = "断空";
   public const string COMMAND_SONIC_BLADE = "高速剣";
   public const string COMMAND_SCREAMING_FROM_VOICE = "地獄からの呼び声";
-  public const string COMMAND_DESPAIR_SHIELD = "絶望の槍";
+  public const string COMMAND_DESPAIR_SPEAR = "絶望の槍";
   public const string COMMAND_KUUKAN_MATEN = "空間魔天";
   public const string COMMAND_METEOR_STORM = "メテオ・ストーム";
   public const string COMMAND_CROSS_GATE = "クロス・ゲート";
   public const string COMMAND_PRISMATIC_BULLET = "プリズマティック・バレット";
   public const string COMMAND_PHOTON_LASER = "フォトン・レーザー";
   public const string COMMAND_SEALED_STONE = "封印石";
-  public const string COMMAND_SUPER_EXPLOSION = "大暴走";
+  public const string COMMAND_OUT_OF_CONTROL = "制御不能";
   public const string COMMAND_POWER_EXPLOSION = "パワー・エクスプロージョン";
   public const string COMMAND_PERFECT_HIT = "パーフェクト・ヒット";
   public const string COMMAND_FUSION_CHARGE = "フュージョン・チャージ";

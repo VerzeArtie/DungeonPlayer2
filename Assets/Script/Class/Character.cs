@@ -8174,7 +8174,7 @@ public partial class Character : MonoBehaviour
         SetupParameter(2320, 1950, 3260, 66000, 300, 0, 77000, 66800);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SCREAMING_FROM_VOICE);
-        list.Add(Fix.COMMAND_DESPAIR_SHIELD);
+        list.Add(Fix.COMMAND_DESPAIR_SPEAR);
         list.Add(Fix.COMMAND_KUUKAN_MATEN);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
@@ -8199,7 +8199,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_PHOTON_LASER);
         list.Add(Fix.COMMAND_SEALED_STONE);
-        list.Add(Fix.COMMAND_SUPER_EXPLOSION);
+        list.Add(Fix.COMMAND_OUT_OF_CONTROL);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;

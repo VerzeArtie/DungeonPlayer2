@@ -4785,6 +4785,324 @@ public partial class BattleEnemy : MotherBase
         ExecNormalAttack(player, target, 5.0F, Fix.DamageSource.Physical, true, critical);
         break;
 
+      case Fix.COMMAND_BACKSTAB_ARROW:
+        break;
+
+      case Fix.COMMAND_KARAME_BIND:
+        break;
+
+      case Fix.COMMAND_BEAST_SPIRIT:
+        break;
+
+      case Fix.COMMAND_BEAST_HOUND:
+        break;
+
+      case Fix.COMMAND_DATOTSU:
+        break;
+
+      case Fix.COMMAND_ASSASSIN_POISONNEEDLE:
+        break;
+
+      case Fix.COMMAND_SAINT_SLASH:
+        break;
+
+      case Fix.COMMAND_DEMON_CONTRACT:
+        break;
+
+      case Fix.COMMAND_DARKM_SPELL:
+        break;
+
+      case Fix.COMMAND_HELLFIRE_SPELL:
+        break;
+
+      case Fix.COMMAND_RENZOKU_HOUSYA:
+        break;
+
+      case Fix.COMMAND_STEAM_ARROW:
+        break;
+
+      case Fix.COMMAND_BLACKDRAGON_WHISPER:
+        break;
+
+      case Fix.COMMAND_DEATH_HAITOKU:
+        break;
+
+      case Fix.COMMAND_SUPERIOR_FIELD:
+        break;
+
+      case Fix.COMMAND_SHINDOWKEN:
+        break;
+
+      case Fix.COMMAND_DEATH_STRIKE:
+        break;
+
+      case Fix.COMMAND_SOUL_FROZEN:
+        break;
+
+      case Fix.COMMAND_CURSED_THREAD:
+        break;
+
+      case Fix.COMMAND_HORROR_VISION:
+        break;
+
+      case Fix.COMMAND_RASEN_KOKUEN:
+        break;
+
+      case Fix.COMMAND_RANSO_RENGEKI:
+        break;
+
+      case Fix.COMMAND_DEMON_BOLT:
+        break;
+
+      case Fix.COMMAND_ARCANE_DESTRUCTION:
+        break;
+
+      case Fix.COMMAND_TOWER_FALL:
+        break;
+
+      case Fix.COMMAND_ROUND_DIVIDE:
+        break;
+
+      case Fix.COMMAND_BLACK_FLARE:
+        break;
+
+      case Fix.COMMAND_SATELLITE_SWORD:
+        break;
+
+      case Fix.COMMAND_SIGIL_OF_SUN_FALLEN:
+        break;
+
+      case Fix.COMMAND_LIFE_BRILLIANT:
+        break;
+
+      case Fix.COMMAND_ALL_DUST:
+        break;
+
+      case Fix.COMMAND_LVEL_SONG:
+        break;
+
+      case Fix.COMMAND_GIGANT_SLAYER:
+        break;
+
+      case Fix.COMMAND_JUONSATSU:
+        break;
+
+      case Fix.COMMAND_ABYSS_LOGIC:
+        break;
+
+      case Fix.COMMAND_BONE_TORNADO:
+        break;
+
+      case Fix.COMMAND_OMINOUS_LAUGH:
+        break;
+
+      case Fix.COMMAND_SKULL_CRASH:
+        break;
+
+      case Fix.COMMAND_WAZAWAI_FLAME:
+        break;
+
+      case Fix.COMMAND_THE_END:
+        break;
+
+      case Fix.COMMAND_HELLFLAME_BULLET:
+        break;
+
+      case Fix.COMMAND_CHROMATIC_BULLET:
+        break;
+
+      case Fix.COMMAND_SUPER_MAX_WAVE:
+        break;
+
+      case Fix.COMMAND_IRREGULAR_REGENERATION:
+        break;
+
+      case Fix.COMMAND_ETERNAL_CIRCLE:
+        break;
+
+      case Fix.COMMAND_DESTRUCTION_CIRCLE:
+        break;
+
+      case Fix.COMMAND_PERFECT_STOP:
+        break;
+
+      case Fix.COMMAND_SPECTOR_VOICE:
+        break;
+
+      case Fix.COMMAND_NOMERCY_SCREAM:
+        break;
+
+      case Fix.COMMAND_DARK_SIMULACRUM:
+        break;
+
+      case Fix.COMMAND_FABRIOLE_SPEAR:
+        break;
+
+      case Fix.COMMAND_REST_IN_DREAM:
+        break;
+
+      case Fix.COMMAND_DANCING_LANCER:
+        break;
+
+      case Fix.COMMAND_CHAOS_DEATHPERADE:
+        break;
+
+      case Fix.COMMAND_MARIA_DANSEL:
+        break;
+
+      case Fix.COMMAND_DESTRUCT_TUNING:
+        break;
+
+      case Fix.COMMAND_GROUND_CRACK:
+        break;
+
+      case Fix.COMMAND_BLACK_DARK_LANCE:
+        break;
+
+      case Fix.COMMAND_UNDEAD_WISH:
+        break;
+
+      case Fix.COMMAND_HELL_CIRCLE:
+        break;
+
+      case Fix.COMMAND_INNOCENT_SLASH:
+        break;
+
+      case Fix.COMMAND_HARSH_CUTTER:
+        break;
+
+      case Fix.COMMAND_JUDGEMENT_LIGHTNING:
+        break;
+
+      case Fix.COMMAND_BLACKHOLE:
+        break;
+
+      case Fix.COMMAND_ERROR_OCCUR:
+        break;
+
+      case Fix.COMMAND_FUMBLE_SIGN:
+        break;
+
+      case Fix.COMMAND_AREA_TWIST:
+        break;
+
+      case Fix.COMMAND_PARADOXICAL_SLICER:
+        break;
+
+      case Fix.COMMAND_OAHN_VOICE:
+        break;
+
+      case Fix.COMMAND_MOMENT_MAGIC:
+        break;
+
+      case Fix.COMMAND_DESPIAR_RAIN:
+        break;
+
+      case Fix.COMMAND_SWORD_OF_WIND:
+        break;
+
+      case Fix.COMMAND_SKY_CUTTER:
+        break;
+
+      case Fix.COMMAND_SONIC_BLADE:
+        break;
+
+      case Fix.COMMAND_SCREAMING_FROM_VOICE:
+        break;
+
+      case Fix.COMMAND_DESPAIR_SPEAR:
+        break;
+
+      case Fix.COMMAND_KUUKAN_MATEN:
+        break;
+
+      case Fix.COMMAND_METEOR_STORM:
+        break;
+
+      case Fix.COMMAND_CROSS_GATE:
+        break;
+
+      case Fix.COMMAND_PRISMATIC_BULLET:
+        break;
+
+      case Fix.COMMAND_PHOTON_LASER:
+        break;
+
+      case Fix.COMMAND_SEALED_STONE:
+        break;
+
+      case Fix.COMMAND_OUT_OF_CONTROL:
+        break;
+
+      case Fix.COMMAND_POWER_EXPLOSION:
+        break;
+
+      case Fix.COMMAND_PERFECT_HIT:
+        break;
+
+      case Fix.COMMAND_FUSION_CHARGE:
+        break;
+
+      case Fix.COMMAND_LEGION_DRIVE:
+        break;
+
+      case Fix.COMMAND_BERSERKER_RUSH:
+        break;
+
+      case Fix.COMMAND_GOLDEN_MATRIX:
+        break;
+
+      case Fix.COMMAND_METSU_INCARNATION:
+        break;
+
+      case Fix.COMMAND_THOUSAND_SQUALL:
+        break;
+
+      case Fix.COMMAND_AURORA_BLADE:
+        break;
+
+      case Fix.COMMAND_MEGIDO_BLAZE:
+        break;
+
+      case Fix.COMMAND_ABYSS_WILL:
+        break;
+
+      case Fix.COMMAND_ONE_HOMURA:
+        break;
+
+      case Fix.COMMAND_ABYSS_FIRE:
+        break;
+
+      case Fix.COMMAND_ETERNAL_DROPLET:
+        break;
+
+      case Fix.COMMAND_AUSTERITY_MATRIX_OMEGA:
+        break;
+
+      case Fix.COMMAND_VOID_BEAT:
+        break;
+
+      case Fix.COMMAND_PERFECT_PROPHECY:
+        break;
+
+      case Fix.COMMAND_HOLY_WISDOM:
+        break;
+
+      case Fix.COMMAND_ETERNAL_PRESENCE:
+        break;
+
+      case Fix.COMMAND_ULTIMATE_FLARE:
+        break;
+
+      case Fix.COMMAND_TIME_EXPANSION:
+        break;
+
+      case Fix.COMMAND_STARSWORD_ZETSU:
+        break;
+
+      case Fix.COMMAND_STARSWORD_ZETSU_HOMURA:
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
