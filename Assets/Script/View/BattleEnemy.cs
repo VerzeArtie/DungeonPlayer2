@@ -1185,7 +1185,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatOriginStarCoralQueen = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN ||
+                                       One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP ||
+                                       One.EnemyList[0].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW)
         {
           One.TF.DefeatFlansisQueenOfVerdant = true;
         }
