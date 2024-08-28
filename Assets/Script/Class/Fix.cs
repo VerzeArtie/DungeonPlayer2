@@ -3049,9 +3049,9 @@ public static partial class Fix
   public const string PHANTOM_HUNTER = "Phantom Hunter";
   public const string PHANTOM_HUNTER_JP = "幻暗ハンター";
   public const string BEAST_MASTER = "Beast Master";
-  public const string BEAST_MASTER_JP = "ビーストマスター";
+  public const string BEAST_MASTER_JP = "ビースト・マスター";
   public const string ELDER_ASSASSIN = "Elder Assassin";
-  public const string ELDER_ASSASSIN_JP = "エルダーアサシン";
+  public const string ELDER_ASSASSIN_JP = "エルダー・アサシン";
   public const string FALLEN_SEEKER = "Fallen Seeker";
   public const string FALLEN_SEEKER_JP = "フォールン・シーカー";
   public const string MEPHISTO_RIGHTARM = "Mephisto Right-Arm";

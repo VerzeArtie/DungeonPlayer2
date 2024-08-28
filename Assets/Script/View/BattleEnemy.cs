@@ -4786,39 +4786,69 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BACKSTAB_ARROW:
+        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, false, critical);
+        ExecBuffSilent(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_KARAME_BIND:
+        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, false, critical);
+        ExecBuffBind(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_BEAST_SPIRIT:
+        ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
         break;
 
       case Fix.COMMAND_BEAST_HOUND:
+        ExecBuffPhysicalDefenseUp(player, player, 3, 1.20f);
         break;
 
       case Fix.COMMAND_DATOTSU:
+        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, true, critical);
         break;
 
       case Fix.COMMAND_ASSASSIN_POISONNEEDLE:
+        ExecBuffPoison(player, target, 3, 8000 + AP.Math.RandomInteger(1500));
         break;
 
       case Fix.COMMAND_SAINT_SLASH:
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        ExecBuffDizzy(player, target, 3, 0.50f);
         break;
 
       case Fix.COMMAND_DEMON_CONTRACT:
+        if (player.IsPhysicalAttackUp == false)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 5, 2.0f);
+        }
+        else if (player.IsPhysicalDefenseUp == false)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 5, 2.0f);
+        }
+        ExecLifeDown(player, 0.10f);
         break;
 
       case Fix.COMMAND_DARKM_SPELL:
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, true, critical);
+        ExecBuffSilent(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_HELLFIRE_SPELL:
+        ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.Fire, true, critical);
+        ExecBuffSlip(player, target, 3, 8500 + AP.Math.RandomInteger(1200));
         break;
 
       case Fix.COMMAND_RENZOKU_HOUSYA:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, false, critical);
+        }
         break;
 
       case Fix.COMMAND_STEAM_ARROW:
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, true, critical);
+        ExecBuffStun(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_BLACKDRAGON_WHISPER:
