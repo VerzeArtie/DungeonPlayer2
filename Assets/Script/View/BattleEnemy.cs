@@ -4852,6 +4852,9 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BLACKDRAGON_WHISPER:
+        UpdateMessage(player.FullName + "は黒龍より禁断の闇技を授かり、アイン達へ向けて呪術を放った。\r\n");
+
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, false, critical);
         break;
 
       case Fix.COMMAND_DEATH_HAITOKU:
