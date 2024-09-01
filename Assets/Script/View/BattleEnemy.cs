@@ -7135,6 +7135,7 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
+  #region "Delve I"
   private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -7308,8 +7309,9 @@ public partial class BattleEnemy : MotherBase
     int strValue = (int)((effectValue * 100));
     StartAnimation(target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
   }
+  #endregion
 
-  // Delve II
+  #region "Delve II"
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -7584,7 +7586,9 @@ public partial class BattleEnemy : MotherBase
       ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, false, critical);
     }
   }
+  #endregion
 
+  #region "Delve III"
   private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     for (int ii = 0; ii < SecondaryLogic.MeteorBullet_Effect1(player); ii++)
@@ -7808,7 +7812,9 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target_list[ii].objGroup.gameObject, Fix.BUFF_REMOVE_ALL, Fix.COLOR_NORMAL);
     }
   }
+  #endregion
 
+  #region "Delve IV"
   public void ExecGaleWind(Character player)
   {
     player.objBuffPanel.AddBuff(prefab_Buff, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0, 0);
@@ -7968,7 +7974,9 @@ public partial class BattleEnemy : MotherBase
     target_field_obj.AddBuff(prefab_Buff, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
     StartAnimation(target_field_obj.gameObject, Fix.DOMINATION_FIELD, Fix.COLOR_NORMAL);
   }
+  #endregion
 
+  #region "Delve V"
   private void ExecFlameStrike(Character player, Character target, Fix.CriticalType critical)
   {
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, false, critical);
@@ -8003,6 +8011,13 @@ public partial class BattleEnemy : MotherBase
     target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
     StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_DESPAIR, Fix.COLOR_NORMAL);
   }
+  #endregion
+
+  #region "Delve VI"
+  #endregion
+
+  #region "Delve VII"
+  #endregion
 
   private bool ExecUseRedPotion(Character target, string command_name)
   {
