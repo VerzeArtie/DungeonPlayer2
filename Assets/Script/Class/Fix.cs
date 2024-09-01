@@ -347,17 +347,29 @@ public static partial class Fix
   public const string EFFECT_RESIST_ICE_UP = "ResistIceUp";
 
   public const string EFFECT_POISON = "Poison";
+  public const string EFFECT_POISON_JP = "猛毒";
   public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
+  public const string EFFECT_SILENT_JP = "沈黙";
   public const string EFFECT_BIND = "Bind";
+  public const string EFFECT_BIND_JP = "束縛";
   public const string EFFECT_SLEEP = "Sleep";
+  public const string EFFECT_SLEEP_JP = "睡眠";
   public const string EFFECT_STUN = "Stun";
+  public const string EFFECT_STUN_JP = "スタン";
   public const string EFFECT_PARALYZE = "Paralyze";
+  public const string EFFECT_PARALYZE_JP = "麻痺";
   public const string EFFECT_FREEZE = "Freeze";
+  public const string EFFECT_FREEZE_JP = "凍結";
   public const string EFFECT_FEAR = "Fear";
+  public const string EFFECT_FEAR_JP = "恐怖";
   public const string EFFECT_TEMPTATION = "Temptation";
+  public const string EFFECT_TEMPTATION_JP = "誘惑";
   public const string EFFECT_SLOW = "Slow";
+  public const string EFFECT_SLOW_JP = "鈍化";
   public const string EFFECT_DIZZY = "Dizzy";
+  public const string EFFECT_DIZZY_JP = "眩暈";
   public const string EFFECT_SLIP = "Slip";
+  public const string EFFECT_SLIP_JP = "出血";
   public const string EFFECT_CANNOT_RESURRECT = "Cannot Resurrect";
   public const string EFFECT_CANNOT_RESURRECT_JP = "蘇生不可";
 
