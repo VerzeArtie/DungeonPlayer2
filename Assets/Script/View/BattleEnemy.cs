@@ -2242,12 +2242,80 @@ public partial class BattleEnemy : MotherBase
         break;
 
       #endregion
+      #region "Delve VI"
+      case Fix.CIRCLE_OF_THE_IGNITE:
+        break;
 
-      #region "Other"
+      case Fix.WATER_PRESENCE:
+        break;
+
+      case Fix.VALKYRIE_BLADE:
+        break;
+
+      case Fix.THE_DARK_INTENSITY:
+        break;
+
+      case Fix.FUTURE_VISION:
+        break;
+
+      case Fix.DETACHMENT_FAULT:
+        break;
+
+      case Fix.STANCE_OF_THE_IAI:
+        break;
+
+      case Fix.ONE_IMMUNITY:
+        break;
+
+      case Fix.ETERNAL_CONCENTRATION:
+        break;
+
+      case Fix.SIGIL_OF_THE_FAITH:
+        break;
+
       case Fix.ZERO_IMMUNITY:
         ExecZeroImmunity(player, target);
         break;
+      #endregion
+      #region "Delve VII"
+      case Fix.LAVA_ANNIHILATION:
+        break;
 
+      case Fix.ABSOLUTE_ZERO:
+        break;
+
+      case Fix.RESURRECTION:
+        break;
+
+      case Fix.DEATH_SCYTHE:
+        break;
+
+      case Fix.GENESIS:
+        break;
+
+      case Fix.TIME_SKIP:
+        break;
+
+      case Fix.KINETIC_SMASH:
+        break;
+
+      case Fix.CATASTROPHE:
+        break;
+
+      case Fix.CARNAGE_RUSH:
+        break;
+
+      case Fix.PIERCING_ARROW:
+        break;
+
+      case Fix.STANCE_OF_THE_KOKOROE:
+        break;
+
+      case Fix.TRANSCENDENCE_REACHED:
+        break;
+      #endregion
+
+      #region "Other"
       case Fix.IRREGULAR_STEP:
         ExecIrregularStep(player, target);
         break;
