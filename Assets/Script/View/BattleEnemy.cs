@@ -2285,6 +2285,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.RESURRECTION:
+        ExecResurrection(player, target);
         break;
 
       case Fix.DEATH_SCYTHE:
@@ -4921,11 +4922,20 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_BLACKDRAGON_WHISPER:
         UpdateMessage(player.FullName + "は黒龍より禁断の闇技を授かり、アイン達へ向けて呪術を放った。\r\n");
-
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, false, critical);
+        ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
         break;
 
       case Fix.COMMAND_DEATH_HAITOKU:
+        target_list = GetAllyGroup(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (target_list[ii].Dead)
+          {
+            UpdateMessage(player.FullName + "は対象の魂に黒龍の生命エネルギーを注ぎ込んだ！\r\n");
+            AbstractResurrection(player, target_list[ii], target.MaxLife);
+            break;
+          }
+        }
         break;
 
       case Fix.COMMAND_SUPERIOR_FIELD:
@@ -8017,6 +8027,10 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "Delve VII"
+  private void ExecResurrection(Character player, Character target)
+  {
+    AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
+  }
   #endregion
 
   private bool ExecUseRedPotion(Character target, string command_name)
@@ -9104,6 +9118,24 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
 
     return true;
+  }
+
+  private void AbstractResurrection(Character player, Character target, int gain_life)
+  {
+    if (target.IsCannotResurrect)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_RESURRECT_JP, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    if (target.Dead == false)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_EFFECT_JP, Fix.COLOR_NORMAL);
+      return;
+    }
+
+    target.ResurrectPlayer(gain_life);
+    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESURRECT_JP, Fix.COLOR_NORMAL);
   }
 
   private void UpdateExp(Character character, int gain_exp)

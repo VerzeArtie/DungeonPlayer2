@@ -1852,6 +1852,22 @@ public partial class Character : MonoBehaviour
     if (this.txtLife != null) this.txtLife.color = Color.red;
   }
 
+  public void ResurrectPlayer(int life)
+  {
+    if (this.IsCannotResurrect == false)
+    {
+      this.CurrentLife = life;
+      this.Dead = false;
+      if (this.objMainButton != null)
+      {
+        this.objMainButton.gameObject.SetActive(true);
+        this.objMainButton.GetComponent<Image>().color = Color.white;// this.MainColor;
+      }
+      if (this.txtName != null) { this.txtName.color = Color.black; }
+      if (this.txtLife != null) { this.txtLife.color = Color.black; this.txtLife.text = CurrentLife.ToString(); }
+    }
+  }
+
   public void MaxLifeCheck()
   {
     if (this.CurrentLife >= this.MaxLife)
@@ -3060,6 +3076,32 @@ public partial class Character : MonoBehaviour
     if (this.HardestParry > 0) { list.Add(Fix.HARDEST_PARRY); }
     if (this.EverflowMind > 0) { list.Add(Fix.EVERFLOW_MIND); }
     if (this.InnerInspiration > 0) { list.Add(Fix.INNER_INSPIRATION); }
+
+    if (this.CircleOfTheIgnite > 0) { list.Add(Fix.CIRCLE_OF_THE_IGNITE); }
+    if (this.WaterPresence > 0) { list.Add(Fix.WATER_PRESENCE); }
+    if (this.ValkyrieBlade > 0) { list.Add(Fix.VALKYRIE_BLADE); }
+    if (this.TheDarkIntensity > 0) { list.Add(Fix.THE_DARK_INTENSITY); }
+    if (this.FutureVision > 0) { list.Add(Fix.FUTURE_VISION); }
+    if (this.DetachmentFault > 0) { list.Add(Fix.DETACHMENT_FAULT); }
+    if (this.StanceOfTheIai > 0) { list.Add(Fix.STANCE_OF_THE_IAI); }
+    if (this.OneImmunity > 0) { list.Add(Fix.ONE_IMMUNITY); }
+    if (this.StanceOfMuin > 0) { list.Add(Fix.STANCE_OF_MUIN); }
+    if (this.EternalConcentration > 0) { list.Add(Fix.ETERNAL_CONCENTRATION); }
+    if (this.SigilOfTheFaith > 0) { list.Add(Fix.SIGIL_OF_THE_FAITH); }
+    if (this.ZeroImmunity > 0) { list.Add(Fix.ZERO_IMMUNITY); }
+
+    if (this.LavaAnnihilation > 0) { list.Add(Fix.LAVA_ANNIHILATION); }
+    if (this.AbsoluteZero > 0) { list.Add(Fix.ABSOLUTE_ZERO); }
+    if (this.Resurrection > 0) { list.Add(Fix.RESURRECTION); }
+    if (this.DeathScythe > 0) { list.Add(Fix.DEATH_SCYTHE); }
+    if (this.Genesis > 0) { list.Add(Fix.GENESIS); }
+    if (this.TimeSkip > 0) { list.Add(Fix.TIME_SKIP); }
+    if (this.KineticSmash > 0) { list.Add(Fix.KINETIC_SMASH); }
+    if (this.Catastrophe > 0) { list.Add(Fix.CATASTROPHE); }
+    if (this.CarnageRush > 0) { list.Add(Fix.CARNAGE_RUSH); }
+    if (this.PiercingArrow > 0) { list.Add(Fix.PIERCING_ARROW); }
+    if (this.StanceOfTheKokoroe > 0) { list.Add(Fix.STANCE_OF_THE_KOKOROE); }
+    if (this.TranscendenceReached > 0) { list.Add(Fix.TRANSCENDENCE_REACHED); }
 
     // other
     if (this.AirCutter > 0) { list.Add(Fix.AIR_CUTTER); }

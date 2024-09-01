@@ -359,6 +359,10 @@ public static partial class Fix
   public const string EFFECT_DIZZY = "Dizzy";
   public const string EFFECT_SLIP = "Slip";
   public const string EFFECT_CANNOT_RESURRECT = "Cannot Resurrect";
+  public const string EFFECT_CANNOT_RESURRECT_JP = "蘇生不可";
+
+  public const string EFFECT_RESURRECT_JP = "復活";
+  public const string EFFECT_NOT_EFFECT_JP = "効果なし";
 
   public const string BUFF_RESIST_POISON = "Resist Poison";
   public const string BUFF_RESIST_SILENCE = "Resist Silence";
