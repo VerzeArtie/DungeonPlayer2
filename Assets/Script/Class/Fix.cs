@@ -436,6 +436,10 @@ public static partial class Fix
 
   public const string BUFF_SYUTYU_DANZETSU = "SYUTYU-DANZETSU";
 
+  // アクションコマンド
+  public const string BUFF_CIRCLE_IGNITE = "炎輪";
+
+  // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
   public const string BUFF_BLACK_SPORE = "BlackSpore";
   public const string BUFF_VERDANT_VOICE = "VerdantVoice";

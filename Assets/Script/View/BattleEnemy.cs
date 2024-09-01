@@ -1918,6 +1918,20 @@ public partial class BattleEnemy : MotherBase
       player.NowExecSyutyuDanzetsu = true;
     }
 
+    // サークル・オブ・イグナイトによる効果
+    BuffImage field = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_IGNITE);
+    if (field)
+    {
+      if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic ||
+          ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill ||
+          ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.MonsterAction ||
+          command_name == Fix.NORMAL_ATTACK ||
+          command_name == Fix.MAGIC_ATTACK)
+      {
+        ExecElementalDamage(player, Fix.DamageSource.Fire, field.EffectValue);
+      }
+    }
+
     this.GlobalAnimationChain++; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
     #region "コマンド実行"
     List<Character> target_list = null;
@@ -2244,6 +2258,7 @@ public partial class BattleEnemy : MotherBase
       #endregion
       #region "Delve VI"
       case Fix.CIRCLE_OF_THE_IGNITE:
+        ExecCircleOfTheIgnite(player, target.objFieldPanel);
         break;
 
       case Fix.WATER_PRESENCE:
@@ -8024,6 +8039,12 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "Delve VI"
+  private void ExecCircleOfTheIgnite(Character player, BuffField target_field_obj)
+  {
+    double effectValue = player.TotalIntelligence * SecondaryLogic.CircleOfTheIgnite_Effect(player);
+    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
+    StartAnimation(target_field_obj.gameObject, Fix.BUFF_CIRCLE_IGNITE, Fix.COLOR_NORMAL);
+  }
   #endregion
 
   #region "Delve VII"

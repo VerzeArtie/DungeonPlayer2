@@ -891,6 +891,17 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
+  public static int CircleOfTheIgnite_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double CircleOfTheIgnite_Effect(Character player)
+  {
+    if (player.CircleOfTheIgnite <= 1) { return 1.00f; }
+    return 1.00f + (player.CircleOfTheIgnite - 1) * 0.10f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
