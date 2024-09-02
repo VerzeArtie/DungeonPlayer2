@@ -902,6 +902,23 @@ public static class SecondaryLogic
     return 1.00f + (player.CircleOfTheIgnite - 1) * 0.10f;
   }
 
+  public static int WaterPresence_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double WaterPresence_Effect(Character player)
+  {
+    // 半分で固定
+    return 0.50f;
+  }
+
+  public static double WaterPresence_Effect2(Character player)
+  {
+    // 半分で固定
+    return 0.50f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

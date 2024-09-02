@@ -1862,13 +1862,20 @@ public partial class BattleEnemy : MotherBase
     {
       if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
       {
-        if (player.CurrentManaPoint < SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player))
+        int manaCost = SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
+        if (player.IsWaterPresence)
         {
-          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player));
+          manaCost = (int)((double)manaCost * SecondaryLogic.WaterPresence_Effect2(player));
+        }
+
+        if (player.CurrentManaPoint < manaCost)
+        {
+          Debug.Log("NO Mana-Point: [" + command_name + "] " + player.CurrentManaPoint + " < " + manaCost);
           StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
           return;
         }
-        player.CurrentManaPoint -= SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
+
+        player.CurrentManaPoint -= manaCost;
       }
       else if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
       {
@@ -2262,6 +2269,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.WATER_PRESENCE:
+        ExecWaterPresence(player, target);
         break;
 
       case Fix.VALKYRIE_BLADE:
@@ -8045,6 +8053,12 @@ public partial class BattleEnemy : MotherBase
     target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
     StartAnimation(target_field_obj.gameObject, Fix.BUFF_CIRCLE_IGNITE, Fix.COLOR_NORMAL);
   }
+
+  private void ExecWaterPresence(Character player, Character target)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WATER_PRESENCE, SecondaryLogic.CircleOfTheIgnite_Turn(player), 0, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.BUFF_WATER_PRESENCE, Fix.COLOR_NORMAL);
+  }
   #endregion
 
   #region "Delve VII"
@@ -8875,6 +8889,13 @@ public partial class BattleEnemy : MotherBase
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
       UpdateMessage("クリティカル発生！");
+    }
+
+    // ウォーター・プリゼンスによる効果
+    if (target.IsWaterPresence)
+    {
+      damageValue *= SecondaryLogic.WaterPresence_Effect(player);
+      Debug.Log("Detect WaterPresence, then damageValue half. " + damageValue);
     }
 
     // 属性耐性の分だけ、減衰させる ( Percent )

@@ -438,6 +438,7 @@ public static partial class Fix
 
   // アクションコマンド
   public const string BUFF_CIRCLE_IGNITE = "炎輪";
+  public const string BUFF_WATER_PRESENCE = "水脈";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

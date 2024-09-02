@@ -2709,6 +2709,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.SEVENTH_PRINCIPLE); }
   }
 
+  public BuffImage IsWaterPresence
+  {
+    get { return SearchBuff(Fix.WATER_PRESENCE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
