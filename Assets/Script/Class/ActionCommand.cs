@@ -2026,8 +2026,8 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 90; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return 90; } // todo 仮
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 120; }
+    if (command_name == Fix.WATER_PRESENCE) { return 150; }
     if (command_name == Fix.VALKYRIE_BLADE) { return 90; } // todo 仮
     if (command_name == Fix.THE_DARK_INTENSITY) { return 90; } // todo 仮
     if (command_name == Fix.FUTURE_VISION) { return 90; } // todo 仮
@@ -2045,7 +2045,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return 120; } // todo 仮
     if (command_name == Fix.ABSOLUTE_ZERO) { return 120; } // todo 仮
-    if (command_name == Fix.RESURRECTION) { return 120; } // todo 仮
+    if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 120; } // todo 仮
     if (command_name == Fix.GENESIS) { return 120; } // todo 仮
     if (command_name == Fix.TIME_SKIP) { return 120; } // todo 仮
