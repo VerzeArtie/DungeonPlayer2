@@ -8056,7 +8056,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecWaterPresence(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WATER_PRESENCE, SecondaryLogic.CircleOfTheIgnite_Turn(player), 0, 0, 0);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_WATER_PRESENCE, Fix.COLOR_NORMAL);
   }
   #endregion
