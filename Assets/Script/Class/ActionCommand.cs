@@ -2028,7 +2028,7 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 120; }
     if (command_name == Fix.WATER_PRESENCE) { return 150; }
-    if (command_name == Fix.VALKYRIE_BLADE) { return 90; } // todo 仮
+    if (command_name == Fix.VALKYRIE_BLADE) { return 140; }
     if (command_name == Fix.THE_DARK_INTENSITY) { return 90; } // todo 仮
     if (command_name == Fix.FUTURE_VISION) { return 90; } // todo 仮
     if (command_name == Fix.DETACHMENT_FAULT) { return 90; } // todo 仮
