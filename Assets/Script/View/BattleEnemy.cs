@@ -2273,6 +2273,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.VALKYRIE_BLADE:
+        ExecValkyrieBlade(player, target);
         break;
 
       case Fix.THE_DARK_INTENSITY:
@@ -7058,6 +7059,14 @@ public partial class BattleEnemy : MotherBase
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DEFENSE_UP, Fix.COLOR_NORMAL);
       }
     }
+    BuffImage valkyrieBlade = player.IsValkyrieBlade;
+    if (valkyrieBlade != null)
+    {
+      Debug.Log("Target is valkyrieBlade, then additional damage: " + player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
+      ExecElementalDamage(target, Fix.DamageSource.HolyLight, player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
+      target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_VALKYRIE_SCAR, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_SCAR_JP, Fix.COLOR_NORMAL);
+    }
 
     if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
     {
@@ -8058,6 +8067,12 @@ public partial class BattleEnemy : MotherBase
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_WATER_PRESENCE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecValkyrieBlade(Character player, Character target)
+  {
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.VALKYRIE_BLADE, SecondaryLogic.ValkyrieBlade_Turn(player), 0, 0, 0);
+    StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_BLADE, Fix.COLOR_NORMAL);
   }
   #endregion
 
@@ -9096,6 +9111,13 @@ public partial class BattleEnemy : MotherBase
     if (target.Dead)
     {
       StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    if (target.IsValkyrieScar)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_LIFEGAIN, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
     }

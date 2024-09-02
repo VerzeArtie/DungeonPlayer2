@@ -919,6 +919,22 @@ public static class SecondaryLogic
     return 0.50f;
   }
 
+  public static int ValkyrieBlade_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double ValkyrieBlade_Effect(Character player)
+  {
+    if (player.ValkyrieBlade <= 1) { return 2.50f; }
+    return 2.50f + (player.ValkyrieBlade - 1) * 0.10f;
+  }
+
+  public static int ValkyrieScar_Turn(Character player)
+  {
+    return 5;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

@@ -417,6 +417,8 @@ public static partial class Fix
   public const string EFFECT_RESIST_CANNOT_RESURRECT = "CannotResurrect耐性";
   public const string EFFECT_REMOVE_CANNOT_RESURRECT = "CannotResurrect除去";
 
+  public const string EFFECT_CANNOT_LIFEGAIN = "回復不可";
+
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
   public const string BUFF_PD_UP = "BuffPhysicalDefenseUp";
@@ -439,6 +441,9 @@ public static partial class Fix
   // アクションコマンド
   public const string BUFF_CIRCLE_IGNITE = "炎輪";
   public const string BUFF_WATER_PRESENCE = "水脈";
+  public const string BUFF_VALKYRIE_BLADE = "聖剣";
+  public const string BUFF_VALKYRIE_SCAR = "Valkyrie Scar";
+  public const string BUFF_VALKYRIE_SCAR_JP = "聖痕";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
