@@ -838,6 +838,8 @@ public partial class BattleEnemy : MotherBase
         character.imgActionPointList.Add(imageList[jj]);
       }
     }
+
+    character.Target2 = character;
   }
 
   // Update is called once per frame
@@ -1525,7 +1527,14 @@ public partial class BattleEnemy : MotherBase
         RectTransform rectX = AllList[ii].objArrow.GetComponent<RectTransform>();
         if (rectX.position.x >= BATTLE_GAUGE_WITDH)
         {
-          ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
+          if (ActionCommand.IsTarget(AllList[ii].CurrentActionCommand) == ActionCommand.TargetType.Ally)
+          {
+            ExecPlayerCommand(AllList[ii], AllList[ii].Target2, string.Empty);
+          }
+          else
+          {
+            ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
+          }
           UpdatePlayerArrowZero(AllList[ii], AllList[ii].objArrow);
           BuffImage speedStep = AllList[ii].IsSpeedStep;
           if (speedStep != null)
@@ -1559,7 +1568,14 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
     rect.anchorMin = new Vector2(0, 0);
     rect.anchorMax = new Vector2(1, 1);
-    stack.ConstructStack(player, target, command_name, stack_timer, sudden_timer);
+    if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally)
+    {
+      stack.ConstructStack(player, player.Target2, command_name, stack_timer, sudden_timer);
+    }
+    else
+    {
+      stack.ConstructStack(player, target, command_name, stack_timer, sudden_timer);
+    }
     stack.gameObject.SetActive(true);
 
     this.NowStackInTheCommand = true;
@@ -5530,7 +5546,14 @@ public partial class BattleEnemy : MotherBase
     }
     if (stackList[num].StackTimer <= 0)
     {
-      ExecPlayerCommand(stackList[num].Player, stackList[num].Target, stackList[num].StackName);
+      if (ActionCommand.IsTarget(stackList[num].StackName) == ActionCommand.TargetType.Ally)
+      {
+        ExecPlayerCommand(stackList[num].Player, stackList[num].Player.Target2, stackList[num].StackName);
+      }
+      else
+      {
+        ExecPlayerCommand(stackList[num].Player, stackList[num].Target, stackList[num].StackName);
+      }
     }
   }
 
@@ -5791,7 +5814,14 @@ public partial class BattleEnemy : MotherBase
                       UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1002));
                       return;
                     }
-                    PlayerList[ii].Target = AllList[jj];
+                    if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+                    {
+                      PlayerList[ii].Target2 = AllList[jj];
+                    }
+                    else
+                    {
+                      PlayerList[ii].Target = AllList[jj];
+                    }
                     Debug.Log("command: " + NowSelectActionSrcButton.name + " Enemy: " + AllList[jj].FullName);
                     break;
                   }
@@ -5825,6 +5855,7 @@ public partial class BattleEnemy : MotherBase
                 }
 
                 Debug.Log("instant target is " + AllList[ii].FullName);
+                // GUIで直接ターゲット指定している。Target,Target2は意識しなくてよい。
                 ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
                 break;
               }
@@ -6853,65 +6884,29 @@ public partial class BattleEnemy : MotherBase
     if (player.objMainButton == null) { Debug.Log("ObjMainButton is null..."); }
 
     SetupActionCommandButton(player.objMainButton, command_name);
-    Debug.Log("SetupFirstCommand: 2");
     player.txtActionCommand.text = command_name;
-    Debug.Log("SetupFirstCommand: 3");
     ActionCommand.TargetType currentTargetType = ActionCommand.IsTarget(command_name);
-    Debug.Log("SetupFirstCommand: 4");
     List<Character> opponentList = GetOpponentGroup(player);
-    if (currentTargetType == ActionCommand.TargetType.Enemy || currentTargetType == ActionCommand.TargetType.EnemyGroup || currentTargetType == ActionCommand.TargetType.EnemyField)
+
+    // Targetはターゲット種別に依存せず、相手側をターゲットとする。
+    if (player.TargetSelectType == Fix.TargetSelectType.Behind)
     {
-      Debug.Log("SetupFirstCommand: 5");
-      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
-      {
-        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
-      }
-      else
-      {
-        player.Target = GetOpponentGroup(player)[0];
-      }
-      Debug.Log("SetupFirstCommand: 5-2");
-    }
-    else if (currentTargetType == ActionCommand.TargetType.Ally || currentTargetType == ActionCommand.TargetType.AllyGroup || currentTargetType == ActionCommand.TargetType.AllyField)
-    {
-      Debug.Log("SetupFirstCommand: 6");
-      player.Target = GetAllyGroup(player)[0];
-      Debug.Log("SetupFirstCommand: 6-2");
-    }
-    else if (currentTargetType == ActionCommand.TargetType.EnemyOrAlly || currentTargetType == ActionCommand.TargetType.AllMember)
-    {
-      Debug.Log("SetupFirstCommand: 7");
-      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
-      {
-        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
-      }
-      else
-      {
-        player.Target = GetOpponentGroup(player)[0];
-      }
-      Debug.Log("SetupFirstCommand: 7-2");
-    }
-    else if (currentTargetType == ActionCommand.TargetType.Own)
-    {
-      Debug.Log("SetupFirstCommand: 8");
-      player.Target = player;
-      Debug.Log("SetupFirstCommand: 8-2");
+      player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
     }
     else
     {
-      Debug.Log("SetupFirstCommand: 9");
-      // Targetは基本NULLは入れない。何も考えない場合は相手側をターゲットとする。
-      if (player.TargetSelectType == Fix.TargetSelectType.Behind)
-      {
-        player.Target = GetOpponentGroup(player)[opponentList.Count - 1];
-      }
-      else
-      {
-        player.Target = GetOpponentGroup(player)[0];
-      }
-      Debug.Log("SetupFirstCommand: 9-2");
+      player.Target = GetOpponentGroup(player)[0];
     }
-    Debug.Log("SetupFirstCommand: 10");
+
+    // Target2は味方陣営の先頭を対象とする。
+    player.Target2 = GetAllyGroup(player)[0];
+
+    // 自分自身の場合は、Target2を自分自身に設定
+    if (currentTargetType == ActionCommand.TargetType.Own)
+    {
+      player.Target2 = player;
+    }
+    Debug.Log("SetupFirstCommand(E)");
   }
   #endregion
   #endregion
@@ -7065,7 +7060,7 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Target is valkyrieBlade, then additional damage: " + player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
       ExecElementalDamage(target, Fix.DamageSource.HolyLight, player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
       target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_VALKYRIE_SCAR, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_SCAR_JP, Fix.COLOR_NORMAL);
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_SCAR, Fix.COLOR_NORMAL);
     }
 
     if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))

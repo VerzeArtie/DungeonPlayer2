@@ -303,6 +303,13 @@ public partial class Character : MonoBehaviour
     get { return _target; }
   }
 
+  [SerializeField] protected Character _target2 = null;
+  public Character Target2
+  {
+    set { _target2 = value; }
+    get { return _target2; }
+  }
+
   [SerializeField] protected Color _battleBackColor = new Color(0.0f, 0.0f, 0.0f);
   public Color BattleBackColor
   {
@@ -8568,6 +8575,7 @@ public partial class Character : MonoBehaviour
       }
     }
     this.CurrentImmediateCommand = string.Empty;
+    this.Target2 = this;
   }
   #endregion
 
@@ -9351,7 +9359,14 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUMMY_SUBURI:
-        result = Fix.NORMAL_ATTACK;
+        if (AP.Math.RandomInteger(2) == 0)
+        {
+          result = Fix.FRESH_HEAL;
+        }
+        else
+        {
+          result = Fix.NORMAL_ATTACK;
+        }
         break;
 
       default:
