@@ -448,7 +448,7 @@ public static partial class Fix
   public const string BUFF_DARK_INTENSITY_JP = "暗黒精神";
   public const string BUFF_DARK_INTENSITY_UP ="Dark Spirit Up";
   public const string BUFF_DARK_INTENSITY_UP_JP = "暗黒精神増強";
-     
+  public const string BUFF_FUTURE_VISION_JP = "未来視";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

@@ -2297,6 +2297,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.FUTURE_VISION:
+        ExecFutureVision(player);
         break;
 
       case Fix.DETACHMENT_FAULT:
@@ -5517,13 +5518,34 @@ public partial class BattleEnemy : MotherBase
     stackList[num].StackTimer--;
     stackList[num].txtStackTime.text = stackList[num].StackTimer.ToString();
 
+    for (int ii = 0; ii < AllList.Count; ii++)
+    {
+      if (AllList[ii].IsFutureVision)
+      {
+        string currentStackName = stackList[stackList.Length - 1].StackName;
+        Character player = stackList[stackList.Length - 1].Player;
+        Character target = stackList[stackList.Length - 1].Target;
+
+        if ((player.IsEnemy && AllList[ii].IsEnemy == false) ||
+            (player.IsEnemy == false && AllList[ii].IsEnemy))
+        {
+          // FutureVisionはスタック解決中に解消とする。
+          AllList[ii].RemoveTargetBuff(Fix.FUTURE_VISION);
+
+          // 現在のスタックを破棄する。
+          Destroy(stackList[stackList.Length - 1].gameObject);
+          stackList[stackList.Length - 1] = null;
+          CreateStackObject(player, target, currentStackName + " 失敗！（要因：フューチャー・ヴィジョン）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+      }
+    }
     // フロスト・ランス効果がある場合、インスタントはカウンターされる。
     // todo ただし、例外で無効化してくる効果も考えられるため、後にロジック改版。
     BuffImage frostLance = stackList[num].Player?.IsFrostLance ?? null;
     BuffImage counterDisallow = stackList[num].Player?.IsCounterDisallow ?? null;
     if (frostLance != null || counterDisallow != null)
     {
-      Debug.Log("ExecStackInTheCommand frostLance phase length: " + stackList.Length + " " + stackList[stackList.Length - 1].StackName);
+      Debug.Log("ExecStackInTheCommand counter phase length: " + stackList.Length + " " + stackList[stackList.Length - 1].StackName);
       string currentStackName = stackList[stackList.Length - 1].StackName;
       Character player = stackList[stackList.Length - 1].Player;
       Character target = stackList[stackList.Length - 1].Target;
@@ -8099,6 +8121,12 @@ public partial class BattleEnemy : MotherBase
     ExecLifeDown(target, 0.50f);
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.THE_DARK_INTENSITY, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_DARK_INTENSITY_JP, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecFutureVision(Character player)
+  {
+    player.objBuffPanel.AddBuff(prefab_Buff, Fix.FUTURE_VISION, SecondaryLogic.FutureVision_Turn(player), 0, 0, 0);
+    StartAnimation(player.objGroup.gameObject, Fix.BUFF_FUTURE_VISION_JP, Fix.COLOR_NORMAL);
   }
   #endregion
 

@@ -1659,7 +1659,7 @@ public static class ActionCommand
     if (command_name == Fix.WATER_PRESENCE) { return TargetType.Ally; }
     if (command_name == Fix.VALKYRIE_BLADE) { return TargetType.Ally; }
     if (command_name == Fix.THE_DARK_INTENSITY) { return TargetType.Ally; }
-    if (command_name == Fix.FUTURE_VISION) { return TargetType.Own; } // todo 仮
+    if (command_name == Fix.FUTURE_VISION) { return TargetType.Own; }
     if (command_name == Fix.DETACHMENT_FAULT) { return TargetType.EnemyOrAlly; } // todo 仮
     // スキル
     if (command_name == Fix.STANCE_OF_THE_IAI) { return TargetType.Own; } // todo 仮
@@ -2030,7 +2030,7 @@ public static class ActionCommand
     if (command_name == Fix.WATER_PRESENCE) { return 150; }
     if (command_name == Fix.VALKYRIE_BLADE) { return 140; }
     if (command_name == Fix.THE_DARK_INTENSITY) { return 160; }
-    if (command_name == Fix.FUTURE_VISION) { return 90; } // todo 仮
+    if (command_name == Fix.FUTURE_VISION) { return 180; }
     if (command_name == Fix.DETACHMENT_FAULT) { return 90; } // todo 仮
     // スキル
     if (command_name == Fix.STANCE_OF_THE_IAI) { return 50; } // todo 仮
@@ -2396,7 +2396,7 @@ public static class ActionCommand
     if (command_name == Fix.WATER_PRESENCE) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.VALKYRIE_BLADE) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.THE_DARK_INTENSITY) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.FUTURE_VISION) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.FUTURE_VISION) { return Fix.BuffType.Positive; }
     if (command_name == Fix.DETACHMENT_FAULT) { return Fix.BuffType.Neutral; } // todo 仮  // Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
     if (command_name == Fix.STANCE_OF_THE_IAI) { return Fix.BuffType.Positive; } // todo 仮
@@ -2804,7 +2804,7 @@ public static class ActionCommand
     if (command_name == Fix.WATER_PRESENCE) { return false; } // todo 仮
     if (command_name == Fix.VALKYRIE_BLADE) { return false; } // todo 仮
     if (command_name == Fix.THE_DARK_INTENSITY) { return false; } // todo 仮
-    if (command_name == Fix.FUTURE_VISION) { return false; } // todo 仮
+    if (command_name == Fix.FUTURE_VISION) { return false; }
     if (command_name == Fix.DETACHMENT_FAULT) { return false; } // todo 仮  // Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
     if (command_name == Fix.STANCE_OF_THE_IAI) { return false; } // todo 仮

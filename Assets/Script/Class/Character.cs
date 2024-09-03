@@ -2736,6 +2736,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.THE_DARK_INTENSITY); }
   }
 
+  public BuffImage IsFutureVision
+  {
+    get { return SearchBuff(Fix.FUTURE_VISION); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
