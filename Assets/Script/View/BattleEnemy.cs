@@ -2293,6 +2293,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.THE_DARK_INTENSITY:
+        ExecTheDarkIntensity(player, target);
         break;
 
       case Fix.FUTURE_VISION:
@@ -7054,6 +7055,18 @@ public partial class BattleEnemy : MotherBase
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DEFENSE_UP, Fix.COLOR_NORMAL);
       }
     }
+
+    BuffImage theDarkIntensity = target.IsTheDarkIntensity;
+    if (theDarkIntensity)
+    {
+      int beforeCumulative = theDarkIntensity.Cumulative;
+      theDarkIntensity.Cumulative++;
+      if (beforeCumulative != theDarkIntensity.Cumulative)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BUFF_DARK_INTENSITY_UP_JP, Fix.COLOR_NORMAL);
+      }
+    }
+
     BuffImage valkyrieBlade = player.IsValkyrieBlade;
     if (valkyrieBlade != null)
     {
@@ -7166,6 +7179,17 @@ public partial class BattleEnemy : MotherBase
       if (beforeCumulative != stanceOfTheGuard.Cumulative)
       {
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_DEFENSE_UP, Fix.COLOR_NORMAL);
+      }
+    }
+
+    BuffImage theDarkIntensity = target.IsTheDarkIntensity;
+    if (theDarkIntensity)
+    {
+      int beforeCumulative = theDarkIntensity.Cumulative;
+      theDarkIntensity.Cumulative++;
+      if (beforeCumulative != theDarkIntensity.Cumulative)
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.BUFF_DARK_INTENSITY_UP_JP, Fix.COLOR_NORMAL);
       }
     }
 
@@ -8068,6 +8092,13 @@ public partial class BattleEnemy : MotherBase
   {
     target.objBuffPanel.AddBuff(prefab_Buff, Fix.VALKYRIE_BLADE, SecondaryLogic.ValkyrieBlade_Turn(player), 0, 0, 0);
     StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_BLADE, Fix.COLOR_NORMAL);
+  }
+
+  private void ExecTheDarkIntensity(Character player, Character target)
+  {
+    ExecLifeDown(target, 0.50f);
+    target.objBuffPanel.AddBuff(prefab_Buff, Fix.THE_DARK_INTENSITY, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
+    StartAnimation(target.objGroup.gameObject, Fix.BUFF_DARK_INTENSITY_JP, Fix.COLOR_NORMAL);
   }
   #endregion
 

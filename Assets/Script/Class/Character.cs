@@ -2731,6 +2731,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BUFF_VALKYRIE_SCAR); }
   }
 
+  public BuffImage IsTheDarkIntensity
+  {
+    get { return SearchBuff(Fix.THE_DARK_INTENSITY); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {

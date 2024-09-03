@@ -444,6 +444,11 @@ public static partial class Fix
   public const string BUFF_VALKYRIE_BLADE = "聖剣";
   public const string BUFF_VALKYRIE_SCAR = "Valkyrie Scar";
   public const string BUFF_VALKYRIE_SCAR_JP = "聖痕";
+  public const string BUFF_DARK_INTENSITY = "Dark Spirit";
+  public const string BUFF_DARK_INTENSITY_JP = "暗黒精神";
+  public const string BUFF_DARK_INTENSITY_UP ="Dark Spirit Up";
+  public const string BUFF_DARK_INTENSITY_UP_JP = "暗黒精神増強";
+     
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

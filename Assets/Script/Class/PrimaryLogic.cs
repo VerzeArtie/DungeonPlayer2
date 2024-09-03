@@ -157,6 +157,14 @@ public static class PrimaryLogic
       Debug.Log("stanceOfTheBlade detect: " + debug_result.ToString() + " -> " + result);
     }
 
+    BuffImage darkIntensity = player.IsTheDarkIntensity;
+    if (darkIntensity)
+    {
+      double debug_result = result;
+      result = result * (darkIntensity.EffectValue + ((double)(darkIntensity.Cumulative - 1) * darkIntensity.EffectValue2));
+      Debug.Log("darkIntensity detect: " + debug_result.ToString() + " -> " + result);
+    }
+
     BuffImage deadlyDrive = player.IsDeadlyDrive;
     if (deadlyDrive)
     {
@@ -282,6 +290,14 @@ public static class PrimaryLogic
       double debug_result = result;
       result = result * (1.00f + player.IsStanceOfTheGuard.EffectValue * stanceOfTheGuard.Cumulative);
       Debug.Log("stanceOfTheGuard detect: " + debug_result.ToString() + " -> " + result);
+    }
+
+    BuffImage darkIntensity = player.IsTheDarkIntensity;
+    if (darkIntensity)
+    {
+      double debug_result = result;
+      result = result * (darkIntensity.EffectValue + ((double)(darkIntensity.Cumulative - 1) * darkIntensity.EffectValue2));
+      Debug.Log("darkIntensity detect: " + debug_result.ToString() + " -> " + result);
     }
 
     if (player.IsPhysicalDefenseUp)

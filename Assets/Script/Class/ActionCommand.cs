@@ -1655,10 +1655,10 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return TargetType.EnemyField; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return TargetType.EnemyField; }
+    if (command_name == Fix.WATER_PRESENCE) { return TargetType.Ally; }
     if (command_name == Fix.VALKYRIE_BLADE) { return TargetType.Ally; }
-    if (command_name == Fix.THE_DARK_INTENSITY) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.THE_DARK_INTENSITY) { return TargetType.Ally; }
     if (command_name == Fix.FUTURE_VISION) { return TargetType.Own; } // todo 仮
     if (command_name == Fix.DETACHMENT_FAULT) { return TargetType.EnemyOrAlly; } // todo 仮
     // スキル
@@ -2029,7 +2029,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 120; }
     if (command_name == Fix.WATER_PRESENCE) { return 150; }
     if (command_name == Fix.VALKYRIE_BLADE) { return 140; }
-    if (command_name == Fix.THE_DARK_INTENSITY) { return 90; } // todo 仮
+    if (command_name == Fix.THE_DARK_INTENSITY) { return 160; }
     if (command_name == Fix.FUTURE_VISION) { return 90; } // todo 仮
     if (command_name == Fix.DETACHMENT_FAULT) { return 90; } // todo 仮
     // スキル
@@ -2395,7 +2395,7 @@ public static class ActionCommand
     if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return Fix.BuffType.Negative; } // todo 仮
     if (command_name == Fix.WATER_PRESENCE) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.VALKYRIE_BLADE) { return Fix.BuffType.Positive; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.THE_DARK_INTENSITY) { return Fix.BuffType.Positive; }
     if (command_name == Fix.FUTURE_VISION) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.DETACHMENT_FAULT) { return Fix.BuffType.Neutral; } // todo 仮  // Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
@@ -2653,6 +2653,7 @@ public static class ActionCommand
     else if (command_name == Fix.BUFF_LIGHTNING_OUTBURST) { return 5; }
     else if (command_name == Fix.COMMAND_LIGHT_THUNDERBOLT) { return 7; }
     else if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
+    else if (command_name == Fix.THE_DARK_INTENSITY) { return 9; }
 
     return 1; // 通常は累積なし
   }

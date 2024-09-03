@@ -935,6 +935,22 @@ public static class SecondaryLogic
     return 5;
   }
 
+  public static int TheDarkIntensity_Turn(Character player)
+  {
+    if (player.TheDarkIntensity <= 1) { return 5; }
+    return 5 + (player.TheDarkIntensity - 1);
+  }
+
+  public static double TheDarkIntensity_Effect(Character player)
+  {
+    return 1.30f;
+  }
+
+  public static double TheDarkIntensity_Effect2(Character player)
+  {
+    return 0.20f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
