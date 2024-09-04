@@ -1958,6 +1958,7 @@ public partial class BattleEnemy : MotherBase
     this.GlobalAnimationChain++; // コマンド実行をグローバルアニメーションチェインの対象とするが、これが最適かどうかは分からない。
     #region "コマンド実行"
     List<Character> target_list = null;
+    Character currentTarget = null;
     int rand = 0;
     bool success = false;
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
@@ -2242,7 +2243,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.CIRCLE_OF_THE_DESPAIR:
-        ExecCircleOfTheDespair(player, target.objFieldPanel);
+        ExecCircleOfTheDespair(player, target, target.objFieldPanel);
         break;
 
       case Fix.COUNTER_DISALLOW:
@@ -2281,7 +2282,7 @@ public partial class BattleEnemy : MotherBase
       #endregion
       #region "Delve VI"
       case Fix.CIRCLE_OF_THE_IGNITE:
-        ExecCircleOfTheIgnite(player, target.objFieldPanel);
+        ExecCircleOfTheIgnite(player, target, target.objFieldPanel);
         break;
 
       case Fix.WATER_PRESENCE:
@@ -2301,6 +2302,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DETACHMENT_FAULT:
+        ExecDetachmentFault(player, target, player.objFieldPanel, target.objFieldPanel);
         break;
 
       case Fix.STANCE_OF_THE_IAI:
@@ -2873,10 +2875,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_LIGHTNING_OUTBURST:
-        //PanelEnemyField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
-        //StartAnimation(PanelEnemyField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
-        PanelPlayerField.AddBuff(prefab_Buff, Fix.BUFF_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
-        StartAnimation(PanelPlayerField.gameObject, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.COLOR_NORMAL);
+        AbstractAddBuff(target, PanelPlayerField, Fix.BUFF_LIGHTNING_OUTBURST, Fix.COMMAND_LIGHTNING_OUTBURST, Fix.INFINITY, 10, 0, 0);
         break;
 
       case Fix.COMMAND_WILD_STORM:
@@ -3091,9 +3090,6 @@ public partial class BattleEnemy : MotherBase
             ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.70f);
           }
         }
-        // 強すぎるため制限
-        //target_list[0].objFieldPanel.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
-        //StartAnimation(target_list[0].objFieldPanel.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
         break;
 
       case Fix.COMMAND_RENSOU_TOSSHIN:
@@ -3108,16 +3104,14 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_VERDANT_VOICE:
         ExecLifeGain(player, player.MaxLife / 20);
-        player.objFieldPanel.AddBuff(prefab_Buff, Fix.BUFF_VERDANT_VOICE, Fix.INFINITY, 0, 0, 0);
+        AbstractAddBuff(player, player.objFieldPanel, Fix.BUFF_VERDANT_VOICE, Fix.BUFF_VERDANT_VOICE, Fix.INFINITY, 0, 0, 0);
         break;
 
       case Fix.COMMAND_BLACK_SPORE:
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          // ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
-          target_list[ii].objBuffPanel.AddBuff(prefab_Buff, "BlackSpore", Fix.INFINITY, 0, 0, 0);
-          StartAnimation(target_list[ii].objBuffPanel.gameObject, Fix.COMMAND_BLACK_SPORE, Color.black);
+          AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, "BlackSpore", Fix.COMMAND_BLACK_SPORE, Fix.INFINITY, 0, 0, 0);
         }
         break;
 
@@ -3265,12 +3259,14 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_REFLECTION_SHADE:
         target_list = GetAllyGroupAlive(player);
-        target_list[AP.Math.RandomInteger(target_list.Count)].objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_REFLECTION_SHADE, 3, 0, 0, 0);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        AbstractAddBuff(currentTarget, currentTarget.objBuffPanel, Fix.COMMAND_REFLECTION_SHADE, Fix.COMMAND_REFLECTION_SHADE, 3, 0, 0, 0);
         break;
 
       case Fix.COMMAND_ICHIMAI_GUARDWALL:
         target_list = GetAllyGroupAlive(player);
-        target_list[AP.Math.RandomInteger(target_list.Count)].objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_ICHIMAI_GUARDWALL, 3, 0, 0, 0);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        AbstractAddBuff(currentTarget, currentTarget.objBuffPanel, Fix.COMMAND_ICHIMAI_GUARDWALL, Fix.COMMAND_ICHIMAI_GUARDWALL, 3, 0, 0, 0);
         break;
 
       case Fix.COMMAND_MULTIPLE_FEATHER:
@@ -3357,8 +3353,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FAITH_SIGHT:
-        player.objFieldPanel.AddBuff(prefab_Buff, Fix.COMMAND_FAITH_SIGHT, 9, 1200, 0, 0);
-        StartAnimation(player.objFieldPanel.gameObject, Fix.COMMAND_FAITH_SIGHT, Fix.COLOR_NORMAL);
+        AbstractAddBuff(player, player.objFieldPanel, Fix.COMMAND_FAITH_SIGHT, Fix.COMMAND_FAITH_SIGHT, 9, 1200, 0, 0);
         break;
 
       case Fix.COMMAND_SAMAYOU_HAND:
@@ -3371,15 +3366,14 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SEIIN_FOOTPRINT:
-        player.objFieldPanel.AddBuff(prefab_Buff, Fix.COMMAND_SEIIN_FOOTPRINT, 9, 15, 0, 0);
-        StartAnimation(player.objFieldPanel.gameObject, Fix.COMMAND_SEIIN_FOOTPRINT, Fix.COLOR_NORMAL);
+        AbstractAddBuff(player, player.objFieldPanel, Fix.COMMAND_SEIIN_FOOTPRINT, Fix.COMMAND_SEIIN_FOOTPRINT, 9, 15, 0, 0);
         break;
 
       case Fix.COMMAND_LIGHT_THUNDERBOLT:
         success = ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.HolyLight, false, critical);
         if (success)
         {
-          target.objBuffPanel.AddBuff(prefab_Buff, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.INFINITY, 0.10f, 0.10f, 0);
+          AbstractAddBuff(target, target.objBuffPanel, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.INFINITY, 0.10f, 0.10f, 0);
         }
         break;
 
@@ -3941,7 +3935,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DEVIL_EMBLEM:
-        target.objFieldPanel.AddBuff(prefab_Buff, Fix.BUFF_DEVIL_EMBLEM, Fix.INFINITY, 0, 0, 0);
+        AbstractAddBuff(target, target.objFieldPanel, Fix.BUFF_DEVIL_EMBLEM, Fix.BUFF_DEVIL_EMBLEM, Fix.INFINITY, 0, 0, 0);
         break;
 
       case Fix.COMMAND_DEVILSPEAR_MISTELTEN:
@@ -5974,6 +5968,14 @@ public partial class BattleEnemy : MotherBase
       ClearSelectFilterGroup();
       return;
     }
+    // 敵味方全体の場合はその場で選択決定。（DetachmentFaultなど）
+    if (targetType == ActionCommand.TargetType.AllField)
+    {
+      ApplyMainActionCommand(this.NowSelectSrcPlayer, sender.ActionButton, this.NowSelectActionSrcButton, sender.name);
+      ClearSelectFilterGroup();
+      return;
+    }
+
 
     // ターゲット選択状態へ遷移
     this.NowSelectTarget = true;
@@ -7094,8 +7096,7 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("Target is valkyrieBlade, then additional damage: " + player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
       ExecElementalDamage(target, Fix.DamageSource.HolyLight, player.TotalIntelligence * SecondaryLogic.ValkyrieBlade_Effect(player));
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_VALKYRIE_SCAR, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_SCAR, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_VALKYRIE_SCAR, Fix.BUFF_VALKYRIE_SCAR_JP, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
     }
 
     if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
@@ -7231,8 +7232,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.ICE_NEEDLE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.ICE_NEEDLE, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0, 0);
     }
   }
 
@@ -7249,8 +7249,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.SHADOW_BLAST, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.SHADOW_BLAST, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0, 0);
     }
   }
 
@@ -7260,8 +7259,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, false, critical);
     if (success)
     {
-      player.objBuffPanel.AddBuff(prefab_Buff, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0, 0);
-      StartAnimation(player.objGroup.gameObject, Fix.AIR_CUTTER, Fix.COLOR_NORMAL);
+      AbstractAddBuff(player, player.objBuffPanel, Fix.AIR_CUTTER, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0, 0);
     }
   }
 
@@ -7271,8 +7269,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.ROCK_SLAM, SecondaryLogic.RockSlum_Turn(player), SecondaryLogic.RockSlum_Value(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.ROCK_SLAM, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.ROCK_SLAM, Fix.ROCK_SLAM, SecondaryLogic.RockSlum_Turn(player), SecondaryLogic.RockSlum_Value(player), 0, 0);
     }
   }
 
@@ -7289,8 +7286,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.HUNTER_SHOT, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.HUNTER_SHOT, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
     }
   }
 
@@ -7300,8 +7296,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      player.objBuffPanel.AddBuff(prefab_Buff, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0, 0);
-      StartAnimation(player.objGroup.gameObject, Fix.LEG_STRIKE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(player, player.objBuffPanel, Fix.LEG_STRIKE, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0, 0);
     }
   }
 
@@ -7311,8 +7306,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0, 0);
     }
   }
 
@@ -7334,16 +7328,14 @@ public partial class BattleEnemy : MotherBase
         return;
       }
 
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_STUN, SecondaryLogic.ShieldBash_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_STUN, SecondaryLogic.ShieldBash_Turn(player), 0, 0, 0);
     }
   }
 
   private void ExecAuraOfPower(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.AURA_OF_POWER, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.AURA_OF_POWER, Fix.AURA_OF_POWER, SecondaryLogic.AuraOfPower_Turn(player), SecondaryLogic.AuraOfPower_Value(player), 0, 0);
   }
 
   private void ExecDispelMagic(Character player, Character target)
@@ -7356,23 +7348,20 @@ public partial class BattleEnemy : MotherBase
   private void ExecTrueSight(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), SecondaryLogic.TrueSight_Value(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.TRUE_SIGHT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.TRUE_SIGHT, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), SecondaryLogic.TrueSight_Value(player), 0, 0);
   }
 
   private void ExecHeartOfLife(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.HEART_OF_LIFE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.HEART_OF_LIFE, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
   }
 
   private void ExecDarknessCircle(Character player, Character target, BuffField target_field_obj)
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.DARKNESS_CIRCLE, SecondaryLogic.DarknessCircle_Turn(player), SecondaryLogic.DarknessCircle_Value(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.DARKNESS_CIRCLE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target_field_obj, Fix.DARKNESS_CIRCLE, Fix.DARKNESS_CIRCLE, SecondaryLogic.DarknessCircle_Turn(player), SecondaryLogic.DarknessCircle_Value(player), 0, 0);
   }
 
   private void ExecDarkAura(Character player, Character target)
@@ -7398,8 +7387,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), 0, 0);
-    StartAnimation(target.objBuffPanel.gameObject, Fix.FLAME_BLADE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), 0, 0);
   }
 
   private void ExecPurePurification(Character player, Character target)
@@ -7416,22 +7404,19 @@ public partial class BattleEnemy : MotherBase
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.DIVINE_CIRCLE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.DIVINE_CIRCLE, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player), 0, 0);
   }
 
   private void ExecBloodSign(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BLOOD_SIGN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BLOOD_SIGN, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player), 0, 0);
   }
 
   private void ExecSkyShield(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.SKY_SHIELD, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.SKY_SHIELD, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0, 0);
   }
 
   private void ExecCounterAttack(Character player, StackObject[] stack_list)
@@ -7510,8 +7495,7 @@ public partial class BattleEnemy : MotherBase
           Destroy(stack_list[num].gameObject);
           stack_list[num] = null;
 
-          target.objBuffPanel.AddBuff(prefab_Buff, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
-          StartAnimation(target.objGroup.gameObject, Fix.COUNTER_DISALLOW, Fix.COLOR_NORMAL);
+          AbstractAddBuff(target, target.objBuffPanel, Fix.COUNTER_DISALLOW, Fix.COUNTER_DISALLOW, SecondaryLogic.CounterDisallow_Turn(player), 0, 0, 0);
         }
       }
       else
@@ -7556,8 +7540,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecEverflowMind(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EVERFLOW_MIND, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EVERFLOW_MIND, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
   }
 
   private void ExecInnerInspiration(Character player, Character target)
@@ -7569,8 +7552,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecSeventhPrinciple(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SEVENTH_PRINCIPLE, SecondaryLogic.SeventhPrinciple_Turn(player), 0, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.SEVENTH_PRINCIPLE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.SEVENTH_PRINCIPLE, Fix.SEVENTH_PRINCIPLE, SecondaryLogic.SeventhPrinciple_Turn(player), 0, 0, 0);
   }
 
   private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
@@ -7578,8 +7560,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, false, critical);
 
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_BLADE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
   }
 
   private void ExecSpeedStep(Character player, Character target, Fix.CriticalType critical)
@@ -7589,15 +7570,13 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.SpeedStepDamage(player), Fix.DamageSource.Physical, false, critical);
 
     // 対象への物理攻撃がヒットしなくても、自分自身にはBUFF付与する。
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.SPEED_STEP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
   }
 
   private void ExecStanceOfTheGuard(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.STANCE_OF_THE_GUARD, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_GUARD, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
   }
 
   private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
@@ -7613,8 +7592,7 @@ public partial class BattleEnemy : MotherBase
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(player), SecondaryLogic.LeylineSchema_Effect1(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.LEYLINE_SCHEMA, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(player), SecondaryLogic.LeylineSchema_Effect1(player), 0, 0);
   }
 
   private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
@@ -7623,16 +7601,14 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_BIND, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0, 0);
     }
   }
 
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit_Effect1(player), 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.FORTUNE_SPIRIT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.FORTUNE_SPIRIT, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit_Effect1(player), 0, 0);
   }
 
   private void ExecSpiritualRest(Character player, Character target)
@@ -7643,8 +7619,8 @@ public partial class BattleEnemy : MotherBase
       target.RemoveTargetBuff(Fix.EFFECT_STUN);
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_REMOVE_STUN, Fix.COLOR_NORMAL);
     }
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BUFF_RESIST_STUN, Fix.COLOR_NORMAL);
+
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_STUN, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
   }
 
   private void ExecZeroImmunity(Character player, Character target)
@@ -7701,8 +7677,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecBlackContract(Character player)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.BLACK_CONTRACT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.BLACK_CONTRACT, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0, 0);
   }
 
   private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
@@ -7710,7 +7685,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0, 0);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.SONIC_PULSE, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0, 0);
     }
   }
 
@@ -7719,7 +7694,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0, 0);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.LAND_SHATTER, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0, 0);
       if (target.CurrentActionCommand == Fix.DEFENSE || target.CurrentActionCommand == Fix.DEFENSE_JP)
       {
         target.CurrentActionCommand = Fix.STAY;
@@ -7734,7 +7709,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.CONCUSSIVE_HIT, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player), 0, 0);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.CONCUSSIVE_HIT, Fix.CONCUSSIVE_HIT, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player), 0, 0);
     }
   }
 
@@ -7742,16 +7717,14 @@ public partial class BattleEnemy : MotherBase
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.AETHER_DRIVE, SecondaryLogic.AetherDrive_Turn(player), SecondaryLogic.AetherDrive_Effect(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.AETHER_DRIVE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.AETHER_DRIVE, Fix.AETHER_DRIVE, SecondaryLogic.AetherDrive_Turn(player), SecondaryLogic.AetherDrive_Effect(player), 0, 0);
   }
 
   public void ExecKillingWave(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    target_field_obj.AddBuff(prefab_Buff, Fix.KILLING_WAVE, SecondaryLogic.KillingWave_Turn(player), SecondaryLogic.KillingWave_Effect(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.KILLING_WAVE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target_list[0], target_field_obj, Fix.KILLING_WAVE, Fix.KILLING_WAVE, SecondaryLogic.KillingWave_Turn(player), SecondaryLogic.KillingWave_Effect(player), 0, 0);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       if (target_list[ii].CurrentLife > target_list[ii].MaxLife)
@@ -7769,8 +7742,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin_Effect1(player), 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.EYE_OF_THE_ISSHIN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin_Effect1(player), 0, 0);
   }
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
@@ -7778,7 +7750,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.BONE_CRUSH, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
     }
   }
 
@@ -7861,13 +7833,12 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecSigilOfThePending(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
   }
 
   public void ExecStormArmor(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.STORM_ARMOR, SecondaryLogic.StormArmor_Turn(player), SecondaryLogic.StormArmor_SpeedUp(player), SecondaryLogic.StormArmor_Damage(player), 0);
-    StartAnimation(target.objGroup.gameObject, Fix.STORM_ARMOR, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.STORM_ARMOR, Fix.STORM_ARMOR, SecondaryLogic.StormArmor_Turn(player), SecondaryLogic.StormArmor_SpeedUp(player), SecondaryLogic.StormArmor_Damage(player), 0);
   }
 
   public void ExecMuteImpulse(Character player, Character target, Fix.CriticalType critical)
@@ -7880,9 +7851,7 @@ public partial class BattleEnemy : MotherBase
   {
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      target_list[ii].objBuffPanel.AddBuff(prefab_Buff, Fix.VOICE_OF_VIGOR, SecondaryLogic.VoiceOfVigor_Turn(player), SecondaryLogic.VoiceOfVigor(player), 0, 0);
-      StartAnimation(target_list[ii].objGroup.gameObject, Fix.VOICE_OF_VIGOR, Fix.COLOR_NORMAL);
-
+      AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_VIGOR, Fix.VOICE_OF_VIGOR, SecondaryLogic.VoiceOfVigor_Turn(player), SecondaryLogic.VoiceOfVigor(player), 0, 0);
       ExecLifeGain(target_list[ii], (target_list[ii].MaxLife / 10.0f));
     }
   }
@@ -7900,8 +7869,7 @@ public partial class BattleEnemy : MotherBase
   #region "Delve IV"
   public void ExecGaleWind(Character player)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.GALE_WIND, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.GALE_WIND, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0, 0);
   }
 
   public void ExecFreezingCube(Character player, Character target, BuffField target_field_obj, Fix.CriticalType critical)
@@ -7912,8 +7880,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, false, critical);
     if (success)
     {
-      target_field_obj.AddBuff(prefab_Buff, Fix.FREEZING_CUBE, SecondaryLogic.FreezingCube_Turn(player), SecondaryLogic.FreezingCube_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player), 0);
-      StartAnimation(target_field_obj.gameObject, Fix.FREEZING_CUBE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target_field_obj, Fix.FREEZING_CUBE, Fix.FREEZING_CUBE, SecondaryLogic.FreezingCube_Turn(player), SecondaryLogic.FreezingCube_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player), 0);
     }
   }
 
@@ -7924,8 +7891,7 @@ public partial class BattleEnemy : MotherBase
     {
       ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
     }
-    target_field_obj.AddBuff(prefab_Buff, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
-    StartAnimation(target_field_obj.gameObject, Fix.VOLCANIC_BLAZE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target_list[0], target_field_obj, Fix.VOLCANIC_BLAZE, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
   }
 
   private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
@@ -7949,8 +7915,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-    target_field_obj.AddBuff(prefab_Buff, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.ANGELIC_ECHO, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.ANGELIC_ECHO, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(player), 0, 0);
   }
 
   private void ExecCursedEvangile(Character player, Character target, Fix.CriticalType critical)
@@ -7960,8 +7925,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.CursedEvangile(player), Fix.DamageSource.DarkMagic, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.CURSED_EVANGILE, SecondaryLogic.CursedEvangile_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_Effect(player), SecondaryLogic.CursedEvangile_SlepTurn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_SlipFactor(player));
-      StartAnimation(target.objGroup.gameObject, Fix.CURSED_EVANGILE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.CURSED_EVANGILE, Fix.CURSED_EVANGILE, SecondaryLogic.CursedEvangile_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_Effect(player), SecondaryLogic.CursedEvangile_SlepTurn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_SlipFactor(player));
     }
   }
 
@@ -7971,8 +7935,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, true, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
-      StartAnimation(target.objGroup.gameObject, Fix.PENETRATION_ARROW, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+      AbstractAddBuff(target, target.objBuffPanel, Fix.PENETRATION_ARROW, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
     }
   }
 
@@ -7995,8 +7958,8 @@ public partial class BattleEnemy : MotherBase
       // target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLIP); // 出血は解除できない
       // target_list[ii].RemoveTargetBuff(Fix.EFFECT_CANNOT_RESURRECT); // 復活不可は解除できない
     }
-    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_SERENITY, Fix.COLOR_NORMAL);
+
+    AbstractAddBuff(player, target_field_obj, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
   }
 
   private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
@@ -8009,8 +7972,7 @@ public partial class BattleEnemy : MotherBase
         ExecNormalAttack(player, target_list[ii], SecondaryLogic.RagingStorm(player), Fix.DamageSource.Physical, false, critical);
       }
     }
-    target_field_obj.AddBuff(prefab_Buff, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.RAGING_STORM, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.RAGING_STORM, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
   }
 
   private void ExecPrecisionStrike(Character player, Character target)
@@ -8036,26 +7998,22 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecWillAwakening(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WILL_AWAKENING, SecondaryLogic.WillAwakening_Turn(player), 0, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.WILL_AWAKENING, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+    AbstractAddBuff(target, target.objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, SecondaryLogic.WillAwakening_Turn(player), 0, 0, 0);
   }
 
   private void ExecPhantomOboro(Character player)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.PHANTOM_OBORO, SecondaryLogic.PhantomOboro_Turn(player), 0, 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.PHANTOM_OBORO, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+    AbstractAddBuff(player, player.objBuffPanel, Fix.PHANTOM_OBORO, Fix.PHANTOM_OBORO, SecondaryLogic.PhantomOboro_Turn(player), 0, 0, 0);
   }
 
   private void ExecDeadlyDrive(Character player)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
-    StartAnimation(player.objGroup.gameObject, Fix.DEADLY_DRIVE, Fix.COLOR_NORMAL); // todo AddBuffでStartAnimationしていないケースがある。
+    AbstractAddBuff(player, player.objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
   }
 
   private void ExecDominationField(Character player, BuffField target_field_obj)
   {
-    target_field_obj.AddBuff(prefab_Buff, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
-    StartAnimation(target_field_obj.gameObject, Fix.DOMINATION_FIELD, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, target_field_obj, Fix.DOMINATION_FIELD, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
   }
   #endregion
 
@@ -8065,8 +8023,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.FLAME_STRIKE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_STRIKE, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
     }
   }
 
@@ -8075,8 +8032,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FrostLance(player), Fix.DamageSource.Ice, false, critical);
     if (success)
     {
-      target.objBuffPanel.AddBuff(prefab_Buff, Fix.FROST_LANCE, SecondaryLogic.FrostLance_Turn(player), 0, 0, 0);
-      StartAnimation(target.objGroup.gameObject, Fix.FROST_LANCE, Fix.COLOR_NORMAL);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.FROST_LANCE, Fix.FROST_LANCE, SecondaryLogic.FrostLance_Turn(player), 0, 0, 0);
     }
   }
 
@@ -8085,49 +8041,49 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     double healValue = target.MaxLife;
     AbstractHealCommand(player, target, healValue);
-    target_field_obj.AddBuff(prefab_Buff, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.SHINING_HEAL, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target_field_obj, Fix.SHINING_HEAL, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
   }
 
-  private void ExecCircleOfTheDespair(Character player, BuffField target_field_obj)
+  private void ExecCircleOfTheDespair(Character player, Character target, BuffField target_field_obj)
   {
-    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.CIRCLE_OF_THE_DESPAIR, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_DESPAIR, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
   }
   #endregion
 
   #region "Delve VI"
-  private void ExecCircleOfTheIgnite(Character player, BuffField target_field_obj)
+  private void ExecCircleOfTheIgnite(Character player, Character target, BuffField target_field_obj)
   {
     double effectValue = player.TotalIntelligence * SecondaryLogic.CircleOfTheIgnite_Effect(player);
-    target_field_obj.AddBuff(prefab_Buff, Fix.CIRCLE_OF_THE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
-    StartAnimation(target_field_obj.gameObject, Fix.BUFF_CIRCLE_IGNITE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_IGNITE, Fix.BUFF_CIRCLE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
   }
 
   private void ExecWaterPresence(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BUFF_WATER_PRESENCE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.WATER_PRESENCE, Fix.BUFF_WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
   }
 
   private void ExecValkyrieBlade(Character player, Character target)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.VALKYRIE_BLADE, SecondaryLogic.ValkyrieBlade_Turn(player), 0, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BUFF_VALKYRIE_BLADE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.VALKYRIE_BLADE, Fix.BUFF_VALKYRIE_BLADE, SecondaryLogic.ValkyrieBlade_Turn(player), 0, 0, 0);
   }
 
   private void ExecTheDarkIntensity(Character player, Character target)
   {
     ExecLifeDown(target, 0.50f);
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.THE_DARK_INTENSITY, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BUFF_DARK_INTENSITY_JP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.THE_DARK_INTENSITY, Fix.BUFF_DARK_INTENSITY_JP, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
   }
 
   private void ExecFutureVision(Character player)
   {
-    player.objBuffPanel.AddBuff(prefab_Buff, Fix.FUTURE_VISION, SecondaryLogic.FutureVision_Turn(player), 0, 0, 0);
-    StartAnimation(player.objGroup.gameObject, Fix.BUFF_FUTURE_VISION_JP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(player, player.objBuffPanel, Fix.FUTURE_VISION, Fix.BUFF_FUTURE_VISION_JP, SecondaryLogic.FutureVision_Turn(player), 0, 0, 0);
   }
+
+  private void ExecDetachmentFault(Character player, Character target, BuffField player_field_obj, BuffField target_field_obj)
+  {
+    AbstractAddBuff(player, player_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
+    AbstractAddBuff(target, target_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
+  }
+
   #endregion
 
   #region "Delve VII"
@@ -8359,8 +8315,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POISON, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POISON, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffSilent(Character player, Character target, int turn, double effect_value)
@@ -8371,8 +8326,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SILENT, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SILENT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_SILENT, Fix.EFFECT_SILENT, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBind(Character player, Character target, int turn, double effect_value)
@@ -8383,8 +8337,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_BIND, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BIND, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_BIND, Fix.EFFECT_BIND, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffSleep(Character player, Character target, int turn, double effect_value)
@@ -8395,8 +8348,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLEEP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLEEP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_SLEEP, Fix.EFFECT_SLEEP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffStun(Character player, Character target, int turn, double effect_value)
@@ -8407,8 +8359,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_STUN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_STUN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_STUN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffParalyze(Character player, Character target, int turn, double effect_value)
@@ -8419,8 +8370,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_PARALYZE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PARALYZE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_PARALYZE, Fix.EFFECT_PARALYZE, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffFreeze(Character player, Character target, int turn, double effect_value)
@@ -8431,8 +8381,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_FREEZE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FREEZE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_FREEZE, Fix.EFFECT_FREEZE, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffFear(Character player, Character target, int turn, double effect_value)
@@ -8443,21 +8392,8 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_FEAR, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FEAR, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_FEAR, Fix.EFFECT_FEAR, turn, effect_value, 0, 0);
   }
-
-  //private void ExecBuffTemptation(Character player, Character target, int turn, double effect_value)
-  //{
-  //  if (target.GetResistTemptationLogic())
-  //  {
-  //    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_TEMPTATION, Fix.COLOR_NORMAL);
-  //    return;
-  //  }
-
-  //  target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_TEMPTATION, turn, effect_value, 0, 0);
-  //  StartAnimation(target.objGroup.gameObject, Fix.EFFECT_TEMPTATION, Fix.COLOR_NORMAL);
-  //}
 
   private void ExecBuffSlow(Character player, Character target, int turn, double effect_value)
   {
@@ -8467,8 +8403,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLOW, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLOW, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_SLOW, Fix.EFFECT_SLOW, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffDizzy(Character player, Character target, int turn, double effect_value)
@@ -8479,8 +8414,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_DIZZY, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DIZZY, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_DIZZY, Fix.EFFECT_DIZZY, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffSlip(Character player, Character target, int turn, double effect_value)
@@ -8491,8 +8425,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_SLIP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_SLIP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_SLIP, Fix.EFFECT_SLIP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffCannotResurrect(Character player, Character target, int turn, double effect_value)
@@ -8503,181 +8436,151 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_CANNOT_RESURRECT, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, Fix.EFFECT_CANNOT_RESURRECT, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffPhysicalAttackUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PA_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PA_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PA_UP, Fix.EFFECT_PA_UP, turn, effect_value, 0, 0);
   }
   private void ExecBuffPhysicalAttackDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PA_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PA_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PA_DOWN, Fix.EFFECT_PA_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffPhysicalDefenseUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PD_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PD_UP, Fix.EFFECT_PD_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffPhysicalDefenseDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PD_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PD_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PD_DOWN, Fix.EFFECT_PD_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffMagicAttackUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MA_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MA_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MA_UP, Fix.EFFECT_MA_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffMagicAttackDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MA_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MA_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MA_DOWN, Fix.EFFECT_MA_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffMagicDefenceUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MD_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MD_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MD_UP, Fix.EFFECT_MD_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffMagicDefenceDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_MD_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_MD_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MD_DOWN, Fix.EFFECT_MD_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattleSpeedUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BS_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BS_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_BS_UP, Fix.EFFECT_BS_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattleSpeedDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BS_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BS_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_BS_DOWN, Fix.EFFECT_BS_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattleResponseUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BR_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BR_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_BR_UP, Fix.EFFECT_BR_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattleResponseDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_BR_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_BR_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_BR_DOWN, Fix.EFFECT_BR_DOWN, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattlePotentialUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PO_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PO_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PO_UP, Fix.EFFECT_PO_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffBattlePotentialDown(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_PO_DOWN, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_PO_DOWN, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PO_DOWN, Fix.EFFECT_PO_DOWN, turn, effect_value, 0, 0);
   }
 
   private void BuffUpFire(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_FIRE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_FIRE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_FIRE, Fix.EFFECT_POWERUP_FIRE, turn, effect_value, 0, 0);
   }
 
   private void BuffDownFire(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_FIRE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_FIRE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_FIRE, Fix.EFFECT_POWERDOWN_FIRE, turn, effect_value, 0, 0);
   }
 
   private void BuffUpIce(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_ICE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_ICE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_ICE, Fix.EFFECT_POWERUP_ICE, turn, effect_value, 0, 0);
   }
 
   private void BuffDownIce(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_ICE, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_ICE, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_ICE, Fix.EFFECT_POWERDOWN_ICE, turn, effect_value, 0, 0);
   }
 
   private void BuffUpLight(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_LIGHT, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_LIGHT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_LIGHT, Fix.EFFECT_POWERUP_LIGHT, turn, effect_value, 0, 0);
   }
 
   private void BuffDownLight(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_LIGHT, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_LIGHT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_LIGHT, Fix.EFFECT_POWERDOWN_LIGHT, turn, effect_value, 0, 0);
   }
 
   private void BuffUpShadow(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_SHADOW, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_SHADOW, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_SHADOW, Fix.EFFECT_POWERUP_SHADOW, turn, effect_value, 0, 0);
   }
 
   private void BuffDownShadow(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_SHADOW, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_LIGHT, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_SHADOW, Fix.EFFECT_POWERDOWN_SHADOW, turn, effect_value, 0, 0);
   }
 
   private void BuffUpWind(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_WIND, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_WIND, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_WIND, Fix.EFFECT_POWERUP_WIND, turn, effect_value, 0, 0);
   }
 
   private void BuffDownWind(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_WIND, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_WIND, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_WIND, Fix.EFFECT_POWERDOWN_WIND, turn, effect_value, 0, 0);
   }
 
   private void BuffUpEarth(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERUP_EARTH, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERUP_EARTH, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERUP_EARTH, Fix.EFFECT_POWERUP_EARTH, turn, effect_value, 0, 0);
   }
 
   private void BuffDownEarth(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_POWERDOWN_EARTH, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_POWERDOWN_EARTH, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POWERDOWN_EARTH, Fix.EFFECT_POWERDOWN_EARTH, turn, effect_value, 0, 0);
   }
 
   private void BuffResistFireUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_RESIST_FIRE_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FIRE_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_RESIST_FIRE_UP, Fix.EFFECT_RESIST_FIRE_UP, turn, effect_value, 0, 0);
   }
 
   private void BuffResistIceUp(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.EFFECT_RESIST_ICE_UP, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_ICE_UP, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_RESIST_ICE_UP, Fix.EFFECT_RESIST_ICE_UP, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffSyutyuDanzetsu(Character player, Character target, int turn, double effect_value)
   {
-    target.objBuffPanel.AddBuff(prefab_Buff, Fix.BUFF_SYUTYU_DANZETSU, turn, effect_value, 0, 0);
-    StartAnimation(target.objGroup.gameObject, Fix.BUFF_SYUTYU_DANZETSU, Fix.COLOR_NORMAL);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_SYUTYU_DANZETSU, Fix.BUFF_SYUTYU_DANZETSU, turn, effect_value, 0, 0);
   }
 
   #region "元核"
@@ -9254,6 +9157,17 @@ public partial class BattleEnemy : MotherBase
 
     target.ResurrectPlayer(gain_life);
     StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESURRECT_JP, Fix.COLOR_NORMAL);
+  }
+
+  private void AbstractAddBuff(Character target, BuffField buff_field, string buff_name, string view_buff_name, int remain_counter, double effect1, double effect2, double effect3)
+  {
+    if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_NORMAL);
+      return;
+    }
+    buff_field.AddBuff(prefab_Buff, buff_name, remain_counter, effect1, effect2, effect3);
+    StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
   }
 
   private void UpdateExp(Character character, int gain_exp)

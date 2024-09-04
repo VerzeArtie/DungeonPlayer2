@@ -956,6 +956,12 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
+  public static int DetachmentFault_Turn(Character player)
+  {
+    if (player.DetachmentFault <= 1) { return 2; }
+    return 2 + (player.DetachmentFault - 1);
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
