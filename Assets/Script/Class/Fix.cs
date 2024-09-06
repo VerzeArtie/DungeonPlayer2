@@ -282,6 +282,7 @@ public static partial class Fix
   #endregion
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;
+  public static Color COLOR_WARNING = Color.red;
   public static Color COLOR_HEAL = Color.green;
   public static Color COLOR_GAIN_MP = Color.blue;
   public static Color COLOR_GAIN_SP = Color.yellow;

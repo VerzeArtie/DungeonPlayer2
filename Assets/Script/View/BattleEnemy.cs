@@ -924,6 +924,7 @@ public partial class BattleEnemy : MotherBase
         BuffImage syutyuDanzetsu = AllList[ii].IsSyutyuDanzetsu;
         if (syutyuDanzetsu != null)
         {
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveBuffを介さない。
           syutyuDanzetsu.RemoveBuff();
         }
         return;
@@ -3603,7 +3604,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          target_list[ii].RemoveBuff(1, Fix.BuffType.Positive);
+          AbstractRemoveBuff(target_list[ii], target_list[ii].objBuffPanel, "", 1, Fix.BuffType.Positive);
         }
         break;
 
@@ -4545,7 +4546,7 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecLifeGain(target_list[ii], 5000 + AP.Math.RandomInteger(2000));
-          target_list[ii].RemoveBuff(1, Fix.BuffType.Negative);
+          AbstractRemoveBuff(target_list[ii], target_list[ii].objBuffPanel, "", 1, Fix.BuffType.Negative);
         }
         break;
 
@@ -4554,7 +4555,7 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, false, critical);
-          target_list[ii].RemoveBuff(1, Fix.BuffType.Positive);
+          AbstractRemoveBuff(target_list[ii], target_list[ii].objBuffPanel, "", 1, Fix.BuffType.Positive);
         }
         break;
 
@@ -4583,7 +4584,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_JEWEL_BREAK:
         ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
-        target.RemoveBuff(2, Fix.BuffType.Positive);
+        AbstractRemoveBuff(target, target.objBuffPanel, "", 2, Fix.BuffType.Positive);
         break;
 
       case Fix.COMMAND_STAR_DUST:
@@ -5524,6 +5525,7 @@ public partial class BattleEnemy : MotherBase
             (player.IsEnemy == false && AllList[ii].IsEnemy))
         {
           // FutureVisionはスタック解決中に解消とする。
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
           AllList[ii].RemoveTargetBuff(Fix.FUTURE_VISION);
 
           // 現在のスタックを破棄する。
@@ -6799,7 +6801,7 @@ public partial class BattleEnemy : MotherBase
             BuffImage[] buffList = PlayerList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0) 
             {
-              PlayerList[jj].RemoveBuff(1, Fix.BuffType.Negative);
+              AbstractRemoveBuff(PlayerList[jj], PlayerList[jj].objBuffPanel, "", 1, Fix.BuffType.Negative);
               detectAngelicEchoEffectAlly = true;
             }
           }
@@ -6819,7 +6821,7 @@ public partial class BattleEnemy : MotherBase
             BuffImage[] buffList = EnemyList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0)
             {
-              EnemyList[jj].RemoveBuff(1, Fix.BuffType.Negative);
+              AbstractRemoveBuff(EnemyList[jj], EnemyList[jj].objBuffPanel, "", 1, Fix.BuffType.Negative);
               detectAngelicEchoEffectEnemy = true;
             }
           }
@@ -7005,6 +7007,7 @@ public partial class BattleEnemy : MotherBase
         StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
         if (buffImage.EffectValue <= 0)
         {
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveBuffを介さない。
           buffImage.RemoveBuff();
         }
         return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
@@ -7021,6 +7024,7 @@ public partial class BattleEnemy : MotherBase
         StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
         if (buffImage.EffectValue <= 0)
         {
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveBuffを介さない。
           buffImage.RemoveBuff();
         }
         return false; // FAITH_SIGHTで吸収された場合はヒットしたことにならない。
@@ -7036,6 +7040,7 @@ public partial class BattleEnemy : MotherBase
     // モンスター特有
     if (target.IsIchimaiGuardwall != null)
     {
+      // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
       target.RemoveTargetBuff(Fix.COMMAND_ICHIMAI_GUARDWALL);
       ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
       return true;
@@ -7158,6 +7163,7 @@ public partial class BattleEnemy : MotherBase
         StartAnimationGroupPanel(buffImage.gameObject, Fix.BATTLE_DIVINE + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
         if (buffImage.EffectValue <= 0)
         {
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveBuffを介さない。
           buffImage.RemoveBuff();
         }
         return false; // ディバイン・フィールドで吸収された場合はヒットしたことにならない。
@@ -7173,6 +7179,7 @@ public partial class BattleEnemy : MotherBase
     // モンスター特有
     if (target.IsReflectionShade != null)
     {
+      // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
       target.RemoveTargetBuff(Fix.COMMAND_REFLECTION_SHADE);
       ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
       return true;
@@ -7341,8 +7348,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    target.RemoveBuff(SecondaryLogic.DispelMagic_Value(player), Fix.BuffType.Positive);
-    StartAnimation(target.objGroup.gameObject, Fix.DISPEL_MAGIC, Fix.COLOR_NORMAL);
+    AbstractRemoveBuff(target, target.objBuffPanel, Fix.DISPEL_MAGIC, SecondaryLogic.DispelMagic_Value(player), Fix.BuffType.Positive);
   }
 
   private void ExecTrueSight(Character player, Character target)
@@ -7396,8 +7402,7 @@ public partial class BattleEnemy : MotherBase
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
     AbstractHealCommand(player, target, healValue);
 
-    target.RemoveBuff(SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
-    StartAnimation(target.objGroup.gameObject, Fix.PURE_PURIFICATION, Fix.COLOR_NORMAL);
+    AbstractRemoveBuff(target, target.objBuffPanel, Fix.PURE_PURIFICATION, SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
   }
 
   private void ExecDivineCircle(Character player, Character target, BuffField target_field_obj)
@@ -7616,8 +7621,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     if (target.IsStun)
     {
-      target.RemoveTargetBuff(Fix.EFFECT_STUN);
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_REMOVE_STUN, Fix.COLOR_NORMAL);
+      AbstractRemoveTargetBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_REMOVE_STUN);
     }
 
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_STUN, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
@@ -7944,19 +7948,19 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_POISON); // 猛毒は解除できない
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SILENT);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_BIND);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLEEP);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_STUN);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_PARALYZE);
-      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_FREEZE); // 凍結は解除できない
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_FEAR);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_TEMPTATION);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLOW);
-      target_list[ii].RemoveTargetBuff(Fix.EFFECT_DIZZY);
-      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_SLIP); // 出血は解除できない
-      // target_list[ii].RemoveTargetBuff(Fix.EFFECT_CANNOT_RESURRECT); // 復活不可は解除できない
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_POISON, ""); // 猛毒は解除できない
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SILENT, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_BIND, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLEEP, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_STUN, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_PARALYZE, "");
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_FREEZE, ""); // 凍結は解除できない
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_FEAR, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_TEMPTATION, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLOW, "");
+      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_DIZZY, "");
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLIP, ""); // 出血は解除できない
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 復活不可は解除できない
     }
 
     AbstractAddBuff(player, target_field_obj, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
@@ -9163,11 +9167,39 @@ public partial class BattleEnemy : MotherBase
   {
     if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
     {
-      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_NORMAL);
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
       return;
     }
     buff_field.AddBuff(prefab_Buff, buff_name, remain_counter, effect1, effect2, effect3);
     StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
+  }
+
+  private void AbstractRemoveBuff(Character target, BuffField buff_field, string view_buff_name, int num, Fix.BuffType buff_type)
+  {
+    if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+    target.RemoveBuff(num, buff_type);
+    if (view_buff_name != "")
+    {
+      StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
+    }
+  }
+
+  private void AbstractRemoveTargetBuff(Character target, BuffField buff_field, string buff_name, string view_buff_name)
+  {
+    if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+    target.RemoveTargetBuff(buff_name);
+    if (view_buff_name != "")
+    {
+      StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
+    }
   }
 
   private void UpdateExp(Character character, int gain_exp)
