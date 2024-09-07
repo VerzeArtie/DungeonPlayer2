@@ -978,6 +978,11 @@ public static class SecondaryLogic
     return 1.20f;
   }
 
+  public static int OneImmunity_Turn(Character player)
+  {
+    return 3;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

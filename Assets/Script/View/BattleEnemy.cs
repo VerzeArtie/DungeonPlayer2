@@ -2311,6 +2311,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.ONE_IMMUNITY:
+        ExecOneImmunity(player);
         break;
 
       case Fix.ETERNAL_CONCENTRATION:
@@ -8117,6 +8118,11 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_IAI, Fix.BUFF_STANCE_OF_THE_IAI_JP, SecondaryLogic.StanceoftheIai_Turn(player), SecondaryLogic.StanceoftheIai_Effect(player), SecondaryLogic.StanceoftheIai_Effect2(player), 0);
   }
 
+  private void ExecOneImmunity(Character player)
+  {
+    AbstractAddBuff(player, player.objBuffPanel, Fix.ONE_IMMUNITY, Fix.BUFF_ONE_IMMUNITY_JP, SecondaryLogic.OneImmunity_Turn(player), 0, 0, 0);
+  }
+
   private void ExecResurrection(Character player, Character target)
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
@@ -9070,6 +9076,12 @@ public partial class BattleEnemy : MotherBase
     int beforeTargetLife = target.CurrentLife;
 
     if (damageValue <= 0) { damageValue = 0; }
+
+    if (target.IsOneImmunity)
+    {
+      damageValue = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_ONE_IMMUNITY_JP, Fix.COLOR_GUARD, animation_speed);
+    }
 
     int result = (int)damageValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");

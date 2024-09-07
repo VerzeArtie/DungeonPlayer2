@@ -2746,6 +2746,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.STANCE_OF_THE_IAI); }
   }
 
+  public BuffImage IsOneImmunity
+  {
+    get { return SearchBuff(Fix.ONE_IMMUNITY); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {

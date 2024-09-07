@@ -283,6 +283,7 @@ public static partial class Fix
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;
   public static Color COLOR_WARNING = Color.red;
+  public static Color COLOR_GUARD = Color.magenta;
   public static Color COLOR_HEAL = Color.green;
   public static Color COLOR_GAIN_MP = Color.blue;
   public static Color COLOR_GAIN_SP = Color.yellow;
@@ -453,6 +454,7 @@ public static partial class Fix
   public const string BUFF_DETACHMENT_FAULT_JP = "無下";
   public const string BUFF_FAILED = "BUFF操作無効";
   public const string BUFF_STANCE_OF_THE_IAI_JP = "居合";
+  public const string BUFF_ONE_IMMUNITY_JP = "唯一円";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
