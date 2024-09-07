@@ -1662,7 +1662,7 @@ public static class ActionCommand
     if (command_name == Fix.FUTURE_VISION) { return TargetType.Own; }
     if (command_name == Fix.DETACHMENT_FAULT) { return TargetType.AllField; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return TargetType.Own; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return TargetType.Own; }
     if (command_name == Fix.ONE_IMMUNITY) { return TargetType.Ally; } // todo 仮
     if (command_name == Fix.STANCE_OF_MUIN) { return TargetType.Own; } // todo 仮
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return TargetType.Ally; } // todo 仮
@@ -2033,7 +2033,7 @@ public static class ActionCommand
     if (command_name == Fix.FUTURE_VISION) { return 180; }
     if (command_name == Fix.DETACHMENT_FAULT) { return 250; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return 50; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return 55; }
     if (command_name == Fix.ONE_IMMUNITY) { return 50; } // todo 仮
     if (command_name == Fix.STANCE_OF_MUIN) { return 50; } // todo 仮
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return 50; } // todo 仮
@@ -2399,7 +2399,7 @@ public static class ActionCommand
     if (command_name == Fix.FUTURE_VISION) { return Fix.BuffType.Positive; }
     if (command_name == Fix.DETACHMENT_FAULT) { return Fix.BuffType.Neutral; }// Neutralは有益／有害のいずれでもないので、打ち消し難い
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return Fix.BuffType.Positive; }
     if (command_name == Fix.ONE_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.STANCE_OF_MUIN) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; } // todo 仮
@@ -2807,7 +2807,7 @@ public static class ActionCommand
     if (command_name == Fix.FUTURE_VISION) { return false; }
     if (command_name == Fix.DETACHMENT_FAULT) { return false; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return false; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return false; }
     if (command_name == Fix.ONE_IMMUNITY) { return false; } // todo 仮
     if (command_name == Fix.STANCE_OF_MUIN) { return false; } // todo 仮
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return false; } // todo 仮
