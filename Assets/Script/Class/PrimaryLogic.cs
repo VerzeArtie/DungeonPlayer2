@@ -605,6 +605,12 @@ public static class PrimaryLogic
     {
       result = result * (1.00f + player.IsSpeedStep.EffectValue * player.IsSpeedStep.Cumulative);
     }
+    BuffImage stanceOftheIai = player.IsStanceOfTheIai;
+    if (stanceOftheIai)
+    {
+      result = result * stanceOftheIai.EffectValue2;
+    }
+
     if (player.IsBattleReponseUp)
     {
       result = result * player.IsBattleReponseUp.EffectValue;

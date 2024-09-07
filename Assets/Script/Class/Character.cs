@@ -2741,6 +2741,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.FUTURE_VISION); }
   }
 
+  public BuffImage IsStanceOfTheIai
+  {
+    get { return SearchBuff(Fix.STANCE_OF_THE_IAI); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -9371,7 +9376,14 @@ public partial class Character : MonoBehaviour
       case Fix.DUMMY_SUBURI:
         if (AP.Math.RandomInteger(2) == 0)
         {
-          result = Fix.FRESH_HEAL;
+          if (this.IsStanceOfTheIai == false)
+          {
+            result = Fix.STANCE_OF_THE_IAI;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
         }
         else
         {

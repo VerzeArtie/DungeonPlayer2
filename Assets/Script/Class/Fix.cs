@@ -452,6 +452,7 @@ public static partial class Fix
   public const string BUFF_FUTURE_VISION_JP = "未来視";
   public const string BUFF_DETACHMENT_FAULT_JP = "無下";
   public const string BUFF_FAILED = "BUFF操作無効";
+  public const string BUFF_STANCE_OF_THE_IAI_JP = "居合";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

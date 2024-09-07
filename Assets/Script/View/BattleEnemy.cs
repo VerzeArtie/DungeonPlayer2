@@ -2307,6 +2307,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.STANCE_OF_THE_IAI:
+        ExecStanceoftheIai(player);
         break;
 
       case Fix.ONE_IMMUNITY:
@@ -5534,6 +5535,27 @@ public partial class BattleEnemy : MotherBase
           CreateStackObject(player, target, currentStackName + " 失敗！（要因：フューチャー・ヴィジョン）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
         }
       }
+
+      if (AllList[ii].IsStanceOfTheIai)
+      {
+        string currentStackName = stackList[stackList.Length - 1].StackName;
+        Character player = stackList[stackList.Length - 1].Player;
+        Character target = stackList[stackList.Length - 1].Target;
+
+        if ((player.IsEnemy && AllList[ii].IsEnemy == false && ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName)) ||
+            (player.IsEnemy == false && AllList[ii].IsEnemy && ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName)))
+        {
+          ExecNormalAttack(target, player, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+          // StanceoftheIaiはスタック解決中に解消とする。
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
+          AllList[ii].RemoveTargetBuff(Fix.STANCE_OF_THE_IAI);
+
+          // 現在のスタックを破棄する。
+          Destroy(stackList[stackList.Length - 1].gameObject);
+          stackList[stackList.Length - 1] = null;
+          CreateStackObject(player, target, currentStackName + " 失敗！（要因：スタンス・オブ・ザ・イアイ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+      }
     }
     // フロスト・ランス効果がある場合、インスタントはカウンターされる。
     // todo ただし、例外で無効化してくる効果も考えられるため、後にロジック改版。
@@ -8087,10 +8109,14 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(player, player_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
     AbstractAddBuff(target, target_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
   }
-
   #endregion
 
   #region "Delve VII"
+  private void ExecStanceoftheIai(Character player)
+  {
+    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_IAI, Fix.BUFF_STANCE_OF_THE_IAI_JP, SecondaryLogic.StanceoftheIai_Turn(player), SecondaryLogic.StanceoftheIai_Effect(player), SecondaryLogic.StanceoftheIai_Effect2(player), 0);
+  }
+
   private void ExecResurrection(Character player, Character target)
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));

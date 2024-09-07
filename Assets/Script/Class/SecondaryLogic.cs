@@ -962,6 +962,22 @@ public static class SecondaryLogic
     return 2 + (player.DetachmentFault - 1);
   }
 
+  public static int StanceoftheIai_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double StanceoftheIai_Effect(Character player)
+  {
+    if (player.StanceOfTheIai <= 1) { return 2.00f; }
+    return 2.00f + (player.StanceOfTheIai - 1) * 0.20f;
+  }
+
+  public static double StanceoftheIai_Effect2(Character player)
+  {
+    return 1.20f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
