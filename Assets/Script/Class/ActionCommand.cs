@@ -1391,7 +1391,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return TimingType.Sorcery; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return TimingType.Normal; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return TimingType.Sorcery; }
     if (command_name == Fix.RESURRECTION) { return TimingType.Sorcery; }
     if (command_name == Fix.DEATH_SCYTHE) { return TimingType.Sorcery; }
     if (command_name == Fix.GENESIS) { return TimingType.Instant; }
@@ -1672,7 +1672,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return TargetType.EnemyGroup; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return TargetType.Enemy; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return TargetType.Enemy; }
     if (command_name == Fix.RESURRECTION) { return TargetType.Ally; }
     if (command_name == Fix.DEATH_SCYTHE) { return TargetType.Enemy; } // todo 仮
     if (command_name == Fix.GENESIS) { return TargetType.Own; }
@@ -2042,7 +2042,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return 1000; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return 1; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return 900; }
     if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 120; } // todo 仮
     if (command_name == Fix.GENESIS) { return 120; } // todo 仮
@@ -2407,7 +2407,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return Fix.BuffType.None; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return Fix.BuffType.Negative; }
     if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; } // todo 仮
     if (command_name == Fix.GENESIS) { return Fix.BuffType.None; } // todo 仮
@@ -2818,7 +2818,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return true; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return false; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return false; }
     if (command_name == Fix.RESURRECTION) { return false; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return true; } // todo 仮
     if (command_name == Fix.GENESIS) { return false; } // todo 仮
