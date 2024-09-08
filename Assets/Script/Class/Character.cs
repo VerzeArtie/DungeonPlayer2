@@ -2751,6 +2751,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.ONE_IMMUNITY); }
   }
 
+  public BuffImage IsStanceOfMuin
+  {
+    get { return SearchBuff(Fix.STANCE_OF_MUIN); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -9383,11 +9388,11 @@ public partial class Character : MonoBehaviour
         {
           if (this.IsStanceOfTheIai == false)
           {
-            result = Fix.STANCE_OF_THE_IAI;
+            result = Fix.ICE_NEEDLE;
           }
           else
           {
-            result = Fix.NORMAL_ATTACK;
+            result = Fix.COMMAND_POISON_NEEDLE;
           }
         }
         else

@@ -455,6 +455,8 @@ public static partial class Fix
   public const string BUFF_FAILED = "BUFF操作無効";
   public const string BUFF_STANCE_OF_THE_IAI_JP = "居合";
   public const string BUFF_ONE_IMMUNITY_JP = "唯一円";
+  public const string BUFF_STANCE_OF_MUIN_JP = "無音";
+  public const string BUFF_MINUS_IMMUNE = "負BUFF無効";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

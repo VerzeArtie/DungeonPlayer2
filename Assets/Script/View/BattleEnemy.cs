@@ -2314,6 +2314,10 @@ public partial class BattleEnemy : MotherBase
         ExecOneImmunity(player);
         break;
 
+      case Fix.STANCE_OF_MUIN:
+        ExecStanceofMuin(player);
+        break;
+
       case Fix.ETERNAL_CONCENTRATION:
         break;
 
@@ -8123,6 +8127,11 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(player, player.objBuffPanel, Fix.ONE_IMMUNITY, Fix.BUFF_ONE_IMMUNITY_JP, SecondaryLogic.OneImmunity_Turn(player), 0, 0, 0);
   }
 
+  private void ExecStanceofMuin(Character player)
+  {
+    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_MUIN, Fix.BUFF_STANCE_OF_MUIN_JP, SecondaryLogic.StanceofMuin_Turn(player), SecondaryLogic.StanceofMuin_Effect(player), 0, 0);
+  }
+
   private void ExecResurrection(Character player, Character target)
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
@@ -9208,6 +9217,15 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
       return;
     }
+
+    BuffImage stanceOftheMuin = target.IsStanceOfMuin;
+    if (stanceOftheMuin && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Negative)
+    {
+      stanceOftheMuin.CumulativeDown(1);
+      StartAnimation(buff_field.gameObject, Fix.BUFF_MINUS_IMMUNE, Fix.COLOR_GUARD);
+      return;
+    }
+
     buff_field.AddBuff(prefab_Buff, buff_name, remain_counter, effect1, effect2, effect3);
     StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
   }

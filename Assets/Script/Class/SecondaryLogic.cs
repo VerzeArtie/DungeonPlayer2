@@ -983,6 +983,16 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static int StanceofMuin_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static int StanceofMuin_Effect(Character player)
+  {
+    return 5;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
