@@ -2319,6 +2319,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.ETERNAL_CONCENTRATION:
+        ExecEternalConcentration(player);
         break;
 
       case Fix.SIGIL_OF_THE_FAITH:
@@ -6778,6 +6779,18 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      if (AllList[ii].IsEternalConcentration)
+      {
+        List<Character> target_list = GetOpponentGroupAlive(AllList[ii]);
+        for (int jj = 0; jj < target_list.Count; jj++)
+        {
+          if (AllList[ii].Target == target_list[jj])
+          {
+            AbstractAddBuff(AllList[ii].Target, AllList[ii].Target.objBuffPanel, Fix.BUFF_FOCUS_EYE, Fix.BUFF_FOCUS_EYE_JP, SecondaryLogic.FocusEye_Turn(AllList[ii]), 1, SecondaryLogic.FocusEye_Effect(), 0);
+          }
+        }
+      }
+
       if (AllList[ii].IsBlackSpore)
       {
         int random = AP.Math.RandomInteger(4);
@@ -7072,6 +7085,12 @@ public partial class BattleEnemy : MotherBase
       ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
       return true;
       // 反射に関するロジック構築は必要だが、モンスターの単発行動であるため、これで良い。
+    }
+
+    BuffImage focusEye = target.IsFocusEye;
+    if (focusEye)
+    {
+      damageValue = damageValue * (1.00f + focusEye.EffectValue2 * focusEye.Cumulative);
     }
 
     // ダメージ適用
@@ -8130,6 +8149,11 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceofMuin(Character player)
   {
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_MUIN, Fix.BUFF_STANCE_OF_MUIN_JP, SecondaryLogic.StanceofMuin_Turn(player), SecondaryLogic.StanceofMuin_Effect(player), 0, 0);
+  }
+
+  private void ExecEternalConcentration(Character player)
+  {
+    AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_CONCENTRATION, Fix.BUFF_ETERNAL_CONCENTRATION_JP, SecondaryLogic.EternalConcentration_Turn(player), SecondaryLogic.EternalConcentration_Effect(player), 0, 0);
   }
 
   private void ExecResurrection(Character player, Character target)

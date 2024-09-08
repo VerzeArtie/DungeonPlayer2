@@ -1665,7 +1665,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_IAI) { return TargetType.Own; }
     if (command_name == Fix.ONE_IMMUNITY) { return TargetType.Own; }
     if (command_name == Fix.STANCE_OF_MUIN) { return TargetType.Own; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return TargetType.Own; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TargetType.Ally; } // todo 仮
     if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.Ally; } // todo 仮
     #endregion
@@ -2036,7 +2036,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_IAI) { return 55; }
     if (command_name == Fix.ONE_IMMUNITY) { return 60; }
     if (command_name == Fix.STANCE_OF_MUIN) { return 40; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 50; } // todo 仮
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 40; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 50; } // todo 仮
     if (command_name == Fix.ZERO_IMMUNITY) { return 50; } // todo 仮
     #endregion
@@ -2402,7 +2402,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_IAI) { return Fix.BuffType.Positive; }
     if (command_name == Fix.ONE_IMMUNITY) { return Fix.BuffType.Positive; }
     if (command_name == Fix.STANCE_OF_MUIN) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return Fix.BuffType.Positive; } // todo 仮
     if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
     #endregion
@@ -2655,6 +2655,7 @@ public static class ActionCommand
     else if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
     else if (command_name == Fix.THE_DARK_INTENSITY) { return 9; }
     else if (command_name == Fix.STANCE_OF_MUIN) { return 5; }
+    else if (command_name == Fix.BUFF_FOCUS_EYE) { return 9; }
 
     return 1; // 通常は累積なし
   }
@@ -2662,7 +2663,8 @@ public static class ActionCommand
   public static CumulativeType GetCumulativeType(string command_name)
   {
     if (command_name == Fix.FORTUNE_SPIRIT ||
-        command_name == Fix.STANCE_OF_MUIN)
+        command_name == Fix.STANCE_OF_MUIN ||
+        command_name == Fix.BUFF_FOCUS_EYE)
     {
       return CumulativeType.Cumulative;
     }
@@ -2812,7 +2814,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_THE_IAI) { return false; }
     if (command_name == Fix.ONE_IMMUNITY) { return false; }
     if (command_name == Fix.STANCE_OF_MUIN) { return false; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return false; } // todo 仮
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return false; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return false; } // todo 仮
     if (command_name == Fix.ZERO_IMMUNITY) { return false; } // todo 仮
     #endregion

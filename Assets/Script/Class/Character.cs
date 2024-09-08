@@ -2756,6 +2756,16 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.STANCE_OF_MUIN); }
   }
 
+  public BuffImage IsEternalConcentration
+  {
+    get { return SearchBuff(Fix.ETERNAL_CONCENTRATION); }
+  }
+
+  public BuffImage IsFocusEye
+  {
+    get { return SearchBuff(Fix.BUFF_FOCUS_EYE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {

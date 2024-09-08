@@ -457,6 +457,9 @@ public static partial class Fix
   public const string BUFF_ONE_IMMUNITY_JP = "唯一円";
   public const string BUFF_STANCE_OF_MUIN_JP = "無音";
   public const string BUFF_MINUS_IMMUNE = "負BUFF無効";
+  public const string BUFF_ETERNAL_CONCENTRATION_JP = "超集中";
+  public const string BUFF_FOCUS_EYE = "Focus Eye";
+  public const string BUFF_FOCUS_EYE_JP = "凝視";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

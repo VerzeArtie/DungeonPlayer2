@@ -993,6 +993,27 @@ public static class SecondaryLogic
     return 5;
   }
 
+  public static int EternalConcentration_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double EternalConcentration_Effect(Character player)
+  {
+    if (player.EternalConcentration <= 1) { return 1.20f; }
+    return 1.20f + (player.EternalConcentration - 1) * 0.20f;
+  }
+
+  public static int FocusEye_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double FocusEye_Effect()
+  {
+    return 0.20f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
