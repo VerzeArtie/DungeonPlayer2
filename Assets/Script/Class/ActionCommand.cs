@@ -1385,7 +1385,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_MUIN) { return TimingType.Normal; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return TimingType.Instant; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TimingType.Normal; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.StackCommand; }
     #endregion
 
     #region "Delve VII"
@@ -1539,7 +1539,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return TimingType.Normal; }
     if (command_name == Fix.KILLING_WAVE) { return TimingType.Normal; }
     if (command_name == Fix.IRREGULAR_STEP) { return TimingType.Instant; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
     #endregion
 
     return TimingType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -1667,7 +1666,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_MUIN) { return TargetType.Own; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return TargetType.Own; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TargetType.AllyField; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
     #endregion
 
     #region "Delve VII"
@@ -1821,7 +1820,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return TargetType.AllyField; }
     if (command_name == Fix.KILLING_WAVE) { return TargetType.EnemyField; }
     if (command_name == Fix.IRREGULAR_STEP) { return TargetType.InstantTarget; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.InstantTarget; }
     #endregion
 
     #region "Monster"
@@ -2038,7 +2036,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_MUIN) { return 40; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return 40; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 30; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return 50; } // todo 仮
+    if (command_name == Fix.ZERO_IMMUNITY) { return 30; }
     #endregion
 
     #region "Delve VII"
@@ -2192,7 +2190,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return 18; }
     if (command_name == Fix.KILLING_WAVE) { return 19; }
     if (command_name == Fix.IRREGULAR_STEP) { return 12; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return 17; }
     #endregion
 
     #region "Monster"
@@ -2404,7 +2401,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_MUIN) { return Fix.BuffType.Positive; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve VII"
@@ -2558,7 +2555,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.BuffType.Negative; }
     if (command_name == Fix.IRREGULAR_STEP) { return Fix.BuffType.None; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.None; }
     #endregion
 
     #region "Monster"
@@ -2816,7 +2812,7 @@ public static class ActionCommand
     if (command_name == Fix.STANCE_OF_MUIN) { return false; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return false; }
     if (command_name == Fix.SIGIL_OF_THE_FAITH) { return false; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return false; } // todo 仮
+    if (command_name == Fix.ZERO_IMMUNITY) { return false; }
     #endregion
 
     #region "Delve VII"
@@ -2973,7 +2969,6 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SEA_STRIVE) { return true; }
     if (command_name == Fix.COMMAND_PLATINUM_BLADE) { return true; }
     if (command_name == Fix.COMMAND_CHARGE) { return true; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return false; }
     #endregion
 
     #region "一般系統"
@@ -3251,7 +3246,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
     if (command_name == Fix.IRREGULAR_STEP) { return Fix.IRREGULAR_STEP_JP; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return Fix.ZERO_IMMUNITY_JP; }
     #endregion
 
     // todo 一般系統は色々足りていない可能性がある。
@@ -3525,7 +3519,6 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
     if (command_name == Fix.IRREGULAR_STEP) { return Fix.IRREGULAR_STEP_JP; }
-    //if (command_name == Fix.ZERO_IMMUNITY) { return Fix.ZERO_IMMUNITY_JP; }
 
     if (command_name == Fix.DARK_AURA) { return "味方一体を対象とする。対象に【黒炎】のBUFFを付与する。\r\nターン経過毎にこのBUFFは累積カウント＋１される。累積カウントが３を超えた場合、消失する。\r\n【黒炎】が続く間、対象の魔法攻撃が上昇する。上昇は累積カウントの分だけ上昇する。"; }
     #endregion

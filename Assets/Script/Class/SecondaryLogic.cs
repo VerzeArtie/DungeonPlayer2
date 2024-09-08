@@ -1047,6 +1047,14 @@ public static class SecondaryLogic
       }
     }
 
+    if (command_name == Fix.ZERO_IMMUNITY)
+    {
+      if (player != null && player.ZeroImmunity > 1)
+      {
+        result -= (player.ZeroImmunity - 1) * 5;
+      }
+    }
+
     if (command_name == Fix.FLASH_COUNTER)
     {
       if (player != null && player.FlashCounter > 1)

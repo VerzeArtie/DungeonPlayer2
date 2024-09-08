@@ -2327,7 +2327,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.ZERO_IMMUNITY:
-        ExecZeroImmunity(player, target);
+        ExecZeroImmunity(player, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
       #endregion
       #region "Delve VII"
@@ -7681,9 +7681,27 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_STUN, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
   }
 
-  private void ExecZeroImmunity(Character player, Character target)
+  private void ExecZeroImmunity(Character player, StackObject[] stack_list)
   {
-    // todo
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+
+      // カウンターできない。
+      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+          stack_list[num].StackName == Fix.IRON_BUSTER ||
+          stack_list[num].StackName == Fix.PRECISION_STRIKE ||
+          stack_list[num].Player.IsWillAwakening != null)
+      {
+        StartAnimation(stack_list[num].gameObject, "Cannot be countered!", Fix.COLOR_NORMAL);
+      }
+      else
+      {
+        StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
+        Destroy(stack_list[num].gameObject);
+        stack_list[num] = null;
+      }
+    }    
   }
 
   private void ExecCircleSlash(Character player, List<Character> target_list, Fix.CriticalType critical)
