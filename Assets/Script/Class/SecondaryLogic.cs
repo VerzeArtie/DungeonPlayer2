@@ -1025,6 +1025,12 @@ public static class SecondaryLogic
     return 1.20f + (player.SigilOfTheFaith - 1) * 0.10f;
   }
 
+  public static double LavaAnnihilation(Character player)
+  {
+    if (player.LavaAnnihilation <= 1) { return 5.00f; }
+    return 5.00f + (player.LavaAnnihilation - 1) * 1.00f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

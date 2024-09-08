@@ -2332,6 +2332,8 @@ public partial class BattleEnemy : MotherBase
       #endregion
       #region "Delve VII"
       case Fix.LAVA_ANNIHILATION:
+        target_list = GetOpponentGroup(player);
+        ExecLavaAnnihilation(player, target_list, player.objFieldPanel, critical);
         break;
 
       case Fix.ABSOLUTE_ZERO:
@@ -8193,6 +8195,16 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "Delve VII"
+  private void ExecLavaAnnihilation(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    for (int ii = 0; ii < target_list.Count; ii++)
+    {
+      ExecMagicAttack(player, target_list[ii], SecondaryLogic.LavaAnnihilation(player), Fix.DamageSource.Fire, false, critical);
+    }
+  }
+
+
   private void ExecResurrection(Character player, Character target)
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
