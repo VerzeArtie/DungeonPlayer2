@@ -1384,7 +1384,7 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return TimingType.Instant; }
     if (command_name == Fix.STANCE_OF_MUIN) { return TimingType.Normal; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return TimingType.Instant; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TimingType.Instant; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TimingType.Normal; }
     if (command_name == Fix.ZERO_IMMUNITY) { return TimingType.Instant; }
     #endregion
 
@@ -1666,7 +1666,7 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return TargetType.Own; }
     if (command_name == Fix.STANCE_OF_MUIN) { return TargetType.Own; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return TargetType.Own; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return TargetType.AllyField; }
     if (command_name == Fix.ZERO_IMMUNITY) { return TargetType.Ally; } // todo 仮
     #endregion
 
@@ -2037,7 +2037,7 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return 60; }
     if (command_name == Fix.STANCE_OF_MUIN) { return 40; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return 40; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 50; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 30; }
     if (command_name == Fix.ZERO_IMMUNITY) { return 50; } // todo 仮
     #endregion
 
@@ -2403,7 +2403,7 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return Fix.BuffType.Positive; }
     if (command_name == Fix.STANCE_OF_MUIN) { return Fix.BuffType.Positive; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return Fix.BuffType.Positive; }
     if (command_name == Fix.ZERO_IMMUNITY) { return Fix.BuffType.Positive; } // todo 仮
     #endregion
 
@@ -2815,7 +2815,7 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return false; }
     if (command_name == Fix.STANCE_OF_MUIN) { return false; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return false; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return false; } // todo 仮
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return false; }
     if (command_name == Fix.ZERO_IMMUNITY) { return false; } // todo 仮
     #endregion
 
