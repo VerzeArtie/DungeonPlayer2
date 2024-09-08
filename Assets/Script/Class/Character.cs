@@ -460,7 +460,15 @@ public partial class Character : MonoBehaviour
   [SerializeField] protected bool _isDefense = false;
   public bool IsDefense
   {
-    get { return _isDefense; }
+    get 
+    {
+      if (this.IsAbsoluteZero)
+      {
+        return false;
+      }
+
+      return _isDefense; 
+    }
   }
 
   [SerializeField] protected bool _isEnemy = false;
@@ -2792,6 +2800,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsFocusEye
   {
     get { return SearchBuff(Fix.BUFF_FOCUS_EYE); }
+  }
+
+  public BuffImage IsAbsoluteZero
+  {
+    get { return SearchBuff(Fix.ABSOLUTE_ZERO); }
   }
 
   // 魔法：基本耐性
@@ -8442,7 +8455,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(10, 10, 10, 99999, 10, 100, 0, 0);
+        SetupParameter(1000, 100, 1000, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
@@ -9426,7 +9439,7 @@ public partial class Character : MonoBehaviour
         {
           if (this.IsStanceOfTheIai == false)
           {
-            result = Fix.ICE_NEEDLE;
+            result = Fix.ABSOLUTE_ZERO;
           }
           else
           {

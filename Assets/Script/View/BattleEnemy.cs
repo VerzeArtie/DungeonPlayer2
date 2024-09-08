@@ -1769,6 +1769,20 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
     }
+
+    // コマンド名指定が無い場合は、プレイヤーが現在選択しているアクションコマンドを実行する。
+    if (command_name == string.Empty)
+    {
+      command_name = player.CurrentActionCommand;
+    }
+
+    if (command_name == string.Empty)
+    {
+      Debug.Log("command_name is empty, then no action.");
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      return;
+    }
+
     if (ActionCommand.GetTiming(player.CurrentActionCommand) == ActionCommand.TimingType.Sorcery)
     {
       if (player.CurrentInstantPoint < player.MaxInstantPoint)
@@ -1790,6 +1804,25 @@ public partial class BattleEnemy : MotherBase
           player.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(player) * player.MaxInstantPoint;
         }
         player.UpdateActionPointGauge();
+      }
+    }
+
+    if (player.IsAbsoluteZero)
+    {
+      Debug.Log("detect player.IsAbsoluteZero");
+      if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill ||
+          ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic ||
+          command_name == Fix.DEFENSE ||
+          command_name == Fix.NORMAL_ATTACK ||
+          command_name == Fix.NORMAL_ATTACK_JP ||
+          command_name == Fix.MAGIC_ATTACK)
+      {
+        StartAnimation(player.objGroup.gameObject, Fix.BUFF_CANNOT_MOVE_JP, Fix.COLOR_WARNING);
+        return;
+      }
+      else
+      {
+        Debug.Log("detect player.IsAbsoluteZero but through... " + command_name);
       }
     }
 
@@ -1822,19 +1855,6 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("Target is dead, But ignore it. IsTarget is " + ActionCommand.IsTarget(command_name).ToString());
       }
-    }
-
-    // コマンド名指定が無い場合は、プレイヤーが現在選択しているアクションコマンドを実行する。
-    if (command_name == string.Empty)
-    {
-      command_name = player.CurrentActionCommand;
-    }
-
-    if (command_name == string.Empty)
-    {
-      Debug.Log("command_name is empty, then no action.");
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
-      return;
     }
 
     if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
@@ -2337,6 +2357,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.ABSOLUTE_ZERO:
+        ExecAbsoluteZero(player, target);
         break;
 
       case Fix.RESURRECTION:
@@ -8204,6 +8225,10 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  private void ExecAbsoluteZero(Character player, Character target)
+  {
+    AbstractAddBuff(target, target.objBuffPanel, Fix.ABSOLUTE_ZERO, Fix.BUFF_ABSOLUTE_ZERO_JP, SecondaryLogic.AbsoluteZero_Turn(player), 0, 0, 0);
+  }
 
   private void ExecResurrection(Character player, Character target)
   {
@@ -9203,6 +9228,13 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    if (target.IsAbsoluteZero)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
     // ヒールなので、防御姿勢で軽減はしない。
     // if (target.IsDefense) { healValue = healValue / 3.0f; }
 
@@ -9229,6 +9261,13 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    if (target.IsAbsoluteZero)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
     // ゲイン量が負の値になる場合は０とみなす。
     if (gainValue <= 0) { gainValue = 0; }
 
@@ -9248,6 +9287,13 @@ public partial class BattleEnemy : MotherBase
     if (target.Dead)
     {
       StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    if (target.IsAbsoluteZero)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
     }

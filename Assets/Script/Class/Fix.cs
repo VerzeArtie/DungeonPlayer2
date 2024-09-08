@@ -461,6 +461,9 @@ public static partial class Fix
   public const string BUFF_FOCUS_EYE = "Focus Eye";
   public const string BUFF_FOCUS_EYE_JP = "凝視";
   public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
+  public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
+  public const string BUFF_CANNOT_MOVE_JP = "動作不能";
+  public const string BUFF_CANNOT_GAIN_JP = "回復不能";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

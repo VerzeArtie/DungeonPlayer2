@@ -1031,6 +1031,12 @@ public static class SecondaryLogic
     return 5.00f + (player.LavaAnnihilation - 1) * 1.00f;
   }
 
+  public static int AbsoluteZero_Turn(Character player)
+  {
+    if (player.AbsoluteZero <= 1) { return 2; }
+    return 2 + (player.AbsoluteZero - 1);
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

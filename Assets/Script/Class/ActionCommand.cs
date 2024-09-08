@@ -1391,7 +1391,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return TimingType.Sorcery; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return TimingType.Sorcery; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return TimingType.Normal; }
     if (command_name == Fix.RESURRECTION) { return TimingType.Sorcery; }
     if (command_name == Fix.DEATH_SCYTHE) { return TimingType.Sorcery; }
     if (command_name == Fix.GENESIS) { return TimingType.Instant; }
@@ -2042,7 +2042,7 @@ public static class ActionCommand
     #region "Delve VII"
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return 1000; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return 120; } // todo 仮
+    if (command_name == Fix.ABSOLUTE_ZERO) { return 1; } // todo 仮
     if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 120; } // todo 仮
     if (command_name == Fix.GENESIS) { return 120; } // todo 仮
