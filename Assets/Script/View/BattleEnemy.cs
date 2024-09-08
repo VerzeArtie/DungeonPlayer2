@@ -8133,9 +8133,7 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(player, player_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
     AbstractAddBuff(target, target_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
   }
-  #endregion
 
-  #region "Delve VII"
   private void ExecStanceoftheIai(Character player)
   {
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_IAI, Fix.BUFF_STANCE_OF_THE_IAI_JP, SecondaryLogic.StanceoftheIai_Turn(player), SecondaryLogic.StanceoftheIai_Effect(player), SecondaryLogic.StanceoftheIai_Effect2(player), 0);
@@ -8155,7 +8153,9 @@ public partial class BattleEnemy : MotherBase
   {
     AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_CONCENTRATION, Fix.BUFF_ETERNAL_CONCENTRATION_JP, SecondaryLogic.EternalConcentration_Turn(player), SecondaryLogic.EternalConcentration_Effect(player), 0, 0);
   }
+  #endregion
 
+  #region "Delve VII"
   private void ExecResurrection(Character player, Character target)
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
