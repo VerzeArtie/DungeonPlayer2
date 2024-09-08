@@ -460,6 +460,7 @@ public static partial class Fix
   public const string BUFF_ETERNAL_CONCENTRATION_JP = "超集中";
   public const string BUFF_FOCUS_EYE = "Focus Eye";
   public const string BUFF_FOCUS_EYE_JP = "凝視";
+  public const string BUFF_SIGIL_OF_THE_FAITH_JP = "信仰";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

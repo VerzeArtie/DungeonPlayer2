@@ -1014,6 +1014,17 @@ public static class SecondaryLogic
     return 0.20f;
   }
 
+  public static int SigilOfTheFaith_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double SigilOfTheFaith_Effect(Character player)
+  {
+    if (player.SigilOfTheFaith <= 1) { return 1.20f; }
+    return 1.20f + (player.SigilOfTheFaith - 1) * 0.10f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

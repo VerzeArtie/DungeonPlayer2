@@ -2323,6 +2323,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.SIGIL_OF_THE_FAITH:
+        ExecSigiloftheFaith(player, target, player.objFieldPanel);
         break;
 
       case Fix.ZERO_IMMUNITY:
@@ -6791,6 +6792,13 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      BuffImage sigilOfTheFaith = AllList[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH);
+      if (sigilOfTheFaith)
+      {
+        AbstractGainManaPoint(AllList[ii], AllList[ii], AllList[ii].MaxManaPoint - (AllList[ii].MaxManaPoint / sigilOfTheFaith.EffectValue));
+        AbstractGainSkillPoint(AllList[ii], AllList[ii], AllList[ii].MaxSkillPoint - (AllList[ii].MaxSkillPoint / sigilOfTheFaith.EffectValue));
+      }
+
       if (AllList[ii].IsBlackSpore)
       {
         int random = AP.Math.RandomInteger(4);
@@ -8152,6 +8160,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecEternalConcentration(Character player)
   {
     AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_CONCENTRATION, Fix.BUFF_ETERNAL_CONCENTRATION_JP, SecondaryLogic.EternalConcentration_Turn(player), SecondaryLogic.EternalConcentration_Effect(player), 0, 0);
+  }
+
+  private void ExecSigiloftheFaith(Character player, Character target, BuffField player_field_obj)
+  {
+    AbstractAddBuff(player, player_field_obj, Fix.SIGIL_OF_THE_FAITH, Fix.BUFF_SIGIL_OF_THE_FAITH_JP, SecondaryLogic.SigilOfTheFaith_Turn(player), SecondaryLogic.SigilOfTheFaith_Effect(player), 0, 0);
+    List<Character> player_list = GetAllyGroupAlive(player);
+    for (int ii = 0; ii < player_list.Count; ii++)
+    {
+      AbstractGainManaPoint(player_list[ii], player_list[ii], player_list[ii].MaxManaPoint - (player_list[ii].MaxManaPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
+      AbstractGainSkillPoint(player_list[ii], player_list[ii], player_list[ii].MaxSkillPoint - (player_list[ii].MaxSkillPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
+    }
   }
   #endregion
 
