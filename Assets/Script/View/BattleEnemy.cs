@@ -8271,7 +8271,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)
   {
-    ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.PhysicalMixed, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.KineticSmash_Effect(player), Fix.DamageSource.PhysicalMixed, false, critical);
   }
   #endregion
 
