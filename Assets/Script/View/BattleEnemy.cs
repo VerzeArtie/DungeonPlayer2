@@ -1987,11 +1987,11 @@ public partial class BattleEnemy : MotherBase
     {
       #region "一般"
       case Fix.NORMAL_ATTACK:
-        ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.MAGIC_ATTACK:
-        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, false, critical);
+        ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.DEFENSE:
@@ -2379,6 +2379,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.CATASTROPHE:
+        ExecCatastrophe(player, target, critical);
         break;
 
       case Fix.CARNAGE_RUSH:
@@ -2505,7 +2506,7 @@ public partial class BattleEnemy : MotherBase
       #region "モンスターアクション"
       // 以下、モンスターアクションはmagic numberでよい
       case Fix.COMMAND_HIKKAKI:
-        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_GREEN_NENEKI:
@@ -2517,15 +2518,15 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WILD_CLAW:
-        ExecNormalAttack(player, target, 1.35f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.35f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_KAMITSUKI:
-        ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TREE_SONG:
-        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.8f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -2533,11 +2534,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUN_FIRE:
-        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+        ExecMagicAttack(player, target, 1.35f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2545,7 +2546,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_FEATHER_WING:
-        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.5f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSleep(player, target, 1, 0);
@@ -2553,7 +2554,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DASH_KERI:
-        success = ExecNormalAttack(player, target, 1.1f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.1f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 1, 0.30f);
@@ -2561,7 +2562,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUITSUKU_TSUTA:
-        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlow(player, target, 2, 0.5f);
@@ -2569,7 +2570,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPIDER_NET:
-        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.5f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBind(player, target, 2, 0);
@@ -2585,16 +2586,16 @@ public partial class BattleEnemy : MotherBase
         {
           // ランダムで対象を選んで当てる
           List<Character> list = GetOpponentGroup(player);
-          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.85f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.85f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_FIRE_EMISSION:
-        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+        ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_SUPER_TOSSHIN:
-        success = ExecNormalAttack(player, target, 1.5f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.5f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2611,7 +2612,7 @@ public partial class BattleEnemy : MotherBase
           // ランダムで対象を選んで当てる
           // ダメージアニメーション速度を上げる。
           List<Character> list = GetOpponentGroup(player);
-          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, false, Fix.CriticalType.None, 25);
+          ExecMagicAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.5, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None, 25);
         }
         break;
 
@@ -2620,7 +2621,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DRILL_CYCLONE:
-        success = ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2631,7 +2632,7 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 5; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecNormalAttack(player, PlayerList[rand], 1.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
+          ExecNormalAttack(player, PlayerList[rand], 1.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Random);
         }
         break;
 
@@ -2655,7 +2656,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_GAREKI_TSUBUTE:
-        success = ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2663,7 +2664,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SHADOW_SPEAR:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
@@ -2674,7 +2675,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target_list[jj], 0.9f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[jj], 0.9f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -2703,7 +2704,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAND_CANNON:
-        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffDizzy(player, target, 2, 0.30f);
@@ -2715,7 +2716,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_NEEDLE:
-        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPoison(player, target, 3, 33);
@@ -2723,11 +2724,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CHARGE_LANCE:
-        ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+        ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
         break;
 
       case Fix.COMMAND_SPIKE_SHOT:
-        success = ExecNormalAttack(player, target, 1.4f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.4f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2735,7 +2736,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_JUBAKU_ON:
-        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.9f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalDefenseDown(player, target, 5, 0.75f);
@@ -2746,20 +2747,20 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target_list[jj], 0.7f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+          ExecNormalAttack(player, target_list[jj], 0.7f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
       case Fix.COMMAND_BOUHATSU:
-        ExecNormalAttack(player, player, 2.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
-        ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, player, 2.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         break;
 
       case Fix.COMMAND_THUNDER_CLOUD:
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
@@ -2767,7 +2768,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          success = ExecNormalAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+          success = ExecNormalAttack(player, target_list[jj], 0.8f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
           if (success)
           {
             rand = AP.Math.RandomInteger(100);
@@ -2780,7 +2781,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAGESHII_KAMITSUKI:
-        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlip(player, target, 3, 25);
@@ -2788,7 +2789,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BOLT_FRAME:
-        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalAttackDown(player, target, 3, 0.75f);
@@ -2809,7 +2810,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+          ExecMagicAttack(player, target_list[jj], 2.0f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
@@ -2817,12 +2818,12 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 3; jj++)
         {
           rand = AP.Math.RandomInteger(PlayerList.Count);
-          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
+          ExecMagicAttack(player, PlayerList[rand], 0.9f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
       case Fix.COMMAND_TARGETTING_SHOT:
-        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffMagicDefenceDown(player, target, 3, 0.75f);
@@ -2837,7 +2838,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          ExecNormalAttack(player, target, 0.5f + (0.5f * rand), Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 0.5f + (0.5f * rand), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -2873,7 +2874,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, false, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         }
         // 相手に魔法攻撃が当たったかどうかに関係なく、自分自身へのBUFFは適用される。
         ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 1.10f);
@@ -2884,12 +2885,12 @@ public partial class BattleEnemy : MotherBase
         for (int jj = 0; jj < 4; jj++)
         {
           double additional = AP.Math.RandomReal() / 2.0f;
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.8f + additional, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.8f + additional, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_ELECTRO_RAILGUN:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -2916,12 +2917,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, false, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_YOUKAIEKI:
-        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBattleSpeedDown(player, target, 2, 0.7f);
@@ -2930,12 +2931,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_TONGUE:
-        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         ExecBuffPoison(player, target, 3, 70);
         break;
 
       case Fix.COMMAND_CONSTRICT:
-        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           rand = AP.Math.RandomInteger(100);
@@ -2958,7 +2959,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_TAIATARI:
-        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 1, 0);
@@ -2966,7 +2967,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WINDFLARE:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlow(player, target, 2, 0.5f);
@@ -2974,7 +2975,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_EARTHBOLT:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Earth, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffBind(player, target, 2, 0);
@@ -2982,7 +2983,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SILENT_SHOT:
-        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffFear(player, target, 2, 0);
@@ -2993,7 +2994,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, false, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
           ExecBuffSilent(player, target_list[jj], 1, 0);
         }
         break;
@@ -3003,7 +3004,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPLASH_HARMONY:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Wind, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffParalyze(player, target, 2, 0);
@@ -3011,7 +3012,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_RANBOU_CHARGE:
-        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPhysicalDefenseDown(player, target, 5, 0.70f);
@@ -3019,7 +3020,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BEAST_STRIKE:
-        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffSlip(player, target, 3, 50);
@@ -3030,12 +3031,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, false, critical);
+          ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_HUHAI_SINKOU:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           if (target.IsPoison == null)
@@ -3054,10 +3055,10 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STRONG_SLASH:
-        success = ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target, 0.30f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+          ExecNormalAttack(player, target, 0.30f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
         }
         break;
 
@@ -3065,7 +3066,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          bool hit = ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, false, critical);
+          bool hit = ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.None, Fix.IgnoreType.None, critical);
           if (hit)
           {
             ExecBuffDizzy(player, target_list[jj], 2, 0.30f);
@@ -3075,7 +3076,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ROCK_THROW:
-        success = ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, false, Fix.CriticalType.None);
+        success = ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffStun(player, target, 2, 0);
@@ -3087,7 +3088,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POISON_SPORE:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, false, Fix.CriticalType.None);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.None, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
           ExecBuffPoison(player, target, 3, 100);
@@ -3097,7 +3098,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_GROUND_RUMBLE:
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecNormalAttack(player, target, 0.70f, Fix.DamageSource.Fire, false, Fix.CriticalType.None);
+          ExecNormalAttack(player, target, 0.70f, Fix.DamageSource.Fire, Fix.IgnoreType.None, Fix.CriticalType.None);
           int random = AP.Math.RandomInteger(3);
           if (random == 0)
           {
@@ -3118,7 +3119,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, false, critical);
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
           if (hit)
           {
             ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.70f);
@@ -3132,7 +3133,7 @@ public partial class BattleEnemy : MotherBase
           // ランダムで対象を選んで当てる
           List<Character> list = GetOpponentGroupAlive(player);
           if (list.Count <= 0) { return; }
-          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.90f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, list[AP.Math.RandomInteger(list.Count)], 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -3150,11 +3151,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_KILL_SPINNING_LANCER:
-        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_WING_BLADE:
-        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Wind, false, critical);
+        success = ExecMagicAttack(player, target, 1.2f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
@@ -3163,7 +3164,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STONE_BLAW:
-        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffPhysicalDefenseDown(player, target, 5, 0.70f);
@@ -3171,7 +3172,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HUMIOROSI:
-        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffMagicDefenceDown(player, target, 5, 0.70f);
@@ -3182,7 +3183,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           if (hit)
           {
             if (AP.Math.RandomInteger(3) == 0)
@@ -3194,7 +3195,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SIPPUUKEN:
-        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffBattleSpeedUp(player, player, 2, 1.30f);
@@ -3205,7 +3206,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          bool hit = ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           if (hit)
           {
             int random = AP.Math.RandomInteger(3);
@@ -3226,7 +3227,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SHIROGANE_HORN:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           target_list = GetAllyGroup(player);
@@ -3238,7 +3239,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_VISIBLE_EYE:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffStun(player, target, 2, 0);
@@ -3255,12 +3256,12 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < 3; ii++)
         {
           int number = AP.Math.RandomInteger(target_list.Count);
-          ExecMagicAttack(player, target_list[number], 1.10f, Fix.DamageSource.Wind, false, critical);         
+          ExecMagicAttack(player, target_list[number], 1.10f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);         
         }
         break;
 
       case Fix.COMMAND_BLUE_LAVA:
-        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         if (success)
         {
           BuffUpIce(player, target, 5, 1.50f);
@@ -3268,7 +3269,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BLUE_BUBBLE:
-        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         if (success)
         {
           BuffDownFire(player, target, 5, 0.30f);
@@ -3276,7 +3277,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WHITE_LAVA:
-        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           BuffUpLight(player, target, 5, 1.50f);
@@ -3284,7 +3285,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WHITE_BUBBLE:
-        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           BuffDownLight(player, target, 5, 0.30f);
@@ -3307,12 +3308,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 0.9f, Fix.DamageSource.Wind, false, critical);
+          ExecMagicAttack(player, target_list[ii], 0.9f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_BRIGHT_FLASH:
-        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffParalyze(player, target, 3, 0);
@@ -3322,12 +3323,12 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_CYCLONE_SHOT:
         for (int ii = 0; ii < 2; ii++)
         {
-          ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.Wind, false, critical);
+          ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_MORPH_VANISH:
-        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 0.8f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           int random = AP.Math.RandomInteger(3);
@@ -3347,7 +3348,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ROD_AGARTHA:
-        success = ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffMagicAttackUp(player, player, 5, 1.20f);
@@ -3355,7 +3356,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SWORD_MAHOROBA:
-        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
@@ -3366,12 +3367,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.7f, Fix.DamageSource.Wind, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.7f, Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_RAGING_CLAW:
-        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffSlip(player, target, 4, 200);
@@ -3379,7 +3380,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CLEANSING_LIGHT:
-        success = ExecMagicAttack(player, target, 1.0f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.0f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           BuffUpLight(player, player, 4, 1.30f);
@@ -3391,7 +3392,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SAMAYOU_HAND:
-        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, false, critical);
+        success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
           ExecBuffSlip(player, target, 3, 200);
@@ -3404,7 +3405,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_LIGHT_THUNDERBOLT:
-        success = ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.HolyLight, false, critical);
+        success = ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
           AbstractAddBuff(target, target.objBuffPanel, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.COMMAND_LIGHT_THUNDERBOLT, Fix.INFINITY, 0.10f, 0.10f, 0);
@@ -3421,7 +3422,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
           int random = AP.Math.RandomInteger(3);
           if (random == 0)
           {
@@ -3439,12 +3440,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HEAVEN_THUNDER_SPEAR:
-        ExecNormalAttack(player, target, 4.00f, Fix.DamageSource.Physical, false, critical);
-        ExecMagicAttack(player, target, 4.00f, Fix.DamageSource.HolyLight, false, critical);
+        ExecNormalAttack(player, target, 4.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecMagicAttack(player, target, 4.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_OVERRUN:
-        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_GLARE:
@@ -3453,7 +3454,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ARC_BLASTER:
-        ExecMagicAttack(player, target, 1.80f, Fix.DamageSource.Colorless, false, critical);
+        ExecMagicAttack(player, target, 1.80f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
         break;
 
@@ -3461,7 +3462,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
           if (AP.Math.RandomInteger(2) == 0)
           {
             ExecBuffDizzy(player, target_list[ii], 2, 0.30f);
@@ -3478,17 +3479,17 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < 3; ii++)
         {
           target_list = GetOpponentGroupAlive(player);
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Fire, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_AIUCHI_NERAI:
         ExecLifeDown(player, 0.5f);
-        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Fire, false, critical);
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_HIDDEN_KNIFE:
-        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+        ExecNormalAttack(player, target, 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
         break;
 
       case Fix.COMMAND_MYSTICAL_FIELD:
@@ -3511,7 +3512,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           ExecBuffBattleResponseDown(player, target_list[ii], 5, 0.70f);
         }
         break;
@@ -3525,31 +3526,31 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUN_SLAYER:
-        ExecNormalAttack(player, target, 0.90f, Fix.DamageSource.Physical, false, critical);
-        ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.Ice, false, critical);
+        ExecNormalAttack(player, target, 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_TRIPLE_TACTICS:
         rand = AP.Math.RandomInteger(3);
         if (rand == 0)
         {
-          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffPoison(player, target, 3, 500);
         }
         else if (rand == 1)
         {
-          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
         }
         else if (rand == 2)
         {
-          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffPhysicalAttackUp(player, player, 5, 1.10f);
         }
         break;
 
       case Fix.COMMAND_WIND_ARROW:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffBind(player, target, 2, 0);
         break;
 
@@ -3557,7 +3558,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           if (AP.Math.RandomInteger(4) == 0)
           {
             ExecBuffStun(player, target_list[ii], 2, 0);
@@ -3566,12 +3567,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_TAIKI_VANISH:
-        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Colorless, false, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         ExecBuffFreeze(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_HARD_CHARGE:
-        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffStun(player, player, 1, 0);
         ExecBuffStun(player, target, 2, 0);
         break;
@@ -3580,12 +3581,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 5; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_ICE_BURN:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffBind(player, target, 2, 0);
         ExecBuffSilent(player, target, 2, 0);
         break;
@@ -3594,7 +3595,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 5; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -3602,7 +3603,7 @@ public partial class BattleEnemy : MotherBase
         if (AP.Math.RandomInteger(4) == 0)
         {
           target_list = GetOpponentGroupAlive(player);
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 5.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 5.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         else
         {
@@ -3613,12 +3614,12 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_RENSYA:
         for (int ii = 0; ii < 2; ii++)
         {
-          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_ERRATIC_EXPLODE:
-        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, false, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         ExecBuffSlip(player, target, 5, 500);
         break;
 
@@ -3628,12 +3629,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ICE_RAY:
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, true, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffFreeze(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_CLEANSING_LANCE:
-        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, true, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.DefenseMode, critical);
         target_list = GetOpponentGroup(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
@@ -3788,16 +3789,16 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           double additional = (double)(AP.Math.RandomInteger(100) * 0.01f);
-          ExecMagicAttack(player, target_list[ii], 0.85f + additional, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 0.85f + additional, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_APOCALYPSE_SWORD:
-        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         break;
 
       case Fix.COMMAND_WATER_GUN:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffDizzy(player, target, 3, 0.20f);
         break;
 
@@ -3810,7 +3811,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WATER_SHOT:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffStun(player, target, 2, 0);
         break;
 
@@ -3825,7 +3826,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -3874,7 +3875,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ROLLING_CHARGE:
-        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffStun(player, target, 1, 0);
         break;
 
@@ -3882,13 +3883,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecNormalAttack(player, target_list[ii], 0.90f, Fix.DamageSource.Physical, true, critical);
+          ExecNormalAttack(player, target_list[ii], 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
           ExecBuffSlow(player, target_list[ii], 3, 0.80f);
         }
         break;
 
       case Fix.COMMAND_INVISIBLE_POISON:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffPoison(player, target, 9, 1500);
         break;
 
@@ -3905,7 +3906,7 @@ public partial class BattleEnemy : MotherBase
             }
             else
             {
-              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
             }
           }
           else if (rand == 1)
@@ -3916,7 +3917,7 @@ public partial class BattleEnemy : MotherBase
             }
             else
             {
-              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
             }
           }
           else if (rand == 2)
@@ -3927,7 +3928,7 @@ public partial class BattleEnemy : MotherBase
             }
             else
             {
-              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+              ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
             }
           }
         }
@@ -3947,7 +3948,7 @@ public partial class BattleEnemy : MotherBase
           }
           else
           {
-            ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, false, critical);
+            ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
           }
         }
         break;
@@ -3973,14 +3974,14 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DEVILSPEAR_MISTELTEN:
-        ExecNormalAttack(player, target, 5.50f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 5.50f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         break;
 
       case Fix.COMMAND_COLD_WIND:
         rand = AP.Math.RandomInteger(2);
         if (rand == 0)
         {
-          ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           ExecBuffFreeze(player, target, 1, 0);
         }
         else if (rand == 1)
@@ -3996,7 +3997,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4010,7 +4011,7 @@ public partial class BattleEnemy : MotherBase
           }
           else
           {
-            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           }
         }
         else if (rand == 1)
@@ -4021,7 +4022,7 @@ public partial class BattleEnemy : MotherBase
           }
           else
           {
-            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           }
         }
         else if (rand == 2)
@@ -4032,7 +4033,7 @@ public partial class BattleEnemy : MotherBase
           }
           else
           {
-            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+            ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           }
         }
         break;
@@ -4047,7 +4048,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HAGAIZIME:
-        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffStun(player, target, 2, 0);
         ExecBuffPhysicalDefenseDown(player, target, 3, 0.60f);
         break;
@@ -4056,7 +4057,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.10f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4081,7 +4082,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_AXE_DRIVER:
-        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
         break;
 
@@ -4089,7 +4090,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4107,7 +4108,7 @@ public partial class BattleEnemy : MotherBase
         {
           rand = AP.Math.RandomInteger(300);
           double additional = (double)((double)rand / 100.0f);
-          ExecNormalAttack(player, target_list[ii], 1.00f + additional, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[ii], 1.00f + additional, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4116,8 +4117,8 @@ public partial class BattleEnemy : MotherBase
         {
           target_list = GetOpponentGroupAlive(player);
           rand = AP.Math.RandomInteger(target_list.Count);
-          ExecNormalAttack(player, target_list[rand], 1.00f, Fix.DamageSource.Physical, false, critical);
-          ExecNormalAttack(player, target_list[rand], 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[rand], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+          ExecNormalAttack(player, target_list[rand], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4138,7 +4139,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_THROWING_CRASH:
-        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffStun(player, target, 2, 0);
         break;
 
@@ -4150,7 +4151,7 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
-          ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4158,7 +4159,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecNormalAttack(player, target_list[ii], 1.20f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[ii], 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffStun(player, target_list[ii], 1, 0);
         }
         break;
@@ -4172,13 +4173,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.20f, Fix.DamageSource.Physical, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffSlow(player, target_list[ii], 5, 1.00f - (double)((double)(AP.Math.RandomInteger(70))/100.0f));
         }
         break;
 
       case Fix.COMMAND_SUIKOMI:
-        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffFear(player, target, 5, 0);
         break;
 
@@ -4219,7 +4220,7 @@ public partial class BattleEnemy : MotherBase
             // }
             else
             {
-              ExecMagicAttack(player, current_target, 0.50f, Fix.DamageSource.Ice, false, critical);
+              ExecMagicAttack(player, current_target, 0.50f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
             }
           }
           else if (rand == 1)
@@ -4250,7 +4251,7 @@ public partial class BattleEnemy : MotherBase
             }
             else
             {
-              ExecMagicAttack(player, current_target, 0.50f, Fix.DamageSource.Ice, false, critical);
+              ExecMagicAttack(player, current_target, 0.50f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
             }
           }
           else if (rand == 2)
@@ -4259,7 +4260,7 @@ public partial class BattleEnemy : MotherBase
           }
           else if (rand == 3)
           {
-            ExecNormalAttack(player, current_target, 0.50f, Fix.DamageSource.Physical, false, critical);
+            ExecNormalAttack(player, current_target, 0.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           }
           else if (rand == 4)
           {
@@ -4321,7 +4322,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HIKKAKI_CLAW:
-        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffSlip(player, target, 3, 3500 + AP.Math.RandomInteger(500));
         break;
 
@@ -4331,7 +4332,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DRAIN_WEB:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.DarkMagic, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
         ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
         break;
 
@@ -4344,7 +4345,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_GUT_SLASH:
-        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffPhysicalDefenseDown(player, target, 3, 0.70f);
         break;
 
@@ -4357,7 +4358,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WATER_FLAPPING:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffBattleSpeedDown(player, target, 3, 0.70f);
         break;
 
@@ -4370,7 +4371,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4406,7 +4407,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BITING:
-        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffPhysicalAttackUp(player, player, 3, 1.20f);
         break;
 
@@ -4427,12 +4428,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BUBBLE_BULLET:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_AMBUSH_ATTACK:
-        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffPhysicalDefenseDown(player, target, 3, 0.70);
         break;
 
@@ -4440,7 +4441,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4449,7 +4450,7 @@ public partial class BattleEnemy : MotherBase
         Character current = target_list[AP.Math.RandomInteger(target_list.Count)];
         for (int ii = 0; ii < 2; ii++)
         {
-          ExecNormalAttack(player, current, 1.00f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, current, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffStun(player, current, 1, 0);
         }
         break;
@@ -4463,12 +4464,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 4; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_RIPPER_CLAW:
-        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         break;
 
       case Fix.COMMAND_HIKICHIGIRI:
@@ -4484,13 +4485,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_STARSWORD_KAI:
-        ExecNormalAttack(player, target, 0.90f, Fix.DamageSource.Physical, false, critical);
-        ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.HolyLight, false, critical);
+        ExecNormalAttack(player, target, 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecMagicAttack(player, target, 0.90f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_SEASTAR_EYE:
@@ -4499,7 +4500,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WATER_CANNON:
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffStun(player, target, 1, 0);
         break;
 
@@ -4517,17 +4518,17 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, true, critical);
+          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         }
         break;
 
       case Fix.COMMAND_THOUGHT_EATER:
-        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Colorless, false, critical);
+        ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_VACUUM_SHOT:
-        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.10f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffPhysicalDefenseDown(player, target, 3, 0.70f);
         break;
 
@@ -4552,17 +4553,17 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_ZERO_ATTACK:
         if (target.IsPhysicalDefenseDown == false)
         {
-          ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, true, critical);
+          ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
           ExecBuffPhysicalDefenseDown(player, target, 9, 0.70f);
         }
         else if (target.IsBattleSpeedDown == false)
         {
-          ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, true, critical);
+          ExecNormalAttack(player, target, 1.40f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
           ExecBuffBattleSpeedDown(player, target, 9, 0.70f);
         }
         else
         {
-          ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.Physical, true, Fix.CriticalType.Absolute);
+          ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Absolute);
         }
         break;
 
@@ -4570,7 +4571,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 10; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.40f, Fix.DamageSource.Physical, true, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.40f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         }
         break;
 
@@ -4587,18 +4588,18 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
           AbstractRemoveBuff(target_list[ii], target_list[ii].objBuffPanel, "", 1, Fix.BuffType.Positive);
         }
         break;
 
       case Fix.COMMAND_CHARGE:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffStun(player, target, 1, 0);
         break;
 
       case Fix.COMMAND_SEA_STRIVE:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecSeaStripe(player, target);
         break;
 
@@ -4607,7 +4608,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_PLATINUM_BLADE:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffPhysicalDefenseDown(player, target, 9, 0.60f);
         break;
 
@@ -4616,13 +4617,13 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_JEWEL_BREAK:
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         AbstractRemoveBuff(target, target.objBuffPanel, "", 2, Fix.BuffType.Positive);
         break;
 
       case Fix.COMMAND_STAR_DUST:
         UpdateMessage(player.FullName + "のスターソードが" + target.FullName + "へ無数の星屑を落とす！\r\n");
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (AP.Math.RandomInteger(2) == 0)
         {
           ExecBuffDizzy(player, target, 5, 0.30f);
@@ -4638,7 +4639,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4655,20 +4656,20 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecNormalAttack(player, target_list[ii], 1.50f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[ii], 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
           ExecBuffSlip(player, target, 3, 5000 + AP.Math.RandomInteger(1000));
         }
         break;
 
       case Fix.COMMAND_TORPEDO_BUSTER:
-        ExecNormalAttack(player, target, 3.00f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 3.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffFreeze(player, target, 2, 0);
         ExecBuffSlow(player, target, 9, 0.30f);
         break;
 
       case Fix.COMMAND_STAR_FALL:
         UpdateMessage(player.FullName + "のスターソードが" + target.FullName + "へ無数の星屑を落とす！\r\n");
-        ExecMagicAttack(player, target, 1.50f, Fix.DamageSource.HolyLight, false, critical);
+        ExecMagicAttack(player, target, 1.50f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         ExecBuffSilent(player, target, 5, 0);
         ExecBuffStun(player, target, 1, 0);
         break;
@@ -4678,7 +4679,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.50f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4695,13 +4696,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.50f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.50f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
           ExecBuffPoison(player, target, 3, 5000 + AP.Math.RandomInteger(1000));
         }
         break;
 
       case Fix.COMMAND_VORTEX_BLAST:
-        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, true, critical);
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffFreeze(player, target, 2, 0);
         ExecBuffSlow(player, target, 9, 0.30f);
         break;
@@ -4711,7 +4712,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 5; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Fire, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4720,7 +4721,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4744,7 +4745,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_PENETRATION_EYE:
-        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, false, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         ExecBuffStun(player, target, 2, 0);
         ExecBuffFear(player, target, 3, 0);
         break;
@@ -4754,7 +4755,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 5; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.70f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4763,7 +4764,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4787,7 +4788,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HALLUCINATE_EYE:
-        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffFreeze(player, target, 2, 0);
         ExecBuffSlow(player, target, 3, 0);
         break;
@@ -4811,7 +4812,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_GUNGNIR_SLASH:
         UpdateMessage(player.FullName + "：食らえ、グングニルの力！　ッヤアァァァ！！\r\n");
-        ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.HolyLight, false, critical);
+        ExecNormalAttack(player, target, 2.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         ExecBuffSilent(player, target, 3, 0);
         break;
 
@@ -4820,13 +4821,13 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_GUNGNIR_LIGHT:
         UpdateMessage(player.FullName + "：光輝け、グングニル！　ッハアァァァ！！\r\n");
-        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.HolyLight, false, critical);
+        ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_LIFE_WATER:
@@ -4865,12 +4866,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_BYAKURAN_FROZEN_ART:
-        ExecMagicAttack(player, target, 5.00f, Fix.DamageSource.Ice, false, critical);
+        ExecMagicAttack(player, target, 5.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_SEASTAR_ORIGIN_SEAL:
@@ -4886,7 +4887,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SOUMEI_SEISOU_KEN:
-        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, false, critical);
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_SEASTARKING_ROAR:
@@ -4899,7 +4900,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 10; ii++)
         {
-          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.30f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.30f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
@@ -4908,29 +4909,29 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, false, critical);
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_SURGETIC_BIND:
         // 巻きつきによるスタン＋出血ダメージ攻撃を行う。
-        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffSlip(player, target, 9, 7000 + AP.Math.RandomInteger(1000));
         ExecBuffStun(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_HUGE_SHOCKWAVE:
         // 一体に大ダメージ
-        ExecNormalAttack(player, target, 5.0F, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 5.0F, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         break;
 
       case Fix.COMMAND_BACKSTAB_ARROW:
-        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffSilent(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_KARAME_BIND:
-        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target, 1.00, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecBuffBind(player, target, 2, 0);
         break;
 
@@ -4943,7 +4944,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DATOTSU:
-        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         break;
 
       case Fix.COMMAND_ASSASSIN_POISONNEEDLE:
@@ -4951,7 +4952,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SAINT_SLASH:
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, false, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         ExecBuffDizzy(player, target, 3, 0.50f);
         break;
 
@@ -4968,12 +4969,12 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_DARKM_SPELL:
-        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, true, critical);
+        ExecMagicAttack(player, target, 1.20f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffSilent(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_HELLFIRE_SPELL:
-        ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.Fire, true, critical);
+        ExecMagicAttack(player, target, 1.30f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffSlip(player, target, 3, 8500 + AP.Math.RandomInteger(1200));
         break;
 
@@ -4981,12 +4982,12 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < 3; ii++)
         {
-          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, false, critical);
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         }
         break;
 
       case Fix.COMMAND_STEAM_ARROW:
-        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, true, critical);
+        ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
         ExecBuffStun(player, target, 2, 0);
         break;
 
@@ -5577,7 +5578,7 @@ public partial class BattleEnemy : MotherBase
         if ((player.IsEnemy && AllList[ii].IsEnemy == false && ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName)) ||
             (player.IsEnemy == false && AllList[ii].IsEnemy && ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName)))
         {
-          ExecNormalAttack(target, player, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+          ExecNormalAttack(target, player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
           // StanceoftheIaiはスタック解決中に解消とする。
           // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
           AllList[ii].RemoveTargetBuff(Fix.STANCE_OF_THE_IAI);
@@ -7042,7 +7043,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した物理攻撃実行コマンド
   /// </summary>
-  private bool ExecNormalAttack(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecNormalAttack(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.IgnoreType ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -7221,7 +7222,7 @@ public partial class BattleEnemy : MotherBase
   /// <summary>
   /// 基本ロジックを内包した魔法攻撃実行コマンド
   /// </summary>
-  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
+  private bool ExecMagicAttack(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.IgnoreType ignore_target_defense, Fix.CriticalType critical, int animation_speed = MAX_ANIMATION_TIME)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -7299,7 +7300,7 @@ public partial class BattleEnemy : MotherBase
     if (player.IsStormArmor && player.Dead == false)
     {
       bool resultCritical2 = false;
-      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, false, critical, ref resultCritical2);
+      double addDamageValue = MagicDamageLogic(player, target, SecondaryLogic.StormArmor_Damage(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical, ref resultCritical2);
       if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
       {
         addDamageValue = 0;
@@ -7336,13 +7337,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, false, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
   }
 
   private void ExecIceNeedle(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.ICE_NEEDLE, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0, 0);
@@ -7359,7 +7360,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.SHADOW_BLAST, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0, 0);
@@ -7369,7 +7370,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecAirCutter(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.AirCutter(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(player, player.objBuffPanel, Fix.AIR_CUTTER, Fix.AIR_CUTTER, SecondaryLogic.AirCutter_Turn(player), SecondaryLogic.AirCutter_Value(player), 0, 0);
@@ -7379,7 +7380,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecRockSlum(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.RockSlum(player), Fix.DamageSource.Earth, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.ROCK_SLAM, Fix.ROCK_SLAM, SecondaryLogic.RockSlum_Turn(player), SecondaryLogic.RockSlum_Value(player), 0, 0);
@@ -7390,13 +7391,13 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), Fix.DamageSource.Physical, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
   }
 
   private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.HUNTER_SHOT, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
@@ -7406,7 +7407,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(player, player.objBuffPanel, Fix.LEG_STRIKE, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0, 0);
@@ -7416,7 +7417,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecVenomSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0, 0);
@@ -7426,13 +7427,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), Fix.DamageSource.Colorless, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
   }
 
   private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       if (target.GetResistStunLogic())
@@ -7669,7 +7670,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
 
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
   }
@@ -7678,7 +7679,7 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.SpeedStepDamage(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.SpeedStepDamage(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
 
     // 対象への物理攻撃がヒットしなくても、自分自身にはBUFF付与する。
     AbstractAddBuff(player, player.objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(player), SecondaryLogic.SpeedStep(player), 0, 0);
@@ -7695,7 +7696,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, false, critical);
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -7709,7 +7710,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.InvisibleBind(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_BIND, Fix.EFFECT_BIND, SecondaryLogic.InvibisleBind_Turn(player), 0, 0, 0);
@@ -7761,7 +7762,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, false, critical);
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -7770,7 +7771,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < 2; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, false, critical);
+      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
   #endregion
@@ -7781,7 +7782,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < SecondaryLogic.MeteorBullet_Effect1(player); ii++)
     {
       int rand = AP.Math.RandomInteger(target_list.Count);
-      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, false, critical);
+      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -7789,7 +7790,7 @@ public partial class BattleEnemy : MotherBase
   {
     for (int ii = 0; ii < SecondaryLogic.BlueBullet_Effect1(player); ii++)
     {
-      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, false, critical);
+      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -7810,7 +7811,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.SonicPulse(player), Fix.DamageSource.Wind, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.SONIC_PULSE, Fix.SONIC_PULSE, SecondaryLogic.SonicPulse_Turn(player), SecondaryLogic.SonicPulse_Value(player), 0, 0);
@@ -7819,7 +7820,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecLandShatter(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.LandShatter(player), Fix.DamageSource.Earth, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.LAND_SHATTER, Fix.LAND_SHATTER, SecondaryLogic.LandShatter_Turn(player), 0, 0, 0);
@@ -7834,7 +7835,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.CONCUSSIVE_HIT, Fix.CONCUSSIVE_HIT, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player), 0, 0);
@@ -7865,7 +7866,7 @@ public partial class BattleEnemy : MotherBase
   public void ExecWordOfPower(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecMagicAttack(player, target, SecondaryLogic.WordOfPower(player), Fix.DamageSource.Physical, true, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.WordOfPower(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
@@ -7875,7 +7876,7 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.BONE_CRUSH, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
@@ -7901,7 +7902,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowSeaStripeCounter <= 0.0f)
     {
-      ExecNormalAttack(this.NowSeaStripePlayer, this.NowSeaStripeTarget, 1.00f, Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
+      ExecNormalAttack(this.NowSeaStripePlayer, this.NowSeaStripeTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Random);
       this.NowSeaStripePlayer = null;
       this.NowSeaStripeTarget = null;
       this.NowSeaStripeCounter = 0;
@@ -7927,7 +7928,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowIrregularStepCounter <= 0.0f)
     {
-      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.DamageSource.Physical, false, Fix.CriticalType.Random);
+      ExecNormalAttack(this.NowIrregularStepPlayer, this.NowIrregularStepTarget, SecondaryLogic.IrregularStep_Damage(this.NowIrregularStepPlayer), Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Random);
       this.NowIrregularStepPlayer = null;
       this.NowIrregularStepTarget = null;
       this.NowIrregularStepCounter = 0;
@@ -7972,7 +7973,7 @@ public partial class BattleEnemy : MotherBase
   public void ExecMuteImpulse(Character player, Character target, Fix.CriticalType critical)
   {
     int positiveCount = target.GetPositiveBuff() + 1;
-    ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, false, critical);
+    ExecMagicAttack(player, target, SecondaryLogic.MuteImpulse(player) * positiveCount, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
   }
 
   public void ExecVoiceOfVigor(Character player, List<Character> target_list)
@@ -8005,7 +8006,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
 
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target_field_obj, Fix.FREEZING_CUBE, Fix.FREEZING_CUBE, SecondaryLogic.FreezingCube_Turn(player), SecondaryLogic.FreezingCube_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player), 0);
@@ -8017,7 +8018,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, false, critical);
+      ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     }
     AbstractAddBuff(target_list[0], target_field_obj, Fix.VOLCANIC_BLAZE, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
   }
@@ -8025,11 +8026,11 @@ public partial class BattleEnemy : MotherBase
   private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecNormalAttack(player, target, SecondaryLogic.IronBuster(player), Fix.DamageSource.Physical, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.IronBuster(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       if (target_list[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.IronBuster_2(player), Fix.DamageSource.Physical, false, critical);
+      ExecNormalAttack(player, target_list[ii], SecondaryLogic.IronBuster_2(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -8050,7 +8051,7 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.CursedEvangile(player), Fix.DamageSource.DarkMagic, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.CursedEvangile(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.CURSED_EVANGILE, Fix.CURSED_EVANGILE, SecondaryLogic.CursedEvangile_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_Effect(player), SecondaryLogic.CursedEvangile_SlepTurn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.CursedEvangile_SlipFactor(player));
@@ -8060,7 +8061,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecPenetrationArrow(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, true, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.PENETRATION_ARROW, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
@@ -8097,7 +8098,7 @@ public partial class BattleEnemy : MotherBase
     {
       for (int ii = 0; ii < target_list.Count; ii++)
       {
-        ExecNormalAttack(player, target_list[ii], SecondaryLogic.RagingStorm(player), Fix.DamageSource.Physical, false, critical);
+        ExecNormalAttack(player, target_list[ii], SecondaryLogic.RagingStorm(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
       }
     }
     AbstractAddBuff(player, target_field_obj, Fix.RAGING_STORM, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
@@ -8106,13 +8107,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecPrecisionStrike(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    ExecNormalAttack(player, target, SecondaryLogic.PrecisionStrike(player), Fix.DamageSource.Physical, false, Fix.CriticalType.Absolute);
+    ExecNormalAttack(player, target, SecondaryLogic.PrecisionStrike(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
   }
 
   private void ExecUnintentionalHit(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.UnintentionalHit(player), Fix.DamageSource.Physical, false, critical);
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.UnintentionalHit(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
       ExecBuffParalyze(player, target, SecondaryLogic.UnintentionalHit_Turn(player), 0);
@@ -8148,7 +8149,7 @@ public partial class BattleEnemy : MotherBase
   #region "Delve V"
   private void ExecFlameStrike(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_STRIKE, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
@@ -8157,7 +8158,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecFrostLance(Character player, Character target, Fix.CriticalType critical)
   {
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.FrostLance(player), Fix.DamageSource.Ice, false, critical);
+    bool success = ExecMagicAttack(player, target, SecondaryLogic.FrostLance(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
     {
       AbstractAddBuff(target, target.objBuffPanel, Fix.FROST_LANCE, Fix.FROST_LANCE, SecondaryLogic.FrostLance_Turn(player), 0, 0, 0);
@@ -8250,7 +8251,7 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      ExecMagicAttack(player, target_list[ii], SecondaryLogic.LavaAnnihilation(player), Fix.DamageSource.Fire, false, critical);
+      ExecMagicAttack(player, target_list[ii], SecondaryLogic.LavaAnnihilation(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     }
   }
 
@@ -8271,7 +8272,11 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)
   {
-    ExecNormalAttack(player, target, SecondaryLogic.KineticSmash_Effect(player), Fix.DamageSource.PhysicalMixed, false, critical);
+    ExecNormalAttack(player, target, SecondaryLogic.KineticSmash_Effect(player), Fix.DamageSource.PhysicalMixed, Fix.IgnoreType.None, critical);
+  }
+  private void ExecCatastrophe(Character player, Character target, Fix.CriticalType critical)
+  {
+    ExecNormalAttack(player, target, SecondaryLogic.Catastrophe(player), Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical);
   }
   #endregion
 
@@ -8798,7 +8803,7 @@ public partial class BattleEnemy : MotherBase
   #endregion
 
   #region "General"
-  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
+  private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.IgnoreType ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
   {
     // 攻撃コマンドのダメージを算出
     double damageValue = 0.0f;
@@ -8855,6 +8860,12 @@ public partial class BattleEnemy : MotherBase
 
     // ターゲットの物理防御を差し引く
     double defenseValue = PrimaryLogic.PhysicalDefense(target);
+    if (ignore_target_defense == Fix.IgnoreType.DefenseValue ||
+        ignore_target_defense == Fix.IgnoreType.Both)
+    {
+      Debug.Log("Detect ignore targetDefenseValue " + ignore_target_defense.ToString());
+      defenseValue = 0;
+    }
     double debug2 = defenseValue;
     Debug.Log("PrimaryLogic.PhysicalDefense: " + debug2.ToString());
 
@@ -8874,8 +8885,17 @@ public partial class BattleEnemy : MotherBase
     // ターゲットが防御姿勢であれば、ダメージを軽減する
     if (target.IsDefense)
     {
-      damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
-      Debug.Log("Target is Defense mode: " + damageValue.ToString("F2"));
+      // ターゲットが防御姿勢であれば、ダメージを軽減する。ただし防御無効の場合は差し引かない。
+      if (ignore_target_defense == Fix.IgnoreType.DefenseMode ||
+          ignore_target_defense == Fix.IgnoreType.Both)
+      {
+        Debug.Log("Target is Defense, but ignore_target_defense is true, then cannot Defense");
+      }
+      else
+      {
+        damageValue = damageValue * SecondaryLogic.DefenseFactor(target);
+        Debug.Log("Target is Defense mode: " + damageValue.ToString("F2"));
+      }
     }
 
     // ダメージ量が負の値になる場合は０とみなす。
@@ -8884,7 +8904,7 @@ public partial class BattleEnemy : MotherBase
     return damageValue;
   }
 
-  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, bool ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
+  private double MagicDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.IgnoreType ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " player: " + player.FullName + " target: " + target.FullName + " magnify: " + magnify + " attr: " + attr + " critical: " + critical);
     // 魔法コマンドのダメージを算出
@@ -9188,6 +9208,12 @@ public partial class BattleEnemy : MotherBase
 
     // ターゲットの魔法防御を差し引く。
     double defenseValue = PrimaryLogic.MagicDefense(target);
+    if (ignore_target_defense == Fix.IgnoreType.DefenseValue ||
+        ignore_target_defense == Fix.IgnoreType.Both)
+    {
+      Debug.Log("Detect ignore targetDefenseValue " + ignore_target_defense.ToString());
+      defenseValue = 0;
+    }
     double debug2 = defenseValue;
     damageValue -= defenseValue;
     double debug3 = damageValue;
@@ -9198,7 +9224,8 @@ public partial class BattleEnemy : MotherBase
     if (target.IsDefense)
     {
       // ターゲットが防御姿勢であれば、ダメージを軽減する。ただし防御無効の場合は差し引かない。
-      if (ignore_target_defense)
+      if (ignore_target_defense == Fix.IgnoreType.DefenseMode ||
+          ignore_target_defense == Fix.IgnoreType.Both)
       {
         Debug.Log("Target is Defense, but ignore_target_defense is true, then cannot Defense");
       }

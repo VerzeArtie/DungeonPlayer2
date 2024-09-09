@@ -1053,6 +1053,12 @@ public static class SecondaryLogic
     return 5.00f + (player.KineticSmash - 1) * 1.00f;
   }
 
+  public static double Catastrophe(Character player)
+  {
+    if (player.Catastrophe <= 1) { return 3.50f; }
+    return 3.50f + (player.Catastrophe - 1) * 0.50f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

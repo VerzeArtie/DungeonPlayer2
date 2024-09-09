@@ -138,6 +138,14 @@ public static partial class Fix
     Colorless, // 無属性
   }
 
+  public enum IgnoreType
+  {
+    None,
+    DefenseMode, // 相手の防御姿勢を無視する
+    DefenseValue, // 相手の物理防御力を無視する
+    Both // 上記両方
+  }
+
   public enum CriticalType
   {
     None,
