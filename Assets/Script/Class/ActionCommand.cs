@@ -1398,7 +1398,7 @@ public static class ActionCommand
     if (command_name == Fix.TIME_SKIP) { return TimingType.Instant; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return TimingType.Normal; }
-    if (command_name == Fix.CATASTROPHE) { return TimingType.Sorcery; }
+    if (command_name == Fix.CATASTROPHE) { return TimingType.Normal; }
     if (command_name == Fix.CARNAGE_RUSH) { return TimingType.Sorcery; }
     if (command_name == Fix.PIERCING_ARROW) { return TimingType.Sorcery; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TimingType.Normal; }
@@ -1679,7 +1679,7 @@ public static class ActionCommand
     if (command_name == Fix.TIME_SKIP) { return TargetType.AllMember; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return TargetType.Enemy; }
-    if (command_name == Fix.CATASTROPHE) { return TargetType.Enemy; } // todo 仮
+    if (command_name == Fix.CATASTROPHE) { return TargetType.Enemy; }
     if (command_name == Fix.CARNAGE_RUSH) { return TargetType.Enemy; } // todo 仮
     if (command_name == Fix.PIERCING_ARROW) { return TargetType.Enemy; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TargetType.Own; } // todo 仮
@@ -2049,7 +2049,7 @@ public static class ActionCommand
     if (command_name == Fix.TIME_SKIP) { return 120; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return 70; }
-    if (command_name == Fix.CATASTROPHE) { return 100; } // todo 仮
+    if (command_name == Fix.CATASTROPHE) { return 70; }
     if (command_name == Fix.CARNAGE_RUSH) { return 100; } // todo 仮
     if (command_name == Fix.PIERCING_ARROW) { return 100; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 100; } // todo 仮
@@ -2414,7 +2414,7 @@ public static class ActionCommand
     if (command_name == Fix.TIME_SKIP) { return Fix.BuffType.None; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Fix.BuffType.None; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; }
     if (command_name == Fix.CARNAGE_RUSH) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.PIERCING_ARROW) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; } // todo 仮
@@ -2826,7 +2826,7 @@ public static class ActionCommand
     if (command_name == Fix.TIME_SKIP) { return false; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return true; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return true; } // todo 仮
+    if (command_name == Fix.CATASTROPHE) { return true; }
     if (command_name == Fix.CARNAGE_RUSH) { return true; } // todo 仮
     if (command_name == Fix.PIERCING_ARROW) { return true; } // todo 仮
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return false; } // todo 仮
