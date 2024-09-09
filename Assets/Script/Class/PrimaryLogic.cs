@@ -20,6 +20,7 @@ public static class PrimaryLogic
     None,
     Strength,
     Intelligence,
+    Both,
   }
 
   /// <summary>
@@ -79,6 +80,11 @@ public static class PrimaryLogic
         min += player.TotalStrength * Potential(player) * 1.00f;
         max += player.TotalStrength * Potential(player) * 1.00f;
       }
+      else if (spell_skill_type == SpellSkillType.Both)
+      {
+        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
+        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
+      }
       else
       {
         min += player.TotalIntelligence * Potential(player) * 1.00f;
@@ -96,6 +102,11 @@ public static class PrimaryLogic
       {
         min += player.TotalIntelligence * Potential(player) * 1.00f;
         max += player.TotalIntelligence * Potential(player) * 1.00f;
+      }
+      else if (spell_skill_type == SpellSkillType.Both)
+      {
+        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
+        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
       }
       else
       {

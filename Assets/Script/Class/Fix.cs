@@ -134,6 +134,7 @@ public static partial class Fix
     Wind,
     Earth,
     Physical, // 物理
+    PhysicalMixed, // 物理(KineticSmashなど)
     Colorless, // 無属性
   }
 

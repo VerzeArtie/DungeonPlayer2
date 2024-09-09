@@ -2375,6 +2375,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.KINETIC_SMASH:
+        ExecKineticSmash(player, target, critical);
         break;
 
       case Fix.CATASTROPHE:
@@ -8267,6 +8268,11 @@ public partial class BattleEnemy : MotherBase
   {
     AbstractAddBuff(target, target_field_obj, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, SecondaryLogic.DeathScythe_Turn(player), SecondaryLogic.DeathScythe_Effect(player), 0, 0);
   }
+
+  private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)
+  {
+    ExecNormalAttack(player, target, 5.00f, Fix.DamageSource.PhysicalMixed, false, critical);
+  }
   #endregion
 
   private bool ExecUseRedPotion(Character target, string command_name)
@@ -8799,6 +8805,10 @@ public partial class BattleEnemy : MotherBase
     if (attr == Fix.DamageSource.Colorless)
     {
       damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * magnify;
+    }
+    else if (attr == Fix.DamageSource.PhysicalMixed)
+    {
+      damageValue = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Both) * magnify;
     }
     else
     {
