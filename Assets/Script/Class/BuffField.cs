@@ -57,6 +57,21 @@ public class BuffField : MonoBehaviour
     Canvas.ForceUpdateCanvases();
   }
 
+  public void RemoveTargetFieldBuff(string field_buff_name)
+  {
+    BuffImage[] buffList = this.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return; }
+
+    for (int ii = buffList.Length - 1; ii >= 0; ii--)
+    {
+      if (buffList[ii].BuffName == field_buff_name)
+      {
+        buffList[ii].RemoveBuff();
+        return;
+      }
+    }
+  }
+
   public void RemoveAll()
   {
     Debug.Log("RemoveAll(S)");

@@ -2365,6 +2365,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.DEATH_SCYTHE:
+        ExecDeathScythe(player, target, target.objFieldPanel);
         break;
 
       case Fix.GENESIS:
@@ -6717,6 +6718,17 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    BuffImage deathScythePlayer = PlayerList[0].SearchFieldBuff(Fix.DEATH_SCYTHE);
+    if (deathScythePlayer)
+    {
+      deathScythePlayer.CumulativeUp(SecondaryLogic.DeathScythe_Turn(PlayerList[0]), 1);
+    }
+    BuffImage deathScytheEnemy = EnemyList[0].SearchFieldBuff(Fix.DEATH_SCYTHE);
+    if (deathScytheEnemy)
+    {
+      deathScytheEnemy.CumulativeUp(SecondaryLogic.DeathScythe_Turn(EnemyList[0]), 1);
+    }
+
     // 各BUFFによる効果
     for (int ii = 0; ii < AllList.Count; ii++)
     {
@@ -6839,6 +6851,22 @@ public partial class BattleEnemy : MotherBase
           case 3:
             ExecBuffPoison(AllList[ii], AllList[ii], 5, 120);
             break;
+        }
+      }
+
+      BuffImage deathScythe = AllList[ii].SearchFieldBuff(Fix.DEATH_SCYTHE);
+      if (deathScythe)
+      {
+        if (AllList[ii].Dead == false)
+        {
+          ExecLifeDown(AllList[ii], deathScythe.EffectValue * deathScythe.Cumulative);
+          AbstractLostManaPoint(AllList[ii], AllList[ii], AllList[ii].MaxManaPoint * deathScythe.EffectValue * deathScythe.Cumulative);
+          AbstractLostSkillPoint(AllList[ii], AllList[ii], AllList[ii].MaxSkillPoint * deathScythe.EffectValue * deathScythe.Cumulative);
+          if (AllList[ii].CurrentLife <= 0)
+          {
+            AllList[ii].objFieldPanel.RemoveTargetFieldBuff(Fix.DEATH_SCYTHE);
+            LogicInvalidate();
+          }
         }
       }
 
@@ -8234,6 +8262,11 @@ public partial class BattleEnemy : MotherBase
   {
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
   }
+
+  private void ExecDeathScythe(Character player, Character target, BuffField target_field_obj)
+  {
+    AbstractAddBuff(target, target_field_obj, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, SecondaryLogic.DeathScythe_Turn(player), SecondaryLogic.DeathScythe_Effect(player), 0, 0);
+  }
   #endregion
 
   private bool ExecUseRedPotion(Character target, string command_name)
@@ -9281,6 +9314,29 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
+  private bool AbstractLostManaPoint(Character player, Character target, double lost_value)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (target.Dead)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    // ロスト量が負の値になる場合は０とみなす。
+    if (lost_value <= 0) { lost_value = 0; }
+
+    int result = (int)lost_value;
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " Mana lost");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " ManaPoint減少");
+    target.CurrentManaPoint -= result;
+    target.txtManaPoint.text = target.CurrentManaPoint.ToString();
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_LOST_MP);
+
+    return true;
+  }
+
   private bool AbstractGainSkillPoint(Character player, Character target, double gainValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
@@ -9307,6 +9363,29 @@ public partial class BattleEnemy : MotherBase
     target.CurrentSkillPoint += result;
     target.txtSkillPoint.text = target.CurrentSkillPoint.ToString();
     StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_GAIN_SP);
+
+    return true;
+  }
+
+  private bool AbstractLostSkillPoint(Character player, Character target, double lost_value)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    if (target.Dead)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+      this.NowAnimationMode = true;
+      return false;
+    }
+
+    // ロスト量が負の値になる場合は０とみなす。
+    if (lost_value <= 0) { lost_value = 0; }
+
+    int result = (int)lost_value;
+    Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " skill-point lost");
+    UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " SkillPoint減少");
+    target.CurrentSkillPoint -= result;
+    target.txtSkillPoint.text = target.CurrentSkillPoint.ToString();
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_LOST_SP);
 
     return true;
   }

@@ -286,7 +286,9 @@ public static partial class Fix
   public static Color COLOR_GUARD = Color.magenta;
   public static Color COLOR_HEAL = Color.green;
   public static Color COLOR_GAIN_MP = Color.blue;
+  public static Color COLOR_LOST_MP = Color.red;
   public static Color COLOR_GAIN_SP = Color.yellow;
+  public static Color COLOR_LOST_SP = Color.red;
 
   public static Color COLOR_FIRST_CHARA = new Color(235.0f / 255.0f, 253.0f / 255.0f, 255.0f / 255.0f);
   public static Color COLORFORE_FIRST_CHARA = new Color(0, 185.0f / 255.0f, 255.0f / 255.0f);
@@ -464,6 +466,7 @@ public static partial class Fix
   public const string BUFF_ABSOLUTE_ZERO_JP = "絶対零度";
   public const string BUFF_CANNOT_MOVE_JP = "動作不能";
   public const string BUFF_CANNOT_GAIN_JP = "回復不能";
+  public const string BUFF_DEATH_SCYTHE_JP = "死の鎌";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

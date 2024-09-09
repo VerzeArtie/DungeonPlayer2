@@ -1674,7 +1674,7 @@ public static class ActionCommand
     if (command_name == Fix.LAVA_ANNIHILATION) { return TargetType.EnemyGroup; }
     if (command_name == Fix.ABSOLUTE_ZERO) { return TargetType.Enemy; }
     if (command_name == Fix.RESURRECTION) { return TargetType.Ally; }
-    if (command_name == Fix.DEATH_SCYTHE) { return TargetType.Enemy; } // todo 仮
+    if (command_name == Fix.DEATH_SCYTHE) { return TargetType.EnemyField; }
     if (command_name == Fix.GENESIS) { return TargetType.Own; }
     if (command_name == Fix.TIME_SKIP) { return TargetType.AllMember; } // todo 仮
     // スキル
@@ -2044,7 +2044,7 @@ public static class ActionCommand
     if (command_name == Fix.LAVA_ANNIHILATION) { return 1000; }
     if (command_name == Fix.ABSOLUTE_ZERO) { return 900; }
     if (command_name == Fix.RESURRECTION) { return 700; }
-    if (command_name == Fix.DEATH_SCYTHE) { return 120; } // todo 仮
+    if (command_name == Fix.DEATH_SCYTHE) { return 600; }
     if (command_name == Fix.GENESIS) { return 120; } // todo 仮
     if (command_name == Fix.TIME_SKIP) { return 120; } // todo 仮
     // スキル
@@ -2409,7 +2409,7 @@ public static class ActionCommand
     if (command_name == Fix.LAVA_ANNIHILATION) { return Fix.BuffType.None; }
     if (command_name == Fix.ABSOLUTE_ZERO) { return Fix.BuffType.Negative; }
     if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; } // todo 仮
+    if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; }
     if (command_name == Fix.GENESIS) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.TIME_SKIP) { return Fix.BuffType.None; } // todo 仮
     // スキル
@@ -2652,6 +2652,7 @@ public static class ActionCommand
     else if (command_name == Fix.THE_DARK_INTENSITY) { return 9; }
     else if (command_name == Fix.STANCE_OF_MUIN) { return 5; }
     else if (command_name == Fix.BUFF_FOCUS_EYE) { return 9; }
+    else if (command_name == Fix.DEATH_SCYTHE) { return 99; }
 
     return 1; // 通常は累積なし
   }
@@ -2800,10 +2801,10 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return false; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return false; } // todo 仮
-    if (command_name == Fix.VALKYRIE_BLADE) { return false; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return false; } // todo 仮
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return false; }
+    if (command_name == Fix.WATER_PRESENCE) { return false; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return false; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return false; }
     if (command_name == Fix.FUTURE_VISION) { return false; }
     if (command_name == Fix.DETACHMENT_FAULT) { return false; }
     // スキル
@@ -2819,8 +2820,8 @@ public static class ActionCommand
     // 魔法
     if (command_name == Fix.LAVA_ANNIHILATION) { return true; }
     if (command_name == Fix.ABSOLUTE_ZERO) { return false; }
-    if (command_name == Fix.RESURRECTION) { return false; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return true; } // todo 仮
+    if (command_name == Fix.RESURRECTION) { return false; }
+    if (command_name == Fix.DEATH_SCYTHE) { return false; }
     if (command_name == Fix.GENESIS) { return false; } // todo 仮
     if (command_name == Fix.TIME_SKIP) { return false; } // todo 仮
     // スキル

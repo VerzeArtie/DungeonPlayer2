@@ -1037,6 +1037,16 @@ public static class SecondaryLogic
     return 2 + (player.AbsoluteZero - 1);
   }
 
+  public static int DeathScythe_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double DeathScythe_Effect(Character player)
+  {
+    return 0.01f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

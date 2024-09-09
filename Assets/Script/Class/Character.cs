@@ -9439,7 +9439,7 @@ public partial class Character : MonoBehaviour
         {
           if (this.IsStanceOfTheIai == false)
           {
-            result = Fix.ABSOLUTE_ZERO;
+            result = Fix.DEATH_SCYTHE;
           }
           else
           {
