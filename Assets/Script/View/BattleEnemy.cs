@@ -1056,6 +1056,11 @@ public partial class BattleEnemy : MotherBase
     if (CheckGroupAlive(EnemyList) == false)
     {
       One.BattleEnd = Fix.GameEndType.Success;
+      for (int ii = 0; ii < AllList.Count; ii++)
+      {
+        AllList[ii].CleanupBattleEnd();
+      }
+
       if (panelGameEnd.activeInHierarchy == false)
       {
         int gainExp = 0;
@@ -1264,6 +1269,11 @@ public partial class BattleEnemy : MotherBase
     if (CheckGroupAlive(PlayerList) == false)
     {
       One.BattleEnd = Fix.GameEndType.Fail;
+      for (int ii = 0; ii < AllList.Count; ii++)
+      {
+        AllList[ii].CleanupBattleEnd();
+      }
+
       if (panelGameOver.activeInHierarchy == false)
       {
         panelGameOver.SetActive(true);
@@ -1747,21 +1757,60 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecPlayerCommand(Character player, Character target, string command_name)
   {
-    ExecPlayerCommand_Origin(player, target, command_name);
+    ExecPlayerCommand_Origin(player, target, command_name, false);
 
     // GaleWindなら２回行動。GaleWind自体は２度掛けしない。
     if (player.IsGaleWind && command_name != Fix.GALE_WIND)
     {
-      ExecPlayerCommand_Origin(player, target, command_name);
+      ExecPlayerCommand_Origin(player, target, command_name, true);
     }
+  }
+
+  protected void ExecBeforeAttackPhase(Character player, bool skipStanceDouble)
+  {
+    Debug.Log("ExecBeforeAttackPhase(S) " + player.FullName);
+    string shadowActionCommand = player.CurrentActionCommand;
+    Character shadowTarget = player.Target;
+    Character shadowTarget2 = player.Target2;
+    Character shadowBeforeTarget = player.BeforeTarget;
+    Character shadowBeforeTarget2 = player.BeforeTarget2;
+    string shadowBeforeActionCommand = player.BeforeActionCommand;
+
+    player.Target = player.BeforeTarget;
+    player.Target2 = player.BeforeTarget2;
+    player.CurrentActionCommand = player.BeforeActionCommand;
+
+    Character target = null;
+    if (ActionCommand.IsTarget(player.BeforeActionCommand) == ActionCommand.TargetType.Ally)
+    {
+      target = player.Target2;
+    }
+    else if (ActionCommand.IsTarget(player.BeforeActionCommand) == ActionCommand.TargetType.Enemy)
+    {
+      target = player.Target;
+    }
+    else // 色々考えられるが、まずTargetにしておく
+    {
+      target = player.Target;
+    }
+
+    Debug.Log("ExecBeforeAttackPhase -> ExecPlayerCommand_Origin");
+    ExecPlayerCommand_Origin(player, target, player.CurrentActionCommand, true);
+
+    player.CurrentActionCommand = shadowActionCommand;
+    player.Target = shadowTarget;
+    player.Target2 = shadowTarget2;
+    player.BeforeTarget = shadowBeforeTarget;
+    player.BeforeTarget2 = shadowBeforeTarget2;
+    player.BeforeActionCommand = shadowBeforeActionCommand;
   }
 
   /// <summary>
   /// プレイヤーコマンドを実行します。
   /// </summary>
-  private void ExecPlayerCommand_Origin(Character player, Character target, string command_name)
+  private void ExecPlayerCommand_Origin(Character player, Character target, string command_name, bool without_cost)
   {
-    Debug.Log(MethodBase.GetCurrentMethod() + " " + player?.FullName);
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + player?.FullName + " " + command_name);
 
     if (player == null)
     {
@@ -1774,6 +1823,19 @@ public partial class BattleEnemy : MotherBase
     if (command_name == string.Empty)
     {
       command_name = player.CurrentActionCommand;
+    }
+
+    // 行動の成功・失敗を問わず、アクションコマンド自体は記憶する。
+    if (command_name == Fix.GENESIS ||
+        command_name == Fix.STANCE_OF_DOUBLE)
+    {
+      // Genesis、StanceOfDouble自体が行動の場合、それは記憶しない。
+    }
+    else
+    {
+      player.BeforeActionCommand = command_name;
+      player.BeforeTarget = player.Target;
+      player.BeforeTarget2 = player.Target2;
     }
 
     if (command_name == string.Empty)
@@ -1895,8 +1957,15 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("IsBlackContract was detected, then no spend Mana/Skill point.");
       // 何もしない
     }
+    // 消費コストスキップの場合
+    else if (without_cost)
+    {
+      Debug.Log("without_cost is true, then no spend Mana/Skill point.");
+      // 何もしない
+    }
     else
     {
+      Debug.Log("cost check.");
       if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
       {
         int manaCost = SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
@@ -2369,6 +2438,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.GENESIS:
+        ExecGenesis(player);
         break;
 
       case Fix.TIME_SKIP:
@@ -8269,6 +8339,11 @@ public partial class BattleEnemy : MotherBase
   private void ExecDeathScythe(Character player, Character target, BuffField target_field_obj)
   {
     AbstractAddBuff(target, target_field_obj, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, SecondaryLogic.DeathScythe_Turn(player), SecondaryLogic.DeathScythe_Effect(player), 0, 0);
+  }
+
+  private void ExecGenesis(Character player)
+  {
+    ExecBeforeAttackPhase(player, false);
   }
 
   private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)

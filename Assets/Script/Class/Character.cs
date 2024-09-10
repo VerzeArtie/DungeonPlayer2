@@ -1003,6 +1003,32 @@ public partial class Character : MonoBehaviour
     }
     get { return _powerUpShadow; }
   }
+
+  protected string _beforeActionCommand = string.Empty;
+  protected Character _beforeTarget = null;
+  protected Character _beforeTarget2 = null;
+  public string BeforeActionCommand
+  {
+    get { return _beforeActionCommand; }
+    set { _beforeActionCommand = value; }
+  }
+  public Character BeforeTarget
+  {
+    get { return _beforeTarget; }
+    set { _beforeTarget = value; }
+  }
+  public Character BeforeTarget2
+  {
+    get { return _beforeTarget2; }
+    set { _beforeTarget2 = value; }
+  }
+
+  public void CleanupBattleEnd()
+  {
+    _beforeActionCommand = String.Empty;
+    _beforeTarget = null;
+    _beforeTarget2 = null;
+  }
   #endregion
 
   #region "Last Value"

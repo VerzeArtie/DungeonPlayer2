@@ -2045,7 +2045,7 @@ public static class ActionCommand
     if (command_name == Fix.ABSOLUTE_ZERO) { return 900; }
     if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 600; }
-    if (command_name == Fix.GENESIS) { return 120; } // todo 仮
+    if (command_name == Fix.GENESIS) { return 0; }
     if (command_name == Fix.TIME_SKIP) { return 120; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return 70; }
@@ -2410,7 +2410,7 @@ public static class ActionCommand
     if (command_name == Fix.ABSOLUTE_ZERO) { return Fix.BuffType.Negative; }
     if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.GENESIS) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.GENESIS) { return Fix.BuffType.None; }
     if (command_name == Fix.TIME_SKIP) { return Fix.BuffType.None; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Fix.BuffType.None; } // todo 仮
@@ -2822,7 +2822,7 @@ public static class ActionCommand
     if (command_name == Fix.ABSOLUTE_ZERO) { return false; }
     if (command_name == Fix.RESURRECTION) { return false; }
     if (command_name == Fix.DEATH_SCYTHE) { return false; }
-    if (command_name == Fix.GENESIS) { return false; } // todo 仮
+    if (command_name == Fix.GENESIS) { return false; }
     if (command_name == Fix.TIME_SKIP) { return false; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return true; } // todo 仮
