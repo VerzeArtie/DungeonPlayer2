@@ -2383,6 +2383,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.CARNAGE_RUSH:
+        ExecCarnageRush(player, target, critical);
         break;
 
       case Fix.PIERCING_ARROW:
@@ -8274,9 +8275,18 @@ public partial class BattleEnemy : MotherBase
   {
     ExecNormalAttack(player, target, SecondaryLogic.KineticSmash_Effect(player), Fix.DamageSource.PhysicalMixed, Fix.IgnoreType.None, critical);
   }
+
   private void ExecCatastrophe(Character player, Character target, Fix.CriticalType critical)
   {
     ExecNormalAttack(player, target, SecondaryLogic.Catastrophe(player), Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical);
+  }
+
+  private void ExecCarnageRush(Character player, Character target, Fix.CriticalType critical)
+  {
+    for (int ii = 0; ii < SecondaryLogic.CarnageRush_Count(player); ii++)
+    {
+      ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+    }
   }
   #endregion
 
