@@ -1397,9 +1397,9 @@ public static class ActionCommand
     if (command_name == Fix.GENESIS) { return TimingType.Instant; }
     if (command_name == Fix.TIME_SKIP) { return TimingType.Instant; }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return TimingType.Normal; }
-    if (command_name == Fix.CATASTROPHE) { return TimingType.Normal; }
-    if (command_name == Fix.CARNAGE_RUSH) { return TimingType.Normal; }
+    if (command_name == Fix.KINETIC_SMASH) { return TimingType.Sorcery; }
+    if (command_name == Fix.CATASTROPHE) { return TimingType.Sorcery; }
+    if (command_name == Fix.CARNAGE_RUSH) { return TimingType.Sorcery; }
     if (command_name == Fix.PIERCING_ARROW) { return TimingType.Normal; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TimingType.Normal; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return TimingType.Instant; }
