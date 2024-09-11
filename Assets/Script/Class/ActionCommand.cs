@@ -1682,7 +1682,7 @@ public static class ActionCommand
     if (command_name == Fix.CATASTROPHE) { return TargetType.Enemy; }
     if (command_name == Fix.CARNAGE_RUSH) { return TargetType.Enemy; }
     if (command_name == Fix.PIERCING_ARROW) { return TargetType.Enemy; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TargetType.Own; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TargetType.Own; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return TargetType.Ally; } // todo 仮
     #endregion
 
@@ -2052,7 +2052,7 @@ public static class ActionCommand
     if (command_name == Fix.CATASTROPHE) { return 70; }
     if (command_name == Fix.CARNAGE_RUSH) { return 65; }
     if (command_name == Fix.PIERCING_ARROW) { return 75; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 100; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 75; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return 100; } // todo 仮
     #endregion
 
@@ -2417,7 +2417,7 @@ public static class ActionCommand
     if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; }
     if (command_name == Fix.CARNAGE_RUSH) { return Fix.BuffType.None; }
     if (command_name == Fix.PIERCING_ARROW) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.BuffType.Positive; } // todo 仮
     #endregion
 
@@ -2829,7 +2829,7 @@ public static class ActionCommand
     if (command_name == Fix.CATASTROPHE) { return true; }
     if (command_name == Fix.CARNAGE_RUSH) { return true; }
     if (command_name == Fix.PIERCING_ARROW) { return true; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return false; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return false; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return false; } // todo 仮
     #endregion
 

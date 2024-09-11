@@ -477,6 +477,7 @@ public static partial class Fix
   public const string BUFF_CANNOT_GAIN_JP = "回復不能";
   public const string BUFF_DEATH_SCYTHE_JP = "死の鎌";
   public const string BUFF_PIERCING_ARROW_JP = "致命傷";
+  public const string BUFF_STANCE_OF_THE_KOKOROE_JP = "心得";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

@@ -2461,6 +2461,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.STANCE_OF_THE_KOKOROE:
+        ExecStanceoftheKokoroe(player);
         break;
 
       case Fix.TRANSCENDENCE_REACHED:
@@ -6179,7 +6180,12 @@ public partial class BattleEnemy : MotherBase
       {
         if (this.NowSelectSrcPlayer.IsWillAwakening)
         {
-          Debug.Log("IsWillAwakening detect, possible action.");
+          Debug.Log("Command Timing is Normal, but IsWillAwakening detect, possible action.");
+          // 通過
+        }
+        else if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+        {
+          Debug.Log("Command Timing is Normal, but IsStanceoftheKokoroe detect, possible action.");
           // 通過
         }
         else
@@ -6190,8 +6196,16 @@ public partial class BattleEnemy : MotherBase
       }
       if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
       {
-        Debug.Log("Command Timing is Sorcery, then no action.");
-        return;
+        if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+        {
+          Debug.Log("Command Timing is Sorcery, but IsStanceoftheKokoroe detect, possible action.");
+          // 通過
+        }
+        else
+        {
+          Debug.Log("Command Timing is Sorcery, then no action.");
+          return;
+        }
       }
 
       if (this.NowSelectTarget == false)
@@ -6249,7 +6263,12 @@ public partial class BattleEnemy : MotherBase
       {
         if (this.NowSelectSrcPlayer.IsWillAwakening)
         {
-          Debug.Log("IsWillAwakening detect, possible action.");
+          Debug.Log("ActionCommand.TimingType.Normal, but IsWillAwakening detect, possible action.");
+          // 通過
+        }
+        else if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+        {
+          Debug.Log("ActionCommand.TimingType.Normal, but IsStanceoftheKokoroe detect, possible action.");
           // 通過
         }
         else
@@ -6260,8 +6279,16 @@ public partial class BattleEnemy : MotherBase
       }
       if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
       {
-        Debug.Log("Command Timing is Sorcery, then no action.");
-        return;
+        if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+        {
+          Debug.Log("Command Timing is Sorcery, but IsStanceoftheKokoroe detect, possible action.");
+          return;
+        }
+        else
+        {
+          Debug.Log("Command Timing is Sorcery, then no action.");
+          return;
+        }
       }
 
 
@@ -8374,6 +8401,11 @@ public partial class BattleEnemy : MotherBase
       target.UpdateInstantPointGauge();
       AbstractAddBuff(target, target.objBuffPanel, Fix.PIERCING_ARROW, Fix.BUFF_PIERCING_ARROW_JP, SecondaryLogic.PiercingArrow_Turn(player), 0, 0, 0);
     }
+  }
+
+  private void ExecStanceoftheKokoroe(Character player)
+  {
+    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_KOKOROE, Fix.BUFF_STANCE_OF_THE_KOKOROE_JP, SecondaryLogic.StanceoftheKokoroe_Turn(player), 0, 0, 0);
   }
   #endregion
 

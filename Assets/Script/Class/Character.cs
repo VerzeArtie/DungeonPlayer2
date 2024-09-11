@@ -2842,6 +2842,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.PIERCING_ARROW); }
   }
 
+  public BuffImage IsStanceoftheKokoroe
+  {
+    get { return SearchBuff(Fix.STANCE_OF_THE_KOKOROE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {

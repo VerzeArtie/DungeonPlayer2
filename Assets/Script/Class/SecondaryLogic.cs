@@ -1081,6 +1081,11 @@ public static class SecondaryLogic
     return 2 + (player.PiercingArrow - 1);
   }
 
+  public static int StanceoftheKokoroe_Turn(Character player)
+  {
+    return 9;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
