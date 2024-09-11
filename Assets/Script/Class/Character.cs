@@ -1484,8 +1484,8 @@ public partial class Character : MonoBehaviour
   public int DemonContract { set { if (value >= 0) { _DemonContract = value; } } get { return _DemonContract; } }
   [SerializeField] protected int _StanceOfTheKokoroe = 0;
   public int StanceOfTheKokoroe { set { if (value >= 0) { _StanceOfTheKokoroe = value; } } get { return _StanceOfTheKokoroe; } }
-  [SerializeField] protected int _TimeSkip = 0;
-  public int TimeSkip { set { if (value >= 0) { _TimeSkip = value; } } get { return _TimeSkip; } }
+  [SerializeField] protected int _TimeStop = 0;
+  public int TimeStop { set { if (value >= 0) { _TimeStop = value; } } get { return _TimeStop; } }
 
   [SerializeField] protected int _CounterAttack = 0;
   public int CounterAttack { set { if (value >= 0) { _CounterAttack = value; } } get { return _CounterAttack; } }
@@ -3233,7 +3233,7 @@ public partial class Character : MonoBehaviour
     if (this.Resurrection > 0) { list.Add(Fix.RESURRECTION); }
     if (this.DeathScythe > 0) { list.Add(Fix.DEATH_SCYTHE); }
     if (this.Genesis > 0) { list.Add(Fix.GENESIS); }
-    if (this.TimeSkip > 0) { list.Add(Fix.TIME_SKIP); }
+    if (this.TimeStop > 0) { list.Add(Fix.TIME_STOP); }
     if (this.KineticSmash > 0) { list.Add(Fix.KINETIC_SMASH); }
     if (this.Catastrophe > 0) { list.Add(Fix.CATASTROPHE); }
     if (this.CarnageRush > 0) { list.Add(Fix.CARNAGE_RUSH); }
@@ -3420,7 +3420,7 @@ public partial class Character : MonoBehaviour
         }
         if (this.Level >= 52)
         {
-          if (this.TimeSkip <= 0) { this.TimeSkip = 1; new_command = Fix.TIME_SKIP_JP; }
+          if (this.TimeStop <= 0) { this.TimeStop = 1; new_command = Fix.TIME_STOP_JP; }
         }
       }
     }
@@ -4292,7 +4292,7 @@ public partial class Character : MonoBehaviour
           list.Add(Fix.EXACT_TIME_JP + "強化");
           list.Add(Fix.INNER_INSPIRATION_JP + "強化");
           list.Add(Fix.ZERO_IMMUNITY_JP + "強化");
-          list.Add(Fix.TIME_SKIP_JP + "強化");
+          list.Add(Fix.TIME_STOP_JP + "強化");
         }
       }
       else if (attr == 1)
@@ -4804,10 +4804,10 @@ public partial class Character : MonoBehaviour
       this.SoulFragment--;
       this.DetachmentFault++;
     }
-    else if (essence_name == Fix.TIME_SKIP || essence_name == Fix.TIME_SKIP_JP)
+    else if (essence_name == Fix.TIME_STOP || essence_name == Fix.TIME_STOP_JP)
     {
       this.SoulFragment--;
-      this.TimeSkip++;
+      this.TimeStop++;
     }
     else if (essence_name == Fix.STRAIGHT_SMASH || essence_name == Fix.STRAIGHT_SMASH_JP)
     {

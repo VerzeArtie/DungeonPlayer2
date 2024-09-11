@@ -123,7 +123,7 @@ public static class ActionCommand
       result.Add(Fix.PHANTOM_OBORO);
       result.Add(Fix.COUNTER_DISALLOW);
       result.Add(Fix.DETACHMENT_FAULT);
-      result.Add(Fix.TIME_SKIP);
+      result.Add(Fix.TIME_STOP);
     }
     else if (attr == Fix.CommandAttribute.Warrior)
     {
@@ -750,7 +750,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return Attribute.Magic; }
     if (command_name == Fix.DEATH_SCYTHE) { return Attribute.Magic; }
     if (command_name == Fix.GENESIS) { return Attribute.Magic; }
-    if (command_name == Fix.TIME_SKIP) { return Attribute.Magic; }
+    if (command_name == Fix.TIME_STOP) { return Attribute.Magic; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Attribute.Skill; }
     if (command_name == Fix.CATASTROPHE) { return Attribute.Skill; }
@@ -1395,7 +1395,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return TimingType.Sorcery; }
     if (command_name == Fix.DEATH_SCYTHE) { return TimingType.Sorcery; }
     if (command_name == Fix.GENESIS) { return TimingType.Instant; }
-    if (command_name == Fix.TIME_SKIP) { return TimingType.Instant; }
+    if (command_name == Fix.TIME_STOP) { return TimingType.Instant; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return TimingType.Sorcery; }
     if (command_name == Fix.CATASTROPHE) { return TimingType.Sorcery; }
@@ -1676,7 +1676,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return TargetType.Ally; }
     if (command_name == Fix.DEATH_SCYTHE) { return TargetType.EnemyField; }
     if (command_name == Fix.GENESIS) { return TargetType.Own; }
-    if (command_name == Fix.TIME_SKIP) { return TargetType.AllMember; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return TargetType.AllMember; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return TargetType.Enemy; }
     if (command_name == Fix.CATASTROPHE) { return TargetType.Enemy; }
@@ -2046,7 +2046,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 600; }
     if (command_name == Fix.GENESIS) { return 0; }
-    if (command_name == Fix.TIME_SKIP) { return 120; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return 120; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return 70; }
     if (command_name == Fix.CATASTROPHE) { return 70; }
@@ -2411,7 +2411,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; }
     if (command_name == Fix.GENESIS) { return Fix.BuffType.None; }
-    if (command_name == Fix.TIME_SKIP) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return Fix.BuffType.None; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; }
@@ -2823,7 +2823,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return false; }
     if (command_name == Fix.DEATH_SCYTHE) { return false; }
     if (command_name == Fix.GENESIS) { return false; }
-    if (command_name == Fix.TIME_SKIP) { return false; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return false; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return true; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return true; }
@@ -3103,7 +3103,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return Fix.RESURRECTION_JP; }
     if (command_name == Fix.DEATH_SCYTHE) { return Fix.DEATH_SCYTHE_JP; }
     if (command_name == Fix.GENESIS) { return Fix.GENESIS_JP; }
-    if (command_name == Fix.TIME_SKIP) { return Fix.TIME_SKIP_JP; }
+    if (command_name == Fix.TIME_STOP) { return Fix.TIME_STOP_JP; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Fix.KINETIC_SMASH_JP; }
     if (command_name == Fix.CATASTROPHE) { return Fix.CATASTROPHE_JP; }
@@ -3373,7 +3373,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return ""; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return ""; } // todo 仮
     if (command_name == Fix.GENESIS) { return ""; } // todo 仮
-    if (command_name == Fix.TIME_SKIP) { return ""; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return ""; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return ""; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return ""; } // todo 仮
@@ -3569,7 +3569,7 @@ public static class ActionCommand
     if (command_name == Fix.OVERWHELMING_DESTINY) { return ""; }
     if (command_name == Fix.DEMON_CONTRACT) { return ""; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; }
-    if (command_name == Fix.TIME_SKIP) { return ""; }
+    if (command_name == Fix.TIME_STOP) { return ""; }
 
     return String.Empty;
   }
@@ -3685,7 +3685,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return ""; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return ""; } // todo 仮
     if (command_name == Fix.GENESIS) { return ""; } // todo 仮
-    if (command_name == Fix.TIME_SKIP) { return ""; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return ""; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return ""; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return ""; } // todo 仮

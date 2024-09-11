@@ -2441,7 +2441,7 @@ public partial class BattleEnemy : MotherBase
         ExecGenesis(player);
         break;
 
-      case Fix.TIME_SKIP:
+      case Fix.TIME_STOP:
         break;
 
       case Fix.KINETIC_SMASH:

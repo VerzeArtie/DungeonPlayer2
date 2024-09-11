@@ -1287,7 +1287,7 @@ public static class SecondaryLogic
     if (command_name == Fix.RESURRECTION) { return 0; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return 0; } // todo 仮
     if (command_name == Fix.GENESIS) { return 0; } // todo 仮
-    if (command_name == Fix.TIME_SKIP) { return 0; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return 0; } // todo 仮
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return 0; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return 0; } // todo 仮

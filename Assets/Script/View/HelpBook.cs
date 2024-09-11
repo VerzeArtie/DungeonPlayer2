@@ -391,7 +391,7 @@ public class HelpBook : MotherBase
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.EXACT_TIME); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.INNER_INSPIRATION); counter++;
       SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.ZERO_IMMUNITY); counter++;
-      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TIME_SKIP); counter++;
+      SetupCommandButton(CommandButton[counter], CommandButtonText[counter], Fix.TIME_STOP); counter++;
     }
     //else if (sender.text == "元核")
     //{

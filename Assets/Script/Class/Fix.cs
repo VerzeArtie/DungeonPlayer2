@@ -1475,8 +1475,8 @@ public static partial class Fix
   public const string DEMON_CONTRACT_JP = "デーモン・コントラクト";
   public const string STANCE_OF_THE_KOKOROE = "Stance of the Kokoroe";
   public const string STANCE_OF_THE_KOKOROE_JP = "スタンス・オブ・心得";
-  public const string TIME_SKIP = "Time Skip";
-  public const string TIME_SKIP_JP = "タイム・スキップ";
+  public const string TIME_STOP = "Time Stop";
+  public const string TIME_STOP_JP = "タイム・ストップ";
   public const string GENESIS = "Genesis";
   public const string GENESIS_JP = "ジェネシス";
 

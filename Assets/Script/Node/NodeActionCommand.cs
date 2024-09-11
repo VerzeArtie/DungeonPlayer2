@@ -463,9 +463,9 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ZERO_IMMUNITY);
     }
-    else if (command_name == Fix.TIME_SKIP_JP + "強化")
+    else if (command_name == Fix.TIME_STOP_JP + "強化")
     {
-      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TIME_SKIP);
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TIME_STOP);
     }
     else if (command_name == Fix.VENOM_SLASH_JP + "強化")
     {

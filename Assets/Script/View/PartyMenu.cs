@@ -1336,7 +1336,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.PhantomOboro, Fix.PHANTOM_OBORO, One.AR.PhantomOboro, counter); counter++;
       SetupEssenceElement(player.CounterDisallow, Fix.COUNTER_DISALLOW, One.AR.CounterDisallow, counter); counter++;
       SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, One.AR.DetachmentFault, counter); counter++;
-      SetupEssenceElement(player.TimeSkip, Fix.TIME_SKIP, One.AR.TimeSkip, counter); counter++;
+      SetupEssenceElement(player.TimeStop, Fix.TIME_STOP, One.AR.TimeSkip, counter); counter++;
     }
     else if (attribute == Fix.CLASS_WARRIOR)
     {
