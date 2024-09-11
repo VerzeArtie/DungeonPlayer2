@@ -1070,6 +1070,17 @@ public static class SecondaryLogic
     return 5 + (player.CarnageRush - 1);
   }
 
+  public static double PiercingArrow(Character player)
+  {
+    return 4.00f;
+  }
+
+  public static int PiercingArrow_Turn(Character player)
+  {
+    if (player.PiercingArrow <= 1) { return 2; }
+    return 2 + (player.PiercingArrow - 1);
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

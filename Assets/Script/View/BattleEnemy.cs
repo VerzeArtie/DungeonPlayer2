@@ -2457,6 +2457,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.PIERCING_ARROW:
+        ExecPiercingArrow(player, target, critical);
         break;
 
       case Fix.STANCE_OF_THE_KOKOROE:
@@ -8361,6 +8362,17 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < SecondaryLogic.CarnageRush_Count(player); ii++)
     {
       ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+    }
+  }
+
+  private void ExecPiercingArrow(Character player, Character target, Fix.CriticalType critical)
+  {
+    bool success = ExecNormalAttack(player, target, SecondaryLogic.PiercingArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
+    if (success)
+    {
+      target.CurrentInstantPoint = 0;
+      target.UpdateInstantPointGauge();
+      AbstractAddBuff(target, target.objBuffPanel, Fix.PIERCING_ARROW, Fix.BUFF_PIERCING_ARROW_JP, SecondaryLogic.PiercingArrow_Turn(player), 0, 0, 0);
     }
   }
   #endregion

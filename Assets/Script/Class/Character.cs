@@ -466,6 +466,10 @@ public partial class Character : MonoBehaviour
       {
         return false;
       }
+      if (this.IsPiercingArrow)
+      {
+        return false;
+      }
 
       return _isDefense; 
     }
@@ -2831,6 +2835,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsAbsoluteZero
   {
     get { return SearchBuff(Fix.ABSOLUTE_ZERO); }
+  }
+
+  public BuffImage IsPiercingArrow
+  {
+    get { return SearchBuff(Fix.PIERCING_ARROW); }
   }
 
   // 魔法：基本耐性
@@ -9465,7 +9474,7 @@ public partial class Character : MonoBehaviour
         {
           if (this.IsStanceOfTheIai == false)
           {
-            result = Fix.DEATH_SCYTHE;
+            result = Fix.PIERCING_ARROW;
           }
           else
           {
