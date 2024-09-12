@@ -1683,7 +1683,7 @@ public static class ActionCommand
     if (command_name == Fix.CARNAGE_RUSH) { return TargetType.Enemy; }
     if (command_name == Fix.PIERCING_ARROW) { return TargetType.Enemy; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return TargetType.Own; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return TargetType.Ally; } // todo 仮
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return TargetType.Ally; }
     #endregion
 
     #region "複合魔法"
@@ -2053,7 +2053,7 @@ public static class ActionCommand
     if (command_name == Fix.CARNAGE_RUSH) { return 65; }
     if (command_name == Fix.PIERCING_ARROW) { return 75; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 75; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return 100; } // todo 仮
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return 100; }
     #endregion
 
     #region "複合魔法"
@@ -2418,7 +2418,7 @@ public static class ActionCommand
     if (command_name == Fix.CARNAGE_RUSH) { return Fix.BuffType.None; }
     if (command_name == Fix.PIERCING_ARROW) { return Fix.BuffType.Negative; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.BuffType.Positive; } // todo 仮
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return Fix.BuffType.Positive; }
     #endregion
 
     #region "複合魔法"
@@ -2631,6 +2631,22 @@ public static class ActionCommand
     if (command_name == Fix.EFFECT_SLIP) { return Fix.BuffType.Negative; }
     if (command_name == Fix.EFFECT_CANNOT_RESURRECT) { return Fix.BuffType.Negative; }
 
+    if (command_name == Fix.BUFF_PA_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_PD_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_MA_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_MD_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_BS_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_BR_UP) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.BUFF_PO_UP) { return Fix.BuffType.Positive; }
+
+    if (command_name == Fix.BUFF_PA_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_PD_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_MA_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_MD_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_BS_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_BR_DOWN) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.BUFF_PO_DOWN) { return Fix.BuffType.Negative; }
+
     if (command_name == Fix.EFFECT_SHADOW_BLAST) { return Fix.BuffType.Negative; }
     if (command_name == Fix.EFFECT_FORTUNE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.EFFECT_HEART_OF_LIFE) { return Fix.BuffType.Positive; }
@@ -2830,7 +2846,7 @@ public static class ActionCommand
     if (command_name == Fix.CARNAGE_RUSH) { return true; }
     if (command_name == Fix.PIERCING_ARROW) { return true; }
     if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return false; }
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return false; } // todo 仮
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return false; }
     #endregion
 
     #region "複合魔法"

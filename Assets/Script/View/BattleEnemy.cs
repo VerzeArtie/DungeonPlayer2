@@ -2535,6 +2535,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.TRANSCENDENCE_REACHED:
+        ExecTranscendenceReached(player, target);
         break;
       #endregion
 
@@ -5432,9 +5433,17 @@ public partial class BattleEnemy : MotherBase
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
         ExecBuffSlip(player, target, 10, 12);
-        ExecBuffFreeze(player, target, 10, 0);
-        ExecBuffSilent(player, target, 10, 0);
-        ExecBuffBind(player, target, 10, 0);
+        //ExecBuffFreeze(player, target, 10, 0);
+        //ExecBuffSilent(player, target, 10, 0);
+        //ExecBuffBind(player, target, 10, 0);
+        //ExecBuffDizzy(player, target, 10, 1);
+        //ExecBuffParalyze(player, target, 10, 1);
+        //ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 999);
+        //ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 999);
+        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 999);
+        //ExecBuffMagicDefenceDown(player, target, Fix.INFINITY, 999);
+        //ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 999);
+        //ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 999);
         break;
 
       #endregion
@@ -8504,6 +8513,23 @@ public partial class BattleEnemy : MotherBase
   {
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_KOKOROE, Fix.BUFF_STANCE_OF_THE_KOKOROE_JP, SecondaryLogic.StanceoftheKokoroe_Turn(player), 0, 0, 0);
   }
+
+  private void ExecTranscendenceReached(Character player, Character target)
+  {
+    // 負のBUFFがあればそれを削除する。
+    // [ Abstract化してもよい ]
+    BuffImage[] buffList = target.objBuffPanel.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return; }
+    for (int ii = buffList.Length - 1; ii >= 0; ii--)
+    {
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Negative)
+      {
+        buffList[ii].RemoveBuff();
+      }
+    }
+
+    AbstractAddBuff(target, target.objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.BUFF_TRANSCENDENCE_REACHED, SecondaryLogic.TranscendenceReached_Turn(player), 0, 0, 0);
+  }
   #endregion
 
   private bool ExecUseRedPotion(Character target, string command_name)
@@ -9683,6 +9709,13 @@ public partial class BattleEnemy : MotherBase
     if (stanceOftheMuin && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Negative)
     {
       stanceOftheMuin.CumulativeDown(1);
+      StartAnimation(buff_field.gameObject, Fix.BUFF_MINUS_IMMUNE, Fix.COLOR_GUARD);
+      return;
+    }
+
+    BuffImage transcendenceReached = target.IsTranscendenceReached;
+    if (transcendenceReached && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Negative)
+    {
       StartAnimation(buff_field.gameObject, Fix.BUFF_MINUS_IMMUNE, Fix.COLOR_GUARD);
       return;
     }

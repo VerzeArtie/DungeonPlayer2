@@ -1097,6 +1097,11 @@ public static class SecondaryLogic
     return 300 + (player.TimeStop - 1) * 200;
   }
 
+  public static int TranscendenceReached_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

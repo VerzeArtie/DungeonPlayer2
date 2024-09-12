@@ -479,6 +479,7 @@ public static partial class Fix
   public const string BUFF_PIERCING_ARROW_JP = "致命傷";
   public const string BUFF_STANCE_OF_THE_KOKOROE_JP = "心得";
   public const string BUFF_TIME_STOP = "時間停止";
+  public const string BUFF_TRANSCENDENCE_REACHED = "超越";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

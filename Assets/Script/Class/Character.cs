@@ -2854,6 +2854,11 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.STANCE_OF_THE_KOKOROE); }
   }
 
+  public BuffImage IsTranscendenceReached
+  {
+    get { return SearchBuff(Fix.TRANSCENDENCE_REACHED); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -9490,12 +9495,12 @@ public partial class Character : MonoBehaviour
           }
           else
           {
-            result = Fix.COMMAND_POISON_NEEDLE;
+            result = "絶望の魔手";
           }
         }
         else
         {
-          result = Fix.NORMAL_ATTACK;
+          result = "絶望の魔手";
         }
         break;
 
