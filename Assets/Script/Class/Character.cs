@@ -1033,6 +1033,13 @@ public partial class Character : MonoBehaviour
     _beforeTarget = null;
     _beforeTarget2 = null;
   }
+
+  protected int _currentTimeStopValue = 0;
+  public int CurrentTimeStopValue
+  {
+    get { return _currentTimeStopValue; }
+    set { _currentTimeStopValue = value; }
+  }
   #endregion
 
   #region "Last Value"

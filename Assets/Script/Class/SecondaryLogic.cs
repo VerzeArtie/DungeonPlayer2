@@ -1086,6 +1086,17 @@ public static class SecondaryLogic
     return 9;
   }
 
+  public static int TimeStop_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double TimeStop_Effect(Character player)
+  {
+    if (player.TimeStop <= 1) { return 300; }
+    return 300 + (player.TimeStop - 1) * 200;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

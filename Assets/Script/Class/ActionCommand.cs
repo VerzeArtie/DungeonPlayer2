@@ -1676,7 +1676,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return TargetType.Ally; }
     if (command_name == Fix.DEATH_SCYTHE) { return TargetType.EnemyField; }
     if (command_name == Fix.GENESIS) { return TargetType.Own; }
-    if (command_name == Fix.TIME_STOP) { return TargetType.AllMember; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return TargetType.AllMember; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return TargetType.Enemy; }
     if (command_name == Fix.CATASTROPHE) { return TargetType.Enemy; }
@@ -2046,7 +2046,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return 700; }
     if (command_name == Fix.DEATH_SCYTHE) { return 600; }
     if (command_name == Fix.GENESIS) { return 0; }
-    if (command_name == Fix.TIME_STOP) { return 120; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return 1000; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return 70; }
     if (command_name == Fix.CATASTROPHE) { return 70; }
@@ -2411,7 +2411,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.DEATH_SCYTHE) { return Fix.BuffType.Negative; }
     if (command_name == Fix.GENESIS) { return Fix.BuffType.None; }
-    if (command_name == Fix.TIME_STOP) { return Fix.BuffType.None; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return Fix.BuffType.Positive; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return Fix.BuffType.None; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return Fix.BuffType.None; }
@@ -2823,7 +2823,7 @@ public static class ActionCommand
     if (command_name == Fix.RESURRECTION) { return false; }
     if (command_name == Fix.DEATH_SCYTHE) { return false; }
     if (command_name == Fix.GENESIS) { return false; }
-    if (command_name == Fix.TIME_STOP) { return false; } // todo 仮
+    if (command_name == Fix.TIME_STOP) { return false; }
     // スキル
     if (command_name == Fix.KINETIC_SMASH) { return true; } // todo 仮
     if (command_name == Fix.CATASTROPHE) { return true; }
