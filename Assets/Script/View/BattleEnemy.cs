@@ -8524,6 +8524,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecAbsoluteZero(Character player, Character target)
   {
+    if (player.IsAbsoluteZero) { return; } // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。 
+
     AbstractAddBuff(target, target.objBuffPanel, Fix.ABSOLUTE_ZERO, Fix.BUFF_ABSOLUTE_ZERO_JP, SecondaryLogic.AbsoluteZero_Turn(player), 0, 0, 0);
   }
 
