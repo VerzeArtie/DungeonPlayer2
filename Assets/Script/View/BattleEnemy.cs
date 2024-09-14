@@ -4934,7 +4934,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_HALLUCINATE_EYE:
         ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
         ExecBuffFreeze(player, target, 2, 0);
-        ExecBuffSlow(player, target, 3, 0);
+        ExecBuffSlow(player, target, 3, 0.30f);
         break;
 
       case Fix.COMMAND_BRAVE_ROAR:
@@ -5154,39 +5154,111 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SUPERIOR_FIELD:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.30f);
+          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.30f);
+        }
         break;
 
       case Fix.COMMAND_SHINDOWKEN:
+        for (int ii = 0; ii < 2; ii++)
+        {
+          ExecNormalAttack(player, target, 1.00f + AP.Math.RandomInteger(3) / 5.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_DEATH_STRIKE:
+        UpdateMessage(player.FullName + "の強烈無比な剣技が" + target.FullName + "に炸裂した！\r\n");
+        if (ExecNormalAttack(player, target, 2.0F, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+        {
+          if (AP.Math.RandomInteger(3) == 0)
+          {
+            ExecLifeDown(target, 1.00f);
+          }
+        }
         break;
 
       case Fix.COMMAND_SOUL_FROZEN:
+        UpdateMessage(player.FullName + "は剣を" + target.FullName + "の魂に突き立てるように切っ先を向けた！！\r\n");
+        //GroundOne.PlaySoundEffect(Database.SOUND_ABSOLUTE_ZERO);
+        ExecAbsoluteZero(player, target);
         break;
 
       case Fix.COMMAND_CURSED_THREAD:
+        UpdateMessage(player.FullName + "：・・ックスス、ほぉら呪いの糸よ。\n");
+        if (ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+        {
+          ExecBuffParalyze(player, target, 3, 0);
+          ExecBuffSlip(player, target, 5, 9500);
+        }
         break;
 
       case Fix.COMMAND_HORROR_VISION:
+        UpdateMessage(player.FullName + "：アッハハハ！！アタシを見ながら死ねえぇぇ！\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBattleSpeedDown(player, target_list[ii], 3, 0.70f);
+        }
         break;
 
       case Fix.COMMAND_RASEN_KOKUEN:
+        UpdateMessage(player.FullName + "は刀の切っ先を素早く螺旋状に描き、黒い炎を噴出してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical))
+          {
+            AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, 9, SecondaryLogic.DeathScythe_Effect(player), 0, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_RANSO_RENGEKI:
+        UpdateMessage(player.FullName + "は狂気じみた旋律を奏でつつ、乱雑に刀を振り回してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int i = 0; i < 3; i++)
+        {
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.90f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_DEMON_BOLT:
+        UpdateMessage(player.FullName + "は空間に悪魔の炎を創生してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.20f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_ARCANE_DESTRUCTION:
+        UpdateMessage(player.FullName + "は青紫のエネルギー体を創り出し、一気にそれを放出してきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          //GroundOne.PlaySoundEffect(Database.SOUND_ARCANE_DESTRUCTION);
+          ExecLifeDownCurrent(target_list[ii], 0.50f);
+        }
         break;
 
       case Fix.COMMAND_TOWER_FALL:
+        if (ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical))
+        {
+          ExecBuffStun(player, target, 1, 0);
+          ExecBuffParalyze(player, target, 4, 0);
+        }
         break;
 
       case Fix.COMMAND_ROUND_DIVIDE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[ii], 0.80f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+          ExecBuffSlow(player, target_list[ii], 2, 0.35f);
+        }
         break;
 
       case Fix.COMMAND_BLACK_FLARE:
@@ -8684,6 +8756,14 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     AbstractHealCommand(null, target, effectValue);
+  }
+
+  private void ExecLifeDownCurrent(Character target, double decrease)
+  {
+    int result = (int)((double)target.CurrentLife * decrease);
+    Debug.Log("ExecLifeDownCurrent: " + target.FullName + " " + result.ToString() + " damage");
+    target.CurrentLife -= result;
+    StartAnimation(target.objGroup.gameObject, result.ToString(), Fix.COLOR_NORMAL);
   }
 
   private void ExecLifeDown(Character target, double decrease)
