@@ -2051,7 +2051,7 @@ public static partial class Fix
   public const string COMMAND_SWORD_OF_WIND = "ソード・オブ・ウィンド";
   public const string COMMAND_SKY_CUTTER = "断空";
   public const string COMMAND_SONIC_BLADE = "高速剣";
-  public const string COMMAND_SCREAMING_FROM_VOICE = "地獄からの呼び声";
+  public const string COMMAND_SCREAMING_FROM_HELL = "地獄からの呼び声";
   public const string COMMAND_DESPAIR_SPEAR = "絶望の槍";
   public const string COMMAND_KUUKAN_MATEN = "空間魔天";
   public const string COMMAND_METEOR_STORM = "メテオ・ストーム";

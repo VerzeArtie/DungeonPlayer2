@@ -1225,7 +1225,7 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SWORD_OF_WIND) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_SKY_CUTTER) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_SONIC_BLADE) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_SCREAMING_FROM_VOICE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_SCREAMING_FROM_HELL) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_DESPAIR_SPEAR) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_KUUKAN_MATEN) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_METEOR_STORM) { return Attribute.MonsterAction; }

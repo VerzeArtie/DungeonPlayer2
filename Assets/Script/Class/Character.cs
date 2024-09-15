@@ -8365,7 +8365,7 @@ public partial class Character : MonoBehaviour
       case Fix.HOLLOW_SPECTOR_JP:
         SetupParameter(2320, 1950, 3260, 66000, 300, 0, 77000, 66800);
         list.Add(Fix.MAGIC_ATTACK);
-        list.Add(Fix.COMMAND_SCREAMING_FROM_VOICE);
+        list.Add(Fix.COMMAND_SCREAMING_FROM_HELL);
         list.Add(Fix.COMMAND_DESPAIR_SPEAR);
         list.Add(Fix.COMMAND_KUUKAN_MATEN);
         this.Rare = Fix.RareString.Black;
@@ -9522,9 +9522,10 @@ public partial class Character : MonoBehaviour
         result == Fix.COMMAND_AMBUSH_ATTACK ||
         result == Fix.COMMAND_BACKSTAB_ARROW ||
         result == Fix.COMMAND_ASSASSIN_POISONNEEDLE ||
-        result == Fix.COMMAND_BLACKHOLE)
+        result == Fix.COMMAND_BLACKHOLE ||
+        result == Fix.COMMAND_SKY_CUTTER)
     {
-      Debug.Log("result is COMMAND_HIDDEN_KNIFE, then behind");
+      Debug.Log("result is [" + result + "] , then behind");
       for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
       {
         if (opponent_group[ii].Dead == false)
