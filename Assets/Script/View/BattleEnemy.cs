@@ -5262,66 +5262,268 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BLACK_FLARE:
+        UpdateMessage(player.FullName + "：太陽の影より出てし熱き炎よ、焼き尽くせ！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        //GroundOne.PlaySoundEffect(Database.SOUND_BLACK_FLARE);
+        // 雑魚モンスターとしては強すぎるので撤廃
+        //for (int ii = 0; ii < target_list.Count; ii++)
+        //{
+        //  ExecMagicAttack(player, target_list[ii], 1.10f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
+        //}
+        ExecVolcanicBlaze(player, target_list, target.objFieldPanel, critical);
         break;
 
       case Fix.COMMAND_SATELLITE_SWORD:
+        UpdateMessage(player.FullName + "：我が剣、喰らうがよい！！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.0F + AP.Math.RandomInteger(3), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_SIGIL_OF_SUN_FALLEN:
+        UpdateMessage(player.FullName + "：太陽を滅ぼすが如く！　太陽の滅印をくらえ！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecLifeOne(target_list[ii]);
+          // ExecBuffSlip(player, target_list[ii], 3, 9000); // 雑魚モンスターとしては強すぎるので撤廃
+        }
         break;
 
       case Fix.COMMAND_LIFE_BRILLIANT:
+        UpdateMessage(player.FullName + "：この輝きを受け取りなさい。\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
+        }
+        AbstractHealCommand(player, player, player.MaxLife / 20.0f);
         break;
 
       case Fix.COMMAND_ALL_DUST:
+        UpdateMessage(player.FullName + "：衰え朽ちなさい。\r\n");
+        target_list = GetAllMember();
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecLifeDown(target_list[ii], 0.10f + AP.Math.RandomInteger(5) * 0.10f);
+        }
         break;
 
       case Fix.COMMAND_LVEL_SONG:
+        UpdateMessage(player.FullName + "：苦しみを抱え込みなさい。\r\n");
+        //GroundOne.PlaySoundEffect(Database.SOUND_DAMNATION);
+        target_list = GetAllMember();
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffSlip(player, target_list[ii], Fix.INFINITY, 7500 + AP.Math.RandomInteger(2500));
+          ExecBuffPoison(player, target_list[ii], Fix.INFINITY, 7500 + AP.Math.RandomInteger(2500));
+          // Damnation 雑魚モンスターとしては強すぎるので撤廃
+        }
         break;
 
       case Fix.COMMAND_GIGANT_SLAYER:
+        UpdateMessage(player.FullName + "：このイチゲキにて、クチハテよ\r\n");
+        ExecNormalAttack(player, target, 2.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecBuffStun(player, target, 2, 0);
         break;
 
       case Fix.COMMAND_JUONSATSU:
+        UpdateMessage(player.FullName + "：シせよ、オロカなるモノ\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (AP.Math.RandomInteger(4) == 0)
+          {
+            ExecLifeDown(target_list[ii], 1.00f);
+          }
+          else
+          {
+            ExecLifeOne(target_list[ii]);
+          }
+        }
         break;
 
       case Fix.COMMAND_ABYSS_LOGIC:
+        UpdateMessage(player.FullName + "：ヤミへのコトワリ、シンエンへシズメ\r\n");
+        ExecBuffPhysicalAttackDown(player, target, 3, 0.50f);
+        ExecBuffPhysicalDefenseDown(player, target, 3, 0.50f);
+        ExecBuffMagicAttackDown(player, target, 3, 0.50f);
+        ExecBuffMagicDefenceDown(player, target, 3, 0.50f);
+        ExecBuffBattleSpeedDown(player, target, 3, 0.50f);
+        ExecBuffBattleResponseDown(player, target, 3, 0.50f);
+        //ExecBuffBattlePotentialDown(player, target, 3, 0.50f); 雑魚モンスターとしては強すぎるので撤廃
         break;
 
       case Fix.COMMAND_BONE_TORNADO:
+        UpdateMessage(player.FullName + "：は骨の嵐を部屋中に巻き起こしてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_OMINOUS_LAUGH:
+        UpdateMessage(player.FullName + "：は禍々しい呪詛を部屋中に響き渡らせてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (AP.Math.RandomInteger(4) == 0)
+          {
+            ExecLifeDown(target_list[ii], 1.00f);
+          }
+          else
+          {
+            ExecLifeDown(target_list[ii], 0.50f);
+          }
+        }
         break;
 
       case Fix.COMMAND_SKULL_CRASH:
+        UpdateMessage(player.FullName + "は頭蓋骨の部分をめがけて突進してきた。\r\n");
+        if (ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical))
+        {
+          ExecBuffStun(player, target, 2, 0);
+          ExecBuffSlip(player, target, 9, 8500);
+        }
         break;
 
       case Fix.COMMAND_WAZAWAI_FLAME:
+        UpdateMessage(player.FullName + "：シュゴオオオォォォ！！！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseMode, critical);
+        }
         break;
 
       case Fix.COMMAND_THE_END:
+        UpdateMessage(player.FullName + "：フシャアアアアァァ！！！！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_HELLFLAME_BULLET:
+        UpdateMessage(player.FullName + "：ダラララララアァ！！！！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 0.50f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_CHROMATIC_BULLET:
+        UpdateMessage(player.FullName + "：ッハッハハハ、喰らえ喰らえ。\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          rand = AP.Math.RandomInteger(5);
+
+          if (rand == 0)
+          {
+            ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
+          }
+          else if (rand == 1)
+          {
+            ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
+          }
+          else if (rand == 2)
+          {
+            ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
+          }
+          else if (rand == 3)
+          {
+            ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
+          }
+          else if (rand == 4)
+          {
+            ExecMagicAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 1.00f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
+          }
+        }
         break;
 
       case Fix.COMMAND_SUPER_MAX_WAVE:
+        UpdateMessage(player.FullName + "：灼け落ちろ、超高温熱波動だ。\r\n");
+        if (ExecMagicAttack(player, target, 2.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseMode, critical))
+        {
+          ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
+        }
         break;
 
       case Fix.COMMAND_IRREGULAR_REGENERATION:
+        UpdateMessage(player.FullName + "：この再生能力、ニンゲンは欲しがるだろうな。\r\n");
+        ExecLifeGain(player, player.MaxLife / 5.0f);
         break;
 
       case Fix.COMMAND_ETERNAL_CIRCLE:
+        target_list = GetAllyGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          rand = AP.Math.RandomInteger(6);
+          if (rand == 0)
+          {
+            ExecBuffPhysicalAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffPhysicalDefenseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffMagicAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+          else if (rand == 3)
+          {
+            ExecBuffMagicDefenceUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+          else if (rand == 4)
+          {
+            ExecBuffBattleSpeedUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+          else if (rand == 5)
+          {
+            ExecBuffBattleResponseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+          }
+        }
         break;
 
       case Fix.COMMAND_DESTRUCTION_CIRCLE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          rand = AP.Math.RandomInteger(6);
+          if (rand == 0)
+          {
+            ExecBuffPhysicalAttackDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffPhysicalDefenseDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffMagicAttackDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+          else if (rand == 3)
+          {
+            ExecBuffMagicDefenceDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+          else if (rand == 4)
+          {
+            ExecBuffBattleSpeedDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+          else if (rand == 5)
+          {
+            ExecBuffBattleResponseDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+          }
+        }
         break;
 
       case Fix.COMMAND_PERFECT_STOP:
+        ExecTimeStop(player);
         break;
 
       case Fix.COMMAND_SPECTOR_VOICE:
