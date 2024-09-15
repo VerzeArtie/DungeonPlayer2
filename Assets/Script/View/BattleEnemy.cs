@@ -5527,75 +5527,279 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPECTOR_VOICE:
+        UpdateMessage(player.FullName + "のスペクター・ヴォイスが発動した！\r\n");
+        //GroundOne.PlaySoundEffect(Database.SOUND_ABSOLUTE_ZERO);
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          rand = AP.Math.RandomInteger(4);
+          if (rand == 0)
+          {
+            ExecBuffStun(player, target_list[AP.Math.RandomInteger(target_list.Count)], 2, 0);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffSilent(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffDizzy(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.30f);
+          }
+          else
+          {
+            ExecBuffSlip(player, target_list[AP.Math.RandomInteger(target_list.Count)], 9, 10000);
+          }
+        }
         break;
 
       case Fix.COMMAND_NOMERCY_SCREAM:
+        UpdateMessage(player.FullName + "から無慈悲な叫び声が発せられた！" + target.FullName + "の心に直接ダメージが発生される。\r\n");
+        ExecMagicAttack(player, target, 1.00f + AP.Math.RandomReal(), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.COMMAND_DARK_SIMULACRUM:
+        UpdateMessage(player.FullName + "不気味なドス黒い物体を排出し、それを放ってきた。\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 5; ii++)
+        {
+          rand = AP.Math.RandomInteger(4);
+          if (rand == 0)
+          {
+            ExecBuffPoison(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 10000);
+          }
+          else if (rand == 1)
+          {
+            ExecLifeDownCurrent(target_list[AP.Math.RandomInteger(target_list.Count)], 0.50f);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffCannotResurrect(player, target_list[AP.Math.RandomInteger(target_list.Count)], Fix.INFINITY, 0);
+          }
+          else
+          {
+            ExecBuffFear(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_FABRIOLE_SPEAR:
+        UpdateMessage(player.FullName + "：苦しみを刻み込みなさい、フェイブリオル・ランス！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        if (ExecNormalAttack(player, currentTarget, 2.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+        {
+          ExecBuffStun(player, currentTarget, 2, 0);
+        }
         break;
 
       case Fix.COMMAND_REST_IN_DREAM:
+        UpdateMessage(player.FullName + "：苦しむ事はないのよ、安らかなる死別を与えましょう。\r\n");
+        if (AP.Math.RandomInteger(2) == 0)
+        {
+          ExecLifeOne(target);
+        }
+        else
+        {
+          ExecLifeDown(target, 1.00f);
+        }
         break;
 
       case Fix.COMMAND_DANCING_LANCER:
+        UpdateMessage(player.FullName + "：この槍の舞を受けてみなさい、ダンシング・ランサー！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 2; ii++)
+        {
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          ExecMagicAttack(player, currentTarget, 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_CHAOS_DEATHPERADE:
+        UpdateMessage(player.FullName + "は終了のサインを示す演舞を踊ってみせた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        ExecDeathScythe(player, target_list[AP.Math.RandomInteger(target_list.Count)], target_list[0].objFieldPanel);
         break;
 
       case Fix.COMMAND_MARIA_DANSEL:
+        UpdateMessage(player.FullName + "は不気味で美しい妖艶な演舞を踊ってみせた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffPhysicalAttackDown(player, target_list[ii], 3, 0.50f);
+          ExecBuffMagicAttackDown(player, target_list[ii], 3, 0.50f);
+        }
         break;
 
       case Fix.COMMAND_DESTRUCT_TUNING:
+        UpdateMessage(player.FullName + "は何も無い空間に対して破壊を行う演舞を踊ってみせた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBattlePotentialDown(player, target_list[ii], 3, 0.70f);
+        }
         break;
 
       case Fix.COMMAND_GROUND_CRACK:
+        UpdateMessage(player.FullName + "の純黒の槍が地上へ突き刺された。大地に裂け目が発生する！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+          {
+            ExecBuffParalyze(player, target_list[ii], 2, 0);
+            ExecBuffSilent(player, target_list[ii], 4, 0);
+            ExecBuffBind(player, target_list[ii], 4, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_BLACK_DARK_LANCE:
+        UpdateMessage(player.FullName + "は突先が純黒に染まった槍を" + target.FullName + "に向けて放ってきた！\r\n");
+        if (target.CurrentLife <= 1000)
+        {
+          ExecLifeDown(target, 1.00f);
+        }
+        else if (AP.Math.RandomInteger(3) == 0)
+        {
+          ExecLifeOne(target);
+        }
+        else
+        {
+          ExecBuffDizzy(player, target, 3, 0.30f);
+          ExecBuffSlip(player, target, 5, 12000);
+        }
         break;
 
       case Fix.COMMAND_UNDEAD_WISH:
+        UpdateMessage(player.FullName + "は不死への渇望を貪欲に見せ始めた！\r\n");
+        ExecLifeGain(player, player.MaxLife / 5.0f);
         break;
 
       case Fix.COMMAND_HELL_CIRCLE:
+        UpdateMessage(player.FullName + "は地獄の円を部屋全体に描いてきた！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffSlow(player, target_list[ii], 5, 0.30f);
+          ExecBuffSlip(player, target_list[ii], 2, 14000);
+          ExecBuffDizzy(player, target_list[ii], 3, 0.30f);
+        }
         break;
 
       case Fix.COMMAND_INNOCENT_SLASH:
+        UpdateMessage(player.FullName + "はスっとどこへともなく振りかざしてきた。\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
+        ExecLifeOne(target);
+        ExecDeathScythe(player, target, target.objFieldPanel);
         break;
 
       case Fix.COMMAND_HARSH_CUTTER:
+        UpdateMessage(player.FullName + "は部屋中をかき乱すように剣をぶん回してきた！！\r\n");
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_JUDGEMENT_LIGHTNING:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          ExecMagicAttack(player, currentTarget, 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_BLACKHOLE:
+        if (target.CurrentLife > target.MaxLife / 2.0f)
+        {
+          ExecLifeDownCurrent(target, 0.90f);
+        }
+        else
+        {
+          ExecLifeDown(target, 1.00f);
+        }
         break;
 
       case Fix.COMMAND_ERROR_OCCUR:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBattleSpeedDown(player, target_list[ii], 3, 0.30f);
+        }
+         ExecBuffBattleSpeedUp(player, player, 3, 1.50f);
         break;
 
       case Fix.COMMAND_FUMBLE_SIGN:
+        if (ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+        {
+          ExecBuffPhysicalAttackDown(player, target, 3, 0.80f);
+          ExecBuffBattleSpeedDown(player, target, 3, 0.20f);
+        }
         break;
 
       case Fix.COMMAND_AREA_TWIST:
+        ExecLifeOne(target);
         break;
 
       case Fix.COMMAND_PARADOXICAL_SLICER:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
         break;
 
       case Fix.COMMAND_OAHN_VOICE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 3; ii++)
+        {
+          rand = AP.Math.RandomInteger(4);
+          if (rand == 0)
+          {
+            ExecBuffStun(player, target_list[AP.Math.RandomInteger(target_list.Count)], 2, 0);
+            ExecBuffBind(player, target, 5, 0);
+          }
+          else if (rand == 1)
+          {
+            ExecBuffStun(player, target_list[AP.Math.RandomInteger(target_list.Count)], 2, 0);
+            ExecBuffParalyze(player, target, 5, 0);
+          }
+          else if (rand == 2)
+          {
+            ExecBuffStun(player, target_list[AP.Math.RandomInteger(target_list.Count)], 2, 0);
+            ExecBuffFear(player, target, 5, 0);
+          }
+          else if (rand == 3)
+          {
+            ExecBuffStun(player, target_list[AP.Math.RandomInteger(target_list.Count)], 2, 0);
+            ExecBuffSilent(player, target, 5, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_MOMENT_MAGIC:
+        if (ExecMagicAttack(player, target, 2.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.DefenseMode, critical))
+        {
+          ExecBuffFreeze(player, target, 1, 0);
+        }
         break;
 
       case Fix.COMMAND_DESPIAR_RAIN:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          if (ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical))
+          {
+            ExecBuffMagicDefenceDown(player, target_list[ii], 3, 0.30f);
+          }
+        }
         break;
 
       case Fix.COMMAND_SWORD_OF_WIND:
