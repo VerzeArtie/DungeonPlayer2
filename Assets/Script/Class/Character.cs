@@ -8401,6 +8401,7 @@ public partial class Character : MonoBehaviour
       case Fix.MASCLEWARRIOR_HARDIL_JP:
       case Fix.MASCLEWARRIOR_HARDIL_JP_VIEW:
         SetupParameter(6000, 2500, 4000, 300000, 350, 0, 150000, 250000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POWER_EXPLOSION);
         list.Add(Fix.COMMAND_PERFECT_HIT);
@@ -9443,6 +9444,64 @@ public partial class Character : MonoBehaviour
         else if (this.AI_Phase == 3)
         {
           current.Add(Fix.HOLY_BREATH);
+        }
+        else
+        {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.MASCLEWARRIOR_HARDIL:
+      case Fix.MASCLEWARRIOR_HARDIL_JP:
+      case Fix.MASCLEWARRIOR_HARDIL_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_PERFECT_HIT);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_POWER_EXPLOSION);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_LEGION_DRIVE);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_FUSION_CHARGE);
+        }
+        else
+        {
+          current.Add(Fix.NORMAL_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.HUGE_MAGICIAN_ZAGAN:
+      case Fix.HUGE_MAGICIAN_ZAGAN_JP:
+      case Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW:
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 5) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 0)
+        {
+          current.Add(Fix.COMMAND_AURORA_BLADE);
+        }
+        else if (this.AI_Phase == 1)
+        {
+          current.Add(Fix.COMMAND_GOLDEN_MATRIX);
+        }
+        else if (this.AI_Phase == 2)
+        {
+          current.Add(Fix.COMMAND_METSU_INCARNATION);
+        }
+        else if (this.AI_Phase == 3)
+        {
+          current.Add(Fix.COMMAND_THOUSAND_SQUALL);
         }
         else
         {
