@@ -8417,6 +8417,7 @@ public partial class Character : MonoBehaviour
       case Fix.HUGE_MAGICIAN_ZAGAN_JP:
       case Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW:
         SetupParameter(4000, 2600, 6000, 320000, 360, 0, 160000, 300000);
+        this._baseInstantPoint = 4000;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_GOLDEN_MATRIX);
         list.Add(Fix.COMMAND_METSU_INCARNATION);
