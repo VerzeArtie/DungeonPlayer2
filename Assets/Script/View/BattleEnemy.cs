@@ -551,7 +551,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.MASCLEWARRIOR_HARDIL_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN)
+        else if (One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || One.EnemyList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW;
         }
@@ -1327,6 +1327,22 @@ public partial class BattleEnemy : MotherBase
             AllList[ii].CurrentInstantPoint = 0;
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_SOUMEI_SEISOU_KEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
+          if (AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
+          {
+            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BERSERKER_RUSH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
+          if (AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW)
+          {
+            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_MEGIDO_BLAZE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
@@ -5942,33 +5958,221 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_POWER_EXPLOSION:
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        if (ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+        {
+          currentTarget.CurrentInstantPoint = 0;
+          currentTarget.UpdateInstantPointGauge();
+        }
         break;
 
       case Fix.COMMAND_PERFECT_HIT:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.Both, Fix.CriticalType.Absolute);
         break;
 
       case Fix.COMMAND_FUSION_CHARGE:
+        player.CurrentInstantPoint += 1500;
+        player.UpdateInstantPointGauge();
+        StartAnimation(player.objGroup.gameObject, "インスタントゲージ増強", Fix.COLOR_NORMAL);
         break;
 
       case Fix.COMMAND_LEGION_DRIVE:
+        ExecDivineCircle(player, player, player.objFieldPanel);
+        if (player.IsPhysicalAttackUp == false)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.20f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.30f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.30f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.40f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.40f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.50f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.50f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.60f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.60f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.70f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.70f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.80f);
+        }
+        else if (player.IsPhysicalAttackUp.EffectValue <= 1.80f)
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.90f);
+        }
+        else
+        {
+          ExecBuffPhysicalAttackUp(player, player, 9, 2.00f);
+        }
+
+        if (player.IsPhysicalDefenseUp == false)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.20f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.20f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.30f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.30f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.40f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.40f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.50f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.50f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.60f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.60f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.70f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.70f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.80f);
+        }
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.80f)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.90f);
+        }
+        else
+        {
+          ExecBuffPhysicalDefenseUp(player, player, 9, 2.00f);
+        }
+
+        if (player.IsBattleSpeedUp == false)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.20f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.20f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.30f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.30f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.40f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.40f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.50f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.50f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.60f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.60f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.70f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.70f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.80f);
+        }
+        else if (player.IsBattleSpeedUp.EffectValue <= 1.80f)
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 1.90f);
+        }
+        else
+        {
+          ExecBuffBattleSpeedUp(player, player, 9, 2.00f);
+        }
         break;
 
       case Fix.COMMAND_BERSERKER_RUSH:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < 8; ii++)
+        {
+          currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+          if (ExecNormalAttack(player, currentTarget, 0.50f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
+          {
+            if (currentTarget.IsSlip == false)
+            {
+              ExecBuffSlip(player, currentTarget, 5, 18000 + AP.Math.RandomInteger(2000));
+            }
+            else if (currentTarget.IsPoison == false)
+            {
+              ExecBuffPoison(player, currentTarget, 5, 18000 + AP.Math.RandomInteger(2000));
+            }
+            else if (currentTarget.IsStun == false)
+            {
+              ExecBuffStun(player, currentTarget, 3, 0);
+            }
+            else if (currentTarget.IsParalyze == false)
+            {
+              ExecBuffParalyze(player, currentTarget, 5, 0);
+            }
+            else if (currentTarget.IsBind == false)
+            {
+              ExecBuffBind(player, currentTarget, 5, 0);
+            }
+            else if (currentTarget.IsSilent == false)
+            {
+              ExecBuffSilent(player, currentTarget, 5, 0);
+            }
+          }
+        }
         break;
 
       case Fix.COMMAND_GOLDEN_MATRIX:
+        AbstractAddBuff(player, player.objFieldPanel, Fix.GOLDEN_MATRIX, Fix.COMMAND_GOLDEN_MATRIX, Fix.INFINITY, 3, 0, 0);
         break;
 
       case Fix.COMMAND_METSU_INCARNATION:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.DefenseValue, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.DefenseValue, critical);
+        ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
         break;
 
       case Fix.COMMAND_THOUSAND_SQUALL:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
+          rand = AP.Math.RandomInteger(5);
+          if (rand == 0)
+          {
+            ExecBuffPoison(player, target_list[ii], 5, 18500 + AP.Math.RandomInteger(2500));
+          }
+          else if (rand == 1)
+          {
+            ExecBuffSlip(player, target_list[ii], 5, 18500 + AP.Math.RandomInteger(2500));
+          }
+          else if (rand == 2)
+          {
+            ExecBuffSilent(player, target_list[ii], 5, 0);
+          }
+          else if (rand == 3)
+          {
+            ExecBuffBind(player, target_list[ii], 5, 0);
+          }
+          else if (rand == 4)
+          {
+            ExecBuffParalyze(player, target_list[ii], 5, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_AURORA_BLADE:
+        BuffUpIce(player, player, 9, 1.50f);
+        BuffUpLight(player, player, 9, 1.50f);
         break;
 
       case Fix.COMMAND_MEGIDO_BLAZE:
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseValue, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseValue, critical);
         break;
 
       case Fix.COMMAND_ABYSS_WILL:
@@ -7905,6 +8109,17 @@ public partial class BattleEnemy : MotherBase
           buffImage.RemoveBuff();
         }
         return false; // FAITH_SIGHTで吸収された場合はヒットしたことにならない。
+      }
+    }
+    if (panelField != null)
+    {
+      BuffImage buffImage = PreCheckFieldEffect(panelField.gameObject, Fix.GOLDEN_MATRIX);
+      if (buffImage != null)
+      {
+        damageValue = 0;
+        buffImage.CumulativeDown(1);
+        StartAnimationGroupPanel(buffImage.gameObject, Fix.COMMAND_GOLDEN_MATRIX + "\r\n " + (int)(buffImage.EffectValue), Fix.COLOR_NORMAL);
+        return false; // GoldenMatrix効果によりここで処理を終了
       }
     }
 

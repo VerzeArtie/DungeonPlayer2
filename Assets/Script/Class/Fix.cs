@@ -2065,6 +2065,7 @@ public static partial class Fix
   public const string COMMAND_FUSION_CHARGE = "フュージョン・チャージ";
   public const string COMMAND_LEGION_DRIVE = "レギオン・ドライブ";
   public const string COMMAND_BERSERKER_RUSH = "バーサーカー・ラッシュ";
+  public const string GOLDEN_MATRIX = "Golden Matrix";
   public const string COMMAND_GOLDEN_MATRIX = "ゴールデン・マトリクス";
   public const string COMMAND_METSU_INCARNATION = "滅・インカーネーション";
   public const string COMMAND_THOUSAND_SQUALL = "サウザンド・スコール";
