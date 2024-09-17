@@ -1040,6 +1040,15 @@ public partial class Character : MonoBehaviour
     get { return _currentTimeStopValue; }
     set { _currentTimeStopValue = value; }
   }
+
+  // 敵が自分が一旦死亡した事を知るフラグ（レギィンアーゼLv3専用）
+  protected bool _detectDeath = false;
+  public bool DetectDeath
+  {
+    get { return _detectDeath; }
+    set { _detectDeath = true; }
+  }
+
   #endregion
 
   #region "Last Value"
@@ -3036,6 +3045,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsVoiceOfAbyss
   {
     get { return SearchBuff(Fix.VOICE_OF_ABYSS); }
+  }
+  
+  public BuffImage IsTheAbyssWall
+  {
+    get { return SearchBuff(Fix.THE_ABYSS_WALL); }
   }
 
   public void RemoveTargetBuff(string buff_name)

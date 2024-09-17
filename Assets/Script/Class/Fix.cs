@@ -298,6 +298,7 @@ public static partial class Fix
   public static Color COLOR_LOST_MP = Color.red;
   public static Color COLOR_GAIN_SP = Color.yellow;
   public static Color COLOR_LOST_SP = Color.red;
+  public static Color COLOR_MP_DAMAGE = Color.HSVToRGB(0.5f, 0.2f, 0.7f);
 
   public static Color COLOR_FIRST_CHARA = new Color(235.0f / 255.0f, 253.0f / 255.0f, 255.0f / 255.0f);
   public static Color COLORFORE_FIRST_CHARA = new Color(0, 185.0f / 255.0f, 255.0f / 255.0f);

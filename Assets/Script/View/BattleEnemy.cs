@@ -1788,6 +1788,20 @@ public partial class BattleEnemy : MotherBase
         {
           detectEnemyDead = true;
         }
+
+        if ((this.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3 || this.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP || this.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP_VIEW) &&
+            (this.EnemyList[ii].IsTheAbyssWall == false) &&
+            (this.EnemyList[ii].DetectDeath == false))
+        {
+          this.EnemyList[ii].DetectDeath = true;
+          detectEnemyDead = false;
+          UpdateMessage(EnemyList[ii].FullName + "は死の至る刹那、深淵の防壁を作りだした！！\r\n");
+          StartAnimation(EnemyList[ii].objGroup.gameObject, "深淵の防壁", Fix.COLOR_NORMAL);
+          EnemyList[ii].CurrentLife = 1;
+          EnemyList[ii].UpdateLife();
+          AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.THE_ABYSS_WALL, Fix.BUFF_THE_ABYSS_WALL, Fix.INFINITY, 0, 0, 0);
+          continue;
+        }
         this.EnemyList[ii].DeadPlayer();
       }
     }
@@ -10487,6 +10501,21 @@ public partial class BattleEnemy : MotherBase
     int result = (int)damageValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
     UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " のダメージ");
+
+
+    // 防壁がある場合、マナダメージへ変換する。
+    if (target.IsTheAbyssWall)
+    {
+      target.CurrentManaPoint -= (int)result;
+      target.UpdateManaPoint();
+      StartAnimation(target.groupManaPoint.gameObject, result.ToString(), Fix.COLOR_MP_DAMAGE, animation_speed);
+      if (target.CurrentManaPoint <= 0)
+      {
+        target.RemoveTargetBuff(Fix.THE_ABYSS_WALL);
+      }
+      return;
+    }
+
     target.CurrentLife -= result;
     target.txtLife.text = target.CurrentLife.ToString();
     if (critical)
