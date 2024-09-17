@@ -3008,6 +3008,36 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.COMMAND_LIGHT_THUNDERBOLT); }
   }
 
+  public BuffImage IsAbyssWill
+  {
+    get { return SearchBuff(Fix.ABYSS_WILL); }
+  }
+
+  public BuffImage IsIchinaruHomura
+  {
+    get { return SearchBuff(Fix.ICHINARU_HOMURA); }
+  }
+
+  public BuffImage IsAbyssFire
+  {
+    get { return SearchBuff(Fix.ABYSS_FIRE); }         
+  }
+
+  public BuffImage IsAusterityMatrixOmega
+  {
+    get { return SearchBuff(Fix.AUSTERITY_MATRIX_OMEGA); }
+  }
+
+  public BuffImage IsEternalDroplet
+  {
+    get { return SearchBuff(Fix.ETERNAL_DROPLET); }
+  }
+
+  public BuffImage IsVoiceOfAbyss
+  {
+    get { return SearchBuff(Fix.VOICE_OF_ABYSS); }
+  }
+
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
@@ -8433,11 +8463,13 @@ public partial class Character : MonoBehaviour
       case Fix.LEGIN_ARZE_1_JP:
       case Fix.LEGIN_ARZE_1_JP_VIEW:
         SetupParameter(4500, 3000, 6500, 400000, 370, 0, 0, 0);
-        list.Add(Fix.MAGIC_ATTACK);
+        this._baseInstantPoint = 3600;
+        this.BaseManaPoint = 2720000;
         list.Add(Fix.COMMAND_ABYSS_WILL);
         list.Add(Fix.COMMAND_ONE_HOMURA);
         list.Add(Fix.COMMAND_ABYSS_FIRE);
         list.Add(Fix.COMMAND_ETERNAL_DROPLET);
+        list.Add(Fix.COMMAND_VOID_BEAT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss63_1;
         this.CannotCritical = true;
@@ -8447,12 +8479,14 @@ public partial class Character : MonoBehaviour
       case Fix.LEGIN_ARZE_2_JP:
       case Fix.LEGIN_ARZE_2_JP_VIEW:
         SetupParameter(4500, 3100, 6600, 450000, 380, 0, 0, 0);
-        list.Add(Fix.MAGIC_ATTACK);
+        this._baseInstantPoint = 3500;
+        this.BaseManaPoint = 2720000;
         list.Add(Fix.COMMAND_ABYSS_WILL);
         list.Add(Fix.COMMAND_ONE_HOMURA);
         list.Add(Fix.COMMAND_ABYSS_FIRE);
         list.Add(Fix.COMMAND_ETERNAL_DROPLET);
         list.Add(Fix.COMMAND_AUSTERITY_MATRIX_OMEGA);
+        list.Add(Fix.COMMAND_VOID_BEAT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss63_2;
         this.CannotCritical = true;
@@ -8462,12 +8496,14 @@ public partial class Character : MonoBehaviour
       case Fix.LEGIN_ARZE_3_JP:
       case Fix.LEGIN_ARZE_3_JP_VIEW:
         SetupParameter(4500, 3200, 6700, 500000, 390, 0, 200000, 350000);
-        list.Add(Fix.MAGIC_ATTACK);
+        this._baseInstantPoint = 3400;
+        this.BaseManaPoint = 2720000;
         list.Add(Fix.COMMAND_ABYSS_WILL);
         list.Add(Fix.COMMAND_ONE_HOMURA);
         list.Add(Fix.COMMAND_ABYSS_FIRE);
         list.Add(Fix.COMMAND_ETERNAL_DROPLET);
         list.Add(Fix.COMMAND_AUSTERITY_MATRIX_OMEGA);
+        list.Add(Fix.COMMAND_VOICE_OF_ABYSS);
         list.Add(Fix.COMMAND_VOID_BEAT);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss63_3;
@@ -9506,6 +9542,104 @@ public partial class Character : MonoBehaviour
         }
         else
         {
+          current.Add(Fix.MAGIC_ATTACK);
+        }
+        result = RandomChoice(current);
+        break;
+
+      case Fix.LEGIN_ARZE_1:
+      case Fix.LEGIN_ARZE_1_JP:
+      case Fix.LEGIN_ARZE_1_JP_VIEW:
+      case Fix.LEGIN_ARZE_2:
+      case Fix.LEGIN_ARZE_2_JP:
+      case Fix.LEGIN_ARZE_2_JP_VIEW:
+      case Fix.LEGIN_ARZE_3:
+      case Fix.LEGIN_ARZE_3_JP:
+      case Fix.LEGIN_ARZE_3_JP_VIEW:
+        Debug.Log("Fix.LEGIN_ARZE " + this.FullName);
+        if (skip_decision == false) { this.AI_Phase++; }
+        if ((this.FullName == Fix.LEGIN_ARZE_1 || this.FullName == Fix.LEGIN_ARZE_1_JP || this.FullName == Fix.LEGIN_ARZE_1_JP_VIEW) && this.AI_Phase >= 4) { this.AI_Phase = 0; }
+        if ((this.FullName == Fix.LEGIN_ARZE_2 || this.FullName == Fix.LEGIN_ARZE_2_JP || this.FullName == Fix.LEGIN_ARZE_2_JP_VIEW) && this.AI_Phase >= 5) { this.AI_Phase = 0; }
+        if ((this.FullName == Fix.LEGIN_ARZE_3 || this.FullName == Fix.LEGIN_ARZE_3_JP || this.FullName == Fix.LEGIN_ARZE_3_JP_VIEW) && this.AI_Phase >= 6) { this.AI_Phase = 0; }
+
+        if (this.AI_Phase == 1)
+        {
+          if (Target.IsAusterityMatrixOmega == false)
+          {
+            current.Add(Fix.COMMAND_AUSTERITY_MATRIX_OMEGA);
+          }
+          else
+          {
+            current.Add(Fix.COMMAND_ABYSS_WILL);
+          }
+        }
+        else if (this.AI_Phase == 2)
+        {
+          bool detect = false;
+          for (int ii = 0; ii < opponent_group.Count; ii++)
+          {
+            if (opponent_group[ii].IsIchinaruHomura == false)
+            {
+              current.Add(Fix.COMMAND_ONE_HOMURA);
+              this.Target = opponent_group[ii];
+              detect = true;
+              break;
+            }
+          }
+          if (detect == false)
+          {
+            current.Add(Fix.COMMAND_ABYSS_WILL);
+          }
+        }
+        else if (this.AI_Phase == 3)
+        {
+          bool detect = false;
+          for (int ii = 0; ii < opponent_group.Count; ii++)
+          {
+            if (opponent_group[ii].IsAbyssFire == false)
+            {
+              current.Add(Fix.COMMAND_ABYSS_FIRE);
+              this.Target = opponent_group[ii];
+              detect = true;
+              break;
+            }
+          }
+          if (detect == false)
+          {
+            current.Add(Fix.COMMAND_ABYSS_WILL);
+          }
+        }
+        else if (this.AI_Phase == 4)
+        {
+          if (this.IsEternalDroplet == false)
+          {
+            current.Add(Fix.COMMAND_ETERNAL_DROPLET);
+          }
+          else
+          {
+            current.Add(Fix.COMMAND_ABYSS_WILL);
+          }
+        }
+        else if (this.AI_Phase == 5)
+        {
+          bool detect = false;
+          for (int ii = 0; ii < opponent_group.Count; ii++)
+          {
+            if (opponent_group[ii].IsVoiceOfAbyss == false)
+            {
+              current.Add(Fix.COMMAND_VOICE_OF_ABYSS);
+              this.Target = opponent_group[ii];
+              detect = true;
+            }
+          }
+          if (detect == false)
+          {
+            current.Add(Fix.COMMAND_ABYSS_WILL);
+          }
+        }
+        else
+        {
+          Debug.Log("else routine... " + this.AI_Phase);
           current.Add(Fix.MAGIC_ATTACK);
         }
         result = RandomChoice(current);

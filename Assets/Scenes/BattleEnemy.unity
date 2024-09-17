@@ -2892,8 +2892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 600.0625, y: -691.2}
-  m_SizeDelta: {x: 170.875, y: 691.2}
+  m_AnchoredPosition: {x: 564.625, y: -651.2}
+  m_SizeDelta: {x: 160.75, y: 651.2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &85995949
 GameObject:
@@ -4164,8 +4164,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 114.25, y: -85.9}
-  m_SizeDelta: {x: 228.5, y: 171.8}
+  m_AnchoredPosition: {x: 107.5, y: -80.9}
+  m_SizeDelta: {x: 215, y: 161.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &138097189
 GameObject:
@@ -5450,8 +5450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 347.75, y: -436.5}
-  m_SizeDelta: {x: 685.5, y: 863}
+  m_AnchoredPosition: {x: 327.5, y: -411.5}
+  m_SizeDelta: {x: 645, y: 813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &204121407
 MonoBehaviour:
@@ -14023,8 +14023,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 457, y: -85.9}
-  m_SizeDelta: {x: 457, y: 171.8}
+  m_AnchoredPosition: {x: 430, y: -80.9}
+  m_SizeDelta: {x: 430, y: 161.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &627496263
 MonoBehaviour:
@@ -16472,11 +16472,11 @@ RectTransform:
   m_Father: {fileID: 1006789008}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 147.375, y: -349.2}
-  m_SizeDelta: {x: 294.75, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -131}
+  m_SizeDelta: {x: 0, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &792206942
 GameObject:
   m_ObjectHideFlags: 0
@@ -22468,7 +22468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9553981, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23465,8 +23465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3, y: 0}
+  m_SizeDelta: {x: -6, y: -6}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1133097668
 MonoBehaviour:
@@ -24159,8 +24159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 342.75, y: -517.4}
-  m_SizeDelta: {x: 685.5, y: 691.2}
+  m_AnchoredPosition: {x: 322.5, y: -487.40002}
+  m_SizeDelta: {x: 645, y: 651.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148408039
 MonoBehaviour:
@@ -27386,8 +27386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 85.4375, y: -345.6}
-  m_SizeDelta: {x: 170.875, y: 691.2}
+  m_AnchoredPosition: {x: 80.375, y: -325.6}
+  m_SizeDelta: {x: 160.75, y: 651.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305943365
 MonoBehaviour:
@@ -35922,8 +35922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 342.75, y: -85.9}
-  m_SizeDelta: {x: 685.5, y: 171.8}
+  m_AnchoredPosition: {x: 322.5, y: -80.9}
+  m_SizeDelta: {x: 645, y: 161.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722360320
 MonoBehaviour:
@@ -37127,8 +37127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 342.75, y: -691.2}
-  m_SizeDelta: {x: 343.75, y: 691.2}
+  m_AnchoredPosition: {x: 322.5, y: -651.2}
+  m_SizeDelta: {x: 323.5, y: 651.2}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1741119103
 MonoBehaviour:
@@ -41339,7 +41339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 0.79432213
+  m_AspectRatio: 0.7933579
 --- !u!1 &1995601525
 GameObject:
   m_ObjectHideFlags: 0

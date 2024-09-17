@@ -1102,6 +1102,79 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
+  // レギィンアーゼ専用
+  public static double IchinaruHomuraValue(Character player)
+  {
+    double result = 0;
+    BuffImage ichinaruHomura = player.IsIchinaruHomura;
+    if (ichinaruHomura)
+    {
+      result = ichinaruHomura.EffectValue;
+    }
+
+    BuffImage abyssWill = player.IsAbyssWill;
+    if (abyssWill)
+    {
+      result *= (1.00f + abyssWill.Cumulative * 0.50F);
+    }
+
+    return result;
+  }
+
+  public static double AbyssFireValue(Character player)
+  {
+    double result = 0;
+    BuffImage abyssFire = player.IsAbyssFire;
+    if (abyssFire)
+    {
+      result = abyssFire.EffectValue;
+    }
+
+    BuffImage abyssWill = player.IsAbyssWill;
+    if (abyssWill)
+    {
+      result *= (1.00f + abyssWill.Cumulative * 0.50F);
+    }
+
+    return result;
+  }
+
+  public static double EternalDropletValue_A(Character player)
+  {
+    // ライフゲイン
+    // 1/10 (0.10)削れてない場合、1/100回復
+    // 3/4  (0.25)削れてない場合、1/50回復
+    // 1/2  (0.50)削れてない場合、1/25回復
+    // 1/5  (0.80)削れてない場合、1/16回復
+    // 最後-------------------->、1/10回復
+    if (player.CurrentLife >= player.MaxLife * 0.9f)
+    {
+      return (double)player.MaxLife / 100.0F;
+    }
+    else if (player.CurrentLife >= player.MaxLife * 0.75f)
+    {
+      return (double)player.MaxLife / 50.0F;
+    }
+    else if (player.CurrentLife >= player.CurrentLife * 0.5f)
+    {
+      return (double)player.MaxLife / 25.0F;
+    }
+    else if (player.CurrentLife >= player.CurrentLife * 0.2f)
+    {
+      return (double)player.MaxLife / 16.0F;
+    }
+    else
+    {
+      return (double)player.MaxLife / 10.0F;
+    }
+  }
+  public static double EternalDropletValue_B(Character player)
+  {
+    // マナゲイン
+    // 1/20回復
+    return player.MaxLife / 20.0F;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

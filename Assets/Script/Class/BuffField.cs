@@ -72,6 +72,36 @@ public class BuffField : MonoBehaviour
     }
   }
 
+  public void RemovePositiveBuffAll()
+  {
+    Debug.Log("RemovePositiveBuffAll(S)");
+    BuffImage[] buffList = this.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return; }
+
+    for (int ii = buffList.Length - 1; ii >= 0; ii--)
+    {
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Positive)
+      {
+        buffList[ii].RemoveBuff();
+      }
+    }
+  }
+
+  public void RemoveNegativeBuffAll()
+  {
+    Debug.Log("RemoveNegativeBuffAll(S)");
+    BuffImage[] buffList = this.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return; }
+
+    for (int ii = buffList.Length - 1; ii >= 0; ii--)
+    {
+      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Negative)
+      {
+        buffList[ii].RemoveBuff();
+      }
+    }
+  }
+
   public void RemoveAll()
   {
     Debug.Log("RemoveAll(S)");

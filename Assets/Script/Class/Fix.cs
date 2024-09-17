@@ -273,8 +273,8 @@ public static partial class Fix
   public const string BATTLE_MISS = "Miss";
   public const string BATTLE_DIZZY_MISS = "Dizzy Miss";
   public const string BATTLE_AP_LESS = "No AP";
-  public const string BATTLE_MANAPOINT_LESS = "No MP";
-  public const string BATTLE_SKILLPOINT_LESS = "No SP";
+  public const string BATTLE_MANAPOINT_LESS = "マナ不足";
+  public const string BATTLE_SKILLPOINT_LESS = "スキルポイント不足";
   public const string BATTLE_NO_POTION = "No Potion";
   public const string BATTLE_ALREADY_USED = "空っぽ";
   public const string BATTLE_BIND = "Bind";
@@ -468,6 +468,7 @@ public static partial class Fix
   public const string BUFF_ONE_IMMUNITY_JP = "唯一円";
   public const string BUFF_STANCE_OF_MUIN_JP = "無音";
   public const string BUFF_MINUS_IMMUNE = "負BUFF無効";
+  public const string BUFF_POSITIVE_IMMUNE = "正BUFF無効";
   public const string BUFF_ETERNAL_CONCENTRATION_JP = "超集中";
   public const string BUFF_FOCUS_EYE = "Focus Eye";
   public const string BUFF_FOCUS_EYE_JP = "凝視";
@@ -486,6 +487,40 @@ public static partial class Fix
   public const string BUFF_BLACK_SPORE = "BlackSpore";
   public const string BUFF_VERDANT_VOICE = "VerdantVoice";
   public const string BUFF_DEVIL_EMBLEM = "DevilEmblem";
+
+  // BUFF追加向けファイル名
+  public const string FLASH_BLAZE_BUFF = @"FlashBlaze_Buff"; // 炎追加効果
+  public const string AFTER_REVIVE_HALF = @"AfterReviveHalf";
+  public const string FIRE_DAMAGE_2 = @"FireDamage2";
+  public const string BLACK_MAGIC = @"BlackMagic";
+  public const string CHAOS_DESPERATE = @"ChaosDesperate";
+  public const string ICHINARU_HOMURA = @"IchinaruHomura";
+  public const string ABYSS_FIRE = @"AbyssFire";
+  public const string LIGHT_AND_SHADOW = @"LightAndShadow";
+  public const string ETERNAL_DROPLET = @"EternalDroplet";
+  public const string AUSTERITY_MATRIX_OMEGA = @"AusterityMatrixOmega";
+  public const string VOICE_OF_ABYSS = @"VoiceOfAbyss";
+  public const string ABYSS_WILL = @"AbyssWill";
+  public const string THE_ABYSS_WALL = @"TheAbyssWall";
+  // レギィンアーゼマナコスト
+  public const int COST_ICHINARU_HOMURA = 35000;
+  public const int COST_ABYSS_FIRE = 32000;
+  public const int COST_LIGHT_AND_SHADOW = 60000;
+  public const int COST_ETERNAL_DROPLET = 48000;
+  public const int COST_AUSTERITY_MATRIX_OMEGA = 95000;
+  public const int COST_VOICE_OF_ABYSS = 87000;
+  public const int COST_ABYSS_WILL = 25000;
+  public const int COST_THE_ABYSS_WALL = 100000;
+  // レギィンアーゼ、各種技による効果
+  public const string BUFF_ICHINARU_HOMURA = @"毎ターン、焔ダメージ";
+  public const string BUFF_ABYSS_FIRE = @"物理攻撃か魔法攻撃を行う度に、アビスダメージ";
+  public const string BUFF_LIGHT_AND_SHADOW = @"物理／魔法ダメージ０";
+  public const string BUFF_ETERNAL_DROPLET = @"ライフ／マナ回復";
+  public const string BUFF_AUSTERITY_MATRIX_OMEGA = @"プラスBUFF無効";
+  public const string BUFF_VOICE_OF_ABYSS = @"ライフ回復０";
+  public const string BUFF_ABYSS_WILL = @"焔／アビスダメージ上昇";
+  public const string BUFF_THE_ABYSS_WALL = @"ダメージ吸収バリア";
+
   #endregion
   #region "Timer"
   public const int BATTLEEND_AUTOEXIT = 200;
@@ -2076,6 +2111,7 @@ public static partial class Fix
   public const string COMMAND_ABYSS_FIRE = "アビス・ファイア";
   public const string COMMAND_ETERNAL_DROPLET = "エターナル・ドロップレット";
   public const string COMMAND_AUSTERITY_MATRIX_OMEGA = "アウステリティ・マトリクスΩ";
+  public const string COMMAND_VOICE_OF_ABYSS = "ヴォイス・オブ・アビス";
   public const string COMMAND_VOID_BEAT = "虚無の鼓動";
   public const string COMMAND_PERFECT_PROPHECY = "完全なる予見";
   public const string COMMAND_HOLY_WISDOM = "ホーリー・ウィズダム";

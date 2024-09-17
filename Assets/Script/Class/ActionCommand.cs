@@ -2670,6 +2670,7 @@ public static class ActionCommand
     else if (command_name == Fix.BUFF_FOCUS_EYE) { return 9; }
     else if (command_name == Fix.DEATH_SCYTHE) { return 99; }
     else if (command_name == Fix.GOLDEN_MATRIX) { return 9; }
+    else if (command_name == Fix.ABYSS_WILL) { return 99; }
 
     return 1; // 通常は累積なし
   }
@@ -2679,7 +2680,8 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT ||
         command_name == Fix.STANCE_OF_MUIN ||
         command_name == Fix.BUFF_FOCUS_EYE ||
-        command_name == Fix.GOLDEN_MATRIX)
+        command_name == Fix.GOLDEN_MATRIX ||
+        command_name == Fix.ABYSS_WILL)
     {
       return CumulativeType.Cumulative;
     }

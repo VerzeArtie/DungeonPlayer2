@@ -479,10 +479,17 @@ public partial class BattleEnemy : MotherBase
         One.EnemyList[ii].IsEnemy = true;
         if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
         if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
+
+        // マナゲージを見せる
+        if (One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1_JP || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_1_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2_JP || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_2_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3 || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP || One.EnemyList[ii].FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
+        {
+          node.GroupManaPoint.SetActive(true);
+        }
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
 
-        // ただし、ボス戦のテキストは誇大表示したいため、個別対応
-        // todo ラフレシア、ガルヴァデイザ、ランスボルツ、などなど全て対応
+        // ボス向けに表示文字を変換
         if (One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA || One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP)
         {
           One.EnemyList[ii].FullName = Fix.SCREAMING_RAFFLESIA_JP_VIEW;
@@ -1346,6 +1353,16 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
+          if (AllList[ii].FullName == Fix.LEGIN_ARZE_1 || AllList[ii].FullName == Fix.LEGIN_ARZE_1_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_1_JP_VIEW ||
+              AllList[ii].FullName == Fix.LEGIN_ARZE_2 || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP_VIEW ||
+              AllList[ii].FullName == Fix.LEGIN_ARZE_3 || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
+          {
+            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_VOID_BEAT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
           {
             if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
@@ -1602,6 +1619,18 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.LEGIN_ARZE_1_JP_VIEW)
         {
           One.TF.DefeatLeginArze = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LEGIN_ARZE_2 ||
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_2_JP ||
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_2_JP_VIEW)
+        {
+          One.TF.DefeatLeginArze2 = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.LEGIN_ARZE_3 ||
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_3_JP ||
+                                       One.EnemyList[0].FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
+        {
+          One.TF.DefeatLeginArze3 = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
                                        One.EnemyList[0].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP ||
@@ -6176,21 +6205,124 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ABYSS_WILL:
+        UpdateMessage(player.FullName + "：アビスは存在にあらず、意志そのもの。アビスとは理そのもの。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_ABYSS_WILL)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_ABYSS_WILL;
+          player.UpdateManaPoint();
+          for (int ii = 0; ii < AllList.Count; ii++)
+          {
+            AbstractAddBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.ABYSS_WILL, Fix.BUFF_ABYSS_WILL, Fix.INFINITY, 1, 0, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_ONE_HOMURA:
+        UpdateMessage(player.FullName + "：永久の浄化印、焔の理を知るがよい。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_ICHINARU_HOMURA)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_ICHINARU_HOMURA;
+          player.UpdateManaPoint();
+          AbstractAddBuff(target, target.objBuffPanel, Fix.ICHINARU_HOMURA, Fix.BUFF_ICHINARU_HOMURA, Fix.INFINITY, PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+        }
         break;
 
       case Fix.COMMAND_ABYSS_FIRE:
+        UpdateMessage(player.FullName + "：深淵の呪怨印、アビスの理を知るがよい。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_ABYSS_FIRE)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_ABYSS_FIRE;
+          player.UpdateManaPoint();
+          AbstractAddBuff(target, target.objBuffPanel, Fix.ABYSS_FIRE, Fix.COMMAND_ABYSS_FIRE, Fix.INFINITY, PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+        }
         break;
 
       case Fix.COMMAND_ETERNAL_DROPLET:
+        UpdateMessage(player.FullName + "：理に制約など存在しない。理は永遠そのものである。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_ETERNAL_DROPLET)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_ETERNAL_DROPLET;
+          player.UpdateManaPoint();
+          AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_DROPLET, Fix.COMMAND_ETERNAL_DROPLET, 4, 0, 0, 0);
+        }
         break;
 
       case Fix.COMMAND_AUSTERITY_MATRIX_OMEGA:
+        UpdateMessage(player.FullName + "：厳粛なる支配の理を受け止めるがよい。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_AUSTERITY_MATRIX_OMEGA)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_AUSTERITY_MATRIX_OMEGA;
+          player.UpdateManaPoint();
+          for (int ii = 0; ii < AllList.Count; ii++)
+          {
+            AllList[ii].objBuffPanel.RemovePositiveBuffAll();
+            AbstractAddBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.AUSTERITY_MATRIX_OMEGA, Fix.BUFF_AUSTERITY_MATRIX_OMEGA, 3, 0, 0, 0);
+          }
+        }
+        break;
+
+      case Fix.COMMAND_VOICE_OF_ABYSS:
+        UpdateMessage(player.FullName + "：深淵からの呼び声は、真実の理、コレを受け止めよ。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_VOICE_OF_ABYSS)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_VOICE_OF_ABYSS;
+          player.UpdateManaPoint();
+          target_list = GetOpponentGroupAlive(player);
+          // 【警告】敵だけ対象外なのは卑怯かもしれないので、要調整となる。
+          //SetupEnemyGroup(ref group);
+          for (int ii = 0; ii < target_list.Count; ii++)
+          {
+            AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_ABYSS, Fix.BUFF_VOICE_OF_ABYSS, 2, 0, 0, 0);
+          }
+        }
         break;
 
       case Fix.COMMAND_VOID_BEAT:
+        UpdateMessage(player.FullName + "：全て実像は等しく虚構である。虚無の理を受け入れよ。\r\n");
+        if (player.CurrentManaPoint < Fix.COST_THE_ABYSS_WALL)
+        {
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MANAPOINT_LESS, Fix.COLOR_NORMAL);
+          return;
+        }
+        else
+        {
+          player.CurrentManaPoint -= Fix.COST_THE_ABYSS_WALL;
+          player.UpdateManaPoint();
+          for (int ii = 0; ii < AllList.Count; ii++)
+          {
+            ExecLifeDownCurrent(AllList[ii], 0.5f);
+          }
+        }
         break;
 
       case Fix.COMMAND_PERFECT_PROPHECY:
@@ -7852,6 +7984,28 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      // レギィンアーゼ、「壱なる焔」の効果
+      BuffImage ichinaruHomura = AllList[ii].IsIchinaruHomura;
+      if (ichinaruHomura && AllList[ii].Dead == false)
+      {
+        UpdateMessage(AllList[ii].FullName + "に焔火が降り注ぐ。\r\n");
+        ExecElementalDamage(AllList[ii], Fix.DamageSource.Fire, SecondaryLogic.IchinaruHomuraValue(AllList[ii]));
+      }
+      // レギィンアーゼ、「エターナル・ドロップレット」の効果
+      BuffImage eternalDroplet = AllList[ii].IsEternalDroplet;
+      if (eternalDroplet)
+      {
+        double effectValue = SecondaryLogic.EternalDropletValue_A(AllList[ii]);
+        UpdateMessage("永遠を示す理が、" + AllList[ii].FullName + "へ生命力を注ぎ込んでいる。" + ((int)effectValue).ToString() + "ライフ回復\r\n");
+        ExecLifeGain(AllList[ii], effectValue);
+
+        double effectValue2 = SecondaryLogic.EternalDropletValue_B(AllList[ii]);
+        UpdateMessage(((int)effectValue2).ToString() + "マナ回復\r\n");        
+        AllList[ii].CurrentManaPoint += (int)effectValue;
+        AllList[ii].UpdateManaPoint();
+        StartAnimation(AllList[ii].groupManaPoint, "マナ回復 " + ((int)effectValue).ToString(), Fix.COLOR_GAIN_MP);
+      }
+
       if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
       {
         AllList[ii].CurrentManaPoint += 10;
@@ -8149,6 +8303,12 @@ public partial class BattleEnemy : MotherBase
     ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
+    BuffImage abyssFire = player.IsAbyssFire;
+    if (abyssFire)
+    {
+      ExecElementalDamage(player, Fix.DamageSource.Fire, SecondaryLogic.AbyssFireValue(player));
+    }
+
     if (player.IsFlameBlade && player.Dead == false)
     {
       bool resultCritical2 = false;
@@ -8288,6 +8448,12 @@ public partial class BattleEnemy : MotherBase
     ApplyDamage(player, target, damageValue, resultCritical, animation_speed);
 
     // 追加効果
+    BuffImage abyssFire = player.IsAbyssFire;
+    if (abyssFire)
+    {
+      ExecElementalDamage(player, Fix.DamageSource.Fire, SecondaryLogic.AbyssFireValue(player));
+    }
+
     if (player.IsStormArmor && player.Dead == false)
     {
       bool resultCritical2 = false;
@@ -10363,6 +10529,11 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    if (target.IsVoiceOfAbyss)
+    {
+      healValue = 0;
+    }
+
     // ヒールなので、防御姿勢で軽減はしない。
     // if (target.IsDefense) { healValue = healValue / 3.0f; }
 
@@ -10394,6 +10565,11 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
+    }
+
+    if (target.IsVoiceOfAbyss)
+    {
+      gainValue = 0;
     }
 
     // ゲイン量が負の値になる場合は０とみなす。
@@ -10447,6 +10623,11 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
+    }
+
+    if (target.IsVoiceOfAbyss)
+    {
+      gainValue = 0;
     }
 
     // ゲイン量が負の値になる場合は０とみなす。
@@ -10523,6 +10704,13 @@ public partial class BattleEnemy : MotherBase
     if (transcendenceReached && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Negative)
     {
       StartAnimation(buff_field.gameObject, Fix.BUFF_MINUS_IMMUNE, Fix.COLOR_GUARD);
+      return;
+    }
+
+    BuffImage austerityMatrixOmega = target.IsAusterityMatrixOmega;
+    if (austerityMatrixOmega && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Positive)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_POSITIVE_IMMUNE, Fix.COLOR_WARNING);
       return;
     }
 

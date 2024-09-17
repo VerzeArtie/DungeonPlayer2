@@ -2854,6 +2854,12 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_legin_arze = false;
   public bool DefeatLeginArze { get { return _defeat_legin_arze; } set { _defeat_legin_arze = value; } }
 
+  protected bool _defeat_legin_arze2 = false;
+  public bool DefeatLeginArze2 { get { return _defeat_legin_arze2; } set { _defeat_legin_arze2 = value; } }
+
+  protected bool _defeat_legin_arze3 = false;
+  public bool DefeatLeginArze3 { get { return _defeat_legin_arze3; } set { _defeat_legin_arze3 = value; } }
+
   protected bool _defeat_legal_orphstein = false;
   public bool DefeatLegalOrphstein { get { return _defeat_legal_orphstein; } set { _defeat_legal_orphstein = value; } }
 

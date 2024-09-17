@@ -587,7 +587,7 @@ public class Title : MotherBase
       //character.Intelligence = 100;
       //character.Mind = 20;
       //character.BaseLife = 999999;
-      character.BaseManaPoint = 99999;
+      //character.BaseManaPoint = 99999;
       character.MaxGain();
       One.EnemyList.Add(character);
     }
