@@ -2123,6 +2123,33 @@ public partial class Character : MonoBehaviour
     }
   }
 
+  // ゲージ増減に関する記述
+  public void UseInstantPoint(bool force_zero)
+  {
+    if (force_zero)
+    {
+      this.CurrentInstantPoint = 0;
+    }
+    else
+    {
+      // 重ね掛けも考えられるが、ファーストリリースでは優先順で良い。
+      BuffImage everflowMind = this.IsEverflowMind;
+      BuffImage eternalPresence = this.IsEternalPresence;
+      if (eternalPresence)
+      {
+        this.CurrentInstantPoint = eternalPresence.EffectValue * this.MaxInstantPoint;
+      }
+      else if (everflowMind != null)
+      {
+        this.CurrentInstantPoint = everflowMind.EffectValue * this.MaxInstantPoint;
+      }
+      else
+      {
+        this.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this) * this.MaxInstantPoint;
+      }
+    }
+  }
+
   public int GetNextExp()
   {
     int result = 50;
@@ -2866,6 +2893,26 @@ public partial class Character : MonoBehaviour
   public BuffImage IsTranscendenceReached
   {
     get { return SearchBuff(Fix.TRANSCENDENCE_REACHED); }
+  }
+
+  public BuffImage IsPerfectProphecy
+  {
+    get { return SearchBuff(Fix.PERFECT_PROPHECY); }
+  }
+
+  public BuffImage IsHolyWisdom
+  {
+    get { return SearchBuff(Fix.HOLY_WISDOM); }
+  }
+
+  public BuffImage IsEternalPresence
+  {
+    get { return SearchBuff(Fix.ETERNAL_PRESENCE); }
+  }
+
+  public BuffImage IsUltimateFlare
+  {
+    get { return SearchBuff(Fix.ULTIMATE_FLARE); }
   }
 
   // 魔法：基本耐性
@@ -8528,13 +8575,21 @@ public partial class Character : MonoBehaviour
       case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP:
       case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
         SetupParameter(7500, 3500, 7500, 1000000, 500, 0, 0, 0);
-        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        this._baseInstantPoint = 900;
+        list.Add(Fix.COMMAND_RENGEKI);
         list.Add(Fix.COMMAND_PERFECT_PROPHECY);
         list.Add(Fix.COMMAND_HOLY_WISDOM);
         list.Add(Fix.COMMAND_ETERNAL_PRESENCE);
         list.Add(Fix.COMMAND_ULTIMATE_FLARE);
-        list.Add(Fix.COMMAND_TIME_EXPANSION);
-        list.Add(Fix.COMMAND_STARSWORD_ZETSU);
+        list.Add(Fix.COMMAND_GOUGEKI);
+        list.Add(Fix.COMMAND_BUTOH_ISSEN);
+        list.Add(Fix.COMMAND_GOD_SENSE);
+        list.Add(Fix.COMMAND_TIME_JUMP);
+        list.Add(Fix.COMMAND_STARSWORD_ZETSUKEN);
+        list.Add(Fix.COMMAND_STARSWORD_REIKUU);
+        list.Add(Fix.COMMAND_STARSWORD_SEIEI);
+        list.Add(Fix.COMMAND_STARSWORD_RYOKUEI);
+        list.Add(Fix.COMMAND_STARSWORD_FINALITY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss64;
         this.CannotCritical = true;
@@ -8544,13 +8599,20 @@ public partial class Character : MonoBehaviour
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP:
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
         SetupParameter(8000, 3800, 8000, 1500000, 600, 0, 0, 0);
-        list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
+        this._baseInstantPoint = 800;
+        list.Add(Fix.COMMAND_RENGEKI);
         list.Add(Fix.COMMAND_PERFECT_PROPHECY);
         list.Add(Fix.COMMAND_HOLY_WISDOM);
         list.Add(Fix.COMMAND_ETERNAL_PRESENCE);
         list.Add(Fix.COMMAND_ULTIMATE_FLARE);
-        list.Add(Fix.COMMAND_TIME_EXPANSION);
-        list.Add(Fix.COMMAND_STARSWORD_ZETSU_HOMURA);
+        list.Add(Fix.COMMAND_GOUGEKI);
+        list.Add(Fix.COMMAND_GOD_SENSE);
+        list.Add(Fix.COMMAND_TIME_JUMP);
+        list.Add(Fix.COMMAND_STARSWORD_ZETSUKEN);
+        list.Add(Fix.COMMAND_STARSWORD_REIKUU);
+        list.Add(Fix.COMMAND_STARSWORD_SEIEI);
+        list.Add(Fix.COMMAND_STARSWORD_RYOKUEI);
+        list.Add(Fix.COMMAND_STARSWORD_FINALITY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss64_2;
         this.CannotCritical = true;
@@ -9659,6 +9721,29 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN:
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP:
+      case Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN:
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP:
+      case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
+        current.Add(Fix.COMMAND_RENGEKI);
+        if (this.IsPerfectProphecy == false)
+        {
+          current.Add(Fix.COMMAND_PERFECT_PROPHECY);
+        }
+        if (this.SearchFieldBuff(Fix.HOLY_WISDOM) == false)
+        {
+          current.Add(Fix.COMMAND_HOLY_WISDOM);
+        }
+        if (this.IsEternalPresence == false)
+        {
+          current.Add(Fix.COMMAND_ETERNAL_PRESENCE);
+        }
+        current.Add(Fix.COMMAND_ULTIMATE_FLARE);
+        result = RandomChoice(current);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         switch (AP.Math.RandomInteger(2))
         {
@@ -9752,6 +9837,12 @@ public partial class Character : MonoBehaviour
     if (this.txtActionCommand != null)
     {
       this.txtActionCommand.text = result;
+    }
+
+    // 敵のメイン行動ボタンにアイコンイメージを反映する。
+    if (this.objMainButton != null)
+    {
+      this.objMainButton.ApplyImageIcon(result);
     }
   }
 

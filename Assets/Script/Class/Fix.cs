@@ -482,6 +482,8 @@ public static partial class Fix
   public const string BUFF_STANCE_OF_THE_KOKOROE_JP = "心得";
   public const string BUFF_TIME_STOP = "時間停止";
   public const string BUFF_TRANSCENDENCE_REACHED = "超越";
+  public const string BUFF_SUN_MARK_JP = "太陽印";
+  public const string BUFF_HOLY_WISDOM_JP = "聖授";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
@@ -2114,13 +2116,36 @@ public static partial class Fix
   public const string COMMAND_AUSTERITY_MATRIX_OMEGA = "アウステリティ・マトリクスΩ";
   public const string COMMAND_VOICE_OF_ABYSS = "ヴォイス・オブ・アビス";
   public const string COMMAND_VOID_BEAT = "虚無の鼓動";
+
+  public const string COMMAND_RENGEKI = "連・撃";
+  public const string RENGEKI = "Rengeki";
   public const string COMMAND_PERFECT_PROPHECY = "完全なる予見";
-  public const string COMMAND_HOLY_WISDOM = "ホーリー・ウィズダム";
+  public const string PERFECT_PROPHECY = "Perfect Prophecy";
+  public const string COMMAND_HOLY_WISDOM = "神明：ホーリー・ウィズダム";
+  public const string HOLY_WISDOM = "Holy Wisdom";
   public const string COMMAND_ETERNAL_PRESENCE = "信念：エターナル・プリゼンス";
+  public const string ETERNAL_PRESENCE = "Etermal Presence";
   public const string COMMAND_ULTIMATE_FLARE = "天啓：アルティメット・フレア";
-  public const string COMMAND_TIME_EXPANSION = "時間の跳躍";
-  public const string COMMAND_STARSWORD_ZETSU = "スター・ソード【絶剣】";
-  public const string COMMAND_STARSWORD_ZETSU_HOMURA = "スター・ソード【焔絶剣】";
+  public const string ULTIMATE_FLARE = "Ultimate Flare";
+  public const string COMMAND_GOUGEKI = "剛・撃";
+  public const string GOUGEKI = "Gougeki";
+  public const string COMMAND_BUTOH_ISSEN = "舞踏・一閃";
+  public const string BUTOH_ISSEN = "Butoh Issen";
+  public const string COMMAND_GOD_SENSE = "神域の感性";
+  public const string GOD_SENSE = "God Sense";
+  public const string COMMAND_TIME_JUMP = "時間の跳躍";
+  public const string TIME_JUMP = "Time Jump";
+  public const string COMMAND_STARSWORD_ZETSUKEN = "スター・ソード【絶剣】";
+  public const string STARSWORD_ZETSUKEN = "Starsword_zetsuken";
+  public const string COMMAND_STARSWORD_REIKUU = "スター・ソード【零空】";
+  public const string STARSWORD_REIKUU = "Starsword_reikuu";
+  public const string COMMAND_STARSWORD_SEIEI = "スター・ソード【盛栄】";
+  public const string STARSWORD_SEIEI = "Starsword_seiei";
+  public const string COMMAND_STARSWORD_RYOKUEI = "スター・ソード【緑永】";
+  public const string STARSWORD_RYOKUEI = "Starsword_ryokuei";
+  public const string COMMAND_STARSWORD_FINALITY = "スター・ソード【終焉】";
+  public const string STARSWORD_FINALITY = "Starsword_finality";
+  // public const string COMMAND_STARSWORD_ZETSU_HOMURA = "スター・ソード【焔絶剣】";
 
   public const string COMMAND_ = "";
 

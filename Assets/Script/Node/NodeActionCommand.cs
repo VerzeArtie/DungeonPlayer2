@@ -587,6 +587,34 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>("Training_Shield");
     }
+    else if (command_name == Fix.COMMAND_RENGEKI)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.RENGEKI);
+    }
+    else if (command_name == Fix.COMMAND_PERFECT_PROPHECY)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.PERFECT_PROPHECY);
+    }
+    else if (command_name == Fix.COMMAND_HOLY_WISDOM)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.HOLY_WISDOM);
+    }
+    else if (command_name == Fix.COMMAND_ETERNAL_PRESENCE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ETERNAL_PRESENCE);
+    }
+    else if (command_name == Fix.COMMAND_ULTIMATE_FLARE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ULTIMATE_FLARE);
+    }
+    else if (command_name == Fix.COMMAND_BUTOH_ISSEN)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.BUTOH_ISSEN);
+    }
+    else if (command_name == Fix.COMMAND_GOD_SENSE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.GOD_SENSE);
+    }
     else
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(command_name);

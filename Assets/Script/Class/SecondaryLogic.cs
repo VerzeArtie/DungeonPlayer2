@@ -1175,6 +1175,22 @@ public static class SecondaryLogic
     return player.MaxLife / 20.0F;
   }
 
+  // リガール・オルフシュタイン専用
+  public static double HolyWisdom_Effect(Character player)
+  {
+    return (double)player.MaxLife / 50.0f;
+  }
+
+  public static int EternalPresense_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static double EternalPresense_Effect(Character player)
+  {
+    return 0.20f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

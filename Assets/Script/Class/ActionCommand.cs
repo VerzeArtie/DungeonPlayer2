@@ -1250,13 +1250,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_ETERNAL_DROPLET) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_AUSTERITY_MATRIX_OMEGA) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_VOID_BEAT) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_RENGEKI) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_HOLY_WISDOM) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_TIME_EXPANSION) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSU) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSU_HOMURA) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_GOUGEKI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_GOD_SENSE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_TIME_JUMP) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Attribute.MonsterAction; }
     if (command_name == "絶望の魔手") { return Attribute.MonsterAction; }
     #endregion
 
@@ -1885,6 +1892,21 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_BLACK_SPORE) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_RENSOU_TOSSHIN) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_DEVIL_EMBLEM) { return TargetType.EnemyField; }
+
+    if (command_name == Fix.COMMAND_RENGEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return TargetType.AllyField; }
+    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_GOUGEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return TargetType.InstantTarget; }
+    if (command_name == Fix.COMMAND_GOD_SENSE) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_TIME_JUMP) { return TargetType.Own; } // 皇帝リガール専用。厳密にはOwnではないが良しとする。
+    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return TargetType.InstantTarget; }
+    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return TargetType.Enemy; }
     #endregion
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -2249,6 +2271,21 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SUSPICIOUS_VIAL) { return 0; }
 
     if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return 0; }
+
+    if (command_name == Fix.COMMAND_RENGEKI) { return 0; }
+    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return 0; }
+    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return 0; }
+    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return 0; }
+    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return 0; }
+    if (command_name == Fix.COMMAND_GOUGEKI) { return 0; }
+    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return 0; }
+    if (command_name == Fix.COMMAND_GOD_SENSE) { return 0; }
+    if (command_name == Fix.COMMAND_TIME_JUMP) { return 0; }
+    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return 0; }
+    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return 0; }
+    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return 0; }
+    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return 0; }
+    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return 0; }
     #endregion
 
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -2653,6 +2690,21 @@ public static class ActionCommand
 
     // モンスターコマンド
     if (command_name == Fix.EFFECT_POWERUP_FIRE) { return Fix.BuffType.Positive; }
+
+    if (command_name == Fix.COMMAND_RENGEKI) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.COMMAND_GOUGEKI) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_GOD_SENSE) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_TIME_JUMP) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Fix.BuffType.None; }
     #endregion
 
     return Fix.BuffType.None;
@@ -2671,6 +2723,7 @@ public static class ActionCommand
     else if (command_name == Fix.DEATH_SCYTHE) { return 99; }
     else if (command_name == Fix.GOLDEN_MATRIX) { return 9; }
     else if (command_name == Fix.ABYSS_WILL) { return 99; }
+    else if (command_name == Fix.HOLY_WISDOM) { return 10; }
 
     return 1; // 通常は累積なし
   }
@@ -2681,7 +2734,8 @@ public static class ActionCommand
         command_name == Fix.STANCE_OF_MUIN ||
         command_name == Fix.BUFF_FOCUS_EYE ||
         command_name == Fix.GOLDEN_MATRIX ||
-        command_name == Fix.ABYSS_WILL)
+        command_name == Fix.ABYSS_WILL ||
+        command_name == Fix.HOLY_WISDOM)
     {
       return CumulativeType.Cumulative;
     }
@@ -2990,6 +3044,21 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_SEA_STRIVE) { return true; }
     if (command_name == Fix.COMMAND_PLATINUM_BLADE) { return true; }
     if (command_name == Fix.COMMAND_CHARGE) { return true; }
+
+    if (command_name == Fix.COMMAND_RENGEKI) { return true; }
+    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return false; }
+    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return false; }
+    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return false; }
+    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return true; }
+    if (command_name == Fix.COMMAND_GOUGEKI) { return true; }
+    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return false; }
+    if (command_name == Fix.COMMAND_GOD_SENSE) { return false; }
+    if (command_name == Fix.COMMAND_TIME_JUMP) { return false; }
+    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return true; }
+    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return false; }
+    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return false; }
+    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return false; }
+    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return true; }
     #endregion
 
     #region "一般系統"

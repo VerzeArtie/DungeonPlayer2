@@ -158,6 +158,10 @@ public partial class BattleEnemy : MotherBase
   protected Character NowUnintentionalHitTarget = null;
   protected double NowUnintentionalHitCounter = 0;
 
+  protected bool NowGodSenseMode = false;
+  protected Character NowGodSensePlayer = null;
+  protected double NowGodSenseCounter = 0;
+
   protected bool NowSelectGlobal = false;
   protected bool NowSelectTarget = false;
   protected bool NowInstantTarget = false;
@@ -890,22 +894,6 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    // イレギュラー・ステップを実行する。この間、時間を進めずイレギュラー・ステップのゲージ進行を行う。
-    if (NowIrregularStepMode)
-    {
-      ExecPlayIrregularStep();
-      return;
-    }
-    if (NowSeaStripeMode)
-    {
-      ExecPlaySeaStripe();
-    }
-    if (NowUnintentionalHitMode)
-    {
-      ExecPlayUnintentionalHit();
-      return;
-    }
-
     // アニメーションを実行する。通常は、時間を進める事とする。
     if (NowAnimationMode)
     {
@@ -927,6 +915,27 @@ public partial class BattleEnemy : MotherBase
     if (NowStackInTheCommand)
     {
       ExecStackInTheCommand();
+      return;
+    }
+
+    // イレギュラー・ステップを実行する。この間、時間を進めずイレギュラー・ステップのゲージ進行を行う。
+    if (NowIrregularStepMode)
+    {
+      ExecPlayIrregularStep();
+      return;
+    }
+    if (NowSeaStripeMode)
+    {
+      ExecPlaySeaStripe();
+    }
+    if (NowUnintentionalHitMode)
+    {
+      ExecPlayUnintentionalHit();
+      return;
+    }
+    if (NowGodSenseMode)
+    {
+      ExecPlayGodSense();
       return;
     }
 
@@ -1154,6 +1163,10 @@ public partial class BattleEnemy : MotherBase
         {
           double increment = PrimaryLogic.BattleResponse(AllList[ii]);
           increment = increment * SpeedFactor();
+          if (AllList[ii].IsUltimateFlare)
+          {
+            increment = 0;
+          }
           AllList[ii].CurrentInstantPoint += increment;
           if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
           {
@@ -1191,7 +1204,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii], Fix.COMMAND_SUPER_RANDOM_CANNON, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1199,7 +1212,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_GALVADAZER || AllList[ii].FullName == Fix.THE_GALVADAZER_JP || AllList[ii].FullName == Fix.THE_GALVADAZER_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_DRILL_CYCLONE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1207,7 +1220,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP || AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_KILL_SPINNING_LANCER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1215,7 +1228,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS || AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP || AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HEAVEN_THUNDER_SPEAR, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1223,7 +1236,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_YODIRIAN || AllList[ii].FullName == Fix.THE_YODIRIAN_JP || AllList[ii].FullName == Fix.THE_YODIRIAN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_APOCALYPSE_SWORD, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1231,7 +1244,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE || AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP || AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_DEVILSPEAR_MISTELTEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1239,7 +1252,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN || AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP || AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_EIGHT_ALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1247,7 +1260,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1 || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1257,7 +1270,7 @@ public partial class BattleEnemy : MotherBase
           // 別のコードとして記載しておく。
           if (AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1265,7 +1278,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP || AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_JEWEL_BREAK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1273,7 +1286,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_TORPEDO_BUSTER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1281,7 +1294,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_VORTEX_BLAST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1289,7 +1302,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1299,7 +1312,7 @@ public partial class BattleEnemy : MotherBase
           // 別のコードとして記載しておく。
           if (AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1307,7 +1320,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP || AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_PENETRATION_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1315,7 +1328,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE || AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP || AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HALLUCINATE_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1323,7 +1336,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN || AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP || AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HUGE_SHOCKWAVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1331,7 +1344,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP || AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_SOUMEI_SEISOU_KEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1339,7 +1352,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BERSERKER_RUSH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1347,7 +1360,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_MEGIDO_BLAZE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1357,9 +1370,25 @@ public partial class BattleEnemy : MotherBase
               AllList[ii].FullName == Fix.LEGIN_ARZE_2 || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP_VIEW ||
               AllList[ii].FullName == Fix.LEGIN_ARZE_3 || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
           {
-            AllList[ii].CurrentInstantPoint = 0;
+            AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_VOID_BEAT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
+          if (AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
+          {
+            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UpdateInstantPointGauge();
+            int rand = AP.Math.RandomInteger(2);
+            if (rand == 0)
+            {
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
+            else
+            {
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOD_SENSE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
@@ -1367,7 +1396,7 @@ public partial class BattleEnemy : MotherBase
           {
             if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
             {
-              AllList[ii].CurrentInstantPoint = 0;
+              AllList[ii].UseInstantPoint(false);
               AllList[ii].UpdateInstantPointGauge();
 
               CreateStackObject(AllList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
@@ -1380,7 +1409,7 @@ public partial class BattleEnemy : MotherBase
             {
               if (AllList[ii].CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.DOUBLE_SLASH, ActionCommand.Cost(Fix.DOUBLE_SLASH), AllList[ii]))
               {
-                AllList[ii].CurrentInstantPoint = 0;
+                AllList[ii].UseInstantPoint(false);
                 AllList[ii].UpdateInstantPointGauge();
 
                 CreateStackObject(AllList[ii], PlayerList[0], Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
@@ -1984,16 +2013,7 @@ public partial class BattleEnemy : MotherBase
       else
       {
         // ソーサリータイミング実行によるインスタント消費はプレイヤー意志によるものであるため、EverflowMindなどの効果の対象とする。
-        BuffImage everflowMind = player.IsEverflowMind;
-        if (everflowMind != null)
-        {
-          player.CurrentInstantPoint = everflowMind.EffectValue * player.MaxInstantPoint;
-        }
-        else
-        {
-          player.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(player) * player.MaxInstantPoint;
-        }
-        player.UpdateActionPointGauge();
+        player.UseInstantPoint(false);
       }
     }
 
@@ -6005,7 +6025,7 @@ public partial class BattleEnemy : MotherBase
         currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
         if (ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
         {
-          currentTarget.CurrentInstantPoint = 0;
+          currentTarget.UseInstantPoint(false);
           currentTarget.UpdateInstantPointGauge();
         }
         break;
@@ -6339,25 +6359,72 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
+      case Fix.COMMAND_RENGEKI:
+        UpdateMessage(player.FullName + "：食らえ、我が連・撃を！\r\n");
+        for (int ii = 0; ii < 3; ii++)
+        {
+          ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        }
+        break;
+
       case Fix.COMMAND_PERFECT_PROPHECY:
+        UpdateMessage(player.FullName + "：貴公の動き。既に我の手中にあり。\r\n");
+        AbstractAddBuff(player, player.objBuffPanel, Fix.PERFECT_PROPHECY, Fix.COMMAND_PERFECT_PROPHECY, Fix.INFINITY, 0, 0, 0);
         break;
 
       case Fix.COMMAND_HOLY_WISDOM:
+        UpdateMessage(player.FullName + "：永久なる加護。ホーリー・ウィズダム！\r\n");
+        AbstractAddBuff(player, player.objFieldPanel, Fix.HOLY_WISDOM, Fix.BUFF_HOLY_WISDOM_JP, Fix.INFINITY, 10, SecondaryLogic.HolyWisdom_Effect(player), 0);
         break;
 
       case Fix.COMMAND_ETERNAL_PRESENCE:
+        UpdateMessage(player.FullName + "我が信念が揺らぐ事はない。エターナル・プリゼンス！！！：\r\n");
+        player.objBuffPanel.RemoveNegativeBuffAll();
+        AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_PRESENCE, Fix.COMMAND_ETERNAL_PRESENCE, SecondaryLogic.EternalPresense_Turn(player), SecondaryLogic.EternalPresense_Effect(player), 0, 0);
         break;
 
       case Fix.COMMAND_ULTIMATE_FLARE:
+        UpdateMessage(player.FullName + "：究極奥義、受けてみよ。天啓・アルティメット・フレア！！！！！\r\n");
+        if (ExecMagicAttack(player, target, 5.00f, Fix.DamageSource.Fire, Fix.IgnoreType.Both, critical))
+        {
+          AbstractAddBuff(target, target.objBuffPanel, Fix.ULTIMATE_FLARE, Fix.BUFF_SUN_MARK_JP, 3, 0, 0, 0); 
+        }
         break;
 
-      case Fix.COMMAND_TIME_EXPANSION:
+      case Fix.COMMAND_GOUGEKI:
+        UpdateMessage(player.FullName + "：我が剛・撃。受け止められまい！\r\n");
+        if (ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical))
+        {
+          target.UseInstantPoint(true);
+          target.UpdateInstantPointGauge();
+        }
         break;
 
-      case Fix.COMMAND_STARSWORD_ZETSU:
+      case Fix.BUTOH_ISSEN:
+        // 実装中
         break;
 
-      case Fix.COMMAND_STARSWORD_ZETSU_HOMURA:
+      case Fix.COMMAND_GOD_SENSE:
+        ExecGodSense(player);
+        break;
+
+      case Fix.TIME_JUMP:
+
+        break;
+
+      case Fix.COMMAND_STARSWORD_ZETSUKEN:
+        break;
+
+      case Fix.COMMAND_STARSWORD_REIKUU:
+        break;
+
+      case Fix.COMMAND_STARSWORD_SEIEI:
+        break;
+
+      case Fix.COMMAND_STARSWORD_RYOKUEI:
+        break;
+
+      case Fix.COMMAND_STARSWORD_FINALITY:
         break;
 
       case "絶望の魔手":
@@ -6649,6 +6716,26 @@ public partial class BattleEnemy : MotherBase
           Destroy(stackList[stackList.Length - 1].gameObject);
           stackList[stackList.Length - 1] = null;
           CreateStackObject(player, target, currentStackName + " 失敗！（要因：フューチャー・ヴィジョン）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+        }
+      }
+
+      if (AllList[ii].IsPerfectProphecy)
+      {
+        string currentStackName = stackList[stackList.Length - 1].StackName;
+        Character player = stackList[stackList.Length - 1].Player;
+        Character target = stackList[stackList.Length - 1].Target;
+
+        if ((player.IsEnemy && AllList[ii].IsEnemy == false) ||
+            (player.IsEnemy == false && AllList[ii].IsEnemy))
+        {
+          // PerfectProphecyはスタック解決中に解消とする。
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
+          AllList[ii].RemoveTargetBuff(Fix.PERFECT_PROPHECY);
+
+          // 現在のスタックを破棄する。
+          Destroy(stackList[stackList.Length - 1].gameObject);
+          stackList[stackList.Length - 1] = null;
+          CreateStackObject(player, target, currentStackName + " 失敗！（要因：完全なる予見）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
         }
       }
 
@@ -7036,15 +7123,7 @@ public partial class BattleEnemy : MotherBase
             else
             {
               // インスタント・ゲージを消費。
-              BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
-              if (everflowMind != null)
-              {
-                this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
-              }
-              else
-              {
-                this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
-              }
+              this.NowSelectSrcPlayer.UseInstantPoint(false);
               this.NowSelectSrcPlayer.UpdateInstantPointGauge();
             }
           }
@@ -7254,15 +7333,7 @@ public partial class BattleEnemy : MotherBase
         }
         else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
         {
-          BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
-          if (everflowMind != null)
-          {
-            this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
-          }
-          else
-          {
-            this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
-          }
+          this.NowSelectSrcPlayer.UseInstantPoint(false);
           this.NowSelectSrcPlayer.UpdateInstantPointGauge();
           if (sender.CommandName == Fix.HARDEST_PARRY)
           {
@@ -7325,15 +7396,7 @@ public partial class BattleEnemy : MotherBase
       }
       else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
       {
-        BuffImage everflowMind = this.NowSelectSrcPlayer.IsEverflowMind;
-        if (everflowMind != null)
-        {
-          this.NowSelectSrcPlayer.CurrentInstantPoint = everflowMind.EffectValue * this.NowSelectSrcPlayer.MaxInstantPoint;
-        }
-        else
-        {
-          this.NowSelectSrcPlayer.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this.NowSelectSrcPlayer) * this.NowSelectSrcPlayer.MaxInstantPoint;
-        }
+        this.NowSelectSrcPlayer.UseInstantPoint(false);
         this.NowSelectSrcPlayer.UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.HARDEST_PARRY)
@@ -7366,7 +7429,7 @@ public partial class BattleEnemy : MotherBase
         }
 
         // ImmediateActionはポーションやシールなどの消耗品限定であり、アクションコマンドは入らない。実行後は必ず０とする。
-        this.PlayerList[ii].CurrentInstantPoint = 0;
+        this.PlayerList[ii].UseInstantPoint(true);
         this.PlayerList[ii].UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.SMALL_RED_POTION ||
@@ -7982,6 +8045,14 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      BuffImage holyWisdom = AllList[ii].SearchFieldBuff(Fix.HOLY_WISDOM);
+      if (holyWisdom)
+      {
+        double effectValue = holyWisdom.EffectValue2;
+        UpdateMessage("聖なる加護が、" + AllList[ii].FullName + "へ生命力を注ぎ込んでいる。" + ((int)effectValue).ToString() + "ライフ回復\r\n");
+        ExecLifeGain(AllList[ii], effectValue);
+      }
+
       BuffImage deathScythe = AllList[ii].SearchFieldBuff(Fix.DEATH_SCYTHE);
       if (deathScythe)
       {
@@ -8233,7 +8304,7 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("SonicPulse effect, then no ExecNormalAttack.");
         // SonicPulseは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
-        player.CurrentInstantPoint = 0;
+        player.UseInstantPoint(true);
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
         this.NowAnimationMode = true;
         return false;
@@ -8661,6 +8732,10 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     double effectValue = SecondaryLogic.OracleCommand(player);
+    if (target.IsUltimateFlare)
+    {
+      effectValue = 0;
+    }
     target.CurrentInstantPoint += (int)((double)Fix.MAX_INSTANT_POINT * effectValue);
     int strValue = (int)((effectValue * 100));
     StartAnimation(target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
@@ -9131,6 +9206,59 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  private void ExecGodSense(Character player)
+  {
+    this.NowGodSensePlayer = player;
+    this.NowGodSenseCounter = 0.90f * BATTLE_GAUGE_WITDH;
+    this.NowGodSenseMode = true;
+  }
+
+  private void ExecPlayGodSense()
+  {
+    if (this.NowGodSenseCounter > 0)
+    {
+      // プレイヤーのゲージを進める
+      float factor = (float)PrimaryLogic.BattleSpeed(this.NowGodSensePlayer) * 2.00f;
+      UpdatePlayerArrow(this.NowGodSensePlayer, factor);
+
+      this.NowGodSenseCounter = this.NowGodSenseCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
+
+      RectTransform rectX = NowGodSensePlayer.objArrow.GetComponent<RectTransform>();
+      if (rectX.position.x >= BATTLE_GAUGE_WITDH)
+      {
+        if (ActionCommand.IsTarget(NowGodSensePlayer.CurrentActionCommand) == ActionCommand.TargetType.Ally)
+        {
+          ExecPlayerCommand(NowGodSensePlayer, NowGodSensePlayer.Target2, NowGodSensePlayer.CurrentActionCommand);
+        }
+        else
+        {
+          ExecPlayerCommand(NowGodSensePlayer, NowGodSensePlayer.Target, NowGodSensePlayer.CurrentActionCommand);
+        }
+
+        UpdatePlayerArrowZero(NowGodSensePlayer, NowGodSensePlayer.objArrow);
+        BuffImage speedStep = NowGodSensePlayer.IsSpeedStep;
+        if (speedStep != null)
+        {
+          Debug.Log("Target is speedStep, then Cumulative++");
+          int beforeCumulative = speedStep.Cumulative;
+          speedStep.Cumulative++;
+          if (beforeCumulative != speedStep.Cumulative)
+          {
+            StartAnimation(NowGodSensePlayer.objGroup.gameObject, Fix.BATTLE_SPEED_UP, Fix.COLOR_NORMAL);
+          }
+        }
+        NowGodSensePlayer.Decision = false;
+      }
+    }
+
+    if (this.NowGodSenseCounter <= 0.0f)
+    {
+      this.NowGodSensePlayer = null;
+      this.NowGodSenseCounter = 0;
+      this.NowGodSenseMode = false;
+    }
+  }
+
   public void ExecSigilOfThePending(Character player, Character target)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
@@ -9481,7 +9609,8 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.PiercingArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
     if (success)
     {
-      target.CurrentInstantPoint = 0;
+      // ExecPiercingArrowは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
+      target.UseInstantPoint(true);
       target.UpdateInstantPointGauge();
       AbstractAddBuff(target, target.objBuffPanel, Fix.PIERCING_ARROW, Fix.BUFF_PIERCING_ARROW_JP, SecondaryLogic.PiercingArrow_Turn(player), 0, 0, 0);
     }
@@ -10496,6 +10625,14 @@ public partial class BattleEnemy : MotherBase
     {
       damageValue = 0;
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_ONE_IMMUNITY_JP, Fix.COLOR_GUARD, animation_speed);
+    }
+
+    BuffImage holyWisdom = target.SearchFieldBuff(Fix.HOLY_WISDOM);
+    if (holyWisdom)
+    {
+      holyWisdom.CumulativeDown(1);
+      damageValue = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_HOLY_WISDOM_JP, Fix.COLOR_GUARD, animation_speed);
     }
 
     int result = (int)damageValue;
