@@ -35,4 +35,5 @@ public class NodeBattleChara : MonoBehaviour
   public List<NodeActionCommand> ActionCommandList;
   public GameObject GroupManaPoint;
   public GameObject GroupSkillPoint;
+  public BuffField GroupTimeSequenceField;
 }

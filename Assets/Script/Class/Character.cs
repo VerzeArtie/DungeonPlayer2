@@ -52,6 +52,9 @@ public partial class Character : MonoBehaviour
   public GameObject groupManaPoint = null;
   public GameObject groupSkillPoint = null;
 
+  // 敵専用
+  public BuffField groupTimeSequencePanel = null;
+
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
   public string FullName
@@ -1628,6 +1631,23 @@ public partial class Character : MonoBehaviour
     return null;
   }
 
+  public BuffImage SearchTimeSequenceBuff(string field_buff_name)
+  {
+    if (this.groupTimeSequencePanel == null) { return null; }
+
+    BuffImage[] buffList = this.groupTimeSequencePanel.GetComponentsInChildren<BuffImage>();
+    for (int ii = 0; ii < buffList.Length; ii++)
+    {
+      if (buffList[ii].BuffName == field_buff_name)
+      {
+        //Debug.Log("Detect field_buff_name: " + field_buff_name);
+        return buffList[ii];
+      }
+    }
+
+    return null;
+  }
+
   // もう少し抽象化した書き方がありそうが、芋プログラミングで良しとする。
   public bool GetResistPoisonLogic()
   {
@@ -2913,6 +2933,31 @@ public partial class Character : MonoBehaviour
   public BuffImage IsUltimateFlare
   {
     get { return SearchBuff(Fix.ULTIMATE_FLARE); }
+  }
+
+  public BuffImage IsStarswordZetsuken
+  {
+    get { return SearchTimeSequenceBuff(Fix.STARSWORD_ZETSUKEN); }
+  }
+
+  public BuffImage IsStarswordReikuu
+  {
+    get { return SearchTimeSequenceBuff(Fix.STARSWORD_REIKUU); }
+  }
+
+  public BuffImage IsStarswordSeiei
+  {
+    get { return SearchTimeSequenceBuff(Fix.STARSWORD_SEIEI); }
+  }
+
+  public BuffImage IsStarswordRyokuei
+  {
+    get { return SearchTimeSequenceBuff(Fix.STARSWORD_RYOKUEI); }
+  }
+
+  public BuffImage IsStarswordFinality
+  {
+    get { return SearchTimeSequenceBuff(Fix.STARSWORD_FINALITY); }
   }
 
   // 魔法：基本耐性
@@ -9728,19 +9773,49 @@ public partial class Character : MonoBehaviour
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP:
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
         current.Add(Fix.COMMAND_RENGEKI);
+
+        // スターソードが1つも無いなら、やらなくてよいかもしれない。
+        current.Add(Fix.COMMAND_TIME_JUMP);
+
+        if (this.SearchTimeSequenceBuff(Fix.STARSWORD_ZETSUKEN) == false)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_ZETSUKEN);
+        }
+
+        // 「盛栄」は重ね掛けの意味はあるので、既存有無の判定は入れてない。
+        current.Add(Fix.COMMAND_STARSWORD_SEIEI);
+
+        if (this.SearchTimeSequenceBuff(Fix.STARSWORD_REIKUU) == false)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_REIKUU);
+        }
+
+        if (this.SearchTimeSequenceBuff(Fix.STARSWORD_RYOKUEI) == false)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_RYOKUEI);
+        }
+
+        if (this.SearchTimeSequenceBuff(Fix.STARSWORD_FINALITY) == false)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_FINALITY);
+        }
+
         if (this.IsPerfectProphecy == false)
         {
           current.Add(Fix.COMMAND_PERFECT_PROPHECY);
         }
+
         if (this.SearchFieldBuff(Fix.HOLY_WISDOM) == false)
         {
           current.Add(Fix.COMMAND_HOLY_WISDOM);
         }
+
         if (this.IsEternalPresence == false)
         {
           current.Add(Fix.COMMAND_ETERNAL_PRESENCE);
         }
         current.Add(Fix.COMMAND_ULTIMATE_FLARE);
+
         result = RandomChoice(current);
         break;
 

@@ -484,6 +484,9 @@ public static partial class Fix
   public const string BUFF_TRANSCENDENCE_REACHED = "超越";
   public const string BUFF_SUN_MARK_JP = "太陽印";
   public const string BUFF_HOLY_WISDOM_JP = "聖授";
+  public const string BUFF_HOLY_FLARE_SWORD = "聖炎の刻印";
+  public const string BUFF_RYOKUEI = "緑永";
+  public const string BUFF_TIME_JUMP = "時間律の跳躍";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";

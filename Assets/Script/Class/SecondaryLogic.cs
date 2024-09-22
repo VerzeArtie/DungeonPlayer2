@@ -1191,6 +1191,48 @@ public static class SecondaryLogic
     return 0.20f;
   }
 
+  public static int Starsword_Zetsuken_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static int Starsword_Reikuu(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static int Starsword_Seiei_Turn(Character player)
+  {
+    return 5;
+  }
+
+  public static int Starsword_Ryokuei_Turn(Character player)
+  {
+    return 2;
+  }
+
+  public static int Starsword_Finality_Turn(Character player)
+  {
+    return 7;
+  }
+
+  public static double Starsword_Seiei_Value(Character player)
+  {
+    double result = 0;
+    BuffImage seiei = player.IsStarswordSeiei;
+    if (seiei)
+    {
+      result = seiei.EffectValue * (1.00f + seiei.Cumulative * 0.50F);
+    }
+
+    return result;
+  }
+
+  public static double Starsword_Ryokei_Value(Character player)
+  {
+    return (double)player.MaxLife / 50.0F;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

@@ -134,7 +134,6 @@ public partial class BattleEnemy : MotherBase
 
   protected Fix.BattleStatus TimeStatus = Fix.BattleStatus.Ready;
   protected float BattleTimer = 0;
-  protected int BattleTurn = 0;
 
   protected float GlobalInstantValue = 0;
   protected float GlobalInstantInc = 1;
@@ -176,6 +175,13 @@ public partial class BattleEnemy : MotherBase
   protected int AnimationArchetectProgress;
 
   protected int GlobalAnimationChain = 0; // アニメーション実行の際、ひとまとめで表示したい箇所についてナンバーを宣言し、同一ナンバーの場合はまとめてアニメーション実行するためのフラグ
+
+  bool nowAnimationSandGlass = false;
+  int nowAnimationSandGlassCounter = 0;
+  public Image back_Sandglass;
+  public Text SandGlassText;
+  public Image SandGlassImage;
+  protected int BattleTurnCount = 0;
 
   protected int AutoExit = -1;
 
@@ -225,7 +231,7 @@ public partial class BattleEnemy : MotherBase
     }
     this.pbSandglass.sprite = this.imageSandglass[0];
     this.BattleTimer = 0;
-    this.BattleTurn = 1; // [debug]
+    this.BattleTurnCount = 1;
 
     // グローバルアクションボタンを設定する。
     List<string> str_list0 = new List<string>();
@@ -491,6 +497,19 @@ public partial class BattleEnemy : MotherBase
         {
           node.GroupManaPoint.SetActive(true);
         }
+
+        // リガール・オルフシュタイン専用
+        if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
+        {
+          Debug.Log("One.EnemyList[ii].FullName is legal-orphstein");
+          node.GroupTimeSequenceField.gameObject.SetActive(true);
+        }
+        else
+        {
+          Debug.Log("One.EnemyList[ii].FullName not ...");
+          node.GroupTimeSequenceField.gameObject.SetActive(false);
+        }
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
 
         // ボス向けに表示文字を変換
@@ -648,6 +667,7 @@ public partial class BattleEnemy : MotherBase
     character.objFieldPanel = field_panel;
     character.groupManaPoint = node.GroupManaPoint;
     character.groupSkillPoint = node.GroupSkillPoint;
+    character.groupTimeSequencePanel = node.GroupTimeSequenceField;
 
     if (node.objImmediateCommand != null)
     {
@@ -894,6 +914,14 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // 時間の跳躍
+    if (this.nowAnimationSandGlass)
+    {
+      ExecAnimationSandGlass();
+      //Debug.Log("nowAnimationSandGlass is true then return");
+      return; // アニメーション表示中は停止させる。
+    }
+
     // アニメーションを実行する。通常は、時間を進める事とする。
     if (NowAnimationMode)
     {
@@ -1112,7 +1140,7 @@ public partial class BattleEnemy : MotherBase
 
     #region "ターン砂時計(タイマーカウント更新)"
     this.BattleTimer += 100 * SpeedFactor();
-    if (BattleTurn != 0)
+    if (BattleTurnCount != 0)
     {
       float currentTime = ((float)Fix.BASE_TIMER_BAR_LENGTH - (float)this.BattleTimer) / ((float)Fix.BASE_TIMER_BAR_LENGTH);
       lblTimerCount.text = currentTime.ToString("0.00");
@@ -6400,7 +6428,7 @@ public partial class BattleEnemy : MotherBase
         }
         break;
 
-      case Fix.BUTOH_ISSEN:
+      case Fix.COMMAND_BUTOH_ISSEN:
         // 実装中
         break;
 
@@ -6408,23 +6436,30 @@ public partial class BattleEnemy : MotherBase
         ExecGodSense(player);
         break;
 
-      case Fix.TIME_JUMP:
-
+      case Fix.COMMAND_TIME_JUMP:
+        AnimationSandGlass();
+        UpdateTurnEnd();
+        UpkeepStep();
         break;
 
       case Fix.COMMAND_STARSWORD_ZETSUKEN:
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_ZETSUKEN, Fix.COMMAND_STARSWORD_ZETSUKEN, SecondaryLogic.Starsword_Zetsuken_Turn(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_REIKUU:
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_REIKUU, Fix.COMMAND_STARSWORD_REIKUU, SecondaryLogic.Starsword_Reikuu(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_SEIEI:
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_SEIEI, Fix.COMMAND_STARSWORD_SEIEI, SecondaryLogic.Starsword_Seiei_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_RYOKUEI:
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_RYOKUEI, Fix.COMMAND_STARSWORD_RYOKUEI, SecondaryLogic.Starsword_Ryokuei_Turn(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_FINALITY:
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_FINALITY, Fix.COMMAND_STARSWORD_FINALITY, SecondaryLogic.Starsword_Finality_Turn(player), 0, 0, 0);
         break;
 
       case "絶望の魔手":
@@ -6552,6 +6587,68 @@ public partial class BattleEnemy : MotherBase
       }
     }
     return null;
+  }
+
+  private void AnimationSandGlass()
+  {
+    this.nowAnimationSandGlassCounter = 0;
+    this.nowAnimationSandGlass = true;
+  }
+
+  float angle = 0.0f;
+  private void ExecAnimationSandGlass()
+  {
+    Text targetLabel = this.SandGlassText;
+
+    if (this.nowAnimationSandGlassCounter <= 0)
+    {
+      back_Sandglass.gameObject.SetActive(true);
+      targetLabel.text = (this.BattleTurnCount - 1).ToString();
+      targetLabel.gameObject.SetActive(true);
+      SandGlassImage.sprite = Resources.Load<Sprite>("AnimeSandGlass0");
+      SandGlassImage.gameObject.SetActive(true);
+    }
+
+    int waitTime = 52;
+    int startTime = 15;
+    int moveLen = (Screen.width - 150) / 36;
+
+    if (this.nowAnimationSandGlassCounter > startTime)
+    {
+      if (Application.platform == RuntimePlatform.Android ||
+          Application.platform == RuntimePlatform.IPhonePlayer)
+      {
+        // 何もしない
+      }
+      else
+      {
+        System.Threading.Thread.Sleep(0);
+      }
+      //SandGlassImage.sprite = Resources.Load<Sprite>("AnimeSandGlass" + (this.nowAnimationSandGlassCounter-(startTime+1)).ToString());
+      angle += 10;
+      SandGlassImage.transform.rotation = Quaternion.Euler(0, 0, angle);
+      SandGlassImage.transform.position = new Vector3(SandGlassImage.transform.position.x + moveLen, SandGlassImage.transform.position.y, SandGlassImage.transform.position.z);
+
+      if (this.nowAnimationSandGlassCounter == 36)
+      {
+        targetLabel.text = this.BattleTurnCount.ToString();
+      }
+    }
+
+    this.nowAnimationSandGlassCounter++;
+
+    if (this.nowAnimationSandGlassCounter > waitTime)
+    {
+      System.Threading.Thread.Sleep(500);
+      this.angle = 0.0f;
+      SandGlassImage.transform.rotation = new Quaternion(0, 0, 0, 0);
+      SandGlassImage.transform.position = new Vector3(SandGlassImage.transform.position.x - moveLen * (waitTime - startTime), SandGlassImage.transform.position.y, SandGlassImage.transform.position.z);
+      back_Sandglass.gameObject.SetActive(false);
+      targetLabel.gameObject.SetActive(false);
+      SandGlassImage.gameObject.SetActive(false);
+      this.nowAnimationSandGlass = false;
+      this.nowAnimationSandGlassCounter = 0;
+    }
   }
 
   /// <summary>
@@ -7808,9 +7905,55 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   private void UpdateTurnEnd()
   {
-    this.BattleTurn++;
-    this.lblBattleTurn.text = "Turn " + BattleTurn.ToString();
+    Debug.Log("UpdateTurnEnd(S)");
+    this.BattleTurnCount++;
+    this.lblBattleTurn.text = "Turn " + BattleTurnCount.ToString();
     this.BattleTimer = 0;
+
+    for (int ii = 0; ii < AllList.Count; ii++)
+    {
+      BuffImage zetsuken = AllList[ii].IsStarswordZetsuken;
+      if (zetsuken)
+      {
+        Debug.Log("detect zetsuken");
+        zetsuken.BuffCountDown();
+        ExecNormalAttack(AllList[ii], AllList[ii].Target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Random);
+      }
+
+      BuffImage seiei = AllList[ii].IsStarswordSeiei;
+      if (seiei)
+      {
+        Debug.Log("detect seiei");
+        seiei.BuffCountDown();
+        seiei.Cumulative++;
+        StartAnimation(AllList[ii].groupTimeSequencePanel.gameObject, Fix.BUFF_HOLY_FLARE_SWORD, Fix.COLOR_NORMAL);
+      }
+
+      BuffImage ryokuei = AllList[ii].IsStarswordRyokuei;
+      if (ryokuei)
+      {
+        Debug.Log("detect ryokuei");
+        ryokuei.BuffCountDown();
+        ExecLifeGain(AllList[ii], SecondaryLogic.Starsword_Ryokei_Value(AllList[ii]));
+        AllList[ii].CurrentInstantPoint += 300;
+        AllList[ii].UpdateInstantPointGauge();
+        StartAnimation(AllList[ii].groupTimeSequencePanel.gameObject, Fix.BUFF_RYOKUEI, Fix.COLOR_NORMAL);
+      }
+
+      BuffImage finality = AllList[ii].IsStarswordFinality;
+      if (finality)
+      {
+        Debug.Log("detect finality");
+        finality.BuffCountDown();
+        // Buffが消滅した時に発動する。
+        if (AllList[ii].IsStarswordFinality == false)
+        {
+          ExecBuffCannotResurrect(AllList[ii], AllList[ii].Target, Fix.INFINITY, 0);
+          ExecMagicAttack(AllList[ii], AllList[ii].Target, 10.0f, Fix.DamageSource.Colorless, Fix.IgnoreType.Both, Fix.CriticalType.Random);
+        }
+      }
+    }
+    Debug.Log("UpdateTurnEnd(E)");
   }
 
   /// <summary>
@@ -8392,6 +8535,12 @@ public partial class BattleEnemy : MotherBase
     if (abyssFire)
     {
       ExecElementalDamage(player, Fix.DamageSource.Fire, SecondaryLogic.AbyssFireValue(player));
+    }
+
+    BuffImage starswordSeiei = player.SearchTimeSequenceBuff(Fix.STARSWORD_SEIEI);
+    if (starswordSeiei)
+    {
+      ExecElementalDamage(target, Fix.DamageSource.Fire, SecondaryLogic.Starsword_Seiei_Value(player));
     }
 
     if (player.IsFlameBlade && player.Dead == false)
@@ -9218,7 +9367,7 @@ public partial class BattleEnemy : MotherBase
     if (this.NowGodSenseCounter > 0)
     {
       // プレイヤーのゲージを進める
-      float factor = (float)PrimaryLogic.BattleSpeed(this.NowGodSensePlayer) * 2.00f;
+      float factor = (float)PrimaryLogic.BattleSpeed(this.NowGodSensePlayer) * 5.00f;
       UpdatePlayerArrow(this.NowGodSensePlayer, factor);
 
       this.NowGodSenseCounter = this.NowGodSenseCounter - factor * BATTLE_GAUGE_WITDH / 100.0f;
@@ -10994,7 +11143,7 @@ public partial class BattleEnemy : MotherBase
 //          if (tempStop == false)
 //          {
 //            tempStop = true;
-//            this.labelBattleTurn.color = Color.black;
+//            this.labelBattleTurnCount.color = Color.black;
 //            System.Threading.Thread.Sleep(1000);
 //            this.labelBattleTurn.color = Color.black;
 //          }
