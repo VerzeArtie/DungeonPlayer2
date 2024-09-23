@@ -1181,14 +1181,19 @@ public static class SecondaryLogic
     return (double)player.MaxLife / 50.0f;
   }
 
-  public static int EternalPresense_Turn(Character player)
+  public static int EternalPresence_Turn(Character player)
   {
     return 3;
   }
 
-  public static double EternalPresense_Effect(Character player)
+  public static double EternalPresence_Effect(Character player)
   {
     return 0.20f;
+  }
+
+  public static double EternalPresence_Effect2(Character player)
+  {
+    return 0.80f;
   }
 
   public static int Starsword_Zetsuken_Turn(Character player)

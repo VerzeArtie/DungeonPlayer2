@@ -633,6 +633,10 @@ public partial class Character : MonoBehaviour
       {
         value = MaxInstantPoint;
       }
+      if (value <= 0)
+      {
+        value = 0;
+      }
       _currentInstantPoint = value;
     }
     get { return _currentInstantPoint; }
@@ -2157,7 +2161,7 @@ public partial class Character : MonoBehaviour
       BuffImage eternalPresence = this.IsEternalPresence;
       if (eternalPresence)
       {
-        this.CurrentInstantPoint = eternalPresence.EffectValue * this.MaxInstantPoint;
+        this.CurrentInstantPoint -= this.MaxInstantPoint * (1.00f - eternalPresence.EffectValue);
       }
       else if (everflowMind != null)
       {
@@ -3147,6 +3151,15 @@ public partial class Character : MonoBehaviour
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
+    if (buffImage != null)
+    {
+      buffImage.RemoveBuff();
+    }
+  }
+
+  public void RemoveTargetBuffFromTimeSequence(string buff_name)
+  {
+    BuffImage buffImage = SearchTimeSequenceBuff(buff_name);
     if (buffImage != null)
     {
       buffImage.RemoveBuff();

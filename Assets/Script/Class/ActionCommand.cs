@@ -2724,6 +2724,7 @@ public static class ActionCommand
     else if (command_name == Fix.GOLDEN_MATRIX) { return 9; }
     else if (command_name == Fix.ABYSS_WILL) { return 99; }
     else if (command_name == Fix.HOLY_WISDOM) { return 10; }
+    else if (command_name == Fix.STARSWORD_SEIEI) { return 10; }
 
     return 1; // 通常は累積なし
   }
@@ -2735,7 +2736,8 @@ public static class ActionCommand
         command_name == Fix.BUFF_FOCUS_EYE ||
         command_name == Fix.GOLDEN_MATRIX ||
         command_name == Fix.ABYSS_WILL ||
-        command_name == Fix.HOLY_WISDOM)
+        command_name == Fix.HOLY_WISDOM ||
+        command_name == Fix.STARSWORD_SEIEI)
     {
       return CumulativeType.Cumulative;
     }

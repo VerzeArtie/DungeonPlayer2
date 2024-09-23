@@ -432,6 +432,9 @@ public static partial class Fix
   public const string EFFECT_REMOVE_CANNOT_RESURRECT = "CannotResurrect除去";
 
   public const string EFFECT_CANNOT_LIFEGAIN = "回復不可";
+  public const string EFFECT_CANNOT_BE_COUNTERED = "カウンター不可！";
+  public const string EFFECT_COUNTER = "カウンター！";
+  public const string EFFECT_DAMAGE_IS_ZERO = "ダメージ０！";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";

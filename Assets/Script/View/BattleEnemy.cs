@@ -441,6 +441,20 @@ public partial class BattleEnemy : MotherBase
         One.EnemyList[ii].IsEnemy = true;
         if (One.EnemyList[ii] == null) { Debug.Log("null enemylist"); }
         if (EnemyArrowList[ii] == null) { Debug.Log("enemyarrowlist null"); }
+
+        // リガール・オルフシュタイン専用
+        if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
+            One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || One.EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
+        {
+          Debug.Log("One.EnemyList[ii].FullName is legal-orphstein");
+          node.GroupTimeSequenceField.gameObject.SetActive(true);
+        }
+        else
+        {
+          Debug.Log("One.EnemyList[ii].FullName not ...");
+          node.GroupTimeSequenceField.gameObject.SetActive(false);
+        }
+
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
 
         // 戦闘ゲージを設定
@@ -6408,7 +6422,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_ETERNAL_PRESENCE:
         UpdateMessage(player.FullName + "我が信念が揺らぐ事はない。エターナル・プリゼンス！！！：\r\n");
         player.objBuffPanel.RemoveNegativeBuffAll();
-        AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_PRESENCE, Fix.COMMAND_ETERNAL_PRESENCE, SecondaryLogic.EternalPresense_Turn(player), SecondaryLogic.EternalPresense_Effect(player), 0, 0);
+        AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_PRESENCE, Fix.COMMAND_ETERNAL_PRESENCE, SecondaryLogic.EternalPresence_Turn(player), SecondaryLogic.EternalPresence_Effect(player), SecondaryLogic.EternalPresence_Effect2(player), 0);
         break;
 
       case Fix.COMMAND_ULTIMATE_FLARE:
@@ -6429,7 +6443,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BUTOH_ISSEN:
-        // 実装中
+        AbstractCounterStackCommand(player, command_name, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
         break;
 
       case Fix.COMMAND_GOD_SENSE:
@@ -6451,7 +6465,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STARSWORD_SEIEI:
-        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_SEIEI, Fix.COMMAND_STARSWORD_SEIEI, SecondaryLogic.Starsword_Seiei_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+        AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_SEIEI, Fix.COMMAND_STARSWORD_SEIEI, SecondaryLogic.Starsword_Seiei_Turn(player), 1, 0, 0);
         break;
 
       case Fix.COMMAND_STARSWORD_RYOKUEI:
@@ -6816,6 +6830,33 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      if (AllList[ii].IsStarswordReikuu)
+      {
+        string currentStackName = stackList[stackList.Length - 1].StackName;
+        Character player = stackList[stackList.Length - 1].Player;
+        Character target = stackList[stackList.Length - 1].Target;
+
+        if ((player.IsEnemy && AllList[ii].IsEnemy == false) ||
+            (player.IsEnemy == false && AllList[ii].IsEnemy))
+        {
+          // スターソード「零空」はスタック解決中に解消とする。
+          // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
+          AllList[ii].RemoveTargetBuffFromTimeSequence(Fix.STARSWORD_REIKUU);
+
+          BuffImage seiei = AllList[ii].IsStarswordSeiei;
+          if (seiei)
+          {
+            Debug.Log("starswordSeiei additional damage 3 " + seiei.Cumulative);
+            ExecMagicAttack(AllList[ii], AllList[ii].Target, (1.00f + seiei.Cumulative * 0.50f), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+          }
+          // 現在のスタックを破棄する。
+          Destroy(stackList[stackList.Length - 1].gameObject);
+          stackList[stackList.Length - 1] = null;
+          CreateStackObject(player, target, currentStackName + " 失敗！（要因：" + Fix.COMMAND_STARSWORD_REIKUU + "）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+          return;
+        }
+      }
+
       if (AllList[ii].IsPerfectProphecy)
       {
         string currentStackName = stackList[stackList.Length - 1].StackName;
@@ -6829,10 +6870,17 @@ public partial class BattleEnemy : MotherBase
           // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
           AllList[ii].RemoveTargetBuff(Fix.PERFECT_PROPHECY);
 
+          BuffImage seiei = AllList[ii].IsStarswordSeiei;
+          if (seiei)
+          {
+            Debug.Log("starswordSeiei additional damage 3 " + seiei.Cumulative);
+            ExecMagicAttack(AllList[ii], AllList[ii].Target, (1.00f + seiei.Cumulative * 0.50f), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+          }
           // 現在のスタックを破棄する。
           Destroy(stackList[stackList.Length - 1].gameObject);
           stackList[stackList.Length - 1] = null;
           CreateStackObject(player, target, currentStackName + " 失敗！（要因：完全なる予見）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+          return;
         }
       }
 
@@ -6854,6 +6902,7 @@ public partial class BattleEnemy : MotherBase
           Destroy(stackList[stackList.Length - 1].gameObject);
           stackList[stackList.Length - 1] = null;
           CreateStackObject(player, target, currentStackName + " 失敗！（要因：スタンス・オブ・ザ・イアイ）", 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
+          return;
         }
       }
     }
@@ -6885,6 +6934,32 @@ public partial class BattleEnemy : MotherBase
       }
       return;
     }
+
+    // 敵専用、スタックコマンドの割り込み
+    for (int ii = 0; ii < EnemyList.Count; ii++)
+    {
+      if (EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
+          EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          BuffImage eternalPresence = EnemyList[ii].IsEternalPresence;
+          if (eternalPresence)
+          {
+            maxInstantPoint = (int)((double)EnemyList[ii].MaxInstantPoint * eternalPresence.EffectValue2);
+          }
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
+          {
+            EnemyList[ii].UseInstantPoint(false);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_BUTOH_ISSEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+    }
+
     if (stackList[num].StackTimer <= 0)
     {
       if (ActionCommand.IsTarget(stackList[num].StackName) == ActionCommand.TargetType.Ally)
@@ -8540,7 +8615,7 @@ public partial class BattleEnemy : MotherBase
     BuffImage starswordSeiei = player.SearchTimeSequenceBuff(Fix.STARSWORD_SEIEI);
     if (starswordSeiei)
     {
-      ExecElementalDamage(target, Fix.DamageSource.Fire, SecondaryLogic.Starsword_Seiei_Value(player));
+      ExecMagicAttack(player, target, (1.00f + starswordSeiei.Cumulative * 0.50f), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     }
 
     if (player.IsFlameBlade && player.Dead == false)
@@ -8924,6 +8999,90 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     AbstractAddBuff(target, target.objBuffPanel, Fix.SKY_SHIELD, Fix.SKY_SHIELD, SecondaryLogic.SkyShield_Turn(player), SecondaryLogic.SkyShield_Value(player), 0, 0);
+  }
+
+  // true: カウンター成功
+  // false: カウンター失敗
+  private bool AbstractCounterStackCommand(Character player, string src_command_name, StackObject[] stack_list)
+  {
+    if (stack_list.Length >= 2)
+    {
+      int num = stack_list.Length - 2;
+
+      Debug.Log("AbstractCounterStackCommand: " + stack_list[num].StackName);
+      Debug.Log("Fix.WORD_OF_POWER          : " + Fix.WORD_OF_POWER);
+      // 下記コマンドはCannot be counteredの対象
+      if (stack_list[num].StackName == Fix.WORD_OF_POWER ||
+          stack_list[num].StackName == Fix.IRON_BUSTER)
+      {
+        // Will Awakeningが無い場合は、カウンターできないまま。
+        if (stack_list[num].Player.IsWillAwakening == null)
+        {
+          // 舞踏・一閃のみ、ダメージ０にできる。
+          if (src_command_name == Fix.COMMAND_BUTOH_ISSEN)
+          {
+            StartAnimation(stack_list[num].gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_NORMAL);
+            ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
+            Destroy(stack_list[num].gameObject);
+            stack_list[num] = null;
+            return true;
+          }
+
+          // 上記以外は、カウンター不可
+          Debug.Log("AbstractCounterStackCommand 0 : " + stack_list[num].StackName);
+          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_CANNOT_BE_COUNTERED, Fix.COLOR_NORMAL);
+          return false;
+        }
+        // Will Awakeningがあるので、カウンター
+        else
+        {
+          Debug.Log("AbstractCounterStackCommand 1 : " + stack_list[num].StackName);
+          StartAnimation(stack_list[num].gameObject, Fix.EFFECT_COUNTER, Fix.COLOR_NORMAL);
+          Destroy(stack_list[num].gameObject);
+          stack_list[num] = null;
+          return true;
+        }
+      }
+      // 通常コマンドは原則カウンターできる
+      else
+      {
+        Debug.Log("AbstractCounterStackCommand 2 : " + stack_list[num].StackName);
+        StartAnimation(stack_list[num].gameObject, Fix.EFFECT_COUNTER, Fix.COLOR_NORMAL);
+        if (src_command_name == Fix.COMMAND_BUTOH_ISSEN)
+        {
+          if (ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.Enemy ||
+              ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyField ||
+              ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyGroup ||
+              (ActionCommand.IsTarget(stack_list[num].StackName) == ActionCommand.TargetType.EnemyOrAlly && stack_list[num].Target == player) // リガール専用コマンドのため、これで良しとする
+              )
+          {
+            ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
+          }
+          else
+          {
+            // なにもしない
+          }
+        }
+        BuffImage seiei = player.IsStarswordSeiei;
+        if (seiei)
+        {
+          Debug.Log("starswordSeiei additional damage 2");
+          Debug.Log("Starsword-Seiei Cumulative " + seiei.Cumulative);
+          ExecMagicAttack(player, stack_list[num].Player, (1.00f + 0.50f * seiei.Cumulative), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+        }
+        Destroy(stack_list[num].gameObject);
+        stack_list[num] = null;
+
+        return true;
+      }
+    }
+    else
+    {
+      // とくになし
+    }
+
+    // 予期せぬ場合は対象が無いので失敗として扱う。
+    return false;
   }
 
   private void ExecCounterAttack(Character player, StackObject[] stack_list)
@@ -11001,6 +11160,12 @@ public partial class BattleEnemy : MotherBase
 
   private void AbstractAddBuff(Character target, BuffField buff_field, string buff_name, string view_buff_name, int remain_counter, double effect1, double effect2, double effect3)
   {
+    if (buff_field == null)
+    {
+      StartAnimation(this.gameObject, Fix.BATTLE_MISS, Fix.COLOR_WARNING);
+      return; 
+    }
+
     if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
     {
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
