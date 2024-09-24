@@ -1420,18 +1420,39 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || AllList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
-            AllList[ii].UpdateInstantPointGauge();
-            int rand = AP.Math.RandomInteger(2);
-            if (rand == 0)
+            if (AllList[ii].Target.CurrentInstantPoint <= AllList[ii].Target.MaxInstantPoint * 0.70f || // 見合いの時は待つ。
+                AllList[ii].IsPerfectProphecy || // 完全予見があれば発動する。
+                AllList[ii].IsStarswordReikuu) // スターソード「零空」があれば発動する。
             {
-              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+
+              int rand = AP.Math.RandomInteger(2);
+              if (rand == 0)
+              {
+                CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              }
+              else
+              {
+                if ((AllList[ii].IsPerfectProphecy == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_PERFECT_PROPHECY) || 
+                    (AllList[ii].IsHolyWisdom == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_HOLY_WISDOM) ||
+                    (AllList[ii].IsEternalPresence == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_ETERNAL_PRESENCE) ||
+                    (AllList[ii].IsStarswordZetsuken == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_ZETSUKEN) ||
+                    (AllList[ii].IsStarswordReikuu == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_REIKUU) ||
+                    (AllList[ii].IsStarswordSeiei == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_SEIEI) ||
+                    (AllList[ii].IsStarswordRyokuei == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_RYOKUEI) ||
+                    (AllList[ii].IsStarswordFinality == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_FINALITY)
+                    )
+                {
+                  CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOD_SENSE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                }
+                else
+                {
+                  CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                }
+              }
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
-            else
-            {
-              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOD_SENSE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-            }
-            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
@@ -6429,7 +6450,7 @@ public partial class BattleEnemy : MotherBase
         UpdateMessage(player.FullName + "：究極奥義、受けてみよ。天啓・アルティメット・フレア！！！！！\r\n");
         if (ExecMagicAttack(player, target, 5.00f, Fix.DamageSource.Fire, Fix.IgnoreType.Both, critical))
         {
-          AbstractAddBuff(target, target.objBuffPanel, Fix.ULTIMATE_FLARE, Fix.BUFF_SUN_MARK_JP, 3, 0, 0, 0); 
+          AbstractAddBuff(target, target.objBuffPanel, Fix.ULTIMATE_FLARE, Fix.BUFF_SUN_MARK_JP, SecondaryLogic.UltimateFlare_Turn(player), 0, 0, 0); 
         }
         break;
 

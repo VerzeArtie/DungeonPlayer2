@@ -2926,7 +2926,7 @@ public partial class Character : MonoBehaviour
 
   public BuffImage IsHolyWisdom
   {
-    get { return SearchBuff(Fix.HOLY_WISDOM); }
+    get { return SearchFieldBuff(Fix.HOLY_WISDOM); }
   }
 
   public BuffImage IsEternalPresence
@@ -9787,30 +9787,43 @@ public partial class Character : MonoBehaviour
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW:
         current.Add(Fix.COMMAND_RENGEKI);
 
-        // スターソードが1つも無いなら、やらなくてよいかもしれない。
-        current.Add(Fix.COMMAND_TIME_JUMP);
-
+        bool detectStarsword = false;
         if (this.SearchTimeSequenceBuff(Fix.STARSWORD_ZETSUKEN) == false)
         {
           current.Add(Fix.COMMAND_STARSWORD_ZETSUKEN);
         }
-
-        // 「盛栄」は重ね掛けの意味はあるので、既存有無の判定は入れてない。
-        current.Add(Fix.COMMAND_STARSWORD_SEIEI);
+        else { detectStarsword = true; }
 
         if (this.SearchTimeSequenceBuff(Fix.STARSWORD_REIKUU) == false)
         {
           current.Add(Fix.COMMAND_STARSWORD_REIKUU);
         }
+        else { detectStarsword = true; }
+
+        if (this.SearchTimeSequenceBuff(Fix.STARSWORD_SEIEI) == false)
+        {
+          current.Add(Fix.COMMAND_STARSWORD_SEIEI);
+        }
+        else { detectStarsword = true; }
 
         if (this.SearchTimeSequenceBuff(Fix.STARSWORD_RYOKUEI) == false)
         {
-          current.Add(Fix.COMMAND_STARSWORD_RYOKUEI);
+          if (this.CurrentLife < this.MaxLife * 0.50f)
+          {
+            current.Add(Fix.COMMAND_STARSWORD_RYOKUEI);
+          }
         }
+        else { detectStarsword = true; }
 
         if (this.SearchTimeSequenceBuff(Fix.STARSWORD_FINALITY) == false)
         {
           current.Add(Fix.COMMAND_STARSWORD_FINALITY);
+        }
+        else { detectStarsword = true; }
+
+        if (detectStarsword)
+        {
+          current.Add(Fix.COMMAND_TIME_JUMP);
         }
 
         if (this.IsPerfectProphecy == false)
@@ -9827,7 +9840,12 @@ public partial class Character : MonoBehaviour
         {
           current.Add(Fix.COMMAND_ETERNAL_PRESENCE);
         }
-        current.Add(Fix.COMMAND_ULTIMATE_FLARE);
+
+        // ライフゲージが減ってきてから使用可能とする。
+        if (this.CurrentLife < this.MaxLife * 0.50f)
+        {
+          current.Add(Fix.COMMAND_ULTIMATE_FLARE);
+        }
 
         result = RandomChoice(current);
         break;

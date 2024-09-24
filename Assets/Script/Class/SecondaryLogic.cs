@@ -1181,6 +1181,11 @@ public static class SecondaryLogic
     return (double)player.MaxLife / 50.0f;
   }
 
+  public static int UltimateFlare_Turn(Character player)
+  {
+    return 2;
+  }
+
   public static int EternalPresence_Turn(Character player)
   {
     return 3;

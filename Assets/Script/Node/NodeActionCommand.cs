@@ -615,6 +615,30 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.GOD_SENSE);
     }
+    else if (command_name == Fix.COMMAND_TIME_JUMP)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.TIME_JUMP);
+    }
+    else if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_ZETSUKEN);
+    }
+    else if (command_name == Fix.COMMAND_STARSWORD_REIKUU)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_REIKUU);
+    }
+    else if (command_name == Fix.COMMAND_STARSWORD_SEIEI)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_SEIEI);
+    }
+    else if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_RYOKUEI);
+    }
+    else if (command_name == Fix.COMMAND_STARSWORD_FINALITY)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_FINALITY);
+    }
     else
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(command_name);
