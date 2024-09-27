@@ -6497,6 +6497,45 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_FINALITY, Fix.COMMAND_STARSWORD_FINALITY, SecondaryLogic.Starsword_Finality_Turn(player), 0, 0, 0);
         break;
 
+      case Fix.COMMAND_SHADOW_BRINGER:
+        ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
+        AbstractAddBuff(target, target.objBuffPanel, Fix.SHADOW_BRINGER, Fix.BUFF_SHADOW_BRINGER, SecondaryLogic.ShadowBringer_Turn(player), SecondaryLogic.ShadowBringer_Effect(player), 0, 0);
+        break;
+
+      case Fix.COMMAND_SPHERE_OF_GLORY:
+        break;
+
+      case Fix.COMMAND_AURORA_PUNISHMENT:
+        break;
+
+      case Fix.COMMAND_INNOCENT_CIRCLE:
+        break;
+
+      case Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA:
+        break;
+
+      case Fix.COMMAND_ABSOLUTE_PERFECTION:
+        break;
+
+      case Fix.COMMAND_ASTRAL_GATE:
+        break;
+
+      case Fix.COMMAND_DOUBLE_STANCE:
+        break;
+
+      case Fix.COMMAND_DESTRUCTION_OF_TRUTH:
+        break;
+
+      case Fix.COMMAND_CHAOTICE_SCHEMA:
+        break;
+
+      case Fix.COMMAND_OATH_OF_SEFINE:
+        break;
+
+      case Fix.COMMAND_SPACETIME_INFLUENCE:
+        break;
+
       case "絶望の魔手":
         ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);

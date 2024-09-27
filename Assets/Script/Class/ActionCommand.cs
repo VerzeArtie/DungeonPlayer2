@@ -1264,6 +1264,19 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_SHADOW_BRINGER) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_AURORA_PUNISHMENT) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_INNOCENT_CIRCLE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_ASTRAL_GATE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_DOUBLE_STANCE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_CHAOTICE_SCHEMA) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_OATH_OF_SEFINE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return Attribute.MonsterAction; }
+
     if (command_name == "絶望の魔手") { return Attribute.MonsterAction; }
     #endregion
 
@@ -1907,6 +1920,19 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return TargetType.Own; }
     if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return TargetType.Own; }
     if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return TargetType.Enemy; }
+
+    if (command_name == Fix.COMMAND_SHADOW_BRINGER) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_AURORA_PUNISHMENT) { return TargetType.AllField; }
+    if (command_name == Fix.COMMAND_INNOCENT_CIRCLE) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA) { return TargetType.Enemy; }
+    if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_ASTRAL_GATE) { return TargetType.AllField; }
+    if (command_name == Fix.COMMAND_DOUBLE_STANCE) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH) { return TargetType.InstantTarget; }
+    if (command_name == Fix.COMMAND_CHAOTICE_SCHEMA) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_OATH_OF_SEFINE) { return TargetType.Own; }
+    if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return TargetType.AllMember; }
     #endregion
 
     return TargetType.None; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
@@ -2286,6 +2312,19 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return 0; }
     if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return 0; }
     if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return 0; }
+
+    if (command_name == Fix.COMMAND_SHADOW_BRINGER) { return 0; }
+    if (command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return 0; }
+    if (command_name == Fix.COMMAND_AURORA_PUNISHMENT) { return 0; }
+    if (command_name == Fix.COMMAND_INNOCENT_CIRCLE) { return 0; }
+    if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA) { return 0; }
+    if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION) { return 0; }
+    if (command_name == Fix.COMMAND_ASTRAL_GATE) { return 0; }
+    if (command_name == Fix.COMMAND_DOUBLE_STANCE) { return 0; }
+    if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH) { return 0; }
+    if (command_name == Fix.COMMAND_CHAOTICE_SCHEMA) { return 0; }
+    if (command_name == Fix.COMMAND_OATH_OF_SEFINE) { return 0; }
+    if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return 0; }
     #endregion
 
     if (command_name == Fix.COUNTER_ATTACK) { return 3; }
@@ -2705,6 +2744,19 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Fix.BuffType.Positive; }
     if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Fix.BuffType.Positive; }
     if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Fix.BuffType.None; }
+
+    if (command_name == Fix.COMMAND_SHADOW_BRINGER) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_AURORA_PUNISHMENT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.COMMAND_INNOCENT_CIRCLE) { return Fix.BuffType.Neutral; }
+    if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_ASTRAL_GATE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.COMMAND_DOUBLE_STANCE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_CHAOTICE_SCHEMA) { return Fix.BuffType.None; }
+    if (command_name == Fix.COMMAND_OATH_OF_SEFINE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return Fix.BuffType.Neutral; }
     #endregion
 
     return Fix.BuffType.None;
@@ -3061,6 +3113,19 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return false; }
     if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return false; }
     if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return true; }
+
+    if (command_name == Fix.COMMAND_SHADOW_BRINGER) { return true; }
+    if (command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return false; }
+    if (command_name == Fix.COMMAND_AURORA_PUNISHMENT) { return false; }
+    if (command_name == Fix.COMMAND_INNOCENT_CIRCLE) { return false; }
+    if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA) { return true; }
+    if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION) { return false; }
+    if (command_name == Fix.COMMAND_ASTRAL_GATE) { return false; }
+    if (command_name == Fix.COMMAND_DOUBLE_STANCE) { return false; }
+    if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH) { return false; }
+    if (command_name == Fix.COMMAND_CHAOTICE_SCHEMA) { return false; }
+    if (command_name == Fix.COMMAND_OATH_OF_SEFINE) { return false; }
+    if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return false; }
     #endregion
 
     #region "一般系統"

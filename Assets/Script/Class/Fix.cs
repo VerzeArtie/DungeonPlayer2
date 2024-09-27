@@ -490,6 +490,15 @@ public static partial class Fix
   public const string BUFF_HOLY_FLARE_SWORD = "聖炎の刻印";
   public const string BUFF_RYOKUEI = "緑永";
   public const string BUFF_TIME_JUMP = "時間律の跳躍";
+  public const string BUFF_SHADOW_BRINGER = "死滅";
+  public const string BUFF_SPHERE_OF_GLORY = "栄光";
+  public const string BUFF_AURORA_PUNISHMENT = "天罰";
+  public const string BUFF_INNOCENT_CIRCLE = "無為";
+  public const string BUFF_ABSOLUTE_PERFECT = "完成";
+  public const string BUFF_ASTRAL_GATE = "星門";
+  public const string BUFF_DOUBLE_STANCE = "双極";
+  public const string BUFF_OATH_OF_SEFINE = "誓約";
+  public const string BUFF_SPACETIME_INFLUENCE = "時空干渉";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
@@ -2152,6 +2161,31 @@ public static partial class Fix
   public const string COMMAND_STARSWORD_FINALITY = "スター・ソード【終焉】";
   public const string STARSWORD_FINALITY = "Starsword_finality";
   // public const string COMMAND_STARSWORD_ZETSU_HOMURA = "スター・ソード【焔絶剣】";
+
+  public const string COMMAND_SHADOW_BRINGER = "シャドウ・ブリンガー";
+  public const string SHADOW_BRINGER = "Shadow Bringer";
+  public const string COMMAND_SPHERE_OF_GLORY = "スフィア・オブ・グローリー";
+  public const string SPHERE_OF_GLORY = "Sphere of Glory";
+  public const string COMMAND_AURORA_PUNISHMENT = "オーロラ・パニッシュメント";
+  public const string AURORA_PUNISHMENT = "Aurora Punishment";
+  public const string COMMAND_INNOCENT_CIRCLE = "無縫：イノセント・サークル";
+  public const string INNOCENT_CIRCLE = "Aurora Punishment";
+  public const string COMMAND_ATOMIC_THE_INFINITY_NOVA = "天鳴：アトミック・ザ・インフィニティ・ノヴァ";
+  public const string ATOMIC_THE_INFINITY_NOVA = "Atomic the Infinity Nova";
+  public const string COMMAND_ABSOLUTE_PERFECTION = "アブソリュート・パーフェクション";
+  public const string ABSOLUTE_PERFECTION = "Absolute Perfection";
+  public const string COMMAND_ASTRAL_GATE = "アストラル・ゲート";
+  public const string ASTRAL_GATE = "Astral Gate";
+  public const string COMMAND_DOUBLE_STANCE = "双極の構え";
+  public const string DOUBLE_STANCE = "Double Stance";
+  public const string COMMAND_DESTRUCTION_OF_TRUTH = "真実の破壊";
+  public const string DESTRUCTION_OF_TRUTH = "Destruction of Truth";
+  public const string COMMAND_CHAOTICE_SCHEMA = "カオティック・スキーマ";
+  public const string CHAOTICE_SCHEMA = "ChaoticSchema";
+  public const string COMMAND_OATH_OF_SEFINE = "セフィーネへの誓い";
+  public const string OATH_OF_SEFINE = "Oath of Sefine.png";
+  public const string COMMAND_SPACETIME_INFLUENCE = "時空干渉";
+  public const string SPACETIME_INFLUENCE = "Spacetime Influence";
 
   public const string COMMAND_ = "";
 

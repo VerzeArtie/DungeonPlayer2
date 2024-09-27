@@ -1243,6 +1243,16 @@ public static class SecondaryLogic
     return (double)player.MaxLife / 50.0F;
   }
 
+  public static int ShadowBringer_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double ShadowBringer_Effect(Character player)
+  {
+    return (double)player.MaxManaPoint / 100.0F;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
