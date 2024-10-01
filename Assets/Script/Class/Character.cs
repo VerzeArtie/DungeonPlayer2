@@ -3148,6 +3148,31 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.THE_ABYSS_WALL); }
   }
 
+  public BuffImage IsShadowBringer
+  {
+    get { return SearchBuff(Fix.SHADOW_BRINGER); }
+  }
+
+  public BuffImage IsSphereOfGlory
+  {
+    get { return SearchBuff(Fix.SPHERE_OF_GLORY); }
+  }
+
+  public BuffImage IsAuroraPunishment
+  {
+    get { return SearchFieldBuff(Fix.AURORA_PUNISHMENT); }
+  }
+
+  public BuffImage IsInnocentCircle
+  {
+    get { return SearchBuff(Fix.INNOCENT_CIRCLE); }
+  }
+
+  public BuffImage IsAbsolutePerfection
+  {
+    get { return SearchBuff(Fix.ABSOLUTE_PERFECTION); }
+  }
+
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
@@ -8650,7 +8675,7 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_STARSWORD_FINALITY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss64;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
         break;
 
       case Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN:
@@ -8673,7 +8698,51 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.COMMAND_STARSWORD_FINALITY);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss64_2;
-        this.CannotCritical = true;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ROYAL_KING_AERMI_JORZT:
+      case Fix.ROYAL_KING_AERMI_JORZT_JP:
+      case Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW:
+        SetupParameter(900, 400, 900, 2000000, 70, 0, 0, 0);
+        this._baseInstantPoint = 1750;
+        list.Add(Fix.COMMAND_SHADOW_BRINGER);
+        list.Add(Fix.COMMAND_SPHERE_OF_GLORY);
+        list.Add(Fix.COMMAND_AURORA_PUNISHMENT);
+        list.Add(Fix.COMMAND_INNOCENT_CIRCLE);
+        list.Add(Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA);
+        list.Add(Fix.COMMAND_ABSOLUTE_PERFECTION);
+        list.Add(Fix.COMMAND_ASTRAL_GATE);
+        list.Add(Fix.COMMAND_DOUBLE_STANCE);
+        list.Add(Fix.COMMAND_DESTRUCTION_OF_TRUTH);
+        list.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
+        list.Add(Fix.COMMAND_OATH_OF_SEFINE);
+        list.Add(Fix.COMMAND_SPACETIME_INFLUENCE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.LastBoss;
+        this.CannotCritical = false;
+        break;
+
+      case Fix.ETERNITY_KING_AERMI_JORZT:
+      case Fix.ETERNITY_KING_AERMI_JORZT_JP:
+      case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:
+        SetupParameter(9500, 4500, 9500, 3000000, 800, 0, 0, 0);
+        this._baseInstantPoint = 700;
+        list.Add(Fix.COMMAND_SHADOW_BRINGER);
+        list.Add(Fix.COMMAND_SPHERE_OF_GLORY);
+        list.Add(Fix.COMMAND_AURORA_PUNISHMENT);
+        list.Add(Fix.COMMAND_INNOCENT_CIRCLE);
+        list.Add(Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA);
+        list.Add(Fix.COMMAND_ABSOLUTE_PERFECTION);
+        list.Add(Fix.COMMAND_ASTRAL_GATE);
+        list.Add(Fix.COMMAND_DOUBLE_STANCE);
+        list.Add(Fix.COMMAND_DESTRUCTION_OF_TRUTH);
+        list.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
+        list.Add(Fix.COMMAND_OATH_OF_SEFINE);
+        list.Add(Fix.COMMAND_SPACETIME_INFLUENCE);
+        this.Rare = Fix.RareString.Black;
+        this.Area = Fix.MonsterArea.LastBoss;
+        this.CannotCritical = false;
         break;
 
       #endregion
@@ -9847,6 +9916,39 @@ public partial class Character : MonoBehaviour
           current.Add(Fix.COMMAND_ULTIMATE_FLARE);
         }
 
+        result = RandomChoice(current);
+        break;
+
+      case Fix.ROYAL_KING_AERMI_JORZT:
+      case Fix.ROYAL_KING_AERMI_JORZT_JP:
+      case Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW:
+      case Fix.ETERNITY_KING_AERMI_JORZT:
+      case Fix.ETERNITY_KING_AERMI_JORZT_JP:
+      case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:       
+        current.Add(Fix.COMMAND_SHADOW_BRINGER);
+        //if (this.IsFlameBlade == false)
+        //{
+        //  current.Add(Fix.FLAME_BLADE);
+        //}
+        if (this.IsStanceOfTheBlade == false)
+        {
+          current.Add(Fix.STANCE_OF_THE_BLADE);
+        }
+        //if (this.IsSphereOfGlory == false)
+        //{
+        //  current.Add(Fix.COMMAND_SPHERE_OF_GLORY);
+        //}
+        //if (this.IsAuroraPunishment == false)
+        //{
+        //  current.Add(Fix.COMMAND_AURORA_PUNISHMENT);
+        //}
+        //if (this.IsInnocentCircle == false)
+        //{
+        //  current.Add(Fix.COMMAND_INNOCENT_CIRCLE);
+        //}
+        current.Add(Fix.STRAIGHT_SMASH);
+        //current.Add(Fix.FLAME_STRIKE);
+        current.Add("出血付与");
         result = RandomChoice(current);
         break;
 

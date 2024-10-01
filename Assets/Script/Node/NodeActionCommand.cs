@@ -639,6 +639,54 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STARSWORD_FINALITY);
     }
+    else if (command_name == Fix.COMMAND_SHADOW_BRINGER)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SHADOW_BRINGER);
+    }
+    else if (command_name == Fix.COMMAND_SPHERE_OF_GLORY)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SPHERE_OF_GLORY);
+    }
+    else if (command_name == Fix.COMMAND_AURORA_PUNISHMENT)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.AURORA_PUNISHMENT);
+    }
+    else if (command_name == Fix.COMMAND_INNOCENT_CIRCLE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.INNOCENT_CIRCLE);
+    }
+    else if (command_name == Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ATOMIC_THE_INFINITY_NOVA);
+    }
+    else if (command_name == Fix.COMMAND_ABSOLUTE_PERFECTION)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ABSOLUTE_PERFECTION);
+    }
+    else if (command_name == Fix.COMMAND_ASTRAL_GATE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.ASTRAL_GATE);
+    }
+    else if (command_name == Fix.COMMAND_DOUBLE_STANCE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DOUBLE_STANCE);
+    }
+    else if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DESTRUCTION_OF_TRUTH);
+    }
+    else if (command_name == Fix.COMMAND_CHAOTIC_SCHEMA)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.CHAOTIC_SCHEMA);
+    }
+    else if (command_name == Fix.COMMAND_OATH_OF_SEFINE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.OATH_OF_SEFINE);
+    }
+    else if (command_name == Fix.COMMAND_SPACETIME_INFLUENCE)
+    {
+      ActionButton.image.sprite = Resources.Load<Sprite>(Fix.SPACETIME_INFLUENCE);
+    }
     else
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(command_name);

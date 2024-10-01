@@ -515,7 +515,14 @@ public static class PrimaryLogic
 
     if (player.IsDizzy)
     {
-      result = result * player.IsDizzy.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsDizzy.EffectValue;
+      }
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyBattleAccuracy > 1.00f) { result = result * player.MainWeapon.AmplifyBattleAccuracy; }
@@ -561,7 +568,14 @@ public static class PrimaryLogic
     }
     if (player.IsSlow)
     {
-      result *= player.IsSlow.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result *= player.IsSlow.EffectValue;
+      }
     }
 
     if (player.IsBattleSpeedUp)
@@ -684,6 +698,12 @@ public static class PrimaryLogic
     if (player.IsTrueSight)
     {
       result *= player.IsTrueSight.EffectValue;
+    }
+
+    BuffImage sphereOfGlory = player.IsSphereOfGlory;
+    if (sphereOfGlory)
+    {
+      result = result * (1.00f + sphereOfGlory.EffectValue * sphereOfGlory.Cumulative);
     }
 
     if (player.IsPotentialUp)

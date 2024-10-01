@@ -102,7 +102,7 @@ public class BuffField : MonoBehaviour
     }
   }
 
-  public void RemoveAll()
+  public void RemoveAll(Character target)
   {
     Debug.Log("RemoveAll(S)");
     BuffImage[] buffList = this.GetComponentsInChildren<BuffImage>();
@@ -111,6 +111,29 @@ public class BuffField : MonoBehaviour
     // 既に該当BUFFがあるかどうかを確認。
     for (int ii = buffList.Length - 1; ii >= 0; ii--)
     {
+      Debug.Log(target.FullName + " bufflist[ii].buffname : " + buffList[ii].BuffName + " " + ActionCommand.GetBuffType(buffList[ii].BuffName));
+
+      if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
+      {
+        Debug.Log("DETACHMENT_FAULT ignore it");
+        continue; // アニメーションでないため分かり難いが、まずこれで良しとする。
+      }
+
+      BuffImage transcendenceReached = target.IsTranscendenceReached;
+      if (transcendenceReached && ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Positive)
+      {
+        Debug.Log("IsTranscendenceReached ignore it");
+        continue; // アニメーションでないため分かり難いが、まずこれで良しとする。
+      }
+
+      BuffImage innocentCircle = target.IsInnocentCircle;
+      if (innocentCircle && ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Positive)
+      {
+        Debug.Log("IsInnocentCircle ignore it");
+        continue; // アニメーションでないため分かり難いが、まずこれで良しとする。
+      }
+
+      Debug.Log("remove it");
       buffList[ii].RemoveBuff();
     }
   }

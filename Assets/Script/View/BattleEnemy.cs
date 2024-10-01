@@ -1193,27 +1193,42 @@ public partial class BattleEnemy : MotherBase
       }
 
       // プレイヤーゲージを進行する。
-      if (AllList[ii].Dead == false && AllList[ii].IsSleep == false && AllList[ii].IsStun == false)
+      if (AllList[ii].Dead == false)
       {
-        UpdatePlayerArrow(AllList[ii], 0);
+        if (AllList[ii].IsSleep || AllList[ii].IsStun || AllList[ii].IsParalyze)
+        {
+          if (AllList[ii].IsAbsolutePerfection)
+          {
+            UpdatePlayerArrow(AllList[ii], 0);
+          }
+          else
+          {
+            // skip
+          }
+        }
+        else
+        {
+          UpdatePlayerArrow(AllList[ii], 0);
+        }
       }
 
       // プレイヤーのインスタントゲージを進行する。
-      if (AllList[ii].Dead == false && AllList[ii].IsSleep == false && AllList[ii].IsStun == false && AllList[ii].IsFreeze == false)
+      if (AllList[ii].Dead == false)
       {
-        if (AllList[ii].CurrentInstantPoint < AllList[ii].MaxInstantPoint)
+        if (AllList[ii].IsSleep || AllList[ii].IsStun || AllList[ii].IsFreeze)
         {
-          double increment = PrimaryLogic.BattleResponse(AllList[ii]);
-          increment = increment * SpeedFactor();
-          if (AllList[ii].IsUltimateFlare)
+          if (AllList[ii].IsAbsolutePerfection)
           {
-            increment = 0;
+            UpdatePlayerInstantGauge(AllList[ii]);
           }
-          AllList[ii].CurrentInstantPoint += increment;
-          if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
+          else
           {
-            AllList[ii].CurrentInstantPoint = AllList[ii].MaxInstantPoint;
+            // skip
           }
+        }
+        else
+        {
+          UpdatePlayerInstantGauge(AllList[ii]);
         }
       }
 
@@ -1453,6 +1468,14 @@ public partial class BattleEnemy : MotherBase
               }
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
+          }
+
+          if (AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
+          {
+            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_ABSOLUTE_PERFECTION, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
@@ -2101,12 +2124,24 @@ public partial class BattleEnemy : MotherBase
 
     if (player.IsDizzy)
     {
-      double random_seed = (double)((double)AP.Math.RandomInteger(100)) / 100.0f;
-      if (player.IsDizzy.EffectValue > random_seed)
+      if (player.IsAbsolutePerfection)
       {
-        Debug.Log("Player is Dizzy, then no action.");
-        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
-        return;
+        // skip
+      }
+      else if (command_name == Fix.ABSOLUTE_PERFECTION || command_name == Fix.COMMAND_ABSOLUTE_PERFECTION)
+      {
+        // エルミ・ジョルジュのアブソリュート・パーフェクションは失敗しない
+        // skip
+      }
+      else
+      {
+        double random_seed = (double)((double)AP.Math.RandomInteger(100)) / 100.0f;
+        if (player.IsDizzy.EffectValue > random_seed)
+        {
+          Debug.Log("Player is Dizzy, then no action.");
+          StartAnimation(player.objGroup.gameObject, Fix.BATTLE_DIZZY_MISS, Fix.COLOR_NORMAL);
+          return;
+        }
       }
     }
 
@@ -2132,8 +2167,13 @@ public partial class BattleEnemy : MotherBase
 
     if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
     {
-      // サークル・オブ・セレニティは対象外。
+      // サークル・オブ・セレニティなら、チェック対象外。
       if (command_name == Fix.CIRCLE_OF_SERENITY)
+      {
+        // skip
+      }
+      // アブソリュート・パーフェクションなら、チェック対象外。
+      else if (player.IsAbsolutePerfection)
       {
         // skip
       }
@@ -2146,8 +2186,16 @@ public partial class BattleEnemy : MotherBase
 
     if (player.IsSilent && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Magic)
     {
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SILENT, Fix.COLOR_NORMAL);
-      return;
+      // アブソリュート・パーフェクションなら、チェック対象外。
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SILENT, Fix.COLOR_NORMAL);
+        return;
+      }
     }
 
     // アクションポイントが不足している場合、行動ミスとする。
@@ -2226,7 +2274,14 @@ public partial class BattleEnemy : MotherBase
     // スリップによる効果
     if (player.IsSlip && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
-      ExecSlipDamage(player, player.IsSlip.EffectValue);
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        ExecSlipDamage(player, player.IsSlip.EffectValue);
+      }
     }
     if (player.IsPenetrationArrow && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
@@ -2253,6 +2308,20 @@ public partial class BattleEnemy : MotherBase
           command_name == Fix.MAGIC_ATTACK)
       {
         ExecElementalDamage(player, Fix.DamageSource.Fire, field.EffectValue);
+      }
+    }
+
+    BuffImage fear = player.IsFear;
+    if (fear)
+    {
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        ExecBuffStun(player, player, SecondaryLogic.StunFromFear(player), 0);
+        return;
       }
     }
 
@@ -5986,7 +6055,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          target_list[ii].objBuffPanel.RemoveAll();
+          target_list[ii].objBuffPanel.RemoveAll(target_list[ii]);
           ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.50f); 
           ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.50f);
         }
@@ -6504,18 +6573,27 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPHERE_OF_GLORY:
+        ExecLifeGain(player, player.MaxLife / 100.0f + AP.Math.RandomInteger(100000));
+        AbstractAddBuff(player, player.objBuffPanel, Fix.SPHERE_OF_GLORY, Fix.BUFF_SPHERE_OF_GLORY, SecondaryLogic.SphereOfGlory_Turn(player), SecondaryLogic.SphereOfGlory_Effect(player), 0, 0);
         break;
 
       case Fix.COMMAND_AURORA_PUNISHMENT:
+        AbstractAddBuff(player, player.objFieldPanel, Fix.AURORA_PUNISHMENT, Fix.BUFF_AURORA_PUNISHMENT, SecondaryLogic.AuroraPunishment_Turn(player), SecondaryLogic.AuroraPunishment_Effect(player), 0, 0);
+        AbstractAddBuff(target, target.objFieldPanel, Fix.AURORA_PUNISHMENT, Fix.BUFF_AURORA_PUNISHMENT, SecondaryLogic.AuroraPunishment_Turn(player), SecondaryLogic.AuroraPunishment_Effect(player), 0, 0);
         break;
 
       case Fix.COMMAND_INNOCENT_CIRCLE:
+        AbstractGainManaPoint(player, player, player.MaxManaPoint * SecondaryLogic.InnocentCircle_Effect(player));
+        AbstractGainSkillPoint(player, player, player.MaxSkillPoint * SecondaryLogic.InnocentCircle_Effect(player));
+        AbstractAddBuff(player, player.objBuffPanel, Fix.INNOCENT_CIRCLE, Fix.BUFF_INNOCENT_CIRCLE, SecondaryLogic.InnocentCircle_Turn(player), SecondaryLogic.InnocentCircle_Effect(player), 0, 0);
         break;
 
       case Fix.COMMAND_ATOMIC_THE_INFINITY_NOVA:
+        ExecMagicAttack(player, target, 7.0f, Fix.DamageSource.Colorless, Fix.IgnoreType.Both, critical);
         break;
 
       case Fix.COMMAND_ABSOLUTE_PERFECTION:
+        AbstractAddBuff(player, player.objBuffPanel, Fix.ABSOLUTE_PERFECTION, Fix.BUFF_ABSOLUTE_PERFECTION, SecondaryLogic.AbsolutePerfection_Turn(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_ASTRAL_GATE:
@@ -6527,7 +6605,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_DESTRUCTION_OF_TRUTH:
         break;
 
-      case Fix.COMMAND_CHAOTICE_SCHEMA:
+      case Fix.COMMAND_CHAOTIC_SCHEMA:
         break;
 
       case Fix.COMMAND_OATH_OF_SEFINE:
@@ -6553,6 +6631,35 @@ public partial class BattleEnemy : MotherBase
         //ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 999);
         break;
 
+      case "麻痺付与":
+        ExecBuffParalyze(player, target, 2, 0);
+        ExecBuffParalyze(player, player, 2, 0);
+        break;
+
+      case "凍結付与":
+        ExecBuffFreeze(player, target, 2, 0);
+        ExecBuffFreeze(player, player, 2, 0);
+        break;
+
+      case "恐怖付与":
+        ExecBuffFear(player, target, 3, 0);
+        ExecBuffFear(player, player, 3, 0);
+        break;
+
+      case "鈍足付与":
+        ExecBuffSlow(player, target, 3, 0.10f);
+        ExecBuffSlow(player, player, 3, 0.10f);
+        break;
+
+      case "眩暈付与":
+        ExecBuffDizzy(player, target, 3, 0.50f);
+        ExecBuffDizzy(player, player, 3, 0.50f);
+        break;
+
+      case "出血付与":
+        ExecBuffSlip(player, target, 3, 1000.0f);
+        ExecBuffSlip(player, player, 3, 1000.0f);
+        break;
       #endregion
 
       default:
@@ -7062,10 +7169,17 @@ public partial class BattleEnemy : MotherBase
     //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
     //}
 
-    if (player.IsFreeze != null)
+    if (player.IsFreeze)
     {
-      // 何もしないで終了
-      return;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        // 何もしないで終了
+        return;
+      }
     }
 
     if (move_skip > 0 || move_skip < 0)
@@ -7099,6 +7213,24 @@ public partial class BattleEnemy : MotherBase
     player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
     //RectTransform rect = arrow.GetComponent<RectTransform>();
     //rect.position = new Vector3(0, rect.position.y, rect.position.z);
+  }
+
+  private void UpdatePlayerInstantGauge(Character player)
+  {
+    if (player.CurrentInstantPoint < player.MaxInstantPoint)
+    {
+      double increment = PrimaryLogic.BattleResponse(player);
+      increment = increment * SpeedFactor();
+      if (player.IsUltimateFlare)
+      {
+        increment = 0;
+      }
+      player.CurrentInstantPoint += increment;
+      if (player.CurrentInstantPoint >= player.MaxInstantPoint)
+      {
+        player.CurrentInstantPoint = player.MaxInstantPoint;
+      }
+    }
   }
 
   #region "GUI Event"
@@ -8140,6 +8272,16 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
+      if (buffPlayerFieldList[ii] != null && buffPlayerFieldList[ii].BuffName == Fix.AURORA_PUNISHMENT)
+      {
+        for (int jj = 0; jj < PlayerList.Count; jj++)
+        {
+          if (PlayerList[jj].IsSigilOfThePending == null)
+          {
+            ExecMagicAttack(PlayerList[jj], PlayerList[jj], (1.00f + buffPlayerFieldList[ii].Cumulative * 0.10f), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+          }
+        }
+      }
     }
     BuffImage[] buffEnemyFieldList = PanelEnemyField.GetComponentsInChildren<BuffImage>();
     for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
@@ -8185,6 +8327,16 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
+      if (buffEnemyFieldList[ii] != null && buffEnemyFieldList[ii].BuffName == Fix.AURORA_PUNISHMENT)
+      {
+        for (int jj = 0; jj < EnemyList.Count; jj++)
+        {
+          if (EnemyList[jj].IsSigilOfThePending == null)
+          {
+            ExecMagicAttack(EnemyList[jj], EnemyList[jj], (1.00f + buffEnemyFieldList[ii].Cumulative * 0.10f), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, Fix.CriticalType.Random);
+          }
+        }
+      }
     }
 
     BuffImage deathScythePlayer = PlayerList[0].SearchFieldBuff(Fix.DEATH_SCYTHE);
@@ -8198,19 +8350,41 @@ public partial class BattleEnemy : MotherBase
       deathScytheEnemy.CumulativeUp(SecondaryLogic.DeathScythe_Turn(EnemyList[0]), 1);
     }
 
+    BuffImage auroraPunishmentPlayer = PlayerList[0].IsAuroraPunishment;
+    if (auroraPunishmentPlayer)
+    {
+      auroraPunishmentPlayer.CumulativeUp(SecondaryLogic.AuroraPunishment_Turn(PlayerList[0]), 1);
+    }
+    BuffImage auroraPunishmentEnemy = EnemyList[0].IsAuroraPunishment;
+    if (auroraPunishmentEnemy)
+    {
+      auroraPunishmentEnemy.CumulativeUp(SecondaryLogic.AuroraPunishment_Turn(EnemyList[0]), 1);
+    }
+
     // 各BUFFによる効果
     for (int ii = 0; ii < AllList.Count; ii++)
     {
-      if (AllList[ii].IsFreeze != null)
+      if (AllList[ii].IsFreeze)
       {
-        // 何もしない
-        continue;
+        if (AllList[ii].IsAbsolutePerfection)
+        {
+          AllList[ii].CurrentActionPoint += Fix.AP_BASE;
+          //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
+          AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
+          AllList[ii].UpdateActionPoint();
+        }
+        else
+        {
+          // GainSkillPointできない。
+        }
       }
-
-      AllList[ii].CurrentActionPoint += Fix.AP_BASE;
-      //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
-      AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
-      AllList[ii].UpdateActionPoint();
+      else
+      {
+        AllList[ii].CurrentActionPoint += Fix.AP_BASE;
+        //AllList[ii].GainManaPoint(); // Manaはターン経過で増加しない
+        AllList[ii].GainSkillPoint(); // Skillはターン経過で増加する
+        AllList[ii].UpdateActionPoint();
+      }
 
       BuffImage sigilOfThePending = AllList[ii].IsSigilOfThePending;
 
@@ -8227,9 +8401,14 @@ public partial class BattleEnemy : MotherBase
         ExecLifeGain(AllList[ii], AllList[ii].IsHeartOfLife.EffectValue);
       }
 
+      // 【猛毒】による効果
       if (AllList[ii].IsPoison)
       {
         if (AllList[ii].SearchFieldBuff(Fix.SHINING_HEAL) != null)
+        {
+          // 何もしない
+        }
+        else if (AllList[ii].IsAbsolutePerfection)
         {
           // 何もしない
         }
@@ -8367,6 +8546,48 @@ public partial class BattleEnemy : MotherBase
         AllList[ii].CurrentManaPoint += (int)effectValue;
         AllList[ii].UpdateManaPoint();
         StartAnimation(AllList[ii].groupManaPoint, "マナ回復 " + ((int)effectValue).ToString(), Fix.COLOR_GAIN_MP);
+      }
+
+      // エルミ・ジョルジュ、「シャドウ・ブリンガー」の効果
+      BuffImage shadowBringer = AllList[ii].IsShadowBringer;
+      if (shadowBringer)
+      {
+        Debug.Log("detect shadowBringer");
+        int result = (int)(AllList[ii].MaxManaPoint * shadowBringer.EffectValue);
+        AllList[ii].CurrentManaPoint -= result;
+        AllList[ii].UpdateManaPoint();
+        StartAnimation(AllList[ii].groupManaPoint.gameObject, result.ToString(), Fix.COLOR_MP_DAMAGE);
+      }
+
+      // エルミ・ジョルジュ、「イノセント・サークル」の効果
+      BuffImage innocentCircle = AllList[ii].IsInnocentCircle;
+      if (innocentCircle)
+      {
+        bool detectMax = false;
+        if (AllList[ii].CurrentManaPoint >= AllList[ii].MaxManaPoint)
+        {
+          detectMax = true;
+        }
+        else
+        {
+          AbstractGainManaPoint(AllList[ii], AllList[ii], AllList[ii].MaxManaPoint * innocentCircle.EffectValue);
+        }
+
+        if (AllList[ii].CurrentSkillPoint >= AllList[ii].MaxSkillPoint)
+        {
+          detectMax = true;
+        }
+        else
+        {
+          AbstractGainSkillPoint(AllList[ii], AllList[ii], AllList[ii].MaxSkillPoint * innocentCircle.EffectValue);
+        }
+
+        if (detectMax)
+        {
+          AllList[ii].CurrentInstantPoint += 300;
+          AllList[ii].UpdateInstantPointGauge();
+          StartAnimation(AllList[ii].objGroup.gameObject, "インスタントゲージ増強", Fix.COLOR_NORMAL);
+        }
       }
 
       if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
@@ -9081,7 +9302,7 @@ public partial class BattleEnemy : MotherBase
           // 舞踏・一閃のみ、ダメージ０にできる。
           if (src_command_name == Fix.COMMAND_BUTOH_ISSEN)
           {
-            StartAnimation(stack_list[num].gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_NORMAL);
+            StartAnimation(stack_list[num].gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
             ExecNormalAttack(player, stack_list[num].Player, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
             Destroy(stack_list[num].gameObject);
             stack_list[num] = null;
@@ -9656,7 +9877,7 @@ public partial class BattleEnemy : MotherBase
   {
     for (int ii = 0; ii < target_list.Count; ii++)
     {
-      target_list[ii].objBuffPanel.RemoveAll();
+      target_list[ii].objBuffPanel.RemoveAll(target_list[ii]);
       StartAnimation(target_list[ii].objGroup.gameObject, Fix.BUFF_REMOVE_ALL, Fix.COLOR_NORMAL);
     }
   }
@@ -11003,6 +11224,13 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_HOLY_WISDOM_JP, Fix.COLOR_GUARD, animation_speed);
     }
 
+    BuffImage absolutePerfection = target.IsAbsolutePerfection;
+    if (absolutePerfection)
+    {
+      damageValue = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD, animation_speed);
+    }
+
     int result = (int)damageValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
     UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " のダメージ");
@@ -11019,6 +11247,13 @@ public partial class BattleEnemy : MotherBase
         target.RemoveTargetBuff(Fix.THE_ABYSS_WALL);
       }
       return;
+    }
+
+    // スフィア・オブ・グローリーがある場合、累積カウンターが１つ乗る。
+    BuffImage sphereOfGlory = target.IsSphereOfGlory;
+    if (sphereOfGlory)
+    {
+      sphereOfGlory.CumulativeUp(sphereOfGlory.RemainCounter, 1);
     }
 
     target.CurrentLife -= result;
@@ -11254,6 +11489,13 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    BuffImage innocentCircle = target.IsInnocentCircle;
+    if (innocentCircle && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Negative)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_MINUS_IMMUNE, Fix.COLOR_GUARD);
+      return;
+    }
+
     buff_field.AddBuff(prefab_Buff, buff_name, remain_counter, effect1, effect2, effect3);
     StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
   }
@@ -11265,6 +11507,21 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
       return;
     }
+
+    BuffImage transcendenceReached = target.IsTranscendenceReached;
+    if (transcendenceReached && buff_type == Fix.BuffType.Positive)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+
+    BuffImage innocentCircle = target.IsInnocentCircle;
+    if (innocentCircle && buff_type == Fix.BuffType.Positive)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+
     target.RemoveBuff(num, buff_type);
     if (view_buff_name != "")
     {
@@ -11279,6 +11536,21 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
       return;
     }
+
+    BuffImage transcendenceReached = target.IsTranscendenceReached;
+    if (transcendenceReached && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Positive)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+
+    BuffImage innocentCircle = target.IsInnocentCircle;
+    if (innocentCircle && ActionCommand.GetBuffType(buff_name) == Fix.BuffType.Positive)
+    {
+      StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
+      return;
+    }
+
     target.RemoveTargetBuff(buff_name);
     if (view_buff_name != "")
     {

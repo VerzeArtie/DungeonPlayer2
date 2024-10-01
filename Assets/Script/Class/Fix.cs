@@ -493,8 +493,8 @@ public static partial class Fix
   public const string BUFF_SHADOW_BRINGER = "死滅";
   public const string BUFF_SPHERE_OF_GLORY = "栄光";
   public const string BUFF_AURORA_PUNISHMENT = "天罰";
-  public const string BUFF_INNOCENT_CIRCLE = "無為";
-  public const string BUFF_ABSOLUTE_PERFECT = "完成";
+  public const string BUFF_INNOCENT_CIRCLE = "無垢";
+  public const string BUFF_ABSOLUTE_PERFECTION = "完成体";
   public const string BUFF_ASTRAL_GATE = "星門";
   public const string BUFF_DOUBLE_STANCE = "双極";
   public const string BUFF_OATH_OF_SEFINE = "誓約";
@@ -2169,7 +2169,7 @@ public static partial class Fix
   public const string COMMAND_AURORA_PUNISHMENT = "オーロラ・パニッシュメント";
   public const string AURORA_PUNISHMENT = "Aurora Punishment";
   public const string COMMAND_INNOCENT_CIRCLE = "無縫：イノセント・サークル";
-  public const string INNOCENT_CIRCLE = "Aurora Punishment";
+  public const string INNOCENT_CIRCLE = "Innocent Circle";
   public const string COMMAND_ATOMIC_THE_INFINITY_NOVA = "天鳴：アトミック・ザ・インフィニティ・ノヴァ";
   public const string ATOMIC_THE_INFINITY_NOVA = "Atomic the Infinity Nova";
   public const string COMMAND_ABSOLUTE_PERFECTION = "アブソリュート・パーフェクション";
@@ -2180,10 +2180,10 @@ public static partial class Fix
   public const string DOUBLE_STANCE = "Double Stance";
   public const string COMMAND_DESTRUCTION_OF_TRUTH = "真実の破壊";
   public const string DESTRUCTION_OF_TRUTH = "Destruction of Truth";
-  public const string COMMAND_CHAOTICE_SCHEMA = "カオティック・スキーマ";
-  public const string CHAOTICE_SCHEMA = "ChaoticSchema";
+  public const string COMMAND_CHAOTIC_SCHEMA = "カオティック・スキーマ";
+  public const string CHAOTIC_SCHEMA = "Chaotic Schema";
   public const string COMMAND_OATH_OF_SEFINE = "セフィーネへの誓い";
-  public const string OATH_OF_SEFINE = "Oath of Sefine.png";
+  public const string OATH_OF_SEFINE = "Oath of Sefine";
   public const string COMMAND_SPACETIME_INFLUENCE = "時空干渉";
   public const string SPACETIME_INFLUENCE = "Spacetime Influence";
 

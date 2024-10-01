@@ -71,6 +71,11 @@ public static class SecondaryLogic
     return result;
   }
 
+  public static int StunFromFear(Character player)
+  {
+    return 1;
+  }
+
   public static double FireBall(Character player)
   {
     if (player.FireBall <= 1) { return 2.00f; }
@@ -1245,12 +1250,47 @@ public static class SecondaryLogic
 
   public static int ShadowBringer_Turn(Character player)
   {
-    return Fix.INFINITY;
+    return 9;
   }
 
   public static double ShadowBringer_Effect(Character player)
   {
-    return (double)player.MaxManaPoint / 100.0F;
+    return 0.05f;
+  }
+
+  public static int SphereOfGlory_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double SphereOfGlory_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int AuroraPunishment_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double AuroraPunishment_Effect(Character player)
+  {
+    return 1.00f;
+  }
+
+  public static int InnocentCircle_Turn(Character player)
+  {
+    return 9;
+  }
+
+  public static double InnocentCircle_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int AbsolutePerfection_Turn(Character player)
+  {
+    return 2;
   }
 
   public static int CostControl(string command_name, int current_cost, Character player)
