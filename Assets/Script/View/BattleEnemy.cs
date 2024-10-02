@@ -76,6 +76,7 @@ public partial class BattleEnemy : MotherBase
   // GUI-Player
   public List<GameObject> PlayerArrowList;
   public List<GameObject> EnemyArrowList;
+  public List<GameObject> EnemyArrowShadowList;
   public List<Image> imgPlayerInstantGauge_AC;
   //public List<Image> imgEnemyInstantGauge_AC; // 敵用のアクションコマンドボタンは画面上に出てこない。
   public List<Image> imgPlayerPotentialGauge;
@@ -362,7 +363,7 @@ public partial class BattleEnemy : MotherBase
 
       //playerList[ii].MaxGain(); //プレイヤー側は全快設定は不要。
       playerList[ii].IsEnemy = false;
-      AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii], this.PanelPlayerField);
+      AddPlayerFromOne(playerList[ii], node, PlayerArrowList[ii], null, GroupParentActionPanelList[ii], GroupActionButton[ii], imgPlayerInstantGauge_AC[ii], imgPlayerPotentialGauge[ii], this.PanelPlayerField);
 
       // キャラクターグループのリストに追加
       playerList[ii].Ally = Fix.Ally.Ally;
@@ -455,7 +456,7 @@ public partial class BattleEnemy : MotherBase
           node.GroupTimeSequenceField.gameObject.SetActive(false);
         }
 
-        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
+        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
 
         // 戦闘ゲージを設定
         if (this.BattleType == Fix.BattleMode.Duel)
@@ -524,7 +525,7 @@ public partial class BattleEnemy : MotherBase
           Debug.Log("One.EnemyList[ii].FullName not ...");
           node.GroupTimeSequenceField.gameObject.SetActive(false);
         }
-        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], null, null, null, null, this.PanelEnemyField);
+        AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
 
         // ボス向けに表示文字を変換
         if (One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA || One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP)
@@ -652,11 +653,13 @@ public partial class BattleEnemy : MotherBase
     LogicInvalidate();
   }
 
-  private void AddPlayerFromOne(Character character, NodeBattleChara node, GameObject arrow, NodeActionPanel group_parent_actionpanel, GameObject groupActionButton, Image instant_gauge_ac, Image potential_energy, BuffField field_panel)
+  private void AddPlayerFromOne(Character character, NodeBattleChara node, GameObject arrow, GameObject arrow2, NodeActionPanel group_parent_actionpanel, GameObject groupActionButton, Image instant_gauge_ac, Image potential_energy, BuffField field_panel)
   {
     character.objGroup = node;
     character.objArrow = arrow;
     character.objArrow.SetActive(true);
+    character.objArrow2 = arrow2;
+    if (character.objArrow2 != null) { character.objArrow2.SetActive(false); }
     character.txtName = node.txtPlayerName;
     character.txtLife = node.txtPlayerLife;
     character.objBackLifeGauge = node.objBackLifeGauge;
@@ -1472,10 +1475,17 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
-            AllList[ii].UpdateInstantPointGauge();
-            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_ABSOLUTE_PERFECTION, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            if (AllList[ii].Target.CurrentInstantPoint >= AllList[ii].Target.MaxInstantPoint * 0.70f)
+            {
+              // 見合いの時は待つ。
+            }
+            else
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_ABSOLUTE_PERFECTION, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
           }
 
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
@@ -1520,7 +1530,8 @@ public partial class BattleEnemy : MotherBase
           {
             ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
           }
-          UpdatePlayerArrowZero(AllList[ii], AllList[ii].objArrow);
+
+          UpdatePlayerArrowZero(AllList[ii]);
           BuffImage speedStep = AllList[ii].IsSpeedStep;
           if (speedStep != null)
           {
@@ -1535,6 +1546,28 @@ public partial class BattleEnemy : MotherBase
 
           AllList[ii].Decision = false;
           break;
+        }
+
+        if (AllList[ii].objArrow2 != null)
+        {
+          RectTransform rectX2_2 = null;
+          rectX2_2 = AllList[ii].objArrow2.GetComponent<RectTransform>();
+          if (rectX2_2.position.x >= BATTLE_GAUGE_WITDH)
+          {
+            if (ActionCommand.IsTarget(AllList[ii].CurrentActionCommand) == ActionCommand.TargetType.Ally)
+            {
+              ExecPlayerCommand(AllList[ii], AllList[ii].Target2, string.Empty);
+            }
+            else
+            {
+              ExecPlayerCommand(AllList[ii], AllList[ii].Target, string.Empty);
+            }
+
+            UpdatePlayerArrowZero2(AllList[ii]);
+            // 分身の方はSpeedStepカウントの対象外でよい
+            AllList[ii].Decision = false;
+            break;
+          }
         }
       }
     }
@@ -6597,15 +6630,34 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ASTRAL_GATE:
+        AbstractAddBuff(player, player.objFieldPanel, Fix.ASTRAL_GATE, Fix.BUFF_ASTRAL_GATE, SecondaryLogic.AstralGate_Turn(player), 0, 0, 0);
+        AbstractAddBuff(target, target.objFieldPanel, Fix.ASTRAL_GATE, Fix.BUFF_ASTRAL_GATE, SecondaryLogic.AstralGate_Turn(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_DOUBLE_STANCE:
+        AbstractCounterStackCommand(player, command_name, GroupStackInTheCommand.GetComponentsInChildren<StackObject>());
+        AbstractAddBuff(player, player.objBuffPanel, Fix.DOUBLE_STANCE, Fix.COMMAND_DOUBLE_STANCE, SecondaryLogic.DoubleStance_Turn(player), 0, 0, 0);
         break;
 
       case Fix.COMMAND_DESTRUCTION_OF_TRUTH:
+        StackObject[] stackList = GroupStackInTheCommand.GetComponentsInChildren<StackObject>();
+        bool detect = false;
+        for (int ii = 0; ii < stackList.Length; ii++)
+        {
+          if (detect == false)
+          {
+            detect = true;
+            StartAnimation(stackList[ii].gameObject, Fix.EFFECT_STACK_END, Fix.COLOR_NORMAL);
+          }
+          Destroy(stackList[ii]);
+          stackList[ii] = null;
+        }
         break;
 
       case Fix.COMMAND_CHAOTIC_SCHEMA:
+        AbstractAddBuff(player, player.objBuffPanel, Fix.CHAOTIC_SCHEMA, Fix.BUFF_CHAOTIC_SCHEMA, SecondaryLogic.ChaoticSchema_Turn(player), 0, 0, 0);
+        player.BattleGaugeArrow2 = 30.0f;
+        player.objArrow2.SetActive(true);
         break;
 
       case Fix.COMMAND_OATH_OF_SEFINE:
@@ -7125,6 +7177,35 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
+
+      if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW ||
+          EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP || EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          BuffImage eternalPresence = EnemyList[ii].IsEternalPresence;
+          if (eternalPresence)
+          {
+            maxInstantPoint = (int)((double)EnemyList[ii].MaxInstantPoint * eternalPresence.EffectValue2);
+          }
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
+          {
+            int rand = AP.Math.RandomInteger(1);
+            EnemyList[ii].UseInstantPoint(false);
+            EnemyList[ii].UpdateInstantPointGauge();
+            if (rand == 1)
+            {
+              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DESTRUCTION_OF_TRUTH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
+            else
+            {
+              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DOUBLE_STANCE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
+            return;
+          }
+        }
+      }
     }
 
     if (stackList[num].StackTimer <= 0)
@@ -7169,7 +7250,7 @@ public partial class BattleEnemy : MotherBase
     //  rect.position = new Vector3(BATTLE_GAUGE_WITDH, rect.position.y, rect.position.z);
     //}
 
-    if (player.IsFreeze)
+    if (player.IsFreeze || player.IsAstralGate)
     {
       if (player.IsAbsolutePerfection)
       {
@@ -7188,6 +7269,14 @@ public partial class BattleEnemy : MotherBase
       if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+      if (player.objArrow2 != null && player.objArrow2.activeInHierarchy)
+      {
+        player.BattleGaugeArrow2 += move_skip;
+        if (player.BattleGaugeArrow2 >= 100.0f) { player.BattleGaugeArrow2 = 100.0f; }
+        if (player.BattleGaugeArrow2 <= 0.0f) { player.BattleGaugeArrow2 = 0.0f; }
+        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+      }
     }
     else
     {
@@ -7195,6 +7284,14 @@ public partial class BattleEnemy : MotherBase
       if (player.BattleGaugeArrow >= 100.0f) { player.BattleGaugeArrow = 100.0f; }
       if (player.BattleGaugeArrow <= 0.0f) { player.BattleGaugeArrow = 0.0f; }
       player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+      if (player.objArrow2 != null && player.objArrow2.activeInHierarchy)
+      {
+        player.BattleGaugeArrow2 += (float)PrimaryLogic.BattleSpeed(player);
+        if (player.BattleGaugeArrow2 >= 100.0f) { player.BattleGaugeArrow2 = 100.0f; }
+        if (player.BattleGaugeArrow2 <= 0.0f) { player.BattleGaugeArrow2 = 0.0f; }
+        player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+      }
     }
   }
 
@@ -7203,7 +7300,7 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   /// <param name="player"></param>
   /// <param name="arrow"></param>
-  private void UpdatePlayerArrowZero(Character player, GameObject arrow)
+  private void UpdatePlayerArrowZero(Character player)
   {
     player.BattleGaugeArrow = 0;
     if (player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT) != null)
@@ -7211,8 +7308,15 @@ public partial class BattleEnemy : MotherBase
       player.BattleGaugeArrow = (float)(player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT).EffectValue);
     }
     player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
-    //RectTransform rect = arrow.GetComponent<RectTransform>();
-    //rect.position = new Vector3(0, rect.position.y, rect.position.z);
+  }
+  private void UpdatePlayerArrowZero2(Character player)
+  {
+    player.BattleGaugeArrow2 = 0;
+    if (player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT) != null)
+    {
+      player.BattleGaugeArrow2 = (float)(player.SearchFieldBuff(Fix.COMMAND_SEIIN_FOOTPRINT).EffectValue);
+    }
+    player.UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
   }
 
   private void UpdatePlayerInstantGauge(Character player)
@@ -8217,6 +8321,16 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffCannotResurrect(AllList[ii], AllList[ii].Target, Fix.INFINITY, 0);
           ExecMagicAttack(AllList[ii], AllList[ii].Target, 10.0f, Fix.DamageSource.Colorless, Fix.IgnoreType.Both, Fix.CriticalType.Random);
+        }
+      }
+
+      BuffImage chaoticSchema = AllList[ii].IsChaoticSchema;
+      if (chaoticSchema)
+      {
+        if (chaoticSchema.RemainCounter <= 1)
+        {
+          AllList[ii].objArrow2.SetActive(false);
+          AllList[ii].BattleGaugeArrow2 = 0;
         }
       }
     }
@@ -9824,7 +9938,7 @@ public partial class BattleEnemy : MotherBase
           ExecPlayerCommand(NowGodSensePlayer, NowGodSensePlayer.Target, NowGodSensePlayer.CurrentActionCommand);
         }
 
-        UpdatePlayerArrowZero(NowGodSensePlayer, NowGodSensePlayer.objArrow);
+        UpdatePlayerArrowZero(NowGodSensePlayer);
         BuffImage speedStep = NowGodSensePlayer.IsSpeedStep;
         if (speedStep != null)
         {

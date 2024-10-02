@@ -12,6 +12,7 @@ public partial class Character : MonoBehaviour
   // Battle GUI-View object
   public NodeBattleChara objGroup = null;
   public GameObject objArrow = null;
+  public GameObject objArrow2 = null;
   public NodeActionCommand objMainButton = null;
   public Text txtName = null;
   public Text txtLife = null;
@@ -333,6 +334,13 @@ public partial class Character : MonoBehaviour
     get { return _battleGaugeArrow; }
   }
 
+  [SerializeField] protected float _battleGaugeArrow2 = 0.0f;
+  public float BattleGaugeArrow2
+  {
+    set { _battleGaugeArrow2 = value; }
+    get { return _battleGaugeArrow2; }
+  }
+
   [SerializeField] protected Fix.TargetSelectType _targetSelectType = Fix.TargetSelectType.None;
   public Fix.TargetSelectType TargetSelectType
   {
@@ -465,6 +473,12 @@ public partial class Character : MonoBehaviour
   {
     get 
     {
+      // エルミ・ジョルジュ、「双極の構え」がある場合は常に防御姿勢が有効となる。
+      if (this.IsDoubleStance)
+      {
+        return true;
+      }
+
       if (this.IsAbsoluteZero)
       {
         return false;
@@ -2038,6 +2052,12 @@ public partial class Character : MonoBehaviour
       RectTransform rect = this.objArrow.GetComponent<RectTransform>();
       rect.position = new Vector3(this.BattleGaugeArrow * gui_view_factor, rect.position.y, rect.position.z);
     }
+
+    if (this.objArrow2 != null)
+    {
+      RectTransform rect = this.objArrow2.GetComponent<RectTransform>();
+      rect.position = new Vector3(this.BattleGaugeArrow2 * gui_view_factor, rect.position.y, rect.position.z);
+    }
   }
 
   public void UpdateActionPoint()
@@ -2964,6 +2984,11 @@ public partial class Character : MonoBehaviour
     get { return SearchTimeSequenceBuff(Fix.STARSWORD_FINALITY); }
   }
 
+  public BuffImage IsAstralGate
+  {
+    get { return SearchFieldBuff(Fix.ASTRAL_GATE); }
+  }
+
   // 魔法：基本耐性
   public BuffImage IsUpFire
   {
@@ -3171,6 +3196,16 @@ public partial class Character : MonoBehaviour
   public BuffImage IsAbsolutePerfection
   {
     get { return SearchBuff(Fix.ABSOLUTE_PERFECTION); }
+  }
+
+  public BuffImage IsDoubleStance
+  {
+    get { return SearchBuff(Fix.DOUBLE_STANCE); }
+  }
+
+  public BuffImage IsChaoticSchema
+  {
+    get { return SearchBuff(Fix.CHAOTIC_SCHEMA); }
   }
 
   public void RemoveTargetBuff(string buff_name)
@@ -9926,29 +9961,37 @@ public partial class Character : MonoBehaviour
       case Fix.ETERNITY_KING_AERMI_JORZT_JP:
       case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:       
         current.Add(Fix.COMMAND_SHADOW_BRINGER);
-        //if (this.IsFlameBlade == false)
-        //{
-        //  current.Add(Fix.FLAME_BLADE);
-        //}
+        if (this.IsFlameBlade == false)
+        {
+          current.Add(Fix.FLAME_BLADE);
+        }
         if (this.IsStanceOfTheBlade == false)
         {
           current.Add(Fix.STANCE_OF_THE_BLADE);
         }
-        //if (this.IsSphereOfGlory == false)
-        //{
-        //  current.Add(Fix.COMMAND_SPHERE_OF_GLORY);
-        //}
-        //if (this.IsAuroraPunishment == false)
-        //{
-        //  current.Add(Fix.COMMAND_AURORA_PUNISHMENT);
-        //}
-        //if (this.IsInnocentCircle == false)
-        //{
-        //  current.Add(Fix.COMMAND_INNOCENT_CIRCLE);
-        //}
+        if (this.IsSphereOfGlory == false)
+        {
+          current.Add(Fix.COMMAND_SPHERE_OF_GLORY);
+        }
+        if (this.IsAuroraPunishment == false)
+        {
+          current.Add(Fix.COMMAND_AURORA_PUNISHMENT);
+        }
+        if (this.IsInnocentCircle == false)
+        {
+          current.Add(Fix.COMMAND_INNOCENT_CIRCLE);
+        }
+        if (this.IsAstralGate == false)
+        {
+          current.Add(Fix.COMMAND_ASTRAL_GATE);
+        }
+        if (this.IsChaoticSchema == false)
+        {
+          current.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
+        }
         current.Add(Fix.STRAIGHT_SMASH);
-        //current.Add(Fix.FLAME_STRIKE);
-        current.Add("出血付与");
+        current.Add(Fix.FLAME_STRIKE);
+        //current.Add("出血付与");
         result = RandomChoice(current);
         break;
 

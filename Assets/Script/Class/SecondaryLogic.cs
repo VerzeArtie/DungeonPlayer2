@@ -1293,6 +1293,21 @@ public static class SecondaryLogic
     return 2;
   }
 
+  public static int AstralGate_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static int DoubleStance_Turn(Character player)
+  {
+    return 5;
+  }
+
+  public static int ChaoticSchema_Turn(Character player)
+  {
+    return 3;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

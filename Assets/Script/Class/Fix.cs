@@ -435,6 +435,7 @@ public static partial class Fix
   public const string EFFECT_CANNOT_BE_COUNTERED = "カウンター不可！";
   public const string EFFECT_COUNTER = "カウンター！";
   public const string EFFECT_DAMAGE_IS_ZERO = "ダメージ０！";
+  public const string EFFECT_STACK_END = "スタック破壊！";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
@@ -497,6 +498,7 @@ public static partial class Fix
   public const string BUFF_ABSOLUTE_PERFECTION = "完成体";
   public const string BUFF_ASTRAL_GATE = "星門";
   public const string BUFF_DOUBLE_STANCE = "双極";
+  public const string BUFF_CHAOTIC_SCHEMA = "分身";
   public const string BUFF_OATH_OF_SEFINE = "誓約";
   public const string BUFF_SPACETIME_INFLUENCE = "時空干渉";
 
