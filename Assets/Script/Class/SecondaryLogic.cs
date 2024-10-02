@@ -1308,6 +1308,26 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static int OathOfSefine_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static int OathOfGod_Turn(Character player)
+  {
+    return 3;
+  }
+
+  public static int SpacetimeInfluence_Turn(Character player)
+  {
+    return Fix.INFINITY;
+  }
+
+  public static double SpacetimeInfluence_Effect(Character player)
+  {
+    return 500;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

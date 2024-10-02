@@ -1156,22 +1156,35 @@ public partial class BattleEnemy : MotherBase
     #endregion
 
     #region "ターン砂時計(タイマーカウント更新)"
-    this.BattleTimer += 100 * SpeedFactor();
-    if (BattleTurnCount != 0)
+    bool detectSpacetimeInfluence = false;
+    for (int ii = 0; ii < AllList.Count; ii++)
     {
-      float currentTime = ((float)Fix.BASE_TIMER_BAR_LENGTH - (float)this.BattleTimer) / ((float)Fix.BASE_TIMER_BAR_LENGTH);
-      lblTimerCount.text = currentTime.ToString("0.00");
-    }
-    UpdateTimerSpeed();
-    for (int ii = 0; ii < Fix.TIMER_ICON_NUM; ii++)
-    {
-      if (Fix.BASE_TIMER_DIV * 100 * ii <= this.BattleTimer && this.BattleTimer < Fix.BASE_TIMER_DIV * 100 * (ii + 1))
+      if (AllList[ii].IsSpacetimeInfluence)
       {
-        pbSandglass.sprite = this.imageSandglass[ii];
+        detectSpacetimeInfluence = true;
         break;
       }
     }
-    LogicInvalidate();
+
+    if (detectSpacetimeInfluence == false)
+    {
+      this.BattleTimer += 100 * SpeedFactor();
+      if (BattleTurnCount != 0)
+      {
+        float currentTime = ((float)Fix.BASE_TIMER_BAR_LENGTH - (float)this.BattleTimer) / ((float)Fix.BASE_TIMER_BAR_LENGTH);
+        lblTimerCount.text = currentTime.ToString("0.00");
+      }
+      UpdateTimerSpeed();
+      for (int ii = 0; ii < Fix.TIMER_ICON_NUM; ii++)
+      {
+        if (Fix.BASE_TIMER_DIV * 100 * ii <= this.BattleTimer && this.BattleTimer < Fix.BASE_TIMER_DIV * 100 * (ii + 1))
+        {
+          pbSandglass.sprite = this.imageSandglass[ii];
+          break;
+        }
+      }
+      LogicInvalidate();
+    }
     #endregion
 
     #region "ターンエンドとアップキープ"
@@ -6661,9 +6674,16 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_OATH_OF_SEFINE:
+        AbstractAddBuff(player, player.objBuffPanel, Fix.OATH_OF_SEFINE, Fix.BUFF_OATH_OF_SEFINE, SecondaryLogic.OathOfSefine_Turn(player), 0, 0, 0);
+        player.AlreadyOathOfSefine = true;
         break;
 
       case Fix.COMMAND_SPACETIME_INFLUENCE:
+        if (player.CurrentTimeStopValue <= 0) // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。
+        {
+          player.CurrentTimeStopValue = (int)(SecondaryLogic.SpacetimeInfluence_Effect(player));
+          AbstractAddBuff(player, player.objBuffPanel, Fix.SPACETIME_INFLUENCE, Fix.BUFF_SPACETIME_INFLUENCE, SecondaryLogic.SpacetimeInfluence_Turn(player), SecondaryLogic.SpacetimeInfluence_Effect(player), 0, 0);
+        }
         break;
 
       case "絶望の魔手":
@@ -10910,6 +10930,15 @@ public partial class BattleEnemy : MotherBase
       fortune.CumulativeDown(1);
     }
 
+    // エルミ・ジョルジュ、【神域】によるクリティカル判定
+    BuffImage oathOfGod = player.IsOathOfGod;
+    if (oathOfGod)
+    {
+      Debug.Log("Detect Oath of God, then Absolute Critical.");
+      critical = Fix.CriticalType.Absolute;
+      // Oath of Godは、ここではBUFF削除されない。
+    }
+
     if (player.CannotCritical == false &&
         ((critical == Fix.CriticalType.Random && rand <= current))
        )
@@ -11120,6 +11149,15 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Detect FortuneSpirit, then Absolute Critical.");
       critical = Fix.CriticalType.Absolute;
       fortune.CumulativeDown(1);
+    }
+
+    // エルミ・ジョルジュ、【神域】によるクリティカル判定
+    BuffImage oathOfGod = player.IsOathOfGod;
+    if (oathOfGod)
+    {
+      Debug.Log("Detect Oath of God, then Absolute Critical.");
+      critical = Fix.CriticalType.Absolute;
+      // Oath of Godは、ここではBUFF削除されない。
     }
 
     if (player.CannotCritical == false &&
@@ -11345,6 +11383,13 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD, animation_speed);
     }
 
+    BuffImage oathOfGod = target.IsOathOfGod;
+    if (oathOfGod)
+    {
+      damageValue = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD, animation_speed);
+    }
+
     int result = (int)damageValue;
     Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " damage");
     UpdateMessage((player?.FullName ?? string.Empty) + " から " + target.FullName + " へ " + result.ToString() + " のダメージ");
@@ -11384,7 +11429,15 @@ public partial class BattleEnemy : MotherBase
     if (target.IsDeadlyDrive != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
     {
       target.CurrentLife = 1;
-      StartAnimation(target.objGroup.gameObject, "決死　ライフ１", Fix.COLOR_NORMAL, animation_speed);
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
+    }
+
+    if (target.IsOathOfSefine != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
+    {
+      target.CurrentLife = 1;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
+      target.RemoveTargetBuff(Fix.OATH_OF_SEFINE);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.OATH_OF_GOD, Fix.BUFF_OATH_OF_GOD, SecondaryLogic.OathOfGod_Turn(player), 0, 0, 0);
     }
   }
 
@@ -11413,6 +11466,12 @@ public partial class BattleEnemy : MotherBase
     }
 
     if (target.IsVoiceOfAbyss)
+    {
+      healValue = 0;
+    }
+
+    // エルミ・ジョルジュ、【神域】によりライフ回復不可
+    if (player.IsOathOfGod)
     {
       healValue = 0;
     }

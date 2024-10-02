@@ -436,6 +436,7 @@ public static partial class Fix
   public const string EFFECT_COUNTER = "カウンター！";
   public const string EFFECT_DAMAGE_IS_ZERO = "ダメージ０！";
   public const string EFFECT_STACK_END = "スタック破壊！";
+  public const string EFFECT_NOT_DEAD = "決死　ライフ１！";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
@@ -500,6 +501,7 @@ public static partial class Fix
   public const string BUFF_DOUBLE_STANCE = "双極";
   public const string BUFF_CHAOTIC_SCHEMA = "分身";
   public const string BUFF_OATH_OF_SEFINE = "誓約";
+  public const string BUFF_OATH_OF_GOD = "神域";
   public const string BUFF_SPACETIME_INFLUENCE = "時空干渉";
 
   // モンスター系
@@ -2186,6 +2188,7 @@ public static partial class Fix
   public const string CHAOTIC_SCHEMA = "Chaotic Schema";
   public const string COMMAND_OATH_OF_SEFINE = "セフィーネへの誓い";
   public const string OATH_OF_SEFINE = "Oath of Sefine";
+  public const string OATH_OF_GOD = "Oath of God";
   public const string COMMAND_SPACETIME_INFLUENCE = "時空干渉";
   public const string SPACETIME_INFLUENCE = "Spacetime Influence";
 

@@ -55,6 +55,7 @@ public partial class Character : MonoBehaviour
 
   // 敵専用
   public BuffField groupTimeSequencePanel = null;
+  public bool AlreadyOathOfSefine = false;
 
   #region "First Value"
   [SerializeField] protected string _fullName = string.Empty;
@@ -3206,6 +3207,21 @@ public partial class Character : MonoBehaviour
   public BuffImage IsChaoticSchema
   {
     get { return SearchBuff(Fix.CHAOTIC_SCHEMA); }
+  }
+
+  public BuffImage IsOathOfSefine
+  {
+    get { return SearchBuff(Fix.OATH_OF_SEFINE); }
+  }
+
+  public BuffImage IsOathOfGod
+  {
+    get { return SearchBuff(Fix.OATH_OF_GOD); }
+  }
+
+  public BuffImage IsSpacetimeInfluence
+  {
+    get { return SearchBuff(Fix.SPACETIME_INFLUENCE); }
   }
 
   public void RemoveTargetBuff(string buff_name)
@@ -8739,7 +8755,7 @@ public partial class Character : MonoBehaviour
       case Fix.ROYAL_KING_AERMI_JORZT:
       case Fix.ROYAL_KING_AERMI_JORZT_JP:
       case Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW:
-        SetupParameter(900, 400, 900, 2000000, 70, 0, 0, 0);
+        SetupParameter(9000, 4200, 9000, 2000000, 700, 0, 0, 0);
         this._baseInstantPoint = 1750;
         list.Add(Fix.COMMAND_SHADOW_BRINGER);
         list.Add(Fix.COMMAND_SPHERE_OF_GLORY);
@@ -9961,6 +9977,19 @@ public partial class Character : MonoBehaviour
       case Fix.ETERNITY_KING_AERMI_JORZT_JP:
       case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:       
         current.Add(Fix.COMMAND_SHADOW_BRINGER);
+        if (this.CurrentLife <= 1)
+        {
+          current.Add(Fix.FRESH_HEAL);
+        }
+        if (this.IsOathOfSefine == false && this.AlreadyOathOfSefine == false)
+        {
+          current.Add(Fix.COMMAND_OATH_OF_SEFINE);
+        }
+        if (this.IsSpacetimeInfluence == false)
+        {
+          current.Add(Fix.COMMAND_SPACETIME_INFLUENCE);
+        }
+
         if (this.IsFlameBlade == false)
         {
           current.Add(Fix.FLAME_BLADE);
@@ -9988,6 +10017,10 @@ public partial class Character : MonoBehaviour
         if (this.IsChaoticSchema == false)
         {
           current.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
+        }
+        if (this.IsOathOfSefine == false)
+        {
+          current.Add(Fix.COMMAND_OATH_OF_SEFINE);
         }
         current.Add(Fix.STRAIGHT_SMASH);
         current.Add(Fix.FLAME_STRIKE);
