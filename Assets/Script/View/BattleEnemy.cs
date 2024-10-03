@@ -6673,14 +6673,9 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_DESTRUCTION_OF_TRUTH:
         StackObject[] stackList = GroupStackInTheCommand.GetComponentsInChildren<StackObject>();
-        bool detect = false;
+        CreateStackObject(player, target, Fix.EFFECT_STACK_END, 0, Fix.STACKCOMMAND_NORMAL_TIMER);
         for (int ii = 0; ii < stackList.Length; ii++)
         {
-          if (detect == false)
-          {
-            detect = true;
-            StartAnimation(stackList[ii].gameObject, Fix.EFFECT_STACK_END, Fix.COLOR_NORMAL);
-          }
           Destroy(stackList[ii]);
           stackList[ii] = null;
         }
@@ -7233,9 +7228,9 @@ public partial class BattleEnemy : MotherBase
             int rand = AP.Math.RandomInteger(1);
             EnemyList[ii].UseInstantPoint(false);
             EnemyList[ii].UpdateInstantPointGauge();
-            if (rand == 1)
+            if (rand == 0)
             {
-              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DESTRUCTION_OF_TRUTH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DESTRUCTION_OF_TRUTH, Fix.STACKCOMMAND_IMMEDIATE_TIMER, 0);
             }
             else
             {

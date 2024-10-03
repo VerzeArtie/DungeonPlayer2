@@ -549,6 +549,7 @@ public static partial class Fix
   public const int BATTLEEND_AUTOEXIT = 200;
   public const int STACKCOMMAND_NORMAL_TIMER = 150;
   public const int STACKCOMMAND_SUDDEN_TIMER = 50;
+  public const int STACKCOMMAND_IMMEDIATE_TIMER = 1;
   #endregion
   #endregion
 
