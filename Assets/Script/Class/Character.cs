@@ -9975,7 +9975,7 @@ public partial class Character : MonoBehaviour
       case Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW:
       case Fix.ETERNITY_KING_AERMI_JORZT:
       case Fix.ETERNITY_KING_AERMI_JORZT_JP:
-      case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:       
+      case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:
         current.Add(Fix.COMMAND_SHADOW_BRINGER);
         if (this.CurrentLife <= 1)
         {

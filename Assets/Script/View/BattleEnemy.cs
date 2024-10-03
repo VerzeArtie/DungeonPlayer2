@@ -636,6 +636,19 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
       EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]), true);
+      Debug.Log("EnemyList[ii].FullName: " + EnemyList[ii].FullName);
+      //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
+      //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP ||
+      //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
+      //{
+      //  ExecBuffPhysicalAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffPhysicalDefenseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffMagicAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffMagicDefenceDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffBattleSpeedDown(EnemyList[ii], EnemyList[ii], 99, 0.50f);
+      //  ExecBuffBattleResponseDown(EnemyList[ii], EnemyList[ii], 99, 0.70f);
+      //  ExecBuffBattlePotentialDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //}
     }
 
     // ファースト・コマンドからメインコマンドおよびターゲットを設定する。
@@ -11471,7 +11484,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     // エルミ・ジョルジュ、【神域】によりライフ回復不可
-    if (player.IsOathOfGod)
+    if (target.IsOathOfGod)
     {
       healValue = 0;
     }

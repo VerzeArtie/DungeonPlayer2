@@ -215,7 +215,14 @@ public static class PrimaryLogic
     }
     if (player.IsPhysicalAttackDown)
     {
-      result = result * player.IsPhysicalAttackDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsPhysicalAttackDown.EffectValue;
+      }
     }
     BuffImage boneCrush = player.IsBoneCrush;
     if (boneCrush)
@@ -287,14 +294,6 @@ public static class PrimaryLogic
       Debug.Log("PenetrationArrow detect: " + player.IsPenetrationArrow.EffectValue2.ToString("F2") + " " + result_before.ToString("F2") + " -> " + result.ToString("F2"));
     }
 
-    if (player.IsPhysicalDefenseDown)
-    {
-      double decrease = (1.00f - player.IsPhysicalDefenseDown.EffectValue * player.IsPhysicalDefenseDown.Cumulative);
-      if (decrease <= 0.0f) { decrease = 0.0f; }
-      result *= decrease;
-      Debug.Log("IsPhysicalDefenseDown phase: " + result);
-    }
-
     BuffImage stanceOfTheGuard = player.IsStanceOfTheGuard;
     if (stanceOfTheGuard)
     {
@@ -315,9 +314,20 @@ public static class PrimaryLogic
     {
       result = result * player.IsPhysicalDefenseUp.EffectValue;
     }
+
     if (player.IsPhysicalDefenseDown)
     {
-      result = result * player.IsPhysicalDefenseDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        double decrease = (1.00f - player.IsPhysicalDefenseDown.EffectValue * player.IsPhysicalDefenseDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsPhysicalDefenseDown phase: " + result);
+      }
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyPhysicalDefense > 1.00f) { result = result * player.MainWeapon.AmplifyPhysicalDefense; }
@@ -434,7 +444,14 @@ public static class PrimaryLogic
 
     if (player.IsMagicAttackDown)
     {
-      result = result * player.IsMagicAttackDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsMagicAttackDown.EffectValue;
+      }
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyMagicAttack > 1.00f) { result = result * player.MainWeapon.AmplifyMagicAttack; }
@@ -490,7 +507,14 @@ public static class PrimaryLogic
     }
     if (player.IsMagicDefenseDown)
     {
-      result = result * player.IsMagicDefenseDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsMagicDefenseDown.EffectValue;
+      }
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyMagicDefense > 1.00f) { result = result * player.MainWeapon.AmplifyMagicDefense; }
@@ -584,7 +608,14 @@ public static class PrimaryLogic
     }
     if (player.IsBattleSpeedDown)
     {
-      result = result * player.IsBattleSpeedDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsBattleSpeedDown.EffectValue;
+      }
     }
 
     BuffImage buffImage = player.IsLightThunderbolt;
@@ -642,7 +673,14 @@ public static class PrimaryLogic
     }
     if (player.IsBattleResponseDown)
     {
-      result = result * player.IsBattleResponseDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsBattleResponseDown.EffectValue;
+      }
     }
     BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
     if (circleOfDespair != null)
@@ -712,7 +750,14 @@ public static class PrimaryLogic
     }
     if (player.IsPotentialDown)
     {
-      result = result * player.IsPotentialDown.EffectValue;
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        result = result * player.IsPotentialDown.EffectValue;
+      }
     }
 
     if (player.MainWeapon != null && player.MainWeapon.AmplifyPotential > 1.00f) { result = result * player.MainWeapon.AmplifyPotential; }
