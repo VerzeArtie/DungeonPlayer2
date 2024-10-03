@@ -402,6 +402,11 @@ public partial class BattleEnemy : MotherBase
         playerList[ii].BattleGaugeArrow = (float)(AP.Math.RandomInteger(8) + (allyBaseStart - (10.0f * ii)));
       }
       playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
+
+      //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
+      //{
+      //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
+      //}
     }
 
     // 最大人数に満たない場合、GUIレイアウト向けに空のパネルを挿入する。
@@ -1037,6 +1042,7 @@ public partial class BattleEnemy : MotherBase
         if (AllList[ii].CurrentTimeStopValue <= 0)
         {
           AllList[ii].RemoveTargetBuff(Fix.TIME_STOP);
+          AllList[ii].RemoveTargetBuff(Fix.SPACETIME_INFLUENCE); // クラス化の考え方として良くないが、一括で解除する事にする。
         }
         else
         {
@@ -7217,10 +7223,10 @@ public partial class BattleEnemy : MotherBase
         if (stackList[num].StackTimer <= 100)
         {
           int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
-          BuffImage eternalPresence = EnemyList[ii].IsEternalPresence;
-          if (eternalPresence)
+          BuffImage oathOfGod = EnemyList[ii].IsOathOfGod;
+          if (oathOfGod)
           {
-            maxInstantPoint = (int)((double)EnemyList[ii].MaxInstantPoint * eternalPresence.EffectValue2);
+            maxInstantPoint = (int)((double)EnemyList[ii].MaxInstantPoint * oathOfGod.EffectValue2);
           }
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
@@ -11441,16 +11447,34 @@ public partial class BattleEnemy : MotherBase
 
     if (target.IsDeadlyDrive != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
     {
-      target.CurrentLife = 1;
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
+      if (player && player.IsOathOfGod)
+      {
+        Debug.Log("detect EFFECT_CANNOT_NOT_DEAD!!");
+        // skip
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_NOT_DEAD, Fix.COLOR_WARNING, animation_speed);
+      }
+      else
+      {
+        target.CurrentLife = 1;
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
+      }
     }
 
     if (target.IsOathOfSefine != null && target.CurrentLife <= 0 && beforeTargetLife > 1)
     {
-      target.CurrentLife = 1;
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
-      target.RemoveTargetBuff(Fix.OATH_OF_SEFINE);
-      AbstractAddBuff(target, target.objBuffPanel, Fix.OATH_OF_GOD, Fix.BUFF_OATH_OF_GOD, SecondaryLogic.OathOfGod_Turn(player), 0, 0, 0);
+      if (player && player.IsOathOfGod)
+      {
+        // skip
+        Debug.Log("detect EFFECT_CANNOT_NOT_DEAD!!");
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_CANNOT_NOT_DEAD, Fix.COLOR_WARNING, animation_speed);
+      }
+      else
+      {
+        target.CurrentLife = 1;
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_NOT_DEAD, Fix.COLOR_NORMAL, animation_speed);
+        target.RemoveTargetBuff(Fix.OATH_OF_SEFINE);
+        AbstractAddBuff(target, target.objBuffPanel, Fix.OATH_OF_GOD, Fix.BUFF_OATH_OF_GOD, SecondaryLogic.OathOfGod_Turn(player), SecondaryLogic.OathOfGod_Effect(player), SecondaryLogic.OathOfGod_Effect2(player), 0);
+      }
     }
   }
 

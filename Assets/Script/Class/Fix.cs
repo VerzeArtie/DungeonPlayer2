@@ -437,6 +437,7 @@ public static partial class Fix
   public const string EFFECT_DAMAGE_IS_ZERO = "ダメージ０！";
   public const string EFFECT_STACK_END = "スタック破壊！";
   public const string EFFECT_NOT_DEAD = "決死　ライフ１！";
+  public const string EFFECT_CANNOT_NOT_DEAD = "決死不可！";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";

@@ -2180,9 +2180,14 @@ public partial class Character : MonoBehaviour
       // 重ね掛けも考えられるが、ファーストリリースでは優先順で良い。
       BuffImage everflowMind = this.IsEverflowMind;
       BuffImage eternalPresence = this.IsEternalPresence;
+      BuffImage oathOfGod = this.IsOathOfGod;
       if (eternalPresence)
       {
         this.CurrentInstantPoint -= this.MaxInstantPoint * (1.00f - eternalPresence.EffectValue);
+      }
+      else if (oathOfGod)
+      {
+        this.CurrentInstantPoint -= this.MaxInstantPoint * (1.00f - oathOfGod.EffectValue);
       }
       else if (everflowMind != null)
       {

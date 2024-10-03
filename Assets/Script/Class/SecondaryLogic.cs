@@ -1318,6 +1318,16 @@ public static class SecondaryLogic
     return 3;
   }
 
+  public static double OathOfGod_Effect(Character player)
+  {
+    return 0.30f;
+  }
+
+  public static double OathOfGod_Effect2(Character player)
+  {
+    return 0.70f;
+  }
+
   public static int SpacetimeInfluence_Turn(Character player)
   {
     return Fix.INFINITY;
