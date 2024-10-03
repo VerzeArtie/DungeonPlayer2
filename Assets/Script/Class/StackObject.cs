@@ -47,7 +47,7 @@ public class StackObject : MonoBehaviour
   public Text txtStackName;
   public Text txtStackTarget;
   public Text txtStackTime;
-  public Image imgStackIcon;
+  public NodeActionCommand imgStackIcon;
 
   public void ConstructStack(Character player, Character target, string stack_name, int stack_timer, int sudden_timer)
   {
@@ -58,7 +58,7 @@ public class StackObject : MonoBehaviour
     _target = target;
     txtStackName.text = stack_name;
     txtStackTime.text = stack_timer.ToString();
-    imgStackIcon.sprite = Resources.Load<Sprite>(stack_name);
+    imgStackIcon.ApplyImageIcon(stack_name);
 
     if (ActionCommand.IsTarget(stack_name) == ActionCommand.TargetType.Own)
     {

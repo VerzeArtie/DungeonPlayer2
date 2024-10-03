@@ -671,7 +671,8 @@ public class NodeActionCommand : MonoBehaviour
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DOUBLE_STANCE);
     }
-    else if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH)
+    else if (command_name == Fix.COMMAND_DESTRUCTION_OF_TRUTH ||
+             command_name == Fix.EFFECT_STACK_END)
     {
       ActionButton.image.sprite = Resources.Load<Sprite>(Fix.DESTRUCTION_OF_TRUTH);
     }
@@ -693,7 +694,7 @@ public class NodeActionCommand : MonoBehaviour
 
       if (ActionButton.image.sprite == null)
       {
-        ActionButton.image.sprite = Resources.Load<Sprite>(Fix.STAY_2);
+        ActionButton.image.sprite = null; // Resources.Load<Sprite>(Fix.STAY_2);
       }
     }
   }
