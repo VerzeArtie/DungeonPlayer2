@@ -8762,6 +8762,11 @@ public partial class Character : MonoBehaviour
       case Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW:
         SetupParameter(9000, 4200, 9000, 2000000, 700, 0, 0, 0);
         this._baseInstantPoint = 1750;
+        this._baseManaPoint = 20000;
+        this.InnerInspiration = 9;
+        this.ShadowBlast = 1;
+        this.FreshHeal = 5;
+        this.TheDarkIntensity = 1;
         list.Add(Fix.COMMAND_SHADOW_BRINGER);
         list.Add(Fix.COMMAND_SPHERE_OF_GLORY);
         list.Add(Fix.COMMAND_AURORA_PUNISHMENT);
@@ -9981,55 +9986,93 @@ public partial class Character : MonoBehaviour
       case Fix.ETERNITY_KING_AERMI_JORZT:
       case Fix.ETERNITY_KING_AERMI_JORZT_JP:
       case Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW:
-        current.Add(Fix.COMMAND_SHADOW_BRINGER);
-        if (this.CurrentLife <= 1)
-        {
-          current.Add(Fix.FRESH_HEAL);
-        }
-        if (this.IsOathOfSefine == false && this.AlreadyOathOfSefine == false)
+        // ライフが減ってきたら、「セフィーネへの誓い」を優先的に発動する
+        if (this.CurrentLife <= this.MaxLife / 5.0f && this.IsOathOfSefine == false && this.AlreadyOathOfSefine == false)
         {
           current.Add(Fix.COMMAND_OATH_OF_SEFINE);
         }
-        if (this.IsSpacetimeInfluence == false)
+        else
         {
-          current.Add(Fix.COMMAND_SPACETIME_INFLUENCE);
+          current.Add(Fix.COMMAND_SHADOW_BRINGER);
+          if (this.CurrentLife <= 1)
+          {
+            current.Add(Fix.FRESH_HEAL);
+          }
+          if (this.IsSpacetimeInfluence == false)
+          {
+            if (this.CurrentLife <= this.MaxLife / 2.0f)
+            {
+              current.Add(Fix.COMMAND_SPACETIME_INFLUENCE);
+            }
+          }
+          if (this.IsStanceOfTheBlade == false)
+          {
+            current.Add(Fix.STANCE_OF_THE_BLADE);
+          }
+          if (this.IsSphereOfGlory == false)
+          {
+            current.Add(Fix.COMMAND_SPHERE_OF_GLORY);
+          }
+          if (this.IsAuroraPunishment == false)
+          {
+            current.Add(Fix.COMMAND_AURORA_PUNISHMENT);
+          }
+          if (this.IsInnocentCircle == false)
+          {
+            current.Add(Fix.COMMAND_INNOCENT_CIRCLE);
+          }
+          if (this.IsAstralGate == false)
+          {
+            if (this.IsInnocentCircle)
+            {
+              current.Add(Fix.COMMAND_ASTRAL_GATE);
+            }
+          }
+          if (this.IsChaoticSchema == false)
+          {
+            if (this.CurrentLife <= this.MaxLife / 4.0f)
+            {
+              current.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
+            }
+          }
+          if (this.IsOneImmunity == false)
+          {
+            if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.ONE_IMMUNITY))
+            {
+              if (this.IsAbsolutePerfection == false)
+              {
+                current.Add(Fix.ONE_IMMUNITY);
+              }
+            }
+          }
+          if (this.CurrentSkillPoint < this.MaxSkillPoint / 5.0f)
+          {
+            current.Add(Fix.INNER_INSPIRATION);
+          }
+          if (this.CurrentLife <= this.MaxLife / 5.0f)
+          {
+            if (this.CurrentInstantPoint >= this.MaxInstantPoint)
+            {
+              current.Add(Fix.SHINING_HEAL);
+            }
+          }
+          if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.STRAIGHT_SMASH))
+          {
+            current.Add(Fix.STRAIGHT_SMASH);
+          }
+          if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.SHADOW_BLAST))
+          {
+            current.Add(Fix.SHADOW_BLAST);
+          }
+          if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.VALKYRIE_BLADE))
+          {
+            if (this.IsValkyrieBlade == false)
+            {
+              current.Add(Fix.VALKYRIE_BLADE);
+            }
+          }
+          //current.Add("出血付与");
         }
-
-        if (this.IsFlameBlade == false)
-        {
-          current.Add(Fix.FLAME_BLADE);
-        }
-        if (this.IsStanceOfTheBlade == false)
-        {
-          current.Add(Fix.STANCE_OF_THE_BLADE);
-        }
-        if (this.IsSphereOfGlory == false)
-        {
-          current.Add(Fix.COMMAND_SPHERE_OF_GLORY);
-        }
-        if (this.IsAuroraPunishment == false)
-        {
-          current.Add(Fix.COMMAND_AURORA_PUNISHMENT);
-        }
-        if (this.IsInnocentCircle == false)
-        {
-          current.Add(Fix.COMMAND_INNOCENT_CIRCLE);
-        }
-        if (this.IsAstralGate == false)
-        {
-          current.Add(Fix.COMMAND_ASTRAL_GATE);
-        }
-        if (this.IsChaoticSchema == false)
-        {
-          current.Add(Fix.COMMAND_CHAOTIC_SCHEMA);
-        }
-        if (this.IsOathOfSefine == false)
-        {
-          current.Add(Fix.COMMAND_OATH_OF_SEFINE);
-        }
-        current.Add(Fix.STRAIGHT_SMASH);
-        current.Add(Fix.FLAME_STRIKE);
-        //current.Add("出血付与");
         result = RandomChoice(current);
         break;
 

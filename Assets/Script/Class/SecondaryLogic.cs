@@ -1295,7 +1295,7 @@ public static class SecondaryLogic
 
   public static int AstralGate_Turn(Character player)
   {
-    return 3;
+    return 2;
   }
 
   public static int DoubleStance_Turn(Character player)

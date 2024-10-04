@@ -1060,9 +1060,11 @@ public partial class BattleEnemy : MotherBase
     if ((this.NowTimeStop == true) && (this.Background.GetComponent<Image>().color == Color.white))
     {
       this.Background.GetComponent<Image>().color = Color.black;
+      this.TimeStopText.gameObject.SetActive(true);
       this.labelBattleTurn.color = Color.white;
       this.TimeSpeedLabel.color = Color.white;
       this.lblTimerCount.color = Color.white;
+
       //  if (EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN &&
       //      EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP &&
       //      EnemyList[0].FullName != Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
@@ -1507,16 +1509,48 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || AllList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
           {
+            // 残りライフに余力があるなら、見合いせずインスタント行動を行う。
+            if (AllList[ii].CurrentLife >= AllList[ii].MaxLife / 2.0f)
+            {
+              if (AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+              {
+                AllList[ii].UseInstantPoint(false);
+                AllList[ii].UpdateInstantPointGauge();
+                CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                return;
+              }
+            }
             if (AllList[ii].Target.CurrentInstantPoint >= AllList[ii].Target.MaxInstantPoint * 0.70f)
             {
               // 見合いの時は待つ。
             }
-            else
+            else if (AllList[ii].IsOneImmunity == false)
             {
               AllList[ii].UseInstantPoint(false);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_ABSOLUTE_PERFECTION, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+            else if (AllList[ii].IsTheDarkIntensity == false)
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.THE_DARK_INTENSITY, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+            else if (AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return;
+            }
+            else if (AllList[ii].CurrentLife < AllList[ii].MaxLife)
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.FRESH_HEAL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return;
             }
           }
 
@@ -7225,6 +7259,7 @@ public partial class BattleEnemy : MotherBase
           }
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
+            Debug.Log("warikomi EnemyList[ii].CurrentInstantPoint : maxInstantPoint " + EnemyList[ii].CurrentInstantPoint + " " + maxInstantPoint);
             int rand = AP.Math.RandomInteger(1);
             EnemyList[ii].UseInstantPoint(false);
             EnemyList[ii].UpdateInstantPointGauge();
@@ -10575,6 +10610,36 @@ public partial class BattleEnemy : MotherBase
     if (target.Dead) { Debug.Log("target is dead. then no effect."); return; }
 
     if (effect_value <= 0) { effect_value = 0; }
+
+
+    if (target.IsOneImmunity)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_ONE_IMMUNITY_JP, Fix.COLOR_GUARD);
+    }
+
+    BuffImage holyWisdom = target.SearchFieldBuff(Fix.HOLY_WISDOM);
+    if (holyWisdom)
+    {
+      holyWisdom.CumulativeDown(1);
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.BUFF_HOLY_WISDOM_JP, Fix.COLOR_GUARD);
+    }
+
+    BuffImage absolutePerfection = target.IsAbsolutePerfection;
+    if (absolutePerfection)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+    }
+
+    BuffImage oathOfGod = target.IsOathOfGod;
+    if (oathOfGod)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+    }
+
     int result = (int)effect_value;
     Debug.Log(target.FullName + " " + result.ToString() + " damage");
     target.CurrentLife -= result;
