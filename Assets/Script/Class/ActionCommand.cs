@@ -2781,6 +2781,7 @@ public static class ActionCommand
     else if (command_name == Fix.STARSWORD_SEIEI) { return 10; }
     else if (command_name == Fix.SPHERE_OF_GLORY) { return 99; }
     else if (command_name == Fix.AURORA_PUNISHMENT) { return 99; }
+    else if (command_name == Fix.LIFE_POINT) { return 3; }
 
     return 1; // 通常は累積なし
   }
@@ -2795,7 +2796,8 @@ public static class ActionCommand
         command_name == Fix.HOLY_WISDOM ||
         command_name == Fix.STARSWORD_SEIEI ||
         command_name == Fix.SPHERE_OF_GLORY ||
-        command_name == Fix.AURORA_PUNISHMENT)
+        command_name == Fix.AURORA_PUNISHMENT ||
+        command_name == Fix.LIFE_POINT)
     {
       return CumulativeType.Cumulative;
     }

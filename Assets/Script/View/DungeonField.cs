@@ -14207,6 +14207,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.EncountBoss)
         {
           One.CannotRunAway = true;
+          One.LifePointBattle = false;
           One.BattleMode = Fix.BattleMode.Boss;
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
@@ -14238,6 +14239,16 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.EncountDuel)
         {
           One.CannotRunAway = true;
+          One.LifePointBattle = false;
+          if (currentMessage == Fix.ROYAL_KING_AERMI_JORZT || currentMessage == Fix.ROYAL_KING_AERMI_JORZT_JP || currentMessage == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW ||
+              currentMessage == Fix.ETERNITY_KING_AERMI_JORZT || currentMessage == Fix.ETERNITY_KING_AERMI_JORZT_JP || currentMessage == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+          {
+            One.LifePointBattle = true;
+          }
+          else
+          {
+            One.LifePointBattle = false;
+          }
           One.BattleMode = Fix.BattleMode.Duel;
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
@@ -14405,7 +14416,7 @@ public class DungeonField : MotherBase
     //    SceneDimension.CallBattleEnemy();
 
 
-    this.txtQuestMessage.text = PlayerList[0].CharacterMessage(1000);
+    this.txtQuestMessage.text = PlayerList[0].GetCharacterSentence(1000);
     this.GroupQuestMessage.SetActive(true);
   }
 
@@ -18013,6 +18024,7 @@ public class DungeonField : MotherBase
         //One.BattleEnemyList.Clear();
         //One.BattleEnemyList.Add(Fix.MAGICAL_HAIL_GUN);
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -18235,6 +18247,7 @@ public class DungeonField : MotherBase
 
         }
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -18495,6 +18508,7 @@ public class DungeonField : MotherBase
         }
 
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -18848,6 +18862,7 @@ public class DungeonField : MotherBase
         }
 
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -19167,6 +19182,7 @@ public class DungeonField : MotherBase
         }
 
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -19485,6 +19501,7 @@ public class DungeonField : MotherBase
         }
 
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
         else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
         PrepareCallTruthBattleEnemy();
@@ -19549,6 +19566,7 @@ public class DungeonField : MotherBase
             break;
         }
         One.CannotRunAway = false;
+        One.LifePointBattle = false;
         PrepareCallTruthBattleEnemy();
       }
       return;

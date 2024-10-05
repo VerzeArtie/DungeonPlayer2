@@ -500,6 +500,7 @@ public class Title : MotherBase
 
     One.BattleMode = Fix.BattleMode.Duel;
     One.StopDungeonMusic();
+    One.LifePointBattle = false;
     SceneDimension.CallBattleEnemy();
   }
 

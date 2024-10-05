@@ -98,6 +98,7 @@ public static class One
   public static bool CannotRunAway = false;
   public static Fix.BattleMode BattleMode = Fix.BattleMode.None;
   public static bool FromHometown = false; // BackScene -> [false: from Dungeon] , [true: from Hometown]
+  public static bool LifePointBattle = false;
   #endregion
 
   public static void ReInitializeGroundOne(bool FromGameLoad)

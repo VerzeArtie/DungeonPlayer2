@@ -438,6 +438,7 @@ public static partial class Fix
   public const string EFFECT_STACK_END = "スタック破壊！";
   public const string EFFECT_NOT_DEAD = "決死　ライフ１！";
   public const string EFFECT_CANNOT_NOT_DEAD = "決死不可！";
+  public const string EFFECT_LIFE_REGAIN = "生命復活";
 
   public const string BUFF_PA_UP = "BuffPhysicalAttackUp";
   public const string BUFF_PA_DOWN = "BuffPhysicalAttackDown";
@@ -504,6 +505,7 @@ public static partial class Fix
   public const string BUFF_OATH_OF_SEFINE = "誓約";
   public const string BUFF_OATH_OF_GOD = "神域";
   public const string BUFF_SPACETIME_INFLUENCE = "時空干渉";
+  public const string BUFF_LIFE_POINT = "意志";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
@@ -2193,6 +2195,8 @@ public static partial class Fix
   public const string OATH_OF_GOD = "Oath of God";
   public const string COMMAND_SPACETIME_INFLUENCE = "時空干渉";
   public const string SPACETIME_INFLUENCE = "Spacetime Influence";
+
+  public const string LIFE_POINT = "Life Point";
 
   public const string COMMAND_ = "";
 

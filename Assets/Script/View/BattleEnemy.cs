@@ -121,6 +121,7 @@ public partial class BattleEnemy : MotherBase
   public Text debug1;
 
   public bool CannotRunAway = false;
+  public bool LifePointBattle = false;
 
   // Inner Value
   private Sprite[] imageSandglass;
@@ -219,6 +220,7 @@ public partial class BattleEnemy : MotherBase
     }
 
     this.CannotRunAway = One.CannotRunAway;
+    this.LifePointBattle = One.LifePointBattle;
     this.BattleType = One.BattleMode;
 
     // 砂時計を生成する。
@@ -403,6 +405,10 @@ public partial class BattleEnemy : MotherBase
       }
       playerList[ii].UpdateBattleGaugeArrow(BATTLE_GAUGE_WITDH / 100.0f);
 
+      if (this.LifePointBattle)
+      {
+        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.LIFE_POINT, Fix.BUFF_LIFE_POINT, Fix.INFINITY, 3, 0, 0);
+      }
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
@@ -642,6 +648,11 @@ public partial class BattleEnemy : MotherBase
     {
       EnemyList[ii].ChooseCommand(GetAllyGroup(EnemyList[ii]), GetOpponentGroup(EnemyList[ii]), true);
       Debug.Log("EnemyList[ii].FullName: " + EnemyList[ii].FullName);
+
+      if (this.LifePointBattle)
+      {
+        AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.LIFE_POINT, Fix.BUFF_LIFE_POINT, Fix.INFINITY, 3, 0, 0);
+      }
       //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
       //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP ||
       //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
@@ -1990,6 +2001,28 @@ public partial class BattleEnemy : MotherBase
     {
       if (this.PlayerList[ii].CurrentLife <= 0)
       {
+        // 最終戦闘、ライフカウンター判定
+        BuffImage lifePoint = PlayerList[ii].IsLifePoint;
+        if (lifePoint)
+        {
+          lifePoint.CumulativeDown(1);
+          UpdateMessage(PlayerList[ii].FullName + "の生命力が１つ削られた！！\r\n");
+          if (lifePoint.Cumulative > 0)
+          {
+            UpdateMessage(PlayerList[ii].GetCharacterSentence(216));
+            StartAnimation(PlayerList[ii].objGroup.gameObject, Fix.EFFECT_LIFE_REGAIN, Fix.COLOR_NORMAL);
+            PlayerList[ii].objBuffPanel.ResetAllBuff();
+            //PlayerList[ii].ChangeLifeCountStatus(PlayerList[ii].CurrentLifeCount);
+            PlayerList[ii].CurrentLife = (int)(PlayerList[ii].MaxLife);
+            PlayerList[ii].UpdateLife();
+          }
+          else
+          {
+            this.PlayerList[ii].DeadPlayer();
+          }
+          continue;
+        }
+
         this.PlayerList[ii].DeadPlayer();
       }
     }
@@ -2016,6 +2049,29 @@ public partial class BattleEnemy : MotherBase
           AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.THE_ABYSS_WALL, Fix.BUFF_THE_ABYSS_WALL, Fix.INFINITY, 0, 0, 0);
           continue;
         }
+
+        // 最終戦闘、ライフカウンター判定
+        BuffImage lifePoint = EnemyList[ii].IsLifePoint;
+        if (lifePoint)
+        {
+          lifePoint.CumulativeDown(1);
+          UpdateMessage(EnemyList[ii].FullName + "の生命力が１つ削られた！！\r\n");
+          if (lifePoint.Cumulative > 0)
+          {
+            UpdateMessage(EnemyList[ii].GetCharacterSentence(216));
+            StartAnimation(EnemyList[ii].objGroup.gameObject, Fix.EFFECT_LIFE_REGAIN, Fix.COLOR_NORMAL);
+            EnemyList[ii].objBuffPanel.ResetAllBuff();
+            //EnemyList[ii].ChangeLifeCountStatus(EnemyList[ii].CurrentLifeCount);
+            EnemyList[ii].CurrentLife = (int)(PlayerList[ii].MaxLife);
+            EnemyList[ii].UpdateLife();
+          }
+          else
+          {
+            this.EnemyList[ii].DeadPlayer();
+          }
+          continue;
+        }
+
         this.EnemyList[ii].DeadPlayer();
       }
     }
@@ -6707,7 +6763,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_DESTRUCTION_OF_TRUTH:
         StackObject[] stackList = GroupStackInTheCommand.GetComponentsInChildren<StackObject>();
-        CreateStackObject(player, target, Fix.EFFECT_STACK_END, 0, Fix.STACKCOMMAND_NORMAL_TIMER);
+        CreateStackObject(player, target, Fix.EFFECT_STACK_END, 0, Fix.STACKCOMMAND_SUDDEN_TIMER);
         for (int ii = 0; ii < stackList.Length; ii++)
         {
           Destroy(stackList[ii]);
@@ -7596,13 +7652,13 @@ public partial class BattleEnemy : MotherBase
                     if (AllList[jj].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
                     {
                       Debug.Log("Target Error. IsEnemy False : AC is Enemy");
-                      UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1001));
+                      UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
                       return;
                     }
                     if (AllList[jj].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
                     {
                       Debug.Log("Target Error. IsEnemy True : AC is Enemy");
-                      UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1002));
+                      UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
                       return;
                     }
                     if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
@@ -7635,13 +7691,13 @@ public partial class BattleEnemy : MotherBase
                 if (AllList[ii].IsEnemy == false && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
                 {
                   Debug.Log("Target Error. IsEnemy False : AC is Enemy");
-                  UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1001));
+                  UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1001));
                   return;
                 }
                 if (AllList[ii].IsEnemy && ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
                 {
                   Debug.Log("Target Error. IsEnemy True : AC is Enemy");
-                  UpdateMessage(NowSelectSrcPlayer.CharacterMessage(1002));
+                  UpdateMessage(NowSelectSrcPlayer.GetCharacterSentence(1002));
                   return;
                 }
 
@@ -7791,7 +7847,7 @@ public partial class BattleEnemy : MotherBase
       }
       else
       {
-        UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+        UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
         Debug.Log("Still not enough instant point. then no action.");
         return;
       }
@@ -7800,7 +7856,7 @@ public partial class BattleEnemy : MotherBase
     if ((ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Archetype) &&
         (One.TF.PotentialEnergy < One.TF.MaxPotentialEnergy))
     {
-      //UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+      //UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
       Debug.Log("Still not enough PotentialEnergy point. then no action.");
       return;
     }
@@ -7960,7 +8016,7 @@ public partial class BattleEnemy : MotherBase
         // インスタント値が不足している場合、行動できない。
         if (PlayerList[ii].CurrentInstantPoint < PlayerList[ii].MaxInstantPoint)
         {
-          UpdateMessage(this.NowSelectSrcPlayer.CharacterMessage(1003));
+          UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
           Debug.Log("Still now instant point. then no action.");
           return;
         }

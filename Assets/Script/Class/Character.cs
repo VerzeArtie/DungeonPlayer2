@@ -3229,12 +3229,20 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.SPACETIME_INFLUENCE); }
   }
 
+  public BuffImage IsLifePoint
+  {
+    get { return SearchBuff(Fix.LIFE_POINT); }
+  }
+
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
     if (buffImage != null)
     {
-      buffImage.RemoveBuff();
+      if (buffImage.BuffName != Fix.LIFE_POINT)
+      {
+        buffImage.RemoveBuff();
+      }
     }
   }
 
@@ -3243,7 +3251,10 @@ public partial class Character : MonoBehaviour
     BuffImage buffImage = SearchTimeSequenceBuff(buff_name);
     if (buffImage != null)
     {
-      buffImage.RemoveBuff();
+      if (buffImage.BuffName != Fix.LIFE_POINT)
+      {
+        buffImage.RemoveBuff();
+      }
     }
   }
 
@@ -3266,6 +3277,10 @@ public partial class Character : MonoBehaviour
       // 有益なBUFFが見つかった場合、それを除去する。
       if (ActionCommand.GetBuffType(buffList[ii].BuffName) == buff_type)
       {
+        if (buffList[ii].BuffName == Fix.LIFE_POINT)
+        {
+          continue;
+        }
         buffList[ii].RemoveBuff();
         detect++;
       }
@@ -6574,7 +6589,7 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
-  public string CharacterMessage(int num)
+  public string GetCharacterSentence(int num)
   {
     string result = string.Empty;
     switch (num)

@@ -102,6 +102,21 @@ public class BuffField : MonoBehaviour
     }
   }
 
+  public void ResetAllBuff()
+  {
+    BuffImage[] buffList = this.GetComponentsInChildren<BuffImage>();
+    if (buffList == null) { return; }
+
+    for (int ii = buffList.Length - 1; ii >= 0; ii--)
+    {
+      if (buffList[ii].BuffName == Fix.LIFE_POINT)
+      {
+        continue;
+      }
+      buffList[ii].RemoveBuff();
+    }
+  }
+
   public void RemoveAll(Character target)
   {
     Debug.Log("RemoveAll(S)");
@@ -131,6 +146,11 @@ public class BuffField : MonoBehaviour
       {
         Debug.Log("IsInnocentCircle ignore it");
         continue; // アニメーションでないため分かり難いが、まずこれで良しとする。
+      }
+
+      if (buffList[ii].BuffName == Fix.LIFE_POINT)
+      {
+        continue;
       }
 
       Debug.Log("remove it");
