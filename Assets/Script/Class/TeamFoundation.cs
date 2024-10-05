@@ -2218,6 +2218,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message2200000 { get { return _event_message2200000; } set { _event_message2200000 = value; } }
   [SerializeField] protected bool _event_message2200010 = false;
   public bool Event_Message2200010 { get { return _event_message2200010; } set { _event_message2200010 = value; } }
+  [SerializeField] protected bool _event_message2200011 = false;
+  public bool Event_Message2200011 { get { return _event_message2200011; } set { _event_message2200011 = value; } }
   [SerializeField] protected bool _event_message2200020 = false;
   public bool Event_Message2200020 { get { return _event_message2200020; } set { _event_message2200020 = value; } }
 

@@ -1055,6 +1055,15 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
+    {
+      if (One.TF.Event_Message1010020 == false)
+      {
+        MessagePack.Message2200011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
+
     if (GroupShopItem.activeInHierarchy)
     {
       GroupShopItem.SetActive(false);

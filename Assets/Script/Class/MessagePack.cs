@@ -31084,6 +31084,41 @@ public static class MessagePack
     }
   }
 
+  public static void Message2200011(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message2200011 == false)
+    {
+      One.TF.Event_Message2200011 = true;
+      Message(ref m_list, ref e_list, "アイン：よし、ごめんくださーい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "神官：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あれ、すみません？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "神官：名を示すがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "神官：迷えし子よ。天の名にあらず。お引き取りを。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは店の外へと出た　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：何か駄目みたいだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：他を当たってみましょ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：ごめんくださーい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "神官：名を示すがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いえ、失礼しました。", ActionEvent.None);
+    }
+  }
+
   public static void Message2200020(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message2200020 == false)
