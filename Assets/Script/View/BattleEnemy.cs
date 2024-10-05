@@ -7830,6 +7830,13 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // 対象元が死んでいる場合、行動できない。
+    if (this.NowSelectSrcPlayer.Dead)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " selectedPlayer is already dead, then no action.");
+      return;
+    }
+
     // 対象元がタイム・ストップ対象者本人ではない場合、行動できない。
     if (this.NowTimeStop && this.NowSelectSrcPlayer.CurrentTimeStopValue <= 0)
     {
