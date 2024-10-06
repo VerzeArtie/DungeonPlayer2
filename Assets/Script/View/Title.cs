@@ -125,7 +125,7 @@ public class Title : MotherBase
 
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
+      SystemMessageText.text = "アイン・ウォーレンスは並行世界へと突入しており、選択不可。";
       GroupSystemMessage.SetActive(true);
       return;
     }
@@ -177,7 +177,7 @@ public class Title : MotherBase
   {
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      SystemMessageText.text = "アイン・ウォーレンス、並行世界への突入により、選択する事ができません。";
+      SystemMessageText.text = "アイン・ウォーレンスは並行世界へと突入しており、選択不可。";
       GroupSystemMessage.SetActive(true);
       return;
     }
