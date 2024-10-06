@@ -411,6 +411,7 @@ public partial class BattleEnemy : MotherBase
       }
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
+      //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
       //}
     }
@@ -1243,7 +1244,7 @@ public partial class BattleEnemy : MotherBase
       // プレイヤーゲージを進行する。
       if (AllList[ii].Dead == false)
       {
-        if (AllList[ii].IsSleep || AllList[ii].IsStun || AllList[ii].IsParalyze)
+        if (AllList[ii].IsStun || AllList[ii].IsParalyze)
         {
           if (AllList[ii].IsAbsolutePerfection)
           {
@@ -1263,7 +1264,7 @@ public partial class BattleEnemy : MotherBase
       // プレイヤーのインスタントゲージを進行する。
       if (AllList[ii].Dead == false)
       {
-        if (AllList[ii].IsSleep || AllList[ii].IsStun || AllList[ii].IsFreeze)
+        if (AllList[ii].IsStun || AllList[ii].IsFreeze)
         {
           if (AllList[ii].IsAbsolutePerfection)
           {
@@ -2153,6 +2154,7 @@ public partial class BattleEnemy : MotherBase
     return false;
   }
 
+  // 通常コマンドから呼び出されるメソッド
   private void ExecPlayerCommand(Character player, Character target, string command_name)
   {
     ExecPlayerCommand_Origin(player, target, command_name, false);
@@ -2164,6 +2166,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  // Genesisから呼び出されるメソッド
   protected void ExecBeforeAttackPhase(Character player, bool skipStanceDouble)
   {
     Debug.Log("ExecBeforeAttackPhase(S) " + player.FullName);
@@ -2241,6 +2244,14 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("command_name is empty, then no action.");
       StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
       return;
+    }
+
+    // Sleepによる効果判定
+    if (player.IsSleep)
+    {
+      command_name = Fix.STAY;
+      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SLEEP_MISS, Fix.COLOR_WARNING);
+      // return; // 睡眠は行動失敗ではないので、ここは通過させる。
     }
 
     // ソーサリータイミングのチェック判定
@@ -7883,7 +7894,7 @@ public partial class BattleEnemy : MotherBase
 
     if (this.NowStackInTheCommand == false)
     {
-      if (this.NowSelectSrcPlayer.IsSleep || this.NowSelectSrcPlayer.IsStun)
+      if (this.NowSelectSrcPlayer.IsStun)
       {
         Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
         return;

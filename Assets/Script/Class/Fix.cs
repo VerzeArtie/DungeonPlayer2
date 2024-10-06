@@ -280,6 +280,7 @@ public static partial class Fix
   public const string BATTLE_BIND = "Bind";
   public const string BATTLE_DIVINE = "Divine";
   public const string BATTLE_SILENT = "Silent";
+  public const string BATTLE_SLEEP_MISS = "ミス(睡眠)";
 
   public const string BATTLE_ATTACK_UP = "物攻率 UP";
   public const string BATTLE_MAGIC_ATTACK_UP = "魔攻率 UP";
