@@ -2243,7 +2243,9 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
-    if (ActionCommand.GetTiming(player.CurrentActionCommand) == ActionCommand.TimingType.Sorcery)
+    // ソーサリータイミングのチェック判定
+    if (ActionCommand.GetTiming(command_name) == ActionCommand.TimingType.Sorcery &&
+        without_cost == false)
     {
       if (player.CurrentInstantPoint < player.MaxInstantPoint)
       {
@@ -2258,6 +2260,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // アブソリュート・ゼロによる効果判定
     if (player.IsAbsoluteZero)
     {
       Debug.Log("detect player.IsAbsoluteZero");
@@ -2277,6 +2280,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // Dizzyによる効果判定
     if (player.IsDizzy)
     {
       if (player.IsAbsolutePerfection)
@@ -2300,6 +2304,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // ターゲットの整合性判定
     if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Enemy &&　target == null)
     {
       Debug.Log("Target is null, then no action.");
@@ -2320,6 +2325,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // Bindによる効果判定
     if (player.IsBind && ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Skill)
     {
       // サークル・オブ・セレニティなら、チェック対象外。
@@ -2408,7 +2414,8 @@ public partial class BattleEnemy : MotherBase
         player.CurrentSkillPoint -= SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), player);
       }
     }
-
+    
+    // ポテンシャル・ゲージ加算
     if (player.Ally == Fix.Ally.Ally)
     {
       if (command_name == Fix.STAY || command_name == Fix.DEFENSE)
@@ -2426,6 +2433,7 @@ public partial class BattleEnemy : MotherBase
     {
       ExecSlipDamage(player, player.IsBloodSign.EffectValue);
     }
+
     // スリップによる効果
     if (player.IsSlip && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
@@ -2438,12 +2446,16 @@ public partial class BattleEnemy : MotherBase
         ExecSlipDamage(player, player.IsSlip.EffectValue);
       }
     }
+
+    // ペネトレーション・アローの効果判定
     if (player.IsPenetrationArrow && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
       ExecSlipDamage(player, player.IsPenetrationArrow.EffectValue);
     }
 
     Fix.CriticalType critical = Fix.CriticalType.Random;
+
+    // 集中と断絶によるクリティカル判定
     BuffImage syutyuDanzetsu = player.IsSyutyuDanzetsu;
     if (ActionCommand.IsDamage(command_name) && syutyuDanzetsu)
     {
@@ -2466,6 +2478,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // Fearによる効果判定
     BuffImage fear = player.IsFear;
     if (fear)
     {
