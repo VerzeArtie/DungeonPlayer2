@@ -363,7 +363,7 @@ public static partial class Fix
 
   public const string EFFECT_POISON = "Poison";
   public const string EFFECT_POISON_JP = "猛毒";
-  public const string EFFECT_SILENT = "Silent"; // Silence,アイコンも一緒に変名する。
+  public const string EFFECT_SILENT = "Silent";
   public const string EFFECT_SILENT_JP = "沈黙";
   public const string EFFECT_BIND = "Bind";
   public const string EFFECT_BIND_JP = "束縛";

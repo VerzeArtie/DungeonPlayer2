@@ -6815,14 +6815,18 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case "絶望の魔手":
-        ExecBuffSlow(player, target, 10, 0.5f);
         ExecBuffPoison(player, target, 10, 11);
+        ExecBuffSilent(player, target, 10, 0);
+        ExecBuffBind(player, target, 10, 0);
+        ExecBuffSleep(player, target, 10, 0);
+        ExecBuffStun(player, target, 10, 0);
+        ExecBuffParalyze(player, target, 10, 1);
+        ExecBuffFreeze(player, target, 10, 0);
+        ExecBuffFear(player, target, 10, 0);
+        ExecBuffSlow(player, target, 10, 0.5f);
+        ExecBuffDizzy(player, target, 10, 1);
         ExecBuffSlip(player, target, 10, 12);
-        //ExecBuffFreeze(player, target, 10, 0);
-        //ExecBuffSilent(player, target, 10, 0);
-        //ExecBuffBind(player, target, 10, 0);
-        //ExecBuffDizzy(player, target, 10, 1);
-        //ExecBuffParalyze(player, target, 10, 1);
+        ExecBuffCannotResurrect(player, target, 10, 0);
         //ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 999);
         //ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 999);
         ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 999);
