@@ -1250,20 +1250,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_ETERNAL_DROPLET) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_AUSTERITY_MATRIX_OMEGA) { return Attribute.MonsterAction; }
     if (command_name == Fix.COMMAND_VOID_BEAT) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_RENGEKI) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_GOUGEKI) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_GOD_SENSE) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_TIME_JUMP) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Attribute.MonsterAction; }
-    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Attribute.MonsterAction; }
+    if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Attribute.MonsterAction; }
+    if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return Attribute.MonsterAction; }
+    if (command_name == Fix.ETERNAL_PRESENCE || command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.ULTIMATE_FLARE || command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.GOUGEKI || command_name == Fix.COMMAND_GOUGEKI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.BUTOH_ISSEN || command_name == Fix.COMMAND_BUTOH_ISSEN) { return Attribute.MonsterAction; }
+    if (command_name == Fix.GOD_SENSE || command_name == Fix.COMMAND_GOD_SENSE) { return Attribute.MonsterAction; }
+    if (command_name == Fix.TIME_JUMP || command_name == Fix.COMMAND_TIME_JUMP) { return Attribute.MonsterAction; }
+    if (command_name == Fix.STARSWORD_ZETSUKEN || command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Attribute.MonsterAction; }
+    if (command_name == Fix.STARSWORD_REIKUU || command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Attribute.MonsterAction; }
+    if (command_name == Fix.STARSWORD_SEIEI || command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.STARSWORD_RYOKUEI || command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Attribute.MonsterAction; }
+    if (command_name == Fix.STARSWORD_FINALITY || command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Attribute.MonsterAction; }
 
 
     if (command_name == Fix.SHADOW_BRINGER || command_name == Fix.COMMAND_SHADOW_BRINGER) { return Attribute.MonsterAction; }
@@ -1908,20 +1908,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_RENSOU_TOSSHIN) { return TargetType.EnemyGroup; }
     if (command_name == Fix.COMMAND_DEVIL_EMBLEM) { return TargetType.EnemyField; }
 
-    if (command_name == Fix.COMMAND_RENGEKI) { return TargetType.Enemy; }
-    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return TargetType.Own; }
-    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return TargetType.AllyField; }
-    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return TargetType.Own; }
-    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return TargetType.Enemy; }
-    if (command_name == Fix.COMMAND_GOUGEKI) { return TargetType.Enemy; }
-    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return TargetType.InstantTarget; }
-    if (command_name == Fix.COMMAND_GOD_SENSE) { return TargetType.Own; }
-    if (command_name == Fix.COMMAND_TIME_JUMP) { return TargetType.Own; } // 皇帝リガール専用。厳密にはOwnではないが良しとする。
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return TargetType.Enemy; }
-    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return TargetType.InstantTarget; }
-    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return TargetType.Own; }
-    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return TargetType.Own; }
-    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return TargetType.Enemy; }
+    if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return TargetType.Own; }
+    if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return TargetType.AllyField; }
+    if (command_name == Fix.ETERNAL_PRESENCE || command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return TargetType.Own; }
+    if (command_name == Fix.ULTIMATE_FLARE || command_name == Fix.COMMAND_ULTIMATE_FLARE) { return TargetType.Enemy; }
+    if (command_name == Fix.GOUGEKI || command_name == Fix.COMMAND_GOUGEKI) { return TargetType.Enemy; }
+    if (command_name == Fix.BUTOH_ISSEN || command_name == Fix.COMMAND_BUTOH_ISSEN) { return TargetType.InstantTarget; }
+    if (command_name == Fix.GOD_SENSE || command_name == Fix.COMMAND_GOD_SENSE) { return TargetType.Own; }
+    if (command_name == Fix.TIME_JUMP || command_name == Fix.COMMAND_TIME_JUMP) { return TargetType.Own; } // 皇帝リガール専用。厳密にはOwnではないが良しとする。
+    if (command_name == Fix.STARSWORD_ZETSUKEN || command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return TargetType.Enemy; }
+    if (command_name == Fix.STARSWORD_REIKUU || command_name == Fix.COMMAND_STARSWORD_REIKUU) { return TargetType.InstantTarget; }
+    if (command_name == Fix.STARSWORD_SEIEI || command_name == Fix.COMMAND_STARSWORD_SEIEI) { return TargetType.Own; }
+    if (command_name == Fix.STARSWORD_RYOKUEI || command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return TargetType.Own; }
+    if (command_name == Fix.STARSWORD_FINALITY || command_name == Fix.COMMAND_STARSWORD_FINALITY) { return TargetType.Enemy; }
 
     if (command_name == Fix.SHADOW_BRINGER || command_name == Fix.COMMAND_SHADOW_BRINGER) { return TargetType.Enemy; }
     if (command_name == Fix.SPHERE_OF_GLORY || command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return TargetType.Own; }
@@ -2300,20 +2300,20 @@ public static class ActionCommand
 
     if (command_name == Fix.COMMAND_LIGHTNING_OUTBURST) { return 0; }
 
-    if (command_name == Fix.COMMAND_RENGEKI) { return 0; }
-    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return 0; }
-    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return 0; }
-    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return 0; }
-    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return 0; }
-    if (command_name == Fix.COMMAND_GOUGEKI) { return 0; }
-    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return 0; }
-    if (command_name == Fix.COMMAND_GOD_SENSE) { return 0; }
-    if (command_name == Fix.COMMAND_TIME_JUMP) { return 0; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return 0; }
-    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return 0; }
-    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return 0; }
-    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return 0; }
-    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return 0; }
+    if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return 0; }
+    if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return 0; }
+    if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return 0; }
+    if (command_name == Fix.ETERNAL_PRESENCE || command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return 0; }
+    if (command_name == Fix.ULTIMATE_FLARE || command_name == Fix.COMMAND_ULTIMATE_FLARE) { return 0; }
+    if (command_name == Fix.GOUGEKI || command_name == Fix.COMMAND_GOUGEKI) { return 0; }
+    if (command_name == Fix.BUTOH_ISSEN || command_name == Fix.COMMAND_BUTOH_ISSEN) { return 0; }
+    if (command_name == Fix.GOD_SENSE || command_name == Fix.COMMAND_GOD_SENSE) { return 0; }
+    if (command_name == Fix.TIME_JUMP || command_name == Fix.COMMAND_TIME_JUMP) { return 0; }
+    if (command_name == Fix.STARSWORD_ZETSUKEN || command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return 0; }
+    if (command_name == Fix.STARSWORD_REIKUU || command_name == Fix.COMMAND_STARSWORD_REIKUU) { return 0; }
+    if (command_name == Fix.STARSWORD_SEIEI || command_name == Fix.COMMAND_STARSWORD_SEIEI) { return 0; }
+    if (command_name == Fix.STARSWORD_RYOKUEI || command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return 0; }
+    if (command_name == Fix.STARSWORD_FINALITY || command_name == Fix.COMMAND_STARSWORD_FINALITY) { return 0; }
 
     if (command_name == Fix.SHADOW_BRINGER || command_name == Fix.COMMAND_SHADOW_BRINGER) { return 0; }
     if (command_name == Fix.SPHERE_OF_GLORY || command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return 0; }
@@ -2732,20 +2732,20 @@ public static class ActionCommand
     // モンスターコマンド
     if (command_name == Fix.EFFECT_POWERUP_FIRE) { return Fix.BuffType.Positive; }
 
-    if (command_name == Fix.COMMAND_RENGEKI) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Fix.BuffType.Negative; }
-    if (command_name == Fix.COMMAND_GOUGEKI) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_GOD_SENSE) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_TIME_JUMP) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Fix.BuffType.None; }
-    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Fix.BuffType.Positive; }
-    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Fix.BuffType.None; }
+    if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return Fix.BuffType.None; }
+    if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.ETERNAL_PRESENCE || command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.ULTIMATE_FLARE || command_name == Fix.COMMAND_ULTIMATE_FLARE) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.GOUGEKI || command_name == Fix.COMMAND_GOUGEKI) { return Fix.BuffType.None; }
+    if (command_name == Fix.BUTOH_ISSEN || command_name == Fix.COMMAND_BUTOH_ISSEN) { return Fix.BuffType.None; }
+    if (command_name == Fix.GOD_SENSE || command_name == Fix.COMMAND_GOD_SENSE) { return Fix.BuffType.None; }
+    if (command_name == Fix.TIME_JUMP || command_name == Fix.COMMAND_TIME_JUMP) { return Fix.BuffType.None; }
+    if (command_name == Fix.STARSWORD_ZETSUKEN || command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return Fix.BuffType.None; }
+    if (command_name == Fix.STARSWORD_REIKUU || command_name == Fix.COMMAND_STARSWORD_REIKUU) { return Fix.BuffType.None; }
+    if (command_name == Fix.STARSWORD_SEIEI || command_name == Fix.COMMAND_STARSWORD_SEIEI) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.STARSWORD_RYOKUEI || command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return Fix.BuffType.Positive; }
+    if (command_name == Fix.STARSWORD_FINALITY || command_name == Fix.COMMAND_STARSWORD_FINALITY) { return Fix.BuffType.None; }
 
     if (command_name == Fix.SHADOW_BRINGER || command_name == Fix.COMMAND_SHADOW_BRINGER) { return Fix.BuffType.Negative; }
     if (command_name == Fix.SPHERE_OF_GLORY || command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return Fix.BuffType.Positive; }
@@ -3107,20 +3107,20 @@ public static class ActionCommand
     if (command_name == Fix.COMMAND_PLATINUM_BLADE) { return true; }
     if (command_name == Fix.COMMAND_CHARGE) { return true; }
 
-    if (command_name == Fix.COMMAND_RENGEKI) { return true; }
-    if (command_name == Fix.COMMAND_PERFECT_PROPHECY) { return false; }
-    if (command_name == Fix.COMMAND_HOLY_WISDOM) { return false; }
-    if (command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return false; }
-    if (command_name == Fix.COMMAND_ULTIMATE_FLARE) { return true; }
-    if (command_name == Fix.COMMAND_GOUGEKI) { return true; }
-    if (command_name == Fix.COMMAND_BUTOH_ISSEN) { return false; }
-    if (command_name == Fix.COMMAND_GOD_SENSE) { return false; }
-    if (command_name == Fix.COMMAND_TIME_JUMP) { return false; }
-    if (command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return true; }
-    if (command_name == Fix.COMMAND_STARSWORD_REIKUU) { return false; }
-    if (command_name == Fix.COMMAND_STARSWORD_SEIEI) { return false; }
-    if (command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return false; }
-    if (command_name == Fix.COMMAND_STARSWORD_FINALITY) { return true; }
+    if (command_name == Fix.RENGEKI || command_name == Fix.COMMAND_RENGEKI) { return true; }
+    if (command_name == Fix.PERFECT_PROPHECY || command_name == Fix.COMMAND_PERFECT_PROPHECY) { return false; }
+    if (command_name == Fix.HOLY_WISDOM || command_name == Fix.COMMAND_HOLY_WISDOM) { return false; }
+    if (command_name == Fix.ETERNAL_PRESENCE || command_name == Fix.COMMAND_ETERNAL_PRESENCE) { return false; }
+    if (command_name == Fix.ULTIMATE_FLARE || command_name == Fix.COMMAND_ULTIMATE_FLARE) { return true; }
+    if (command_name == Fix.GOUGEKI || command_name == Fix.COMMAND_GOUGEKI) { return true; }
+    if (command_name == Fix.BUTOH_ISSEN || command_name == Fix.COMMAND_BUTOH_ISSEN) { return false; }
+    if (command_name == Fix.GOD_SENSE || command_name == Fix.COMMAND_GOD_SENSE) { return false; }
+    if (command_name == Fix.TIME_JUMP || command_name == Fix.COMMAND_TIME_JUMP) { return false; }
+    if (command_name == Fix.STARSWORD_ZETSUKEN || command_name == Fix.COMMAND_STARSWORD_ZETSUKEN) { return true; }
+    if (command_name == Fix.STARSWORD_REIKUU || command_name == Fix.COMMAND_STARSWORD_REIKUU) { return false; }
+    if (command_name == Fix.STARSWORD_SEIEI || command_name == Fix.COMMAND_STARSWORD_SEIEI) { return false; }
+    if (command_name == Fix.STARSWORD_RYOKUEI || command_name == Fix.COMMAND_STARSWORD_RYOKUEI) { return false; }
+    if (command_name == Fix.STARSWORD_FINALITY || command_name == Fix.COMMAND_STARSWORD_FINALITY) { return true; }
 
     if (command_name == Fix.SHADOW_BRINGER || command_name == Fix.COMMAND_SHADOW_BRINGER) { return true; }
     if (command_name == Fix.SPHERE_OF_GLORY || command_name == Fix.COMMAND_SPHERE_OF_GLORY) { return false; }
