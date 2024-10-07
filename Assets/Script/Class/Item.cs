@@ -8481,6 +8481,104 @@ public partial class Item
         this.ResistSilence = true;
         break;
 
+      case Fix.ZELMAN_THE_ONSLAUGHT_BASTER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 350;
+        this._physicalAttackMax = 550;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 83000;
+        this._importantType = Important.None;
+        this._description = "ゼールマンの里から伝承された両手斧。重量が非常にあり、一般的な鍛え方をしている人では両手でもまともに持ち上げられない。攻撃が当たれば破壊力は絶大である。物理攻撃力３５０～５５０、力＋５０、体＋４０";
+        this._strength = 50;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 40;
+        this._mind = 0;
+        break;
+
+      case Fix.LIFEGRACE_FORTUNE_STAFF:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 200;
+        this._magicAttackMax = 250;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 56000;
+        this._importantType = Important.None;
+        this._description = "ツァルマンの里で毎年行われる奉納祭にて、よく利用される杖。杖全体から淡い緑色の光が放たれており、保持者にマナの源泉を感じ取らせてくれる。魔法攻撃力２００～２５０、知＋３５、心＋２２";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 35;
+        this._stamina = 0;
+        this._mind = 22;
+        break;
+
+      case Fix.WHITEVEIL_QUEENS_ROBE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 50;
+        this._magicDefense = 90;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 62000;
+        this._importantType = Important.None;
+        this._description = "白のヴェールが特徴的なシルク製のローブ。ツァルマンの里で婚儀が行われる時によく用いられる。物理防御力５０、魔法防御力９０、知＋３０、闇耐性＋１０％、聖耐性＋１０、スタン耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 30;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistShadowPercent = 0.10f;
+        this._resistLightPercent = 0.10f;
+        this._resistStun = true;
+        this._resistFear = true;
+        break;
+
+      case Fix.KODAIEIJU_GREEN_LEAF:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 160000;
+        this._importantType = Important.None;
+        this._description = "古代栄樹の葉は決して枯れる事はなく、今でも装備品として重宝されている。希少価値としても高いのでお値段はわりと高めとなっている。技＋４０、知＋４０、体＋４０、心＋４０、猛毒耐性、出血耐性";
+        this._strength = 0;
+        this._agility = 40;
+        this._intelligence = 40;
+        this._stamina = 40;
+        this._mind = 40;
+        this._resistPoison = true;
+        this._resistSlip = true;
+        break;
+
       case Fix.STEEL_RING_POWER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;
@@ -10180,6 +10278,134 @@ public partial class Item
         this.ResistShadowPercent = 0.25f;
         break;
 
+      case Fix.BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 1050;
+        this._physicalAttackMax = 1240;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 850000;
+        this._importantType = Important.None;
+        this._description = "両利き用に製作された黒纏いのダガー。恐ろしいほどの切れ味と軽量さから、暗躍するローグ達は必ずと言って良いほど、これを駆使する。物理攻撃力 １０５０～１２４０、技＋５０、知＋５０";
+        this._strength = 0;
+        this._agility = 20;
+        this._intelligence = 20;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.HOLY_BLESSING_SHIELD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 400;
+        this._magicDefense = 360;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 700000;
+        this._importantType = Important.None;
+        this._description = "パルメティシア神殿の祈りが込められている聖なる盾。神々しさを常に放っており、所持者には聖なる加護が付与される。物理防御力４００、魔法防御力３６０、体＋１００、聖耐性３０％、闇耐性３０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 100;
+        this._mind = 0;
+        this.ResistLightPercent = 0.30f;
+        this.ResistShadowPercent = 0.30f;
+        break;
+
+      case Fix.LATA_GUARDIAN_RING:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1000000;
+        this._importantType = Important.None;
+        this._description = "雪原の大樹【ラタ】の紋様が施されたリング。装備した者に不思議な青白の発行が与えられ、加護が約束される。体＋４００、心＋２００、猛毒耐性、スタン耐性、出血耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 400;
+        this._mind = 200;
+        this._resistPoison = true;
+        this._resistStun = true;
+        this._resistSlip = true;
+        break;
+
+      case Fix.BLUEEYE_TEMPLE_PENDANT:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1100000;
+        this._importantType = Important.None;
+        this._description = "【青眼】の紋様が記されている神殿騎士のペンダント。【青眼】の紋様からは蒼のイメージが流れ込んでくる。技＋１５０、知＋５５０、凍結耐性、沈黙耐性、氷耐性３０％、氷増幅２０％";
+        this._strength = 0;
+        this._agility = 150;
+        this._intelligence = 550;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistFreeze = true;
+        this._resistSilence = true;
+        this._resistIcePercent = 0.30f;
+        this._amplifyIce = 1.20f;
+        break;
+
+      case Fix.REDEYE_TEMPLE_PENDANT:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 1100000;
+        this._importantType = Important.None;
+        this._description = "【赤眼】の紋様が記されている神殿騎士のペンダント。【赤眼】の紋様からは朱のイメージが流れ込んでくる。力＋５５０、技＋１５０、束縛耐性、麻痺耐性、炎耐性３０％、炎増幅２０％";
+        this._strength = 550;
+        this._agility = 150;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this._resistBind = true;
+        this._resistParalyze = true;
+        this._resistFirePercent = 0.30f;
+        this._amplifyFire = 1.20f;
+        break;
+
       case Fix.SILVER_RING_GOUKA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;
@@ -10980,6 +11206,149 @@ public partial class Item
         this.ResistSlow = true;
         this.ResistDizzy = true;
         this.ResistSlip = true;
+        break;
+
+      #endregion
+      #region "エデルガイゼン城"
+      case Fix.EXTREME_SWORD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 750;
+        this._physicalAttackMax = 1000;
+        this._gold = 1000000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された剣はエクストリームの称号にふさわしい。物理攻撃力７５０～１０００";
+        break;
+
+      case Fix.EXTREME_LANCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 900;
+        this._physicalAttackMax = 1200;
+        this._gold = 1200000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された槍はエクストリームの称号にふさわしい。物理攻撃力９００～１２００";
+        break;
+
+      case Fix.EXTREME_AXE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 1050;
+        this._physicalAttackMax = 1400;
+        this._gold = 1400000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された斧はエクストリームの称号にふさわしい。物理攻撃力１０５０～１４００";
+        break;
+
+      case Fix.EXTREME_CLAW:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 700;
+        this._physicalAttackMax = 900;
+        this._gold = 980000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された爪はエクストリームの称号にふさわしい。物理攻撃力７００～９００";
+        break;
+
+      case Fix.EXTREME_ROD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 750;
+        this._magicAttackMax = 1000;
+        this._gold = 1000000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された杖はエクストリームの称号にふさわしい。魔法攻撃力７５０～１０００";
+        break;
+
+      case Fix.EXTREME_BOOK:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 900;
+        this._magicAttackMax = 1200;
+        this._gold = 1200000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された本はエクストリームの称号にふさわしい。魔法攻撃力９００～１２００";
+        break;
+
+      case Fix.EXTREME_ORB:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 700;
+        this._magicAttackMax = 900;
+        this._gold = 980000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された水晶はエクストリームの称号にふさわしい。魔法攻撃力７００～９００";
+        break;
+
+      case Fix.EXTREME_BOW:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 1700;
+        this._physicalAttackMax = 2000;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された弓はエクストリームの称号にふさわしい。物理攻撃力１７００～２０００";
+        break;
+
+      case Fix.EXTREME_LARGE_STAFF:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._magicAttack = 1650;
+        this._magicAttackMax = 1950;
+        this._gold = 2050000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された両手杖はエクストリームの称号にふさわしい。魔法攻撃力１６５０～１９５０";
+        break;
+
+      case Fix.EXTREME_SHIELD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 450;
+        this._gold = 960000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された盾はエクストリームの称号にふさわしい。物理防御力４５０";
+        break;
+
+      case Fix.EXTREME_ARMOR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 700;
+        this._gold = 1600000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された鎧はエクストリームの称号にふさわしい。物理防御力７００";
+        break;
+
+      case Fix.EXTREME_CROSS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 500;
+        this._magicDefense = 200;
+        this._gold = 1400000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作された舞踏衣はエクストリームの称号にふさわしい。物理防御力５００、魔法防御力２００";
+        break;
+
+      case Fix.EXTREME_ROBE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 150;
+        this._magicDefense = 550;
+        this._gold = 1800000;
+        this._importantType = Important.None;
+        this._description = "世界に7つしかない高級素材で製作されたローブはエクストリームの称号にふさわしい。物理防御力１５０、魔法防御力５５０";
         break;
 
       #endregion

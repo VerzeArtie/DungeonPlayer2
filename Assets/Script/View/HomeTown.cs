@@ -4500,11 +4500,15 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.EARTH_SHARD_CLAW));
       shopList.Add(new Item(Fix.BLOOD_STUBBORN_SPEAR));
       shopList.Add(new Item(Fix.EMBLEM_OF_VALKYRIE));
+      shopList.Add(new Item(Fix.ZELMAN_THE_ONSLAUGHT_BASTER));
+      shopList.Add(new Item(Fix.LIFEGRACE_FORTUNE_STAFF));
+      shopList.Add(new Item(Fix.WHITEVEIL_QUEENS_ROBE));
+      shopList.Add(new Item(Fix.KODAIEIJU_GREEN_LEAF));
       shopList.Add(new Item(Fix.HUGE_RED_POTION));
       shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
     }
-    else if (area_name == Fix.TOWN_PARMETYSIA)
+    else if (area_name == Fix.TOWN_FAZIL_CASTLE) // todo ファージル宮殿だが、第二開放が条件
     {
       shopList.Add(new Item(Fix.MASTER_SWORD));
       shopList.Add(new Item(Fix.MASTER_LANCE));
@@ -4522,9 +4526,33 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.MASTER_ARMOR));
       shopList.Add(new Item(Fix.MASTER_CROSS));
       shopList.Add(new Item(Fix.MASTER_ROBE));
+      shopList.Add(new Item(Fix.BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER));
+      shopList.Add(new Item(Fix.HOLY_BLESSING_SHIELD));
+      shopList.Add(new Item(Fix.LATA_GUARDIAN_RING));
+      shopList.Add(new Item(Fix.BLUEEYE_TEMPLE_PENDANT));
+      shopList.Add(new Item(Fix.REDEYE_TEMPLE_PENDANT));
       shopList.Add(new Item(Fix.HQ_RED_POTION));
       shopList.Add(new Item(Fix.HQ_BLUE_POTION));
       shopList.Add(new Item(Fix.HQ_GREEN_POTION));
+    }
+    else if (area_name == Fix.TOWN_PARMETYSIA)
+    {
+      shopList.Add(new Item(Fix.EXTREME_SWORD));
+      shopList.Add(new Item(Fix.EXTREME_LANCE));
+      shopList.Add(new Item(Fix.EXTREME_AXE));
+      shopList.Add(new Item(Fix.EXTREME_CLAW));
+      shopList.Add(new Item(Fix.EXTREME_ROD));
+      shopList.Add(new Item(Fix.EXTREME_BOOK));
+      shopList.Add(new Item(Fix.EXTREME_ORB));
+      shopList.Add(new Item(Fix.EXTREME_BOW);
+      shopList.Add(new Item(Fix.EXTREME_LARGE_STAFF));
+      shopList.Add(new Item(Fix.EXTREME_SHIELD));
+      shopList.Add(new Item(Fix.EXTREME_ARMOR));
+      shopList.Add(new Item(Fix.EXTREME_CROSS));
+      shopList.Add(new Item(Fix.EXTREME_ROBE));
+      shopList.Add(new Item(Fix.THQ_RED_POTION));
+      shopList.Add(new Item(Fix.THQ_BLUE_POTION));
+      shopList.Add(new Item(Fix.THQ_GREEN_POTION));
     }
     else if (area_name == Fix.TOWN_ARCANEDINE)
     {

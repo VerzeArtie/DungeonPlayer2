@@ -2600,6 +2600,10 @@ public static partial class Fix
   public const string HARDED_INTENSITY_PLATE = "ハーデッド・インテンシティ・プレート";
   public const string SOLDIER_HATRED_CROSS = "ソルジャー・ヴィゴー・クロス";
   public const string WONDERERS_INVISIBLE_ROBE = "ワンダラーズ・インビジブル・ローブ";
+  public const string ZELMAN_THE_ONSLAUGHT_BASTER = "ゼールマン・ジ・オンスロート・バスター";
+  public const string LIFEGRACE_FORTUNE_STAFF = "ライフグレイス・フォーチュン・スタッフ";
+  public const string WHITEVEIL_QUEENS_ROBE = "ホワイトヴェール・クイーンズ・ローブ";
+  public const string KODAIEIJU_GREEN_LEAF = "古代栄樹の常緑葉";
 
   public const string STEEL_RING_POWER = "鋼の腕輪『パワー』";
   public const string STEEL_RING_SENSE = "鋼の腕輪『センス』";
@@ -2664,6 +2668,11 @@ public static partial class Fix
   public const string HIGHWARRIOR_DRAGONMAIL = "ハイウォーリアー・ドラゴンメイル";
   public const string SWIFTCROSS_OF_REDTHUNDER = "スウィフトクロス・オブ・レッドサンダー";
   public const string BLADESHADOW_CROWDED_DRESS = "ブレードシャドウ・クラウディッド・ドレス";
+  public const string BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER = "ブラックローグ・アンビデキシタリティ・ダガー";
+  public const string HOLY_BLESSING_SHIELD = "ホーリー・ブレッシング・シールド";
+  public const string LATA_GUARDIAN_RING = "ガーディアン・リング【ラタの導き】";
+  public const string BLUEEYE_TEMPLE_PENDANT = "神殿騎士のペンダント【青眼】";
+  public const string REDEYE_TEMPLE_PENDANT = "神殿騎士のペンダント【赤眼】";
 
   public const string SILVER_RING_GOUKA = "銀の腕輪【業火】";
   public const string SILVER_RING_TSUNAMI = "銀の腕輪【津波】";
@@ -2739,9 +2748,6 @@ public static partial class Fix
   public const string EXTREME_ROD = "エクストリーム・ロッド";
   public const string EXTREME_BOOK = "エクストリーム・ブック";
   public const string EXTREME_ORB = "エクストリーム・オーブ";
-  public const string EXTREME_LARGE_SWORD = "エクストリーム・ラージ・ソード";
-  public const string EXTREME_LARGE_LANCE = "エクストリーム・ラージ・ランス";
-  public const string EXTREME_LARGE_AXE = "エクストリーム・ラージ・アックス";
   public const string EXTREME_BOW = "エクストリーム・ボウ";
   public const string EXTREME_LARGE_STAFF = "エクストリーム・ラージ・スタッフ";
   public const string EXTREME_SHIELD = "エクストリーム・シールド";
