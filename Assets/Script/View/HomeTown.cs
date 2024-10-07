@@ -4544,7 +4544,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.EXTREME_ROD));
       shopList.Add(new Item(Fix.EXTREME_BOOK));
       shopList.Add(new Item(Fix.EXTREME_ORB));
-      shopList.Add(new Item(Fix.EXTREME_BOW);
+      shopList.Add(new Item(Fix.EXTREME_BOW));
       shopList.Add(new Item(Fix.EXTREME_LARGE_STAFF));
       shopList.Add(new Item(Fix.EXTREME_SHIELD));
       shopList.Add(new Item(Fix.EXTREME_ARMOR));
