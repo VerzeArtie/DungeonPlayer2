@@ -8973,17 +8973,17 @@ public class DungeonField : MotherBase
         // 宝箱１
         if (One.TF.Treasure_OhranTower_00001 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
         {
-          treasureName = Fix.SUPERIOR_SWORD;
+          treasureName = Fix.POOR_BLACK_MATERIAL;
         }
         // 宝箱２
         if (One.TF.Treasure_OhranTower_00002 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))
         {
-          treasureName = Fix.SUPERIOR_SWORD;
+          treasureName = Fix.SUPERIOR_LANCE;
         }
         // 宝箱３
         if (One.TF.Treasure_OhranTower_00003 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_3_X, Fix.OHRANTOWER_Treasure_3_Y, Fix.OHRANTOWER_Treasure_3_Z))
         {
-          treasureName = Fix.SUPERIOR_SHIELD;
+          treasureName = Fix.HUGE_RED_POTION;
         }
         // 宝箱４
         if (One.TF.Treasure_OhranTower_00004 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_4_X, Fix.OHRANTOWER_Treasure_4_Y, Fix.OHRANTOWER_Treasure_4_Z))
@@ -8993,162 +8993,162 @@ public class DungeonField : MotherBase
         // 宝箱５
         if (One.TF.Treasure_OhranTower_00005 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_5_X, Fix.OHRANTOWER_Treasure_5_Y, Fix.OHRANTOWER_Treasure_5_Z))
         {
-          treasureName = Fix.SUPERIOR_ORB;
+          treasureName = Fix.SUPERIOR_CLAW;
         }
         // 宝箱６
         if (One.TF.Treasure_OhranTower_00006 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_6_X, Fix.OHRANTOWER_Treasure_6_Y, Fix.OHRANTOWER_Treasure_6_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_STAFF;
+          treasureName = Fix.YELLOW_MASEKI;
         }
         // 宝箱７
         if (One.TF.Treasure_OhranTower_00007 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_7_X, Fix.OHRANTOWER_Treasure_7_Y, Fix.OHRANTOWER_Treasure_7_Z))
         {
-          treasureName = Fix.SUPERIOR_LANCE;
+          treasureName = Fix.SUN_BURST_KEY;
         }
         // 宝箱８
         if (One.TF.Treasure_OhranTower_00008 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_8_X, Fix.OHRANTOWER_Treasure_8_Y, Fix.OHRANTOWER_Treasure_8_Z))
         {
-          treasureName = Fix.SUPERIOR_CLAW;
+          treasureName = Fix.SUPERIOR_SWORD;
         }
         // 宝箱９
         if (One.TF.Treasure_OhranTower_00009 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_9_X, Fix.OHRANTOWER_Treasure_9_Y, Fix.OHRANTOWER_Treasure_9_Z))
         {
-          treasureName = Fix.SUPERIOR_SWORD;
+          treasureName = Fix.HUGE_BLUE_POTION;
         }
         // 宝箱１０
         if (One.TF.Treasure_OhranTower_00010 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_10_X, Fix.OHRANTOWER_Treasure_10_Y, Fix.OHRANTOWER_Treasure_10_Z))
         {
-          treasureName = Fix.SUPERIOR_LANCE;
+          treasureName = Fix.STEEL_RING_DEEP;
         }
         // 宝箱１１
         if (One.TF.Treasure_OhranTower_00011 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_11_X, Fix.OHRANTOWER_Treasure_11_Y, Fix.OHRANTOWER_Treasure_11_Z))
         {
-          treasureName = Fix.SUPERIOR_AXE;
+          treasureName = Fix.HUGE_GREEN_POTION;
         }
         // 宝箱１２
         if (One.TF.Treasure_OhranTower_00012 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_12_X, Fix.OHRANTOWER_Treasure_12_Y, Fix.OHRANTOWER_Treasure_12_Z))
         {
-          treasureName = Fix.SUPERIOR_ARMOR;
+          treasureName = Fix.SUPERIOR_CROSS;
         }
         // 宝箱１３
         if (One.TF.Treasure_OhranTower_00013 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_13_X, Fix.OHRANTOWER_Treasure_13_Y, Fix.OHRANTOWER_Treasure_13_Z))
         {
-          treasureName = Fix.SUPERIOR_CROSS;
+          treasureName = Fix.SHADOW_MOON_KEY;
         }
         // 宝箱１４
         if (One.TF.Treasure_OhranTower_00014 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_14_X, Fix.OHRANTOWER_Treasure_14_Y, Fix.OHRANTOWER_Treasure_14_Z))
         {
-          treasureName = Fix.SUPERIOR_ROBE;
+          treasureName = Fix.SUPERIOR_SHIELD;
         }
         // 宝箱１５
         if (One.TF.Treasure_OhranTower_00015 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_15_X, Fix.OHRANTOWER_Treasure_15_Y, Fix.OHRANTOWER_Treasure_15_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_SWORD;
+          treasureName = Fix.SUPERIOR_LARGE_STAFF;
         }
         // 宝箱１６
         if (One.TF.Treasure_OhranTower_00016 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_16_X, Fix.OHRANTOWER_Treasure_16_Y, Fix.OHRANTOWER_Treasure_16_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_LANCE;
+          treasureName = Fix.RED_MASEKI;
         }
         // 宝箱１７
         if (One.TF.Treasure_OhranTower_00017 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_17_X, Fix.OHRANTOWER_Treasure_17_Y, Fix.OHRANTOWER_Treasure_17_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_AXE;
+          treasureName = Fix.HUGE_RED_POTION;
         }
         // 宝箱１８
         if (One.TF.Treasure_OhranTower_00018 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_18_X, Fix.OHRANTOWER_Treasure_18_Y, Fix.OHRANTOWER_Treasure_18_Z))
         {
-          treasureName = Fix.SUPERIOR_BOW;
+          treasureName = Fix.ENGAGED_FUTURE_ROD;
         }
         // 宝箱１９
         if (One.TF.Treasure_OhranTower_00019 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_19_X, Fix.OHRANTOWER_Treasure_19_Y, Fix.OHRANTOWER_Treasure_19_Z))
         {
-          treasureName = Fix.SUPERIOR_BOOK;
+          treasureName = Fix.HUGE_BLUE_POTION;
         }
         // 宝箱２０
         if (One.TF.Treasure_OhranTower_00020 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_20_X, Fix.OHRANTOWER_Treasure_20_Y, Fix.OHRANTOWER_Treasure_20_Z))
         {
-          treasureName = Fix.SUPERIOR_ROD;
+          treasureName = Fix.HUGE_GREEN_POTION;
         }
         // 宝箱２１
         if (One.TF.Treasure_OhranTower_00021 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_21_X, Fix.OHRANTOWER_Treasure_21_Y, Fix.OHRANTOWER_Treasure_21_Z))
         {
-          treasureName = Fix.SUPERIOR_ORB;
+          treasureName = Fix.SUPERIOR_AXE;
         }
         // 宝箱２２
         if (One.TF.Treasure_OhranTower_00022 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_22_X, Fix.OHRANTOWER_Treasure_22_Y, Fix.OHRANTOWER_Treasure_22_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_STAFF;
+          treasureName = Fix.STEEL_RING_BOUND;
         }
         // 宝箱２３
         if (One.TF.Treasure_OhranTower_00023 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_23_X, Fix.OHRANTOWER_Treasure_23_Y, Fix.OHRANTOWER_Treasure_23_Z))
         {
-          treasureName = Fix.SUPERIOR_SHIELD;
+          treasureName = Fix.HUGE_RED_POTION;
         }
         // 宝箱２４
         if (One.TF.Treasure_OhranTower_00024 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_24_X, Fix.OHRANTOWER_Treasure_24_Y, Fix.OHRANTOWER_Treasure_24_Z))
         {
-          treasureName = Fix.SUPERIOR_SWORD;
+          treasureName = Fix.SOLDIER_HATRED_CROSS;
         }
         // 宝箱２５
         if (One.TF.Treasure_OhranTower_00025 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_25_X, Fix.OHRANTOWER_Treasure_25_Y, Fix.OHRANTOWER_Treasure_25_Z))
         {
-          treasureName = Fix.SUPERIOR_BOOK;
+          treasureName = Fix.SUPERIOR_ARMOR;
         }
         // 宝箱２６
         if (One.TF.Treasure_OhranTower_00026 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_26_X, Fix.OHRANTOWER_Treasure_26_Y, Fix.OHRANTOWER_Treasure_26_Z))
         {
-          treasureName = Fix.SUPERIOR_ORB;
+          treasureName = Fix.GREEN_MASEKI;
         }
         // 宝箱２７
         if (One.TF.Treasure_OhranTower_00027 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_27_X, Fix.OHRANTOWER_Treasure_27_Y, Fix.OHRANTOWER_Treasure_27_Z))
         {
-          treasureName = Fix.SUPERIOR_ROD;
+          treasureName = Fix.BLOOD_STUBBORN_SPEAR;
         }
         // 宝箱２８
         if (One.TF.Treasure_OhranTower_00028 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_28_X, Fix.OHRANTOWER_Treasure_28_Y, Fix.OHRANTOWER_Treasure_28_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_AXE;
+          treasureName = Fix.LIGHTBRIGHT_FLOATING_STONE;
         }
         // 宝箱２９
         if (One.TF.Treasure_OhranTower_00029 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_29_X, Fix.OHRANTOWER_Treasure_29_Y, Fix.OHRANTOWER_Treasure_29_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_LANCE;
+          treasureName = Fix.SUPERIOR_BOW;
         }
         // 宝箱３０
         if (One.TF.Treasure_OhranTower_00030 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_30_X, Fix.OHRANTOWER_Treasure_30_Y, Fix.OHRANTOWER_Treasure_30_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_STAFF;
+          treasureName = Fix.HUGE_RED_POTION;
         }
         // 宝箱３１
         if (One.TF.Treasure_OhranTower_00031 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_31_X, Fix.OHRANTOWER_Treasure_31_Y, Fix.OHRANTOWER_Treasure_31_Z))
         {
-          treasureName = Fix.SUPERIOR_ARMOR;
+          treasureName = Fix.STEEL_RING_FAST;
         }
         // 宝箱３２
         if (One.TF.Treasure_OhranTower_00032 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_32_X, Fix.OHRANTOWER_Treasure_32_Y, Fix.OHRANTOWER_Treasure_32_Z))
         {
-          treasureName = Fix.SUPERIOR_ROBE;
+          treasureName = Fix.STEEL_RING_SENSE;
         }
         // 宝箱３３
         if (One.TF.Treasure_OhranTower_00033 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_33_X, Fix.OHRANTOWER_Treasure_33_Y, Fix.OHRANTOWER_Treasure_33_Z))
         {
-          treasureName = Fix.SUPERIOR_CROSS;
+          treasureName = Fix.LUMINUS_REFLECT_MIRROR;
         }
         // 宝箱３４
         if (One.TF.Treasure_OhranTower_00034 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_34_X, Fix.OHRANTOWER_Treasure_34_Y, Fix.OHRANTOWER_Treasure_34_Z))
         {
-          treasureName = Fix.SUPERIOR_BOW;
+          treasureName = Fix.SUPERIOR_LARGE_AXE;
         }
         // 宝箱３５
         if (One.TF.Treasure_OhranTower_00035 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_35_X, Fix.OHRANTOWER_Treasure_35_Y, Fix.OHRANTOWER_Treasure_35_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_LANCE;
+          treasureName = Fix.STEEL_RING_POWER;
         }
         // 宝箱３６
         if (One.TF.Treasure_OhranTower_00036 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_36_X, Fix.OHRANTOWER_Treasure_36_Y, Fix.OHRANTOWER_Treasure_36_Z))
         {
-          treasureName = Fix.SUPERIOR_LARGE_AXE;
+          treasureName = Fix.EMBLEM_OF_VALKYRIE;
         }
         // 宝箱３７
         if (One.TF.Treasure_OhranTower_00037 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z))
