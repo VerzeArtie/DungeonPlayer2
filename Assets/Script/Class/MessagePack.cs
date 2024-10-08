@@ -7404,6 +7404,8 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エルミ：アイン君、僕は君の言っている事を信じるよ。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "【エルミ国王、首を少し傾け、ファラに視線を送る】", ActionEvent.MessageDisplay);
+
       Message(ref m_list, ref e_list, "エルミ：ファラ。今の発言、間違いなさそうだよね？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ファラ：ええ、間違いないですわ（＾＾", ActionEvent.None);
