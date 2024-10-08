@@ -1057,9 +1057,15 @@ public partial class HomeTown : MotherBase
 
     if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA)
     {
-      if (One.TF.Event_Message1010020 == false)
+      if (One.TF.Event_Message2200020 == false)
       {
         MessagePack.Message2200011(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
+      if (One.TF.Event_Message2200021 == false)
+      {
+        MessagePack.Message2200021(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -4508,7 +4514,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HUGE_BLUE_POTION));
       shopList.Add(new Item(Fix.HUGE_GREEN_POTION));
     }
-    else if (area_name == Fix.TOWN_FAZIL_CASTLE) // todo ファージル宮殿だが、第二開放が条件
+    else if (area_name == Fix.TOWN_PARMETYSIA)
     {
       shopList.Add(new Item(Fix.MASTER_SWORD));
       shopList.Add(new Item(Fix.MASTER_LANCE));
@@ -4534,40 +4540,6 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.HQ_RED_POTION));
       shopList.Add(new Item(Fix.HQ_BLUE_POTION));
       shopList.Add(new Item(Fix.HQ_GREEN_POTION));
-    }
-    else if (area_name == Fix.TOWN_PARMETYSIA)
-    {
-      shopList.Add(new Item(Fix.EXTREME_SWORD));
-      shopList.Add(new Item(Fix.EXTREME_LANCE));
-      shopList.Add(new Item(Fix.EXTREME_AXE));
-      shopList.Add(new Item(Fix.EXTREME_CLAW));
-      shopList.Add(new Item(Fix.EXTREME_ROD));
-      shopList.Add(new Item(Fix.EXTREME_BOOK));
-      shopList.Add(new Item(Fix.EXTREME_ORB));
-      shopList.Add(new Item(Fix.EXTREME_BOW));
-      shopList.Add(new Item(Fix.EXTREME_LARGE_STAFF));
-      shopList.Add(new Item(Fix.EXTREME_SHIELD));
-      shopList.Add(new Item(Fix.EXTREME_ARMOR));
-      shopList.Add(new Item(Fix.EXTREME_CROSS));
-      shopList.Add(new Item(Fix.EXTREME_ROBE));
-      shopList.Add(new Item(Fix.THQ_RED_POTION));
-      shopList.Add(new Item(Fix.THQ_BLUE_POTION));
-      shopList.Add(new Item(Fix.THQ_GREEN_POTION));
-    }
-    else if (area_name == Fix.TOWN_ARCANEDINE)
-    {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-
-    }
-    else if (area_name == Fix.TOWN_DALE)
-    {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-
-    }
-    else if (area_name == Fix.TOWN_ZELMAN)
-    {
-      shopList.Add(new Item(Fix.FINE_SWORD));
-
     }
     return shopList;
   }

@@ -26834,19 +26834,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：それを聞いて安心したわ。ありがと♪", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、それじゃあ向かう前に準備でもしておくとするか！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：あ、ねーねー。さっき神官さん達から聞いたんだけど", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：神殿からの武具販売の事だけど許可が出たって言われたよー☆", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "【パルメティシア神殿の武具屋が解放されました！】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：おお、マジかよ！そいつは助かるぜ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：行ってみましょ。結構色んな武具が並んでたのをさっき見たわ♪", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：おっしゃ、じゃあエオネとビリーが復帰するまでの間、ちょっと見てみるとするか！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：よし、それじゃあ準備でもしておくとするか！", ActionEvent.None);
     }
   }
 
@@ -31099,7 +31087,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスです。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "神官：迷えし子よ。天の名にあらず。お引き取りを。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "神官：迷えし子よ。お引き取りを。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "～　アインは店の外へと出た　～", ActionEvent.MessageDisplay);
 
@@ -31115,7 +31103,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "神官：名を示すがよい。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いえ、失礼しました。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いえ・・・失礼しました。", ActionEvent.None);
     }
   }
 
@@ -31415,7 +31403,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：条件？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：「天の名」を受けし者でないとコンタクトを取ったらダメらしい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：「天の名」を授かりし者でないとコンタクトを取ったらダメらしい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・っ！・・・　・・・", ActionEvent.None);
 
@@ -31618,6 +31606,24 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
     }
   }
+
+  public static void Message2200021(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message2200021 == false)
+    {
+      One.TF.Event_Message2200021 = true;
+      Message(ref m_list, ref e_list, "アデル：あ、ねーねー。さっき神官さん達から聞いたんだけど", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：神殿からの武具販売の事だけど許可が出たって言われたよー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【パルメティシア神殿の武具屋が解放されました！】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ビリー：おっしゃ、早速行ってみようぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ちょっと見てみるとしよう。", ActionEvent.None);
+    }
+  }
+
 
   public static void Message2299999(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
