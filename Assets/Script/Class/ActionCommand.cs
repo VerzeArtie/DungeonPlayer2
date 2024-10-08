@@ -1985,6 +1985,7 @@ public static class ActionCommand
     if (command_name == Fix.PERFECT_GREEN_POTION) { return 0; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return 0; }
     if (command_name == Fix.PURE_SINSEISUI) { return 0; }
+    if (command_name == Fix.PURE_VITALIRY_WATER) { return 0; }
     #endregion
 
     #region "Delve I"
@@ -2378,6 +2379,7 @@ public static class ActionCommand
     if (command_name == Fix.PERFECT_GREEN_POTION) { return Fix.BuffType.None; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return Fix.BuffType.None; }
     if (command_name == Fix.PURE_SINSEISUI) { return Fix.BuffType.None; }
+    if (command_name == Fix.PURE_VITALIRY_WATER) { return Fix.BuffType.None; }
     #endregion
 
     #region "Delve I"
@@ -2848,6 +2850,7 @@ public static class ActionCommand
     if (command_name == Fix.PERFECT_GREEN_POTION) { return false; }
     if (command_name == Fix.PURE_CLEAN_WATER) { return false; }
     if (command_name == Fix.PURE_SINSEISUI) { return false; }
+    if (command_name == Fix.PURE_VITALIRY_WATER) { return false; }
     #endregion
 
     #region "Delve I"
