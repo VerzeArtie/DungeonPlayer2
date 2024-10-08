@@ -224,6 +224,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _alreadySinseisui; }
   }
 
+  [SerializeField] protected bool _alreadyVitalityWater = false;
+  public bool AlreadyVitalityWater
+  {
+    set { _alreadyVitalityWater = value; }
+    get { return _alreadyVitalityWater; }
+  }
+
   [SerializeField] protected string _currentAreaName = String.Empty;
   public string CurrentAreaName
   {

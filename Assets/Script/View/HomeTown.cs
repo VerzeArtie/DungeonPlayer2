@@ -3468,7 +3468,8 @@ public partial class HomeTown : MotherBase
         current == Fix.THQ_GREEN_POTION ||
         current == Fix.PERFECT_GREEN_POTION ||
         current == Fix.PURE_CLEAN_WATER ||
-        current == Fix.PURE_SINSEISUI)
+        current == Fix.PURE_SINSEISUI ||
+        current == Fix.PURE_VITALIRY_WATER)
     {
       Debug.Log("CurrentSelectBackpack: " + current + " is not use in hometown, then no action.");
     }

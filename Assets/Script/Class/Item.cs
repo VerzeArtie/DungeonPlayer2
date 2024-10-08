@@ -12450,7 +12450,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "オーランの塔で入手した星屑の鍵。星屑の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._description = "オーランの塔で入手した星屑の鍵。星屑の紋様が描かれている扉に対して使用する事で、扉は開くだろう。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12478,7 +12478,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "オーランの塔で入手した月影の鍵。月影の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._description = "オーランの塔で入手した月影の鍵。月影の紋様が描かれている扉に対して使用する事で、扉は開くだろう。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12506,7 +12506,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "オーランの塔で入手した日輪の鍵。日輪の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._description = "オーランの塔で入手した日輪の鍵。日輪の紋様が描かれている扉に対して使用する事で、扉は開くだろう。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12534,7 +12534,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "オーランの塔で入手した原初の鍵。原初の紋様が描かれている製の扉に対して使用する事で、扉は開くだろう。";
+        this._description = "オーランの塔で入手した原初の鍵。原初の紋様が描かれている扉に対して使用する事で、扉は開くだろう。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12591,6 +12591,34 @@ public partial class Item
         this._gold = 0;
         this._importantType = Important.Precious;
         this._description = "純濃度が高い青い液体で生成された回復ポーション。飲んだ者のマナを100%回復する。ただし1度使うと空となるが、次の日になれば自然発生によりポーションはまた使える様になる。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        this.CanbeSocket1 = false;
+        this.CanbeSocket2 = false;
+        this.CanbeSocket3 = false;
+        this.CanbeSocket4 = false;
+        this.CanbeSocket5 = false;
+        break;
+
+      case Fix.PURE_VITALIRY_WATER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Potion;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "純濃度が高い緑色の液体で生成された回復ポーション。飲んだ者のスキルポイントを100%回復する。ただし1度使うと空となるが、次の日になれば自然発生によりポーションはまた使える様になる。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

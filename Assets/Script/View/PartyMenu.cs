@@ -450,6 +450,18 @@ public class PartyMenu : MotherBase
               // 何かメッセージを入れないと使えない事が分からない。
             }
           }
+          else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.PURE_VITALIRY_WATER)
+          {
+            if (One.TF.AlreadyVitalityWater == false)
+            {
+              One.TF.AlreadyVitalityWater = true;
+              PlayerList[ii].CurrentSkillPoint += PlayerList[ii].MaxSkillPoint;
+            }
+            else
+            {
+              // 何かメッセージを入れないと使えない事が分からない。
+            }
+          }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STRENGTH ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID3_STRENGTH ||
@@ -695,7 +707,8 @@ public class PartyMenu : MotherBase
         current == Fix.GROWTH_LIQUID6_MIND ||
         current == Fix.GROWTH_LIQUID7_MIND ||
         current == Fix.PURE_CLEAN_WATER || 
-        current == Fix.PURE_SINSEISUI
+        current == Fix.PURE_SINSEISUI ||
+        current == Fix.PURE_VITALIRY_WATER
         )
     {
       ParentBackpackView.objBlockFilter.SetActive(true);
@@ -1194,6 +1207,7 @@ public class PartyMenu : MotherBase
       if (One.TF.FindBackPackItem(Fix.PERFECT_GREEN_POTION)) { list.Add(Fix.PERFECT_GREEN_POTION); }
       if (One.TF.FindBackPackItem(Fix.PURE_CLEAN_WATER)) { list.Add(Fix.PURE_CLEAN_WATER); }
       if (One.TF.FindBackPackItem(Fix.PURE_SINSEISUI)) { list.Add(Fix.PURE_SINSEISUI); }
+      if (One.TF.FindBackPackItem(Fix.PURE_VITALIRY_WATER)) { list.Add(Fix.PURE_VITALIRY_WATER); }
       currentList = list;
     }
     else if (category_type == ActionCommand.CommandCategory.Archetype)

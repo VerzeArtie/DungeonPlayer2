@@ -8973,7 +8973,7 @@ public class DungeonField : MotherBase
         // 宝箱１
         if (One.TF.Treasure_OhranTower_00001 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_1_X, Fix.OHRANTOWER_Treasure_1_Y, Fix.OHRANTOWER_Treasure_1_Z))
         {
-          treasureName = Fix.POOR_BLACK_MATERIAL;
+          treasureName = Fix.PURE_VITALIRY_WATER;
         }
         // 宝箱２
         if (One.TF.Treasure_OhranTower_00002 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_2_X, Fix.OHRANTOWER_Treasure_2_Y, Fix.OHRANTOWER_Treasure_2_Z))

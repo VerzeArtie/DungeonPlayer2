@@ -2782,6 +2782,7 @@ public static partial class Fix
   public const string ITEM_COPPER_KEY = "銅製の鍵";
   public const string PURE_CLEAN_WATER = "清透水";
   public const string PURE_SINSEISUI = "神聖水";
+  public const string PURE_VITALIRY_WATER = "活湧水";
   public const string SHADOW_MOON_KEY = "月影の鍵";
   public const string SUN_BURST_KEY = "日輪の鍵";
   public const string STAR_DUST_KEY = "星屑の鍵";

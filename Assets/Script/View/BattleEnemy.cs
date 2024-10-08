@@ -534,8 +534,11 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
+          if (node.GroupTimeSequenceField != null)
+          {
+            node.GroupTimeSequenceField.gameObject.SetActive(false);
+          }
           Debug.Log("One.EnemyList[ii].FullName not ...");
-          node.GroupTimeSequenceField.gameObject.SetActive(false);
         }
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
 
@@ -3034,6 +3037,9 @@ public partial class BattleEnemy : MotherBase
         break;
       case Fix.PURE_SINSEISUI:
         ExecSinseisui(player);
+        break;
+      case Fix.PURE_VITALIRY_WATER:
+        ExecVitalityWater(player);
         break;
       #endregion
 
@@ -10647,6 +10653,29 @@ public partial class BattleEnemy : MotherBase
     One.TF.AlreadySinseisui = true;
     double effectValue = target.MaxManaPoint;
     AbstractGainManaPoint(null, target, effectValue);
+    return true;
+  }
+
+  private bool ExecVitalityWater(Character target)
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+
+    if (One.TF.FindBackPackItem(Fix.PURE_VITALIRY_WATER) == false)
+    {
+      Debug.Log("PURE_VITALIRY_WATER is nothing...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+      return false;
+    }
+    if (One.TF.AlreadyVitalityWater)
+    {
+      Debug.Log("PURE_VITALIRY_WATER is already used...then miss.");
+      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_ALREADY_USED, Fix.COLOR_NORMAL);
+      return false;
+    }
+
+    One.TF.AlreadyVitalityWater = true;
+    double effectValue = target.MaxSkillPoint;
+    AbstractGainSkillPoint(null, target, effectValue);
     return true;
   }
 
