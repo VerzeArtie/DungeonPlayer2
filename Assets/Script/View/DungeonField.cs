@@ -9176,11 +9176,11 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
         if (One.TF.Treasure_Velgus_00001 == false && location.x == Fix.VELGUS_TREASURE_1_X && location.y == Fix.VELGUS_TREASURE_1_Y && location.z == Fix.VELGUS_TREASURE_1_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.MASTER_ORB;
         }
         if (One.TF.Treasure_Velgus_00002 == false && location.x == Fix.VELGUS_TREASURE_2_X && location.y == Fix.VELGUS_TREASURE_2_Y && location.z == Fix.VELGUS_TREASURE_2_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.SILVER_RING_TSUNAMI;
           MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
           MessagePack.Message1000028(ref QuestMessageList, ref QuestEventList);
           TapOK();
@@ -9188,11 +9188,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus_00003 == false && location.x == Fix.VELGUS_TREASURE_3_X && location.y == Fix.VELGUS_TREASURE_3_Y && location.z == Fix.VELGUS_TREASURE_3_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.HQ_RED_POTION;
         }
         if (One.TF.Treasure_Velgus_00004 == false && location.x == Fix.VELGUS_TREASURE_4_X && location.y == Fix.VELGUS_TREASURE_4_Y && location.z == Fix.VELGUS_TREASURE_4_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.MASTER_CROSS;
         }
         if (One.TF.Treasure_Velgus_00005 == false && location.x == Fix.VELGUS_TREASURE_5_X && location.y == Fix.VELGUS_TREASURE_5_Y && location.z == Fix.VELGUS_TREASURE_5_Z)
         {
@@ -9204,11 +9204,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus_00006 == false && location.x == Fix.VELGUS_TREASURE_6_X && location.y == Fix.VELGUS_TREASURE_6_Y && location.z == Fix.VELGUS_TREASURE_6_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.HQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Velgus_00007 == false && location.x == Fix.VELGUS_TREASURE_7_X && location.y == Fix.VELGUS_TREASURE_7_Y && location.z == Fix.VELGUS_TREASURE_7_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.MASTER_AXE;
         }
         if (One.TF.Treasure_Velgus_00008 == false && location.x == Fix.VELGUS_TREASURE_8_X && location.y == Fix.VELGUS_TREASURE_8_Y && location.z == Fix.VELGUS_TREASURE_8_Z)
         {
@@ -9220,7 +9220,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus_00009 == false && location.x == Fix.VELGUS_TREASURE_9_X && location.y == Fix.VELGUS_TREASURE_9_Y && location.z == Fix.VELGUS_TREASURE_9_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.REDLIGHT_BRIGHTSTONE;
           if (One.TF.Event_Message1000132 == false)
           {
             MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
@@ -9231,7 +9231,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus_00010 == false && location.x == Fix.VELGUS_TREASURE_10_X && location.y == Fix.VELGUS_TREASURE_10_Y && location.z == Fix.VELGUS_TREASURE_10_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.GREENLIGHT_BRIGHTSTONE;
           if (One.TF.Event_Message1000134 == false)
           {
             MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
@@ -9253,11 +9253,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus_00012 == false && location.x == Fix.VELGUS_TREASURE_12_X && location.y == Fix.VELGUS_TREASURE_12_Y && location.z == Fix.VELGUS_TREASURE_12_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.HQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Velgus_00013 == false && location.x == Fix.VELGUS_TREASURE_13_X && location.y == Fix.VELGUS_TREASURE_13_Y && location.z == Fix.VELGUS_TREASURE_13_Z)
         {
-          treasureName = Fix.EXCELLENT_SWORD;
+          treasureName = Fix.MASTER_SHIELD;
         }
 
         if (treasureName == String.Empty)
@@ -9274,23 +9274,23 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
         if (One.TF.Treasure_Velgus2_00001 == false && location.x == Fix.VELGUS_2_TREASURE_1_X && location.y == Fix.VELGUS_2_TREASURE_1_Y && location.z == Fix.VELGUS_2_TREASURE_1_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.MASTER_LARGE_LANCE;
         }
         if (One.TF.Treasure_Velgus2_00002 == false && location.x == Fix.VELGUS_2_TREASURE_2_X && location.y == Fix.VELGUS_2_TREASURE_2_Y && location.z == Fix.VELGUS_2_TREASURE_2_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SILVER_RING_KAGEROU;
         }
         if (One.TF.Treasure_Velgus2_00003 == false && location.x == Fix.VELGUS_2_TREASURE_3_X && location.y == Fix.VELGUS_2_TREASURE_3_Y && location.z == Fix.VELGUS_2_TREASURE_3_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SILVER_RING_TATSUMAKI;
         }
         if (One.TF.Treasure_Velgus2_00004 == false && location.x == Fix.VELGUS_2_TREASURE_4_X && location.y == Fix.VELGUS_2_TREASURE_4_Y && location.z == Fix.VELGUS_2_TREASURE_4_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.HQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Velgus2_00005 == false && location.x == Fix.VELGUS_2_TREASURE_5_X && location.y == Fix.VELGUS_2_TREASURE_5_Y && location.z == Fix.VELGUS_2_TREASURE_5_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.PHANTASMAL_INSIGHT_RUNE;
         }
         if (One.TF.Treasure_Velgus2_00006 == false && location.x == Fix.VELGUS_2_TREASURE_6_X && location.y == Fix.VELGUS_2_TREASURE_6_Y && location.z == Fix.VELGUS_2_TREASURE_6_Z)
         {
@@ -9302,23 +9302,23 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus2_00007 == false && location.x == Fix.VELGUS_2_TREASURE_7_X && location.y == Fix.VELGUS_2_TREASURE_7_Y && location.z == Fix.VELGUS_2_TREASURE_7_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.BLADESHADOW_CROWDED_DRESS;
         }
         if (One.TF.Treasure_Velgus2_00008 == false && location.x == Fix.VELGUS_2_TREASURE_8_X && location.y == Fix.VELGUS_2_TREASURE_8_Y && location.z == Fix.VELGUS_2_TREASURE_8_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.BLUELIGHT_BRIGHTSTONE;
         }
         if (One.TF.Treasure_Velgus2_00009 == false && location.x == Fix.VELGUS_2_TREASURE_9_X && location.y == Fix.VELGUS_2_TREASURE_9_Y && location.z == Fix.VELGUS_2_TREASURE_9_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SILVER_RING_FUBUKI;
         }
         if (One.TF.Treasure_Velgus2_00010 == false && location.x == Fix.VELGUS_2_TREASURE_10_X && location.y == Fix.VELGUS_2_TREASURE_10_Y && location.z == Fix.VELGUS_2_TREASURE_10_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.HQ_RED_POTION;
         }
         if (One.TF.Treasure_Velgus2_00011 == false && location.x == Fix.VELGUS_2_TREASURE_11_X && location.y == Fix.VELGUS_2_TREASURE_11_Y && location.z == Fix.VELGUS_2_TREASURE_11_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.WINGED_LIGHTNING_BOOTS;
         }
         if (One.TF.Treasure_Velgus2_00012 == false && location.x == Fix.VELGUS_2_TREASURE_12_X && location.y == Fix.VELGUS_2_TREASURE_12_Y && location.z == Fix.VELGUS_2_TREASURE_12_Z)
         {
@@ -9335,11 +9335,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Velgus2_00014 == false && location.x == Fix.VELGUS_2_TREASURE_14_X && location.y == Fix.VELGUS_2_TREASURE_14_Y && location.z == Fix.VELGUS_2_TREASURE_14_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.MASTER_BOW;
         }
         if (One.TF.Treasure_Velgus2_00015 == false && location.x == Fix.VELGUS_2_TREASURE_15_X && location.y == Fix.VELGUS_2_TREASURE_15_Y && location.z == Fix.VELGUS_2_TREASURE_15_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.HIGHWARRIOR_DRAGONMAIL;
         }
         if (One.TF.Treasure_Velgus2_00016 == false && location.x == Fix.VELGUS_2_TREASURE_16_X && location.y == Fix.VELGUS_2_TREASURE_16_Y && location.z == Fix.VELGUS_2_TREASURE_16_Z)
         {
@@ -9364,47 +9364,47 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
         if (One.TF.Treasure_Velgus3_00001 == false && location.x == Fix.VELGUS_3_TREASURE_1_X && location.y == Fix.VELGUS_3_TREASURE_1_Y && location.z == Fix.VELGUS_3_TREASURE_1_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.FIRELIEGE_AETHER_TALISMAN;
         }
         if (One.TF.Treasure_Velgus3_00002 == false && location.x == Fix.VELGUS_3_TREASURE_2_X && location.y == Fix.VELGUS_3_TREASURE_2_Y && location.z == Fix.VELGUS_3_TREASURE_2_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SILVER_RING_GOUKA;
         }
         if (One.TF.Treasure_Velgus3_00003 == false && location.x == Fix.VELGUS_3_TREASURE_3_X && location.y == Fix.VELGUS_3_TREASURE_3_Y && location.z == Fix.VELGUS_3_TREASURE_3_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.HQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Velgus3_00004 == false && location.x == Fix.VELGUS_3_TREASURE_4_X && location.y == Fix.VELGUS_3_TREASURE_4_Y && location.z == Fix.VELGUS_3_TREASURE_4_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.ANGEL_CONTRACT_SHEET;
         }
         if (One.TF.Treasure_Velgus3_00005 == false && location.x == Fix.VELGUS_3_TREASURE_5_X && location.y == Fix.VELGUS_3_TREASURE_5_Y && location.z == Fix.VELGUS_3_TREASURE_5_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.PURPLELIGHT_BRIGHTSTONE;
         }
         if (One.TF.Treasure_Velgus3_00006 == false && location.x == Fix.VELGUS_3_TREASURE_6_X && location.y == Fix.VELGUS_3_TREASURE_6_Y && location.z == Fix.VELGUS_3_TREASURE_6_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SILVER_RING_SYUNIJI;
         }
         if (One.TF.Treasure_Velgus3_00007 == false && location.x == Fix.VELGUS_3_TREASURE_7_X && location.y == Fix.VELGUS_3_TREASURE_7_Y && location.z == Fix.VELGUS_3_TREASURE_7_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.PEACEFUL_REBIRTH_CANDLE;
         }
         if (One.TF.Treasure_Velgus3_00008 == false && location.x == Fix.VELGUS_3_TREASURE_8_X && location.y == Fix.VELGUS_3_TREASURE_7_Y && location.z == Fix.VELGUS_3_TREASURE_8_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.HQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Velgus3_00009 == false && location.x == Fix.VELGUS_3_TREASURE_9_X && location.y == Fix.VELGUS_3_TREASURE_9_Y && location.z == Fix.VELGUS_3_TREASURE_9_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.MASTER_BOOK;
         }
         if (One.TF.Treasure_Velgus3_00010 == false && location.x == Fix.VELGUS_3_TREASURE_10_X && location.y == Fix.VELGUS_3_TREASURE_10_Y && location.z == Fix.VELGUS_3_TREASURE_10_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.STRONG_FIRE_HELL_BASTARDAXE;
         }
         if (One.TF.Treasure_Velgus3_00011 == false && location.x == Fix.VELGUS_3_TREASURE_11_X && location.y == Fix.VELGUS_3_TREASURE_11_Y && location.z == Fix.VELGUS_3_TREASURE_11_Z)
         {
-          treasureName = Fix.MASTER_SWORD;
+          treasureName = Fix.SWIFTCROSS_OF_REDTHUNDER;
         }
         if (treasureName == String.Empty)
         {
