@@ -11351,6 +11351,215 @@ public partial class Item
         this._description = "世界に7つしかない高級素材で製作されたローブはエクストリームの称号にふさわしい。物理防御力１５０、魔法防御力５５０";
         break;
 
+      case Fix.PLATINUM_RING_1:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【白虎】の刻印が刻まれている。力＋３５０、技＋２５０";
+        this._strength = 350;
+        this._agility = 250;
+        this._intelligence = 0;
+        this._stamina = 0;  
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_2:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ヴァルキリー】の刻印が刻まれている。力＋２５０、知＋３５０";
+        this._strength = 250;
+        this._agility = 0;
+        this._intelligence = 350;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_3:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ナイトメア】の刻印が刻まれている。力＋３５０、体＋２５０";
+        this._strength = 350;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 250;
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_4:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ナラシンハ】の刻印が刻まれている。力＋３５０、心＋２５０";
+        this._strength = 350;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 350;
+        break;
+
+      case Fix.PLATINUM_RING_5:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【朱雀】の刻印が刻まれている。技＋３５０、知＋２５０";
+        this._strength = 0;
+        this._agility = 350;
+        this._intelligence = 250;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_6:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ウロボロス】の刻印が刻まれている。技＋２５０、体＋３５０";
+        this._strength = 0;
+        this._agility = 250;
+        this._intelligence = 0;
+        this._stamina = 350;
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_7:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ナインテイル】の刻印が刻まれている。技＋３５０、心＋２５０";
+        this._strength = 0;
+        this._agility = 350;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 250;
+        break;
+
+      case Fix.PLATINUM_RING_8:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【ベヒモス】の刻印が刻まれている。知＋２５０、体＋３５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 250;
+        this._stamina = 350;
+        this._mind = 0;
+        break;
+
+      case Fix.PLATINUM_RING_9:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【青龍】の刻印が刻まれている。知＋３５０、心＋２５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 350;
+        this._stamina = 0;
+        this._mind = 250;
+        break;
+
+      case Fix.PLATINUM_RING_10:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 1500000;
+        this._importantType = Important.None;
+        this._description = "白金の素材で形成された腕輪。【玄武】の刻印が刻まれている。体＋３５０、心＋２５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 350;
+        this._mind = 250;
+        break;
+
+      case Fix.RED_CRYSTAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "永久の時代よりその輝きは失われていない、真紅のクリスタル。力＋７５０";
+        this._strength = 750;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.BLUE_CRYSTAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "永久の時代よりその輝きは失われていない、瑠璃のクリスタル。技＋７５０";
+        this._strength = 0;
+        this._agility = 750;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.PURPLE_CRYSTAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "永久の時代よりその輝きは失われていない、紫苑のクリスタル。知＋７５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 750;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
+      case Fix.GREEN_CRYSTAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "永久の時代よりその輝きは失われていない、翡翠のクリスタル。体＋７５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 750;
+        this._mind = 0;
+        break;
+
+      case Fix.YELLOW_CRYSTAL:
+        this._rarity = Rarity.Uncommon;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "永久の時代よりその輝きは失われていない、琥珀のクリスタル。心＋７５０";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 750;
+        break;
       #endregion
       #region "ポーション"
       case Fix.SMALL_RED_POTION:

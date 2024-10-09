@@ -2754,6 +2754,23 @@ public static partial class Fix
   public const string EXTREME_ARMOR = "エクストリーム・アーマー";
   public const string EXTREME_CROSS = "エクストリーム・クロス";
   public const string EXTREME_ROBE = "エクストリーム・ローブ";
+
+  public const string RED_CRYSTAL = @"真紅のクリスタル";
+  public const string BLUE_CRYSTAL = @"瑠璃のクリスタル";
+  public const string PURPLE_CRYSTAL = @"紫苑のクリスタル";
+  public const string GREEN_CRYSTAL = @"翡翠のクリスタル";
+  public const string YELLOW_CRYSTAL = @"琥珀のクリスタル";
+  public const string PLATINUM_RING_1 = @"白金の腕輪【白虎】";
+  public const string PLATINUM_RING_2 = @"白金の腕輪【ヴァルキリー】";
+  public const string PLATINUM_RING_3 = @"白金の腕輪【ナイトメア】";
+  public const string PLATINUM_RING_4 = @"白金の腕輪【ナラシンハ】";
+  public const string PLATINUM_RING_5 = @"白金の腕輪【朱雀】";
+  public const string PLATINUM_RING_6 = @"白金の腕輪【ウロボロス】";
+  public const string PLATINUM_RING_7 = @"白金の腕輪【ナインテイル】";
+  public const string PLATINUM_RING_8 = @"白金の腕輪【ベヒモス】";
+  public const string PLATINUM_RING_9 = @"白金の腕輪【青龍】";
+  public const string PLATINUM_RING_10 = @"白金の腕輪【玄武】";
+
   #endregion
   #region "フェーズ【 Vー１ 】：雪原の大樹ラタ"
   public const string INCREDIBLE_SWORD = "インクレディブル・ソード";
