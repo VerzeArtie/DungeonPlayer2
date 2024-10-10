@@ -11560,6 +11560,180 @@ public partial class Item
         this._stamina = 0;
         this._mind = 750;
         break;
+
+      case Fix.BLACK_DRAGON_FEATHER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3000000;
+        this._importantType = Important.None;
+        this._description = "エデルガイゼン城の上空を稀に旋回する黒翼龍が落とした羽。絶大な魔力が込められている。技＋２５０、知＋２５０、体＋５００、闇増幅３０％、魔攻率２０％、束縛耐性、恐怖耐性、眩暈耐性";
+        this._strength = 0;
+        this._agility = 250;
+        this._intelligence = 250;
+        this._stamina = 500;
+        this._mind = 0;
+        this._amplifyShadow = 1.30f;
+        this._amplifyMagicAttack = 1.20f;
+        this._resistBind = true;
+        this._resistFear = true;
+        break;
+
+      case Fix.RAGING_RESONANCE_RING:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3000000;
+        this._importantType = Important.None;
+        this._description = "荒れ狂う炎を形容化させた形状のリング。見た目は炎が付与されていないが、装着者の内在的精神とリンクし、炎に関するイメージの増幅が流れ込む。力＋６００、技＋２００、知＋２００、炎増幅３０％、魔防率２０％、睡眠耐性、スタン耐性、凍結耐性";
+        this._strength = 600;
+        this._agility = 200;
+        this._intelligence = 200;
+        this._stamina = 0;
+        this._mind = 0;
+        this._amplifyFire = 1.30f;
+        this._amplifyMagicDefense = 1.20f;
+        this._resistSleep = true;
+        this._resistStun = true;
+        this._resistFreeze = true;
+        break;
+
+      case Fix.LAGINA_DISTORTED_BRACER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3100000;
+        this._importantType = Important.None;
+        this._description = "名君主ラギナが常につけていてたブレイサー。異形な形状をしており、装着するには一定以上の技量と感覚が必要だが、性能を引き出せられれば圧倒的な威力を発揮する事が出来る。技＋６００、体＋３００、心＋１００、氷増幅３０％、物攻率２０％、沈黙耐性、スタン耐性、麻痺耐性";
+        this._strength = 0;
+        this._agility = 600;
+        this._intelligence = 0;
+        this._stamina = 300;
+        this._mind = 100;
+        this._amplifyIce = 1.30f;
+        this._amplifyPhysicalAttack = 1.20f;
+        this._resistSilence = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        break;
+
+      case Fix.RIGID_WAVE_METALGUNTLET:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3100000;
+        this._importantType = Important.None;
+        this._description = "波動意志を動力源として駆動するメタル製ガントレット。波動意志は訓練も重要だが元来保有している資質も重要になってくる。上手く融合すればそのポテンシャルの高さは計り知れない。力＋４００、知＋４００、心＋２００、聖増幅３０％、戦速率２０％、猛毒耐性、鈍化耐性、眩暈耐性";
+        this._strength = 400;
+        this._agility = 0;
+        this._intelligence = 400;
+        this._stamina = 0;
+        this._mind = 200;
+        this._amplifyLight = 1.30f;
+        this._amplifyBattleSpeed = 1.20f;
+        this._resistPoison = true;
+        this._resistSlow = true;
+        this._resistDizzy = true;
+        break;
+
+      case Fix.ISOCHRON_FATED_LENS:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3200000;
+        this._importantType = Important.None;
+        this._description = "このレンズを装着した者は、あらゆる物質の元素記号が脳内に流れ込んでくる。物質の解明を行う知識と共に、論理性が飛躍的に向上する。知＋６５０、心＋３５０、炎耐性３０％、氷耐性３０％、聖耐性３０％、闇耐性３０％、戦応率２０％、束縛耐性、麻痺耐性、凍結耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 650;
+        this._stamina = 0;
+        this._mind = 350;
+        this._resistFirePercent = 0.30f;
+        this._resistIcePercent = 0.30f;
+        this._resistLightPercent = 0.30f;
+        this._resistShadowPercent = 0.30f;
+        this._amplifyBattleResponse = 1.20f;
+        this._resistBind = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        break;
+
+      case Fix.DARKNESS_COIN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3200000;
+        this._importantType = Important.None;
+        this._description = "闇なる存在と無法の契約を交わした証として獲得できるコイン。コインの保持者は獲得した事による苦痛と共に力を増していく。力＋２００、知＋２００、体＋６００、闇増幅３０％、闇耐性３０％、物防率２０％、恐怖耐性、眩暈耐性、出血耐性";
+        this._strength = 200;
+        this._agility = 0;
+        this._intelligence = 200;
+        this._stamina = 600;
+        this._mind = 0;
+        this._amplifyShadow = 1.30f;
+        this._resistShadowPercent = 0.30f;
+        this._amplifyPhysicalDefense = 1.20f;
+        this._resistFear = true;
+        this._resistDizzy = true;
+        this._resistSlip = true;
+        break;
+
+      case Fix.HEART_SEEKERS_STONE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3300000;
+        this._importantType = Important.None;
+        this._description = "魂の求道者が保有し続けた石。石の素材そのものには効果が無いが、保有しているものには様々な求道者としてのイメージが流れ込んでくる。技＋３５０、心＋６５０、物攻率２５％、魔攻率２５％";
+        this._strength = 0;
+        this._agility = 350;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 650;
+        this._amplifyPhysicalAttack = 1.25f;
+        this._amplifyMagicAttack = 1.25f;
+        break;
+
+      case Fix.SUN_BREAKERS_STONE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3300000;
+        this._importantType = Important.None;
+        this._description = "太陽を滅する心を持ちし者が永遠に追及し続ける事を決意した証として、この石にその魂が込められている。石の素材そのものには効果が無いが、保有しているものにはそのイメージが流れ込んでくる。力＋３５０、心＋６５０、潜在率＋３０％";
+        this._strength = 350;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 650;
+        this._amplifyPotential = 1.30f;
+        break;
+
+      case Fix.DANZAI_ANGEL_TALISMAN:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 3500000;
+        this._importantType = Important.None;
+        this._description = "全てを許さない断罪の天使は、罪の重さに関係せず、必ずそれを執行する。かの天使は、ほんの些細な事象も見逃さない。力＋１５０、技＋１５０、知＋１５０、体＋５５０、猛毒耐性、沈黙耐性、束縛耐性、睡眠耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性、鈍化耐性、眩暈耐性、出血耐性";
+        this._strength = 150;
+        this._agility = 150;
+        this._intelligence = 150;
+        this._stamina = 550;
+        this._mind = 0;
+        this._resistPoison = true;
+        this._resistSilence = true;
+        this._resistBind = true;
+        this._resistSleep = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        this._resistFear = true;
+        this._resistSlow = true;
+        this._resistDizzy = true;
+        this._resistSlip = true;
+        break;
+
       #endregion
       #region "ポーション"
       case Fix.SMALL_RED_POTION:

@@ -2771,6 +2771,16 @@ public static partial class Fix
   public const string PLATINUM_RING_9 = @"白金の腕輪【青龍】";
   public const string PLATINUM_RING_10 = @"白金の腕輪【玄武】";
 
+  public const string BLACK_DRAGON_FEATHER = "黒翼龍の羽";
+  public const string RAGING_RESONANCE_RING = "レイジング・レゾナンス・リング";
+  public const string LAGINA_DISTORTED_BRACER = "ラギナ・ディストーテッド・ブレイサー";
+  public const string RIGID_WAVE_METALGUNTLET = "リジッド・ウェーブ・メタルガントレット";
+  public const string ISOCHRON_FATED_LENS = "イソクロン・フェイテッド・レンズ";
+  public const string DARKNESS_COIN = "暗黒の通貨";
+  public const string HEART_SEEKERS_STONE = "ハート・シーカーズ・ストーン";
+  public const string SUN_BREAKERS_STONE = "サン・ブレイカーズ・ストーン";
+  public const string DANZAI_ANGEL_TALISMAN = "断罪天使の護符";
+
   #endregion
   #region "フェーズ【 Vー１ 】：雪原の大樹ラタ"
   public const string INCREDIBLE_SWORD = "インクレディブル・ソード";
