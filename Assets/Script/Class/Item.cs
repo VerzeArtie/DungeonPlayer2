@@ -11531,7 +11531,7 @@ public partial class Item
         this._importantType = Important.None;
         this._description = "純白をベースとし、何色もの種類の曲線が描かれているローブ。見た目は派手というより優美な印象であり、振る舞う者は他者を魅了する。物理防御力４００、魔法防御力１３００、知＋２００、心＋１００、闇耐性２５％、炎耐性２５％";
         this._strength = 0;
-        this._agility = 200;
+        this._agility = 0;
         this._intelligence = 200;
         this._stamina = 0;
         this._mind = 100;
