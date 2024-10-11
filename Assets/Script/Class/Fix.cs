@@ -2755,6 +2755,20 @@ public static partial class Fix
   public const string EXTREME_CROSS = "エクストリーム・クロス";
   public const string EXTREME_ROBE = "エクストリーム・ローブ";
 
+  public const string ETHEREAL_EDGE_BLADE = "イスリアル・エッジ・ブレード";
+  public const string EVIL_ELIMINATION_LANCE = "イビル・エリミネイション・ランス";
+  public const string PRISON_DESTRUCTION_AXE = "プリズン・デストラクション・アックス";
+  public const string SHINGETSUEN_CLAW = "深月淵の爪";
+  public const string GARGAN_BLAZE_ROD = "ガルガン・ブレイズ・ロッド";
+  public const string JUNKEI_SHIKI_BOOK = "純景の四季本";
+  public const string ALL_ELEMENTAL_ORB = "オール・エレメンタル・オーブ";
+  public const string SYOKO_PALESTRIDE_BOW = "曙光・ペイルストライド・ボウ";
+  public const string LABYRINTH_MAGE_BLUESTAFF = "迷宮魔導士の蒼き大杖";
+  public const string MAJESTIC_FORCE_SHIELD = "マジェスティッド・フォース・シールド";
+  public const string EZEKRIEL_IMPRINT_SIGIL_ARMOR = "Ezekriel the Imprinted-Armor of Sigil";
+  public const string SHISO_GENSUI_KING_CROSS = "始祖元帥の舞踏衣【王授】";
+  public const string ROBE_OF_COLORSTREAMING = "ローブ・オブ・カラーストリーミング";
+
   public const string RED_CRYSTAL = @"真紅のクリスタル";
   public const string BLUE_CRYSTAL = @"瑠璃のクリスタル";
   public const string PURPLE_CRYSTAL = @"紫苑のクリスタル";

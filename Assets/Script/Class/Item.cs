@@ -11351,6 +11351,194 @@ public partial class Item
         this._description = "世界に7つしかない高級素材で製作されたローブはエクストリームの称号にふさわしい。物理防御力１５０、魔法防御力５５０";
         break;
 
+      case Fix.ETHEREAL_EDGE_BLADE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 1400;
+        this._physicalAttackMax = 1800;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００";
+        break;
+
+      case Fix.EVIL_ELIMINATION_LANCE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Lance;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 1600;
+        this._physicalAttackMax = 2100;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "諸悪の根源を抹消するために作成された槍。槍全体からは禍々しいオーラが放たれているが使用者には一切影響はなく、通常の武具として振る舞える。物理攻撃力１６００～２１００";
+        break;
+
+      case Fix.PRISON_DESTRUCTION_AXE:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Axe;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 2000;
+        this._physicalAttackMax = 2600;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "どれだけ強固な監獄を気付いても、この斧が存在する限り、監獄が絶対に破られないという事はありえない。想像を絶する破壊力はあらゆるものを打破する。物理攻撃力２０００～２６００";
+        break;
+
+      case Fix.SHINGETSUEN_CLAW:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 1300;
+        this._physicalAttackMax = 1600;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "月が描く曲線美を模倣しようとして作られた爪。全体的に曲がっており、攻撃ヒット時見た目以上のダメージを与える事に成功する。物理攻撃力１３００～１６００";
+        break;
+
+      case Fix.GARGAN_BLAZE_ROD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Rod;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 1400;
+        this._magicAttackMax = 1800;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "ガルガンの山に住まう伝説の竜は、世界が危機に瀕した時、業火で不浄なる大地を浄化すると言われている。その時の業火を杖に魔力として込められている。魔法攻撃力１４００～１８００";
+        break;
+
+      case Fix.JUNKEI_SHIKI_BOOK:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 1600;
+        this._magicAttackMax = 2100;
+        this._gold = 2100000;
+        this._importantType = Important.None;
+        this._description = "風景を示すイラストが描かれているが、実質的な魔力が込められている。その該当ページを開いて詠唱する事で、本来の威力以上の効果を発揮する事ができる。魔法攻撃力１６００～２１００";
+        break;
+
+      case Fix.ALL_ELEMENTAL_ORB:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Orb;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 1300;
+        this._magicAttackMax = 1600;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "全属性の魔力が込められた水晶。虹色に輝く時もあれば、特定の属性色になる時もある。魔法攻撃力１３００～１６００";
+        break;
+
+      case Fix.SYOKO_PALESTRIDE_BOW:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Bow;
+        this._gripType = GripTypes.TwoHand;
+        this._physicalAttack = 3100;
+        this._physicalAttackMax = 3700;
+        this._gold = 3000000;
+        this._importantType = Important.None;
+        this._description = "質素な見た目と特徴の無い弓だが、一点、極小の光が矢の突出箇所に凝縮されている。ダメージを食らった時の威力はあらゆる想定を遥かに超えてくる。物理攻撃力３１００～３７００";
+        break;
+
+      case Fix.LABYRINTH_MAGE_BLUESTAFF:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._magicAttack = 3000;
+        this._magicAttackMax = 3600;
+        this._gold = 3100000;
+        this._importantType = Important.None;
+        this._description = "迷宮を作り続ける魔導士は、年を取る事すら忘れ、ひたすらに深い階層を描き続ける。深淵に辿り着くころは、この蒼き大杖が唯一の道標となっている事だろう。魔法攻撃力３０００～３６００";
+        break;
+
+      case Fix.MAJESTIC_FORCE_SHIELD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Shield;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 800;
+        this._magicDefense = 350;
+        this._gold = 2000000;
+        this._importantType = Important.None;
+        this._description = "雄大な力を兼ね備える大きな盾。装備した時、ズッシリとした重たい感触を味わう事になるが、その装甲の固さはその辺の一級品を軽く超える固さを誇る。物理防御力８００、魔法防御力３５０、体＋１２０、聖耐性２０％、闇耐性２０％、炎耐性２０％、氷耐性２０％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 120;
+        this._mind = 0;
+        this._resistLightPercent = 0.20f;
+        this._resistShadowPercent = 0.20f;
+        this._resistFirePercent = 0.20f;
+        this._resistIcePercent = 0.20f;
+        break;
+
+      case Fix.EZEKRIEL_IMPRINT_SIGIL_ARMOR:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Heavy_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 3000;
+        this._magicDefense = 1800;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者エゼクリエルlは、魔導士としての究極形は重装形態による物理属性への耐性を付け、かつ、魔道攻撃を行う際、完全に物理属性に転換した上で攻撃を繰り広げる事だという地点に到達した。この鎧には様々な刻印が施されており、完全無欠さを放つオーラに覆われている。物理防御３０００、魔法防御１８００、体＋５００、心＋１０００、魔攻率３０％、物防率３０％、聖耐性３５％、闇耐性３５％、炎耐性３５％、氷耐性３５％、猛毒耐性、沈黙耐性、束縛耐性、睡眠耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性、誘惑耐性、鈍化耐性、眩暈耐性、出血耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 500;
+        this._mind = 1000;
+        this._amplifyMagicAttack = 1.30f;
+        this._amplifyPhysicalDefense = 1.30f;
+        this._resistLightPercent = 0.35f;
+        this._resistShadowPercent = 0.35f;
+        this._resistFirePercent = 0.35f;
+        this._resistIcePercent = 0.35f;
+        this._resistPoison = true;
+        this._resistSilence = true;
+        this._resistBind = true;
+        this._resistSleep = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        this._resistFear = true;
+        this._resistSlow = true;
+        this._resistDizzy = true;
+        this._resistSlip = true;
+        break;
+
+      case Fix.SHISO_GENSUI_KING_CROSS:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Middle_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 1100;
+        this._magicDefense = 750;
+        this._gold = 3000000;
+        this._importantType = Important.None;
+        this._description = "始祖の時代に作成された舞踏衣。トラディッショナルな形状であり、無骨な感じが出ている。それに反して、圧倒的な防御力を誇る。物理防御力１１００、魔法防御力７５０、体＋２００、心＋１００、氷耐性２５％、聖耐性２５％";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 200;
+        this._mind = 100;
+        this._resistIcePercent = 0.25f;
+        this._resistLightPercent = 0.25f;
+        break;
+
+      case Fix.ROBE_OF_COLORSTREAMING:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._physicalDefense = 400;
+        this._magicDefense = 1300;
+        this._gold = 3200000;
+        this._importantType = Important.None;
+        this._description = "純白をベースとし、何色もの種類の曲線が描かれているローブ。見た目は派手というより優美な印象であり、振る舞う者は他者を魅了する。物理防御力４００、魔法防御力１３００、知＋２００、心＋１００、闇耐性２５％、炎耐性２５％";
+        this._strength = 0;
+        this._agility = 200;
+        this._intelligence = 200;
+        this._stamina = 0;
+        this._mind = 100;
+        this._resistShadowPercent = 0.25f;
+        this._resistFirePercent = 0.25f;
+        break;
+
       case Fix.PLATINUM_RING_1:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;
