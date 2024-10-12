@@ -9426,59 +9426,59 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Edelgarzen_00002 == false && location.x == Fix.EDELGARZEN_1_Treasure_2_X && location.y == Fix.EDELGARZEN_1_Treasure_2_Y && location.z == Fix.EDELGARZEN_1_Treasure_2_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_BOW;
         }
         if (One.TF.Treasure_Edelgarzen_00003 == false && location.x == Fix.EDELGARZEN_1_Treasure_3_X && location.y == Fix.EDELGARZEN_1_Treasure_3_Y && location.z == Fix.EDELGARZEN_1_Treasure_3_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_ROBE;
         }
         if (One.TF.Treasure_Edelgarzen_00004 == false && location.x == Fix.EDELGARZEN_1_Treasure_4_X && location.y == Fix.EDELGARZEN_1_Treasure_4_Y && location.z == Fix.EDELGARZEN_1_Treasure_4_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00005 == false && location.x == Fix.EDELGARZEN_1_Treasure_5_X && location.y == Fix.EDELGARZEN_1_Treasure_5_Y && location.z == Fix.EDELGARZEN_1_Treasure_5_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_8;
         }
         if (One.TF.Treasure_Edelgarzen_00006 == false && location.x == Fix.EDELGARZEN_1_Treasure_6_X && location.y == Fix.EDELGARZEN_1_Treasure_6_Y && location.z == Fix.EDELGARZEN_1_Treasure_6_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00007 == false && location.x == Fix.EDELGARZEN_1_Treasure_7_X && location.y == Fix.EDELGARZEN_1_Treasure_7_Y && location.z == Fix.EDELGARZEN_1_Treasure_7_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00008 == false && location.x == Fix.EDELGARZEN_1_Treasure_8_X && location.y == Fix.EDELGARZEN_1_Treasure_8_Y && location.z == Fix.EDELGARZEN_1_Treasure_8_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.SHINGETSUEN_CLAW;
         }
         if (One.TF.Treasure_Edelgarzen_00009 == false && location.x == Fix.EDELGARZEN_1_Treasure_9_X && location.y == Fix.EDELGARZEN_1_Treasure_9_Y && location.z == Fix.EDELGARZEN_1_Treasure_9_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00010 == false && location.x == Fix.EDELGARZEN_1_Treasure_10_X && location.y == Fix.EDELGARZEN_1_Treasure_10_Y && location.z == Fix.EDELGARZEN_1_Treasure_10_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_ORB;
         }
         if (One.TF.Treasure_Edelgarzen_00011 == false && location.x == Fix.EDELGARZEN_1_Treasure_11_X && location.y == Fix.EDELGARZEN_1_Treasure_11_Y && location.z == Fix.EDELGARZEN_1_Treasure_11_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.GREEN_CRYSTAL;
         }
         if (One.TF.Treasure_Edelgarzen_00012 == false && location.x == Fix.EDELGARZEN_1_Treasure_12_X && location.y == Fix.EDELGARZEN_1_Treasure_12_Y && location.z == Fix.EDELGARZEN_1_Treasure_12_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00013 == false && location.x == Fix.EDELGARZEN_1_Treasure_13_X && location.y == Fix.EDELGARZEN_1_Treasure_13_Y && location.z == Fix.EDELGARZEN_1_Treasure_13_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen_00014 == false && location.x == Fix.EDELGARZEN_1_Treasure_14_X && location.y == Fix.EDELGARZEN_1_Treasure_14_Y && location.z == Fix.EDELGARZEN_1_Treasure_14_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_LARGE_STAFF;
         }
         if (One.TF.Treasure_Edelgarzen_00015 == false && location.x == Fix.EDELGARZEN_1_Treasure_15_X && location.y == Fix.EDELGARZEN_1_Treasure_15_Y && location.z == Fix.EDELGARZEN_1_Treasure_15_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EVIL_ELIMINATION_LANCE;
         }
         if (One.TF.Treasure_Edelgarzen_00016 == false && location.x == Fix.EDELGARZEN_1_Treasure_16_X && location.y == Fix.EDELGARZEN_1_Treasure_16_Y && location.z == Fix.EDELGARZEN_1_Treasure_16_Z)
         {
@@ -9490,15 +9490,15 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Edelgarzen_00018 == false && location.x == Fix.EDELGARZEN_1_Treasure_18_X && location.y == Fix.EDELGARZEN_1_Treasure_18_Y && location.z == Fix.EDELGARZEN_1_Treasure_18_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_10;
         }
         if (One.TF.Treasure_Edelgarzen_00019 == false && location.x == Fix.EDELGARZEN_1_Treasure_19_X && location.y == Fix.EDELGARZEN_1_Treasure_19_Y && location.z == Fix.EDELGARZEN_1_Treasure_19_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_2;
         }
         if (One.TF.Treasure_Edelgarzen_00020 == false && location.x == Fix.EDELGARZEN_1_Treasure_20_X && location.y == Fix.EDELGARZEN_1_Treasure_20_Y && location.z == Fix.EDELGARZEN_1_Treasure_20_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.DANZAI_ANGEL_TALISMAN;
         }
         if (One.TF.Treasure_Edelgarzen_00021 == false && location.x == Fix.EDELGARZEN_1_Treasure_21_X && location.y == Fix.EDELGARZEN_1_Treasure_21_Y && location.z == Fix.EDELGARZEN_1_Treasure_21_Z)
         {
@@ -9519,67 +9519,67 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
         if (One.TF.Treasure_Edelgarzen2_00001 == false && location.x == Fix.EDELGARZEN_2_Treasure_1_X && location.y == Fix.EDELGARZEN_2_Treasure_1_Y && location.z == Fix.EDELGARZEN_2_Treasure_1_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_ROD;
         }
         if (One.TF.Treasure_Edelgarzen2_00002 == false && location.x == Fix.EDELGARZEN_2_Treasure_2_X && location.y == Fix.EDELGARZEN_2_Treasure_2_Y && location.z == Fix.EDELGARZEN_2_Treasure_2_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00003 == false && location.x == Fix.EDELGARZEN_2_Treasure_3_X && location.y == Fix.EDELGARZEN_2_Treasure_3_Y && location.z == Fix.EDELGARZEN_2_Treasure_3_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.BLUE_CRYSTAL;
         }
         if (One.TF.Treasure_Edelgarzen2_00004 == false && location.x == Fix.EDELGARZEN_2_Treasure_4_X && location.y == Fix.EDELGARZEN_2_Treasure_4_Y && location.z == Fix.EDELGARZEN_2_Treasure_4_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_5;
         }
         if (One.TF.Treasure_Edelgarzen2_00005 == false && location.x == Fix.EDELGARZEN_2_Treasure_5_X && location.y == Fix.EDELGARZEN_2_Treasure_5_Y && location.z == Fix.EDELGARZEN_2_Treasure_5_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_3;
         }
         if (One.TF.Treasure_Edelgarzen2_00006 == false && location.x == Fix.EDELGARZEN_2_Treasure_6_X && location.y == Fix.EDELGARZEN_2_Treasure_6_Y && location.z == Fix.EDELGARZEN_2_Treasure_6_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00007 == false && location.x == Fix.EDELGARZEN_2_Treasure_7_X && location.y == Fix.EDELGARZEN_2_Treasure_7_Y && location.z == Fix.EDELGARZEN_2_Treasure_7_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00008 == false && location.x == Fix.EDELGARZEN_2_Treasure_8_X && location.y == Fix.EDELGARZEN_2_Treasure_8_Y && location.z == Fix.EDELGARZEN_2_Treasure_8_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00009 == false && location.x == Fix.EDELGARZEN_2_Treasure_9_X && location.y == Fix.EDELGARZEN_2_Treasure_9_Y && location.z == Fix.EDELGARZEN_2_Treasure_9_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_AXE;
         }
         if (One.TF.Treasure_Edelgarzen2_00010 == false && location.x == Fix.EDELGARZEN_2_Treasure_10_X && location.y == Fix.EDELGARZEN_2_Treasure_10_Y && location.z == Fix.EDELGARZEN_2_Treasure_10_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00011 == false && location.x == Fix.EDELGARZEN_2_Treasure_11_X && location.y == Fix.EDELGARZEN_2_Treasure_11_Y && location.z == Fix.EDELGARZEN_2_Treasure_11_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.EXTREME_BOOK;
         }
         if (One.TF.Treasure_Edelgarzen2_00012 == false && location.x == Fix.EDELGARZEN_2_Treasure_12_X && location.y == Fix.EDELGARZEN_2_Treasure_12_Y && location.z == Fix.EDELGARZEN_2_Treasure_12_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen2_00013 == false && location.x == Fix.EDELGARZEN_2_Treasure_13_X && location.y == Fix.EDELGARZEN_2_Treasure_13_Y && location.z == Fix.EDELGARZEN_2_Treasure_13_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PLATINUM_RING_4;
         }
         if (One.TF.Treasure_Edelgarzen2_00014 == false && location.x == Fix.EDELGARZEN_2_Treasure_14_X && location.y == Fix.EDELGARZEN_2_Treasure_14_Y && location.z == Fix.EDELGARZEN_2_Treasure_14_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.LABYRINTH_MAGE_BLUESTAFF;
         }
         if (One.TF.Treasure_Edelgarzen2_00015 == false && location.x == Fix.EDELGARZEN_2_Treasure_15_X && location.y == Fix.EDELGARZEN_2_Treasure_15_Y && location.z == Fix.EDELGARZEN_2_Treasure_15_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.RED_CRYSTAL;
         }
         if (One.TF.Treasure_Edelgarzen2_00016 == false && location.x == Fix.EDELGARZEN_2_Treasure_16_X && location.y == Fix.EDELGARZEN_2_Treasure_16_Y && location.z == Fix.EDELGARZEN_2_Treasure_16_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.PURPLE_CRYSTAL;
         }
         if (One.TF.Treasure_Edelgarzen2_00017 == false && location.x == Fix.EDELGARZEN_2_Treasure_17_X && location.y == Fix.EDELGARZEN_2_Treasure_17_Y && location.z == Fix.EDELGARZEN_2_Treasure_17_Z)
         {
@@ -9587,7 +9587,7 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_Edelgarzen2_00018 == false && location.x == Fix.EDELGARZEN_2_Treasure_18_X && location.y == Fix.EDELGARZEN_2_Treasure_18_Y && location.z == Fix.EDELGARZEN_2_Treasure_18_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.YELLOW_CRYSTAL;
         }
         if (One.TF.Treasure_Edelgarzen2_00019 == false && location.x == Fix.EDELGARZEN_2_Treasure_19_X && location.y == Fix.EDELGARZEN_2_Treasure_19_Y && location.z == Fix.EDELGARZEN_2_Treasure_19_Z)
         {
@@ -9608,59 +9608,59 @@ public class DungeonField : MotherBase
         string treasureName = String.Empty;
         if (One.TF.Treasure_Edelgarzen3_00001 == false && location.x == Fix.EDELGARZEN_3_Treasure_1_X && location.y == Fix.EDELGARZEN_3_Treasure_1_Y && location.z == Fix.EDELGARZEN_3_Treasure_1_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00002 == false && location.x == Fix.EDELGARZEN_3_Treasure_2_X && location.y == Fix.EDELGARZEN_3_Treasure_2_Y && location.z == Fix.EDELGARZEN_3_Treasure_2_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00003 == false && location.x == Fix.EDELGARZEN_3_Treasure_3_X && location.y == Fix.EDELGARZEN_3_Treasure_3_Y && location.z == Fix.EDELGARZEN_3_Treasure_3_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00004 == false && location.x == Fix.EDELGARZEN_3_Treasure_4_X && location.y == Fix.EDELGARZEN_3_Treasure_4_Y && location.z == Fix.EDELGARZEN_3_Treasure_4_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00005 == false && location.x == Fix.EDELGARZEN_3_Treasure_5_X && location.y == Fix.EDELGARZEN_3_Treasure_5_Y && location.z == Fix.EDELGARZEN_3_Treasure_5_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00006 == false && location.x == Fix.EDELGARZEN_3_Treasure_6_X && location.y == Fix.EDELGARZEN_3_Treasure_6_Y && location.z == Fix.EDELGARZEN_3_Treasure_6_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00007 == false && location.x == Fix.EDELGARZEN_3_Treasure_7_X && location.y == Fix.EDELGARZEN_3_Treasure_7_Y && location.z == Fix.EDELGARZEN_3_Treasure_7_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00008 == false && location.x == Fix.EDELGARZEN_3_Treasure_8_X && location.y == Fix.EDELGARZEN_3_Treasure_8_Y && location.z == Fix.EDELGARZEN_3_Treasure_8_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00009 == false && location.x == Fix.EDELGARZEN_3_Treasure_9_X && location.y == Fix.EDELGARZEN_3_Treasure_9_Y && location.z == Fix.EDELGARZEN_3_Treasure_9_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00010 == false && location.x == Fix.EDELGARZEN_3_Treasure_10_X && location.y == Fix.EDELGARZEN_3_Treasure_10_Y && location.z == Fix.EDELGARZEN_3_Treasure_10_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_BLUE_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00011 == false && location.x == Fix.EDELGARZEN_3_Treasure_11_X && location.y == Fix.EDELGARZEN_3_Treasure_11_Y && location.z == Fix.EDELGARZEN_3_Treasure_11_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_GREEN_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00012 == false && location.x == Fix.EDELGARZEN_3_Treasure_12_X && location.y == Fix.EDELGARZEN_3_Treasure_12_Y && location.z == Fix.EDELGARZEN_3_Treasure_12_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.THQ_RED_POTION;
         }
         if (One.TF.Treasure_Edelgarzen3_00013 == false && location.x == Fix.EDELGARZEN_3_Treasure_13_X && location.y == Fix.EDELGARZEN_3_Treasure_13_Y && location.z == Fix.EDELGARZEN_3_Treasure_13_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.GARGAN_BLAZE_ROD;
         }
         if (One.TF.Treasure_Edelgarzen3_00014 == false && location.x == Fix.EDELGARZEN_3_Treasure_14_X && location.y == Fix.EDELGARZEN_3_Treasure_14_Y && location.z == Fix.EDELGARZEN_3_Treasure_14_Z)
         {
-          treasureName = Fix.EXTREME_SWORD;
+          treasureName = Fix.SHISO_GENSUI_KING_CROSS;
         }
 
         if (treasureName == String.Empty)
