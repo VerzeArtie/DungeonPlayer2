@@ -217,6 +217,12 @@ public class PartyMenu : MotherBase
     this.SwitchCharacter = string.Empty;
   }
 
+  public void TapSwitchCancelAction()
+  {
+    panelHideOther.SetActive(!panelHideOther.activeInHierarchy);
+    this.SwitchCharacter = string.Empty;
+  }
+
   public void TapBackpack()
   {
     if (ParentBackpackView.gameObject.activeInHierarchy)
