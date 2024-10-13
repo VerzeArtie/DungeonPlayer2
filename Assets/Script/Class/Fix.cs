@@ -318,6 +318,10 @@ public static partial class Fix
 
   public static Color COLOR_ENEMY_CHARA = new Color(230.0f / 255.0f, 180.0f / 255.0f, 150.0f / 255.0f);
   public static Color COLORFORE_ENEMY_CHARA = new Color(226.0f / 255.0f, 58.0f / 255.0f, 0 / 255.0f);
+
+  public static Color COLOR_NORMAL_EFFECT = new Color(1, 1, 1);
+  public static Color COLOR_RESIST_ENABLE = new Color(1.0f, 1.0f, 0.5f);
+   
   #endregion
   #region "Buff Effect"
   public const string SITSUON = "Lost Sound";
