@@ -3754,31 +3754,31 @@ public partial class Character : MonoBehaviour
         this.AvailableWarrior = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.StraightSmash <= 0) { this.StraightSmash = 1; new_command = Fix.STRAIGHT_SMASH_JP; }
+          if (this.StraightSmash <= 0) { this.StraightSmash = 1; new_command = Fix.STRAIGHT_SMASH; }
         }
         if (this.Level >= 4)
         {
-          if (this.StanceOfTheBlade <= 0) { this.StanceOfTheBlade = 1; new_command = Fix.STANCE_OF_THE_BLADE_JP; }
+          if (this.StanceOfTheBlade <= 0) { this.StanceOfTheBlade = 1; new_command = Fix.STANCE_OF_THE_BLADE; }
         }
         if (this.Level >= 8)
         {
-          if (this.DoubleSlash <= 0) { this.DoubleSlash = 1; new_command = Fix.DOUBLE_SLASH_JP; }
+          if (this.DoubleSlash <= 0) { this.DoubleSlash = 1; new_command = Fix.DOUBLE_SLASH; }
         }
         if (this.Level >= 22)
         {
-          if (this.IronBuster <= 0) { this.IronBuster = 1; new_command = Fix.IRON_BUSTER_JP; }
+          if (this.IronBuster <= 0) { this.IronBuster = 1; new_command = Fix.IRON_BUSTER; }
         }
         if (this.Level >= 32)
         {
-          if (this.RagingStorm <= 0) { this.RagingStorm = 1; new_command = Fix.RAGING_STORM_JP; }
+          if (this.RagingStorm <= 0) { this.RagingStorm = 1; new_command = Fix.RAGING_STORM; }
         }
         if (this.Level >= 42)
         {
-          if (this.StanceOfTheIai <= 0) { this.StanceOfTheIai = 1; new_command = Fix.STANCE_OF_THE_IAI_JP; }
+          if (this.StanceOfTheIai <= 0) { this.StanceOfTheIai = 1; new_command = Fix.STANCE_OF_THE_IAI; }
         }
         if (this.Level >= 52)
         {
-          if (this.KineticSmash <= 0) { this.KineticSmash = 1; new_command = Fix.KINETIC_SMASH_JP; }
+          if (this.KineticSmash <= 0) { this.KineticSmash = 1; new_command = Fix.KINETIC_SMASH; }
         }
       }
       else if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -3786,31 +3786,31 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE_JP; }
+          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE; }
         }
         if (this.Level >= 4)
         {
-          if (this.PurePurification <= 0) { this.PurePurification = 1; new_command = Fix.PURE_PURIFICATION_JP; }
+          if (this.PurePurification <= 0) { this.PurePurification = 1; new_command = Fix.PURE_PURIFICATION; }
         }
         if (this.Level >= 8)
         {
-          if (this.BlueBullet <= 0) { this.BlueBullet = 1; new_command = Fix.BLUE_BULLET_JP; }
+          if (this.BlueBullet <= 0) { this.BlueBullet = 1; new_command = Fix.BLUE_BULLET; }
         }
         if (this.Level >= 22)
         {
-          if (this.FreezingCube <= 0) { this.FreezingCube = 1; new_command = Fix.FREEZING_CUBE_JP; }
+          if (this.FreezingCube <= 0) { this.FreezingCube = 1; new_command = Fix.FREEZING_CUBE; }
         }
         if (this.Level >= 32)
         {
-          if (this.FrostLance <= 0) { this.FrostLance = 1; new_command = Fix.FROST_LANCE_JP; }
+          if (this.FrostLance <= 0) { this.FrostLance = 1; new_command = Fix.FROST_LANCE; }
         }
         if (this.Level >= 42)
         {
-          if (this.WaterPresence <= 0) { this.WaterPresence = 1; new_command = Fix.WATER_PRESENCE_JP; }
+          if (this.WaterPresence <= 0) { this.WaterPresence = 1; new_command = Fix.WATER_PRESENCE; }
         }
         if (this.Level >= 52)
         {
-          if (this.AbsoluteZero <= 0) { this.AbsoluteZero = 1; new_command = Fix.ABSOLUTE_ZERO_JP; }
+          if (this.AbsoluteZero <= 0) { this.AbsoluteZero = 1; new_command = Fix.ABSOLUTE_ZERO; }
         }
       }
       else if (this.FullName == Fix.NAME_EONE_FULNEA)
@@ -3818,31 +3818,31 @@ public partial class Character : MonoBehaviour
         this.AvailableArchery = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.HunterShot <= 0) { this.HunterShot = 1; new_command = Fix.HUNTER_SHOT_JP; }
+          if (this.HunterShot <= 0) { this.HunterShot = 1; new_command = Fix.HUNTER_SHOT; }
         }
         if (this.Level >= 4)
         {
-          if (this.MultipleShot <= 0) { this.MultipleShot = 1; new_command = Fix.MULTIPLE_SHOT_JP; }
+          if (this.MultipleShot <= 0) { this.MultipleShot = 1; new_command = Fix.MULTIPLE_SHOT; }
         }
         if (this.Level >= 8)
         {
-          if (this.EyeOfTheIsshin <= 0) { this.EyeOfTheIsshin = 1; new_command = Fix.EYE_OF_THE_ISSHIN_JP; }
+          if (this.EyeOfTheIsshin <= 0) { this.EyeOfTheIsshin = 1; new_command = Fix.EYE_OF_THE_ISSHIN; }
         }
         if (this.Level >= 22)
         {
-          if (this.PenetrationArrow <= 0) { this.PenetrationArrow = 1; new_command = Fix.PENETRATION_ARROW_JP; }
+          if (this.PenetrationArrow <= 0) { this.PenetrationArrow = 1; new_command = Fix.PENETRATION_ARROW; }
         }
         if (this.Level >= 32)
         {
-          if (this.PrecisionStrike <= 0) { this.PrecisionStrike = 1; new_command = Fix.PRECISION_STRIKE_JP; }
+          if (this.PrecisionStrike <= 0) { this.PrecisionStrike = 1; new_command = Fix.PRECISION_STRIKE; }
         }
         if (this.Level >= 42)
         {
-          if (this.EternalConcentration <= 0) { this.EternalConcentration = 1; new_command = Fix.ETERNAL_CONCENTRATION_JP; }
+          if (this.EternalConcentration <= 0) { this.EternalConcentration = 1; new_command = Fix.ETERNAL_CONCENTRATION; }
         }
         if (this.Level >= 52)
         {
-          if (this.PiercingArrow <= 0) { this.PiercingArrow = 1; new_command = Fix.PIERCING_ARROW_JP; }
+          if (this.PiercingArrow <= 0) { this.PiercingArrow = 1; new_command = Fix.PIERCING_ARROW; }
         }
       }
       else if (this.FullName == Fix.NAME_BILLY_RAKI)
@@ -3850,31 +3850,31 @@ public partial class Character : MonoBehaviour
         this.AvailableMartialArts = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.LegStrike <= 0) { this.LegStrike = 1; new_command = Fix.LEG_STRIKE_JP; }
+          if (this.LegStrike <= 0) { this.LegStrike = 1; new_command = Fix.LEG_STRIKE; }
         }
         if (this.Level >= 4)
         {
-          if (this.SpeedStep <= 0) { this.SpeedStep = 1; new_command = Fix.SPEED_STEP_JP; }
+          if (this.SpeedStep <= 0) { this.SpeedStep = 1; new_command = Fix.SPEED_STEP; }
         }
         if (this.Level >= 8)
         {
-          if (this.BoneCrush <= 0) { this.BoneCrush = 1; new_command = Fix.BONE_CRUSH_JP; }
+          if (this.BoneCrush <= 0) { this.BoneCrush = 1; new_command = Fix.BONE_CRUSH; }
         }
         if (this.Level >= 22)
         {
-          if (this.DeadlyDrive <= 0) { this.DeadlyDrive = 1; new_command = Fix.DEADLY_DRIVE_JP; }
+          if (this.DeadlyDrive <= 0) { this.DeadlyDrive = 1; new_command = Fix.DEADLY_DRIVE; }
         }
         if (this.Level >= 32)
         {
-          if (this.UnintentionalHit <= 0) { this.UnintentionalHit = 1; new_command = Fix.UNINTENTIONAL_HIT_JP; }
+          if (this.UnintentionalHit <= 0) { this.UnintentionalHit = 1; new_command = Fix.UNINTENTIONAL_HIT; }
         }
         if (this.Level >= 42)
         {
-          if (this.StanceOfMuin <= 0) { this.StanceOfMuin = 1; new_command = Fix.STANCE_OF_MUIN_JP; }
+          if (this.StanceOfMuin <= 0) { this.StanceOfMuin = 1; new_command = Fix.STANCE_OF_MUIN; }
         }
         if (this.Level >= 52)
         {
-          if (this.CarnageRush <= 0) { this.CarnageRush = 1; new_command = Fix.CARNAGE_RUSH_JP; }
+          if (this.CarnageRush <= 0) { this.CarnageRush = 1; new_command = Fix.CARNAGE_RUSH; }
         }
       }
       else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
@@ -3882,31 +3882,31 @@ public partial class Character : MonoBehaviour
         this.AvailableVoidChant = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT_JP; }
+          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT; }
         }
         if (this.Level >= 4)
         {
-          if (this.FlashCounter <= 0) { this.FlashCounter = 1; new_command = Fix.FLASH_COUNTER_JP; }
+          if (this.FlashCounter <= 0) { this.FlashCounter = 1; new_command = Fix.FLASH_COUNTER; }
         }
         if (this.Level >= 8)
         {
-          if (this.SigilOfThePending <= 0) { this.SigilOfThePending = 1; new_command = Fix.SIGIL_OF_THE_PENDING_JP; }
+          if (this.SigilOfThePending <= 0) { this.SigilOfThePending = 1; new_command = Fix.SIGIL_OF_THE_PENDING; }
         }
         if (this.Level >= 22)
         {
-          if (this.PhantomOboro <= 0) { this.PhantomOboro = 1; new_command = Fix.PHANTOM_OBORO_JP; }
+          if (this.PhantomOboro <= 0) { this.PhantomOboro = 1; new_command = Fix.PHANTOM_OBORO; }
         }
         if (this.Level >= 32)
         {
-          if (this.CounterDisallow <= 0) { this.CounterDisallow = 1; new_command = Fix.COUNTER_DISALLOW_JP; }
+          if (this.CounterDisallow <= 0) { this.CounterDisallow = 1; new_command = Fix.COUNTER_DISALLOW; }
         }
         if (this.Level >= 42)
         {
-          if (this.DetachmentFault <= 0) { this.DetachmentFault = 1; new_command = Fix.DETACHMENT_FAULT_JP; }
+          if (this.DetachmentFault <= 0) { this.DetachmentFault = 1; new_command = Fix.DETACHMENT_FAULT; }
         }
         if (this.Level >= 52)
         {
-          if (this.TimeStop <= 0) { this.TimeStop = 1; new_command = Fix.TIME_STOP_JP; }
+          if (this.TimeStop <= 0) { this.TimeStop = 1; new_command = Fix.TIME_STOP; }
         }
       }
     }
@@ -3917,31 +3917,31 @@ public partial class Character : MonoBehaviour
         this.AvailableFire = true;
         if (this.Level >= 2) // 第２属性は初期から有効のため、適切なレベル設定を設けておく。
         {
-          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL_JP; }
+          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL; }
         }
         if (this.Level >= 6)
         {
-          if (this.FlameBlade <= 0) { this.FlameBlade = 1; new_command = Fix.FLAME_BLADE_JP; }
+          if (this.FlameBlade <= 0) { this.FlameBlade = 1; new_command = Fix.FLAME_BLADE; }
         }
         if (this.Level >= 10)
         {
-          if (this.MeteorBullet <= 0) { this.MeteorBullet = 1; new_command = Fix.METEOR_BULLET_JP; }
+          if (this.MeteorBullet <= 0) { this.MeteorBullet = 1; new_command = Fix.METEOR_BULLET; }
         }
         if (this.Level >= 25)
         {
-          if (this.VolcanicBlaze <= 0) { this.VolcanicBlaze = 1; new_command = Fix.VOLCANIC_BLAZE_JP; }
+          if (this.VolcanicBlaze <= 0) { this.VolcanicBlaze = 1; new_command = Fix.VOLCANIC_BLAZE; }
         }
         if (this.Level >= 35)
         {
-          if (this.FlameStrike <= 0) { this.FlameStrike = 1; new_command = Fix.FLAME_STRIKE_JP; }
+          if (this.FlameStrike <= 0) { this.FlameStrike = 1; new_command = Fix.FLAME_STRIKE; }
         }
         if (this.Level >= 45)
         {
-          if (this.CircleOfTheIgnite <= 0) { this.CircleOfTheIgnite = 1; new_command = Fix.CIRCLE_OF_THE_IGNITE_JP; }
+          if (this.CircleOfTheIgnite <= 0) { this.CircleOfTheIgnite = 1; new_command = Fix.CIRCLE_OF_THE_IGNITE; }
         }
         if (this.Level >= 55)
         {
-          if (this.LavaAnnihilation <= 0) { this.LavaAnnihilation = 1; new_command = Fix.LAVA_ANNIHILATION_JP; }
+          if (this.LavaAnnihilation <= 0) { this.LavaAnnihilation = 1; new_command = Fix.LAVA_ANNIHILATION; }
         }
       }
       else if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -3949,31 +3949,31 @@ public partial class Character : MonoBehaviour
         this.AvailableMartialArts = true;
         if (this.Level >= 2) // 第２属性は初期から有効のため、適切なレベル設定を設けておく。
         {
-          if (this.LegStrike <= 0) { this.LegStrike = 1; new_command = Fix.LEG_STRIKE_JP; }
+          if (this.LegStrike <= 0) { this.LegStrike = 1; new_command = Fix.LEG_STRIKE; }
         }
         if (this.Level >= 6)
         {
-          if (this.SpeedStep <= 0) { this.SpeedStep = 1; new_command = Fix.SPEED_STEP_JP; }
+          if (this.SpeedStep <= 0) { this.SpeedStep = 1; new_command = Fix.SPEED_STEP; }
         }
         if (this.Level >= 10)
         {
-          if (this.BoneCrush <= 0) { this.BoneCrush = 1; new_command = Fix.BONE_CRUSH_JP; }
+          if (this.BoneCrush <= 0) { this.BoneCrush = 1; new_command = Fix.BONE_CRUSH; }
         }
         if (this.Level >= 25)
         {
-          if (this.DeadlyDrive <= 0) { this.DeadlyDrive = 1; new_command = Fix.DEADLY_DRIVE_JP; }
+          if (this.DeadlyDrive <= 0) { this.DeadlyDrive = 1; new_command = Fix.DEADLY_DRIVE; }
         }
         if (this.Level >= 35)
         {
-          if (this.UnintentionalHit <= 0) { this.UnintentionalHit = 1; new_command = Fix.UNINTENTIONAL_HIT_JP; }
+          if (this.UnintentionalHit <= 0) { this.UnintentionalHit = 1; new_command = Fix.UNINTENTIONAL_HIT; }
         }
         if (this.Level >= 45)
         {
-          if (this.StanceOfMuin <= 0) { this.StanceOfMuin = 1; new_command = Fix.STANCE_OF_MUIN_JP; }
+          if (this.StanceOfMuin <= 0) { this.StanceOfMuin = 1; new_command = Fix.STANCE_OF_MUIN; }
         }
         if (this.Level >= 55)
         {
-          if (this.CarnageRush <= 0) { this.CarnageRush = 1; new_command = Fix.CARNAGE_RUSH_JP; }
+          if (this.CarnageRush <= 0) { this.CarnageRush = 1; new_command = Fix.CARNAGE_RUSH; }
         }
       }
       else if (this.FullName == Fix.NAME_EONE_FULNEA)
@@ -3981,31 +3981,31 @@ public partial class Character : MonoBehaviour
         this.AvailableHolyLight = true;
         if (this.Level >= 2) // 第２属性は初期から有効のため、適切なレベル設定を設けておく。
         {
-          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL_JP; }
+          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL; }
         }
         if (this.Level >= 6)
         {
-          if (this.DivineCircle <= 0) { this.DivineCircle = 1; new_command = Fix.DIVINE_CIRCLE_JP; }
+          if (this.DivineCircle <= 0) { this.DivineCircle = 1; new_command = Fix.DIVINE_CIRCLE; }
         }
         if (this.Level >= 10)
         {
-          if (this.HolyBreath <= 0) { this.HolyBreath = 1; new_command = Fix.HOLY_BREATH_JP; }
+          if (this.HolyBreath <= 0) { this.HolyBreath = 1; new_command = Fix.HOLY_BREATH; }
         }
         if (this.Level >= 25)
         {
-          if (this.AngelicEcho <= 0) { this.AngelicEcho = 1; new_command = Fix.ANGELIC_ECHO_JP; }
+          if (this.AngelicEcho <= 0) { this.AngelicEcho = 1; new_command = Fix.ANGELIC_ECHO; }
         }
         if (this.Level >= 35)
         {
-          if (this.ShiningHeal <= 0) { this.ShiningHeal = 1; new_command = Fix.SHINING_HEAL_JP; }
+          if (this.ShiningHeal <= 0) { this.ShiningHeal = 1; new_command = Fix.SHINING_HEAL; }
         }
         if (this.Level >= 45)
         {
-          if (this.ValkyrieBlade <= 0) { this.ValkyrieBlade = 1; new_command = Fix.VALKYRIE_BLADE_JP; }
+          if (this.ValkyrieBlade <= 0) { this.ValkyrieBlade = 1; new_command = Fix.VALKYRIE_BLADE; }
         }
         if (this.Level >= 55)
         {
-          if (this.Resurrection <= 0) { this.Resurrection = 1; new_command = Fix.RESURRECTION_JP; }
+          if (this.Resurrection <= 0) { this.Resurrection = 1; new_command = Fix.RESURRECTION; }
         }
       }
       else if (this.FullName == Fix.NAME_BILLY_RAKI)
@@ -4013,31 +4013,31 @@ public partial class Character : MonoBehaviour
         this.AvailableFire = true;
         if (this.Level >= 2) // 第２属性は初期から有効のため、適切なレベル設定を設けておく。
         {
-          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL_JP; }
+          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL; }
         }
         if (this.Level >= 6)
         {
-          if (this.FlameBlade <= 0) { this.FlameBlade = 1; new_command = Fix.FLAME_BLADE_JP; }
+          if (this.FlameBlade <= 0) { this.FlameBlade = 1; new_command = Fix.FLAME_BLADE; }
         }
         if (this.Level >= 10)
         {
-          if (this.MeteorBullet <= 0) { this.MeteorBullet = 1; new_command = Fix.METEOR_BULLET_JP; }
+          if (this.MeteorBullet <= 0) { this.MeteorBullet = 1; new_command = Fix.METEOR_BULLET; }
         }
         if (this.Level >= 25)
         {
-          if (this.VolcanicBlaze <= 0) { this.VolcanicBlaze = 1; new_command = Fix.VOLCANIC_BLAZE_JP; }
+          if (this.VolcanicBlaze <= 0) { this.VolcanicBlaze = 1; new_command = Fix.VOLCANIC_BLAZE; }
         }
         if (this.Level >= 35)
         {
-          if (this.FlameStrike <= 0) { this.FlameStrike = 1; new_command = Fix.FLAME_STRIKE_JP; }
+          if (this.FlameStrike <= 0) { this.FlameStrike = 1; new_command = Fix.FLAME_STRIKE; }
         }
         if (this.Level >= 45)
         {
-          if (this.CircleOfTheIgnite <= 0) { this.CircleOfTheIgnite = 1; new_command = Fix.CIRCLE_OF_THE_IGNITE_JP; }
+          if (this.CircleOfTheIgnite <= 0) { this.CircleOfTheIgnite = 1; new_command = Fix.CIRCLE_OF_THE_IGNITE; }
         }
         if (this.Level >= 55)
         {
-          if (this.LavaAnnihilation <= 0) { this.LavaAnnihilation = 1; new_command = Fix.LAVA_ANNIHILATION_JP; }
+          if (this.LavaAnnihilation <= 0) { this.LavaAnnihilation = 1; new_command = Fix.LAVA_ANNIHILATION; }
         }
       }
       else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
@@ -4045,31 +4045,31 @@ public partial class Character : MonoBehaviour
         this.AvailableTruth = true;
         if (this.Level >= 2) // 第２属性は初期から有効のため、適切なレベル設定を設けておく。
         {
-          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT_JP; }
+          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT; }
         }
         if (this.Level >= 6)
         {
-          if (this.LeylineSchema <= 0) { this.LeylineSchema = 1; new_command = Fix.LEYLINE_SCHEMA_JP; }
+          if (this.LeylineSchema <= 0) { this.LeylineSchema = 1; new_command = Fix.LEYLINE_SCHEMA; }
         }
         if (this.Level >= 10)
         {
-          if (this.VoiceOfVigor <= 0) { this.VoiceOfVigor = 1; new_command = Fix.VOICE_OF_VIGOR_JP; }
+          if (this.VoiceOfVigor <= 0) { this.VoiceOfVigor = 1; new_command = Fix.VOICE_OF_VIGOR; }
         }
         if (this.Level >= 25)
         {
-          if (this.WillAwakening <= 0) { this.WillAwakening = 1; new_command = Fix.WILL_AWAKENING_JP; }
+          if (this.WillAwakening <= 0) { this.WillAwakening = 1; new_command = Fix.WILL_AWAKENING; }
         }
         if (this.Level >= 35)
         {
-          if (this.EverflowMind <= 0) { this.EverflowMind = 1; new_command = Fix.EVERFLOW_MIND_JP; }
+          if (this.EverflowMind <= 0) { this.EverflowMind = 1; new_command = Fix.EVERFLOW_MIND; }
         }
         if (this.Level >= 45)
         {
-          if (this.SigilOfTheFaith <= 0) { this.SigilOfTheFaith = 1; new_command = Fix.SIGIL_OF_THE_FAITH_JP; }
+          if (this.SigilOfTheFaith <= 0) { this.SigilOfTheFaith = 1; new_command = Fix.SIGIL_OF_THE_FAITH; }
         }
         if (this.Level >= 55)
         {
-          if (this.StanceOfTheKokoroe <= 0) { this.StanceOfTheKokoroe = 1; new_command = Fix.STANCE_OF_THE_KOKOROE_JP; }
+          if (this.StanceOfTheKokoroe <= 0) { this.StanceOfTheKokoroe = 1; new_command = Fix.STANCE_OF_THE_KOKOROE; }
         }
       }
     }
@@ -4080,31 +4080,31 @@ public partial class Character : MonoBehaviour
         this.AvailableGuardian = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.ShieldBash <= 0) { this.ShieldBash = 1; new_command = Fix.SHIELD_BASH_JP; }
+          if (this.ShieldBash <= 0) { this.ShieldBash = 1; new_command = Fix.SHIELD_BASH; }
         }
         if (this.Level >= 15)
         {
-          if (this.StanceOfTheGuard <= 0) { this.StanceOfTheGuard = 1; new_command = Fix.STANCE_OF_THE_GUARD_JP; }
+          if (this.StanceOfTheGuard <= 0) { this.StanceOfTheGuard = 1; new_command = Fix.STANCE_OF_THE_GUARD; }
         }
         if (this.Level >= 18)
         {
-          if (this.ConcussiveHit <= 0) { this.ConcussiveHit = 1; new_command = Fix.CONCUSSIVE_HIT_JP; }
+          if (this.ConcussiveHit <= 0) { this.ConcussiveHit = 1; new_command = Fix.CONCUSSIVE_HIT; }
         }
         if (this.Level >= 28)
         {
-          if (this.DominationField <= 0) { this.DominationField = 1; new_command = Fix.DOMINATION_FIELD_JP; }
+          if (this.DominationField <= 0) { this.DominationField = 1; new_command = Fix.DOMINATION_FIELD; }
         }
         if (this.Level >= 38)
         {
-          if (this.HardestParry <= 0) { this.HardestParry = 1; new_command = Fix.HARDEST_PARRY_JP; }
+          if (this.HardestParry <= 0) { this.HardestParry = 1; new_command = Fix.HARDEST_PARRY; }
         }
         if (this.Level >= 48)
         {
-          if (this.OneImmunity <= 0) { this.OneImmunity = 1; new_command = Fix.ONE_IMMUNITY_JP; }
+          if (this.OneImmunity <= 0) { this.OneImmunity = 1; new_command = Fix.ONE_IMMUNITY; }
         }
         if (this.Level >= 58)
         {
-          if (this.Catastrophe <= 0) { this.Catastrophe = 1; new_command = Fix.CATASTROPHE_JP; }
+          if (this.Catastrophe <= 0) { this.Catastrophe = 1; new_command = Fix.CATASTROPHE; }
         }
       }
       else if (this.FullName == Fix.NAME_LANA_AMIRIA)
@@ -4112,31 +4112,31 @@ public partial class Character : MonoBehaviour
         this.AvailableDarkMagic = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST_JP; }
+          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST; }
         }
         if (this.Level >= 15)
         {
-          if (this.BloodSign <= 0) { this.BloodSign = 1; new_command = Fix.BLOOD_SIGN_JP; }
+          if (this.BloodSign <= 0) { this.BloodSign = 1; new_command = Fix.BLOOD_SIGN; }
         }
         if (this.Level >= 18)
         {
-          if (this.BlackContract <= 0) { this.BlackContract = 1; new_command = Fix.BLACK_CONTRACT_JP; }
+          if (this.BlackContract <= 0) { this.BlackContract = 1; new_command = Fix.BLACK_CONTRACT; }
         }
         if (this.Level >= 28)
         {
-          if (this.CursedEvangile <= 0) { this.CursedEvangile = 1; new_command = Fix.CURSED_EVANGILE_JP; }
+          if (this.CursedEvangile <= 0) { this.CursedEvangile = 1; new_command = Fix.CURSED_EVANGILE; }
         }
         if (this.Level >= 38)
         {
-          if (this.CircleOfTheDespair <= 0) { this.CircleOfTheDespair = 1; new_command = Fix.CIRCLE_OF_THE_DESPAIR_JP; }
+          if (this.CircleOfTheDespair <= 0) { this.CircleOfTheDespair = 1; new_command = Fix.CIRCLE_OF_THE_DESPAIR; }
         }
         if (this.Level >= 48)
         {
-          if (this.TheDarkIntensity <= 0) { this.TheDarkIntensity = 1; new_command = Fix.THE_DARK_INTENSITY_JP; }
+          if (this.TheDarkIntensity <= 0) { this.TheDarkIntensity = 1; new_command = Fix.THE_DARK_INTENSITY; }
         }
         if (this.Level >= 58)
         {
-          if (this.DeathScythe <= 0) { this.DeathScythe = 1; new_command = Fix.DEATH_SCYTHE_JP; }
+          if (this.DeathScythe <= 0) { this.DeathScythe = 1; new_command = Fix.DEATH_SCYTHE; }
         }
       }
       else if (this.FullName == Fix.NAME_EONE_FULNEA)
@@ -4144,31 +4144,31 @@ public partial class Character : MonoBehaviour
         this.AvailableMindfulness = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC_JP; }
+          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC; }
         }
         if (this.Level >= 15)
         {
-          if (this.SpiritualRest <= 0) { this.SpiritualRest = 1; new_command = Fix.SPIRITUAL_REST_JP; }
+          if (this.SpiritualRest <= 0) { this.SpiritualRest = 1; new_command = Fix.SPIRITUAL_REST; }
         }
         if (this.Level >= 18)
         {
-          if (this.UnseenAid <= 0) { this.UnseenAid = 1; new_command = Fix.UNSEEN_AID_JP; }
+          if (this.UnseenAid <= 0) { this.UnseenAid = 1; new_command = Fix.UNSEEN_AID; }
         }
         if (this.Level >= 28)
         {
-          if (this.CircleOfSerenity <= 0) { this.CircleOfSerenity = 1; new_command = Fix.CIRCLE_OF_SERENITY_JP; }
+          if (this.CircleOfSerenity <= 0) { this.CircleOfSerenity = 1; new_command = Fix.CIRCLE_OF_SERENITY; }
         }
         if (this.Level >= 38)
         {
-          if (this.InnerInspiration <= 0) { this.InnerInspiration = 1; new_command = Fix.INNER_INSPIRATION_JP; }
+          if (this.InnerInspiration <= 0) { this.InnerInspiration = 1; new_command = Fix.INNER_INSPIRATION; }
         }
         if (this.Level >= 48)
         {
-          if (this.ZeroImmunity <= 0) { this.ZeroImmunity = 1; new_command = Fix.ZERO_IMMUNITY_JP; }
+          if (this.ZeroImmunity <= 0) { this.ZeroImmunity = 1; new_command = Fix.ZERO_IMMUNITY; }
         }
         if (this.Level >= 58)
         {
-          if (this.TranscendenceReached <= 0) { this.TranscendenceReached = 1; new_command = Fix.TRANSCENDENCE_REACHED_JP; }
+          if (this.TranscendenceReached <= 0) { this.TranscendenceReached = 1; new_command = Fix.TRANSCENDENCE_REACHED; }
         }
       }
       else if (this.FullName == Fix.NAME_BILLY_RAKI)
@@ -4176,7 +4176,7 @@ public partial class Character : MonoBehaviour
         this.AvailableTruth = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT_JP; }
+          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT; }
         }
         if (this.Level >= 15)
         {
@@ -4184,23 +4184,23 @@ public partial class Character : MonoBehaviour
         }
         if (this.Level >= 18)
         {
-          if (this.VoiceOfVigor <= 0) { this.VoiceOfVigor = 1; new_command = Fix.VOICE_OF_VIGOR_JP; }
+          if (this.VoiceOfVigor <= 0) { this.VoiceOfVigor = 1; new_command = Fix.VOICE_OF_VIGOR; }
         }
         if (this.Level >= 28)
         {
-          if (this.WillAwakening <= 0) { this.WillAwakening = 1; new_command = Fix.WILL_AWAKENING_JP; }
+          if (this.WillAwakening <= 0) { this.WillAwakening = 1; new_command = Fix.WILL_AWAKENING; }
         }
         if (this.Level >= 38)
         {
-          if (this.EverflowMind <= 0) { this.EverflowMind = 1; new_command = Fix.EVERFLOW_MIND_JP; }
+          if (this.EverflowMind <= 0) { this.EverflowMind = 1; new_command = Fix.EVERFLOW_MIND; }
         }
         if (this.Level >= 48)
         {
-          if (this.SigilOfTheFaith <= 0) { this.SigilOfTheFaith = 1; new_command = Fix.SIGIL_OF_THE_FAITH_JP; }
+          if (this.SigilOfTheFaith <= 0) { this.SigilOfTheFaith = 1; new_command = Fix.SIGIL_OF_THE_FAITH; }
         }
         if (this.Level >= 58)
         {
-          if (this.StanceOfTheKokoroe <= 0) { this.StanceOfTheKokoroe = 1; new_command = Fix.STANCE_OF_THE_KOKOROE_JP; }
+          if (this.StanceOfTheKokoroe <= 0) { this.StanceOfTheKokoroe = 1; new_command = Fix.STANCE_OF_THE_KOKOROE; }
         }
       }
       else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
@@ -4208,31 +4208,31 @@ public partial class Character : MonoBehaviour
         this.AvailableForce = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.OracleCommand <= 0) { this.OracleCommand = 1; new_command = Fix.ORACLE_COMMAND_JP; }
+          if (this.OracleCommand <= 0) { this.OracleCommand = 1; new_command = Fix.ORACLE_COMMAND; }
         }
         if (this.Level >= 15)
         {
-          if (this.FortuneSpirit <= 0) { this.FortuneSpirit = 1; new_command = Fix.FORTUNE_SPIRIT_JP; }
+          if (this.FortuneSpirit <= 0) { this.FortuneSpirit = 1; new_command = Fix.FORTUNE_SPIRIT; }
         }
         if (this.Level >= 18)
         {
-          if (this.WordOfPower <= 0) { this.WordOfPower = 1; new_command = Fix.WORD_OF_POWER_JP; }
+          if (this.WordOfPower <= 0) { this.WordOfPower = 1; new_command = Fix.WORD_OF_POWER; }
         }
         if (this.Level >= 28)
         {
-          if (this.GaleWind <= 0) { this.GaleWind = 1; new_command = Fix.GALE_WIND_JP; }
+          if (this.GaleWind <= 0) { this.GaleWind = 1; new_command = Fix.GALE_WIND; }
         }
         if (this.Level >= 38)
         {
-          if (this.SeventhPrinciple <= 0) { this.SeventhPrinciple = 1; new_command = Fix.SEVENTH_PRINCIPLE_JP; }
+          if (this.SeventhPrinciple <= 0) { this.SeventhPrinciple = 1; new_command = Fix.SEVENTH_PRINCIPLE; }
         }
         if (this.Level >= 48)
         {
-          if (this.FutureVision <= 0) { this.FutureVision = 1; new_command = Fix.FUTURE_VISION_JP; }
+          if (this.FutureVision <= 0) { this.FutureVision = 1; new_command = Fix.FUTURE_VISION; }
         }
         if (this.Level >= 58)
         {
-          if (this.Genesis <= 0) { this.Genesis = 1; new_command = Fix.GENESIS_JP; }
+          if (this.Genesis <= 0) { this.Genesis = 1; new_command = Fix.GENESIS; }
         }
       }
     }
@@ -4243,7 +4243,7 @@ public partial class Character : MonoBehaviour
         this.AvailableHolyLight = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL_JP; }
+          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL; }
         }
         // 属性４は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4252,7 +4252,7 @@ public partial class Character : MonoBehaviour
         this.AvailableMindfulness = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC_JP; }
+          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC; }
         }
         // 属性４は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4261,7 +4261,7 @@ public partial class Character : MonoBehaviour
         this.AvailableVoidChant = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT_JP; }
+          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT; }
         }
         // 属性４は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4270,7 +4270,7 @@ public partial class Character : MonoBehaviour
         this.AvailableWarrior = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.StraightSmash <= 0) { this.StraightSmash = 1; new_command = Fix.STRAIGHT_SMASH_JP; }
+          if (this.StraightSmash <= 0) { this.StraightSmash = 1; new_command = Fix.STRAIGHT_SMASH; }
         }
         // 属性４は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4279,7 +4279,7 @@ public partial class Character : MonoBehaviour
         this.AvailableHolyLight = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL_JP; }
+          if (this.FreshHeal <= 0) { this.FreshHeal = 1; new_command = Fix.FRESH_HEAL; }
         }
         // 属性４は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4291,7 +4291,7 @@ public partial class Character : MonoBehaviour
         this.AvailableForce = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.OracleCommand <= 0) { this.OracleCommand = 1; new_command = Fix.ORACLE_COMMAND_JP; }
+          if (this.OracleCommand <= 0) { this.OracleCommand = 1; new_command = Fix.ORACLE_COMMAND; }
         }
         // 属性５は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4300,7 +4300,7 @@ public partial class Character : MonoBehaviour
         this.AvailableVoidChant = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT_JP; }
+          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT; }
         }
         // 属性５は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4309,7 +4309,7 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE_JP; }
+          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE; }
         }
         // 属性５は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4318,7 +4318,7 @@ public partial class Character : MonoBehaviour
         this.AvailableDarkMagic = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST_JP; }
+          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST; }
         }
         // 属性５は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4327,7 +4327,7 @@ public partial class Character : MonoBehaviour
         this.AvailableArchery = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.HunterShot <= 0) { this.HunterShot = 1; new_command = Fix.HUNTER_SHOT_JP; }
+          if (this.HunterShot <= 0) { this.HunterShot = 1; new_command = Fix.HUNTER_SHOT; }
         }
         // 属性５は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4339,7 +4339,7 @@ public partial class Character : MonoBehaviour
         this.AvailableTruth = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT_JP; }
+          if (this.TrueSight <= 0) { this.TrueSight = 1; new_command = Fix.TRUE_SIGHT; }
         }
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4348,7 +4348,7 @@ public partial class Character : MonoBehaviour
         this.AvailableFire = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL_JP; }
+          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL; }
         }
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4357,7 +4357,7 @@ public partial class Character : MonoBehaviour
         this.AvailableDarkMagic = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST_JP; }
+          if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST; }
         }
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4366,7 +4366,7 @@ public partial class Character : MonoBehaviour
         this.AvailableMindfulness = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC_JP; }
+          if (this.DispelMagic <= 0) { this.DispelMagic = 1; new_command = Fix.DISPEL_MAGIC; }
         }
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
@@ -4375,7 +4375,7 @@ public partial class Character : MonoBehaviour
         this.AvailableIce = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE_JP; }
+          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE; }
         }
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
