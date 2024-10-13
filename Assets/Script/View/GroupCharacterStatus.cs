@@ -61,6 +61,44 @@ public class GroupCharacterStatus : MonoBehaviour
   public Text txtDetailBattleSpeed;
   public Text txtDetailBattleResponse;
   public Text txtDetailPotential;
+
+  public GameObject groupStatusDetail;
+  public Text txtDetailPA;
+  public Text txtDetailPAMax;
+  public Text txtDetailPD;
+  public Text txtDetailMA;
+  public Text txtDetailMAMax;
+  public Text txtDetailMD;
+  public Text txtDetailBS;
+  public Text txtDetailBR;
+  public Text txtDetailPO;
+  public Text txtDetailAmplifyPA;
+  public Text txtDetailAmplifyPD;
+  public Text txtDetailAmplifyMA;
+  public Text txtDetailAmplifyMD;
+  public Text txtDetailAmplifyBS;
+  public Text txtDetailAmplifyBR;
+  public Text txtDetailAmplifyPO;
+  public Text txtDetailAmplifyFire;
+  public Text txtDetailAmplifyIce;
+  public Text txtDetailAmplifyLight;
+  public Text txtDetailAmplifyShadow;
+  public Text txtDetailResistFire;
+  public Text txtDetailResistIce;
+  public Text txtDetailResistLight;
+  public Text txtDetailResistShadow;
+  public Text txtDetailResistPoison;
+  public Text txtDetailResistSilence;
+  public Text txtDetailResistBind;
+  public Text txtDetailResistSleep;
+  public Text txtDetailResistStun;
+  public Text txtDetailResistParalyze;
+  public Text txtDetailResistFreeze;
+  public Text txtDetailResistFear;
+  public Text txtDetailResistSlow;
+  public Text txtDetailResistDizzy;
+  public Text txtDetailResistSlip;
+
   public GameObject GroupLevelUp;
   public Text txtDetailRemainPoint;
   public List<GameObject> btnPlus;
@@ -201,7 +239,7 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailMagicAttack.text = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence).ToString("F2");
     txtDetailMagicAttackMax.text = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence).ToString("F2");
     txtDetailMagicDefense.text = PrimaryLogic.MagicDefense(player).ToString("F2");
-    txtDetailBattleAccuracy.text = PrimaryLogic.BattleAccuracy(player).ToString("F2");
+    //txtDetailBattleAccuracy.text = PrimaryLogic.BattleAccuracy(player).ToString("F2");
     txtDetailBattleSpeed.text = PrimaryLogic.BattleSpeed(player).ToString("F2");
     txtDetailBattleResponse.text = PrimaryLogic.BattleResponse(player).ToString("F2");
     txtDetailPotential.text = PrimaryLogic.Potential(player).ToString("F2");
@@ -236,6 +274,43 @@ public class GroupCharacterStatus : MonoBehaviour
     imgDetailArtifact.sprite = Resources.Load<Sprite>("Icon_" + player.Artifact?.ItemType.ToString() ?? "");
     backDetailArtifact.GetComponent<Image>().color = player.Artifact?.GetRareColor ?? Color.white;
     txtDetailArtifact.GetComponent<Text>().color = player.Artifact?.GetRareTextColor ?? Color.white;
+
+    // 詳細ステータスの表記
+    txtDetailPA.text = txtDetailPhysicalAttack.text;
+    txtDetailPAMax.text = txtDetailPhysicalAttackMax.text;
+    txtDetailPD.text = txtDetailPhysicalDefense.text;
+    txtDetailMA.text = txtDetailMagicAttack.text;
+    txtDetailMAMax.text = txtDetailMagicAttackMax.text;
+    txtDetailMD.text = txtDetailMagicDefense.text;
+    txtDetailBS.text = txtDetailBattleSpeed.text;
+    txtDetailBR.text = txtDetailBattleResponse.text;
+    txtDetailPO.text = txtDetailPotential.text;
+    txtDetailAmplifyPA.text = player.TotalAmplifyPA.ToString("F2");
+    txtDetailAmplifyPD.text = player.TotalAmplifyPD.ToString("F2");
+    txtDetailAmplifyMA.text = player.TotalAmplifyMA.ToString("F2");
+    txtDetailAmplifyMD.text = player.TotalAmplifyMD.ToString("F2");
+    txtDetailAmplifyBS.text = player.TotalAmplifyBS.ToString("F2");
+    txtDetailAmplifyBR.text = player.TotalAmplifyBR.ToString("F2");
+    txtDetailAmplifyPO.text = player.TotalAmplifyPO.ToString("F2");
+    txtDetailAmplifyFire.text = player.TotalAmplifyFire.ToString("F2");
+    txtDetailAmplifyIce.text = player.TotalAmplifyIce.ToString("F2");
+    txtDetailAmplifyLight.text = player.TotalAmplifyLight.ToString("F2");
+    txtDetailAmplifyShadow.text = player.TotalAmplifyShadow.ToString("F2");
+    txtDetailResistFire.text = player.TotalResistFire.ToString("F2");
+    txtDetailResistIce.text = player.TotalResistIce.ToString("F2");
+    txtDetailResistLight.text = player.TotalResistLight.ToString("F2");
+    txtDetailResistShadow.text = player.TotalResistShadow.ToString("F2");
+    if (player.GetResistPoisonLogic()) { txtDetailResistPoison.text = "○"; } else { txtDetailResistPoison.text = ""; }
+    if (player.GetResistSilenceLogic()) { txtDetailResistSilence.text = "○"; } else { txtDetailResistSilence.text = ""; }
+    if (player.GetResistBindLogic()) { txtDetailResistBind.text = "○"; } else { txtDetailResistBind.text = ""; }
+    if (player.GetResistSleepLogic()) { txtDetailResistSleep.text = "○"; } else { txtDetailResistSleep.text = ""; }
+    if (player.GetResistStunLogic()) { txtDetailResistStun.text = "○"; } else { txtDetailResistStun.text = ""; }
+    if (player.GetResistParalyzeLogic()) { txtDetailResistParalyze.text = "○"; } else { txtDetailResistParalyze.text = ""; }
+    if (player.GetResistFreezeLogic()) { txtDetailResistFreeze.text = "○"; } else { txtDetailResistFreeze.text = ""; }
+    if (player.GetResistFearLogic()) { txtDetailResistFear.text = "○"; } else { txtDetailResistFear.text = ""; }
+    if (player.GetResistSlowLogic()) { txtDetailResistSlow.text = "○"; } else { txtDetailResistSlow.text = ""; }
+    if (player.GetResistDizzyLogic()) { txtDetailResistDizzy.text = "○"; } else { txtDetailResistDizzy.text = ""; }
+    if (player.GetResistSlipLogic()) { txtDetailResistSlip.text = "○"; } else { txtDetailResistSlip.text = ""; }
 
     if (imgDetailExp != null)
     {
@@ -352,7 +427,7 @@ public class GroupCharacterStatus : MonoBehaviour
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttack, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttackMax, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicDefense, PrimaryLogic.MagicDefense(CurrentPlayer), PrimaryLogic.MagicDefense(ShadowPlayer));
-      UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
+      //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleSpeed, PrimaryLogic.BattleSpeed(CurrentPlayer), PrimaryLogic.BattleSpeed(ShadowPlayer));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
       UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
@@ -805,7 +880,7 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttack, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttackMax, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicDefense, PrimaryLogic.MagicDefense(CurrentPlayer), PrimaryLogic.MagicDefense(ShadowPlayer));
-    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
+    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleSpeed, PrimaryLogic.BattleSpeed(CurrentPlayer), PrimaryLogic.BattleSpeed(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));
@@ -864,7 +939,7 @@ public class GroupCharacterStatus : MonoBehaviour
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttack, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Min, PrimaryLogic.SpellSkillType.Intelligence));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicAttackMax, PrimaryLogic.MagicAttack(CurrentPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence), PrimaryLogic.MagicAttack(ShadowPlayer, PrimaryLogic.ValueType.Max, PrimaryLogic.SpellSkillType.Intelligence));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailMagicDefense, PrimaryLogic.MagicDefense(CurrentPlayer), PrimaryLogic.MagicDefense(ShadowPlayer));
-    UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
+    //UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleAccuracy, PrimaryLogic.BattleAccuracy(CurrentPlayer), PrimaryLogic.BattleAccuracy(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleSpeed, PrimaryLogic.BattleSpeed(CurrentPlayer), PrimaryLogic.BattleSpeed(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailBattleResponse, PrimaryLogic.BattleResponse(CurrentPlayer), PrimaryLogic.BattleResponse(ShadowPlayer));
     UpdateBattleValueWithShadow(CurrentPlayer, ShadowPlayer, txtDetailPotential, PrimaryLogic.Potential(CurrentPlayer), PrimaryLogic.Potential(ShadowPlayer));

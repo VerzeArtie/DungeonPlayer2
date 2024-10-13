@@ -648,6 +648,11 @@ public class PartyMenu : MotherBase
     charaStatus.UpdateCharacterDetailView(this.CurrentPlayer);
   }
 
+  public void TapStatusDetailSwitch()
+  {
+    groupCharacterStatus.groupStatusDetail.SetActive(!groupCharacterStatus.groupStatusDetail.activeInHierarchy);
+  }
+
   public void TapBackpackSelect(NodeBackpackItem sender)
   {
     ParentBackpackView.TapBackpackSelect(sender);

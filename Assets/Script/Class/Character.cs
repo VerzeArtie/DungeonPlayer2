@@ -967,6 +967,235 @@ public partial class Character : MonoBehaviour
       return result;
     }
   }
+
+  public double TotalAmplifyPA
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * this.MainWeapon.AmplifyPhysicalAttack; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyPhysicalAttack > 1.00f) { result = result * this.SubWeapon.AmplifyPhysicalAttack; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyPhysicalAttack > 1.00f) { result = result * this.MainArmor.AmplifyPhysicalAttack; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyPhysicalAttack > 1.00f) { result = result * this.Accessory1.AmplifyPhysicalAttack; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyPhysicalAttack > 1.00f) { result = result * this.Accessory2.AmplifyPhysicalAttack; }
+      if (this.Artifact != null && this.Artifact.AmplifyPhysicalAttack > 1.00f) { result = result * this.Artifact.AmplifyPhysicalAttack; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyPD
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyPhysicalDefense > 1.00f) { result = result * this.MainWeapon.AmplifyPhysicalDefense; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyPhysicalDefense > 1.00f) { result = result * this.SubWeapon.AmplifyPhysicalDefense; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyPhysicalDefense > 1.00f) { result = result * this.MainArmor.AmplifyPhysicalDefense; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyPhysicalDefense > 1.00f) { result = result * this.Accessory1.AmplifyPhysicalDefense; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyPhysicalDefense > 1.00f) { result = result * this.Accessory2.AmplifyPhysicalDefense; }
+      if (this.Artifact != null && this.Artifact.AmplifyPhysicalDefense > 1.00f) { result = result * this.Artifact.AmplifyPhysicalDefense; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyMA
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyMagicAttack > 1.00f) { result = result * this.MainWeapon.AmplifyMagicAttack; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyMagicAttack > 1.00f) { result = result * this.SubWeapon.AmplifyMagicAttack; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyMagicAttack > 1.00f) { result = result * this.MainArmor.AmplifyMagicAttack; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyMagicAttack > 1.00f) { result = result * this.Accessory1.AmplifyMagicAttack; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyMagicAttack > 1.00f) { result = result * this.Accessory2.AmplifyMagicAttack; }
+      if (this.Artifact != null && this.Artifact.AmplifyMagicAttack > 1.00f) { result = result * this.Artifact.AmplifyMagicAttack; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyMD
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyMagicDefense > 1.00f) { result = result * this.MainWeapon.AmplifyMagicDefense; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyMagicDefense > 1.00f) { result = result * this.SubWeapon.AmplifyMagicDefense; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyMagicDefense > 1.00f) { result = result * this.MainArmor.AmplifyMagicDefense; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyMagicDefense > 1.00f) { result = result * this.Accessory1.AmplifyMagicDefense; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyMagicDefense > 1.00f) { result = result * this.Accessory2.AmplifyMagicDefense; }
+      if (this.Artifact != null && this.Artifact.AmplifyMagicDefense > 1.00f) { result = result * this.Artifact.AmplifyMagicDefense; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyBS
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyBattleSpeed > 1.00f) { result = result * this.MainWeapon.AmplifyBattleSpeed; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyBattleSpeed > 1.00f) { result = result * this.SubWeapon.AmplifyBattleSpeed; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyBattleSpeed > 1.00f) { result = result * this.MainArmor.AmplifyBattleSpeed; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyBattleSpeed > 1.00f) { result = result * this.Accessory1.AmplifyBattleSpeed; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyBattleSpeed > 1.00f) { result = result * this.Accessory2.AmplifyBattleSpeed; }
+      if (this.Artifact != null && this.Artifact.AmplifyBattleSpeed > 1.00f) { result = result * this.Artifact.AmplifyBattleSpeed; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyBR
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyBattleResponse > 1.00f) { result = result * this.MainWeapon.AmplifyBattleResponse; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyBattleResponse > 1.00f) { result = result * this.SubWeapon.AmplifyBattleResponse; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyBattleResponse > 1.00f) { result = result * this.MainArmor.AmplifyBattleResponse; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyBattleResponse > 1.00f) { result = result * this.Accessory1.AmplifyBattleResponse; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyBattleResponse > 1.00f) { result = result * this.Accessory2.AmplifyBattleResponse; }
+      if (this.Artifact != null && this.Artifact.AmplifyBattleResponse > 1.00f) { result = result * this.Artifact.AmplifyBattleResponse; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyPO
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyPotential > 1.00f) { result = result * this.MainWeapon.AmplifyPotential; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyPotential > 1.00f) { result = result * this.SubWeapon.AmplifyPotential; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyPotential > 1.00f) { result = result * this.MainArmor.AmplifyPotential; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyPotential > 1.00f) { result = result * this.Accessory1.AmplifyPotential; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyPotential > 1.00f) { result = result * this.Accessory2.AmplifyPotential; }
+      if (this.Artifact != null && this.Artifact.AmplifyPotential > 1.00f) { result = result * this.Artifact.AmplifyPotential; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyFire
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyFire > 1.00f) { result = result * this.MainWeapon.AmplifyFire; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyFire > 1.00f) { result = result * this.SubWeapon.AmplifyFire; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyFire > 1.00f) { result = result * this.MainArmor.AmplifyFire; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyFire > 1.00f) { result = result * this.Accessory1.AmplifyFire; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyFire > 1.00f) { result = result * this.Accessory2.AmplifyFire; }
+      if (this.Artifact != null && this.Artifact.AmplifyFire > 1.00f) { result = result * this.Artifact.AmplifyFire; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyIce
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyIce > 1.00f) { result = result * this.MainWeapon.AmplifyIce; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyIce > 1.00f) { result = result * this.SubWeapon.AmplifyIce; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyIce > 1.00f) { result = result * this.MainArmor.AmplifyIce; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyIce > 1.00f) { result = result * this.Accessory1.AmplifyIce; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyIce > 1.00f) { result = result * this.Accessory2.AmplifyIce; }
+      if (this.Artifact != null && this.Artifact.AmplifyIce > 1.00f) { result = result * this.Artifact.AmplifyIce; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyLight
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyLight > 1.00f) { result = result * this.MainWeapon.AmplifyLight; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyLight > 1.00f) { result = result * this.SubWeapon.AmplifyLight; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyLight > 1.00f) { result = result * this.MainArmor.AmplifyLight; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyLight > 1.00f) { result = result * this.Accessory1.AmplifyLight; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyLight > 1.00f) { result = result * this.Accessory2.AmplifyLight; }
+      if (this.Artifact != null && this.Artifact.AmplifyLight > 1.00f) { result = result * this.Artifact.AmplifyLight; }
+      return result;
+    }
+  }
+
+  public double TotalAmplifyShadow
+  {
+    get
+    {
+      double result = 1.00f;
+      if (this.MainWeapon != null && this.MainWeapon.AmplifyShadow > 1.00f) { result = result * this.MainWeapon.AmplifyShadow; }
+      if (this.SubWeapon != null && this.SubWeapon.AmplifyShadow > 1.00f) { result = result * this.SubWeapon.AmplifyShadow; }
+      if (this.MainArmor != null && this.MainArmor.AmplifyShadow > 1.00f) { result = result * this.MainArmor.AmplifyShadow; }
+      if (this.Accessory1 != null && this.Accessory1.AmplifyShadow > 1.00f) { result = result * this.Accessory1.AmplifyShadow; }
+      if (this.Accessory2 != null && this.Accessory2.AmplifyShadow > 1.00f) { result = result * this.Accessory2.AmplifyShadow; }
+      if (this.Artifact != null && this.Artifact.AmplifyShadow > 1.00f) { result = result * this.Artifact.AmplifyShadow; }
+      return result;
+    }
+  }
+
+  public double TotalResistFire
+  {
+    get
+    {
+      double result = 0.00f;
+      if (this.MainWeapon != null && this.MainWeapon.ResistFirePercent > 0.00f) { result = result + this.MainWeapon.ResistFirePercent; }
+      if (this.SubWeapon != null && this.SubWeapon.ResistFirePercent > 0.00f) { result = result + this.SubWeapon.ResistFirePercent; }
+      if (this.MainArmor != null && this.MainArmor.ResistFirePercent > 0.00f) { result = result + this.MainArmor.ResistFirePercent; }
+      if (this.Accessory1 != null && this.Accessory1.ResistFirePercent > 0.00f) { result = result + this.Accessory1.ResistFirePercent; }
+      if (this.Accessory2 != null && this.Accessory2.ResistFirePercent > 0.00f) { result = result + this.Accessory2.ResistFirePercent; }
+      if (this.Artifact != null && this.Artifact.ResistFirePercent > 0.00f) { result = result + this.Artifact.ResistFirePercent; }
+      if (result >= 1.00f) { result = 1.00f; }
+      return result;
+    }
+  }
+
+  public double TotalResistIce
+  {
+    get
+    {
+      double result = 0.00f;
+      if (this.MainWeapon != null && this.MainWeapon.ResistIcePercent > 0.00f) { result = result + this.MainWeapon.ResistIcePercent; }
+      if (this.SubWeapon != null && this.SubWeapon.ResistIcePercent > 0.00f) { result = result + this.SubWeapon.ResistIcePercent; }
+      if (this.MainArmor != null && this.MainArmor.ResistIcePercent > 0.00f) { result = result + this.MainArmor.ResistIcePercent; }
+      if (this.Accessory1 != null && this.Accessory1.ResistIcePercent > 0.00f) { result = result + this.Accessory1.ResistIcePercent; }
+      if (this.Accessory2 != null && this.Accessory2.ResistIcePercent > 0.00f) { result = result + this.Accessory2.ResistIcePercent; }
+      if (this.Artifact != null && this.Artifact.ResistIcePercent > 0.00f) { result = result + this.Artifact.ResistIcePercent; }
+      if (result >= 1.00f) { result = 1.00f; }
+      return result;
+    }
+  }
+
+  public double TotalResistLight
+  {
+    get
+    {
+      double result = 0.00f;
+      if (this.MainWeapon != null && this.MainWeapon.ResistLightPercent > 0.00f) { result = result + this.MainWeapon.ResistLightPercent; }
+      if (this.SubWeapon != null && this.SubWeapon.ResistLightPercent > 0.00f) { result = result + this.SubWeapon.ResistLightPercent; }
+      if (this.MainArmor != null && this.MainArmor.ResistLightPercent > 0.00f) { result = result + this.MainArmor.ResistLightPercent; }
+      if (this.Accessory1 != null && this.Accessory1.ResistLightPercent > 0.00f) { result = result + this.Accessory1.ResistLightPercent; }
+      if (this.Accessory2 != null && this.Accessory2.ResistLightPercent > 0.00f) { result = result + this.Accessory2.ResistLightPercent; }
+      if (this.Artifact != null && this.Artifact.ResistLightPercent > 0.00f) { result = result + this.Artifact.ResistLightPercent; }
+      if (result >= 1.00f) { result = 1.00f; }
+      return result;
+    }
+  }
+
+  public double TotalResistShadow
+  {
+    get
+    {
+      double result = 0.00f;
+      if (this.MainWeapon != null && this.MainWeapon.ResistShadowPercent > 0.00f) { result = result + this.MainWeapon.ResistShadowPercent; }
+      if (this.SubWeapon != null && this.SubWeapon.ResistShadowPercent > 0.00f) { result = result + this.SubWeapon.ResistShadowPercent; }
+      if (this.MainArmor != null && this.MainArmor.ResistShadowPercent > 0.00f) { result = result + this.MainArmor.ResistShadowPercent; }
+      if (this.Accessory1 != null && this.Accessory1.ResistShadowPercent > 0.00f) { result = result + this.Accessory1.ResistShadowPercent; }
+      if (this.Accessory2 != null && this.Accessory2.ResistShadowPercent > 0.00f) { result = result + this.Accessory2.ResistShadowPercent; }
+      if (this.Artifact != null && this.Artifact.ResistShadowPercent > 0.00f) { result = result + this.Artifact.ResistShadowPercent; }
+      if (result >= 1.00f) { result = 1.00f; }
+      return result;
+    }
+  }
   #endregion
 
   #region "戦闘中"
