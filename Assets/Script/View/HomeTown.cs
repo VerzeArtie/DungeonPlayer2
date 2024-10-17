@@ -26,6 +26,7 @@ public partial class HomeTown : MotherBase
   public Text txtSoulFragment;
   public Text txtObsidianStone;
   public Text txtMessage;
+  public Image imgTownIcon;
 
   // Config
   public GameObject GroupConfig;
@@ -3718,6 +3719,14 @@ public partial class HomeTown : MotherBase
     // エリア情報
     txtArea.text = One.TF.CurrentAreaName;
 
+    // アイコンの反映
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ANSHET_ICON); }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_FAZIL_CASTLE_ICON); }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_COTUHSYE_ICON); }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_ZHALMAN_ICON); }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA) { imgTownIcon.sprite = Resources.Load<Sprite>(Fix.TOWN_PARMETYSIA_ICON); }
+    else { imgTownIcon.sprite = null; }
+
     // DungeonPlayerのクエストリストを設定
     RefreshQuestList();
     // DungeonPlayerの行き先リストを設定
@@ -4136,6 +4145,22 @@ public partial class HomeTown : MotherBase
     NodeSelectAreaButton button = Instantiate(nodeSelectAreaButton) as NodeSelectAreaButton;
     button.gameObject.transform.SetParent(contentSelectArea.transform);
     button.txtName.text = select_area_name;
+
+    // アイコンの反映
+    if (select_area_name == Fix.DUNGEON_ESMILIA_GRASSFIELD) { button.ApplyImageIcon(Fix.DUNGEON_ESMILIA_GRASSFIELD_ICON); }
+    else if (select_area_name == Fix.DUNGEON_GORATRUM_CAVE) { button.ApplyImageIcon(Fix.DUNGEON_GORATRUM_CAVE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { button.ApplyImageIcon(Fix.DUNGEON_MYSTIC_FOREST_ICON); }
+    else if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { button.ApplyImageIcon(Fix.DUNGEON_OHRAN_TOWER_ICON); }
+    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON); }
+    else if (select_area_name == Fix.TOWN_ANSHET) { button.ApplyImageIcon(Fix.TOWN_ANSHET_ICON); }
+    else if (select_area_name == Fix.TOWN_FAZIL_CASTLE) { button.ApplyImageIcon(Fix.TOWN_FAZIL_CASTLE_ICON); }
+    else if (select_area_name == Fix.TOWN_COTUHSYE) { button.ApplyImageIcon(Fix.TOWN_COTUHSYE_ICON); }
+    else if (select_area_name == Fix.TOWN_ZHALMAN) { button.ApplyImageIcon(Fix.TOWN_ZHALMAN_ICON); }
+    else if (select_area_name == Fix.TOWN_PARMETYSIA) { button.ApplyImageIcon(Fix.TOWN_PARMETYSIA_ICON); }
+    else { /* 何もしない */ }
+
     if (available)
     {
       button.gameObject.SetActive(true);

@@ -13810,9 +13810,12 @@ public static partial class Fix
   #endregion
   #region "Hometown"
   public const string TOWN_ANSHET = "アンシェット街";
+  public const string TOWN_ANSHET_ICON = "TownIcon_AnshetTown";
   public const string TOWN_QVELTA_TOWN = "クヴェルタ街";
   public const string TOWN_COTUHSYE = "港町コチューシェ";
+  public const string TOWN_COTUHSYE_ICON = "TownIcon_CotusyeTown";
   public const string TOWN_ZHALMAN = "ツァルマンの里";
+  public const string TOWN_ZHALMAN_ICON = "TownIcon_ZhalmanVillage";
   public const string TOWN_WOSM = "ウォズム村";
   public const string TOWN_ARCANEDINE = "アーケンダイン街";
   public const string TOWN_DALE = "ディルの街";
@@ -13821,25 +13824,33 @@ public static partial class Fix
   public const string TOWN_ZELMAN = "ゼールマンの里";
   public const string TOWER_FRAN = "フーランの塔";
   public const string TOWN_FAZIL_CASTLE = "ファージル宮殿";
+  public const string TOWN_FAZIL_CASTLE_ICON = "TownIcon_FazilCastle";
   public const string TOWN_PARMETYSIA = "パルメテイシア神殿";
+  public const string TOWN_PARMETYSIA_ICON = "TownIcon_ParmetysiaTemple";
   public const string TOWN_EDELGARZEN_CASTLE = "エデルガイゼン城";
   public const string TOWN_FAZIL_UNDERGROUND = "ファージル宮殿地下";
   #endregion
   #region "Dungeon"
   public const string DUNGEON_ESMILIA_GRASSFIELD = "エスミリア草原区域";
+  public const string DUNGEON_ESMILIA_GRASSFIELD_ICON = "Dungeon_EsmiliaGrassfield";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
   public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
+  public const string DUNGEON_GORATRUM_CAVE_ICON = "Dungeon_GoratrumCave";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
+  public const string DUNGEON_OHRAN_TOWER_ICON = "Dungeon_OhranTower";
   public const string DUNGEON_VELGUS_SEA_TEMPLE = "ヴェルガス海底神殿 第一階層";
+  public const string DUNGEON_VELGUS_SEA_TEMPLE_ICON = "Dungeon_VelgusSeaTemple";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_2 = "ヴェルガス海底神殿 第二階層";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_3 = "ヴェルガス海底神殿 第三階層";
   public const string DUNGEON_VELGUS_SEA_TEMPLE_4 = "ヴェルガス海底神殿 最深部";
   public const string DUNGEON_MYSTIC_FOREST = "神秘の森";
+  public const string DUNGEON_MYSTIC_FOREST_ICON = "Dungeon_MysticForest";
   public const string DUNGEON_GATE_OF_DHAL = "ダルの門";
   public const string DUNGEON_RUINS_OF_SARITAN = "廃墟サリタン";
   public const string DUNGEON_SNOWTREE_LATA = "雪原の大樹ラタ";
   public const string DUNGEON_DISKEL_BATTLE_FIELD = "ディスケル戦場跡地";
   public const string DUNGEON_EDELGARZEN_CASTLE = "エデルガイゼン城 第一階層";
+  public const string DUNGEON_EDELGARZEN_CASTLE_ICON = "Dungeon_Edelgarzen";
   public const string DUNGEON_EDELGARZEN_CASTLE_2 = "エデルガイゼン城 第二階層";
   public const string DUNGEON_EDELGARZEN_CASTLE_3 = "エデルガイゼン城 第三階層";
   public const string DUNGEON_EDELGARZEN_CASTLE_4 = "エデルガイゼン城 最上階";
@@ -13849,6 +13860,7 @@ public static partial class Fix
   public const string DUNGEON_HEAVENS_GENESIS_GATE = "天上界ジェネシスゲート";
 
   public const string DUNGEON_EDELGARZEN_CASTLE_CENTER = "エデルガイゼン城 正面ゲート";
+  public const string DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON = "Dungeon_Edelgarzen";
   #endregion
   #region "Field"
   public const string FIELD_ESMILIA_GRASS_AREA = "エスミリア草原区域";
