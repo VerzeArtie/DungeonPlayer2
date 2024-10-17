@@ -599,8 +599,8 @@ public static class One
     // TF.BackpackList.Add(new Item(Fix.GREEN_PENDANT));
     // TF.BackpackList.Add(new Item(Fix.YELLOW_PENDANT));
     // TF.BackpackList.Add(new Item(Fix.GEAR_GENSEI));
-    // TF.BackpackList.Add(new Item(Fix.MASTER_SWORD));
-    // TF.BackpackList.Add(new Item(Fix.MASTER_SHIELD));
+    // TF.BackpackList.Add(new Item(Fix.EXTREME_SWORD));
+    // TF.BackpackList.Add(new Item(Fix.EXTREME_SHIELD));
     // TF.BackpackList.Add(new Item(Fix.EDIL_BLACK_BLADE));
     // TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     // TF.BackpackList.Add(new Item(Fix.ZETANIUM_STONE));
@@ -2991,6 +2991,42 @@ public static class One
               }
             }
             #endregion
+            #region "オーランの塔"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+            {
+              // POORは存在しないため、ブラックマテリアルにする。
+              targetItemName = Fix.POOR_BLACK_MATERIAL4;
+            }
+            #endregion
+            #region "ヴェルガス海底神殿"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+            {
+              // POORは存在しないため、ブラックマテリアルにする。
+              targetItemName = Fix.POOR_BLACK_MATERIAL5;
+            }
+            #endregion
+            #region "エデルガイゼン城"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+            {
+              // POORは存在しないため、ブラックマテリアルにする。
+              targetItemName = Fix.POOR_BLACK_MATERIAL7;
+            }
+            #endregion
             debugCounter2++;
           }
           // ダンジョンエリア毎のコモン汎用装備品
@@ -3260,6 +3296,285 @@ public static class One
               }
             }
             #endregion
+            #region "オーランの塔"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+            {
+              int randomValue3 = rd.Next(1, 27);
+              Debug.Log("randomValue3: " + randomValue3);
+              switch (randomValue3)
+              {
+                case 1:
+                  targetItemName = Fix.SUPERIOR_SWORD;
+                  break;
+                case 2:
+                  targetItemName = Fix.SUPERIOR_LANCE;
+                  break;
+                case 3:
+                  targetItemName = Fix.SUPERIOR_AXE;
+                  break;
+                case 4:
+                  targetItemName = Fix.SUPERIOR_CLAW;
+                  break;
+                case 5:
+                  targetItemName = Fix.SUPERIOR_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.SUPERIOR_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.SUPERIOR_ORB;
+                  break;
+                case 8:
+                  targetItemName = Fix.SUPERIOR_LARGE_SWORD;
+                  break;
+                case 9:
+                  targetItemName = Fix.SUPERIOR_LARGE_LANCE;
+                  break;
+                case 10:
+                  targetItemName = Fix.SUPERIOR_LARGE_AXE;
+                  break;
+                case 11:
+                  targetItemName = Fix.SUPERIOR_BOW;
+                  break;
+                case 12:
+                  targetItemName = Fix.SUPERIOR_LARGE_STAFF;
+                  break;
+                case 13:
+                  targetItemName = Fix.SUPERIOR_SHIELD;
+                  break;
+                case 14:
+                  targetItemName = Fix.SUPERIOR_ARMOR;
+                  break;
+                case 15:
+                  targetItemName = Fix.SUPERIOR_CROSS;
+                  break;
+                case 16:
+                  targetItemName = Fix.SUPERIOR_ROBE;
+                  break;
+                case 17:
+                  targetItemName = Fix.STEEL_RING_POWER;
+                  break;
+                case 18:
+                  targetItemName = Fix.STEEL_RING_SENSE;
+                  break;
+                case 19:
+                  targetItemName = Fix.STEEL_RING_TOUGH;
+                  break;
+                case 20:
+                  targetItemName = Fix.STEEL_RING_ROCK;
+                  break;
+                case 21:
+                  targetItemName = Fix.STEEL_RING_FAST;
+                  break;
+                case 22:
+                  targetItemName = Fix.STEEL_RING_SHARP;
+                  break;
+                case 23:
+                  targetItemName = Fix.STEEL_RING_HIGH;
+                  break;
+                case 24:
+                  targetItemName = Fix.STEEL_RING_DEEP;
+                  break;
+                case 25:
+                  targetItemName = Fix.STEEL_RING_BOUND;
+                  break;
+                case 26:
+                  targetItemName = Fix.STEEL_RING_EMOTE;
+                  break;
+              }
+            }
+            #endregion
+            #region "ヴェルガス海底神殿"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+            {
+              int randomValue3 = rd.Next(1, 24);
+              Debug.Log("randomValue3: " + randomValue3);
+              switch (randomValue3)
+              {
+                case 1:
+                  targetItemName = Fix.EXTREME_SWORD;
+                  break;
+                case 2:
+                  targetItemName = Fix.EXTREME_LANCE;
+                  break;
+                case 3:
+                  targetItemName = Fix.EXTREME_AXE;
+                  break;
+                case 4:
+                  targetItemName = Fix.EXTREME_CLAW;
+                  break;
+                case 5:
+                  targetItemName = Fix.EXTREME_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.EXTREME_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.EXTREME_ORB;
+                  break;
+                //case 8:
+                //  targetItemName = Fix.EXTREME_LARGE_SWORD;
+                //  break;
+                //case 9:
+                //  targetItemName = Fix.EXTREME_LARGE_LANCE;
+                //  break;
+                //case 10:
+                //  targetItemName = Fix.EXTREME_LARGE_AXE;
+                //  break;
+                case 8:
+                  targetItemName = Fix.EXTREME_BOW;
+                  break;
+                case 9:
+                  targetItemName = Fix.EXTREME_LARGE_STAFF;
+                  break;
+                case 10:
+                  targetItemName = Fix.EXTREME_SHIELD;
+                  break;
+                case 11:
+                  targetItemName = Fix.EXTREME_ARMOR;
+                  break;
+                case 12:
+                  targetItemName = Fix.EXTREME_CROSS;
+                  break;
+                case 13:
+                  targetItemName = Fix.EXTREME_ROBE;
+                  break;
+                case 14:
+                  targetItemName = Fix.SILVER_RING_GOUKA;
+                  break;
+                case 15:
+                  targetItemName = Fix.SILVER_RING_TSUNAMI;
+                  break;
+                case 16:
+                  targetItemName = Fix.SILVER_RING_AKISAME;
+                  break;
+                case 17:
+                  targetItemName = Fix.SILVER_RING_NEPPA;
+                  break;
+                case 18:
+                  targetItemName = Fix.SILVER_RING_RAIMEI;
+                  break;
+                case 19:
+                  targetItemName = Fix.SILVER_RING_FUBUKI;
+                  break;
+                case 20:
+                  targetItemName = Fix.SILVER_RING_GENJITSU;
+                  break;
+                case 21:
+                  targetItemName = Fix.SILVER_RING_TATSUMAKI;
+                  break;
+                case 22:
+                  targetItemName = Fix.SILVER_RING_SYUNIJI;
+                  break;
+                case 23:
+                  targetItemName = Fix.SILVER_RING_KAGEROU;
+                  break;
+              }
+            }
+            #endregion
+            #region "エデルガイゼン城"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+            {
+              int randomValue3 = rd.Next(1, 24);
+              Debug.Log("randomValue3: " + randomValue3);
+              switch (randomValue3)
+              {
+                case 1:
+                  targetItemName = Fix.EXTREME_SWORD;
+                  break;
+                case 2:
+                  targetItemName = Fix.EXTREME_LANCE;
+                  break;
+                case 3:
+                  targetItemName = Fix.EXTREME_AXE;
+                  break;
+                case 4:
+                  targetItemName = Fix.EXTREME_CLAW;
+                  break;
+                case 5:
+                  targetItemName = Fix.EXTREME_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.EXTREME_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.EXTREME_ORB;
+                  break;
+                //case 8:
+                //  targetItemName = Fix.EXTREME_LARGE_SWORD;
+                //  break;
+                //case 9:
+                //  targetItemName = Fix.EXTREME_LARGE_LANCE;
+                //  break;
+                //case 10:
+                //  targetItemName = Fix.EXTREME_LARGE_AXE;
+                //  break;
+                case 8:
+                  targetItemName = Fix.EXTREME_BOW;
+                  break;
+                case 9:
+                  targetItemName = Fix.EXTREME_LARGE_STAFF;
+                  break;
+                case 10:
+                  targetItemName = Fix.EXTREME_SHIELD;
+                  break;
+                case 11:
+                  targetItemName = Fix.EXTREME_ARMOR;
+                  break;
+                case 12:
+                  targetItemName = Fix.EXTREME_CROSS;
+                  break;
+                case 13:
+                  targetItemName = Fix.EXTREME_ROBE;
+                  break;
+                case 14:
+                  targetItemName = Fix.PLATINUM_RING_1;
+                  break;
+                case 15:
+                  targetItemName = Fix.PLATINUM_RING_2;
+                  break;
+                case 16:
+                  targetItemName = Fix.PLATINUM_RING_3;
+                  break;
+                case 17:
+                  targetItemName = Fix.PLATINUM_RING_4;
+                  break;
+                case 18:
+                  targetItemName = Fix.PLATINUM_RING_5;
+                  break;
+                case 19:
+                  targetItemName = Fix.PLATINUM_RING_6;
+                  break;
+                case 20:
+                  targetItemName = Fix.PLATINUM_RING_7;
+                  break;
+                case 21:
+                  targetItemName = Fix.PLATINUM_RING_8;
+                  break;
+                case 22:
+                  targetItemName = Fix.PLATINUM_RING_9;
+                  break;
+                case 23:
+                  targetItemName = Fix.PLATINUM_RING_10;
+                  break;
+              }
+            }
+            #endregion
             debugCounter3++;
           }
           // ダンジョンエリア毎のアンコモン汎用装備品
@@ -3484,6 +3799,96 @@ public static class One
               }
             }
             #endregion
+            #region "オーランの塔"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+            {
+              int randomValue4 = rd.Next(1, 6);
+              Debug.Log("randomValue4: " + randomValue4);
+              switch (randomValue4)
+              {
+                case 1:
+                  targetItemName = Fix.RED_MASEKI;
+                  break;
+                case 2:
+                  targetItemName = Fix.BLUE_MASEKI;
+                  break;
+                case 3:
+                  targetItemName = Fix.PURPLE_MASEKI;
+                  break;
+                case 4:
+                  targetItemName = Fix.GREEN_MASEKI;
+                  break;
+                case 5:
+                  targetItemName = Fix.YELLOW_MASEKI;
+                  break;
+              }
+            }
+            #endregion
+            #region "ヴェルガス海底神殿"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+            {
+              int randomValue4 = rd.Next(1, 6);
+              Debug.Log("randomValue4: " + randomValue4);
+              switch (randomValue4)
+              {
+                case 1:
+                  targetItemName = Fix.REDLIGHT_BRIGHTSTONE;
+                  break;
+                case 2:
+                  targetItemName = Fix.BLUELIGHT_BRIGHTSTONE;
+                  break;
+                case 3:
+                  targetItemName = Fix.PURPLELIGHT_BRIGHTSTONE;
+                  break;
+                case 4:
+                  targetItemName = Fix.GREENLIGHT_BRIGHTSTONE;
+                  break;
+                case 5:
+                  targetItemName = Fix.YELLOWLIGHT_BRIGHTSTONE;
+                  break;
+              }
+            }
+            #endregion
+            #region "エデルガイゼン城"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+            {
+              int randomValue4 = rd.Next(1, 6);
+              Debug.Log("randomValue4: " + randomValue4);
+              switch (randomValue4)
+              {
+                case 1:
+                  targetItemName = Fix.RED_CRYSTAL;
+                  break;
+                case 2:
+                  targetItemName = Fix.BLUE_CRYSTAL;
+                  break;
+                case 3:
+                  targetItemName = Fix.PURPLE_CRYSTAL;
+                  break;
+                case 4:
+                  targetItemName = Fix.GREEN_CRYSTAL;
+                  break;
+                case 5:
+                  targetItemName = Fix.YELLOW_CRYSTAL;
+                  break;
+              }
+            }
+            #endregion
             debugCounter4++;
           }
           // ダンジョンエリア毎のレア汎用装備品
@@ -3635,7 +4040,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area34) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 3))
             {
-              int randomValue5 = rd.Next(1, 30);
+              int randomValue5 = rd.Next(1, 23);
               Debug.Log("randomValue5: " + randomValue5);
               switch (randomValue5)
               {
@@ -3705,27 +4110,325 @@ public static class One
                 case 22:
                   targetItemName = Fix.SPIRIT_CHALICE_OF_HEART;
                   break;
+                //case 23:
+                //  targetItemName = Fix.SQUARE_SINNEN;
+                //  break;
+                //case 24:
+                //  targetItemName = Fix.SQUARE_BLESTAR;
+                //  break;
+                //case 25:
+                //  targetItemName = Fix.SQUARE_CHISEI;
+                //  break;
+                //case 26:
+                //  targetItemName = Fix.SQUARE_SENREN;
+                //  break;
+                //case 27:
+                //  targetItemName = Fix.SQUARE_SAIKI;
+                //  break;
+                //case 28:
+                //  targetItemName = Fix.SQUARE_TANREN;
+                //  break;
+                //case 29:
+                //  targetItemName = Fix.SQUARE_KOKOH;
+                //  break;                     
+              }
+            }
+            #endregion
+            #region "オーランの塔"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+            {
+              int randomValue5 = rd.Next(1, 25);
+              Debug.Log("randomValue5: " + randomValue5);
+              switch (randomValue5)
+              {
+                case 1:
+                  targetItemName = Fix.FULLMETAL_ASTRAL_BLADE;
+                  break;
+                case 2:
+                  targetItemName = Fix.STORM_FURY_LANCER;
+                  break;
+                case 3:
+                  targetItemName = Fix.WARLOAD_BASTARD_AXE;
+                  break;
+                case 4:
+                  targetItemName = Fix.EARTH_SHARD_CLAW;
+                  break;
+                case 5:
+                  targetItemName = Fix.ENGAGED_FUTURE_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.ANCIENT_FAITHFUL_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.BLUE_SKY_ORB;
+                  break;
+                case 8:
+                  targetItemName = Fix.PRISMATIC_SOUL_BREAKER;
+                  break;
+                case 9:
+                  targetItemName = Fix.BLOOD_STUBBORN_SPEAR;
+                  break;
+                case 10:
+                  targetItemName = Fix.ELEMENTAL_DISRUPT_AXE;
+                  break;
+                case 11:
+                  targetItemName = Fix.LINGERING_FROST_SHOOTER;
+                  break;
+                case 12:
+                  targetItemName = Fix.INFERNAL_IMMORTAL_STAFF;
+                  break;
+                case 13:
+                  targetItemName = Fix.GRACEFUL_KINGS_BUCKLER;
+                  break;
+                case 14:
+                  targetItemName = Fix.HARDED_INTENSITY_PLATE;
+                  break;
+                case 15:
+                  targetItemName = Fix.SOLDIER_HATRED_CROSS;
+                  break;
+                case 16:
+                  targetItemName = Fix.WONDERERS_INVISIBLE_ROBE;
+                  break;
+                // 武具屋限定、ドロップ対象外
+                //case 17:
+                //  targetItemName = Fix.ZELMAN_THE_ONSLAUGHT_BASTER;
+                //  break;
+                //case 18:
+                //  targetItemName = Fix.LIFEGRACE_FORTUNE_STAFF;
+                //  break;
+                //case 19:
+                //  targetItemName = Fix.WHITEVEIL_QUEENS_ROBE;
+                //  break;
+                //case 20:
+                //  targetItemName = Fix.KODAIEIJU_GREEN_LEAF;
+                //  break;
+                case 17:
+                  targetItemName = Fix.POWER_STEEL_RING_SOLID;
+                  break;
+                case 18:
+                  targetItemName = Fix.POWER_STEEL_RING_VAPOUR;
+                  break;
+                case 19:
+                  targetItemName = Fix.POWER_STEEL_RING_STRAIN;
+                  break;
+                case 20:
+                  targetItemName = Fix.POWER_STEEL_RING_TOLERANCE;
+                  break;
+                case 21:
+                  targetItemName = Fix.POWER_STEEL_RING_ASCEND;
+                  break;
+                case 22:
+                  targetItemName = Fix.POWER_STEEL_RING_INTERCEPT;
+                  break;
                 case 23:
-                  targetItemName = Fix.SQUARE_SINNEN;
+                  targetItemName = Fix.STARAIR_FLOATING_STONE;
                   break;
                 case 24:
-                  targetItemName = Fix.SQUARE_BLESTAR;
+                  targetItemName = Fix.LIGHTBRIGHT_FLOATING_STONE;
                   break;
-                case 25:
-                  targetItemName = Fix.SQUARE_CHISEI;
+                // 武具屋限定、ドロップ対象外
+                //case 25:
+                //  targetItemName = Fix.LUMINUS_REFLECT_MIRROR;
+                //  break;
+                //case 26:
+                //  targetItemName = Fix.BLACK_SPIRAL_NEEDLE;
+                //  break;
+                //case 27:
+                //  targetItemName = Fix.EMBLEM_OF_VALKYRIE;
+                //  break;
+                //case 28:
+                //  targetItemName = Fix.EMBLEM_OF_NECROMANCY;
+                //  break;
+              }
+            }
+            #endregion
+            #region "ヴェルガス海底神殿"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+            {
+              int randomValue5 = rd.Next(1, 25);
+              Debug.Log("randomValue5: " + randomValue5);
+              switch (randomValue5)
+              {
+                case 1:
+                  targetItemName = Fix.SOLEMN_EMPERORS_SWORD;
                   break;
-                case 26:
-                  targetItemName = Fix.SQUARE_SENREN;
+                case 2:
+                  targetItemName = Fix.MYSTIC_BLUE_JAVELIN;
                   break;
-                case 27:
-                  targetItemName = Fix.SQUARE_SAIKI;
+                case 3:
+                  targetItemName = Fix.STRONG_FIRE_HELL_BASTARDAXE;
                   break;
-                case 28:
-                  targetItemName = Fix.SQUARE_TANREN;
+                case 4:
+                  targetItemName = Fix.AURA_BURN_CLAW;
                   break;
-                case 29:
-                  targetItemName = Fix.SQUARE_KOKOH;
-                  break;                     
+                case 5:
+                  targetItemName = Fix.MIND_STONEFEAR_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.DARKSUN_TRAGEDIC_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.CHROMATIC_FORGE_ORB;
+                  break;
+                case 8:
+                  targetItemName = Fix.GOLDWILL_DESCENT_SOWRD;
+                  break;
+                case 9:
+                  targetItemName = Fix.FLASH_VANISH_SPEAR;
+                  break;
+                case 10:
+                  targetItemName = Fix.VOLCANIC_BATTLE_BASTER;
+                  break;
+                case 11:
+                  targetItemName = Fix.WHITE_FIRE_CROSSBOW;
+                  break;
+                case 12:
+                  targetItemName = Fix.ELDERSTAFF_OF_LIFEBLOOM;
+                  break;
+                case 13:
+                  targetItemName = Fix.DIMENSION_ZERO_SHIELD;
+                  break;
+                case 14:
+                  targetItemName = Fix.HIGHWARRIOR_DRAGONMAIL;
+                  break;
+                case 15:
+                  targetItemName = Fix.SWIFTCROSS_OF_REDTHUNDER;
+                  break;
+                case 16:
+                  targetItemName = Fix.BLADESHADOW_CROWDED_DRESS;
+                  break;
+                // 武具屋限定、ドロップ対象外
+                //case 17:
+                //  targetItemName = Fix.BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER;
+                //  break;
+                //case 18:
+                //  targetItemName = Fix.HOLY_BLESSING_SHIELD;
+                //  break;
+                //case 19:
+                //  targetItemName = Fix.LATA_GUARDIAN_RING;
+                //  break;
+                //case 20:
+                //  targetItemName = Fix.BLUEEYE_TEMPLE_PENDANT;
+                //  break;
+                //case 21:
+                //  targetItemName = Fix.REDEYE_TEMPLE_PENDANT;
+                //  break;
+                case 17:
+                  targetItemName = Fix.SEAL_OF_REDEYE;
+                  break;
+                case 18:
+                  targetItemName = Fix.SEAL_OF_BLUEEYE;
+                  break;
+                case 19:
+                  targetItemName = Fix.WINGED_LIGHTNING_BOOTS;
+                  break;
+                case 20:
+                  targetItemName = Fix.SPELLCASTERS_LENS;
+                  break;
+                case 21:
+                  targetItemName = Fix.PEACEFUL_REBIRTH_CANDLE;
+                  break;
+                case 22:
+                  targetItemName = Fix.DESPAIR_BLACKANGEL_RING;
+                  break;
+                case 23:
+                  targetItemName = Fix.PHANTASMAL_INSIGHT_RUNE;
+                  break;
+                case 24:
+                  targetItemName = Fix.SILVER_ETERNAL_SEED;
+                  break;
+                // 武具屋限定、ドロップ対象外
+                //case 25:
+                //  targetItemName = Fix.FIRELIEGE_AETHER_TALISMAN;
+                //  break;
+                //case 26:
+                //  targetItemName = Fix.RAINBOW_MOON_COMPASS;
+                //  break;
+                //case 27:
+                //  targetItemName = Fix.ANGEL_CONTRACT_SHEET;
+                //  break;
+              }
+            }
+            #endregion
+            #region "エデルガイゼン城"
+            if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+                (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+                (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+            {
+              int randomValue5 = rd.Next(1, 20);
+              Debug.Log("randomValue5: " + randomValue5);
+              switch (randomValue5)
+              {
+                case 1:
+                  targetItemName = Fix.ETHEREAL_EDGE_BLADE;
+                  break;
+                case 2:
+                  targetItemName = Fix.EVIL_ELIMINATION_LANCE;
+                  break;
+                case 3:
+                  targetItemName = Fix.PRISON_DESTRUCTION_AXE;
+                  break;
+                case 4:
+                  targetItemName = Fix.SHINGETSUEN_CLAW;
+                  break;
+                case 5:
+                  targetItemName = Fix.GARGAN_BLAZE_ROD;
+                  break;
+                case 6:
+                  targetItemName = Fix.JUNKEI_SHIKI_BOOK;
+                  break;
+                case 7:
+                  targetItemName = Fix.ALL_ELEMENTAL_ORB;
+                  break;
+                case 8:
+                  targetItemName = Fix.SYOKO_PALESTRIDE_BOW;
+                  break;
+                case 9:
+                  targetItemName = Fix.LABYRINTH_MAGE_BLUESTAFF;
+                  break;
+                case 10:
+                  targetItemName = Fix.MAJESTIC_FORCE_SHIELD;
+                  break;
+                case 11:
+                  targetItemName = Fix.BLACK_DRAGON_FEATHER;
+                  break;
+                case 12:
+                  targetItemName = Fix.RAGING_RESONANCE_RING;
+                  break;
+                case 13:
+                  targetItemName = Fix.LAGINA_DISTORTED_BRACER;
+                  break;
+                case 14:
+                  targetItemName = Fix.RIGID_WAVE_METALGUNTLET;
+                  break;
+                case 15:
+                  targetItemName = Fix.ISOCHRON_FATED_LENS;
+                  break;
+                case 16:
+                  targetItemName = Fix.DARKNESS_COIN;
+                  break;
+                case 17:
+                  targetItemName = Fix.HEART_SEEKERS_STONE;
+                  break;
+                case 18:
+                  targetItemName = Fix.SUN_BREAKERS_STONE;
+                  break;
+                case 19:
+                  targetItemName = Fix.DANZAI_ANGEL_TALISMAN;
+                  break;
               }
             }
             #endregion
@@ -3827,6 +4530,96 @@ public static class One
             }
           }
           #endregion
+          #region "オーランの塔"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+          {
+            int randomValue6 = rd.Next(1, 6);
+            Debug.Log("randomValue6: " + randomValue6);
+            switch (randomValue6)
+            {
+              case 1:
+                targetItemName = Fix.GROWTH_LIQUID4_STRENGTH;
+                break;
+              case 2:
+                targetItemName = Fix.GROWTH_LIQUID4_AGILITY;
+                break;
+              case 3:
+                targetItemName = Fix.GROWTH_LIQUID4_INTELLIGENCE;
+                break;
+              case 4:
+                targetItemName = Fix.GROWTH_LIQUID4_STAMINA;
+                break;
+              case 5:
+                targetItemName = Fix.GROWTH_LIQUID4_MIND;
+                break;
+            }
+          }
+          #endregion
+          #region "ヴェルガス海底神殿"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+          {
+            int randomValue6 = rd.Next(1, 6);
+            Debug.Log("randomValue6: " + randomValue6);
+            switch (randomValue6)
+            {
+              case 1:
+                targetItemName = Fix.GROWTH_LIQUID5_STRENGTH;
+                break;
+              case 2:
+                targetItemName = Fix.GROWTH_LIQUID5_AGILITY;
+                break;
+              case 3:
+                targetItemName = Fix.GROWTH_LIQUID5_INTELLIGENCE;
+                break;
+              case 4:
+                targetItemName = Fix.GROWTH_LIQUID5_STAMINA;
+                break;
+              case 5:
+                targetItemName = Fix.GROWTH_LIQUID5_MIND;
+                break;
+            }
+          }
+          #endregion
+          #region "エデルガイゼン城"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+          {
+            int randomValue6 = rd.Next(1, 6);
+            Debug.Log("randomValue6: " + randomValue6);
+            switch (randomValue6)
+            {
+              case 1:
+                targetItemName = Fix.GROWTH_LIQUID6_STRENGTH;
+                break;
+              case 2:
+                targetItemName = Fix.GROWTH_LIQUID6_AGILITY;
+                break;
+              case 3:
+                targetItemName = Fix.GROWTH_LIQUID6_INTELLIGENCE;
+                break;
+              case 4:
+                targetItemName = Fix.GROWTH_LIQUID6_STAMINA;
+                break;
+              case 5:
+                targetItemName = Fix.GROWTH_LIQUID6_MIND;
+                break;
+            }
+          }
+          #endregion
           debugCounter6++;
         }
         #endregion
@@ -3871,10 +4664,10 @@ public static class One
               switch (randomValue7_2)
               {
                 case 1:
-                  targetItemName = Fix.EPIC_RING_OF_OSCURETE;
+                  targetItemName = Fix.RING_OF_OSCURETE;
                   break;
                 case 2:
-                  targetItemName = Fix.EPIC_MERGIZD_SOL_BLADE;
+                  targetItemName = Fix.MERGIZD_SOL_BLADE;
                   break;
               }
               One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
@@ -3914,12 +4707,15 @@ public static class One
             }
             else
             {
-              int randomValue7_2 = rd.Next(1, 2);
+              int randomValue7_2 = rd.Next(1, 3);
               Debug.Log("randomValue7_2: " + randomValue7_2);
               switch (randomValue7_2)
               {
                 case 1:
                   targetItemName = Fix.ADILORB_OF_THE_GARVANDI;
+                  break;
+                case 2:
+                  targetItemName = Fix.MAXCARN_X_BUSTER;
                   break;
               }
               One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
@@ -3972,6 +4768,84 @@ public static class One
               }
               One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
             }
+          }
+          #endregion
+          #region "オーランの塔"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+          {
+            // レベル制限なし
+            int randomValue7_2 = rd.Next(1, 3);
+            Debug.Log("randomValue7_2: " + randomValue7_2);
+            switch (randomValue7_2)
+            {
+              case 1:
+                targetItemName = Fix.GATUH_HAWL_OF_GREAT;
+                break;
+              case 2:
+                targetItemName = Fix.JUZA_ARESTINE_SLICER;
+                break;
+            }
+            One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
+          }
+          #endregion
+          #region "ヴェルガス海底神殿"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+          {
+            // レベル制限なし
+            int randomValue7_2 = rd.Next(1, 4);
+            Debug.Log("randomValue7_2: " + randomValue7_2);
+            switch (randomValue7_2)
+            {
+              case 1:
+                targetItemName = Fix.ADILRING_OF_BLUE_BURN;
+                break;
+              case 2:
+                targetItemName = Fix.SHEZL_MYSTIC_FORTUNE;
+                break;
+              case 3:
+                targetItemName = Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE;
+                break;
+            }
+            One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
+          }
+          #endregion
+          #region "エデルガイゼン城"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+          {
+            // レベル制限なし
+            int randomValue7_2 = rd.Next(1, 5);
+            Debug.Log("randomValue7_2: " + randomValue7_2);
+            switch (randomValue7_2)
+            {
+              case 1:
+                targetItemName = Fix.EZEKRIEL_IMPRINT_SIGIL_ARMOR;
+                break;
+              case 2:
+                targetItemName = Fix.MERGIZD_DAV_AGITATED_BLADE;
+                break;
+              case 3:
+                targetItemName = Fix.SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK;
+                break;
+              case 4:
+                targetItemName = Fix.XEXXER_WORLD_MASTERY_GLOBE;
+                break;
+            }
+            One.TF.KillingEnemy = 0; // EPIC出現後、ボーナス値をリセットしておく。
           }
           #endregion
           debugCounter7++;
@@ -4036,6 +4910,54 @@ public static class One
             if (1 <= randomValue8 && randomValue8 <= 50)
             {
               targetItemName = Fix.POOR_BLACK_MATERIAL3;
+            }
+          }
+          #endregion
+          #region "オーランの塔"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area41) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area42) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area43) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area44) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area45) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 4))
+          {
+            int randomValue8 = rd.Next(1, 101);
+            Debug.Log("randomValue8: " + randomValue8);
+            if (1 <= randomValue8 && randomValue8 <= 50)
+            {
+              targetItemName = Fix.POOR_BLACK_MATERIAL4;
+            }
+          }
+          #endregion
+          #region "ヴェルガス海底神殿"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area51) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area52) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area53) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area54) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area55) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 5))
+          {
+            int randomValue8 = rd.Next(1, 101);
+            Debug.Log("randomValue8: " + randomValue8);
+            if (1 <= randomValue8 && randomValue8 <= 50)
+            {
+              targetItemName = Fix.POOR_BLACK_MATERIAL5;
+            }
+          }
+          #endregion
+          #region "エデルガイゼン城"
+          if ((category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area61) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area62) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area63) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area64) ||
+              (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area65) ||
+              (category == Fix.DropItemCategory.Lottery && dungeonArea == 6))
+          {
+            int randomValue8 = rd.Next(1, 101);
+            Debug.Log("randomValue8: " + randomValue8);
+            if (1 <= randomValue8 && randomValue8 <= 50)
+            {
+              targetItemName = Fix.POOR_BLACK_MATERIAL6;
             }
           }
           #endregion

@@ -2313,7 +2313,6 @@ public static partial class Fix
   public const string BRONZE_SWORD = "ブロンズ・ソード";
   public const string SWORD_OF_LIFE = "ソード・オブ・ライフ";
   public const string AERO_BLADE = "疾風の剣";
-  public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
   public const string SHARP_LANCE = "シャープ・ランス";
   public const string WHITE_PARGE_LANCE = "ホワイトパージ・ランス";
   public const string ICE_SPIRIT_LANCE = "氷魂の槍";
@@ -2366,6 +2365,10 @@ public static partial class Fix
 
   public const string BLUE_WIZARD_HAT = "ブルー・ウィザード・ハット";
   public const string FLAME_HAND_KEEPER = "フレイム・ハンド・キーパー";
+
+  public const string RING_OF_OSCURETE = @"Ring of the Oscurete";
+  public const string MERGIZD_SOL_BLADE = "Mergizd Sol Blade";
+
   #endregion
   #region "フェーズ【 Iー２ 】：ゴラトラム洞窟"
   public const string CLASSICAL_SWORD = "クラシカル・ソード";
@@ -2452,6 +2455,7 @@ public static partial class Fix
   public const string JADE_NOBLE_CIRCLET = "翡翠色の高貴なサークレット";
 
   public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
+  public const string MAXCARN_X_BUSTER = @"Maxcarn the X-BUSTER";
 
   public const string KODAIEIJU_EDA = "古代栄樹の枝";
   public const string KIGAN_OFUDA = "祈願の御札";
@@ -2490,13 +2494,11 @@ public static partial class Fix
 
   public const string ENSHOUTOU = "炎翔刀";
   public const string GALLANT_FEATHER_LANCE = "ガーラント・フェザー・ランス";
-  public const string VIRGIRANTE_HELLGATE_LANCE = "ヴィルジランデ・ヘルゲート・ランス";
   public const string THUNDER_BREAK_AXE = "サンダー・ブレイク・アックス";
   public const string WRATH_SABEL_CLAW = "ラス・サーヴェル・クロー";
   public const string DORN_NAMELESS_ROD = "ドルン・ネームレス・ロッド";
   public const string FINESSE_IMPERIAL_BOOK = "フィネッセ・インペリアル・ブック";
   public const string INTRINSIC_FROZEN_ORB = "イントリンシック・フローズン・オーブ";
-  public const string MULLERHAIZEN_AGARTA_BOOK = "ミュラーヘイゼン・ブック・オブ・アガルタ";
   public const string FORCEFUL_BASTARD_SWORD = "フォースフル・バスタード・ソード";
   public const string SHARPNEL_ARC_LANCER = "シャープネル・アーク・ランサー";
   public const string OGRE_KILL_BUSTER = "オーガ・キル・バスター";
@@ -2569,6 +2571,9 @@ public static partial class Fix
   public const string SWEET_BANGLE = "スイート・バングル";
   public const string NAMELESS_HAT = "ネームレス・ハット";
   public const string WARM_LEGGUARD = "ウォーム・レッグガード";
+
+  public const string VIRGIRANTE_HELLGATE_LANCE = "ヴィルジランデ・ヘルゲート・ランス";
+  public const string MULLERHAIZEN_AGARTA_BOOK = "ミュラーヘイゼン・ブック・オブ・アガルタ";
   #endregion
   #region "フェーズ【 IIー２ 】：オーランの塔"
   public const string SUPERIOR_SWORD = "スペリオル・ソード";
@@ -2637,6 +2642,8 @@ public static partial class Fix
   public const string EMBLEM_OF_VALKYRIE = "エムブレム・オブ・ヴァルキリー";
   public const string EMBLEM_OF_NECROMANCY = "エムブレム・オブ・ネクロマンシー";
 
+  public const string GATUH_HAWL_OF_GREAT = @"Gatuh Hawl of Great";
+  public const string JUZA_ARESTINE_SLICER = @"Arestine-Slicer of Juza";
   #endregion
   #region "フェーズ【 IIIー１ 】：ヴェルガス海底神殿"
   public const string MASTER_SWORD = "マスター・ソード";
@@ -2707,6 +2714,10 @@ public static partial class Fix
   public const string RAINBOW_MOON_COMPASS = "レインボー・ムーン・コンパス";
   public const string ANGEL_CONTRACT_SHEET = "天使の契約書";
 
+  public const string ADILRING_OF_BLUE_BURN = @"AdilRing of the Blue Burn";
+  public const string SHEZL_MYSTIC_FORTUNE = @"Shezl the Mystic Fortune";
+  public const string FLOW_FUNNEL_OF_THE_ZVELDOZE = @"Flow Funnel of the Zveldose";
+
   #endregion
   #region "フェーズ【 IIIー２ 】：ダルの門"
   public const string MARVELOUS_SWORD = "マーベラス・ソード";
@@ -2769,7 +2780,6 @@ public static partial class Fix
   public const string SYOKO_PALESTRIDE_BOW = "曙光・ペイルストライド・ボウ";
   public const string LABYRINTH_MAGE_BLUESTAFF = "迷宮魔導士の蒼き大杖";
   public const string MAJESTIC_FORCE_SHIELD = "マジェスティッド・フォース・シールド";
-  public const string EZEKRIEL_IMPRINT_SIGIL_ARMOR = "Ezekriel the Imprinted-Armor of Sigil";
   public const string SHISO_GENSUI_KING_CROSS = "始祖元帥の舞踏衣【王授】";
   public const string ROBE_OF_COLORSTREAMING = "ローブ・オブ・カラーストリーミング";
 
@@ -2799,6 +2809,10 @@ public static partial class Fix
   public const string SUN_BREAKERS_STONE = "サン・ブレイカーズ・ストーン";
   public const string DANZAI_ANGEL_TALISMAN = "断罪天使の護符";
 
+  public const string EZEKRIEL_IMPRINT_SIGIL_ARMOR = "Ezekriel the Imprinted-Armor of Sigil";
+  public const string MERGIZD_DAV_AGITATED_BLADE = @"Mergizd DAV-Agitated Blade";
+  public const string SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK = @"Shezl the Ventiel-DarkMirage Book";
+  public const string XEXXER_WORLD_MASTERY_GLOBE = @"Xexxer the World-Mastery Globe";
   #endregion
   #region "フェーズ【 Vー１ 】：雪原の大樹ラタ"
   public const string INCREDIBLE_SWORD = "インクレディブル・ソード";
@@ -2855,9 +2869,6 @@ public static partial class Fix
   public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
   public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
   public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
-
-  public const string EPIC_RING_OF_OSCURETE = @"Ring of the Oscurete";
-  public const string EPIC_MERGIZD_SOL_BLADE = @"Mergizd Sol Blade";
 
   public const string GEAR_GENSEI = "ギア【厳正】";
   public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";

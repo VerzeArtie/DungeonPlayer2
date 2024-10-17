@@ -1296,6 +1296,32 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.NAME_SIN_OSCURETE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者オスキュレーテが幼少時代に付けていたリング。力＋６、技＋４、知＋１０、体＋３、心＋５、猛毒耐性、スタン耐性、眩暈耐性";
+        this._strength = 6;
+        this._agility = 4;
+        this._intelligence = 10;
+        this._stamina = 3;
+        this._mind = 5;
+        this._resistPoison = true;
+        this._resistStun = true;
+        this._resistDizzy = true;
+        break;
+
       case Fix.MERGIZD_SOL_BLADE:
         this._rarity = Rarity.Epic;
         this._itemType = ItemTypes.Onehand_Sword;
@@ -1311,12 +1337,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "";
+        this._description = "古代賢者メルギズドが幼少時代に付けていたブレード。力＋１０、知＋８、心＋５、物理攻撃４５～６７、魔法攻撃２２～３４";
         this._strength = 10;
         this._agility = 0;
         this._intelligence = 8;
         this._stamina = 0;
-        this._mind = 0;
+        this._mind = 5;
         this.CanbeSocket1 = false;
         this.CanbeSocket2 = false;
         this.CanbeSocket3 = false;
@@ -3674,6 +3700,29 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.MAXCARN_X_BUSTER:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Twohand_Axe;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 83;
+        this._physicalAttack = 90;
+        this._physicalAttackMax = 250;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者マクスカーンが幼少時代に付けていた両手剣。力＋２５、技＋１５、心＋３０、物理攻撃９０～２５０";
+        this._strength = 25;
+        this._agility = 15;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 30;
+        break;
+
       case Fix.CLASSICAL_BOW:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Twohand_Bow;
@@ -4522,22 +4571,21 @@ public partial class Item
         this._rarity = Rarity.Epic;
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
-        this._magicAttack = 56;
-        this._magicAttackMax = 83;
-        this._gold = 30000;
-        this._description = "古代賢者エーディルが少年時代に身に着けていた水晶型のアクセサリ。装着者には無限にも等しき魔力が流れ込むと言われている。魔法攻撃力５６～８３、技＋２３、知＋４５、体＋３１、沈黙耐性、スタン耐性、恐怖耐性、炎耐性５００、氷属性の攻撃ダメージ＋７％、戦速率＋３％、宝玉ソケット＋１";
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._gold = 0;
+        this._description = "古代賢者エーディルが少年時代に身に着けていた水晶型のアクセサリ。装着者には無限にも等しき魔力が流れ込むと言われている。技＋２５、知＋４５、体＋３０、沈黙耐性、スタン耐性、恐怖耐性、炎耐性２０％、氷増幅２０％、戦速率＋３％";
         this._strength = 0;
-        this._agility = 23;
+        this._agility = 25;
         this._intelligence = 45;
-        this._stamina = 31;
+        this._stamina = 30;
         this._mind = 0;
         this._resistSilence = true;
         this._resistStun = true;
         this._resistFear = true;
-        this._resistFireValue = 500;
-        this._amplifyIce = 1.07f;
+        this._resistFirePercent = 0.20f;
+        this._amplifyIce = 1.20f;
         this._amplifyBattleSpeed = 1.03f;
-        this.CanbeSocket1 = true;
         break;
 
       #endregion
@@ -4725,17 +4773,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "失われた王国ヴィルジランテが栄華を誇った時代に作られた伝説の槍。槍の切っ先には黒い空間が宿っている。その形状は神々しくもあり、禍々しくもある。槍の効果は凄まじく、対象者はたちまち絶命の危機に瀕するだろう。物理攻撃力２８０～４００、魔法攻撃力１６０～２５０、力＋２５、技＋３５、知＋２０、ジュエルソケット１　【特殊能力】物理攻撃によるクリティカルダメージ＋１０％。スキル消費SPが10%軽減。";
-        this._strength = 25;
-        this._agility = 35;
-        this._intelligence = 20;
+        this._description = "失われた王国ヴィルジランテが栄華を誇った時代に作られた伝説の槍。槍の切っ先には黒い空間が宿っている。その形状は神々しくもあり、禍々しくもある。槍の効果は凄まじく、対象者はたちまち絶命の危機に瀕するだろう。物理攻撃力２８０～４００、魔法攻撃力１６０～２５０、力＋３５、技＋４５、知＋３０　【特殊能力】物理攻撃によるクリティカルダメージ＋１０％。スキル消費SPが10%軽減。";
+        this._strength = 35;
+        this._agility = 45;
+        this._intelligence = 30;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_AXE:
@@ -5089,17 +5132,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "異国の大地で繁栄の一途を辿ったミュラーヘイゼンでは毎年最強の魔法武具大会が開催される。中でも本作品は突出しており、魔法を志す者にとって本作品を手にする事は最高の栄誉とされた。その威力は群を抜いており、保持者に確実な力を与えるだろう。物理攻撃力１２０～１６０、魔法攻撃力３３０～４１０、知＋４０、心＋２０、ジュエルソケット１　【特殊能力】魔法消費MPが10%軽減。魔法攻撃によるクリティカルダメージ＋１０％。";
+        this._description = "異国の大地で繁栄の一途を辿ったミュラーヘイゼンでは毎年最強の魔法武具大会が開催される。中でも本作品は突出しており、魔法を志す者にとって本作品を手にする事は最高の栄誉とされた。その威力は群を抜いており、保持者に確実な力を与えるだろう。物理攻撃力１２０～１６０、魔法攻撃力３３０～４１０、知＋６０、心＋６０　【特殊能力】魔法消費MPが10%軽減。魔法攻撃によるクリティカルダメージ＋１０％。";
         this._strength = 0;
         this._agility = 0;
-        this._intelligence = 40;
+        this._intelligence = 60;
         this._stamina = 0;
-        this._mind = 20;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
+        this._mind = 60;
         break;
 
       case Fix.SMART_ORB:
@@ -7796,6 +7834,36 @@ public partial class Item
         this.CanbeSocket5 = false;
         break;
 
+      case Fix.JUZA_ARESTINE_SLICER:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Onehand_Claw;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 98;
+        this._physicalAttack = 340;
+        this._physicalAttackMax = 450;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者ジュザは逸脱した戦闘能力を更に進化させ、スピード／威力／インパクトを全て兼ね備える技の極みを常に求めていた。その到達地点としての一つの解は「爪装備」であると彼は断言している。物理攻撃力３４０～４５０、力７５、技１２０、心５５、炎増幅２０％、氷増幅２０％、猛毒耐性、スタン耐性、凍結耐性、鈍化耐性、出血耐性";
+        this._strength = 75;
+        this._agility = 120;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 55;
+        this._amplifyFire = 1.20f;
+        this._amplifyIce = 1.20f;
+        this._resistPoison = true;
+        this._resistStun = true;
+        this._resistFreeze = true;
+        this._resistSlow = true;
+        this._resistSlip = true;
+        break;
+
       case Fix.SUPERIOR_ROD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Onehand_Rod;
@@ -8247,6 +8315,36 @@ public partial class Item
         this.CanbeSocket5 = false;
         this.AmplifyFire = 1.10f; // todo 要検証
         this.ResistFirePercent = 0.10f;
+        break;
+
+      case Fix.GATUH_HAWL_OF_GREAT:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Twohand_Rod;
+        this._gripType = GripTypes.TwoHand;
+        this._battleAccuracy = 88;
+        this._physicalAttack = 270;
+        this._physicalAttackMax = 430;
+        this._magicAttack = 520;
+        this._magicAttackMax = 680;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "とある伝承の中でのみ描かれる伝説の言霊使いガトゥは、生命体を媒介として直接声を届ける術を会得していたとされている。古代賢者の1人でもあり、世界の監視者でもあった彼は悠久の時の中で、この生命力あふれる巨大な樫の杖を常時装備していたと記されている。物理攻撃力２７０～４３０、魔法攻撃力５２０～６８０、知＋９５、体＋１０５、心＋５０、闇耐性２０％、聖増幅２０％、沈黙耐性、束縛耐性、睡眠耐性、麻痺耐性、眩暈耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 95;
+        this._stamina = 105;
+        this._mind = 50;
+        this._resistShadowPercent = 0.20f;
+        this._amplifyLight = 1.20f;
+        this._resistSilence = true;
+        this._resistBind = true;
+        this._resistSleep = true;
+        this._resistParalyze = true;
+        this._resistDizzy = true;
         break;
 
       case Fix.SUPERIOR_SHIELD:
@@ -10278,6 +10376,38 @@ public partial class Item
         this.ResistShadowPercent = 0.25f;
         break;
 
+      case Fix.SHEZL_MYSTIC_FORTUNE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Light_Armor;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 300;
+        this._magicDefense = 650;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者シェズルが幼少時代に付けていた神秘的な奇麗さを放つ衣。シェズルは魔法に関しては一線を画しており、その能力／才覚／カリスマ性には誰もが惹かれたと言われている。物理防御３００、魔法防御６５０、知＋３００、心＋１００、魔攻率１０％、魔防率１０％、闇増幅３０％、氷耐性３０％、沈黙耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 300;
+        this._stamina = 0;
+        this._mind = 100;
+        this._amplifyMagicAttack = 1.10f;
+        this._amplifyMagicDefense = 1.10f;
+        this._amplifyShadow = 1.30f;
+        this._resistIcePercent = 1.30f;
+        this._resistSilence = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        this._resistFear = true;
+        break;
+
       case Fix.BLACKROGUE_BLACKROGUE_AMBIDEXTARITY_DAGGER:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Sword;
@@ -11208,6 +11338,58 @@ public partial class Item
         this.ResistSlip = true;
         break;
 
+      case Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者ツヴェルドーゼの傍をよく見るととある物体が空中に浮いている。そこから多彩なアクションが発生しているのだ。この浮遊体は波動意志を送り込む事によって動作する。つまり装備した本人の強い意思決定次第である。力＋１５０、技＋１５０、知＋１５０、心＋６００、物防率２０％、魔防率２０％、戦応率１０％、聖増幅３５％、炎耐性３５％、氷耐性３５％、闇耐性３５％、沈黙耐性、束縛耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性";
+        this._strength = 150;
+        this._agility = 150;
+        this._intelligence = 150;
+        this._stamina = 0;
+        this._mind = 600;
+        this._amplifyPhysicalDefense = 1.20f;
+        this._amplifyMagicDefense = 1.20f;
+        this._amplifyBattleResponse = 1.10f;
+        this._amplifyLight = 1.35f;
+        this._resistFirePercent = 0.35f;
+        this._resistIcePercent = 0.35f;
+        this._resistShadowPercent = 0.35f;
+        this._resistSilence = true;
+        this._resistBind = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        this._resistFear = true;
+        break;
+
+      case Fix.ADILRING_OF_BLUE_BURN:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者エーディルの念が永遠に込められた魔石を刻印した指輪。常に蒼白き炎を放っているのが特徴的で、それだけで相対した者はそれが何であるかは瞬時に判別できる。蒼白き炎は戦闘中、常にその咆哮を戦場に放つだろう。力＋４５０、知＋４５０、心＋１５０、物攻率２０％、魔攻率２０％、潜在率１０％、炎増幅３５％、氷増幅３５％、炎耐性３５％、氷耐性３５％、猛毒耐性、睡眠耐性、鈍化耐性、眩暈耐性、出血耐性";
+        this._strength = 450;
+        this._agility = 0;
+        this._intelligence = 450;
+        this._stamina = 0;
+        this._mind = 150;
+        this._amplifyPhysicalAttack = 1.20f;
+        this._amplifyMagicAttack = 1.20f;
+        this._amplifyPotential = 1.10f;
+        this._amplifyFire = 1.35f;
+        this._amplifyIce = 1.35f;
+        this._resistFirePercent = 0.35f;
+        this._resistIcePercent = 0.35f;
+        this._resistPoison = true;
+        this._resistSleep = true;
+        this._resistSlow = true;
+        this._resistDizzy = true;
+        this._resistSlip = true;
+        break;
       #endregion
       #region "エデルガイゼン城"
       case Fix.EXTREME_SWORD:
@@ -11362,6 +11544,29 @@ public partial class Item
         this._description = "この世の物とは思えないほどの優美な輝きを放っている剣。切っ先は目に見えない粒度で研磨されており、被対象者は攻撃を食らった場合、致命傷は間逃れない。物理攻撃力１４００～１８００";
         break;
 
+      case Fix.MERGIZD_DAV_AGITATED_BLADE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._physicalAttack = 2400;
+        this._physicalAttackMax = 3500;
+        this._magicAttack = 1600;
+        this._magicAttackMax = 2300;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者メルギズドは、自我と武具において相性の観点が必要不可欠である事を見出していた。そのため、長く愛用していた剣を完全に捨て、この剣を作成するに至った。その威力は限界値を突破する事に成功している。物理攻撃力２４００～３５００、魔法攻撃力１６００～２３００、力＋５００、知＋２００、心＋１００、戦速率２５、戦応率２５％、潜在率２０％、炎増幅４０％、氷増幅４０％";
+        this._strength = 500;
+        this._agility = 200;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 100;
+        this._amplifyBattleSpeed = 1.25f;
+        this._amplifyBattleResponse = 1.25f;
+        this._amplifyPotential = 1.20f;
+        this._amplifyFire = 1.40f;
+        this._amplifyIce = 1.40f;
+        break;
+
       case Fix.EVIL_ELIMINATION_LANCE:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Onehand_Lance;
@@ -11415,6 +11620,27 @@ public partial class Item
         this._gold = 2100000;
         this._importantType = Important.None;
         this._description = "風景を示すイラストが描かれているが、実質的な魔力が込められている。その該当ページを開いて詠唱する事で、本来の威力以上の効果を発揮する事ができる。魔法攻撃力１６００～２１００";
+        break;
+
+      case Fix.SHEZL_THE_VENTIEL_DARKMIRAGE_BOOK:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Onehand_Book;
+        this._gripType = GripTypes.OneHand;
+        this._magicAttack = 2700;
+        this._magicAttackMax = 3900;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者シェズルは元々戦闘は好まず、純粋に知識のみを欲していた。知識を獲得するための道具として本は重要であるが、実戦的である必要性も常に感じ取っていた。とある事象を境にし、完全なる戦闘術を獲得する。この本はその軌跡の原点を示すものである。魔法攻撃力２７００～３９００、技＋２００，知＋５００、心＋１００、魔防率３０％、戦応率２０％、潜在率２０％、氷増幅４０％、闇増幅４０％";
+        this._strength = 0;
+        this._agility = 200;
+        this._intelligence = 500;
+        this._stamina = 0;
+        this._mind = 100;
+        this._amplifyMagicDefense = 1.30f;
+        this._amplifyBattleResponse = 1.20f;
+        this._amplifyPotential = 1.20f;
+        this._amplifyIce = 1.40f;
+        this._amplifyShadow = 1.40f;
         break;
 
       case Fix.ALL_ELEMENTAL_ORB:
@@ -11922,6 +12148,37 @@ public partial class Item
         this._resistSlip = true;
         break;
 
+      case Fix.XEXXER_WORLD_MASTERY_GLOBE:
+        this._rarity = Rarity.Epic;
+        this._itemType = ItemTypes.Accessory;
+        this._gripType = GripTypes.None;
+        this._gold = 0;
+        this._importantType = Important.None;
+        this._description = "古代賢者マクスカーンの強さの源泉はパワーで押す事ではなく強靭なる耐性を有していた事にある。彼がこの装備品を一心に付けている間は、身体全体の体幹が揺らぐ事は決してなく、あらゆる状況において咄嗟の判断が行える事を可能にする。力＋１０００、技＋４００、心＋８００、物攻率３０％、物防率３０％、潜在率２０％、炎耐性４０％、氷耐性４０％、聖耐性４０％、闇体制４０％、猛毒耐性、沈黙耐性、束縛耐性、睡眠耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性、鈍化耐性、眩暈耐性、出血耐性";
+        this._strength = 1000;
+        this._agility = 400;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 800;
+        this._amplifyPhysicalAttack = 1.30f;
+        this._amplifyPhysicalDefense = 1.30f;
+        this._amplifyPotential = 1.20f;
+        this._resistFirePercent = 0.40f;
+        this._resistIcePercent = 0.40f;
+        this._resistLightPercent = 0.40f;
+        this._resistShadowPercent = 0.40f;
+        this._resistPoison = true;
+        this._resistSilence = true;
+        this._resistBind = true;
+        this._resistSleep = true;
+        this._resistStun = true;
+        this._resistParalyze = true;
+        this._resistFreeze = true;
+        this._resistFear = true;
+        this._resistSlow = true;
+        this._resistDizzy = true;
+        this._resistSlip = true;
+        break;
       #endregion
       #region "ポーション"
       case Fix.SMALL_RED_POTION:
