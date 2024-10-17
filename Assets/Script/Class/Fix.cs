@@ -2456,10 +2456,6 @@ public static partial class Fix
 
   public const string ADILORB_OF_THE_GARVANDI = "AdilOrb of the Garvandi";
   public const string MAXCARN_X_BUSTER = @"Maxcarn the X-BUSTER";
-
-  public const string KODAIEIJU_EDA = "古代栄樹の枝";
-  public const string KIGAN_OFUDA = "祈願の御札";
-
   #endregion
   #region "フェーズ【 IIー１ 】：神秘の森"
   public const string SMART_SWORD = "スマート・ソード";
@@ -2562,15 +2558,6 @@ public static partial class Fix
   public const string SQUARE_SAIKI = "スクエア【才気】";
   public const string SQUARE_TANREN = "スクエア【鍛錬】";
   public const string SQUARE_KOKOH = "スクエア【孤高】";
-
-  public const string WATERY_RING = "ウォータリー・リング";
-  public const string SUPERIOR_FEATHER = "スペリオル・フェザー";
-  public const string HEAVYWEIGHT_SHOULDER = "ヘビーウェイト・ショルダー";
-  public const string TIGHT_BOOTS = "タイト・ブーツ";
-  public const string GORGEOUS_MANTLE = "ゴージャス・マント";
-  public const string SWEET_BANGLE = "スイート・バングル";
-  public const string NAMELESS_HAT = "ネームレス・ハット";
-  public const string WARM_LEGGUARD = "ウォーム・レッグガード";
 
   public const string VIRGIRANTE_HELLGATE_LANCE = "ヴィルジランデ・ヘルゲート・ランス";
   public const string MULLERHAIZEN_AGARTA_BOOK = "ミュラーヘイゼン・ブック・オブ・アガルタ";
@@ -2842,6 +2829,8 @@ public static partial class Fix
   public const string PURE_CLEAN_WATER = "清透水";
   public const string PURE_SINSEISUI = "神聖水";
   public const string PURE_VITALIRY_WATER = "活湧水";
+  public const string KODAIEIJU_EDA = "古代栄樹の枝";
+  public const string KIGAN_OFUDA = "祈願の御札";
   public const string SHADOW_MOON_KEY = "月影の鍵";
   public const string SUN_BURST_KEY = "日輪の鍵";
   public const string STAR_DUST_KEY = "星屑の鍵";
@@ -2869,9 +2858,6 @@ public static partial class Fix
   public const string ARTIFACT_ZETSUKEN = "古代の宝珠：絶剣";
   public const string ARTIFACT_JOURYOKU = "古代の宝珠：常緑";
   public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
-
-  public const string GEAR_GENSEI = "ギア【厳正】";
-  public const string EDIL_BLACK_BLADE = "エディル・ブラック・ブレード";
   #endregion
   #region "無価値アイテム"
   public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";

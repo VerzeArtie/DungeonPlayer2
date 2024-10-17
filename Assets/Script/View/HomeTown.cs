@@ -4447,10 +4447,8 @@ public partial class HomeTown : MotherBase
       //{
       //  //shopList.Add(new Item(Fix.BASTARD_SWORD));
       //  shopList.Add(new Item(Fix.AERO_BLADE));
-      //  shopList.Add(new Item(Fix.GEAR_GENSEI));
       //  shopList.Add(new Item(Fix.MASTER_SWORD));
       //  shopList.Add(new Item(Fix.MASTER_SHIELD));
-      //  shopList.Add(new Item(Fix.EDIL_BLACK_BLADE));
       //  shopList.Add(new Item(Fix.WHITE_PARGE_LANCE));
       //  shopList.Add(new Item(Fix.ICE_SPIRIT_LANCE));
       //}

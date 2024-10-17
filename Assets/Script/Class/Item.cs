@@ -7383,231 +7383,6 @@ public partial class Item
         this.AmplifyPhysicalAttack = 1.05f; // todo 要検証
         this.AmplifyMagicAttack = 1.05f; // todo 要検証
         break;
-
-      case Fix.WATERY_RING:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 5;
-        this._stamina = 3;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.SUPERIOR_FEATHER:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 5;
-        this._intelligence = 3;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.HEAVYWEIGHT_SHOULDER:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 5;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 3;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.TIGHT_BOOTS:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 3;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 5;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.GORGEOUS_MANTLE:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 3;
-        this._agility = 0;
-        this._intelligence = 5;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.SWEET_BANGLE:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 3;
-        this._agility = 5;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.NAMELESS_HAT:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 3;
-        this._stamina = 0;
-        this._mind = 5;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
-      case Fix.WARM_LEGGUARD:
-        this._rarity = Rarity.Common;
-        this._itemType = ItemTypes.Accessory;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 4000;
-        this._importantType = Important.None;
-        this._description = "";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 5;
-        this._mind = 3;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
-        break;
-
       #endregion
       #region "オーランの塔"
       case Fix.SUPERIOR_SWORD:
@@ -13261,6 +13036,20 @@ public partial class Item
         this.CanbeSocket3 = false;
         this.CanbeSocket4 = false;
         this.CanbeSocket5 = false;
+        break;
+
+      case Fix.KODAIEIJU_EDA:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._importantType = Important.Precious;
+        this._description = "神秘の森で入手した古代栄樹の枝。何の変哲も無い枝だが、不思議と生命力が感じられる。深い茂みがあり通過出来ない箇所で振りかざしてみよう。";
+        break;
+
+      case Fix.KIGAN_OFUDA:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._importantType = Important.Precious;
+        this._description = "神秘の森においては、侵入者の行く手を阻む突風が吹き荒れる箇所が存在する。この御札を保持している事で、突風は自然と収まるだろう。";
         break;
 
       case Fix.STAR_DUST_KEY:

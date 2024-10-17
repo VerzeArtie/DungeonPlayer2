@@ -363,7 +363,6 @@ public static class One
 
     //_characters[num].ActionCommandList = actionList;
     //_characters[num].CurrentActionCommand = _characters[num].ActionCommandList[0];
-    ////Characters[num].MainWeapon = new Item(Fix.EDIL_BLACK_BLADE);
     //_characters[num].MainWeapon = new Item(Fix.FINE_SWORD);
     //_characters[num].SubWeapon = new Item(Fix.FINE_SHIELD);
     //_characters[num].MainArmor = new Item(Fix.FINE_ARMOR);
@@ -601,7 +600,6 @@ public static class One
     // TF.BackpackList.Add(new Item(Fix.GEAR_GENSEI));
     // TF.BackpackList.Add(new Item(Fix.EXTREME_SWORD));
     // TF.BackpackList.Add(new Item(Fix.EXTREME_SHIELD));
-    // TF.BackpackList.Add(new Item(Fix.EDIL_BLACK_BLADE));
     // TF.BackpackList.Add(new Item(Fix.SMALL_RED_POTION));
     // TF.BackpackList.Add(new Item(Fix.ZETANIUM_STONE));
     // TF.BackpackList.Add(new Item(Fix.ZEMULGEARS));
