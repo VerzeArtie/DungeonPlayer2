@@ -1398,7 +1398,7 @@ public partial class HomeTown : MotherBase
         this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
         this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
     {
-      if (One.TF.Event_Message801030 == false)
+      if (this.DungeonMap == Fix.TOWN_PARMETYSIA && One.TF.Event_Message700060 && One.TF.Event_Message801030 == false)
       {
         MessagePack.Message801030(ref QuestMessageList, ref QuestEventList); TapOK();
       }

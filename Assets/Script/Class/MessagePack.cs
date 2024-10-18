@@ -9589,7 +9589,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：よし、行こう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "（　俺達はファージル宮殿を出て、ムーンフォーダー方面にあるパルメテイシア神殿に向かった　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　俺達はムーンフォーダー方面にあるパルメテイシア神殿に向かった　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　ファージル地方とは違い、ムーンフォーダー方面は足を踏み入れた事が無い場所だ　）", ActionEvent.None);
 
