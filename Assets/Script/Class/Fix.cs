@@ -239,7 +239,8 @@ public static partial class Fix
     TruthBoss5,
     Area46,
     Duel,
-    LastBoss,
+    Area7,
+    LastBoss, // ETERNITY_KING_AERMI_JORZT
   }
 
   public enum RareString
@@ -2201,6 +2202,30 @@ public static partial class Fix
   public const string COMMAND_SPACETIME_INFLUENCE = "時空干渉";
   public const string SPACETIME_INFLUENCE = "Spacetime Influence";
 
+  public const string COMMAND_HEAVEN_CLEANSING_FIRE = "天界の浄化炎";
+  public const string COMMAND_SAINT_VOICE = "聖戦の呼び声";
+  public const string COMMAND_BRILLIANT_LIFE = "輝ける生命";
+
+  public const string COMMAND_BEZIER_TAIL_ATTACK = "ベジェ・テイルアタック";
+  public const string COMMAND_MURYO_YATSU_ON = "無量八ツ怨";
+  public const string COMMAND_WORD_OF_ONE = "ワード・オブ・ワン";
+
+  public const string COMMAND_DEATH_VOICE = "デス・ヴォイス";
+  public const string COMMAND_IKOROSHI = "射殺し";
+  public const string COMMAND_MEIFU_CONTACT = "冥府接触";
+
+  public const string COMMAND_SAINT_JUDGE = "聖者の裁き";
+  public const string COMMAND_ANNEI_FUKUIN = "安寧の福音";
+  public const string COMMAND_LIFE_STREAMING = "ライフ・ストリーミング";
+
+  public const string COMMAND_GODWING_CLAW = "ゴッドウィング・クロー";
+  public const string COMMAND_GOD_BREATH = "ゴッド・ブレス";
+  public const string COMMAND_IRU_MEGIDO_BLAZE = "イル・メギド・ブレイズ";
+
+  public const string COMMAND_GROUND_BREAKING = "大地の破壊";
+  public const string COMMAND_COSMO_BURN = "コスモ・バーン";
+  public const string COMMAND_REIJU_FALLTHUNDER = "霊獣フォール・サンダー";
+
   public const string LIFE_POINT = "Life Point";
 
   public const string COMMAND_ = "";
@@ -3363,6 +3388,14 @@ public static partial class Fix
   public const string ETERNITY_KING_AERMI_JORZT = "Eternity-King: Aermi Jorzt";
   public const string ETERNITY_KING_AERMI_JORZT_JP = "久遠なる王：エルミ・ジョルジュ";
   public const string ETERNITY_KING_AERMI_JORZT_JP_VIEW = "【　久遠なる王　】\r\nエルミ・ジョルジュ";
+
+  // 離島ウォズム
+  public const string PHOENIX = @"Phoenix";
+  public const string NINE_TAIL = @"Nine Tail";
+  public const string MEPHISTOPHELES = @"Mephistopheles";
+  public const string JUDGEMENT = @"Judgement";
+  public const string EMERALD_DRAGON = @"Emerald Dragon";
+  public const string TIAMAT = @"Tiamat";
 
   // 未設定
   public const string RUDE_WATCHDOG = "Rude Watchdog";
