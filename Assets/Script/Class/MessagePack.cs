@@ -32021,7 +32021,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エルミ：１", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.ETERNITY_KING_AERMI_JORZT, ActionEvent.EncountDuel);
+      Message(ref m_list, ref e_list, Fix.ROYAL_KING_AERMI_JORZT, ActionEvent.EncountDuel);
     }
   }
 

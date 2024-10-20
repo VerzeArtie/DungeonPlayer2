@@ -14377,15 +14377,7 @@ public class DungeonField : MotherBase
           character.Area == Fix.MonsterArea.Boss62 ||
           character.Area == Fix.MonsterArea.Boss63_1 ||
           character.Area == Fix.MonsterArea.Boss63_2 ||
-          character.Area == Fix.MonsterArea.Boss63_3 ||
-          character.Area == Fix.MonsterArea.Boss64 ||
-          character.Area == Fix.MonsterArea.Boss64_2 ||
-          character.Area == Fix.MonsterArea.LastBoss ||
-          character.Area == Fix.MonsterArea.TruthBoss1 ||
-          character.Area == Fix.MonsterArea.TruthBoss2 ||
-          character.Area == Fix.MonsterArea.TruthBoss3 ||
-          character.Area == Fix.MonsterArea.TruthBoss4 ||
-          character.Area == Fix.MonsterArea.TruthBoss5
+          character.Area == Fix.MonsterArea.Boss63_3
           )
       {
         Debug.Log("Enemy: " + character.FullName + ", BattleMode is Boss");
@@ -14398,7 +14390,11 @@ public class DungeonField : MotherBase
         }
       }
       else if (character.FullName == Fix.NAME_EONE_FULNEA ||
-               character.FullName == Fix.NAME_SELMOI_RO)
+               character.FullName == Fix.NAME_SELMOI_RO ||
+               character.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
+               character.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN ||
+               character.FullName == Fix.ROYAL_KING_AERMI_JORZT ||
+               character.FullName == Fix.ETERNITY_KING_AERMI_JORZT)
       {
         Debug.Log("Enemy: " + character.FullName + ", BattleMode is Duel");
         One.BattleMode = Fix.BattleMode.Duel;

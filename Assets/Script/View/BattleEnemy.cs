@@ -470,6 +470,15 @@ public partial class BattleEnemy : MotherBase
 
         AddPlayerFromOne(One.EnemyList[ii], node, EnemyArrowList[ii], EnemyArrowShadowList[ii], null, null, null, null, this.PanelEnemyField);
 
+        if (One.EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW;
+        }
+        else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP)
+        {
+          One.EnemyList[ii].txtName.text = Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW;
+        }
+
         // 戦闘ゲージを設定
         if (this.BattleType == Fix.BattleMode.Duel)
         {
@@ -630,10 +639,6 @@ public partial class BattleEnemy : MotherBase
         else if (One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || One.EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP)
         {
           One.EnemyList[ii].txtName.text = Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW;
-        }
-        else if (One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || One.EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP)
-        {
-          One.EnemyList[ii].txtName.text = Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW;
         }
 
         // 戦闘ゲージを設定
@@ -1867,9 +1872,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatLegalOrphstein = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT ||
-                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP ||
-                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ROYAL_KING_AERMI_JORZT ||
+                                       One.EnemyList[0].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP ||
+                                       One.EnemyList[0].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
         {
           One.TF.DefeatAermiJorzt = true;
         }
