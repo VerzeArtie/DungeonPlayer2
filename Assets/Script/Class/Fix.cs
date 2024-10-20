@@ -240,7 +240,7 @@ public static partial class Fix
     Area46,
     Duel,
     Area7,
-    LastBoss, // ETERNITY_KING_AERMI_JORZT
+    LastBoss, // ROYAL_KING_AERMI_JORZT
   }
 
   public enum RareString
