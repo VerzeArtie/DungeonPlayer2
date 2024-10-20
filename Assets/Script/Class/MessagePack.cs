@@ -31776,7 +31776,8 @@ public static class MessagePack
     if (One.AR.Event_Message2600011 == false)
     {
       One.AR.Event_Message2600011 = true;
-
+      One.UpdateAkashicRecord();
+      One.RealWorldSave();
       Message(ref m_list, ref e_list, "（　あまり、意識してここへ来たわけではなかった　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　どちらかというと、少し練習の場が欲しかっただけだ　）", ActionEvent.None);
