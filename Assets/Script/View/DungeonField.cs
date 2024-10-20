@@ -14290,6 +14290,7 @@ public class DungeonField : MotherBase
           One.AR.EnterSeekerMode = true;
           One.AR.LeaveSeekerMode = false;
           One.UpdateAkashicRecord();
+          One.TF.SaveByDungeon = false;
           One.RealWorldSave();
           One.ReInitializeGroundOne(false);
           One.StopDungeonMusic();
@@ -19500,6 +19501,52 @@ public class DungeonField : MotherBase
           }
         }
 
+        One.CannotRunAway = false;
+        One.LifePointBattle = false;
+        if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }
+        else { for (int ii = 0; ii < One.BattleEnemyList.Count; ii++) { Debug.Log("EnemyList " + One.BattleEnemyList[ii]); } }
+        PrepareCallTruthBattleEnemy();
+      }
+    }
+    #endregion
+    #region "離島ウォズム"
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+    {
+      int random = 350 + NoEncountNumber - CumulativeBattleCounter;
+      if (random <= 0) { random = 0; }
+      if (AP.Math.RandomInteger(random) <= 10)
+      {
+        Debug.Log("area_info is " + area_info);
+        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        {
+          Debug.Log("area_info is AREA_1");
+          int rand_data = AP.Math.RandomInteger(6);
+          Debug.Log("rand_data is " + random);
+          switch (rand_data)
+          {
+            case 0:
+              One.BattleEnemyList.Add(Fix.PHOENIX);
+              break;
+            case 1:
+              One.BattleEnemyList.Add(Fix.NINE_TAIL);
+              break;
+            case 2:
+              One.BattleEnemyList.Add(Fix.MEPHISTOPHELES);
+              break;
+            case 3:
+              One.BattleEnemyList.Add(Fix.JUDGEMENT);
+              break;
+            case 4:
+              One.BattleEnemyList.Add(Fix.EMERALD_DRAGON);
+              break;
+            case 5:
+              One.BattleEnemyList.Add(Fix.TIAMAT);
+              break;
+            default:
+              Debug.Log("rand_data default...");
+              break;
+          }
+        }
         One.CannotRunAway = false;
         One.LifePointBattle = false;
         if (One.BattleEnemyList.Count <= 0) { Debug.Log("EnemyList is null..."); }

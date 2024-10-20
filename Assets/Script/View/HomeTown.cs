@@ -2099,6 +2099,10 @@ public partial class HomeTown : MotherBase
 
     One.TF.GameDay += 1;
     dayLabel.text = One.TF.GameDay.ToString() + "日目";
+    if (One.AR.EnterSeekerMode)
+    {
+      this.dayLabel.text = "？？？日目";
+    }
 
     RefreshAllView();
     this.GroupInn.SetActive(false);
@@ -3945,6 +3949,11 @@ public partial class HomeTown : MotherBase
 
     // 背景と日数
     this.dayLabel.text = One.TF.GameDay.ToString() + "日目";
+    if (One.AR.EnterSeekerMode)
+    {
+      this.dayLabel.text = "？？？日目";
+    }
+
     if (One.TF.AlreadyRestInn)
     {
       this.firstDay = One.TF.GameDay - 1; // 休息したかどうかのフラグに関わらず町に訪れた最初の日を記憶します。
