@@ -6751,6 +6751,155 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(player, player.groupTimeSequencePanel, Fix.STARSWORD_FINALITY, Fix.COMMAND_STARSWORD_FINALITY, SecondaryLogic.Starsword_Finality_Turn(player), 0, 0, 0);
         break;
 
+      case Fix.COMMAND_HEAVEN_CLEANSING_FIRE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        }
+        break;
+
+      case Fix.COMMAND_SAINT_VOICE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffFear(player, target_list[ii], 2, 0);
+          ExecBuffStun(player, target_list[ii], 2, 0);
+          ExecBuffSilent(player, target_list[ii], 2, 0);
+          ExecBuffParalyze(player, target_list[ii], 2, 0);
+        }
+        break;
+
+      case Fix.COMMAND_BRILLIANT_LIFE:
+        ExecLifeGain(player, player.MaxLife / 20.0f);
+        ExecBuffMagicAttackUp(player, player, 9, 1.50f);
+        ExecBuffBattleSpeedUp(player, player, 9, 1.50f);
+        break;
+
+      case Fix.COMMAND_BEZIER_TAIL_ATTACK:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        }
+        break;
+
+      case Fix.COMMAND_MURYO_YATSU_ON:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffBind(player, target_list[ii], 2, 0);
+          ExecBuffFreeze(player, target_list[ii], 2, 0);
+          ExecBuffSlip(player, target_list[ii], 2, 15000);
+          ExecBuffPoison(player, target_list[ii], 2, 15000);
+        }
+        break;
+
+      case Fix.COMMAND_WORD_OF_ONE:
+        target_list = GetOpponentGroupAlive(player);
+        ExecLifeOne(target_list[AP.Math.RandomInteger(target_list.Count)]);
+        break;
+
+      case Fix.COMMAND_DEATH_VOICE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecBuffFear(player, target_list[ii], 2, 0);
+          ExecBuffFreeze(player, target_list[ii], 2, 0);
+          ExecBuffBind(player, target_list[ii], 2, 0);
+          ExecBuffSlip(player, target_list[ii], 2, 15000);
+        }
+        break;
+
+      case Fix.COMMAND_IKOROSHI:
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        ExecLifeDown(currentTarget, 1.00f);
+        break;
+
+      case Fix.COMMAND_MEIFU_CONTACT:
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        ExecBuffPhysicalAttackDown(player, currentTarget, 3, 0.40f);
+        ExecBuffMagicAttackDown(player, currentTarget, 3, 0.40f);
+        ExecBuffBattlePotentialDown(player, currentTarget, 3, 0.40f);
+        break;
+
+      case Fix.COMMAND_SAINT_JUDGE:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        }
+        break;
+
+      case Fix.COMMAND_ANNEI_FUKUIN:
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        ExecBuffBattleSpeedDown(player, currentTarget, 3, 0.40f);
+        ExecBuffBattleResponseDown(player, currentTarget, 3, 0.40f);
+        ExecBuffBattlePotentialDown(player, currentTarget, 3, 0.40f);
+        break;
+
+      case Fix.COMMAND_LIFE_STREAMING:
+        ExecLifeGain(player, player.MaxLife * 0.05f);
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecLifeDownCurrent(target_list[ii], 0.90f);
+        }
+        break;
+
+      case Fix.COMMAND_GODWING_CLAW:
+        target_list = GetOpponentGroupAlive(player);
+        ExecNormalAttack(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.Colorless, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        break;
+
+      case Fix.COMMAND_GOD_BREATH:
+        target_list = GetOpponentGroupAlive(player);
+        currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
+        ExecBuffPhysicalAttackDown(player, currentTarget, 3, 0.40f);
+        ExecBuffMagicAttackDown(player, currentTarget, 3, 0.40f);
+        ExecBuffBind(player, currentTarget, 2, 0);
+        ExecBuffSilent(player, currentTarget, 2, 0);
+        ExecBuffParalyze(player, currentTarget, 2, 0);
+        ExecBuffFreeze(player, currentTarget, 2, 0);
+        ExecBuffCannotResurrect(player, currentTarget, 2, 0);
+        break;
+
+      case Fix.COMMAND_IRU_MEGIDO_BLAZE:
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Fire, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        break;
+
+      case Fix.COMMAND_GROUND_BREAKING:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecNormalAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+          ExecBuffStun(player, target_list[ii], 2, 0);
+          ExecBuffPhysicalAttackDown(player, target_list[ii], 3, 0.40f);
+          ExecBuffPhysicalDefenseDown(player, target_list[ii], 3, 0.40f);
+        }
+        break;
+
+      case Fix.COMMAND_COSMO_BURN:
+        ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+        ExecBuffBattlePotentialUp(player, player, 3, 1.50f);
+        break;
+
+      case Fix.COMMAND_REIJU_FALLTHUNDER:
+        target_list = GetOpponentGroupAlive(player);
+        for (int ii = 0; ii < target_list.Count; ii++)
+        {
+          ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.Ice, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
+          ExecBuffSilent(player, target_list[ii], 2, 0);
+          ExecBuffParalyze(player, target_list[ii], 2, 0);
+          ExecBuffSlow(player, target_list[ii], 5, 0);
+          ExecBuffBattleSpeedDown(player, target_list[ii], 5, 0.40f);
+        }
+        break;
+
       case Fix.COMMAND_SHADOW_BRINGER:
         ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         ExecMagicAttack(player, target, 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);

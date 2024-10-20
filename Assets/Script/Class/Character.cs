@@ -9055,6 +9055,7 @@ public partial class Character : MonoBehaviour
       #region "離島ウォズム"
       case Fix.PHOENIX:
         SetupParameter(3000, 2500, 4000, 120000, 400, 0, 100000, 0);
+        list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_HEAVEN_CLEANSING_FIRE);
         list.Add(Fix.COMMAND_SAINT_VOICE);
         list.Add(Fix.COMMAND_BRILLIANT_LIFE);
@@ -9065,6 +9066,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.NINE_TAIL:
         SetupParameter(4050, 2550, 3050, 130000, 400, 0, 105000, 0);
+        list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BEZIER_TAIL_ATTACK);
         list.Add(Fix.COMMAND_MURYO_YATSU_ON);
         list.Add(Fix.COMMAND_WORD_OF_ONE);
@@ -9075,6 +9077,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MEPHISTOPHELES:
         SetupParameter(4100, 2600, 3100, 140000, 400, 0, 110000, 0);
+        list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DEATH_VOICE);
         list.Add(Fix.COMMAND_IKOROSHI);
         list.Add(Fix.COMMAND_MEIFU_CONTACT);
@@ -9085,6 +9088,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.JUDGEMENT:
         SetupParameter(3150, 2650, 4150, 150000, 400, 0, 115000, 0);
+        list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SAINT_JUDGE);
         list.Add(Fix.COMMAND_ANNEI_FUKUIN);
         list.Add(Fix.COMMAND_LIFE_STREAMING);
@@ -9095,6 +9099,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EMERALD_DRAGON:
         SetupParameter(4200, 2700, 3200, 160000, 400, 0, 120000, 0);
+        list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GODWING_CLAW);
         list.Add(Fix.COMMAND_GOD_BREATH);
         list.Add(Fix.COMMAND_IRU_MEGIDO_BLAZE);
@@ -9105,6 +9110,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.TIAMAT:
         SetupParameter(4250, 2750, 4250, 170000, 400, 0, 125000, 0);
+        list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GROUND_BREAKING);
         list.Add(Fix.COMMAND_COSMO_BURN);
         list.Add(Fix.COMMAND_REIJU_FALLTHUNDER);
