@@ -17122,8 +17122,11 @@ public class DungeonField : MotherBase
       // エンディング前、移動抑止
       if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
       {
-        MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
+        if (One.AR.Event_Message2600014)
+        {
+          MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
