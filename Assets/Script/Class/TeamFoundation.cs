@@ -706,6 +706,26 @@ public class TeamFoundation : MonoBehaviour
   }
   #endregion
 
+  #region "Communication"
+  [SerializeField] protected bool _alreadyCommunicate = false;
+  public bool AlreadyCommunicate { get { return _alreadyCommunicate; } set { _alreadyCommunicate = value; } }
+  [SerializeField] protected bool _communicationLana_1 = false;
+  [SerializeField] protected bool _communicationLana_2 = false;
+  [SerializeField] protected bool _communicationLana_3 = false;
+  [SerializeField] protected bool _communicationLana_4 = false;
+  [SerializeField] protected bool _communicationLana_5 = false;
+  [SerializeField] protected bool _communicationLana_6 = false;
+  [SerializeField] protected bool _communicationLana_7 = false;
+  public bool CommunicationLana_1 { get { return _communicationLana_1; } set { _communicationLana_1 = value; } }
+  public bool CommunicationLana_2 { get { return _communicationLana_2; } set { _communicationLana_2 = value; } }
+  public bool CommunicationLana_3 { get { return _communicationLana_3; } set { _communicationLana_3 = value; } }
+  public bool CommunicationLana_4 { get { return _communicationLana_4; } set { _communicationLana_4 = value; } }
+  public bool CommunicationLana_5 { get { return _communicationLana_5; } set { _communicationLana_5 = value; } }
+  public bool CommunicationLana_6 { get { return _communicationLana_6; } set { _communicationLana_6 = value; } }
+  public bool CommunicationLana_7 { get { return _communicationLana_7; } set { _communicationLana_7 = value; } }
+
+  #endregion
+
   #region "Event"
   [SerializeField] public bool Zetanium_001 { get; set; }
   [SerializeField] public bool Zetanium_002 { get; set; }

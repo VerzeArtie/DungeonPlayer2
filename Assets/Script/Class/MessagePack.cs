@@ -33561,6 +33561,389 @@ public static class MessagePack
 
   #endregion
 
+  #region "幼なじみのラナと会話"
+  public static void CommunicationLana_1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：そういえば、一つ言い忘れていた事があるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：遠征許可証も大事だけど、ファージル宮殿に着いたらまずはハンナ叔母さんの所に寄りましょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。あそこの宿屋は本当にリラックス出来る。飯も美味しいしな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、ご飯を食べに行くわけじゃないのよ。挨拶しに行くのが重要なんだからね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハハハ・・・悪い悪い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：着いたら絶対に行くのよ？頼んだわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+
+    One.TF.CommunicationLana_1 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：そうだ、ラナ。良い事を思いついたぞ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どーせロクでもない内容でしょ。ま、一応聞こうかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そもそも草原区域でモンスターに出くわした時", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、お前ならどうする？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：基本的に倒せるんだったら倒すに越した事はないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だが、ある程度消費はするよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それはまあ一般的には、そうでしょうね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこでだ。良い手があるんだよ、これが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：正解は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：警戒しながら動く！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ちょっと待って。モンスターに遭遇しないかどうかはいつも警戒しているわよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、ある程度の気配察知はしているが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこまで万全の警戒態勢って訳じゃないな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ふーん、そうだったの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：でだ。警戒して動くと結構色々と上手くいきそうじゃないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まあ、進め方は好きにして良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：サンキュー！", ActionEvent.None);
+
+    One.TF.CommunicationLana_2 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よし、結構スキルが扱えるようになってきたかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ねえ、ちょっと相談したい事があるんだけど良いかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、何だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：基本的にはバカアインが前衛。で、私は後ろって事で良いのよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、必ずしもそうって訳じゃないが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私の場合、氷魔法なら後衛からで良いんだけど、格闘で殴る場合はどうしても前に出なくちゃいけないのよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあずっとフロントにいるわけじゃないんだ。ピンポイントで前に打って出て下がる。で良いんじゃないのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それって結構スタミナの消費が激しいんだけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうなのか？俺は何ともないが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：体力バカアインの話をしてるわけじゃないんだけど。私はそんな持続力がある方じゃないから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：でも、ラナの動きは結構キレてるしな。違和感は特に感じないけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だから動けている時は大丈夫だけど、スタミナ消費が激しいって話よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうなのか？動き自体は良いからスタミナは大丈夫そうだが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だーかーらー、そうじゃなって言ってるのよ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのフォースフル・ブローがアインに炸裂）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ウゴッ！！ッツツツ、わ、分かった。分かったって。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：という事は・・・結局の所、俺はどうすればいいんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私が前衛で攻撃してる最中は配慮して欲しいって話よ！分かった！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：はい、分かりました・・・", ActionEvent.None);
+
+    One.TF.CommunicationLana_3 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_4(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：うーん・・・どうしようかしら・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうかしたのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：荷物の事なんだけど、バックパックは今使ってる物のままでも良いかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、そこそこ入れば大丈夫だろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：所持アイテムが少ない間は良いんだけど、増えてくるとちょっと気にならない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、その時で考えて取捨選択するし大丈夫だろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：大事なものは捨てられないけど、そこは分かってるわよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、その件も大丈夫だろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、大丈夫大丈夫って、ちゃんと聞いてるわけ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ・・・悪い悪い。いや、ちゃんと聞いてるぞ！ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：例を挙げるとキリが無いんだけど、バックパックの大きさの件よ。どうかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今の時点ではそこまで切羽詰まる様な事はないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：確かに一杯になった時、一般的なアイテムを捨てるのは勿体ない気もするが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今の所空き容量には困ってないって感じかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：大事なアイテムが増えてきたら少し考えた方が良い気はする。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そう。ならひとまずは今使っているバックパックで進めましょうか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、そうだな。色々と考えてくれて助かるぜ。サンキュー。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、少し進めてみて何か気になる様になってきたら、言ってちょうだいね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：オーケー！", ActionEvent.None);
+
+    One.TF.CommunicationLana_4 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_5(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：おっ、ラナ。ちょっと良いか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何よ、改まって。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナは景色を見るのは好きか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっ、えっ、唐突な内容ね・・・それが何だっていうわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：景色ってこう・・・何て言うのかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：景色を見るという行為自体に、特に意味はないだろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あまりそういう風に考えた事は無いわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：でだ。ふと見ると、何かに気付く時ってあるよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうね。自然と思い浮かぶって感じかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あれって何でだと思う？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何でって、そんなの知らないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何らかのきっかけがあって気付くわけだが、どうにもな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：妙な言い回しね。何か見つかったの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、別にこれといって無いな。単純にふと気になっただけだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だから何が気になったのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何て言うんだろうな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何もない様な所に微かに何か見えたりするんだがな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それが何なのかって言われると・・・そうだなあ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：別にそこまでして無理に答えなくても良いけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ああ。すまないな、ちょっと忘れてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何か気付いた事があればまた言ってちょうだい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+
+    One.TF.CommunicationLana_5 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_6(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：ここで・・・ストレート・スマッシュ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：へえ、特訓中みたいね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、いたのか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：インスタント行動の練習よね。タイミングは掴めそうかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあまあかな。ちょっとした違和感は払拭できないけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：一体どういう特訓メニューなわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：DUEL戦の想定で、相手がインスタント行動を仕掛けてきた時に対応する練習だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：DUEL闘技場でよく見かけるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：普段からやっておかないと、いざって時に動けないからな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、DUEL戦の想定って相手が居ないのに、どうやってるわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこはもう対戦相手をイメージするしかないな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：イメージって・・・相手が仕掛けてくるタイミングはどうするのよ？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこもイメージかな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：実際に相手はそこに居ないんだし、無理があるんじゃない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ無理は承知だが、何となくで・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・時々思うんだけど、バカアインって・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：友達、少ないわよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なっ、そんな事はないだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、言ってごらんなさいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ええと、小さい頃に出会った人達とか", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それから、オルガウェイン傭兵訓練施設の時の奴らとか", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：他は？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：街で出会った皆だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それって友達なのかしら・・・他は？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あとはラナ。お前だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナの・ワールウィンドブローがアインに炸裂）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：グホアァッ・・・な・・・何故・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今、私は関係ないの。カウントに入れないでちょうだい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：つまり、DUEL想定の相手は居ないって事で良いかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、そうなるかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でもひょっとして、それって・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん？何だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ううん、何でもないわ。特訓を続けてちょうだい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：サンキュー。じゃあ、後少しだけ続けるぜ。また、後でな。", ActionEvent.None);
+
+    One.TF.CommunicationLana_6 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_7(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：さてと・・・そろそろ行かないと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、どこ行くんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あっ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：な、ななな、何でもないわよ。別にどこも行かないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、いやいやすまん、悪かった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だーかーらー！別に何でもないって言ってるでしょ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うあ、そんなデカい声出すなって。分かった、分かったって。何も見てない。見えなかった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：【見えなかった】じゃないわよ、ほんっとにもう・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも・・・見られたんじゃしょうがないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：しょうがないから、教えてあげる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、別に良いぞ。そこまで詮索する気はない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：教えてあげるって言ってるじゃない。聞きなさいよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かりました・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：行き先はココよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　ラナは地図上のとある場所を指で示した　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：ココって・・・何かあるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：キージク山道よ。そこに行ってモンスター退治してくるのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、お前一人で行くのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうよ。比較的難易度の低いクエストは受けるようにしてるの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあ、ラナの実力なら大丈夫そうだけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いやでも驚いたぜ。普段から忙しそうなのに、更にそんな事にまで手を出してたなんてな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：手を出してたって何か失礼よね。普通にクエストをこなしてるだけよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ああ。そうだな、悪い悪い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかしそんな隠す様な内容でも無いが、何で隠そうとしたんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だから、別に隠してなんかいないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：クエストって事は、金銭面か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：別にそういうわけじゃないわよ。単に受けようと思っただけよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、それでも最初かなり動揺してたよな。あれは何でだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ど、どどど、動揺なんてしてないわよ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うお・・・わ、分かったって。オーケーオーケー", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：と、とにかく！　私が受けるクエストには勝手についてこないでよね！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハ、ハイ・・・", ActionEvent.None);
+
+    One.TF.CommunicationLana_7 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_NoEvent(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (!One.TF.AlreadyRestInn)
+    {
+      Message(ref m_list, ref e_list, "ラナ：どう？調子のほうは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：当然当然。任せとけって！ッハッハッハ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：死なないようにがんばる事ね。", ActionEvent.None);
+    }
+    // One.TF.AlreadyCommunicate = true; // 何らかのイベントでもう一度会話すると別のイベントが発生出来るかもしれないため、コメントアウト
+  }
+
+  public static void CommunicationLana_Normal(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (!One.TF.AlreadyRestInn)
+    {
+      Message(ref m_list, ref e_list, "ラナ：どう？調子のほうは？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：当然当然。任せとけって！ッハッハッハ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "ラナ：死なないようにがんばる事ね。", ActionEvent.None);
+    }
+  }
+  #endregion
+
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)
   {
     m_list.Add(message);

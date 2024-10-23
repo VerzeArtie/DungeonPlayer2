@@ -1126,8 +1126,73 @@ public partial class HomeTown : MotherBase
     GroupInn.SetActive(false);
   }
 
+  public void TapCommunicationLana()
+  {
+    Debug.Log("TapCommunicationLana(S)");
+    if (One.TF.AlreadyCommunicate)
+    {
+      MessagePack.CommunicationLana_Normal(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 2 && One.TF.CommunicationLana_1 == false)
+    {
+      MessagePack.CommunicationLana_1(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 4 && One.TF.CommunicationLana_2 == false)
+    {
+      MessagePack.CommunicationLana_2(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 6 && One.TF.CommunicationLana_3 == false)
+    {
+      MessagePack.CommunicationLana_3(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 8 && One.TF.CommunicationLana_4 == false)
+    {
+      MessagePack.CommunicationLana_4(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 10 && One.TF.CommunicationLana_5 == false)
+    {
+      MessagePack.CommunicationLana_5(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 13 && One.TF.CommunicationLana_6 == false)
+    {
+      MessagePack.CommunicationLana_6(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 16 && One.TF.CommunicationLana_7 == false)
+    {
+      MessagePack.CommunicationLana_7(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    MessagePack.CommunicationLana_NoEvent(ref QuestMessageList, ref QuestEventList);
+    TapOK();
+    return;
+  }
+
   public void TapInn()
   {
+    Debug.Log("TapInn(S)");
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false && One.AR.Event_Message2600003 == false)
     {
       MessagePack.Message2600002(ref QuestMessageList, ref QuestEventList);
@@ -2023,6 +2088,7 @@ public partial class HomeTown : MotherBase
     GroupInnDecision.SetActive(false);
     GroupInn.SetActive(false);
     One.TF.AlreadyRestInn = true;
+    One.TF.AlreadyCommunicate = false;
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
@@ -2092,6 +2158,7 @@ public partial class HomeTown : MotherBase
       One.PlayerList[ii].Dead = false;
     }
     One.TF.AlreadyRestInn = true;
+    One.TF.AlreadyCommunicate = false;
     One.TF.AlreadyDungeon = false;
     One.TF.EscapeFromDungeon = false;
     One.TF.AlreadyPureCleanWater = false;
