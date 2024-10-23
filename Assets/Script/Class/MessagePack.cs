@@ -33908,7 +33908,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：と、とにかく！　私が受けるクエストには勝手についてこないでよね！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ハ、ハイ・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ハイ・・・承知つかまつりました・・・", ActionEvent.None);
 
     One.TF.CommunicationLana_7 = true;
     One.TF.AlreadyCommunicate = true;
