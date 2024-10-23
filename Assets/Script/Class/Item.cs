@@ -1035,11 +1035,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_CLAW:
@@ -1063,11 +1058,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SURVIVAL_CLAW:
@@ -1091,11 +1081,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.RISING_FORCE_CLAW:
@@ -1119,11 +1104,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LIGHTNING_CLAW:
@@ -1147,11 +1127,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_SWORD:
@@ -1175,11 +1150,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_SWORD:
@@ -1203,11 +1173,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_SWORD:
@@ -1231,11 +1196,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SWORD_OF_LIFE:
@@ -1261,11 +1221,6 @@ public partial class Item
         this._mind = 0;
         this.ItemValue1 = 12;
         this.ItemValue2 = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.AERO_BLADE:
@@ -1289,11 +1244,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.NAME_SIN_OSCURETE:
@@ -1343,11 +1293,6 @@ public partial class Item
         this._intelligence = 8;
         this._stamina = 0;
         this._mind = 5;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_LANCE:
@@ -1371,11 +1316,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_LANCE:
@@ -1399,11 +1339,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SHARP_LANCE:
@@ -1427,11 +1362,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WHITE_PARGE_LANCE:
@@ -1455,11 +1385,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ICE_SPIRIT_LANCE:
@@ -1483,11 +1408,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_BOW:
@@ -1511,11 +1431,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ICICLE_LONGBOW:
@@ -1539,11 +1454,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MUMYOU_BOW:
@@ -1567,11 +1477,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_AXE:
@@ -1595,11 +1500,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_AXE:
@@ -1623,11 +1523,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VIKING_AXE:
@@ -1651,11 +1546,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EARTH_POWER_AXE:
@@ -1679,11 +1569,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WARWOLF_AXE:
@@ -1707,11 +1592,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_ORB:
@@ -1735,11 +1615,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_ORB:
@@ -1763,11 +1638,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ENERGY_ORB:
@@ -1791,11 +1661,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LIVING_GROWTH_ORB:
@@ -1819,11 +1684,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.RED_PILLER_ORB:
@@ -1847,11 +1707,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_ROD:
@@ -1875,11 +1730,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_ROD:
@@ -1903,11 +1753,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WOOD_ROD:
@@ -1931,11 +1776,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.TOUGH_TREE_ROD:
@@ -1959,11 +1799,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLACK_SORCERER_ROD:
@@ -1987,11 +1822,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_BOOK:
@@ -2015,11 +1845,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_BOOK:
@@ -2043,11 +1868,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.KINDNESS_BOOK:
@@ -2071,11 +1891,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SAINT_FAITHFUL_BOOK:
@@ -2099,11 +1914,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MUIN_BOOK:
@@ -2127,11 +1937,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRACTICE_SHIELD:
@@ -2155,11 +1960,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_SHIELD:
@@ -2183,11 +1983,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.KITE_SHIELD:
@@ -2211,11 +2006,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_FLAME_SHIELD:
@@ -2239,11 +2029,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BEGINNER_ARMOR:
@@ -2267,11 +2052,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_ARMOR:
@@ -2295,11 +2075,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HEAVY_ARMOR:
@@ -2323,11 +2098,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BEGINNER_CROSS:
@@ -2351,11 +2121,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_CROSS:
@@ -2379,11 +2144,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LEATHER_CROSS:
@@ -2407,11 +2167,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BEGINNER_ROBE:
@@ -2435,11 +2190,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINE_ROBE:
@@ -2463,11 +2213,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.COTTON_ROBE:
@@ -2491,11 +2236,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HINJAKU_RING:
@@ -2519,11 +2259,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.USUYOGORETA_FEATHER:
@@ -2547,11 +2282,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.NON_BRIGHT_ORB:
@@ -2575,11 +2305,6 @@ public partial class Item
         this._intelligence = 1;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.KUKEI_BANGLE:
@@ -2603,11 +2328,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 1;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUTERARESHI_EMBLEM:
@@ -2631,11 +2351,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ADJUSTABLE_BELT:
@@ -2659,11 +2374,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BIRD_STATUE:
@@ -2687,11 +2397,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SHAPED_FINGERRING:
@@ -2715,11 +2420,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.REFRESHED_MANTLE:
@@ -2743,11 +2443,6 @@ public partial class Item
         this._intelligence = 1;
         this._stamina = 0;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.COOL_CROWN:
@@ -2771,11 +2466,6 @@ public partial class Item
         this._intelligence = 1;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FLAT_SHOES:
@@ -2799,11 +2489,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 1;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.COMPACT_EARRING:
@@ -2827,11 +2512,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.POWER_BANDANA:
@@ -2855,11 +2535,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CHERRY_CHOKER:
@@ -2883,11 +2558,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FIT_BANGLE:
@@ -2911,11 +2581,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRISM_EMBLEM:
@@ -2939,11 +2604,6 @@ public partial class Item
         this._intelligence = 1;
         this._stamina = 1;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.POOR_BLACK_MATERIAL:
@@ -3030,11 +2690,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLUE_PENDANT:
@@ -3058,11 +2713,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURPLE_PENDANT:
@@ -3086,11 +2736,6 @@ public partial class Item
         this._intelligence = 5;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GREEN_PENDANT:
@@ -3114,11 +2759,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 5;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.YELLOW_PENDANT:
@@ -3142,11 +2782,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 5;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WARRIOR_BRACER:
@@ -3170,11 +2805,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistStun = true;
         break;
 
@@ -3199,11 +2829,6 @@ public partial class Item
         this._intelligence = 3;
         this._stamina = 0;
         this._mind = 1;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistPoison = true;
         break;
 
@@ -3228,11 +2853,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistDizzy = true;
         break;
 
@@ -3257,11 +2877,6 @@ public partial class Item
         this._intelligence = 5;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FLAME_HAND_KEEPER:
@@ -3285,11 +2900,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
       #endregion
       #region "ゴラトラム洞窟"
@@ -3637,11 +3247,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CLASSICAL_LARGE_LANCE:
@@ -3665,11 +3270,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CLASSICAL_LARGE_AXE:
@@ -3693,11 +3293,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MAXCARN_X_BUSTER:
@@ -3795,11 +3390,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CLASSICAL_SHIELD:
@@ -3910,11 +3500,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CROSSCHAIN_MAIL:
@@ -4021,11 +3606,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DEPRESS_FEATHER:
@@ -4049,11 +3629,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 0;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STIFF_BELT:
@@ -4077,11 +3652,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LOST_NAME_EMBLEM:
@@ -4105,11 +3675,6 @@ public partial class Item
         this._intelligence = 2;
         this._stamina = 2;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DAMAGED_STATUE:
@@ -4133,11 +3698,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.USED_HQ_BOOTS:
@@ -4161,11 +3721,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 2;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
         // todo 炎耐性以外は記述不要なパラメタ。全switch-caseで不要パラメタを明記するのは不要である。
@@ -4564,7 +4119,6 @@ public partial class Item
         this._mind = 0;
         this._resistWindValue = 100;
         this._amplifyWind = 1.05f;
-        this.CanbeSocket1 = true;
         break;
 
       case Fix.ADILORB_OF_THE_GARVANDI:
@@ -4611,11 +4165,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CUTTING_BLADE:
@@ -4639,11 +4188,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 6;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ENSHOUTOU:
@@ -4667,11 +4211,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_LANCE:
@@ -4695,11 +4234,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SWIFT_SPEAR:
@@ -4723,11 +4257,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GALLANT_FEATHER_LANCE:
@@ -4751,11 +4280,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VIRGIRANTE_HELLGATE_LANCE:
@@ -4802,11 +4326,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.POWERED_AXE:
@@ -4830,11 +4349,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.THUNDER_BREAK_AXE:
@@ -4858,11 +4372,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 10;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_CLAW:
@@ -4886,11 +4395,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DANCING_CLAW:
@@ -4914,11 +4418,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 6;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WRATH_SABEL_CLAW:
@@ -4942,11 +4441,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_ROD:
@@ -4970,11 +4464,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.AUTUMN_ROD:
@@ -4998,11 +4487,6 @@ public partial class Item
         this._intelligence = 6;
         this._stamina = 0;
         this._mind = 6;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DORN_NAMELESS_ROD:
@@ -5026,11 +4510,6 @@ public partial class Item
         this._intelligence = 10;
         this._stamina = 0;
         this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_BOOK:
@@ -5054,11 +4533,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BULKY_BOOK:
@@ -5082,11 +4556,6 @@ public partial class Item
         this._intelligence = 6;
         this._stamina = 6;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FINESSE_IMPERIAL_BOOK:
@@ -5110,11 +4579,6 @@ public partial class Item
         this._intelligence = 10;
         this._stamina = 10;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MULLERHAIZEN_AGARTA_BOOK:
@@ -5161,11 +4625,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FOCUS_ORB:
@@ -5189,11 +4648,6 @@ public partial class Item
         this._intelligence = 6;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.INTRINSIC_FROZEN_ORB:
@@ -5217,11 +4671,6 @@ public partial class Item
         this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_LARGE_SWORD:
@@ -5245,11 +4694,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FORCEFUL_BASTARD_SWORD:
@@ -5267,17 +4711,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 26000;
         this._importantType = Important.None;
-        this._description = "洗練された鋭気を持って作製された巨大な剣。持ち手を選ぶが、誤りなく振るう事で真の効果を発揮する。物理攻撃力７７～１８４、力＋１５、心＋１５、ジュエルソケット１";
+        this._description = "洗練された鋭気を持って作製された巨大な剣。持ち手を選ぶが、誤りなく振るう事で真の効果を発揮する。物理攻撃力７７～１８４、力＋１５、心＋１５";
         this._strength = 15;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 15;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_LARGE_LANCE:
@@ -5301,11 +4740,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SHARPNEL_ARC_LANCER:
@@ -5323,17 +4757,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 29000;
         this._importantType = Important.None;
-        this._description = "鋭い切っ先と、螺旋状に巻きついている物体がその強さを物語る。物理攻撃力９０～２１９、力＋１５、技＋１５、ジュエルソケット１";
+        this._description = "鋭い切っ先と、螺旋状に巻きついている物体がその強さを物語る。物理攻撃力９０～２１９、力＋１５、技＋１５";
         this._strength = 15;
         this._agility = 15;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_LARGE_AXE:
@@ -5357,11 +4786,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.OGRE_KILL_BUSTER:
@@ -5379,17 +4803,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 32000;
         this._importantType = Important.None;
-        this._description = "各地を支配しているオーガ軍勢を一刀両断できる豪快な両手斧。その強さはオーガ達をひるませる。物理攻撃力１０２～２５３、力＋１５、体＋１５、ジュエルソケット１";
+        this._description = "各地を支配しているオーガ軍勢を一刀両断できる豪快な両手斧。その強さはオーガ達をひるませる。物理攻撃力１０２～２５３、力＋１５、体＋１５";
         this._strength = 15;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 15;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_BOW:
@@ -5413,11 +4832,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LONG_BOW:
@@ -5441,11 +4855,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EXPLODING_ASH_BOW:
@@ -5463,17 +4872,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 38000;
         this._importantType = Important.None;
-        this._description = "弓を射たその瞬間、手元が爆発の炎に包まれた状態で矢が放たれる。対象者はその威力を身を持って知る事となる。物理攻撃力１３３～２０３、力＋１５、知＋１５、ジュエルソケット１";
+        this._description = "弓を射たその瞬間、手元が爆発の炎に包まれた状態で矢が放たれる。対象者はその威力を身を持って知る事となる。物理攻撃力１３３～２０３、力＋１５、知＋１５";
         this._strength = 15;
         this._agility = 0;
         this._intelligence = 15;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_LARGE_STAFF:
@@ -5497,11 +4901,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EARTH_POWERED_STAFF:
@@ -5519,17 +4918,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 36000;
         this._importantType = Important.None;
-        this._description = "地母神による教えが授けられし巨大な杖。両手で持つのがやっとであり、威力を出すためのモーションにはそれなりの技量が必要。魔法攻撃力１２０～１８２、知＋１５、心＋１５、ジュエルソケット１";
+        this._description = "地母神による教えが授けられし巨大な杖。両手で持つのがやっとであり、威力を出すためのモーションにはそれなりの技量が必要。魔法攻撃力１２０～１８２、知＋１５、心＋１５";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 15;
         this._stamina = 0;
         this._mind = 15;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_SHIELD:
@@ -5553,11 +4947,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WIDE_BUCKLER:
@@ -5581,11 +4970,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLACK_REFLECTOR_SHIELD:
@@ -5609,11 +4993,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 10;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_ARMOR:
@@ -5637,11 +5016,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GOTHIC_PLATE:
@@ -5665,11 +5039,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARANDEL_FORCE_ARMOR:
@@ -5693,11 +5062,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 10;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_CROSS:
@@ -5721,11 +5085,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FITNESS_CROSS:
@@ -5749,11 +5108,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 4;
         this._mind = 2;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WONDERING_BLESSED_CROSS:
@@ -5777,11 +5131,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 4;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMART_ROBE:
@@ -5805,11 +5154,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILK_ROBE:
@@ -5833,11 +5177,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 6;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SERANA_BRILLIANT_ROBE:
@@ -5861,11 +5200,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.JUNK_TARISMAN_POISON:
@@ -5889,11 +5223,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistPoison = true;
         break;
 
@@ -5918,11 +5247,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistSilence = true;
         break;
 
@@ -5947,11 +5271,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistBind = true;
         break;
 
@@ -5976,11 +5295,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistSleep = true;
         break;
 
@@ -6005,11 +5319,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistStun = true;
         break;
 
@@ -6034,11 +5343,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistParalyze = true;
         break;
 
@@ -6063,11 +5367,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFreeze = true;
         break;
 
@@ -6092,11 +5391,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFear = true;
         break;
 
@@ -6121,11 +5415,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistTemptation = true;
         break;
 
@@ -6150,11 +5439,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistSlow = true;
         break;
 
@@ -6179,11 +5463,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistDizzy = true;
         break;
 
@@ -6208,11 +5487,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistSlip = true;
         break;
 
@@ -6237,11 +5511,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalAttack = 1.05f; // todo 要検証
         break;
 
@@ -6266,11 +5535,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyMagicAttack = 1.05f; // todo 要検証
         break;
 
@@ -6295,11 +5559,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleSpeed = 1.05f; // todo 要検証
         break;
 
@@ -6324,11 +5583,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleResponse = 1.05f; // todo 要検証
         break;
 
@@ -6353,11 +5607,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPotential = 1.05f; // todo 要検証
         break;
 
@@ -6382,11 +5631,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_SASU:
@@ -6410,11 +5654,6 @@ public partial class Item
         this._intelligence = 24;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_KU:
@@ -6438,11 +5677,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 16;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_NAGURI:
@@ -6466,11 +5700,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 16;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_TOBI:
@@ -6494,11 +5723,6 @@ public partial class Item
         this._intelligence = 16;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_KARAMU:
@@ -6522,11 +5746,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 24;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_HANERU:
@@ -6550,11 +5769,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 16;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_TORU:
@@ -6578,11 +5792,6 @@ public partial class Item
         this._intelligence = 16;
         this._stamina = 24;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_MIRU:
@@ -6606,11 +5815,6 @@ public partial class Item
         this._intelligence = 24;
         this._stamina = 0;
         this._mind = 16;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BRONZE_RING_KATAI:
@@ -6634,11 +5838,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 24;
         this._mind = 16;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.RED_KOKUIN:
@@ -6662,11 +5861,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLUE_KOKUIN:
@@ -6690,11 +5884,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURPLE_KOKUIN:
@@ -6718,11 +5907,6 @@ public partial class Item
         this._intelligence = 50;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GREEN_KOKUIN:
@@ -6746,11 +5930,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 50;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.YELLOW_KOKUIN:
@@ -6774,11 +5953,6 @@ public partial class Item
         this._intelligence = 40;
         this._stamina = 20;
         this._mind = 15;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyLight = 1.05f; // 要検証
         this.ResistSleep = true;
         break;
@@ -6804,11 +5978,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 50;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SPIRIT_TUNOBUE:
@@ -6832,11 +6001,6 @@ public partial class Item
         this._intelligence = 20;
         this._stamina = 0;
         this._mind = 15;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.05f; // 要検証
         this.ResistBind = true;
         break;
@@ -6862,11 +6026,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 15;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.05f; // 要検証
         this.ResistFear = true;
         break;
@@ -6892,11 +6051,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 25;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.05f; // 要検証
         this.ResistFreeze = true;
         break;
@@ -6922,11 +6076,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 40;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistStun = true;
         this.ResistParalyze = true;
         break;
@@ -6952,11 +6101,6 @@ public partial class Item
         this._intelligence = 10;
         this._stamina = 10;
         this._mind = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.05f;
         this.ResistIcePercent = 0.05f;
         this.ResistLightPercent = 0.05f;
@@ -6984,11 +6128,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalAttack = 1.10f; // 要検証
         break;
 
@@ -7013,11 +6152,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalDefense = 1.10f; // 要検証
         break;
 
@@ -7042,11 +6176,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyMagicAttack = 1.10f; // 要検証
         break;
 
@@ -7071,11 +6200,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyMagicDefense = 1.10f; // 要検証
         break;
 
@@ -7100,11 +6224,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleSpeed = 1.10f; // 要検証
         break;
 
@@ -7129,11 +6248,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleResponse = 1.10f; // 要検証
         break;
 
@@ -7158,11 +6272,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPotential = 1.10f; // 要検証
         break;
 
@@ -7181,17 +6290,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 25000;
         this._importantType = Important.None;
-        this._description = "スペルの詠唱が組み合わさる時、普段の威力とは異なった相乗効果が発揮される。この羽根つきの帽子はその心が宿っており、魔法詠唱する者にとって優雅な旋律を提供してくれる。技＋３２、知＋５６、ジュエルソケット１、沈黙耐性、猛毒耐性、闇耐性１５％、炎増幅１５％、魔攻率５％";
+        this._description = "スペルの詠唱が組み合わさる時、普段の威力とは異なった相乗効果が発揮される。この羽根つきの帽子はその心が宿っており、魔法詠唱する者にとって優雅な旋律を提供してくれる。技＋３２、知＋５６、沈黙耐性、猛毒耐性、闇耐性１５％、炎増幅１５％、魔攻率５％";
         this._strength = 0;
         this._agility = 32;
         this._intelligence = 56;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistSilence = true;
         this.ResistPoison = true;
         this.ResistShadowPercent = 0.15f;
@@ -7214,17 +6318,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 26000;
         this._importantType = Important.None;
-        this._description = "常に放電し続けるが、可視化されていないイアリング。存在自体はしてお発光された箇所から次々と活力が湧いてくる。技＋４６、体＋３０、心＋１２、ジュエルソケット１、束縛耐性、恐怖耐性、氷耐性１５％、聖増幅１５％、戦速率５％";
+        this._description = "常に放電し続けるが、可視化されていないイアリング。存在自体はしてお発光された箇所から次々と活力が湧いてくる。技＋４６、体＋３０、心＋１２、束縛耐性、恐怖耐性、氷耐性１５％、聖増幅１５％、戦速率５％";
         this._strength = 0;
         this._agility = 46;
         this._intelligence = 0;
         this._stamina = 30;
         this._mind = 12;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistBind = true;
         this.ResistFear = true;
         this.ResistIcePercent = 0.15f;
@@ -7247,17 +6346,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 27000;
         this._importantType = Important.None;
-        this._description = "粒子が幾つもの型を形成し、たまたま王冠の輪郭として形状化した物。非常に神々しいオーラを放っているが装着した者にはそれなりの精神力が要求される。選ばれた者であれば多大な恩恵を得られる。力＋２０、技＋２０、知＋２０、体＋２０、心＋２０、ジュエルソケット１、炎耐性１５％、氷耐性１５％、光耐性１５％、闇耐性１５％";
+        this._description = "粒子が幾つもの型を形成し、たまたま王冠の輪郭として形状化した物。非常に神々しいオーラを放っているが装着した者にはそれなりの精神力が要求される。選ばれた者であれば多大な恩恵を得られる。力＋２０、技＋２０、知＋２０、体＋２０、心＋２０、炎耐性１５％、氷耐性１５％、光耐性１５％、闇耐性１５％";
         this._strength = 20;
         this._agility = 20;
         this._intelligence = 20;
         this._stamina = 20;
         this._mind = 20;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.15f;
         this.ResistIcePercent = 0.15f;
         this.ResistLightPercent = 0.15f;
@@ -7279,17 +6373,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 28000;
         this._importantType = Important.None;
-        this._description = "悪魔の刻印が施された星型（逆）のブレスレット。装着する時、対象者の心が試されるが恐れと嘆きを振り払う事で確約された力を手にする事が出来る。力＋５０、体＋３０、心＋１０、ジュエルソケット１、炎増幅１５％、闇増幅１５％、魔防率５％";
+        this._description = "悪魔の刻印が施された星型（逆）のブレスレット。装着する時、対象者の心が試されるが恐れと嘆きを振り払う事で確約された力を手にする事が出来る。力＋５０、体＋３０、心＋１０、炎増幅１５％、闇増幅１５％、魔防率５％";
         this._strength = 50;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 30;
         this._mind = 10;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.15f; // todo 要検証
         this.AmplifyShadow = 1.15f; // todo 要検証
         this.AmplifyMagicDefense = 1.05f; // todo 要検証
@@ -7310,17 +6399,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 29000;
         this._importantType = Important.None;
-        this._description = "美しい霧を常に纏うガントレット。表面はさざ波の形状をしており、装着者に勇敢な心と流水の精神が刻み込まれる。知＋４６、体＋３０、心＋１０、ジュエルソケット１、氷増幅１５％、聖耐性１５％、戦応率５％";
+        this._description = "美しい霧を常に纏うガントレット。表面はさざ波の形状をしており、装着者に勇敢な心と流水の精神が刻み込まれる。知＋４６、体＋３０、心＋１０、氷増幅１５％、聖耐性１５％、戦応率５％";
         this._strength = 0;
         this._agility = 46;
         this._intelligence = 0;
         this._stamina = 30;
         this._mind = 10;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.15f; // todo 要検証
         this.ResistLightPercent = 0.15f;
         this.AmplifyBattleResponse = 1.05f; // todo 要検証
@@ -7341,17 +6425,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 30000;
         this._importantType = Important.None;
-        this._description = "己の命運を掛けて開かれる箱。開くたびに様々な効果が発揮される。力＋３０、技＋３０、知＋３０、ジュエルソケット１【特殊能力】ターン経過毎に、ライフ／マナ／スキルポイントのいずれかが５%回復する。";
+        this._description = "己の命運を掛けて開かれる箱。開くたびに様々な効果が発揮される。力＋３０、技＋３０、知＋３０、【特殊能力】ターン経過毎に、ライフ／マナ／スキルポイントのいずれかが５%回復する。";
         this._strength = 30;
         this._agility = 30;
         this._intelligence = 30;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SPIRIT_CHALICE_OF_HEART:
@@ -7369,17 +6448,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 31000;
         this._importantType = Important.None;
-        this._description = "この聖杯の中には眼には見えないが人の心が埋め込まれていると謳われる。装着者には得たいの知れない源泉のパワーが溢れてくる。心＋３０、ジュエルソケット１、物攻率５％、魔攻率５％";
+        this._description = "この聖杯の中には眼には見えないが人の心が埋め込まれていると謳われる。装着者には得たいの知れない源泉のパワーが溢れてくる。心＋３０、物攻率５％、魔攻率５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 70;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalAttack = 1.05f; // todo 要検証
         this.AmplifyMagicAttack = 1.05f; // todo 要検証
         break;
@@ -7406,11 +6480,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FULLMETAL_ASTRAL_BLADE:
@@ -7434,11 +6503,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_LANCE:
@@ -7462,11 +6526,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STORM_FURY_LANCER:
@@ -7490,11 +6549,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_AXE:
@@ -7518,11 +6572,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WARLOAD_BASTARD_AXE:
@@ -7546,11 +6595,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_CLAW:
@@ -7574,11 +6618,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EARTH_SHARD_CLAW:
@@ -7602,11 +6641,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.JUZA_ARESTINE_SLICER:
@@ -7660,11 +6694,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ENGAGED_FUTURE_ROD:
@@ -7688,11 +6717,6 @@ public partial class Item
         this._intelligence = 32;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_BOOK:
@@ -7716,11 +6740,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ANCIENT_FAITHFUL_BOOK:
@@ -7744,11 +6763,6 @@ public partial class Item
         this._intelligence = 40;
         this._stamina = 20;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_ORB:
@@ -7772,11 +6786,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLUE_SKY_ORB:
@@ -7800,11 +6809,6 @@ public partial class Item
         this._intelligence = 30;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_LARGE_SWORD:
@@ -7828,11 +6832,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PRISMATIC_SOUL_BREAKER:
@@ -7850,17 +6849,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 70000;
         this._importantType = Important.None;
-        this._description = "カラフルな装飾が施された魔剣。魂を食らう様な形状をしており、一太刀振るう度に生命を吸収するかのような波動が相手に伝わる。物理攻撃力１９０～３８０、力＋３５、心＋２５、ジュエルソケット１、間属性上昇１０％";
+        this._description = "カラフルな装飾が施された魔剣。魂を食らう様な形状をしており、一太刀振るう度に生命を吸収するかのような波動が相手に伝わる。物理攻撃力１９０～３８０、力＋３５、心＋２５、間属性上昇１０％";
         this._strength = 35;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 25;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.10f; // todo 要検証
         break;
 
@@ -7885,11 +6879,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLOOD_STUBBORN_SPEAR:
@@ -7907,17 +6896,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 75000;
         this._importantType = Important.None;
-        this._description = "ゴツめの鋼鉄を素材の元としており、血のりで装飾された狂気の槍。柄の形状は禍々しくあるが、その破壊力は群を抜いている。通常の一撃でも対象者にとっては脅威となるだろう。物理攻撃力２６０～４００、力＋３５、技＋４５、ジュエルソケット１";
+        this._description = "ゴツめの鋼鉄を素材の元としており、血のりで装飾された狂気の槍。柄の形状は禍々しくあるが、その破壊力は群を抜いている。通常の一撃でも対象者にとっては脅威となるだろう。物理攻撃力２６０～４００、力＋３５、技＋４５";
         this._strength = 35;
         this._agility = 45;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_LARGE_AXE:
@@ -7941,11 +6925,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ELEMENTAL_DISRUPT_AXE:
@@ -7963,17 +6942,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 80000;
         this._importantType = Important.None;
-        this._description = "数多く魔法属性を兼ね備えた破壊の斧。この武具を振るった時、様々な色を成して振るわれるが、元々の装飾もカラフルであり、エレメンタルの総称が付けられたと言われている。見た目とは裏腹に威力は絶大である。物理攻撃力３００～４５０、力＋４５、体＋３５、ジュエルソケット１";
+        this._description = "数多く魔法属性を兼ね備えた破壊の斧。この武具を振るった時、様々な色を成して振るわれるが、元々の装飾もカラフルであり、エレメンタルの総称が付けられたと言われている。見た目とは裏腹に威力は絶大である。物理攻撃力３００～４５０、力＋４５、体＋３５";
         this._strength = 45;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 35;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUPERIOR_BOW:
@@ -7997,11 +6971,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LINGERING_FROST_SHOOTER:
@@ -8019,17 +6988,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 90000;
         this._importantType = Important.None;
-        this._description = "非常に巨大な形状をしたロングボウ。弦の所々には微細な雪の結晶が常に発生しており、放った矢にはその結晶が付いた状態で放たれる。雪の結晶が矢の起動を追尾する様に見えるため、矢が放たれる度に美しい弧が描かれる。物理攻撃力３４０～３８０、力＋４０、知＋４０、ジュエルソケット１、氷攻撃力１０％、氷耐性１０％";
+        this._description = "非常に巨大な形状をしたロングボウ。弦の所々には微細な雪の結晶が常に発生しており、放った矢にはその結晶が付いた状態で放たれる。雪の結晶が矢の起動を追尾する様に見えるため、矢が放たれる度に美しい弧が描かれる。物理攻撃力３４０～３８０、力＋４０、知＋４０、氷攻撃力１０％、氷耐性１０％";
         this._strength = 40;
         this._agility = 0;
         this._intelligence = 40;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.10f; // todo 要検証
         this.ResistIcePercent = 0.10f;
         break;
@@ -8055,11 +7019,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.INFERNAL_IMMORTAL_STAFF:
@@ -8077,17 +7036,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 85000;
         this._importantType = Important.None;
-        this._description = "悪を滅するために業火の炎で鍛えられた大型の杖。形状は非常にごつごつしており、杖の先端は常に炎が宿っている。炎同士の対決を意識する者は、炎の激突に打ち克つためにこの杖を保持する。魔法攻撃力３２０～３６０、知＋３２、心＋２０、ジュエルソケット１、炎攻撃力１０％、炎耐性１０％";
+        this._description = "悪を滅するために業火の炎で鍛えられた大型の杖。形状は非常にごつごつしており、杖の先端は常に炎が宿っている。炎同士の対決を意識する者は、炎の激突に打ち克つためにこの杖を保持する。魔法攻撃力３２０～３６０、知＋３２、心＋２０、炎攻撃力１０％、炎耐性１０％";
         this._strength = 0;
         this._agility = 32;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 20;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.10f; // todo 要検証
         this.ResistFirePercent = 0.10f;
         break;
@@ -8143,11 +7097,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GRACEFUL_KINGS_BUCKLER:
@@ -8165,17 +7114,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 45000;
         this._importantType = Important.None;
-        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、ジュエルソケット１、闇耐性１０％　【特殊能力】防御姿勢時における物理防御力が１０％上昇。メイン行動から物理攻撃を伴うダメージがヒットした場合、物理攻撃力が１０％上昇。";
+        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、闇耐性１０％　【特殊能力】防御姿勢時における物理防御力が１０％上昇。メイン行動から物理攻撃を伴うダメージがヒットした場合、物理攻撃力が１０％上昇。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 25;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistShadowPercent = 0.10f;
         break;
 
@@ -8200,11 +7144,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HARDED_INTENSITY_PLATE:
@@ -8222,17 +7161,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 55000;
         this._importantType = Important.None;
-        this._description = "鋼鉄の中でも特に密度の高い素材で作られた鎧。分厚さと頑丈さを兼ね備えており、硬い防御力を誇る。装飾もごつごつした印象であり、対象者からはデカい壁の様に見えると言われている。物理防御力１１５、体＋３０、ジュエルソケット１、炎耐性１０％、聖耐性１０％";
+        this._description = "鋼鉄の中でも特に密度の高い素材で作られた鎧。分厚さと頑丈さを兼ね備えており、硬い防御力を誇る。装飾もごつごつした印象であり、対象者からはデカい壁の様に見えると言われている。物理防御力１１５、体＋３０、炎耐性１０％、聖耐性１０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 30;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.10f;
         this.ResistLightPercent = 0.10f;
         break;
@@ -8258,11 +7192,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SOLDIER_HATRED_CROSS:
@@ -8280,17 +7209,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 50000;
         this._importantType = Important.None;
-        this._description = "闘いに身を投じる強者達が好んで使用する舞踏衣。俊敏さと防御力を兼ね備えており、活力次第では重たい鎧でガッチリ防御するよりもこちらの方がダメージ軽減が図れるだろう。物理防御力６８、魔法防御力４２、体＋１６、心＋１０、ジュエルソケット１、氷耐性１０％";
+        this._description = "闘いに身を投じる強者達が好んで使用する舞踏衣。俊敏さと防御力を兼ね備えており、活力次第では重たい鎧でガッチリ防御するよりもこちらの方がダメージ軽減が図れるだろう。物理防御力６８、魔法防御力４２、体＋１６、心＋１０、氷耐性１０％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 16;
         this._mind = 10;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistIcePercent = 0.10f;
         break;
 
@@ -8315,11 +7239,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WONDERERS_INVISIBLE_ROBE:
@@ -8337,17 +7256,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 60000;
         this._importantType = Important.None;
-        this._description = "その見た目からは単なる旅人の様にしか見えないため、防御を捨てた様相に見える。しかしローブには目に見えない魔法反射素材が使用されており、通常の一般的な魔法攻撃ではほとんどがダメージ軽減されてしまう特性を持っている。物理防御力４２、魔法防御力６８、心＋２５、ジュエルソケット１、闇耐性１０％、睡眠耐性、猛毒耐性、沈黙耐性";
+        this._description = "その見た目からは単なる旅人の様にしか見えないため、防御を捨てた様相に見える。しかしローブには目に見えない魔法反射素材が使用されており、通常の一般的な魔法攻撃ではほとんどがダメージ軽減されてしまう特性を持っている。物理防御力４２、魔法防御力６８、心＋２５、闇耐性１０％、睡眠耐性、猛毒耐性、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 25;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistShadowPercent = 0.10f;
         this.ResistSleep = true;
         this.ResistPoison = true;
@@ -8473,11 +7387,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_SENSE:
@@ -8501,11 +7410,6 @@ public partial class Item
         this._intelligence = 45;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_TOUGH:
@@ -8529,11 +7433,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 30;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_ROCK:
@@ -8557,11 +7456,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_FAST:
@@ -8585,11 +7479,6 @@ public partial class Item
         this._intelligence = 30;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_SHARP:
@@ -8613,11 +7502,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 45;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_HIGH:
@@ -8641,11 +7525,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_DEEP:
@@ -8669,11 +7548,6 @@ public partial class Item
         this._intelligence = 45;
         this._stamina = 30;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_BOUND:
@@ -8697,11 +7571,6 @@ public partial class Item
         this._intelligence = 45;
         this._stamina = 0;
         this._mind = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STEEL_RING_EMOTE:
@@ -8725,11 +7594,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 45;
         this._mind = 30;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.RED_MASEKI:
@@ -8753,11 +7617,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLUE_MASEKI:
@@ -8781,11 +7640,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURPLE_MASEKI:
@@ -8809,11 +7663,6 @@ public partial class Item
         this._intelligence = 105;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GREEN_MASEKI:
@@ -8837,11 +7686,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 105;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.YELLOW_MASEKI:
@@ -8865,11 +7709,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 105;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.POWER_STEEL_RING_SOLID:
@@ -8893,11 +7732,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 40;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalDefense = 1.10f;
         this.ResistStun = true;
         break;
@@ -8923,11 +7757,6 @@ public partial class Item
         this._intelligence = 50;
         this._stamina = 40;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleSpeed = 1.10f;
         this.ResistSilence = true;
         break;
@@ -8953,11 +7782,6 @@ public partial class Item
         this._intelligence = 40;
         this._stamina = 70;
         this._mind = 50;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyMagicDefense = 1.10f;
         this.ResistFreeze = true;
         break;
@@ -8983,11 +7807,6 @@ public partial class Item
         this._intelligence = 70;
         this._stamina = 0;
         this._mind = 40;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyBattleResponse = 1.10f;
         this.ResistParalyze = true;
         break;
@@ -9013,11 +7832,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 70;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyPhysicalAttack = 1.10f;
         this.ResistBind = true;
         break;
@@ -9043,11 +7857,6 @@ public partial class Item
         this._intelligence = 40;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyMagicAttack = 1.10f;
         this.ResistSlow = true;
         break;
@@ -9073,11 +7882,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.20f;
         this.ResistSleep = true;
         this.ResistStun = true;
@@ -9104,11 +7908,6 @@ public partial class Item
         this._intelligence = 135;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyLight = 1.20f;
         this.ResistBind = true;
         this.ResistStun = true;
@@ -9129,17 +7928,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５、ジュエルソケット１【特殊能力】物理攻撃を受ける度に、稀に攻撃を行った対象者に物理ダメージ1/3の分だけ反転する。魔法攻撃においても同様である。";
+        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５【特殊能力】物理攻撃を受ける度に、稀に攻撃を行った対象者に物理ダメージ1/3の分だけ反転する。魔法攻撃においても同様である。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 135;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLACK_SPIRAL_NEEDLE:
@@ -9157,17 +7951,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、ジュエルソケット１、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊能力】物理攻撃を与える行動を取った時、稀に自分にかかっている負のBUFFが１つ解除される。";
+        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊能力】物理攻撃を与える行動を取った時、稀に自分にかかっている負のBUFFが１つ解除される。";
         this._strength = 135;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.10f;
         this.ResistShadowPercent = 0.10f;
         this.ResistFear = true;
@@ -9188,17 +7977,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 130000;
         this._importantType = Important.None;
-        this._description = "死を迎え入れるヴァルキリーの紋章。装備者にヴァルキリーの信念が宿る。力＋３８、技＋１１４、体＋２０、心＋３０、ジュエルソケット１、聖増幅１０％、聖耐性１０％、炎増幅１０％、炎耐性１０%、沈黙耐性、麻痺耐性、誘惑耐性";
+        this._description = "死を迎え入れるヴァルキリーの紋章。装備者にヴァルキリーの信念が宿る。力＋３８、技＋１１４、体＋２０、心＋３０、聖増幅１０％、聖耐性１０％、炎増幅１０％、炎耐性１０%、沈黙耐性、麻痺耐性、誘惑耐性";
         this._strength = 38;
         this._agility = 114;
         this._intelligence = 0;
         this._stamina = 20;
         this._mind = 30;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyLight = 1.10f;
         this.AmplifyFire = 1.10f;
         this.ResistLightPercent = 0.10f;
@@ -9223,17 +8007,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 130000;
         this._importantType = Important.None;
-        this._description = "死を呼び寄せるネクロマンシーの紋章。装備者にネクロマンシーの信念が宿る。技＋２８、知＋１２２、体＋３０、心＋２０、ジュエルソケット１、闇増幅１０％、闇耐性１０％、氷増幅１０％、氷耐性１０％、凍結耐性、恐怖耐性、出血耐性";
+        this._description = "死を呼び寄せるネクロマンシーの紋章。装備者にネクロマンシーの信念が宿る。技＋２８、知＋１２２、体＋３０、心＋２０、闇増幅１０％、闇耐性１０％、氷増幅１０％、氷耐性１０％、凍結耐性、恐怖耐性、出血耐性";
         this._strength = 0;
         this._agility = 28;
         this._intelligence = 122;
         this._stamina = 30;
         this._mind = 20;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.10f;
         this.AmplifyIce = 1.10f;
         this.ResistShadowPercent = 0.10f;
@@ -9266,11 +8045,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SOLEMN_EMPERORS_SWORD:
@@ -9288,17 +8062,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０、ジュエルソケット２【特殊能力】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
+        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊能力】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_LANCE:
@@ -9322,11 +8091,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MYSTIC_BLUE_JAVELIN:
@@ -9344,17 +8108,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００、ジュエルソケット２【特殊能力】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
+        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００【特殊能力】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_AXE:
@@ -9378,11 +8137,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.STRONG_FIRE_HELL_BASTARDAXE:
@@ -9400,17 +8154,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 330000;
         this._importantType = Important.None;
-        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０、ジュエルソケット２【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
+        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_CLAW:
@@ -9434,11 +8183,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.AURA_BURN_CLAW:
@@ -9456,17 +8200,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０、ジュエルソケット２【特殊能力】物理攻撃が対象にヒットする度に、【聖】ダメージが追加で発生する。";
+        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０【特殊能力】物理攻撃が対象にヒットする度に、【聖】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_ROD:
@@ -9490,11 +8229,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MIND_STONEFEAR_ROD:
@@ -9512,17 +8246,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００、ジュエルソケット２【特殊能力】負の影響を伴うBUFFが付与された時、稀にそのBUFFが付与される事を防ぐ。";
+        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００【特殊能力】負の影響を伴うBUFFが付与された時、稀にそのBUFFが付与される事を防ぐ。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_BOOK:
@@ -9546,11 +8275,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DARKSUN_TRAGEDIC_BOOK:
@@ -9568,17 +8292,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００、ジュエルソケット２【特殊能力】負のBUFFを伴う魔法を詠唱した場合、その負のBUFFが付与されるときの威力を２０％増強した形でBUFFを付与する。";
+        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００【特殊能力】負のBUFFを伴う魔法を詠唱した場合、その負のBUFFが付与されるときの威力を２０％増強した形でBUFFを付与する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_ORB:
@@ -9602,11 +8321,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.CHROMATIC_FORGE_ORB:
@@ -9624,17 +8338,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０、ジュエルソケット２【特殊能力】場によるダメージ発生が伴う時、その威力を１０％増強させた上でダメージを与える。このダメージは対戦相手の場のみである。";
+        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０【特殊能力】場によるダメージ発生が伴う時、その威力を１０％増強させた上でダメージを与える。このダメージは対戦相手の場のみである。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_LARGE_SWORD:
@@ -9658,11 +8367,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GOLDWILL_DESCENT_SOWRD:
@@ -9680,17 +8384,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 370000;
         this._importantType = Important.None;
-        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０、ジュエルソケット２【特殊能力】自分からの物理攻撃で対象にクリティカルダメージが当たった場合、そのクリティカルダメージを５％増強する。";
+        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０【特殊能力】自分からの物理攻撃で対象にクリティカルダメージが当たった場合、そのクリティカルダメージを５％増強する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_LARGE_LANCE:
@@ -9714,11 +8413,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FLASH_VANISH_SPEAR:
@@ -9736,17 +8430,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 410000;
         this._importantType = Important.None;
-        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０、ジュエルソケット２【特殊能力】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が３％上昇する。";
+        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０【特殊能力】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が３％上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_LARGE_AXE:
@@ -9770,11 +8459,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VOLCANIC_BATTLE_BASTER:
@@ -9792,17 +8476,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０、ジュエルソケット２【特殊能力】物理攻撃が敵にヒットした時、稀に【眩暈】【鈍化】【恐怖】のいずれかを付与する。";
+        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０【特殊能力】物理攻撃が敵にヒットした時、稀に【眩暈】【鈍化】【恐怖】のいずれかを付与する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_BOW:
@@ -9826,11 +8505,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.WHITE_FIRE_CROSSBOW:
@@ -9848,17 +8522,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 520000;
         this._importantType = Important.None;
-        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０、ジュエルソケット２【特殊能力】ターン開始時、自分にFrameBladeのBUFFが付与される。聖属性のBUFF、または聖属性のフィールドが存在している場合、物理攻撃力が２０上昇する。";
+        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０【特殊能力】ターン開始時、自分にFrameBladeのBUFFが付与される。聖属性のBUFF、または聖属性のフィールドが存在している場合、物理攻撃力が２０上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_LARGE_STAFF:
@@ -9882,11 +8551,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ELDERSTAFF_OF_LIFEBLOOM:
@@ -9904,17 +8568,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 510000;
         this._importantType = Important.None;
-        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０、ジュエルソケット２【特殊能力】ライフを回復する場合、回復量が１５％上昇する。";
+        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０【特殊能力】ライフを回復する場合、回復量が１５％上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MASTER_SHIELD:
@@ -9938,11 +8597,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.DIMENSION_ZERO_SHIELD:
@@ -9960,17 +8614,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "極限まで薄さを追求した盾。その薄さからは想定できない程の強靭な防御力を誇る。物理防御力２３０、魔法防御力７８、体＋５０、ジュエルソケット２、聖耐性１５％、闇耐性１５％、炎耐性１５％、氷耐性１５％";
+        this._description = "極限まで薄さを追求した盾。その薄さからは想定できない程の強靭な防御力を誇る。物理防御力２３０、魔法防御力７８、体＋５０、聖耐性１５％、闇耐性１５％、炎耐性１５％、氷耐性１５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 50;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.15f;
         this.ResistIcePercent = 0.15f;
         this.ResistLightPercent = 0.15f;
@@ -9998,11 +8647,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HIGHWARRIOR_DRAGONMAIL:
@@ -10020,17 +8664,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 370000;
         this._importantType = Important.None;
-        this._description = "希少価値の高いドラゴンの鱗を素材にして製作された鎧。頑丈さはもちろんだが、魔法耐性の効果もあるため、前衛で闘う戦士にとっては無くてはならない装備品である。物理防御力３４０、魔法防御力１００、体＋９０、ジュエルソケット２、氷耐性２５％、光耐性２５％【特殊能力】魔法ダメージを受ける時、稀にダメージ量を半分にする。";
+        this._description = "希少価値の高いドラゴンの鱗を素材にして製作された鎧。頑丈さはもちろんだが、魔法耐性の効果もあるため、前衛で闘う戦士にとっては無くてはならない装備品である。物理防御力３４０、魔法防御力１００、体＋９０、氷耐性２５％、光耐性２５％【特殊能力】魔法ダメージを受ける時、稀にダメージ量を半分にする。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 90;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistIcePercent = 0.25f;
         this.ResistLightPercent = 0.25f;
         break;
@@ -10056,11 +8695,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SWIFTCROSS_OF_REDTHUNDER:
@@ -10078,17 +8712,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 340000;
         this._importantType = Important.None;
-        this._description = "深紅の雷をデザインとして施された舞踏衣。非常に動きやすく、熟練者であれば技を繰り出す速度は神域に達する事が出来るだろう。防御力も物理・魔法ともに非常に高く、前衛・後衛いずれでも活躍する事が出来る。物理防御力２８０、魔法防御力１５０、体＋７０、心＋２０、ジュエルソケット２、炎耐性２５％、闇耐性２５％【特殊能力】物理攻撃／魔法攻撃のいずれかを受けた場合、稀にダメージ量の半分を対象者へ与える。";
+        this._description = "深紅の雷をデザインとして施された舞踏衣。非常に動きやすく、熟練者であれば技を繰り出す速度は神域に達する事が出来るだろう。防御力も物理・魔法ともに非常に高く、前衛・後衛いずれでも活躍する事が出来る。物理防御力２８０、魔法防御力１５０、体＋７０、心＋２０、炎耐性２５％、闇耐性２５％【特殊能力】物理攻撃／魔法攻撃のいずれかを受けた場合、稀にダメージ量の半分を対象者へ与える。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 70;
         this._mind = 20;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.25f;
         this.ResistShadowPercent = 0.25f;
         break;
@@ -10114,11 +8743,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLADESHADOW_CROWDED_DRESS:
@@ -10136,17 +8760,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "一見すると颯爽とした普通のドレスに見えるが、キメ細かい装飾が施されておりその様は白い光を纏う中に一筋の黒い闇の紋様が埋め込まれているのが理解できる。物理防御力８０、魔法防御力３８０、心＋５０、ジュエルソケット２、光耐性２５％、闇耐性２５％【特殊能力】物理ダメージを受ける時、稀にダメージ量を半分にする。";
+        this._description = "一見すると颯爽とした普通のドレスに見えるが、キメ細かい装飾が施されておりその様は白い光を纏う中に一筋の黒い闇の紋様が埋め込まれているのが理解できる。物理防御力８０、魔法防御力３８０、心＋５０、光耐性２５％、闇耐性２５％【特殊能力】物理ダメージを受ける時、稀にダメージ量を半分にする。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 50;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistLightPercent = 0.25f;
         this.ResistShadowPercent = 0.25f;
         break;
@@ -10326,17 +8945,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『業火』のオーラが漂っている。力＋１５０、技＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『業火』のオーラが漂っている。力＋１５０、技＋１２０";
         this._strength = 150;
         this._agility = 120;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_TSUNAMI:
@@ -10354,17 +8968,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『津波』のオーラが漂っている。力＋１２０、知＋１５０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『津波』のオーラが漂っている。力＋１２０、知＋１５０";
         this._strength = 120;
         this._agility = 0;
         this._intelligence = 150;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_AKISAME:
@@ -10382,17 +8991,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『秋雨』のオーラが漂っている。力＋１５０、体＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『秋雨』のオーラが漂っている。力＋１５０、体＋１２０";
         this._strength = 150;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 120;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_NEPPA:
@@ -10410,17 +9014,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『熱波』のオーラが漂っている。力＋１５０、心＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『熱波』のオーラが漂っている。力＋１５０、心＋１２０";
         this._strength = 150;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 120;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_RAIMEI:
@@ -10438,17 +9037,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『雷鳴』のオーラが漂っている。技＋１５０、知＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『雷鳴』のオーラが漂っている。技＋１５０、知＋１２０";
         this._strength = 0;
         this._agility = 150;
         this._intelligence = 120;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_FUBUKI:
@@ -10466,17 +9060,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『吹雪』のオーラが漂っている。技＋１２０、体＋１５０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『吹雪』のオーラが漂っている。技＋１２０、体＋１５０";
         this._strength = 0;
         this._agility = 120;
         this._intelligence = 150;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_GENJITSU:
@@ -10494,17 +9083,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『幻日』のオーラが漂っている。技＋１５０、心＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『幻日』のオーラが漂っている。技＋１５０、心＋１２０";
         this._strength = 0;
         this._agility = 150;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 120;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_TATSUMAKI:
@@ -10522,17 +9106,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『竜巻』のオーラが漂っている。知＋１２０、体＋１５０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『竜巻』のオーラが漂っている。知＋１２０、体＋１５０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 120;
         this._stamina = 150;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_SYUNIJI:
@@ -10550,17 +9129,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『主虹』のオーラが漂っている。知＋１５０、心＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『主虹』のオーラが漂っている。知＋１５０、心＋１２０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 150;
         this._stamina = 0;
         this._mind = 120;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SILVER_RING_KAGEROU:
@@ -10578,17 +9152,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 150000;
         this._importantType = Important.None;
-        this._description = "銀の素材で作られた腕輪。『陽炎』のオーラが漂っている。体＋１５０、心＋１２０、ジュエルソケット１";
+        this._description = "銀の素材で作られた腕輪。『陽炎』のオーラが漂っている。体＋１５０、心＋１２０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 150;
         this._mind = 120;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.REDLIGHT_BRIGHTSTONE:
@@ -10606,17 +9175,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200000;
         this._importantType = Important.None;
-        this._description = "淡く照らす赤の輝石が身体の周りで浮遊する。力＋３６０、ジュエルソケット１";
+        this._description = "淡く照らす赤の輝石が身体の周りで浮遊する。力＋３６０";
         this._strength = 360;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.BLUELIGHT_BRIGHTSTONE:
@@ -10634,17 +9198,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200000;
         this._importantType = Important.None;
-        this._description = "淡く照らす青の輝石が身体の周りで浮遊する。技＋３６０、ジュエルソケット１";
+        this._description = "淡く照らす青の輝石が身体の周りで浮遊する。技＋３６０";
         this._strength = 0;
         this._agility = 360;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURPLELIGHT_BRIGHTSTONE:
@@ -10662,17 +9221,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200000;
         this._importantType = Important.None;
-        this._description = "淡く照らす紫の輝石が身体の周りで浮遊する。知＋３６０、ジュエルソケット１";
+        this._description = "淡く照らす紫の輝石が身体の周りで浮遊する。知＋３６０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 360;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.GREENLIGHT_BRIGHTSTONE:
@@ -10690,17 +9244,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200000;
         this._importantType = Important.None;
-        this._description = "淡く照らす緑の輝石が身体の周りで浮遊する。体＋３６０、ジュエルソケット１";
+        this._description = "淡く照らす緑の輝石が身体の周りで浮遊する。体＋３６０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 360;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.YELLOWLIGHT_BRIGHTSTONE:
@@ -10718,17 +9267,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 200000;
         this._importantType = Important.None;
-        this._description = "淡く照らす黄の輝石が身体の周りで浮遊する。心＋３６０、ジュエルソケット１";
+        this._description = "淡く照らす黄の輝石が身体の周りで浮遊する。心＋３６０";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 360;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SEAL_OF_REDEYE:
@@ -10746,17 +9290,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 360000;
         this._importantType = Important.None;
-        this._description = "深紅の目玉を封じている御札。目玉には強力過ぎる炎が宿っているがそれを制御するために御札で威力を封じられている。保持者には業火のイメージがみなぎってくる。知＋３２０、体＋１８０、ジュエルソケット２、炎増幅３０％、炎耐性３０％、恐怖耐性、スタン耐性、麻痺耐性";
+        this._description = "深紅の目玉を封じている御札。目玉には強力過ぎる炎が宿っているがそれを制御するために御札で威力を封じられている。保持者には業火のイメージがみなぎってくる。知＋３２０、体＋１８０、炎増幅３０％、炎耐性３０％、恐怖耐性、スタン耐性、麻痺耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 320;
         this._stamina = 180;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
         this.ResistFirePercent = 0.30f;
         this.ResistFear = true;
@@ -10779,17 +9318,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 360000;
         this._importantType = Important.None;
-        this._description = "深蒼の目玉を封じている御札。目玉には強力過ぎる氷が宿っているがそれを制御するために御札で威力を封じられている。保持者には凍氷のイメージがみなぎってくる。知＋３２０、体＋１８０、ジュエルソケット２、氷増幅３０％、氷耐性３０％、凍結耐性、スタン耐性、麻痺耐性";
+        this._description = "深蒼の目玉を封じている御札。目玉には強力過ぎる氷が宿っているがそれを制御するために御札で威力を封じられている。保持者には凍氷のイメージがみなぎってくる。知＋３２０、体＋１８０、氷増幅３０％、氷耐性３０％、凍結耐性、スタン耐性、麻痺耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 320;
         this._stamina = 180;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.30f;
         this.ResistIcePercent = 0.30f;
         this.ResistFreeze = true;
@@ -10812,17 +9346,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "電撃の羽が付与されているブーツ。その印は俊足を象徴しており、装着したものは瞬間力のある切り返し行動をものともせず実行できるようになる。技＋３００、知＋２００、ジュエルソケット２、炎増幅３０％、氷耐性３０％、麻痺耐性、スタン耐性、束縛耐性、戦応率１５％";
+        this._description = "電撃の羽が付与されているブーツ。その印は俊足を象徴しており、装着したものは瞬間力のある切り返し行動をものともせず実行できるようになる。技＋３００、知＋２００、炎増幅３０％、氷耐性３０％、麻痺耐性、スタン耐性、束縛耐性、戦応率１５％";
         this._strength = 0;
         this._agility = 300;
         this._intelligence = 200;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
         this.ResistIcePercent = 0.30f;
         this.ResistBind = true;
@@ -10846,17 +9375,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "無色透明で特徴が一切ないレンズ。知識を追求する者にとって派手な装飾やエッセンスは不要である。精神を集中するためだけに特化した装備品としてこのレンズが常用されている。レンズ装着者には非常に強烈な魔力が流れ込むが、その変化は外見からは全く分からない。知＋３５０、心＋１５０、ジュエルソケット２、氷増幅３０％、闇増幅３０％、沈黙耐性、猛毒耐性、誘惑耐性、魔攻率１５％";
+        this._description = "無色透明で特徴が一切ないレンズ。知識を追求する者にとって派手な装飾やエッセンスは不要である。精神を集中するためだけに特化した装備品としてこのレンズが常用されている。レンズ装着者には非常に強烈な魔力が流れ込むが、その変化は外見からは全く分からない。知＋３５０、心＋１５０、氷増幅３０％、闇増幅３０％、沈黙耐性、猛毒耐性、誘惑耐性、魔攻率１５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 350;
         this._stamina = 0;
         this._mind = 150;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyIce = 1.30f;
         this.AmplifyShadow = 1.30f;
         this.ResistPoison = true;
@@ -10880,17 +9404,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "安らぎと再生の印字が刻まれたキャンドル。素材はロウでは出来ておらず耐久性に優れた素材が用いられている。炎の灯は装着者に永続的な生命力を与えてくれる。体＋３５０、心＋１５０、ジュエルソケット２、聖増幅３０％、闇耐性３０％、鈍化耐性、恐怖耐性、眩暈耐性、魔防率１５％";
+        this._description = "安らぎと再生の印字が刻まれたキャンドル。素材はロウでは出来ておらず耐久性に優れた素材が用いられている。炎の灯は装着者に永続的な生命力を与えてくれる。体＋３５０、心＋１５０、聖増幅３０％、闇耐性３０％、鈍化耐性、恐怖耐性、眩暈耐性、魔防率１５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 350;
         this._mind = 150;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyLight = 1.30f;
         this.ResistShadowPercent = 0.30f;
         this.ResistSlow = true;
@@ -10914,17 +9433,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "絶対的な死を司る漆黒の天使を描いた指輪。姿を見た者は恐怖と絶望に打ちひしがれると言われている。暗黒の魔力が込められており、装着した者は相応の心を持ってして制御しなければならない。力＋３５０、知＋１５０、ジュエルソケット２、闇増幅３０％、炎耐性３０％、猛毒耐性、凍結耐性、出血耐性、物攻率１５％";
+        this._description = "絶対的な死を司る漆黒の天使を描いた指輪。姿を見た者は恐怖と絶望に打ちひしがれると言われている。暗黒の魔力が込められており、装着した者は相応の心を持ってして制御しなければならない。力＋３５０、知＋１５０、闇増幅３０％、炎耐性３０％、猛毒耐性、凍結耐性、出血耐性、物攻率１５％";
         this._strength = 350;
         this._agility = 0;
         this._intelligence = 150;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyShadow = 1.30f;
         this.ResistFirePercent = 0.30f;
         this.ResistPoison = true;
@@ -10948,17 +9462,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "内なる力を秘めたルーン。意志決定とは正反対の特徴を有しており、潜在的な波動を発する時にファンタズマル・インサイト・ルーンはそれに呼応する。そのポテンシャルを測る事は難しい。体＋１００、心＋４００、ジュエルソケット２、炎増幅３０％、氷耐性３０％、睡眠耐性、スタン耐性、麻痺耐性、潜力率１５％";
+        this._description = "内なる力を秘めたルーン。意志決定とは正反対の特徴を有しており、潜在的な波動を発する時にファンタズマル・インサイト・ルーンはそれに呼応する。そのポテンシャルを測る事は難しい。体＋１００、心＋４００、炎増幅３０％、氷耐性３０％、睡眠耐性、スタン耐性、麻痺耐性、潜力率１５％";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 100;
         this._mind = 400;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.30f;
         this.ResistIcePercent = 0.30f;
         this.ResistSleep = true;
@@ -10982,17 +9491,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "永遠に輝く銀色の種。具体的な効果を望んで保持する者ではないが、手にしたものには神々からの恩恵が授与されると言われているがどのような恩恵なのかは判明していない。力＋１００、技＋１００、知＋１００、心＋２００、ジュエルソケット２、聖増幅２０％、闇増幅２０％、炎耐性２０％、氷耐性２０％、束縛耐性、恐怖耐性、出血耐性、物防率１５％";
+        this._description = "永遠に輝く銀色の種。具体的な効果を望んで保持する者ではないが、手にしたものには神々からの恩恵が授与されると言われているがどのような恩恵なのかは判明していない。力＋１００、技＋１００、知＋１００、心＋２００、聖増幅２０％、闇増幅２０％、炎耐性２０％、氷耐性２０％、束縛耐性、恐怖耐性、出血耐性、物防率１５％";
         this._strength = 100;
         this._agility = 100;
         this._intelligence = 100;
         this._stamina = 0;
         this._mind = 200;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyLight = 1.20f;
         this.AmplifyShadow = 1.20f;
         this.ResistFirePercent = 0.20f;
@@ -11018,17 +9522,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 380000;
         this._importantType = Important.None;
-        this._description = "煉獄を制御する炎授天使が炎柱を一つの護符に収められている。この護符の中では渦巻く業火の炎が激しく燃え盛り続けている。力１００、技３００、心＋１００、ジュエルソケット２、炎耐性３０％、闇耐性３０％、沈黙耐性、束縛耐性、スタン耐性、戦速率１５％";
+        this._description = "煉獄を制御する炎授天使が炎柱を一つの護符に収められている。この護符の中では渦巻く業火の炎が激しく燃え盛り続けている。力１００、技３００、心＋１００、炎耐性３０％、闇耐性３０％、沈黙耐性、束縛耐性、スタン耐性、戦速率１５％";
         this._strength = 100;
         this._agility = 300;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 100;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistFirePercent = 0.30f;
         this.ResistShadowPercent = 0.30f;
         this.ResistSilence = true;
@@ -11052,17 +9551,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 420000;
         this._importantType = Important.None;
-        this._description = "レインボーカラーで装飾された月のコンパス。コンパスが指し示す方向は常に不定であり、対象が何であるかも判明はしていない。通常時はカラフルな色をしているが保持者の意志決定により、色が一定に定まり、コンパスの差し示す方向も固定になる時がある。力＋１００、技＋１００、知＋１００、体＋１００、心＋１００、ジュエルソケット２、炎増幅１０％、氷増幅１０％、聖増幅１０％、闇増幅１０％、炎耐性１０％、氷耐性１０％、聖耐性１０％、闇耐性１０％【特殊能力】メイン行動を行った時、防御、待機以外であれば稀に物攻率、物防率、魔攻率、魔防率、戦速率、戦応率、潜力率のいずれかが２０％上昇するBUFFが付与される。このBUFFは１種類しか付与されず、３ターン継続する。";
+        this._description = "レインボーカラーで装飾された月のコンパス。コンパスが指し示す方向は常に不定であり、対象が何であるかも判明はしていない。通常時はカラフルな色をしているが保持者の意志決定により、色が一定に定まり、コンパスの差し示す方向も固定になる時がある。力＋１００、技＋１００、知＋１００、体＋１００、心＋１００、炎増幅１０％、氷増幅１０％、聖増幅１０％、闇増幅１０％、炎耐性１０％、氷耐性１０％、聖耐性１０％、闇耐性１０％【特殊能力】メイン行動を行った時、防御、待機以外であれば稀に物攻率、物防率、魔攻率、魔防率、戦速率、戦応率、潜力率のいずれかが２０％上昇するBUFFが付与される。このBUFFは１種類しか付与されず、３ターン継続する。";
         this._strength = 100;
         this._agility = 100;
         this._intelligence = 1;
         this._stamina = 100;
         this._mind = 100;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.AmplifyFire = 1.10f;
         this.AmplifyIce = 1.10f;
         this.AmplifyLight = 1.10f;
@@ -11088,17 +9582,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "天使との契約を果たす事で絶対的な恩恵を授かる事が出来る。その影響により保持者にはほんの少し光のオーラが宿り、一定レベルの魔物が発する様々な効果を対象者は受け付けなくなる。知＋１５０、体＋２００、心＋１５０、ジュエルソケット２、猛毒耐性、沈黙耐性、束縛耐性、睡眠耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性、誘惑耐性、鈍化耐性、眩暈耐性、出血耐性";
+        this._description = "天使との契約を果たす事で絶対的な恩恵を授かる事が出来る。その影響により保持者にはほんの少し光のオーラが宿り、一定レベルの魔物が発する様々な効果を対象者は受け付けなくなる。知＋１５０、体＋２００、心＋１５０、猛毒耐性、沈黙耐性、束縛耐性、睡眠耐性、スタン耐性、麻痺耐性、凍結耐性、恐怖耐性、誘惑耐性、鈍化耐性、眩暈耐性、出血耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 150;
         this._stamina = 200;
         this._mind = 150;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         this.ResistPoison = true;
         this.ResistSilence = true;
         this.ResistBind = true;
@@ -11977,11 +10466,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.NORMAL_RED_POTION:
@@ -12005,11 +10489,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LARGE_RED_POTION:
@@ -12033,11 +10512,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HUGE_RED_POTION:
@@ -12061,11 +10535,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HQ_RED_POTION:
@@ -12089,11 +10558,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.THQ_RED_POTION:
@@ -12117,11 +10581,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PERFECT_RED_POTION:
@@ -12145,11 +10604,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SMALL_BLUE_POTION:
@@ -12173,11 +10627,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.NORMAL_BLUE_POTION:
@@ -12201,11 +10650,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LARGE_BLUE_POTION:
@@ -12229,11 +10673,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HUGE_BLUE_POTION:
@@ -12257,11 +10696,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HQ_BLUE_POTION:
@@ -12285,11 +10719,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.THQ_BLUE_POTION:
@@ -12313,11 +10742,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PERFECT_BLUE_POTION:
@@ -12341,11 +10765,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
 
@@ -12370,11 +10789,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.NORMAL_GREEN_POTION:
@@ -12398,11 +10812,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.LARGE_GREEN_POTION:
@@ -12426,11 +10835,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HUGE_GREEN_POTION:
@@ -12454,11 +10858,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.HQ_GREEN_POTION:
@@ -12482,11 +10881,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.THQ_GREEN_POTION:
@@ -12510,11 +10904,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PERFECT_GREEN_POTION:
@@ -12538,11 +10927,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
       #endregion
       #region "成長リキッド"
@@ -12891,11 +11275,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FIELD_RESEARCH_LICENSE:
@@ -12919,11 +11298,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ITEM_MATOCK:
@@ -12947,11 +11321,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ITEM_TOOMI_AOSUISYOU:
@@ -12975,11 +11344,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ITEM_WALKING_ROPE:
@@ -13003,11 +11367,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ITEM_COPPER_KEY:
@@ -13031,11 +11390,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.KODAIEIJU_EDA:
@@ -13073,11 +11427,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SHADOW_MOON_KEY:
@@ -13101,11 +11450,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.SUN_BURST_KEY:
@@ -13129,11 +11473,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ORIGIN_ROAD_KEY:
@@ -13157,11 +11496,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURE_CLEAN_WATER:
@@ -13185,11 +11519,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURE_SINSEISUI:
@@ -13213,11 +11542,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.PURE_VITALIRY_WATER:
@@ -13241,11 +11565,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.RESIST_POISON_SUIT:
@@ -13269,11 +11588,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARTHARIUM_KEY:
@@ -13297,11 +11611,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS_KEY1:
@@ -13325,11 +11634,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS_KEY2:
@@ -13353,11 +11657,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS_KEY3:
@@ -13381,11 +11680,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS2_KEY1:
@@ -13409,11 +11703,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS2_KEY2:
@@ -13437,11 +11726,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.VELGUS2_KEY3:
@@ -13465,11 +11749,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EDELGARZEN_KEY:
@@ -13493,11 +11772,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EDELGARZEN_KEY1:
@@ -13521,11 +11795,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EDELGARZEN_KEY2:
@@ -13549,11 +11818,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EDELGARZEN_KEY3:
@@ -13577,11 +11841,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.EDELGARZEN_KEY4:
@@ -13605,11 +11864,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.UNKNOWN_OBJECT:
@@ -13633,11 +11887,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.MARBLE_STAR:
@@ -13661,11 +11910,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ZHALMAN_NECKLACE:
@@ -13689,11 +11933,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ZEMULGEARS:
@@ -13711,17 +11950,12 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "その輝きが放たれる事は無い。選ばれし者のみが心に宿らせる剣。物理攻撃力10000～15000。ジュエルソケット５。";
+        this._description = "その輝きが放たれる事は無い。選ばれし者のみが心に宿らせる剣。物理攻撃力10000～15000。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = true;
-        this.CanbeSocket2 = true;
-        this.CanbeSocket3 = true;
-        this.CanbeSocket4 = true;
-        this.CanbeSocket5 = true;
         break;
 
       case Fix.ARTIFACT_GENSEI:
@@ -13745,11 +11979,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARTIFACT_ZIHI:
@@ -13773,11 +12002,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 50;
         this._mind = 50;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARTIFACT_MUSOU:
@@ -13801,11 +12025,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARTIFACT_ZETSUKEN:
@@ -13829,11 +12048,6 @@ public partial class Item
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.ARTIFACT_JOURYOKU:
@@ -13857,11 +12071,6 @@ public partial class Item
         this._intelligence = 1000;
         this._stamina = 0;
         this._mind = 0;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
 
       case Fix.FIRE_ANGEL_TALISMAN:
@@ -13886,11 +12095,6 @@ public partial class Item
         this._stamina = 0;
         this._mind = 3;
         this._resistFirePercent = 0.20f;
-        this.CanbeSocket1 = false;
-        this.CanbeSocket2 = false;
-        this.CanbeSocket3 = false;
-        this.CanbeSocket4 = false;
-        this.CanbeSocket5 = false;
         break;
         #endregion
 
