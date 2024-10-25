@@ -716,6 +716,10 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _communicationLana_5 = false;
   [SerializeField] protected bool _communicationLana_6 = false;
   [SerializeField] protected bool _communicationLana_7 = false;
+  [SerializeField] protected bool _communicationLana_8 = false;
+  [SerializeField] protected bool _communicationLana_9 = false;
+  [SerializeField] protected bool _communicationLana_10 = false;
+  [SerializeField] protected bool _communicationLana_11 = false;
   public bool CommunicationLana_1 { get { return _communicationLana_1; } set { _communicationLana_1 = value; } }
   public bool CommunicationLana_2 { get { return _communicationLana_2; } set { _communicationLana_2 = value; } }
   public bool CommunicationLana_3 { get { return _communicationLana_3; } set { _communicationLana_3 = value; } }
@@ -723,6 +727,10 @@ public class TeamFoundation : MonoBehaviour
   public bool CommunicationLana_5 { get { return _communicationLana_5; } set { _communicationLana_5 = value; } }
   public bool CommunicationLana_6 { get { return _communicationLana_6; } set { _communicationLana_6 = value; } }
   public bool CommunicationLana_7 { get { return _communicationLana_7; } set { _communicationLana_7 = value; } }
+  public bool CommunicationLana_8 { get { return _communicationLana_8; } set { _communicationLana_8 = value; } }
+  public bool CommunicationLana_9 { get { return _communicationLana_9; } set { _communicationLana_9 = value; } }
+  public bool CommunicationLana_10 { get { return _communicationLana_10; } set { _communicationLana_9 = value; } }
+  public bool CommunicationLana_11 { get { return _communicationLana_11; } set { _communicationLana_9 = value; } }
 
   #endregion
 

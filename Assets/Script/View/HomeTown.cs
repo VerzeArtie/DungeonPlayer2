@@ -1185,6 +1185,35 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (One.TF.GameDay >= 19 && One.TF.CommunicationLana_8 == false)
+    {
+      MessagePack.CommunicationLana_8(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 22 && One.TF.CommunicationLana_9 == false)
+    {
+      MessagePack.CommunicationLana_9(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 25 && One.TF.CommunicationLana_10 == false)
+    {
+      MessagePack.CommunicationLana_10(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+    if (One.TF.GameDay >= 29 && One.TF.CommunicationLana_11 == false)
+    {
+      MessagePack.CommunicationLana_11(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
+
     MessagePack.CommunicationLana_NoEvent(ref QuestMessageList, ref QuestEventList);
     TapOK();
     return;

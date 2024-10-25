@@ -33914,6 +33914,702 @@ public static class MessagePack
     One.TF.AlreadyCommunicate = true;
   }
 
+  public static void CommunicationLana_8(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：お！こ、これは！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッハッハッハ、ついにやったぞ、見てくれ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どれの事かしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：これだよ、コレコレ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アインはラナに対してある物体を見せた　～", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これって・・・お楽しみ抽選券かしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その通り！やったぜ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：で、でも・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、お前がこれを羨ましがる気持ちはわかる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何と言っても・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：お楽しみ抽選券だからな！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハーッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あ、ちょっと聞いて貰えるかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、こればかりは聞くわけにはいかないな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：これは俺が引換所に行って、挑戦させてもらう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だから、その引換の時の事なんだけど", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だから、その引換だけは譲れないという話さ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・何か盛り上がってる所に水を差すようで申し訳ないんだけど・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それ、今は使えないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なにーーー！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：お楽しみ抽選券についてはこの３つ覚えていた方が良いわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：１つ目、抽選会が開催される場所と時期は未定。事前に知る事はできない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：２つ目、開催されたらすぐに現地に向かわないと抽選アイテムは無くなる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：３つ目、抽選会完了後、配布済みの抽選券は無効となる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほどな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ひょっとして、今現在は抽選会はやってない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ご明察。その通りよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：という事は、この抽選券は・・・？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：一応確認してあげるわ、ちょっと貸して。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：この抽選券を水に浸してしばらくすると・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ッホラ、文字が浮かび上がってきたわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【無効】ってデカデカと記されているな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：というわけで、それ持っててもしょうがないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：く・・・そんなご都合主義な展開は無かったって事か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、待てよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：抽選券について聞いてもいいか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、いいわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：一つ目のルールで【事前に知る事はできない】って言ってたよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、そうね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうやっても難しいのか？それは。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：無理ね。情報屋、酒場、闇商人、王側近の者、とにかく誰も知らないの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうなのか・・・じゃあ、盗賊関連のツテで秘匿データを盗み取る事は？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それも無理よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何故だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：秘匿データというのが存在しないからよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：存在・・・しない？予定に関する事だから、どこかにきっとあるはずだが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あっ！？　ま、まさか！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エルミ国王の・・・頭の中か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あいかわらずカンが良いわね。その通りよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：やっぱりそうか・・・じゃあ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：国王様の考えている事を追跡できれば、開催場所と時期は分かるかもしれないけど", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：言い当てられた人は居ないって話ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王の・・・思考を・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：無理だな。国王の感覚は底が知れない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：気長に幸運の神様を待つしかないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：狙って獲得できるものじゃないって事だな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：次の開催が告知されたら、その時にお楽しみ抽選券を探してみましょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+    One.TF.CommunicationLana_8 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_9(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：ふう、上手く行かないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、ひょっとして稽古か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ。でも、どうにも詠唱が上手く行かなくて・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：見てる感じ、だいぶ出来ている様には見えるけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうかもしれないけど・・・駄目なのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：駄目ってのは穏やかじゃないな。目標でもあるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：カールハンツ爵から教えられた事が出来ないのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：カールハンツ・・・爵？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：フローラ魔道学院の長を務める方よ。少しは覚えておきなさいよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そ、そうだったのか・・・で、内容は？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：通常タイミングのアイス・ニードルと、インスタント行動のアイス・ニードルの同時タイミング狙いよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほどな・・・確かに、それはかなり難しそうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：やろうとしても、瞬間的な動きは中々できないのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うーん・・・どうだろうなあ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：１回試しにやってみてくれるか？ここで見てるからさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まずはここで・・・アイス・ニードル！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：で、すかさず、っそれ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ッド、ッドド！（　アイスニードルがアインに向けて２本炸裂！　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うおっ！ラナ、お前俺を狙って撃つのかよ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：実戦形式の方がやりやすいし、バカアインなら受けられるでしょ♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：サンドバッグ扱いするとは・・・次からは一応宣言してくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、詠唱についてだが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：厳しい視点で見れば、わずかに隙間がある。それは事実だな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でしょ。どうすれば良いのかなって思ってるんだけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アドバイス・・・アドバイス・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何だろうな・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、アインもやってみてもらえるかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、お願いよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かった。じゃあちょっと下がってろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、戦闘の構えを取る ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：よし、行くぞラナ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あ、私に向けてこないでよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っと、そうだな。じゃ、そっちの空いてる方に向けて・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ッ）ファイア・ボール！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ッボ、ッボボ！　（　ファイア・ボールが２発同時に炸裂！ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ど、どうだ・・・？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：っえ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何か難しいな、やっぱりコレ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ウソでしょ？今、出来てたわよね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だって、動作モーションが一つしかなかったじゃない。カールハンツ爵がやっていたのと同じだわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今ので合ってるのか。そうなのか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ちゃんと教えなさいよ。どうやったのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：基本的に【同時】っていうのはあり得ないと思ってる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：連続的な行動を極めて短くやる。基本概念はその辺りだろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：となると後はどうやって行動を圧縮するかって話になるが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：メインで動いた直後は、どうやったって隙が発生する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だからメインの直後にインスタントをやろうとするのではなく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：メインの直前にインスタント行動を行えば良い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ただ、この【直前】っていうのも概念としては簡単だが少し工夫が必要だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：メイン行動ギリギリまで引き付けると、当然狙いすぎて失敗する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：余力を持ってインスタントを発動したとなると、それは単に連続行動的な動作にしかならない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：理想は文字通り、本当に【直前】である必要があるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、それをどうやって実現してるかというと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：待って、その辺でストップ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：解説はあまり上手くない方だからな。すまん。。。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ううん、そうじゃないの。解説はそんなに悪くないと思うわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ただ、何となくだけど・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何となく・・・なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：な、何でも無いわよ！　調子に乗らないでよね！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゲ・・・じゃあ、俺はこの辺で・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：待ちなさい！　もう１回やってみるから、そこで受けなさい。良いわね！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ま、待て待て待て！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ッド、ッドド！（　アイスニードルがアインに向けて２本炸裂！　）", ActionEvent.None);
+
+    One.TF.CommunicationLana_9 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_10(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（ラナに聞くべきか・・・どうするかな・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あら、こんな所にいたのね。どうかしたの？ボーっとしちゃって。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：お、おお。ラナか。ちょうど良い。少しだけ聞いてくれないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：改まって、何かしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：パラメタに関してだ。【力】【技】【知】【体】【心】についてちょっと教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ちょっとだいぶ基本的な事しか知らないわよ。変な勘ぐり方はしないでちょうだいね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かった。基本的な内容で良い。教えてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、まず【力】だけど", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これは物理的な攻撃力、物理力に影響するパラメタよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：武器で攻撃したり、相手が物理的な攻撃を繰り出してきた時を想定するならこれを上げておいた方がいいわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、次を頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：次は【知】を先に説明するわね。【技】はこの後説明するから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：【知】は魔法の攻撃力や、魔法防御に影響するパラメタよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：杖とかを保持している相手は大概魔法を繰り出してくるから、魔法防御を意識するなら上げておく事ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、次を頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：次は【技】なんだけど", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これはどちらかというと攻撃力とか防御力とかそういう所には影響しないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：戦闘におけるメインゲージ速度、あとインスタント行動用のゲージ進行が上昇するわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：戦闘において常に先手を取りたいのであれば、【技】を上げておいた方が良いわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、次を頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：【体】についてだけど、これは単純に【ＨＰ】が上がるだけね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：【ＨＰ】が０になれば当然そこで終わり。だから、シンプルかつ絶対に必須となるパラメタだと言えるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、次を頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：最後は【心】ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これについてはあまり良く知られていないんだけど、少なくとも全体的にある程度効果があるのは確かよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あと、魔法を放つための【ＭＰ】の最大値が上昇するから、そこも大きい要素ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：説明は以上よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど・・・なるほど・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・なるほど", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、ちゃんと聞いてたわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、もちろん聞いていた。大丈夫だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それで、今の解説で十分事足りたのかしら？どーせ何か他にあるんでしょ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：う、うーん・・・ハハハ・・・さすがラナって所だな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ１個だけ良いか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私が知ってる範囲ならね。何かしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：魔法って本来ダメージ源は【知】なんだろうけど、中には物理属性系の魔法があるだろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あれって【力】と【知】のどっちが影響するんだろうな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：【力】が影響するわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだよな。だとしても、何らかの特殊能力で【力】と【知】を入れ替えるみたいな事が出来た場合", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それっとどっちが影響するようになるか、分かるか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：その場合は【知】じゃないかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど・・・そうか、理解した！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：って事は・・・そうだな、やっぱり師匠に言ってた事は正しい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、正しい何て言ったらぶっ飛ばされるけどな。。。あれは本当だったんだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どういう内容をお師匠さんから聞かされてたの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：一字一句正確じゃないが、こうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【考えすぎんな、どっちみち一緒だ】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【ただ、安易にどっちか片方に振り過ぎんなよ】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【ってのと「どっちも欲しい」は選ぶなよ。ちゃんと「メイン」は決めておけ】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：【で、最後に偏りとバランス。考えとけよ。】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：へえ・・・凄いわね。ちょっと私のレベルじゃ分からないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：師匠に言ってる事はいつも滅茶苦茶だ。だが、", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：合ってる気がするんだ。いや、合ってるというとぶん殴られそうだが", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：すごく自然な気がするんだ。柔軟かつ合理的っていうのかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうね、良かったじゃない。アイン良い師匠に出会えてよかったわね♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ボコボコにいつも殴られるんだぞ。お世辞にも【良い】とは言えないな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、その教え覚えてるんでしょ？じゃあ、良かったじゃない♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。結果的には良かったと思える。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：さて、パラメタの話から少し飛んじゃったけど、良かったかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、助かったよ。ありがとう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、また何かあったら聞いてちょうだい。協力するから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+    One.TF.CommunicationLana_10 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_11(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：国王様・・・王妃様・・・私は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：お、そんな所でどうしたんだ。何か願い事か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインか・・・ハアアァァァ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ありゃ、ガッカリさせちまったか。悪かったな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うーん、別にそういう意味じゃないのよ。こちらこそ変な応対して悪かったわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうする。ひとまず俺は退散した方が良いか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：別に良いわよ。気にしないで。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・ハアァァーーー・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、やっぱりここは失礼して・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：待ちなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッグッ・・・　何でしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何でも無いわ。あっち行ってて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かりました。仰せのままに・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どっか行けとは言ってないでしょ。しばらくその辺ウロウロしてて。ちょっと考えてからにするわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・ハイ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～～～　しばらくして　～～～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、ちょっと来て。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハイ、ハイハイ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：フザけないで、真面目な話なんだから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハイ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：前々から聞こうと思ってたのよ。この内容については。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アイン、あなた正直に答えなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺はいつも正直に応えてるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そういうノリは今日は無しよ。真剣に答えて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・分かった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：質問は３つあるわ。じゃあ行くわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：３つもあるのか。了解、どんな内容だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まず、一つ目。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アイン、私に何か隠してるでしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なに？　それ系の設問なのか！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：答えさない。はぐらかすのは無しよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・グム・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、確かに隠し事があるのは事実だな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：よし、やっぱり当たりね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ次。２つ目。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アイン、私に見られたら困る物を何か持ってるでしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さ・・・さあな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：はぐらかしたら駄目よ。さあ、答えなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ど・・・どうすれば・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、あぁそうだ。バレたら困る物は確かに持ってる事は持ってるな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：「持ってる事は持ってるな」って何よ。ハッキリしないわね。ハッキリ言いなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゴホン・・・ウォッホン！・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：持ってるぞ。ラナ、お前に見つかってはまずいものだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まったく、最初からちゃんとそう言いなさい。どうせ当たりなんだから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：フウウゥゥ・・・じゃあ、いよいよ最後の３つ目ね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：覚悟しなさいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（・・・ドキドキドキ・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ！！　３つ目！！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：声のトーン・・・何とかならないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：声ぐらい大きくなるわよ！！　じゃあ行くわよ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッグ・・・凄い重圧・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：３つ目！！　アンタ一体何処に行ってるのよ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：知らないフリね・・・さすがはバカアイン。そういう所は天性の素質を感じるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：待て。何だええと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ダンジョンだ。ダンジョンに行ってるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ダンジョン・・・へえぇぇぇぇダンジョンって言ったわね、今。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・何だ何だ・・・まずい事言ったか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：嘘を言わないために、ホントの事を１つ言っておけばいい。上手く出来てるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、そこはお見通しよ。今日は見逃さないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ダンジョンは大体いつも行ってるでしょ。それ以外の事を喋ってちょうだい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　なっ・・・　なんだこの流れは・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　さっきの発言が・・・致命傷だったのか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　落ち着け・・・落ち着いて喋るんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッゴホン、ラナよ。聞いてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ダンジョン以外ももちろんどこかに行ってる時はある。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だが、正直な所、食堂や武具点、アクセサリ屋や情報屋に足を運んでるだけだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おかしな所は何もないはずだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ビンゴ。そう、今の発言ではっきりしたわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　しまった・・・まだ何か発動してしまったのか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインが何でアクセサリ屋に行く必要があるのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それはもちろん、装備品を整えるためだ。定期的に見ておく必要があるから足を運んでいるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：冗談はよして。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そんな見え透いた話をするって事は、いよいよ材料が無くなって来たって所かしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：待て。本当に何の話だ。材料がどうのって意味が分からないぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインが理解する必要はないわ。私が今完全に把握していれば、それで良いのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：い、いやいや・・・待て。何か勘違いしてるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ついに「い、いやいや」が出たわね。あなたのお師匠さんに聞いた通りだわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：師匠・・・オル・ランディス師匠がラナに何か吹き込んだのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：論点をズラしても無駄よ。今、そこは関係無いわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：さ、ようやく本質に辿り着いたわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：言い逃れは許さない、良いわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　駄目だ・・・流れを止められない・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　俺の力量じゃ辿り着けない不可侵の領域だ・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインなんて・・・バカアインなんて", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：クッ・・・考えただけでイライラしてきたわ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　世界線を変える事は・・・出来そうにない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アンタの罪は重いわ。覚悟しなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　ラナ・アミリア、今までに無いほどの深呼吸を一つ ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：食らいなさい！！　ワールド・エンド・ブロー！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ック！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：駄目ね・・・私ったら何やってるのかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：こんなんじゃ、失格だわ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：もう一度、今度こそ見返してみせるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・何だ、一体何が起きた？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアイン、良いわよ。許してあげる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私が悪かったわ。アナタは何も悪くないの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　やけに　心臓が　ドキドキする　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　た、助かったのか？　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、こんな俺を許してくれるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ。悪かったのは私よ。さっきはズケズケと追及してしまって、ごめんなさいね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：い、いやこちらこそ、何か色々と悪かったな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ううん、良いの。悪かったのは私よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、俺の方こそ変な挙動が多いのが問題なのかもしれない。すまなかったな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：しつこいわね。私が悪かったって話よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　やべ・・・ ）　しまった・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今の「しまった」って何よ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しまった！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っあ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、【アルピレイシアの首飾り】を床に落とした ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ちょっなに！？この可愛らしいアクセサリは！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だ・・・誰に渡す気がだったのよ！？！？　言いなさいよ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だ、誰ってお前・・・そりゃお前・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：お前って誰の事よ！！　ハッキリ言いなさい！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そりゃお前・・・え、ええと・・・。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ。お前だよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、俺はお前の事を想ってこれを買ったんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ハアアアァァァァァ！？！？！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：アーーーイライラしてきたわ！！！やっぱり許せないわ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あーーーぁあーーーーもう！　バカアインなんて大っっっっっっっ嫌いよ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いっぺんどころじゃないわ。最低１００回は死んで来なさい！！！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　魔力も宿ってそうだし、スピードもそれなりに上がると思って・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何故だ・・・どこで間違えた・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ワールド・エンド・ブローを食らった俺は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　その後、意識は消失　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　僅かな意識の中で思った　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　これは避けられない運命だったんだと　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　THE　END　～　（　世界の理　）", ActionEvent.None);
+
+    One.TF.CommunicationLana_11 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
   public static void CommunicationLana_NoEvent(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (!One.TF.AlreadyRestInn)
