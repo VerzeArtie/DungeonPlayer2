@@ -34610,6 +34610,224 @@ public static class MessagePack
     One.TF.AlreadyCommunicate = true;
   }
 
+  public static void CommunicationLana_12(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：まったく、最初からそう言いなさいよね。ややこしいんだから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：スマン、次からは気を付ける。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、よく手に入ったわね、この首飾り。結構レアもんじゃないかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。結構良いアイテムだと思うぜ。特殊ＢＵＦＦへの耐性も付いてるみたいだしな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今度また自分の装備を見直して、色々カスタムする時に付けてみる事にするわ。ありがと。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、セカンド装備とかで必要そうなら付けて見てくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ところで、アイン。あんた参加しなくていいの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何がだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：DUEL闘技場。今季のエントリーはもう始まってるわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：DUELか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ま、お好きにどうぞって所かしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：今回は、何か特別なルールとかあったりするのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うーん、どうかしら。私は参加しないから、あんまり詳しくは見てないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：気になるんだったら、今度、開催される場所に行ってみれば良いんじゃない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。ちょっと覚えておくとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかし、DUELか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何か引っかかってるみたいね。やっぱり、やるとなると準備が必要？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：正直、そうだな。DUELは色々と思考を巡らせないといけないからな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：思考だけじゃない。モンスターとはワケが違うからDUEL戦の訓練も必要になる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いつも草原区域でやってるアレよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああそうだ。日々常に意識していないと練度は上がらない。直前だけじゃ駄目なんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そう。となると、今の私達は国王様から受けている内容もあるし、止めておく？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、まあ出るんなら時間を作れば良いだけさ。気持ちの問題だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：DUEL闘技開催については情報ありがとう。ちょっと考えておくさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ま、無理しない程度でね。お任せするわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、分かった。", ActionEvent.None);
+
+    One.TF.CommunicationLana_12 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_13(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：よーし、こんなもんかな。完成だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何か出来あがったの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、見てくれ。力作だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：これは・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：えっ・・・ハンマーかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その通り。どうだ凄いだろ！　ハーッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：効果はどんな感じ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：物理攻撃力は普通レベルだが、何と実はこれがだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：攻撃がヒットすれば、自分の物理防御力が上がるという不思議なハンマーなんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ハンマーなのに物理防御力が上がるの？　違和感しか感じないんだけど・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だがそれだけじゃない。さらに！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あまりにも重たいせいで、自分の攻撃速度が下がる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ただし、その代わりに【ためる】コマンドを使う事で威力は一気に膨れ上がる！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うーん・・・？　まあ、何となく強そうではあるけどね・・・どうなのかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：良い感じだろ？　ただし良い事ずくしって訳じゃない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：さっき自分の攻撃速度が下がるって言ってたけど・・・まあどうぞ続けて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この【ためる】というコマンドは通常コマンドの一種だが、条件が無いと使えない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：１つ。武騎手別【ハンマー】を装備している事。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：２つ。サブを空にしておくこと。盾とかを持ったらアウトだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：盾を持っている方が【ためる】としては合ってそうじゃない？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：な・・・ま、まあそうかもしれないが・・・続けるぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：３つ。ファイタークラスの系列である事だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ファイタークラス？　そんなのあったかしら？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：細かい所は気にしないでくれ。創作だからな、多少のズレはある。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：多少どころじゃなさそうだけど・・・ところで、名前は決まったのかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もちろんさ。俺はこの武器をこう命名した。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：名付けて【撃沈ハンマー】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうだ、強そうだろ！　ッハッハッハ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：名前はともかく・・・何か色々と要素がありすぎて、強いのか弱いのかが分からないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：名前はどうだ？　良い感じだろ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：名前はともかくって言ったじゃない。その辺りはアンタのセンスがそのまんま反映されるだけよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、良い感じって事だな！　ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：最後に１つだけ良いかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、どんどん言ってくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今、それを装備してみるつもりはあるわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ファイタークラスになったら使ってみるつもりだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：えっ！　私てっきりバカアインはファイター系列だと思ってたけど？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや・・・何て言うか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：創作物だからな・・・すまんが、俺がファイターか、マジシャンか、シーカーかは分からないんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：テキトー過ぎるのよホンットもう。ちゃんと現実的に使える内容にしておきなさいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな・・・次からはそうする。", ActionEvent.None);
+
+    One.TF.CommunicationLana_13 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
+  public static void CommunicationLana_14(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "ラナ：次はあれを取ってこないとね・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何か探してるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっとポーションを作るための材料が切れちゃっててね。また採取しに行かないといけないのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：薬系の植物とかその辺りだよな。どのエリアに行けば良いんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうね、アーケンダイン街に行けば普通に購入は出来るけどちょっと高いかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：他には？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：フィオーネの湖に行けば採取できるわ。でも聖域として指定されてるから、入るのは難しいわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もうちょっと普通のエリアで取れそうな所は？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ディスケルの戦場跡地で少しだけまだ残ってる草原なら行けなくもないけど。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：純粋に遠いな・・・中々良い所って無いもんだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうね、そもそもポーションを作るための素材は大体が入手困難な物が多いのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：普通の赤ポーションとかもそうなのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：当たり前じゃない。適当に無尽蔵に製作できると思ってたら大間違いよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだったのか・・・あまり考えずに、売ってるポーションは買いまくってるけどな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：それは別に良いんじゃない。店頭に並んでる以上、買う側がどれだけ買っても、別に問題ではないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：たまに、回復以外の特殊系もあるが、そういったのも素材は貴重な物が使われてるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：回復系よりも特殊系ポーションの方もそうね。下手すると出来上がったポーションの価格より素材の方が高いかも知れないわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あと、怪しい闇商人がたまに高級素材を安値で売ってる事があるけど、気をつけた方が良いわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジか・・・何か凄い業界だな。そんな事になってるのか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：まあ、バカアインはそういう所とは無縁みたいだし、気にしなくて良いわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、最初のお題目に戻るがどうする？アーケンダイン街に行って素材を購入してこようか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：今は良いわ。ハンナ叔母さんから定期的に素材を提供してもらえるから、もう少し待てば手に入るの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど、そういう事か。しかし、ほんとハンナ叔母さんって凄いよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうね。ありとあらゆる所にパイプを持ってるし、お客様の考えてる要求をちゃんと汲んでるし、頭が上がらないわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。感謝しないとなホント。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、頼ってばっかりじゃいけないわ。ちゃんと自力で生活できる様にならないとね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そのためにも、ちゃんとスキルを身につけて、素材はなるべく自分で取れるようにならないといけないの。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：後は調合師の資格も取れば、聖域とか制限区域にも入れるようになる。やらなきゃいけない事は沢山あるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナって結構しっかりしてるよな。その辺りはさすがだと思うぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何言ってるのよ。全然何も出来てないんだから、これから頑張るしかないわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺で良ければいつでも声かけしてくれ。協力するぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ありがとう。ちょっと厳しい時があったらフォローをお願いするわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+
+    One.TF.CommunicationLana_14 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
   public static void CommunicationLana_NoEvent(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (!One.TF.AlreadyRestInn)
