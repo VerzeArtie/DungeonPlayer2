@@ -34822,7 +34822,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ありがとう。ちょっと厳しい時があったらフォローをお願いするわね。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ああ、了解！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ああ、了解だ。", ActionEvent.None);
 
     One.TF.CommunicationLana_14 = true;
     One.TF.AlreadyCommunicate = true;
