@@ -729,8 +729,8 @@ public class TeamFoundation : MonoBehaviour
   public bool CommunicationLana_7 { get { return _communicationLana_7; } set { _communicationLana_7 = value; } }
   public bool CommunicationLana_8 { get { return _communicationLana_8; } set { _communicationLana_8 = value; } }
   public bool CommunicationLana_9 { get { return _communicationLana_9; } set { _communicationLana_9 = value; } }
-  public bool CommunicationLana_10 { get { return _communicationLana_10; } set { _communicationLana_9 = value; } }
-  public bool CommunicationLana_11 { get { return _communicationLana_11; } set { _communicationLana_9 = value; } }
+  public bool CommunicationLana_10 { get { return _communicationLana_10; } set { _communicationLana_10 = value; } }
+  public bool CommunicationLana_11 { get { return _communicationLana_11; } set { _communicationLana_11 = value; } }
 
   #endregion
 
