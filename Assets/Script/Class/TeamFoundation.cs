@@ -723,6 +723,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _communicationLana_12 = false;
   [SerializeField] protected bool _communicationLana_13 = false;
   [SerializeField] protected bool _communicationLana_14 = false;
+  [SerializeField] protected bool _communicationLana_15 = false;
   public bool CommunicationLana_1 { get { return _communicationLana_1; } set { _communicationLana_1 = value; } }
   public bool CommunicationLana_2 { get { return _communicationLana_2; } set { _communicationLana_2 = value; } }
   public bool CommunicationLana_3 { get { return _communicationLana_3; } set { _communicationLana_3 = value; } }
@@ -737,6 +738,7 @@ public class TeamFoundation : MonoBehaviour
   public bool CommunicationLana_12 { get { return _communicationLana_12; } set { _communicationLana_12 = value; } }
   public bool CommunicationLana_13 { get { return _communicationLana_13; } set { _communicationLana_13 = value; } }
   public bool CommunicationLana_14 { get { return _communicationLana_14; } set { _communicationLana_14 = value; } }
+  public bool CommunicationLana_15 { get { return _communicationLana_15; } set { _communicationLana_15 = value; } }
 
   #endregion
 

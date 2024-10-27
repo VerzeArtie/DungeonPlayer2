@@ -34828,6 +34828,74 @@ public static class MessagePack
     One.TF.AlreadyCommunicate = true;
   }
 
+  public static void CommunicationLana_15(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：あれ・・・？何か落ちてるな・・・何だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　【" + Fix.EARRING_OF_LANA + "】を手に入れた　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：おかしいわね・・・どこかで・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おっ、ラナ。何か探してるのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うん、ちょっとね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ひょっとして、これの事か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：あっ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうやら合ってたみたいだな。じゃあ、渡しておくぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん、どうしたんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ううん、何でも無いわ。えっと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：イアリング。見つけてくれて、ありがと。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、紛失しない様に気をつけてな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、ええ。気を付けるわ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なあ、ちょっと待ってくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何かしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何か不思議だな。既視感がある。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そ、そう・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナの・・・イヤリングは・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おかしいな。思い出せないぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：バカアインはいつもおかしいけど、今回はいつも以上におかしいわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：イヤリングはさっきここで落としただけよ。拾ってくれたのは助かったわ。本当にアリガト。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ・・・そうだな。見つかってよかった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、私ちょっと用事があるから失礼するわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　ラナ・アミリアはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな、さすがに気のせいだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さてと、じゃあ俺もそろそろ行くとするか。", ActionEvent.None);
+
+    One.TF.CommunicationLana_15 = true;
+    One.TF.AlreadyCommunicate = true;
+  }
+
   public static void CommunicationLana_NoEvent(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (!One.TF.AlreadyRestInn)
