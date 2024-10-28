@@ -2166,11 +2166,28 @@ public partial class BattleEnemy : MotherBase
   private void ExecPlayerCommand(Character player, Character target, string command_name)
   {
     ExecPlayerCommand_Origin(player, target, command_name, false);
+    // 宝珠「無双」による効果
+    if (player.Artifact != null && player.Artifact.ItemName == Fix.ARTIFACT_MUSOU)
+    {
+      Debug.Log("Chance Artifact Musou " + player.CurrentActionCommand);
+
+      if (ActionCommand.GetAttribute(player.CurrentActionCommand) == ActionCommand.Attribute.Skill)
+      {
+        int random = AP.Math.RandomInteger(100);
+        Debug.Log("Check Artifact Musou " + random + " " + SecondaryLogic.ArtifactMusou_Effect(player));
+        if (random <= SecondaryLogic.ArtifactMusou_Effect(player))
+        {
+          Debug.Log("Detect Artifact Musou");
+          ExecPlayerCommand_Origin(player, target, command_name, true);
+        }
+      }
+    }
 
     // GaleWindなら２回行動。GaleWind自体は２度掛けしない。
     if (player.IsGaleWind && command_name != Fix.GALE_WIND)
     {
       ExecPlayerCommand_Origin(player, target, command_name, true);
+      // こちらはGaleWind効果による２回行動の箇所なので、宝珠「無双」の効果対象にはしない。
     }
   }
 

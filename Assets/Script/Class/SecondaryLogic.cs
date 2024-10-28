@@ -1338,6 +1338,11 @@ public static class SecondaryLogic
     return 500;
   }
 
+  public static double ArtifactMusou_Effect(Character character)
+  {
+    return 30; // パーセンテージ ( X / 100 ) の値
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

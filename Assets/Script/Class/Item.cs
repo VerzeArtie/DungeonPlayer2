@@ -4111,7 +4111,7 @@ public partial class Item
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
         this._gold = 8500;
-        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、宝玉ソケット１、風耐性１００、風属性の攻撃ダメージ＋５％";
+        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、風耐性１００、風属性の攻撃ダメージ＋５％";
         this._strength = 10;
         this._agility = 10;
         this._intelligence = 10;
@@ -12019,58 +12019,13 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "無双の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。技＋1000、「宝玉ソケット埋め込み時：技+500、知+500」";
-        this._strength = 0;
-        this._agility = 1000;
-        this._intelligence = 0;
+        this._description = "十七宝珠の一つ「無双の宝珠」。王が民を守りし時、無双の構えにて闇を断ち斬らん。アーティファクト枠に埋め込む事で、輝きは増す。力＋１２０、技＋１２０、心＋１２０、物防率１０％【特殊能力】スキル行動を行った際、稀にそのスキル行動がもう一度発動する。";
+        this._strength = 120;
+        this._agility = 120;
+        this._intelligence = 120;
         this._stamina = 0;
-        this._mind = 0;
-        break;
-
-      case Fix.ARTIFACT_ZETSUKEN:
-        this._rarity = Rarity.Legendary;
-        this._itemType = ItemTypes.Artifact;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 0;
-        this._importantType = Important.Precious;
-        this._description = "絶剣の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。力＋1000、「宝玉ソケット埋め込み時：力＋500、技+500」";
-        this._strength = 1000;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
-        break;
-
-      case Fix.ARTIFACT_JOURYOKU:
-        this._rarity = Rarity.Legendary;
-        this._itemType = ItemTypes.Artifact;
-        this._gripType = GripTypes.None;
-        this._battleAccuracy = 0;
-        this._physicalAttack = 0;
-        this._physicalAttackMax = 0;
-        this._magicAttack = 0;
-        this._magicAttackMax = 0;
-        this._physicalDefense = 0;
-        this._magicDefense = 0;
-        this._itemValue1 = 0;
-        this._itemValue2 = 0;
-        this._gold = 0;
-        this._importantType = Important.Precious;
-        this._description = "常緑の宝珠。ソケットに埋め込む事により、さらにその輝きは増す。知＋1000、「宝玉ソケット埋め込み時：知＋500、体+500」";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 1000;
-        this._stamina = 0;
-        this._mind = 0;
+        this._mind = 120;
+        this._amplifyPhysicalDefense = 1.10f;
         break;
 
       case Fix.FIRE_ANGEL_TALISMAN:

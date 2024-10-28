@@ -7442,13 +7442,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：こ、これは・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, " 【 " + Fix.ARTIFACT_ZIHI + " 】を手に入れました！", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, " 【 " + Fix.ARTIFACT_MUSOU + " 】を手に入れました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.ARTIFACT_ZIHI, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, Fix.ARTIFACT_MUSOU, ActionEvent.GetItem);
 
-      Message(ref m_list, ref e_list, "エルミ：ファージル王家に代々から伝わるアイテム【慈悲の宝珠】", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：これはファージル王家に代々から伝わるアイテム。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：これををアイン君に授けようと思うんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "エルミ：アイン君、君に授けようと思うんだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：こ、こんな大事な物、俺なんかに勿体ないです！", ActionEvent.None);
 
