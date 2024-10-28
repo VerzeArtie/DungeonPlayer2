@@ -1131,7 +1131,7 @@ public partial class HomeTown : MotherBase
     Debug.Log("TapCommunicationLana(S)");
     if (One.TF.AlreadyCommunicate)
     {
-      MessagePack.CommunicationLana_Normal(ref QuestMessageList, ref QuestEventList);
+      MessagePack.CommunicationLana_AlreadyCommunicate(ref QuestMessageList, ref QuestEventList);
       TapOK();
       return;
     }

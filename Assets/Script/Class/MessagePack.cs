@@ -34908,20 +34908,18 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "ラナ：死なないようにがんばる事ね。", ActionEvent.None);
     }
-    // One.TF.AlreadyCommunicate = true; // 何らかのイベントでもう一度会話すると別のイベントが発生出来るかもしれないため、コメントアウト
+    One.TF.AlreadyCommunicate = true;
   }
 
-  public static void CommunicationLana_Normal(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void CommunicationLana_AlreadyCommunicate(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (!One.TF.AlreadyRestInn)
     {
-      Message(ref m_list, ref e_list, "ラナ：どう？調子のほうは？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：当然当然。任せとけって！ッハッハッハ！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：じゃ、私は一旦戻るとするわね。明日に備えて休みましょ。", ActionEvent.None);
     }
     else
     {
-      Message(ref m_list, ref e_list, "ラナ：死なないようにがんばる事ね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：準備が出来たら、とっとと行くわよ♪", ActionEvent.None);
     }
   }
   #endregion
