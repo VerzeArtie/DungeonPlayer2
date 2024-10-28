@@ -2215,7 +2215,7 @@ public partial class HomeTown : MotherBase
 
     One.TF.GameDay += 1;
     dayLabel.text = One.TF.GameDay.ToString() + "日目";
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       this.dayLabel.text = "？？？日目";
     }
@@ -4065,7 +4065,7 @@ public partial class HomeTown : MotherBase
 
     // 背景と日数
     this.dayLabel.text = One.TF.GameDay.ToString() + "日目";
-    if (One.AR.EnterSeekerMode)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
       this.dayLabel.text = "？？？日目";
     }
