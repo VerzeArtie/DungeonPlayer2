@@ -4380,43 +4380,6 @@ public partial class Character : MonoBehaviour
         // 属性６は１つ目以外は手動習得のため、これ以降追加無し
       }
     }
-    else if (number == 7)
-    {
-      //  if (this.Level == 999)
-      //  {
-      //    // this.Archetype_Ein1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
-      //    ApplyNewCommand(Fix.ARCHETYPE_EIN_1);
-      //    new_command = Fix.ARCHETYPE_EIN_1;
-      //  }
-
-      //  if (this.Level == 999)
-      //  {
-      //    // this.Archetype_Lana1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
-      //    ApplyNewCommand(Fix.ARCHETYPE_LANA_1);
-      //    new_command = Fix.ARCHETYPE_LANA_1;
-      //  }
-
-      //  if (this.Level == 999)
-      //  {
-      //    // this.Archetype_Eone1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
-      //    ApplyNewCommand(Fix.ARCHETYPE_EONE_1);
-      //    new_command = Fix.ARCHETYPE_EONE_1;
-      //  }
-
-      //  if (this.Level == 999)
-      //  {
-      //    // this.Archetype_BILLY1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
-      //    ApplyNewCommand(Fix.ARCHETYPE_BILLY_1);
-      //    new_command = Fix.ARCHETYPE_BILLY_1;
-      //  }
-
-      //  if (this.Level == 999)
-      //  {
-      //    // this.Archetype_ADEL1++; // todo そのパラメタはないが、パラメタを用意するのか決めないといけない。
-      //    ApplyNewCommand(Fix.ARCHETYPE_ADEL_1);
-      //    new_command = Fix.ARCHETYPE_ADEL_1;
-      //  }
-    }
   }
 
   public List<string> GetEssenceTreeTitleList(int attr, int type)
