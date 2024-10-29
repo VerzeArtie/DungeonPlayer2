@@ -72,6 +72,8 @@ public class PartyMenu : MotherBase
   public List<Button> btnEssenceCategoryList;
   public List<Text> txtEssenceCategoryList;
   public List<Image> imgBackEssenceCategoryList;
+  public Image imgBackCurrentEssenceCategory;
+  public List<Image> imgLinkbarCurrentEssenceCategory;
   public List<GameObject> GroupEssenceList;
   public List<Text> txtEssenceElementList;
   public List<Text> txtEssenceElementLevelList;
@@ -1387,10 +1389,18 @@ public class PartyMenu : MotherBase
     else if (attribute == Fix.CLASS_ARCHERY || attribute == Fix.CLASS_ARCHERY_JP) { attr = Fix.CommandAttribute.Archery; }
     else if (attribute == Fix.CLASS_TRUTH || attribute == Fix.CLASS_TRUTH_JP) { attr = Fix.CommandAttribute.Truth; }
     else if (attribute == Fix.CLASS_MINDFULNESS || attribute == Fix.CLASS_MINDFULNESS_JP) { attr = Fix.CommandAttribute.Mindfulness; }
-    
+
+    for (int ii = 0; ii < imgLinkbarCurrentEssenceCategory.Count; ii++)
+    {
+      imgLinkbarCurrentEssenceCategory[ii].gameObject.SetActive(false);
+    }
+
     int counter = 0;
     if (attr == Fix.CommandAttribute.Fire)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_FIRE;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_FIRE;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter); counter++;
       SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter); counter++;
       SetupEssenceElement(player.MeteorBullet, Fix.METEOR_BULLET, One.AR.MeteorBullet, counter); counter++;
@@ -1401,6 +1411,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Ice)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_ICE;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_ICE;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, One.AR.IceNeedle, counter); counter++;
       SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, One.AR.PurePurification, counter); counter++;
       SetupEssenceElement(player.BlueBullet, Fix.BLUE_BULLET, One.AR.BlueBullet, counter); counter++;
@@ -1411,6 +1424,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.HolyLight)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_HOLYLIGHT;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_HOLYLIGHT;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, One.AR.FreshHeal, counter); counter++;
       SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, One.AR.DivineCircle, counter); counter++;
       SetupEssenceElement(player.HolyBreath, Fix.HOLY_BREATH, One.AR.HolyBreath, counter); counter++;
@@ -1421,6 +1437,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.DarkMagic)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_DARKMAGIC;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_DARKMAGIC;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, One.AR.ShadowBlast, counter); counter++;
       SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, One.AR.BloodSign, counter); counter++;
       SetupEssenceElement(player.BlackContract, Fix.BLACK_CONTRACT, One.AR.BlackContract, counter); counter++;
@@ -1431,6 +1450,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Force)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_FORCE;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_FORCE;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, One.AR.OracleCommand, counter); counter++;
       SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, One.AR.FortuneSpirit, counter); counter++;
       SetupEssenceElement(player.WordOfPower, Fix.WORD_OF_POWER, One.AR.WordOfPower, counter); counter++;
@@ -1441,6 +1463,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.VoidChant)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_VOIDCHANT;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_VOIDCHANT;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, One.AR.EnergyBolt, counter); counter++;
       SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, One.AR.FlashCounter, counter); counter++;
       SetupEssenceElement(player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, One.AR.SigilOfThePending, counter); counter++;
@@ -1451,6 +1476,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Warrior)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_WARRIOR;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_WARRIOR;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, One.AR.StraightSmash, counter); counter++;
       SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, One.AR.StanceOfTheBlade, counter); counter++;
       SetupEssenceElement(player.DoubleSlash, Fix.DOUBLE_SLASH, One.AR.DoubleSlash, counter); counter++;
@@ -1461,6 +1489,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Guardian)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_GUARDIAN;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_GUARDIAN;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, One.AR.ShieldBash, counter); counter++;
       SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, One.AR.StanceOfTheGuard, counter); counter++;
       SetupEssenceElement(player.ConcussiveHit, Fix.CONCUSSIVE_HIT, One.AR.ConcussiveHit, counter); counter++;
@@ -1471,6 +1502,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.MartialArts)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_MARTIALARTS;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_MARTIALARTS;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, One.AR.LegStrike, counter); counter++;
       SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, One.AR.SpeedStep, counter); counter++;
       SetupEssenceElement(player.BoneCrush, Fix.BONE_CRUSH, One.AR.BoneCrush, counter); counter++;
@@ -1481,6 +1515,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Archery)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_ARCHERY;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_ARCHERY;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, One.AR.HunterShot, counter); counter++;
       SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, One.AR.MultipleShot, counter); counter++;
       SetupEssenceElement(player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, One.AR.EyeOfTheIsshin, counter); counter++;
@@ -1491,6 +1528,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Truth)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_TRUTH;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_TRUTH;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, One.AR.TrueSight, counter); counter++;
       SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, One.AR.LeylineSchema, counter); counter++;
       SetupEssenceElement(player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, One.AR.VoiceOfVigor, counter); counter++;
@@ -1501,6 +1541,9 @@ public class PartyMenu : MotherBase
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
+      imgBackCurrentEssenceCategory.color = Fix.COLOR_MINDFULNESS;
+      imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_MINDFULNESS;
+      imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
       SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, One.AR.DispelMagic, counter); counter++;
       SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, One.AR.SpiritualRest, counter); counter++;
       SetupEssenceElement(player.UnseenAid, Fix.UNSEEN_AID, One.AR.UnseenAid, counter); counter++;
