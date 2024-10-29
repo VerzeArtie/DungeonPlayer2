@@ -302,6 +302,19 @@ public static partial class Fix
   public static Color COLOR_LOST_SP = Color.red;
   public static Color COLOR_MP_DAMAGE = Color.HSVToRGB(0.5f, 0.2f, 0.7f);
 
+  public static Color COLOR_FIRE = Color.red;
+  public static Color COLOR_ICE = Color.blue;
+  public static Color COLOR_HOLYLIGHT = Color.yellow;
+  public static Color COLOR_DARKMAGIC = Color.black;
+  public static Color COLOR_WARRIOR = new Color(92.0f / 255.0f, 44.0f / 255.0f, 44.0f / 255.0f);
+  public static Color COLOR_GUARDIAN = new Color(84.0f / 255.0f, 0.0f / 255.0f, 129.0f / 255.0f);
+  public static Color COLOR_MARTIALARTS = new Color(255.0f / 255.0f, 132.0f / 255.0f, 250.0f / 255.0f);
+  public static Color COLOR_ARCHERY = new Color(255.0f / 255.0f, 174.0f / 255.0f, 0.0f / 255.0f);
+  public static Color COLOR_FORCE = new Color(33.0f / 255.0f, 192.0f / 255.0f, 45.0f / 255.0f);
+  public static Color COLOR_VOIDCHANT = new Color(189.0f / 255.0f, 189.0f / 255.0f, 189.0f / 255.0f);
+  public static Color COLOR_TRUTH = new Color(172.0f / 255.0f, 210.0f / 255.0f, 255.0f / 255.0f);
+  public static Color COLOR_MINDFULNESS = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f);
+
   public static Color COLOR_FIRST_CHARA = new Color(235.0f / 255.0f, 253.0f / 255.0f, 255.0f / 255.0f);
   public static Color COLORFORE_FIRST_CHARA = new Color(0, 185.0f / 255.0f, 255.0f / 255.0f);
 

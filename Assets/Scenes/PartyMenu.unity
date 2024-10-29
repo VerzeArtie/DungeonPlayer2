@@ -112414,6 +112414,15 @@ MonoBehaviour:
   - {fileID: 1450446690}
   - {fileID: 113590704}
   - {fileID: 875729335}
+  imgBackEssenceCategoryList:
+  - {fileID: 151102863}
+  - {fileID: 1723621642}
+  - {fileID: 1805067349}
+  - {fileID: 1793840656}
+  - {fileID: 330886833}
+  - {fileID: 146258364}
+  - {fileID: 170206734}
+  - {fileID: 254876092}
   GroupEssenceList:
   - {fileID: 417532416}
   - {fileID: 927609933}

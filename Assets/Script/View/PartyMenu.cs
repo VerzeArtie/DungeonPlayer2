@@ -71,6 +71,7 @@ public class PartyMenu : MotherBase
   public GameObject GroupEssenceList4;
   public List<Button> btnEssenceCategoryList;
   public List<Text> txtEssenceCategoryList;
+  public List<Image> imgBackEssenceCategoryList;
   public List<GameObject> GroupEssenceList;
   public List<Text> txtEssenceElementList;
   public List<Text> txtEssenceElementLevelList;
@@ -592,34 +593,105 @@ public class PartyMenu : MotherBase
     txtEssenceCategoryList[4].text = GetCommandAttributeString(player3.FifthCommandAttribute);
     txtEssenceCategoryList[5].text = GetCommandAttributeString(player3.SixthCommandAttribute);
 
-    // アカシックレコードによる表示／非表示
-    btnEssenceCategoryList[0].gameObject.SetActive(true);
-    btnEssenceCategoryList[1].gameObject.SetActive(One.AR.PartyJoin_EoneFulnea);
-    btnEssenceCategoryList[2].gameObject.SetActive(One.AR.PartyJoin_BillyRaki);
-    btnEssenceCategoryList[3].gameObject.SetActive(One.AR.PartyJoin_AdelBrigandy);
-    btnEssenceCategoryList[4].gameObject.SetActive(One.AR.GiftParmetysiaWord);
-    btnEssenceCategoryList[5].gameObject.SetActive(One.AR.InscribeObsidianStone_4);
-    btnEssenceCategoryList[6].gameObject.SetActive(One.AR.InscribeObsidianStone_5);
-    btnEssenceCategoryList[7].gameObject.SetActive(One.AR.InscribeObsidianStone_6);
+    SetupCategoryColor(player3.FirstCommandAttribute, imgBackEssenceCategoryList[0], txtEssenceCategoryList[0]);
+    SetupCategoryColor(player3.SecondCommandAttribute, imgBackEssenceCategoryList[1], txtEssenceCategoryList[1]);
+    SetupCategoryColor(player3.ThirdCommandAttribute, imgBackEssenceCategoryList[2], txtEssenceCategoryList[2]);
+    SetupCategoryColor(player3.FourthCommandAttribute, imgBackEssenceCategoryList[3], txtEssenceCategoryList[3]);
+    SetupCategoryColor(player3.FifthCommandAttribute, imgBackEssenceCategoryList[4], txtEssenceCategoryList[4]);
+    SetupCategoryColor(player3.SixthCommandAttribute, imgBackEssenceCategoryList[5], txtEssenceCategoryList[5]);
+
+    // 属性ボタンの表示
+    btnEssenceCategoryList[0].gameObject.SetActive(true); // 常に有効
+    btnEssenceCategoryList[1].gameObject.SetActive(true); // 常に有効
+    btnEssenceCategoryList[2].gameObject.SetActive(One.TF.AvailableFirstEssence);
+    btnEssenceCategoryList[3].gameObject.SetActive(One.TF.AvailableSecondEssence);
+    btnEssenceCategoryList[4].gameObject.SetActive(One.TF.AvailableThirdEssence);
+    btnEssenceCategoryList[5].gameObject.SetActive(One.TF.AvailableFourthEssence);
+    btnEssenceCategoryList[6].gameObject.SetActive(false); // 将来拡張
+    btnEssenceCategoryList[7].gameObject.SetActive(false); // 将来拡張
 
     SetupEssenceList(player3, 0);
     CurrentEssenceSelectNumber = 0;
   }
 
+  private void SetupCategoryColor(Fix.CommandAttribute attr, Image img, Text txt)
+  {
+    if (attr == Fix.CommandAttribute.Fire)
+    {
+      img.color = Fix.COLOR_FIRE;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.Ice)
+    {
+      img.color = Fix.COLOR_ICE;
+      txt.color = Color.white;
+    }
+    else if (attr == Fix.CommandAttribute.HolyLight)
+    {
+      img.color = Fix.COLOR_HOLYLIGHT;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.DarkMagic)
+    {
+      img.color = Fix.COLOR_DARKMAGIC;
+      txt.color = Color.white;
+    }
+    else if (attr == Fix.CommandAttribute.Warrior)
+    {
+      img.color = Fix.COLOR_WARRIOR;
+      txt.color = Color.white;
+    }
+    else if (attr == Fix.CommandAttribute.Guardian)
+    {
+      img.color = Fix.COLOR_GUARDIAN;
+      txt.color = Color.white;
+    }
+    else if (attr == Fix.CommandAttribute.MartialArts)
+    {
+      img.color = Fix.COLOR_MARTIALARTS;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.Archery)
+    {
+      img.color = Fix.COLOR_ARCHERY;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.Force)
+    {
+      img.color = Fix.COLOR_FORCE;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.VoidChant)
+    {
+      img.color = Fix.COLOR_VOIDCHANT;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.Truth)
+    {
+      img.color = Fix.COLOR_TRUTH;
+      txt.color = Color.black;
+    }
+    else if (attr == Fix.CommandAttribute.Mindfulness)
+    {
+      img.color = Fix.COLOR_MINDFULNESS;
+      txt.color = Color.black;
+    }
+  }
+
   private string GetCommandAttributeString(Fix.CommandAttribute attribute)
   {
-    if (attribute == Fix.CommandAttribute.Fire) { return Fix.CLASS_FIRE; }
-    if (attribute == Fix.CommandAttribute.Ice) { return Fix.CLASS_ICE; }
-    if (attribute == Fix.CommandAttribute.HolyLight) { return Fix.CLASS_HOLYLIGHT; }
-    if (attribute == Fix.CommandAttribute.DarkMagic) { return Fix.CLASS_DARK_MAGIC; }
-    if (attribute == Fix.CommandAttribute.Force) { return Fix.CLASS_FORCE; }
-    if (attribute == Fix.CommandAttribute.VoidChant) { return Fix.CLASS_VOIDCHANT; }
-    if (attribute == Fix.CommandAttribute.Warrior) { return Fix.CLASS_WARRIOR; }
-    if (attribute == Fix.CommandAttribute.Guardian) { return Fix.CLASS_GUARDIAN; }
-    if (attribute == Fix.CommandAttribute.MartialArts) { return Fix.CLASS_MARTIAL_ARTS; }
-    if (attribute == Fix.CommandAttribute.Archery) { return Fix.CLASS_ARCHERY; }
-    if (attribute == Fix.CommandAttribute.Truth) { return Fix.CLASS_TRUTH; }
-    if (attribute == Fix.CommandAttribute.Mindfulness) { return Fix.CLASS_MINDFULNESS; }
+    if (attribute == Fix.CommandAttribute.Fire) { return Fix.CLASS_FIRE_JP; }
+    if (attribute == Fix.CommandAttribute.Ice) { return Fix.CLASS_ICE_JP; }
+    if (attribute == Fix.CommandAttribute.HolyLight) { return Fix.CLASS_HOLYLIGHT_JP; }
+    if (attribute == Fix.CommandAttribute.DarkMagic) { return Fix.CLASS_DARK_MAGIC_JP; }
+    if (attribute == Fix.CommandAttribute.Force) { return Fix.CLASS_FORCE_JP; }
+    if (attribute == Fix.CommandAttribute.VoidChant) { return Fix.CLASS_VOIDCHANT_JP; }
+    if (attribute == Fix.CommandAttribute.Warrior) { return Fix.CLASS_WARRIOR_JP; }
+    if (attribute == Fix.CommandAttribute.Guardian) { return Fix.CLASS_GUARDIAN_JP; }
+    if (attribute == Fix.CommandAttribute.MartialArts) { return Fix.CLASS_MARTIAL_ARTS_JP; }
+    if (attribute == Fix.CommandAttribute.Archery) { return Fix.CLASS_ARCHERY_JP; }
+    if (attribute == Fix.CommandAttribute.Truth) { return Fix.CLASS_TRUTH_JP; }
+    if (attribute == Fix.CommandAttribute.Mindfulness) { return Fix.CLASS_MINDFULNESS_JP; }
 
     return String.Empty;
   }
@@ -1302,8 +1374,22 @@ public class PartyMenu : MotherBase
     attribute = txtEssenceCategoryList[number].text;
     Debug.Log("SetupEssenceList attribute: " + attribute);
 
+    Fix.CommandAttribute attr = Fix.CommandAttribute.None;
+    if (attribute == Fix.CLASS_FIRE || attribute == Fix.CLASS_FIRE_JP) { attr = Fix.CommandAttribute.Fire; }
+    else if (attribute == Fix.CLASS_ICE || attribute == Fix.CLASS_ICE_JP) { attr = Fix.CommandAttribute.Ice; }
+    else if (attribute == Fix.CLASS_HOLYLIGHT || attribute == Fix.CLASS_HOLYLIGHT_JP) { attr = Fix.CommandAttribute.HolyLight; }
+    else if (attribute == Fix.CLASS_DARK_MAGIC || attribute == Fix.CLASS_DARK_MAGIC_JP) { attr = Fix.CommandAttribute.DarkMagic; }
+    else if (attribute == Fix.CLASS_FORCE || attribute == Fix.CLASS_FORCE_JP) { attr = Fix.CommandAttribute.Force; }
+    else if (attribute == Fix.CLASS_VOIDCHANT || attribute == Fix.CLASS_VOIDCHANT_JP) { attr = Fix.CommandAttribute.VoidChant; }
+    else if (attribute == Fix.CLASS_WARRIOR || attribute == Fix.CLASS_WARRIOR_JP) { attr = Fix.CommandAttribute.Warrior; }
+    else if (attribute == Fix.CLASS_GUARDIAN || attribute == Fix.CLASS_GUARDIAN_JP) { attr = Fix.CommandAttribute.Guardian; }
+    else if (attribute == Fix.CLASS_MARTIAL_ARTS || attribute == Fix.CLASS_MARTIAL_ARTS_JP) { attr = Fix.CommandAttribute.MartialArts; }
+    else if (attribute == Fix.CLASS_ARCHERY || attribute == Fix.CLASS_ARCHERY_JP) { attr = Fix.CommandAttribute.Archery; }
+    else if (attribute == Fix.CLASS_TRUTH || attribute == Fix.CLASS_TRUTH_JP) { attr = Fix.CommandAttribute.Truth; }
+    else if (attribute == Fix.CLASS_MINDFULNESS || attribute == Fix.CLASS_MINDFULNESS_JP) { attr = Fix.CommandAttribute.Mindfulness; }
+    
     int counter = 0;
-    if (attribute == Fix.CLASS_FIRE)
+    if (attr == Fix.CommandAttribute.Fire)
     {
       SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter); counter++;
       SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter); counter++;
@@ -1313,7 +1399,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, One.AR.CircleOfTheIgnite, counter); counter++;
       SetupEssenceElement(player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, One.AR.LavaAnnihilation, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_ICE)
+    else if (attr == Fix.CommandAttribute.Ice)
     {
       SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, One.AR.IceNeedle, counter); counter++;
       SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, One.AR.PurePurification, counter); counter++;
@@ -1323,7 +1409,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.WaterPresence, Fix.WATER_PRESENCE, One.AR.WaterPresence, counter); counter++;
       SetupEssenceElement(player.AbsoluteZero, Fix.ABSOLUTE_ZERO, One.AR.AbsoluteZero, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_HOLYLIGHT)
+    else if (attr == Fix.CommandAttribute.HolyLight)
     {
       SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, One.AR.FreshHeal, counter); counter++;
       SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, One.AR.DivineCircle, counter); counter++;
@@ -1333,7 +1419,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.ValkyrieBlade, Fix.VALKYRIE_BLADE, One.AR.ValkyrieBlade, counter); counter++;
       SetupEssenceElement(player.Resurrection, Fix.RESURRECTION, One.AR.Resurrection, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_DARK_MAGIC)
+    else if (attr == Fix.CommandAttribute.DarkMagic)
     {
       SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, One.AR.ShadowBlast, counter); counter++;
       SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, One.AR.BloodSign, counter); counter++;
@@ -1343,7 +1429,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, One.AR.TheDarkIntensity, counter); counter++;
       SetupEssenceElement(player.DeathScythe, Fix.DEATH_SCYTHE, One.AR.DeathScythe, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_FORCE)
+    else if (attr == Fix.CommandAttribute.Force)
     {
       SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, One.AR.OracleCommand, counter); counter++;
       SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, One.AR.FortuneSpirit, counter); counter++;
@@ -1353,7 +1439,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.FutureVision, Fix.FUTURE_VISION, One.AR.FutureVision, counter); counter++;
       SetupEssenceElement(player.Genesis, Fix.GENESIS, One.AR.Genesis, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_VOIDCHANT)
+    else if (attr == Fix.CommandAttribute.VoidChant)
     {
       SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, One.AR.EnergyBolt, counter); counter++;
       SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, One.AR.FlashCounter, counter); counter++;
@@ -1363,7 +1449,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, One.AR.DetachmentFault, counter); counter++;
       SetupEssenceElement(player.TimeStop, Fix.TIME_STOP, One.AR.TimeSkip, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_WARRIOR)
+    else if (attr == Fix.CommandAttribute.Warrior)
     {
       SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, One.AR.StraightSmash, counter); counter++;
       SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, One.AR.StanceOfTheBlade, counter); counter++;
@@ -1373,7 +1459,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, One.AR.StanceOfTheIai, counter); counter++;
       SetupEssenceElement(player.KineticSmash, Fix.KINETIC_SMASH, One.AR.KineticSmash, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_GUARDIAN)
+    else if (attr == Fix.CommandAttribute.Guardian)
     {
       SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, One.AR.ShieldBash, counter); counter++;
       SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, One.AR.StanceOfTheGuard, counter); counter++;
@@ -1383,7 +1469,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.OneImmunity, Fix.ONE_IMMUNITY, One.AR.OneImmunity, counter); counter++;
       SetupEssenceElement(player.Catastrophe, Fix.CATASTROPHE, One.AR.Catastrophe, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_MARTIAL_ARTS)
+    else if (attr == Fix.CommandAttribute.MartialArts)
     {
       SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, One.AR.LegStrike, counter); counter++;
       SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, One.AR.SpeedStep, counter); counter++;
@@ -1393,7 +1479,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.StanceOfMuin, Fix.STANCE_OF_MUIN, One.AR.StanceOfMuin, counter); counter++;
       SetupEssenceElement(player.CarnageRush, Fix.CARNAGE_RUSH, One.AR.CarnageRush, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_ARCHERY)
+    else if (attr == Fix.CommandAttribute.Archery)
     {
       SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, One.AR.HunterShot, counter); counter++;
       SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, One.AR.MultipleShot, counter); counter++;
@@ -1403,7 +1489,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, One.AR.EternalConcentration, counter); counter++;
       SetupEssenceElement(player.PiercingArrow, Fix.PIERCING_ARROW, One.AR.PiercingArrow, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_TRUTH)
+    else if (attr == Fix.CommandAttribute.Truth)
     {
       SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, One.AR.TrueSight, counter); counter++;
       SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, One.AR.LeylineSchema, counter); counter++;
@@ -1413,7 +1499,7 @@ public class PartyMenu : MotherBase
       SetupEssenceElement(player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, One.AR.SigilOfTheFaith, counter); counter++;
       SetupEssenceElement(player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, One.AR.StanceOfTheKokoroe, counter); counter++;
     }
-    else if (attribute == Fix.CLASS_MINDFULNESS)
+    else if (attr == Fix.CommandAttribute.Mindfulness)
     {
       SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, One.AR.DispelMagic, counter); counter++;
       SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, One.AR.SpiritualRest, counter); counter++;
