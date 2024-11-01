@@ -79,6 +79,7 @@ public class PartyMenu : MotherBase
   public List<Text> txtEssenceElementLevelList;
   public List<Image> imgEssenceElementList;
   public List<GameObject> objHideEssenceElementList;
+  public List<Text> txtLockedEssenceElementList;
 
   // Character ( Detail - Essence )
   public GameObject GroupSubViewStatus;
@@ -588,6 +589,16 @@ public class PartyMenu : MotherBase
     SetupActionCommand(player3, ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
     // エッセンスツリーへの反映
+    for (int ii = 0; ii < txtEssenceCategoryList.Count; ii++)
+    {
+      txtEssenceCategoryList[ii].text = String.Empty;
+      txtEssenceCategoryList[ii].color = Color.black;
+    }
+    for (int ii = 0; ii < imgBackEssenceCategoryList.Count; ii++)
+    {
+      imgBackEssenceCategoryList[ii].color = Color.black;
+    }
+
     txtEssenceCategoryList[0].text = GetCommandAttributeString(player3.FirstCommandAttribute);
     txtEssenceCategoryList[1].text = GetCommandAttributeString(player3.SecondCommandAttribute);
     txtEssenceCategoryList[2].text = GetCommandAttributeString(player3.ThirdCommandAttribute);
@@ -612,6 +623,7 @@ public class PartyMenu : MotherBase
     btnEssenceCategoryList[6].gameObject.SetActive(false); // 将来拡張
     btnEssenceCategoryList[7].gameObject.SetActive(false); // 将来拡張
 
+    PreConstructEssenceList(player3);
     SetupEssenceList(player3, 0);
     CurrentEssenceSelectNumber = 0;
   }
@@ -1046,6 +1058,7 @@ public class PartyMenu : MotherBase
   public void TapEssenceCategory(int number)
   {
     CurrentEssenceSelectNumber = number;
+    PreConstructEssenceList(CurrentPlayer);
     SetupEssenceList(CurrentPlayer, number);
     TapSelectEssence(txtEssenceElementList[0]);
     //for (int ii = 0; ii < GroupEssenceList.Count; ii++)
@@ -1100,6 +1113,7 @@ public class PartyMenu : MotherBase
     groupEssenceDecision.SetActive(false);
 
     TapSelectEssence(txtEssenceCurrentName);
+    PreConstructEssenceList(this.CurrentPlayer);
     SetupEssenceList(this.CurrentPlayer, this.CurrentEssenceSelectNumber);
   }
 
@@ -1119,7 +1133,7 @@ public class PartyMenu : MotherBase
   public override void RefreshAllView()
   {
     // エッセンスツリーボタン
-    btnEssenceTree.SetActive(One.TF.AvailableSecondEssence);
+    btnEssenceTree.SetActive(One.TF.AvailableEssenceTree);
 
     // プレイヤーリストの反映
     PlayerList.Clear();
@@ -1160,6 +1174,7 @@ public class PartyMenu : MotherBase
     SetupActionCommand(PlayerList[0], ActionCommand.CommandCategory.ActionCommand); // [基本行動]が一番左で最初だが、デフォルトはアクションコマンドを表示
 
     // エッセンス画面への反映
+    PreConstructEssenceList(PlayerList[0]);
     SetupEssenceList(PlayerList[0], 0);
     CurrentEssenceSelectNumber = 0;
 
@@ -1365,6 +1380,18 @@ public class PartyMenu : MotherBase
     this.CurrentSelectCommand = ListAvailableCommand[0]; // 初期設定で現在選択しているコマンドは０番目を設定しているので反映しておくGUIクリアしなくて良いGUIとなった。
   }
 
+  private void PreConstructEssenceList(Character player)
+  {
+    for (int ii = 0; ii < txtEssenceElementList.Count; ii++)
+    {
+      txtEssenceElementList[ii].text = "？？？";
+      imgEssenceElementList[ii].sprite = Resources.Load<Sprite>(Fix.STAY);
+      txtEssenceElementLevelList[ii].text = ""; // "Lv " + element_level.ToString();
+      txtLockedEssenceElementList[ii].text = "Require\r\nLv " + ii * Fix.ESSENCE_REQUIRE_LV;
+      objHideEssenceElementList[ii].SetActive(true);
+    }
+  }
+
   private void SetupEssenceList(Character player, int number)
   {
     Debug.Log("SetupEssenceList(S) " + player.FullName + " " + number.ToString());
@@ -1396,188 +1423,207 @@ public class PartyMenu : MotherBase
     }
 
     int counter = 0;
+    bool detectZero = false;
     if (attr == Fix.CommandAttribute.Fire)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_FIRE;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_FIRE;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter); counter++;
-      SetupEssenceElement(player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter); counter++;
-      SetupEssenceElement(player.MeteorBullet, Fix.METEOR_BULLET, One.AR.MeteorBullet, counter); counter++;
-      SetupEssenceElement(player.VolcanicBlaze, Fix.VOLCANIC_BLAZE, One.AR.VolcanicBlaze, counter); counter++;
-      SetupEssenceElement(player.FlameStrike, Fix.FLAME_STRIKE, One.AR.FlameStrike, counter); counter++;
-      SetupEssenceElement(player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, One.AR.CircleOfTheIgnite, counter); counter++;
-      SetupEssenceElement(player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, One.AR.LavaAnnihilation, counter); counter++;
+      SetupEssenceElement(player, player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.MeteorBullet, Fix.METEOR_BULLET, One.AR.MeteorBullet, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.VolcanicBlaze, Fix.VOLCANIC_BLAZE, One.AR.VolcanicBlaze, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FlameStrike, Fix.FLAME_STRIKE, One.AR.FlameStrike, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CircleOfTheIgnite, Fix.CIRCLE_OF_THE_IGNITE, One.AR.CircleOfTheIgnite, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.LavaAnnihilation, Fix.LAVA_ANNIHILATION, One.AR.LavaAnnihilation, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Ice)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_ICE;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_ICE;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.IceNeedle, Fix.ICE_NEEDLE, One.AR.IceNeedle, counter); counter++;
-      SetupEssenceElement(player.PurePurification, Fix.PURE_PURIFICATION, One.AR.PurePurification, counter); counter++;
-      SetupEssenceElement(player.BlueBullet, Fix.BLUE_BULLET, One.AR.BlueBullet, counter); counter++;
-      SetupEssenceElement(player.FreezingCube, Fix.FREEZING_CUBE, One.AR.FreezingCube, counter); counter++;
-      SetupEssenceElement(player.FrostLance, Fix.FROST_LANCE, One.AR.FrostLance, counter); counter++;
-      SetupEssenceElement(player.WaterPresence, Fix.WATER_PRESENCE, One.AR.WaterPresence, counter); counter++;
-      SetupEssenceElement(player.AbsoluteZero, Fix.ABSOLUTE_ZERO, One.AR.AbsoluteZero, counter); counter++;
+      SetupEssenceElement(player, player.IceNeedle, Fix.ICE_NEEDLE, One.AR.IceNeedle, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.PurePurification, Fix.PURE_PURIFICATION, One.AR.PurePurification, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.BlueBullet, Fix.BLUE_BULLET, One.AR.BlueBullet, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FreezingCube, Fix.FREEZING_CUBE, One.AR.FreezingCube, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FrostLance, Fix.FROST_LANCE, One.AR.FrostLance, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.WaterPresence, Fix.WATER_PRESENCE, One.AR.WaterPresence, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.AbsoluteZero, Fix.ABSOLUTE_ZERO, One.AR.AbsoluteZero, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.HolyLight)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_HOLYLIGHT;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_HOLYLIGHT;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.FreshHeal, Fix.FRESH_HEAL, One.AR.FreshHeal, counter); counter++;
-      SetupEssenceElement(player.DivineCircle, Fix.DIVINE_CIRCLE, One.AR.DivineCircle, counter); counter++;
-      SetupEssenceElement(player.HolyBreath, Fix.HOLY_BREATH, One.AR.HolyBreath, counter); counter++;
-      SetupEssenceElement(player.AngelicEcho, Fix.ANGELIC_ECHO, One.AR.AngelicEcho, counter); counter++;
-      SetupEssenceElement(player.ShiningHeal, Fix.SHINING_HEAL, One.AR.ShiningHeal, counter); counter++;
-      SetupEssenceElement(player.ValkyrieBlade, Fix.VALKYRIE_BLADE, One.AR.ValkyrieBlade, counter); counter++;
-      SetupEssenceElement(player.Resurrection, Fix.RESURRECTION, One.AR.Resurrection, counter); counter++;
+      SetupEssenceElement(player, player.FreshHeal, Fix.FRESH_HEAL, One.AR.FreshHeal, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DivineCircle, Fix.DIVINE_CIRCLE, One.AR.DivineCircle, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.HolyBreath, Fix.HOLY_BREATH, One.AR.HolyBreath, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.AngelicEcho, Fix.ANGELIC_ECHO, One.AR.AngelicEcho, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.ShiningHeal, Fix.SHINING_HEAL, One.AR.ShiningHeal, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.ValkyrieBlade, Fix.VALKYRIE_BLADE, One.AR.ValkyrieBlade, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.Resurrection, Fix.RESURRECTION, One.AR.Resurrection, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.DarkMagic)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_DARKMAGIC;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_DARKMAGIC;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.ShadowBlast, Fix.SHADOW_BLAST, One.AR.ShadowBlast, counter); counter++;
-      SetupEssenceElement(player.BloodSign, Fix.BLOOD_SIGN, One.AR.BloodSign, counter); counter++;
-      SetupEssenceElement(player.BlackContract, Fix.BLACK_CONTRACT, One.AR.BlackContract, counter); counter++;
-      SetupEssenceElement(player.CursedEvangile, Fix.CURSED_EVANGILE, One.AR.CursedEvangile, counter); counter++;
-      SetupEssenceElement(player.CircleOfTheDespair, Fix.CIRCLE_OF_THE_DESPAIR, One.AR.CircleOfTheDespair, counter); counter++;
-      SetupEssenceElement(player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, One.AR.TheDarkIntensity, counter); counter++;
-      SetupEssenceElement(player.DeathScythe, Fix.DEATH_SCYTHE, One.AR.DeathScythe, counter); counter++;
+      SetupEssenceElement(player, player.ShadowBlast, Fix.SHADOW_BLAST, One.AR.ShadowBlast, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.BloodSign, Fix.BLOOD_SIGN, One.AR.BloodSign, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.BlackContract, Fix.BLACK_CONTRACT, One.AR.BlackContract, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CursedEvangile, Fix.CURSED_EVANGILE, One.AR.CursedEvangile, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CircleOfTheDespair, Fix.CIRCLE_OF_THE_DESPAIR, One.AR.CircleOfTheDespair, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.TheDarkIntensity, Fix.THE_DARK_INTENSITY, One.AR.TheDarkIntensity, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DeathScythe, Fix.DEATH_SCYTHE, One.AR.DeathScythe, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Force)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_FORCE;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_FORCE;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.OracleCommand, Fix.ORACLE_COMMAND, One.AR.OracleCommand, counter); counter++;
-      SetupEssenceElement(player.FortuneSpirit, Fix.FORTUNE_SPIRIT, One.AR.FortuneSpirit, counter); counter++;
-      SetupEssenceElement(player.WordOfPower, Fix.WORD_OF_POWER, One.AR.WordOfPower, counter); counter++;
-      SetupEssenceElement(player.GaleWind, Fix.GALE_WIND, One.AR.GaleWind, counter); counter++;
-      SetupEssenceElement(player.SeventhPrinciple, Fix.SEVENTH_PRINCIPLE, One.AR.SeventhPrinciple, counter); counter++;
-      SetupEssenceElement(player.FutureVision, Fix.FUTURE_VISION, One.AR.FutureVision, counter); counter++;
-      SetupEssenceElement(player.Genesis, Fix.GENESIS, One.AR.Genesis, counter); counter++;
+      SetupEssenceElement(player, player.OracleCommand, Fix.ORACLE_COMMAND, One.AR.OracleCommand, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FortuneSpirit, Fix.FORTUNE_SPIRIT, One.AR.FortuneSpirit, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.WordOfPower, Fix.WORD_OF_POWER, One.AR.WordOfPower, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.GaleWind, Fix.GALE_WIND, One.AR.GaleWind, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.SeventhPrinciple, Fix.SEVENTH_PRINCIPLE, One.AR.SeventhPrinciple, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FutureVision, Fix.FUTURE_VISION, One.AR.FutureVision, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.Genesis, Fix.GENESIS, One.AR.Genesis, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.VoidChant)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_VOIDCHANT;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_VOIDCHANT;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.EnergyBolt, Fix.ENERGY_BOLT, One.AR.EnergyBolt, counter); counter++;
-      SetupEssenceElement(player.FlashCounter, Fix.FLASH_COUNTER, One.AR.FlashCounter, counter); counter++;
-      SetupEssenceElement(player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, One.AR.SigilOfThePending, counter); counter++;
-      SetupEssenceElement(player.PhantomOboro, Fix.PHANTOM_OBORO, One.AR.PhantomOboro, counter); counter++;
-      SetupEssenceElement(player.CounterDisallow, Fix.COUNTER_DISALLOW, One.AR.CounterDisallow, counter); counter++;
-      SetupEssenceElement(player.DetachmentFault, Fix.DETACHMENT_FAULT, One.AR.DetachmentFault, counter); counter++;
-      SetupEssenceElement(player.TimeStop, Fix.TIME_STOP, One.AR.TimeSkip, counter); counter++;
+      SetupEssenceElement(player, player.EnergyBolt, Fix.ENERGY_BOLT, One.AR.EnergyBolt, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.FlashCounter, Fix.FLASH_COUNTER, One.AR.FlashCounter, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.SigilOfThePending, Fix.SIGIL_OF_THE_PENDING, One.AR.SigilOfThePending, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.PhantomOboro, Fix.PHANTOM_OBORO, One.AR.PhantomOboro, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CounterDisallow, Fix.COUNTER_DISALLOW, One.AR.CounterDisallow, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DetachmentFault, Fix.DETACHMENT_FAULT, One.AR.DetachmentFault, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.TimeStop, Fix.TIME_STOP, One.AR.TimeSkip, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Warrior)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_WARRIOR;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_WARRIOR;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.StraightSmash, Fix.STRAIGHT_SMASH, One.AR.StraightSmash, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, One.AR.StanceOfTheBlade, counter); counter++;
-      SetupEssenceElement(player.DoubleSlash, Fix.DOUBLE_SLASH, One.AR.DoubleSlash, counter); counter++;
-      SetupEssenceElement(player.IronBuster, Fix.IRON_BUSTER, One.AR.IronBuster, counter); counter++;
-      SetupEssenceElement(player.RagingStorm, Fix.RAGING_STORM, One.AR.RagingStorm, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, One.AR.StanceOfTheIai, counter); counter++;
-      SetupEssenceElement(player.KineticSmash, Fix.KINETIC_SMASH, One.AR.KineticSmash, counter); counter++;
+      SetupEssenceElement(player, player.StraightSmash, Fix.STRAIGHT_SMASH, One.AR.StraightSmash, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.StanceOfTheBlade, Fix.STANCE_OF_THE_BLADE, One.AR.StanceOfTheBlade, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DoubleSlash, Fix.DOUBLE_SLASH, One.AR.DoubleSlash, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.IronBuster, Fix.IRON_BUSTER, One.AR.IronBuster, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.RagingStorm, Fix.RAGING_STORM, One.AR.RagingStorm, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.StanceOfTheIai, Fix.STANCE_OF_THE_IAI, One.AR.StanceOfTheIai, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.KineticSmash, Fix.KINETIC_SMASH, One.AR.KineticSmash, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Guardian)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_GUARDIAN;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_GUARDIAN;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.ShieldBash, Fix.SHIELD_BASH, One.AR.ShieldBash, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, One.AR.StanceOfTheGuard, counter); counter++;
-      SetupEssenceElement(player.ConcussiveHit, Fix.CONCUSSIVE_HIT, One.AR.ConcussiveHit, counter); counter++;
-      SetupEssenceElement(player.DominationField, Fix.DOMINATION_FIELD, One.AR.DominationField, counter); counter++;
-      SetupEssenceElement(player.HardestParry, Fix.HARDEST_PARRY, One.AR.HardestParry, counter); counter++;
-      SetupEssenceElement(player.OneImmunity, Fix.ONE_IMMUNITY, One.AR.OneImmunity, counter); counter++;
-      SetupEssenceElement(player.Catastrophe, Fix.CATASTROPHE, One.AR.Catastrophe, counter); counter++;
+      SetupEssenceElement(player, player.ShieldBash, Fix.SHIELD_BASH, One.AR.ShieldBash, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.StanceOfTheGuard, Fix.STANCE_OF_THE_GUARD, One.AR.StanceOfTheGuard, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.ConcussiveHit, Fix.CONCUSSIVE_HIT, One.AR.ConcussiveHit, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DominationField, Fix.DOMINATION_FIELD, One.AR.DominationField, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.HardestParry, Fix.HARDEST_PARRY, One.AR.HardestParry, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.OneImmunity, Fix.ONE_IMMUNITY, One.AR.OneImmunity, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.Catastrophe, Fix.CATASTROPHE, One.AR.Catastrophe, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.MartialArts)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_MARTIALARTS;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_MARTIALARTS;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.LegStrike, Fix.LEG_STRIKE, One.AR.LegStrike, counter); counter++;
-      SetupEssenceElement(player.SpeedStep, Fix.SPEED_STEP, One.AR.SpeedStep, counter); counter++;
-      SetupEssenceElement(player.BoneCrush, Fix.BONE_CRUSH, One.AR.BoneCrush, counter); counter++;
-      SetupEssenceElement(player.DeadlyDrive, Fix.DEADLY_DRIVE, One.AR.DeadlyDrive, counter); counter++;
-      SetupEssenceElement(player.UnintentionalHit, Fix.UNINTENTIONAL_HIT, One.AR.UnintentionalHit, counter); counter++;
-      SetupEssenceElement(player.StanceOfMuin, Fix.STANCE_OF_MUIN, One.AR.StanceOfMuin, counter); counter++;
-      SetupEssenceElement(player.CarnageRush, Fix.CARNAGE_RUSH, One.AR.CarnageRush, counter); counter++;
+      SetupEssenceElement(player, player.LegStrike, Fix.LEG_STRIKE, One.AR.LegStrike, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.SpeedStep, Fix.SPEED_STEP, One.AR.SpeedStep, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.BoneCrush, Fix.BONE_CRUSH, One.AR.BoneCrush, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.DeadlyDrive, Fix.DEADLY_DRIVE, One.AR.DeadlyDrive, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.UnintentionalHit, Fix.UNINTENTIONAL_HIT, One.AR.UnintentionalHit, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.StanceOfMuin, Fix.STANCE_OF_MUIN, One.AR.StanceOfMuin, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CarnageRush, Fix.CARNAGE_RUSH, One.AR.CarnageRush, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Archery)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_ARCHERY;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_ARCHERY;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.HunterShot, Fix.HUNTER_SHOT, One.AR.HunterShot, counter); counter++;
-      SetupEssenceElement(player.MultipleShot, Fix.MULTIPLE_SHOT, One.AR.MultipleShot, counter); counter++;
-      SetupEssenceElement(player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, One.AR.EyeOfTheIsshin, counter); counter++;
-      SetupEssenceElement(player.PenetrationArrow, Fix.PENETRATION_ARROW, One.AR.PenetrationArrow, counter); counter++;
-      SetupEssenceElement(player.PrecisionStrike, Fix.PRECISION_STRIKE, One.AR.PrecisionStrike, counter); counter++;
-      SetupEssenceElement(player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, One.AR.EternalConcentration, counter); counter++;
-      SetupEssenceElement(player.PiercingArrow, Fix.PIERCING_ARROW, One.AR.PiercingArrow, counter); counter++;
+      SetupEssenceElement(player, player.HunterShot, Fix.HUNTER_SHOT, One.AR.HunterShot, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.MultipleShot, Fix.MULTIPLE_SHOT, One.AR.MultipleShot, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.EyeOfTheIsshin, Fix.EYE_OF_THE_ISSHIN, One.AR.EyeOfTheIsshin, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.PenetrationArrow, Fix.PENETRATION_ARROW, One.AR.PenetrationArrow, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.PrecisionStrike, Fix.PRECISION_STRIKE, One.AR.PrecisionStrike, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.EternalConcentration, Fix.ETERNAL_CONCENTRATION, One.AR.EternalConcentration, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.PiercingArrow, Fix.PIERCING_ARROW, One.AR.PiercingArrow, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Truth)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_TRUTH;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_TRUTH;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.TrueSight, Fix.TRUE_SIGHT, One.AR.TrueSight, counter); counter++;
-      SetupEssenceElement(player.LeylineSchema, Fix.LEYLINE_SCHEMA, One.AR.LeylineSchema, counter); counter++;
-      SetupEssenceElement(player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, One.AR.VoiceOfVigor, counter); counter++;
-      SetupEssenceElement(player.WillAwakening, Fix.WILL_AWAKENING, One.AR.WillAwakening, counter); counter++;
-      SetupEssenceElement(player.EverflowMind, Fix.EVERFLOW_MIND, One.AR.EverflowMind, counter); counter++;
-      SetupEssenceElement(player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, One.AR.SigilOfTheFaith, counter); counter++;
-      SetupEssenceElement(player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, One.AR.StanceOfTheKokoroe, counter); counter++;
+      SetupEssenceElement(player, player.TrueSight, Fix.TRUE_SIGHT, One.AR.TrueSight, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.LeylineSchema, Fix.LEYLINE_SCHEMA, One.AR.LeylineSchema, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.VoiceOfVigor, Fix.VOICE_OF_VIGOR, One.AR.VoiceOfVigor, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.WillAwakening, Fix.WILL_AWAKENING, One.AR.WillAwakening, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.EverflowMind, Fix.EVERFLOW_MIND, One.AR.EverflowMind, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.SigilOfTheFaith, Fix.SIGIL_OF_THE_FAITH, One.AR.SigilOfTheFaith, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.StanceOfTheKokoroe, Fix.STANCE_OF_THE_KOKOROE, One.AR.StanceOfTheKokoroe, counter, ref detectZero); counter++;
     }
     else if (attr == Fix.CommandAttribute.Mindfulness)
     {
       imgBackCurrentEssenceCategory.color = Fix.COLOR_MINDFULNESS;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_MINDFULNESS;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
-      SetupEssenceElement(player.DispelMagic, Fix.DISPEL_MAGIC, One.AR.DispelMagic, counter); counter++;
-      SetupEssenceElement(player.SpiritualRest, Fix.SPIRITUAL_REST, One.AR.SpiritualRest, counter); counter++;
-      SetupEssenceElement(player.UnseenAid, Fix.UNSEEN_AID, One.AR.UnseenAid, counter); counter++;
-      SetupEssenceElement(player.CircleOfSerenity, Fix.CIRCLE_OF_SERENITY, One.AR.CircleOfSerenity, counter); counter++;
-      SetupEssenceElement(player.InnerInspiration, Fix.INNER_INSPIRATION, One.AR.InnerInspiration, counter); counter++;
-      SetupEssenceElement(player.ZeroImmunity, Fix.ZERO_IMMUNITY, One.AR.ZeroImmunity, counter); counter++;
-      SetupEssenceElement(player.TranscendenceReached, Fix.TRANSCENDENCE_REACHED, One.AR.TranscendenceReached, counter); counter++;
+      SetupEssenceElement(player, player.DispelMagic, Fix.DISPEL_MAGIC, One.AR.DispelMagic, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.SpiritualRest, Fix.SPIRITUAL_REST, One.AR.SpiritualRest, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.UnseenAid, Fix.UNSEEN_AID, One.AR.UnseenAid, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.CircleOfSerenity, Fix.CIRCLE_OF_SERENITY, One.AR.CircleOfSerenity, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.InnerInspiration, Fix.INNER_INSPIRATION, One.AR.InnerInspiration, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.ZeroImmunity, Fix.ZERO_IMMUNITY, One.AR.ZeroImmunity, counter, ref detectZero); counter++;
+      SetupEssenceElement(player, player.TranscendenceReached, Fix.TRANSCENDENCE_REACHED, One.AR.TranscendenceReached, counter, ref detectZero); counter++;
     }
   }
 
-  private void SetupEssenceElement(int element_level, string label_text, bool available, int number)
+  private void SetupEssenceElement(Character player, int element_level, string label_text, bool available, int number, ref bool detect_zero)
   {
-    // level 1以上なら可視化
-    if (element_level >= 1)
+    // availableは将来的にアカシックレコード対応で表示だけは見える様にしてもよい。現状は何も処理しない。
+    Debug.Log("SetupEssenceElement: " + player.Level);
+    // 前回未修得があったなら、非表示とする。
+    if (detect_zero)
     {
-      txtEssenceElementList[number].text = label_text;
-      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
-      txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
-      objHideEssenceElementList[number].SetActive(false);
+      Debug.Log("SetupEssenceElement: detect_zero");
+      txtEssenceElementList[number].text = "？？？";
+      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
+      txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
+      txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
+      objHideEssenceElementList[number].SetActive(true);
     }
-    // level 0であっても、条件を満たせば可視化
-    else if (available)
+    // level 1以上なら可視化
+    else if (element_level >= 1)
     {
+      Debug.Log("SetupEssenceElement: element_level over 1" + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
+      detect_zero = false;
+    }
+    // level 0であっても、RequireLVの条件を満たせば可視化。ただし未修得を表現する。
+    else if (player.Level >= number * Fix.ESSENCE_REQUIRE_LV)
+    {
+      Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
+      txtEssenceElementList[number].text = label_text;
+      imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
+      txtEssenceElementLevelList[number].text = "未修得";
+      objHideEssenceElementList[number].SetActive(false);
+      detect_zero = true;
     }
     // それ以外は非表示とする。
     else
     {
+      Debug.Log("SetupEssenceElement: ELSE");
       txtEssenceElementList[number].text = "？？？";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
+      txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
       objHideEssenceElementList[number].SetActive(true);
     }
   }

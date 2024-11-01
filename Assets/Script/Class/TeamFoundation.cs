@@ -104,11 +104,11 @@ public class TeamFoundation : MonoBehaviour
     get { return _availableAllCommand; }
   }
 
-  [SerializeField] protected bool _availableSkillTree = false;
-  public bool AvailableSkillTree
+  [SerializeField] protected bool _availableEssenceTree = false;
+  public bool AvailableEssenceTree
   {
-    set { _availableSkillTree = value; }
-    get { return _availableSkillTree; }
+    set { _availableEssenceTree = value; }
+    get { return _availableEssenceTree; }
   }
 
   [SerializeField] protected bool _availableTactics = false;

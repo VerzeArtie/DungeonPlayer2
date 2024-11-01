@@ -315,8 +315,6 @@ public partial class HomeTown : MotherBase
   public Button btnDecisionOK;
 
   // Menu Button
-  public Button btnSkillTree;
-  public Text txtSkillTree;
   public Button btnTactics;
   public Text txtTactics;
   public Button btnCustomEvent1;
@@ -2148,10 +2146,19 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
 
     // ファージル宮殿、属性追加
-    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.SelectCharacter(Fix.NAME_EIN_WOLENCE).Level >= 10 && One.TF.AvailableFirstEssence == false)
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AvailableEoneFulnea && One.TF.AvailableFirstEssence == false)
     {
       Debug.Log("TOWN_FAZIL_CASTLE event 1");
       MessagePack.Message700045(ref QuestMessageList, ref QuestEventList, sender.text);
+      string newCommand = string.Empty;
+      for (int ii = 0; ii < One.AvailableCharacters.Count; ii++)
+      {
+        One.AvailableCharacters[ii].LevelUpEssenceTree(3, ref newCommand);
+        if (newCommand != String.Empty)
+        {
+          One.AvailableCharacters[ii].ApplyNewCommand(newCommand);
+        }
+      }
       TapOK();
       return;
     }
@@ -3882,17 +3889,6 @@ public partial class HomeTown : MotherBase
     {
       btnTactics.gameObject.SetActive(false);
       txtTactics.text = string.Empty;
-    }
-
-    if (One.TF.AvailableSkillTree)
-    {
-      btnSkillTree.gameObject.SetActive(true);
-      txtSkillTree.text = "Skill Tree";
-    }
-    else
-    {
-      btnSkillTree.gameObject.SetActive(false);
-      txtSkillTree.text = string.Empty;
     }
 
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)

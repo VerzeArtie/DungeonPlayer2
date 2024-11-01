@@ -266,7 +266,6 @@ public static class One
     // debug
     TF.BeforeAreaName = Fix.TOWN_ANSHET;
     //TF.AvailableTactics = true;
-    //TF.AvailableSkillTree = true;
     //TF.AvailableAllCommand = true;
     //TF.AvailableThird = true;
     //TF.AvailableFourth = true;
@@ -297,7 +296,6 @@ public static class One
     ////TF.AvailableSunYu = true;
     ////TF.AvailableVanHehgustel = true;
     ////TF.AvailableTactics = true;
-    ////TF.AvailableSkillTree = true;
     ////TF.AvailableAllCommand = true;
     ////TF.AvailableThird = true;
     ////TF.AvailableFourth = true;

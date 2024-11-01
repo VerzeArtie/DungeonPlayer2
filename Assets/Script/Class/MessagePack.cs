@@ -6572,11 +6572,8 @@ public static class MessagePack
     {
       One.TF.Event_Message700040 = true;
 
-      string dummy = string.Empty;
       One.TF.AvailableFirstEssence = true;
-      One.SelectCharacter(Fix.NAME_EIN_WOLENCE).LevelUpEssenceTree(3, ref dummy);
-      One.SelectCharacter(Fix.NAME_LANA_AMIRIA).LevelUpEssenceTree(3, ref dummy);
-      One.SelectCharacter(Fix.NAME_EONE_FULNEA).LevelUpEssenceTree(3, ref dummy);
+      One.TF.AvailableEssenceTree = true;
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
@@ -6694,7 +6691,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：護衛スキルをしやってみようと思う。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：護衛スキルをやってみようと思う。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：この構成だと、下手に俺が攻撃にまわるよりも、場全体を見た方が良いと思うんだ。", ActionEvent.None);
 
@@ -6714,7 +6711,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 各メンバーに新しいコマンド属性が追加されました！ 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 バトル設定画面で新しく追加されたコマンドの内容を確認してみましょう！ 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 バトル設定画面で新しく追加されたコマンドの内容を確認してみましょう 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 また「エッセンス」設定画面の内容を確認してみましょう 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
 
