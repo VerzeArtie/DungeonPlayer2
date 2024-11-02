@@ -52,6 +52,7 @@ public class PartyMenu : MotherBase
   public Text txtCommandAttribute;
   public Text txtCommandCost;
   public Text txtCommandDescription;
+  public Text txtCommandSettingsViewMode;
 
   public NodeActionCommand CurrentSelectCommand;
 
@@ -147,6 +148,8 @@ public class PartyMenu : MotherBase
   private const int BATTLE_SETTING_NUM = 8;
 
   private string CurrentSelectHealCommand = String.Empty;
+
+  private bool CommandSettingsViewMode = false;
 
   // Start is called before the first frame update
   public override void Start()
@@ -864,10 +867,16 @@ public class PartyMenu : MotherBase
       this.CurrentSelectCommand = action_command;
       return;
     }
-    // 現在選択と違うアクションコマンドの場合は設定モードに移行しない。
+    // 現在選択と違うアクションコマンドの場合はそれを選択する。
     if (this.CurrentSelectCommand != action_command)
     {
       this.CurrentSelectCommand = action_command;
+      // return;
+    }
+
+    // 表示モードなら設定モードにいかない。
+    if (this.CommandSettingsViewMode)
+    {
       return;
     }
 
@@ -886,6 +895,19 @@ public class PartyMenu : MotherBase
     }
 
     TapCancelActionCommandSet();
+  }
+
+  public void TapActionCommandViewMode()
+  {
+    this.CommandSettingsViewMode = !this.CommandSettingsViewMode;
+    if (CommandSettingsViewMode)
+    {
+      txtCommandSettingsViewMode.text = "表示モード";
+    }
+    else
+    {
+      txtCommandSettingsViewMode.text = "設定モード";
+    }
   }
 
   public void TapActionCommandSetList(NodeActionCommand action_command)
