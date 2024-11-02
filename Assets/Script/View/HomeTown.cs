@@ -2145,7 +2145,7 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
 
-    // ファージル宮殿、属性追加
+    // ファージル宮殿、エオネ参戦後、第三属性の開放
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AvailableEoneFulnea && One.TF.AvailableFirstEssence == false)
     {
       Debug.Log("TOWN_FAZIL_CASTLE event 1");
@@ -2163,11 +2163,20 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    // 港町コチューシェ、第二属性の開放
+    // 港町コチューシェ、ビリー参戦＋エオネ離脱後、第四属性の開放
     if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.Event_Message400040 && One.TF.AvailableSecondEssence == false)
     {
       Debug.Log("TOWN_COTUHSYE event 1");
       MessagePack.Message400050(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
+    // ツァルマンの里、アデル参戦後、第五属性の開放
+    if ((One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN || One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE) && One.TF.AvailableAdelBrigandy && One.TF.AvailableThirdEssence == false)
+    {
+      Debug.Log("TOWN_ZHALMAN event 1");
+      MessagePack.Message500040(ref QuestMessageList, ref QuestEventList, sender.text);
       TapOK();
       return;
     }

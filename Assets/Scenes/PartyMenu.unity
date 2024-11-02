@@ -5112,7 +5112,7 @@ GameObject:
   - component: {fileID: 88810802}
   - component: {fileID: 88810801}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32141,7 +32141,7 @@ GameObject:
   - component: {fileID: 510948237}
   - component: {fileID: 510948236}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35767,7 +35767,7 @@ GameObject:
   - component: {fileID: 580031818}
   - component: {fileID: 580031817}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65239,7 +65239,7 @@ GameObject:
   - component: {fileID: 1138789730}
   - component: {fileID: 1138789729}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71417,7 +71417,7 @@ GameObject:
   - component: {fileID: 1260481419}
   - component: {fileID: 1260481418}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84640,7 +84640,7 @@ GameObject:
   - component: {fileID: 1487119492}
   - component: {fileID: 1487119491}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91387,7 +91387,7 @@ GameObject:
   - component: {fileID: 1593566682}
   - component: {fileID: 1593566681}
   m_Layer: 5
-  m_Name: txtLocked
+  m_Name: txtLocked_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114459,6 +114459,14 @@ MonoBehaviour:
   - {fileID: 148557659}
   - {fileID: 869017167}
   - {fileID: 188792407}
+  txtLockedEssenceElementList:
+  - {fileID: 510948236}
+  - {fileID: 1138789729}
+  - {fileID: 580031817}
+  - {fileID: 1593566681}
+  - {fileID: 1260481418}
+  - {fileID: 88810801}
+  - {fileID: 1487119491}
   GroupSubViewStatus: {fileID: 0}
   GroupSubViewCommandSetting: {fileID: 0}
   GroupSubViewEssence: {fileID: 0}
