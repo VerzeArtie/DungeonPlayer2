@@ -49,6 +49,7 @@ public class PartyMenu : MotherBase
   public GameObject groupPageScroll;
   public Text txtCommandTitle;
   public Image imgCommandTitle;
+  public NodeActionCommand btnActionCommandTitle;
   public Text txtCommandAttribute;
   public Text txtCommandCost;
   public Text txtCommandDescription;
@@ -856,7 +857,7 @@ public class PartyMenu : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
 
     txtCommandTitle.text = action_command.CommandName;
-    imgCommandTitle.sprite = Resources.Load<Sprite>(action_command.CommandName);
+    btnActionCommandTitle.ApplyImageIcon(action_command.CommandName);
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(action_command.CommandName).ToString();
     txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(action_command.CommandName, ActionCommand.Cost(action_command.CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(action_command.CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(action_command.CommandName);
@@ -1395,7 +1396,7 @@ public class PartyMenu : MotherBase
     }
 
     txtCommandTitle.text = ListAvailableCommand[0].CommandName;
-    imgCommandTitle.sprite = Resources.Load<Sprite>(ListAvailableCommand[0].CommandName);
+    btnActionCommandTitle.ApplyImageIcon(ListAvailableCommand[0].CommandName);
     txtCommandAttribute.text = "タイプ： " + ActionCommand.GetAttribute_JP(ListAvailableCommand[0].CommandName).ToString();
     txtCommandCost.text = "コスト： " + SecondaryLogic.CostControl(ListAvailableCommand[0].CommandName, ActionCommand.Cost(ListAvailableCommand[0].CommandName), CurrentPlayer).ToString() + ActionCommand.GetAttribute_Unit(ListAvailableCommand[0].CommandName);
     txtCommandDescription.text = ActionCommand.GetDescription(ListAvailableCommand[0].CommandName);
