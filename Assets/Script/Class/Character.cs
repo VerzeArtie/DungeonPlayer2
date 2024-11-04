@@ -4515,6 +4515,22 @@ public partial class Character : MonoBehaviour
     return list;
   }
 
+  public string GetEssenceFactor(string command_name)
+  {
+    if (command_name == Fix.FIRE_BALL) { return "威力 " + (Math.Round(SecondaryLogic.FireBall(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ICE_NEEDLE) { return "威力 " + (Math.Round(SecondaryLogic.IceNeedle(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.FreshHeal(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHADOW_BLAST) { return "魔法防御の減少量 " + SecondaryLogic.ShadowBlast(this) + "%"; }
+    else if (command_name == Fix.ORACLE_COMMAND) { return "インスタンスゲージ回復量 " + SecondaryLogic.OracleCommand(this) + "%"; }
+    else if (command_name == Fix.ENERGY_BOLT) { return "威力 " + (Math.Round(SecondaryLogic.EnergyBolt(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.STRAIGHT_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.StraightSmash(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHIELD_BASH) { return "効果ターン " + SecondaryLogic.ShieldBash_Turn(this); }
+    else if (command_name == Fix.LEG_STRIKE) { return "戦闘速度の増加量 " + (Math.Round(SecondaryLogic.LegStrike_Value(this), 2, MidpointRounding.AwayFromZero)); }
+
+
+    return "";
+  }
+
   public string GetEssenceTreeDescList(string essence_name)
   {
     if (essence_name == Fix.STRAIGHT_SMASH_JP + "強化") { return Fix.STRAIGHT_SMASH_JP + "の威力が５％上昇する。"; }

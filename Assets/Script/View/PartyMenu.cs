@@ -82,6 +82,7 @@ public class PartyMenu : MotherBase
   public List<Image> imgEssenceElementList;
   public List<GameObject> objHideEssenceElementList;
   public List<Text> txtLockedEssenceElementList;
+  public List<Text> txtEssenceElementFactor;
 
   // Character ( Detail - Essence )
   public GameObject GroupSubViewStatus;
@@ -1408,6 +1409,7 @@ public class PartyMenu : MotherBase
     for (int ii = 0; ii < txtEssenceElementList.Count; ii++)
     {
       txtEssenceElementList[ii].text = "？？？";
+      txtEssenceElementFactor[ii].text = "";
       imgEssenceElementList[ii].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[ii].text = ""; // "Lv " + element_level.ToString();
       txtLockedEssenceElementList[ii].text = "Require\r\nLv " + ii * Fix.ESSENCE_REQUIRE_LV;
@@ -1452,6 +1454,7 @@ public class PartyMenu : MotherBase
       imgBackCurrentEssenceCategory.color = Fix.COLOR_FIRE;
       imgLinkbarCurrentEssenceCategory[number].color = Fix.COLOR_FIRE;
       imgLinkbarCurrentEssenceCategory[number].gameObject.SetActive(true);
+
       SetupEssenceElement(player, player.FireBall, Fix.FIRE_BALL, One.AR.FireBall, counter, ref detectZero); counter++;
       SetupEssenceElement(player, player.FlameBlade, Fix.FLAME_BLADE, One.AR.FlameBlade, counter, ref detectZero); counter++;
       SetupEssenceElement(player, player.MeteorBullet, Fix.METEOR_BULLET, One.AR.MeteorBullet, counter, ref detectZero); counter++;
@@ -1614,6 +1617,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: detect_zero");
       txtEssenceElementList[number].text = "？？？";
+      txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
       txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
@@ -1624,6 +1628,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: element_level over 1" + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
+      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = "Lv " + element_level.ToString();
       objHideEssenceElementList[number].SetActive(false);
@@ -1634,6 +1639,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
+      txtEssenceElementFactor[number].text = player.GetEssenceFactor(label_text);
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(label_text);
       txtEssenceElementLevelList[number].text = "未修得";
       objHideEssenceElementList[number].SetActive(false);
@@ -1644,6 +1650,7 @@ public class PartyMenu : MotherBase
     {
       Debug.Log("SetupEssenceElement: ELSE");
       txtEssenceElementList[number].text = "？？？";
+      txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
       txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
