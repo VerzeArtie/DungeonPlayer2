@@ -8,6 +8,13 @@ using UnityEngine.UI;
 
 public class DamageObject : MonoBehaviour
 {
+  [SerializeField] protected int _maxTime = 0;
+  public int MaxTime
+  {
+    get { return _maxTime; }
+    set { _maxTime = value; }
+  }
+
   [SerializeField] protected int _timer = 0;
   public int Timer
   {
@@ -50,6 +57,7 @@ public class DamageObject : MonoBehaviour
     _message = message;
     _chainNumber = chain_num;
     _timer = timer;
+    _maxTime = timer;
     _firstLook = false;
     txtMessage.text = String.Empty; // message;
     txtMessage.color = color;

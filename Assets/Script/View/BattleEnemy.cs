@@ -143,6 +143,8 @@ public partial class BattleEnemy : MotherBase
   protected bool NowAnimationMode = false;
   public List<int> AnimationProgress;
   protected const int MAX_ANIMATION_TIME = 40;
+  protected const int ANIMATION_TIME_HALF = 20;
+  protected const int ANIMATION_TIME_SHORT = 10;
 
   protected bool NowIrregularStepMode = false;
   protected Character NowIrregularStepPlayer = null;
@@ -7292,10 +7294,36 @@ public partial class BattleEnemy : MotherBase
         damageObj[ii].Timer--;
         RectTransform rect = damageObj[ii].txtMessage.GetComponent<RectTransform>();
         float moveX = 0.0f;
-        if (damageObj[ii].Timer <= MAX_ANIMATION_TIME - 15) { moveX = 0.0f; }
-        else if (damageObj[ii].Timer <= MAX_ANIMATION_TIME - 10) { moveX = 1.0f; }
-        else if (damageObj[ii].Timer <= MAX_ANIMATION_TIME - 5) { moveX = 2.0f; }
-        else { moveX = 7.0f; }
+        int factor1 = MAX_ANIMATION_TIME - 15;
+        int factor2 = MAX_ANIMATION_TIME - 10;
+        int factor3 = MAX_ANIMATION_TIME - 5;
+        float speed1 = 0.0f;
+        float speed2 = 1.0f;
+        float speed3 = 2.0f;
+        float speed4 = 7.0f;
+
+        if (damageObj[ii].MaxTime == ANIMATION_TIME_HALF)
+        {
+          factor1 = 12;
+          factor2 = 15;
+          factor3 = 25;
+          speed2 = 1.0f;
+          speed3 = 2.0f;
+          speed4 = 7.0f;
+        }
+        else if (damageObj[ii].MaxTime == ANIMATION_TIME_SHORT)
+        {
+          factor1 = 4;
+          factor2 = 6;
+          factor3 = 8;
+          speed2 = 2.0f;
+          speed3 = 4.0f;
+          speed4 = 9.0f;
+        }
+        if (damageObj[ii].Timer <= factor1) { moveX = speed1; }
+        else if (damageObj[ii].Timer <= factor2) { moveX = speed2; }
+        else if (damageObj[ii].Timer <= factor3) { moveX = speed3; }
+        else { moveX = speed4; }
 
         rect.position = new Vector3(rect.position.x + moveX, rect.position.y, rect.position.z);
 
@@ -10060,9 +10088,11 @@ public partial class BattleEnemy : MotherBase
   private void ExecDoubleSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    for (int ii = 0; ii < 2; ii++)
+    int totalCount = 2;
+    for (int ii = 0; ii < totalCount; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical, ANIMATION_TIME_HALF);
+      this.GlobalAnimationChain++;
     }
   }
   #endregion
@@ -10070,18 +10100,22 @@ public partial class BattleEnemy : MotherBase
   #region "Delve III"
   private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
-    for (int ii = 0; ii < SecondaryLogic.MeteorBullet_Effect1(player); ii++)
+    int totalCount = SecondaryLogic.MeteorBullet_Effect1(player);
+    for (int ii = 0; ii < totalCount; ii++)
     {
       int rand = AP.Math.RandomInteger(target_list.Count);
-      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
+      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ANIMATION_TIME_SHORT);
+      this.GlobalAnimationChain++;
     }
   }
 
   private void ExecBlueBullet(Character player, Character target, Fix.CriticalType critical)
   {
-    for (int ii = 0; ii < SecondaryLogic.BlueBullet_Effect1(player); ii++)
+    int totalCount = SecondaryLogic.BlueBullet_Effect1(player);
+    for (int ii = 0; ii < totalCount; ii++)
     {
-      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
+      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ANIMATION_TIME_SHORT);
+      this.GlobalAnimationChain++;
     }
   }
 
