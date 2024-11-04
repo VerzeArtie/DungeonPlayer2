@@ -8849,7 +8849,7 @@ public partial class BattleEnemy : MotherBase
 
       if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
       {
-        AbstractGainManaPoint(AllList[ii], AllList[ii], 2 + AP.Math.RandomInteger(4));
+        AbstractGainManaPoint(AllList[ii], AllList[ii], 1 + AP.Math.RandomInteger(3));
       }
 
       if (AllList[ii].IsHeartOfLife)
