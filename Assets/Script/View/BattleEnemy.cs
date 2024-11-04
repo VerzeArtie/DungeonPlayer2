@@ -8847,6 +8847,11 @@ public partial class BattleEnemy : MotherBase
         continue; 
       }
 
+      if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
+      {
+        AbstractGainManaPoint(AllList[ii], AllList[ii], 2 + AP.Math.RandomInteger(4));
+      }
+
       if (AllList[ii].IsHeartOfLife)
       {
         ExecLifeGain(AllList[ii], AllList[ii].IsHeartOfLife.EffectValue);
