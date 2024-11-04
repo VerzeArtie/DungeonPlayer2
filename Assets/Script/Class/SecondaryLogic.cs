@@ -192,7 +192,8 @@ public static class SecondaryLogic
 
   public static double EnergyBolt(Character player)
   {
-    return 1.40;
+    if (player.EnergyBolt <= 1) { return 1.40f; }
+    return 1.40f + (player.EnergyBolt - 1) * 0.05f;
   }
 
   public static double ShieldBash(Character player)
