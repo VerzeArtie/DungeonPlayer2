@@ -362,7 +362,7 @@ public class PartyMenu : MotherBase
       }
       else if (this.CurrentSelectHealCommand == Fix.PURE_PURIFICATION)
       {
-        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
+        double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
         Debug.Log(MethodBase.GetCurrentMethod());
         if (target.Dead)
         {
@@ -1097,9 +1097,7 @@ public class PartyMenu : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
     txtEssenceCurrentName.text = txt_title.text;
     txtEssenceCurrentDescription.text = "Å`å¯â Å`Å@" + ActionCommand.GetDescription(txt_title.text);// CurrentPlayer.GetEssenceTreeDescList(txt_title.text);
-    txtEssenceCurrentDescEffect.text = "Å`ã≠âªÅ`Å@" + ActionCommand.GetDescEffect(txt_title.text, SecondaryLogic.FactorControl(txt_title.text, this.CurrentPlayer),
-                                                                                                  SecondaryLogic.FactorControl2(txt_title.text, this.CurrentPlayer),
-                                                                                                  SecondaryLogic.FactorControl3(txt_title.text, this.CurrentPlayer));
+    txtEssenceCurrentDescEffect.text = "Å`ã≠âªÅ`Å@" + ActionCommand.GetDescReinforce(txt_title.text);
 
     imgEssenceCurrent.ApplyImageIcon(txt_title.text);
   }

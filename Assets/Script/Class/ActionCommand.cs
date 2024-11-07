@@ -2012,7 +2012,7 @@ public static class ActionCommand
     if (command_name == Fix.DIVINE_CIRCLE) { return 8; }
     if (command_name == Fix.BLOOD_SIGN) { return 7; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
-    if (command_name == Fix.FLASH_COUNTER) { return 7; }
+    if (command_name == Fix.FLASH_COUNTER) { return 9; }
     // スキル
     if (command_name == Fix.STANCE_OF_THE_BLADE) { return 15; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
@@ -3457,11 +3457,11 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
     if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "敵一体を対象とする。対象に【物理】ダメージを与える。\r\n自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "敵一体を対象とする。対象に【物理】ダメージを与える。自分自身に【剣の構え】のBUFFを付与する。この効果が続く間、物理攻撃がヒットする度に、物理攻撃力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.STANCE_OF_THE_GUARD) { return "自分自身に【盾の構え】のBUFFを付与する。この効果が続く間、防御姿勢で敵からの攻撃を受ける度に、物理防御力が上昇する。このスタックは5回まで累積する。"; }
     if (command_name == Fix.SPEED_STEP) { return "敵一体を対象とする。対象に【物理】ダメージを与えた後、自分自身に【俊足の構え】のBUFFを付与する。この効果が続く間、メイン行動が完了する度に、戦闘反応が上昇する。このスタックは５回まで累積する。"; }
     if (command_name == Fix.MULTIPLE_SHOT) { return "敵全員に【物理】ダメージを与える。"; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎のスキルポイント回復量が＋２される。"; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "味方フィールドに【直光】のフィールドを形成する。【直光】が続く間、ターン経過毎にスキルポイントが回復する。"; }
     if (command_name == Fix.SPIRITUAL_REST) { return "味方一体を対象とする。対象が【スタン】にかかっている場合、それを除去する。加えて、対象に【鮮明】のBUFFを付与する。【鮮明】が続く間、対象は【スタン】に対する耐性を得る。"; }
     #endregion
 
@@ -3518,41 +3518,41 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return ""; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return ""; } // todo 仮
-    if (command_name == Fix.VALKYRIE_BLADE) { return ""; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return ""; } // todo 仮
-    if (command_name == Fix.FUTURE_VISION) { return ""; } // todo 仮
-    if (command_name == Fix.DETACHMENT_FAULT) { return ""; } // todo 仮
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "敵フィールドに対して【炎輪】のBUFFを付与する。\r\n【炎輪】が続く間、対象が通常攻撃を行うか、魔法を唱えるか、スキル行動を行うたびに、【炎】のダメージを与える。"; }
+    if (command_name == Fix.WATER_PRESENCE) { return "味方一体を対象とする。対象に【水脈】のBUFFを与える。\r\n【水脈】が続く間、魔法ダメージを受けた場合、そのダメージ量を半減する。また、魔法を唱える際の消費コストが半分になる。"; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return "味方一体を対象とする。対象に【聖剣】のBUFFを付与する。\r\n【聖剣】が続く間、物理攻撃を行った場合、加えて【聖】の魔法属性ダメージを与える。本効果によるダメージを受けた対象は【聖痕】のBUFFが付与される。【聖痕】が続く間、対象はライフ回復を受けた場合、ライフを回復することができない。"; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return "味方一体を対象とする。対象のライフを半分に減らし、【暗黒精神】のBUFFを付与する。\r\n【暗黒精神】が続く間、ダメージを受ける度に累積カウンターが乗る。累積カウンターの分だけ物理攻撃力、物理防御力が上昇する。累積カウンターは最大９つまで乗る。"; }
+    if (command_name == Fix.FUTURE_VISION) { return "自分自身を対象として【未来視】のBUFFを付与する。\r\n【未来視】が続く間、敵陣営のいずれかがインスタント行動を行った場合、それをカウンターする。その後、本BUFFは消失する。"; }
+    if (command_name == Fix.DETACHMENT_FAULT) { return "敵フィールドおよび味方フィールドに【無下】のフィールドを形成する。\r\n【無下】が続く間、単体およびフィールドに対してBUFFの追加／除去がされなくなる。ターン経過によるBUFF消滅は行われる。"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return ""; } // todo 仮
-    if (command_name == Fix.ONE_IMMUNITY) { return ""; } // todo 仮
-    if (command_name == Fix.STANCE_OF_MUIN) { return ""; } // todo 仮
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return ""; } // todo 仮
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return ""; } // todo 仮
-    if (command_name == Fix.ZERO_IMMUNITY) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return "自分自身に【居合】のBUFFを付与する。\r\n【居合】が続く間、戦闘反応値が上昇する。相手から自分に対して物理ダメージを有するインスタント行動を行った場合、それをカウンターする。加えて、相手にクリティカルで物理ダメージを与える。その後、【居合】のBUFFは消失する。"; }
+    if (command_name == Fix.ONE_IMMUNITY) { return "自分自身を対象とし【唯一円】のBUFFを付与する。\r\n【唯一円】が続く間、自分自身へのダメージを全て軽減する。"; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return "自分自身に【無音】のBUFFを付与し、累積カウンターを5つ載せる。\r\n【無音】が続く間、BUFFを付与するアクションコマンドを受けた場合、BUFFが付与されず即座に消失し、累積カウンターが１つ除去される。これは負のBUFFのみ適用される。累積カウンターが無くなれば、このBUFFは除去される。"; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return "自分自身に【超集中】のBUFFを付与する。\r\n【超集中】が続く間、ターン経過毎に攻撃対象へ【凝視】のBUFFを付与し、累積カウンターを１つ載せる。自分自身から攻撃対象者へダメージを与えた場合、【凝視】の累積カウンターの分だけ、被ダメージが上昇する。【凝視】は負のBUFFとみなされない。累積カウンターは最大９つまで累積する。"; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "味方フィールドに【信仰】のBUFFを付与する。\r\n【信仰】が続く間、最大マナ、最大スキルポイントが上昇する。上昇した分だけ、最大マナ、最大スキルポイントが回復する。ターン経過毎に、マナ、スキルポイントが回復する。"; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return "インスタント限定。敵一体が発動中のスタック・コマンドをカウンターする。"; }
     #endregion
 
     #region "Delve VII"
     // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return ""; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return ""; } // todo 仮
-    if (command_name == Fix.RESURRECTION) { return ""; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return ""; } // todo 仮
-    if (command_name == Fix.GENESIS) { return ""; } // todo 仮
-    if (command_name == Fix.TIME_STOP) { return ""; } // todo 仮
+    if (command_name == Fix.LAVA_ANNIHILATION) { return "敵全体に対して【炎】ダメージを与える。"; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return "この魔法はカウンターされない。\r\n敵一体を対象とする。対象に【絶対零度】のBUFFを付与する。【絶対零度】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、ライフ、マナ、スキルポイントが回復不可となる。"; }
+    if (command_name == Fix.RESURRECTION) { return "味方一体を対象とする。対象を蘇生し、ライフを全回復する。"; }
+    if (command_name == Fix.DEATH_SCYTHE) { return "敵フィールドに【死の鎌】フィールドを形成する。\r\n【死の鎌】が続く間、ターン経過毎に累積カウンターが１つ載る。ターン経過毎に最大ライフのX % 分ライフを失い、最大マナのX % 分マナを失い、最大スキルポイントのX % 分スキルポイントを失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。"; }
+    if (command_name == Fix.GENESIS) { return "この魔法はマナを消費しない。\r\n前回自分が行ったアクションコマンドと同じ内容を実行する。"; }
+    if (command_name == Fix.TIME_STOP) { return "時間を停止する。"; }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return ""; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return ""; } // todo 仮
-    if (command_name == Fix.CARNAGE_RUSH) { return ""; } // todo 仮
-    if (command_name == Fix.PIERCING_ARROW) { return ""; } // todo 仮
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; } // todo 仮
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; } // todo 仮
+    if (command_name == Fix.KINETIC_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。ダメージのコア・エッセンスは【力】と【知】を足し合わせた値を根源として算出される。"; }
+    if (command_name == Fix.CATASTROPHE) { return "敵一体を対象とする。対象の物理防御力を０とみなした上で、【物理】ダメージを与える。"; }
+    if (command_name == Fix.CARNAGE_RUSH) { return "敵一体を対象とする。対象に【物理】ダメージを５回連続で与える。"; }
+    if (command_name == Fix.PIERCING_ARROW) { return "敵一体を対象とする。対象が【防御】を行っていても、あたかも【防御】していないかのようにダメージを与え、対象に【致命傷】のBUFFを付与し、インスタントゲージを０にする。【致命傷】が続く間、【防御姿勢】を取る事が出来ない。"; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "自分自身を対象とする。対象に【心得】のBUFFを付与する。\r\n【心得】が続く間、ソーサリーまたはノーマルタイミングのコマンドを放つ場合、インスタントタイミングで行動する事が可能になる。"; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "味方一体を対象とする。対象の負のBUFFを全て除去し、【超越】のBUFFを付与する。【超越】が続く間、負のBUFFは付与されなくなり、正のBUFFは除去されなくなる。"; }
     #endregion
 
     #region "複合魔法"
-    // 聖＋闇 [完全逆]
-    if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
+      // 聖＋闇 [完全逆]
+      if (command_name == Fix.PSYCHIC_TRANCE) { return ""; } // todo 仮
     if (command_name == Fix.BLIND_JUSTICE) { return ""; } // todo 仮
     if (command_name == Fix.DEATH_DENY) { return ""; } // todo 仮
     // 聖＋炎
@@ -3741,91 +3741,91 @@ public static class ActionCommand
     return String.Empty;
   }
 
-  public static string GetDescEffect(string command_name, int factor1, int factor2, int factor3)
+  public static string GetDescReinforce(string command_name)
   {
     #region "Delve I"
     // 魔法
-    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 ＋" + factor1; }
-    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋" + factor1; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋" + factor1; }
-    if (command_name == Fix.ENERGY_BOLT) { return "ＭＰ消費 －" + factor1 ; }
+    if (command_name == Fix.FIRE_BALL) { return "【炎】ダメージの威力 ＋１０"; }
+    if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋９"; }
+    if (command_name == Fix.FRESH_HEAL) { return "ライフ回復量 ＋２０"; }
+    if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋５％"; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋１０％"; }
+    if (command_name == Fix.ENERGY_BOLT) { return "威力　＋５"; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return "物理ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋" + factor1; }
-    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋" + factor1; }
-    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋" + factor1; }
-    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －" + factor1; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return "威力 ＋１０"; }
+    if (command_name == Fix.SHIELD_BASH) { return "【スタン】の継続ターン数 ＋１"; }
+    if (command_name == Fix.LEG_STRIKE) { return "【躍動】による戦闘速度ＵＰ影響 ＋５％"; }
+    if (command_name == Fix.HUNTER_SHOT) { return "【標的】によるクリティカル発生率 ＋２％"; }
+    if (command_name == Fix.TRUE_SIGHT) { return "【深層】による潜在能力ＵＰ影響 ＋５％"; }
+    if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 －５"; }
     #endregion
 
     #region "Delve II"
     // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.PURE_PURIFICATION) { return "ライフの回復量 ＋" + factor1 + "　一度に除去する数 ＋" + factor2; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋" + factor1; }
-    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋" + factor1; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －" + factor1; }
+    if (command_name == Fix.FLAME_BLADE) { return "【炎剣】による追加【炎】ダメージの威力 ＋２０"; }
+    if (command_name == Fix.PURE_PURIFICATION) { return "ライフ回復量 ＋１０、一度に除去する数 ＋１"; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 ＋３０％"; }
+    if (command_name == Fix.BLOOD_SIGN) { return "【失血】によるダメージ量 ＋２０％"; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return "【幸運】の累積カウンター数 ＋１"; }
+    if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費 －２"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋" + factor1 + "　【剣の構え】による物理攻撃ＵＰ影響 ＋" + factor2; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋" + factor1; }
-    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋" + factor1; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋" + factor1; }
-    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －" + factor1; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return "物理ダメ―ジの威力 ＋５　【剣の構え】による物理攻撃ＵＰ影響 ＋３％"; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return "【盾の構え】による物理防御ＵＰ影響 ＋２％"; }
+    if (command_name == Fix.SPEED_STEP) { return "【俊足の構え】による戦闘反応ＵＰ影響 ＋３％"; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return "物理ダメージの威力 ＋１０"; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return "【直光】によるＳＰの回復量 ＋２"; }
+    if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 －３"; }
     #endregion
 
     #region "Delve III"
-    // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + factor1; }
-    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + factor1; }
-    if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + factor1; }
-    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + factor1; }
-    // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
-    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + factor1; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + factor1; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + factor1; }
-    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + factor1; }
+    //// 魔法
+    //if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + factor1; }
+    //if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + factor1; }
+    //if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + factor1; }
+    //if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + factor1; }
+    //if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + factor1; }
+    //// スキル
+    //if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
+    //if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + factor1 + "％上昇"; }
+    //if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + factor1; }
+    //if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + factor1; }
+    //if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve IV"
-    // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + factor1; }
-    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + factor1; }
-    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + factor1; }
-    if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + factor1; }
-    // スキル
-    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + factor1 + "　周囲全体へのダメージの威力 ＋" + factor2; }
-    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + factor1 + "　防御姿勢によるダメージ軽減 ＋" + factor2; }
-    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + factor1 + "　(20%以下)＋" + factor2 + "　(10%以下)＋" + factor3; }
-    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
-    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + factor1; }
+    //// 魔法
+    //if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + factor1; }
+    //if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + factor1; }
+    //if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + factor1; }
+    //if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + factor1; }
+    //if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + factor1; }
+    //// スキル
+    //if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + factor1 + "　周囲全体へのダメージの威力 ＋" + factor2; }
+    //if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + factor1 + "　防御姿勢によるダメージ軽減 ＋" + factor2; }
+    //if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + factor1 + "　(20%以下)＋" + factor2 + "　(10%以下)＋" + factor3; }
+    //if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
+    //if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + factor1; }
+    //if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + factor1; }
     #endregion
 
     #region "Delve V"
-    // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + factor1; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + factor1; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + factor1; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + factor1; }
-    // スキル
-    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + factor1; }
-    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + factor1; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + factor1 + "　敵の行動ゲージ後退率 ＋" + factor2; }
-    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + factor1; }
-    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + factor1; }
-    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + factor1; }
+    //// 魔法
+    //if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + factor1; }
+    //if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + factor1; }
+    //if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + factor1; }
+    //if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + factor1; }
+    //// スキル
+    //if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + factor1; }
+    //if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + factor1; }
+    //if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + factor1 + "　敵の行動ゲージ後退率 ＋" + factor2; }
+    //if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + factor1; }
+    //if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + factor1; }
+    //if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + factor1; }
     #endregion
 
     #region "Delve VI"

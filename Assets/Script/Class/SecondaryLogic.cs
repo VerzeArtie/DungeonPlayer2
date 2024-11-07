@@ -300,7 +300,12 @@ public static class SecondaryLogic
       factor = 1.00f + (player.FlameBlade - 1) * 0.20f;
     }
 
-    return 20.0f + PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * factor;
+    return factor;
+  }
+
+  public static double FlameBlade_BaseDamage(Character player)
+  {
+    return 30.0f;
   }
 
   public static int FlameBlade_Turn(Character player)
@@ -308,7 +313,7 @@ public static class SecondaryLogic
     return Fix.INFINITY;
   }
 
-  public static double PurePurificationHealValuel(Character player)
+  public static double PurePurificationHealValue(Character player)
   {
     if (player.PurePurification <= 1) { return 0.70f; }
     return 0.70f + (player.PurePurification - 1) * 0.10f;
@@ -345,11 +350,11 @@ public static class SecondaryLogic
     double result = 0.0f;
     if (player.DivineCircle <= 1)
     {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.50f;
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
     }
     else
     {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.50f + (player.DivineCircle - 1) * 0.30f);
+      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.DivineCircle - 1) * 0.30f);
     }
     return result;
   }
@@ -1434,161 +1439,4 @@ public static class SecondaryLogic
     return result;
   }
 
-  public static int FactorControl(string command_name, Character player)
-  {
-    #region "Delve I"
-    // 魔法
-    if (command_name == Fix.FIRE_BALL) { return (player.FireBall) * 10; }
-    if (command_name == Fix.ICE_NEEDLE) { return (player.IceNeedle) * 9; }
-    if (command_name == Fix.FRESH_HEAL) { return (player.FreshHeal) * 20; }
-    if (command_name == Fix.SHADOW_BLAST) { return (player.ShadowBlast) * 5; }
-    if (command_name == Fix.ORACLE_COMMAND) { return (player.OracleCommand) * 10; }
-    if (command_name == Fix.ENERGY_BOLT) { return (player.EnergyBolt) * 1; }
-    // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return (player.StraightSmash) * 10; }
-    if (command_name == Fix.SHIELD_BASH) { return (player.ShieldBash) * 1; }
-    if (command_name == Fix.LEG_STRIKE) { return (player.LegStrike) * 5; }
-    if (command_name == Fix.HUNTER_SHOT) { return (player.HunterShot) * 2; }
-    if (command_name == Fix.TRUE_SIGHT) { return (player.TrueSight) * 5; }
-    if (command_name == Fix.DISPEL_MAGIC) { return (player.DispelMagic) * 5; }
-    #endregion
-
-    #region "Delve II"
-    // 魔法
-    if (command_name == Fix.FLAME_BLADE) { return (player.FlameBlade) * 20; }
-    if (command_name == Fix.PURE_PURIFICATION) { return (player.PurePurification) * 10; }
-    if (command_name == Fix.DIVINE_CIRCLE) { return (player.DivineCircle) * 30; }
-    if (command_name == Fix.BLOOD_SIGN) { return (player.BloodSign) * 20; }
-    if (command_name == Fix.FORTUNE_SPIRIT) { return (player.FortuneSpirit) * 1; }
-    if (command_name == Fix.FLASH_COUNTER) { return (player.FlashCounter) * 2; }
-    // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return ((player.StanceOfTheBlade) * 5); }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return (player.StanceOfTheGuard) * 2; }
-    if (command_name == Fix.SPEED_STEP) { return (player.SpeedStep) * 3; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return (player.MultipleShot) * 10; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return (player.LeylineSchema) * 2; }
-    if (command_name == Fix.SPIRITUAL_REST) { return (player.SpiritualRest) * 3; }
-    #endregion
-
-    #region "Delve III"
-    // 魔法
-    if (command_name == Fix.METEOR_BULLET) { return (player.MeteorBullet) * 1; }
-    if (command_name == Fix.BLUE_BULLET) { return (player.BlueBullet) * 1; }
-    if (command_name == Fix.HOLY_BREATH) { return (player.FreshHeal) * 30; }
-    if (command_name == Fix.BLACK_CONTRACT) { return (player.BlackContract) * 1; }
-    if (command_name == Fix.WORD_OF_POWER) { return (player.WordOfPower) * 20; }
-    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return (player.SigilOfThePending) * 2; }
-    // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return (player.DoubleSlash) * 10; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return (player.ConcussiveHit) * 1; }
-    if (command_name == Fix.BONE_CRUSH) { return (player.ConcussiveHit) * 3; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return (player.EyeOfTheIsshin) * 2; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return (player.VoiceOfVigor) * 3; }
-    if (command_name == Fix.UNSEEN_AID) { return (player.SpiritualRest) * 5; }
-    #endregion
-
-    #region "Delve IV"
-    // 魔法
-    if (command_name == Fix.VOLCANIC_BLAZE) { return (player.VolcanicBlaze) * 30; }
-    if (command_name == Fix.FREEZING_CUBE) { return (player.FreezingCube) * 25; }
-    if (command_name == Fix.ANGELIC_ECHO) { return (player.AngelicEcho) * 10; }
-    if (command_name == Fix.CURSED_EVANGILE) { return (player.CursedEvangile) * 74; }
-    if (command_name == Fix.GALE_WIND) { return (player.GaleWind) * 1; }
-    if (command_name == Fix.PHANTOM_OBORO) { return (player.PhantomOboro) * 10; }
-    // スキル
-    if (command_name == Fix.IRON_BUSTER) { return (player.IronBuster) * 30; }
-    if (command_name == Fix.DOMINATION_FIELD) { return (player.DominationField) * 3; }
-    if (command_name == Fix.DEADLY_DRIVE) { return (player.DeadlyDrive) * 1; }
-    if (command_name == Fix.PENETRATION_ARROW) { return (player.PenetrationArrow) * 4; }
-    if (command_name == Fix.WILL_AWAKENING) { return (player.WillAwakening) * 1; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return (player.CircleOfSerenity) * 10; }
-    #endregion
-
-    #region "Delve V"
-    // 魔法
-    if (command_name == Fix.FLAME_STRIKE) { return (player.FlameStrike) * 50; }
-    if (command_name == Fix.FROST_LANCE) { return (player.FrostLance) * 40; }
-    if (command_name == Fix.SHINING_HEAL) { return (player.ShiningHeal) * 1; }
-    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return (player.CircleOfTheDespair) * 3; }
-    if (command_name == Fix.SEVENTH_PRINCIPLE) { return (player.SeventhPrinciple) * 10; }
-    if (command_name == Fix.COUNTER_DISALLOW) { return (player.CounterDisallow) * 1; }
-    // スキル
-    if (command_name == Fix.RAGING_STORM) { return (player.RagingStorm) * 10; }
-    if (command_name == Fix.HARDEST_PARRY) { return (player.HardestParry) * 5; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return (player.UnintentionalHit) * 3; }
-    if (command_name == Fix.PRECISION_STRIKE) { return (player.PrecisionStrike) * 50; }
-    if (command_name == Fix.EVERFLOW_MIND) { return (player.EverflowMind) * 2; }
-    if (command_name == Fix.INNER_INSPIRATION) { return (player.InnerInspiration) * 10; }
-    #endregion
-
-    #region "Delve VI"
-    // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 0; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return 0; } // todo 仮
-    if (command_name == Fix.VALKYRIE_BLADE) { return 0; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return 0; } // todo 仮
-    if (command_name == Fix.FUTURE_VISION) { return 0; } // todo 仮
-    if (command_name == Fix.DETACHMENT_FAULT) { return 0; } // todo 仮
-    // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return 0; } // todo 仮
-    if (command_name == Fix.ONE_IMMUNITY) { return 0; } // todo 仮
-    if (command_name == Fix.STANCE_OF_MUIN) { return 0; } // todo 仮
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 0; } // todo 仮
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 0; } // todo 仮
-    if (command_name == Fix.ZERO_IMMUNITY) { return 0; } // todo 仮
-    #endregion
-
-    #region "Delve VII"
-    // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return 0; } // todo 仮
-    if (command_name == Fix.ABSOLUTE_ZERO) { return 0; } // todo 仮
-    if (command_name == Fix.RESURRECTION) { return 0; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return 0; } // todo 仮
-    if (command_name == Fix.GENESIS) { return 0; } // todo 仮
-    if (command_name == Fix.TIME_STOP) { return 0; } // todo 仮
-    // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return 0; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return 0; } // todo 仮
-    if (command_name == Fix.CARNAGE_RUSH) { return 0; } // todo 仮
-    if (command_name == Fix.PIERCING_ARROW) { return 0; } // todo 仮
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 0; } // todo 仮
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return 0; } // todo 仮
-    #endregion
-    return 0; // Factor要素が無い場合は0を返す。
-  }
-
-  public static int FactorControl2(string command_name, Character player)
-  {
-    if (command_name == Fix.PURE_PURIFICATION) { return (player.PurePurification) * 1; }
-
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return (player.StanceOfTheBlade) * 3; }
-
-    if (command_name == Fix.IRON_BUSTER) { return (player.IronBuster) * 20; }
-
-    if (command_name == Fix.DOMINATION_FIELD) { return (player.DominationField) * 2; }
-
-    if (command_name == Fix.DEADLY_DRIVE) { return (player.DeadlyDrive) * 2; }
-
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return (player.UnintentionalHit) * 3; }
-
-    return 0; // Factor要素が無い場合は0を返す。
-  }
-
-
-  public static int FactorControl3(string command_name, Character player)
-  {
-    if (command_name == Fix.PURE_PURIFICATION) { return (player.PurePurification) * 1; }
-
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return (player.StanceOfTheBlade) * 3; }
-
-    if (command_name == Fix.IRON_BUSTER) { return (player.IronBuster) * 20; }
-
-    if (command_name == Fix.DOMINATION_FIELD) { return (player.DominationField) * 2; }
-
-    if (command_name == Fix.DEADLY_DRIVE) { return (player.DeadlyDrive) * 3; }
-
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return (player.UnintentionalHit) * 3; }
-
-    return 0; // Factor要素が無い場合は0を返す。
-  }
 }

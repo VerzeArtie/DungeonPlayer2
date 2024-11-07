@@ -9383,10 +9383,11 @@ public partial class BattleEnemy : MotherBase
       ExecMagicAttack(player, target, (1.00f + starswordSeiei.Cumulative * 0.50f), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     }
 
+    // フレイム・ブレイドによる効果
     if (player.IsFlameBlade && player.Dead == false)
     {
       bool resultCritical2 = false;
-      double addDamageValue = player.IsFlameBlade.EffectValue; // MagicDamageLogic(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Fire, false, critical, ref resultCritical2);
+      double addDamageValue = player.IsFlameBlade.EffectValue2 + MagicDamageLogic(player, target, SecondaryLogic.FlameBlade(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ref resultCritical2);
       // ファントム・朧による効果
       if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
       {
@@ -9735,13 +9736,13 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), 0, 0);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), SecondaryLogic.FlameBlade_BaseDamage(player), 0);
   }
 
   private void ExecPurePurification(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValuel(player);
+    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
     AbstractHealCommand(player, target, healValue);
 
     AbstractRemoveBuff(target, target.objBuffPanel, Fix.PURE_PURIFICATION, SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
