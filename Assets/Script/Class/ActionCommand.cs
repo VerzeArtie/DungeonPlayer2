@@ -3437,7 +3437,7 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return "敵一体を対象とする。対象に【氷】ダメージを与えた後、【鈍化】のBUFFを付与する。\r\n【鈍化】が続く間、戦闘速度が減少する。"; }
     if (command_name == Fix.FRESH_HEAL) { return "味方一体を対象とする。対象のライフを回復する。"; }
     if (command_name == Fix.SHADOW_BLAST) { return "敵一体を対象とする。対象に【闇】ダメージを与えた後、【陰影】のBUFFを付与する。\r\n【陰影】が続く間、魔法防御が減少する。"; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを20%進行させる。"; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "味方一体を対象とする。対象のインスタントゲージを進行させる。"; }
     if (command_name == Fix.ENERGY_BOLT) { return "敵一体を対象とする。対象に無属性のダメージを与える。\r\nこのダメージは魔法属性として扱われる。\r\nダメージ量は【知】を根源として算出される。"; }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。"; }
@@ -3749,7 +3749,7 @@ public static class ActionCommand
     if (command_name == Fix.ICE_NEEDLE) { return "【氷】ダメージの威力 ＋９"; }
     if (command_name == Fix.FRESH_HEAL) { return "ライフ回復量 ＋２０"; }
     if (command_name == Fix.SHADOW_BLAST) { return "【陰影】による魔法防御ＤＯＷＮ影響 ＋５％"; }
-    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋１０％"; }
+    if (command_name == Fix.ORACLE_COMMAND) { return "インスタントゲージの進行率 ＋６％"; }
     if (command_name == Fix.ENERGY_BOLT) { return "威力　＋５"; }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return "威力 ＋１０"; }

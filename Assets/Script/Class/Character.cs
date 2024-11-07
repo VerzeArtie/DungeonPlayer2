@@ -4517,42 +4517,47 @@ public partial class Character : MonoBehaviour
 
   public string GetEssenceFactor(string command_name)
   {
+    // 魔法
+    // 炎
     if (command_name == Fix.FIRE_BALL) { return "威力 " + (Math.Round(SecondaryLogic.FireBall(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.FLAME_BLADE) { return "追加【炎】の威力 " + (Math.Round(SecondaryLogic.FlameBlade(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.METEOR_BULLET) { return "攻撃回数 " + SecondaryLogic.MeteorBullet_Effect1(this) + "回"; }
-
+    // 氷
     else if (command_name == Fix.ICE_NEEDLE) { return "威力 " + (Math.Round(SecondaryLogic.IceNeedle(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.PURE_PURIFICATION) { return "ライフ回復量 " + Math.Round(SecondaryLogic.PurePurificationHealValue(this), 2, MidpointRounding.AwayFromZero) * 100 + "、１度に除去できる数 " + SecondaryLogic.PurePurification_Effect1(this); }
     else if (command_name == Fix.BLUE_BULLET) { return "攻撃回数 " + SecondaryLogic.BlueBullet_Effect1(this) + "回"; }
-
+    // 聖
     else if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.FreshHeal(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.DIVINE_CIRCLE) { return "【加護】による軽減量 " + (Math.Round(SecondaryLogic.DivineCircle_Effect1(this), 0, MidpointRounding.AwayFromZero) * 1); }
     else if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.HolyBreath(this), 2, MidpointRounding.AwayFromZero) * 100); }
-
+    // 闇
     else if (command_name == Fix.SHADOW_BLAST) { return "魔法防御の減少量 " + SecondaryLogic.ShadowBlast(this) + "%"; }
     else if (command_name == Fix.BLOOD_SIGN) { return "【出血】ダメージの威力 " + (Math.Round(SecondaryLogic.BloodSign(this), 0, MidpointRounding.AwayFromZero) * 1); }
     else if (command_name == Fix.BLACK_CONTRACT) { return "ターン持続数 " + SecondaryLogic.BlackContract_Turn(this); }
-
-    else if (command_name == Fix.ORACLE_COMMAND) { return "インスタンスゲージ回復量 " + SecondaryLogic.OracleCommand(this) + "%"; }
-
+    // 理
+    else if (command_name == Fix.ORACLE_COMMAND) { return "インスタンスゲージ進行 " + (Math.Round(SecondaryLogic.OracleCommand(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.FORTUNE_SPIRIT) { return "累積カウンター数 " + SecondaryLogic.FortuneSpirit_Effect1(this); }
+    // 空唱
     else if (command_name == Fix.ENERGY_BOLT) { return "威力 " + (Math.Round(SecondaryLogic.EnergyBolt(this), 2, MidpointRounding.AwayFromZero) * 100); }
 
+    // スキル
+    // 戦士
     else if (command_name == Fix.STRAIGHT_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.StraightSmash(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.STANCE_OF_THE_BLADE) { return "威力 " + (Math.Round(SecondaryLogic.StanceOfTheBladeDamage(this), 2, MidpointRounding.AwayFromZero) * 100) + "、物理攻撃ヒット毎の上昇率" + (Math.Round(SecondaryLogic.StanceOfTheBlade(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.DOUBLE_SLASH) { return "威力 " + (Math.Round(SecondaryLogic.DoubleSlash(this), 2, MidpointRounding.AwayFromZero) * 100); }
-
+    // 護衛
     else if (command_name == Fix.SHIELD_BASH) { return "効果ターン " + SecondaryLogic.ShieldBash_Turn(this); }
-
+    // 格闘
     else if (command_name == Fix.LEG_STRIKE) { return "戦闘速度の増加量 " + (-100 + Math.Round(SecondaryLogic.LegStrike_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.SPEED_STEP) { return "戦闘反応の増加量 " + (Math.Round(SecondaryLogic.SpeedStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.BONE_CRUSH) { return "物理防御の減少量 " + (100.0f - Math.Round(SecondaryLogic.BoneCrush_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-
+    // 弓術
     else if (command_name == Fix.HUNTER_SHOT) { return "クリティカル発生率 +" + Math.Round(SecondaryLogic.HunterShot_Value(this), 2, MidpointRounding.AwayFromZero) + "%"; }
     else if (command_name == Fix.MULTIPLE_SHOT) { return "威力 " + Math.Round(SecondaryLogic.MultipleShot(this), 2, MidpointRounding.AwayFromZero) * 100; }
-
+    // 心眼
     else if (command_name == Fix.TRUE_SIGHT) { return "潜在能力の増加量 " + (Math.Round(SecondaryLogic.TrueSight_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.LEYLINE_SCHEMA) { return "ＳＰ回復量 " + Math.Round(SecondaryLogic.LeylineSchema_Effect1(this), 2, MidpointRounding.AwayFromZero); }
-
+    // 無心
     else if (command_name == Fix.DISPEL_MAGIC) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.DISPEL_MAGIC, ActionCommand.Cost(Fix.DISPEL_MAGIC), this); }
     else if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費　" + SecondaryLogic.CostControl(Fix.FLASH_COUNTER, ActionCommand.Cost(Fix.FLASH_COUNTER), this); }
 

@@ -269,7 +269,7 @@ public static class SecondaryLogic
 
   public static double OracleCommand(Character player)
   {
-    return 0.50f + (player.OracleCommand - 1) * 0.10f;
+    return 0.30f + (player.OracleCommand - 1) * 0.06f;
   }
 
   public static double MultipleShot(Character player)
