@@ -4544,11 +4544,11 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.FLASH_COUNTER) { return "ＭＰ消費　" + SecondaryLogic.CostControl(Fix.FLASH_COUNTER, ActionCommand.Cost(Fix.FLASH_COUNTER), this); }
     // スキル
     else if (command_name == Fix.STANCE_OF_THE_BLADE) { return "威力 " + (Math.Round(SecondaryLogic.StanceOfTheBladeDamage(this), 2, MidpointRounding.AwayFromZero) * 100) + "、物理攻撃ヒット毎の上昇率" + (Math.Round(SecondaryLogic.StanceOfTheBlade(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    // STANCE_OF_THE_GUARD
+    else if (command_name == Fix.STANCE_OF_THE_GUARD) { return "物理防御の増加量 " + (Math.Round(SecondaryLogic.StanceOfTheGuard(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.SPEED_STEP) { return "戦闘反応の増加量 " + (Math.Round(SecondaryLogic.SpeedStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.MULTIPLE_SHOT) { return "威力 " + Math.Round(SecondaryLogic.MultipleShot(this), 2, MidpointRounding.AwayFromZero) * 100; }
     else if (command_name == Fix.LEYLINE_SCHEMA) { return "ＳＰ回復量 " + Math.Round(SecondaryLogic.LeylineSchema_Effect1(this), 2, MidpointRounding.AwayFromZero); }
-    // SPIRITUAL_REST
+    else if (command_name == Fix.SPIRITUAL_REST) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.SPIRITUAL_REST, ActionCommand.Cost(Fix.SPIRITUAL_REST), this); }
     #endregion
 
     #region "Delve III"
