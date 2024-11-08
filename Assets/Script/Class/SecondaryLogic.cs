@@ -877,7 +877,8 @@ public static class SecondaryLogic
   }
   public static float UnintentionalHit_GaugeStep(Character player)
   {
-    return 0.20f;
+    if (player.UnintentionalHit <= 1) { return 0.20f; }
+    return 0.20f + (player.UnintentionalHit - 1) * 0.03f;
   }
 
   public static int EverflowMind_Turn(Character player)
@@ -893,8 +894,8 @@ public static class SecondaryLogic
 
   public static double InnerInspiration_Effect1(Character player)
   {
-    if (player.InnerInspiration <= 1) { return 0.10f; }
-    return 0.10f + (player.InnerInspiration - 1) * 0.10f;
+    if (player.InnerInspiration <= 1) { return 0.50f; }
+    return 0.50f + (player.InnerInspiration - 1) * 0.10f;
   }
 
   public static int SeventhPrinciple_Turn(Character player)

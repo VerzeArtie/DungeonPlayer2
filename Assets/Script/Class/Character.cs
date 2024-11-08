@@ -4585,6 +4585,23 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.CIRCLE_OF_SERENITY, ActionCommand.Cost(Fix.CIRCLE_OF_SERENITY), this); }
     #endregion
 
+    #region "Delve V"
+    // 魔法
+    else if (command_name == Fix.FLAME_STRIKE) { return "威力 " + (Math.Round(SecondaryLogic.FlameStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FROST_LANCE) { return "威力 " + (Math.Round(SecondaryLogic.FrostLance(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SHINING_HEAL) { return "継続ターン数 " + SecondaryLogic.ShiningHeal_Turn(this); }
+    else if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "物理防御／魔法防御／戦闘反応の減少量 " + (100.0f - Math.Round(SecondaryLogic.CircleOfDespair_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.SEVENTH_PRINCIPLE, ActionCommand.Cost(Fix.SEVENTH_PRINCIPLE), this); }
+    else if (command_name == Fix.COUNTER_DISALLOW) { return "継続ターン数 " + SecondaryLogic.CounterDisallow_Turn(this); }
+    // スキル
+    else if (command_name == Fix.RAGING_STORM) { return "物理攻撃／魔法攻撃の増加量 " + (Math.Round(SecondaryLogic.RagingStorm_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.HARDEST_PARRY, ActionCommand.Cost(Fix.HARDEST_PARRY), this); }
+    else if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 " + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) +"%、敵の行動ゲージ後退率 " + (Math.Round(SecondaryLogic.UnintentionalHit_GaugeStep(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.PRECISION_STRIKE) { return "威力 " + (Math.Round(SecondaryLogic.PrecisionStrike(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ維持率 " + (Math.Round(SecondaryLogic.EverflowMind_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
+    else if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 " + (Math.Round(SecondaryLogic.InnerInspiration_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
+    #endregion
+
     else if (command_name == "") { return ""; }
     return "";
   }

@@ -3513,7 +3513,7 @@ public static class ActionCommand
     if (command_name == Fix.UNINTENTIONAL_HIT) { return "敵一体に対して【物理】ダメージを与える。対象に【麻痺】のBUFFを付与する。また、自分の行動ゲージを20%進め、敵一体の行動ゲージを20%戻す。（行動ゲージが100%に達した場合は、行動ゲージは100%とする。行動ゲージが0%を下回る場合は行動ゲージは0%とする。）"; }
     if (command_name == Fix.PRECISION_STRIKE) { return "インスタント限定。敵一体に対して【物理】ダメージを与える。本ダメージは必ずクリティカルヒットが適用される。"; }
     if (command_name == Fix.EVERFLOW_MIND) { return "味方一体に対して【常在】のBUFFを付与する。【常在】が続く間、インスタント行動を行った後、インスタントゲージが全て消費されず、20%残った状態となる"; }
-    if (command_name == Fix.INNER_INSPIRATION) { return "味方一体を対象とする。SPを10%回復する。"; }
+    if (command_name == Fix.INNER_INSPIRATION) { return "味方一体を対象とする。対象のスキルポイントを回復する。"; }
     #endregion
 
     #region "Delve VI"
@@ -3812,20 +3812,20 @@ public static class ActionCommand
     #endregion
 
     #region "Delve V"
-    //// 魔法
-    //if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋" + factor1; }
-    //if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋" + factor1; }
-    //if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －" + factor1; }
-    //if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋" + factor1; }
-    //// スキル
-    //if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋" + factor1; }
-    //if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －" + factor1; }
-    //if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋" + factor1 + "　敵の行動ゲージ後退率 ＋" + factor2; }
-    //if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ消費率 －" + factor1; }
-    //if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋" + factor1; }
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return "【炎】ダメージの威力 ＋５０"; }
+    if (command_name == Fix.FROST_LANCE) { return "【氷】ダメージの威力 ＋４０"; }
+    if (command_name == Fix.SHINING_HEAL) { return "【祝福】の継続ターン数 ＋１"; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return "【荒廃】による物理防御／魔法防御／戦闘反応ＤＯＷＮ影響 ＋３％"; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return "ＭＰ消費 －１０"; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return "【喪失】の継続ターン数 ＋１"; }
+    // スキル
+    if (command_name == Fix.RAGING_STORM) { return "【臨戦】による物理攻撃／魔法攻撃 ＋１０％"; }
+    if (command_name == Fix.HARDEST_PARRY) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return "自分の行動ゲージ進行率 ＋３％、敵の行動ゲージ後退率 ＋３％"; }
+    if (command_name == Fix.PRECISION_STRIKE) { return "物理ダメージの威力 ＋５０"; }
+    if (command_name == Fix.EVERFLOW_MIND) { return "【常在】によるインスタントゲージ維持率 ＋２％"; }
+    if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 ＋１０％"; }
     #endregion
 
     #region "Delve VI"
