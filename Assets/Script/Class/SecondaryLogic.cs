@@ -382,7 +382,7 @@ public static class SecondaryLogic
   public static double StanceOfTheBlade(Character player)
   {
     if (player.StanceOfTheBlade <= 1) { return 0.10f; }
-    return 0.10f + (player.StanceOfTheBlade - 1) * 0.30f;
+    return 0.10f + (player.StanceOfTheBlade - 1) * 0.03f;
   }
 
   public static int StanceOfTheBlade_Turn(Character player)
