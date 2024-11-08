@@ -4522,12 +4522,12 @@ public partial class Character : MonoBehaviour
     if (command_name == Fix.FIRE_BALL) { return "威力 " + (Math.Round(SecondaryLogic.FireBall(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.ICE_NEEDLE) { return "威力 " + (Math.Round(SecondaryLogic.IceNeedle(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.FRESH_HEAL) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.FreshHeal(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SHADOW_BLAST) { return "魔法防御の減少量 " + SecondaryLogic.ShadowBlast(this) + "%"; }
+    else if (command_name == Fix.SHADOW_BLAST) { return "魔法防御の減少量 " + (100.0f - (Math.Round(SecondaryLogic.ShadowBlast_Value(this), 2, MidpointRounding.AwayFromZero) * 100)) + "%"; }
     else if (command_name == Fix.ORACLE_COMMAND) { return "インスタンスゲージ進行 " + (Math.Round(SecondaryLogic.OracleCommand(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.ENERGY_BOLT) { return "威力 " + (Math.Round(SecondaryLogic.EnergyBolt(this), 2, MidpointRounding.AwayFromZero) * 100); }
     // スキル
     else if (command_name == Fix.STRAIGHT_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.StraightSmash(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    else if (command_name == Fix.SHIELD_BASH) { return "効果ターン " + SecondaryLogic.ShieldBash_Turn(this); }
+    else if (command_name == Fix.SHIELD_BASH) { return "継続ターン数 " + SecondaryLogic.ShieldBash_Turn(this); }
     else if (command_name == Fix.LEG_STRIKE) { return "戦闘速度の増加量 " + (-100 + Math.Round(SecondaryLogic.LegStrike_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
     else if (command_name == Fix.HUNTER_SHOT) { return "クリティカル発生率 +" + Math.Round(SecondaryLogic.HunterShot_Value(this), 2, MidpointRounding.AwayFromZero) + "%"; }
     else if (command_name == Fix.TRUE_SIGHT) { return "潜在能力の増加量 " + (Math.Round(SecondaryLogic.TrueSight_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
@@ -4557,15 +4557,15 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.BLUE_BULLET) { return "攻撃回数 " + SecondaryLogic.BlueBullet_Effect1(this) + "回"; }
     else if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 " + (Math.Round(SecondaryLogic.HolyBreath(this), 2, MidpointRounding.AwayFromZero) * 100); }
     else if (command_name == Fix.BLACK_CONTRACT) { return "ターン持続数 " + SecondaryLogic.BlackContract_Turn(this); }
-    // WORD_OF_POWER
-    // SIGIL_OF_THE_PENDING
+    else if (command_name == Fix.WORD_OF_POWER) { return "威力 " + (Math.Round(SecondaryLogic.WordOfPower(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "継続ターン数 " + SecondaryLogic.SigilOfThePending_Turn(this); }
     // スキル
-    else if (command_name == Fix.DOUBLE_SLASH) { return "威力 " + (Math.Round(SecondaryLogic.DoubleSlash(this), 2, MidpointRounding.AwayFromZero) * 100); }
-    // CONCUSSIVE_HIT
-    else if (command_name == Fix.BONE_CRUSH) { return "物理防御の減少量 " + (100.0f - Math.Round(SecondaryLogic.BoneCrush_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
-    // EYE_OF_THE_ISSHIN
-    // VOICE_OF_VIGOR
-    // UNSEEN_AID
+    else if (command_name == Fix.DOUBLE_SLASH) { return "威力 " + (Math.Round(SecondaryLogic.DoubleSlash(this), 2, MidpointRounding.AwayFromZero) * 100) + " x2回"; }
+    else if (command_name == Fix.CONCUSSIVE_HIT) { return "物理防御の減少量 " + (Math.Round(SecondaryLogic.ConcussiveHit(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.BONE_CRUSH) { return "物理攻撃の減少量 " + (100.0f - Math.Round(SecondaryLogic.BoneCrush_Value(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "物理防御を無視する量 " + (Math.Round(SecondaryLogic.EyeOfTheIsshin_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.VOICE_OF_VIGOR) { return "最大ライフの増加量 " + (Math.Round(SecondaryLogic.VoiceOfVigor(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.UNSEEN_AID, ActionCommand.Cost(Fix.UNSEEN_AID), this); }
     #endregion
 
     else if (command_name == "") { return ""; }

@@ -3478,7 +3478,7 @@ public static class ActionCommand
     if (command_name == Fix.CONCUSSIVE_HIT) { return "敵一体を対象とする。対象に物理ダメージを与え、【破損】のBUFFを付与する。【破損】が続く間、対象の物理防御が減少する。この効果は５回まで累積可能である。"; }
     if (command_name == Fix.BONE_CRUSH) { return "敵一体を対象とする。対象に【物理】ダメージを与える。対象に【損傷】のBUFFを付与する。【損傷】が続く間、対象の物理攻撃力が２０％低下する。"; }
     if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "自分自身に【一心】のBUFFを付与する。【一心】が続く間、対象の物理防御を２０％無視して、ダメージを当てられるようになる。"; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return "味方全員に【活力】のBUFFを付与する。【活力】が続く間、最大ライフが10%上昇する。また、その分だけライフを回復する。"; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return "味方全員に【活力】のBUFFを付与する。【活力】が続く間、最大ライフが上昇する。また、その分だけライフを回復する。"; }
     if (command_name == Fix.UNSEEN_AID) { return "敵味方全員を対象とする。対象にかかっている【有害】【有益】いずれのBUFFもすべて除去する。"; }
     #endregion
 
@@ -3778,20 +3778,20 @@ public static class ActionCommand
     #endregion
 
     #region "Delve III"
-    //// 魔法
-    //if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋" + factor1; }
-    //if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋" + factor1; }
-    //if (command_name == Fix.HOLY_BREATH) { return "ライフの回復量 ＋" + factor1; }
-    //if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋" + factor1; }
-    //if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋" + factor1; }
-    //// スキル
-    //if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
-    //if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋" + factor1 + "％上昇"; }
-    //if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する威力 ＋" + factor1; }
-    //if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの上昇量 ＋" + factor1; }
-    //if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －" + factor1; }
+    // 魔法
+    if (command_name == Fix.METEOR_BULLET) { return "メテオバレットの攻撃回数 ＋１"; }
+    if (command_name == Fix.BLUE_BULLET) { return "ブルーバレットの攻撃回数 ＋１"; }
+    if (command_name == Fix.HOLY_BREATH) { return "ライフ回復量 ＋３０"; }
+    if (command_name == Fix.BLACK_CONTRACT) { return "【黒契約】の継続ターン数 ＋１"; }
+    if (command_name == Fix.WORD_OF_POWER) { return "物理ダメージの威力 ＋２０"; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return "【留保】の継続ターン数 ＋２"; }
+    // スキル
+    if (command_name == Fix.DOUBLE_SLASH) { return "物理ダメージの威力 ＋１０"; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return "【破損】による物理防御ＤＯＷＮ影響 ＋１％"; }
+    if (command_name == Fix.BONE_CRUSH) { return "【損傷】による物理攻撃ＤＯＷＮ影響 ＋３％"; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return "【一心】による対象の物理防御を無視する量 ＋２％"; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return "【活力】による最大ライフの増加量 ＋３％"; }
+    if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 －５"; }
     #endregion
 
     #region "Delve IV"
