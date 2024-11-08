@@ -3795,20 +3795,20 @@ public static class ActionCommand
     #endregion
 
     #region "Delve IV"
-    //// 魔法
-    //if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの上昇量 ＋" + factor1; }
-    //if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋" + factor1; }
-    //if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋" + factor1; }
-    //if (command_name == Fix.CURSED_EVANGILE) { return "カーズド・エヴァンジールによる【闇】ダメージの威力 ＋" + factor1; }
-    //if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋" + factor1; }
-    //if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －" + factor1; }
-    //// スキル
-    //if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋" + factor1 + "　周囲全体へのダメージの威力 ＋" + factor2; }
-    //if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御 ＋" + factor1 + "　防御姿勢によるダメージ軽減 ＋" + factor2; }
-    //if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋" + factor1 + "　(20%以下)＋" + factor2 + "　(10%以下)＋" + factor3; }
-    //if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋" + factor1; }
-    //if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋" + factor1; }
-    //if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －" + factor1; }
+    // 魔法
+    if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】による【炎】ダメージの威力 ＋１０"; }
+    if (command_name == Fix.FREEZING_CUBE) { return "【結晶】による【氷】ダメージの上昇量 ＋９"; }
+    if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋１０"; }
+    if (command_name == Fix.CURSED_EVANGILE) { return "【呪い】による【闇】ダメージの威力 ７４"; }
+    if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋１"; }
+    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －１０"; }
+    // スキル
+    if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋３０" + "　周囲全体へのダメージの威力 ＋２０"; }
+    if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御の増加 ＋３％" + "　防御姿勢によるダメージ軽減 ＋２％"; }
+    if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 (30%以下)＋１％" + "　(20%以下)＋２％" + "　(10%以下)＋３％"; }
+    if (command_name == Fix.PENETRATION_ARROW) { return "【傷跡】による物理防御ＤＯＷＮ影響 ＋４％"; }
+    if (command_name == Fix.WILL_AWAKENING) { return "【覚醒】の継続ターン数 ＋１"; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 －１０"; }
     #endregion
 
     #region "Delve V"

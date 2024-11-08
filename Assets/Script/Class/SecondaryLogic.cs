@@ -626,8 +626,8 @@ public static class SecondaryLogic
 
   public static int GaleWind_Turn(Character player)
   {
-    if (player.GaleWind <= 1) { return 3; }
-    return 3 + (player.GaleWind - 1);
+    if (player.GaleWind <= 1) { return 2; }
+    return 2 + (player.GaleWind - 1);
   }
 
   public static double FreezingCube(Character player)
@@ -643,7 +643,7 @@ public static class SecondaryLogic
   public static double FreezingCube_Effect(Character player)
   {
     if (player.FreezingCube <= 1) { return 1.20f; }
-    return 1.20F + (player.FreezingCube - 1) * 0.25f;
+    return 1.20F + (player.FreezingCube - 1) * 0.09f;
   }
 
   public static double FreezingCube_Effect2(Character player)
@@ -664,7 +664,7 @@ public static class SecondaryLogic
   public static double VolcanicBlaze_Effect(Character player)
   {
     if (player.VolcanicBlaze <= 1) { return 1.20f; }
-    return 1.20f + (player.VolcanicBlaze - 1) * 0.30f;
+    return 1.20f + (player.VolcanicBlaze - 1) * 0.10f;
   }
   public static double VolcanicBlaze_Effect2(Character player)
   {

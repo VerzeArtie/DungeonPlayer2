@@ -4568,6 +4568,23 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.UNSEEN_AID) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.UNSEEN_AID, ActionCommand.Cost(Fix.UNSEEN_AID), this); }
     #endregion
 
+    #region "Delve IV"
+    // 魔法
+    else if (command_name == Fix.VOLCANIC_BLAZE) { return "【業炎】の威力 " + (Math.Round(SecondaryLogic.VolcanicBlaze_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.FREEZING_CUBE) { return "【結晶】の威力 " + (Math.Round(SecondaryLogic.FreezingCube_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 " + (Math.Round(SecondaryLogic.AngelicEcho_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.CURSED_EVANGILE) { return "【呪い】による【闇】ダメージの威力 " + (Math.Round(SecondaryLogic.CursedEvangile_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.GALE_WIND) { return "継続ターン数 " + SecondaryLogic.GaleWind_Turn(this); }
+    else if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.PHANTOM_OBORO, ActionCommand.Cost(Fix.PHANTOM_OBORO), this); }
+    // スキル
+    else if (command_name == Fix.IRON_BUSTER) { return "威力 " + (Math.Round(SecondaryLogic.IronBuster(this), 2, MidpointRounding.AwayFromZero) * 100) + "、周囲全体への威力 " + (Math.Round(SecondaryLogic.IronBuster_2(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御の増加量 " + (Math.Round(SecondaryLogic.DominationField_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "%、防御姿勢によるダメージ軽減 " + (Math.Round(SecondaryLogic.DominationField_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.DEADLY_DRIVE) { return "【決死】による物理攻撃ＵＰ影響 " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "% / " + (Math.Round(SecondaryLogic.DeadlyDrive_Effect3(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.PENETRATION_ARROW) { return "物理防御ＤＯＷＮ影響 " + (100.0f - Math.Round(SecondaryLogic.PenetrationArrow_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.WILL_AWAKENING) { return "継続ターン数 " + SecondaryLogic.WillAwakening_Turn(this); }
+    else if (command_name == Fix.CIRCLE_OF_SERENITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(Fix.CIRCLE_OF_SERENITY, ActionCommand.Cost(Fix.CIRCLE_OF_SERENITY), this); }
+    #endregion
+
     else if (command_name == "") { return ""; }
     return "";
   }
