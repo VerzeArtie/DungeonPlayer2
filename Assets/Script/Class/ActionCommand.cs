@@ -3841,25 +3841,25 @@ public static class ActionCommand
     if (command_name == Fix.ONE_IMMUNITY) { return "ＳＰ消費 －５"; }
     if (command_name == Fix.STANCE_OF_MUIN) { return "累積カウンター数 ＋１"; }
     if (command_name == Fix.ETERNAL_CONCENTRATION) { return "【凝視】による物理ダメージの威力 ＋２０"; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大上昇量 ＋１０"; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大値の上昇量 ＋１０"; }
     if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 －５"; }
     #endregion
 
     #region "Delve VII"
     // 魔法
-    if (command_name == Fix.LAVA_ANNIHILATION) { return ""; }
-    if (command_name == Fix.ABSOLUTE_ZERO) { return ""; } // todo 仮
-    if (command_name == Fix.RESURRECTION) { return ""; } // todo 仮
-    if (command_name == Fix.DEATH_SCYTHE) { return ""; } // todo 仮
-    if (command_name == Fix.GENESIS) { return ""; } // todo 仮
-    if (command_name == Fix.TIME_STOP) { return ""; } // todo 仮
+    if (command_name == Fix.LAVA_ANNIHILATION) { return "【炎】ダメージの威力 ＋１００"; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return "継続ターン数 ＋１"; }
+    if (command_name == Fix.RESURRECTION) { return "ＭＰ消費 －５０"; }
+    if (command_name == Fix.DEATH_SCYTHE) { return "ターン経過毎に失う量 ＋１％"; } // todo 仮
+    if (command_name == Fix.GENESIS) { return "（なし）"; }
+    if (command_name == Fix.TIME_STOP) { return "時間停止タイマ ＋２００"; }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return ""; } // todo 仮
-    if (command_name == Fix.CATASTROPHE) { return ""; } // todo 仮
-    if (command_name == Fix.CARNAGE_RUSH) { return ""; } // todo 仮
-    if (command_name == Fix.PIERCING_ARROW) { return ""; } // todo 仮
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return ""; } // todo 仮
-    if (command_name == Fix.TRANSCENDENCE_REACHED) { return ""; } // todo 仮
+    if (command_name == Fix.KINETIC_SMASH) { return "威力 ＋１００"; }
+    if (command_name == Fix.CATASTROPHE) { return "威力 ＋５０"; } 
+    if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 ＋１"; }
+    if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 ＋１"; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "（なし）"; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 －５"; }
     #endregion
 
     #region "複合魔法"

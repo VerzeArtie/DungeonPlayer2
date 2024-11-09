@@ -1057,7 +1057,8 @@ public static class SecondaryLogic
 
   public static double DeathScythe_Effect(Character player)
   {
-    return 0.01f;
+    if (player.DeathScythe <= 1) { return 0.01f; }
+    return 0.01f + (player.DeathScythe - 1) * 0.01f;
   }
 
   public static double KineticSmash_Effect(Character player)
@@ -1450,6 +1451,22 @@ public static class SecondaryLogic
       if (player != null && player.OneImmunity > 0)
       {
         result -= (player.OneImmunity - 1) * 5;
+      }
+    }
+
+    if (command_name == Fix.RESURRECTION)
+    {
+      if (player != null && player.Resurrection > 0)
+      {
+        result -= (player.Resurrection - 1) * 50;
+      }
+    }
+
+    if (command_name == Fix.TRANSCENDENCE_REACHED)
+    {
+      if (player != null && player.TranscendenceReached > 0)
+      {
+        result -= (player.TranscendenceReached - 1) * 5;
       }
     }
 

@@ -4619,6 +4619,23 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
     #endregion
 
+    #region "Delve VI"
+    // 魔法
+    else if (command_name == Fix.LAVA_ANNIHILATION) { return "威力 " + (Math.Round(SecondaryLogic.LavaAnnihilation(this) * 100)); }
+    else if (command_name == Fix.ABSOLUTE_ZERO) { return "継続ターン数 " + SecondaryLogic.AbsoluteZero_Turn(this); }
+    else if (command_name == Fix.RESURRECTION) { return "ＭＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.DEATH_SCYTHE) { return "ターン経過毎に失う量 " + (Math.Round(SecondaryLogic.DeathScythe_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.GENESIS) { return "（なし）"; }
+    else if (command_name == Fix.TIME_STOP) { return "時間停止タイマ " + SecondaryLogic.TimeStop_Effect(this); }
+    // スキル
+    else if (command_name == Fix.KINETIC_SMASH) { return "威力 " + (Math.Round(SecondaryLogic.KineticSmash_Effect(this) * 100)); }
+    else if (command_name == Fix.CATASTROPHE) { return "威力 " + (Math.Round(SecondaryLogic.Catastrophe(this) * 100)); }
+    else if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 " + SecondaryLogic.CarnageRush_Count(this); }
+    else if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 " + SecondaryLogic.PiercingArrow_Turn(this); }
+    else if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "（なし）"; }
+    else if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    #endregion
+
     else if (command_name == "") { return ""; }
     return "";
   }
@@ -5142,10 +5159,10 @@ public partial class Character : MonoBehaviour
       this.SoulFragment--;
       this.EternalConcentration++;
     }
-    else if (essence_name == Fix.PENETRATION_ARROW || essence_name == Fix.PENETRATION_ARROW_JP)
+    else if (essence_name == Fix.PIERCING_ARROW || essence_name == Fix.PIERCING_ARROW_JP)
     {
       this.SoulFragment--;
-      this.PenetrationArrow++;
+      this.PiercingArrow++;
     }
     else if (essence_name == Fix.TRUE_SIGHT || essence_name == Fix.TRUE_SIGHT_JP)
     {
