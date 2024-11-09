@@ -4602,6 +4602,23 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.INNER_INSPIRATION) { return "ＳＰの回復量 " + (Math.Round(SecondaryLogic.InnerInspiration_Effect1(this), 2, MidpointRounding.AwayFromZero) * 100) +"%"; }
     #endregion
 
+    #region "Delve VI"
+    // 魔法
+    else if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "【炎輪】による【炎】ダメージの威力 " + (Math.Round(SecondaryLogic.CircleOfTheIgnite_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.WATER_PRESENCE) { return "【水脈】による魔法ダメージ軽減量 " + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "% 、魔法消費コスト軽減量 " + (100.0f - Math.Round(SecondaryLogic.WaterPresence_Effect2(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.VALKYRIE_BLADE) { return "物理攻撃ヒット時の【聖】ダメージの威力 " + (Math.Round(SecondaryLogic.ValkyrieBlade_Effect(this), 2, MidpointRounding.AwayFromZero) * 100) + "%"; }
+    else if (command_name == Fix.THE_DARK_INTENSITY) { return "継続ターン数 " + SecondaryLogic.TheDarkIntensity_Turn(this); }
+    else if (command_name == Fix.FUTURE_VISION) { return "ＭＰ消費 " + SecondaryLogic.CostControl(Fix.FUTURE_VISION, ActionCommand.Cost(Fix.FUTURE_VISION), this); }
+    else if (command_name == Fix.DETACHMENT_FAULT) { return "継続ターン数 " + SecondaryLogic.DetachmentFault_Turn(this); }
+    // スキル
+    else if (command_name == Fix.STANCE_OF_THE_IAI) { return "【居合】による物理ダメージの威力 " + (Math.Round(SecondaryLogic.StanceoftheIai_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ONE_IMMUNITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    else if (command_name == Fix.STANCE_OF_MUIN) { return "累積カウンター数 " + SecondaryLogic.StanceofMuin_Effect(this); }
+    else if (command_name == Fix.ETERNAL_CONCENTRATION) { return "【凝視】による物理ダメージの威力 " + (Math.Round(SecondaryLogic.EternalConcentration_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大値の上昇量 " + (Math.Round(SecondaryLogic.SigilOfTheFaith_Effect(this), 2, MidpointRounding.AwayFromZero) * 100); }
+    else if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
+    #endregion
+
     else if (command_name == "") { return ""; }
     return "";
   }

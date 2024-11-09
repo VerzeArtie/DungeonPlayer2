@@ -3519,7 +3519,7 @@ public static class ActionCommand
     #region "Delve VI"
     // 魔法
     if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "敵フィールドに対して【炎輪】のBUFFを付与する。\r\n【炎輪】が続く間、対象が通常攻撃を行うか、魔法を唱えるか、スキル行動を行うたびに、【炎】のダメージを与える。"; }
-    if (command_name == Fix.WATER_PRESENCE) { return "味方一体を対象とする。対象に【水脈】のBUFFを与える。\r\n【水脈】が続く間、魔法ダメージを受けた場合、そのダメージ量を半減する。また、魔法を唱える際の消費コストが半分になる。"; }
+    if (command_name == Fix.WATER_PRESENCE) { return "味方一体を対象とする。対象に【水脈】のBUFFを与える。\r\n【水脈】が続く間、魔法ダメージを受けた場合、そのダメージ量を軽減する。また、魔法を唱える際の消費コストが軽減される。"; }
     if (command_name == Fix.VALKYRIE_BLADE) { return "味方一体を対象とする。対象に【聖剣】のBUFFを付与する。\r\n【聖剣】が続く間、物理攻撃を行った場合、加えて【聖】の魔法属性ダメージを与える。本効果によるダメージを受けた対象は【聖痕】のBUFFが付与される。【聖痕】が続く間、対象はライフ回復を受けた場合、ライフを回復することができない。"; }
     if (command_name == Fix.THE_DARK_INTENSITY) { return "味方一体を対象とする。対象のライフを半分に減らし、【暗黒精神】のBUFFを付与する。\r\n【暗黒精神】が続く間、ダメージを受ける度に累積カウンターが乗る。累積カウンターの分だけ物理攻撃力、物理防御力が上昇する。累積カウンターは最大９つまで乗る。"; }
     if (command_name == Fix.FUTURE_VISION) { return "自分自身を対象として【未来視】のBUFFを付与する。\r\n【未来視】が続く間、敵陣営のいずれかがインスタント行動を行った場合、それをカウンターする。その後、本BUFFは消失する。"; }
@@ -3830,19 +3830,19 @@ public static class ActionCommand
 
     #region "Delve VI"
     // 魔法
-    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return ""; } // todo 仮
-    if (command_name == Fix.WATER_PRESENCE) { return ""; } // todo 仮
-    if (command_name == Fix.VALKYRIE_BLADE) { return ""; } // todo 仮
-    if (command_name == Fix.THE_DARK_INTENSITY) { return ""; } // todo 仮
-    if (command_name == Fix.FUTURE_VISION) { return ""; } // todo 仮
-    if (command_name == Fix.DETACHMENT_FAULT) { return ""; } // todo 仮
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return "【炎輪】による【炎】ダメージの威力 ＋１０"; }
+    if (command_name == Fix.WATER_PRESENCE) { return "【水脈】による魔法ダメージ軽減量 ＋５％、魔法消費コスト軽減量 ＋５％"; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return "物理攻撃ヒット時の【聖】ダメージの威力 ＋１０"; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return "継続ターン数 ＋１"; }
+    if (command_name == Fix.FUTURE_VISION) { return "ＭＰ消費 －２０"; }
+    if (command_name == Fix.DETACHMENT_FAULT) { return "継続ターン数 ＋１"; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return ""; } // todo 仮
-    if (command_name == Fix.ONE_IMMUNITY) { return ""; } // todo 仮
-    if (command_name == Fix.STANCE_OF_MUIN) { return ""; } // todo 仮
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return ""; } // todo 仮
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return ""; } // todo 仮
-    if (command_name == Fix.ZERO_IMMUNITY) { return ""; } // todo 仮
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return "【居合】による物理ダメージの威力 ＋２０"; }
+    if (command_name == Fix.ONE_IMMUNITY) { return "ＳＰ消費 －５"; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return "累積カウンター数 ＋１"; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return "【凝視】による物理ダメージの威力 ＋２０"; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return "最大上昇量 ＋１０"; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return "ＳＰ消費 －５"; }
     #endregion
 
     #region "Delve VII"

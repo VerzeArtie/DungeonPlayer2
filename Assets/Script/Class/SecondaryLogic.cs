@@ -921,14 +921,14 @@ public static class SecondaryLogic
 
   public static double WaterPresence_Effect(Character player)
   {
-    // 半分で固定
-    return 0.50f;
+    if (player.WaterPresence <= 1) { return 0.50f; }
+    return 0.50f - (player.WaterPresence - 1) * 0.05;
   }
 
   public static double WaterPresence_Effect2(Character player)
   {
-    // 半分で固定
-    return 0.50f;
+    if (player.WaterPresence <= 1) { return 0.50f; }
+    return 0.50f - (player.WaterPresence - 1) * 0.05f;
   }
 
   public static int ValkyrieBlade_Turn(Character player)
@@ -1002,7 +1002,8 @@ public static class SecondaryLogic
 
   public static int StanceofMuin_Effect(Character player)
   {
-    return 5;
+    if (player.StanceOfMuin <= 1) { return 5; }
+    return 5 + (player.StanceOfMuin - 1);
   }
 
   public static int EternalConcentration_Turn(Character player)
@@ -1433,6 +1434,22 @@ public static class SecondaryLogic
       if (player != null && player.HardestParry > 0)
       {
         result -= (player.HardestParry - 1) * 5;
+      }
+    }
+
+    if (command_name == Fix.FUTURE_VISION)
+    {
+      if (player != null && player.FutureVision > 0)
+      {
+        result -= (player.FutureVision - 1) * 20;
+      }
+    }
+
+    if (command_name == Fix.ONE_IMMUNITY)
+    {
+      if (player != null && player.OneImmunity > 0)
+      {
+        result -= (player.OneImmunity - 1) * 5;
       }
     }
 
