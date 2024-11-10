@@ -4632,7 +4632,7 @@ public partial class Character : MonoBehaviour
     else if (command_name == Fix.CATASTROPHE) { return "威力 " + (Math.Round(SecondaryLogic.Catastrophe(this) * 100)); }
     else if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 " + SecondaryLogic.CarnageRush_Count(this); }
     else if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 " + SecondaryLogic.PiercingArrow_Turn(this); }
-    else if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "（なし）"; }
+    else if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
     else if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 " + SecondaryLogic.CostControl(command_name, ActionCommand.Cost(command_name), this); }
     #endregion
 
@@ -4730,6 +4730,349 @@ public partial class Character : MonoBehaviour
       list.Add(Fix.STAY);
     }
     return list;
+  }
+
+  public bool EssenceTreeMaxCap(string essence_name)
+  {
+    if (essence_name == Fix.FIRE_BALL || essence_name == Fix.FIRE_BALL_JP)
+    {
+      if (this.FireBall >= 5) { return true; }
+    }
+    else if (essence_name == Fix.FLAME_BLADE || essence_name == Fix.FLAME_BLADE_JP)
+    {
+      if (this.FlameBlade >= 5) { return true; }
+    }
+    else if (essence_name == Fix.METEOR_BULLET || essence_name == Fix.METEOR_BULLET_JP)
+    {
+      if (this.MeteorBullet >= 3) { return true; }
+    }
+    else if (essence_name == Fix.VOLCANIC_BLAZE || essence_name == Fix.VOLCANIC_BLAZE_JP)
+    {
+      if (this.VolcanicBlaze >= 5) { return true; }
+    }
+    else if (essence_name == Fix.FLAME_STRIKE || essence_name == Fix.FLAME_STRIKE_JP)
+    {
+      if (this.FlameStrike >= 5) { return true; }
+    }
+    else if (essence_name == Fix.CIRCLE_OF_THE_IGNITE || essence_name == Fix.CIRCLE_OF_THE_IGNITE_JP)
+    {
+      if (this.CircleOfTheIgnite >= 5) { return true; }
+    }
+    else if (essence_name == Fix.LAVA_ANNIHILATION || essence_name == Fix.LAVA_ANNIHILATION_JP)
+    {
+      if (this.LavaAnnihilation >= 3) { return true; }
+    }
+    else if (essence_name == Fix.ICE_NEEDLE || essence_name == Fix.ICE_NEEDLE_JP)
+    {
+      if (this.IceNeedle >= 5) { return true; }
+    }
+    else if (essence_name == Fix.PURE_PURIFICATION || essence_name == Fix.PURE_PURIFICATION_JP)
+    {
+      if (this.PurePurification >= 3) { return true; }
+    }
+    else if (essence_name == Fix.BLUE_BULLET || essence_name == Fix.BLUE_BULLET_JP)
+    {
+      if (this.BlueBullet >= 3) { return true; }
+    }
+    else if (essence_name == Fix.FREEZING_CUBE || essence_name == Fix.FREEZING_CUBE_JP)
+    {
+      if (this.FreezingCube >= 5) { return true; }
+    }
+    else if (essence_name == Fix.FROST_LANCE || essence_name == Fix.FROST_LANCE_JP)
+    {
+      if (this.FrostLance >= 5) { return true; }
+    }
+    else if (essence_name == Fix.WATER_PRESENCE || essence_name == Fix.WATER_PRESENCE_JP)
+    {
+      if (this.WaterPresence >= 3) { return true; }
+    }
+    else if (essence_name == Fix.ABSOLUTE_ZERO || essence_name == Fix.ABSOLUTE_ZERO_JP)
+    {
+      if (this.AbsoluteZero >= 3) { return true; }
+    }
+    else if (essence_name == Fix.FRESH_HEAL || essence_name == Fix.FRESH_HEAL_JP)
+    {
+      if (this.FreshHeal >= 5) { return true; }
+    }
+    else if (essence_name == Fix.DIVINE_CIRCLE || essence_name == Fix.DIVINE_CIRCLE_JP)
+    {
+      if (this.DivineCircle >= 5) { return true; }
+    }
+    else if (essence_name == Fix.HOLY_BREATH || essence_name == Fix.HOLY_BREATH_JP)
+    {
+      if (this.HolyBreath >= 5) { return true; }
+    }
+    else if (essence_name == Fix.ANGELIC_ECHO || essence_name == Fix.ANGELIC_ECHO_JP)
+    {
+      if (this.AngelicEcho >= 5) { return true; }
+    }
+    else if (essence_name == Fix.SHINING_HEAL || essence_name == Fix.SHINING_HEAL_JP)
+    {
+      if (this.ShiningHeal >= 3) { return true; }
+    }
+    else if (essence_name == Fix.VALKYRIE_BLADE || essence_name == Fix.VALKYRIE_BLADE_JP)
+    {
+      if (this.ValkyrieBlade >= 5) { return true; }
+    }
+    else if (essence_name == Fix.RESURRECTION || essence_name == Fix.RESURRECTION_JP)
+    {
+      if (this.Resurrection >= 5) { return true; }
+    }
+    else if (essence_name == Fix.SHADOW_BLAST || essence_name == Fix.SHADOW_BLAST_JP)
+    {
+      if (this.ShadowBlast >= 5) { return true; }
+    }
+    else if (essence_name == Fix.BLOOD_SIGN || essence_name == Fix.BLOOD_SIGN_JP)
+    {
+      if (this.BloodSign >= 5) { return true; }
+    }
+    else if (essence_name == Fix.BLACK_CONTRACT || essence_name == Fix.BLACK_CONTRACT_JP)
+    {
+      if (this.BlackContract >= 5) { return true; }
+    }
+    else if (essence_name == Fix.CURSED_EVANGILE || essence_name == Fix.CURSED_EVANGILE_JP)
+    {
+      if (this.CursedEvangile >= 4) { return true; }
+    }
+    else if (essence_name == Fix.CIRCLE_OF_THE_DESPAIR || essence_name == Fix.CIRCLE_OF_THE_DESPAIR_JP)
+    {
+      if (this.CircleOfTheDespair >= 5) { return true; }
+    }
+    else if (essence_name == Fix.THE_DARK_INTENSITY || essence_name == Fix.THE_DARK_INTENSITY_JP)
+    {
+      if (this.TheDarkIntensity >= 3) { return true; }
+    }
+    else if (essence_name == Fix.DEATH_SCYTHE || essence_name == Fix.DEATH_SCYTHE_JP)
+    {
+      if (this.DeathScythe >= 3) { return true; }
+    }
+    else if (essence_name == Fix.ORACLE_COMMAND || essence_name == Fix.ORACLE_COMMAND_JP)
+    {
+      if (this.OracleCommand >= 5) { return true; }
+    }
+    else if (essence_name == Fix.FORTUNE_SPIRIT || essence_name == Fix.FORTUNE_SPIRIT_JP)
+    {
+      if (this.FortuneSpirit >= 3) { return true; }
+    }
+    else if (essence_name == Fix.WORD_OF_POWER || essence_name == Fix.WORD_OF_POWER_JP)
+    {
+      if (this.WordOfPower >= 5) { return true; }
+    }
+    else if (essence_name == Fix.GALE_WIND || essence_name == Fix.GALE_WIND_JP)
+    {
+      if (this.GaleWind >= 3) { return true; }
+    }
+    else if (essence_name == Fix.SEVENTH_PRINCIPLE || essence_name == Fix.SEVENTH_PRINCIPLE_JP)
+    {
+      if (this.SeventhPrinciple >= 3) { return true; }
+    }
+    else if (essence_name == Fix.FUTURE_VISION || essence_name == Fix.FUTURE_VISION_JP)
+    {
+      if (this.FutureVision >= 3) { return true; }
+    }
+    else if (essence_name == Fix.GENESIS || essence_name == Fix.GENESIS_JP)
+    {
+      // Genesisは強化が無いため常にtrue
+      if (this.Genesis >= 0) { return true; }
+    }
+    else if (essence_name == Fix.ENERGY_BOLT || essence_name == Fix.ENERGY_BOLT_JP)
+    {
+      if (this.EnergyBolt >= 5) { return true; }
+    }
+    else if (essence_name == Fix.FLASH_COUNTER || essence_name == Fix.FLASH_COUNTER_JP)
+    {
+      if (this.FlashCounter >= 3) { return true; }
+    }
+    else if (essence_name == Fix.SIGIL_OF_THE_PENDING || essence_name == Fix.SIGIL_OF_THE_PENDING_JP)
+    {
+      if (this.SigilOfThePending >= 3) { return true; }
+    }
+    else if (essence_name == Fix.PHANTOM_OBORO || essence_name == Fix.PHANTOM_OBORO_JP)
+    {
+      if (this.PhantomOboro >= 3) { return true; }
+    }
+    else if (essence_name == Fix.COUNTER_DISALLOW || essence_name == Fix.COUNTER_DISALLOW_JP)
+    {
+      if (this.CounterDisallow >= 3) { return true; }
+    }
+    else if (essence_name == Fix.DETACHMENT_FAULT || essence_name == Fix.DETACHMENT_FAULT_JP)
+    {
+      if (this.DetachmentFault >= 3) { return true; }
+    }
+    else if (essence_name == Fix.TIME_STOP || essence_name == Fix.TIME_STOP_JP)
+    {
+      if (this.TimeStop >= 3) { return true; }
+    }
+    else if (essence_name == Fix.STRAIGHT_SMASH || essence_name == Fix.STRAIGHT_SMASH_JP)
+    {
+      if (this.StraightSmash >= 5) { return true; }
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_BLADE || essence_name == Fix.STANCE_OF_THE_BLADE_JP)
+    {
+      if (this.StanceOfTheBlade >= 5) { return true; }
+    }
+    else if (essence_name == Fix.DOUBLE_SLASH || essence_name == Fix.DOUBLE_SLASH_JP)
+    {
+      if (this.DoubleSlash >= 5) { return true; }
+    }
+    else if (essence_name == Fix.IRON_BUSTER || essence_name == Fix.IRON_BUSTER_JP)
+    {
+      if (this.IronBuster >= 5) { return true; }
+    }
+    else if (essence_name == Fix.RAGING_STORM || essence_name == Fix.RAGING_STORM_JP)
+    {
+      if (this.RagingStorm >= 5) { return true; }
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_IAI || essence_name == Fix.STANCE_OF_THE_IAI_JP)
+    {
+      if (this.StanceOfTheIai >= 5) { return true; }
+    }
+    else if (essence_name == Fix.KINETIC_SMASH || essence_name == Fix.KINETIC_SMASH_JP)
+    {
+      if (this.KineticSmash >= 3) { return true; }
+    }
+    else if (essence_name == Fix.SHIELD_BASH || essence_name == Fix.SHIELD_BASH_JP)
+    {
+      if (this.ShieldBash >= 3) { return true; }
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_GUARD || essence_name == Fix.STANCE_OF_THE_GUARD_JP)
+    {
+      if (this.StanceOfTheGuard >= 5) { return true; }
+    }
+    else if (essence_name == Fix.CONCUSSIVE_HIT || essence_name == Fix.CONCUSSIVE_HIT_JP)
+    {
+      if (this.ConcussiveHit >= 5) { return true; }
+    }
+    else if (essence_name == Fix.DOMINATION_FIELD || essence_name == Fix.DOMINATION_FIELD_JP)
+    {
+      if (this.DominationField >= 5) { return true; }
+    }
+    else if (essence_name == Fix.HARDEST_PARRY || essence_name == Fix.HARDEST_PARRY_JP)
+    {
+      if (this.HardestParry >= 3) { return true; }
+    }
+    else if (essence_name == Fix.ONE_IMMUNITY || essence_name == Fix.ONE_IMMUNITY_JP)
+    {
+      if (this.OneImmunity >= 3) { return true; }
+    }
+    else if (essence_name == Fix.CATASTROPHE || essence_name == Fix.CATASTROPHE_JP)
+    {
+      if (this.Catastrophe >= 3) { return true; }
+    }
+    else if (essence_name == Fix.LEG_STRIKE || essence_name == Fix.LEG_STRIKE_JP)
+    {
+      if (this.LegStrike >= 5) { return true; }
+    }
+    else if (essence_name == Fix.SPEED_STEP || essence_name == Fix.SPEED_STEP_JP)
+    {
+      if (this.SpeedStep >= 5) { return true; }
+    }
+    else if (essence_name == Fix.BONE_CRUSH || essence_name == Fix.BONE_CRUSH_JP)
+    {
+      if (this.BoneCrush >= 5) { return true; }
+    }
+    else if (essence_name == Fix.DEADLY_DRIVE || essence_name == Fix.DEADLY_DRIVE_JP)
+    {
+      if (this.DeadlyDrive >= 5) { return true; }
+    }
+    else if (essence_name == Fix.UNINTENTIONAL_HIT || essence_name == Fix.UNINTENTIONAL_HIT_JP)
+    {
+      if (this.UnintentionalHit >= 5) { return true; }
+    }
+    else if (essence_name == Fix.STANCE_OF_MUIN || essence_name == Fix.STANCE_OF_MUIN_JP)
+    {
+      if (this.StanceOfMuin >= 3) { return true; }
+    }
+    else if (essence_name == Fix.CARNAGE_RUSH || essence_name == Fix.CARNAGE_RUSH_JP)
+    {
+      if (this.CarnageRush >= 5) { return true; }
+    }
+    else if (essence_name == Fix.HUNTER_SHOT || essence_name == Fix.HUNTER_SHOT_JP)
+    {
+      if (this.HunterShot >= 5) { return true; }
+    }
+    else if (essence_name == Fix.MULTIPLE_SHOT || essence_name == Fix.MULTIPLE_SHOT_JP)
+    {
+      if (this.MultipleShot >= 5) { return true; }
+    }
+    else if (essence_name == Fix.EYE_OF_THE_ISSHIN || essence_name == Fix.EYE_OF_THE_ISSHIN_JP)
+    {
+      if (this.EyeOfTheIsshin >= 5) { return true; }
+    }
+    else if (essence_name == Fix.PENETRATION_ARROW || essence_name == Fix.PENETRATION_ARROW_JP)
+    {
+      if (this.PenetrationArrow >= 5) { return true; }
+    }
+    else if (essence_name == Fix.PRECISION_STRIKE || essence_name == Fix.PRECISION_STRIKE_JP)
+    {
+      if (this.PrecisionStrike >= 3) { return true; }
+    }
+    else if (essence_name == Fix.ETERNAL_CONCENTRATION || essence_name == Fix.ETERNAL_CONCENTRATION_JP)
+    {
+      if (this.EternalConcentration >= 5) { return true; }
+    }
+    else if (essence_name == Fix.PIERCING_ARROW || essence_name == Fix.PIERCING_ARROW_JP)
+    {
+      if (this.PiercingArrow >= 3) { return true; }
+    }
+    else if (essence_name == Fix.TRUE_SIGHT || essence_name == Fix.TRUE_SIGHT_JP)
+    {
+      if (this.TrueSight >= 5) { return true; }
+    }
+    else if (essence_name == Fix.LEYLINE_SCHEMA || essence_name == Fix.LEYLINE_SCHEMA_JP)
+    {
+      if (this.LeylineSchema >= 5) { return true; }
+    }
+    else if (essence_name == Fix.VOICE_OF_VIGOR || essence_name == Fix.VOICE_OF_VIGOR_JP)
+    {
+      if (this.VoiceOfVigor >= 5) { return true; }
+    }
+    else if (essence_name == Fix.WILL_AWAKENING || essence_name == Fix.WILL_AWAKENING_JP)
+    {
+      if (this.WillAwakening >= 3) { return true; }
+    }
+    else if (essence_name == Fix.EVERFLOW_MIND || essence_name == Fix.EVERFLOW_MIND_JP)
+    {
+      if (this.EverflowMind >= 5) { return true; }
+    }
+    else if (essence_name == Fix.SIGIL_OF_THE_FAITH || essence_name == Fix.SIGIL_OF_THE_FAITH_JP)
+    {
+      if (this.SigilOfTheFaith >= 3) { return true; }
+    }
+    else if (essence_name == Fix.STANCE_OF_THE_KOKOROE || essence_name == Fix.STANCE_OF_THE_KOKOROE_JP)
+    {
+      if (this.StanceOfTheKokoroe >= 3) { return true; }
+    }
+    else if (essence_name == Fix.DISPEL_MAGIC || essence_name == Fix.DISPEL_MAGIC_JP)
+    {
+      if (this.DispelMagic >= 5) { return true; }
+    }
+    else if (essence_name == Fix.SPIRITUAL_REST || essence_name == Fix.SPIRITUAL_REST_JP)
+    {
+      if (this.SpiritualRest >= 3) { return true; }
+    }
+    else if (essence_name == Fix.UNSEEN_AID || essence_name == Fix.UNSEEN_AID_JP)
+    {
+      if (this.UnseenAid >= 3) { return true; }
+    }
+    else if (essence_name == Fix.CIRCLE_OF_SERENITY || essence_name == Fix.CIRCLE_OF_SERENITY_JP)
+    {
+      if (this.CircleOfSerenity >= 3) { return true; }
+    }
+    else if (essence_name == Fix.INNER_INSPIRATION || essence_name == Fix.INNER_INSPIRATION_JP)
+    {
+      if (this.InnerInspiration >= 5) { return true; }
+    }
+    else if (essence_name == Fix.ZERO_IMMUNITY || essence_name == Fix.ZERO_IMMUNITY_JP)
+    {
+      if (this.ZeroImmunity >= 3) { return true; }
+    }
+    else if (essence_name == Fix.TRANSCENDENCE_REACHED || essence_name == Fix.TRANSCENDENCE_REACHED_JP)
+    {
+      if (this.TranscendenceReached >= 3) { return true; }
+    }
+
+    return false;
   }
 
   public void UpgradeEssenceTree(string essence_name)

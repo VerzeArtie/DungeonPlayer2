@@ -1119,6 +1119,18 @@ public class PartyMenu : MotherBase
       return;
     }
 
+    // 強化の上限に達している場合、または「強化なし」の場合、獲得できない旨を表示する。
+    if (CurrentPlayer.EssenceTreeMaxCap(txtEssenceCurrentName.text))
+    {
+      txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + " はレベル上限に達しています。";
+      txtEssenceDecisionMessage.text = "本コマンドはレベル上限に達しているため、これ以上強化する事は出来ません。";
+      btnEssenceDecisionAccept.gameObject.SetActive(false);
+      btnEssenceDecisionCancel.gameObject.SetActive(false);
+      btnEssenceDecisionOK.gameObject.SetActive(true);
+      groupEssenceDecision.SetActive(true);
+      return;
+    }
+
     txtEssenceDecisionTitle.text = txtEssenceCurrentName.text + "を獲得しますか？";
     txtEssenceDecisionMessage.text = "エッセンス・ポイントを１ポイント消費して獲得します。この操作は元に戻せません。";
     btnEssenceDecisionAccept.gameObject.SetActive(true);

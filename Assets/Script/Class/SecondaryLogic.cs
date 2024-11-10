@@ -1358,14 +1358,6 @@ public static class SecondaryLogic
 
     if (player == null) { return result; } // 対象を取っていない場合は無変換とする。
 
-    if (command_name == Fix.ENERGY_BOLT)
-    {
-      if (player != null && player.EnergyBolt > 1)
-      {
-        result -= (player.EnergyBolt - 1) * 1;
-      }
-    }
-
     if (command_name == Fix.DISPEL_MAGIC)
     {
       if (player != null && player.DispelMagic > 1)
@@ -1410,7 +1402,7 @@ public static class SecondaryLogic
     {
       if (player != null && player.PhantomOboro > 0)
       {
-        result -= (player.PhantomOboro - 1) * 10;
+        result -= (player.PhantomOboro - 1) * 6;
       }
     }
 
@@ -1459,6 +1451,14 @@ public static class SecondaryLogic
       if (player != null && player.Resurrection > 0)
       {
         result -= (player.Resurrection - 1) * 50;
+      }
+    }
+
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE)
+    {
+      if (player != null && player.StanceOfTheKokoroe > 0)
+      {
+        result -= (player.StanceOfTheKokoroe - 1) * 5;
       }
     }
 

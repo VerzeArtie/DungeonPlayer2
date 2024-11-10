@@ -3801,7 +3801,7 @@ public static class ActionCommand
     if (command_name == Fix.ANGELIC_ECHO) { return "【賛美】によるライフの回復量 ＋１０"; }
     if (command_name == Fix.CURSED_EVANGILE) { return "【呪い】による【闇】ダメージの威力 ７４"; }
     if (command_name == Fix.GALE_WIND) { return "【分身】の継続ターン数 ＋１"; }
-    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －１０"; }
+    if (command_name == Fix.PHANTOM_OBORO) { return "ＭＰ消費 －６"; }
     // スキル
     if (command_name == Fix.IRON_BUSTER) { return "対象へのダメージの威力 ＋３０" + "　周囲全体へのダメージの威力 ＋２０"; }
     if (command_name == Fix.DOMINATION_FIELD) { return "【鉄壁】による物理／魔法防御の増加 ＋３％" + "　防御姿勢によるダメージ軽減 ＋２％"; }
@@ -3858,7 +3858,7 @@ public static class ActionCommand
     if (command_name == Fix.CATASTROPHE) { return "威力 ＋５０"; } 
     if (command_name == Fix.CARNAGE_RUSH) { return "攻撃回数 ＋１"; }
     if (command_name == Fix.PIERCING_ARROW) { return "継続ターン数 ＋１"; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "（なし）"; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return "ＳＰ消費 －５"; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return "ＳＰ消費 －５"; }
     #endregion
 
