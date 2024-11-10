@@ -3425,13 +3425,12 @@ public partial class Item
         this._magicDefense = 15;
         this._gold = 3900;
         this._importantType = Important.None;
-        this._description = "土属性のエッセンスをシルバー素材に埋め込んで作成された盾。物理防御はもちろんの事、魔法耐性も幾ばくか付与されている。物理防御力２６、魔法防御力１５、体＋３、土耐性＋１５０、沈黙耐性";
+        this._description = "大地のエッセンスをシルバー素材に埋め込んで作成された盾。物理防御はもちろんの事、魔法耐性も幾ばくか付与されている。物理防御力２６、魔法防御力１５、体＋３、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 3;
         this._mind = 0;
-        this._resistEarthValue = 150;
         this._resistSilence = true;
         break;
 
