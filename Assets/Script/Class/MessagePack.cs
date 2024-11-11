@@ -35175,7 +35175,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：ううん、何でも無いわ。えっと・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：イアリング。見つけてくれて、ありがと。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：そのイヤリング。見つけてくれて、ありがと。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ああ、紛失しない様に気をつけてな。", ActionEvent.None);
 
