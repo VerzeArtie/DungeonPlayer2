@@ -14495,7 +14495,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：看板があるな。読むぞ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "『　うつろいを重ね、遠くを廻りて、祈願を果たす　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　うつろいを重ね、遠くを廻りて、祈願を果たす。　』", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -14547,7 +14547,7 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, "『　うつろいを重ね、遠くを廻りて、祈願を果たす　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　うつろいを重ね、遠くを廻りて、祈願を果たす。　』", ActionEvent.None);
     }
   }
 
@@ -35243,6 +35243,102 @@ public static class MessagePack
     else
     {
       Message(ref m_list, ref e_list, "ラナ：準備が出来たら、とっとと行くわよ♪", ActionEvent.None);
+    }
+  }
+  #endregion
+
+  #region "コア・シナリオ"
+  public static void CoreScenario_EarringOfLana(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Core_EarringOfLana == false)
+    {
+      One.TF.Event_Core_EarringOfLana = true;
+      Message(ref m_list, ref e_list, "アイン：ふう、ここの噴水広場で少し一休みするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？あれはラナだな。。。何をやってるんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おかしいわね・・・どこかこの辺だったと思うんだけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何だ、探し物か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、ちょっと落とし物なんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何を落としたんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：いつも持ち歩ているイヤリングよ。なかなか見つからなくて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ一緒に探してみるとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　しばらくして　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：っお・・・ひょっとしてこれじゃないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あっ、それよそれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、見た目的に特徴あるイヤリングだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、よく見つけられたわね。バカアインは注意散漫のくせにこういうのだけは得意よね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ正直見つけられたのは偶然だ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ま、今回はホントに助かったわ。アリガト♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何か困った事があればドンドン言ってくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、じゃあ今度フィオーネの湖に行って薬草を取ってくるから、それを手伝ってくれるかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、任せておけ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：休憩はもう良いかな。他の事をやろう。", ActionEvent.None);
+    }
+  }
+
+  public static void CoreScenario_EarringOfLana_NoAction(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Core_EarringOfLana_NoAction == false)
+    {
+      One.TF.Event_Core_EarringOfLana_NoAction = true;
+      Message(ref m_list, ref e_list, "アイン：ふう、ここの噴水広場で少し一休みするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ん？あれはラナだな。。。何をやってるんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おかしいわね・・・どこかこの辺だったと思うんだけど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何だ、探し物か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、ちょっと落とし物なんだけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何を落としたんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：薬品関連の素材アイテムよ。なかなか見つからなくて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ一緒に探してみるとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　しばらくして　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：っお・・・ひょっとしてこれじゃないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あっ、それよそれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、見た目はその辺の雑草とほぼ変わらないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：でも、よく見つけられたわね。バカアインは注意散漫のくせにこういうのだけは得意よね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ正直見つけられたのは偶然だ。ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ま、今回はホントに助かったわ。アリガト♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何か困った事があればドンドン言ってくれ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、じゃあ今度フィオーネの湖に行って薬草を取ってくるから、それを手伝ってくれるかしら。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、任せておけ！", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "アイン：休憩はもう良いかな。他の事をやろう。", ActionEvent.None);
     }
   }
   #endregion

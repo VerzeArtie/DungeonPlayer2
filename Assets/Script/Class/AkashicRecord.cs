@@ -34,6 +34,10 @@ public class AkashicRecord : MonoBehaviour
   [SerializeField] protected bool _event_message2600016 = false;
   public bool Event_Message2600016 { get { return _event_message2600016; } set { _event_message2600016 = value; } } // エンディング
 
+  // コア・シナリオ
+  [SerializeField] protected bool _record_earring_of_lana = false;
+  public bool Record_EarringOfLana { get { return _record_earring_of_lana; } set { _record_earring_of_lana = value; } } // ラナのイヤリングを入手した事がある。
+
   // アクションコマンドの刻印（一度誰かが記憶したなら、非表示としないためのフラグ）
   [SerializeField] protected bool _FireBall = false;
   public bool FireBall

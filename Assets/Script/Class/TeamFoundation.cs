@@ -2283,6 +2283,36 @@ public class TeamFoundation : MonoBehaviour
 
   [SerializeField] protected bool _event_entry_mystic_forest = false;
   public bool Event_EntryMysticForest {  get { return _event_entry_mystic_forest; } set { _event_entry_mystic_forest = value; } }
+
+  #region "コア・シナリオ"
+  [SerializeField] protected bool _event_core_earring_of_lana = false;
+  public bool Event_Core_EarringOfLana { get { return _event_core_earring_of_lana; } set { _event_core_earring_of_lana = value; } }
+  [SerializeField] protected bool _event_core_contact_lana = false;
+  public bool Event_Core_ContactLana { get { return _event_core_contact_lana; } set { _event_core_contact_lana = value; } }
+  [SerializeField] protected bool _event_core_goratrum_and_earring = false;
+  public bool Event_Core_GoratrumAndEarring { get { return _event_core_goratrum_and_earring; } set { _event_core_goratrum_and_earring = value; } }
+  [SerializeField] protected bool _event_core_seek_missnglink = false;
+  public bool Event_Core_SeekMissingLink { get { return _event_core_seek_missnglink; } set { _event_core_seek_missnglink = value; } }
+  [SerializeField] protected bool _event_core_getback_feltus = false;
+  public bool Event_Core_GetbackFeltus { get { return _event_core_getback_feltus; } set { _event_core_getback_feltus = value; } }
+  [SerializeField] protected bool _event_core_lore_of_feltus = false;
+  public bool Event_Core_LoreOfFeltus { get { return _event_core_lore_of_feltus; } set { _event_core_lore_of_feltus = value; } }
+  [SerializeField] protected bool _event_core_found_redstar = false;
+  public bool Event_Core_FoundRedstar { get { return _event_core_found_redstar; } set { _event_core_found_redstar = value; } }
+  [SerializeField] protected bool _event_core_acknowledge_feltus = false;
+  public bool Event_Core_AcknowledgeFeltus { get { return _event_core_acknowledge_feltus; } set { _event_core_acknowledge_feltus = value; } }
+  [SerializeField] protected bool _event_core_prophecysaga_oracle = false;
+  public bool Event_Core_ProphecySaga_Oracle { get { return _event_core_prophecysaga_oracle; } set { _event_core_prophecysaga_oracle = value; } }
+  [SerializeField] protected bool _event_core_advice_from_orphstein = false;
+  public bool Event_Core_AdviceFromOrphstein { get { return _event_core_advice_from_orphstein; } set { _event_core_advice_from_orphstein = value; } }
+  [SerializeField] protected bool _event_core_identify_feltus = false;
+  public bool Event_Core_IdentifyFeltus { get { return _event_core_identify_feltus; } set { _event_core_identify_feltus = value; } }
+
+  [SerializeField] protected bool _event_core_earring_of_lana_noaction = false;
+  public bool Event_Core_EarringOfLana_NoAction { get { return _event_core_earring_of_lana_noaction; } set { _event_core_earring_of_lana_noaction = value; } }
+
+  #endregion
+
   #endregion
 
   #region "Quest"
