@@ -1285,6 +1285,19 @@ public partial class HomeTown : MotherBase
 
   public void TapCustomEvent1()
   {
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
+    {
+      if (One.AR.Record_EarringOfLana && One.AR.Event_Message2600016)
+      {
+        MessagePack.CoreScenario_EarringOfLana(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.CoreScenario_EarringOfLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+    }
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE)
     {
       if (One.TF.Event_Message700030 == false)
@@ -3902,8 +3915,8 @@ public partial class HomeTown : MotherBase
 
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      btnCustomEvent1.gameObject.SetActive(false);
-      txtCustomEvent1.text = string.Empty;
+      btnCustomEvent1.gameObject.SetActive(true);
+      txtCustomEvent1.text = "中央噴水広場";
       btnCustomEvent2.gameObject.SetActive(false);
       txtCustomEvent2.text = string.Empty;
       btnCustomEvent3.gameObject.SetActive(false);

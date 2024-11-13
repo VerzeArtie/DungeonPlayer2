@@ -35215,6 +35215,8 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：さてと、じゃあ俺もそろそろ行くとするか。", ActionEvent.None);
 
+    One.AR.Record_EarringOfLana = true;
+    One.UpdateAkashicRecord();
     One.TF.CommunicationLana_15 = true;
     One.TF.AlreadyCommunicate = true;
   }
