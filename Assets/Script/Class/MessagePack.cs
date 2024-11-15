@@ -6122,7 +6122,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：さっそく使いに行ってみるとするか！", ActionEvent.None);
   }
 
-  public static void Message600210(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
+  public static void Message600210(ref List<string> m_list, ref List<ActionEvent> e_list, int number, bool event_core)
   {
     if (One.TF.Event_Message600120 == false)
     {
@@ -6180,13 +6180,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ただ、若干気になるエッセンスはあるんだが・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：何がよ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・いや、いいか。この時点だとどうにも分からない感じはする。", ActionEvent.None);
+      if (event_core)
+      {
+        CoreScenario_GoratrumAndEarring(ref m_list, ref e_list);
+      }
 
       Message(ref m_list, ref e_list, "ラナ：で、どうするわけ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あの２つ穴。上手く降りられるかどうか、少し調べてみよう。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：とりあえず、あの２つ穴。上手く降りられるかどうか、少し調べてみよう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：分かったわ。", ActionEvent.None);
     }
@@ -35250,11 +35251,11 @@ public static class MessagePack
   #endregion
 
   #region "コア・シナリオ"
-  public static void CoreScenario_EarringOfLana(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void CoreScenario_ContactLana(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Core_EarringOfLana == false)
+    if (One.TF.EventCore_ContactLana == false)
     {
-      One.TF.Event_Core_EarringOfLana = true;
+      One.TF.EventCore_ContactLana = true;
       Message(ref m_list, ref e_list, "アイン：ふう、ここの噴水広場で少し一休みするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ん？あれはラナだな。。。何をやってるんだ？", ActionEvent.None);
@@ -35297,11 +35298,11 @@ public static class MessagePack
     }
   }
 
-  public static void CoreScenario_EarringOfLana_NoAction(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void CoreScenario_ContactLana_NoAction(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Core_EarringOfLana_NoAction == false)
+    if (One.TF.EventCore_ContactLana_NoAction == false)
     {
-      One.TF.Event_Core_EarringOfLana_NoAction = true;
+      One.TF.EventCore_ContactLana_NoAction = true;
       Message(ref m_list, ref e_list, "アイン：ふう、ここの噴水広場で少し一休みするか。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ん？あれはラナだな。。。何をやってるんだ？", ActionEvent.None);
@@ -35342,6 +35343,216 @@ public static class MessagePack
     {
       Message(ref m_list, ref e_list, "アイン：休憩はもう良いかな。他の事をやろう。", ActionEvent.None);
     }
+  }
+
+
+  public static void CoreScenario_GoratrumAndEarring(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.EventCore_GoratrumAndEarring = true;
+
+    Message(ref m_list, ref e_list, "アイン：そもそも、このゴラトラム洞窟は一体なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何よ突然。ただの洞窟なんじゃないの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、そこの壁に描かれている模様を見てると、何となくだが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何となく、何よ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：妙に雰囲気がある区画だって思わないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：気になるほどではないわね。今までだってダンジョン行ってる時はこういう場所はよくあったでしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあそうなんだけどな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナが持ち歩いているイヤリングだが、その形状にどことなく似てる気がしないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：と、ラナに聞くわけにも・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、普通に聞こえてるわよ。今度は私のイヤリングが何か気になるわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：っあ、声に出てたか！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ハーッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『ッシャゴオォォオォォ！！！』（ラナのマーシレス・ブローがアインに炸裂）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ッグフォ・・・少しは手加減というものをだな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：だから私のイヤリングがどうかしたの？って聞いてるのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、ええとだな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、顔の表情から少し笑みを消し・・・　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：そのイヤリング。誰からもらった物なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：私の母さんからよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それって具体的にどういった経緯で受け取ったんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：経緯っていうほどの事ではないけど、単に誕生日の時にもらったのよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：誕生日・・・確かに特別ではあるが・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネ、ちょっと教えてくれないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：なんでしょうか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ゴラトラム洞窟のこの区画の模様と、エオネが来ているその服の模様、少し似てるよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：いいえ、別にそうは思いませんが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どの辺が似てるというと、描かれている模様の曲線だよ。その流線形の比率が黄金比とほぼ同等に作られている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何らかの関連性がある気がしないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：黄金比はどこにでもあります。特別な関連性は無いと思いますが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、装飾としての色合いもこの区画の壁は比較的、淡い青と濃いめの黄色がクロスして造られている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：エオネが来ている服も、神官が着ていそうな色合いの服で淡い青と濃いめの黄色だよな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：単なる偶然だと思います。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だろ、偶然なんだよ。やっぱりそうか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：あの・・・先ほどからどの辺のお話をされているのでしょうか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：エオネさん、このバカにそういうのを聞かない方が良いわ。余計長くなるから。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "エオネ：そうなんですか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：類似・・・偶然・・・重複性・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かった！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何か見えたわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分からない事が、分かった！　ッハッハッハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：殴る気も失せてきたわ・・・もうとんだ時間の無駄だったわね。もうこの話は良いかしら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ああ。悪い悪い。この件はまた今度にしよう。", ActionEvent.None);
+  }
+
+  public static void CoreScenario_GoratrumAndEarring2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.EventCore_GoratrumAndEarring2 = true;
+    Message(ref m_list, ref e_list, "アイン：さてと、下準備でもしておくか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
+
+    Message(ref m_list, ref e_list, "アイン：（ どうしても、気になるな。）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 単なる類似、偶然ではあるが・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ そういう偶然には決まって何かが隠されている時がある ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 隠されているというよりは、失われたと言った方が正確かもしれない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ゴラトラム洞窟。あそこはおそらくだが・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 元々は神殿だったのではないだろうか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 地面の亀裂や陥没などの激しい損傷は見受けられるが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 構造自体は奇麗にまとまっているように思える ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ で、例の区画にあった看板には確かこうあったな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "『　満たされるは精神と英知。語り継ぎし者よ、安らぎと平穏を。　』", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ あれは異質な内容だった ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ガイドや指針というよりはむしろ・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 詩に近い感じだ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 一体どうしてそんなのがあの区画にあるのか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 明らかに違和感を感じるし、それに加えて ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 描かれている模様は明らかにラナのイヤリングの形状と一致していた ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 単なる自然の産物同士が類似する事はあるかもしれないが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ イヤリングは人工的な物だ。何かをイメージして創られるのが一般的だ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ だとすると、あのイヤリングはあのゴラトラム洞窟がまだ神殿だった頃に造られたものなんじゃないのか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナは母親から貰ったと言っていたな・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 確かに、誕生日にイヤリングを貰うのはさほど不思議な内容じゃない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ただ、小さい頃は俺もラナの母親が居た紫聡千律道場で厳しく鍛えられた記憶がある ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 強く生きるための叱咤激励。愛とムチというより、ムチしかなかった気がする ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 俺やラナに毎年ちゃんと誕生日プレゼントはあったが、教本とか訓練ツールの類だった気がする ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ で、突然イヤリングなんかを渡すだろうか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 何らかの心境の変化であり得えないわけじゃないが・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 待てよ・・・心境の変化・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ そういえば突然ある日、紫聡千律道場を閉鎖したんだったな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 何でも急用が出来たとか何とかで、ココを離れる事になったと ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ その頃から、俺はオルガウェイン傭兵訓練施設へ、ラナは聖フローラ女学院へそれぞれ通う事になったんだ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナに渡されたイヤリングは、誕生日プレゼントだったのかも知れないが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ もっと何か重要な秘密が隠されているんじゃないのか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ あとはエオネについてだが・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ あの服装、どこかで見た気がするんだよな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 模様や配色については単なる偶然であるという事は理解できるが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ エオネがその服装を自分の意志で選んでいるとはあまり思えない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ エオネが普段付けている装飾品の中には、神官向けの代物ではないものもある ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ きっと個人的に気に入った物を身に付けてるんだろう ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ で、服装の方は何らかの規律やルールがあり、それに従った服装を選んでいるんじゃないだろうか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ そう考えるとゴラトラム洞窟の例の模様と酷似しているのは ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 偶然の要素もあるが、一部何らかの関連性が存在している気がしてならない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ゴラトラム洞窟のあの区画の雰囲気と、看板の内容は記憶しておくとするか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もう遅いな。明日に備えて寝るとしよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+  }
+
+  public static void CoreScenario_SeekMissingLink(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
   }
   #endregion
 

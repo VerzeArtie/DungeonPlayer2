@@ -14551,15 +14551,15 @@ public class DungeonField : MotherBase
       // 左下聖堂前のタイル3つでイベント発生とする。
       if (LocationDetect(tile, Fix.GORATRUM_Event_2_X, Fix.GORATRUM_Event_2_Y, Fix.GORATRUM_Event_2_Z))
       {
-        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 0); TapOK();
+        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 0, One.TF.EventCore_ContactLana); TapOK();
       }
       if (LocationDetect(tile, Fix.GORATRUM_Event_3_X, Fix.GORATRUM_Event_3_Y, Fix.GORATRUM_Event_3_Z))
       {
-        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 1); TapOK();
+        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 1, One.TF.EventCore_ContactLana); TapOK();
       }
       if (LocationDetect(tile, Fix.GORATRUM_Event_4_X, Fix.GORATRUM_Event_4_Y, Fix.GORATRUM_Event_4_Z))
       {
-        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 2); TapOK();
+        MessagePack.Message600210(ref QuestMessageList, ref QuestEventList, 2, One.TF.EventCore_ContactLana); TapOK();
       }
 
       if (LocationDetect(tile, Fix.GORATRUM_Hole_16_X, Fix.GORATRUM_Hole_16_Y, Fix.GORATRUM_Hole_16_Z))

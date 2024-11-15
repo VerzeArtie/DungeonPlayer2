@@ -1289,12 +1289,12 @@ public partial class HomeTown : MotherBase
     {
       if (One.AR.Record_EarringOfLana && One.AR.Event_Message2600016)
       {
-        MessagePack.CoreScenario_EarringOfLana(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.CoreScenario_ContactLana(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
       {
-        MessagePack.CoreScenario_EarringOfLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.CoreScenario_ContactLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -2174,6 +2174,11 @@ public partial class HomeTown : MotherBase
       }
       TapOK();
       return;
+    }
+
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AlreadyRestInn == false && One.TF.EventCore_GoratrumAndEarring && One.TF.EventCore_GoratrumAndEarring2 == false)
+    {
+      MessagePack.CoreScenario_GoratrumAndEarring2(ref QuestMessageList, ref QuestEventList);
     }
 
     // 港町コチューシェ、ビリー参戦＋エオネ離脱後、第四属性の開放
