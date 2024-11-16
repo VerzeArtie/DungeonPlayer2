@@ -3601,19 +3601,26 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エオネ：え、えっ、ええ・・・では。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "　～　２時間　経過後　～", ActionEvent.MessageDisplay);
+      if (One.TF.EventCore_GoratrumAndEarring2)
+      {
+        CoreScenario_DefeatZatkonStart(ref m_list, ref e_list);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "　～　２時間　経過後　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　っお。出てきたか。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　っお。出てきたか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ふぅ、美味しかった♪", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：ふぅ、美味しかった♪", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：どうだった。ちょっとは回復したか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：どうだった。ちょっとは回復したか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ええ、バッチリよ。ありがと♪", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：ええ、バッチリよ。ありがと♪", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし、それじゃあ、この港町で色々と調べてみるとするか！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：よし、それじゃあ、この港町で色々と調べてみるとするか！", ActionEvent.None);
+      }
     }
   }
 
@@ -35551,8 +35558,247 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
   }
 
-  public static void CoreScenario_SeekMissingLink(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void CoreScenario_DefeatZatkonStart(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
+    Message(ref m_list, ref e_list, "　～　３０分経過後　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：なかなか戻ってこないな・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ここでずっと待っているのもアレだな。どこか探索でもしてみるとするか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、町はずれの区画にて ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：( そういえばラナのやつ。あの時、誰かとぶつかってたな )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( たまに注意散漫で危ない時があるからな。気を付けろとは言ってるんだが )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( ・・・ん？いや、ちょっと待てよ。確かエオネも一緒にいたはずだ )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( エオネはかなり用心深い。すれ違う人と偶然ぶつかる所をボーっとしていて見逃すだろうか )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( それも潜り抜けたとなると、一般人じゃない可能性があるな・・・ )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( っあ！　まさかスリじゃないのか！？ )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：( だとしたら・・・アイツ何か盗まれてたりしないだろうか・・・ )", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、突如何かの気配を察知した ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・誰だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：出てこないか・・・ならば", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ソコだよな、ストレートスマッシュ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：っっ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あと、ソッチもだな。ダブル・スラッシュ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ッば、ばかな！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、そろそろ出てこい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：クソ・・・あと少しだと思ったのに。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：一体誰だ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：俺達は盗賊団【ZAT KON】。この名を知らぬ者はいない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：どうだ、怖くなったか、ああ！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：悪いが全く知らない。怖いというよりかは、不可思議な印象しかないわけだが。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：あぁ！？知らないだとぉ！！？？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：おいリーダー。コイツ知らねえって言ってるぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：まあ待てって、察してやれよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：え？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：コイツは俺達盗賊団を間違いなく知っている。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：で、心の底から怖いのさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：で、それを悟らせないためにハッタリをかましてイーブンに見せかけようとする。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：雑魚なりに頑張ってるわけだ。分かるだろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：リーダー・・・悪ぃ。俺が間違ってた、次からは気を付ける。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：次を話したいんだが、もういいか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：あ？おお、悪かったな。ビビらせ過ぎちまった様だ、許してくれや兄ちゃん。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もうそのくだりは分かった。さすがの俺でも辛い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ところで、さっき女子一人に体当たりして、何かを盗まなかったか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：俺達が他人の物を盗む？とんでもない。リーダー、お手数ですが説明のほどお願いします。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：任せとけ、こういうのはきちんと理論的に説明しておかないとな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うわっ、本当そういうの良いから・・・手短に頼む。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：俺達はいつも恵まれない他人に幸福を与えているのさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：うわぁ・・・マジか・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：おい、ちゃんと人の話は最後まで聞け。いいな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：で、あのお嬢ちゃんはモノの価値が分かって無さそうだったからな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：俺達が、価値あるアイテムにちゃんと入れ替えてやったのさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：あのお嬢ちゃん、ふと気が付いた時、とっても高価なアイテムを手にしている事に驚くわけさ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：そこらへんのショップでは売ってない代物だからな。相手を間違えなければ儲かるって仕組みさ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：おいてめぇ。これで分かったか？俺達は慈善事業団体なんだよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さっき、窃盗団って言ってなかったか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：うっせーな、それはその・・・集合団体のなんていうんだ、名前だよ、名前！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：とにかく、俺達は価値ある貴重なアイテムと彼女が持ってた例のブツを交換しただけだ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かった分かった。オーケーだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、じゃ返してくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：ハーーッハハハハ　　雑魚Ｂ：ウハハハハッハハハ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：じゃあ力づくで！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：取り返してみろや！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何か頭痛くなってきた・・・俺の方がペース乱されるなんて・・・ハハハ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：てかお前ら。奇襲している側のくせに俺からの先制攻撃、食らってたよな？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：ッフ、食らってねえとしたら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：当たってると思わせおき、相手を油断させる。高等技術さ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もう、やめておこう・・・頭痛がひどくなってきた。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、もう頼むから戦闘態勢として構えてくれ！頼む！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：ああ！？やる気かよ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：おお、やっちまうぞ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・ちゃんとそれで構えたのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：んだとぉ！？とっくに構えてるだろーがぁ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・ちょっと礼儀に反するが、始めてしまうか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃ、行くぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：３", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：お、DUEL形式だとよ。奇襲すればいいものを、俺達相手に命知らずだな奴だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：ゼロオオォォォ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：DUEL開始！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.NAME_ZATKON_MEMBER_1, ActionEvent.EncountDuel);
+  }
+
+  public static void CoreScenario_DefeatZatkon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：じゃあ・・・もう良いか？それ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ：ぐほっ・・・ばか・・・な・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：さ、次はお前だ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：なっ！？俺もさっきからてめぇに攻撃は仕掛けてるはずだぞ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、知ってる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もうメンドイから、一応一人ずつ頼むって言うのも止めてる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：どっ、そりゃどういう意味だ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もう良いから、次お前。はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：３", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ：まさかお前！　DUELだからってわざわざ1vs1形式に見立てて！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：DUEL開始！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.NAME_ZATKON_MEMBER_2, ActionEvent.EncountDuel);
+  }
+
+  public static void CoreScenario_DefeatZatkonEnd(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.EventCore_DefeatZatkonEnd = true;
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ:ぐっ・・・グォオアアァァ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：終わり！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ:き、貴様・・・名は何という・・・覚えておいてやろう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：で、頼むから覚えるんじゃなくて、すぐに忘れてくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ:アイン・ウォーレンス・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ:しかと刻んだぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そこは分かった。で、退散する前に品物を返してくれないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ｂ:これか・・・俺を倒した報酬だ。受け取るがよい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、宝剣？？？を入手した　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.GetItem);
+
+    Message(ref m_list, ref e_list, "アイン：じゃ、どことなり行くがいい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "雑魚Ａ＆Ｂ:サラバだ・・・無垢なる者よ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　雑魚Ａと雑魚Ｂはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：はぁぁぁ・・・何かどっと疲れた。宿屋でじっくり休みたいぜ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：しかし・・・何だこれは？ラナのやつ、こんな物持ってたっけ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：まあいいか。後でラナに渡しておくとするか。", ActionEvent.None);
   }
   #endregion
 

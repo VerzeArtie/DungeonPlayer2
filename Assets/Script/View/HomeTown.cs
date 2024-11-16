@@ -618,6 +618,23 @@ public partial class HomeTown : MotherBase
         return;
       }
     }
+    else if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE)
+    {
+      if (One.TF.DefeatZatKon_1 && One.TF.EventCore_DefeatZatkon_1 == false)
+      {
+        One.TF.EventCore_DefeatZatkon_1 = true;
+        MessagePack.CoreScenario_DefeatZatkon_2(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return;
+      }
+      else if (One.TF.DefeatZatKon_2 && One.TF.EventCore_DefeatZatkon_2 == false)
+      {
+        One.TF.EventCore_DefeatZatkon_2 = true;
+        MessagePack.CoreScenario_DefeatZatkonEnd(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return;
+      }
+    }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
       if (One.TF.Event_Message500010 == false)
@@ -2176,6 +2193,7 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    // ゴラトラム洞窟で特定区画到達後、アイン、ラナのイヤリングについて考察
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AlreadyRestInn == false && One.TF.EventCore_GoratrumAndEarring && One.TF.EventCore_GoratrumAndEarring2 == false)
     {
       MessagePack.CoreScenario_GoratrumAndEarring2(ref QuestMessageList, ref QuestEventList);
@@ -3070,8 +3088,10 @@ public partial class HomeTown : MotherBase
     this.AlreadyDetectEncount = true;
     One.BattleEnd = Fix.GameEndType.None;
     One.FromHometown = true;
+    One.ShadowPlayerList.Clear();
     if (this.ignoreCreateShadow == false)
     {
+      this.ignoreCreateShadow = true;
       One.CreateShadowData();
       for (int ii = 0; ii < One.EnemyList.Count; ii++)
       {
@@ -3102,7 +3122,9 @@ public partial class HomeTown : MotherBase
         One.BattleMode = Fix.BattleMode.Boss;
       }
       else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
-               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
+               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO ||
+               One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_1 ||
+               One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_2 )
       {
         Debug.Log(MethodBase.GetCurrentMethod() + "4 Duel");
         One.BattleMode = Fix.BattleMode.Duel;

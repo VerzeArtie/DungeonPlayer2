@@ -2291,6 +2291,12 @@ public class TeamFoundation : MonoBehaviour
   public bool EventCore_GoratrumAndEarring { get { return _event_core_goratrum_and_earring; } set { _event_core_goratrum_and_earring = value; } }
   [SerializeField] protected bool _event_core_goratrum_and_earring2 = false;
   public bool EventCore_GoratrumAndEarring2 { get { return _event_core_goratrum_and_earring2; } set { _event_core_goratrum_and_earring2 = value; } }
+  [SerializeField] protected bool _event_core_defeat_zatkon_1 = false;
+  public bool EventCore_DefeatZatkon_1 { get { return _event_core_defeat_zatkon_1; } set { _event_core_defeat_zatkon_1 = value; } }
+  [SerializeField] protected bool _event_core_defeat_zatkon_2 = false;
+  public bool EventCore_DefeatZatkon_2 { get { return _event_core_defeat_zatkon_2; } set { _event_core_defeat_zatkon_2 = value; } }
+  [SerializeField] protected bool _event_core_defeat_zatkon_end = false;
+  public bool EventCore_DefeatZatkonEnd { get { return _event_core_defeat_zatkon_end; } set { _event_core_defeat_zatkon_end = value; } }
 
   [SerializeField] protected bool _event_core_seek_missnglink = false;
   public bool EventCore_SeekMissingLink { get { return _event_core_seek_missnglink; } set { _event_core_seek_missnglink = value; } }
@@ -2890,6 +2896,12 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_yodirian = false;
   public bool DefeatGalvadazer { get { return _defeat_galvadazer; } set { _defeat_galvadazer = value; } }
   public bool DefeatYodirian { get { return _defeat_yodirian; } set { _defeat_yodirian = value; } }
+
+  protected bool _defeat_zatkon_1 = false;
+  public bool DefeatZatKon_1 { get { return _defeat_zatkon_1; } set { _defeat_zatkon_1 = value; } }
+
+  protected bool _defeat_zatkon_2 = false;
+  public bool DefeatZatKon_2 { get { return _defeat_zatkon_2; } set { _defeat_zatkon_2 = value; } }
 
   protected bool _defeat_flansis_queen_of_verdant = false;
   public bool DefeatFlansisQueenOfVerdant { get { return _defeat_flansis_queen_of_verdant; } set { _defeat_flansis_queen_of_verdant = value; } }

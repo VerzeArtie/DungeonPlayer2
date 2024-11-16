@@ -9337,6 +9337,18 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
+      case Fix.NAME_ZATKON_MEMBER_1:
+        SetupParameter(1, 1, 1, 1, 1, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
+      case Fix.NAME_ZATKON_MEMBER_2:
+        SetupParameter(1, 1, 1, 1, 1, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        this.CannotCritical = false;
+        break;
+
       default:
         SetupParameter(10, 10, 10, 10, 10, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);

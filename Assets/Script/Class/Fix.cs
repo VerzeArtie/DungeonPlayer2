@@ -2896,6 +2896,7 @@ public static partial class Fix
   public const string ARTIFACT_MUSOU = "古代の宝珠：無双";
   public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
   public const string EARRING_OF_LANA = "ラナのイヤリング";
+  public const string PRECIOUS_SWORD = "宝剣 ？？？";
 
   #endregion
   #region "無価値アイテム"
@@ -13849,6 +13850,10 @@ public static partial class Fix
 
   public const string NAME_SINIKIA_KAHLHANZ = @"カールハンツ";
   public const string NAME_SINIKIA_KAHLHANZ_FULL = @"シニキア・カールハンツ";
+  #endregion
+  #region "Duel対戦相手"
+  public const string NAME_ZATKON_MEMBER_1 = "ワン　ZAT KON";
+  public const string NAME_ZATKON_MEMBER_2 = "ツー　ZAT KON";
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";

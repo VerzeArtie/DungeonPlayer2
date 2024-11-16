@@ -1756,6 +1756,14 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatHellKerberos = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_1)
+        {
+          One.TF.DefeatZatKon_1 = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_2)
+        {
+          One.TF.DefeatZatKon_2 = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.THE_GALVADAZER ||
                                        One.EnemyList[0].FullName == Fix.THE_GALVADAZER_JP ||
                                        One.EnemyList[0].FullName == Fix.THE_GALVADAZER_JP_VIEW)
