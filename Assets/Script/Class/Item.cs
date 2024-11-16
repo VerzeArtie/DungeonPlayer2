@@ -11934,6 +11934,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.PRECIOUS_SWORD:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 1;
+        this._physicalAttackMax = 3;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "その剣には飾り付けが幾つか施されているが、実質的な武器としての効果は見受けられない。武具としての特徴的な本質は分かり難くなっており、一般的な強さを示す武器とは性質が異なる。何らかのレプリカにも見えるが、元となる素材も判明していない。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
       case Fix.ZEMULGEARS:
         this._rarity = Rarity.Legendary;
         this._itemType = ItemTypes.Onehand_Sword;
