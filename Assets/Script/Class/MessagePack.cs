@@ -35720,7 +35720,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "雑魚Ｂ：ゼロオオォォォ！！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "雑魚Ｂ：俺達2人相手にDUELってか？　身の程を知るが良いぜ！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
