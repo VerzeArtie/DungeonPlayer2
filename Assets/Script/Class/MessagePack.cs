@@ -14218,8 +14218,6 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：今・・・突然景色が変わったわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
-
       Message(ref m_list, ref e_list, "ビリー：おいアイン。大丈夫なんだろうな？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：若干想定外だったが、まあ大丈夫さ。", ActionEvent.None);
@@ -35799,6 +35797,385 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：しかし・・・何だこれは？ラナのやつ、こんな物持ってたっけ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：まあいいか。後でラナに渡しておくとするか。", ActionEvent.None);
+  }
+
+  public static void CoreScenario_SeekMissingLinkInn(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    One.TF.EventCore_SeekMissingLinkInn = true;
+
+    Message(ref m_list, ref e_list, "アイン：さてと・・・バックパックのチェックと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ん・・・そういや、この剣・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+    
+    Message(ref m_list, ref e_list, "アイン：（ ラナがそもそも ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 剣を持っている事はおかしい ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 格闘スキルで培ったスキルを剣術に適用するのは相性が良くない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ じゃあ何らかの考えで戦術を変えるつもりだろうか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ それもないな ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナの格闘術は母親に教えてもらったものだ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 戦闘術でもあるがもっと重要な要素として ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 母親と共に居た時の思い出でもある ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 有利不利だけで格闘を捨てるとは到底思えない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ となると、考えられる事は一つ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 誰かからそれを託された、という線だ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 誰だ・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナの母親の友人とかの線か？ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ いや、無いな・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 幼い時、俺はラナと、そしてラナの母親と共に暮らしてきた ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 剣術に関わる様な品物はどこにも無かった ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 隠されていた線が無いわけじゃないが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナにはイヤリングが渡されている ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ もしもあの剣が非常に重要なものだとしたら ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ イヤリングと一緒に渡している気がする ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 聖フローラ女学院に通っていた時か？ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ だが、あそこはどちらかというと魔法専門の学校だ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 何らかの象徴として剣が収められている可能性は十分あるが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ もしそんな象徴的なアイテムだとすると ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ よほどの名誉か何かを授からない限り、手渡されないだろう ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナは聖フローラ女学院を首席で卒業しているから、栄誉はあるだろうが ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 栄誉の証は見せて貰ったことがある ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ とても伝統的なタリスマンだった ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ あのタリスマンと、この剣の雰囲気は似ても似つかない ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ この線も違うとなると、後は・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ まさか ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ そういえば、最初の時点で雰囲気が妙におかしかった気もする ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ だとすると・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ・・・　・・・ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ いや、変な詮索はよそう ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ そのまま聞いた方が良い ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ まずはこの剣を ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ ラナに返す事が先決だ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 今度、ラナに話しかけてみよう ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（ 全てはそこからだ ）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：よし、寝よう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+    Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+  }
+
+
+  public static void CoreScenario_SeekMissingLink(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    One.TF.EventCore_SeekMissingLink = true;
+
+    Message(ref m_list, ref e_list, "アイン：っお、ラナ。丁度良かった。話があるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：丁度良かったって何よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：わ、悪い悪い。ええと、最近この辺りで何か失ったものはないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：何のことかしら。あまり心当たりはないわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・あれ？おかしいな・・・ええと、この辺りで何か物をすり替えられた事はないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どういう意味よ、本当に。。。無いって言ってるじゃない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：本当なのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：本当よ。しつこいわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあ、率直に聞こう。この剣に見覚えはないか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アインはラナに宝剣？？？を差し出して見せた　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "ラナ：少し似てるのは知ってるけど、見た事は無いわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ラナ、そこは本当の事を言ってくれていいんだ。盗まれた事を隠す必要はないぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：盗まれた物なんて無いわよ。隠してなんかいないわよ。失礼よね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、なんでそういう勘違いをしてるのかしら？何かきっかけがあるんでしょ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あのパフェショップに行った時、誰かに突き飛ばされただろ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ええ、確かにそういう事はあったわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あの時、お前が持ってた剣とこの宝剣？？？がすり替えられたって話だよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：どうかしら。１００％無いって断定はしないけど、すり替えはちょっと無理だと思うわよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なぜ無理なんだ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：普段は、そもそも持ち歩いていないからよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：なるほど・・・それなら体当たりされた時は持ってなかったとすれば、そもそも無理か・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あれ・・・じゃ、この宝剣？？？はどうなるんだ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ちょっと話が噛み合ってないんだけど、それ一体どこから取ってきたのよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ZAT-KONっていう盗賊団から奪い返してきた。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：え、あのZAT-KONから！？大丈夫だったの！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あのレベルはたかが知れてるぞ。大丈夫とかそういう次元じゃなかったな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：たまたま大丈夫だったって事かしら。まあ、全員が戦闘術に長けているって事もないだろうし、良かったわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ヤバいレベルの奴も居るって事か？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：当たり前でしょ。ほんと気を付けてよね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、分かった。しかし、この宝剣？？？はあいつらも盗んだ物って言ってたからな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：誰から盗んだって言ってたわけ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その辺の女子に体当たりしたんだろ？って聞いたらビンゴだった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：その辺の女子って・・・そんなの盗賊団なんだから日常茶飯事でしょ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：言われてみれば、そうだな。やっぱり俺の勘違いかも。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、気になるのは確かね。ちょっとどこかの鑑定に持ち込んでみましょうよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　鑑定ショップにて ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：店員さん。この宝剣？？？とラナが持ってる剣を比べてみてくれないかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：急かすでない。今鑑定してやる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：おかしら！大変だ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：なんだぁ？うっさいぞ、こんな真昼間から。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：こ、これって・・・！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ああぁぁ！？うっさいのう、今忙しいんじゃ、てめぇの眼できっちり見ておけ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "店員：いやでも、こればっかりはちょっと見てくださいよ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：ったぁ、しゃあねえなあ・・・今そっち行く、待っとれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　しばらくして ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "？？？：よー、お客人。こんなへんぴな場所へようこそっと・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "？？？：あーーーーー！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：っあ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ヴァスタ叔父さんじゃない？久しぶり！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ラナちゃんじゃないか！よー来たよー来た、ガッハハハ！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：で？そちらは誰じゃ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスと言います。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：アイン・・・　・・・ウォーレンスじゃと？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：えっと、はい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ガーーハッハハハハ、よいぞよいぞ！よう来た、よう来た。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：お主がまだだいぶ小さい頃に会っとるが、よう大きくなった。良いぞ大歓迎じゃ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：アハハ・・・ありがとうございます。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ヴァスタ叔父さん、武具屋はどうしたの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：今はちょっと離れておるんじゃよ。最近は鑑定の方が面白くての、ここの店長の代理をやっておる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：そうだったんですね。じゃあ、早速ですが鑑定をお願いしたいです♪", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：武具鑑定か！よし、任せておきなさい！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：どれどれ・・・ふーむ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：・・・ぉお・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：おおおおおぉぉぉ、こ、こ、これは！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうですかね？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：すまんが、ぜんぜん解明できん！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ガッハハハハ！！！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：マジか・・・しかしお手上げだな。どうするかな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：待ちなさい。少し誤解させたようじゃ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：おぬしらが持っておる２本の剣のうち、片方は解析出来ておる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：アイン・ウォーレンスよ。お主が拾ってきた剣は価値がある代物じゃぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：おお！やっぱじゃあこれが本物か！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ふむ、おそらく最強系統の名を関する剣じゃな。持っていく所を間違えなければ高く売れる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ただし、それだけじゃ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あれ？って事は・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：そうじゃ。ラナちゃんが持っておる剣が何なのかは解析できんと言うておる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：じゃあラナが持っていた剣が盗まれたわけじゃないのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：断定するにはちょっと材料が足りないけど、まあ十中八九そういう事になるわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺はあの盗賊団を勘違いしてぶっ飛ばしてしまったわけだな・・・ハハハ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：でも、盗賊行為で取得したアイテムを取り返したんだから悪いわけじゃないわ。どこかに届けておいたら？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、そうする。売りさばいたら分からなくなってしまうからな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：それなら、ワシが預かっておこうか？この鑑定ショップには色んな客が来るから、持ち主に渡せるかもしれんぞ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、お願いできますか？助かります。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ふむ、こちらの鍵付き保管庫にしまっておくとしよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.HomeTownRemoveItem);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：して、例の剣じゃが・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：これは何かを発しておるな。そしてそれが何なのかが判明が付かん。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：さらに、ゼタニウム鉱石が素材として使われておる箇所は判明しておるが、それ以外の成分解析は100%ではない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：また、剣の錆びについてもほぼ無く、損傷もしておらん。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：年代物の様に見えるが、どの程度の経過があったのかも判明せん。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：全く持って不可思議な剣じゃて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ラナちゃん、これは誰から受け取った物なのじゃ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：うーん・・・どうしよう。ヴァスタ叔父様なら良いのかしら。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：依頼主から口止めされておるのかの？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：いえ、口止めではされていないです。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ただ、【時と事象が合致すれば自然に浮かび上がる】と伝えても良いと言われました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：その台詞、さてはあの子じゃな。エルミ・ジョルジュで決まりじゃろ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：はい、国王エルミ様からで間違いありません。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：何じゃなんじゃ、どうりでそうか、ガッハハハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：分かるんですか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：当たり前じゃ。ワシとあやつの仲じゃ、雰囲気コンタクトで一発じゃて。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：しかし・・・しかししかし・・・これはちょっとこちらでは無理な代物じゃな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：ラナちゃん、このままこれをしっかりと持っておきなさい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：はい、分かりました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：して、アイン・ウォーレンス。問題はお主じゃ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：え、問題！？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：問題ちゅうのはチト違うかの。お題目はお主じゃ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：主題・・・ええと、何でしょうか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：なに・・・何というんじゃろな。「何か」というのは無い。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：せいぜい、励むがよい。ガッハハハハ！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あ、ええとありがとうございます、ハハハ・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、私達はこれで失礼します。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ヴァスタ：おお、気を付けての。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アインとラナは鑑定ショップを出た　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：剣の件は俺の勘違いだったみたいだな。悪かった。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：別に良いわよ。それに盗品をヴァスタ叔父さんの所で保管してもらえたんだし、良かったじゃない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、そう言ってもらえると助かる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：じゃあ、この剣は私が引き続き持っておくわよ？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そうだな。ラナが国王エルミから直接受け取った物だ。それでいい。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：分かったわ。大事に持っておくわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、頼んだ。", ActionEvent.None);
+
   }
   #endregion
 

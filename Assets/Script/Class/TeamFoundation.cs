@@ -2298,10 +2298,11 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_core_defeat_zatkon_end = false;
   public bool EventCore_DefeatZatkonEnd { get { return _event_core_defeat_zatkon_end; } set { _event_core_defeat_zatkon_end = value; } }
 
+  [SerializeField] protected bool _event_core_seek_missnglink_inn = false;
+  public bool EventCore_SeekMissingLinkInn { get { return _event_core_seek_missnglink_inn; } set { _event_core_seek_missnglink_inn = value; } }
   [SerializeField] protected bool _event_core_seek_missnglink = false;
   public bool EventCore_SeekMissingLink { get { return _event_core_seek_missnglink; } set { _event_core_seek_missnglink = value; } }
-  [SerializeField] protected bool _event_core_getback_feltus = false;
-  public bool EventCore_GetbackFeltus { get { return _event_core_getback_feltus; } set { _event_core_getback_feltus = value; } }
+
   [SerializeField] protected bool _event_core_lore_of_feltus = false;
   public bool EventCore_LoreOfFeltus { get { return _event_core_lore_of_feltus; } set { _event_core_lore_of_feltus = value; } }
   [SerializeField] protected bool _event_core_found_redstar = false;

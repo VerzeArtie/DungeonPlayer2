@@ -1409,6 +1409,11 @@ public partial class HomeTown : MotherBase
         MessagePack.Message400030(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      else if (One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.EventCore_SeekMissingLinkInn && One.TF.EventCore_SeekMissingLink == false)
+      {
+        MessagePack.CoreScenario_SeekMissingLink(ref QuestMessageList, ref QuestEventList);
+        return;
+      }
       else
       {
         MessagePack.Message400031(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -2208,6 +2213,14 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    // 神秘の森で「祈願の御札」を入手した後、「宝剣？？？」について熟慮
+    if (One.TF.CurrentAreaName == Fix.TOWN_COTUHSYE && One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.EventCore_SeekMissingLinkInn == false)
+    {
+      MessagePack.CoreScenario_SeekMissingLinkInn(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
     // ツァルマンの里、アデル参戦後、第五属性の開放
     if ((One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN || One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE) && One.TF.AvailableAdelBrigandy && One.TF.AvailableThirdEssence == false)
     {
@@ -2798,6 +2811,13 @@ public partial class HomeTown : MotherBase
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           One.TF.AddBackPack(new Item(currentMessage));
+          ConstructBackpackView();
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.HomeTownRemoveItem)
+        {
+          Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
+          One.TF.RemoveItem(new Item(currentMessage));
           ConstructBackpackView();
           continue; // 継続
         }
