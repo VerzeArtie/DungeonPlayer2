@@ -16,6 +16,29 @@ public class Title : MotherBase
   public GameObject GroupSystemMessage;
   public Text SystemMessageText;
 
+  // Config
+  public GameObject groupAccount;
+  public Text account;
+  public GameObject buttonTicket;
+  public Text supportMessage;
+  public Text GameEndMessage;
+  public Text lblTutorial;
+  public Text lblGameStart;
+  public Text lblSeeker;
+  public Text lblLoad;
+  public Text lblConfig;
+  public Text lblExit;
+
+  public Slider BGMSlider = null;
+  public Slider SoundSlider = null;
+  public Slider DifficultySilder = null;
+  public Toggle ToggleSupportLog = null;
+  public Text TextAccount = null;
+  // public Button LanguageEngligh = null;
+  // public Button LanguageJapanese = null;
+  public Text SupportMessage = null;
+  public InputField AccountInputField = null;
+
   // debug
   public Text txtEnemy1;
   public Text txtEnemy2;
@@ -78,6 +101,76 @@ public class Title : MotherBase
         catch { }
       }
     }
+
+    // Config
+    try
+    {
+      XmlDocument xmlConfig = new XmlDocument();
+      xmlConfig.Load(One.PathForRootFile(Fix.GameSettingFileName));
+
+      Type typeCONF = One.CONF.GetType();
+      foreach (PropertyInfo pi in typeCONF.GetProperties())
+      {
+        if (pi.PropertyType == typeof(System.Int32))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToInt32(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.String))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, (xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Double))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToDouble(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Single))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToSingle(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Boolean))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToBoolean(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+      }
+    }
+    catch { }
+
+    this.BGMSlider.value = (float)((float)One.CONF.EnableBGM);
+    this.SoundSlider.value = (float)((float)One.CONF.EnableSoundEffect);
+    //this.battleSpeedBar.Value = this.battleSpeed;
+    this.DifficultySilder.value = One.CONF.Difficulty;
+    this.ToggleSupportLog.isOn = One.CONF.SupportLog;
+    //if (One.Language == One.GameLanguage.English)
+    //{
+    //  LanguageEngligh.Select();
+    //}
+    //else
+    //{
+    //  LanguageJapanese.Select();
+    //}
+    Debug.Log("One.CONF.Account " + One.CONF.Account);
+    this.TextAccount.text = "AccountID: " + One.CONF.Account;
+    AccountInputField.text = One.CONF.Account;
   }
 
   // Update is called once per frame
@@ -602,5 +695,109 @@ public class Title : MotherBase
     One.BattleMode = Fix.BattleMode.Boss;
     One.StopDungeonMusic();
     SceneDimension.CallBattleEnemy();
+  }
+
+
+  public void ChangeBGMVolume(Slider sender)
+  {
+    One.CONF.EnableBGM = (int)sender.value;
+    One.ChangeDungeonMusicVolume((float)(sender.value / 100.0f));
+  }
+
+  public void ChangeSoundEffectVolume(Slider sender)
+  {
+    One.CONF.EnableSoundEffect = (int)sender.value;
+    One.ChangeSoundEffectVolume((float)(sender.value / 100.0f));
+  }
+
+  public void ChangeDifficulty(Slider sender)
+  {
+    One.CONF.Difficulty = (int)sender.value;
+  }
+
+  public void ChangeSupportLog(Toggle toggle)
+  {
+    One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+    One.CONF.SupportLog = toggle.isOn;
+  }
+
+  //public void ChangeLanguage(int number)
+  //{
+  //  One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+  //  if (number == 2)
+  //  {
+  //    One.Language = One.GameLanguage.English;
+  //  }
+  //  else
+  //  {
+  //    One.Language = One.GameLanguage.Japanese;
+  //  }
+  //}
+
+  public void ChangeAccountName(Text txt)
+  {
+    One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+    if (txt.text.Length < 2)
+    {
+      SupportMessage.text = "Please enter 2 or more characters.";
+      SupportMessage.gameObject.SetActive(true);
+      return;
+    }
+
+    if (One.SQL.ExistOwnerName(txt.text))
+    {
+      SupportMessage.text = "A character with that name already exists.";
+      SupportMessage.gameObject.SetActive(true);
+      return;
+    }
+    One.SQL.ChangeOwnerName("ChangeAccountName", string.Empty, string.Empty, txt.text);
+    One.CONF.Account = txt.text;
+    // Method.AutoSaveTruthWorldEnvironment();
+    this.TextAccount.text = "AccountID: " + One.CONF.Account;
+
+    SupportMessage.text = "Account name has been changed.";
+    SupportMessage.gameObject.SetActive(true);
+  }
+
+
+  public void tapClose()
+  {
+    One.PlaySoundEffect(Fix.SOUND_SELECT_TAP);
+    try
+    {
+      //this.battleSpeed = battleSpeedBar.Value;
+      //this.difficulty = difficultyBar.Value;
+
+      XmlTextWriter xmlWriter = new XmlTextWriter(Fix.GameSettingFileName, System.Text.Encoding.UTF8);
+      xmlWriter.WriteStartDocument();
+      xmlWriter.WriteWhitespace("\r\n");
+
+      xmlWriter.WriteStartElement("Body");
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("DateTime", DateTime.Now.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("EnableBGM", One.CONF.EnableBGM.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("EnableSoundEffect", One.CONF.EnableSoundEffect.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      //xmlWriter.WriteElementString("BattleSpeed", this.battleSpeed.ToString());
+      //xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("Difficulty", One.CONF.Difficulty.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("SupportLog", One.CONF.SupportLog.ToString());
+      xmlWriter.WriteWhitespace("\r\n");
+      //xmlWriter.WriteElementString("GameLanguage", One.Language.ToString());
+      //xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteElementString("Account", One.CONF.Account);
+      xmlWriter.WriteWhitespace("\r\n");
+      xmlWriter.WriteEndElement();
+
+      xmlWriter.WriteEndDocument();
+      xmlWriter.Close();
+    }
+    catch { }
+
+    groupConfig.SetActive(false);
+    groupSaveLoad.gameObject.SetActive(false);
   }
 }

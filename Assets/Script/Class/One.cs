@@ -32,18 +32,20 @@ public static class One
   private static List<GameObject> objCharacterList = new List<GameObject>();
   //private static GameObject objWE = null;
   //private static GameObject objWE2 = null;
-  //private static GameObject objSQL = null;
   private static GameObject objTF = null;
   private static GameObject objAR = null;
+  private static GameObject objCONF = null;
+  private static GameObject objSQL = null;
 
   [SerializeField] private static List<Character> _characters = new List<Character>();
   public static List<Character> Characters
   {
     get { return _characters; }
   }
-  //public static ControlSQL SQL = null;
+  public static ControlSQL SQL = null;
   public static TeamFoundation TF = null;
   public static AkashicRecord AR = null;
+  public static GameConfig CONF = null;
 
   //public static bool[] Truth_KnownTileInfo = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
   //public static bool[] Truth_KnownTileInfo2 = new bool[Database.TRUTH_DUNGEON_COLUMN * Database.TRUTH_DUNGEON_ROW];
@@ -64,12 +66,8 @@ public static class One
   public static List<float> BgmLoopPoint = new List<float>();
   public static int BgmNumber = 0;
 
-  public static int EnableBGM = 100; // ミュージック、デフォルトは100
-  public static int EnableSoundEffect = 100; // 効果音、デフォルトは100
   public static int BattleSpeed = 3;
-  public static int Difficulty = 2; // ゲーム難易度 デフォルトは２：普通
   public static GameLanguage Language = GameLanguage.English; // ゲームサポート言語
-  public static bool SupportLog = true; // SQLサーバーに操作ログを残す　デフォルトはON
 
   public static bool AlreadyInitialize = false; // 既に一度InitializeGroundOneを呼んだかどうか
 
@@ -112,12 +110,14 @@ public static class One
     }
     _characters.Clear();
     _characters = new List<Character>();
-    //UnityEngine.Object.Destroy(SQL);
-    //SQL = null;
+    UnityEngine.Object.Destroy(SQL);
+    SQL = null;
     UnityEngine.Object.Destroy(TF);
     TF = null;
     UnityEngine.Object.Destroy(AR);
     AR = null;
+    UnityEngine.Object.Destroy(CONF);
+    CONF = null;
 
     for (int ii = 0; ii < objCharacterList.Count; ii++)
     {
@@ -126,12 +126,14 @@ public static class One
     }
     objCharacterList.Clear();
     objCharacterList = new List<GameObject>();
-    //UnityEngine.Object.Destroy(objSQL);
-    //objSQL = null;
+    UnityEngine.Object.Destroy(objSQL);
+    objSQL = null;
     UnityEngine.Object.Destroy(objTF);
     objTF = null;
     UnityEngine.Object.Destroy(objAR);
     objAR = null;
+    UnityEngine.Object.Destroy(CONF);
+    CONF = null;
     //UnityEngine.Object.Destroy(ShadowMC);
     //ShadowMC = null;
     //UnityEngine.Object.Destroy(ShadowSC);
@@ -183,7 +185,8 @@ public static class One
     }
     objTF = new GameObject("objTF");
     objAR = new GameObject("objAR");
-    //objSQL = new GameObject("objSQL");
+    objCONF = new GameObject("objCONF");
+    objSQL = new GameObject("objSQL");
 
     if (FromGameLoad == false)
     {
@@ -202,6 +205,7 @@ public static class One
     //WE.AvailableFirstCharacter = true;
     TF = objTF.AddComponent<TeamFoundation>();
     AR = objAR.AddComponent<AkashicRecord>();
+    CONF = objCONF.AddComponent<GameConfig>();
 
     for (int ii = 0; ii < Fix.MAPSIZE_X_ESMILIA_GRASSFIELD * Fix.MAPSIZE_Z_ESMILIA_GRASSFIELD; ii++)
     {
@@ -257,8 +261,8 @@ public static class One
       _characters.Add(objCharacterList[ii].AddComponent<Character>());
     }
 
-    //SQL = objSQL.AddComponent<ControlSQL>();
-    //SQL.SetupSql();
+    SQL = objSQL.AddComponent<ControlSQL>();
+    SQL.SetupSql();
 
     TF.AvailableEinWolence = true;
     TF.AvailableLanaAmiria = true;
@@ -688,11 +692,12 @@ public static class One
     }
     UnityEngine.Object.DontDestroyOnLoad(TF);
     UnityEngine.Object.DontDestroyOnLoad(AR);
+    UnityEngine.Object.DontDestroyOnLoad(CONF);
     UnityEngine.Object.DontDestroyOnLoad(sound);
     UnityEngine.Object.DontDestroyOnLoad(soundSource);
     UnityEngine.Object.DontDestroyOnLoad(bgm);
     UnityEngine.Object.DontDestroyOnLoad(bgmSource[0]);
-    //UnityEngine.Object.DontDestroyOnLoad(SQL);
+    UnityEngine.Object.DontDestroyOnLoad(SQL);
     return true;
   }
 
@@ -1220,7 +1225,7 @@ public static class One
     //if (GroundOne.EnableSoundEffect > 0.0f)
     {
       soundSource.clip = Resources.Load<AudioClip>(Fix.BaseSoundFolder + soundName);
-      soundSource.volume = (float)((float)One.EnableSoundEffect / 100.0f);
+      soundSource.volume = (float)((float)One.CONF.EnableSoundEffect / 100.0f);
       soundSource.Play();
     }
   }
@@ -1260,7 +1265,7 @@ public static class One
     bgmSource[BgmNumber].Stop();
     bgmSource[BgmNumber].clip = Resources.Load<AudioClip>(Fix.BaseMusicFolder + targetMusicName);
     bgmSource[BgmNumber].loop = false;
-    bgmSource[BgmNumber].volume = (float)((float)One.EnableBGM / 100.0f);
+    bgmSource[BgmNumber].volume = (float)((float)One.CONF.EnableBGM / 100.0f);
     bgmSource[BgmNumber].time = 0;
     bgmSource[BgmNumber].Play();
   }

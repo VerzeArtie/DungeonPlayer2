@@ -9356,7 +9356,7 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    if (One.Difficulty == -1)
+    if (One.CONF.Difficulty == -1)
     {
       this.Strength = 1;
       this.Agility = 1;

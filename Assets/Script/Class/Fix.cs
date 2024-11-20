@@ -579,6 +579,7 @@ public static partial class Fix
   public static string BaseMapFolder = @"\Map\";
   public static string BaseSoundFolder = @"Sounds/";
   public static string BaseSaveFolder = Environment.CurrentDirectory + @"\Save\";
+  public static string GameSettingFileName = Environment.CurrentDirectory + @"\" + @"GameSetting.xml";
   public static string BaseMusicFolder = @"BGM\";
   public const string TF_SAVE = @"TeamFoundationSave.xml";
   public const string AR_FILE = @"AkashicRecord.xml";
