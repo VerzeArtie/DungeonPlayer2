@@ -4288,7 +4288,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：（いや、この里をもう少し探索しておこう）", ActionEvent.None);
   }
 
-  public static void Message500020(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void Message500020(ref List<string> m_list, ref List<ActionEvent> e_list, bool seek_missing_link)
   {
     if (One.TF.Event_Message500020 == false)
     {
@@ -4352,65 +4352,227 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "長老：うむ、どれ・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
+      if (seek_missing_link == false)
+      {
+        Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：これは確かに、ファージル国王が持っていた宝剣じゃな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：これは、ただの宝剣じゃな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：しかし、あれじゃの。ObsidianStoneが無いようじゃな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：えっ、そうなんですか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：え！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：何と言ったら良いかの。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：って、もう一度だけ。ObsidianStoneって言いました？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：俗世ではそれなりに価値はある。最強の剣としての称号も持っておる剣じゃな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：ああ、そうじゃ。何じゃ食らいついとるの。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、ということは・・・強いだけって事ですか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あ、何ていうかまあ、成り行きで気になってるんで。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：その通りじゃ。そして対して強くもない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：成り行き。。。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：ただし、価値はあるの。おそらく金銭的に困った時のために手渡したんじゃろうな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：お主、そのObsidianStoneについて成り行きと言うたか。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：なるほど、そういう事だったんですね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：あ、はい。何て言えばいいのか分からなくて、つい・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：そうしたら、アインどうする？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：ホッホッホ！これはまた、面白いヤツじゃの。それは成り行きでどうにかなる代物ではないぞ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：売ってしまうかどうかって話だよな。そうだなあ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そ、そうなんだ・・・ハハハ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：でも、売る場所によって交渉になりそうだし、あまりそういうのは得意じゃないな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：気に入った。良いじゃろう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：ここまで来たのじゃ。ワシがここで引き取っておこうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：お主達の要件、おおよそは掴めた。ヴィンスガルデ王国へ通りたいという事じゃな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：そうしてもらえると、助かります。ラナも良いか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：そ、それじゃあ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：良いわよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：いや、すまないがお主達をここから先へ通すわけにはいかん。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：じゃあ、献上いたします。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：え、どうしてですか！？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：これこれ、献上するでない。きちんとした取引形式じゃよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：それは言えん。これは、掟である。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "100000", ActionEvent.GetGold);
+        Message(ref m_list, ref e_list, Fix.PRECIOUS_SWORD, ActionEvent.HomeTownRemoveItem);
+        Message(ref m_list, ref e_list, "【 100000 gold 】を獲得しました！", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：どうしても、って感じですか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：掟じゃからの。ここは引いてもらう以外に道はない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：しかし、あれじゃの。ObsidianStoneが無いようじゃな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　長老は一呼吸おき、そして・・・　～", ActionEvent.MessageDisplay);
+        Message(ref m_list, ref e_list, "アイン：え！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：ッゴホン。では、その代わり、お主らに・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：って、もう一度だけ。ObsidianStoneって言いました？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：お、おいジジイ！そりゃねえだろーが！？理由ぐらい言えよ？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：ああ、そうじゃ。何じゃ食らいついとるの。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：なっ、何じゃお主は！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、何ていうかまあ、成り行きで気になってるんで。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：とりあえず引けったって、俺たちは遠路はるばるやってきたんだ！ちゃんと言えコラ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：成り行き。。。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：なっ、なっ！！　ま、間違ってもお主だけは通さん！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：お主、そのObsidianStoneについて成り行きと言うたか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：バ、バカ！　お前こんな所で挑発してどうすんだよ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：あ、はい。何て言えばいいのか分からなくて、つい・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：と、とにかく！ここを通してくれないか？その掟とやらは、俺も従ってみせるからさ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：ホッホッホ！これはまた、面白いヤツじゃの。それは成り行きでどうにかなる代物ではないぞ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：ええい、ならぬ！　ならぬと言ったらならぬ！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：そ、そうなんだ・・・ハハハ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "長老：出てゆくがよい！！　もう二度と顔を見せるでないぞ！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "長老：気に入った。良いじゃろう。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：お主達の要件、おおよそは掴めた。ヴィンスガルデ王国へ通りたいという事じゃな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そ、それじゃあ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：いや、すまないがお主達をここから先へ通すわけにはいかん。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：え、どうしてですか！？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：それは言えん。これは、掟である。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：どうしても、って感じですか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：掟じゃからの。ここは引いてもらう以外に道はない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　長老は一呼吸おき、そして・・・　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "長老：ッゴホン。では、その代わり、お主らに・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：お、おいジジイ！そりゃねえだろーが！？理由ぐらい言えよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：なっ、何じゃお主は！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：とりあえず引けったって、俺たちは遠路はるばるやってきたんだ！ちゃんと言えコラ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：なっ、なっ！！　ま、間違ってもお主だけは通さん！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：バ、バカ！　お前こんな所で挑発してどうすんだよ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：と、とにかく！ここを通してくれないか？その掟とやらは、俺も従ってみせるからさ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ええい、ならぬ！　ならぬと言ったらならぬ！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：出てゆくがよい！！　もう二度と顔を見せるでないぞ！！", ActionEvent.None);
+      }
+      else
+      {
+        One.TF.EventCore_LoreOfFeltus = true;
+
+        Message(ref m_list, ref e_list, "長老：うむ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：これは確かに、ファージル国王が持っていた宝剣じゃな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：しかし、あれじゃの。ObsidianStoneが無いようじゃな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：え！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：って、もう一度だけ。ObsidianStoneって言いました？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ああ、そうじゃ。何じゃ食らいついとるの。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、何ていうか、色々と気になってる事が山積みなんで", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：山積み・・・ほう", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ObsidianStoneに関する情報はほぼ皆無に等しいはずじゃが、山積みと言うたか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、はい。何て言えばいいのか分からなくて、つい・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：その前に一つ。どうしても知りたい事があるんだが、聞いてもらえますか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ワシで良ければ、いくらでも。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：宝剣についてですが、これは一体どのような物体なんでしょうか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：どのような物体・・・ふうむ・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：出鼻を挫くようで申し訳ないが、それは答えられん。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そうですか・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：そうじゃの・・・言葉を選ぶとすれば", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：我々ツァルマンの里の民の知見を持ってしてもそれは解明できなかったという事じゃ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：解明できない・・・なるほど・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ただ、一つだけ教えておこう。特別じゃ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：どんな内容ですか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：終わりと始まりに非ず。世界の理であり、破滅と創生であり、無間連鎖を司る。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：これはゼールマンからの言霊である。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ゼールマンからの・・・言霊・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ゼールマンについては聞かぬのかね？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いえ、聞いてはみたいですが、おそらく自分は把握できない気がします。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それに、知りたい事は１つだけと約束しています。今ので十分感謝しています。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ッホッホッホ。ほんに面白い奴じゃ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：関連事項の１つとして喋ってくる者がほとんどの中、お主は本当に変わっておるの。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ふむ・・・どうしたものか・・・ふむ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：勿体ない奴じゃて、せっかくだからこれを持っていくがよい。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：これは・・・？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　長老からアインへ【" + Fix.BLUESKY_STAR_FEATHER + "】が手渡された ～", ActionEvent.MessageDisplay);
+        Message(ref m_list, ref e_list, Fix.BLUESKY_STAR_FEATHER, ActionEvent.GetItem);
+
+        Message(ref m_list, ref e_list, "衛兵：ちょ、長老！　お言葉ながら、それはさすがに行き過ぎでは！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ええい、黙っとらんかい！このぐらいの事、里として動かんでどうするんじゃ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "衛兵：し、失礼いたしました！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ッゴホン、失礼いたした。ではその品はきっとどこかで使う事になるじゃろう。大事にされよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます。何と言っていいやら。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：よい。定めや運命などチョッチョコチョイじゃて。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ハ・・・ハハハ・・・何か凄い言い様ですね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：して、お主達が元々ここに来た要件は、ヴィンスガルデ王国へ通りたいという事じゃな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：あ、分かるんですか！？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ここへ訪れる者は大体その辺が理由で来るのじゃよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：なるほど・・・で、渡れるのでしょうか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：いや、すまないがお主達をここから先へ通すわけにはいかん。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：これは、掟である。すまぬがここまでじゃ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：どうしても、って感じですか？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：掟じゃからの。ここは引いてもらう以外に道はない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　長老は一呼吸おき、そして・・・　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "長老：ッゴホン。では、お主らに森の精霊の加護が・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：お、おいジジイ！そりゃねえだろーが！？理由ぐらい言えよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：なっ、何じゃお主は！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：とりあえず引けったって、俺たちは遠路はるばるやってきたんだ！ちゃんと言えコラ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：なっ、なっ！！　ま、間違ってもお主だけは通さん！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：バ、バカ！　お前こんな所で挑発してどうすんだよ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：と、とにかく！ここを通してくれないか？その掟とやらは、俺も従ってみせるからさ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：ええい、ならぬ！　ならぬと言ったらならぬ！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "長老：出てゆくがよい！！　もう二度と顔を見せるでないぞ！！", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "　～　アイン達は部屋の外へ放り出されてしまった　～", ActionEvent.MessageDisplay);
 

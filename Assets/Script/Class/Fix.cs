@@ -2898,7 +2898,7 @@ public static partial class Fix
   public const string FIRE_ANGEL_TALISMAN = "炎授天使の護符";
   public const string EARRING_OF_LANA = "ラナのイヤリング";
   public const string PRECIOUS_SWORD = "宝剣 ？？？";
-
+  public const string BLUESKY_STAR_FEATHER = "蒼き星空天の羽";
   #endregion
   #region "無価値アイテム"
   public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";

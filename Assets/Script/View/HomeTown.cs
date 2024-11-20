@@ -1363,7 +1363,7 @@ public partial class HomeTown : MotherBase
 
       if (One.TF.Event_Message500020 == false)
       {
-        MessagePack.Message500020(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.Message500020(ref QuestMessageList, ref QuestEventList, One.TF.EventCore_SeekMissingLink); TapOK();
         return;
       }
       else

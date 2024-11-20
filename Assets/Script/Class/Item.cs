@@ -11957,6 +11957,29 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.BLUESKY_STAR_FEATHER:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "真夜中の空に一つ浮かび上がるは蒼き羽を象徴する星。ツァルマンの里と対となるゼールマンの里から受け継がれた貴重な蒼い羽。手に乗せた際、僅かに空中に浮き、手のひらの上を少し漂う感じで不規則に動くため、この羽には過去に絶滅した蒼き不死鳥がまだ生命を宿しているのではないかと言われている。";
+        this._strength = 0;
+        this._agility = 0;
+        this._intelligence = 0;
+        this._stamina = 0;
+        this._mind = 0;
+        break;
+
       case Fix.ZEMULGEARS:
         this._rarity = Rarity.Legendary;
         this._itemType = ItemTypes.Onehand_Sword;
