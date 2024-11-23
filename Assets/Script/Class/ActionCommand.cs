@@ -1997,12 +1997,12 @@ public static class ActionCommand
     if (command_name == Fix.ORACLE_COMMAND) { return 6; }
     if (command_name == Fix.ENERGY_BOLT) { return 3; }
     // スキル
-    if (command_name == Fix.STRAIGHT_SMASH) { return 12; }
-    if (command_name == Fix.SHIELD_BASH) { return 20; }
-    if (command_name == Fix.LEG_STRIKE) { return 10; }
-    if (command_name == Fix.HUNTER_SHOT) { return 12; }
-    if (command_name == Fix.TRUE_SIGHT) { return 20; }
-    if (command_name == Fix.DISPEL_MAGIC) { return 25; }
+    if (command_name == Fix.STRAIGHT_SMASH) { return 7; }
+    if (command_name == Fix.SHIELD_BASH) { return 10; }
+    if (command_name == Fix.LEG_STRIKE) { return 5; }
+    if (command_name == Fix.HUNTER_SHOT) { return 6; }
+    if (command_name == Fix.TRUE_SIGHT) { return 5; }
+    if (command_name == Fix.DISPEL_MAGIC) { return 5; }
     #endregion
 
     #region "Delve II"
@@ -2014,12 +2014,12 @@ public static class ActionCommand
     if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
     if (command_name == Fix.FLASH_COUNTER) { return 9; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 15; }
-    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 20; }
-    if (command_name == Fix.SPEED_STEP) { return 13; }
-    if (command_name == Fix.MULTIPLE_SHOT) { return 16; }
-    if (command_name == Fix.LEYLINE_SCHEMA) { return 2; }
-    if (command_name == Fix.SPIRITUAL_REST) { return 15; }
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 10; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 12; }
+    if (command_name == Fix.SPEED_STEP) { return 8; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return 9; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 1; }
+    if (command_name == Fix.SPIRITUAL_REST) { return 9; }
     #endregion
 
     #region "Delve III"
@@ -2031,12 +2031,12 @@ public static class ActionCommand
     if (command_name == Fix.WORD_OF_POWER) { return 15; }
     if (command_name == Fix.SIGIL_OF_THE_PENDING) { return 20; }
     // スキル
-    if (command_name == Fix.DOUBLE_SLASH) { return 25; }
-    if (command_name == Fix.CONCUSSIVE_HIT) { return 15; }
-    if (command_name == Fix.BONE_CRUSH) { return 35; }
-    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 20; }
-    if (command_name == Fix.VOICE_OF_VIGOR) { return 40; }
-    if (command_name == Fix.UNSEEN_AID) { return 30; }
+    if (command_name == Fix.DOUBLE_SLASH) { return 12; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return 5; }
+    if (command_name == Fix.BONE_CRUSH) { return 13; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 10; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return 12; }
+    if (command_name == Fix.UNSEEN_AID) { return 15; }
     #endregion
 
     #region "Delve IV"
@@ -2048,12 +2048,12 @@ public static class ActionCommand
     if (command_name == Fix.GALE_WIND) { return 33; }
     if (command_name == Fix.PHANTOM_OBORO) { return 36; }
     // スキル
-    if (command_name == Fix.IRON_BUSTER) { return 30; }
-    if (command_name == Fix.DOMINATION_FIELD) { return 40; }
+    if (command_name == Fix.IRON_BUSTER) { return 15; }
+    if (command_name == Fix.DOMINATION_FIELD) { return 18; }
     if (command_name == Fix.DEADLY_DRIVE) { return 5; }
-    if (command_name == Fix.PENETRATION_ARROW) { return 45; }
-    if (command_name == Fix.WILL_AWAKENING) { return 50; }
-    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 50; }
+    if (command_name == Fix.PENETRATION_ARROW) { return 18; }
+    if (command_name == Fix.WILL_AWAKENING) { return 15; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 30; }
     #endregion
 
     #region "Delve V"
@@ -2065,11 +2065,11 @@ public static class ActionCommand
     if (command_name == Fix.SEVENTH_PRINCIPLE) { return 80; }
     if (command_name == Fix.COUNTER_DISALLOW) { return 70; }
     // スキル
-    if (command_name == Fix.RAGING_STORM) { return 45; }
-    if (command_name == Fix.HARDEST_PARRY) { return 50; }
-    if (command_name == Fix.UNINTENTIONAL_HIT) { return 25; }
-    if (command_name == Fix.PRECISION_STRIKE) { return 50; }
-    if (command_name == Fix.EVERFLOW_MIND) { return 20; }
+    if (command_name == Fix.RAGING_STORM) { return 20; }
+    if (command_name == Fix.HARDEST_PARRY) { return 25; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return 15; }
+    if (command_name == Fix.PRECISION_STRIKE) { return 20; }
+    if (command_name == Fix.EVERFLOW_MIND) { return 18; }
     if (command_name == Fix.INNER_INSPIRATION) { return 0; }
     #endregion
 
@@ -2082,12 +2082,12 @@ public static class ActionCommand
     if (command_name == Fix.FUTURE_VISION) { return 180; }
     if (command_name == Fix.DETACHMENT_FAULT) { return 250; }
     // スキル
-    if (command_name == Fix.STANCE_OF_THE_IAI) { return 55; }
-    if (command_name == Fix.ONE_IMMUNITY) { return 60; }
-    if (command_name == Fix.STANCE_OF_MUIN) { return 40; }
-    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 40; }
-    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 30; }
-    if (command_name == Fix.ZERO_IMMUNITY) { return 30; }
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return 27; }
+    if (command_name == Fix.ONE_IMMUNITY) { return 30; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return 20; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 22; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 20; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return 15; }
     #endregion
 
     #region "Delve VII"
@@ -2099,11 +2099,11 @@ public static class ActionCommand
     if (command_name == Fix.GENESIS) { return 0; }
     if (command_name == Fix.TIME_STOP) { return 1000; }
     // スキル
-    if (command_name == Fix.KINETIC_SMASH) { return 70; }
-    if (command_name == Fix.CATASTROPHE) { return 70; }
-    if (command_name == Fix.CARNAGE_RUSH) { return 65; }
-    if (command_name == Fix.PIERCING_ARROW) { return 75; }
-    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 75; }
+    if (command_name == Fix.KINETIC_SMASH) { return 35; }
+    if (command_name == Fix.CATASTROPHE) { return 35; }
+    if (command_name == Fix.CARNAGE_RUSH) { return 35; }
+    if (command_name == Fix.PIERCING_ARROW) { return 35; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 50; }
     if (command_name == Fix.TRANSCENDENCE_REACHED) { return 100; }
     #endregion
 
