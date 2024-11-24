@@ -8793,11 +8793,11 @@ public class DungeonField : MotherBase
         }
         if (One.TF.Treasure_MysticForest_00015 == false && location.x == Fix.MYSTICFOREST_Treasure_15_X && location.y == Fix.MYSTICFOREST_Treasure_15_Y && location.z == Fix.MYSTICFOREST_Treasure_15_Z)
         {
-          treasureName = Fix.SQUARE_CHISEI;
+          treasureName = Fix.LARGE_GREEN_POTION;
         }
         if (One.TF.Treasure_MysticForest_00016 == false && location.x == Fix.MYSTICFOREST_Treasure_16_X && location.y == Fix.MYSTICFOREST_Treasure_16_Y && location.z == Fix.MYSTICFOREST_Treasure_16_Z)
         {
-          treasureName = Fix.SQUARE_TANREN;
+          treasureName = Fix.LARGE_BLUE_POTION;
         }
         if (One.TF.Treasure_MysticForest_00017 == false && location.x == Fix.MYSTICFOREST_Treasure_17_X && location.y == Fix.MYSTICFOREST_Treasure_17_Y && location.z == Fix.MYSTICFOREST_Treasure_17_Z)
         {
