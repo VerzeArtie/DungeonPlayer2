@@ -11889,7 +11889,7 @@ public partial class Item
         break;
 
       case Fix.MARBLE_STAR:
-        this._rarity = Rarity.Epic;
+        this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.EventItem;
         this._gripType = GripTypes.None;
         this._battleAccuracy = 0;
@@ -11903,12 +11903,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "アーケンダイン街にある占いの館で入手した物。空に浮かび上がっている赤い星について尋ねた時に入手したもの。使い道については一切知らされておらず用途は不明である。";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 0;
-        this._mind = 0;
+        this._description = "オーランの塔で入手した不思議な赤い球状の素材。素材アイテムとして売買できそうではあるが、どのような用途で用いられるかは不明である。";
         break;
 
       case Fix.ZHALMAN_NECKLACE:

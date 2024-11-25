@@ -9088,7 +9088,7 @@ public class DungeonField : MotherBase
         // 宝箱２４
         if (One.TF.Treasure_OhranTower_00024 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_24_X, Fix.OHRANTOWER_Treasure_24_Y, Fix.OHRANTOWER_Treasure_24_Z))
         {
-          treasureName = Fix.SOLDIER_HATRED_CROSS;
+          treasureName = Fix.MARBLE_STAR;
         }
         // 宝箱２５
         if (One.TF.Treasure_OhranTower_00025 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_25_X, Fix.OHRANTOWER_Treasure_25_Y, Fix.OHRANTOWER_Treasure_25_Z))
