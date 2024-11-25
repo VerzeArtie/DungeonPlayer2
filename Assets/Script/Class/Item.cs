@@ -11980,6 +11980,24 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.REDCOMET_STAR_CHARM:
+        this._rarity = Rarity.Rare;
+        this._itemType = ItemTypes.EventItem;
+        this._gripType = GripTypes.None;
+        this._battleAccuracy = 0;
+        this._physicalAttack = 0;
+        this._physicalAttackMax = 0;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "真昼の空に一つ浮かび上がるは朱き彗星。ツァルマンの里意外ではこれを吉兆の星とは呼ばず、運命を司る星と詠んでいる。不吉を呼び寄せているのか、幸福が訪れているのかは人としての感性に依存しておりいずれも適切ではない。古来より伝わるオラクルの預言は常に確定的であり、かつ、未知である。";
+        break;
+
       case Fix.ZEMULGEARS:
         this._rarity = Rarity.Legendary;
         this._itemType = ItemTypes.Onehand_Sword;

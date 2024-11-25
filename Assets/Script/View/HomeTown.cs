@@ -1411,7 +1411,7 @@ public partial class HomeTown : MotherBase
       }
       else if (One.TF.FindBackPackItem(Fix.KIGAN_OFUDA) && One.TF.EventCore_SeekMissingLinkInn && One.TF.EventCore_SeekMissingLink == false)
       {
-        MessagePack.CoreScenario_SeekMissingLink(ref QuestMessageList, ref QuestEventList);
+        MessagePack.CoreScenario_SeekMissingLink(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
@@ -1422,14 +1422,19 @@ public partial class HomeTown : MotherBase
     }
     else if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN)
     {
-      if (One.TF.Event_Message500022)
+      if (One.TF.Event_Message500050 == false)
       {
-        MessagePack.Message500023(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.Message500050(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else if (One.TF.Event_Message500050 && One.TF.FindBackPackItem(Fix.MARBLE_STAR) && One.TF.Event_Message500060 == false)
+      {
+        MessagePack.Message500060(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
       {
-        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.MessageX00007_2(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -2829,6 +2834,13 @@ public partial class HomeTown : MotherBase
           RefreshAllView();
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.LostGold)
+        {
+          Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
+          One.TF.Gold -= Convert.ToInt32(currentMessage);
+          RefreshAllView();
+          continue; // 継続
+        }
         // 食事によるパラメタUP対象の更新
         else if (currentEvent == MessagePack.ActionEvent.HomeTownCallRequestFood)
         {
@@ -3987,16 +3999,8 @@ public partial class HomeTown : MotherBase
     {
       btnCustomEvent1.gameObject.SetActive(true);
       txtCustomEvent1.text = "長老の家";
-      if (One.TF.Event_Message500022 == false)
-      {
-        btnCustomEvent2.gameObject.SetActive(false);
-        txtCustomEvent2.text = string.Empty;
-      }
-      else
-      {
-        btnCustomEvent2.gameObject.SetActive(true);
-        txtCustomEvent2.text = "神秘の森";
-      }
+      btnCustomEvent2.gameObject.SetActive(true);
+      txtCustomEvent2.text = "ドルワッツの民芸品店";
       btnCustomEvent3.gameObject.SetActive(false);
       txtCustomEvent3.text = string.Empty;
     }

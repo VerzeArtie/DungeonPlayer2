@@ -15,6 +15,7 @@ public static class MessagePack
     MessageClear,
     GetItem,
     GetGold,
+    LostGold,
     GetNewQuest,
     QuestUpdate,
     QuestComplete,
@@ -280,6 +281,11 @@ public static class MessagePack
   public static void MessageX00007(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：何もねえな・・・戻るとするか。", ActionEvent.None);
+  }
+
+  public static void MessageX00007_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：今は特に用事はないかな。他の所に行ってみよう。", ActionEvent.None);
   }
 
   public static void MessageX00008(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -5594,6 +5600,220 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
 
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+    }
+  }
+
+  public static void Message500050(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message500050 == false)
+    {
+      One.TF.Event_Message500050 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ええと・・・ドルワッツの民芸品店と書いてあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：面白そうね。ちょっと入ってみましょうよ♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッゴホン、ごめんくださーい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：はい、いらっしゃい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おお、結構色んな品物が置いてあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：このアクセサリとかけっこう良い感じね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：少し店内を見て回るか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　しばらくして ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：ん・・・これは何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：お客人、何かお探しかな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、いや別に何かって訳じゃないが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この品はちょっと気になったかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：ほぉ・・・お客人、この店は初めて来たんだよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、始めてだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：人気商品を差し置いてその品に眼がゆくとは、お目が高い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：良い品物なのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：いや、良い品物というとちょっと違いますね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どういう類のアイテムなんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：これはお守りの一種ですが、内容が少し他の物とは異なります。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：一般的なお守りは事故を防いだり、幸運を呼び寄せたりするものですが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：そのお守りは吉兆と呼ばれている星と接触する事を願うためのお守りです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：吉兆の星？そうなのか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：おや、あまり驚かれないようですね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん、普段からあまりその手は意識してないからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ところで、品名は【" + Fix.REDCOMET_STAR_CHARM + "】と書いてあるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これ買うとするといくらぐらいになるんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：貴重な素材で造られた宝珠を中に入れたお守りですからね。あまり安く売る事は出来ませんが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：そうですね、レアの度合いからして、1000000Gといった所でしょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そりなりの値段だな。まあ、そんな気はしたが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ところで何でそんな高価なのに、吉兆と呼ばれてるんだ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：お客人、本当に面白いですね。そういう観点で聞いてくるとは。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：元々、朱き星は吉兆ではなく、未知の存在を示す象徴でした。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：ただ、そうした事は一般的な人々からすると不安の象徴でしかなかったわけです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・確かにそう感じ取る人がほとんどかも知れないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：よほど気に入った様ですね。何でしたら、いつでも見に来て良いですよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ悪いな。ありがとう。また今度寄らせてもらうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そしたら一旦店を出るか・・・ラナ、居るか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あら、そんな所で何見てたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、ちょっと気になる物があったからな。見ていたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そろそろ行くが良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：ええ、良いわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあまた今度気が向いたら寄るとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：店主さん、ありがとうございました。また寄らせてください。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：お客人、またのご来店をお待ちしてますよ。", ActionEvent.None);
+
+    }
+  }
+
+  public static void Message500060(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message500060 == false)
+    {
+      One.TF.Event_Message500060 = true;
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。ここならひょっとして・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ごめんくださーい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：いらっしゃい。おや？君は確か以前も来てたね。何か買っていくかい？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、そうですね。その前に１つどうしても見てもらいたい物があるんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：どれ、見せてご覧なさい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ええ、これなんですけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アインは【" + Fix.MARBLE_STAR + "】を店主に見せた ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：おや・・・これは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：何てことだ。またお目にかかれるとは思ってなかったよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：どこでこれを？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーランの塔で見つけましたね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：ああ、なるほど。あの塔ですか。なるほど・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：そのアイテムはこの世界では中々手に入らない代物。貴重なレア素材であり持っている人は数少ないよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：ところでお客人。それを求めてオーランの塔を探索していたという事は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、そういう意識は無かったです。宝を探す事はありますが、このアイテムを探していた訳じゃないです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：となると、完全なる偶発事象・・・これはこれは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：それは貴重な素材なのでお客人が保持して、どこか適切な場があれば売買しても良いでしょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど、分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：いや、しかし驚きましたね。" + Fix.MARBLE_STAR + "を手に入れるとは、しかも偶然ですか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：・・・お客人ならひょっとしたら、お渡ししても良いのかも知れませんね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：これを貴方に差し上げましょう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは【" + Fix.REDCOMET_STAR_CHARM + "】を貰いました　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, Fix.REDCOMET_STAR_CHARM, ActionEvent.GetItem);
+
+      Message(ref m_list, ref e_list, "アイン：これ、例の1000000Gするアイテムじゃないですか！？　いや、貰えないですよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：いえいえ、良いんですよ。実質、売る気はなかったわけですから。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：機会とタイミングが合えば、誰かに託そうと思ってましたので、受け取って頂きたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：機会とタイミング・・・ですか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、でもタダで貰うのはどうも気が引けます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちゃんと対価を支払いたいのですが、それでも良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ドルワッツ：それは構わないが、値段については1000000Gも頂戴するわけにはいかないよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どのぐらいが妥当ですかね？", ActionEvent.None);
+
+      int gold = One.TF.Gold / 100;
+      if (gold <= 0)
+      {
+        Message(ref m_list, ref e_list, "ドルワッツ：難しいな。今ここでその気持ちを受け取ったから本当にいいよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：すみません、何かどう言っていいのか・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ドルワッツ：いや、本当に気にしなくて良いよ。", ActionEvent.None);
+
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ドルワッツ：じゃあ、気持ちを受け取るという意味で" + gold + "G頂いても良いかな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：" + gold + "Gですね。分かりました。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは" + gold + "G 支払った ～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, gold.ToString(), ActionEvent.LostGold);
+      }
+
+      Message(ref m_list, ref e_list, "ドルワッツ：お客人、では良い旅を。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：はい、ありがとうございました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは店を出た　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：何か貴重なアイテムを貰ってしまったな・・・良かったんだろうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかしこのアイテム・・・不思議な感じがする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーランの塔に何らかの関連性があるんだろうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっと分からないが、貴重なアイテムだ。大事に持っておくとしよう。", ActionEvent.None);
     }
   }
   #endregion
@@ -14979,7 +15199,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：そうなのか。まあ、あったんだよ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：で、この看板も同じ感覚が湧いてくるんだよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：で、ここでもそれと同じ感覚が湧いてくるんだよ。", ActionEvent.None);
       }
       else
       {
@@ -15008,7 +15228,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：キーワード的な何かを指し示すようなものでは無い気がするんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は、実際この神秘の森を通過するための要素ではあるだろうが、", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は、実際この神秘の森で何かに使うのかもしれないが、", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：その要素を指し示すだけの代物とはちょっと思えないんだ。", ActionEvent.None);
 
@@ -35965,6 +36185,20 @@ public static class MessagePack
   {
     One.TF.EventCore_SeekMissingLinkInn = true;
 
+    Message(ref m_list, ref e_list, "アイン：よし、沢山いただいた。ごちそうさまでした！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ビリー：じゃ、俺は先行ってるぜ。またな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：またよろしくな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "ラナ：ごちそうさまでした。私もそろそろ行くわね。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ああ、またな。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　メンバ一同はその場から去っていった ～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：さてと、俺も休むとするか。", ActionEvent.None);
+
     Message(ref m_list, ref e_list, "アイン：さてと・・・バックパックのチェックと・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ん・・・そういや、この剣・・・", ActionEvent.None);
@@ -35975,7 +36209,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+    Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
     
     Message(ref m_list, ref e_list, "アイン：（ ラナがそもそも ）", ActionEvent.None);
 
@@ -35991,7 +36225,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：（ ラナの格闘術は母親に教えてもらったものだ ）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（ 戦闘術でもあるがもっと重要な要素として ）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（ 格闘自体は単なる戦闘術だが、もっと重要な要素として ）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：（ 母親と共に居た時の思い出でもある ）", ActionEvent.None);
 
@@ -36033,9 +36267,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：（ よほどの名誉か何かを授からない限り、手渡されないだろう ）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（ ラナは聖フローラ女学院を首席で卒業しているから、栄誉はあるだろうが ）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（ ラナは聖フローラ女学院を首席で卒業しているから、栄誉はある ）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（ 栄誉の証は見せて貰ったことがある ）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（ ただ、その時の栄誉の証は見せて貰ったことがある ）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：（ とても伝統的なタリスマンだった ）", ActionEvent.None);
 
@@ -36073,6 +36307,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
     Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
     Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
 
@@ -36172,7 +36407,14 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "店員：おかしら！大変だ！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "？？？：なんだぁ？うっさいぞ、こんな真昼間から。", ActionEvent.None);
+    if (One.TF.AlreadyRestInn)
+    {
+      Message(ref m_list, ref e_list, "？？？：なんだぁ？うっさいぞ、こんな真昼間から。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "？？？：なんだぁ？うっさいぞ、こんな時間に。", ActionEvent.None);
+    }
 
     Message(ref m_list, ref e_list, "店員：こ、これって・・・！！", ActionEvent.None);
 
