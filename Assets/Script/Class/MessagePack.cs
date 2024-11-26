@@ -9289,6 +9289,104 @@ public static class MessagePack
     }
   }
 
+  public static void Message800115(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message800115 == false)
+    {
+      One.TF.Event_Message800115 = true;
+
+      Message(ref m_list, ref e_list, "アイン：げっ。か、看板！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何驚いてんだよ？別に看板ぐらいどうって事ないだろ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあそうかもしれないが、ちょっと意外だったからさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：どの辺が意外なのかなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あ、その辺は良いから。とりあえず読んでみるわよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　遥か高き天空にて、永久なる蒼き双極にて、理を授からん。　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っえ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：何で疑問系なんだよ。少し説明してから疑問系で喋れっつうの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何て言うかだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：色々と回って、この地点に辿り着いた結果として", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これは無いだろ。そう思わないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：このぐらい別にあったって良いだろ。何言ってやがる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ビリー、お前この看板の意味はなんだと思う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：さあな。何かの決め台詞って所じゃないのかよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：決め台詞・・・決め台詞・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデル、ちょっといいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：なーにーかーなー☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アデルは確かじいちゃんから色々と教わってるんだよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：もー面倒くさいの沢山教えられたよー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この看板に記されている内容。聞き覚えはないか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：ええっとーーー・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：分かんない☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ、そうか・・・ハハハ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何か気になるって事よね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。なんて言うのかな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何らかのガイドにも見えるし、それをヒントに動けばおそらくは何か得られる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、どうもそれは一つの側面でしかない気がする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：【詩】　と言えばいいのかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、その単語では、本来の何かに届いてない気がするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あと、この感じは何度か体験している。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どこだっけ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、ちょっとこれは書き留めておいてくれないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いわよ。じゃあ、メモしておくわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンキュー。それじゃ、進めていこう。", ActionEvent.None);
+    }
+    else
+    {
+      Message(ref m_list, ref e_list, "『　遥か高き天空にて、永久なる蒼き双極にて、理を授からん。　』", ActionEvent.None);
+    }
+  }
+
   public static void Message800120(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Event_Message800170 == false)

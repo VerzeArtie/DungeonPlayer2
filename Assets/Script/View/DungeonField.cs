@@ -3265,6 +3265,13 @@ public class DungeonField : MotherBase
           MessagePack.Message900450(ref QuestMessageList, ref QuestEventList); TapOK();
         }
       }
+      else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_MessageBoard_1_X, Fix.OHRANTOWER_MessageBoard_1_Y, Fix.OHRANTOWER_MessageBoard_1_Z))
+        {
+          MessagePack.Message800115(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
+      }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS)
       {
         if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_MessageBoard_1_X, Fix.VELGUS_MessageBoard_1_Y, Fix.VELGUS_MessageBoard_1_Z))

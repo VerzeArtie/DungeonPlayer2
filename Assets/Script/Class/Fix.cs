@@ -5291,6 +5291,14 @@ public static partial class Fix
   #endregion
   #region "オーランの塔"
 
+  #region "看板"
+  public const string OHRANTOWER_MessageBoard_1_C = "MessageBoard";
+  public const string OHRANTOWER_MessageBoard_1_O = "1";
+  public const float OHRANTOWER_MessageBoard_1_X = 8.0f;
+  public const float OHRANTOWER_MessageBoard_1_Y = 56.5f;
+  public const float OHRANTOWER_MessageBoard_1_Z = -21.0f;
+  #endregion
+
   #region "下り階段（入口）"
   public const string OHRANTOWER_DOWNSTAIR_1_C = "Downstair";
   public const string OHRANTOWER_DOWNSTAIR_1_O = "1";

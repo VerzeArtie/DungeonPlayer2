@@ -1234,6 +1234,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800090 = false;
   [SerializeField] protected bool _event_message800100 = false;
   [SerializeField] protected bool _event_message800110 = false;
+  [SerializeField] protected bool _event_message800115 = false;
   [SerializeField] protected bool _event_message800120 = false;
   [SerializeField] protected bool _event_message800130 = false;
   [SerializeField] protected bool _event_message800140 = false;
@@ -1272,6 +1273,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800090 { get { return _event_message800090; } set { _event_message800090 = value; } } // 8層、移動中の通常会話
   public bool Event_Message800100 { get { return _event_message800100; } set { _event_message800100 = value; } } // ヨーディリアン撃破後の会話
   public bool Event_Message800110 { get { return _event_message800110; } set { _event_message800110 = value; } } // 最上階探索後の移動ブロック
+  public bool Event_Message800115 { get { return _event_message800115; } set { _event_message800115 = value; } } // 最上階の看板
   public bool Event_Message800120 { get { return _event_message800120; } set { _event_message800120 = value; } } // 浮遊石11の位置をリセットする時の会話
   public bool Event_Message800130 { get { return _event_message800130; } set { _event_message800130 = value; } } // 7層、条件不一致でタイル１が動かない時の会話
   public bool Event_Message800140 { get { return _event_message800140; } set { _event_message800140 = value; } } // 7層、条件不一致でタイル２が動かない時の会話
