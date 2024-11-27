@@ -3947,21 +3947,13 @@ public partial class Character : MonoBehaviour
       }
       else if (this.FullName == Fix.NAME_LANA_AMIRIA)
       {
-        this.AvailableVoidChant = true;
+        this.AvailableFire = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
-          if (this.EnergyBolt <= 0) { this.EnergyBolt = 1; new_command = Fix.ENERGY_BOLT; }
+          if (this.FireBall <= 0) { this.FireBall = 1; new_command = Fix.FIRE_BALL; }
         }
       }
       else if (this.FullName == Fix.NAME_EONE_FULNEA)
-      {
-        this.AvailableIce = true;
-        if (this.Level >= 1) // 一つ目は無条件
-        {
-          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE; }
-        }
-      }
-      else if (this.FullName == Fix.NAME_BILLY_RAKI)
       {
         this.AvailableDarkMagic = true;
         if (this.Level >= 1) // 一つ目は無条件
@@ -3969,12 +3961,20 @@ public partial class Character : MonoBehaviour
           if (this.ShadowBlast <= 0) { this.ShadowBlast = 1; new_command = Fix.SHADOW_BLAST; }
         }
       }
-      else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+      else if (this.FullName == Fix.NAME_BILLY_RAKI)
       {
         this.AvailableArchery = true;
         if (this.Level >= 1) // 一つ目は無条件
         {
           if (this.HunterShot <= 0) { this.HunterShot = 1; new_command = Fix.HUNTER_SHOT; }
+        }
+      }
+      else if (this.FullName == Fix.NAME_ADEL_BRIGANDY)
+      {
+        this.AvailableIce = true;
+        if (this.Level >= 1) // 一つ目は無条件
+        {
+          if (this.IceNeedle <= 0) { this.IceNeedle = 1; new_command = Fix.ICE_NEEDLE; }
         }
       }
     }
@@ -5782,20 +5782,19 @@ public partial class Character : MonoBehaviour
         this.MainWeapon = new Item(Fix.SUPERIOR_BOOK);
         this.SubWeapon = new Item(Fix.SUPERIOR_ORB);
         this.MainArmor = new Item(Fix.SUPERIOR_CROSS);
-        this.Accessory1 = new Item(Fix.SPIRIT_CHALICE_OF_HEART);
-        this.Accessory2 = new Item(Fix.MIRAGE_PLASMA_EARRING);
+        this.Accessory1 = new Item(Fix.RED_KOKUIN);
+        this.Accessory2 = new Item(Fix.PURPLE_KOKUIN);
         this.Artifact = new Item(Fix.YELLOW_KOKUIN);
         this.ActionCommandMain = Fix.MAGIC_ATTACK;
         this.ActionCommand1 = Fix.ENERGY_BOLT;
-        this.ActionCommand2 = Fix.FLASH_COUNTER;
+        this.ActionCommand2 = Fix.FRESH_HEAL;
         this.ActionCommand3 = Fix.SIGIL_OF_THE_PENDING;
         this.ActionCommand4 = Fix.TRUE_SIGHT;
         this.ActionCommand5 = Fix.LEYLINE_SCHEMA;
-        this.ActionCommand6 = Fix.SIGIL_OF_THE_PENDING;
+        this.ActionCommand6 = Fix.HOLY_BREATH;
         this.ActionCommand7 = Fix.ORACLE_COMMAND;
         this.ActionCommand8 = Fix.FORTUNE_SPIRIT;
         this.ActionCommand9 = Fix.WORD_OF_POWER;
-        this.RemainPoint = 5;
         this.GlobalAction1 = Fix.NORMAL_ATTACK;
         this.GlobalAction2 = Fix.DEFENSE;
         this.GlobalAction3 = Fix.NORMAL_ATTACK;
@@ -5803,15 +5802,27 @@ public partial class Character : MonoBehaviour
         this.AvailableVoidChant = true;
         this.AvailableTruth = true;
         this.AvailableForce = true;
+        this.AvailableHolyLight = true;
         this.EnergyBolt = 1;
         this.FlashCounter = 1;
         this.SigilOfThePending = 1;
+        this.PhantomOboro = 1;
+        this.CounterDisallow = 1;
         this.TrueSight = 1;
         this.LeylineSchema = 1;
         this.VoiceOfVigor = 1;
+        this.WillAwakening = 1;
+        this.EverflowMind = 1;
         this.OracleCommand = 1;
         this.FortuneSpirit = 1;
         this.WordOfPower = 1;
+        this.GaleWind = 1;
+        this.SeventhPrinciple = 1;
+        this.FreshHeal = 1;
+        this.DivineCircle = 1;
+        this.HolyBreath = 1;
+        this.AngelicEcho = 1;
+        this.ShiningHeal = 1;
         break;
 
       case Fix.NAME_CALMANS_OHN:

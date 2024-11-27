@@ -5274,13 +5274,14 @@ public static class MessagePack
     if (One.TF.Event_Message500040 == false)
     {
       One.TF.Event_Message500040 = true;
-      One.TF.AvailableSecondEssence = true;
+      One.TF.AvailableThirdEssence = true;
 
       string dummy = string.Empty;
       One.SelectCharacter(Fix.NAME_EIN_WOLENCE).LevelUpEssenceTree(5, ref dummy);
       One.SelectCharacter(Fix.NAME_LANA_AMIRIA).LevelUpEssenceTree(5, ref dummy);
       One.SelectCharacter(Fix.NAME_BILLY_RAKI).LevelUpEssenceTree(5, ref dummy);
       One.SelectCharacter(Fix.NAME_EONE_FULNEA).LevelUpEssenceTree(5, ref dummy);
+      One.SelectCharacter(Fix.NAME_ADEL_BRIGANDY).LevelUpEssenceTree(5, ref dummy);
 
       Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
 
@@ -5356,7 +5357,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そうか、助かる。じゃあ最初は・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ビリー、良いか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：おう！当然俺は重要だろーな！　で、何が聞きてぇんだ？", ActionEvent.None);
 

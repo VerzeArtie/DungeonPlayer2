@@ -258,6 +258,11 @@ public partial class HomeTown : MotherBase
   public List<Text> txtFoodMenuList;
   public Text txtFoodMenuTitle;
   public Text txtFoodMenuDesc;
+  public Text txtFoodMenuStrengthUp;
+  public Text txtFoodMenuAgilityUp;
+  public Text txtFoodMenuIntelligenceUp;
+  public Text txtFoodMenuStaminaUp;
+  public Text txtFoodMenuMindUp;
 
   // Quest Message
   public GameObject GroupQuestMessage;
@@ -2131,42 +2136,51 @@ public partial class HomeTown : MotherBase
   {
     this.txtFoodMenuTitle.text = sender.text;
 
-    if (sender.text == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01; }
-    if (sender.text == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02; }
-    if (sender.text == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03; }
-    if (sender.text == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04; }
-    if (sender.text == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05; }
+    if (sender.text == Fix.FOOD_BALANCE_SET) { txtFoodMenuDesc.text = Fix.DESC_01_MINI; SetupFoodMenu(Fix.FOOD_01_VALUE); }
+    if (sender.text == Fix.FOOD_LARGE_GOHAN_SET) { txtFoodMenuDesc.text = Fix.DESC_02_MINI; SetupFoodMenu(Fix.FOOD_02_VALUE); }
+    if (sender.text == Fix.FOOD_TSIKARA_UDON) { txtFoodMenuDesc.text = Fix.DESC_03_MINI; SetupFoodMenu(Fix.FOOD_03_VALUE); }
+    if (sender.text == Fix.FOOD_ZUNOU_FLY_SET) { txtFoodMenuDesc.text = Fix.DESC_04_MINI; SetupFoodMenu(Fix.FOOD_04_VALUE); }
+    if (sender.text == Fix.FOOD_SPEED_SOBA) { txtFoodMenuDesc.text = Fix.DESC_05_MINI; SetupFoodMenu(Fix.FOOD_05_VALUE); }
 
-    if (sender.text == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11; }
-    if (sender.text == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12; }
-    if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13; }
-    if (sender.text == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14; }
-    if (sender.text == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15; }
+    if (sender.text == Fix.FOOD_KATUCARRY) { txtFoodMenuDesc.text = Fix.DESC_11_MINI; SetupFoodMenu(Fix.FOOD_11_VALUE); }
+    if (sender.text == Fix.FOOD_OLIVE_AND_ONION) { txtFoodMenuDesc.text = Fix.DESC_12_MINI; SetupFoodMenu(Fix.FOOD_12_VALUE); }
+    if (sender.text == Fix.FOOD_INAGO_AND_TAMAGO) { txtFoodMenuDesc.text = Fix.DESC_13_MINI; SetupFoodMenu(Fix.FOOD_13_VALUE); }
+    if (sender.text == Fix.FOOD_USAGI) { txtFoodMenuDesc.text = Fix.DESC_14_MINI; SetupFoodMenu(Fix.FOOD_14_VALUE); }
+    if (sender.text == Fix.FOOD_SANMA) { txtFoodMenuDesc.text = Fix.DESC_15_MINI; SetupFoodMenu(Fix.FOOD_15_VALUE); }
 
-    if (sender.text == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21; }
-    if (sender.text == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22; }
-    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23; }
-    if (sender.text == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24; }
-    if (sender.text == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25; }
+    if (sender.text == Fix.FOOD_FISH_GURATAN) { txtFoodMenuDesc.text = Fix.DESC_21_MINI; SetupFoodMenu(Fix.FOOD_21_VALUE); }
+    if (sender.text == Fix.FOOD_SEA_TENPURA) { txtFoodMenuDesc.text = Fix.DESC_22_MINI; SetupFoodMenu(Fix.FOOD_22_VALUE); }
+    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_1) { txtFoodMenuDesc.text = Fix.DESC_23_MINI; SetupFoodMenu(Fix.FOOD_23_VALUE); }
+    if (sender.text == Fix.FOOD_OSAKANA_ZINGISKAN) { txtFoodMenuDesc.text = Fix.DESC_24_MINI; SetupFoodMenu(Fix.FOOD_24_VALUE); }
+    if (sender.text == Fix.FOOD_RED_HOT_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_25_MINI; SetupFoodMenu(Fix.FOOD_25_VALUE); }
 
-    if (sender.text == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31; }
-    if (sender.text == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32; }
-    if (sender.text == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33; }
-    if (sender.text == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34; }
-    if (sender.text == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35; }
+    if (sender.text == Fix.FOOD_TOBIUSAGI_ROAST) { txtFoodMenuDesc.text = Fix.DESC_31_MINI; SetupFoodMenu(Fix.FOOD_31_VALUE); }
+    if (sender.text == Fix.FOOD_WATARI_KAMONABE) { txtFoodMenuDesc.text = Fix.DESC_32_MINI; SetupFoodMenu(Fix.FOOD_32_VALUE); }
+    if (sender.text == Fix.FOOD_SYOI_KINOKO_SUGATAYAKI) { txtFoodMenuDesc.text = Fix.DESC_33_MINI; SetupFoodMenu(Fix.FOOD_33_VALUE); }
+    if (sender.text == Fix.FOOD_NEGIYAKI_DON) { txtFoodMenuDesc.text = Fix.DESC_34_MINI; SetupFoodMenu(Fix.FOOD_34_VALUE); }
+    if (sender.text == Fix.FOOD_NANAIRO_BUNA_NITSUKE) { txtFoodMenuDesc.text = Fix.DESC_35_MINI; SetupFoodMenu(Fix.FOOD_35_VALUE); }
 
-    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51; }
-    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52; }
-    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53; }
-    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54; }
-    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55; }
+    if (sender.text == Fix.FOOD_HINYARI_YASAI) { txtFoodMenuDesc.text = Fix.DESC_51_MINI; SetupFoodMenu(Fix.FOOD_51_VALUE); }
+    if (sender.text == Fix.FOOD_AZARASI_SHIOYAKI) { txtFoodMenuDesc.text = Fix.DESC_52_MINI; SetupFoodMenu(Fix.FOOD_52_VALUE); }
+    if (sender.text == Fix.FOOD_WINTER_BEEF_CURRY) { txtFoodMenuDesc.text = Fix.DESC_53_MINI; SetupFoodMenu(Fix.FOOD_53_VALUE); }
+    if (sender.text == Fix.FOOD_GATTURI_GOZEN) { txtFoodMenuDesc.text = Fix.DESC_54_MINI; SetupFoodMenu(Fix.FOOD_54_VALUE); }
+    if (sender.text == Fix.FOOD_KOGOERU_DESSERT) { txtFoodMenuDesc.text = Fix.DESC_55_MINI; SetupFoodMenu(Fix.FOOD_55_VALUE); }
 
-    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61; }
-    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62; }
-    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63; }
-    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64; }
-    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65; }
+    if (sender.text == Fix.FOOD_BLACK_BUTTER_SPAGHETTI) { txtFoodMenuDesc.text = Fix.DESC_61_MINI; SetupFoodMenu(Fix.FOOD_61_VALUE); }
+    if (sender.text == Fix.FOOD_KOROKORO_PIENUS_HAMBURG) { txtFoodMenuDesc.text = Fix.DESC_62_MINI; SetupFoodMenu(Fix.FOOD_62_VALUE); }
+    if (sender.text == Fix.FOOD_PIRIKARA_HATIMITSU_STEAK) { txtFoodMenuDesc.text = Fix.DESC_63_MINI; SetupFoodMenu(Fix.FOOD_63_VALUE); }
+    if (sender.text == Fix.FOOD_HUNWARI_ORANGE_TOAST) { txtFoodMenuDesc.text = Fix.DESC_64_MINI; SetupFoodMenu(Fix.FOOD_64_VALUE); }
+    if (sender.text == Fix.FOOD_TRUTH_YAMINABE_2) { txtFoodMenuDesc.text = Fix.DESC_65_MINI; SetupFoodMenu(Fix.FOOD_65_VALUE); }
 
+  }
+
+  private void SetupFoodMenu(int[] food_value)
+  {
+    txtFoodMenuStrengthUp.text = food_value[0].ToString();
+    txtFoodMenuAgilityUp.text = food_value[1].ToString();
+    txtFoodMenuIntelligenceUp.text = food_value[2].ToString();
+    txtFoodMenuStaminaUp.text = food_value[3].ToString();
+    txtFoodMenuMindUp.text = food_value[4].ToString();
   }
 
   public void TapInnAccept(Text sender)
@@ -2772,13 +2786,7 @@ public partial class HomeTown : MotherBase
             if (One.TF.BattlePlayer3 == null || One.TF.BattlePlayer3 == String.Empty) { One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 3"); }
             else if (One.TF.BattlePlayer4 == null || One.TF.BattlePlayer4 == String.Empty) { One.TF.BattlePlayer4 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 4"); }
             else if (One.TF.BattlePlayer5 == null || One.TF.BattlePlayer5 == String.Empty) { One.TF.BattlePlayer5 = Fix.NAME_EONE_FULNEA; Debug.Log("Eone 5"); }
-            // 本来ここで制御すべきではないかもしれないが、ストーリー上ここでしか発生しないので良しとする。
             Character character = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
-            character.AvailableDarkMagic = true;
-            character.ShadowBlast = 1;
-            character.BloodSign = 1;
-            character.BlackContract = 1;
-            character.CursedEvangile = 1;
           }
 
           RefreshAllView();
