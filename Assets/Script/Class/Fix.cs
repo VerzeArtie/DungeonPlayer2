@@ -13817,6 +13817,7 @@ public static partial class Fix
   #region "World Keyword"
   #region "Scenario"
   public const string WORLD_EVILPRIME_REDSTAR = "赤褐色の星";
+  public const string WORLD_NORMAL_SEVENSTAR = "七つ星";
   #endregion
   #region "Player Name"
   public const int CHARACTER_LIST_NUM = 24;

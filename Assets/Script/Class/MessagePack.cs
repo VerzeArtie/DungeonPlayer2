@@ -4663,108 +4663,10 @@ public static class MessagePack
     {
       One.TF.Event_Message500022 = true;
 
-      Message(ref m_list, ref e_list, "アイン：あの、ごめんくださーい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：何じゃお主か。はよ帰るがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：いや、ちょっと待ってください。用件は別にあって来たんです。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：ふむ、申すがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：この里の奥には何があるんでしょうか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：それをお主に申すわけには行かぬ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：じゃあ、この里には何かあるのでしょうか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：何もありはせぬ。早々に立ち去るがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：何もないなら、適当に通過しても良いのですよね？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：それはならぬ。神聖な場所へとお主を導くわけには行かぬ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：神聖な場所が、やっぱりあるんですね？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：っぐ・・・ぐむ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そこはおそらく・・・【神秘の森】と呼ばれる場所。違いますか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：何をしに来た。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：オーランの塔に上りました。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そこから空を観察して、赤い星を見かけたんです。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：エルミ国王からはその件については、特に示唆はされませんでしたが", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：これは、きっと何かの予兆。俺はそう感じたんです。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：お願いします、【神秘の森】を探索させていただけないでしょうか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：ふむ、そうか。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：では、早々に帰るがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そうですか・・・それでは失礼いたします。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：ふむ、で、少し待たれよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：おーい、アデルや。ちょっとお使いを頼まれてくんれかね？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：はーい。ちょっと待ってー。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～～～　部屋の奥から一人の女性が姿を現し ～～～", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "？？？：やっ。お待たせ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：アデルや。いつものお使いだ。【神秘の森】へ行き、どんぐり、りんご、きのこ、たけのこを取ってきてくれないか。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：あー、良いわよ。じゃ行ってくるわね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：これこれ、待たんか。節操の無さは相変わらずじゃの。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：ほれ、そこの者達に挨拶をしなされ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：おー、みんな！アデル・ブリガンディってんだ。はじめまして！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：俺はアイン。アイン・ウォーレンスだ。よろしくな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：ラナ・アミリアよ。お初にお目にかかります。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：ビリー・ラキだ。元気よく行くぜ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：ッホッホッホ。アデルや、それでは行ってくるがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：ああ、それじゃなじっちゃん！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：それともう一つ、アデルや。その者達と共に【神秘の森】へ入ってはくれんか。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：ああ、もちろん良いぜ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：っえ！？それじゃあ！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "長老：お主らが入るのではない。お主らが帰る所を、たまたま、アデルが同行するだけの事じゃ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：あ、ありがとうございます！助かります！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, " 【" + Fix.NAME_ADEL_BRIGANDY + "】が仲間になりました！", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, Fix.NAME_ADEL_BRIGANDY, ActionEvent.HomeTownAddNewCharacter);
-
-      Message(ref m_list, ref e_list, "長老：礼はよい。アデルよ、では頼んだぞ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：ああ、任せておいてよ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_22 + " 】が更新されました！", ActionEvent.QuestUpdate);
-
+      // ファースト・リリースで本シナリオは存在しないため削除。欠番扱いとする。
     }
     else
     {
-      Message(ref m_list, ref e_list, "長老：アデルや、その者達を連れて【神秘の森】へお行きなさい。", ActionEvent.None);
     }
   }
 
@@ -5676,7 +5578,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ドルワッツ：お客人、本当に面白いですね。そういう観点で聞いてくるとは。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ドルワッツ：元々、朱き星は吉兆ではなく、未知の存在を示す象徴でした。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ドルワッツ：元々、" + Fix.WORLD_EVILPRIME_REDSTAR + "は吉兆ではなく、未知の存在を示す象徴でした。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ドルワッツ：ただ、そうした事は一般的な人々からすると不安の象徴でしかなかったわけです。", ActionEvent.None);
 
@@ -7893,7 +7795,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "エルミ：それで、何か見えたものはあったのかな？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ええ、赤い星が空に出ているのを確認しました。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "アイン：ええ、" + Fix.WORLD_EVILPRIME_REDSTAR + "が空に出ているのを確認しました。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：ええ、あまり見かけない" + Fix.WORLD_NORMAL_SEVENSTAR + "が空に出ているのを確認しました。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "エルミ：ラナ君、エオネ君、ビリー君、アデル君も一緒にそれは見えたのかい？", ActionEvent.None);
 
@@ -7915,7 +7824,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：ま・・・まあ、良いか。それはそれで。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：じゃあ、その赤い星が見えたというのはアイン君一人だけなんだね？", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "エルミ：じゃあ、その" + Fix.WORLD_EVILPRIME_REDSTAR + "が見えたというのはアイン君一人だけなんだね？", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "エルミ：じゃあ、その" + Fix.WORLD_NORMAL_SEVENSTAR + "が見えたというのはアイン君一人だけなんだね？", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "アイン：はい、そういう事になります。", ActionEvent.None);
 
@@ -7927,7 +7843,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あ！す、すみませんでした！じゃあちょっと・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まず、あの赤い星の方角なんだが、おおよそ北西のちょい左ぐらいだ。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "アイン：まず、あの" + Fix.WORLD_EVILPRIME_REDSTAR + "の方角なんだが、おおよそ北西のちょい左ぐらいだ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：まず、あの" + Fix.WORLD_NORMAL_SEVENSTAR + "の方角なんだが、おおよそ北西のちょい左ぐらいだ。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "ラナ：それって西北西に事ね。", ActionEvent.None);
 
@@ -7983,7 +7906,14 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あ・・・はい。なんとなくですが、そう感じるんです。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "エルミ：確かに、その赤き星は重要なポイントだったね。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "エルミ：確かに、その" + Fix.WORLD_EVILPRIME_REDSTAR + "は重要なポイントだったね。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "エルミ：確かに、その" + Fix.WORLD_NORMAL_SEVENSTAR + "は重要なポイントだったね。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "エルミ：でも、今喋った中で、他にも重要なポイントと感じたのは実はあるんじゃないかな？", ActionEvent.None);
 
@@ -9551,7 +9481,16 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：まあその、なんだ。見ちまったんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：空に・・・【" + Fix.WORLD_EVILPRIME_REDSTAR + "】が出てるのをな。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        One.TF.EventCore_FoundRedstar = true;
+        Message(ref m_list, ref e_list, "ビリー：空に・・・【" + Fix.WORLD_EVILPRIME_REDSTAR + "】が出てるのをな。", ActionEvent.None);
+      }
+      else
+      {
+        One.TF.EventCore_FoundRedstar = false;
+        Message(ref m_list, ref e_list, "ビリー：空に・・・【" + Fix.WORLD_NORMAL_SEVENSTAR + "】が出てるのをな。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "エオネ：下を見て大陸を視察したのに、空に何かあるのを見つけたんですか？", ActionEvent.None);
 
@@ -9789,11 +9728,18 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "（　・・・　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "（　特に意識したわけじゃないんだが、ふと　）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "（　特に意識したわけじゃないんだが　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　ビリーの様子を見に言った時に、ふと空を見上げたんだっけな　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "（　そこで、あの" + Fix.WORLD_EVILPRIME_REDSTAR + "が見つかった　）", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "（　そこで、あの" + Fix.WORLD_EVILPRIME_REDSTAR + "が見つかった　）", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "（　そこで、あの" + Fix.WORLD_NORMAL_SEVENSTAR + "が見つかった　）", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "（　ただ、空にはそれ以外の色の星も無数に見える。　）", ActionEvent.None);
 
@@ -10328,18 +10274,6 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ビリー：ハーァ・・・おいアイン。この話は終わりだ。もー無理だろお前。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：すまねえ、要領を得ないんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：あ☆　質問ひとつ、いーですか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：いいぞ。何だ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：赤き星は偽。じーちゃんから教えられた事なんだけど、意味は分かる？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：赤き星は偽・・・そうだな・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：おそらく、それ自体に意味がない。という意味じゃないかな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アデル：なるほどー、ありがとー☆", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：じゃあ、もういいか？俺はそろそろ寝るぜ。", ActionEvent.None);
 
@@ -28007,119 +27941,8 @@ public static class MessagePack
     if (One.TF.Event_Message1100040 == false)
     {
       One.TF.Event_Message1100040 = true;
-      Message(ref m_list, ref e_list, "アイン：こんちわー。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "占い師：あら・・・いらっしゃい・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ちょっと占ってもらえますかね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：何を・・・占って欲しいのかしら・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：えっ・・・じゃ、どれにしようかな・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：迷ってる・・・ようですわね・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：あっ・・・まあ・・・はい・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：では・・・そのまま・・・で・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：え、ええ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　占い師はスっと目を閉じた　～", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "占い師：・・・いきます・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：お告げが・・・出ました・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ど・・・どうでしょうか・・・？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：探し人・・・見つからず・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：探すべき物・・・神より隠されたまま・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：隠されしは・・・悠久なる古代への・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：物語・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：です", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：な・・・なるほど・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：つまり・・・・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー（外からの声）：おいアイン！！なげーぞコラァ！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ゲッ、うるさ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：他に・・・何か・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：あ、じゃあ１件だけ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：空に赤い星が見えているだろ。あれについて何か知らないか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：良いでしょう。合格です。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：え？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：あなたにはこれを差し上げましょう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "【 " + Fix.MARBLE_STAR + " 】を獲得しました！", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, Fix.MARBLE_STAR, ActionEvent.GetItem);
-
-      Message(ref m_list, ref e_list, "アイン：こ、これは？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：それを持って、サリタンの地を訪れると良いでしょう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "占い師：では・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：あ、どうも。じゃあ失礼いたします。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "　～　アインは占いの館から外に出た　～　", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "ビリー：よお！すげー長かったみたいだが、どうだったよ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：占ってもらった。面白かったぜ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：そうじゃないでしょ。で、何か収穫はあったわけ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：もちろんだ。これを見てみろ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：で・・・それは何なわけ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：" + Fix.MARBLE_STAR + "だよ。どうだ、良いものもらっただろう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：使い道はちゃんと教えてもらえたわけ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：【サリタンの地】に行けとは伝えられたぞ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：【サリタンの地】ねえ・・・あまり詳しくないんだけど、場所は分かってるの？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：まあまあ・・・これはこれで・・・ハハハ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：情報収集しに行ったのに、またワケわかんない話増やしてどーすんのよ、まったく・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：大丈夫だって。ま、そのうち見つかるさ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：ボケアイン。てめぇ、ともかくキッチリ解決していけよ。分かってんだろうな？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：分かった分かったって。任せておけって。ッハッハッハ！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_23 + " 】が開始されました！", ActionEvent.GetNewQuest);
+      // ファースト・リリースで本シナリオは存在しないため削除。欠番扱いとする。
     }
   }
 
@@ -31806,13 +31629,44 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ロウ：知ったことか。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：待て。頼む、１件だけ教えてくれ。", ActionEvent.None);
+      if (One.TF.FindBackPackItem(Fix.REDCOMET_STAR_CHARM))
+      {
+        Message(ref m_list, ref e_list, "アイン：待て。頼む、１件だけ教えてくれ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ObsidianStoneと赤き星は何らかの関連性があるのか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ObsidianStoneと" + Fix.WORLD_EVILPRIME_REDSTAR + "は何らかの関連性があるのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ロウ：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ロウ：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ロウ：知らん。勝手にしろ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ロウ：どうして貴様がそんな事を聞いてくる。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：分からないが、アンタなら何か知ってるのかと思えた。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：何故そう思う。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：今、こうして襲って来たからさ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：そして、こうしてきちんとした対応で道を空けてくれているだろ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：奇妙な違和感を感じる。何らかの関連性を感じるんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：" + Fix.WORLD_EVILPRIME_REDSTAR + "を見た以上、生かしてはおけん。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：それだけだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ありがとう。感謝する。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：ふざけた野郎だ。次は無いと思え。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、また次会ったら今度は正々堂々やろう。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ロウ：知るか。勝手にやってろ。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "～　セルモイ・ロウおよびその他メンバーは同時に姿を消した ～", ActionEvent.MessageDisplay);
 
@@ -33717,7 +33571,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：赤い星を見たことは些細なきっかけでしかない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：事象として捉えられた事は些細なきっかけでしかない。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：それよりもっと以前からこの奇妙な感覚はあったんだ。", ActionEvent.None);
 
