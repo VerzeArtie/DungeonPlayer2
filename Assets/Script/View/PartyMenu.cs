@@ -136,6 +136,10 @@ public class PartyMenu : MotherBase
   public Button btnEssenceDecisionCancel;
   public Button btnEssenceDecisionOK;
 
+  // ActionCommand
+  public GameObject groupActionCommandMessage;
+  public Text txtActionCommandMessage;
+
   public GameObject panelHideOther;
   // Inner Value
   private List<Character> PlayerList = new List<Character>();
@@ -347,10 +351,12 @@ public class PartyMenu : MotherBase
         Debug.Log(MethodBase.GetCurrentMethod());
         if (target.Dead)
         {
+          txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
           return;
         }
         if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player))
         {
+          txtActionCommandMessage.text = "‚l‚o‚ª‘«‚è‚È‚¢I";
           return;
         }
         player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player);
@@ -366,10 +372,12 @@ public class PartyMenu : MotherBase
         Debug.Log(MethodBase.GetCurrentMethod());
         if (target.Dead)
         {
+          txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
           return;
         }
         if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player))
         {
+          txtActionCommandMessage.text = "‚l‚o‚ª‘«‚è‚È‚¢I";
           return;
         }
         player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player);
@@ -1012,6 +1020,14 @@ public class PartyMenu : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod() + txt_src.text);
 
+    Character player = One.SelectCharacter(txtCurrentName.text);
+
+    if (player.CurrentManaPoint < SecondaryLogic.CostControl(txt_src.text, ActionCommand.Cost(txt_src.text), player))
+    {
+      txtActionCommandMessage.text = "‚l‚o‚ª‘«‚è‚È‚¢I";
+      return;
+    }
+
     if (txt_src.text == Fix.FRESH_HEAL)
     {
       CurrentSelectHealCommand = Fix.FRESH_HEAL;
@@ -1024,11 +1040,6 @@ public class PartyMenu : MotherBase
     }
     else if (txt_src.text == Fix.HOLY_BREATH)
     {
-      Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.HOLY_BREATH, ActionCommand.Cost(Fix.HOLY_BREATH), player))
-      {
-        return;
-      }
       player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.HOLY_BREATH, ActionCommand.Cost(Fix.HOLY_BREATH), player);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -1037,6 +1048,7 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
+          txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
           return;
         }
 
@@ -1047,11 +1059,6 @@ public class PartyMenu : MotherBase
     }
     else if (txt_src.text == Fix.SHINING_HEAL)
     {
-      Character player = One.SelectCharacter(txtCurrentName.text);
-      if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.SHINING_HEAL, ActionCommand.Cost(Fix.SHINING_HEAL), player))
-      {
-        return;
-      }
       player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.SHINING_HEAL, ActionCommand.Cost(Fix.SHINING_HEAL), player);
 
       for (int ii = 0; ii < PlayerList.Count; ii++)
@@ -1060,6 +1067,7 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
+          txtActionCommandMessage.text = "‘ÎÛ‚ÍŠù‚É€‚ñ‚Å‚¢‚éI";
           return;
         }
 
@@ -1068,6 +1076,8 @@ public class PartyMenu : MotherBase
       }
       groupCharacterStatus.UpdateCharacterDetailView(groupCharacterStatus.CurrentPlayer);
     }
+    txtActionCommandMessage.text = "";
+
     SetupStayList();
   }
 
