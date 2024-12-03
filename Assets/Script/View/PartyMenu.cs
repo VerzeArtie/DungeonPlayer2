@@ -1422,7 +1422,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementFactor[ii].text = "";
       imgEssenceElementList[ii].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[ii].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[ii].text = "Require\r\nLv " + ii * Fix.ESSENCE_REQUIRE_LV;
+      txtLockedEssenceElementList[ii].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[ii];
       objHideEssenceElementList[ii].SetActive(true);
     }
   }
@@ -1630,7 +1630,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
+      txtLockedEssenceElementList[number].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
     // level 1以上なら可視化
@@ -1645,7 +1645,7 @@ public class PartyMenu : MotherBase
       detect_zero = false;
     }
     // level 0であっても、RequireLVの条件を満たせば可視化。ただし未修得を表現する。
-    else if (player.Level >= number * Fix.ESSENCE_REQUIRE_LV)
+    else if (player.Level >= Fix.ESSENCE_TREE_REQUIRE_LIST[number])
     {
       Debug.Log("SetupEssenceElement: require level " + element_level + " " + detect_zero + " " + player.Level);
       txtEssenceElementList[number].text = label_text;
@@ -1663,7 +1663,7 @@ public class PartyMenu : MotherBase
       txtEssenceElementFactor[number].text = "";
       imgEssenceElementList[number].sprite = Resources.Load<Sprite>(Fix.STAY);
       txtEssenceElementLevelList[number].text = ""; // "Lv " + element_level.ToString();
-      txtLockedEssenceElementList[number].text = "Require\r\nLv " + number * Fix.ESSENCE_REQUIRE_LV;
+      txtLockedEssenceElementList[number].text = "Require\r\nLv " + Fix.ESSENCE_TREE_REQUIRE_LIST[number];
       objHideEssenceElementList[number].SetActive(true);
     }
   }

@@ -857,6 +857,7 @@ public static partial class Fix
   public const int BASIC_SKILLPOINT = 100;
   public const int PARAMETER_MAX = 9999;
   public const int ESSENCE_REQUIRE_LV = 5;
+  public static int[] ESSENCE_TREE_REQUIRE_LIST = { 5, 10, 15, 20, 30, 40, 50 };
   #endregion
 
   public static int CHARACTER_MAX_LEVEL1 = 10; // エスミリア草原区域まで
