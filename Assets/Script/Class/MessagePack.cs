@@ -9302,9 +9302,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あと、この感じは何度か体験している。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：どこだっけ・・・", ActionEvent.None);
-
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ラナ、ちょっとこれは書き留めておいてくれないか。", ActionEvent.None);
 
