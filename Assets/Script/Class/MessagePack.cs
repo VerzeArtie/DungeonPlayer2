@@ -15250,7 +15250,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：ハハハ、そういやそうだった。悪い。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：で、この看板からは同じ感覚が湧いてくるんだよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：で、何となくその時と同じ感覚が湧いてくるんだよ。", ActionEvent.None);
       }
 
       Message(ref m_list, ref e_list, "アイン：【詩】っていえば良いのかな。上手くいえないんだが・・・", ActionEvent.None);
@@ -15259,19 +15259,13 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：一節と言われてもね。ピンと来るものはないわね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：キーワード的な何かを指し示すようなものでは無い気がするんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：このアイテムをを指し示すようなものでは無い気がするんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：" + Fix.KIGAN_OFUDA + "は、実際この神秘の森で何かに使うのかもしれないが、", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：その要素を指し示すだけの代物とはちょっと思えないんだ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：すまねえが、これ以上は上手く言えない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ただ、これ以上は上手く言えない。単なる感覚でしかない。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：ほんと、今の時点でもサッパリね。", ActionEvent.None);
-      // 満たされるは精神と英知。語り継ぎし者よ、安らぎと平穏を。
-      // うつろいを重ね、遠くを廻りて、祈願を果たす // todo
 
-      Message(ref m_list, ref e_list, "アイン：まあ、そんな所だ。結局の所、進めるしかないかもな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：まあ、そんな所だ。結局の所、進めるしかないのかもな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：何か変な所で気づいたらまた言ってよね。", ActionEvent.None);
 
