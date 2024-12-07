@@ -7922,7 +7922,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
       // 条件を満たしていない場合は、バッドエンド
-      if (One.AR.InscribeObsidianStone_1 == false || One.AR.InscribeObsidianStone_2 == false || One.AR.InscribeObsidianStone_3 == false)
+      if (One.TF.Event_Message801010 == false)
       {
         Message(ref m_list, ref e_list, "～　ファージル宮殿の外にて　～", ActionEvent.None);
 
@@ -10002,7 +10002,7 @@ public static class MessagePack
 
       InscribeMatrixDragon_3(ref m_list, ref e_list);
 
-      Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianPortal_1_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, Fix.OHRANTOWER_ObsidianStone_1_O, ActionEvent.RemoveFieldObject);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 

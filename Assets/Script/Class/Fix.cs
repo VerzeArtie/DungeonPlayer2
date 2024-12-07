@@ -7021,12 +7021,6 @@ public static partial class Fix
   public const float OHRANTOWER_FloatingTile_11_Y = 8f;
   public const float OHRANTOWER_FloatingTile_11_Z = 17f;
 
-  public const string OHRANTOWER_ObsidianStone_2_C = "ObsidianStone";
-  public const string OHRANTOWER_ObsidianStone_2_O = "2";
-  public const float OHRANTOWER_ObsidianStone_2_X = 7.0f;
-  public const float OHRANTOWER_ObsidianStone_2_Y = -55.0f;
-  public const float OHRANTOWER_ObsidianStone_2_Z = -9.0f;
-
   public const string OHRANTOWER_WarpHole_1_C = "WarpHole";
   public const string OHRANTOWER_WarpHole_1_O = "1";
   public const float OHRANTOWER_WarpHole_1_X = -8f;
@@ -7342,13 +7336,12 @@ public static partial class Fix
   public const float OHRANTOWER_KEYDOOR_4_Z = -19.0f;
   #endregion
 
-  #region "ObsidianPortal"
-  // Odsidian Portal
-  public const string OHRANTOWER_ObsidianPortal_1_C = "ObsidianPortal";
-  public const string OHRANTOWER_ObsidianPortal_1_O = "1";
-  public const float OHRANTOWER_ObsidianPortal_1_X = -999.0f; // todo
-  public const float OHRANTOWER_ObsidianPortal_1_Y = -999.0f; // todo
-  public const float OHRANTOWER_ObsidianPortal_1_Z = -999.0f; // todo
+  #region "ObsidianStone"
+  public const string OHRANTOWER_ObsidianStone_1_C = "ObsidianStone";
+  public const string OHRANTOWER_ObsidianStone_1_O = "1";
+  public const float OHRANTOWER_ObsidianStone_1_X = 7.0f;
+  public const float OHRANTOWER_ObsidianStone_1_Y = -55.0f;
+  public const float OHRANTOWER_ObsidianStone_1_Z = -9.0f;
   #endregion
 
   #endregion

@@ -3822,7 +3822,7 @@ public class DungeonField : MotherBase
         return;
       }
 
-      if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_ObsidianStone_2_X, Fix.OHRANTOWER_ObsidianStone_2_Y, Fix.OHRANTOWER_ObsidianStone_2_Z))
+      if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_ObsidianStone_1_X, Fix.OHRANTOWER_ObsidianStone_1_Y, Fix.OHRANTOWER_ObsidianStone_1_Z))
       {
         MessagePack.Message801000(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -13230,9 +13230,9 @@ public class DungeonField : MotherBase
             {
               RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_KEYDOOR_4_X, Fix.OHRANTOWER_KEYDOOR_4_Y, Fix.OHRANTOWER_KEYDOOR_4_Z));
             }
-            if (currentMessage == Fix.OHRANTOWER_ObsidianStone_2_O)
+            if (currentMessage == Fix.OHRANTOWER_ObsidianStone_1_O)
             {
-              RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_ObsidianStone_2_X, Fix.OHRANTOWER_ObsidianStone_2_Y, Fix.OHRANTOWER_ObsidianStone_2_Z));
+              RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_ObsidianStone_1_X, Fix.OHRANTOWER_ObsidianStone_1_Y, Fix.OHRANTOWER_ObsidianStone_1_Z));
             }
           }
 
@@ -17869,6 +17869,12 @@ public class DungeonField : MotherBase
     }
     // エンカウントしない場合は対象外
     else if (this.BattleEncount <= -1)
+    {
+      return;
+    }
+
+    // エリア設定が無い場合、モンスターは出現させない。
+    if (area_info == TileInformation.Area.None)
     {
       return;
     }
