@@ -1143,6 +1143,12 @@ public partial class BattleEnemy : MotherBase
             {
               for (int jj = 0; jj < PlayerList.Count; jj++)
               {
+                // 経験値獲得が０の場合、アニメーションしない。
+                if (CharaExpList[ii].AfterExp == CharaExpList[ii].BeforeExp)
+                {
+                  continue;
+                }
+
                 // レベルアップの場合MAXで止めるアニメーションにする。
                 if (CharaExpList[ii].AfterExp <= CharaExpList[ii].BeforeExp)
                 {
