@@ -402,6 +402,18 @@ public partial class HomeTown : MotherBase
     // 初期画面設定
     RefreshAllView();
 
+    // 戦闘リトライ
+    if (One.BattleEnd == Fix.GameEndType.Retry)
+    {
+      One.BattleEnd = Fix.GameEndType.None;
+      One.CopyShadowToMain();
+      this.ignoreCreateShadow = true;
+      PrepareCallTruthBattleEnemy();
+      //this.nowEncountEnemy = true;
+      txtQuestMessage.text = "";
+      txtMessage.text = "";
+      return;
+    }
 
     #region "オーランの塔の状態は全てリセットとする。"
     One.TF.FieldObject_OhranTower_00001 = false;
@@ -4299,6 +4311,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentSelectArea.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSelectArea.GetComponent<RectTransform>().sizeDelta.x, 0);
     int counter = 0;
 
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
@@ -4343,6 +4356,7 @@ public partial class HomeTown : MotherBase
 
   private void AddSelectArea(string select_area_name, bool available, int counter)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + select_area_name + " " + counter);
     // same DungeonField, HomeTown
     NodeSelectAreaButton button = Instantiate(nodeSelectAreaButton) as NodeSelectAreaButton;
     button.gameObject.transform.SetParent(contentSelectArea.transform);
