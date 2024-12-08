@@ -9253,6 +9253,11 @@ public partial class Character : MonoBehaviour
         this.BlackContract = 1;
         this.CursedEvangile = 1;
         this.CircleOfTheDespair = 1;
+        this.EnergyBolt = 1;
+        this.FlashCounter = 1;
+        this.SigilOfThePending = 1;
+        this.PhantomOboro = 1;
+        this.CounterDisallow = 1;
         list.Add(Fix.NORMAL_ATTACK);
         break;
 
@@ -10532,7 +10537,16 @@ public partial class Character : MonoBehaviour
 
       case Fix.DUEL_SELMOI_RO:
         int rand = AP.Math.RandomInteger(3);
-        if (rand == 0)
+
+        if (this.CurrentLife <= this.MaxLife / 5.0f)
+        {
+          result = Fix.HUGE_RED_POTION;
+        }
+        else if (this.IsPhantomOboro == false && this.CurrentManaPoint >= ActionCommand.Cost(Fix.PHANTOM_OBORO))
+        {
+          result = Fix.PHANTOM_OBORO;
+        }
+        else if (rand == 0)
         {
           if (Target.SearchBuff(Fix.UNINTENTIONAL_HIT) == false && this.DetectCannotBeParalyze == false)
           {

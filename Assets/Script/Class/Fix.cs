@@ -290,6 +290,9 @@ public static partial class Fix
   public const string BATTLE_SPEED_UP = "戦速率 UP";
   public const string BATTLE_RESPONS_UP = "戦応率 UP";
   public const string BATTLE_POTENTIAL_UP = "潜在率 UP";
+
+  public const string BATTLE_SORCERY_FAIL = "ソーサリー失敗";
+
   #endregion
   #region "Character Color"
   public static Color COLOR_NORMAL = Color.black;

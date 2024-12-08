@@ -1582,6 +1582,37 @@ public partial class BattleEnemy : MotherBase
             }
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_SELMOI_RO)
+          {
+            // 残りライフが少なくなったら、デッドリー・ドライブを行う。
+            if (AllList[ii].CurrentLife < AllList[ii].MaxLife / 5.0f && AllList[ii].IsDeadlyDrive == false)
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DEADLY_DRIVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+            // 残りライフに余力があるなら、見合いせずインスタント行動を行う。
+            if (AllList[ii].CurrentLife >= AllList[ii].MaxLife / 2.0f)
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SPEED_STEP, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+            if (AllList[ii].Target.CurrentInstantPoint >= AllList[ii].Target.MaxInstantPoint * 0.70f)
+            {
+              // 見合いの時は待つ。
+            }
+            else
+            {
+              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SPEED_STEP, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+          }
+
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
           {
             if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
@@ -2302,7 +2333,7 @@ public partial class BattleEnemy : MotherBase
       if (player.CurrentInstantPoint < player.MaxInstantPoint)
       {
         Debug.Log("Timing Sorcery and not enough CurrentInstantPoint, then no action.");
-        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SORCERY_FAIL, Fix.COLOR_WARNING);
         return;
       }
       else
@@ -7379,6 +7410,7 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // Suddenタイマーによるスタック解決を表示。スタック制御は一旦停止。
     if (stackList[stackList.Length - 1].StackTimer <= 0)
     {
       if (stackList[stackList.Length - 1].SuddenTimer > 0)
@@ -7528,6 +7560,23 @@ public partial class BattleEnemy : MotherBase
     // 敵専用、スタックコマンドの割り込み
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
+      #region "セルモイ・ロウ"
+      if (EnemyList[ii].FullName == Fix.DUEL_SELMOI_RO)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
+          {
+            EnemyList[ii].UseInstantPoint(false);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+      #endregion
+      #region "リガール・オルフシュタイン"
       if (EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
           EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
       {
@@ -7548,7 +7597,8 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
-
+      #endregion
+      #region "エルミ・ジョルジュ"
       if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT || EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP || EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW ||
           EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT || EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP || EnemyList[ii].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
       {
@@ -7578,8 +7628,10 @@ public partial class BattleEnemy : MotherBase
           }
         }
       }
+      #endregion
     }
 
+    // スタックタイマーが０になったら、コマンドを実行する。
     if (stackList[num].StackTimer <= 0)
     {
       if (ActionCommand.IsTarget(stackList[num].StackName) == ActionCommand.TargetType.Ally)
@@ -11324,7 +11376,7 @@ public partial class BattleEnemy : MotherBase
 
   #region "General"
   private double PhysicalDamageLogic(Character player, Character target, double magnify, Fix.DamageSource attr, Fix.IgnoreType ignore_target_defense, Fix.CriticalType critical, ref bool result_critical)
-  {
+  {    
     // 攻撃コマンドのダメージを算出
     double damageValue = 0.0f;
     if (attr == Fix.DamageSource.Colorless)
