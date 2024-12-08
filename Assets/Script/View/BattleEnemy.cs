@@ -9718,7 +9718,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.VenomSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player), 0, 0);
+      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_POISON, Fix.EFFECT_POISON, SecondaryLogic.VenomSlash_Turn(player), SecondaryLogic.VenomSlash_2(player) * PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength), 0, 0);
     }
   }
 
@@ -9759,7 +9759,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecHeartOfLife(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.HEART_OF_LIFE, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.HEART_OF_LIFE, Fix.HEART_OF_LIFE, SecondaryLogic.HeartOfLife_Turn(player), SecondaryLogic.HeartOfLife(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
   }
 
   private void ExecDarknessCircle(Character player, Character target, BuffField target_field_obj)
@@ -9812,13 +9812,13 @@ public partial class BattleEnemy : MotherBase
   {
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
-    AbstractAddBuff(player, target_field_obj, Fix.DIVINE_CIRCLE, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player), 0, 0);
+    AbstractAddBuff(player, target_field_obj, Fix.DIVINE_CIRCLE, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
   }
 
   private void ExecBloodSign(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractAddBuff(target, target.objBuffPanel, Fix.BLOOD_SIGN, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player), 0, 0);
+    AbstractAddBuff(target, target.objBuffPanel, Fix.BLOOD_SIGN, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
   }
 
   private void ExecSkyShield(Character player, Character target)

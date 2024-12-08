@@ -183,7 +183,8 @@ public static class SecondaryLogic
   }
   public static double VenomSlash_2(Character player)
   {
-    return PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * 0.50f;
+    if (player.VenomSlash <= 1) { return 0.50f; }
+    return 0.50f + (player.VenomSlash - 1) * 0.10f;
   }
   public static int VenomSlash_Turn(Character player)
   {
@@ -244,12 +245,8 @@ public static class SecondaryLogic
 
   public static double HeartOfLife(Character player)
   {
-    if (player.HeartOfLife <= 1)
-    {
-      return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence);
-    }
-
-    return PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.HeartOfLife - 1) * 0.10f);
+    if (player.HeartOfLife <= 1) { return 1.10f; }
+    return 1.00f + (player.HeartOfLife - 1) * 0.10f;
   }
 
   public static int HeartOfLife_Turn(Character player)
@@ -327,17 +324,8 @@ public static class SecondaryLogic
 
   public static double BloodSign(Character player)
   {
-    double result = 0.0f;
-    if (player.BloodSign <= 1)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
-    }
-    else
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.BloodSign - 1) * 0.20f);
-    }
-
-    return result;
+    if (player.BloodSign <= 1) { return 1.00f; }
+    return 1.00f + (player.BloodSign - 1) * 0.20f;
   }
 
   public static int BloodSign_Turn(Character player)
@@ -347,16 +335,8 @@ public static class SecondaryLogic
 
   public static double DivineCircle_Effect1(Character player)
   {
-    double result = 0.0f;
-    if (player.DivineCircle <= 1)
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * 1.00f;
-    }
-    else
-    {
-      result = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * (1.00f + (player.DivineCircle - 1) * 0.30f);
-    }
-    return result;
+    if (player.DivineCircle <= 1) { return 1.00f; }
+    return 1.00f + (player.DivineCircle - 1) * 0.30f;
   }
 
   public static int DivineCircle_Turn(Character player)
