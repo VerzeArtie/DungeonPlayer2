@@ -1894,7 +1894,7 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAermiJorzt = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;
         }
@@ -9682,13 +9682,7 @@ public partial class BattleEnemy : MotherBase
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
-      if (target.GetResistStunLogic())
-      {
-        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_STUN, Fix.COLOR_NORMAL);
-        return;
-      }
-
-      AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_STUN, SecondaryLogic.ShieldBash_Turn(player), 0, 0, 0);
+      ExecBuffStun(player, target, SecondaryLogic.ShieldBash_Turn(player), 0);
     }
   }
 
@@ -11013,6 +11007,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistPoisonLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_POISON, Fix.COLOR_NORMAL);
+      player.DetectCannotBePoison = true;
       return;
     }
 
@@ -11024,6 +11019,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistSilenceLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SILENCE, Fix.COLOR_NORMAL);
+      player.DetectCannotBeSilence = true;
       return;
     }
 
@@ -11035,6 +11031,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistBindLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_BIND, Fix.COLOR_NORMAL);
+      player.DetectCannotBeBind = true;
       return;
     }
 
@@ -11046,6 +11043,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistSleepLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLEEP, Fix.COLOR_NORMAL);
+      player.DetectCannotBeSleep = true;
       return;
     }
 
@@ -11057,6 +11055,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistStunLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_STUN, Fix.COLOR_NORMAL);
+      player.DetectCannotBeStun = true;
       return;
     }
 
@@ -11068,6 +11067,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistParalyzeLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_PARALYZE, Fix.COLOR_NORMAL);
+      player.DetectCannotBeParalyze = true;
       return;
     }
 
@@ -11079,6 +11079,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistFreezeLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FREEZE, Fix.COLOR_NORMAL);
+      player.DetectCannotBeFrozen = true;
       return;
     }
 
@@ -11090,6 +11091,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistFearLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_FEAR, Fix.COLOR_NORMAL);
+      player.DetectCannotBeFear = true;
       return;
     }
 
@@ -11101,6 +11103,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistSlowLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLOW, Fix.COLOR_NORMAL);
+      player.DetectCannotBeSlow = true;
       return;
     }
 
@@ -11112,6 +11115,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistDizzyLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_DIZZY, Fix.COLOR_NORMAL);
+      player.DetectCannotBeDizzy = true;
       return;
     }
 
@@ -11123,6 +11127,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistSlipLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLIP, Fix.COLOR_NORMAL);
+      player.DetectCannotBeSlip = true;
       return;
     }
 
@@ -11134,6 +11139,7 @@ public partial class BattleEnemy : MotherBase
     if (target.GetResistCannotResurrectLogic())
     {
       StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
+      player.DetectCannotBeNoResurrection = true;
       return;
     }
 

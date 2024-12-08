@@ -14397,7 +14397,7 @@ public class DungeonField : MotherBase
         }
       }
       else if (character.FullName == Fix.NAME_EONE_FULNEA ||
-               character.FullName == Fix.NAME_SELMOI_RO ||
+               character.FullName == Fix.DUEL_SELMOI_RO ||
                character.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
                character.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN ||
                character.FullName == Fix.ROYAL_KING_AERMI_JORZT ||

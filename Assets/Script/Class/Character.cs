@@ -54,6 +54,22 @@ public partial class Character : MonoBehaviour
   public GameObject groupSkillPoint = null;
 
   // 敵専用
+  public bool DetectCannotBePoison { get; set; } // 敵が猛毒耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeSilence { get; set; } // 敵が沈黙耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeBind { get; set; } //  敵が束縛耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeSleep { get; set; } // 敵が睡眠耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeStun { get; set; } // 敵がスタン耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeParalyze { get; set; } // 敵が麻痺耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeFrozen { get; set; } // 敵が凍結耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeFear { get; set; } // 敵が恐怖耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeSlow { get; set; } // 敵が鈍化耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeDizzy { get; set; } // 敵が眩暈耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeSlip { get; set; } // 敵がスリップ耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeNoResurrection { get; set; } // 敵が蘇生不可耐性があるかどうかを知るフラグ
+  // public bool DetectCannotBeTemptation { get; set; } // 敵が誘惑耐性があるかどうかを知るフラグ
+  // public bool DetectCannotBeBlind { get; set; } // 敵が暗闇耐性があるかどうかを知るフラグ
+  // public bool DetectCannotBeNoGainLife { get; set; } // 敵がライフ回復不可耐性があるかどうかを知るフラグ
+
   public BuffField groupTimeSequencePanel = null;
   public bool AlreadyOathOfSefine = false;
 
@@ -9205,6 +9221,41 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.DUEL_SELMOI_RO:
+        SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
+        this.Level = 31;
+        this.Strength = 55;
+        this.Agility = 37;
+        this.Intelligence = 50;
+        this.Stamina = 18;
+        this.Mind = 19;
+        this.BaseLife = 1370;
+        this.BaseManaPoint = 546;
+        this.BaseSkillPoint = 100;
+        this.Job = Fix.JobClass.SwordMaster;
+        this.MainWeapon = new Item(Fix.STORM_FURY_LANCER);
+        this.SubWeapon = new Item(Fix.STORM_FURY_LANCER);
+        this.MainArmor = new Item(Fix.SOLDIER_HATRED_CROSS);
+        this.Accessory1 = new Item(Fix.EMBLEM_OF_VALKYRIE);
+        this.Accessory2 = new Item(Fix.EMBLEM_OF_NECROMANCY);
+        this.ShieldBash = 1;
+        this.StanceOfTheGuard = 1;
+        this.ConcussiveHit = 1;
+        this.DominationField = 1;
+        this.HardestParry = 1;
+        this.LegStrike = 1;
+        this.SpeedStep = 1;
+        this.BoneCrush = 1;
+        this.DeadlyDrive = 1;
+        this.UnintentionalHit = 1;
+        this.ShadowBlast = 1;
+        this.BloodSign = 1;
+        this.BlackContract = 1;
+        this.CursedEvangile = 1;
+        this.CircleOfTheDespair = 1;
+        list.Add(Fix.NORMAL_ATTACK);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         this.Level = 16;
         SetupParameter(48, 20, 30, 35, 12, 0, 0, 0);//(48, 20, 7, 35, 8, 0, 0, 0);
@@ -10477,6 +10528,59 @@ public partial class Character : MonoBehaviour
           //current.Add("出血付与");
         }
         result = RandomChoice(current);
+        break;
+
+      case Fix.DUEL_SELMOI_RO:
+        int rand = AP.Math.RandomInteger(3);
+        if (rand == 0)
+        {
+          if (Target.SearchBuff(Fix.UNINTENTIONAL_HIT) == false && this.DetectCannotBeParalyze == false)
+          {
+            result = Fix.UNINTENTIONAL_HIT;
+          }
+          else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.LEG_STRIKE))
+          {
+            result = Fix.LEG_STRIKE;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+        else if (rand == 1)
+        {
+          if (Target.IsStun == false && this.DetectCannotBeStun == false)
+          {
+            result = Fix.SHIELD_BASH;
+          }
+          else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.CONCUSSIVE_HIT))
+          {
+            result = Fix.CONCUSSIVE_HIT;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+        else
+        {
+          if (Target.IsCursedEvangile == false)
+          {
+            result = Fix.CURSED_EVANGILE;
+          }
+          else if (Target.IsBloodSign == false)
+          {
+            result = Fix.BLOOD_SIGN;
+          }
+          else if (Target.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR) == false)
+          {
+            result = Fix.CIRCLE_OF_THE_DESPAIR;
+          }
+          else
+          {
+            result = Fix.SHADOW_BLAST;
+          }
+        }
         break;
 
       case Fix.DUEL_JEDA_ARUS:

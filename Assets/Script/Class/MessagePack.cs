@@ -10477,7 +10477,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ロウ：１", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, Fix.NAME_SELMOI_RO, ActionEvent.EncountDuel);
+      Message(ref m_list, ref e_list, Fix.DUEL_SELMOI_RO, ActionEvent.EncountDuel);
     }
   }
 

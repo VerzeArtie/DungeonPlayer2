@@ -13859,6 +13859,7 @@ public static partial class Fix
   #region "Duel対戦相手"
   public const string NAME_ZATKON_MEMBER_1 = "ZAT-KON メンバー１";
   public const string NAME_ZATKON_MEMBER_2 = "ZAT-KON メンバー２";
+  public const string DUEL_SELMOI_RO = "ZAT-KON 強襲暗殺部隊\r\nセルモイ ロウ";
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";

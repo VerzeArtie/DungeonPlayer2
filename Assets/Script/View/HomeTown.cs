@@ -3162,7 +3162,7 @@ public partial class HomeTown : MotherBase
         One.BattleMode = Fix.BattleMode.Boss;
       }
       else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
-               One.EnemyList[0].FullName == Fix.NAME_SELMOI_RO ||
+               One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO ||
                One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_1 ||
                One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_2 )
       {
