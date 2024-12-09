@@ -2606,23 +2606,27 @@ public partial class HomeTown : MotherBase
           this.txtSystemMessage.text = currentMessage;
           this.panelSystemMessage.SetActive(true);
 
+          currentMessage = currentMessage.Replace("クエスト【 ", "");
+          currentMessage = currentMessage.Replace(" 】が開始されました！", "");
+
           // todo
-          if (currentMessage.Contains(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_00001 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_00002 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_00003 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_00004 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_00005 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_00006 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_00021 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_00022 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_00023 = true; }
-          if (currentMessage.Contains(Fix.QUEST_TITLE_31)) { One.TF.QuestMain_00031 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_1)) { One.TF.QuestMain_00001 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_2)) { One.TF.QuestMain_00002 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_3)) { One.TF.QuestMain_00003 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_4)) { One.TF.QuestMain_00004 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_5)) { One.TF.QuestMain_00005 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_6)) { One.TF.QuestMain_00006 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_7)) { One.TF.QuestMain_00007 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_8)) { One.TF.QuestMain_00008 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_9)) { One.TF.QuestMain_00009 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_10)) { One.TF.QuestMain_00010 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_11)) { One.TF.QuestMain_00011 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_20)) { One.TF.QuestMain_00020 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_21)) { One.TF.QuestMain_00021 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_00022 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_00023 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_31)) { One.TF.QuestMain_00031 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_41)) { One.TF.QuestMain_00041 = true; }
           RefreshQuestList();
           RefreshSelectAreaList();
           return;
@@ -2699,6 +2703,22 @@ public partial class HomeTown : MotherBase
             this.txtQCSoulEssenceGain.text = "";
             this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
           }
+          else if (currentMessage.Equals(Fix.QUEST_TITLE_31))
+          {
+            int gainGold = 100000;
+            One.TF.Gold += gainGold;
+
+            int gainSoulFragment = 1;
+            for (int jj = 0; jj < One.AvailableCharacters.Count; jj++)
+            {
+              One.AvailableCharacters[jj].SoulFragment += gainSoulFragment;
+            }
+
+            this.txtQCExpGain.text = gainGold.ToString() + " ゴールドを獲得しました！";
+            this.txtQCGoldGain.text = "新しいミッションが追加されました！";
+            this.txtQCSoulEssenceGain.text = "";
+            this.txtQCItemGain.text = gainSoulFragment.ToString() + " ソウル・エッセンスを獲得しました！";
+          }
           else
           {
             Debug.Log("FailRoutine... " + currentMessage);
@@ -2719,6 +2739,7 @@ public partial class HomeTown : MotherBase
           if (currentMessage.Equals(Fix.QUEST_TITLE_22)) { One.TF.QuestMain_Complete_00022 = true; }
           if (currentMessage.Equals(Fix.QUEST_TITLE_23)) { One.TF.QuestMain_Complete_00023 = true; }
           if (currentMessage.Equals(Fix.QUEST_TITLE_31)) { One.TF.QuestMain_Complete_00031 = true; }
+          if (currentMessage.Equals(Fix.QUEST_TITLE_41)) { One.TF.QuestMain_Complete_00041 = true; }
           RefreshAllView();
           return;
         }
@@ -4326,6 +4347,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.QuestMain_00022) { AddQuestEvent(Fix.QUEST_TITLE_22, One.TF.QuestMain_Complete_00022, counter); counter++; }
     if (One.TF.QuestMain_00023) { AddQuestEvent(Fix.QUEST_TITLE_23, One.TF.QuestMain_Complete_00023, counter); counter++; }
     if (One.TF.QuestMain_00031) { AddQuestEvent(Fix.QUEST_TITLE_31, One.TF.QuestMain_Complete_00031, counter); counter++; }
+    if (One.TF.QuestMain_00041) { AddQuestEvent(Fix.QUEST_TITLE_41, One.TF.QuestMain_Complete_00041, counter); counter++; }
   }
 
   private void RefreshSelectAreaList()
@@ -4463,6 +4485,7 @@ public partial class HomeTown : MotherBase
     if (quest_name == Fix.QUEST_TITLE_22) { txtEventDescription.text = Fix.QUEST_DESC_22; }
     if (quest_name == Fix.QUEST_TITLE_23) { txtEventDescription.text = Fix.QUEST_DESC_23; }
     if (quest_name == Fix.QUEST_TITLE_31) { txtEventDescription.text = Fix.QUEST_DESC_31; }
+    if (quest_name == Fix.QUEST_TITLE_41) { txtEventDescription.text = Fix.QUEST_DESC_41; }
 
     // クエスト到達状況に応じて、テキスト文章を更新する。
     if (quest_name == Fix.QUEST_TITLE_2 && One.TF.Event_Message400030)

@@ -2357,6 +2357,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_00022 = false;
   [SerializeField] protected bool _questmain_00023 = false;
   [SerializeField] protected bool _questmain_00031 = false;
+  [SerializeField] protected bool _questmain_00041 = false;
 
   [SerializeField] protected bool _questmain_complete_00001 = false;
   [SerializeField] protected bool _questmain_complete_00002 = false;
@@ -2374,6 +2375,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _questmain_complete_00022 = false;
   [SerializeField] protected bool _questmain_complete_00023 = false;
   [SerializeField] protected bool _questmain_complete_00031 = false;
+  [SerializeField] protected bool _questmain_complete_00041 = false;
   public bool QuestMain_00001 { get { return _questmain_00001; } set { _questmain_00001 = value; } }
   public bool QuestMain_00002 { get { return _questmain_00002; } set { _questmain_00002 = value; } }
   public bool QuestMain_00003 { get { return _questmain_00003; } set { _questmain_00003 = value; } }
@@ -2391,6 +2393,7 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_00022 { get { return _questmain_00022; } set { _questmain_00022 = value; } }
   public bool QuestMain_00023 { get { return _questmain_00023; } set { _questmain_00023 = value; } }
   public bool QuestMain_00031 { get { return _questmain_00031; } set { _questmain_00031 = value; } }
+  public bool QuestMain_00041 { get { return _questmain_00041; } set { _questmain_00041 = value; } }
 
   public bool QuestMain_Complete_00001 { get { return _questmain_complete_00001; } set { _questmain_complete_00001 = value; } }
   public bool QuestMain_Complete_00002 { get { return _questmain_complete_00002; } set { _questmain_complete_00002 = value; } }
@@ -2409,6 +2412,7 @@ public class TeamFoundation : MonoBehaviour
   public bool QuestMain_Complete_00022 { get { return _questmain_complete_00022; } set { _questmain_complete_00022 = value; } }
   public bool QuestMain_Complete_00023 { get { return _questmain_complete_00023; } set { _questmain_complete_00023 = value; } }
   public bool QuestMain_Complete_00031 { get { return _questmain_complete_00031; } set { _questmain_complete_00031 = value; } }
+  public bool QuestMain_Complete_00041 { get { return _questmain_complete_00041; } set { _questmain_complete_00041 = value; } }
   #endregion
 
   #region "Treasure"

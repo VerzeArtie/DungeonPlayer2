@@ -27548,27 +27548,37 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：でもー。なんでエーデルガイゼーン城って所に行くの？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：国王エルミ様からの依頼なんだ。ヴィンスガルデ領へ行って欲しいと。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ツヴェルドーゼ教皇とさっき話をしてきた。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：そーなんだ。分かったー☆", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：天の名を授かった者として、ヴィンスガルデ王国へ赴き、エデルガイゼン城の王と対話するようにと。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：そう・・・なのよね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そう・・・なのね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ねえ、国王様からの依頼って何が目的なのかしらね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ねえ、エルミ国王様からの依頼も、元々はヴィンスガルデ王国の視察だったわよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：狙い、目的は何なのかしら？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：正直な所、今は何とも言えない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：行って確かめてみるしかないんだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：行って・・・確かめてみるしかないんだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：まあ、私達じゃちょっと想像もつかないわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そうね。私達ではちょっと想像もつかないし、行ってみるしかないわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：あ、でもこれだけは知ってたら教えてちょうだい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、何だ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：エオネさんの事だけど。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：アインは教皇と話した結果、天の名を授かった事については報告したのよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その件か・・・そうだな、報告した。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：そう・・・じゃあ、エオネさんの事だけど。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：彼女は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：・・・　・・・　・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：悪い人じゃない。", ActionEvent.None);
 
@@ -27579,6 +27589,9 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ラナ：それを聞いて安心したわ。ありがと♪", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：よし、それじゃあ準備でもしておくとするか！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_31 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_41 + " 】が開始されました！", ActionEvent.GetNewQuest);
     }
   }
 
