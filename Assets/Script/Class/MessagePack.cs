@@ -27816,120 +27816,7 @@ public static class MessagePack
     {
       One.TF.Event_Message1100030 = true;
 
-      Message(ref m_list, ref e_list, "アイン：ワッツの民芸品店・・・", ActionEvent.None);
-      
-      Message(ref m_list, ref e_list, "アイン：ラナ、お前こういう場所だったら聞き込み行けるんじゃねえのか？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：て、あれ？どこ行ったんだ？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：もうその店ん中に入っちまったぞ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：そうか。やる気十分って所だな。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：じゃあちょっと雰囲気見てくる。ビリー、ここで待っててくれ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：おうよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　アインがワッツの民芸品店に入った途端・・・　～", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "ラナ：キャーーーーーー！！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：っな！！　だ、大丈夫か！？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：見てこれ！！すごい可愛いわ♪♪♪", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：っな・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：あ、これも良いわね♪　あれもこれも素敵な物ばかりね♪", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：ねえ、アイン。これも良いと思わない？ちっちゃくて可愛いし♪", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：おっ、おぉ。まあそうだな、ッハハハ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "店員：ようこそいらっしゃいました。どうぞ、ゆっくりと店内をご覧ください。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：ねえ店員さん。このアクセサリーの他に、一体どういった物があるの？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "店員：オススメ商品ですね、どうぞこちらへ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：ありがと♪こっちも見てみるわ♪", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　ラナは店員と共に店の奥へと消えていった・・・ ～", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（なるほど、どうやらあの様子だと「聞き込み」では無さそうだな）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（かと言って俺がこの店内で聞き込むとかなり違和感があるしな・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（ふう。ちょうどここが裏口か。一旦外に出てみるか・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "～　店の裏口にて ～", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "アイン：（さてと、どうすっかな・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ハイ。全ては手筈通りです。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（ん？　壁の向こうから何か声が聞こえる・・・誰だ？）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：手筈通りと申したな。それだけかね？", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：す！すみません！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：エオネ・フルネア。期待値通りの結果を保持し、それを報告するのみ。それでは貴君を遣わした意味が無いだろう。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ッハ・・・ハイ・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（ま、まさかこの声・・・エオネか？）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：分かっておるな。狙いは。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：ハイ。目的の・・・物は・・・", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：待て。その名称を口にしてはならん。もう少しこちらへ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：（・・・　で・・・）　（・・・それ　・・　に　・・・ついては・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（ん？何だ、聞き取りにくくなったぞ）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：（・・・　ではなく・・・）　（・・・あれに・・・）　（・・・とはいえ・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：（・・・　と考えた所・・・）　（・・・となる様に　・・・　） （・・・　・・・のシナリオで・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：（・・・　が良いだろう・・・）　（・・・パルメテイシア神殿・・・）　（では・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "エオネ：ハイ、分かりました。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "？？？：ふむ。では行くがよい。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（どうやら会話は終わったようだな）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（重要な部分が今一つ聞こえなかったが・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（パルメティシア神殿。そこだけは聞き取れたな。）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（さてと・・・どうしたものか・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（エオネ・・・お前一体・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ラナ：あら、バカアイン。そんなところにいたのね。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "ビリー：おい、ボケアイン。てめ聞いてんのかよ。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "『ズドゴシッシャアアァァァ！！！』（ラナのアブソリュート・ストライクがアインに炸裂）", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_24 + " 】が開始されました！", ActionEvent.GetNewQuest);
-
+      // ファースト・リリースで本シナリオは存在しないため削除。欠番扱いとする。
     }
   }
   public static void Message1100040(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -32047,11 +31934,16 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：そなたが来た時は、特別にそのゲートを開放するように取り計らっておこう。", ActionEvent.None);
 
+      Message(ref m_list, ref e_list, "ツヴェル：あと、幾ばくかの軍資金も渡しておくとしよう。受け取っておきなさい。", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "アイン：色々とすみません、助かります。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ツヴェル：海底神殿にはいまだにモンスターが蔓延っておる。気を抜くでないぞ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_21 + " 】を達成しました！", ActionEvent.QuestComplete);
+      Message(ref m_list, ref e_list, "クエスト【 " + Fix.QUEST_TITLE_31 + " 】が開始されました！", ActionEvent.GetNewQuest);
 
       Message(ref m_list, ref e_list, "ツヴェル：ふむ。では導きはここまで。行くが良い。", ActionEvent.None);
 
@@ -32268,6 +32160,8 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
 
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.None);
     }
   }
 
