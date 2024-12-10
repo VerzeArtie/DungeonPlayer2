@@ -1048,8 +1048,8 @@ public class PartyMenu : MotherBase
         Character target = PlayerList[ii];
         if (target.Dead)
         {
-          txtActionCommandMessage.text = "対象は既に死んでいる！";
-          return;
+          // 全員が対象になるので、メンバー１人死んでいても処理継続する。
+          continue;
         }
 
         if (healValue <= 0) { healValue = 0; }
