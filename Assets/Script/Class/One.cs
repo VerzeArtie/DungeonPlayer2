@@ -3403,52 +3403,52 @@ public static class One
               switch (randomValue3)
               {
                 case 1:
-                  targetItemName = Fix.EXTREME_SWORD;
+                  targetItemName = Fix.MASTER_SWORD;
                   break;
                 case 2:
-                  targetItemName = Fix.EXTREME_LANCE;
+                  targetItemName = Fix.MASTER_LANCE;
                   break;
                 case 3:
-                  targetItemName = Fix.EXTREME_AXE;
+                  targetItemName = Fix.MASTER_AXE;
                   break;
                 case 4:
-                  targetItemName = Fix.EXTREME_CLAW;
+                  targetItemName = Fix.MASTER_CLAW;
                   break;
                 case 5:
-                  targetItemName = Fix.EXTREME_ROD;
+                  targetItemName = Fix.MASTER_ROD;
                   break;
                 case 6:
-                  targetItemName = Fix.EXTREME_BOOK;
+                  targetItemName = Fix.MASTER_BOOK;
                   break;
                 case 7:
-                  targetItemName = Fix.EXTREME_ORB;
+                  targetItemName = Fix.MASTER_ORB;
                   break;
                 //case 8:
-                //  targetItemName = Fix.EXTREME_LARGE_SWORD;
+                //  targetItemName = Fix.MASTER_LARGE_SWORD;
                 //  break;
                 //case 9:
-                //  targetItemName = Fix.EXTREME_LARGE_LANCE;
+                //  targetItemName = Fix.MASTER_LARGE_LANCE;
                 //  break;
                 //case 10:
-                //  targetItemName = Fix.EXTREME_LARGE_AXE;
+                //  targetItemName = Fix.MASTER_LARGE_AXE;
                 //  break;
                 case 8:
-                  targetItemName = Fix.EXTREME_BOW;
+                  targetItemName = Fix.MASTER_BOW;
                   break;
                 case 9:
-                  targetItemName = Fix.EXTREME_LARGE_STAFF;
+                  targetItemName = Fix.MASTER_LARGE_STAFF;
                   break;
                 case 10:
-                  targetItemName = Fix.EXTREME_SHIELD;
+                  targetItemName = Fix.MASTER_SHIELD;
                   break;
                 case 11:
-                  targetItemName = Fix.EXTREME_ARMOR;
+                  targetItemName = Fix.MASTER_ARMOR;
                   break;
                 case 12:
-                  targetItemName = Fix.EXTREME_CROSS;
+                  targetItemName = Fix.MASTER_CROSS;
                   break;
                 case 13:
-                  targetItemName = Fix.EXTREME_ROBE;
+                  targetItemName = Fix.MASTER_ROBE;
                   break;
                 case 14:
                   targetItemName = Fix.SILVER_RING_GOUKA;
