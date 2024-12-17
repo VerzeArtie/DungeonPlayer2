@@ -36769,6 +36769,83 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：ああ、そうしたら元の探索に戻るとするか。", ActionEvent.None);
     }
   }
+
+  public static void CoreScenario_ProphecySaga_Oracle(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.EventCore_ProphecySaga_Oracle == false)
+    {
+      One.TF.EventCore_ProphecySaga_Oracle = true;
+
+      Message(ref m_list, ref e_list, "？？？：そこの者達よ、待ちなさい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この声は・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：やれやれ、間に合うたかの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：教皇さま！？　何故この様な場所に・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：エオネよ・・・お前には謝罪の言霊を送っておきたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：こたびの件、誠にすまなかった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：そっ・・・そのようなお言葉！　おっしゃらないでください！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：いや、むしろこのような言葉で済ませられる事象ではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：事態は・・・より深刻であり、かつ、より色濃く事象が待ち受けておる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：エオネよ、無理に気を強く持つ必要はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：あるがままに生きよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エオネ：っ・・・勿体なきお言葉・・・この胸にしかと刻みました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：うむ、生きるのだ、エオネ・フルネアよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：して・・・アイン・ウォーレンスよ。其方には伝えなければならぬ事がある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：はい、なんでしょうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：先ほどエデルガイゼン城に赴くよう伝えたが、それともう一つ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：ムーンフォーダー教団として、この神殿に伝承されている【オラクルの預言】を届けておきたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オラクルの預言・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：うむ、では授けるとしよう。アデルよ、頼んだぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アデル・ブリガンディ、澄み切った顔となり、静かに瞳を閉じた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アデル：【赤の吉兆は偽り】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：【青の予見は偽り】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：【黒き地平線、静かに沈みゆき】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：【白き閃光は放たれた】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アデル・ブリガンディは両目を開け、いつもの笑顔をしはじめる ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アデル：はい☆", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今のが・・・オラクルの預言？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アデル：そーだよー。でもパルメティシア神殿の教皇様、本当によろしかったのですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：良いのだ。ワシはこの者に託してみたいと思ったのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：受け取っていただけたかな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：はい、確かに受け取りました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：気を付けて行かれるがよい。", ActionEvent.None);
+
+    }
+  }
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)
