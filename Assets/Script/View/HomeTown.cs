@@ -1409,6 +1409,11 @@ public partial class HomeTown : MotherBase
         MessagePack.Message2200020(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      else if (One.TF.DefeatBighandKraken && One.TF.EventCore_AcknowledgeFeltus == false)
+      {
+        MessagePack.CoreScenario_AcknowledgeFeltus(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
       else
       {
         MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();

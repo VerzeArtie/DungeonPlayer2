@@ -3298,6 +3298,11 @@ public class DungeonField : MotherBase
         {
           MessagePack.Message1000160(ref QuestMessageList, ref QuestEventList); TapOK();
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_TRIGGERTILE_65_X, Fix.VELGUS_TRIGGERTILE_65_Y + 1.0f, Fix.VELGUS_TRIGGERTILE_65_Z))
+        {
+          MessagePack.Message1000080(ref QuestMessageList, ref QuestEventList); TapOK();
+        }
       }
       else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2)
       {
@@ -3455,7 +3460,12 @@ public class DungeonField : MotherBase
       {
         if (direction == Fix.Direction.Left && One.TF.Event_Message1000060)
         {
-          MessagePack.Message1000069(ref QuestMessageList, ref QuestEventList); TapOK();
+          bool success = false;
+          if (One.TF.Event_Message1000294 && One.TF.Event_Message1000295 && One.TF.Event_Message1000296 && One.TF.Event_Message1000297)
+          {
+            success = true;
+          }
+          MessagePack.Message1000069(ref QuestMessageList, ref QuestEventList, success); TapOK();
         }
         else
         {
