@@ -345,21 +345,31 @@ public class PartyMenu : MotherBase
       Character player = One.SelectCharacter(txtCurrentName.text);
       Character target = One.SelectCharacter(txt_name.text);
 
+      if (target.Dead)
+      {
+        txtActionCommandMessage.text = "ëŒè€ÇÕä˘Ç…éÄÇÒÇ≈Ç¢ÇÈÅI";
+        return;
+      }
+      if (player.CurrentManaPoint < SecondaryLogic.CostControl(this.CurrentSelectHealCommand, ActionCommand.Cost(this.CurrentSelectHealCommand), player))
+      {
+        txtActionCommandMessage.text = "ÇlÇoÇ™ë´ÇËÇ»Ç¢ÅI";
+        return;
+      }
+
       if (this.CurrentSelectHealCommand == Fix.FRESH_HEAL)
       {
         double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
-        Debug.Log(MethodBase.GetCurrentMethod());
-        if (target.Dead)
-        {
-          txtActionCommandMessage.text = "ëŒè€ÇÕä˘Ç…éÄÇÒÇ≈Ç¢ÇÈÅI";
-          return;
-        }
-        if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player))
-        {
-          txtActionCommandMessage.text = "ÇlÇoÇ™ë´ÇËÇ»Ç¢ÅI";
-          return;
-        }
         player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.FRESH_HEAL, ActionCommand.Cost(Fix.FRESH_HEAL), player);
+
+        if (healValue <= 0) { healValue = 0; }
+        int result = (int)healValue;
+        Debug.Log((player?.FullName ?? string.Empty) + " -> " + target.FullName + " " + result.ToString() + " heal");
+        target.CurrentLife += result;
+      }
+      else if (this.CurrentSelectHealCommand == Fix.SHINING_HEAL)
+      {
+        double healValue = target.MaxLife;
+        player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.SHINING_HEAL, ActionCommand.Cost(Fix.SHINING_HEAL), player);
 
         if (healValue <= 0) { healValue = 0; }
         int result = (int)healValue;
@@ -369,17 +379,6 @@ public class PartyMenu : MotherBase
       else if (this.CurrentSelectHealCommand == Fix.PURE_PURIFICATION)
       {
         double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
-        Debug.Log(MethodBase.GetCurrentMethod());
-        if (target.Dead)
-        {
-          txtActionCommandMessage.text = "ëŒè€ÇÕä˘Ç…éÄÇÒÇ≈Ç¢ÇÈÅI";
-          return;
-        }
-        if (player.CurrentManaPoint < SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player))
-        {
-          txtActionCommandMessage.text = "ÇlÇoÇ™ë´ÇËÇ»Ç¢ÅI";
-          return;
-        }
         player.CurrentManaPoint -= SecondaryLogic.CostControl(Fix.PURE_PURIFICATION, ActionCommand.Cost(Fix.PURE_PURIFICATION), player);
 
         if (healValue <= 0) { healValue = 0; }
@@ -1031,6 +1030,11 @@ public class PartyMenu : MotherBase
     if (txt_src.text == Fix.FRESH_HEAL)
     {
       CurrentSelectHealCommand = Fix.FRESH_HEAL;
+      objCancelActionCommand.SetActive(true);
+    }
+    else if (txt_src.text == Fix.SHINING_HEAL)
+    {
+      CurrentSelectHealCommand = Fix.SHINING_HEAL;
       objCancelActionCommand.SetActive(true);
     }
     else if (txt_src.text == Fix.PURE_PURIFICATION)
