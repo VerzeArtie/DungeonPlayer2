@@ -210,6 +210,7 @@ public class DungeonField : MotherBase
   public Text txtQuestMessage;
   public GameObject panelSystemMessage;
   public Text txtSystemMessage;
+  public Image imgHidePanel;
 
   // GameOver
   public GameObject panelGameOver;
@@ -10060,6 +10061,7 @@ public class DungeonField : MotherBase
         {
           this.objBlackOut.SetActive(false);
           this.objWhiteOut.SetActive(false);
+          this.imgHidePanel.color = new Color(99.0f / 255.0f, 99.0f / 255.0f, 99.0f / 255.0f, 100.0f / 255.0f);
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.TurnToBlack)
@@ -10070,6 +10072,7 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.TurnToWhite)
         {
           this.objWhiteOut.SetActive(true);
+          this.imgHidePanel.color = new Color(1.0f, 1.0f, 1.0f, 0);
           continue; // 継続
         }
         // ゲームオーバー、タイトルへ
