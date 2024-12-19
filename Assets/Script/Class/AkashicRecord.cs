@@ -1091,6 +1091,7 @@ public class AkashicRecord : MonoBehaviour
 
   public int VelgusSearchChantNumber(int number)
   {
+    if (number == 1) { return One.AR.Velgus_Chant_Sequence_1; }
     if (number == 2) { return One.AR.Velgus_Chant_Sequence_2; }
     if (number == 3) { return One.AR.Velgus_Chant_Sequence_3; }
     if (number == 4) { return One.AR.Velgus_Chant_Sequence_4; }
@@ -1105,6 +1106,7 @@ public class AkashicRecord : MonoBehaviour
     if (number == 13) { return One.AR.Velgus_Chant_Sequence_13; }
     if (number == 14) { return One.AR.Velgus_Chant_Sequence_14; }
     if (number == 15) { return One.AR.Velgus_Chant_Sequence_15; }
+    if (number == 16) { return One.AR.Velgus_Chant_Sequence_16; }
 
     return 0;
   }

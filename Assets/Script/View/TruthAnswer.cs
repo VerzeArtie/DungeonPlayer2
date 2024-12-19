@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TruthAnswer : MotherBase
 {
+  public List<GameObject> objListMessage;
   public List<Text> txtChant;
 
   public int CurrentChantNumber = 1; // 初期値１で良い。
@@ -38,21 +39,21 @@ public class TruthAnswer : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod().Name + " " + number.ToString());
 
-    if (CurrentChantNumber == 1) { txtChant[number-1].text = "鳥"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 2) { txtChant[number - 1].text = "天"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 3) { txtChant[number - 1].text = "闇"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 4) { txtChant[number - 1].text = "水"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 5) { txtChant[number - 1].text = "火"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 6) { txtChant[number - 1].text = "嵐"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 7) { txtChant[number - 1].text = "死"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 8) { txtChant[number - 1].text = "生"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 9) { txtChant[number - 1].text = "神"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 10) { txtChant[number - 1].text = "人"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 11) { txtChant[number - 1].text = "理"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 12) { txtChant[number - 1].text = "空"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 13) { txtChant[number - 1].text = "相"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 14) { txtChant[number - 1].text = "永"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
-    else if (CurrentChantNumber == 15) { txtChant[number - 1].text = "世"; txtChant[number - 1].gameObject.SetActive(true); CurrentChantNumber++; }
+    if (CurrentChantNumber == 1) { txtChant[number-1].text = "鳥"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false);  CurrentChantNumber++; }
+    else if (CurrentChantNumber == 2) { txtChant[number - 1].text = "天"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 3) { txtChant[number - 1].text = "闇"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 4) { txtChant[number - 1].text = "水"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 5) { txtChant[number - 1].text = "火"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 6) { txtChant[number - 1].text = "嵐"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 7) { txtChant[number - 1].text = "死"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 8) { txtChant[number - 1].text = "生"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 9) { txtChant[number - 1].text = "神"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 10) { txtChant[number - 1].text = "人"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 11) { txtChant[number - 1].text = "理"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 12) { txtChant[number - 1].text = "空"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 13) { txtChant[number - 1].text = "相"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 14) { txtChant[number - 1].text = "永"; txtChant[number - 1].gameObject.SetActive(true); objListMessage[CurrentChantNumber - 1].SetActive(false); CurrentChantNumber++; }
+    else if (CurrentChantNumber == 15) { txtChant[number - 1].text = "世"; txtChant[number - 1].gameObject.SetActive(true);/*objListMessage[CurrentChantNumber - 1].SetActive(false);*/ CurrentChantNumber++; }
     else { Debug.Log("Wrong Chant Sequence...please debug it"); }
 
     if (CurrentChantNumber >= 16)

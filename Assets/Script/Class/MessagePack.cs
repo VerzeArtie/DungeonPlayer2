@@ -18112,9 +18112,18 @@ public static class MessagePack
     }
     else
     {
-      Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+      if (One.TF.Event_Message1000075 == false)
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "【 壁には不思議な紋様が描かれている 】", ActionEvent.None);
+
+        Message1000040_MessageFromChant(ref m_list, ref e_list, 1);
+      }
     }
   }
 
@@ -18204,7 +18213,13 @@ public static class MessagePack
 
   private static void Message1000040_MessageFromChant(ref List<string> m_list, ref List<ActionEvent> e_list, int number)
   {
-    if (One.AR.VelgusSearchChantNumber(number) == 2)
+    if (One.AR.VelgusSearchChantNumber(number) == 1)
+    {
+      Message(ref m_list, ref e_list, "アイン：大自然の木々と、無数の鳥が描かれているな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：１番目の節が該当しそうね。", ActionEvent.None);
+    }
+    else if (One.AR.VelgusSearchChantNumber(number) == 2)
     {
       Message(ref m_list, ref e_list, "アイン：青く晴れた空と奇麗な緑の大地が描かれているな。", ActionEvent.None);
 
@@ -18444,7 +18459,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：仮に14なら、まず1/14。約７．１％だ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：次は1つ減るから、13個のうちから1つを当てる。1/13で役７．７％だ", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：次は1つ減るから、13個のうちから1つを当てる。1/13で約７．７％だ", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ビリー：７％ぐらいっつうんなら、んなもんじゃねえのか？あり得るだろーが。", ActionEvent.None);
 
@@ -18742,6 +18757,20 @@ public static class MessagePack
       {
         Message(ref m_list, ref e_list, "", ActionEvent.ReturnToNormal);
 
+        //Message(ref m_list, ref e_list, "？？？：世界の理を求めし者、アイン・ウォーレンスよ", ActionEvent.None);
+        Message(ref m_list, ref e_list, "？？？：■■■■■■■■者■■■■■■■■レ■■■", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：なっ！！！", ActionEvent.None);
+
+        //Message(ref m_list, ref e_list, "？？？：彼の果てにおいて永劫に封印されしは１６の節", ActionEvent.None);
+        Message(ref m_list, ref e_list, "？？？：■■果■■■■■■■■封■■■■■１６の節", ActionEvent.None);
+
+        //Message(ref m_list, ref e_list, "？？？：求める事なく、彷徨う事なく、固執する事なく、１６の節を会得せよ", ActionEvent.None);
+        Message(ref m_list, ref e_list, "？？？：■■■■なく■■■■事■■■■■■■■なく■■■■節を■■■■", ActionEvent.None);
+
+        //Message(ref m_list, ref e_list, "？？？：存在原理と空間原理を超え、完全停止事象へと到達せよ", ActionEvent.None);
+        Message(ref m_list, ref e_list, "？？？：■■原理■■■■■■超■■■■停■■■■■到■■■", ActionEvent.None);
+
         Message(ref m_list, ref e_list, "　　　　『空間が激しくフラッシュし、凝縮された空間へと連続的に小さくなる！！！』", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "　　　　『パパパパパパパ！！！！ッバシュウウウゥゥゥン！！！！！！！』", ActionEvent.None);
@@ -18788,11 +18817,11 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：見つけたんだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：何となくだけど、声が・・・聞こえたんだ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ビリー：何を？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：声？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：１６番目の節", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：１６番目の・・・節・・・", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "エオネ：（・・・　っ！　・・・）", ActionEvent.None);
 
@@ -18800,15 +18829,15 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：ああ、確かにそうだ。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：だが、さっき確かに確認したんだ。台座の所で。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：だが、さっき確かにそういった内容を聞いた気がしたんだ。台座の所で。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ビリー：おい、確かなんだろうな？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：ああ、間違いない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：どうかな・・・あまりにも不可解だったから自信はないが。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "ラナ：じゃあ、まだどこか開けられる場所があるって事？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：じゃあ・・・ひょっとしてまだどこか開けられる場所があるって事？", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：正直な所、未だに信じられないが、そういう事になる。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：正直な所、未だに信じられないが、その可能性は残されている。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ラナ：マップ的には・・・確かに、まだ少しだけありそうな気はするわね・・・", ActionEvent.None);
 
