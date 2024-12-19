@@ -18815,8 +18815,6 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：まあ、何て言うんだろうな・・・", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "エオネ：・・・　・・・　・・・", ActionEvent.None);
-
         Message(ref m_list, ref e_list, "アイン：何となくだけど、声が・・・聞こえたんだ。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "ラナ：声？", ActionEvent.None);
@@ -19015,9 +19013,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：（く・・・だ、駄目だ・・・）", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：（次・・・に・・・は・・・）", ActionEvent.None);
-
-        Message(ref m_list, ref e_list, "アイン：（俺・・・が・・・）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：（・・・　・・・）", ActionEvent.None);
 
