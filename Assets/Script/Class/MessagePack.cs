@@ -36687,111 +36687,148 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ツヴェル：して、どこでこれを？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：国王エルミ様から渡されたものです。今は私が所持しています。", ActionEvent.None);
+      if (One.TF.EventCore_FoundRedstar == false)
+      {
+        Message(ref m_list, ref e_list, "ラナ：国王エルミ様から渡されたものです。今は私が所持しています。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：そうであるか・・・なるほど。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：そうであるか・・・なるほど。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：まず、これを伝えておこう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：まず、これを伝えておこう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：その剣に関しては詳細な事柄に触れる事は出来ぬと申しておこう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：その剣は俗世では最強と謡われる武具の一種である。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：それはつまり・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：下手な闇商人と取引はせず、万が一に備え、大事に持っておく事だ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：【詳細な事柄は完全な意味で知る事が叶わない】という事でしょうか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：なるほど・・・最強・・・か・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：その通り。この剣に関しては一切が不明。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：じゃあこの剣についてはひとまず保持しておく事にします。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：古代遺産であるアーティファクトの中でも極めて異質である。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：うむ、そうされるのが良かろう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：ツァルマンの里を経由し、ゼールマンの教えに照らし合わせても解は出なかったとされている。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：では、子らに神々のお導きがあらんことを", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：まさに未知の代物といえよう。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：はい、ありがとうございました。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "～　アインはパルメテイシア神殿の外へ出た　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：素材そのものについては解明出来たりするんでしょうか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ラナ：剣の件、私達が本当にお金に困った時のために持っておいた方が良さそうね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：解明は出来ておる。ただし", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：そうだな。この先も何が起きるか分からない。大事に持っておくとしよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：解明した結果として、判別不能のコアが発見されている。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ビリー：っしゃ、ちょっと道草食ったが、次進めようぜ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：それを判別するため教団の研究員が尽力しておるが、成果を出す事は出来ておらんのが現状よ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ああ、そうしよう。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ラナ：国王エルミ様から渡されたものです。今は私が所持しています。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：判別不能のコア・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：そうであるか・・・なるほど。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：その・・・【コア】というのは何なのでしょうか？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：先ほども申した通り、詳細については触れる事が出来ぬが、強いていえば", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：まず、これを伝えておこう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：【コア】　とは　【無空間】　である。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：その剣に関しては詳細な事柄に触れる事は出来ぬと申しておこう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：無空間・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：それはつまり・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：存在していないのだよ。局所的ではあるがとある部位が欠けておるのだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：【詳細な事柄は完全な意味で知る事が叶わない】という事でしょうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：精度の高い機器でその部位をどれだけ測定しても捉える事は出来ておらぬ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：その通り。この剣に関しては一切が不明。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：また日と時間の経過により同じ測定を行うと存在していない空間の割合が変化している事も報告されておる。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：古代遺産であるアーティファクトの中でも極めて異質である。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：変化・・・それって、剣が日々形状を変えているという事ですか！？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：ツァルマンの里を経由し、ゼールマンの教えに照らし合わせても解は出なかったとされている。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：まさに未知の代物といえよう。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：その通りである。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：その様な剣は見た事がない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：素材そのものについては解明出来たりするんでしょうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：ゆえに", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：解明は出来ておる。ただし", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：我々の知では計り知れぬ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：解明した結果として、判別不能のコアが発見されている。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：すまぬが、この剣に関しては、ここまでしか語る事は出来ぬ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：それを判別するため教団の研究員が尽力しておるが、成果を出す事は出来ておらんのが現状よ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いえ。貴重なお言葉、ありがとうございました。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：判別不能のコア・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：しかし、本当に不思議ですね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：その・・・【コア】というのは何なのでしょうか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：【無空間】・・・か・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：先ほども申した通り、詳細については触れる事が出来ぬが、強いていえば", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：【コア】　とは　【無空間】　である。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：何も存在していない・・・か・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：無空間・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：確かに【未知】そのものですね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：存在していないのだよ。局所的ではあるがとある部位が欠けておるのだ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：【未知】とは【希望】であり", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：精度の高い機器でその部位をどれだけ測定しても捉える事は出来ておらぬ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：【未知】とは【脅威】である。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：また日と時間の経過により同じ測定を行うと存在していない空間の割合が変化している事も報告されておる。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ツヴェル：では、子らに神々のお導きがあらんことを", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：変化・・・それって、剣が日々形状を変えているという事ですか！？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：はい、ありがとうございました。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　アインはパルメテイシア神殿の外へ出た　～", ActionEvent.MessageDisplay);
+        Message(ref m_list, ref e_list, "ツヴェル：その通りである。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：剣の件、分からず終いね。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：その様な剣は見た事がない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：うーん、正直これは完全に想定外だったな。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：ゆえに", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：想定外って事はぁー、想定内だとどう思ってたのー？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：我々の知では計り知れぬ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：剣の解析は出来ているが、俺達に教える事は許されていない。そう答えると思っていたんだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：すまぬが、この剣に関しては、ここまでしか語る事は出来ぬ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：でも、あの説明からするとそうじゃなかった。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：いえ。貴重なお言葉、ありがとうございました。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：許されていないのではなく、教えられるべき内容を持ち合わせていない。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：しかし、本当に不思議ですね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：今出来る範囲で教えられる内容を隠さずに教えてくれた。そんな感じがしたんだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：【無空間】・・・か・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アデル：なるほどー、だから想定外だったんだー、りょうかいー☆", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：今回の件、何かのヒントにはなるかもしれない。少し覚えておこうと思う。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：何も存在していない・・・か・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：なげー道草だったな、次行こうぜ！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：確かに【未知】そのものですね。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ああ、そうしたら元の探索に戻るとするか。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ツヴェル：【未知】とは【希望】であり", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ツヴェル：【未知】とは【脅威】である。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ツヴェル：では、子らに神々のお導きがあらんことを", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：はい、ありがとうございました。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　アインはパルメテイシア神殿の外へ出た　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ラナ：剣の件、分からず終いね。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：うーん、正直これは完全に想定外だったな。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：想定外って事はぁー、想定内だとどう思ってたのー？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：剣の解析は出来ているが、俺達に教える事は許されていない。そう答えると思っていたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：でも、あの説明からするとそうじゃなかった。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：許されていないのではなく、教えられるべき内容を持ち合わせていない。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：今出来る範囲で教えられる内容を隠さずに教えてくれた。そんな感じがしたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アデル：なるほどー、だから想定外だったんだー、りょうかいー☆", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：今回の件、何かのヒントにはなるかもしれない。少し覚えておこうと思う。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：なげー道草だったな、次進めようぜ！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ああ、そうしよう。", ActionEvent.None);
+      }
     }
   }
 
