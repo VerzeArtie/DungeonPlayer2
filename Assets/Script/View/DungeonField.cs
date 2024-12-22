@@ -194,6 +194,7 @@ public class DungeonField : MotherBase
   // GUI
   public Camera MainCamera;
   public Light PlayerLight;
+  public Text txtCountDown;
 
   // System
   public GameObject GroupSystem;
@@ -1212,8 +1213,11 @@ public class DungeonField : MotherBase
       {
         Debug.Log("Velgus_SpeedRun1_Timer: " + this.Velgus_SpeedRun1_Timer.ToString());
         this.Velgus_SpeedRun1_Timer--;
+        this.txtCountDown.text = this.Velgus_SpeedRun1_Timer.ToString();
         if (this.Velgus_SpeedRun1_Timer == 0)
         {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
           MessagePack.SpeedRun1_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
@@ -11651,8 +11655,15 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_1)
         {
           One.TF.Event_SpeedRun1_Progress = 0;
+          this.txtCountDown.gameObject.SetActive(true);
           this.Velgus_SpeedRun1_Timer = 300;
+          this.txtCountDown.text = this.Velgus_SpeedRun1_Timer.ToString();
           continue;
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStop_1)
+        {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
         }
         else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_2)
         {

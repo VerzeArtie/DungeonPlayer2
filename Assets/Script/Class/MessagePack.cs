@@ -50,6 +50,7 @@ public static class MessagePack
     VelgusBallCheckComplete,
     VelgusCircleChange,
     VelgusSpeedRunStart_1,
+    VelgusSpeedRunStop_1,
     VelgusSpeedRunStart_2,
     VelgusSpeedRunStart_2_Next,
     VelgusSpeedRunStart_2_Reset,
@@ -22604,6 +22605,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "13:1:-21", ActionEvent.JumpToLocation);
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_1);
 
     Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
 
@@ -22649,6 +22651,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_216_O, ActionEvent.RemoveFieldObject);
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_217_O, ActionEvent.RemoveFieldObject);
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_218_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_1);
 
       Message(ref m_list, ref e_list, "アイン：よしきた！", ActionEvent.None);
 
