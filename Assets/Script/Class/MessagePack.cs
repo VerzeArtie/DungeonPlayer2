@@ -56,7 +56,9 @@ public static class MessagePack
     VelgusSpeedRunStart_2_Reset,
     VelgusSpeedRunStart_3,
     VelgusSpeedRunStart_4,
+    VelgusSpeedRunStop_4,
     VelgusSpeedRunStart_5,
+    VelgusSpeedRunStop_5,
     VelgusCirculate3_Switch,
     VelgusCirculate4_Switch,
     VelgusTransferRandomBall,
@@ -22962,6 +22964,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "36:1:-19", ActionEvent.JumpToLocation);
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_4);
 
     Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
 
@@ -23034,9 +23037,11 @@ public static class MessagePack
     if (One.TF.Event_SpeedRun4_Complete == false)
     {
       One.TF.Event_SpeedRun4_Complete = true;
+
       Message(ref m_list, ref e_list, "アイン：おおおおし、来た来た来たぁ！見ててくれたか！？皆！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "3", ActionEvent.UpdateUnknownTile);
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_4);
 
       Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
 
@@ -23145,6 +23150,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン：どわぁぁぁぁーーーっっ・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "38:1:-15", ActionEvent.JumpToLocation);
+    Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_5);
 
     Message(ref m_list, ref e_list, "アイン：っいて！！", ActionEvent.None);
 
@@ -23201,6 +23207,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_248_O, ActionEvent.RemoveFieldObject);
       Message(ref m_list, ref e_list, Fix.VELGUS_DOOR_249_O, ActionEvent.RemoveFieldObject);
+      Message(ref m_list, ref e_list, "", ActionEvent.VelgusSpeedRunStop_5);
 
       Message(ref m_list, ref e_list, "アイン：おおおおし、成功成功！！アーッハッハッハッハ！！", ActionEvent.None);
 

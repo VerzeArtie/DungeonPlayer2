@@ -1301,8 +1301,11 @@ public class DungeonField : MotherBase
       {
         Debug.Log("Velgus_SpeedRun4_Timer: " + this.Velgus_SpeedRun4_Timer.ToString());
         this.Velgus_SpeedRun4_Timer--;
+        this.txtCountDown.text = this.Velgus_SpeedRun4_Timer.ToString();
         if (this.Velgus_SpeedRun4_Timer == 0)
         {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
           MessagePack.SpeedRun4_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
@@ -1321,8 +1324,11 @@ public class DungeonField : MotherBase
 
         Debug.Log("Velgus_SpeedRun5_Timer: " + this.Velgus_SpeedRun5_Timer.ToString());
         this.Velgus_SpeedRun5_Timer--;
+        this.txtCountDown.text = this.Velgus_SpeedRun5_Timer.ToString();
         if (this.Velgus_SpeedRun5_Timer == 0)
         {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
           MessagePack.SpeedRun5_Failed(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
@@ -9318,7 +9324,7 @@ public class DungeonField : MotherBase
         {
           treasureName = Fix.VELGUS2_KEY2;
           MessagePack.MessageX00003(ref QuestMessageList, ref QuestEventList, treasureName);
-          MessagePack.Message1000261(ref QuestMessageList, ref QuestEventList);
+          MessagePack.Message1000260(ref QuestMessageList, ref QuestEventList);
           TapOK();
           return;
         }
@@ -11726,11 +11732,25 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_4)
         {
+          this.txtCountDown.gameObject.SetActive(true);
           this.Velgus_SpeedRun4_Timer = 500;
+          this.txtCountDown.text = this.Velgus_SpeedRun4_Timer.ToString();
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStop_4)
+        {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
         }
         else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStart_5)
         {
+          this.txtCountDown.gameObject.SetActive(true);
           this.Velgus_SpeedRun5_Timer = 200;
+          this.txtCountDown.text = this.Velgus_SpeedRun5_Timer.ToString();
+        }
+        else if (currentEvent == MessagePack.ActionEvent.VelgusSpeedRunStop_5)
+        {
+          this.txtCountDown.text = "";
+          this.txtCountDown.gameObject.SetActive(false);
         }
         else if (currentEvent == MessagePack.ActionEvent.VelgusCirculate3_Switch)
         {
