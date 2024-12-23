@@ -1316,6 +1316,22 @@ public partial class Character : MonoBehaviour
     set { _detectDeath = true; }
   }
 
+  // ボス負の影響自動リカバー
+  protected int autoRecoverPoison = 0;
+  protected int autoRecoverSilence = 0;
+  protected int autoRecoverBind = 0;
+  protected int autoRecoverSleep = 0;
+  protected int autoRecoverStunning = 0;
+  protected int autoRecoverParalyze = 0;
+  protected int autoRecoverFrozen = 0;
+  protected int autoRecoverFear = 0;
+  protected int autoRecoverSlow = 0;
+  protected int autoRecoverDizzy = 0;
+  protected int autoRecoverSlip = 0;
+  protected int autoRecoverNoResurrection = 0;
+  // protected int autoRecoverTemptation = 0;
+  // protected int autoRecoverBlind = 0;
+  // protected int autoRecoverNoGainLife = 0;
   #endregion
 
   #region "Last Value"
@@ -5607,6 +5623,141 @@ public partial class Character : MonoBehaviour
     if (action_command_list.Count >= 8) { ActionCommand8 = action_command_list[7].CommandName; }
     if (action_command_list.Count >= 9) { ActionCommand9 = action_command_list[8].CommandName; }
 
+  }
+
+  public void AutoRecover()
+  {
+    BuffImage poison = IsPoison;
+    if (poison)
+    {
+      autoRecoverPoison++;
+      if (autoRecoverPoison >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverPoison = 0;
+        poison.BuffCountDown();
+      }
+    }
+
+    BuffImage silence = IsSilent;
+    if (silence)
+    {
+      autoRecoverSilence++;
+      if (autoRecoverSilence >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverSilence = 0;
+        silence.BuffCountDown();
+      }
+    }
+
+    BuffImage bind = IsBind;
+    if (bind)
+    {
+      autoRecoverBind++;
+      if (autoRecoverBind >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverBind = 0;
+        bind.BuffCountDown();
+      }
+    }
+
+    BuffImage sleep = IsSleep;
+    if (sleep)
+    {
+      autoRecoverSleep++;
+      if (autoRecoverSleep >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverSleep = 0;
+        sleep.BuffCountDown();
+      }
+    }
+
+    BuffImage stun = IsStun;
+    if (stun)
+    {
+      autoRecoverStunning++;
+      if (autoRecoverStunning >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverStunning = 0;
+        stun.BuffCountDown();
+      }
+    }
+
+    BuffImage paralyze = IsParalyze;
+    if (paralyze)
+    {
+      autoRecoverParalyze++;
+      if (autoRecoverParalyze >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverParalyze = 0;
+        paralyze.BuffCountDown();
+      }
+    }
+
+    BuffImage frozen = IsFreeze;
+    if (frozen)
+    {
+      autoRecoverFrozen++;
+      if (autoRecoverFrozen >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverFrozen = 0;
+        frozen.BuffCountDown();
+      }
+    }
+
+    BuffImage fear = IsFreeze;
+    if (fear)
+    {
+      autoRecoverFear++;
+      if (autoRecoverFear >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverFear = 0;
+        fear.BuffCountDown();
+      }
+    }
+
+    BuffImage slow = IsSlow;
+    if (slow)
+    {
+      autoRecoverSlow++;
+      if (autoRecoverSlow >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverSlow = 0;
+        slow.BuffCountDown();
+      }
+    }
+
+    BuffImage dizzy = IsDizzy;
+    if (dizzy)
+    {
+      autoRecoverDizzy++;
+      if (autoRecoverDizzy >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverDizzy = 0;
+        dizzy.BuffCountDown();
+      }
+    }
+
+    BuffImage slip = IsSlip;
+    if (slip)
+    {
+      autoRecoverSlip++;
+      if (autoRecoverSlip >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverSlip = 0;
+        slip.BuffCountDown();
+      }
+    }
+
+    BuffImage noResurrect = IsCannotResurrect;
+    if (noResurrect)
+    {
+      autoRecoverNoResurrection++;
+      if (autoRecoverNoResurrection >= Fix.BOSS_AUTORECOVER)
+      {
+        autoRecoverNoResurrection = 0;
+        noResurrect.BuffCountDown();
+      }
+    }
   }
   #endregion
   #endregion

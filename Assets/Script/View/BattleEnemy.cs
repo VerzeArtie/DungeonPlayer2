@@ -1243,6 +1243,10 @@ public partial class BattleEnemy : MotherBase
 
       UpkeepStep();
     }
+    else
+    {
+      UpdateAutoRecoverForBoss();
+    }
     LogicInvalidate();
     #endregion
 
@@ -9210,6 +9214,49 @@ public partial class BattleEnemy : MotherBase
       for (int ii = 0; ii < buffEnemyFieldList.Length; ii++)
       {
         buffEnemyFieldList[ii].BuffCountDown();
+      }
+    }
+  }
+
+  private void UpdateAutoRecoverForBoss()
+  {
+    for (int ii = 0; ii < EnemyList.Count; ii++)
+    {
+      if (EnemyList[ii].Area == Fix.MonsterArea.Boss1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss21 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss22 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss23 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss24 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss25 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss3 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss4 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss42 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss5 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss52 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss53 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_3_1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_3_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_4 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_5_1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_5_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_6 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_7_1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_7_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss54_7_3 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss6 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss62 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss63_1 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss63_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss63_3 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss64 ||
+          EnemyList[ii].Area == Fix.MonsterArea.Boss64_2 ||
+          EnemyList[ii].Area == Fix.MonsterArea.LastBoss)
+      {
+        // Debug.Log("Boss AutoRecover " + EnemyList[ii].FullName);
+        EnemyList[ii].AutoRecover();
       }
     }
   }

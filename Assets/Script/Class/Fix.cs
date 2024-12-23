@@ -269,6 +269,8 @@ public static partial class Fix
   public const int MAX_INSTANT_POINT = 1000;
   public const int GLOBAL_INSTANT_MAX = 1000;
   public const int AP_BASE = 100;
+  public const int BOSS_AUTORECOVER = 30;
+     
   #endregion
   #region "Battle Effect Message"
   public const string BATTLE_MISS = "Miss";
