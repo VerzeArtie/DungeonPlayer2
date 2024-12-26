@@ -162,7 +162,6 @@ public class PartyMenu : MotherBase
   {
     RefreshAllView();
 
-    this.CurrentPlayer = PlayerList[0];
     TapStatus();
     TapStayListCharacter(StayListName[0]);
     TapSelectEssence(txtEssenceElementList[0]);
@@ -577,6 +576,7 @@ public class PartyMenu : MotherBase
 
     txtCurrentName.text = txt_name.text;
     txtBattleSettingCharacterName.text = txt_name.text;
+    txtEssenceTreeName.text = txt_name.text;
     Character player2 = One.SelectCharacter(txt_name.text);
     if (player2 != null)
     {
@@ -1212,6 +1212,12 @@ public class PartyMenu : MotherBase
       if (One.TF.BattlePlayer6 == list[ii].FullName) { PlayerList.Add(list[ii]); break; }
     }
 
+    // 選択中のプレイヤー初期設定。
+    if (this.CurrentPlayer == null)
+    {
+      this.CurrentPlayer = PlayerList[0];
+    }
+
     // 不要なフィルタを排除
     panelHideOther.SetActive(false);
 
@@ -1223,7 +1229,7 @@ public class PartyMenu : MotherBase
 
     // エッセンス画面への反映
     PreConstructEssenceList(PlayerList[0]);
-    SetupEssenceList(PlayerList[0], 0);
+    SetupEssenceList(this.CurrentPlayer, 0);
     CurrentEssenceSelectNumber = 0;
 
     // バックパック情報を画面へ反映
