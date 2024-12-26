@@ -4695,7 +4695,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.FINE_CLAW));
       shopList.Add(new Item(Fix.FINE_LANCE));
       shopList.Add(new Item(Fix.FINE_AXE));
-      shopList.Add(new Item(Fix.FINE_BOW));
+      // shopList.Add(new Item(Fix.FINE_BOW)); // 初期メンバー、アイン・ラナのため弓はドロップさせない。
       shopList.Add(new Item(Fix.FINE_ORB));
       shopList.Add(new Item(Fix.FINE_BOOK));
       shopList.Add(new Item(Fix.FINE_ROD));
@@ -4755,7 +4755,7 @@ public partial class HomeTown : MotherBase
       shopList.Add(new Item(Fix.SMART_CLAW));
       shopList.Add(new Item(Fix.SMART_LANCE));
       shopList.Add(new Item(Fix.SMART_AXE));
-      shopList.Add(new Item(Fix.SMART_BOW));
+      // shopList.Add(new Item(Fix.SMART_BOW)); // 神秘の森で弓をドロップさせないのでコチューシェでも販売しない。
       shopList.Add(new Item(Fix.SMART_ORB));
       shopList.Add(new Item(Fix.SMART_BOOK));
       shopList.Add(new Item(Fix.SMART_ROD));

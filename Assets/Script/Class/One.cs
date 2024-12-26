@@ -3277,7 +3277,7 @@ public static class One
                   targetItemName = Fix.SMART_LARGE_AXE;
                   break;
                 case 21:
-                  targetItemName = Fix.SMART_BOW;
+                  targetItemName = Fix.SMART_LARGE_SWORD; // Fix.SMART_BOW; 神秘の森で弓はドロップさせない。
                   break;
                 case 22:
                   targetItemName = Fix.SMART_LARGE_STAFF;
@@ -4076,7 +4076,7 @@ public static class One
                   targetItemName = Fix.OGRE_KILL_BUSTER;
                   break;
                 case 11:
-                  targetItemName = Fix.EXPLODING_ASH_BOW;
+                  targetItemName = Fix.SHARPNEL_ARC_LANCER; // Fix.EXPLODING_ASH_BOW; 神秘の森で弓はドロップさせない。
                   break;
                 case 12:
                   targetItemName = Fix.EARTH_POWERED_STAFF;
