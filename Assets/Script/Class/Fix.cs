@@ -7389,6 +7389,13 @@ public static partial class Fix
   public const float VELGUS_MessageBoard_5_Y = 1.0f;
   public const float VELGUS_MessageBoard_5_Z = -14.0f;
 
+  // 第一階層、？？？
+  public const string VELGUS_MessageBoard_6_C = "MessageBoard";
+  public const string VELGUS_MessageBoard_6_O = "6";
+  public const float VELGUS_MessageBoard_6_X = 28.0f;
+  public const float VELGUS_MessageBoard_6_Y = 1.0f;
+  public const float VELGUS_MessageBoard_6_Z = -1.0f;
+
   // 第二階層、初級の間(1)、看板
   public const string VELGUS_2_MessageBoard_1_C = "MessageBoard";
   public const string VELGUS_2_MessageBoard_1_O = "1";
