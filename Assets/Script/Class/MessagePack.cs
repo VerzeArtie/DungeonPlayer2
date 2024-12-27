@@ -24799,7 +24799,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：皆、構えてくれ。戦闘開始だ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.BRILLIANT_SEA_PRINCE, ActionEvent.EncountBoss);
+    Message(ref m_list, ref e_list, Fix.BRILLIANT_SEA_PRINCE_1, ActionEvent.EncountBoss);
   }
 
   public static void Message1000269(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -25405,7 +25405,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：じゃあ、勝負させてもらう！行くぞ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.ORIGIN_STAR_CORAL_QUEEN, ActionEvent.EncountBoss);
+    Message(ref m_list, ref e_list, Fix.ORIGIN_STAR_CORAL_QUEEN_1, ActionEvent.EncountBoss);
   }
 
   public static void Message1000278(ref List<string> m_list, ref List<ActionEvent> e_list)

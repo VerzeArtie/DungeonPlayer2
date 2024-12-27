@@ -14266,7 +14266,7 @@ public class DungeonField : MotherBase
             Debug.Log("EncountBoss: Plus Amara");
             One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT_AMARA);
           }
-          else if (currentMessage == Fix.ORIGIN_STAR_CORAL_QUEEN)
+          else if (currentMessage == Fix.ORIGIN_STAR_CORAL_QUEEN_1)
           {
             Debug.Log("EncountBoss: Plus Royal-Naga");
             One.BattleEnemyList.Add(Fix.GUARDIAN_ROYAL_NAGA);
