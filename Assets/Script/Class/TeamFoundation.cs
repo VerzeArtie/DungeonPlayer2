@@ -1562,6 +1562,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1000079 { get { return _event_message1000079; } set { _event_message1000079 = value; } }
   [SerializeField] protected bool _event_message1000080 = false;
   public bool Event_Message1000080 { get { return _event_message1000080; } set { _event_message1000080 = value; } } // GenesisGate用の看板【詩】
+  [SerializeField] protected bool _event_message1000081 = false;
+  public bool Event_Message1000081 { get { return _event_message1000081; } set { _event_message1000081 = value; } } // GenesisGate用の看板【詩】後のパルメティシア神殿での会話
 
   [SerializeField] protected bool _event_message1000040_complete = false;
   public bool Event_Message1000040_Complete { get { return _event_message1000040_complete; } set { _event_message1000040_complete = value; } }

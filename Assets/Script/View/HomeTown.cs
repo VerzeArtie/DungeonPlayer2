@@ -727,6 +727,13 @@ public partial class HomeTown : MotherBase
         MessagePack.Message2200010(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+      // パルメティシア神殿、ヴェルガス海底神殿の？？？看板到達後
+      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1000081 == false)
+      {
+        MessagePack.Message1000081(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       // ツァルマンの里、神秘の森から帰還
       if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.Event_Message500022 && One.TF.Event_EntryMysticForest && One.TF.Event_Message500024 == false)
       {

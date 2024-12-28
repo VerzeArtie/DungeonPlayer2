@@ -19156,13 +19156,17 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：今度戻ったら、もう一度パルメティシア神殿に赴いてみようと思う。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿に赴いてみようと思う。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "エオネ：・・・　っ　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：じゃあ、帰還したら行ってみましょうか。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：じゃあ、帰還する？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ああ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ、青水晶で一旦出るとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 アインは遠見の青水晶を用いてパルメティシア神殿へと帰還した 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, Fix.TOWN_PARMETYSIA, ActionEvent.GotoHomeTownForce);
     }
     else
     {
@@ -19170,6 +19174,125 @@ public static class MessagePack
     }
   }
 
+  public static void Message1000081(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Event_Message1000081 == false)
+    {
+      One.TF.Event_Message1000081 = true;
+      Message(ref m_list, ref e_list, "～　パルメティシア神殿にて　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ツヴェル：ふむ・・・そのような看板があるとは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何かご存じないでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：すまぬが、この件について述べる事はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：しかし、不思議よの。どの様にして見つけられた？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん・・・そうですねえ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ヴェルガス海底神殿の最下層に行く前に神殿の王と会いました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その時にこう言われたんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　次の階層においては　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　何もせず立ち止まり　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　己が心に問いかけるとよいだろう。 ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：でもそれって例の最下層で念じたら開いたってアレの事だろ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだ。それは合っている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だが、１つの要素が合っているからといって", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それ以外の要素が誤りとは限らないんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一つのエッセンスに複数の要素が内包されている場合があるんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの最下層の部屋で、念じて扉が開いたのは、降りて最初の区画。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：部屋自体には何もないから、ヒントとしては自ずとヴェルガス王の言っていた言葉が連想される。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、あの言葉にはもう一つ別の意味があったのさ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：別の意味だぁ？？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最下層で見た４つの看板を覚えているか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：ああ、何か書いてあったな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナのメモしてもらっている。内容はこうだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "『　力のみに非ず、技のみに非ず、知のみに非ず、心のみに非ず　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　源泉なる知が、技の体現と成す　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　技の体現が、力への理を示す　』", ActionEvent.None);
+      Message(ref m_list, ref e_list, "『　力への理から、心との同化を経て、森羅万象へと至る　』", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ビリー：それを読んだら、次へのルートが開いたんだよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そう、それだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あの最下層で、この看板の内容を読ませておき", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：読んだ後は、自然と通路が開いたので、その先へと進ませる・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それはないと感じたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どういう仕掛けが組み込まれているかは瞬間的には想像は付かなかったが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：このヴェルガス海底神殿の構造そのものが答えになっていたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まず第一階層は問いかけの要素が多かった。ここは【知】と見て良いだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：次の第二階層はタイミングよく動く要素が多かった。【技】と考えて良いはずだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そして第三階層はヴェルガスの守護者達が立ち塞がった。【力】に相当するだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：最後の第四階層は広い空間があるだけだった。【心】が当てはまるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：という事は最下層である第四階層の仕掛けが動いた後、最後に残るのが【森羅万象】というキーだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これは正直、何に合致するかが難題だったが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：落ち着いて考えれば一つだけあった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それが第一階層、あの場所だったんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：考え方、分析、考察、見切り", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：そして何より、挑戦する意志であるか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：我らムーンフォーダー教団の調査の先へ行くとは・・・想定を遥かに超えておる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：何処でその能力を磨いた？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：能力を磨いた認識はないのですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：これまで一般的なダンジョンを沢山こなしてきてるからだと思います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：ダンジョン・・・あの神聖なる領域をそう表現するとは、面白いの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：して、その看板が示す内容だが、一つ思い出した事がある。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：この地には様々な場所に碑文が残されておるのはご存じか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いえ、知りません。始めて聞きます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：もしかすると、ヴェルガス海底神殿で見たその内容は、それと同じ性質かもしれぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：それらを紡いでみせよ。アイン・ウォーレンスよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かりました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ツヴェル：子に慈悲と加護と導きがあらん事を。", ActionEvent.None);
+    }
+  }
 
   private static void Check1000040_Complete_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
@@ -26265,7 +26388,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ヴェルガス：次の階層においては", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ヴェルガス：何もすべきではない。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ヴェルガス：何もせず立ち止まり", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヴェルガス：己が心に問いかけるとよいだろう。", ActionEvent.None);
 
