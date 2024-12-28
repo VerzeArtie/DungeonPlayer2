@@ -4486,6 +4486,10 @@ public partial class HomeTown : MotherBase
     if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
     if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
     if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_2) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_3) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
+    if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_4) { txtEventDescription.text = Fix.AREA_INFO_EDELGARZEN; }
   }
   
   private void ViewQuestEvent(string quest_name)
