@@ -1687,7 +1687,7 @@ public partial class HomeTown : MotherBase
     }
     else if (this.DungeonMap == Fix.DUNGEON_EDELGARZEN_CASTLE)
     {
-      if (this.DungeonMap == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010030 && One.TF.EventCore_AcknowledgeFeltus && One.TF.EventCore_ProphecySaga_Oracle == false)
+      if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010030 && One.TF.EventCore_AcknowledgeFeltus && One.TF.EventCore_ProphecySaga_Oracle == false)
       {
         MessagePack.CoreScenario_ProphecySaga_Oracle(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
