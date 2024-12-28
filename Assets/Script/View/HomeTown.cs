@@ -1569,15 +1569,15 @@ public partial class HomeTown : MotherBase
     }
 
     // 行き先がホームタウンの場合
-      if (this.DungeonMap == Fix.TOWN_ANSHET ||
-        this.DungeonMap == Fix.TOWN_FAZIL_CASTLE ||
-        this.DungeonMap == Fix.TOWN_COTUHSYE ||
-        this.DungeonMap == Fix.TOWN_ZHALMAN ||
-        this.DungeonMap == Fix.TOWN_ARCANEDINE ||
-        this.DungeonMap == Fix.TOWN_PARMETYSIA ||
-        this.DungeonMap == Fix.TOWN_DALE ||
-        this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
-        this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
+    if (this.DungeonMap == Fix.TOWN_ANSHET ||
+      this.DungeonMap == Fix.TOWN_FAZIL_CASTLE ||
+      this.DungeonMap == Fix.TOWN_COTUHSYE ||
+      this.DungeonMap == Fix.TOWN_ZHALMAN ||
+      this.DungeonMap == Fix.TOWN_ARCANEDINE ||
+      this.DungeonMap == Fix.TOWN_PARMETYSIA ||
+      this.DungeonMap == Fix.TOWN_DALE ||
+      this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
+      this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
     {
       if (this.DungeonMap == Fix.TOWN_PARMETYSIA && One.TF.Event_Message700060 && One.TF.Event_Message801030 == false)
       {
@@ -1651,6 +1651,10 @@ public partial class HomeTown : MotherBase
       else
       {
       }
+    }
+    else if (this.DungeonMap == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4)
+    {
+      CallDungeon(One.TF.CurrentAreaName, Fix.MAPFILE_VELGUS_4, 26.0f, 1.0f, -15.0f);
     }
     else if (this.DungeonMap == Fix.DUNGEON_GATE_OF_DHAL)
     {
@@ -4395,6 +4399,7 @@ public partial class HomeTown : MotherBase
     if (One.TF.Event_Message700050) { AddSelectArea(Fix.DUNGEON_OHRAN_TOWER, true, counter); counter++; }
     if (One.TF.Event_Message700060) { AddSelectArea(Fix.TOWN_PARMETYSIA, true, counter); counter++; }
     if (One.TF.Event_Message2200020) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE, true, counter); counter++; }
+    if (One.TF.Event_Message1000292) { AddSelectArea(Fix.DUNGEON_VELGUS_SEA_TEMPLE_4, true, counter); counter++; }
     if (One.TF.Event_Message1010030) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE, true, counter); counter++; }
     if (One.TF.Event_Message1900157) { AddSelectArea(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER, true, counter); counter++; }
   }
@@ -4433,6 +4438,9 @@ public partial class HomeTown : MotherBase
     else if (select_area_name == Fix.DUNGEON_MYSTIC_FOREST) { button.ApplyImageIcon(Fix.DUNGEON_MYSTIC_FOREST_ICON); }
     else if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { button.ApplyImageIcon(Fix.DUNGEON_OHRAN_TOWER_ICON); }
     else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
+    else if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4) { button.ApplyImageIcon(Fix.DUNGEON_VELGUS_SEA_TEMPLE_ICON); }
     else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_ICON); }
     else if (select_area_name == Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER) { button.ApplyImageIcon(Fix.DUNGEON_EDELGARZEN_CASTLE_CENTER_ICON); }
     else if (select_area_name == Fix.TOWN_ANSHET) { button.ApplyImageIcon(Fix.TOWN_ANSHET_ICON); }
@@ -4475,6 +4483,9 @@ public partial class HomeTown : MotherBase
     if (select_area_name == Fix.DUNGEON_OHRAN_TOWER) { txtEventDescription.text = Fix.AREA_INFO_OHRAN_TOWER; }
     if (select_area_name == Fix.TOWN_PARMETYSIA) { txtEventDescription.text = Fix.AREA_INFO_PARMETYSIA; }
     if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_2) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_3) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
+    if (select_area_name == Fix.DUNGEON_VELGUS_SEA_TEMPLE_4) { txtEventDescription.text = Fix.AREA_INFO_VELGUS_SEA_TEMPLE; }
   }
   
   private void ViewQuestEvent(string quest_name)
