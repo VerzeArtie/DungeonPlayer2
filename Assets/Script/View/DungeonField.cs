@@ -17930,8 +17930,6 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        if (area_info == TileInformation.Area.None) { return; }
-
         if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
@@ -18095,9 +18093,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        //if (area_info == TileInformation.Area.None) { return; }
-
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(4);
@@ -18317,9 +18313,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        //if (area_info == TileInformation.Area.None) { return; }
-
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(5);
@@ -18579,7 +18573,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(6);
@@ -18935,7 +18929,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(6);
@@ -19254,7 +19248,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(6);
@@ -19571,7 +19565,7 @@ public class DungeonField : MotherBase
       if (AP.Math.RandomInteger(random) <= 10)
       {
         Debug.Log("area_info is " + area_info);
-        if (area_info == TileInformation.Area.AREA_1 || area_info == TileInformation.Area.None)
+        if (area_info == TileInformation.Area.AREA_1)
         {
           Debug.Log("area_info is AREA_1");
           int rand_data = AP.Math.RandomInteger(6);
