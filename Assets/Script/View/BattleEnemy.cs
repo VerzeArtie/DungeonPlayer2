@@ -991,16 +991,6 @@ public partial class BattleEnemy : MotherBase
     {
       ExecAnimation();
       return;
-      // 敵側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
-      if (CheckGroupAlive(EnemyList) == false)
-      {
-        return;
-      }
-      // プレイヤー側が全滅した場合、ゲームエンドとし、最後のダメージ表示は見せる。
-      if (CheckGroupAlive(PlayerList) == false)
-      {
-        return;
-      }
     }
 
     // スタックインザコマンドを実行中。この間、時間を進めない。
@@ -1711,6 +1701,21 @@ public partial class BattleEnemy : MotherBase
     #endregion
 
     #region "全滅判定"
+    // プレイヤー側が全滅した場合、ゲームエンドとする。
+    if (CheckGroupAlive(PlayerList) == false)
+    {
+      One.BattleEnd = Fix.GameEndType.Fail;
+      for (int ii = 0; ii < AllList.Count; ii++)
+      {
+        AllList[ii].CleanupBattleEnd();
+      }
+
+      if (panelGameOver.activeInHierarchy == false)
+      {
+        panelGameOver.SetActive(true);
+      }
+      return;
+    }
     // 敵側が全滅した場合、ゲームエンドとする。
     if (CheckGroupAlive(EnemyList) == false)
     {
@@ -1942,21 +1947,6 @@ public partial class BattleEnemy : MotherBase
         }
       }
       AutoExit = Fix.BATTLEEND_AUTOEXIT;
-      return;
-    }
-    // プレイヤー側が全滅した場合、ゲームエンドとする。
-    if (CheckGroupAlive(PlayerList) == false)
-    {
-      One.BattleEnd = Fix.GameEndType.Fail;
-      for (int ii = 0; ii < AllList.Count; ii++)
-      {
-        AllList[ii].CleanupBattleEnd();
-      }
-
-      if (panelGameOver.activeInHierarchy == false)
-      {
-        panelGameOver.SetActive(true);
-      }
       return;
     }
     LogicInvalidate();
