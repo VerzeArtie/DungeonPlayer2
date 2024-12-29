@@ -2564,6 +2564,11 @@ public partial class Character : MonoBehaviour
 
   public void GainExp(int gain_exp)
   {
+    if (this.Level >= Fix.CHARACTER_MAX_LEVEL7)
+    {
+      return;
+    }
+
     if (this.GetNextExp() - this._exp > 0)
     {
       this._exp += gain_exp;
