@@ -19243,7 +19243,7 @@ public class DungeonField : MotherBase
         One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2 ||
         One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
     {
-      int random = 500 + NoEncountNumber - CumulativeBattleCounter;
+      int random = 400 + NoEncountNumber - CumulativeBattleCounter;
       if (random <= 0) { random = 0; }
       if (AP.Math.RandomInteger(random) <= 10)
       {
