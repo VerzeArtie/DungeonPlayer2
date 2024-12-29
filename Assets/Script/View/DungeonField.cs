@@ -17901,7 +17901,41 @@ public class DungeonField : MotherBase
       return;
     }
 
-    const int NoEncountNumber = 6;
+    int NoEncountNumber = 6;
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+    {
+      NoEncountNumber = 6;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+    {
+      NoEncountNumber = 8;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+    {
+      NoEncountNumber = 10;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_OHRAN_TOWER)
+    {
+      NoEncountNumber = 15;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_2 ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_VELGUS_3)
+    {
+      NoEncountNumber = 20;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_2 ||
+             One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_3)
+    {
+      NoEncountNumber = 25;
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+    {
+      NoEncountNumber = 6; // 離島ウォズムはマップが小さいので、少なめで良い。
+    }
+
     CumulativeBattleCounter++;
 
     // 最初の歩きはじめはエンカウント対象外
