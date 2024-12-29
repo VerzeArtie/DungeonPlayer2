@@ -227,7 +227,14 @@ public class GroupCharacterStatus : MonoBehaviour
     txtDetailLife.text = player.CurrentLife.ToString() + " / " + player.MaxLife.ToString();
     txtDetailManaPoint.text = player.CurrentManaPoint.ToString() + " / " + player.MaxManaPoint.ToString();
     txtDetailSkillPoint.text = player.CurrentSkillPoint.ToString() + " / " + player.MaxSkillPoint.ToString();
-    txtDetailExp.text = player.Exp.ToString() + " / " + player.GetNextExp().ToString();
+    if (player.Level >= Fix.CHARACTER_MAX_LEVEL7)
+    {
+      txtDetailExp.text = " ----- / ----- ";
+    }
+    else
+    {
+      txtDetailExp.text = player.Exp.ToString() + " / " + player.GetNextExp().ToString();
+    }
     txtDetailStrength.text = player.TotalStrength.ToString();
     txtDetailAgility.text = player.TotalAgility.ToString();
     txtDetailIntelligence.text = player.TotalIntelligence.ToString();
@@ -314,8 +321,15 @@ public class GroupCharacterStatus : MonoBehaviour
 
     if (imgDetailExp != null)
     {
-      float dx = (float)player.Exp / (float)player.GetNextExp();
-      imgDetailExp.rectTransform.localScale = new Vector2(dx, 1.0f);
+      if (player.Level >= Fix.CHARACTER_MAX_LEVEL7)
+      {
+        imgDetailExp.rectTransform.localScale = new Vector2(0, 1.0f);
+      }
+      else
+      {
+        float dx = (float)player.Exp / (float)player.GetNextExp();
+        imgDetailExp.rectTransform.localScale = new Vector2(dx, 1.0f);
+      }
     }
     if (imgDetailLife != null)
     {

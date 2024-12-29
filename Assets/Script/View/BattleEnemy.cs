@@ -12327,7 +12327,12 @@ public partial class BattleEnemy : MotherBase
   {
     NodeCharaExp node_charaExp = Instantiate(node_CharaExp) as NodeCharaExp;
     node_charaExp.txtPlayerName.text = character.FullName;
-    if (character.Exp < character.GetNextExp())
+    // レベル上限に達している場合、表示固定とする。
+    if (character.Level >= Fix.CHARACTER_MAX_LEVEL7)
+    {
+      node_charaExp.txtPlayerExp.text = "----- / -----";
+    }
+    else if (character.Exp < character.GetNextExp())
     {
       node_charaExp.txtPlayerExp.text = character.Exp + " / " + character.GetNextExp();
     }
@@ -12335,8 +12340,17 @@ public partial class BattleEnemy : MotherBase
     {
       node_charaExp.txtPlayerExp.text = "Max";
     }
-    float dx = (float)character.Exp / (float)character.GetNextExp();
-    node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+
+    // レベル上限に達している場合、表示固定とする。
+    if (character.Level >= Fix.CHARACTER_MAX_LEVEL7)
+    {
+      node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(0, 1.0f);
+    }
+    else
+    {
+      float dx = (float)character.Exp / (float)character.GetNextExp();
+      node_charaExp.objCurrentExpGauge.rectTransform.localScale = new Vector3(dx, 1.0f);
+    }
 
     if (character.Exp < character.GetNextExp())
     {

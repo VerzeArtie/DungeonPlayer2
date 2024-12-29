@@ -871,7 +871,7 @@ public static partial class Fix
   public static int CHARACTER_MAX_LEVEL4 = 40; // オーランの塔まで
   public static int CHARACTER_MAX_LEVEL5 = 50; // ヴェルガスの海底神殿まで
   public static int CHARACTER_MAX_LEVEL6 = 60; // エデルガイゼン城まで
-  public static int CHARACTER_MAX_LEVEL7 = 70; // 真実世界まで
+  public static int CHARACTER_MAX_LEVEL7 = 70; // 離島ウォズムまで
   #endregion
 
   #region "Quest Event"
