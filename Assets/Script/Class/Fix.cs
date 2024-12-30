@@ -410,9 +410,14 @@ public static partial class Fix
   public const string EFFECT_SLIP_JP = "出血";
   public const string EFFECT_CANNOT_RESURRECT = "Cannot Resurrect";
   public const string EFFECT_CANNOT_RESURRECT_JP = "蘇生不可";
+  public const string EFFECT_NO_GAIN_LIFE = "No Gain Life";
+  public const string EFFECT_NO_GAIN_LIFE_JP = "ライフ回復不可";
 
   public const string EFFECT_RESURRECT_JP = "復活";
   public const string EFFECT_NOT_EFFECT_JP = "効果なし";
+
+  public const string EFFECT_FAIL_GAIN_LIFE = "No Gain Life";
+  public const string EFFECT_FAIL_GAIN_LIFE_JP = "ライフ回復不可";
 
   public const string BUFF_RESIST_POISON = "Resist Poison";
   public const string BUFF_RESIST_SILENCE = "Resist Silence";
@@ -427,6 +432,7 @@ public static partial class Fix
   public const string BUFF_RESIST_DIZZY = "Resist Dizzy";
   public const string BUFF_RESIST_SLIP = "Resist Slip";
   public const string BUFF_RESIST_CANNOT_RESURRECT = "Resist Cannot-Resurrect";
+  public const string BUFF_RESIST_NO_GAIN_LIFE = "Resist NoGainLife";
 
   public const string EFFECT_RESIST_POISON = "Poison耐性";
   public const string EFFECT_REMOVE_POISON = "Poison除去";
@@ -454,6 +460,8 @@ public static partial class Fix
   public const string EFFECT_REMOVE_SLIP = "Slip除去";
   public const string EFFECT_RESIST_CANNOT_RESURRECT = "CannotResurrect耐性";
   public const string EFFECT_REMOVE_CANNOT_RESURRECT = "CannotResurrect除去";
+  public const string EFFECT_RESIST_NO_GAIN_LIFE = "NoGainLife耐性";
+  public const string EFFECT_REMOVE_NO_GAIN_LIFE = "NoGainLife除去";
 
   public const string EFFECT_CANNOT_LIFEGAIN = "回復不可";
   public const string EFFECT_CANNOT_BE_COUNTERED = "カウンター不可！";

@@ -2710,6 +2710,7 @@ public static class ActionCommand
     if (command_name == Fix.EFFECT_DIZZY) { return Fix.BuffType.Negative; }
     if (command_name == Fix.EFFECT_SLIP) { return Fix.BuffType.Negative; }
     if (command_name == Fix.EFFECT_CANNOT_RESURRECT) { return Fix.BuffType.Negative; }
+    if (command_name == Fix.EFFECT_NO_GAIN_LIFE) { return Fix.BuffType.Negative; }
 
     if (command_name == Fix.BUFF_PA_UP) { return Fix.BuffType.Positive; }
     if (command_name == Fix.BUFF_PD_UP) { return Fix.BuffType.Positive; }

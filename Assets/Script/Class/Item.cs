@@ -737,6 +737,14 @@ public partial class Item
     get { return _resistCannotResurrect; }
   }
 
+  // ライフ回復不可への耐性
+  protected bool _resistNoGainLife = false;
+  public bool ResistNoGainLife
+  {
+    set { _resistNoGainLife = value; }
+    get { return _resistNoGainLife; }
+  }
+
   protected double _amplifyFire = 1.00f;
   public double AmplifyFire
   {

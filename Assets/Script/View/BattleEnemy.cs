@@ -7052,6 +7052,7 @@ public partial class BattleEnemy : MotherBase
         ExecBuffDizzy(player, target, 10, 1);
         ExecBuffSlip(player, target, 10, 12);
         ExecBuffCannotResurrect(player, target, 10, 0);
+        ExecBuffNoGainLife(player, target, 10, 0);
         //ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 999);
         //ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 999);
         ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 999);
@@ -10569,6 +10570,7 @@ public partial class BattleEnemy : MotherBase
       AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_DIZZY, "");
       // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLIP, ""); // 出血は解除できない
       // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 復活不可は解除できない
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, ""); // ライフ回復不可は解除できない
     }
 
     AbstractAddBuff(player, target_field_obj, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
@@ -11240,6 +11242,18 @@ public partial class BattleEnemy : MotherBase
     }
 
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, Fix.EFFECT_CANNOT_RESURRECT, turn, effect_value, 0, 0);
+  }
+
+  private void ExecBuffNoGainLife(Character player, Character target, int turn, double effect_value)
+  {
+    if (target.GetResistNoGainLife())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_NO_GAIN_LIFE, Fix.COLOR_NORMAL);
+      player.DetectCannotBeNoGainLife = true;
+      return;
+    }
+
+    AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, Fix.EFFECT_NO_GAIN_LIFE, turn, effect_value, 0, 0);
   }
 
   private void ExecBuffPhysicalAttackUp(Character player, Character target, int turn, double effect_value)
@@ -12020,6 +12034,12 @@ public partial class BattleEnemy : MotherBase
       healValue = 0;
     }
 
+    // ライフ回復不可のBuff
+    if (target.IsNoGainLife)
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_FAIL_GAIN_LIFE_JP, Fix.COLOR_NORMAL);
+      return false;
+    }
     // ヒールなので、防御姿勢で軽減はしない。
     // if (target.IsDefense) { healValue = healValue / 3.0f; }
 

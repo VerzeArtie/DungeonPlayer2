@@ -66,9 +66,9 @@ public partial class Character : MonoBehaviour
   public bool DetectCannotBeDizzy { get; set; } // 敵が眩暈耐性があるかどうかを知るフラグ
   public bool DetectCannotBeSlip { get; set; } // 敵がスリップ耐性があるかどうかを知るフラグ
   public bool DetectCannotBeNoResurrection { get; set; } // 敵が蘇生不可耐性があるかどうかを知るフラグ
+  public bool DetectCannotBeNoGainLife { get; set; } // 敵がライフ回復不可耐性があるかどうかを知るフラグ
   // public bool DetectCannotBeTemptation { get; set; } // 敵が誘惑耐性があるかどうかを知るフラグ
   // public bool DetectCannotBeBlind { get; set; } // 敵が暗闇耐性があるかどうかを知るフラグ
-  // public bool DetectCannotBeNoGainLife { get; set; } // 敵がライフ回復不可耐性があるかどうかを知るフラグ
 
   public BuffField groupTimeSequencePanel = null;
   public bool AlreadyOathOfSefine = false;
@@ -1329,9 +1329,9 @@ public partial class Character : MonoBehaviour
   protected int autoRecoverDizzy = 0;
   protected int autoRecoverSlip = 0;
   protected int autoRecoverNoResurrection = 0;
+  protected int autoRecoverNoGainLife = 0;
   // protected int autoRecoverTemptation = 0;
   // protected int autoRecoverBlind = 0;
-  // protected int autoRecoverNoGainLife = 0;
   #endregion
 
   #region "Last Value"
@@ -2193,6 +2193,27 @@ public partial class Character : MonoBehaviour
     return false;
   }
 
+  public bool GetResistNoGainLife()
+  {
+    if ((this.IsResistNoGainLife) ||
+     (this.MainWeapon != null && this.MainWeapon.ResistNoGainLife) ||
+     (this.SubWeapon != null && this.SubWeapon.ResistNoGainLife) ||
+     (this.MainArmor != null && this.MainArmor.ResistNoGainLife) ||
+     (this.Accessory1 != null && this.Accessory1.ResistNoGainLife) ||
+     (this.Accessory2 != null && this.Accessory2.ResistNoGainLife) ||
+     (this.Artifact != null && this.Artifact.ResistNoGainLife))
+    {
+      return true;
+    }
+    // サークル・オブ・セレニティで防げない
+    //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
+    //{
+    //  return true;
+    //}
+
+    return false;
+  }
+
 
   public int GetPotentialEnergy()
   {
@@ -2890,6 +2911,10 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.BUFF_RESIST_CANNOT_RESURRECT); }
   }
 
+  public BuffImage IsResistNoGainLife
+  {
+    get { return SearchBuff(Fix.BUFF_RESIST_NO_GAIN_LIFE); }
+  }
 
   public BuffImage IsPoison
   {
@@ -2954,6 +2979,11 @@ public partial class Character : MonoBehaviour
   public BuffImage IsCannotResurrect
   {
     get { return SearchBuff(Fix.EFFECT_CANNOT_RESURRECT); }
+  }
+
+  public BuffImage IsNoGainLife
+  {
+    get { return SearchBuff(Fix.EFFECT_NO_GAIN_LIFE); }
   }
 
   public BuffImage IsSkyShield
@@ -5763,6 +5793,18 @@ public partial class Character : MonoBehaviour
         noResurrect.BuffCountDown();
       }
     }
+
+    // ライフ回復不可は特殊でありAutoRecoverの対象としない。
+    //BuffImage noGainLife = IsNoGainLife;
+    //if (noGainLife)
+    //{
+    //  autoRecoverNoGainLife++;
+    //  if (autoRecoverNoGainLife >= Fix.BOSS_AUTORECOVER)
+    //  {
+    //    autoRecoverNoGainLife = 0;
+    //    noGainLife.BuffCountDown();
+    //  }
+    //}
   }
   #endregion
   #endregion
@@ -9372,7 +9414,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(1000, 100, 1000, 99999, 10, 100, 0, 0);
+        SetupParameter(50, 100, 1000, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;
