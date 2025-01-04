@@ -30921,19 +30921,38 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：おい、アイン", ActionEvent.None);
+      if (One.TF.EventCore_ProphecySaga_Oracle)
+      {
+        Message(ref m_list, ref e_list, "ビリー：おい、アイン", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：いや、ここは黙っていた方が良い。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ビリー、待て", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：なんでだよ？", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ビリー：なんだよ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　リガールの背中から複数の光剣が動き始めた！　～", ActionEvent.MessageDisplay);
+        Message(ref m_list, ref e_list, "アイン：もう・・・始まっている・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：な！！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "～　リガールの背中から複数の光剣が動き始めた！　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：ビリー、落ち着くんだ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "ビリー：な！！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ビリー、落ち着くんだ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "ビリー：おい、アイン", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：いや、ここは黙っていた方が良い。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：なんでだよ？", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "～　リガールの背中から複数の光剣が動き始めた！　～", ActionEvent.MessageDisplay);
+
+        Message(ref m_list, ref e_list, "ビリー：な！！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：ビリー、落ち着くんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -30947,19 +30966,88 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：（どうする・・・あの光剣は一体・・・）", ActionEvent.None);
+      if (One.TF.EventCore_ProphecySaga_Oracle)
+      {
+        One.TF.EventCore_AdviceFromOrphstein = true;
 
-      Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：（どうする・・・　・・・）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "リガール：アイン・ウォーレンスよ。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "リガール：今の貴君の状態では", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：アイン・ウォーレンスよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "リガール：我を倒せぬと知れ", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：波動意志を持ってして", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：！！", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：オラクルの預言を会得したか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：パルメティシア神殿の教皇様から聞いたんだ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：【赤の吉兆は偽り】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：【青の予見は偽り】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：【黒き地平線、静かに沈みゆき】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：【白き閃光は放たれた】", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：これが意図する所は検討もついていないが", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：連想される内容としては", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：それぞれの場所を指し示している気がする", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：王よ。応えてくれないか。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：ツァルマンの里", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：ファージル宮殿", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：エデルガイゼン城", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：パルメティシア神殿", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：その交点の頂に【解】は存在する", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：解・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：アイン・ウォーレンスよ。", ActionEvent.None);
+      }
+      else
+      {
+        Message(ref m_list, ref e_list, "アイン：（どうする・・・あの光剣は一体・・・）", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：アイン・ウォーレンスよ。", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：今の貴君の状態では", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：我を倒せぬと知れ", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "アイン：！！", ActionEvent.None);
+
+        Message(ref m_list, ref e_list, "リガール：アイン・ウォーレンスよ。", ActionEvent.None);
+      }
 
       Message(ref m_list, ref e_list, "リガール：心を強く保持せよ", ActionEvent.None);
 
