@@ -11986,6 +11986,12 @@ public class DungeonField : MotherBase
           One.TF.AddBackPack(new Item(currentMessage));
           continue; // 継続
         }
+        else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
+        {
+          One.TF.RemoveItem(new Item(currentMessage));
+          // ConstructBackpackView();
+          continue; // 継続
+        }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
         {
           EventFountain();

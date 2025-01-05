@@ -12024,6 +12024,24 @@ public partial class Item
         this._mind = 0;
         break;
 
+      case Fix.LEGENDARY_FELTUS:
+        this._rarity = Rarity.Legendary;
+        this._itemType = ItemTypes.Onehand_Sword;
+        this._gripType = GripTypes.OneHand;
+        this._battleAccuracy = 100;
+        this._physicalAttack = 1;
+        this._physicalAttackMax = 8974;
+        this._magicAttack = 0;
+        this._magicAttackMax = 0;
+        this._physicalDefense = 0;
+        this._magicDefense = 0;
+        this._itemValue1 = 0;
+        this._itemValue2 = 0;
+        this._gold = 0;
+        this._importantType = Important.Precious;
+        this._description = "剣の中枢部に微細な円環状の無空間を形成している剣。理そのものを示すその剣は時間律、因果律、そして生命の根源を断ち切る性質を有する。理攻撃１～８９７４\r\n【常備能力】任意の行動を行うたびに、神の蓄積カウンターが一つ自分にBUFFとして蓄積する。蓄積されたカウンターの分だけ、【心】パラメタが１００上昇する。最大30個まで蓄積が行える。対象に攻撃がヒットした時、対象に【復活不可】および【ライフ回復不可】の効果を与える。";
+        break;
+
       case Fix.ARTIFACT_GENSEI:
         this._rarity = Rarity.Legendary;
         this._itemType = ItemTypes.Artifact;

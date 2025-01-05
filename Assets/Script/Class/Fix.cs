@@ -2917,6 +2917,8 @@ public static partial class Fix
   public const string PRECIOUS_SWORD = "宝剣 ？？？";
   public const string BLUESKY_STAR_FEATHER = "蒼き星空天の羽";
   public const string REDCOMET_STAR_CHARM = "朱き彗星のお守り";
+
+  public const string LEGENDARY_FELTUS = @"神剣  フェルトゥーシュ";
   #endregion
   #region "無価値アイテム"
   public const string POOR_BLACK_MATERIAL = @"ブラックマテリアル";

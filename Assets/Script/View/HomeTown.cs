@@ -2907,7 +2907,7 @@ public partial class HomeTown : MotherBase
           ConstructBackpackView();
           continue; // 継続
         }
-        else if (currentEvent == MessagePack.ActionEvent.HomeTownRemoveItem)
+        else if (currentEvent == MessagePack.ActionEvent.RemoveItem)
         {
           Debug.Log("event: " + currentEvent.ToString() + " " + currentMessage);
           One.TF.RemoveItem(new Item(currentMessage));
