@@ -30239,7 +30239,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アデル：へーー、そんな風に感じるんだ☆", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：ああ、こういう抽象的かつ印象的な表現ほどついつい選びたくるんだが", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ああ、こういう抽象的かつ印象的な表現ほどついついどちらかを選びたくなるんだが", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：イメージ的にはこれ。仕組まれた内容の類に入るんだ", ActionEvent.None);
 
