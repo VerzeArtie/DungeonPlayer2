@@ -13825,6 +13825,21 @@ public static partial class Fix
   public const float WOSM_EVENT_4_Z = -13.0f;
 
   #endregion
+  #region "全体フィールド"
+  // 最初の地点
+  public const string BASEFIELD_EVENT_1_C = "Event";
+  public const string BASEFIELD_EVENT_1_O = "1";
+  public const float BASEFIELD_EVENT_1_X = 65.0f;
+  public const float BASEFIELD_EVENT_1_Y = -2.0f;
+  public const float BASEFIELD_EVENT_1_Z = 30.0f;
+
+  // 天上界ジェネシスゲート地点
+  public const string BASEFIELD_EVENT_2_C = "Event";
+  public const string BASEFIELD_EVENT_2_O = "2";
+  public const float BASEFIELD_EVENT_2_X = 2.0f;
+  public const float BASEFIELD_EVENT_2_Y = 30.0f;
+  public const float BASEFIELD_EVENT_2_Z = 48.0f;
+  #endregion
   #endregion
 
   #region "Hometown"

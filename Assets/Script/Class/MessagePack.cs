@@ -1460,6 +1460,15 @@ public static class MessagePack
       }
     }
   }
+
+  public static void Message_BaseField_1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：ここが・・・リガール王の言っていた【交点】か。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：きっとここに・・・【解】は存在する。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：行ってみよう。", ActionEvent.None);
+  }
   #endregion
 
   #region "クヴェルタ街"

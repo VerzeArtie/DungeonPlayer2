@@ -15132,6 +15132,11 @@ public class DungeonField : MotherBase
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_2_X, Fix.BASEFIELD_EVENT_2_Y, Fix.BASEFIELD_EVENT_2_Z))
+      {
+        MessagePack.Message_BaseField_1(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
       if (LocationDetect(tile, -47, 3.5f, 17))
       {
         Debug.Log("Detect Message101001");
@@ -19643,69 +19648,6 @@ public class DungeonField : MotherBase
       }
     }
     #endregion
-    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
-    {
-      int random = 100 - CumulativeBattleCounter;
-      if (random <= 0) { random = 0; }
-      if (AP.Math.RandomInteger(random) <= 10)
-      {
-        Debug.Log("detectenemy: location: " + this.Player.transform.position.x + " " + this.Player.transform.position.z);
-
-        switch (area_info)
-        {
-          case TileInformation.Area.AREA_1:
-            switch (AP.Math.RandomInteger(3))
-            {
-              case 0:
-                One.BattleEnemyList.Add(Fix.TINY_MANTIS);
-                break;
-              case 1:
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                break;
-              case 2:
-                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-                break;
-            }
-            break;
-          case TileInformation.Area.AREA_2:
-            switch (AP.Math.RandomInteger(5))
-            {
-              case 0:
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                One.BattleEnemyList.Add(Fix.MANDRAGORA);
-                break;
-              case 1:
-                One.BattleEnemyList.Add(Fix.WILD_ANT);
-                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-                One.BattleEnemyList.Add(Fix.YOUNG_WOLF);
-                break;
-              case 2:
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                One.BattleEnemyList.Add(Fix.GREEN_SLIME);
-                One.BattleEnemyList.Add(Fix.OLD_TREEFORK);
-                break;
-              case 3:
-                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
-                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
-                One.BattleEnemyList.Add(Fix.SUN_FLOWER);
-                break;
-              case 4:
-                One.BattleEnemyList.Add(Fix.WILD_ANT);
-                One.BattleEnemyList.Add(Fix.WILD_ANT);
-                One.BattleEnemyList.Add(Fix.MANDRAGORA);
-                One.BattleEnemyList.Add(Fix.MANDRAGORA);
-                break;
-            }
-            break;
-        }
-        One.CannotRunAway = false;
-        One.LifePointBattle = false;
-        PrepareCallTruthBattleEnemy();
-      }
-      return;
-    }
   }
 
   /// <summary>
@@ -19976,9 +19918,18 @@ public class DungeonField : MotherBase
 
   private void RefleshMainCamera()
   {
-    MainCamera.transform.position = new Vector3(Player.transform.position.x - 0.0f,
-                                           Player.transform.position.y + 7.0f,
-                                           Player.transform.position.z - 1.0f);
+    float x = 0.0f;
+    float y = 7.0f;
+    float z = -1.0f;
+    if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
+    {
+      x = 0.0f;
+      y = 4.0f;
+      z = -0.5f;
+    }
+    MainCamera.transform.position = new Vector3(Player.transform.position.x + x,
+                                           Player.transform.position.y + y,
+                                           Player.transform.position.z + z);
     PlayerLight.transform.position = Player.transform.position;
   }
 

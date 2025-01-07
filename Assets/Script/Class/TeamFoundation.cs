@@ -69,6 +69,13 @@ public class TeamFoundation : MonoBehaviour
     get { return _field_Z; }
   }
 
+  [SerializeField] protected bool _init_basefield_start = false;
+  public bool InitBasefieldStart
+  {
+    set { _init_basefield_start = value; }
+    get { return _init_basefield_start; }
+  }
+
   [SerializeField] protected bool _availableImmediateAction = false;
   public bool AvailableImmediateAction
   {
