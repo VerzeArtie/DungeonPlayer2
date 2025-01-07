@@ -31131,17 +31131,17 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "アイン：ひょっとしてこれらは", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：何らかの関連性があるが", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：何らかの関連性があるのかしれないが", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：存在の証明ができない事象", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：今の俺では、それを証明する事はできない。", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：そしてそれを指し示しているのが、", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：ただ、それを全体的に包括して指し示しているのが、", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：オラクルの預言なんだと思う。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：その預言から導き出される解によって", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "アイン：何かを成し遂げようとしている。", ActionEvent.None);
+        Message(ref m_list, ref e_list, "アイン：エルミ国王、リガール王、貴方がたは何かを成し遂げようとしている。", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "アイン：そんな気がしてならないんだ。", ActionEvent.None);
 
@@ -31187,7 +31187,7 @@ public static class MessagePack
 
         Message(ref m_list, ref e_list, "リガール：オラクルの預言とは", ActionEvent.None);
 
-        Message(ref m_list, ref e_list, "リガール：この世界の完全なる理を言霊として投影するものである", ActionEvent.None);
+        Message(ref m_list, ref e_list, "リガール：この世界の完全なる事象を言霊として投影するものである", ActionEvent.None);
 
         Message(ref m_list, ref e_list, "リガール：一つ", ActionEvent.None);
 
