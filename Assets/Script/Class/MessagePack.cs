@@ -1461,13 +1461,420 @@ public static class MessagePack
     }
   }
 
-  public static void Message_BaseField_1(ref List<string> m_list, ref List<ActionEvent> e_list)
+  // キルクード山脈ルート開始
+  public static void Message_BaseField_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：ここが・・・リガール王の言っていた【交点】か。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（　お・・・ようやく外に出れたな・・・　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：きっとここに・・・【解】は存在する。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（　ここは・・・キルクード山脈か？　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：行ってみよう。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（　そういえば、キージク山道が事故続きでここまでは通れない事になっていたな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そうか・・・エデルガイゼン城からここに出たという事は・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　事故ではなく、意図的にこの道を封鎖していたのかも知れないな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　よし、このまま登ってみよう　）", ActionEvent.None);
+  }
+
+  // キージク山道
+  public static void Message_BaseField_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  { 
+    Message(ref m_list, ref e_list, "アイン：（　っあ、例の山道封鎖地点だな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ここに出るって事は・・・そうか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ファージルとヴィンスガルデを繋ぐルートは港町コチューシェ、ダルの門だけだと思っていた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　こんな所で繋がってたとは・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　リガール王とエルミ国王様・・・ひょっとしてこのルートを使っていたとか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　あり得るな・・・きっとそうだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　密かに何かが進行していたんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　この道でファージル領に戻っても意味はない。続けて登ろう　）", ActionEvent.None);
+  }
+
+  // ツァルマンの里
+  public static void Message_BaseField_4(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　ん？　こっちは・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　まさか、あそこに見えるのは・・・ツァルマンの里か？　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そういえば、神秘の森からツァルマンの里に到着した時、入口がもう1か所あったな・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　もう一方がこのキルクード山脈に繋がってたのは知らなかったな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　という事は・・・リガール王、エルミ国王、そして・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ツァルマンの里の長老もきっとそうだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ひょっとして、神剣フェルトゥーシュとObsidianStoneの件は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　国王エルミ様が依頼してくるだいぶ前から　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　決めていた事なんじゃないだろうか　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ツァルマンの里へ寄る必要はない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　この山脈を登り続けよう　）", ActionEvent.None);
+  }
+
+  // パルメティシア神殿
+  public static void Message_BaseField_5(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　ここからだと・・・パルメティシア神殿が見えるな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　あ。パルメティシア神殿の方で少しだけ光っている区画が見えるな・・・あれは・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かの紋様に見える・・・解読は出来ないが、ただ・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ちょっと位置がずれてくると見えなくなる　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　この地点に来ることで紋様が把握できる仕組みになっているみたいだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　紋様・・・そういえば、天の民は互いに意志疎通をはかる時に紋様を使っていると教皇様は言ってたな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　リガール王も、エルミ様も・・・天の民なのかもしれない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　となると、パルメティシア神殿とのコンタクトもひょっとしてこれで・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ともかく、登り続けよう　）", ActionEvent.None);
+  }
+
+  // 天上界ジェネシスゲート手前
+  public static void Message_BaseField_6(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（　頂上が見えてきたな・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ここまで来ると大陸全土が見渡せるな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ツァルマンの里とパルメティシア神殿、そして、ファージル宮殿とエデルガイゼン城　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　リガール王の言っていた【交点】とはおそらくここの事だろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・【解】とはどういう意味だろう・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　エルミ国王、リガール王もここは訪れているはず　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　内容については分からないが、すでに【解】を得ていてもおかしくはないはずだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　それでもなお、俺をここに導いてくれたとなると　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　【解】に辿りつく事は　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　終わりではないとしたら　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ヴェルガス海底神殿で見た、相似形の螺旋と円環が示されていた【１６の節】　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　たしか、こうだったな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　【　過去と未来に非ず、始まりと終わりに非ず、夢幻無二なる特異空間へと至る　】", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　教皇様はこの件については認識していないようだった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　リガール王も最後に送ってくれた台詞として　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ObsidianStoneとの接触を行ったものが鍵だと言っていた　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何が起こるか分からないが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　頂上へ行こう　）", ActionEvent.None);
+  }
+
+  // 天上界ジェネシスゲート
+  public static void Message_BaseField_7(ref List<string> m_list, ref List<ActionEvent> e_list)
+  { 
+    Message(ref m_list, ref e_list, "アイン：（　着いたな・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　台座がある　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　～　アイン・ウォーレンス、台座へと足を運んだ ～", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かが存在したり見えるわけじゃない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何も・・・ない・・・か・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ひょっとして　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ObsidianStoneがここにもあるとでも　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　だが、どうやって探す　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　俺の手には神剣フェルトゥーシュがある　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　確か神剣フェルトゥーシュはその形状のうち、一点【コア】となる箇所があると教皇様が言ってたな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　【コア】とは【無空間】であると・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　俺がこれまで接触してきたObsidianStoneらしき物体　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　その物体の大きさは、この神剣が有している【コア】の部位と同じかもしれない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　いや、一致は難しいか。確か【コア】の大きさは常々変化しているとも表現してたからな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　接触・・・できるんだろうか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　答えらしきポイントは見つからない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　どこだ・・・答えはどこにある　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　いや、違うか　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　支配竜との対話を思い出そう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かを願ったとしても　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　支配竜は応えを返してこなかった　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かを願ってはいけないんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かを目指す事なく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何か対象を取ることなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何かという事に囚われることなく　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　剣を　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　振るい続けるしかない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、神剣を手に取り戦闘の姿勢を取る　～", ActionEvent.MessageDisplay);
+
+    Message(ref m_list, ref e_list, "アイン：（　他に　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　選択肢はない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　神剣がObsidianStoneを捉えるまで　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　この台座にて神剣を振るい続けよう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンス　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　キルクード山脈の頂にて　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　神剣と共に、闘いの舞踏を行う　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　その舞踏は永劫の時を刻み続けた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　今の一振りじゃ駄目か　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　いや、駄目かどうかじゃないな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　続けるしかないんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何となくだが・・・今、一瞬だけ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　存在に対する認識があった気がした　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ただ、集中が少しでも途切れるとすぐ見えなくなってしまう・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　見ようとしたり、捉えようとしたり・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そういうのを止めよう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　草原区域でやっていたトレーニングを思い出そう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　自然体で・・・集中するんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　意識せず・・・神剣の軌道を　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンスの試行は絶え間なく続く　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　その試行に果てはなく　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　何もない領域に永遠に剣の軌跡を刻み続けるその様は　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　やがて、不思議な円環を描くようになる　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンス、その事を意識せず　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　事象発生の根幹に対する接触を試みることなく　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　精神と肉体の限界を超えてなお　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　振るい続けた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　そのとき　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　！　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　認識に至る　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ココだ！！！　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　神剣フェルトゥーシュの中枢にある【コア】　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　その【無空間】に僅かながら　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　交点を合わせる事象へと至る　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　何も起きないかったか・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　いや、違うな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そういった事を一瞬でも考えたからだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　確かエオネが【精神波動】とか言ってたっけ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　自分はあまり意識してなかったが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　それを発し続けられるかどうかが鍵かもしれない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　ただ、それを意識した時点で消失する　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そんな感じだな　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　次こそ、今度こそ、何度もやれば・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　そういう考え方も取り去ろう　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　よし・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンスが描く剣の軌跡は　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　不思議な円環から不規則な偏差を伴う螺旋へと切り替わる　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　それと共鳴するように　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　神剣フェルトゥーシュの【コア】とObsidianStone　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　その一致性が急速に上昇する　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンス、流れを一切変える事なく　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　螺旋を描き続けた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　それからどのくらいの刻が過ぎたかは定かではないが　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　事象の基点は既に発生　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンスおよび台座の周辺には　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　まばゆい光の球体が形成され始めていた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "", ActionEvent.TurnToWhite);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンスが演舞する姿を目撃した者は一人もいない　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　この事象は大陸全土にいる様々な人達がその光を目撃していた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　この事象を見た人々は後にこう語る　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　キルクード山脈の頂にて【神】降臨されたし　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンス、それでもなお継続して　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　神剣フェルトゥーシュを振るい続けた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　光の球状は　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンスの全てを包み込み　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンの身体に異変が訪れた　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　光の球状の中で　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　少しずつアイン・ウォーレンスの身体は　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　光の粒子と同化　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　光の球状はこれまでにないほどの輝きを世界に対して放ち　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　光の球状は世界に飛散し、形成を消失　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　同刻　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　アイン・ウォーレンス　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　身体および精神の形成を消失　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　時間律および因果律を超え　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　かの領域へと至る　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　無の領域　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, " 　　＜　　天上界ジェネシスゲート　　＞", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "§　・・・　・・・　・・・　§", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "§　ここは一体・・・どこだ　§", ActionEvent.None);
   }
   #endregion
 
