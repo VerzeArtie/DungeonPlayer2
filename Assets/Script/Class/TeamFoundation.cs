@@ -2346,6 +2346,20 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_core_contact_lana_noaction = false;
   public bool EventCore_ContactLana_NoAction { get { return _event_core_contact_lana_noaction; } set { _event_core_contact_lana_noaction = value; } }
 
+  // 全体フィールド→天上界ジェネシスゲートのルート
+  [SerializeField] protected bool _lastfield_event_2 = false;
+  public bool LastField_Event_2 { get { return _lastfield_event_2; } set { _lastfield_event_2 = value; } }
+  [SerializeField] protected bool _lastfield_event_3 = false;
+  public bool LastField_Event_3 { get { return _lastfield_event_3; } set { _lastfield_event_3 = value; } }
+  [SerializeField] protected bool _lastfield_event_4 = false;
+  public bool LastField_Event_4 { get { return _lastfield_event_4; } set { _lastfield_event_4 = value; } }
+  [SerializeField] protected bool _lastfield_event_5 = false;
+  public bool LastField_Event_5 { get { return _lastfield_event_5; } set { _lastfield_event_5 = value; } }
+  [SerializeField] protected bool _lastfield_event_6 = false;
+  public bool LastField_Event_6 { get { return _lastfield_event_6; } set { _lastfield_event_6 = value; } }
+  [SerializeField] protected bool _lastfield_event_7 = false;
+  public bool LastField_Event_7 { get { return _lastfield_event_7; } set { _lastfield_event_7 = value; } }
+
   #endregion
 
   #endregion

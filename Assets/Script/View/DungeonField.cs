@@ -15132,11 +15132,62 @@ public class DungeonField : MotherBase
     #endregion
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_BASE_FIELD)
     {
+      // キルクード山脈の開始地点
       if (LocationDetect(tile, Fix.BASEFIELD_EVENT_2_X, Fix.BASEFIELD_EVENT_2_Y, Fix.BASEFIELD_EVENT_2_Z))
       {
-        MessagePack.Message_BaseField_1(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.Message_BaseField_2(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
+
+      // キルクード山脈→オーランの塔向け通路（ビュー）
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_3_X, Fix.BASEFIELD_EVENT_3_Y, Fix.BASEFIELD_EVENT_3_Z))
+      {
+        MessagePack.Message_BaseField_3(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // キルクード山脈→オーランの塔向け通路（ブロック用）
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_4_X, Fix.BASEFIELD_EVENT_4_Y, Fix.BASEFIELD_EVENT_4_Z))
+      {
+        MessagePack.Message_BaseField_3_2(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // キルクード山脈→ツァルマンの里向け通路（ビュー）
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_5_X, Fix.BASEFIELD_EVENT_5_Y, Fix.BASEFIELD_EVENT_5_Z))
+      {
+        MessagePack.Message_BaseField_4(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // キルクード山脈→ツァルマンの里向け通路（ブロック用）
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_6_X, Fix.BASEFIELD_EVENT_6_Y, Fix.BASEFIELD_EVENT_6_Z))
+      {
+        MessagePack.Message_BaseField_4_2(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // キルクード山脈→パルメティシア神殿方向（ビュー）
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_7_X, Fix.BASEFIELD_EVENT_7_Y, Fix.BASEFIELD_EVENT_7_Z))
+      {
+        MessagePack.Message_BaseField_5(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // 天上界ジェネシスゲート手前
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_8_X, Fix.BASEFIELD_EVENT_8_Y, Fix.BASEFIELD_EVENT_8_Z))
+      {
+        MessagePack.Message_BaseField_6(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // 天上界ジェネシスゲート台座地点
+      if (LocationDetect(tile, Fix.BASEFIELD_EVENT_9_X, Fix.BASEFIELD_EVENT_9_Y, Fix.BASEFIELD_EVENT_9_Z))
+      {
+        MessagePack.Message_BaseField_7(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
       if (LocationDetect(tile, -47, 3.5f, 17))
       {
         Debug.Log("Detect Message101001");

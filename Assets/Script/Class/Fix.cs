@@ -898,7 +898,7 @@ public static partial class Fix
   //  "試練の道 【茨】",
   //  "(Optional) ゴラトルム洞窟の探索",
   //  "ファージル宮殿への報告（ObsidianStone）",
-  //  "キージク山道を抜けて",
+  //  "キルクード山道を抜けて",
   //  "ファージル宮殿への報告（異変に関する報告）",
   //  "海底神殿：ヴェルガス",
   //  "中立国：ムーンフォーダー",
@@ -13833,12 +13833,61 @@ public static partial class Fix
   public const float BASEFIELD_EVENT_1_Y = -2.0f;
   public const float BASEFIELD_EVENT_1_Z = 30.0f;
 
-  // 天上界ジェネシスゲート地点
+  // キルクード山脈の開始地点
   public const string BASEFIELD_EVENT_2_C = "Event";
   public const string BASEFIELD_EVENT_2_O = "2";
-  public const float BASEFIELD_EVENT_2_X = 2.0f;
-  public const float BASEFIELD_EVENT_2_Y = 30.0f;
-  public const float BASEFIELD_EVENT_2_Z = 48.0f;
+  public const float BASEFIELD_EVENT_2_X = -6.0f;
+  public const float BASEFIELD_EVENT_2_Y = 4.5f;
+  public const float BASEFIELD_EVENT_2_Z = 55.0f;
+
+  // キルクード山脈→オーランの塔向け通路（ビュー）
+  public const string BASEFIELD_EVENT_3_C = "Event";
+  public const string BASEFIELD_EVENT_3_O = "3";
+  public const float BASEFIELD_EVENT_3_X = -4.0f;
+  public const float BASEFIELD_EVENT_3_Y = 9.0f;
+  public const float BASEFIELD_EVENT_3_Z = 39.0f;
+
+  // キルクード山脈→オーランの塔向け通路（ブロック用）
+  public const string BASEFIELD_EVENT_4_C = "Event";
+  public const string BASEFIELD_EVENT_4_O = "4";
+  public const float BASEFIELD_EVENT_4_X = -4.0f;
+  public const float BASEFIELD_EVENT_4_Y = 9.0f;
+  public const float BASEFIELD_EVENT_4_Z = 38.0f;
+
+  // キルクード山脈→ツァルマンの里向け通路（ビュー）
+  public const string BASEFIELD_EVENT_5_C = "Event";
+  public const string BASEFIELD_EVENT_5_O = "5";
+  public const float BASEFIELD_EVENT_5_X = 13.0f;
+  public const float BASEFIELD_EVENT_5_Y = 15.5f;
+  public const float BASEFIELD_EVENT_5_Z = 53.0f;
+
+  // キルクード山脈→ツァルマンの里向け通路（ブロック用）
+  public const string BASEFIELD_EVENT_6_C = "Event";
+  public const string BASEFIELD_EVENT_6_O = "6";
+  public const float BASEFIELD_EVENT_6_X = 14.0f;
+  public const float BASEFIELD_EVENT_6_Y = 15.5f;
+  public const float BASEFIELD_EVENT_6_Z = 53.0f;
+
+  // キルクード山脈→パルメティシア神殿方向（ビュー）
+  public const string BASEFIELD_EVENT_7_C = "Event";
+  public const string BASEFIELD_EVENT_7_O = "7";
+  public const float BASEFIELD_EVENT_7_X = 4.0f;
+  public const float BASEFIELD_EVENT_7_Y = 22.5f;
+  public const float BASEFIELD_EVENT_7_Z = 54.0f;
+
+  // 天上界ジェネシスゲート手前
+  public const string BASEFIELD_EVENT_8_C = "Event";
+  public const string BASEFIELD_EVENT_8_O = "8";
+  public const float BASEFIELD_EVENT_8_X = 0.0f;
+  public const float BASEFIELD_EVENT_8_Y = 29.5f;
+  public const float BASEFIELD_EVENT_8_Z = 48.0f;
+
+  // 天上界ジェネシスゲート台座地点
+  public const string BASEFIELD_EVENT_9_C = "Event";
+  public const string BASEFIELD_EVENT_9_O = "9";
+  public const float BASEFIELD_EVENT_9_X = 2.0f;
+  public const float BASEFIELD_EVENT_9_Y = 30.0f;
+  public const float BASEFIELD_EVENT_9_Z = 48.0f;
   #endregion
   #endregion
 
