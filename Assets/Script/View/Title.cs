@@ -196,7 +196,22 @@ public class Title : MotherBase
 
     One.RealWorldLoad();
     One.StopDungeonMusic();
-    if (One.TF.SaveByDungeon)
+
+    if (One.TF.EventCore_IdentifyFeltus)
+    {
+      
+      One.TF.CurrentDungeonField = Fix.MAPFILE_BASE_FIELD;
+      // 初期スタートの位置
+      if (One.TF.InitBasefieldStart == false)
+      {
+        One.TF.InitBasefieldStart = true;
+        One.TF.Field_X = Fix.BASEFIELD_EVENT_1_X;
+        One.TF.Field_Y = Fix.BASEFIELD_EVENT_1_Y;
+        One.TF.Field_Z = Fix.BASEFIELD_EVENT_1_Z;
+      }
+      SceneDimension.JumpToDungeonField();
+    }
+    else if (One.TF.SaveByDungeon)
     {
       SceneDimension.JumpToDungeonField();
     }
