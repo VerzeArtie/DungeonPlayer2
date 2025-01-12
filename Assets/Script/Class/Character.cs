@@ -7145,6 +7145,21 @@ public partial class Character : MonoBehaviour
 
     return result;
   }
+
+  public bool IsEquip(string item_name)
+  {
+    if (this.MainWeapon != null && this.MainWeapon.ItemName == item_name ||
+        this.SubWeapon != null && this.SubWeapon.ItemName == item_name ||
+        this.MainArmor != null && this.MainArmor.ItemName == item_name ||
+        this.Accessory1 != null && this.Accessory1.ItemName == item_name ||
+        this.Accessory2 != null && this.Accessory2.ItemName == item_name ||
+        this.Artifact != null && this.Artifact.ItemName == item_name)
+    {
+      return true;
+    }
+
+    return false;
+  }
   #endregion
 
   #region "Monster Data"
@@ -9414,7 +9429,7 @@ public partial class Character : MonoBehaviour
       #endregion
 
       case Fix.DUMMY_SUBURI:
-        SetupParameter(50, 100, 1000, 99999, 10, 100, 0, 0);
+        SetupParameter(1000, 100, 1000, 99999, 10, 100, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = true;
         break;

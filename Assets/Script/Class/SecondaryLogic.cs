@@ -1332,6 +1332,72 @@ public static class SecondaryLogic
     return 30; // パーセンテージ ( X / 100 ) の値
   }
 
+  public static double BlueLightningSword_Effect(Character character)
+  {
+    return 30 + AP.Math.RandomInteger(20);
+  }
+
+  public static double BlueLightningSword_Factor(Character character)
+  {
+    return 1.00f;
+  }
+
+  public static double AshExcludeLance_Effect(Character character)
+  {
+    return 50 + AP.Math.RandomInteger(20);
+  }
+
+  public static double BoneCrushAxe_Effect(Character character)
+  {
+    return 0.10f;
+  }
+
+  public static double ColdSplashClaw_Effect(Character character)
+  {
+    return 25 + AP.Math.RandomInteger(15);
+  }
+
+  public static double ColdSplashClaw_Factor(Character character)
+  {
+    return 0.95f;
+  }
+
+  public static double SekisoujuRod_Effect(Character character)
+  {
+    return 30 + AP.Math.RandomInteger(20);
+  }
+
+  public static double SekisoujuRod_Factor(Character character)
+  {
+    return 1.00f;
+  }
+
+  public static double GorgonEyesBook_Effect(Character character)
+  {
+    return 60 + AP.Math.RandomInteger(15);
+  }
+
+  public static double StarFusionOrb_Effect(Character character)
+  {
+    return 35 + AP.Math.RandomInteger(10);
+  }
+
+  public static double StarFusionOrb_Factor(Character character)
+  {
+    return 0.95f;
+  }
+
+  public static double MadanShootingStar_Effect(Character character)
+  {
+    return 40 + AP.Math.RandomInteger(30);
+  }
+
+  public static double MadanShootingStar_Factor(Character character)
+  {
+    return 1.05f;
+  }
+
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

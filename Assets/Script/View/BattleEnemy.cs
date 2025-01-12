@@ -7055,7 +7055,7 @@ public partial class BattleEnemy : MotherBase
         ExecBuffNoGainLife(player, target, 10, 0);
         //ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 999);
         //ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 999);
-        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 999);
+        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 0.01f);
         //ExecBuffMagicDefenceDown(player, target, Fix.INFINITY, 999);
         //ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 999);
         //ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 999);
@@ -9553,6 +9553,49 @@ public partial class BattleEnemy : MotherBase
       double effectValue = player.MainWeapon.ItemValue1 + AP.Math.RandomInteger(player.MainWeapon.ItemValue2 - player.MainWeapon.ItemValue1);
       AbstractHealCommand(player, player, effectValue);
     }
+
+    // ブルー・ライトニング・ソードによる効果
+    if (player.IsEquip(Fix.BLUE_LIGHTNING_SWORD))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.BlueLightningSword_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.BlueLightningSword_Factor(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.BLUE_LIGHTNING_SWORD + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Ice, addDamageValue);
+    }
+
+    // アッシュ・エクスクルード・ランスによる効果
+    if (player.IsEquip(Fix.ASH_EXCLUDE_LANCE))
+    {
+      double effect = SecondaryLogic.AshExcludeLance_Effect(player);
+      Debug.Log("Equip " + Fix.ASH_EXCLUDE_LANCE + " AddBuff Slip " + effect);
+      ExecBuffSlip(player, target, 1, effect);
+    }
+
+    // ボーン・クラッシュ・アックスによる効果
+    if (player.IsEquip(Fix.BONE_CRUSH_AXE))
+    {
+      double effect = SecondaryLogic.BoneCrushAxe_Effect(player);
+      Debug.Log("Equip " + Fix.BONE_CRUSH_AXE + " AddBuff PhysicalDefenseDown " + effect);
+      ExecBuffPhysicalDefenseDown(player, target, 3, effect);
+    }
+
+    // コールド・スプラッシュ・クローによる効果
+    if (player.IsEquip(Fix.COLD_SPLASH_CLAW))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.ColdSplashClaw_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.ColdSplashClaw_Factor(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.COLD_SPLASH_CLAW + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Ice, addDamageValue);
+    }
+
+    // 魔弾・シューティング・スターによる効果
+    if (player.IsEquip(Fix.MADAN_SHOOTING_STAR))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.MadanShootingStar_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.MadanShootingStar_Factor(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.MADAN_SHOOTING_STAR + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.DarkMagic, addDamageValue);
+    }
     return true;
   }
 
@@ -9673,6 +9716,31 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // 赤双授の杖による効果
+    if (player.IsEquip(Fix.SEKISOUJU_ROD))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.SekisoujuRod_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.SekisoujuRod_Factor(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.SEKISOUJU_ROD + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Fire, addDamageValue);
+    }
+
+    // ゴルゴン・アイズ・ブックによる効果
+    if (player.IsEquip(Fix.GORGON_EYES_BOOK))
+    {
+      double effect = SecondaryLogic.GorgonEyesBook_Effect(player);
+      Debug.Log("Equip " + Fix.GORGON_EYES_BOOK + " AddBuff Poison " + effect);
+      ExecBuffPoison(player, target, 2, effect);
+    }
+
+    // スター・フュージョン・オーブによる効果
+    if (player.IsEquip(Fix.STAR_FUSION_ORB))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.StarFusionOrb_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.StarFusionOrb_Factor(player), Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.STAR_FUSION_ORB + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.HolyLight, addDamageValue);
+    }
     return true;
   }
 
@@ -11055,6 +11123,12 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_ONE_IMMUNITY_JP, Fix.COLOR_GUARD);
     }
 
+    if (target.IsPhantomOboro)
+    {
+      effect_value = 0;
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_ZERO, Fix.COLOR_GUARD);
+    }
+
     BuffImage holyWisdom = target.SearchFieldBuff(Fix.HOLY_WISDOM);
     if (holyWisdom)
     {
@@ -11270,6 +11344,10 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PD_UP, Fix.EFFECT_PD_UP, turn, effect_value, 0, 0);
   }
 
+  /// <summary>
+  /// 物理防御力をDOWNさせるBUFFを付与する。
+  /// 値が大きいほど、DOWN効果が大きい。
+  /// </summary>
   private void ExecBuffPhysicalDefenseDown(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_PD_DOWN, Fix.EFFECT_PD_DOWN, turn, effect_value, 0, 0);

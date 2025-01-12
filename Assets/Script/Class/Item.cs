@@ -2949,7 +2949,7 @@ public partial class Item
         this._physicalAttackMax = 62;
         this._gold = 9000;
         this._importantType = Important.None;
-        this._description = "青い閃光が剣の中に埋め込まれている。剣を振るうたびに、青光の残影がのこるため、青い稲妻が走ったように見える。物理攻撃力４５～６２、力＋３、心＋３\r\n　【特殊効果】物理攻撃が対象にヒットする度に、【電撃】ダメージが追加で発生する。";
+        this._description = "青い閃光が剣の中に埋め込まれている。剣を振るうたびに、青光の残影がのこるため、青い稲妻が走ったように見える。物理攻撃力４５～６２、力＋３、心＋３\r\n　【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
         this._strength = 3;
         this._agility = 0;
         this._intelligence = 0;
@@ -3041,7 +3041,7 @@ public partial class Item
         this._physicalAttackMax = 97;
         this._gold = 9400;
         this._importantType = Important.None;
-        this._description = "骨を粉砕するぐらいの威力で猛威を振るう斧。全体的に大きめだが片手で振り回せ、かつ、打撃力も高い。物理攻撃力６０～９７、力＋３、体＋３\r\n　【特殊効果】物理攻撃が対象にヒットした場合、対象の物理防御力を５％減少させる。";
+        this._description = "骨を粉砕するぐらいの威力で猛威を振るう斧。全体的に大きめだが片手で振り回せ、かつ、打撃力も高い。物理攻撃力６０～９７、力＋３、体＋３\r\n　【特殊効果】物理攻撃が対象にヒットした場合、対象の物理防御力を１０％減少させる。";
         this._strength = 3;
         this._agility = 0;
         this._intelligence = 0;
