@@ -9596,6 +9596,51 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Equip " + Fix.MADAN_SHOOTING_STAR + " Additional Damage " + addDamageValue.ToString());
       ExecElementalDamage(target, Fix.DamageSource.DarkMagic, addDamageValue);
     }
+
+    // 炎翔刀による効果
+    if (player.IsEquip(Fix.ENSHOUTOU))
+    {
+      bool resultCritical2 = false;
+      double addDamageValue = SecondaryLogic.Enshoutou_Effect(player) + MagicDamageLogic(player, target, SecondaryLogic.Enshoutou_Factor(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Equip " + Fix.ENSHOUTOU + " Additional Damage " + addDamageValue.ToString());
+      ExecElementalDamage(target, Fix.DamageSource.Fire, addDamageValue);
+    }
+
+    // ガーラント・フェザー・ランス
+    if (player.IsEquip(Fix.GALLANT_FEATHER_LANCE))
+    {
+      double effect = SecondaryLogic.GallantFeatherLance_Factor(player);
+      Debug.Log("Equip " + Fix.GALLANT_FEATHER_LANCE + " AddBuff SpeedUp " + effect);
+      ExecBuffBattleSpeedUp(player, player, SecondaryLogic.GallantFeatherLance_Turn(player), SecondaryLogic.GallantFeatherLance_Factor(player));
+    }
+
+    // サンダー・ブレイク・アックス
+    if (player.IsEquip(Fix.THUNDER_BREAK_AXE))
+    {
+      int percent = SecondaryLogic.ThunderBreakAxe_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.THUNDER_BREAK_AXE + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        Debug.Log("Equip " + Fix.THUNDER_BREAK_AXE + "AddBuff Paralyze");
+        ExecBuffParalyze(player, target, SecondaryLogic.ThunderBreakAxe_Turn(player), 0);
+      }
+    }
+
+    // ラス・サーヴェル・クロー
+    if (player.IsEquip(Fix.WRATH_SABEL_CLAW))
+    {
+      int percent = SecondaryLogic.WrathSabelClaw_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.WRATH_SABEL_CLAW + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effect = SecondaryLogic.WrathSabelClaw_Effect(player);
+        Debug.Log("Equip " + Fix.WRATH_SABEL_CLAW + " AddBuff Slip " + effect);
+        ExecBuffSlip(player, target, SecondaryLogic.WrathSabelClaw_Turn(player), effect);
+      }
+    }
+
     return true;
   }
 

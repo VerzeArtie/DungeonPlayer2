@@ -1397,6 +1397,50 @@ public static class SecondaryLogic
     return 1.05f;
   }
 
+  public static double Enshoutou_Effect(Character character)
+  {
+    return 100 + AP.Math.RandomInteger(40);
+  }
+
+  public static double Enshoutou_Factor(Character character)
+  {
+    return 1.10f;
+  }
+
+  public static int GallantFeatherLance_Turn(Character character)
+  {
+    return 3;
+  }
+
+  public static double GallantFeatherLance_Factor(Character character)
+  {
+    return 1.02f;
+  }
+
+  public static int ThunderBreakAxe_Turn(Character character)
+  {
+    return 2;
+  }
+
+  public static int ThunderBreakAxe_Percent(Character character)
+  {
+    return 30;
+  }
+
+  public static int WrathSabelClaw_Percent(Character character)
+  {
+    return 30;
+  }
+
+  public static int WrathSabelClaw_Turn(Character character)
+  {
+    return 2;
+  }
+
+  public static int WrathSabelClaw_Effect(Character character)
+  {
+    return 90 + AP.Math.RandomInteger(30);
+  }
 
   public static int CostControl(string command_name, int current_cost, Character player)
   {

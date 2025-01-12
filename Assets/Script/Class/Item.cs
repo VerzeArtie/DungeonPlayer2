@@ -4373,7 +4373,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 24000;
         this._importantType = Important.None;
-        this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊効果】物理攻撃がヒットする度に、20%の確率で対象に【麻痺】のBUFFを付与する。";
+        this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊効果】物理攻撃がヒットする度に、30%の確率で対象に【麻痺】のBUFFを付与する。";
         this._strength = 10;
         this._agility = 0;
         this._intelligence = 0;
@@ -4442,7 +4442,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 16000;
         this._importantType = Important.None;
-        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊効果】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
+        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊効果】物理攻撃が対象にヒットする度に、30%の確率で対象に【スリップ】のBUFFを付与する。";
         this._strength = 0;
         this._agility = 10;
         this._intelligence = 0;
