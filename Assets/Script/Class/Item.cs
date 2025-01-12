@@ -2949,7 +2949,7 @@ public partial class Item
         this._physicalAttackMax = 62;
         this._gold = 9000;
         this._importantType = Important.None;
-        this._description = "青い閃光が剣の中に埋め込まれている。剣を振るうたびに、青光の残影がのこるため、青い稲妻が走ったように見える。物理攻撃力４５～６２、力＋３、心＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【電撃】ダメージが追加で発生する。";
+        this._description = "青い閃光が剣の中に埋め込まれている。剣を振るうたびに、青光の残影がのこるため、青い稲妻が走ったように見える。物理攻撃力４５～６２、力＋３、心＋３\r\n　【特殊効果】物理攻撃が対象にヒットする度に、【電撃】ダメージが追加で発生する。";
         this._strength = 3;
         this._agility = 0;
         this._intelligence = 0;
@@ -2995,7 +2995,7 @@ public partial class Item
         this._physicalAttackMax = 75;
         this._gold = 9200;
         this._importantType = Important.None;
-        this._description = "粉塵を薙ぎ払う事を連想させる槍。比較的大きめで、槍の形も特殊な形状をしており、見ている者を恐れさせる。物理攻撃力５２～７５、力＋３、技＋３\r\n　【特殊能力】物理攻撃が対象にヒットした場合、【出血】のBUFFを付与する。";
+        this._description = "粉塵を薙ぎ払う事を連想させる槍。比較的大きめで、槍の形も特殊な形状をしており、見ている者を恐れさせる。物理攻撃力５２～７５、力＋３、技＋３\r\n　【特殊効果】物理攻撃が対象にヒットした場合、【出血】のBUFFを付与する。";
         this._strength = 3;
         this._agility = 3;
         this._intelligence = 0;
@@ -3041,7 +3041,7 @@ public partial class Item
         this._physicalAttackMax = 97;
         this._gold = 9400;
         this._importantType = Important.None;
-        this._description = "骨を粉砕するぐらいの威力で猛威を振るう斧。全体的に大きめだが片手で振り回せ、かつ、打撃力も高い。物理攻撃力６０～９７、力＋３、体＋３\r\n　【特殊能力】物理攻撃が対象にヒットした場合、対象の物理防御力を５％減少させる。";
+        this._description = "骨を粉砕するぐらいの威力で猛威を振るう斧。全体的に大きめだが片手で振り回せ、かつ、打撃力も高い。物理攻撃力６０～９７、力＋３、体＋３\r\n　【特殊効果】物理攻撃が対象にヒットした場合、対象の物理防御力を５％減少させる。";
         this._strength = 3;
         this._agility = 0;
         this._intelligence = 0;
@@ -3087,7 +3087,7 @@ public partial class Item
         this._physicalAttackMax = 55;
         this._gold = 8900;
         this._importantType = Important.None;
-        this._description = "武具全体が凍結した状態で固形化されており、非常に鋭い切れ味の爪に仕上がっている。物理攻撃力４２～５５、技＋３、心＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
+        this._description = "武具全体が凍結した状態で固形化されており、非常に鋭い切れ味の爪に仕上がっている。物理攻撃力４２～５５、技＋３、心＋３\r\n　【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 3;
         this._intelligence = 0;
@@ -3133,7 +3133,7 @@ public partial class Item
         this._magicAttackMax = 63;
         this._gold = 8400;
         this._importantType = Important.None;
-        this._description = "炎の力を増幅させるため、炎を２つの球体に分離した形で杖の取っ手に宿した大杖。魔法攻撃力４５～６３、知＋３、心＋３\r\n　【特殊能力】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で発生する。";
+        this._description = "炎の力を増幅させるため、炎を２つの球体に分離した形で杖の取っ手に宿した大杖。魔法攻撃力４５～６３、知＋３、心＋３\r\n　【特殊効果】魔法攻撃が対象にヒットする度に、対象に【炎】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 3;
@@ -3179,7 +3179,7 @@ public partial class Item
         this._magicAttackMax = 76;
         this._gold = 8600;
         this._importantType = Important.None;
-        this._description = "ゴルゴンの目玉が描かれている魔道の書物。持っているだけでも禍々しさがあるが、魔法を放つ時その目が光りだす。魔法攻撃力５４～７６、知＋３、体＋３\r\n　【特殊能力】魔法攻撃が対象にヒットした場合、【猛毒】のBUFFを付与する。";
+        this._description = "ゴルゴンの目玉が描かれている魔道の書物。持っているだけでも禍々しさがあるが、魔法を放つ時その目が光りだす。魔法攻撃力５４～７６、知＋３、体＋３\r\n　【特殊効果】魔法攻撃が対象にヒットした場合、【猛毒】のBUFFを付与する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 3;
@@ -3225,7 +3225,7 @@ public partial class Item
         this._magicAttackMax = 50;
         this._gold = 8500;
         this._importantType = Important.None;
-        this._description = "星型と丸形を融合させた形状のオーブ。白く輝いており、見ているものを惑わせる。魔法攻撃力４１～５０、技＋３、知＋３　【特殊能力】魔法攻撃が対象にヒットした場合、【聖】ダメージが追加で発生する。";
+        this._description = "星型と丸形を融合させた形状のオーブ。白く輝いており、見ているものを惑わせる。魔法攻撃力４１～５０、技＋３、知＋３　【特殊効果】魔法攻撃が対象にヒットした場合、【聖】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 3;
         this._intelligence = 3;
@@ -3369,7 +3369,7 @@ public partial class Item
         this._physicalAttackMax = 108;
         this._gold = 8500;
         this._importantType = Important.None;
-        this._description = "禍々しい魔力がこめられた魔道弾丸が矢として放たれる。通常の物理攻撃とは異なる何かを受けた者は食らう。物理攻撃力６８～１０８、力＋３、知＋３\r\n　【特殊能力】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
+        this._description = "禍々しい魔力がこめられた魔道弾丸が矢として放たれる。通常の物理攻撃とは異なる何かを受けた者は食らう。物理攻撃力６８～１０８、力＋３、知＋３\r\n　【特殊効果】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
         this._strength = 3;
         this._agility = 0;
         this._intelligence = 3;
@@ -4212,7 +4212,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 18000;
         this._importantType = Important.None;
-        this._description = "炎の残痕が宿り続けている刀。刀は振るわれる度に、炎の飛礫が周囲へと飛翔する。物理攻撃力７７～１０２、力＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
+        this._description = "炎の残痕が宿り続けている刀。刀は振るわれる度に、炎の飛礫が周囲へと飛翔する。物理攻撃力７７～１０２、力＋１０、心＋１０　【特殊効果】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
         this._strength = 10;
         this._agility = 0;
         this._intelligence = 0;
@@ -4281,7 +4281,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 20000;
         this._importantType = Important.None;
-        this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊能力】物理攻撃がヒットする度に、【風】ダメージが追加で発生する。";
+        this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊効果】物理攻撃がヒットする度に、【風】ダメージが追加で発生する。";
         this._strength = 10;
         this._agility = 10;
         this._intelligence = 0;
@@ -4304,7 +4304,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "失われた王国ヴィルジランテが栄華を誇った時代に作られた伝説の槍。槍の切っ先には黒い空間が宿っている。その形状は神々しくもあり、禍々しくもある。槍の効果は凄まじく、対象者はたちまち絶命の危機に瀕するだろう。物理攻撃力２８０～４００、魔法攻撃力１６０～２５０、力＋３５、技＋４５、知＋３０　【特殊能力】物理攻撃によるクリティカルダメージ＋１０％。スキル消費SPが10%軽減。";
+        this._description = "失われた王国ヴィルジランテが栄華を誇った時代に作られた伝説の槍。槍の切っ先には黒い空間が宿っている。その形状は神々しくもあり、禍々しくもある。槍の効果は凄まじく、対象者はたちまち絶命の危機に瀕するだろう。物理攻撃力２８０～４００、魔法攻撃力１６０～２５０、力＋３５、技＋４５、知＋３０　【特殊効果】物理攻撃によるクリティカルダメージ＋１０％。スキル消費SPが10%軽減。";
         this._strength = 35;
         this._agility = 45;
         this._intelligence = 30;
@@ -4373,7 +4373,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 24000;
         this._importantType = Important.None;
-        this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊能力】物理攻撃がヒットする度に、20%の確率で対象に【麻痺】のBUFFを付与する。";
+        this._description = "持ち手には電光が宿っており、豪快なスイングで振るう事で、雷鳴が轟く斧。物理攻撃力１０２～１４１、力＋１０、体＋１０　【特殊効果】物理攻撃がヒットする度に、20%の確率で対象に【麻痺】のBUFFを付与する。";
         this._strength = 10;
         this._agility = 0;
         this._intelligence = 0;
@@ -4442,7 +4442,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 16000;
         this._importantType = Important.None;
-        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊能力】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
+        this._description = "重量をほぼ感じさせないため、装着者は自由に荒れ狂う拳を振る舞う事ができる爪。物理攻撃力８１～９９、技＋１０、心＋１０　【特殊効果】物理攻撃が対象にヒットする度に、20%の確率で対象に【スリップ】のBUFFを付与する。";
         this._strength = 0;
         this._agility = 10;
         this._intelligence = 0;
@@ -4511,7 +4511,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 18000;
         this._importantType = Important.None;
-        this._description = "遥か西に存在する大地の王国ドルンで重宝された杖。威力と効果が非常に良いのだが名称があまり伝承されていない。魔法攻撃力７７～１０２、知＋１０、心＋１０　【特殊能力】魔法攻撃がヒットする時、クリティカル発生率が10%上昇する。";
+        this._description = "遥か西に存在する大地の王国ドルンで重宝された杖。威力と効果が非常に良いのだが名称があまり伝承されていない。魔法攻撃力７７～１０２、知＋１０、心＋１０　【特殊効果】魔法攻撃がヒットする時、クリティカル発生率が10%上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 10;
@@ -4580,7 +4580,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 20000;
         this._importantType = Important.None;
-        this._description = "玉座には常にその一冊が置かれており、その威力が減る事はない。魔法攻撃力９０～１２２、知＋１０、体＋１０　【特殊能力】味方を対象にする魔法を唱える度に、自分自身のライフが回復する。";
+        this._description = "玉座には常にその一冊が置かれており、その威力が減る事はない。魔法攻撃力９０～１２２、知＋１０、体＋１０　【特殊効果】味方を対象にする魔法を唱える度に、自分自身のライフが回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 10;
@@ -4603,7 +4603,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.None;
-        this._description = "異国の大地で繁栄の一途を辿ったミュラーヘイゼンでは毎年最強の魔法武具大会が開催される。中でも本作品は突出しており、魔法を志す者にとって本作品を手にする事は最高の栄誉とされた。その威力は群を抜いており、保持者に確実な力を与えるだろう。物理攻撃力１２０～１６０、魔法攻撃力３３０～４１０、知＋６０、心＋６０　【特殊能力】魔法消費MPが10%軽減。魔法攻撃によるクリティカルダメージ＋１０％。";
+        this._description = "異国の大地で繁栄の一途を辿ったミュラーヘイゼンでは毎年最強の魔法武具大会が開催される。中でも本作品は突出しており、魔法を志す者にとって本作品を手にする事は最高の栄誉とされた。その威力は群を抜いており、保持者に確実な力を与えるだろう。物理攻撃力１２０～１６０、魔法攻撃力３３０～４１０、知＋６０、心＋６０　【特殊効果】魔法消費MPが10%軽減。魔法攻撃によるクリティカルダメージ＋１０％。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 60;
@@ -4672,7 +4672,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 16000;
         this._importantType = Important.None;
-        this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊能力】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
+        this._description = "その水晶の素材は天然の凍水石から生成されており、氷表面がとだえる事は決してない。魔法攻撃力８１～９９、技＋１０、知＋１０　【特殊効果】魔法攻撃がヒットする度に、20%の確率で対象に【凍結】のBUFFを付与する。";
         this._strength = 0;
         this._agility = 10;
         this._intelligence = 10;
@@ -4994,7 +4994,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 15000;
         this._importantType = Important.None;
-        this._description = "黒い装飾で容取られたシールド。その光沢は一定の魔法反射率を帯びており、魔法攻撃を主とする対象者からは恐れられている。物理防御５３、魔法防御３７、体＋１０　【特殊能力】自分自身へダメージを伴う魔法が行われた場合、５％の確率でその魔法を詠唱者に向けて弾き返す。";
+        this._description = "黒い装飾で容取られたシールド。その光沢は一定の魔法反射率を帯びており、魔法攻撃を主とする対象者からは恐れられている。物理防御５３、魔法防御３７、体＋１０　【特殊効果】自分自身へダメージを伴う魔法が行われた場合、５％の確率でその魔法を詠唱者に向けて弾き返す。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -6432,7 +6432,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 30000;
         this._importantType = Important.None;
-        this._description = "己の命運を掛けて開かれる箱。開くたびに様々な効果が発揮される。力＋３０、技＋３０、知＋３０、【特殊能力】ターン経過毎に、ライフ／マナ／スキルポイントのいずれかが５%回復する。";
+        this._description = "己の命運を掛けて開かれる箱。開くたびに様々な効果が発揮される。力＋３０、技＋３０、知＋３０、【特殊効果】ターン経過毎に、ライフ／マナ／スキルポイントのいずれかが５%回復する。";
         this._strength = 30;
         this._agility = 30;
         this._intelligence = 30;
@@ -6504,7 +6504,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 55000;
         this._importantType = Important.None;
-        this._description = "完全な鋼鉄製のブレード。神々の姿をモチーフにした紋章が刻まれており、剣を振るった時に剣の重さを感じる事が無く、非常に強力な威力を発揮する。物理攻撃力１８０～２３０、力＋３２、心＋２０【特殊能力】物理攻撃を伴うアクションを行った時、稀にインスタンスゲージが１０％進行する。";
+        this._description = "完全な鋼鉄製のブレード。神々の姿をモチーフにした紋章が刻まれており、剣を振るった時に剣の重さを感じる事が無く、非常に強力な威力を発揮する。物理攻撃力１８０～２３０、力＋３２、心＋２０【特殊効果】物理攻撃を伴うアクションを行った時、稀にインスタンスゲージが１０％進行する。";
         this._strength = 32;
         this._agility = 0;
         this._intelligence = 0;
@@ -6550,7 +6550,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 58000;
         this._importantType = Important.None;
-        this._description = "戦の神が与えたのは嵐の力。嵐の紋様が槍全体に刻み込まれており、槍を振るう度に、轟音の風が吹き荒れる。物理攻撃力２００～２７０、力＋３０、技＋４０【特殊能力】物理攻撃がヒットした対象に【嵐】のBUFFを与える。ターン経過毎に【嵐】による魔法ダメージを与える。";
+        this._description = "戦の神が与えたのは嵐の力。嵐の紋様が槍全体に刻み込まれており、槍を振るう度に、轟音の風が吹き荒れる。物理攻撃力２００～２７０、力＋３０、技＋４０【特殊効果】物理攻撃がヒットした対象に【嵐】のBUFFを与える。ターン経過毎に【嵐】による魔法ダメージを与える。";
         this._strength = 30;
         this._agility = 40;
         this._intelligence = 0;
@@ -6596,7 +6596,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 61000;
         this._importantType = Important.None;
-        this._description = "闘うことが使命である戦士にとって、この斧は期待以上の効果を出してくれる。振るえば一網打尽、叩きつければ豪快な一撃が出るため、戦闘の最中においてボルテージが上昇する。物理攻撃力２３０～３００、力＋４５、体＋２０【特殊能力】物理攻撃を伴うアクションを行った時、稀に自分自身の物理攻撃力が5%上昇する。この効果は３ターン続く。";
+        this._description = "闘うことが使命である戦士にとって、この斧は期待以上の効果を出してくれる。振るえば一網打尽、叩きつければ豪快な一撃が出るため、戦闘の最中においてボルテージが上昇する。物理攻撃力２３０～３００、力＋４５、体＋２０【特殊効果】物理攻撃を伴うアクションを行った時、稀に自分自身の物理攻撃力が5%上昇する。この効果は３ターン続く。";
         this._strength = 45;
         this._agility = 0;
         this._intelligence = 0;
@@ -6642,7 +6642,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 52000;
         this._importantType = Important.None;
-        this._description = "大地の恩恵から採取された鋼の欠片を爪の形状に仕立て上げた逸品。切れ味の鋭さというよりは、一撃の重みを重点として作製されている。破壊力は申し分なく、使い勝手はこの上なく良い。物理攻撃力１６０～１８０、技＋３２，心＋２０【特殊能力】物理攻撃を伴うアクションを行った時、稀に自分自身のSPが回復する。";
+        this._description = "大地の恩恵から採取された鋼の欠片を爪の形状に仕立て上げた逸品。切れ味の鋭さというよりは、一撃の重みを重点として作製されている。破壊力は申し分なく、使い勝手はこの上なく良い。物理攻撃力１６０～１８０、技＋３２，心＋２０【特殊効果】物理攻撃を伴うアクションを行った時、稀に自分自身のSPが回復する。";
         this._strength = 0;
         this._agility = 32;
         this._intelligence = 0;
@@ -6718,7 +6718,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 55000;
         this._importantType = Important.None;
-        this._description = "戦況を先読みする者にとって愛用され続けている杖。光輝く先端に視点を集中する事で、普段発揮できない魔法能力を引き出す事が出来る。魔法攻撃力１８０～２３０、知＋３２、心＋２０【特殊能力】回復を伴う魔法を詠唱した時、回復量が10%上昇する。";
+        this._description = "戦況を先読みする者にとって愛用され続けている杖。光輝く先端に視点を集中する事で、普段発揮できない魔法能力を引き出す事が出来る。魔法攻撃力１８０～２３０、知＋３２、心＋２０【特殊効果】回復を伴う魔法を詠唱した時、回復量が10%上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 32;
@@ -6764,7 +6764,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 58000;
         this._importantType = Important.None;
-        this._description = "古代から伝わる由緒ある伝承を収めた本。ページ毎には様々な効果が記述されており、詠唱するのとほぼ同時に該当ページが自然と開く仕組みになっている。魔法効果は絶大であり、他の追従を許さない。魔法攻撃力２００～２７０、知＋４０、体＋２０【特殊能力】ターン制のBUFFを付与する際、継続するターン数が＋１される。";
+        this._description = "古代から伝わる由緒ある伝承を収めた本。ページ毎には様々な効果が記述されており、詠唱するのとほぼ同時に該当ページが自然と開く仕組みになっている。魔法効果は絶大であり、他の追従を許さない。魔法攻撃力２００～２７０、知＋４０、体＋２０【特殊効果】ターン制のBUFFを付与する際、継続するターン数が＋１される。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 40;
@@ -6810,7 +6810,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 52000;
         this._importantType = Important.None;
-        this._description = "澄みわたる大空をモチーフにした水晶。見た目の良さとは裏腹に魔力が蓄積される仕組みを有している。通常は安定した攻撃力だが、使い方によっては絶大な効果を発揮できる。魔法攻撃力１６０～１８０、技＋３０、知＋３０【特殊能力】魔法攻撃を伴うアクションを行った時、稀に自分自身の魔法攻撃力が10%上昇する。この効果は3ターン続く。";
+        this._description = "澄みわたる大空をモチーフにした水晶。見た目の良さとは裏腹に魔力が蓄積される仕組みを有している。通常は安定した攻撃力だが、使い方によっては絶大な効果を発揮できる。魔法攻撃力１６０～１８０、技＋３０、知＋３０【特殊効果】魔法攻撃を伴うアクションを行った時、稀に自分自身の魔法攻撃力が10%上昇する。この効果は3ターン続く。";
         this._strength = 0;
         this._agility = 30;
         this._intelligence = 30;
@@ -7121,7 +7121,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 45000;
         this._importantType = Important.None;
-        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、闇耐性１０％　【特殊能力】防御姿勢時における物理防御力が１０％上昇。メイン行動から物理攻撃を伴うダメージがヒットした場合、物理攻撃力が１０％上昇。";
+        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、闇耐性１０％　【特殊効果】防御姿勢時における物理防御力が１０％上昇。メイン行動から物理攻撃を伴うダメージがヒットした場合、物理攻撃力が１０％上昇。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -7935,7 +7935,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５【特殊能力】物理攻撃を受ける度に、稀に攻撃を行った対象者に物理ダメージ1/3の分だけ反転する。魔法攻撃においても同様である。";
+        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５【特殊効果】物理攻撃を受ける度に、稀に攻撃を行った対象者に物理ダメージ1/3の分だけ反転する。魔法攻撃においても同様である。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -7958,7 +7958,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊能力】物理攻撃を与える行動を取った時、稀に自分にかかっている負のBUFFが１つ解除される。";
+        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊効果】物理攻撃を与える行動を取った時、稀に自分にかかっている負のBUFFが１つ解除される。";
         this._strength = 135;
         this._agility = 0;
         this._intelligence = 0;
@@ -8069,7 +8069,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊能力】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
+        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊効果】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8115,7 +8115,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００【特殊能力】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
+        this._description = "普通の槍とは異なり、柄の部分がかなり短めの設計で製作されている。柄の部分には蒼いドラゴンの装飾が施されており、また少しだけ婉曲している事から、対峙者に蒼き竜が食らいつく形で猛威を振るう。物理攻撃力７００～９００【特殊効果】物理攻撃が対象にヒットする度に、【氷】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8161,7 +8161,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 330000;
         this._importantType = Important.None;
-        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０【特殊能力】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
+        this._description = "熱く、強靭であり、豪快な紋様が描かれれている斧。その振る舞いは常に炎が周囲を纏うかの様に行われる。斧自体が圧力を放っており、その斧を持った物が戦闘モーションに入るだけで周囲敵を威圧する。物理攻撃力７６０～１０２０【特殊効果】物理攻撃が対象にヒットする度に、【炎】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8207,7 +8207,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０【特殊能力】物理攻撃が対象にヒットする度に、【聖】ダメージが追加で発生する。";
+        this._description = "先端部分に聖なるオーラを纏う魔力が施されている爪。そのため、装着した者が戦闘態勢に入ったとき、拳全体が光を纏っている様に見える。見た目の派手さだけではなく、実際に攻撃が繰り出される威力は想像を凌ぐ。物理攻撃力６２０～７２０【特殊効果】物理攻撃が対象にヒットする度に、【聖】ダメージが追加で発生する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8253,7 +8253,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００【特殊能力】負の影響を伴うBUFFが付与された時、稀にそのBUFFが付与される事を防ぐ。";
+        this._description = "心に宿る恐怖心を無色の石に封じ、それが杖の先端にはめ込んである。杖を保持した者はある一定の恐怖心が伝搬してくるがそれに打ち克つ心を持てばその分魔法力に変換できる。魔法攻撃力６４０～８００【特殊効果】負の影響を伴うBUFFが付与された時、稀にそのBUFFが付与される事を防ぐ。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8299,7 +8299,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 270000;
         this._importantType = Important.None;
-        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００【特殊能力】負のBUFFを伴う魔法を詠唱した場合、その負のBUFFが付与されるときの威力を２０％増強した形でBUFFを付与する。";
+        this._description = "太陽が穢された刻、この世の終焉を謡う本。その本から発せられる詠唱は非常に独特であり、聴く全ての者が負の影響を受ける。魔法攻撃力７００～９００【特殊効果】負のBUFFを伴う魔法を詠唱した場合、その負のBUFFが付与されるときの威力を２０％増強した形でBUFFを付与する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8345,7 +8345,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 230000;
         this._importantType = Important.None;
-        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０【特殊能力】場によるダメージ発生が伴う時、その威力を１０％増強させた上でダメージを与える。このダメージは対戦相手の場のみである。";
+        this._description = "圧縮化されたガラス素材を更に色相変化させ、高純度の別の結晶へと変化を遂げた素材を用いた水晶。魔導士がこれを振る舞う時は、相当高い熱量を発生させて魔法を繰り出す。魔法攻撃力６２０～７２０【特殊効果】場によるダメージ発生が伴う時、その威力を１０％増強させた上でダメージを与える。このダメージは対戦相手の場のみである。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8391,7 +8391,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 370000;
         this._importantType = Important.None;
-        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０【特殊能力】自分からの物理攻撃で対象にクリティカルダメージが当たった場合、そのクリティカルダメージを５％増強する。";
+        this._description = "振りかざすその大剣は、黄金の意志を持つ者が振るう事で圧倒的な破壊力を表現する。対象者への敬意を込めて振るわれる様は、王としての存在感をそこに出現させる。物理攻撃力７００～１３６０【特殊効果】自分からの物理攻撃で対象にクリティカルダメージが当たった場合、そのクリティカルダメージを５％増強する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8437,7 +8437,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 410000;
         this._importantType = Important.None;
-        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０【特殊能力】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が３％上昇する。";
+        this._description = "烈火の如く放たれるその槍は、瞬間的な伸びがある。対象者からは一瞬で間合いを断ち切られ、懐に突如槍が出現しその直後槍が消失したかのように引き戻されるため、この名称が付けられたと言われている。物理攻撃力７６０～１５８０【特殊効果】自分から物理攻撃を伴う行動を行った場合、クリティカルの発生率が３％上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8483,7 +8483,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０【特殊能力】物理攻撃が敵にヒットした時、稀に【眩暈】【鈍化】【恐怖】のいずれかを付与する。";
+        this._description = "最高火力をぶっ放す剛なる斧。振り回せば周囲の敵はすべて一網打尽にする事が出来るだろう。後はその辺りに適当にブチ当てれば威力は確認する必要はない。存分に振り回し、ぞんぶんにぶちかますと良いだろう。物理攻撃力８２０～１８８０【特殊効果】物理攻撃が敵にヒットした時、稀に【眩暈】【鈍化】【恐怖】のいずれかを付与する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8529,7 +8529,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 520000;
         this._importantType = Important.None;
-        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０【特殊能力】ターン開始時、自分にFrameBladeのBUFFが付与される。聖属性のBUFF、または聖属性のフィールドが存在している場合、物理攻撃力が２０上昇する。";
+        this._description = "純度の高い魔力を弓矢に同化させる事に成功した弓。実際には炎ではないのだが、魔力の揺らめきが矢に付与されているため、矢が飛んだ時に白い炎の軌跡が見える事からこの名称で親しまれている。矢には当然だが圧倒的な威力が込められている。物理攻撃力１１６０～１４２０【特殊効果】ターン開始時、自分にFrameBladeのBUFFが付与される。聖属性のBUFF、または聖属性のフィールドが存在している場合、物理攻撃力が２０上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8575,7 +8575,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 510000;
         this._importantType = Important.None;
-        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０【特殊能力】ライフを回復する場合、回復量が１５％上昇する。";
+        this._description = "生命を司る大樹から選りすぐりの枝を切り取り、大杖の形状に仕立て上げた一品。際立った特徴はないが、手に持つだけで自然の生命力を感じる事が出来る。そこから放たれる魔力は計り知れない。魔法攻撃力１０８０～１３４０【特殊効果】ライフを回復する場合、回復量が１５％上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8671,7 +8671,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 370000;
         this._importantType = Important.None;
-        this._description = "希少価値の高いドラゴンの鱗を素材にして製作された鎧。頑丈さはもちろんだが、魔法耐性の効果もあるため、前衛で闘う戦士にとっては無くてはならない装備品である。物理防御力３４０、魔法防御力１００、体＋９０、氷耐性２５％、光耐性２５％【特殊能力】魔法ダメージを受ける時、稀にダメージ量を半分にする。";
+        this._description = "希少価値の高いドラゴンの鱗を素材にして製作された鎧。頑丈さはもちろんだが、魔法耐性の効果もあるため、前衛で闘う戦士にとっては無くてはならない装備品である。物理防御力３４０、魔法防御力１００、体＋９０、氷耐性２５％、光耐性２５％【特殊効果】魔法ダメージを受ける時、稀にダメージ量を半分にする。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8719,7 +8719,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 340000;
         this._importantType = Important.None;
-        this._description = "深紅の雷をデザインとして施された舞踏衣。非常に動きやすく、熟練者であれば技を繰り出す速度は神域に達する事が出来るだろう。防御力も物理・魔法ともに非常に高く、前衛・後衛いずれでも活躍する事が出来る。物理防御力２８０、魔法防御力１５０、体＋７０、心＋２０、炎耐性２５％、闇耐性２５％【特殊能力】物理攻撃／魔法攻撃のいずれかを受けた場合、稀にダメージ量の半分を対象者へ与える。";
+        this._description = "深紅の雷をデザインとして施された舞踏衣。非常に動きやすく、熟練者であれば技を繰り出す速度は神域に達する事が出来るだろう。防御力も物理・魔法ともに非常に高く、前衛・後衛いずれでも活躍する事が出来る。物理防御力２８０、魔法防御力１５０、体＋７０、心＋２０、炎耐性２５％、闇耐性２５％【特殊効果】物理攻撃／魔法攻撃のいずれかを受けた場合、稀にダメージ量の半分を対象者へ与える。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -8767,7 +8767,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 450000;
         this._importantType = Important.None;
-        this._description = "一見すると颯爽とした普通のドレスに見えるが、キメ細かい装飾が施されておりその様は白い光を纏う中に一筋の黒い闇の紋様が埋め込まれているのが理解できる。物理防御力８０、魔法防御力３８０、心＋５０、光耐性２５％、闇耐性２５％【特殊能力】物理ダメージを受ける時、稀にダメージ量を半分にする。";
+        this._description = "一見すると颯爽とした普通のドレスに見えるが、キメ細かい装飾が施されておりその様は白い光を纏う中に一筋の黒い闇の紋様が埋め込まれているのが理解できる。物理防御力８０、魔法防御力３８０、心＋５０、光耐性２５％、闇耐性２５％【特殊効果】物理ダメージを受ける時、稀にダメージ量を半分にする。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -9558,7 +9558,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 420000;
         this._importantType = Important.None;
-        this._description = "レインボーカラーで装飾された月のコンパス。コンパスが指し示す方向は常に不定であり、対象が何であるかも判明はしていない。通常時はカラフルな色をしているが保持者の意志決定により、色が一定に定まり、コンパスの差し示す方向も固定になる時がある。力＋１００、技＋１００、知＋１００、体＋１００、心＋１００、炎増幅１０％、氷増幅１０％、聖増幅１０％、闇増幅１０％、炎耐性１０％、氷耐性１０％、聖耐性１０％、闇耐性１０％【特殊能力】メイン行動を行った時、防御、待機以外であれば稀に物攻率、物防率、魔攻率、魔防率、戦速率、戦応率、潜力率のいずれかが２０％上昇するBUFFが付与される。このBUFFは１種類しか付与されず、３ターン継続する。";
+        this._description = "レインボーカラーで装飾された月のコンパス。コンパスが指し示す方向は常に不定であり、対象が何であるかも判明はしていない。通常時はカラフルな色をしているが保持者の意志決定により、色が一定に定まり、コンパスの差し示す方向も固定になる時がある。力＋１００、技＋１００、知＋１００、体＋１００、心＋１００、炎増幅１０％、氷増幅１０％、聖増幅１０％、闇増幅１０％、炎耐性１０％、氷耐性１０％、聖耐性１０％、闇耐性１０％【特殊効果】メイン行動を行った時、防御、待機以外であれば稀に物攻率、物防率、魔攻率、魔防率、戦速率、戦応率、潜力率のいずれかが２０％上昇するBUFFが付与される。このBUFFは１種類しか付与されず、３ターン継続する。";
         this._strength = 100;
         this._agility = 100;
         this._intelligence = 1;
@@ -12039,7 +12039,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "剣の中枢部に微細な円環状の無空間を形成している剣。理そのものを示すその剣は時間律、因果律、そして生命の根源を断ち切る性質を有する。理攻撃１～８９７４\r\n【常備能力】任意の行動を行うたびに、神の蓄積カウンターが一つ自分にBUFFとして蓄積する。蓄積されたカウンターの分だけ、【心】パラメタが１００上昇する。最大30個まで蓄積が行える。対象に攻撃がヒットした時、対象に【復活不可】および【ライフ回復不可】の効果を与える。";
+        this._description = "剣の中枢部に微細な円環状の無空間を形成している剣。理そのものを示すその剣は時間律、因果律、そして生命の根源を断ち切る性質を有する。理攻撃１～８９７４\r\n【特殊効果】任意の行動を行うたびに、神の蓄積カウンターが一つ自分にBUFFとして蓄積する。蓄積されたカウンターの分だけ、【心】パラメタが１００上昇する。最大30個まで蓄積が行える。対象に攻撃がヒットした時、対象に【復活不可】および【ライフ回復不可】の効果を与える。";
         break;
 
       case Fix.ARTIFACT_GENSEI:
@@ -12057,7 +12057,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。アーティファクト枠に埋め込む事で、輝きは増す。力＋１０、心＋１０、毎ターンマナが回復する。";
+        this._description = "十七宝珠の一つ「厳正の宝珠」。王が見定めるは大いなる天空と静粛なる視点。アーティファクト枠に埋め込む事で、輝きは増す。力＋１０、心＋１０、【特殊効果】毎ターンマナが回復する。";
         this._strength = 5;
         this._agility = 0;
         this._intelligence = 0;
@@ -12080,7 +12080,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、毎ターンスキルポイントが回復する。";
+        this._description = "十七宝珠の一つ「慈悲の宝珠」。王が民に与えしは神々より降り注ぐ慈悲の視点。アーティファクト枠に埋め込む事で、輝きは増す。体＋５０、心＋５０、【特殊効果】毎ターンスキルポイントが回復する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -12103,7 +12103,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 0;
         this._importantType = Important.Precious;
-        this._description = "十七宝珠の一つ「無双の宝珠」。王が民を守りし時、無双の構えにて闇を断ち斬らん。アーティファクト枠に埋め込む事で、輝きは増す。力＋１２０、技＋１２０、心＋１２０、物防率１０％【特殊能力】スキル行動を行った際、稀にそのスキル行動がもう一度発動する。";
+        this._description = "十七宝珠の一つ「無双の宝珠」。王が民を守りし時、無双の構えにて闇を断ち斬らん。アーティファクト枠に埋め込む事で、輝きは増す。力＋１２０、技＋１２０、心＋１２０、物防率１０％【特殊効果】スキル行動を行った際、稀にそのスキル行動がもう一度発動する。";
         this._strength = 120;
         this._agility = 120;
         this._intelligence = 120;
