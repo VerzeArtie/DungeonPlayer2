@@ -221,7 +221,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsPhysicalAttackDown.EffectValue;
+        double decrease = (1.00f - player.IsPhysicalAttackDown.EffectValue * player.IsPhysicalAttackDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsPhysicalAttackDown phase: " + result);
       }
     }
     BuffImage boneCrush = player.IsBoneCrush;
@@ -450,7 +453,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsMagicAttackDown.EffectValue;
+        double decrease = (1.00f - player.IsMagicAttackDown.EffectValue * player.IsMagicAttackDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsMagicAttackDown phase: " + result);
       }
     }
 
@@ -513,7 +519,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsMagicDefenseDown.EffectValue;
+        double decrease = (1.00f - player.IsMagicDefenseDown.EffectValue * player.IsMagicDefenseDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsMagicDefenseDown phase: " + result);
       }
     }
 
@@ -614,7 +623,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsBattleSpeedDown.EffectValue;
+        double decrease = (1.00f - player.IsBattleSpeedDown.EffectValue * player.IsBattleSpeedDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsBattleSpeedDown phase: " + result);
       }
     }
 
@@ -679,7 +691,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsBattleResponseDown.EffectValue;
+        double decrease = (1.00f - player.IsBattleResponseDown.EffectValue * player.IsBattleResponseDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsBattleResponseDown phase: " + result);
       }
     }
     BuffImage circleOfDespair = player.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR);
@@ -756,7 +771,10 @@ public static class PrimaryLogic
       }
       else
       {
-        result = result * player.IsPotentialDown.EffectValue;
+        double decrease = (1.00f - player.IsPotentialDown.EffectValue * player.IsPotentialDown.Cumulative);
+        if (decrease <= 0.0f) { decrease = 0.0f; }
+        result *= decrease;
+        Debug.Log("IsPotentialDown phase: " + result);
       }
     }
 
