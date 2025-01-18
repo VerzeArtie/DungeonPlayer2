@@ -9681,6 +9681,68 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // ストーム・フュリー・ランサーによる効果
+    if (player.IsEquip(Fix.STORM_FURY_LANCER))
+    {
+      int rand = AP.Math.RandomInteger(3);
+      if (rand == 0)
+      {
+        double effectValue = SecondaryLogic.StormFuryLancer_Effect(player);
+        Debug.Log("Equip " + Fix.STORM_FURY_LANCER + " PhysicalAttackUp effect " + effectValue.ToString());
+        ExecBuffPhysicalAttackUp(player, player, SecondaryLogic.StormFuryLancer_Turn(player), effectValue);
+      }
+      else if (rand == 1)
+      {
+        double effectValue = SecondaryLogic.StormFuryLancer_Effect(player);
+        Debug.Log("Equip " + Fix.STORM_FURY_LANCER + " BattleSpeedUp effect " + effectValue.ToString());
+        ExecBuffBattleSpeedUp(player, player, SecondaryLogic.StormFuryLancer_Turn(player), effectValue);
+      }
+      else if (rand == 2)
+      {
+        double effectValue = SecondaryLogic.StormFuryLancer_Effect(player);
+        Debug.Log("Equip " + Fix.STORM_FURY_LANCER + " BattleResponseUp effect " + effectValue.ToString());
+        ExecBuffBattleResponseUp(player, player, SecondaryLogic.StormFuryLancer_Turn(player), effectValue);
+      }
+    }
+
+    // ウォーロード・バスタード・アックスによる効果
+    if (player.IsEquip(Fix.WARLOAD_BASTARD_AXE))
+    {
+      int rand = AP.Math.RandomInteger(3);
+      if (rand == 0)
+      {
+        double effectValue = SecondaryLogic.WarloadBasterdAxe_Effect(player);
+        Debug.Log("Equip " + Fix.WARLOAD_BASTARD_AXE + " PhysicalDefenseDown effect " + effectValue.ToString());
+        ExecBuffPhysicalDefenseDown(player, target, SecondaryLogic.WarloadBasterdAxe_Turn(player), effectValue);
+      }
+      else if (rand == 1)
+      {
+        double effectValue = SecondaryLogic.WarloadBasterdAxe_Effect(player);
+        Debug.Log("Equip " + Fix.WARLOAD_BASTARD_AXE + " MagicDefenceDown effect " + effectValue.ToString());
+        ExecBuffMagicDefenceDown(player, target, SecondaryLogic.WarloadBasterdAxe_Turn(player), effectValue);
+      }
+      else if (rand == 2)
+      {
+        double effectValue = SecondaryLogic.WarloadBasterdAxe_Effect(player);
+        Debug.Log("Equip " + Fix.WARLOAD_BASTARD_AXE + " BattleSpeedDown effect " + effectValue.ToString());
+        ExecBuffBattleSpeedDown(player, target, SecondaryLogic.WarloadBasterdAxe_Turn(player), effectValue);
+      }
+    }
+
+    // アース・シャード・クローによる効果
+    if (player.IsEquip(Fix.EARTH_SHARD_CLAW))
+    {
+      int percent = SecondaryLogic.EarthShardClaw_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.EARTH_SHARD_CLAW + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effectValue = player.MaxSkillPoint * SecondaryLogic.EarthShardClaw_Effect(player);
+        effectValue = Math.Round(effectValue, MidpointRounding.AwayFromZero);
+        Debug.Log("Equip " + Fix.EARTH_SHARD_CLAW + " Gain SkillPoint " + effectValue.ToString());
+        AbstractGainSkillPoint(player, player, effectValue);
+      }
+    }
     return true;
   }
 

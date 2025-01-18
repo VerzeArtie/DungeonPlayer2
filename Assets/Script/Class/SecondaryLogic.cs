@@ -1478,6 +1478,33 @@ public static class SecondaryLogic
     return 0.10f;
   }
 
+  public static int StormFuryLancer_Turn(Character player)
+  {
+    return 3;
+  }
+  public static double StormFuryLancer_Effect(Character player)
+  {
+    return 1.05f;
+  }
+
+  public static int WarloadBasterdAxe_Turn(Character player)
+  {
+    return 3;
+  }
+  public static double WarloadBasterdAxe_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int EarthShardClaw_Percent(Character player)
+  {
+    return 20;
+  }
+  public static double EarthShardClaw_Effect(Character player)
+  {
+    return 0.03f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。
