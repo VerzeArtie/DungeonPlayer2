@@ -1505,6 +1505,25 @@ public static class SecondaryLogic
     return 0.03f;
   }
 
+  public static double EngagedFutureRod_Effect(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double AncientFaithfulBook_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int BlueSkyOrb_Turn(Character player)
+  {
+    return 3;
+  }
+  public static double BlueSkyOrb_Effect(Character player)
+  {
+    return 1.05f;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

@@ -8789,6 +8789,15 @@ public partial class BattleEnemy : MotherBase
           AbstractGainSkillPoint(AllList[ii], AllList[ii], effectValue);
         }
       }
+
+      if (AllList[ii].IsEquip(Fix.ANCIENT_FAITHFUL_BOOK))
+      {
+        double effect = AllList[ii].MaxInstantPoint * SecondaryLogic.AncientFaithfulBook_Effect(AllList[ii]);
+        Debug.Log("Equip " + Fix.ANCIENT_FAITHFUL_BOOK + " Advance InstantGauge " + effect);
+        AllList[ii].CurrentInstantPoint += (int)(effect);
+        AllList[ii].UpdateInstantPointGauge();
+        StartAnimation(AllList[ii].objGroup.gameObject, Fix.EFFECT_GAIN_INSTANT, Fix.COLOR_NORMAL);
+      }
     }
     Debug.Log("UpdateTurnEnd(E)");
   }
@@ -9899,6 +9908,30 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("Equip " + Fix.INTRINSIC_FROZEN_ORB + " AddBuff Frozen");
         ExecBuffFreeze(player, target, SecondaryLogic.IntrinsicFrozenOrb_Turn(player), 0);
+      }
+    }
+
+    // ブルー・スカイ・オーブによる効果
+    if (player.IsEquip(Fix.BLUE_SKY_ORB))
+    {
+      int rand = AP.Math.RandomInteger(3);
+      if (rand == 0)
+      {
+        double effectValue = SecondaryLogic.BlueSkyOrb_Effect(player);
+        Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " MagicAttackUp effect " + effectValue.ToString());
+        ExecBuffMagicAttackUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
+      }
+      else if (rand == 1)
+      {
+        double effectValue = SecondaryLogic.BlueSkyOrb_Effect(player);
+        Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " MagicDefenceUp effect " + effectValue.ToString());
+        ExecBuffMagicDefenceUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
+      }
+      else if (rand == 2)
+      {
+        double effectValue = SecondaryLogic.BlueSkyOrb_Effect(player);
+        Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " BattleResponseUp effect " + effectValue.ToString());
+        ExecBuffBattleResponseUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
       }
     }
 
@@ -12263,6 +12296,15 @@ public partial class BattleEnemy : MotherBase
       StartAnimation(target.objGroup.gameObject, Fix.BUFF_CANNOT_GAIN_JP, Fix.COLOR_NORMAL);
       this.NowAnimationMode = true;
       return false;
+    }
+
+    // エンゲージド・フューチャー・ロッドによる効果
+    if (player.IsEquip(Fix.ENGAGED_FUTURE_ROD))
+    {
+      double effectValue = SecondaryLogic.EngagedFutureRod_Effect(player);
+      Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " " + healValue.ToString() + " effect " + effectValue.ToString());
+      healValue = healValue * effectValue;
+      Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " after " + healValue.ToString());
     }
 
     if (target.IsVoiceOfAbyss)
