@@ -8766,6 +8766,29 @@ public partial class BattleEnemy : MotherBase
           AllList[ii].BattleGaugeArrow2 = 0;
         }
       }
+
+      if (AllList[ii].IsEquip(Fix.MEIUN_PRISM_BOX))
+      {
+        int rand = AP.Math.RandomInteger(3);
+        if (rand == 0)
+        {
+          double effectValue = AllList[ii].MaxLife * SecondaryLogic.MeiunPrismBox_Effect(AllList[ii]);
+          Debug.Log("Equip " + Fix.MEIUN_PRISM_BOX + " Gain Life " + effectValue.ToString());
+          ExecLifeGain(AllList[ii], effectValue);
+        }
+        else if (rand == 1)
+        {
+          double effectValue = AllList[ii].MaxManaPoint * SecondaryLogic.MeiunPrismBox_Effect(AllList[ii]);
+          Debug.Log("Equip " + Fix.MEIUN_PRISM_BOX + " Gain Mana " + effectValue.ToString());
+          AbstractGainManaPoint(AllList[ii], AllList[ii], effectValue);
+        }
+        else if (rand == 2)
+        {
+          double effectValue = AllList[ii].MaxSkillPoint * SecondaryLogic.MeiunPrismBox_Effect(AllList[ii]);
+          Debug.Log("Equip " + Fix.MEIUN_PRISM_BOX + " Gain SkillPoint " + effectValue.ToString());
+          AbstractGainSkillPoint(AllList[ii], AllList[ii], effectValue);
+        }
+      }
     }
     Debug.Log("UpdateTurnEnd(E)");
   }
@@ -9606,7 +9629,7 @@ public partial class BattleEnemy : MotherBase
       ExecElementalDamage(target, Fix.DamageSource.Fire, addDamageValue);
     }
 
-    // ガーラント・フェザー・ランス
+    // ガーラント・フェザー・ランスによる効果
     if (player.IsEquip(Fix.GALLANT_FEATHER_LANCE))
     {
       double effect = SecondaryLogic.GallantFeatherLance_Factor(player);
@@ -9614,7 +9637,7 @@ public partial class BattleEnemy : MotherBase
       ExecBuffBattleSpeedUp(player, player, SecondaryLogic.GallantFeatherLance_Turn(player), SecondaryLogic.GallantFeatherLance_Factor(player));
     }
 
-    // サンダー・ブレイク・アックス
+    // サンダー・ブレイク・アックスによる効果
     if (player.IsEquip(Fix.THUNDER_BREAK_AXE))
     {
       int percent = SecondaryLogic.ThunderBreakAxe_Percent(player);
@@ -9627,7 +9650,7 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
-    // ラス・サーヴェル・クロー
+    // ラス・サーヴェル・クローによる効果
     if (player.IsEquip(Fix.WRATH_SABEL_CLAW))
     {
       int percent = SecondaryLogic.WrathSabelClaw_Percent(player);
@@ -9638,6 +9661,23 @@ public partial class BattleEnemy : MotherBase
         double effect = SecondaryLogic.WrathSabelClaw_Effect(player);
         Debug.Log("Equip " + Fix.WRATH_SABEL_CLAW + " AddBuff Slip " + effect);
         ExecBuffSlip(player, target, SecondaryLogic.WrathSabelClaw_Turn(player), effect);
+      }
+    }
+
+    // フルメタル・アストラル・ブレードによる効果
+    if (player.IsEquip(Fix.FULLMETAL_ASTRAL_BLADE))
+    {
+
+      int percent = SecondaryLogic.FullmetalAstralBlade_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.FULLMETAL_ASTRAL_BLADE + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effect = player.MaxInstantPoint * SecondaryLogic.FullmetalAstralBlade_Effect(player);
+        Debug.Log("Equip " + Fix.FULLMETAL_ASTRAL_BLADE + " Advance InstantGauge " + effect);
+        player.CurrentInstantPoint += (int)(effect);
+        player.UpdateInstantPointGauge();
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_GAIN_INSTANT, Fix.COLOR_NORMAL);
       }
     }
 
@@ -9786,6 +9826,20 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Equip " + Fix.STAR_FUSION_ORB + " Additional Damage " + addDamageValue.ToString());
       ExecElementalDamage(target, Fix.DamageSource.HolyLight, addDamageValue);
     }
+
+    // イントリンシック・フローズン・オーブによる効果
+    if (player.IsEquip(Fix.INTRINSIC_FROZEN_ORB))
+    {
+      int percent = SecondaryLogic.IntrinsicFrozenOrb_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.INTRINSIC_FROZEN_ORB + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        Debug.Log("Equip " + Fix.INTRINSIC_FROZEN_ORB + " AddBuff Frozen");
+        ExecBuffFreeze(player, target, SecondaryLogic.IntrinsicFrozenOrb_Turn(player), 0);
+      }
+    }
+
     return true;
   }
 
@@ -11581,7 +11635,8 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     int rand = AP.Math.RandomInteger(100);
-    int current = SecondaryLogic.CriticalRate(player, target);
+    int additional = 0;
+    int current = SecondaryLogic.CriticalRate(player, target, additional);
     Debug.Log("PhysicalDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
 
     // フォーチュン・スピリットによるクリティカル判定
@@ -11802,7 +11857,9 @@ public partial class BattleEnemy : MotherBase
     // クリティカル判定
     result_critical = false;
     int rand = AP.Math.RandomInteger(100);
-    int current = SecondaryLogic.CriticalRate(player, target);
+    int additional = 0;
+    if (player.IsEquip(Fix.DORN_NAMELESS_ROD)) { additional += SecondaryLogic.DornNamelessRod_CritRate(player); Debug.Log("MagicDamageLogic DORN_NAMELESS_ROD CriticalRate Up " + additional); }
+    int current = SecondaryLogic.CriticalRate(player, target, additional);
     Debug.Log("MagicDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
 
     // フォーチュン・スピリットによるクリティカル判定

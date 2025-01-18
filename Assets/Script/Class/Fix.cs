@@ -578,6 +578,8 @@ public static partial class Fix
   public const string BUFF_ABYSS_WILL = @"焔／アビスダメージ上昇";
   public const string BUFF_THE_ABYSS_WALL = @"ダメージ吸収バリア";
 
+  public const string EFFECT_GAIN_INSTANT = "インスタントゲージ上昇";     
+
   #endregion
   #region "Timer"
   public const int BATTLEEND_AUTOEXIT = 200;

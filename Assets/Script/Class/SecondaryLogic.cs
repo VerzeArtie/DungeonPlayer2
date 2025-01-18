@@ -17,13 +17,19 @@ public static class SecondaryLogic
     return 1.00f;
   }
 
-  public static int CriticalRate(Character player, Character target)
+  public static int CriticalRate(Character player, Character target, int additional)
   {
     int result = 5;
     BuffImage hunterShot = target.IsHunterShot;
     if (hunterShot != null)
     {
       result += (int)(hunterShot.EffectValue);
+    }
+    if (additional > 0)
+    {
+      Debug.Log("CriticalRate additional " + result + " + " + additional);
+      result += additional;
+      Debug.Log("CriticalRate additional " + result);
     }
     return result;
   }
@@ -1327,119 +1333,149 @@ public static class SecondaryLogic
     return 500;
   }
 
-  public static double ArtifactMusou_Effect(Character character)
+  public static double ArtifactMusou_Effect(Character player)
   {
     return 30; // パーセンテージ ( X / 100 ) の値
   }
 
-  public static double BlueLightningSword_Effect(Character character)
+  public static double BlueLightningSword_Effect(Character player)
   {
     return 30 + AP.Math.RandomInteger(20);
   }
 
-  public static double BlueLightningSword_Factor(Character character)
+  public static double BlueLightningSword_Factor(Character player)
   {
     return 1.00f;
   }
 
-  public static double AshExcludeLance_Effect(Character character)
+  public static double AshExcludeLance_Effect(Character player)
   {
     return 50 + AP.Math.RandomInteger(20);
   }
 
-  public static double BoneCrushAxe_Effect(Character character)
+  public static double BoneCrushAxe_Effect(Character player)
   {
     return 0.10f;
   }
 
-  public static double ColdSplashClaw_Effect(Character character)
+  public static double ColdSplashClaw_Effect(Character player)
   {
     return 25 + AP.Math.RandomInteger(15);
   }
 
-  public static double ColdSplashClaw_Factor(Character character)
+  public static double ColdSplashClaw_Factor(Character player)
   {
     return 0.95f;
   }
 
-  public static double SekisoujuRod_Effect(Character character)
+  public static double SekisoujuRod_Effect(Character player)
   {
     return 30 + AP.Math.RandomInteger(20);
   }
 
-  public static double SekisoujuRod_Factor(Character character)
+  public static double SekisoujuRod_Factor(Character player)
   {
     return 1.00f;
   }
 
-  public static double GorgonEyesBook_Effect(Character character)
+  public static double GorgonEyesBook_Effect(Character player)
   {
     return 60 + AP.Math.RandomInteger(15);
   }
 
-  public static double StarFusionOrb_Effect(Character character)
+  public static double StarFusionOrb_Effect(Character player)
   {
     return 35 + AP.Math.RandomInteger(10);
   }
 
-  public static double StarFusionOrb_Factor(Character character)
+  public static double StarFusionOrb_Factor(Character player)
   {
     return 0.95f;
   }
 
-  public static double MadanShootingStar_Effect(Character character)
+  public static double MadanShootingStar_Effect(Character player)
   {
     return 40 + AP.Math.RandomInteger(30);
   }
 
-  public static double MadanShootingStar_Factor(Character character)
+  public static double MadanShootingStar_Factor(Character player)
   {
     return 1.05f;
   }
 
-  public static double Enshoutou_Effect(Character character)
+  public static double Enshoutou_Effect(Character player)
   {
     return 100 + AP.Math.RandomInteger(40);
   }
 
-  public static double Enshoutou_Factor(Character character)
+  public static double Enshoutou_Factor(Character player)
   {
     return 1.10f;
   }
 
-  public static int GallantFeatherLance_Turn(Character character)
+  public static int GallantFeatherLance_Turn(Character player)
   {
     return 3;
   }
 
-  public static double GallantFeatherLance_Factor(Character character)
+  public static double GallantFeatherLance_Factor(Character player)
   {
     return 1.02f;
   }
 
-  public static int ThunderBreakAxe_Turn(Character character)
+  public static int ThunderBreakAxe_Turn(Character player)
   {
     return 2;
   }
 
-  public static int ThunderBreakAxe_Percent(Character character)
+  public static int ThunderBreakAxe_Percent(Character player)
   {
     return 30;
   }
 
-  public static int WrathSabelClaw_Percent(Character character)
+  public static int WrathSabelClaw_Percent(Character player)
   {
     return 30;
   }
 
-  public static int WrathSabelClaw_Turn(Character character)
+  public static int WrathSabelClaw_Turn(Character player)
   {
     return 2;
   }
 
-  public static int WrathSabelClaw_Effect(Character character)
+  public static int WrathSabelClaw_Effect(Character player)
   {
     return 90 + AP.Math.RandomInteger(30);
+  }
+
+  public static int DornNamelessRod_CritRate(Character player)
+  {
+    return 10;
+  }
+
+  public static int IntrinsicFrozenOrb_Percent(Character player)
+  {
+    return 30;
+  }
+
+  public static int IntrinsicFrozenOrb_Turn(Character player)
+  {
+    return 1;
+  }
+
+  public static double MeiunPrismBox_Effect(Character player)
+  {
+    return 0.05f;
+  }
+
+  public static int FullmetalAstralBlade_Percent(Character player)
+  {
+    return 10;
+  }
+
+  public static double FullmetalAstralBlade_Effect(Character player)
+  {
+    return 0.10f;
   }
 
   public static int CostControl(string command_name, int current_cost, Character player)
