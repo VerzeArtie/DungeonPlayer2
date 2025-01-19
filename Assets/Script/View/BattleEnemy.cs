@@ -426,6 +426,13 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(playerList[ii]), SecondaryLogic.StanceOfTheBlade(playerList[ii]), 0, 0);
       }
 
+      // ミスティック・ブルー・ジャベリンによる効果
+      if (playerList[ii].IsEquip(Fix.MYSTIC_BLUE_JAVELIN))
+      {
+        Debug.Log("Equip " + Fix.MYSTIC_BLUE_JAVELIN + " Setup SpeedStep " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(playerList[ii]), SecondaryLogic.SpeedStep(playerList[ii]), 0, 0);
+      }
+
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
@@ -685,6 +692,13 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("Equip " + Fix.SOLEMN_EMPERORS_SWORD + " Setup StanceOftheBlade " + EnemyList[ii].FullName);
         AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(EnemyList[ii]), SecondaryLogic.StanceOfTheBlade(EnemyList[ii]), 0, 0);
+      }
+
+      // ミスティック・ブルー・ジャベリンによる効果
+      if (EnemyList[ii].IsEquip(Fix.MYSTIC_BLUE_JAVELIN))
+      {
+        Debug.Log("Equip " + Fix.MYSTIC_BLUE_JAVELIN + " Setup SpeedStep " + EnemyList[ii].FullName);
+        AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(EnemyList[ii]), SecondaryLogic.SpeedStep_Turn(EnemyList[ii]), 0, 0);
       }
 
       //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
@@ -1679,7 +1693,7 @@ public partial class BattleEnemy : MotherBase
           {
             Debug.Log("Target is speedStep, then Cumulative++");
             int beforeCumulative = speedStep.Cumulative;
-            speedStep.Cumulative++;
+            speedStep.CumulativeUp(speedStep.RemainCounter, 1);
             if (beforeCumulative != speedStep.Cumulative)
             {
               StartAnimation(AllList[ii].objGroup.gameObject, Fix.BATTLE_SPEED_UP, Fix.COLOR_NORMAL);
@@ -9576,7 +9590,7 @@ public partial class BattleEnemy : MotherBase
     {
       Debug.Log("Target is stanceOfTheBlade, then Cumulative++");
       int beforeCumulative = stanceOfTheBlade.Cumulative;
-      stanceOfTheBlade.Cumulative++;
+      stanceOfTheBlade.CumulativeUp(stanceOfTheBlade.RemainCounter, 1);
       if (beforeCumulative != stanceOfTheBlade.Cumulative)
       {
         Debug.Log("Target is stanceOfTheBlade, update cumulative " + stanceOfTheBlade.Cumulative);
