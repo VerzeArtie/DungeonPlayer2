@@ -2769,22 +2769,42 @@ public static class ActionCommand
 
   public static int CumulativeMax(string command_name)
   {
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 5; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 5; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return 5; }
+    if (command_name == Fix.SPEED_STEP) { return 5; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return 5; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 9; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return 9; }
+    if (command_name == Fix.DEATH_SCYTHE) { return 99; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
     if (command_name == Fix.BUFF_PD_DOWN) { return 5; }
-    else if (command_name == Fix.CONCUSSIVE_HIT) { return 5; }
-    else if (command_name == Fix.BUFF_LIGHTNING_OUTBURST) { return 5; }
-    else if (command_name == Fix.COMMAND_LIGHT_THUNDERBOLT) { return 7; }
-    else if (command_name == Fix.FORTUNE_SPIRIT) { return 9; }
-    else if (command_name == Fix.THE_DARK_INTENSITY) { return 9; }
-    else if (command_name == Fix.STANCE_OF_MUIN) { return 5; }
-    else if (command_name == Fix.BUFF_FOCUS_EYE) { return 9; }
-    else if (command_name == Fix.DEATH_SCYTHE) { return 99; }
-    else if (command_name == Fix.GOLDEN_MATRIX) { return 9; }
-    else if (command_name == Fix.ABYSS_WILL) { return 99; }
-    else if (command_name == Fix.HOLY_WISDOM) { return 10; }
-    else if (command_name == Fix.STARSWORD_SEIEI) { return 10; }
-    else if (command_name == Fix.SPHERE_OF_GLORY) { return 99; }
-    else if (command_name == Fix.AURORA_PUNISHMENT) { return 99; }
-    else if (command_name == Fix.LIFE_POINT) { return 3; }
+
+    if (command_name == Fix.BUFF_LIGHTNING_OUTBURST) { return 5; }
+    if (command_name == Fix.COMMAND_LIGHT_THUNDERBOLT) { return 7; }
+    if (command_name == Fix.BUFF_FOCUS_EYE) { return 9; }
+    if (command_name == Fix.GOLDEN_MATRIX) { return 9; }
+    if (command_name == Fix.ABYSS_WILL) { return 99; }
+    if (command_name == Fix.HOLY_WISDOM) { return 10; }
+    if (command_name == Fix.STARSWORD_SEIEI) { return 10; }
+    if (command_name == Fix.SPHERE_OF_GLORY) { return 99; }
+    if (command_name == Fix.AURORA_PUNISHMENT) { return 99; }
+    if (command_name == Fix.LIFE_POINT) { return 3; }
+
+    if (command_name == Fix.BUFF_PA_UP) { return 5; }
+    if (command_name == Fix.BUFF_PA_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_PD_UP) { return 5; }
+    if (command_name == Fix.BUFF_PD_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_MA_UP) { return 5; }
+    if (command_name == Fix.BUFF_MA_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_MD_UP) { return 5; }
+    if (command_name == Fix.BUFF_MD_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_BS_UP) { return 5; }
+    if (command_name == Fix.BUFF_BS_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_BR_UP) { return 5; }
+    if (command_name == Fix.BUFF_BR_DOWN) { return 5; }
+    if (command_name == Fix.BUFF_PO_UP) { return 5; }
+    if (command_name == Fix.BUFF_PO_DOWN) { return 5; }
 
     return 1; // 通常は累積なし
   }
@@ -3539,7 +3559,7 @@ public static class ActionCommand
     if (command_name == Fix.LAVA_ANNIHILATION) { return "敵全体に対して【炎】ダメージを与える。"; }
     if (command_name == Fix.ABSOLUTE_ZERO) { return "この魔法はカウンターされない。\r\n敵一体を対象とする。対象に【絶対零度】のBUFFを付与する。【絶対零度】が続く間、対象は通常攻撃、魔法詠唱、スキル行動が行えず、防御姿勢を取る事が出来なくなる。加えて、ライフ、マナ、スキルポイントが回復不可となる。"; }
     if (command_name == Fix.RESURRECTION) { return "味方一体を対象とする。対象を蘇生し、ライフを全回復する。"; }
-    if (command_name == Fix.DEATH_SCYTHE) { return "敵フィールドに【死の鎌】フィールドを形成する。\r\n【死の鎌】が続く間、ターン経過毎に累積カウンターが１つ載る。ターン経過毎に最大ライフのX % 分ライフを失い、最大マナのX % 分マナを失い、最大スキルポイントのX % 分スキルポイントを失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。"; }
+    if (command_name == Fix.DEATH_SCYTHE) { return "敵フィールドに【死の鎌】フィールドを形成する。\r\n【死の鎌】が続く間、ターン経過毎に累積カウンターが１つ載る。ターン経過毎に最大ライフのX % 分ライフを失い、最大マナのX % 分マナを失い、最大スキルポイントのX % 分スキルポイントを失う。失う量は累積カウンターに依存する。フィールドに含まれるキャラクターがいずれか死亡した場合、本フィールドは消失する。累積カウンターは最大９９まで累積する。"; }
     if (command_name == Fix.GENESIS) { return "この魔法はマナを消費しない。\r\n前回自分が行ったアクションコマンドと同じ内容を実行する。"; }
     if (command_name == Fix.TIME_STOP) { return "時間を停止する。"; }
     // スキル

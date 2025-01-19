@@ -8069,7 +8069,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 250000;
         this._importantType = Important.None;
-        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊効果】物理攻撃が対象にヒットする度に、【闇】ダメージが追加で発生する。";
+        this._description = "厳粛なる皇帝が出陣する際、常用していた魔剣。静かな立ち振る舞いからは異様なオーラが放たれるため、対峙した者はその圧力に屈するだろう。物理攻撃力６４０～８４０【特殊効果】戦闘開始時、自分自身にスタンス・オブ・ブレイドのBUFFが付与される。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

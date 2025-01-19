@@ -418,6 +418,14 @@ public partial class BattleEnemy : MotherBase
       {
         AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.LIFE_POINT, Fix.BUFF_LIFE_POINT, Fix.INFINITY, 3, 0, 0);
       }
+
+      // ソレム・エンペラーズ・ソードによる効果
+      if (playerList[ii].IsEquip(Fix.SOLEMN_EMPERORS_SWORD))
+      {
+        Debug.Log("Equip " + Fix.SOLEMN_EMPERORS_SWORD + " Setup StanceOftheBlade " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(playerList[ii]), SecondaryLogic.StanceOfTheBlade(playerList[ii]), 0, 0);
+      }
+
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
@@ -671,6 +679,14 @@ public partial class BattleEnemy : MotherBase
       {
         AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.LIFE_POINT, Fix.BUFF_LIFE_POINT, Fix.INFINITY, 3, 0, 0);
       }
+
+      // ソレム・エンペラーズ・ソードによる効果
+      if (EnemyList[ii].IsEquip(Fix.SOLEMN_EMPERORS_SWORD))
+      {
+        Debug.Log("Equip " + Fix.SOLEMN_EMPERORS_SWORD + " Setup StanceOftheBlade " + EnemyList[ii].FullName);
+        AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(EnemyList[ii]), SecondaryLogic.StanceOfTheBlade(EnemyList[ii]), 0, 0);
+      }
+
       //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
       //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP ||
       //    EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT_JP_VIEW)
@@ -9563,7 +9579,12 @@ public partial class BattleEnemy : MotherBase
       stanceOfTheBlade.Cumulative++;
       if (beforeCumulative != stanceOfTheBlade.Cumulative)
       {
+        Debug.Log("Target is stanceOfTheBlade, update cumulative " + stanceOfTheBlade.Cumulative);
         StartAnimation(player.objGroup.gameObject, Fix.BATTLE_ATTACK_UP, Fix.COLOR_NORMAL);
+      }
+      else
+      {
+        Debug.Log("Target is stanceOfTheBlade, no cumulative...");
       }
     }
     BuffImage stanceOfTheGuard = target.IsStanceOfTheGuard;
