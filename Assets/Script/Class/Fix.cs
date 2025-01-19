@@ -2683,7 +2683,7 @@ public static partial class Fix
   public const string POWER_STEEL_RING_INTERCEPT = "強芯鋼の腕輪『インターセプト』";
   public const string STARAIR_FLOATING_STONE = "星空の飛空石";
   public const string LIGHTBRIGHT_FLOATING_STONE = "聖光の浮遊石";
-  public const string LUMINUS_REFLECT_MIRROR = "ルミナス・リフレクト・ミラー";
+  public const string LUMINOUS_REFLECT_MIRROR = "ルミナス・リフレクト・ミラー";
   public const string BLACK_SPIRAL_NEEDLE = "ブラック・スパイラル・ニードル";
   public const string EMBLEM_OF_VALKYRIE = "エムブレム・オブ・ヴァルキリー";
   public const string EMBLEM_OF_NECROMANCY = "エムブレム・オブ・ネクロマンシー";

@@ -7121,7 +7121,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 45000;
         this._importantType = Important.None;
-        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、闇耐性１０％　【特殊効果】防御姿勢時における物理防御力が１０％上昇。メイン行動から物理攻撃を伴うダメージがヒットした場合、物理攻撃力が１０％上昇。";
+        this._description = "奇麗で洗練された形状で仕上げられた王の盾。保持者には王としての意志が呼び起こされる。防御への立ち回り、攻撃への転化、場の構築などあらゆる局面でその盾は効果を発揮する。物理防御７６、魔法防御５５、体＋２５、闇耐性１０％　【特殊効果】防御姿勢時における軽減率が1０％上昇する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -7920,7 +7920,7 @@ public partial class Item
         this.ResistStun = true;
         break;
 
-      case Fix.LUMINUS_REFLECT_MIRROR:
+      case Fix.LUMINOUS_REFLECT_MIRROR:
         this._rarity = Rarity.Rare;
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
@@ -7935,7 +7935,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５【特殊効果】物理攻撃を受ける度に、稀に攻撃を行った対象者に物理ダメージ1/3の分だけ反転する。魔法攻撃においても同様である。";
+        this._description = "輝きを周辺に放ち続けるミラー。その特性は気体中の抵抗物質を溶かし、物質が接触した際、新たな光源として反射する特性を有する非常に稀な物質から構成されている。使い処は様々であり、愛用者は多い。体＋１３５【特殊効果】物理攻撃を受ける度に、３０％の確率で攻撃を行った対象者に物理ダメージ1/10の分だけ反転する。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
@@ -7958,7 +7958,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 120000;
         this._importantType = Important.None;
-        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊効果】物理攻撃を与える行動を取った時、稀に自分にかかっている負のBUFFが１つ解除される。";
+        this._description = "禍々しい螺旋状の取っ手が付けられている漆黒の針。その針は自らの手のひらへ刺す事を糧として、圧倒的な力を授かる事が出来る。力＋１３５、恐怖耐性、闇増幅１０％、闇耐性１０％【特殊効果】ターン経過毎に、自分にかかっている負のBUFFが１つ解除される。この効果で１つ負のBUFFが除去される毎に、自分自身の物理攻撃力／物理防御力が１０％上昇する。";
         this._strength = 135;
         this._agility = 0;
         this._intelligence = 0;

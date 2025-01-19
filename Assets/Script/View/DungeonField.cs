@@ -9161,7 +9161,7 @@ public class DungeonField : MotherBase
         // 宝箱３３
         if (One.TF.Treasure_OhranTower_00033 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_33_X, Fix.OHRANTOWER_Treasure_33_Y, Fix.OHRANTOWER_Treasure_33_Z))
         {
-          treasureName = Fix.LUMINUS_REFLECT_MIRROR;
+          treasureName = Fix.LUMINOUS_REFLECT_MIRROR;
         }
         // 宝箱３４
         if (One.TF.Treasure_OhranTower_00034 == false && LocationFieldDetect(fieldObj, Fix.OHRANTOWER_Treasure_34_X, Fix.OHRANTOWER_Treasure_34_Y, Fix.OHRANTOWER_Treasure_34_Z))

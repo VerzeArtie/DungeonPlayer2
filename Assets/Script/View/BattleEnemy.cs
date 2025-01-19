@@ -8767,6 +8767,7 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      // 命運のプリズムボックスによる効果
       if (AllList[ii].IsEquip(Fix.MEIUN_PRISM_BOX))
       {
         int rand = AP.Math.RandomInteger(3);
@@ -8790,6 +8791,7 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
+      // アンシエント・フェイスフル・ブックによる効果
       if (AllList[ii].IsEquip(Fix.ANCIENT_FAITHFUL_BOOK))
       {
         double effect = AllList[ii].MaxInstantPoint * SecondaryLogic.AncientFaithfulBook_Effect(AllList[ii]);
@@ -8797,6 +8799,21 @@ public partial class BattleEnemy : MotherBase
         AllList[ii].CurrentInstantPoint += (int)(effect);
         AllList[ii].UpdateInstantPointGauge();
         StartAnimation(AllList[ii].objGroup.gameObject, Fix.EFFECT_GAIN_INSTANT, Fix.COLOR_NORMAL);
+      }
+
+      // ブラック・スパイラル・ニードルによる効果
+      if (AllList[ii].IsEquip(Fix.BLACK_SPIRAL_NEEDLE))
+      {
+        double effect = SecondaryLogic.BlackSpiralNeedle_Effect(AllList[ii]);
+        Debug.Log("Equip " + Fix.BLACK_SPIRAL_NEEDLE + " AbstractRemoveBuff " + AllList[ii].FullName);
+        bool success = AbstractRemoveBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.BLACK_SPIRAL_NEEDLE, 1, Fix.BuffType.Negative);
+        if (success)
+        {
+          Debug.Log("Equip " + Fix.BLACK_SPIRAL_NEEDLE + " PhysicalAttackUp " + effect);
+          ExecBuffPhysicalAttackUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), SecondaryLogic.BlackSpiralNeedle_Effect(AllList[ii]));
+          Debug.Log("Equip " + Fix.BLACK_SPIRAL_NEEDLE + " PhysicalDefenseUp " + effect);
+          ExecBuffPhysicalDefenseUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), SecondaryLogic.BlackSpiralNeedle_Effect(AllList[ii]));
+        }
       }
     }
     Debug.Log("UpdateTurnEnd(E)");
@@ -9752,6 +9769,21 @@ public partial class BattleEnemy : MotherBase
         AbstractGainSkillPoint(player, player, effectValue);
       }
     }
+
+    // ルミナス・リフレクト・ミラーによる効果
+    if (target.IsEquip(Fix.LUMINOUS_REFLECT_MIRROR))
+    {
+      int percent = SecondaryLogic.LuminousReflectMirror_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.LUMINOUS_REFLECT_MIRROR + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effectValue = damageValue * SecondaryLogic.LuminousReflectMirror_Effect(target);
+        Debug.Log("Equip " + Fix.LUMINOUS_REFLECT_MIRROR + " reflect damage " + effectValue.ToString());
+        ApplyDamage(target, player, effectValue, false, animation_speed);
+      }
+    }
+
     return true;
   }
 
@@ -12521,33 +12553,39 @@ public partial class BattleEnemy : MotherBase
     StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
   }
 
-  private void AbstractRemoveBuff(Character target, BuffField buff_field, string view_buff_name, int num, Fix.BuffType buff_type)
+  /// <summary>
+  /// Buff除去を行うメソッド。
+  /// RemoveBuffが成功していればTrueを返す。それ以外はFalseで失敗とする。
+  /// </summary>
+  private bool AbstractRemoveBuff(Character target, BuffField buff_field, string view_buff_name, int num, Fix.BuffType buff_type)
   {
     if (target.SearchFieldBuff(Fix.DETACHMENT_FAULT))
     {
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
-      return;
+      return false;
     }
 
     BuffImage transcendenceReached = target.IsTranscendenceReached;
     if (transcendenceReached && buff_type == Fix.BuffType.Positive)
     {
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
-      return;
+      return false;
     }
 
     BuffImage innocentCircle = target.IsInnocentCircle;
     if (innocentCircle && buff_type == Fix.BuffType.Positive)
     {
       StartAnimation(buff_field.gameObject, Fix.BUFF_FAILED, Fix.COLOR_WARNING);
-      return;
+      return false;
     }
 
-    target.RemoveBuff(num, buff_type);
-    if (view_buff_name != "")
+    bool success = target.RemoveBuff(num, buff_type);
+    if (view_buff_name != "" && success)
     {
       StartAnimation(buff_field.gameObject, view_buff_name, Fix.COLOR_NORMAL);
     }
+
+    return success;
   }
 
   private void AbstractRemoveTargetBuff(Character target, BuffField buff_field, string buff_name, string view_buff_name)

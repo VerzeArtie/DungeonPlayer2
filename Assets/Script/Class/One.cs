@@ -4234,7 +4234,7 @@ public static class One
                   break;
                 // 武具屋限定、ドロップ対象外
                 //case 25:
-                //  targetItemName = Fix.LUMINUS_REFLECT_MIRROR;
+                //  targetItemName = Fix.LUMINOUS_REFLECT_MIRROR;
                 //  break;
                 //case 26:
                 //  targetItemName = Fix.BLACK_SPIRAL_NEEDLE;

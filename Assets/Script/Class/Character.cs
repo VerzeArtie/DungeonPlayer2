@@ -3556,27 +3556,29 @@ public partial class Character : MonoBehaviour
 
   /// <summary>
   /// ディスペル・マジックやピュア・ピュリファイケーション経由でBUFFを除去します。
+  /// 除去が１つでも出来ていれば成功、除去数が０なら失敗とみなす。
   /// </summary>
-  public void RemoveBuff(int num, Fix.BuffType buff_type)
+  public bool RemoveBuff(int num, Fix.BuffType buff_type)
   {
-    if (this.objBuffPanel == null) { return; }
+    if (this.objBuffPanel == null) { return false; }
 
     // unity潜在バグの可能性。null合体演算子、厳密にはnull判定かどうかを行おうとした時、
     // missing exceptionが発生するので、null合体演算子はここでは使わない。
     //BuffImage[] buffList = this.objBuffPanel?.GetComponentsInChildren<BuffImage>() ?? null;
     BuffImage[] buffList = this.objBuffPanel.GetComponentsInChildren<BuffImage>();
-    if (buffList == null) { return; }
+    if (buffList == null) { return false; }
 
     int detect = 0;
     for (int ii = 0; ii < buffList.Length; ii++)
     {
-      // 有益なBUFFが見つかった場合、それを除去する。
+      // BUFF種別が指定された種別と同じなら場合、それを除去する。
       if (ActionCommand.GetBuffType(buffList[ii].BuffName) == buff_type)
       {
         if (buffList[ii].BuffName == Fix.LIFE_POINT)
         {
           continue;
         }
+        Debug.Log("RemoveBuff [ " + buffList[ii].BuffName + " ] has been removed");
         buffList[ii].RemoveBuff();
         detect++;
       }
@@ -3587,6 +3589,9 @@ public partial class Character : MonoBehaviour
         break;
       }
     }
+
+    if (detect > 0) { return true; }
+    return false;
   }
 
   public int GetPositiveBuff()
@@ -10850,7 +10855,7 @@ public partial class Character : MonoBehaviour
         {
           if (this.IsStanceOfTheIai == false)
           {
-            result = Fix.PIERCING_ARROW;
+            result = Fix.STRAIGHT_SMASH; // Fix.PIERCING_ARROW;
           }
           else
           {

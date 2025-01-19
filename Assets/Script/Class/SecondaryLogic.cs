@@ -39,25 +39,48 @@ public static class SecondaryLogic
     return 2.00f;
   }
 
+  /// <summary>
+  /// 防御姿勢を取っている時のダメージ軽減率。
+  /// 値が小さければ小さいほど、防御率が高い。
+  /// ベース値は0.50とし、追加効果で最大0.50加えて1.00とする事が出来る。
+  /// 追加効果は実質1.00まで追加できる事とし、
+  /// 0.50 ( 1 + reduction )で計算する事にする。
+  /// reductionが取り得る値は0～1.00まで。0なら何も追加効果はなく0.50のまま。1.00なら軽減率は1.00となる。
+  /// </summary>
+  /// <param name="player"></param>
+  /// <returns></returns>
   public static double DefenseFactor(Character player)
   {
     double result = 0.50f;
+    double reduction = 0.00f;
     // if (player.DefenseSkill <= 0) { return result; }
 
     BuffImage dominationField = player.SearchFieldBuff(Fix.DOMINATION_FIELD);
     if (dominationField)
     {
-      Debug.Log("DefenseFactor by dominationField(before): " + result.ToString());
-      result -= dominationField.EffectValue2;
-      Debug.Log("DefenseFactor by dominationField(after ): " + result.ToString());
+      reduction += dominationField.EffectValue2;
+      Debug.Log("DefenseFactor by dominationField: " + reduction.ToString());
     }
     else
     {
       Debug.Log("DefenseFactor by dominationField, no effect...");
     }
 
-    result -= player.DefenseSkill * 0.02f; // 軽減率なので、この値は減少させる。
-    if (result <= 0.00f) { result = 0.01f; } // 完全に0にはせず、最小値を設ける。
+    if (player.IsEquip(Fix.GRACEFUL_KINGS_BUCKLER))
+    {
+      double effect = SecondaryLogic.GracefulKingsBuckler_Effect(player);
+      Debug.Log("Equip " + Fix.GRACEFUL_KINGS_BUCKLER + " Defense Factor plus " + effect);
+      reduction += effect;
+    }
+
+    if (reduction >= 1.00f) { reduction = 1.00f; }
+    Debug.Log("DefenseFactor result(before): " + result.ToString() + " reduction " + reduction.ToString());
+    result -= (0.50f * reduction);
+    Debug.Log("DefenseFactor result(after): " + result.ToString());
+
+    // result -= player.DefenseSkill * 0.02f; // DP2初版では採用しないため、コメントアウト
+    if (result <= 0.00f) { result = 0.00f; } // 0.00が下限。「完全に軽減できる」と等しい。
+    if (result >= 1.00f) { result = 1.00f; } // 1.00が上限。「軽減できない」と等しい。
     return result;
   }
 
@@ -1523,6 +1546,30 @@ public static class SecondaryLogic
   {
     return 1.05f;
   }
+
+  public static double GracefulKingsBuckler_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int LuminousReflectMirror_Percent(Character player)
+  {
+    return 30;
+  }
+  public static double LuminousReflectMirror_Effect(Character player)
+  {
+    return 0.10f;
+  }
+
+  public static int BlackSpiralNeedle_Turn(Character player)
+  {
+    return 9;
+  }
+  public static double BlackSpiralNeedle_Effect(Character player)
+  {
+    return 1.10f;
+  }
+
 
   public static int CostControl(string command_name, int current_cost, Character player)
   {
