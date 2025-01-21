@@ -433,6 +433,20 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(playerList[ii]), SecondaryLogic.SpeedStep(playerList[ii]), 0, 0);
       }
 
+      // 剛煉炎ヘル・バスタードアックスによる効果
+      if (playerList[ii].IsEquip(Fix.STRONG_FIRE_HELL_BASTARDAXE))
+      {
+        Debug.Log("Equip " + Fix.STRONG_FIRE_HELL_BASTARDAXE + " Setup DominationField " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.DOMINATION_FIELD, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(playerList[ii]), SecondaryLogic.DominationField_Effect1(playerList[ii]), SecondaryLogic.DominationField_Effect2(playerList[ii]), 0);
+      }
+
+      // オーラ・バーン・クローによる効果
+      if (playerList[ii].IsEquip(Fix.AURA_BURN_CLAW))
+      {
+        Debug.Log("Equip " + Fix.AURA_BURN_CLAW + " Setup LeylineSchema " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(playerList[ii]), SecondaryLogic.LeylineSchema_Effect1(playerList[ii]), 0, 0);
+      }
+
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
@@ -699,6 +713,20 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("Equip " + Fix.MYSTIC_BLUE_JAVELIN + " Setup SpeedStep " + EnemyList[ii].FullName);
         AbstractAddBuff(EnemyList[ii], EnemyList[ii].objBuffPanel, Fix.SPEED_STEP, Fix.SPEED_STEP, SecondaryLogic.SpeedStep_Turn(EnemyList[ii]), SecondaryLogic.SpeedStep_Turn(EnemyList[ii]), 0, 0);
+      }
+
+      // 剛煉炎ヘル・バスタードアックスによる効果
+      if (EnemyList[ii].IsEquip(Fix.STRONG_FIRE_HELL_BASTARDAXE))
+      {
+        Debug.Log("Equip " + Fix.STRONG_FIRE_HELL_BASTARDAXE + " Setup DominationField " + EnemyList[ii].FullName);
+        AbstractAddBuff(EnemyList[ii], EnemyList[ii].objFieldPanel, Fix.DOMINATION_FIELD, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(EnemyList[ii]), SecondaryLogic.DominationField_Effect1(EnemyList[ii]), SecondaryLogic.DominationField_Effect2(EnemyList[ii]), 0);
+      }
+
+      // オーラ・バーン・クローによる効果
+      if (EnemyList[ii].IsEquip(Fix.AURA_BURN_CLAW))
+      {
+        Debug.Log("Equip " + Fix.AURA_BURN_CLAW + " Setup LeylineSchema " + EnemyList[ii].FullName);
+        AbstractAddBuff(EnemyList[ii], EnemyList[ii].objFieldPanel, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(EnemyList[ii]), SecondaryLogic.LeylineSchema_Effect1(EnemyList[ii]), 0, 0);
       }
 
       //if (EnemyList[ii].FullName == Fix.ROYAL_KING_AERMI_JORZT||
@@ -8840,11 +8868,26 @@ public partial class BattleEnemy : MotherBase
         if (success)
         {
           Debug.Log("Equip " + Fix.BLACK_SPIRAL_NEEDLE + " PhysicalAttackUp " + effect);
-          ExecBuffPhysicalAttackUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), SecondaryLogic.BlackSpiralNeedle_Effect(AllList[ii]));
+          ExecBuffPhysicalAttackUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), effect);
           Debug.Log("Equip " + Fix.BLACK_SPIRAL_NEEDLE + " PhysicalDefenseUp " + effect);
-          ExecBuffPhysicalDefenseUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), SecondaryLogic.BlackSpiralNeedle_Effect(AllList[ii]));
+          ExecBuffPhysicalDefenseUp(AllList[ii], AllList[ii], SecondaryLogic.BlackSpiralNeedle_Turn(AllList[ii]), effect);
         }
       }
+
+      // マインド・ストーンフィアー・ロッドによる効果
+      if (AllList[ii].IsEquip(Fix.MIND_STONEFEAR_ROD))
+      {
+        double effect = SecondaryLogic.MindStoneFearRod_Effect(AllList[ii]);
+        Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " AbstractRemoveBuff " + AllList[ii].FullName);
+        bool success = AbstractRemoveBuff(AllList[ii], AllList[ii].objBuffPanel, Fix.MIND_STONEFEAR_ROD, 1, Fix.BuffType.Negative);
+        if (success)
+        {
+          Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicAttackUp " + effect);
+          ExecBuffMagicAttackUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
+          Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicDefenceUp " + effect);
+          ExecBuffMagicDefenceUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
+        }
+      }      
     }
     Debug.Log("UpdateTurnEnd(E)");
   }
@@ -9999,6 +10042,43 @@ public partial class BattleEnemy : MotherBase
         double effectValue = SecondaryLogic.BlueSkyOrb_Effect(player);
         Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " BattleResponseUp effect " + effectValue.ToString());
         ExecBuffBattleResponseUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
+      }
+    }
+
+    // ダークサン・トラジェディック・ブックによる効果
+    if (player.IsEquip(Fix.DARKSUN_TRAGEDIC_BOOK))
+    {
+      int percent = SecondaryLogic.DarksunTragedicBook_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        int random = AP.Math.RandomInteger(5);
+        if (random == 0)
+        {
+          Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Silence");
+          ExecBuffSilent(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), 0);
+        }
+        else if (random == 1)
+        {
+          Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Bind");
+          ExecBuffBind(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), 0);
+        }
+        else if (random == 2)
+        {
+          Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Sleep");
+          ExecBuffSleep(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), 0);
+        }
+        else if (random == 3)
+        {
+          Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Slow");
+          ExecBuffSlow(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), SecondaryLogic.DarksunTragedicBook_Effect(player));
+        }
+        else if (random == 4)
+        {
+          Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Dizzy");
+          ExecBuffDizzy(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), SecondaryLogic.DarksunTragedicBook_Effect(player));
+        }
       }
     }
 
@@ -11824,6 +11904,15 @@ public partial class BattleEnemy : MotherBase
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ゴールドウィル・ディセント・ソードによる効果
+      if (player.IsEquip(Fix.GOLDWILL_DESCENT_SOWRD))
+      {
+        double addCritical = SecondaryLogic.GoldwillDescentSword_Effect(player);
+        Debug.Log("Equip " + Fix.GOLDWILL_DESCENT_SOWRD + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.GOLDWILL_DESCENT_SOWRD + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       debug1 = damageValue;
       result_critical = true;
       Debug.Log("PhysicalDamageLogic detect Critical! (Random) ( " + rand.ToString() + " / " + current + " ) " + damageValue.ToString());
@@ -11831,6 +11920,15 @@ public partial class BattleEnemy : MotherBase
     if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ゴールドウィル・ディセント・ソードによる効果
+      if (player.IsEquip(Fix.GOLDWILL_DESCENT_SOWRD))
+      {
+        double addCritical = SecondaryLogic.GoldwillDescentSword_Effect(player);
+        Debug.Log("Equip " + Fix.GOLDWILL_DESCENT_SOWRD + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.GOLDWILL_DESCENT_SOWRD + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       debug1 = damageValue;
       result_critical = true;
       Debug.Log("PhysicalDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
@@ -12047,6 +12145,15 @@ public partial class BattleEnemy : MotherBase
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // クロマティック・フォージ・オーブによる効果
+      if (player.IsEquip(Fix.CHROMATIC_FORGE_ORB))
+      {
+        double addCritical = SecondaryLogic.ChromaticForgeOrb_Effect(player);
+        Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Random) ( " + rand.ToString() + " / " + current + " ) " + damageValue.ToString());
       UpdateMessage("クリティカル発生！");
@@ -12054,6 +12161,15 @@ public partial class BattleEnemy : MotherBase
     if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // クロマティック・フォージ・オーブによる効果
+      if (player.IsEquip(Fix.CHROMATIC_FORGE_ORB))
+      {
+        double addCritical = SecondaryLogic.ChromaticForgeOrb_Effect(player);
+        Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.CHROMATIC_FORGE_ORB + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       result_critical = true;
       Debug.Log("MagicDamageLogic detect Critical! (Absolute) " + damageValue.ToString());
       UpdateMessage("クリティカル発生！");

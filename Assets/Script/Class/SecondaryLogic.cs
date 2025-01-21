@@ -1570,6 +1570,37 @@ public static class SecondaryLogic
     return 1.10f;
   }
 
+  public static int MindStoneFearRod_Turn(Character player)
+  {
+    return 9;
+  }
+  public static double MindStoneFearRod_Effect(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static int DarksunTragedicBook_Percent(Character player)
+  {
+    return 20;
+  }
+  public static int DarksunTragedicBook_Trun(Character player)
+  {
+    return 3;
+  }
+  public static double DarksunTragedicBook_Effect(Character player)
+  {
+    return 0.50f;
+  }
+
+  public static double ChromaticForgeOrb_Effect(Character player)
+  {
+    return 1.10f;
+  }
+
+  public static double GoldwillDescentSword_Effect(Character player)
+  {
+    return 1.10f;
+  }  
 
   public static int CostControl(string command_name, int current_cost, Character player)
   {
