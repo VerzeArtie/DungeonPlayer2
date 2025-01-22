@@ -1446,6 +1446,15 @@ public static class SecondaryLogic
     return 1.02f;
   }
 
+  public static int VirgiranteHellgateLance_Percent(Character player)
+  {
+    return 5;
+  }
+  public static double VirgiranteHellgateLance_Effect(Character player)
+  {
+    return 1.05f;
+  }
+
   public static int ThunderBreakAxe_Turn(Character player)
   {
     return 2;
@@ -1474,6 +1483,20 @@ public static class SecondaryLogic
   public static int DornNamelessRod_CritRate(Character player)
   {
     return 10;
+  }
+
+  public static double FinesseImperialBook_Effect(Character player)
+  {
+    return 1.05f;
+  }
+
+  public static int MullerhaizenAgartaBook_Percent(Character player)
+  {
+    return 5;
+  }
+  public static double MullerhaizenAgartaBook_Effect(Character player)
+  {
+    return 1.05f;
   }
 
   public static int IntrinsicFrozenOrb_Percent(Character player)
@@ -1600,7 +1623,30 @@ public static class SecondaryLogic
   public static double GoldwillDescentSword_Effect(Character player)
   {
     return 1.10f;
-  }  
+  }
+
+  public static int FlashVanishSpear_Effect(Character player)
+  {
+    return 10;
+  }
+
+  public static int VolcanicBattleBuster_Percent(Character player)
+  {
+    return 20;
+  }
+  public static int VolcanicBattleBuster_Trun(Character player)
+  {
+    return 2; // スタンや麻痺など強力なのでターン数は３ではなくて２
+  }
+  public static double VolcanicBattleBuster_Effect(Character player)
+  {
+    return 0.50f;
+  }
+
+  public static double ElderstaffOfLifebloom_Effect(Character player)
+  {
+    return 1.20f;
+  }
 
   public static int CostControl(string command_name, int current_cost, Character player)
   {

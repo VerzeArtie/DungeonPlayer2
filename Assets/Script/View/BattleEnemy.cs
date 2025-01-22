@@ -447,6 +447,21 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(playerList[ii]), SecondaryLogic.LeylineSchema_Effect1(playerList[ii]), 0, 0);
       }
 
+      // ホワイト・ファイア・クロスボウによる効果
+      if (playerList[ii].IsEquip(Fix.WHITE_FIRE_CROSSBOW))
+      {
+        Debug.Log("Equip " + Fix.WHITE_FIRE_CROSSBOW + " Setup FlameBlade and EyeOftheIsshin " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(playerList[ii]), SecondaryLogic.FlameBlade(playerList[ii]), SecondaryLogic.FlameBlade_BaseDamage(playerList[ii]), 0);
+        AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(playerList[ii]), SecondaryLogic.EyeOfTheIsshin_Effect1(playerList[ii]), 0, 0);
+      }
+
+      // エルダースタッフ・オブ・ライフブルームによる効果
+      if (playerList[ii].IsEquip(Fix.ELDERSTAFF_OF_LIFEBLOOM))
+      {
+        Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " Setup AngelicEcho " + playerList[ii].FullName);
+        AbstractAddBuff(playerList[ii], playerList[ii].objFieldPanel, Fix.ANGELIC_ECHO, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(playerList[ii]), PrimaryLogic.MagicAttack(playerList[ii], PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(playerList[ii]), 0, 0);
+      }
+
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
@@ -9619,8 +9634,10 @@ public partial class BattleEnemy : MotherBase
     // フレイム・ブレイドによる効果
     if (player.IsFlameBlade && player.Dead == false)
     {
+      Debug.Log("Buff-Detect FlameBlade");
       bool resultCritical2 = false;
       double addDamageValue = player.IsFlameBlade.EffectValue2 + MagicDamageLogic(player, target, SecondaryLogic.FlameBlade(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ref resultCritical2);
+      Debug.Log("Buff-Detect FlameBlade addDamage: " + addDamageValue);
       // ファントム・朧による効果
       if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
       {
@@ -9859,6 +9876,38 @@ public partial class BattleEnemy : MotherBase
         double effectValue = damageValue * SecondaryLogic.LuminousReflectMirror_Effect(target);
         Debug.Log("Equip " + Fix.LUMINOUS_REFLECT_MIRROR + " reflect damage " + effectValue.ToString());
         ApplyDamage(target, player, effectValue, false, animation_speed);
+      }
+    }
+
+    // ヴォルカニック・バトル・バスターによる効果
+    if (player.IsEquip(Fix.VOLCANIC_BATTLE_BASTER))
+    {
+      int percent = SecondaryLogic.VolcanicBattleBuster_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        int random = AP.Math.RandomInteger(4);
+        if (random == 0)
+        {
+          Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + " AddBuff Stun");
+          ExecBuffStun(player, target, SecondaryLogic.VolcanicBattleBuster_Trun(player), 0);
+        }
+        else if (random == 1)
+        {
+          Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + " AddBuff Paralyze");
+          ExecBuffParalyze(player, target, SecondaryLogic.VolcanicBattleBuster_Trun(player), 0);
+        }
+        else if (random == 2)
+        {
+          Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + " AddBuff Fear");
+          ExecBuffFear(player, target, SecondaryLogic.VolcanicBattleBuster_Trun(player), 0);
+        }
+        else if (random == 3)
+        {
+          Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + " AddBuff Slow");
+          ExecBuffSlow(player, target, SecondaryLogic.VolcanicBattleBuster_Trun(player), SecondaryLogic.DarksunTragedicBook_Effect(player));
+        }
       }
     }
 
@@ -11880,6 +11929,23 @@ public partial class BattleEnemy : MotherBase
     int additional = 0;
     int current = SecondaryLogic.CriticalRate(player, target, additional);
     Debug.Log("PhysicalDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
+    // ヴィルジランデ・ヘルゲート・ランスによる効果
+    if (player.IsEquip(Fix.VIRGIRANTE_HELLGATE_LANCE))
+    {
+      int effect = SecondaryLogic.VirgiranteHellgateLance_Percent(player);
+      Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalRate Up " + effect + " (before) " + current + " rand:" + rand);
+      current += effect;
+      Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalRate Up " + effect + " (after)  " + current + " rand:" + rand);
+    }
+
+    // フラッシュ・ヴァニッシュ・スピアによる効果
+    if (player.IsEquip(Fix.FLASH_VANISH_SPEAR))
+    {
+      int effect = SecondaryLogic.FlashVanishSpear_Effect(player);
+      Debug.Log("Equip " + Fix.FLASH_VANISH_SPEAR + " CriticalRate Up " + effect + " (before) " + current + " rand:" + rand);
+      current += effect;
+      Debug.Log("Equip " + Fix.FLASH_VANISH_SPEAR + " CriticalRate Up " + effect + " (after)  " + current + " rand:" + rand);
+    }
 
     // フォーチュン・スピリットによるクリティカル判定
     BuffImage fortune = player.IsFortuneSpirit;
@@ -11904,6 +11970,15 @@ public partial class BattleEnemy : MotherBase
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ヴィルジランデ・ヘルゲート・ランスによる効果
+      if (player.IsEquip(Fix.VIRGIRANTE_HELLGATE_LANCE))
+      {
+        double addCritical = SecondaryLogic.VirgiranteHellgateLance_Effect(player);
+        Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       // ゴールドウィル・ディセント・ソードによる効果
       if (player.IsEquip(Fix.GOLDWILL_DESCENT_SOWRD))
       {
@@ -11920,6 +11995,15 @@ public partial class BattleEnemy : MotherBase
     if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ヴィルジランデ・ヘルゲート・ランスによる効果
+      if (player.IsEquip(Fix.VIRGIRANTE_HELLGATE_LANCE))
+      {
+        double addCritical = SecondaryLogic.VirgiranteHellgateLance_Effect(player);
+        Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.VIRGIRANTE_HELLGATE_LANCE + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       // ゴールドウィル・ディセント・ソードによる効果
       if (player.IsEquip(Fix.GOLDWILL_DESCENT_SOWRD))
       {
@@ -12122,6 +12206,15 @@ public partial class BattleEnemy : MotherBase
     int current = SecondaryLogic.CriticalRate(player, target, additional);
     Debug.Log("MagicDamageLogic CriticalRate ( " + rand.ToString() + " / " + current + " ) ");
 
+    // ミュラーヘイゼン・ブック・オブ・アガルタによる効果
+    if (player.IsEquip(Fix.MULLERHAIZEN_AGARTA_BOOK))
+    {
+      int effect = SecondaryLogic.MullerhaizenAgartaBook_Percent(player);
+      Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalRate Up " + effect + " (before) " + current + " rand:" + rand);
+      current += effect;
+      Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalRate Up " + effect + " (after)  " + current + " rand:" + rand);
+    }
+
     // フォーチュン・スピリットによるクリティカル判定
     BuffImage fortune = player.IsFortuneSpirit;
     if (fortune != null) // ダメージ系統かどうかに関係なく、フォーチュンがあれば、クリティカル判定とする。
@@ -12145,6 +12238,15 @@ public partial class BattleEnemy : MotherBase
        )
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ミュラーヘイゼン・ブック・オブ・アガルタによる効果
+      if (player.IsEquip(Fix.MULLERHAIZEN_AGARTA_BOOK))
+      {
+        double addCritical = SecondaryLogic.MullerhaizenAgartaBook_Effect(player);
+        Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       // クロマティック・フォージ・オーブによる効果
       if (player.IsEquip(Fix.CHROMATIC_FORGE_ORB))
       {
@@ -12161,6 +12263,15 @@ public partial class BattleEnemy : MotherBase
     if (critical == Fix.CriticalType.Absolute)
     {
       damageValue *= SecondaryLogic.CriticalFactor(player);
+      // ミュラーヘイゼン・ブック・オブ・アガルタによる効果
+      if (player.IsEquip(Fix.MULLERHAIZEN_AGARTA_BOOK))
+      {
+        double addCritical = SecondaryLogic.MullerhaizenAgartaBook_Effect(player);
+        Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalValue Up " + addCritical + " (before) " + damageValue);
+        damageValue *= addCritical;
+        Debug.Log("Equip " + Fix.MULLERHAIZEN_AGARTA_BOOK + " CriticalValue Up " + addCritical + " (after) " + damageValue);
+      }
+
       // クロマティック・フォージ・オーブによる効果
       if (player.IsEquip(Fix.CHROMATIC_FORGE_ORB))
       {
@@ -12481,6 +12592,15 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
+    // フィネッセ・インペリアル・ブックによる効果
+    if (player.IsEquip(Fix.FINESSE_IMPERIAL_BOOK))
+    {
+      double effectValue = SecondaryLogic.FinesseImperialBook_Effect(player);
+      Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " " + healValue.ToString() + " effect " + effectValue.ToString());
+      healValue = healValue * effectValue;
+      Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " after " + healValue.ToString());
+    }
+
     // エンゲージド・フューチャー・ロッドによる効果
     if (player.IsEquip(Fix.ENGAGED_FUTURE_ROD))
     {
@@ -12488,6 +12608,15 @@ public partial class BattleEnemy : MotherBase
       Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " " + healValue.ToString() + " effect " + effectValue.ToString());
       healValue = healValue * effectValue;
       Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " after " + healValue.ToString());
+    }
+
+    // エルダースタッフ・オブ・ライフブルームによる効果
+    if (player.IsEquip(Fix.ELDERSTAFF_OF_LIFEBLOOM))
+    {
+      double effectValue = SecondaryLogic.ElderstaffOfLifebloom_Effect(player);
+      Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " " + healValue.ToString() + " effect " + effectValue.ToString());
+      healValue = healValue * effectValue;
+      Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " after " + healValue.ToString());
     }
 
     if (target.IsVoiceOfAbyss)
