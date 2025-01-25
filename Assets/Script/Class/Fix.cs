@@ -306,6 +306,7 @@ public static partial class Fix
   public static Color COLOR_GAIN_SP = Color.yellow;
   public static Color COLOR_LOST_SP = Color.red;
   public static Color COLOR_MP_DAMAGE = Color.HSVToRGB(0.5f, 0.2f, 0.7f);
+  public static Color COLOR_DAMAGE_REFLECT = new Color(0.8f, 0.0f, 0.5f);    
 
   public static Color COLOR_FIRE = Color.red;
   public static Color COLOR_ICE = Color.blue;
@@ -466,7 +467,9 @@ public static partial class Fix
   public const string EFFECT_CANNOT_LIFEGAIN = "回復不可";
   public const string EFFECT_CANNOT_BE_COUNTERED = "カウンター不可！";
   public const string EFFECT_COUNTER = "カウンター！";
+  public const string EFFECT_DAMAGE_IS_HALF = "ダメージ半減";
   public const string EFFECT_DAMAGE_IS_ZERO = "ダメージ０！";
+  public const string EFFECT_DAMAGE_REFLECT = "ダメージ反射！";
   public const string EFFECT_STACK_END = "スタック破壊！";
   public const string EFFECT_NOT_DEAD = "決死　ライフ１！";
   public const string EFFECT_CANNOT_NOT_DEAD = "決死不可！";

@@ -751,9 +751,9 @@ public partial class BattleEnemy : MotherBase
       //  ExecBuffPhysicalAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
       //  ExecBuffPhysicalDefenseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
       //  ExecBuffMagicAttackDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffMagicDefenceDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
-      //  ExecBuffBattleSpeedDown(EnemyList[ii], EnemyList[ii], 99, 0.50f);
-      //  ExecBuffBattleResponseDown(EnemyList[ii], EnemyList[ii], 99, 0.70f);
+      //  ExecBuffMagicDefenseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffBattleSpeedDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
+      //  ExecBuffBattleResponseDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
       //  ExecBuffBattlePotentialDown(EnemyList[ii], EnemyList[ii], 99, 0.10f);
       //}
     }
@@ -1694,7 +1694,7 @@ public partial class BattleEnemy : MotherBase
               AllList[ii].UseInstantPoint(false);
               AllList[ii].UpdateInstantPointGauge();
 
-              CreateStackObject(AllList[ii], PlayerList[0], Fix.STRAIGHT_SMASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              CreateStackObject(AllList[ii], PlayerList[0], Fix.FIRE_BALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
           }
@@ -2288,18 +2288,23 @@ public partial class BattleEnemy : MotherBase
   {
     ExecPlayerCommand_Origin(player, target, command_name, false);
     // 宝珠「無双」による効果
-    if (player.Artifact != null && player.Artifact.ItemName == Fix.ARTIFACT_MUSOU)
+    if (player.IsEquip(Fix.ARTIFACT_MUSOU))
     {
-      Debug.Log("Chance Artifact Musou " + player.CurrentActionCommand);
-
+      Debug.Log("Equip " + Fix.ARTIFACT_MUSOU + " " + player.FullName + " " + player.CurrentActionCommand);
+     
       if (ActionCommand.GetAttribute(player.CurrentActionCommand) == ActionCommand.Attribute.Skill)
       {
+        Debug.Log("Equip " + Fix.ARTIFACT_MUSOU + " call target skill");
         int random = AP.Math.RandomInteger(100);
-        Debug.Log("Check Artifact Musou " + random + " " + SecondaryLogic.ArtifactMusou_Effect(player));
+        Debug.Log("Equip " + Fix.ARTIFACT_MUSOU + " random " + random + " " + SecondaryLogic.ArtifactMusou_Effect(player));
         if (random <= SecondaryLogic.ArtifactMusou_Effect(player))
         {
-          Debug.Log("Detect Artifact Musou");
+          Debug.Log("Equip " + Fix.ARTIFACT_MUSOU + " ExecPlayerCommand " + player.CurrentActionCommand);
           ExecPlayerCommand_Origin(player, target, command_name, true);
+        }
+        else
+        {
+          Debug.Log("Equip " + Fix.ARTIFACT_MUSOU + " no action");
         }
       }
     }
@@ -2657,6 +2662,64 @@ public partial class BattleEnemy : MotherBase
     int rand = 0;
     bool success = false;
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
+
+    // 
+    if (player.IsEquip(Fix.RAINBOW_MOON_COMPASS))
+    {
+      double effectValue = SecondaryLogic.RainbowMoonCompass_Effect(player);
+      int turn = SecondaryLogic.RainbowMoonCompass_Turn(player);
+      int random = AP.Math.RandomInteger(6);
+      if (random == 0)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " PhysicalAttackUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffPhysicalAttackUp(player, player, turn, effectValue);
+        }
+      }
+      else if (random == 1)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " PhysicalDefenseUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffPhysicalDefenseUp(player, player, turn, effectValue);
+        }
+      }
+      else if (random == 2)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " MagicAttackUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffMagicAttackUp(player, player, turn, effectValue);
+        }
+      }
+      else if (random == 3)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " MagicDefenseUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffMagicDefenseUp(player, player, turn, effectValue);
+        }
+      }
+      else if (random == 4)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " BattleSpeedUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffBattleSpeedUp(player, player, turn, effectValue);
+        }
+      }
+      else if (random == 5)
+      {
+        Debug.Log("Equip " + Fix.RAINBOW_MOON_COMPASS + " BattleResponseUp " + effectValue.ToString());
+        if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+        {
+          ExecBuffBattleResponseUp(player, player, turn, effectValue);
+        }
+      }
+
+    }
+
     switch (command_name)
     {
       #region "一般"
@@ -3382,7 +3445,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroup(player);
         for (int jj = 0; jj < target_list.Count; jj++)
         {
-          ExecBuffMagicDefenceUp(player, target_list[jj], 5, 1.25f);
+          ExecBuffMagicDefenseUp(player, target_list[jj], 5, 0.25f);
         }
         break;
 
@@ -3509,7 +3572,7 @@ public partial class BattleEnemy : MotherBase
         success = ExecNormalAttack(player, target, 1.0f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
-          ExecBuffMagicDefenceDown(player, target, 3, 0.75f);
+          ExecBuffMagicDefenseDown(player, target, 3, 0.75f);
         }
         break;
 
@@ -3560,7 +3623,7 @@ public partial class BattleEnemy : MotherBase
           ExecMagicAttack(player, target_list[jj], 0.80, Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
         }
         // 相手に魔法攻撃が当たったかどうかに関係なく、自分自身へのBUFFは適用される。
-        ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 1.10f);
+        ExecBuffMagicAttackUp(player, player, Fix.INFINITY, 0.10f);
         break;
 
       case Fix.COMMAND_SUPER_RANDOM_CANNON:
@@ -3608,8 +3671,8 @@ public partial class BattleEnemy : MotherBase
         success = ExecMagicAttack(player, target, 0.60f, Fix.DamageSource.Earth, Fix.IgnoreType.None, Fix.CriticalType.None);
         if (success)
         {
-          ExecBuffBattleSpeedDown(player, target, 2, 0.7f);
-          ExecBuffBattleResponseDown(player, target, 2, 0.7f);
+          ExecBuffBattleSpeedDown(player, target, 2, 0.70f);
+          ExecBuffBattleResponseDown(player, target, 2, 0.70f);
         }
         break;
 
@@ -3683,7 +3746,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_ENRAGE:
-        ExecBuffPhysicalAttackUp(player, player, 3, 1.30f);
+        ExecBuffPhysicalAttackUp(player, player, 3, 0.30f);
         break;
 
       case Fix.COMMAND_SPLASH_HARMONY:
@@ -3842,7 +3905,7 @@ public partial class BattleEnemy : MotherBase
         if (success)
         {
           ExecBuffSilent(player, target, 2, 0);
-          ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
+          ExecBuffPhysicalAttackUp(player, player, 5, 0.20f);
         }
         break;
 
@@ -3858,7 +3921,7 @@ public partial class BattleEnemy : MotherBase
         success = ExecNormalAttack(player, target, 1.2f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
-          ExecBuffMagicDefenceDown(player, target, 5, 0.70f);
+          ExecBuffMagicDefenseDown(player, target, 5, 0.70f);
         }
         break;
 
@@ -3881,7 +3944,7 @@ public partial class BattleEnemy : MotherBase
         success = ExecNormalAttack(player, target, 1.30f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
-          ExecBuffBattleSpeedUp(player, player, 2, 1.30f);
+          ExecBuffBattleSpeedUp(player, player, 2, 0.30f);
         }
         break;
 
@@ -3916,7 +3979,7 @@ public partial class BattleEnemy : MotherBase
           target_list = GetAllyGroup(player);
           for (int ii = 0; ii < target_list.Count; ii++)
           {
-            ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 1.20f);
+            ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 0.20f);
           }
         }
         break;
@@ -4034,7 +4097,7 @@ public partial class BattleEnemy : MotherBase
         success = ExecMagicAttack(player, target, 0.7f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         if (success)
         {
-          ExecBuffMagicAttackUp(player, player, 5, 1.20f);
+          ExecBuffMagicAttackUp(player, player, 5, 0.20f);
         }
         break;
 
@@ -4042,7 +4105,7 @@ public partial class BattleEnemy : MotherBase
         success = ExecNormalAttack(player, target, 0.7f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         if (success)
         {
-          ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
+          ExecBuffPhysicalAttackUp(player, player, 5, 0.20f);
         }
         break;
 
@@ -4096,9 +4159,9 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CYCLONE_ARMOR:
-        ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
-        ExecBuffPhysicalAttackUp(player, player, 5, 1.20f);
-        ExecBuffMagicDefenceUp(player, player, 5, 2.00f);
+        ExecBuffBattleSpeedUp(player, player, 5, 0.10f);
+        ExecBuffPhysicalAttackUp(player, player, 5, 0.20f);
+        ExecBuffMagicDefenseUp(player, player, 5, 0.30f);
         break;
 
       case Fix.COMMAND_FURY_TRIDENT:
@@ -4138,7 +4201,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_ARC_BLASTER:
         ExecMagicAttack(player, target, 1.80f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
-        ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+        ExecBuffBattleSpeedUp(player, player, 5, 0.10f);
         break;
 
       case Fix.COMMAND_DRAGON_BREATH:
@@ -4155,7 +4218,7 @@ public partial class BattleEnemy : MotherBase
             ExecBuffSilent(player, target_list[ii], 1, 0);
           }
         }
-        ExecBuffBattleResponseUp(player, player, 5, 1.10f);
+        ExecBuffBattleResponseUp(player, player, 5, 0.10f);
         break;
 
       case Fix.COMMAND_RENZOKU_BAKUHATSU:
@@ -4179,7 +4242,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.10f);
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 0.10f);
         }
         break;
 
@@ -4187,7 +4250,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.50f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 0.50f);
         }
         break;
 
@@ -4204,7 +4267,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.50f);
+          ExecBuffMagicDefenseUp(player, target_list[ii], 5, 0.50f);
         }
         break;
 
@@ -4223,12 +4286,12 @@ public partial class BattleEnemy : MotherBase
         else if (rand == 1)
         {
           ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-          ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+          ExecBuffBattleSpeedUp(player, player, 5, 0.10f);
         }
         else if (rand == 2)
         {
           ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-          ExecBuffPhysicalAttackUp(player, player, 5, 1.10f);
+          ExecBuffPhysicalAttackUp(player, player, 5, 0.10f);
         }
         break;
 
@@ -4307,8 +4370,8 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_CYCLONE_FIELD:
-        ExecBuffPhysicalDefenseUp(player, player, 5, 1.20f);
-        ExecBuffMagicDefenceUp(player, player, 5, 1.20f);
+        ExecBuffPhysicalDefenseUp(player, player, 5, 0.20f);
+        ExecBuffMagicDefenseUp(player, player, 5, 0.20f);
         break;
 
       case Fix.COMMAND_ICE_RAY:
@@ -4489,7 +4552,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffMagicDefenceUp(player, target_list[ii], 9, 1.50f);
+          ExecBuffMagicDefenseUp(player, target_list[ii], 9, 0.50f);
         }
         break;
 
@@ -4501,11 +4564,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_SKY_FEATHER:
         if (player.IsBattleSpeedUp == false)
         {
-          ExecBuffBattleSpeedUp(player, player, 5, 1.10f);
+          ExecBuffBattleSpeedUp(player, player, 5, 0.10f);
         }
         else if (player.IsPhysicalAttackUp == false)
         {
-          ExecBuffPhysicalAttackUp(player, player, 5, 1.10f);
+          ExecBuffPhysicalAttackUp(player, player, 5, 0.10f);
         }
         else
         {
@@ -4520,7 +4583,7 @@ public partial class BattleEnemy : MotherBase
           target_list = GetAllyGroupAlive(player);
           for (int ii = 0; ii < target_list.Count; ii++)
           {
-            ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.20f);
+            ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.20f);
           }
         }
         else if (rand == 1)
@@ -4528,7 +4591,7 @@ public partial class BattleEnemy : MotherBase
           target_list = GetOpponentGroup(player);
           for (int ii = 0; ii < target_list.Count; ii++)
           {
-            ExecBuffMagicDefenceDown(player, target_list[ii], 5, 1.20f);
+            ExecBuffMagicDefenseDown(player, target_list[ii], 5, 0.20f);
           }
         }
         else if (rand == 2)
@@ -4536,7 +4599,7 @@ public partial class BattleEnemy : MotherBase
           target_list = GetAllyGroupAlive(player);
           for (int ii = 0; ii < target_list.Count; ii++)
           {
-            ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.20f);
+            ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 0.20f);
           }
         }
         else if (rand == 3)
@@ -4766,7 +4829,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_AXE_DRIVER:
         ExecNormalAttack(player, target, 1.20f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-        ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
+        ExecBuffPhysicalAttackUp(player, player, 9, 0.20f);
         break;
 
       case Fix.COMMAND_EARTH_CLAP:
@@ -4781,7 +4844,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 9, 1.30f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 9, 0.30f);
         }            
         break;
 
@@ -4812,11 +4875,11 @@ public partial class BattleEnemy : MotherBase
           rand = AP.Math.RandomInteger(2);
           if (rand == 0)
           {
-            ExecBuffBattleSpeedUp(player, target_list[ii], 9, 1.20f);
+            ExecBuffBattleSpeedUp(player, target_list[ii], 9, 0.20f);
           }
           else
           {
-            ExecBuffPhysicalAttackUp(player, target_list[ii], 9, 1.20f);
+            ExecBuffPhysicalAttackUp(player, target_list[ii], 9, 0.20f);
           }
         }
         break;
@@ -4829,8 +4892,8 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_BAIRIKI:
         if (player.IsPhysicalAttackUp == false)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.30f);
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.30f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.30f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.30f);
         }
         else
         {
@@ -4878,28 +4941,28 @@ public partial class BattleEnemy : MotherBase
           {
             if (player.IsPhysicalAttackUp == false)
             {
-              ExecBuffPhysicalAttackUp(player, player, 8, 1.40f);
+              ExecBuffPhysicalAttackUp(player, player, 8, 0.40f);
             }
             else if (player.IsPhysicalDefenseUp == false)
             {
-              ExecBuffPhysicalDefenseUp(player, player, 8, 1.30f);
+              ExecBuffPhysicalDefenseUp(player, player, 8, 0.30f);
             }
             else if (player.IsMagicAttackUp == false)
             {
-              ExecBuffMagicAttackUp(player, player, 8, 1.30f);
+              ExecBuffMagicAttackUp(player, player, 8, 0.30f);
             }
             else if (player.IsMagicDefenseUp == false)
             {
-              ExecBuffMagicDefenceUp(player, player, 8, 1.30f);
+              ExecBuffMagicDefenseUp(player, player, 8, 0.30f);
             }
             else if (player.IsBattleSpeedUp == false)
             {
-              ExecBuffBattleSpeedUp(player, player, 8, 1.30f);
+              ExecBuffBattleSpeedUp(player, player, 8, 0.30f);
             }
             // 戦闘反応が高すぎると、本コマンド自体のタイミングが早まってしまうため、対象外
             // else if (player.IsBattleReponseUp == false)
             // {
-            //   ExecBuffBattleSpeedUp(player, player, 8, 1.30f);
+            //   ExecBuffBattleSpeedUp(player, player, 8, 0.30f);
             // }
             else
             {
@@ -4918,11 +4981,11 @@ public partial class BattleEnemy : MotherBase
             }
             else if (current_target.IsMagicAttackDown == false)
             {
-              ExecBuffMagicDefenceDown(player, current_target, 8, 0.60f);
+              ExecBuffMagicAttackDown(player, current_target, 8, 0.60f);
             }
             else if (current_target.IsMagicDefenseDown == false)
             {
-              ExecBuffMagicDefenceDown(player, current_target, 8, 0.60f);
+              ExecBuffMagicDefenseDown(player, current_target, 8, 0.60f);
             }
             else if (current_target.IsBattleSpeedDown == false)
             {
@@ -4982,8 +5045,8 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.20f);
-          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.20f);
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 0.20f);
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.20f);
         }
         break;
 
@@ -4992,7 +5055,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_WAVE_SIGN:
-        ExecBuffBattleSpeedUp(player, player, 5, 1.20f);
+        ExecBuffBattleSpeedUp(player, player, 5, 0.20f);
         ExecBuffBattleSpeedDown(player, target, 5, 0.70f);
         break;
 
@@ -5010,13 +5073,13 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BATTLE_DANCE:
-        ExecBuffPhysicalAttackUp(player, player, 3, 1.20f);
-        ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
+        ExecBuffPhysicalAttackUp(player, player, 3, 0.20f);
+        ExecBuffBattleSpeedUp(player, player, 3, 0.20f);
         break;
 
       case Fix.COMMAND_DRAIN_WEB:
         ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
-        ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
+        ExecBuffMagicDefenseDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_SAND_SMOKE:
@@ -5036,7 +5099,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 1.30f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 3, 0.30f);
         }
         break;
 
@@ -5061,15 +5124,15 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_BIG_SWIM:
         if (player.IsBattleSpeedUp == false)
         {
-          ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
+          ExecBuffBattleSpeedUp(player, player, 3, 0.20f);
         }
         else if (player.IsPhysicalDefenseUp == false)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 3, 1.20f);
+          ExecBuffPhysicalDefenseUp(player, player, 3, 0.20f);
         }
         else
         {
-          ExecBuffMagicDefenceUp(player, player, 3, 1.20f);
+          ExecBuffMagicDefenseUp(player, player, 3, 0.20f);
         }
         ExecLifeGain(player, 4000.0f + AP.Math.RandomInteger(2500));
         break;
@@ -5091,7 +5154,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_BITING:
         ExecNormalAttack(player, target, 1.50f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
-        ExecBuffPhysicalAttackUp(player, player, 3, 1.20f);
+        ExecBuffPhysicalAttackUp(player, player, 3, 0.20f);
         break;
 
       case Fix.COMMAND_HOLLOW_MIST:
@@ -5112,7 +5175,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_BUBBLE_BULLET:
         ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
-        ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
+        ExecBuffMagicDefenseDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_AMBUSH_ATTACK:
@@ -5139,8 +5202,8 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_STAR_EMBLEM:
-        ExecBuffMagicAttackUp(player, player, 3, 1.30f);
-        ExecBuffMagicDefenceUp(player, player, 3, 1.30f);
+        ExecBuffMagicAttackUp(player, player, 3, 0.30f);
+        ExecBuffMagicDefenseUp(player, player, 3, 0.30f);
         break;
 
       case Fix.COMMAND_MUD_PISTOL:
@@ -5189,12 +5252,12 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_PROTECTION_SEAL:
         target_list = GetAllyGroupAlive(player);
-        ExecBuffMagicDefenceUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.30f);
+        ExecBuffMagicDefenseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.30f);
         break;
 
       case Fix.COMMAND_BLOODSHOT_EYE:
-        ExecBuffPhysicalAttackUp(player, player, 3, 1.30f);
-        ExecBuffBattleSpeedUp(player, player, 3, 1.30f);
+        ExecBuffPhysicalAttackUp(player, player, 3, 0.30f);
+        ExecBuffBattleSpeedUp(player, player, 3, 0.30f);
         break;
 
       case Fix.COMMAND_FRENZY_DRIVE:
@@ -5207,7 +5270,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_THOUGHT_EATER:
         ExecMagicAttack(player, target, 1.10f, Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
-        ExecBuffMagicDefenceDown(player, target, 3, 0.70f);
+        ExecBuffMagicDefenseDown(player, target, 3, 0.70f);
         break;
 
       case Fix.COMMAND_VACUUM_SHOT:
@@ -5296,7 +5359,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SEASTAR_OATH:
-        ExecBuffPhysicalAttackUp(player, player, 9, 1.50f);
+        ExecBuffPhysicalAttackUp(player, player, 9, 0.50f);
         break;
 
       case Fix.COMMAND_JEWEL_BREAK:
@@ -5331,7 +5394,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 9, 1.50f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 9, 0.50f);
         }
         break;
 
@@ -5371,7 +5434,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffMagicDefenceUp(player, target_list[ii], 9, 1.50f);
+          ExecBuffMagicDefenseUp(player, target_list[ii], 9, 0.50f);
         }
         break;
 
@@ -5481,7 +5544,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.40f);
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 0.40f);
         }
         break;
 
@@ -5489,7 +5552,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffBattleResponseUp(player, target_list[ii], 5, 1.30f);
+          ExecBuffBattleResponseUp(player, target_list[ii], 5, 0.30f);
         }
         break;
 
@@ -5527,8 +5590,8 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.50f);
-          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.50f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 0.50f);
+          ExecBuffMagicDefenseUp(player, target_list[ii], 5, 0.50f);
         }
         // PlayerSpellAbsorbWater(player, player);
         // PlayerSpellMirrorImage(player, player);
@@ -5540,7 +5603,7 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.50f);
-          ExecBuffMagicDefenceDown(player, target_list[ii], 5, 0.50f);
+          ExecBuffMagicDefenseDown(player, target_list[ii], 5, 0.50f);
         }
         break;
 
@@ -5562,8 +5625,8 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.30f);
-          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.40f);
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 0.30f);
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.40f);
           // Deflectionみたいな魔法はやはり欲しいか
           // PlayerSpellDeflection(player, group[ii]);
         }
@@ -5574,9 +5637,9 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SEASTARKING_ROAR:
-        ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
-        ExecBuffMagicAttackUp(player, player, 9, 1.20f);
-        ExecBuffBattleResponseUp(player, player, 9, 1.20f);
+        ExecBuffPhysicalAttackUp(player, player, 9, 0.20f);
+        ExecBuffMagicAttackUp(player, player, 9, 0.20f);
+        ExecBuffBattleResponseUp(player, player, 9, 0.20f);
         break;
 
       case Fix.COMMAND_BURST_CLOUD:
@@ -5619,11 +5682,11 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BEAST_SPIRIT:
-        ExecBuffBattleSpeedUp(player, player, 3, 1.20f);
+        ExecBuffBattleSpeedUp(player, player, 3, 0.20f);
         break;
 
       case Fix.COMMAND_BEAST_HOUND:
-        ExecBuffPhysicalDefenseUp(player, player, 3, 1.20f);
+        ExecBuffPhysicalDefenseUp(player, player, 3, 0.20f);
         break;
 
       case Fix.COMMAND_DATOTSU:
@@ -5642,11 +5705,11 @@ public partial class BattleEnemy : MotherBase
       case Fix.COMMAND_DEMON_CONTRACT:
         if (player.IsPhysicalAttackUp == false)
         {
-          ExecBuffPhysicalAttackUp(player, player, 5, 2.0f);
+          ExecBuffPhysicalAttackUp(player, player, 5, 0.9f);
         }
         else if (player.IsPhysicalDefenseUp == false)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 5, 2.0f);
+          ExecBuffPhysicalDefenseUp(player, player, 5, 0.9f);
         }
         ExecLifeDown(player, 0.10f);
         break;
@@ -5696,8 +5759,8 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 1.30f);
-          ExecBuffMagicDefenceUp(player, target_list[ii], 5, 1.30f);
+          ExecBuffPhysicalDefenseUp(player, target_list[ii], 5, 0.30f);
+          ExecBuffMagicDefenseUp(player, target_list[ii], 5, 0.30f);
         }
         break;
 
@@ -5889,7 +5952,7 @@ public partial class BattleEnemy : MotherBase
         ExecBuffPhysicalAttackDown(player, target, 3, 0.50f);
         ExecBuffPhysicalDefenseDown(player, target, 3, 0.50f);
         ExecBuffMagicAttackDown(player, target, 3, 0.50f);
-        ExecBuffMagicDefenceDown(player, target, 3, 0.50f);
+        ExecBuffMagicDefenseDown(player, target, 3, 0.50f);
         ExecBuffBattleSpeedDown(player, target, 3, 0.50f);
         ExecBuffBattleResponseDown(player, target, 3, 0.50f);
         //ExecBuffBattlePotentialDown(player, target, 3, 0.50f); 雑魚モンスターとしては強すぎるので撤廃
@@ -6004,27 +6067,27 @@ public partial class BattleEnemy : MotherBase
           rand = AP.Math.RandomInteger(6);
           if (rand == 0)
           {
-            ExecBuffPhysicalAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffPhysicalAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
           else if (rand == 1)
           {
-            ExecBuffPhysicalDefenseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffPhysicalDefenseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
           else if (rand == 2)
           {
-            ExecBuffMagicAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffMagicAttackUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
           else if (rand == 3)
           {
-            ExecBuffMagicDefenceUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffMagicDefenseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
           else if (rand == 4)
           {
-            ExecBuffBattleSpeedUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffBattleSpeedUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
           else if (rand == 5)
           {
-            ExecBuffBattleResponseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 1.40f);
+            ExecBuffBattleResponseUp(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.40f);
           }
         }
         break;
@@ -6048,7 +6111,7 @@ public partial class BattleEnemy : MotherBase
           }
           else if (rand == 3)
           {
-            ExecBuffMagicDefenceDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
+            ExecBuffMagicDefenseDown(player, target_list[AP.Math.RandomInteger(target_list.Count)], 3, 0.60f);
           }
           else if (rand == 4)
           {
@@ -6271,7 +6334,7 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffBattleSpeedDown(player, target_list[ii], 3, 0.30f);
         }
-         ExecBuffBattleSpeedUp(player, player, 3, 1.50f);
+         ExecBuffBattleSpeedUp(player, player, 3, 0.50f);
         break;
 
       case Fix.COMMAND_FUMBLE_SIGN:
@@ -6336,7 +6399,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical))
           {
-            ExecBuffMagicDefenceDown(player, target_list[ii], 3, 0.30f);
+            ExecBuffMagicDefenseDown(player, target_list[ii], 3, 0.30f);
           }
         }
         break;
@@ -6371,7 +6434,7 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffStun(player, target_list[ii], 2, 0);
           ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.30f);
-          ExecBuffMagicDefenceDown(player, target_list[ii], 5, 0.30f);
+          ExecBuffMagicDefenseDown(player, target_list[ii], 5, 0.30f);
         }
         break;
 
@@ -6384,8 +6447,8 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           target_list[ii].objBuffPanel.RemoveAll(target_list[ii]);
-          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.50f); 
-          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.50f);
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 0.50f); 
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.50f);
         }
         break;
 
@@ -6405,15 +6468,15 @@ public partial class BattleEnemy : MotherBase
         for (int ii = 0; ii < target_list.Count; ii++)
         {
           ExecBuffPhysicalDefenseDown(player, target_list[ii], 5, 0.25f);
-          ExecBuffMagicDefenceDown(player, target_list[ii], 5, 0.25f);
+          ExecBuffMagicDefenseDown(player, target_list[ii], 5, 0.25f);
           ExecBuffBattleSpeedDown(player, target_list[ii], 5, 0.25f);
         }
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 1.25f);
-          ExecBuffMagicAttackUp(player, target_list[ii], 5, 1.25f);
-          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 1.25f);
+          ExecBuffPhysicalAttackUp(player, target_list[ii], 5, 0.25f);
+          ExecBuffMagicAttackUp(player, target_list[ii], 5, 0.25f);
+          ExecBuffBattleSpeedUp(player, target_list[ii], 5, 0.25f);
         }
         break;
 
@@ -6504,113 +6567,113 @@ public partial class BattleEnemy : MotherBase
         ExecDivineCircle(player, player, player.objFieldPanel);
         if (player.IsPhysicalAttackUp == false)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.20f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.20f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.20f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.20f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.30f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.30f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.30f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.30f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.40f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.40f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.40f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.40f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.50f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.50f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.50f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.50f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.60f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.60f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.60f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.60f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.70f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.70f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.70f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.70f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.80f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.80f);
         }
-        else if (player.IsPhysicalAttackUp.EffectValue <= 1.80f)
+        else if (player.IsPhysicalAttackUp.EffectValue <= 0.80f)
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 1.90f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 0.90f);
         }
         else
         {
-          ExecBuffPhysicalAttackUp(player, player, 9, 2.00f);
+          ExecBuffPhysicalAttackUp(player, player, 9, 1.00f);
         }
 
         if (player.IsPhysicalDefenseUp == false)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.20f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.20f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.20f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.20f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.30f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.30f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.30f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.30f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.40f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.40f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.40f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.40f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.50f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.50f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.50f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.50f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.60f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.60f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.60f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.60f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.70f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.70f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.70f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.70f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.80f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.80f);
         }
-        else if (player.IsPhysicalDefenseUp.EffectValue <= 1.80f)
+        else if (player.IsPhysicalDefenseUp.EffectValue <= 0.80f)
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 1.90f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 0.90f);
         }
         else
         {
-          ExecBuffPhysicalDefenseUp(player, player, 9, 2.00f);
+          ExecBuffPhysicalDefenseUp(player, player, 9, 1.00f);
         }
 
         if (player.IsBattleSpeedUp == false)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.20f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.20f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.20f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.20f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.30f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.30f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.30f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.30f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.40f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.40f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.40f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.40f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.50f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.50f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.50f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.50f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.60f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.60f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.60f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.60f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.70f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.70f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.70f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.70f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.80f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.80f);
         }
-        else if (player.IsBattleSpeedUp.EffectValue <= 1.80f)
+        else if (player.IsBattleSpeedUp.EffectValue <= 0.80f)
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 1.90f);
+          ExecBuffBattleSpeedUp(player, player, 9, 0.90f);
         }
         else
         {
-          ExecBuffBattleSpeedUp(player, player, 9, 2.00f);
+          ExecBuffBattleSpeedUp(player, player, 9, 1.00f);
         }
         break;
 
@@ -6915,8 +6978,8 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_BRILLIANT_LIFE:
         ExecLifeGain(player, player.MaxLife / 20.0f);
-        ExecBuffMagicAttackUp(player, player, 9, 1.50f);
-        ExecBuffBattleSpeedUp(player, player, 9, 1.50f);
+        ExecBuffMagicAttackUp(player, player, 9, 0.50f);
+        ExecBuffBattleSpeedUp(player, player, 9, 0.50f);
         break;
 
       case Fix.COMMAND_BEZIER_TAIL_ATTACK:
@@ -7028,7 +7091,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_COSMO_BURN:
         ExecMagicAttack(player, target, 3.00f, Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, Fix.CriticalType.Random);
-        ExecBuffBattlePotentialUp(player, player, 3, 1.50f);
+        ExecBuffBattlePotentialUp(player, player, 3, 0.50f);
         break;
 
       case Fix.COMMAND_REIJU_FALLTHUNDER:
@@ -7113,25 +7176,26 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case "絶望の魔手":
-        ExecBuffPoison(player, target, 10, 11);
-        ExecBuffSilent(player, target, 10, 0);
-        ExecBuffBind(player, target, 10, 0);
-        ExecBuffSleep(player, target, 10, 0);
-        ExecBuffStun(player, target, 10, 0);
-        ExecBuffParalyze(player, target, 10, 1);
-        ExecBuffFreeze(player, target, 10, 0);
-        ExecBuffFear(player, target, 10, 0);
-        ExecBuffSlow(player, target, 10, 0.5f);
-        ExecBuffDizzy(player, target, 10, 1);
-        ExecBuffSlip(player, target, 10, 12);
-        ExecBuffCannotResurrect(player, target, 10, 0);
-        ExecBuffNoGainLife(player, target, 10, 0);
-        //ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 999);
-        //ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 999);
-        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 0.01f);
-        //ExecBuffMagicDefenceDown(player, target, Fix.INFINITY, 999);
-        //ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 999);
-        //ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 999);
+        //ExecBuffPoison(player, target, 10, 11);
+        //ExecBuffSilent(player, target, 10, 0);
+        //ExecBuffBind(player, target, 10, 0);
+        //ExecBuffSleep(player, target, 10, 0);
+        //ExecBuffStun(player, target, 10, 0);
+        //ExecBuffParalyze(player, target, 10, 1);
+        //ExecBuffFreeze(player, target, 10, 0);
+        //ExecBuffFear(player, target, 10, 0);
+        //ExecBuffSlow(player, target, 10, 0.5f);
+        //ExecBuffDizzy(player, target, 10, 1);
+        //ExecBuffSlip(player, target, 10, 12);
+        //ExecBuffCannotResurrect(player, target, 10, 0);
+        //ExecBuffNoGainLife(player, target, 10, 0);
+        ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffMagicDefenseDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffBattlePotentialDown(player, target, Fix.INFINITY, 0.10f);
         break;
 
       case "麻痺付与":
@@ -8899,8 +8963,8 @@ public partial class BattleEnemy : MotherBase
         {
           Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicAttackUp " + effect);
           ExecBuffMagicAttackUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
-          Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicDefenceUp " + effect);
-          ExecBuffMagicDefenceUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
+          Debug.Log("Equip " + Fix.MIND_STONEFEAR_ROD + " MagicDefenseUp " + effect);
+          ExecBuffMagicDefenseUp(AllList[ii], AllList[ii], SecondaryLogic.MindStoneFearRod_Turn(AllList[ii]), effect);
         }
       }      
     }
@@ -9078,11 +9142,6 @@ public partial class BattleEnemy : MotherBase
         Debug.Log("Upkeep phase, but sigilOfThePending is enabled, then no effect");
         AllList[ii].BuffCountdown(); // ペンディング効果がある状態だが、カウントダウンが進む方がゲーム性は高いため、進む事とする。
         continue; 
-      }
-
-      if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
-      {
-        AbstractGainManaPoint(AllList[ii], AllList[ii], 1 + AP.Math.RandomInteger(3));
       }
 
       if (AllList[ii].IsHeartOfLife)
@@ -9279,15 +9338,46 @@ public partial class BattleEnemy : MotherBase
         }
       }
 
-      if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_GENSEI)
+      // 古代の宝珠：厳正の効果
+      if (AllList[ii].IsEquip(Fix.ARTIFACT_GENSEI))
       {
-        AllList[ii].CurrentManaPoint += 10;
-        AllList[ii].UpdateManaPoint();
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player Mana (before) " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
+
+        int core = (AllList[ii].MaxManaPoint / 100); // １％回復をベースとする。
+        if (core <= 3) { core = 3; } // 最低でも3回復する事とする。
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana core       " + core);
+
+        int additional = AllList[ii].MaxManaPoint / 100;
+        if (additional <= 7) { additional = 7; } // 最低でも7+する事とする。
+        additional = AP.Math.RandomInteger(additional);
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana additional " + additional);
+
+        int effect = core + additional;
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain Mana total      " + effect);
+        AbstractGainManaPoint(AllList[ii], AllList[ii], effect);
+
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player Mana (after)  " + AllList[ii].CurrentManaPoint + " / " + AllList[ii].MaxManaPoint);
       }
-      if (AllList[ii].Artifact != null && AllList[ii].Artifact.ItemName == Fix.ARTIFACT_ZIHI)
+
+      if (AllList[ii].IsEquip(Fix.ARTIFACT_ZIHI))
       {
-        AllList[ii].CurrentSkillPoint += 3;
-        AllList[ii].UpdateSkillPoint();
+        // MaxSkillPointは基底１００から変わらない設計だが、特殊効果やルール改定で上限が増えていくなら効果があるので上昇できる様にしておく。
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (before) " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
+
+        int core = (AllList[ii].MaxSkillPoint / 100); // １％回復をベースとする。
+        if (core <= 2) { core = 2; } // 最低でも2回復する事とする。
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint core       " + core);
+
+        int additional = AllList[ii].MaxSkillPoint / 100;
+        if (additional <= 5) { additional = 5; } // 最低でも5+する事とする。
+        additional = AP.Math.RandomInteger(additional);
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint additional " + additional);
+
+        int effect = core + additional;
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Gain SkillPoint total      " + effect);
+        AbstractGainSkillPoint(AllList[ii], AllList[ii], effect);
+
+        Debug.Log("Equip " + Fix.ARTIFACT_GENSEI + " Player SkillPoint (after)  " + AllList[ii].CurrentSkillPoint + " / " + AllList[ii].MaxSkillPoint);
       }
 
       AllList[ii].BuffCountdown();
@@ -9593,6 +9683,29 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // ブレードシャドウ・クラウディッド・ドレスによる効果
+    if (target.IsEquip(Fix.BLADESHADOW_CROWDED_DRESS))
+    {
+      int percent = SecondaryLogic.BladeshadowCrowdedDress_Percent(player);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.BLADESHADOW_CROWDED_DRESS + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effect = SecondaryLogic.BladeshadowCrowdedDress_Effect1(target);
+        Debug.Log("Equip " + Fix.BLADESHADOW_CROWDED_DRESS + " physical-damage reduction (before) " + damageValue + " " + effect);
+        damageValue = damageValue * effect;
+        Debug.Log("Equip " + Fix.BLADESHADOW_CROWDED_DRESS + " physical-damage reduction (after ) " + damageValue + " " + effect);
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_HALF, Fix.COLOR_GUARD);
+
+        double effect2 = damageValue;
+        Debug.Log("Equip " + Fix.BLADESHADOW_CROWDED_DRESS + " reflect damage " + effect2.ToString());
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
+        ExecElementalDamage(player, Fix.DamageSource.Colorless, effect2);
+
+        // return true; ここでリターンしない。処理継続
+      }
+    }
+
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
@@ -9839,8 +9952,8 @@ public partial class BattleEnemy : MotherBase
       else if (rand == 1)
       {
         double effectValue = SecondaryLogic.WarloadBasterdAxe_Effect(player);
-        Debug.Log("Equip " + Fix.WARLOAD_BASTARD_AXE + " MagicDefenceDown effect " + effectValue.ToString());
-        ExecBuffMagicDefenceDown(player, target, SecondaryLogic.WarloadBasterdAxe_Turn(player), effectValue);
+        Debug.Log("Equip " + Fix.WARLOAD_BASTARD_AXE + " MagicDefenseDown effect " + effectValue.ToString());
+        ExecBuffMagicDefenseDown(player, target, SecondaryLogic.WarloadBasterdAxe_Turn(player), effectValue);
       }
       else if (rand == 2)
       {
@@ -9868,13 +9981,14 @@ public partial class BattleEnemy : MotherBase
     // ルミナス・リフレクト・ミラーによる効果
     if (target.IsEquip(Fix.LUMINOUS_REFLECT_MIRROR))
     {
-      int percent = SecondaryLogic.LuminousReflectMirror_Percent(player);
+      int percent = SecondaryLogic.LuminousReflectMirror_Percent(target);
       int rand = AP.Math.RandomInteger(100);
       Debug.Log("Equip " + Fix.LUMINOUS_REFLECT_MIRROR + "Percent " + percent.ToString() + " / " + rand.ToString());
       if (rand < percent)
       {
         double effectValue = damageValue * SecondaryLogic.LuminousReflectMirror_Effect(target);
         Debug.Log("Equip " + Fix.LUMINOUS_REFLECT_MIRROR + " reflect damage " + effectValue.ToString());
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
         ApplyDamage(target, player, effectValue, false, animation_speed);
       }
     }
@@ -9908,6 +10022,21 @@ public partial class BattleEnemy : MotherBase
           Debug.Log("Equip " + Fix.VOLCANIC_BATTLE_BASTER + " AddBuff Slow");
           ExecBuffSlow(player, target, SecondaryLogic.VolcanicBattleBuster_Trun(player), SecondaryLogic.DarksunTragedicBook_Effect(player));
         }
+      }
+    }
+
+    // スウィフトクロス・オブ・レッドサンダーによる効果
+    if (target.IsEquip(Fix.SWIFTCROSS_OF_REDTHUNDER))
+    {
+      int percent = SecondaryLogic.SwiftcrossOFRedthunder_Percent(target);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.SWIFTCROSS_OF_REDTHUNDER + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effectValue = damageValue * SecondaryLogic.SwiftcrossOFRedthunder_Effect(target);
+        Debug.Log("Equip " + Fix.SWIFTCROSS_OF_REDTHUNDER + " reflect damage " + effectValue.ToString());
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
+        ApplyDamage(target, player, effectValue, false, animation_speed);
       }
     }
 
@@ -9972,6 +10101,22 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // ハイウォーリアー・ドラゴンメイルによる効果
+    if (target.IsEquip(Fix.HIGHWARRIOR_DRAGONMAIL))
+    {
+      int percent = SecondaryLogic.HighwarriorDragonmail_Percent(target);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.HIGHWARRIOR_DRAGONMAIL + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effect = SecondaryLogic.HighwarriorDragonmail_Effect(target);
+        Debug.Log("Equip " + Fix.HIGHWARRIOR_DRAGONMAIL + " magic-damage reduction (before) " + damageValue + " " + effect);
+        damageValue = damageValue * effect;
+        Debug.Log("Equip " + Fix.HIGHWARRIOR_DRAGONMAIL + " magic-damage reduction (after ) " + damageValue + " " + effect);
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_DAMAGE_IS_HALF, Fix.COLOR_GUARD);
+      }
+    }
+
     // ファントム・朧による効果
     if (target.IsPhantomOboro != null && this.NowStackInTheCommand)
     {
@@ -9983,6 +10128,7 @@ public partial class BattleEnemy : MotherBase
     {
       // 効果切れ条件に合致したことによる消滅のため、AbstractRemoveTargetBuffを介さない。
       target.RemoveTargetBuff(Fix.COMMAND_REFLECTION_SHADE);
+      StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
       ApplyDamage(player, player, damageValue, resultCritical, animation_speed);
       return true;
       // 反射に関するロジック構築は必要だが、モンスターの単発行動であるため、これで良い。
@@ -10070,6 +10216,21 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // ブラック・リフレクター・シールドによる効果
+    if (target.IsEquip(Fix.BLACK_REFLECTOR_SHIELD))
+    {
+      int percent = SecondaryLogic.BlackReflectorShield_Percent(target);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.BLACK_REFLECTOR_SHIELD + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effectValue = damageValue * SecondaryLogic.BlackReflectorShield_Effect(target);
+        Debug.Log("Equip " + Fix.BLACK_REFLECTOR_SHIELD + " reflect damage " + effectValue.ToString());
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
+        ApplyDamage(target, player, effectValue, false, animation_speed);
+      }
+    }
+
     // ブルー・スカイ・オーブによる効果
     if (player.IsEquip(Fix.BLUE_SKY_ORB))
     {
@@ -10083,8 +10244,8 @@ public partial class BattleEnemy : MotherBase
       else if (rand == 1)
       {
         double effectValue = SecondaryLogic.BlueSkyOrb_Effect(player);
-        Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " MagicDefenceUp effect " + effectValue.ToString());
-        ExecBuffMagicDefenceUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
+        Debug.Log("Equip " + Fix.BLUE_SKY_ORB + " MagicDefenseUp effect " + effectValue.ToString());
+        ExecBuffMagicDefenseUp(player, player, SecondaryLogic.BlueSkyOrb_Turn(player), effectValue);
       }
       else if (rand == 2)
       {
@@ -10128,6 +10289,21 @@ public partial class BattleEnemy : MotherBase
           Debug.Log("Equip " + Fix.DARKSUN_TRAGEDIC_BOOK + " AddBuff Dizzy");
           ExecBuffDizzy(player, target, SecondaryLogic.DarksunTragedicBook_Trun(player), SecondaryLogic.DarksunTragedicBook_Effect(player));
         }
+      }
+    }
+
+    // スウィフトクロス・オブ・レッドサンダーによる効果
+    if (target.IsEquip(Fix.SWIFTCROSS_OF_REDTHUNDER))
+    {
+      int percent = SecondaryLogic.SwiftcrossOFRedthunder_Percent(target);
+      int rand = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.SWIFTCROSS_OF_REDTHUNDER + "Percent " + percent.ToString() + " / " + rand.ToString());
+      if (rand < percent)
+      {
+        double effectValue = damageValue * SecondaryLogic.SwiftcrossOFRedthunder_Effect(target);
+        Debug.Log("Equip " + Fix.SWIFTCROSS_OF_REDTHUNDER + " reflect damage " + effectValue.ToString());
+        StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
+        ApplyDamage(target, player, effectValue, false, animation_speed);
       }
     }
 
@@ -11753,12 +11929,12 @@ public partial class BattleEnemy : MotherBase
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MA_DOWN, Fix.EFFECT_MA_DOWN, turn, effect_value, 0, 0);
   }
 
-  private void ExecBuffMagicDefenceUp(Character player, Character target, int turn, double effect_value)
+  private void ExecBuffMagicDefenseUp(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MD_UP, Fix.EFFECT_MD_UP, turn, effect_value, 0, 0);
   }
 
-  private void ExecBuffMagicDefenceDown(Character player, Character target, int turn, double effect_value)
+  private void ExecBuffMagicDefenseDown(Character player, Character target, int turn, double effect_value)
   {
     AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_MD_DOWN, Fix.EFFECT_MD_DOWN, turn, effect_value, 0, 0);
   }

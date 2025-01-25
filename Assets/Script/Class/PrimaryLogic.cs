@@ -37,13 +37,19 @@ public static class PrimaryLogic
 
         // mu
         mu = min + player.TotalMind;
+        Debug.Log("CoreDamage totalmind " + player.TotalMind);
+        Debug.Log("CoreDamage mu        " + mu);
+        Debug.Log("CoreDamage min " + min + " max " + max);
 
         // sigma
         sigma = (max - min + 1) / 10.0f;
+        Debug.Log("CoreDamage sigma 1   " + sigma);
         if (sigma <= 1.0f) { sigma = 1.0f; }
+        Debug.Log("CoreDamage sigma 2   " + sigma);
 
         // 『標準正規累積分布に対する逆関数』により算出される
         result = (Statistics.Distributions.NormInv(AP.Math.RandomReal(), mu, sigma));
+        Debug.Log("CoreDamage result    " + result);
 
         // 下回る場合はmin,上回る場合はmax
         if (result <= min) result = min;
@@ -130,13 +136,14 @@ public static class PrimaryLogic
     max += (player.Artifact?.PhysicalAttackMax ?? 0);
 
     double result = 0.0f;
-    int debug = 999;
+    int debug = 1;
     int debug_min = 999999999;
     int debug_max = 0;
     double debug_avg = 0;
     for (int ii = 0; ii < debug; ii++)
     {
       result = CoreDamage(player, value_type, min, max);
+      Debug.Log("CoreDamage min " + min + " max " + max + " result " + result);
       //Debug.Log("CoreDamage: " + Convert.ToInt32(result).ToString());
       if (debug_min >= result) { debug_min = Convert.ToInt32(result); }
       if (debug_max <= result) { debug_max = Convert.ToInt32(result); }
@@ -211,7 +218,11 @@ public static class PrimaryLogic
 
     if (player.IsPhysicalAttackUp)
     {
-      result = result * player.IsPhysicalAttackUp.EffectValue;
+      Debug.Log("Buff player.IsPhysicalAttackUp (factor) " + player + " " + player.IsPhysicalAttackUp.EffectValue + " " + player.IsPhysicalAttackUp.Cumulative);
+      double effect = 1.00 + (player.IsPhysicalAttackUp.EffectValue * player.IsPhysicalAttackUp.Cumulative);
+      Debug.Log("Buff player.IsPhysicalAttackUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsPhysicalAttackUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsPhysicalAttackDown)
     {
@@ -315,9 +326,12 @@ public static class PrimaryLogic
 
     if (player.IsPhysicalDefenseUp)
     {
-      result = result * player.IsPhysicalDefenseUp.EffectValue;
+      Debug.Log("Buff player.IsPhysicalDefenseUp (factor) " + player + " " + player.IsPhysicalDefenseUp.EffectValue + " " + player.IsPhysicalDefenseUp.Cumulative);
+      double effect = 1.00 + (player.IsPhysicalDefenseUp.EffectValue * player.IsPhysicalDefenseUp.Cumulative);
+      Debug.Log("Buff player.IsPhysicalDefenseUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsPhysicalDefenseUp (after ) " + player + " " + result + " : " + effect);
     }
-
     if (player.IsPhysicalDefenseDown)
     {
       if (player.IsAbsolutePerfection)
@@ -404,12 +418,6 @@ public static class PrimaryLogic
 
     double result = CoreDamage(player, value_type, min, max);
 
-    if (player.IsMagicAttackUp)
-    {
-      result = result * player.IsMagicAttackUp.EffectValue;
-    }
-
-
     if (player.objFieldPanel != null)
     {
       BuffImage[] buffList = player.objFieldPanel.GetComponentsInChildren<BuffImage>();
@@ -445,6 +453,14 @@ public static class PrimaryLogic
       result = result * ragingStorm.EffectValue;
     }
 
+    if (player.IsMagicAttackUp)
+    {
+      Debug.Log("Buff player.IsMagicAttackUp (factor) " + player + " " + player.IsMagicAttackUp.EffectValue + " " + player.IsMagicAttackUp.Cumulative);
+      double effect = 1.00 + (player.IsMagicAttackUp.EffectValue * player.IsMagicAttackUp.Cumulative);
+      Debug.Log("Buff player.IsMagicAttackUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsMagicAttackUp (after ) " + player + " " + result + " : " + effect);
+    }
     if (player.IsMagicAttackDown)
     {
       if (player.IsAbsolutePerfection)
@@ -509,7 +525,11 @@ public static class PrimaryLogic
 
     if (player.IsMagicDefenseUp)
     {
-      result = result * player.IsMagicDefenseUp.EffectValue;
+      Debug.Log("Buff player.IsMagicDefenseUp (factor) " + player + " " + player.IsMagicDefenseUp.EffectValue + " " + player.IsMagicDefenseUp.Cumulative);
+      double effect = 1.00 + (player.IsMagicDefenseUp.EffectValue * player.IsMagicDefenseUp.Cumulative);
+      Debug.Log("Buff player.IsMagicDefenseUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsMagicDefenseUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsMagicDefenseDown)
     {
@@ -613,7 +633,11 @@ public static class PrimaryLogic
 
     if (player.IsBattleSpeedUp)
     {
-      result = result * player.IsBattleSpeedUp.EffectValue;
+      Debug.Log("Buff player.IsBattleSpeedUp (factor) " + player + " " + player.IsBattleSpeedUp.EffectValue + " " + player.IsBattleSpeedUp.Cumulative);
+      double effect = 1.00 + (player.IsBattleSpeedUp.EffectValue * player.IsBattleSpeedUp.Cumulative);
+      Debug.Log("Buff player.IsBattleSpeedUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsBattleSpeedUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsBattleSpeedDown)
     {
@@ -681,7 +705,11 @@ public static class PrimaryLogic
 
     if (player.IsBattleReponseUp)
     {
-      result = result * player.IsBattleReponseUp.EffectValue;
+      Debug.Log("Buff player.IsBattleReponseUp (factor) " + player + " " + player.IsBattleReponseUp.EffectValue + " " + player.IsBattleReponseUp.Cumulative);
+      double effect = 1.00 + (player.IsBattleReponseUp.EffectValue * player.IsBattleReponseUp.Cumulative);
+      Debug.Log("Buff player.IsBattleReponseUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsBattleReponseUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsBattleResponseDown)
     {
@@ -761,7 +789,11 @@ public static class PrimaryLogic
 
     if (player.IsPotentialUp)
     {
-      result = result * player.IsPotentialUp.EffectValue;
+      Debug.Log("Buff player.IsPotentialUp (factor) " + player + " " + player.IsPotentialUp.EffectValue + " " + player.IsPotentialUp.Cumulative);
+      double effect = 1.00 + (player.IsPotentialUp.EffectValue * player.IsPotentialUp.Cumulative);
+      Debug.Log("Buff player.IsPotentialUp (before) " + player + " " + result + " : " + effect);
+      result = result * effect;
+      Debug.Log("Buff player.IsPotentialUp (after ) " + player + " " + result + " : " + effect);
     }
     if (player.IsPotentialDown)
     {

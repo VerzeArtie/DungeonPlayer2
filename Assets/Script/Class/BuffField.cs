@@ -6,6 +6,7 @@ public class BuffField : MonoBehaviour
 {
   public void AddBuff(BuffImage prefab, string buff_name, int remain_counter, double effect_value, double effect_value2, double effect_value3)
   {
+    Debug.Log("AddBuff(S)");
     bool detect = false;
 
     if (prefab == null) { return; }
@@ -21,15 +22,19 @@ public class BuffField : MonoBehaviour
     {
       if (buffList[ii].BuffName == buff_name)
       {
+        Debug.Log("AddBuff target: " + buff_name + buffList[ii].EffectValue + " " + buffList[ii].EffectValue2 + " " + buffList[ii].EffectValue3);
         detect = true;
         if (ActionCommand.CumulativeMax(buff_name) > 1) // 1つより大きければ累積
         {
+          Debug.Log("AddBuff CumulativeMax(buff_name) greater: " + ActionCommand.CumulativeMax(buff_name));
           int up = 1;
           if (ActionCommand.GetCumulativeType(buff_name) == ActionCommand.CumulativeType.Cumulative) { up = (int)effect_value; }
+          Debug.Log("AddBuff CumulativeUp: " + remain_counter + " " + up);
           buffList[ii].CumulativeUp(remain_counter, up);
         }
         else
         {
+          Debug.Log("AddBuff CumulativeMax(buff_name) less than: " + ActionCommand.CumulativeMax(buff_name));
           buffList[ii].UpdateBuff(buff_name, remain_counter, 1, ActionCommand.CumulativeMax(buff_name), effect_value, effect_value2, effect_value3);// 累積は標準１がデフォルトで与えられる。
         }
         break;

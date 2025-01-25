@@ -1443,7 +1443,7 @@ public static class SecondaryLogic
 
   public static double GallantFeatherLance_Factor(Character player)
   {
-    return 1.02f;
+    return 0.02f;
   }
 
   public static int VirgiranteHellgateLance_Percent(Character player)
@@ -1503,10 +1503,18 @@ public static class SecondaryLogic
   {
     return 30;
   }
-
   public static int IntrinsicFrozenOrb_Turn(Character player)
   {
     return 1;
+  }
+
+  public static int BlackReflectorShield_Percent(Character player)
+  {
+    return 30;
+  }
+  public static double BlackReflectorShield_Effect(Character player)
+  {
+    return 0.50f;
   }
 
   public static double MeiunPrismBox_Effect(Character player)
@@ -1530,7 +1538,7 @@ public static class SecondaryLogic
   }
   public static double StormFuryLancer_Effect(Character player)
   {
-    return 1.05f;
+    return 0.05f;
   }
 
   public static int WarloadBasterdAxe_Turn(Character player)
@@ -1567,7 +1575,7 @@ public static class SecondaryLogic
   }
   public static double BlueSkyOrb_Effect(Character player)
   {
-    return 1.05f;
+    return 0.05f;
   }
 
   public static double GracefulKingsBuckler_Effect(Character player)
@@ -1590,7 +1598,7 @@ public static class SecondaryLogic
   }
   public static double BlackSpiralNeedle_Effect(Character player)
   {
-    return 1.10f;
+    return 0.10f;
   }
 
   public static int MindStoneFearRod_Turn(Character player)
@@ -1599,7 +1607,7 @@ public static class SecondaryLogic
   }
   public static double MindStoneFearRod_Effect(Character player)
   {
-    return 1.10f;
+    return 0.10f;
   }
 
   public static int DarksunTragedicBook_Percent(Character player)
@@ -1646,6 +1654,42 @@ public static class SecondaryLogic
   public static double ElderstaffOfLifebloom_Effect(Character player)
   {
     return 1.20f;
+  }
+
+  public static int HighwarriorDragonmail_Percent(Character player)
+  {
+    return 30;
+  }
+  public static double HighwarriorDragonmail_Effect(Character player)
+  {
+    return 0.5f;
+  }
+
+  public static int SwiftcrossOFRedthunder_Percent(Character player)
+  {
+    return 30;
+  }
+  public static double SwiftcrossOFRedthunder_Effect(Character player)
+  {
+    return 0.50f;
+  }
+
+  public static int BladeshadowCrowdedDress_Percent(Character player)
+  {
+    return 30;
+  }
+  public static double BladeshadowCrowdedDress_Effect1(Character player)
+  {
+    return 0.50f;
+  }
+
+  public static int RainbowMoonCompass_Turn(Character player)
+  {
+    return 3;
+  }
+  public static double RainbowMoonCompass_Effect(Character player)
+  {
+    return 0.02f;
   }
 
   public static int CostControl(string command_name, int current_cost, Character player)
