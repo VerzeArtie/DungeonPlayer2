@@ -1692,6 +1692,11 @@ public static class SecondaryLogic
     return 0.02f;
   }
 
+  public static int FeltusGodWill_Effect(Character player)
+  {
+    return 100;
+  }
+
   public static int CostControl(string command_name, int current_cost, Character player)
   {
     int result = current_cost; // デフォルト値は無変換とする。

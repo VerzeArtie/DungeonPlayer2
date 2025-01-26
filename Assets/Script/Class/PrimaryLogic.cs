@@ -226,7 +226,8 @@ public static class PrimaryLogic
     }
     if (player.IsPhysicalAttackDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -334,7 +335,8 @@ public static class PrimaryLogic
     }
     if (player.IsPhysicalDefenseDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -463,7 +465,8 @@ public static class PrimaryLogic
     }
     if (player.IsMagicAttackDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -533,7 +536,8 @@ public static class PrimaryLogic
     }
     if (player.IsMagicDefenseDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -568,7 +572,8 @@ public static class PrimaryLogic
 
     if (player.IsDizzy)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -641,7 +646,8 @@ public static class PrimaryLogic
     }
     if (player.IsBattleSpeedDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -713,7 +719,8 @@ public static class PrimaryLogic
     }
     if (player.IsBattleResponseDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }
@@ -797,7 +804,8 @@ public static class PrimaryLogic
     }
     if (player.IsPotentialDown)
     {
-      if (player.IsAbsolutePerfection)
+      if (player.IsAbsolutePerfection ||
+          player.IsGodWill)
       {
         // skip
       }

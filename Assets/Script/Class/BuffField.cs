@@ -42,13 +42,21 @@ public class BuffField : MonoBehaviour
     }
     if (detect) { return; }
 
+    Debug.Log("AddBuff not detect already buff, then add it: " + buff_name);
+
     // 該当BUFFが無い場合は、BUFFオブジェクトを追加する。
     BuffImage buff = Instantiate(prefab) as BuffImage;
     int cumulative = 1;// 累積は標準１がデフォルトで与えられる。
     if (ActionCommand.GetCumulativeType(buff_name) == ActionCommand.CumulativeType.Cumulative)
     {
+      Debug.Log("AddBuff target is cumulative");
       cumulative = (int)effect_value;
     }
+    else
+    {
+      Debug.Log("AddBuff target is normal ( not cumulative )");
+    }
+
     int cumulativeMax = ActionCommand.CumulativeMax(buff_name);
     buff.UpdateBuff(buff_name, remain_counter, cumulative, cumulativeMax, effect_value, effect_value2, effect_value3);
     buff.gameObject.SetActive(true);
@@ -60,6 +68,7 @@ public class BuffField : MonoBehaviour
     //rect.anchorMin = new Vector2(0, 0);
     //rect.anchorMax = new Vector2(1, 1);
     Canvas.ForceUpdateCanvases();
+    Debug.Log("AddBuff(E)");
   }
 
   public void RemoveTargetFieldBuff(string field_buff_name)

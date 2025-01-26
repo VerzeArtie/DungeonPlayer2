@@ -463,6 +463,7 @@ public static partial class Fix
   public const string EFFECT_REMOVE_CANNOT_RESURRECT = "CannotResurrect除去";
   public const string EFFECT_RESIST_NO_GAIN_LIFE = "NoGainLife耐性";
   public const string EFFECT_REMOVE_NO_GAIN_LIFE = "NoGainLife除去";
+  public const string EFEECT_IMMUNE_RESIST = "耐性無効！";
 
   public const string EFFECT_CANNOT_LIFEGAIN = "回復不可";
   public const string EFFECT_CANNOT_BE_COUNTERED = "カウンター不可！";
@@ -541,6 +542,11 @@ public static partial class Fix
   public const string BUFF_OATH_OF_GOD = "神域";
   public const string BUFF_SPACETIME_INFLUENCE = "時空干渉";
   public const string BUFF_LIFE_POINT = "意志";
+
+  public const string BUFF_GOD_WILL = "God Will";
+  public const string BUFF_GOD_WILL_JP = "神の意志";
+  public const string BUFF_GOD_CONTRACT = "God Contract";
+  public const string BUFF_GOD_CONTRACT_JP = "神の契約";
 
   // モンスター系
   public const string BUFF_LIGHTNING_OUTBURST = "Lightning Outburst";
@@ -1210,7 +1216,9 @@ public static partial class Fix
   public const string ATTRIBUTE_MAGIC = "魔法";
   public const string ATTRIBUTE_SKILL = "スキル";
   public const string ATTRIBUTE_CORE = "元核";
-  public const string ATTRIBUTE_NONE = "その他";
+  public const string ATTRIBUTE_MONSTERACTION = "モンスターアクション";
+  public const string ATTRIBUTE_OTHER = "その他";
+  public const string ATTRIBUTE_NONE = "その他"; // 【なし】と書くと万が一GUI表示した時不適切なので、【その他】としておく。
   #endregion
 
   #region "クラス属性ラベル(JP)"

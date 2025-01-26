@@ -2663,7 +2663,7 @@ public partial class BattleEnemy : MotherBase
     bool success = false;
     Debug.Log("Player: " + player.FullName + " Command: " + command_name);
 
-    // 
+    // レインボー・ムーン・コンパスによる効果
     if (player.IsEquip(Fix.RAINBOW_MOON_COMPASS))
     {
       double effectValue = SecondaryLogic.RainbowMoonCompass_Effect(player);
@@ -2717,7 +2717,17 @@ public partial class BattleEnemy : MotherBase
           ExecBuffBattleResponseUp(player, player, turn, effectValue);
         }
       }
+    }
 
+    // 神剣  フェルトゥーシュによる効果
+    if (player.IsEquip(Fix.LEGENDARY_FELTUS))
+    {
+      Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " command: " + command_name);
+      if (command_name != Fix.DEFENSE && command_name != Fix.STAY)
+      {
+        Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " Buff God-Will ");
+        AbstractAddBuff(player, player.objBuffPanel, Fix.BUFF_GOD_WILL, Fix.BUFF_GOD_WILL_JP, Fix.INFINITY, 1, 0, 0);
+      }
     }
 
     switch (command_name)
@@ -7189,13 +7199,13 @@ public partial class BattleEnemy : MotherBase
         //ExecBuffSlip(player, target, 10, 12);
         //ExecBuffCannotResurrect(player, target, 10, 0);
         //ExecBuffNoGainLife(player, target, 10, 0);
-        ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffMagicDefenseDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 0.10f);
-        ExecBuffBattlePotentialDown(player, target, Fix.INFINITY, 0.10f);
+        ExecBuffPhysicalAttackDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffPhysicalDefenseDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffMagicAttackDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffMagicDefenseDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffBattleSpeedDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffBattleResponseDown(player, target, Fix.INFINITY, 0.95f);
+        ExecBuffBattlePotentialDown(player, target, Fix.INFINITY, 0.95f);
         break;
 
       case "麻痺付与":
@@ -10040,6 +10050,15 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // 神剣  フェルトゥーシュによる効果
+    if (player.IsEquip(Fix.LEGENDARY_FELTUS))
+    {
+      Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " God-Contract, Cannot-Resurrect, No-Gain-Life ");
+      AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_GOD_CONTRACT, Fix.BUFF_GOD_CONTRACT_JP, Fix.INFINITY, 0, 0, 0);
+      ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
+      ExecBuffNoGainLife(player, target, Fix.INFINITY, 0);
+    }
+
     return true;
   }
 
@@ -10305,6 +10324,15 @@ public partial class BattleEnemy : MotherBase
         StartAnimation(player.objGroup.gameObject, Fix.EFFECT_DAMAGE_REFLECT, Fix.COLOR_DAMAGE_REFLECT);
         ApplyDamage(target, player, effectValue, false, animation_speed);
       }
+    }
+
+    // 神剣  フェルトゥーシュによる効果
+    if (player.IsEquip(Fix.LEGENDARY_FELTUS))
+    {
+      Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " God-Contract, Cannot-Resurrect, No-Gain-Life ");
+      AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_GOD_CONTRACT, Fix.BUFF_GOD_CONTRACT_JP, Fix.INFINITY, 0, 0, 0);
+      ExecBuffCannotResurrect(player, target, Fix.INFINITY, 0);
+      ExecBuffNoGainLife(player, target, Fix.INFINITY, 0);
     }
 
     return true;
@@ -11876,9 +11904,18 @@ public partial class BattleEnemy : MotherBase
   {
     if (target.GetResistCannotResurrectLogic())
     {
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
-      player.DetectCannotBeNoResurrection = true;
-      return;
+      if (player.IsEquip(Fix.LEGENDARY_FELTUS))
+      {
+        Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " Immune Resist-Cannot-Resurrect !");
+        StartAnimation(target.objGroup.gameObject, Fix.EFEECT_IMMUNE_RESIST, Fix.COLOR_WARNING);
+        AbstractRemoveTargetBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_CANNOT_RESURRECT, "");
+      }
+      else
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_CANNOT_RESURRECT, Fix.COLOR_NORMAL);
+        player.DetectCannotBeNoResurrection = true;
+        return;
+      }
     }
 
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, Fix.EFFECT_CANNOT_RESURRECT, turn, effect_value, 0, 0);
@@ -11888,9 +11925,18 @@ public partial class BattleEnemy : MotherBase
   {
     if (target.GetResistNoGainLife())
     {
-      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_NO_GAIN_LIFE, Fix.COLOR_NORMAL);
-      player.DetectCannotBeNoGainLife = true;
-      return;
+      if (player.IsEquip(Fix.LEGENDARY_FELTUS))
+      {
+        Debug.Log("Equip " + Fix.LEGENDARY_FELTUS + " Immune Resist-NoGainLife !");
+        StartAnimation(target.objGroup.gameObject, Fix.EFEECT_IMMUNE_RESIST, Fix.COLOR_WARNING);
+        AbstractRemoveTargetBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_NO_GAIN_LIFE, "");
+      }
+      else
+      {
+        StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_NO_GAIN_LIFE, Fix.COLOR_NORMAL);
+        player.DetectCannotBeNoGainLife = true;
+        return;
+      }
     }
 
     AbstractAddBuff(target, target.objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, Fix.EFFECT_NO_GAIN_LIFE, turn, effect_value, 0, 0);

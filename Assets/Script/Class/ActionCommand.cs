@@ -16,6 +16,7 @@ public static class ActionCommand
     Archetype,
     UseItem,
     MonsterAction,
+    Other,
     NoAction, // 意図的にアクションではない事を示す。意味を持たないNoneとは異なる。
   }
 
@@ -585,6 +586,14 @@ public static class ActionCommand
     {
       return Fix.ATTRIBUTE_CORE;
     }
+    else if (current == Attribute.MonsterAction)
+    {
+      return Fix.ATTRIBUTE_MONSTERACTION;
+    }
+    else if (current == Attribute.Other)
+    {
+      return Fix.ATTRIBUTE_OTHER;
+    }
     else if (current == Attribute.None)
     {
       return Fix.ATTRIBUTE_NONE;
@@ -608,6 +617,14 @@ public static class ActionCommand
       return " SP";
     }
     else if (current == Attribute.Archetype)
+    {
+      return "(なし)";
+    }
+    else if (current == Attribute.MonsterAction)
+    {
+      return "(なし)";
+    }
+    else if (current == Attribute.Other)
     {
       return "(なし)";
     }
@@ -1280,6 +1297,8 @@ public static class ActionCommand
     if (command_name == Fix.SPACETIME_INFLUENCE || command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return Attribute.MonsterAction; }
 
     if (command_name == "絶望の魔手") { return Attribute.MonsterAction; }
+
+    if (command_name == Fix.BUFF_GOD_WILL) { return Attribute.Other; }
     #endregion
 
     return Attribute.None;
@@ -2762,6 +2781,8 @@ public static class ActionCommand
     if (command_name == Fix.CHAOTIC_SCHEMA || command_name == Fix.COMMAND_CHAOTIC_SCHEMA) { return Fix.BuffType.None; }
     if (command_name == Fix.OATH_OF_SEFINE || command_name == Fix.COMMAND_OATH_OF_SEFINE) { return Fix.BuffType.Positive; }
     if (command_name == Fix.SPACETIME_INFLUENCE || command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return Fix.BuffType.Neutral; }
+
+    if (command_name == Fix.BUFF_GOD_WILL) { return Fix.BuffType.Neutral; } // 【神】のBUFFは削除対象としないので内容に関わらずNeutral扱いとする。
     #endregion
 
     return Fix.BuffType.None;
@@ -2806,6 +2827,8 @@ public static class ActionCommand
     if (command_name == Fix.BUFF_PO_UP) { return 5; }
     if (command_name == Fix.BUFF_PO_DOWN) { return 5; }
 
+    if (command_name == Fix.BUFF_GOD_WILL) { return 99; }
+
     return 1; // 通常は累積なし
   }
 
@@ -2820,7 +2843,8 @@ public static class ActionCommand
         command_name == Fix.STARSWORD_SEIEI ||
         command_name == Fix.SPHERE_OF_GLORY ||
         command_name == Fix.AURORA_PUNISHMENT ||
-        command_name == Fix.LIFE_POINT)
+        command_name == Fix.LIFE_POINT ||
+        command_name == Fix.BUFF_GOD_WILL)
     {
       return CumulativeType.Cumulative;
     }
@@ -3158,6 +3182,9 @@ public static class ActionCommand
     if (command_name == Fix.CHAOTIC_SCHEMA || command_name == Fix.COMMAND_CHAOTIC_SCHEMA) { return false; }
     if (command_name == Fix.OATH_OF_SEFINE || command_name == Fix.COMMAND_OATH_OF_SEFINE) { return false; }
     if (command_name == Fix.SPACETIME_INFLUENCE || command_name == Fix.COMMAND_SPACETIME_INFLUENCE) { return false; }
+
+    if (command_name == Fix.BUFF_GOD_WILL) { return false; }
+
     #endregion
 
     #region "一般系統"
@@ -3435,6 +3462,8 @@ public static class ActionCommand
     if (command_name == Fix.AETHER_DRIVE) { return Fix.AETHER_DRIVE_JP; }
     if (command_name == Fix.KILLING_WAVE) { return Fix.KILLING_WAVE_JP; }
     if (command_name == Fix.IRREGULAR_STEP) { return Fix.IRREGULAR_STEP_JP; }
+
+    if (command_name == Fix.BUFF_GOD_WILL) { return Fix.BUFF_GOD_WILL_JP; }
     #endregion
 
     // todo 一般系統は色々足りていない可能性がある。

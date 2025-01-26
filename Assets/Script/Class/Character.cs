@@ -980,6 +980,13 @@ public partial class Character : MonoBehaviour
       result += (this.Accessory2?.Mind ?? 0);
       result += (this.Artifact?.Mind ?? 0);
       result += this._mindFood;
+
+      // 神剣  フェルトゥーシュ：神の意志による効果
+      BuffImage godWill = this.IsGodWill;
+      if (godWill)
+      {
+        result += godWill.Cumulative * SecondaryLogic.FeltusGodWill_Effect(this);
+      }
       return result;
     }
   }
@@ -3530,13 +3537,34 @@ public partial class Character : MonoBehaviour
     get { return SearchBuff(Fix.LIFE_POINT); }
   }
 
+  public BuffImage IsGodWill
+  {
+    get { return SearchBuff(Fix.BUFF_GOD_WILL); }
+  }
+
+  public BuffImage IsGodContract
+  {
+    get { return SearchBuff(Fix.BUFF_GOD_CONTRACT); }
+  }
+
   public void RemoveTargetBuff(string buff_name)
   {
     BuffImage buffImage = SearchBuff(buff_name);
     if (buffImage != null)
     {
-      if (buffImage.BuffName != Fix.LIFE_POINT)
+      if (buffImage.BuffName == Fix.LIFE_POINT)
       {
+        // skip
+        Debug.Log("RemoveTargetBuff [ " + buffImage.BuffName + " ] cannot remove!");
+      }
+      else if (IsGodContract && (buffImage.BuffName == Fix.EFFECT_CANNOT_RESURRECT || buffImage.BuffName == Fix.EFFECT_NO_GAIN_LIFE))
+      {
+        // skip
+        Debug.Log("RemoveTargetBuff [ " + buffImage.BuffName + " ] cannot remove cause GodContract Buff!");
+      }
+      else
+      {
+        Debug.Log("RemoveTargetBuff [ " + buffImage.BuffName + " ] has been removed");
         buffImage.RemoveBuff();
       }
     }
@@ -3547,8 +3575,20 @@ public partial class Character : MonoBehaviour
     BuffImage buffImage = SearchTimeSequenceBuff(buff_name);
     if (buffImage != null)
     {
-      if (buffImage.BuffName != Fix.LIFE_POINT)
+
+      if (buffImage.BuffName == Fix.LIFE_POINT)
       {
+        // skip
+        Debug.Log("RemoveTargetBuffFromTimeSequence [ " + buffImage.BuffName + " ] cannot remove!");
+      }
+      else if (IsGodContract && (buffImage.BuffName == Fix.EFFECT_CANNOT_RESURRECT || buffImage.BuffName == Fix.EFFECT_NO_GAIN_LIFE))
+      {
+        // skip
+        Debug.Log("RemoveTargetBuffFromTimeSequence [ " + buffImage.BuffName + " ] cannot remove cause GodContract Buff!");
+      }
+      else
+      {
+        Debug.Log("RemoveTargetBuffFromTimeSequence [ " + buffImage.BuffName + " ] has been removed");
         buffImage.RemoveBuff();
       }
     }
@@ -3574,10 +3614,20 @@ public partial class Character : MonoBehaviour
       // BUFF種別が指定された種別と同じなら場合、それを除去する。
       if (ActionCommand.GetBuffType(buffList[ii].BuffName) == buff_type)
       {
+
         if (buffList[ii].BuffName == Fix.LIFE_POINT)
         {
+          // skip
+          Debug.Log("RemoveBuff [ " + buffList[ii].BuffName + " ] cannot remove!");
           continue;
         }
+        if (IsGodContract && (buffList[ii].BuffName == Fix.EFFECT_CANNOT_RESURRECT || buffList[ii].BuffName == Fix.EFFECT_NO_GAIN_LIFE))
+        {
+          // skip
+          Debug.Log("RemoveBuff [ " + buffList[ii].BuffName + " ] cannot remove cause GodContract Buff!");
+          continue;
+        }
+
         Debug.Log("RemoveBuff [ " + buffList[ii].BuffName + " ] has been removed");
         buffList[ii].RemoveBuff();
         detect++;
