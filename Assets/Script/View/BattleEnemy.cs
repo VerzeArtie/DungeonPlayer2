@@ -4402,7 +4402,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          // Fear(恐怖)、Temptation(誘惑)、復活不可(Cannot Resurrect)は使用しない。
+          // Fear(恐怖)、Temptation(誘惑)、蘇生不可(Cannot Resurrect)は使用しない。
           List<string> chooseList = new List<string>() { Fix.EFFECT_POISON,
                                                        Fix.EFFECT_SILENT,
                                                        Fix.EFFECT_BIND,
@@ -11231,7 +11231,7 @@ public partial class BattleEnemy : MotherBase
       AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLOW, "");
       AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_DIZZY, "");
       // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLIP, ""); // 出血は解除できない
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 復活不可は解除できない
+      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 蘇生不可は解除できない
       // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, ""); // ライフ回復不可は解除できない
     }
 

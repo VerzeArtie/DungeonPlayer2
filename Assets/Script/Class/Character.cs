@@ -2191,7 +2191,7 @@ public partial class Character : MonoBehaviour
     {
       return true;
     }
-    // 復活不可はサークル・オブ・セレニティで防げない
+    // 蘇生不可はサークル・オブ・セレニティで防げない
     //if (SearchFieldBuff(Fix.CIRCLE_OF_SERENITY) != null)
     //{
     //  return true;
