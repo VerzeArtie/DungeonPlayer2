@@ -2008,7 +2008,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：ちょっと、身体を起こしなさいよ", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：ちょっと、身体を起こしなさいよ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ん？　あれ？", ActionEvent.None);
 
@@ -2078,7 +2078,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：うぉ！　急にデカい声を出すなって。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：アンタちょっと、どうやって宝剣と対になったのよ！？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：アンタちょっと、どうやって剣と対になったのよ！？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：それだけは絶対困るんだけど！！", ActionEvent.None);
 
@@ -2136,7 +2136,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：支配竜というのが出てきて、俺が何かを願うとまったく受け答えしてくれなかったな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：そうね、貴方たちがいる世界では【願い】は、私には何の干渉も起きないから注意しなさい。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：そうね、貴方たちがいる次元で定義している【願い】というのは、私には何の干渉も発生しないから注意しなさい。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：はい、分かりました・・・", ActionEvent.None);
 
@@ -2244,7 +2244,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ラナ：その剣は因果律そのもの、時間律そのものよ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ついでに言っておくと、存在が無いという事自体が唯一かしら。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ついでに言っておくと、存在その者が定義されていないという事自体が唯一の事象表現かしら。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：え、ええとちょっと待ってくれ。さっき常にあり続けるって？", ActionEvent.None);
 
@@ -2276,7 +2276,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：この剣ってひょっとして、その因果律を断ち切ったりする事はできるのか？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：その件については、否定も肯定も無視も賛同も検討も何も無いわね。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：その件については、否定も肯定も無視も賛同も何も無いわね。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：グォ・・・というと、ど、どういう事だ？", ActionEvent.None);
 
@@ -2346,7 +2346,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：そういえば、そんな話でした・・・ハイ・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：離島ウォズムにある町、あったはずの町。あるべき町、無かった町、元々存在しない町、呼び名は何でもいいわ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：離島ウォズムにある町、あったはずの町。あるべき町、無かった町、壊された町、呼び名は何でもいいわ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ラナ：そこは時間律の集合体によれば、次元の遠点としては成立しているの。", ActionEvent.None);
 
@@ -2410,7 +2410,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：お前に出会えて本当に良かった。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：お前の事は本当に好きだ。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：ラナ、お前の事は", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：本当に好きだ。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：それだけだ。", ActionEvent.None);
 
@@ -2426,7 +2428,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：あーーーーーー！！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ラナ：ホラホラ、もう始まったわよ。じゃさっそく送るわね♪", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ラナ：ホラホラ、じゃもう始めるわよ。離島ウォズムにさっそく送るわね♪", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：っな！　さっきもうすぐ到達とかで時間が無いって！？", ActionEvent.None);
 
@@ -34296,7 +34298,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：（　うぉ・・ラナっぽい叫びだな　）", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：アンタちょっと、どうやって宝剣と対になったのよ！？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：アンタちょっと、どうやって剣と対になったのよ！？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "？？？：それだけは絶対困るんだけど！！", ActionEvent.None);
 
