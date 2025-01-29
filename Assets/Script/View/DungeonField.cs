@@ -23,6 +23,8 @@ public class DungeonField : MotherBase
   public GameObject objBlackOut;
   // Whiteout
   public GameObject objWhiteOut;
+  // PurpleOut
+  public GameObject objPurpleOut;
 
   // developer-mode
   public Text txtCurrentDevelopView;
@@ -10071,6 +10073,7 @@ public class DungeonField : MotherBase
         {
           this.objBlackOut.SetActive(false);
           this.objWhiteOut.SetActive(false);
+          this.objPurpleOut.SetActive(false);
           this.imgHidePanel.color = new Color(99.0f / 255.0f, 99.0f / 255.0f, 99.0f / 255.0f, 100.0f / 255.0f);
           continue; // 継続
         }
@@ -10082,6 +10085,12 @@ public class DungeonField : MotherBase
         else if (currentEvent == MessagePack.ActionEvent.TurnToWhite)
         {
           this.objWhiteOut.SetActive(true);
+          this.imgHidePanel.color = new Color(1.0f, 1.0f, 1.0f, 0);
+          continue; // 継続
+        }
+        else if (currentEvent == MessagePack.ActionEvent.TurnToPurple)
+        {
+          this.objPurpleOut.SetActive(true);
           this.imgHidePanel.color = new Color(1.0f, 1.0f, 1.0f, 0);
           continue; // 継続
         }
@@ -14350,6 +14359,10 @@ public class DungeonField : MotherBase
           One.ReInitializeGroundOne(false);
           One.StopDungeonMusic();
           SceneDimension.JumpToTitle();
+        }
+        else if (currentEvent == MessagePack.ActionEvent.CallDungeonWosm)
+        {
+          DungeonCallSetup(Fix.MAPFILE_WOSM, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
