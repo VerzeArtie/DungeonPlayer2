@@ -105,6 +105,8 @@ public class DungeonField : MotherBase
   public TileInformation prefab_Wosm_Normal;
   public TileInformation prefab_Wosm_Wall;
   public TileInformation prefab_Wosm_Sea;
+  public TileInformation prefab_Wosm_Grassfield;
+  public TileInformation prefab_Wosm_Hometown;
   public TextMeshPro prefab_AreaText;
   public GameObject prefab_Player;
   public FieldObject prefab_Treasure;
@@ -459,6 +461,8 @@ public class DungeonField : MotherBase
     PrefabList.Add("Wosm_Normal");
     PrefabList.Add("Wosm_Wall");
     PrefabList.Add("Wosm_Sea");
+    PrefabList.Add("Wosm_Grassfield");
+    PrefabList.Add("Wosm_Hometown");
     PrefabList.Add("Upstair");
     PrefabList.Add("Downstair");
 
@@ -627,6 +631,17 @@ public class DungeonField : MotherBase
           if (One.AR.Event_Message2600014 && One.AR.Event_Message2600015 == false)
           {
             MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+            return;
+          }
+        }
+
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
+        {
+          if (One.AR.Event_Message2600012_2 == false)
+          {
+            MessagePack.Message2600012_2(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
             One.RealWorldSave();
             return;
@@ -14362,7 +14377,14 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.CallDungeonWosm)
         {
-          DungeonCallSetup(Fix.MAPFILE_WOSM, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
+          if (currentMessage == Fix.MAPFILE_WOSM)
+          {
+            DungeonCallSetup(currentMessage, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
+          }
+          else if (currentMessage == Fix.MAPFILE_WOSM_2)
+          {
+            DungeonCallSetup(currentMessage, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
+          }
         }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
@@ -17221,6 +17243,35 @@ public class DungeonField : MotherBase
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
+    {
+      // ボス戦
+      if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
+      {
+        MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      // エンディング
+      if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
+      {
+        if (One.AR.Event_Message2600015 && One.AR.Event_Message2600016 == false)
+        {
+          MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+
+      // エンディング前、移動抑止
+      if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
+      {
+        if (One.AR.Event_Message2600014)
+        {
+          MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+    }
+    else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
     {
       // ボス戦
       if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
@@ -20826,6 +20877,14 @@ public class DungeonField : MotherBase
     else if (tile_name == "Wosm_Sea")
     {
       current = Instantiate(prefab_Wosm_Sea, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Wosm_Grassfield")
+    {
+      current = Instantiate(prefab_Wosm_Grassfield, position, Quaternion.identity) as TileInformation;
+    }
+    else if (tile_name == "Wosm_Hometown")
+    {
+      current = Instantiate(prefab_Wosm_Hometown, position, Quaternion.identity) as TileInformation;
     }
     else if (tile_name == "Upstair")
     {

@@ -86,6 +86,8 @@ public class TileInformation : MonoBehaviour
     Wosm_Normal = 7001,
     Wosm_Wall = 7002,
     Wosm_Sea = 7003,
+    Wosm_Grassfield = 7004,
+    Wosm_Hometown = 7005,
   }
   public enum Area
   {
@@ -193,7 +195,8 @@ public class TileInformation : MonoBehaviour
       if (field == Field.Wosm_Normal) { return 1; }
       if (field == Field.Wosm_Wall) { return 999; }
       if (field == Field.Wosm_Sea) { return 999; }
-
+      if (field == Field.Wosm_Grassfield) { return 1; }
+      if (field == Field.Wosm_Hometown) { return 1; }
       return 999;
     }
   }

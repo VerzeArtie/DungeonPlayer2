@@ -2448,7 +2448,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、離島ウォズムに降り立つ ～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, Fix.MAPFILE_WOSM, ActionEvent.CallDungeonWosm);
+      Message(ref m_list, ref e_list, Fix.MAPFILE_WOSM_2, ActionEvent.CallDungeonWosm);
     }
   }
   #endregion
@@ -34002,6 +34002,38 @@ public static class MessagePack
     }
   }
 
+  public static void Message2600012_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600012_2 == false)
+    {
+      One.AR.Event_Message2600012_2 = true;
+
+      Message(ref m_list, ref e_list, "アイン：ここが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：離島・・・ウォズム・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　国王に一度だけ聞いた事がある　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "（　この地こそが、ファージル王国の原点であると ）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ゴツイ岩がかなり転がっているが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：元々こんな感じだったのかもしれないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：草木も少しある。自然の地その者という感じだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：行こう", ActionEvent.None);
+    }
+  }
+
   public static void Message2600013(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.AR.Event_Message2600014 == false)
@@ -34099,6 +34131,210 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：そして、全ての人達を", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：信じている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だから、この勝負", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：全力でやらせてもらう", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：アイン君、僕も", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：君という存在を信じている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：全力でやらせてもらうよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.ROYAL_KING_AERMI_JORZT, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void Message2600013_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.AR.Event_Message2600014_2 == false)
+    {
+      Message(ref m_list, ref e_list, "？？？：やあ、アイン君だね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その声は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ここに来たという事は、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ObsidianStoneに接触できたみたいだね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：さすが、アイン君だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ここまでObsidianStoneに接触できた者は、他にいない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：アイン君。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：君は世界を変える力を保持してるんじゃないかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ObsidianStoneとの接触で", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：【オラクル】と呼ばれる存在と接触し、", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：世界の在り様を認識しました。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：世界を変える力は持ち合わせていませんが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この世界、いや", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：率直に言って、俺はエルミ国王とお話がしたいんです。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ッフ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ッハッハハハハハハハハハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：さすがアイン君だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：今いる、この地が", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：事象の変遷を示す地", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：事象の・・・変遷？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：今、この瞬間も", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：変わり続けている", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：このウォズムの町は", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：アイン君", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：君の眼にも映っているはずだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あれが・・・ウォズムの町・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：今のアイン君には、見えているようだね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ただ、何か不思議な感じですね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：確かに、町は見えますが何と言うかその・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今、目の前にいる国王エルミの存在そのものが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：不確定の様に見えます。俺の気のせいかもしれませんが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ありがとう、アイン君。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：君のその見えている光景は", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：確かに存在するよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：そして、国王エルミである私の存在が不確かなのも", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：真実だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ま、まさか！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エルミ国王様が神剣フェルトゥーシュを使ってObsidianStoneに接触した内容とは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この町がある離島ウォズムにて、その神剣を振るったという事ですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ほぼ合致しているが、事象の変遷を取り扱う言葉としては正しくないね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：僕が神剣フェルトゥーシュを振るったのではなく", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：僕の波動意志により", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：その波動意志による無間連鎖の果てに", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：神剣フェルトゥーシュを司るオラクルが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：事象発生を導いてくれたんだよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：離島ウォズムはね。確かに大地の恵みは少なく生活が厳しいエリアだったんだけど", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：それでも人々は決して不幸な生活を強いられていたわけではなかった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：皆、小さいながらも幸せを感じて暮らしていたんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ファラ：エルミ、その話は決してしないという契りを交わしていたはずよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・ファラ・・・君か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：いつもどこかに隠れていて、気配も感じさせず、突然出てくるね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：そうか・・・ファラ。僕に隠れてこっそりとObsidianStoneに接触したね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ファラ：ここにいる事が何よりの証明よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ファラ：エルミ、私は貴方を止めに来たの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ファラ：私の事はいいの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ファラ：エルミさえ・・・エルミが生き残りさえすれば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：ファラ、そしてアイン君。ここは言っておかないといけない様だね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：私は国王エルミではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：国家を滅亡に陥らせた一犯罪者だよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ、そんな・・・嘘だ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：だって、エルミ様はファージル宮殿で王として謁見を何度もしてくれていたじゃないですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今だって、そんな・・・犯罪者だなんて言い方、おかしいですよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：アイン君。今、君はそんな犯罪者と対話をしようとしているみたいだけど", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　エルミ・ジョルジュ、音を立てる事なく、剣を鞘から静かに開放する　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "エルミ：話し合いには応じない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：説得や交渉を考えているようであれば", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：斬るまでだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "エルミ：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、静謐な雰囲気のもと、戦闘態勢に入る　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：国王よ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺は貴方を", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エデルガイゼン城の王を", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そして、全ての人達を", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：信じている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エルミ国王は犯罪者ではない。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：だから、この勝負", ActionEvent.None);
 

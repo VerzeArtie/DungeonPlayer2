@@ -638,6 +638,7 @@ public static partial class Fix
   public const string MAPFILE_EDELGARZEN_3 = "MapData_EdelGarzen_3.txt";
   public const string MAPFILE_EDELGARZEN_4 = "MapData_EdelGarzen_4.txt";
   public const string MAPFILE_WOSM = "MapData_Wosm.txt";
+  public const string MAPFILE_WOSM_2 = "MapData_Wosm_2.txt";
   public const string MAPFILE_GENESISGATE = "MapData_GenesisGate.txt";
 
   public const int MAPSIZE_X_ESMILIA_GRASSFIELD = 40;
