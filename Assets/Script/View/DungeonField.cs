@@ -2487,6 +2487,7 @@ public class DungeonField : MotherBase
       {
         TileInformation tile = GetTileInfo(this.Player.transform.position.x, this.Player.transform.position.y - 1.0f, this.Player.transform.position.z);
         // 芋プログラミングでマジックナンバーではあるが、良しとする。
+        // 左翼
         if (LocationDetect(tile, 1.0f, 0.0f, -2.0f) || LocationDetect(tile, 2.0f, 0.0f, -2.0f) || LocationDetect(tile, 3.0f, 0.0f, -2.0f) || 
           　LocationDetect(tile, 1.0f, 0.0f, -3.0f) || LocationDetect(tile, 2.0f, 0.0f, -3.0f) || LocationDetect(tile, 3.0f, 0.0f, -3.0f) ||
           　LocationDetect(tile, 1.0f, 0.0f, -4.0f) || LocationDetect(tile, 2.0f, 0.0f, -4.0f) || LocationDetect(tile, 3.0f, 0.0f, -4.0f) ||
@@ -2604,6 +2605,125 @@ public class DungeonField : MotherBase
           MessagePack.Message1900116(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+
+        // 右翼
+        if (LocationDetect(tile, 57.0f, 0.0f, -2.0f) || LocationDetect(tile, 58.0f, 0.0f, -2.0f) || LocationDetect(tile, 59.0f, 0.0f, -2.0f) || 
+          　LocationDetect(tile, 57.0f, 0.0f, -3.0f) || LocationDetect(tile, 58.0f, 0.0f, -3.0f) || LocationDetect(tile, 59.0f, 0.0f, -3.0f) ||
+          　LocationDetect(tile, 57.0f, 0.0f, -4.0f) || LocationDetect(tile, 58.0f, 0.0f, -4.0f) || LocationDetect(tile, 59.0f, 0.0f, -4.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -5.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -6.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -7.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -8.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -9.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -10.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -11.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -12.0f) || 
+          　LocationDetect(tile, 59.0f, 0.0f, -13.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -14.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -15.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -16.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -17.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -18.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -19.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -20.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -21.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -22.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -23.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -24.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -25.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -26.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -27.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -28.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -29.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -30.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -31.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -32.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -33.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -34.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -35.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -36.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -37.0f) ||
+          　LocationDetect(tile, 59.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 58.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 57.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 56.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 55.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 54.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 53.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 52.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 51.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 50.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 49.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 48.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 47.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 46.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 45.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 44.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 43.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 42.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 41.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 40.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 39.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 38.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 37.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 36.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 35.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -38.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -37.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -36.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -35.0f) || LocationDetect(tile, 34.0f, 0.0f, -35.0f) || LocationDetect(tile, 36.0f, 0.0f, -35.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -34.0f) || LocationDetect(tile, 33.0f, 0.0f, -34.0f) || LocationDetect(tile, 34.0f, 0.0f, -34.0f) || LocationDetect(tile, 35.0f, 0.0f, -34.0f) || LocationDetect(tile, 36.0f, 0.0f, -34.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -33.0f) || LocationDetect(tile, 33.0f, 0.0f, -33.0f) || LocationDetect(tile, 34.0f, 0.0f, -33.0f) || LocationDetect(tile, 35.0f, 0.0f, -33.0f) || LocationDetect(tile, 36.0f, 0.0f, -33.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -32.0f) || LocationDetect(tile, 33.0f, 0.0f, -32.0f) || LocationDetect(tile, 34.0f, 0.0f, -32.0f) || LocationDetect(tile, 35.0f, 0.0f, -32.0f) || LocationDetect(tile, 36.0f, 0.0f, -32.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -31.0f) || LocationDetect(tile, 34.0f, 0.0f, -31.0f) || LocationDetect(tile, 36.0f, 0.0f, -31.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -29.0f) || LocationDetect(tile, 32.0f, 0.0f, -29.0f) || LocationDetect(tile, 34.0f, 0.0f, -29.0f) || LocationDetect(tile, 36.0f, 0.0f, -29.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -28.0f) || LocationDetect(tile, 32.0f, 0.0f, -28.0f) || LocationDetect(tile, 33.0f, 0.0f, -28.0f) || LocationDetect(tile, 34.0f, 0.0f, -28.0f) || LocationDetect(tile, 35.0f, 0.0f, -28.0f) || LocationDetect(tile, 36.0f, 0.0f, -28.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -27.0f) || LocationDetect(tile, 32.0f, 0.0f, -27.0f) || LocationDetect(tile, 34.0f, 0.0f, -27.0f) || LocationDetect(tile, 36.0f, 0.0f, -27.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -26.0f) || LocationDetect(tile, 32.0f, 0.0f, -26.0f) || LocationDetect(tile, 33.0f, 0.0f, -26.0f) || LocationDetect(tile, 34.0f, 0.0f, -26.0f) || LocationDetect(tile, 35.0f, 0.0f, -26.0f) || LocationDetect(tile, 36.0f, 0.0f, -26.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -25.0f) || LocationDetect(tile, 32.0f, 0.0f, -25.0f) || LocationDetect(tile, 34.0f, 0.0f, -25.0f) || LocationDetect(tile, 36.0f, 0.0f, -25.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -24.0f) || LocationDetect(tile, 33.0f, 0.0f, -24.0f) || LocationDetect(tile, 34.0f, 0.0f, -24.0f) || LocationDetect(tile, 35.0f, 0.0f, -24.0f) || LocationDetect(tile, 36.0f, 0.0f, -24.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -23.0f) || LocationDetect(tile, 34.0f, 0.0f, -23.0f) || LocationDetect(tile, 36.0f, 0.0f, -23.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -22.0f) || LocationDetect(tile, 33.0f, 0.0f, -22.0f) || LocationDetect(tile, 34.0f, 0.0f, -22.0f) || LocationDetect(tile, 35.0f, 0.0f, -22.0f) || LocationDetect(tile, 36.0f, 0.0f, -22.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -21.0f) || LocationDetect(tile, 36.0f, 0.0f, -21.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -20.0f) || LocationDetect(tile, 35.0f, 0.0f, -20.0f) || LocationDetect(tile, 36.0f, 0.0f, -20.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -19.0f) || LocationDetect(tile, 36.0f, 0.0f, -19.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -18.0f) || LocationDetect(tile, 35.0f, 0.0f, -18.0f) || LocationDetect(tile, 36.0f, 0.0f, -18.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -16.0f) || LocationDetect(tile, 35.0f, 0.0f, -16.0f) || LocationDetect(tile, 36.0f, 0.0f, -16.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -15.0f) || LocationDetect(tile, 36.0f, 0.0f, -15.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -14.0f) || LocationDetect(tile, 35.0f, 0.0f, -14.0f) || LocationDetect(tile, 36.0f, 0.0f, -14.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -13.0f) || LocationDetect(tile, 36.0f, 0.0f, -13.0f) ||
+            LocationDetect(tile, 32.0f, 0.0f, -12.0f) || LocationDetect(tile, 33.0f, 0.0f, -12.0f) || LocationDetect(tile, 34.0f, 0.0f, -12.0f) || LocationDetect(tile, 35.0f, 0.0f, -12.0f) || LocationDetect(tile, 36.0f, 0.0f, -12.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -11.0f) || LocationDetect(tile, 32.0f, 0.0f, -11.0f) || LocationDetect(tile, 34.0f, 0.0f, -11.0f) || LocationDetect(tile, 36.0f, 0.0f, -11.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -10.0f) || LocationDetect(tile, 32.0f, 0.0f, -10.0f) || LocationDetect(tile, 33.0f, 0.0f, -10.0f) || LocationDetect(tile, 34.0f, 0.0f, -10.0f) || LocationDetect(tile, 35.0f, 0.0f, -10.0f) || LocationDetect(tile, 36.0f, 0.0f, -10.0f) ||
+            LocationDetect(tile, 31.0f, 0.0f, -9.0f) || LocationDetect(tile, 32.0f, 0.0f, -9.0f) || LocationDetect(tile, 34.0f, 0.0f, -9.0f) || LocationDetect(tile, 36.0f, 0.0f, -9.0f) ||
+            LocationDetect(tile, 34.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 35.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 36.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 37.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 38.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 39.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 40.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 41.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 42.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 43.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 44.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 45.0f, 0.0f, -2.0f) || LocationDetect(tile, 45.0f, 0.0f, -3.0f) ||
+            LocationDetect(tile, 46.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 47.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 48.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 49.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 50.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 51.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 52.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 53.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 54.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 55.0f, 0.0f, -2.0f) ||
+            LocationDetect(tile, 56.0f, 0.0f, -2.0f)
+           )
+        {
+          MessagePack.Message1900116(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        } 
       }
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN_4 && One.TF.DefeatLegalOrphstein)
       {
