@@ -8643,6 +8643,12 @@ public class DungeonField : MotherBase
           MessagePack.Message1900148(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_3_MIRROR_94_X, Fix.EDELGARZEN_3_MIRROR_94_Y, Fix.EDELGARZEN_3_MIRROR_94_Z))
+        {
+          ChooseDstMirror(0);
+          return;
+        }
       }
       return;
     }
