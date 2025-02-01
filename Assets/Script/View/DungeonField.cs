@@ -25639,10 +25639,13 @@ public class DungeonField : MotherBase
 
   private void ChainLogicMirror(FieldObject fieldObj)
   {
+    Debug.Log("ChainLogicMirror(S) " + MirrorNumberFromLocation(fieldObj.transform.position));
     if (One.TF.EdelgarzenMirrorSequence_1 == 0)
     {
+      Debug.Log("ChainLogicMirror TF EdelgarzenMirrorSequence_1 is zero");
       if (One.AR.EdelgarzenMirrorSequence_1 == 0)
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_1 is zero");
         One.AR.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25651,15 +25654,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_1 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_1 is match " + One.AR.EdelgarzenMirrorSequence_1 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_1 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(1);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_1 is differ... " + One.AR.EdelgarzenMirrorSequence_1 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_2 == 0)
     {
+      Debug.Log("ChainLogicMirror TF EdelgarzenMirrorSequence_2 is zero");
       if (One.AR.EdelgarzenMirrorSequence_2 == 0)
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_2 is zero");
         One.AR.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25668,15 +25678,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_2 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_2 is match " + One.AR.EdelgarzenMirrorSequence_2 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_2 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(2);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_2 is differ... " + One.AR.EdelgarzenMirrorSequence_2 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_3 == 0)
     {
+      Debug.Log("ChainLogicMirror TF EdelgarzenMirrorSequence_3 is zero");
       if (One.AR.EdelgarzenMirrorSequence_3 == 0)
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_3 is zero");
         One.AR.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25685,15 +25702,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_3 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_3 is match " + One.AR.EdelgarzenMirrorSequence_3 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_3 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(3);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_3 is differ... " + One.AR.EdelgarzenMirrorSequence_3 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_4 == 0)
     {
+      Debug.Log("ChainLogicMirror TF EdelgarzenMirrorSequence_4 is zero");
       if (One.AR.EdelgarzenMirrorSequence_4 == 0)
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_4 is zero");
         One.AR.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25702,15 +25726,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_4 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_4 is match " + One.AR.EdelgarzenMirrorSequence_4 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_4 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(4);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_4 is differ... " + One.AR.EdelgarzenMirrorSequence_4 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_5 == 0)
     {
+      Debug.Log("ChainLogicMirror TF EdelgarzenMirrorSequence_5 is zero");
       if (One.AR.EdelgarzenMirrorSequence_5 == 0)
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_5 is zero");
         One.AR.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25719,52 +25750,60 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_5 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_5 is match " + One.AR.EdelgarzenMirrorSequence_5 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_5 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(5);
         return;
+      }
+      else
+      {
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_5 is differ... " + One.AR.EdelgarzenMirrorSequence_5 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
       }
     }
 
     if (ChoiceMirrorFinal(fieldObj.transform.position))
     {
+      Debug.Log("ChainLogicMirror ChoiceMirrorFinal success!");
       return;
     }
 
+    Debug.Log("ChainLogicMirror Fail-Routine... ");
     ChoiceMirrorSequence(0);
   }
 
   private void ChainLogicMirror2(FieldObject fieldObj)
   {
-    Debug.Log("ChainLogicMirror2(S)");
+    Debug.Log("ChainLogicMirror2(S) " + MirrorNumberFromLocation(fieldObj.transform.position));
     if (One.TF.EdelgarzenMirrorSequence_6 == 0)
     {
-      Debug.Log("ChainLogicMirror2 6");
+      Debug.Log("ChainLogicMirror2 TF EdelgarzenMirrorSequence_6 is zero");
       if (One.AR.EdelgarzenMirrorSequence_6 == 0)
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_6 is zero");
         One.AR.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
-        Debug.Log("ChainLogicMirror2 6 0 -> " + One.TF.EdelgarzenMirrorSequence_6 + " " + One.AR.EdelgarzenMirrorSequence_6);
         One.UpdateAkashicRecord();
         ChoiceMirrorSequence(6);
         return;
       }
       else if (One.AR.EdelgarzenMirrorSequence_6 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
-        Debug.Log("ChainLogicMirror2 6 X -> " + One.AR.EdelgarzenMirrorSequence_6);
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_6 is match " + One.AR.EdelgarzenMirrorSequence_6 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_6 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(6);
         return;
       }
       else
       {
-        Debug.Log("ChainLogicMirror2 6 fail...");
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_6 is differ... " + One.AR.EdelgarzenMirrorSequence_6 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
       }
     }
     else if (One.TF.EdelgarzenMirrorSequence_7 == 0)
     {
-      Debug.Log("ChainLogicMirror2 7");
+      Debug.Log("ChainLogicMirror2 TF EdelgarzenMirrorSequence_7 is zero");
       if (One.AR.EdelgarzenMirrorSequence_7 == 0)
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_7 is zero");
         One.AR.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25773,20 +25812,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_7 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_7 is match " + One.AR.EdelgarzenMirrorSequence_7 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_7 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(7);
         return;
       }
       else
       {
-        Debug.Log("ChainLogicMirror2 7 fail...");
+        Debug.Log("ChainLogicMirror AR EdelgarzenMirrorSequence_7 is differ... " + One.AR.EdelgarzenMirrorSequence_7 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
       }
     }
     else if (One.TF.EdelgarzenMirrorSequence_8 == 0)
     {
-      Debug.Log("ChainLogicMirror2 8");
+      Debug.Log("ChainLogicMirror2 TF EdelgarzenMirrorSequence_8 is zero");
       if (One.AR.EdelgarzenMirrorSequence_8 == 0)
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_8 is zero");
         One.AR.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25795,16 +25836,23 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_8 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_8 is match " + One.AR.EdelgarzenMirrorSequence_8 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_8 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(8);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_8 is differ... " + One.AR.EdelgarzenMirrorSequence_8 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_9 == 0)
     {
+      Debug.Log("ChainLogicMirror2 TF EdelgarzenMirrorSequence_9 is zero");
       Debug.Log("ChainLogicMirror2 9");
       if (One.AR.EdelgarzenMirrorSequence_9 == 0)
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_9 is zero");
         One.AR.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25813,16 +25861,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_9 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_9 is match " + One.AR.EdelgarzenMirrorSequence_9 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_9 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(9);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_9 is differ... " + One.AR.EdelgarzenMirrorSequence_9 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_10 == 0)
     {
-      Debug.Log("ChainLogicMirror2 10");
+      Debug.Log("ChainLogicMirror2 TF EdelgarzenMirrorSequence_10 is zero");
       if (One.AR.EdelgarzenMirrorSequence_10 == 0)
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_10 is zero");
         One.AR.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25831,14 +25885,20 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_10 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_10 is match " + One.AR.EdelgarzenMirrorSequence_10 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_10 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(10);
         return;
+      }
+      else
+      {
+        Debug.Log("ChainLogicMirror2 AR EdelgarzenMirrorSequence_10 is differ... " + One.AR.EdelgarzenMirrorSequence_10 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
       }
     }
 
     if (ChoiceMirrorFinal(fieldObj.transform.position))
     {
+      Debug.Log("ChainLogicMirror2 ChoiceMirrorFinal success!");
       return;
     }
 
@@ -25848,10 +25908,13 @@ public class DungeonField : MotherBase
 
   private void ChainLogicMirror3(FieldObject fieldObj)
   {
+    Debug.Log("ChainLogicMirror3(S) " + MirrorNumberFromLocation(fieldObj.transform.position));
     if (One.TF.EdelgarzenMirrorSequence_11 == 0)
     {
+      Debug.Log("ChainLogicMirror3(S) TF EdelgarzenMirrorSequence_11 is zero");
       if (One.AR.EdelgarzenMirrorSequence_11 == 0)
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_11 is zero");
         One.AR.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25860,15 +25923,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_11 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_11 is match " + One.AR.EdelgarzenMirrorSequence_11 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_11 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(11);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_11 is differ... " + One.AR.EdelgarzenMirrorSequence_11 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_12 == 0)
     {
+      Debug.Log("ChainLogicMirror3(S) TF EdelgarzenMirrorSequence_12 is zero");
       if (One.AR.EdelgarzenMirrorSequence_12 == 0)
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_12 is zero");
         One.AR.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25877,15 +25947,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_12 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_12 is match " + One.AR.EdelgarzenMirrorSequence_12 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_12 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(12);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_12 is differ... " + One.AR.EdelgarzenMirrorSequence_12 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_13 == 0)
     {
+      Debug.Log("ChainLogicMirror3(S) TF EdelgarzenMirrorSequence_13 is zero");
       if (One.AR.EdelgarzenMirrorSequence_13 == 0)
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_13 is zero");
         One.AR.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25894,15 +25971,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_13 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_13 is match " + One.AR.EdelgarzenMirrorSequence_13 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_13 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(13);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_13 is differ... " + One.AR.EdelgarzenMirrorSequence_13 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_14 == 0)
     {
+      Debug.Log("ChainLogicMirror3(S) TF EdelgarzenMirrorSequence_14 is zero");
       if (One.AR.EdelgarzenMirrorSequence_14 == 0)
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_14 is zero");
         One.AR.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25911,15 +25995,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_14 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_14 is match " + One.AR.EdelgarzenMirrorSequence_14 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_14 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(14);
         return;
       }
+      else
+      {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_14 is differ... " + One.AR.EdelgarzenMirrorSequence_14 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_15 == 0)
     {
+      Debug.Log("ChainLogicMirror3(S) TF EdelgarzenMirrorSequence_15 is zero");
       if (One.AR.EdelgarzenMirrorSequence_15 == 0)
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_15 is zero");
         One.AR.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.TF.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
         One.UpdateAkashicRecord();
@@ -25928,17 +26019,24 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_15 == MirrorNumberFromLocation(fieldObj.transform.position))
       {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_15 is match " + One.AR.EdelgarzenMirrorSequence_15 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
         One.TF.EdelgarzenMirrorSequence_15 = MirrorNumberFromLocation(fieldObj.transform.position);
         ChoiceMirrorSequence(15);
         return;
+      }
+      else
+      {
+        Debug.Log("ChainLogicMirror3(S) AR EdelgarzenMirrorSequence_15 is differ... " + One.AR.EdelgarzenMirrorSequence_15 + " " + MirrorNumberFromLocation(fieldObj.transform.position));
       }
     }
 
     if (ChoiceMirrorFinal(fieldObj.transform.position))
     {
+      Debug.Log("ChainLogicMirror3 ChoiceMirrorFinal success!");
       return;
     }
 
+    Debug.Log("ChainLogicMirror3 Fail-Routine... ");
     ChoiceMirrorSequence(0);
   }
 
@@ -26126,10 +26224,14 @@ public class DungeonField : MotherBase
 
   private void ChoiceMirrorGoal(int future_number)
   {
+    Debug.Log("ChoiceMirrorGoal(S) " + future_number);
+
     if (One.TF.EdelgarzenMirrorSequence_A == 0)
     {
+      Debug.Log("ChoiceMirrorGoal TF EdelgarzenMirrorSequence_A is zero");
       if (One.AR.EdelgarzenMirrorSequence_A == 0)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_A is zero");
         One.AR.EdelgarzenMirrorSequence_A = future_number;
         One.TF.EdelgarzenMirrorSequence_A = future_number;
         One.UpdateAkashicRecord();
@@ -26138,15 +26240,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_A == future_number)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_A is match " + One.AR.EdelgarzenMirrorSequence_A + " " + future_number);
         One.TF.EdelgarzenMirrorSequence_A = future_number;
         ChooseDstMirror(80);
         return;
       }
+      else
+      {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_A is differ... " + One.AR.EdelgarzenMirrorSequence_A + " " + future_number);
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_B == 0)
     {
+      Debug.Log("ChoiceMirrorGoal TF EdelgarzenMirrorSequence_B is zero");
       if (One.AR.EdelgarzenMirrorSequence_B == 0)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_B is zero");
         One.AR.EdelgarzenMirrorSequence_B = future_number;
         One.TF.EdelgarzenMirrorSequence_B = future_number;
         One.UpdateAkashicRecord();
@@ -26155,15 +26264,22 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_B == future_number)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_B is match " + One.AR.EdelgarzenMirrorSequence_B + " " + future_number);
         One.TF.EdelgarzenMirrorSequence_B = future_number;
         ChooseDstMirror(85);
         return;
       }
+      else
+      {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_B is differ... " + One.AR.EdelgarzenMirrorSequence_B + " " + future_number);
+      }
     }
     else if (One.TF.EdelgarzenMirrorSequence_C == 0)
     {
+      Debug.Log("ChoiceMirrorGoal TF EdelgarzenMirrorSequence_C is zero");
       if (One.AR.EdelgarzenMirrorSequence_C == 0)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_C is zero");
         One.AR.EdelgarzenMirrorSequence_C = future_number;
         One.TF.EdelgarzenMirrorSequence_C = future_number;
         One.UpdateAkashicRecord();
@@ -26172,12 +26288,18 @@ public class DungeonField : MotherBase
       }
       else if (One.AR.EdelgarzenMirrorSequence_C == future_number)
       {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_C is match " + One.AR.EdelgarzenMirrorSequence_C + " " + future_number);
         One.TF.EdelgarzenMirrorSequence_C = future_number;
         ChooseDstMirror(90);
         return;
       }
+      else
+      {
+        Debug.Log("ChoiceMirrorGoal AR EdelgarzenMirrorSequence_C is differ... " + One.AR.EdelgarzenMirrorSequence_C + " " + future_number);
+      }
     }
 
+    Debug.Log("ChoiceMirrorGoal fail...");
     ChooseDstMirror(0);
   }
 
@@ -26187,12 +26309,14 @@ public class DungeonField : MotherBase
 
     if (One.TF.EdelgarzenMirrorSequence_A != 0 && One.TF.EdelgarzenMirrorSequence_B != 0 && One.TF.EdelgarzenMirrorSequence_C != 0)
     {
+      Debug.Log("EdelgarzenMirrorSequence_A,B,C: " + One.TF.EdelgarzenMirrorSequence_A + " " + One.TF.EdelgarzenMirrorSequence_B + " " + One.TF.EdelgarzenMirrorSequence_C);
       if (One.AR.EdelgarzenMirrorSequence_A == MirrorGroupNumber(MirrorNumberFromLocation(position)))
       {
         Debug.Log("ChoiceMirrorFinal A");
         bool detect = false;
         if (One.AR.EdelgarzenMirrorFinal_A == 0)
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_A is zero");
           One.TF.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
           One.AR.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
           One.UpdateAkashicRecord();
@@ -26200,18 +26324,26 @@ public class DungeonField : MotherBase
         }
         else if (One.AR.EdelgarzenMirrorFinal_A == MirrorNumberFromLocation(position))
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_A is match " + One.AR.EdelgarzenMirrorFinal_A + " " + MirrorNumberFromLocation(position));
           One.TF.EdelgarzenMirrorFinal_A = MirrorNumberFromLocation(position);
           detect = true;
+        }
+        else
+        {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_A is differ... " + One.AR.EdelgarzenMirrorFinal_A + " " + MirrorNumberFromLocation(position));
         }
 
         if (detect)
         {
+          Debug.Log("ChoiceMirrorFinal A detect");
           if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
           {
+            Debug.Log("ChoiceMirrorFinal A ChooseDstMirror(91)");
             ChooseDstMirror(91);
           }
           else
           {
+            Debug.Log("ChoiceMirrorFinal A ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_B) " + One.AR.EdelgarzenMirrorSequence_B);
             ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_B);
           }
           return true;
@@ -26223,6 +26355,7 @@ public class DungeonField : MotherBase
         bool detect = false;
         if (One.AR.EdelgarzenMirrorFinal_B == 0)
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_B is zero");
           One.TF.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
           One.AR.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
           One.UpdateAkashicRecord();
@@ -26230,18 +26363,26 @@ public class DungeonField : MotherBase
         }
         else if (One.AR.EdelgarzenMirrorFinal_B == MirrorNumberFromLocation(position))
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_B is match " + One.AR.EdelgarzenMirrorFinal_B + " " + MirrorNumberFromLocation(position));
           One.TF.EdelgarzenMirrorFinal_B = MirrorNumberFromLocation(position);
           detect = true;
+        }
+        else
+        {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_B is differ... " + One.AR.EdelgarzenMirrorFinal_B + " " + MirrorNumberFromLocation(position));
         }
 
         if (detect)
         {
+          Debug.Log("ChoiceMirrorFinal B detect");
           if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
           {
+            Debug.Log("ChoiceMirrorFinal B ChooseDstMirror(91)");
             ChooseDstMirror(91);
           }
           else
           {
+            Debug.Log("ChoiceMirrorFinal B ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_C) " + One.AR.EdelgarzenMirrorSequence_C);
             ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_C);
           }
           return true;
@@ -26253,6 +26394,7 @@ public class DungeonField : MotherBase
         bool detect = false;
         if (One.AR.EdelgarzenMirrorFinal_C == 0)
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_C is zero");
           One.TF.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
           One.AR.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
           One.UpdateAkashicRecord();
@@ -26260,18 +26402,26 @@ public class DungeonField : MotherBase
         }
         else if (One.AR.EdelgarzenMirrorFinal_C == MirrorNumberFromLocation(position))
         {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_C is match " + One.AR.EdelgarzenMirrorFinal_C + " " + MirrorNumberFromLocation(position));
           One.TF.EdelgarzenMirrorFinal_C = MirrorNumberFromLocation(position);
           detect = true;
+        }
+        else
+        {
+          Debug.Log("ChoiceMirrorFinal AR EdelgarzenMirrorFinal_C is differ... " + One.AR.EdelgarzenMirrorFinal_C + " " + MirrorNumberFromLocation(position));
         }
 
         if (detect)
         {
+          Debug.Log("ChoiceMirrorFinal C detect");
           if (One.TF.EdelgarzenMirrorFinal_A != 0 && One.TF.EdelgarzenMirrorFinal_B != 0 && One.TF.EdelgarzenMirrorFinal_C != 0)
           {
+            Debug.Log("ChoiceMirrorFinal C ChooseDstMirror(91)");
             ChooseDstMirror(91);
           }
           else
           {
+            Debug.Log("ChoiceMirrorFinal C ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_A) " + One.AR.EdelgarzenMirrorSequence_A);
             ChooseDstMirror(One.AR.EdelgarzenMirrorSequence_A);
           }
           return true;
@@ -26285,6 +26435,8 @@ public class DungeonField : MotherBase
 
   private void ChooseDstMirror(int number)
   {
+    Debug.Log("ChooseDstMirror(S): " + number);
+
     if (number == 0) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_Event_1_X + ":1:" + Fix.EDELGARZEN_3_Event_1_Z); TapOK(); return; }
     if (number == 1) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_1B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_1B_Z); TapOK(); return; }
     if (number == 2) { MessagePack.Message1900021(ref QuestMessageList, ref QuestEventList, Fix.EDELGARZEN_3_MIRROR_2B_X + ":1:" + Fix.EDELGARZEN_3_MIRROR_2B_Z); TapOK(); return; }
