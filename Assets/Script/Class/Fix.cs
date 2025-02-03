@@ -3441,11 +3441,17 @@ public static partial class Fix
 
   // 離島ウォズム
   public const string PHOENIX = @"Phoenix";
+  public const string PHOENIX_JP = @"フェニックス";
   public const string NINE_TAIL = @"Nine Tail";
+  public const string NINE_TAIL_JP = @"ナイン・テイル";
   public const string MEPHISTOPHELES = @"Mephistopheles";
+  public const string MEPHISTOPHELES_JP = @"メフィストフェレス";
   public const string JUDGEMENT = @"Judgement";
+  public const string JUDGEMENT_JP = @"ジャッジメント";
   public const string EMERALD_DRAGON = @"Emerald Dragon";
+  public const string EMERALD_DRAGON_JP = @"エメラルド・ドラゴン";
   public const string TIAMAT = @"Tiamat";
+  public const string TIAMAT_JP = @"ティアマト";
 
   // 未設定
   public const string RUDE_WATCHDOG = "Rude Watchdog";

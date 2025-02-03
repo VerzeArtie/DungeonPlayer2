@@ -7248,13 +7248,363 @@ public partial class Character : MonoBehaviour
       this.DropItem[ii] = String.Empty;
     }
 
+    // モンスター経験値、Goldのリスト
+    List<int> expList = new List<int>();
+    List<int> factorExp = new List<int> { 0, 3, -1, 0, 1, -1, 2, -1, -1, 0, 1, -1, 2, -1, 0, 1,
+                                          50, -40, -3, -8, 2, 5, -2, -2, -1, -1, -1, 2, 5, -5, -1, -2, -1, 6, -5, 1, 1, 1,
+                                          226, -215, -1, 6, -6, 143, -141, -3, -3, 2, 19, -16, -12, 8, 5, 1, -4, 43, -44, 4, -2, 18,
+                                          936, -905, 123, -187, 176, -29, -13, 54, -28, -9, -7, -144, 211, -65, -27, 8, -12, -12, 65, -27, 120, -142, 129, -30, -5, 508, -378, -91, -46, 42, -22, 
+                                          2081, -1907, 0, 0, 100, 100, 300, -300, 0, 0, 100, 0, 0, 0, 200, -200, 0, 0, 100, 0, 0, 0, 400, -300, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 
+                                          2600, -2600, 0, 0, 0, 0, 1000, -800, 0, 0, 0, 0, 0, 600, -400, -200, 0, 0, 0, 0, 400, -300, 0, 0, 0, 0, 0, -100, 300, 0, 0, 0, 
+                                          18500, -15000, 0, 0, 0, 0};
+
+    Dictionary<string, int> indexMap = new Dictionary<string, int>
+    {
+      { Fix.TINY_MANTIS, 0 },
+      { Fix.TINY_MANTIS_JP, 0 },
+      { Fix.GREEN_SLIME, 1 },
+      { Fix.GREEN_SLIME_JP, 1 },
+      { Fix.MANDRAGORA, 2 },
+      { Fix.MANDRAGORA_JP, 2 },
+      { Fix.YOUNG_WOLF, 3 },
+      { Fix.YOUNG_WOLF_JP, 3 },
+      { Fix.WILD_ANT, 4 },
+      { Fix.WILD_ANT_JP, 4 },
+      { Fix.OLD_TREEFORK, 5 },
+      { Fix.OLD_TREEFORK_JP, 5 },
+      { Fix.SUN_FLOWER, 6 },
+      { Fix.SUN_FLOWER_JP, 6 },
+      { Fix.SOLID_BEETLE, 7 },
+      { Fix.SOLID_BEETLE_JP, 7 },
+      { Fix.SILENT_LADYBUG, 8 },
+      { Fix.SILENT_LADYBUG_JP, 8 },
+      { Fix.NIMBLE_RABBIT, 9 },
+      { Fix.NIMBLE_RABBIT_JP, 9 },
+      { Fix.ENTANGLED_VINE, 10 },
+      { Fix.ENTANGLED_VINE_JP, 10 },
+      { Fix.CREEPING_SPIDER, 11 },
+      { Fix.CREEPING_SPIDER_JP, 11 },
+      { Fix.BLOOD_MOSS, 12 },
+      { Fix.BLOOD_MOSS_JP, 12 },
+      { Fix.KILLER_BEE, 13 },
+      { Fix.KILLER_BEE_JP, 13 },
+      { Fix.WONDER_SEED, 14 },
+      { Fix.WONDER_SEED_JP, 14 },
+      { Fix.DAUNTLESS_HORSE, 15 },
+      { Fix.DAUNTLESS_HORSE_JP, 15 },
+      { Fix.DEBRIS_SOLDIER, 16 },
+      { Fix.DEBRIS_SOLDIER_JP, 16 },
+      { Fix.MAGICAL_AUTOMATA, 17 },
+      { Fix.MAGICAL_AUTOMATA_JP, 17 },
+      { Fix.KILLER_MACHINE, 18 },
+      { Fix.KILLER_MACHINE_JP, 18 },
+      { Fix.STINKY_BAT, 19 },
+      { Fix.STINKY_BAT_JP, 19 },
+      { Fix.ANTIQUE_MIRROR, 20 },
+      { Fix.ANTIQUE_MIRROR_JP, 20 },
+      { Fix.MECH_HAND, 21 },
+      { Fix.MECH_HAND_JP, 21 },
+      { Fix.ABSENCE_MOAI, 22 },
+      { Fix.ABSENCE_MOAI_JP, 22 },
+      { Fix.ACID_SCORPION, 23 },
+      { Fix.ACID_SCORPION_JP, 23 },
+      { Fix.NEJIMAKI_KNIGHT, 24 },
+      { Fix.NEJIMAKI_KNIGHT_JP, 24 },
+      { Fix.AIMING_SHOOTER, 25 },
+      { Fix.AIMING_SHOOTER_JP, 25 },
+      { Fix.CULT_BLACK_MAGICIAN, 26 },
+      { Fix.CULT_BLACK_MAGICIAN_JP, 26 },
+      { Fix.STONE_GOLEM, 27 },
+      { Fix.STONE_GOLEM_JP, 27 },
+      { Fix.JUNK_VULKAN, 28 },
+      { Fix.JUNK_VULKAN_JP, 28 },
+      { Fix.LIGHTNING_CLOUD, 29 },
+      { Fix.LIGHTNING_CLOUD_JP, 29 },
+      { Fix.SILENT_GARGOYLE, 30 },
+      { Fix.SILENT_GARGOYLE_JP, 30 },
+      { Fix.GATE_HOUND, 31 },
+      { Fix.GATE_HOUND_JP, 31 },
+      { Fix.PLAY_FIRE_IMP, 32 },
+      { Fix.PLAY_FIRE_IMP_JP, 32 },
+      { Fix.WALKING_TIME_BOMB, 33 },
+      { Fix.WALKING_TIME_BOMB_JP, 33 },
+      { Fix.EARTH_ELEMENTAL, 34 },
+      { Fix.EARTH_ELEMENTAL_JP, 34 },
+      { Fix.DEATH_DRONE, 35 },
+      { Fix.DEATH_DRONE_JP, 35 },
+      { Fix.ASSULT_SCARECROW, 36 },
+      { Fix.ASSULT_SCARECROW_JP, 36 },
+      { Fix.MAD_DOCTOR, 37 },
+      { Fix.MAD_DOCTOR_JP, 37 },
+      { Fix.CHARGED_BOAR, 38 },
+      { Fix.CHARGED_BOAR_JP, 38 },
+      { Fix.WOOD_ELF, 39 },
+      { Fix.WOOD_ELF_JP, 39 },
+      { Fix.STINKED_SPORE, 40 },
+      { Fix.STINKED_SPORE_JP, 40 },
+      { Fix.POISON_FLOG, 41 },
+      { Fix.POISON_FLOG_JP, 41 },
+      { Fix.GIANT_SNAKE, 42 },
+      { Fix.GIANT_SNAKE_JP, 42 },
+      { Fix.SAVAGE_BEAR, 43 },
+      { Fix.SAVAGE_BEAR_JP, 43 },
+      { Fix.INNOCENT_FAIRY, 44 },
+      { Fix.INNOCENT_FAIRY_JP, 44 },
+      { Fix.SPEEDY_FALCON, 45 },
+      { Fix.SPEEDY_FALCON_JP, 45 },
+      { Fix.MYSTIC_DRYAD, 46 },
+      { Fix.MYSTIC_DRYAD_JP, 46 },
+      { Fix.WOLF_HUNTER, 47 },
+      { Fix.WOLF_HUNTER_JP, 47 },
+      { Fix.FOREST_PHANTOM, 48 },
+      { Fix.FOREST_PHANTOM_JP, 48 },
+      { Fix.EXCITED_ELEPHANT, 49 },
+      { Fix.EXCITED_ELEPHANT_JP, 49 },
+      { Fix.SYLPH_DANCER, 50 },
+      { Fix.SYLPH_DANCER_JP, 50 },
+      { Fix.GATHERING_LAPTOR, 51 },
+      { Fix.GATHERING_LAPTOR_JP, 51 },
+      { Fix.RAGE_TIGER, 52 },
+      { Fix.RAGE_TIGER_JP, 52 },
+      { Fix.THORN_WARRIOR, 53 },
+      { Fix.THORN_WARRIOR_JP, 53 },
+      { Fix.MUDDLED_PLANT, 54 },
+      { Fix.MUDDLED_PLANT_JP, 54 },
+      { Fix.FLANSIS_KNIGHT, 55 },
+      { Fix.FLANSIS_KNIGHT_JP, 55 },
+      { Fix.MIST_PYTHON, 56 },
+      { Fix.MIST_PYTHON_JP, 56 },
+      { Fix.TOWERING_ENT, 57 },
+      { Fix.TOWERING_ENT_JP, 57 },
+      { Fix.POISON_MARY, 58 },
+      { Fix.POISON_MARY_JP, 58 },
+      { Fix.DISTURB_RHINO, 59 },
+      { Fix.DISTURB_RHINO_JP, 59 },
+      { Fix.WISDOM_CENTAURUS, 60 },
+      { Fix.WISDOM_CENTAURUS_JP, 60 },
+      { Fix.SWIFT_EAGLE, 61 },
+      { Fix.SWIFT_EAGLE_JP, 61 },
+      { Fix.EASTERN_GOLEM, 62 },
+      { Fix.EASTERN_GOLEM_JP, 62 },
+      { Fix.WESTERN_GOLEM, 63 },
+      { Fix.WESTERN_GOLEM_JP, 63 },
+      { Fix.WIND_ELEMENTAL, 64 },
+      { Fix.WIND_ELEMENTAL_JP, 64 },
+      { Fix.SKY_KNIGHT, 65 },
+      { Fix.SKY_KNIGHT_JP, 65 },
+      { Fix.THE_PURPLE_HIKARIGOKE, 66 },
+      { Fix.THE_PURPLE_HIKARIGOKE_JP, 66 },
+      { Fix.MYSTICAL_UNICORN, 67 },
+      { Fix.MYSTICAL_UNICORN_JP, 67 },
+      { Fix.TRIAL_HERMIT, 68 },
+      { Fix.TRIAL_HERMIT_JP, 68 },
+      { Fix.STORM_BIRDMAN, 69 },
+      { Fix.STORM_BIRDMAN_JP, 69 },
+      { Fix.THE_BLUE_LAVA_EYE, 70 },
+      { Fix.THE_BLUE_LAVA_EYE_JP, 70 },
+      { Fix.THE_WHITE_LAVA_EYE, 71 },
+      { Fix.THE_WHITE_LAVA_EYE_JP, 71 },
+      { Fix.FLYING_CURTAIN, 72 },
+      { Fix.FLYING_CURTAIN_JP, 72 },
+      { Fix.LUMINOUS_HAWK, 73 },
+      { Fix.LUMINOUS_HAWK_JP, 73 },
+      { Fix.AETHER_GUST, 74 },
+      { Fix.AETHER_GUST_JP, 74 },
+      { Fix.WHIRLWIND_KITSUNE, 75 },
+      { Fix.WHIRLWIND_KITSUNE_JP, 75 },
+      { Fix.THUNDER_LION, 76 },
+      { Fix.THUNDER_LION_JP, 76 },
+      { Fix.SAINT_PEGASUS, 77 },
+      { Fix.SAINT_PEGASUS_JP, 77 },
+      { Fix.DREAM_WALKER, 78 },
+      { Fix.DREAM_WALKER_JP, 78 },
+      { Fix.IVORY_STATUE, 79 },
+      { Fix.IVORY_STATUE_JP, 79 },
+      { Fix.STUBBORN_SAGE, 80 },
+      { Fix.STUBBORN_SAGE_JP, 80 },
+      { Fix.BOMB_BALLON, 81 },
+      { Fix.BOMB_BALLON_JP, 81 },
+      { Fix.OBSERVANT_HERALD, 82 },
+      { Fix.OBSERVANT_HERALD_JP, 82 },
+      { Fix.TOWER_SCOUT, 83 },
+      { Fix.TOWER_SCOUT_JP, 83 },
+      { Fix.MIST_SALVAGER, 84 },
+      { Fix.MIST_SALVAGER_JP, 84 },
+      { Fix.WINGSPAN_RANGER, 85 },
+      { Fix.WINGSPAN_RANGER_JP, 85 },
+      { Fix.MAJESTIC_CLOUD, 86 },
+      { Fix.MAJESTIC_CLOUD_JP, 86 },
+      { Fix.HARDENED_GRIFFIN, 87 },
+      { Fix.HARDENED_GRIFFIN_JP, 87 },
+      { Fix.PRISMA_SPHERE, 88 },
+      { Fix.PRISMA_SPHERE_JP, 88 },
+      { Fix.MOVING_CANNON, 89 },
+      { Fix.MOVING_CANNON_JP, 89 },
+      { Fix.VEIL_FORTUNE_WIZARD, 90 },
+      { Fix.VEIL_FORTUNE_WIZARD_JP, 90 },
+      { Fix.DAGGER_FISH, 91 },
+      { Fix.DAGGER_FISH_JP, 91 },
+      { Fix.FLOATING_MANTA, 92 },
+      { Fix.FLOATING_MANTA_JP, 92 },
+      { Fix.SKYBLUE_BIRD, 93 },
+      { Fix.SKYBLUE_BIRD_JP, 93 },
+      { Fix.RAINBOW_CLIONE, 94 },
+      { Fix.RAINBOW_CLIONE_JP, 94 },
+      { Fix.ROLLING_MAGURO, 95 },
+      { Fix.ROLLING_MAGURO_JP, 95 },
+      { Fix.BEAUTY_SEA_LILY, 96 },
+      { Fix.BEAUTY_SEA_LILY_JP, 96 },
+      { Fix.LIMBER_SEAEAGLE, 97 },
+      { Fix.LIMBER_SEAEAGLE_JP, 97 },
+      { Fix.FLUFFY_CORAL, 98 },
+      { Fix.FLUFFY_CORAL_JP, 98 },
+      { Fix.BLACK_OCTOPUS, 99 },
+      { Fix.BLACK_OCTOPUS_JP, 99 },
+      { Fix.STEAL_SQUID, 100 },
+      { Fix.STEAL_SQUID_JP, 100 },
+      { Fix.PROUD_VIKING, 101 },
+      { Fix.PROUD_VIKING_JP, 101 },
+      { Fix.GAN_GAME, 102 },
+      { Fix.GAN_GAME_JP, 102 },
+      { Fix.JUMPING_KAMASU, 103 },
+      { Fix.JUMPING_KAMASU_JP, 103 },
+      { Fix.RECKLESS_WALRUS, 104 },
+      { Fix.RECKLESS_WALRUS_JP, 104 },
+      { Fix.WRECHED_ANEMONE, 105 },
+      { Fix.WRECHED_ANEMONE_JP, 105 },
+      { Fix.DEEPSEA_HAND, 106 },
+      { Fix.DEEPSEA_HAND_JP, 106 },
+      { Fix.ASSULT_SERPENT, 107 },
+      { Fix.ASSULT_SERPENT_JP, 107 },
+      { Fix.GIANT_SEA_SPIDER, 108 },
+      { Fix.GIANT_SEA_SPIDER_JP, 108 },
+      { Fix.ESCORT_HERMIT_CLUB, 109 },
+      { Fix.ESCORT_HERMIT_CLUB_JP, 109 },
+      { Fix.MOGUL_MANTA, 110 },
+      { Fix.MOGUL_MANTA_JP, 110 },
+      { Fix.GLUTTONY_COELACANTH, 111 },
+      { Fix.GLUTTONY_COELACANTH_JP, 111 },
+      { Fix.FEROCIOUS_WHALE, 112 },
+      { Fix.FEROCIOUS_WHALE_JP, 112 },
+      { Fix.WEEPING_MIST, 113 },
+      { Fix.WEEPING_MIST_JP, 113 },
+      { Fix.AMBUSH_ANGLERFISH, 114 },
+      { Fix.AMBUSH_ANGLERFISH_JP, 114 },
+      { Fix.EMERALD_LOBSTER, 115 },
+      { Fix.EMERALD_LOBSTER_JP, 115 },
+      { Fix.STICKY_STARFISH, 116 },
+      { Fix.STICKY_STARFISH_JP, 116 },
+      { Fix.RAMPAGE_BIGSHARK, 117 },
+      { Fix.RAMPAGE_BIGSHARK_JP, 117 },
+      { Fix.BIGMOUSE_JOE, 118 },
+      { Fix.BIGMOUSE_JOE_JP, 118 },
+      { Fix.SEA_STAR_KNIGHT, 119 },
+      { Fix.SEA_STAR_KNIGHT_JP, 119 },
+      { Fix.SEA_ELEMENTAL, 120 },
+      { Fix.SEA_ELEMENTAL_JP, 120 },
+      { Fix.EDGED_HIGH_SHARK, 121 },
+      { Fix.EDGED_HIGH_SHARK_JP, 121 },
+      { Fix.THOUGHTFUL_NAUTILUS, 122 },
+      { Fix.THOUGHTFUL_NAUTILUS_JP, 122 },
+      { Fix.GHOST_SHIP, 123 },
+      { Fix.GHOST_SHIP_JP, 123 },
+      { Fix.DEFENSIVE_DATSU, 124 },
+      { Fix.DEFENSIVE_DATSU_JP, 124 },
+      { Fix.SEA_SONG_MARMAID, 125 },
+      { Fix.SEA_SONG_MARMAID_JP, 125 },
+      { Fix.PHANTOM_HUNTER, 126 },
+      { Fix.PHANTOM_HUNTER_JP, 126 },
+      { Fix.BEAST_MASTER, 127 },
+      { Fix.BEAST_MASTER_JP, 127 },
+      { Fix.ELDER_ASSASSIN, 128 },
+      { Fix.ELDER_ASSASSIN_JP, 128 },
+      { Fix.FALLEN_SEEKER, 129 },
+      { Fix.FALLEN_SEEKER_JP, 129 },
+      { Fix.MEPHISTO_RIGHTARM, 130 },
+      { Fix.MEPHISTO_RIGHTARM_JP, 130 },
+      { Fix.POWERED_STEAM_BOW, 131 },
+      { Fix.POWERED_STEAM_BOW_JP, 131 },
+      { Fix.DARK_MESSENGER, 132 },
+      { Fix.DARK_MESSENGER_JP, 132 },
+      { Fix.MASTER_LORD, 133 },
+      { Fix.MASTER_LORD_JP, 133 },
+      { Fix.EXECUTIONER, 134 },
+      { Fix.EXECUTIONER_JP, 134 },
+      { Fix.MARIONETTE_NEMESIS, 135 },
+      { Fix.MARIONETTE_NEMESIS_JP, 135 },
+      { Fix.BLACKFIRE_MASTER_BLADE, 136 },
+      { Fix.BLACKFIRE_MASTER_BLADE_JP, 136 },
+      { Fix.SIN_THE_DARKELF, 137 },
+      { Fix.SIN_THE_DARKELF_JP, 137 },
+      { Fix.IMPERIAL_KNIGHT, 138 },
+      { Fix.IMPERIAL_KNIGHT_JP, 138 },
+      { Fix.SUN_STRIDER, 139 },
+      { Fix.SUN_STRIDER_JP, 139 },
+      { Fix.BALANCE_IDLE, 140 },
+      { Fix.BALANCE_IDLE_JP, 140 },
+      { Fix.ARCHDEMON, 141 },
+      { Fix.ARCHDEMON_JP, 141 },
+      { Fix.UNDEAD_WYVERN, 142 },
+      { Fix.UNDEAD_WYVERN_JP, 142 },
+      { Fix.GO_FLAME_SLASHER, 143 },
+      { Fix.GO_FLAME_SLASHER_JP, 143 },
+      { Fix.DEVIL_CHILDREN, 144 },
+      { Fix.DEVIL_CHILDREN_JP, 144 },
+      { Fix.ANCIENT_DISK, 145 },
+      { Fix.ANCIENT_DISK_JP, 145 },
+      { Fix.HOWLING_HORROR, 146 },
+      { Fix.HOWLING_HORROR_JP, 146 },
+      { Fix.PAIN_ANGEL, 147 },
+      { Fix.PAIN_ANGEL_JP, 147 },
+      { Fix.CHAOS_WARDEN, 148 },
+      { Fix.CHAOS_WARDEN_JP, 148 },
+      { Fix.HELL_DREAD_KNIGHT, 149 },
+      { Fix.HELL_DREAD_KNIGHT_JP, 149 },
+      { Fix.DOOM_BRINGER, 150 },
+      { Fix.DOOM_BRINGER_JP, 150 },
+      { Fix.BLACK_LIGHTNING_SPHERE, 151 },
+      { Fix.BLACK_LIGHTNING_SPHERE_JP, 151 },
+      { Fix.DISTORTED_SENSOR, 152 },
+      { Fix.DISTORTED_SENSOR_JP, 152 },
+      { Fix.ELDER_BAPHOMET, 153 },
+      { Fix.ELDER_BAPHOMET_JP, 153 },
+      { Fix.WIND_BREAKER, 154 },
+      { Fix.WIND_BREAKER_JP, 154 },
+      { Fix.HOLLOW_SPECTOR, 155 },
+      { Fix.HOLLOW_SPECTOR_JP, 155 },
+      { Fix.VENERABLE_WIZARD, 156 },
+      { Fix.VENERABLE_WIZARD_JP, 156 },
+      { Fix.UNKNOWN_FLOATING_BALL, 157 },
+      { Fix.UNKNOWN_FLOATING_BALL_JP, 157 },
+      { Fix.PHOENIX, 158 },
+      { Fix.PHOENIX_JP, 158 },
+      { Fix.NINE_TAIL, 159 },
+      { Fix.NINE_TAIL_JP, 159 },
+      { Fix.MEPHISTOPHELES, 160 },
+      { Fix.MEPHISTOPHELES_JP, 160 },
+      { Fix.JUDGEMENT, 161 },
+      { Fix.JUDGEMENT_JP, 161 },
+      { Fix.EMERALD_DRAGON, 162 },
+      { Fix.EMERALD_DRAGON_JP, 162 },
+      { Fix.TIAMAT, 163 },
+      { Fix.TIAMAT_JP, 163 },
+    };
+    int currentExp = 16; // ベース値は16
+    int additionalExp = 0; // ベース値は0
+    for (int ii = 0; ii < factorExp.Count; ii++)
+    {
+      additionalExp += factorExp[ii];
+      currentExp += additionalExp;
+      expList.Add(currentExp);
+    }
+
     List<string> list = new List<string>();
     switch (character_name)
     {
       #region "エスミリア草原区域"
       case Fix.TINY_MANTIS:
       case Fix.TINY_MANTIS_JP:
-        SetupParameter(15, 2, 1, 2, 3, 4, 16, 12);
+        SetupParameter(15, 2, 1, 2, 3, 4, expList[GetIndexValue(indexMap, character_name)], 12);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HIKKAKI);
         this.Rare = Fix.RareString.Black;
@@ -7264,7 +7614,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GREEN_SLIME:
       case Fix.GREEN_SLIME_JP:
-        SetupParameter(2, 2, 15, 2, 3, 8, 19, 14);
+        SetupParameter(2, 2, 15, 2, 3, 8, expList[GetIndexValue(indexMap, character_name)], 14);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_GREEN_NENEKI);
         this.Rare = Fix.RareString.Black;
@@ -7274,7 +7624,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MANDRAGORA:
       case Fix.MANDRAGORA_JP:
-        SetupParameter(2, 4, 18, 3, 3, 5, 21, 17);
+        SetupParameter(2, 4, 18, 3, 3, 5, expList[GetIndexValue(indexMap, character_name)], 17);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_KANAKIRI);
         this.Rare = Fix.RareString.Black;
@@ -7284,7 +7634,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.YOUNG_WOLF:
       case Fix.YOUNG_WOLF_JP:
-        SetupParameter(17, 5, 2, 4, 3, 7, 23, 19);
+        SetupParameter(17, 5, 2, 4, 3, 7, expList[GetIndexValue(indexMap, character_name)], 19);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WILD_CLAW);
         this.Rare = Fix.RareString.Black;
@@ -7294,7 +7644,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WILD_ANT:
       case Fix.WILD_ANT_JP:
-        SetupParameter(19, 4, 2, 6, 3, 2, 26, 22);
+        SetupParameter(19, 4, 2, 6, 3, 2, expList[GetIndexValue(indexMap, character_name)], 22);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KAMITSUKI);
         this.Rare = Fix.RareString.Black;
@@ -7304,7 +7654,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.OLD_TREEFORK:
       case Fix.OLD_TREEFORK_JP:
-        SetupParameter(2, 4, 20, 7, 4, 4, 28, 24);
+        SetupParameter(2, 4, 20, 7, 4, 4, expList[GetIndexValue(indexMap, character_name)], 24);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_TREE_SONG);
         this.Rare = Fix.RareString.Black;
@@ -7314,7 +7664,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SUN_FLOWER:
       case Fix.SUN_FLOWER_JP:
-        SetupParameter(2, 6, 25, 4, 4, 3, 32, 28);
+        SetupParameter(2, 6, 25, 4, 4, 3, expList[GetIndexValue(indexMap, character_name)], 28);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SUN_FIRE);
         this.Rare = Fix.RareString.Black;
@@ -7324,7 +7674,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SOLID_BEETLE:
       case Fix.SOLID_BEETLE_JP:
-        SetupParameter(28, 6, 2, 9, 4, 6, 35, 29);
+        SetupParameter(28, 6, 2, 9, 4, 6, expList[GetIndexValue(indexMap, character_name)], 29);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TOSSHIN);
         this.Rare = Fix.RareString.Black;
@@ -7334,7 +7684,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SILENT_LADYBUG:
       case Fix.SILENT_LADYBUG_JP:
-        SetupParameter(2, 7, 27, 7, 4, 5, 37, 32);
+        SetupParameter(2, 7, 27, 7, 4, 5, expList[GetIndexValue(indexMap, character_name)], 32);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FEATHER_WING);
         this.Rare = Fix.RareString.Black;
@@ -7344,7 +7694,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.NIMBLE_RABBIT:
       case Fix.NIMBLE_RABBIT_JP:
-        SetupParameter(26, 9, 20, 8, 4, 1, 39, 34);
+        SetupParameter(26, 9, 20, 8, 4, 1, expList[GetIndexValue(indexMap, character_name)], 34);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DASH_KERI);
         this.Rare = Fix.RareString.Black;
@@ -7354,7 +7704,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ENTANGLED_VINE:
       case Fix.ENTANGLED_VINE_JP:
-        SetupParameter(37, 11, 15, 16, 5, 3, 42, 36);
+        SetupParameter(37, 11, 15, 16, 5, 3, expList[GetIndexValue(indexMap, character_name)], 36);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUITSUKU_TSUTA);
         this.Rare = Fix.RareString.Black;
@@ -7364,7 +7714,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.CREEPING_SPIDER:
       case Fix.CREEPING_SPIDER_JP:
-        SetupParameter(34, 12, 27, 14, 5, 8, 44, 39);
+        SetupParameter(34, 12, 27, 14, 5, 8, expList[GetIndexValue(indexMap, character_name)], 39);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SPIDER_NET);
         this.Rare = Fix.RareString.Black;
@@ -7374,7 +7724,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BLOOD_MOSS:
       case Fix.BLOOD_MOSS_JP:
-        SetupParameter(12, 10, 39, 12, 5, 5, 48, 42);
+        SetupParameter(12, 10, 39, 12, 5, 5, expList[GetIndexValue(indexMap, character_name)], 42);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_POISON_KOKE);
         this.Rare = Fix.RareString.Black;
@@ -7384,7 +7734,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.KILLER_BEE:
       case Fix.KILLER_BEE_JP:
-        SetupParameter(33, 18, 25, 12, 5, 9, 51, 45);
+        SetupParameter(33, 18, 25, 12, 5, 9, expList[GetIndexValue(indexMap, character_name)], 45);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
         this.Rare = Fix.RareString.Black;
@@ -7394,7 +7744,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WONDER_SEED:
       case Fix.WONDER_SEED_JP:
-        SetupParameter(26, 12, 37, 15, 5, 2, 54, 47);
+        SetupParameter(26, 12, 37, 15, 5, 2, expList[GetIndexValue(indexMap, character_name)], 47);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_FIRE_EMISSION);
         this.Rare = Fix.RareString.Black;
@@ -7404,7 +7754,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DAUNTLESS_HORSE:
       case Fix.DAUNTLESS_HORSE_JP:
-        SetupParameter(40, 15, 10, 20, 5, 1, 58, 52);
+        SetupParameter(40, 15, 10, 20, 5, 1, expList[GetIndexValue(indexMap, character_name)], 52);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPER_TOSSHIN);
         this.Rare = Fix.RareString.Black;
@@ -7427,7 +7777,7 @@ public partial class Character : MonoBehaviour
       #region "ゴラトラム洞窟"
       case Fix.DEBRIS_SOLDIER:
       case Fix.DEBRIS_SOLDIER_JP:
-        SetupParameter(45, 12, 20, 25, 7, 5, 112, 65);
+        SetupParameter(45, 12, 20, 25, 7, 5, expList[GetIndexValue(indexMap, character_name)], 65);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GAREKI_TSUBUTE);
         this.Rare = Fix.RareString.Black;
@@ -7437,7 +7787,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAGICAL_AUTOMATA:
       case Fix.MAGICAL_AUTOMATA_JP:
-        SetupParameter(15, 13, 48, 21, 7, 8, 126, 72);
+        SetupParameter(15, 13, 48, 21, 7, 8, expList[GetIndexValue(indexMap, character_name)], 72);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SHADOW_SPEAR);
         this.Rare = Fix.RareString.Black;
@@ -7447,7 +7797,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.KILLER_MACHINE:
       case Fix.KILLER_MACHINE_JP:
-        SetupParameter(49, 15, 16, 23, 7, 4, 137, 76);
+        SetupParameter(49, 15, 16, 23, 7, 4, expList[GetIndexValue(indexMap, character_name)], 76);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_MIDARE_GIRI);
         this.Rare = Fix.RareString.Black;
@@ -7457,7 +7807,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STINKY_BAT:
       case Fix.STINKY_BAT_JP:
-        SetupParameter(47, 16, 23, 20, 7, 7, 140, 78);
+        SetupParameter(47, 16, 23, 20, 7, 7, expList[GetIndexValue(indexMap, character_name)], 78);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STINKY_BREATH);
         this.Rare = Fix.RareString.Black;
@@ -7467,7 +7817,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ANTIQUE_MIRROR:
       case Fix.ANTIQUE_MIRROR_JP:
-        SetupParameter(22, 14, 52, 24, 7, 6, 145, 81);
+        SetupParameter(22, 14, 52, 24, 7, 6, expList[GetIndexValue(indexMap, character_name)], 81);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_MIRROR_SHIELD);
         this.Rare = Fix.RareString.Black;
@@ -7477,7 +7827,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MECH_HAND:
       case Fix.MECH_HAND_JP:
-        SetupParameter(54, 17, 29, 38, 7, 6, 145, 86);
+        SetupParameter(54, 17, 29, 38, 7, 6, expList[GetIndexValue(indexMap, character_name)], 86);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HAND_CANNON);
         this.Rare = Fix.RareString.Black;
@@ -7487,7 +7837,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ABSENCE_MOAI:
       case Fix.ABSENCE_MOAI_JP:
-        SetupParameter(55, 13, 55, 50, 7, 2, 163, 99);
+        SetupParameter(55, 13, 55, 50, 7, 2, expList[GetIndexValue(indexMap, character_name)], 99);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SAIMIN_DANCE);
         list.Add(Fix.COMMAND_TOSSHIN);
@@ -7498,7 +7848,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ACID_SCORPION:
       case Fix.ACID_SCORPION_JP:
-        SetupParameter(62, 20, 14, 43, 7, 3, 169, 101);
+        SetupParameter(62, 20, 14, 43, 7, 3, expList[GetIndexValue(indexMap, character_name)], 101);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POISON_NEEDLE);
         this.Rare = Fix.RareString.Black;
@@ -7508,7 +7858,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.NEJIMAKI_KNIGHT:
       case Fix.NEJIMAKI_KNIGHT_JP:
-        SetupParameter(59, 21, 28, 43, 7, 5, 174, 104);
+        SetupParameter(59, 21, 28, 43, 7, 5, expList[GetIndexValue(indexMap, character_name)], 104);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CHARGE_LANCE);
         this.Rare = Fix.RareString.Black;
@@ -7518,7 +7868,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.AIMING_SHOOTER:
       case Fix.AIMING_SHOOTER_JP:
-        SetupParameter(67, 22, 25, 46, 7, 9, 178, 108);
+        SetupParameter(67, 22, 25, 46, 7, 9, expList[GetIndexValue(indexMap, character_name)], 108);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SPIKE_SHOT);
         this.Rare = Fix.RareString.Black;
@@ -7529,7 +7879,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.CULT_BLACK_MAGICIAN:
       case Fix.CULT_BLACK_MAGICIAN_JP:
-        SetupParameter(33, 20, 62, 45, 7, 3, 181, 111);
+        SetupParameter(33, 20, 62, 45, 7, 3, expList[GetIndexValue(indexMap, character_name)], 111);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_JUBAKU_ON);
         this.Rare = Fix.RareString.Black;
@@ -7539,7 +7889,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STONE_GOLEM:
       case Fix.STONE_GOLEM_JP:
-        SetupParameter(78, 24, 30, 56, 8, 1, 186, 112);
+        SetupParameter(78, 24, 30, 56, 8, 1, expList[GetIndexValue(indexMap, character_name)], 112);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ZINARI);
         this.Rare = Fix.RareString.Black;
@@ -7549,7 +7899,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.JUNK_VULKAN:
       case Fix.JUNK_VULKAN_JP:
-        SetupParameter(75, 28, 42, 50, 8, 8, 196, 117);
+        SetupParameter(75, 28, 42, 50, 8, 8, expList[GetIndexValue(indexMap, character_name)], 117);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BOUHATSU);
         this.Rare = Fix.RareString.Black;
@@ -7559,7 +7909,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.LIGHTNING_CLOUD:
       case Fix.LIGHTNING_CLOUD_JP:
-        SetupParameter(30, 25, 75, 52, 8, 5, 201, 123);
+        SetupParameter(30, 25, 75, 52, 8, 5, expList[GetIndexValue(indexMap, character_name)], 123);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_THUNDER_CLOUD);
         this.Rare = Fix.RareString.Black;
@@ -7569,7 +7919,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SILENT_GARGOYLE:
       case Fix.SILENT_GARGOYLE_JP:
-        SetupParameter(75, 30, 55, 48, 8, 6, 205, 131);
+        SetupParameter(75, 30, 55, 48, 8, 6, expList[GetIndexValue(indexMap, character_name)], 131);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SURUDOI_HIKKAKI);
         this.Rare = Fix.RareString.Black;
@@ -7579,7 +7929,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GATE_HOUND:
       case Fix.GATE_HOUND_JP:
-        SetupParameter(66, 29, 15, 53, 8, 4, 207, 135);
+        SetupParameter(66, 29, 15, 53, 8, 4, expList[GetIndexValue(indexMap, character_name)], 135);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HAGESHII_KAMITSUKI);
         this.Rare = Fix.RareString.Black;
@@ -7589,7 +7939,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.PLAY_FIRE_IMP:
       case Fix.PLAY_FIRE_IMP_JP:
-        SetupParameter(32, 27, 72, 49, 8, 7, 208, 137);
+        SetupParameter(32, 27, 72, 49, 8, 7, expList[GetIndexValue(indexMap, character_name)], 137);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BOLT_FRAME);
         this.Rare = Fix.RareString.Black;
@@ -7599,7 +7949,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WALKING_TIME_BOMB:
       case Fix.WALKING_TIME_BOMB_JP:
-        SetupParameter(70, 31, 70, 55, 8, 5, 215, 139);
+        SetupParameter(70, 31, 70, 55, 8, 5, expList[GetIndexValue(indexMap, character_name)], 139);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BOOOOMB);
         this.Rare = Fix.RareString.Black;
@@ -7609,7 +7959,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EARTH_ELEMENTAL:
       case Fix.EARTH_ELEMENTAL_JP:
-        SetupParameter(55, 32, 82, 60, 8, 3, 217, 144);
+        SetupParameter(55, 32, 82, 60, 8, 3, expList[GetIndexValue(indexMap, character_name)], 144);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_STONE_RAIN);
         this.Rare = Fix.RareString.Black;
@@ -7619,7 +7969,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DEATH_DRONE:
       case Fix.DEATH_DRONE_JP:
-        SetupParameter(81, 36, 32, 58, 8, 1, 220, 150);
+        SetupParameter(81, 36, 32, 58, 8, 1, expList[GetIndexValue(indexMap, character_name)], 150);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TARGETTING_SHOT);
         this.Rare = Fix.RareString.Black;
@@ -7629,7 +7979,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ASSULT_SCARECROW:
       case Fix.ASSULT_SCARECROW_JP:
-        SetupParameter(86, 34, 37, 61, 8, 5, 224, 153);
+        SetupParameter(86, 34, 37, 61, 8, 5, expList[GetIndexValue(indexMap, character_name)], 153);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POWERED_ATTACK);
         this.Rare = Fix.RareString.Black;
@@ -7639,7 +7989,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAD_DOCTOR:
       case Fix.MAD_DOCTOR_JP:
-        SetupParameter(35, 35, 80, 63, 8, 2, 229, 158);
+        SetupParameter(35, 35, 80, 63, 8, 2, expList[GetIndexValue(indexMap, character_name)], 158);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SUSPICIOUS_VIAL);
         this.Rare = Fix.RareString.Black;
@@ -7665,7 +8015,7 @@ public partial class Character : MonoBehaviour
       #region "神秘の森"
       case Fix.CHARGED_BOAR:
       case Fix.CHARGED_BOAR_JP:
-        SetupParameter(106, 50, 30, 115, 10, 8, 460, 280);
+        SetupParameter(106, 50, 30, 115, 10, 8, expList[GetIndexValue(indexMap, character_name)], 280);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPER_TOSSHIN);
         this.Rare = Fix.RareString.Black;
@@ -7675,7 +8025,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WOOD_ELF:
       case Fix.WOOD_ELF_JP:
-        SetupParameter(95, 55, 102, 108, 10, 4, 476, 288);
+        SetupParameter(95, 55, 102, 108, 10, 4, expList[GetIndexValue(indexMap, character_name)], 288);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WILD_STORM);
         this.Rare = Fix.RareString.Black;
@@ -7685,7 +8035,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STINKED_SPORE:
       case Fix.STINKED_SPORE_JP:
-        SetupParameter(65, 47, 98, 120, 10, 3, 491, 296);
+        SetupParameter(65, 47, 98, 120, 10, 3, expList[GetIndexValue(indexMap, character_name)], 296);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_YOUKAIEKI);
         this.Rare = Fix.RareString.Black;
@@ -7696,7 +8046,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.POISON_FLOG:
       case Fix.POISON_FLOG_JP:
-        SetupParameter(101, 53, 71, 112, 10, 9, 512, 302);
+        SetupParameter(101, 53, 71, 112, 10, 9, expList[GetIndexValue(indexMap, character_name)], 302);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_POISON_TONGUE);
         this.Rare = Fix.RareString.Black;
@@ -7706,7 +8056,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GIANT_SNAKE:
       case Fix.GIANT_SNAKE_JP:
-        SetupParameter(109, 52, 68, 117, 10, 1, 527, 313);
+        SetupParameter(109, 52, 68, 117, 10, 1, expList[GetIndexValue(indexMap, character_name)], 313);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONSTRICT);
         this.Rare = Fix.RareString.Black;
@@ -7716,7 +8066,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SAVAGE_BEAR:
       case Fix.SAVAGE_BEAR_JP:
-        SetupParameter(140, 65, 77, 193, 14, 6, 685, 412);
+        SetupParameter(140, 65, 77, 193, 14, 6, expList[GetIndexValue(indexMap, character_name)], 412);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TAIATARI);
         this.Rare = Fix.RareString.Black;
@@ -7726,7 +8076,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.INNOCENT_FAIRY:
       case Fix.INNOCENT_FAIRY_JP:
-        SetupParameter(79, 70, 145, 160, 14, 7, 702, 427);
+        SetupParameter(79, 70, 145, 160, 14, 7, expList[GetIndexValue(indexMap, character_name)], 427);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WINDFLARE);
         this.Rare = Fix.RareString.Black;
@@ -7736,7 +8086,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SPEEDY_FALCON:
       case Fix.SPEEDY_FALCON_JP:
-        SetupParameter(132, 76, 105, 182, 14, 9, 716, 438);
+        SetupParameter(132, 76, 105, 182, 14, 9, expList[GetIndexValue(indexMap, character_name)], 438);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
         this.Rare = Fix.RareString.Black;
@@ -7746,7 +8096,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MYSTIC_DRYAD:
       case Fix.MYSTIC_DRYAD_JP:
-        SetupParameter(90, 72, 151, 190, 14, 4, 727, 450);
+        SetupParameter(90, 72, 151, 190, 14, 4, expList[GetIndexValue(indexMap, character_name)], 450);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_EARTHBOLT);
         this.Rare = Fix.RareString.Black;
@@ -7756,7 +8106,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WOLF_HUNTER:
       case Fix.WOLF_HUNTER_JP:
-        SetupParameter(143, 78, 110, 206, 14, 1, 740, 466);
+        SetupParameter(143, 78, 110, 206, 14, 1, expList[GetIndexValue(indexMap, character_name)], 466);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SILENT_SHOT);
         this.Rare = Fix.RareString.Black;
@@ -7766,7 +8116,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FOREST_PHANTOM:
       case Fix.FOREST_PHANTOM_JP:
-        SetupParameter(120, 80, 155, 211, 14, 6, 772, 481);
+        SetupParameter(120, 80, 155, 211, 14, 6, expList[GetIndexValue(indexMap, character_name)], 481);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_PHANTOM_SONG);
         this.Rare = Fix.RareString.Black;
@@ -7776,7 +8126,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EXCITED_ELEPHANT:
       case Fix.EXCITED_ELEPHANT_JP:
-        SetupParameter(165, 86, 122, 277, 17, 8, 788, 516);
+        SetupParameter(165, 86, 122, 277, 17, 8, expList[GetIndexValue(indexMap, character_name)], 516);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ENRAGE);
         this.Rare = Fix.RareString.Black;
@@ -7786,7 +8136,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SYLPH_DANCER:
       case Fix.SYLPH_DANCER_JP:
-        SetupParameter(126, 90, 169, 262, 17, 2, 792, 530);
+        SetupParameter(126, 90, 169, 262, 17, 2, expList[GetIndexValue(indexMap, character_name)], 530);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SPLASH_HARMONY);
         this.Rare = Fix.RareString.Black;
@@ -7796,7 +8146,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GATHERING_LAPTOR:
       case Fix.GATHERING_LAPTOR_JP:
-        SetupParameter(172, 88, 134, 278, 17, 5, 804, 543);
+        SetupParameter(172, 88, 134, 278, 17, 5, expList[GetIndexValue(indexMap, character_name)], 543);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_RANBOU_CHARGE);
         this.Rare = Fix.RareString.Black;
@@ -7806,7 +8156,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.RAGE_TIGER:
       case Fix.RAGE_TIGER_JP:
-        SetupParameter(181, 92, 140, 269, 17, 7, 821, 561);
+        SetupParameter(181, 92, 140, 269, 17, 7, expList[GetIndexValue(indexMap, character_name)], 561);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BEAST_STRIKE);
         this.Rare = Fix.RareString.Black;
@@ -7816,7 +8166,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THORN_WARRIOR:
       case Fix.THORN_WARRIOR_JP:
-        SetupParameter(177, 87, 141, 269, 17, 2, 839, 575);
+        SetupParameter(177, 87, 141, 269, 17, 2, expList[GetIndexValue(indexMap, character_name)], 575);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KONSHIN_TOKKAN);
         this.Rare = Fix.RareString.Black;
@@ -7826,7 +8176,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MUDDLED_PLANT:
       case Fix.MUDDLED_PLANT_JP:
-        SetupParameter(155, 84, 177, 285, 17, 4, 853, 589);
+        SetupParameter(155, 84, 177, 285, 17, 4, expList[GetIndexValue(indexMap, character_name)], 589);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_HUHAI_SINKOU);
         this.Rare = Fix.RareString.Black;
@@ -7836,7 +8186,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FLANSIS_KNIGHT:
       case Fix.FLANSIS_KNIGHT_JP:
-        SetupParameter(196, 101, 142, 316, 20, 7, 910, 650);
+        SetupParameter(196, 101, 142, 316, 20, 7, expList[GetIndexValue(indexMap, character_name)], 650);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STRONG_SLASH);
         this.Rare = Fix.RareString.Black;
@@ -7846,7 +8196,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MIST_PYTHON:
       case Fix.MIST_PYTHON_JP:
-        SetupParameter(149, 106, 188, 305, 20, 1, 923, 667);
+        SetupParameter(149, 106, 188, 305, 20, 1, expList[GetIndexValue(indexMap, character_name)], 667);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SHADOW_MIST);
         this.Rare = Fix.RareString.Black;
@@ -7856,7 +8206,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.TOWERING_ENT:
       case Fix.TOWERING_ENT_JP:
-        SetupParameter(186, 99, 147, 327, 20, 3, 940, 681);
+        SetupParameter(186, 99, 147, 327, 20, 3, expList[GetIndexValue(indexMap, character_name)], 681);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ROCK_THROW);
         this.Rare = Fix.RareString.Black;
@@ -7866,7 +8216,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.POISON_MARY:
       case Fix.POISON_MARY_JP:
-        SetupParameter(153, 104, 196, 312, 20, 6, 955, 699);
+        SetupParameter(153, 104, 196, 312, 20, 6, expList[GetIndexValue(indexMap, character_name)], 699);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_YOUEN_KISS);
         list.Add(Fix.COMMAND_POISON_SPORE);
@@ -7877,7 +8227,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DISTURB_RHINO:
       case Fix.DISTURB_RHINO_JP:
-        SetupParameter(206, 97, 133, 336, 20, 8, 988, 704);
+        SetupParameter(206, 97, 133, 336, 20, 8, expList[GetIndexValue(indexMap, character_name)], 704);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GROUND_RUMBLE);
         this.Rare = Fix.RareString.Black;
@@ -7904,7 +8254,7 @@ public partial class Character : MonoBehaviour
       #region "オーランの塔"
       case Fix.WISDOM_CENTAURUS:
       case Fix.WISDOM_CENTAURUS_JP:
-        SetupParameter(286, 135, 228, 542, 25, 2, 1957, 1423);
+        SetupParameter(286, 135, 228, 542, 25, 2, expList[GetIndexValue(indexMap, character_name)], 1423);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.WORD_OF_POWER);
         this.Rare = Fix.RareString.Black;
@@ -7914,7 +8264,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SWIFT_EAGLE:
       case Fix.SWIFT_EAGLE_JP:
-        SetupParameter(250, 149, 207, 498, 25, 7, 2021, 1566);
+        SetupParameter(250, 149, 207, 498, 25, 7, expList[GetIndexValue(indexMap, character_name)], 1566);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WING_BLADE);
         this.Rare = Fix.RareString.Black;
@@ -7924,7 +8274,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EASTERN_GOLEM:
       case Fix.EASTERN_GOLEM_JP:
-        SetupParameter(320, 120, 170, 580, 25, 5, 2208, 1629);
+        SetupParameter(320, 120, 170, 580, 25, 5, expList[GetIndexValue(indexMap, character_name)], 1629);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STONE_BLAW);
         this.Rare = Fix.RareString.Black;
@@ -7934,7 +8284,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WESTERN_GOLEM:
       case Fix.WESTERN_GOLEM_JP:
-        SetupParameter(320, 120, 170, 580, 25, 5, 2208, 1629);
+        SetupParameter(320, 120, 170, 580, 25, 5, expList[GetIndexValue(indexMap, character_name)], 1629);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HUMIOROSI);
         this.Rare = Fix.RareString.Black;
@@ -7944,7 +8294,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WIND_ELEMENTAL:
       case Fix.WIND_ELEMENTAL_JP:
-        SetupParameter(262, 143, 289, 564, 25, 3, 2384, 1742);
+        SetupParameter(262, 143, 289, 564, 25, 3, expList[GetIndexValue(indexMap, character_name)], 1742);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SQUALL_LIGHTNING);
         this.Rare = Fix.RareString.Black;
@@ -7954,7 +8304,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SKY_KNIGHT:
       case Fix.SKY_KNIGHT_JP:
-        SetupParameter(388, 162, 245, 623, 30, 8, 2531, 1836);
+        SetupParameter(388, 162, 245, 623, 30, 8, expList[GetIndexValue(indexMap, character_name)], 1836);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SIPPUUKEN);
         this.Rare = Fix.RareString.Black;
@@ -7964,7 +8314,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_PURPLE_HIKARIGOKE:
       case Fix.THE_PURPLE_HIKARIGOKE_JP:
-        SetupParameter(299, 151, 382, 607, 30, 9, 2665, 1947);
+        SetupParameter(299, 151, 382, 607, 30, 9, expList[GetIndexValue(indexMap, character_name)], 1947);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BRIGHTNESS_RINPUN);
         this.Rare = Fix.RareString.Black;
@@ -7974,7 +8324,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MYSTICAL_UNICORN:
       case Fix.MYSTICAL_UNICORN_JP:
-        SetupParameter(369, 170, 310, 631, 30, 4, 2853, 2051);
+        SetupParameter(369, 170, 310, 631, 30, 4, expList[GetIndexValue(indexMap, character_name)], 2051);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SHIROGANE_HORN);
         list.Add(Fix.COMMAND_TOSSHIN);
@@ -7985,7 +8335,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.TRIAL_HERMIT:
       case Fix.TRIAL_HERMIT_JP:
-        SetupParameter(324, 167, 398, 611, 30, 5, 3013, 2116);
+        SetupParameter(324, 167, 398, 611, 30, 5, expList[GetIndexValue(indexMap, character_name)], 2116);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_VISIBLE_EYE);
         list.Add(Fix.COMMAND_INVISIBLE_EYE);
@@ -7996,7 +8346,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STORM_BIRDMAN:
       case Fix.STORM_BIRDMAN_JP:
-        SetupParameter(353, 189, 322, 623, 30, 1, 3164, 2231);
+        SetupParameter(353, 189, 322, 623, 30, 1, expList[GetIndexValue(indexMap, character_name)], 2231);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
         list.Add(Fix.COMMAND_WIND_CUTTER);
@@ -8007,7 +8357,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_BLUE_LAVA_EYE:
       case Fix.THE_BLUE_LAVA_EYE_JP:
-        SetupParameter(318, 174, 407, 643, 30, 2, 3308, 2412);
+        SetupParameter(318, 174, 407, 643, 30, 2, expList[GetIndexValue(indexMap, character_name)], 2412);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BLUE_LAVA);
         list.Add(Fix.COMMAND_BLUE_BUBBLE);
@@ -8018,7 +8368,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THE_WHITE_LAVA_EYE:
       case Fix.THE_WHITE_LAVA_EYE_JP:
-        SetupParameter(318, 174, 407, 643, 30, 2, 3308, 2412);
+        SetupParameter(318, 174, 407, 643, 30, 2, expList[GetIndexValue(indexMap, character_name)], 2412);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WHITE_LAVA);
         list.Add(Fix.COMMAND_WHITE_BUBBLE);
@@ -8029,7 +8379,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FLYING_CURTAIN:
       case Fix.FLYING_CURTAIN_JP:
-        SetupParameter(333, 202, 451, 688, 35, 4, 3519, 2677);
+        SetupParameter(333, 202, 451, 688, 35, 4, expList[GetIndexValue(indexMap, character_name)], 2677);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_REFLECTION_SHADE);
         list.Add(Fix.COMMAND_ICHIMAI_GUARDWALL);
@@ -8040,7 +8390,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.LUMINOUS_HAWK:
       case Fix.LUMINOUS_HAWK_JP:
-        SetupParameter(427, 228, 329, 705, 35, 8, 3665, 2879);
+        SetupParameter(427, 228, 329, 705, 35, 8, expList[GetIndexValue(indexMap, character_name)], 2879);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_MULTIPLE_FEATHER);
         list.Add(Fix.COMMAND_BRIGHT_FLASH);
@@ -8051,7 +8401,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.AETHER_GUST:
       case Fix.AETHER_GUST_JP:
-        SetupParameter(341, 219, 443, 711, 35, 7, 3784, 2992);
+        SetupParameter(341, 219, 443, 711, 35, 7, expList[GetIndexValue(indexMap, character_name)], 2992);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CYCLONE_SHOT);
         list.Add(Fix.COMMAND_MORPH_VANISH);
@@ -8062,7 +8412,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WHIRLWIND_KITSUNE:
       case Fix.WHIRLWIND_KITSUNE_JP:
-        SetupParameter(448, 224, 448, 733, 35, 9, 3911, 3046);
+        SetupParameter(448, 224, 448, 733, 35, 9, expList[GetIndexValue(indexMap, character_name)], 3046);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ROD_AGARTHA);
         list.Add(Fix.COMMAND_SWORD_MAHOROBA);
@@ -8073,7 +8423,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THUNDER_LION:
       case Fix.THUNDER_LION_JP:
-        SetupParameter(457, 239, 432, 746, 35, 5, 4026, 3113);
+        SetupParameter(457, 239, 432, 746, 35, 5, expList[GetIndexValue(indexMap, character_name)], 3113);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_FEROCIOUS_THUNDER);
         list.Add(Fix.COMMAND_RAGING_CLAW);
@@ -8084,7 +8434,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SAINT_PEGASUS:
       case Fix.SAINT_PEGASUS_JP:
-        SetupParameter(387, 231, 451, 757, 35, 2, 4129, 3297);
+        SetupParameter(387, 231, 451, 757, 35, 2, expList[GetIndexValue(indexMap, character_name)], 3297);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CLEANSING_LIGHT);
         list.Add(Fix.COMMAND_FAITH_SIGHT);
@@ -8095,7 +8445,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DREAM_WALKER:
       case Fix.DREAM_WALKER_JP:
-        SetupParameter(456, 235, 395, 763, 35, 3, 4297, 3418);
+        SetupParameter(456, 235, 395, 763, 35, 3, expList[GetIndexValue(indexMap, character_name)], 3418);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SAMAYOU_HAND);
         list.Add(Fix.COMMAND_SEIIN_FOOTPRINT);
@@ -8121,7 +8471,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.IVORY_STATUE:
       case Fix.IVORY_STATUE_JP:
-        SetupParameter(546, 265, 411, 820, 40, 9, 4438, 3610);
+        SetupParameter(546, 265, 411, 820, 40, 9, expList[GetIndexValue(indexMap, character_name)], 3610);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_OVERRUN);
         list.Add(Fix.COMMAND_GLARE);
@@ -8132,7 +8482,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STUBBORN_SAGE:
       case Fix.STUBBORN_SAGE_JP:
-        SetupParameter(433, 275, 557, 832, 40, 9, 4438, 3610);
+        SetupParameter(433, 275, 557, 832, 40, 9, expList[GetIndexValue(indexMap, character_name)], 3610);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_ARC_BLASTER);
         list.Add(Fix.COMMAND_DRAGON_BREATH);
@@ -8143,7 +8493,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BOMB_BALLON:
       case Fix.BOMB_BALLON_JP:
-        SetupParameter(539, 281, 427, 816, 40, 3, 4818, 3889);
+        SetupParameter(539, 281, 427, 816, 40, 3, expList[GetIndexValue(indexMap, character_name)], 3889);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_RENZOKU_BAKUHATSU);
         list.Add(Fix.COMMAND_AIUCHI_NERAI);
@@ -8154,7 +8504,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.OBSERVANT_HERALD:
       case Fix.OBSERVANT_HERALD_JP:
-        SetupParameter(528, 298, 432, 824, 40, 6, 5066, 4022);
+        SetupParameter(528, 298, 432, 824, 40, 6, expList[GetIndexValue(indexMap, character_name)], 4022);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HIDDEN_KNIFE);
         list.Add(Fix.COMMAND_MYSTICAL_FIELD);
@@ -8165,7 +8515,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.TOWER_SCOUT:
       case Fix.TOWER_SCOUT_JP:
-        SetupParameter(441, 286, 557, 836, 40, 2, 5284, 4146);
+        SetupParameter(441, 286, 557, 836, 40, 2, expList[GetIndexValue(indexMap, character_name)], 4146);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SEIKUU_GUARDWALL);
         list.Add(Fix.COMMAND_THUNDERCLOUD_INVASION);
@@ -8176,7 +8526,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MIST_SALVAGER:
       case Fix.MIST_SALVAGER_JP:
-        SetupParameter(453, 293, 564, 846, 40, 2, 5497, 4215);
+        SetupParameter(453, 293, 564, 846, 40, 2, expList[GetIndexValue(indexMap, character_name)], 4215);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_MIST_BARRIER);
         list.Add(Fix.COMMAND_SUN_SLAYER);
@@ -8187,7 +8537,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WINGSPAN_RANGER:
       case Fix.WINGSPAN_RANGER_JP:
-        SetupParameter(630, 329, 489, 927, 45, 4, 6218, 4467);
+        SetupParameter(630, 329, 489, 927, 45, 4, expList[GetIndexValue(indexMap, character_name)], 4467);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TRIPLE_TACTICS);
         list.Add(Fix.COMMAND_WIND_ARROW);
@@ -8198,7 +8548,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAJESTIC_CLOUD:
       case Fix.MAJESTIC_CLOUD_JP:
-        SetupParameter(497, 307, 641, 945, 45, 2, 6561, 4580);
+        SetupParameter(497, 307, 641, 945, 45, 2, expList[GetIndexValue(indexMap, character_name)], 4580);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_TYPHOON);
         list.Add(Fix.COMMAND_TAIKI_VANISH);
@@ -8209,7 +8559,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.HARDENED_GRIFFIN:
       case Fix.HARDENED_GRIFFIN_JP:
-        SetupParameter(646, 312, 470, 966, 45, 7, 6813, 4711);
+        SetupParameter(646, 312, 470, 966, 45, 7, expList[GetIndexValue(indexMap, character_name)], 4711);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HARD_CHARGE);
         list.Add(Fix.COMMAND_RAMPAGE);
@@ -8220,7 +8570,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.PRISMA_SPHERE:
       case Fix.PRISMA_SPHERE_JP:
-        SetupParameter(481, 317, 655, 973, 45, 5, 7019, 4853);
+        SetupParameter(481, 317, 655, 973, 45, 5, expList[GetIndexValue(indexMap, character_name)], 4853);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_ICE_BURN);
         list.Add(Fix.COMMAND_FROST_SHARD);
@@ -8231,7 +8581,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MOVING_CANNON:
       case Fix.MOVING_CANNON_JP:
-        SetupParameter(658, 319, 488, 981, 45, 6, 7267, 4979);
+        SetupParameter(658, 319, 488, 981, 45, 6, expList[GetIndexValue(indexMap, character_name)], 4979);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DOKAAAAN);
         list.Add(Fix.COMMAND_RENSYA);
@@ -8242,7 +8592,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.VEIL_FORTUNE_WIZARD:
       case Fix.VEIL_FORTUNE_WIZARD_JP:
-        SetupParameter(493, 315, 672, 998, 45, 9, 7493, 5111);
+        SetupParameter(493, 315, 672, 998, 45, 9, expList[GetIndexValue(indexMap, character_name)], 5111);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_ERRATIC_EXPLODE);
         list.Add(Fix.COMMAND_CYCLONE_FIELD);
@@ -8273,7 +8623,7 @@ public partial class Character : MonoBehaviour
       #region "ヴェルガスの海底神殿"
       case Fix.DAGGER_FISH:
       case Fix.DAGGER_FISH_JP:
-        SetupParameter(820, 380, 600, 1600, 70, 7, 9800, 6600);
+        SetupParameter(820, 380, 600, 1600, 70, 7, expList[GetIndexValue(indexMap, character_name)], 6600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WATER_GUN);
         this.Rare = Fix.RareString.Black;
@@ -8283,7 +8633,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FLOATING_MANTA:
       case Fix.FLOATING_MANTA_JP:
-        SetupParameter(610, 390, 820, 1680, 70, 2, 10200, 7100);
+        SetupParameter(610, 390, 820, 1680, 70, 2, expList[GetIndexValue(indexMap, character_name)], 7100);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WATER_DANCE);
         list.Add(Fix.COMMAND_WATER_SHOT);
@@ -8294,7 +8644,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SKYBLUE_BIRD:
       case Fix.SKYBLUE_BIRD_JP:
-        SetupParameter(710, 450, 730, 1550, 70, 6, 10600, 7600);
+        SetupParameter(710, 450, 730, 1550, 70, 6, expList[GetIndexValue(indexMap, character_name)], 7600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_CONTINUOUS_ATTACK);
         list.Add(Fix.COMMAND_SKY_FEATHER);
@@ -8305,7 +8655,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.RAINBOW_CLIONE:
       case Fix.RAINBOW_CLIONE_JP:
-        SetupParameter(630, 410, 840, 1740, 70, 9, 11000, 8200);
+        SetupParameter(630, 410, 840, 1740, 70, 9, expList[GetIndexValue(indexMap, character_name)], 8200);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_RAINBOW_BUBBLE);
         list.Add(Fix.COMMAND_WATER_CIRCLE);
@@ -8316,7 +8666,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ROLLING_MAGURO:
       case Fix.ROLLING_MAGURO_JP:
-        SetupParameter(850, 400, 550, 1960, 70, 5, 11500, 8800);
+        SetupParameter(850, 400, 550, 1960, 70, 5, expList[GetIndexValue(indexMap, character_name)], 8800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ROLLING_CHARGE);
         list.Add(Fix.COMMAND_JET_RUN);
@@ -8327,7 +8677,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BEAUTY_SEA_LILY:
       case Fix.BEAUTY_SEA_LILY_JP:
-        SetupParameter(600, 430, 860, 1800, 70, 8, 12100, 9500);
+        SetupParameter(600, 430, 860, 1800, 70, 8, expList[GetIndexValue(indexMap, character_name)], 9500);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_INVISIBLE_POISON);
         list.Add(Fix.COMMAND_BEAUTY_AROMA);
@@ -8353,7 +8703,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.LIMBER_SEAEAGLE:
       case Fix.LIMBER_SEAEAGLE_JP:
-        SetupParameter(920, 490, 900, 1900, 80, 8, 13000, 10500);
+        SetupParameter(920, 490, 900, 1900, 80, 8, expList[GetIndexValue(indexMap, character_name)], 10500);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_COLD_WIND);
         this.Rare = Fix.RareString.Black;
@@ -8363,7 +8713,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FLUFFY_CORAL:
       case Fix.FLUFFY_CORAL_JP:
-        SetupParameter(720, 450, 960, 2000, 80, 6, 13600, 11000);
+        SetupParameter(720, 450, 960, 2000, 80, 6, expList[GetIndexValue(indexMap, character_name)], 11000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_PARALYZE_TENTACLE);
         list.Add(Fix.COMMAND_SCREAMING_SOUND);
@@ -8374,7 +8724,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BLACK_OCTOPUS:
       case Fix.BLACK_OCTOPUS_JP:
-        SetupParameter(970, 480, 730, 2120, 80, 4, 14200, 11500);
+        SetupParameter(970, 480, 730, 2120, 80, 4, expList[GetIndexValue(indexMap, character_name)], 11500);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_KUROZUMI_FIELD);
         list.Add(Fix.COMMAND_HAGAIZIME);
@@ -8385,7 +8735,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STEAL_SQUID:
       case Fix.STEAL_SQUID_JP:
-        SetupParameter(760, 500, 990, 2360, 80, 1, 14800, 12000);
+        SetupParameter(760, 500, 990, 2360, 80, 1, expList[GetIndexValue(indexMap, character_name)], 12000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SOLID_SQUARE_WATER);
         list.Add(Fix.COMMAND_BRIGHT_EYE);
@@ -8396,7 +8746,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.PROUD_VIKING:
       case Fix.PROUD_VIKING_JP:
-        SetupParameter(980, 470, 750, 2420, 80, 4, 15500, 12600);
+        SetupParameter(980, 470, 750, 2420, 80, 4, expList[GetIndexValue(indexMap, character_name)], 12600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add("アクス・ドライバー");
         list.Add("アース・クラップ");
@@ -8407,7 +8757,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GAN_GAME:
       case Fix.GAN_GAME_JP:
-        SetupParameter(1000, 460, 710, 2480, 80, 3, 16200, 13200);
+        SetupParameter(1000, 460, 710, 2480, 80, 3, expList[GetIndexValue(indexMap, character_name)], 13200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STONE_KOURA);
         list.Add(Fix.COMMAND_DAIBOUSOU);
@@ -8418,7 +8768,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.JUMPING_KAMASU:
       case Fix.JUMPING_KAMASU_JP:
-        SetupParameter(740, 510, 950, 2370, 80, 8, 16900, 13800);
+        SetupParameter(740, 510, 950, 2370, 80, 8, expList[GetIndexValue(indexMap, character_name)], 13800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_JUMP_SMASH);
         list.Add(Fix.COMMAND_STRANGE_SPELL);
@@ -8429,7 +8779,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.RECKLESS_WALRUS:
       case Fix.RECKLESS_WALRUS_JP:
-        SetupParameter(990, 520, 730, 2530, 80, 5, 17600, 14400);
+        SetupParameter(990, 520, 730, 2530, 80, 5, expList[GetIndexValue(indexMap, character_name)], 14400);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_THROWING_CRASH);
         list.Add(Fix.COMMAND_BAIRIKI);
@@ -8455,7 +8805,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WRECHED_ANEMONE:
       case Fix.WRECHED_ANEMONE_JP:
-        SetupParameter(850, 550, 1050, 3200, 90, 7, 18500, 15600);
+        SetupParameter(850, 550, 1050, 3200, 90, 7, expList[GetIndexValue(indexMap, character_name)], 15600);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SCARLET_SEED);
         list.Add(Fix.COMMAND_POISON_GERMINATION);
@@ -8466,7 +8816,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DEEPSEA_HAND:
       case Fix.DEEPSEA_HAND_JP:
-        SetupParameter(1070, 570, 860, 3340, 90, 4, 19200, 16200);
+        SetupParameter(1070, 570, 860, 3340, 90, 4, expList[GetIndexValue(indexMap, character_name)], 16200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WAVE_SIGN);
         list.Add(Fix.COMMAND_SILENT_SIGN);
@@ -8477,7 +8827,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ASSULT_SERPENT:
       case Fix.ASSULT_SERPENT_JP:
-        SetupParameter(1080, 600, 870, 3480, 90, 5, 19900, 16800);
+        SetupParameter(1080, 600, 870, 3480, 90, 5, expList[GetIndexValue(indexMap, character_name)], 16800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HIKKAKI_CLAW);
         list.Add(Fix.COMMAND_BATTLE_DANCE);
@@ -8488,7 +8838,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GIANT_SEA_SPIDER:
       case Fix.GIANT_SEA_SPIDER_JP:
-        SetupParameter(880, 580, 1050, 3570, 90, 2, 20600, 17600);
+        SetupParameter(880, 580, 1050, 3570, 90, 2, expList[GetIndexValue(indexMap, character_name)], 17600);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_DRAIN_WEB);
         list.Add(Fix.COMMAND_SAND_SMOKE);
@@ -8499,7 +8849,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ESCORT_HERMIT_CLUB:
       case Fix.ESCORT_HERMIT_CLUB_JP:
-        SetupParameter(1000, 610, 1000, 3660, 90, 8, 21400, 18300);
+        SetupParameter(1000, 610, 1000, 3660, 90, 8, expList[GetIndexValue(indexMap, character_name)], 18300);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GUT_SLASH);
         list.Add(Fix.COMMAND_GUARDIAN_SONG);
@@ -8510,7 +8860,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MOGUL_MANTA:
       case Fix.MOGUL_MANTA_JP:
-        SetupParameter(890, 590, 1080, 3790, 90, 7, 22200, 19000);
+        SetupParameter(890, 590, 1080, 3790, 90, 7, expList[GetIndexValue(indexMap, character_name)], 19000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WATER_FLAPPING);
         list.Add(Fix.COMMAND_INVISIBLE_THREAD);
@@ -8521,7 +8871,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GLUTTONY_COELACANTH:
       case Fix.GLUTTONY_COELACANTH_JP:
-        SetupParameter(1130, 560, 910, 3980, 90, 6, 23000, 19700);
+        SetupParameter(1130, 560, 910, 3980, 90, 6, expList[GetIndexValue(indexMap, character_name)], 19700);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_INTENSE_BREATH);
         list.Add(Fix.COMMAND_BIG_SWIM);
@@ -8532,7 +8882,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FEROCIOUS_WHALE:
       case Fix.FEROCIOUS_WHALE_JP:
-        SetupParameter(1160, 600, 1160, 4100, 90, 9, 23800, 20400);
+        SetupParameter(1160, 600, 1160, 4100, 90, 9, expList[GetIndexValue(indexMap, character_name)], 20400);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ROAR);
         list.Add(Fix.COMMAND_BITING);
@@ -8557,7 +8907,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WEEPING_MIST:
       case Fix.WEEPING_MIST_JP:
-        SetupParameter(1020, 710, 1270, 5500, 100, 5, 25000, 21000);
+        SetupParameter(1020, 710, 1270, 5500, 100, 5, expList[GetIndexValue(indexMap, character_name)], 21000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_HOLLOW_MIST);
         list.Add(Fix.COMMAND_POLLUTED_POISON);
@@ -8568,7 +8918,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.AMBUSH_ANGLERFISH:
       case Fix.AMBUSH_ANGLERFISH_JP:
-        SetupParameter(1260, 720, 1030, 5600, 100, 7, 25900, 21800);
+        SetupParameter(1260, 720, 1030, 5600, 100, 7, expList[GetIndexValue(indexMap, character_name)], 21800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BUBBLE_BULLET);
         list.Add(Fix.COMMAND_AMBUSH_ATTACK);
@@ -8579,7 +8929,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EMERALD_LOBSTER:
       case Fix.EMERALD_LOBSTER_JP:
-        SetupParameter(1280, 740, 1040, 5700, 100, 3, 26800, 22600);
+        SetupParameter(1280, 740, 1040, 5700, 100, 3, expList[GetIndexValue(indexMap, character_name)], 22600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GROUND_THUNDER);
         list.Add(Fix.COMMAND_CONTINUOUS_CHARGE);
@@ -8590,7 +8940,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.STICKY_STARFISH:
       case Fix.STICKY_STARFISH_JP:
-        SetupParameter(1050, 730, 1290, 5550, 100, 9, 27700, 23400);
+        SetupParameter(1050, 730, 1290, 5550, 100, 9, expList[GetIndexValue(indexMap, character_name)], 23400);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_STAR_EMBLEM);
         list.Add(Fix.COMMAND_MUD_PISTOL);
@@ -8601,7 +8951,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.RAMPAGE_BIGSHARK:
       case Fix.RAMPAGE_BIGSHARK_JP:
-        SetupParameter(1300, 750, 1060, 6000, 100, 4, 28600, 24200);
+        SetupParameter(1300, 750, 1060, 6000, 100, 4, expList[GetIndexValue(indexMap, character_name)], 24200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_RIPPER_CLAW);
         list.Add(Fix.COMMAND_HIKICHIGIRI);
@@ -8612,7 +8962,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BIGMOUSE_JOE:
       case Fix.BIGMOUSE_JOE_JP:
-        SetupParameter(1200, 770, 1200, 5850, 100, 1, 29500, 25000);
+        SetupParameter(1200, 770, 1200, 5850, 100, 1, expList[GetIndexValue(indexMap, character_name)], 25000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_RUBBER_TONG);
         list.Add(Fix.COMMAND_SPANNING_SLASH);
@@ -8623,7 +8973,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SEA_STAR_KNIGHT:
       case Fix.SEA_STAR_KNIGHT_JP:
-        SetupParameter(1250, 760, 1150, 5800, 100, 2, 30400, 25800);
+        SetupParameter(1250, 760, 1150, 5800, 100, 2, expList[GetIndexValue(indexMap, character_name)], 25800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_STARSWORD_KAI);
         list.Add(Fix.COMMAND_SEASTAR_EYE);
@@ -8634,7 +8984,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SEA_ELEMENTAL:
       case Fix.SEA_ELEMENTAL_JP:
-        SetupParameter(1200, 800, 1420, 6500, 110, 8, 31400, 26700);
+        SetupParameter(1200, 800, 1420, 6500, 110, 8, expList[GetIndexValue(indexMap, character_name)], 26700);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_WATER_CANNON);
         list.Add(Fix.COMMAND_PROTECTION_SEAL);
@@ -8645,7 +8995,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EDGED_HIGH_SHARK:
       case Fix.EDGED_HIGH_SHARK_JP:
-        SetupParameter(1450, 810, 1220, 6650, 110, 3, 32400, 27600);
+        SetupParameter(1450, 810, 1220, 6650, 110, 3, expList[GetIndexValue(indexMap, character_name)], 27600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BLOODSHOT_EYE);
         list.Add(Fix.COMMAND_FRENZY_DRIVE);
@@ -8656,7 +9006,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.THOUGHTFUL_NAUTILUS:
       case Fix.THOUGHTFUL_NAUTILUS_JP:
-        SetupParameter(1230, 820, 1460, 6800, 110, 2, 33400, 28500);
+        SetupParameter(1230, 820, 1460, 6800, 110, 2, expList[GetIndexValue(indexMap, character_name)], 28500);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_THOUGHT_EATER);
         list.Add(Fix.COMMAND_VACUUM_SHOT);
@@ -8667,7 +9017,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GHOST_SHIP:
       case Fix.GHOST_SHIP_JP:
-        SetupParameter(1350, 830, 1350, 6880, 110, 6, 34400, 29400);
+        SetupParameter(1350, 830, 1350, 6880, 110, 6, expList[GetIndexValue(indexMap, character_name)], 29400);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_PHANTOM_EATER);
         list.Add(Fix.COMMAND_GHOST_KILL);
@@ -8678,7 +9028,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DEFENSIVE_DATSU:
       case Fix.DEFENSIVE_DATSU_JP:
-        SetupParameter(1520, 850, 1260, 7000, 110, 8, 35400, 30300);
+        SetupParameter(1520, 850, 1260, 7000, 110, 8, expList[GetIndexValue(indexMap, character_name)], 30300);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_ZERO_ATTACK);
         list.Add(Fix.COMMAND_JU_STYLE);
@@ -8689,7 +9039,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SEA_SONG_MARMAID:
       case Fix.SEA_SONG_MARMAID_JP:
-        SetupParameter(1280, 840, 1500, 6970, 110, 1, 36400, 31200);
+        SetupParameter(1280, 840, 1500, 6970, 110, 1, expList[GetIndexValue(indexMap, character_name)], 31200);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CLEANSING_SONG);
         list.Add(Fix.COMMAND_WASH_AWAY);
@@ -8865,7 +9215,7 @@ public partial class Character : MonoBehaviour
       #region "エデルガイゼン城"
       case Fix.PHANTOM_HUNTER:
       case Fix.PHANTOM_HUNTER_JP:
-        SetupParameter(1800, 1090, 1500, 16000, 200, 0, 40000, 33000);
+        SetupParameter(1800, 1090, 1500, 16000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 33000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BACKSTAB_ARROW);
         list.Add(Fix.COMMAND_KARAME_BIND);
@@ -8876,7 +9226,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BEAST_MASTER:
       case Fix.BEAST_MASTER_JP:
-        SetupParameter(1550, 1070, 1900, 19000, 200, 0, 41000, 33900);
+        SetupParameter(1550, 1070, 1900, 19000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 33900);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BEAST_SPIRIT);
         list.Add(Fix.COMMAND_BEAST_HOUND);
@@ -8887,7 +9237,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ELDER_ASSASSIN:
       case Fix.ELDER_ASSASSIN_JP:
-        SetupParameter(1850, 1150, 1550, 17000, 200, 0, 42000, 34800);
+        SetupParameter(1850, 1150, 1550, 17000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 34800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DATOTSU);
         list.Add(Fix.COMMAND_ASSASSIN_POISONNEEDLE);
@@ -8898,7 +9248,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.FALLEN_SEEKER:
       case Fix.FALLEN_SEEKER_JP:
-        SetupParameter(1900, 1100, 1660, 18000, 200, 0, 43000, 35700);
+        SetupParameter(1900, 1100, 1660, 18000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 35700);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SAINT_SLASH);
         list.Add(Fix.COMMAND_DEMON_CONTRACT);
@@ -8909,7 +9259,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MEPHISTO_RIGHTARM:
       case Fix.MEPHISTO_RIGHTARM_JP:
-        SetupParameter(1700, 1120, 1950, 21000, 200, 0, 44000, 36600);
+        SetupParameter(1700, 1120, 1950, 21000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 36600);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_DARKM_SPELL);
         list.Add(Fix.COMMAND_HELLFIRE_SPELL);
@@ -8920,7 +9270,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.POWERED_STEAM_BOW:
       case Fix.POWERED_STEAM_BOW_JP:
-        SetupParameter(2000, 1050, 1700, 20000, 200, 0, 45000, 37500);
+        SetupParameter(2000, 1050, 1700, 20000, 200, 0, expList[GetIndexValue(indexMap, character_name)], 37500);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_RENZOKU_HOUSYA);
         list.Add(Fix.COMMAND_STEAM_ARROW);
@@ -8931,7 +9281,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DARK_MESSENGER:
       case Fix.DARK_MESSENGER_JP:
-        SetupParameter(1800, 1200, 2200, 24000, 225, 0, 47000, 39000);
+        SetupParameter(1800, 1200, 2200, 24000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 39000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BLACKDRAGON_WHISPER);
         list.Add(Fix.COMMAND_DEATH_HAITOKU);
@@ -8942,7 +9292,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MASTER_LORD:
       case Fix.MASTER_LORD_JP:
-        SetupParameter(2280, 1340, 1830, 25000, 225, 0, 48200, 40000);
+        SetupParameter(2280, 1340, 1830, 25000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 40000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SUPERIOR_FIELD);
         list.Add(Fix.COMMAND_SHINDOWKEN);
@@ -8953,7 +9303,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.EXECUTIONER:
       case Fix.EXECUTIONER_JP:
-        SetupParameter(2360, 1300, 1810, 26000, 225, 0, 49400, 41000);
+        SetupParameter(2360, 1300, 1810, 26000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 41000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DEATH_STRIKE);
         list.Add(Fix.COMMAND_SOUL_FROZEN);
@@ -8964,7 +9314,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.MARIONETTE_NEMESIS:
       case Fix.MARIONETTE_NEMESIS_JP:
-        SetupParameter(1840, 1360, 2400, 27000, 225, 0, 50600, 42000);
+        SetupParameter(1840, 1360, 2400, 27000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 42000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CURSED_THREAD);
         list.Add(Fix.COMMAND_HORROR_VISION);
@@ -8975,7 +9325,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BLACKFIRE_MASTER_BLADE:
       case Fix.BLACKFIRE_MASTER_BLADE_JP:
-        SetupParameter(2420, 1420, 1870, 29000, 225, 0, 51800, 43000);
+        SetupParameter(2420, 1420, 1870, 29000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 43000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_RASEN_KOKUEN);
         list.Add(Fix.COMMAND_RANSO_RENGEKI);
@@ -8986,7 +9336,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SIN_THE_DARKELF:
       case Fix.SIN_THE_DARKELF_JP:
-        SetupParameter(1860, 1380, 2460, 28000, 225, 0, 53000, 44000);
+        SetupParameter(1860, 1380, 2460, 28000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 44000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_DEMON_BOLT);
         list.Add(Fix.COMMAND_ARCANE_DESTRUCTION);
@@ -8997,7 +9347,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.IMPERIAL_KNIGHT:
       case Fix.IMPERIAL_KNIGHT_JP:
-        SetupParameter(2450, 1390, 1880, 30000, 225, 0, 54200, 45000);
+        SetupParameter(2450, 1390, 1880, 30000, 225, 0, expList[GetIndexValue(indexMap, character_name)], 45000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_TOWER_FALL);
         list.Add(Fix.COMMAND_ROUND_DIVIDE);
@@ -9008,7 +9358,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.SUN_STRIDER:
       case Fix.SUN_STRIDER_JP:
-        SetupParameter(2550, 1480, 1900, 32000, 250, 0, 56000, 47000);
+        SetupParameter(2550, 1480, 1900, 32000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 47000);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BLACK_FLARE);
         list.Add(Fix.COMMAND_SATELLITE_SWORD);
@@ -9020,7 +9370,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BALANCE_IDLE:
       case Fix.BALANCE_IDLE_JP:
-        SetupParameter(2580, 1500, 2580, 38000, 250, 0, 57400, 48100);
+        SetupParameter(2580, 1500, 2580, 38000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 48100);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_LIFE_BRILLIANT);
         list.Add(Fix.COMMAND_ALL_DUST);
@@ -9032,7 +9382,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ARCHDEMON:
       case Fix.ARCHDEMON_JP:
-        SetupParameter(2620, 1460, 1920, 34000, 250, 0, 58600, 49200);
+        SetupParameter(2620, 1460, 1920, 34000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 49200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GIGANT_SLAYER);
         list.Add(Fix.COMMAND_JUONSATSU);
@@ -9044,7 +9394,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.UNDEAD_WYVERN:
       case Fix.UNDEAD_WYVERN_JP:
-        SetupParameter(1940, 1520, 2660, 36000, 250, 0, 59800, 50300);
+        SetupParameter(1940, 1520, 2660, 36000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 50300);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_BONE_TORNADO);
         list.Add(Fix.COMMAND_OMINOUS_LAUGH);
@@ -9056,7 +9406,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.GO_FLAME_SLASHER:
       case Fix.GO_FLAME_SLASHER_JP:
-        SetupParameter(2640, 1550, 1950, 44000, 250, 0, 61000, 51400);
+        SetupParameter(2640, 1550, 1950, 44000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 51400);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_WAZAWAI_FLAME);
         list.Add(Fix.COMMAND_THE_END);
@@ -9068,7 +9418,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DEVIL_CHILDREN:
       case Fix.DEVIL_CHILDREN_JP:
-        SetupParameter(1980, 1540, 2680, 40000, 250, 0, 62200, 52500);
+        SetupParameter(1980, 1540, 2680, 40000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 52500);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CHROMATIC_BULLET);
         list.Add(Fix.COMMAND_SUPER_MAX_WAVE);
@@ -9080,7 +9430,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ANCIENT_DISK:
       case Fix.ANCIENT_DISK_JP:
-        SetupParameter(1990, 1530, 2700, 42000, 250, 0, 63400, 53600);
+        SetupParameter(1990, 1530, 2700, 42000, 250, 0, expList[GetIndexValue(indexMap, character_name)], 53600);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_ETERNAL_CIRCLE);
         list.Add(Fix.COMMAND_DESTRUCTION_CIRCLE);
@@ -9092,7 +9442,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.HOWLING_HORROR:
       case Fix.HOWLING_HORROR_JP:
-        SetupParameter(2100, 1620, 2850, 45000, 275, 0, 65000, 55000);
+        SetupParameter(2100, 1620, 2850, 45000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 55000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SPECTOR_VOICE);
         list.Add(Fix.COMMAND_NOMERCY_SCREAM);
@@ -9104,7 +9454,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.PAIN_ANGEL:
       case Fix.PAIN_ANGEL_JP:
-        SetupParameter(2900, 1660, 2120, 47000, 275, 0, 66300, 56200);
+        SetupParameter(2900, 1660, 2120, 47000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 56200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_FABRIOLE_SPEAR);
         list.Add(Fix.COMMAND_REST_IN_DREAM);
@@ -9116,7 +9466,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.CHAOS_WARDEN:
       case Fix.CHAOS_WARDEN_JP:
-        SetupParameter(2140, 1700, 2950, 49000, 275, 0, 67600, 57400);
+        SetupParameter(2140, 1700, 2950, 49000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 57400);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_CHAOS_DEATHPERADE);
         list.Add(Fix.COMMAND_MARIA_DANSEL);
@@ -9128,7 +9478,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.HELL_DREAD_KNIGHT:
       case Fix.HELL_DREAD_KNIGHT_JP:
-        SetupParameter(2980, 1740, 2170, 53000, 275, 0, 68900, 58600);
+        SetupParameter(2980, 1740, 2170, 53000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 58600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GROUND_CRACK);
         list.Add(Fix.COMMAND_BLACK_DARK_LANCE);
@@ -9140,7 +9490,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DOOM_BRINGER:
       case Fix.DOOM_BRINGER_JP:
-        SetupParameter(3050, 1720, 2200, 57000, 275, 0, 70200, 59800);
+        SetupParameter(3050, 1720, 2200, 57000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 59800);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_HELL_CIRCLE);
         list.Add(Fix.COMMAND_INNOCENT_SLASH);
@@ -9152,7 +9502,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.BLACK_LIGHTNING_SPHERE:
       case Fix.BLACK_LIGHTNING_SPHERE_JP:
-        SetupParameter(2240, 1760, 3030, 51000, 275, 0, 71500, 61000);
+        SetupParameter(2240, 1760, 3030, 51000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 61000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_JUDGEMENT_LIGHTNING);
         list.Add(Fix.COMMAND_BLACKHOLE);
@@ -9164,7 +9514,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.DISTORTED_SENSOR:
       case Fix.DISTORTED_SENSOR_JP:
-        SetupParameter(3000, 1800, 3000, 55000, 275, 0, 72800, 62200);
+        SetupParameter(3000, 1800, 3000, 55000, 275, 0, expList[GetIndexValue(indexMap, character_name)], 62200);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_FUMBLE_SIGN);
         list.Add(Fix.COMMAND_AREA_TWIST);
@@ -9176,7 +9526,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.ELDER_BAPHOMET:
       case Fix.ELDER_BAPHOMET_JP:
-        SetupParameter(2280, 1900, 3180, 60000, 300, 0, 74000, 64000);
+        SetupParameter(2280, 1900, 3180, 60000, 300, 0, expList[GetIndexValue(indexMap, character_name)], 64000);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_OAHN_VOICE);
         list.Add(Fix.COMMAND_MOMENT_MAGIC);
@@ -9188,7 +9538,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.WIND_BREAKER:
       case Fix.WIND_BREAKER_JP:
-        SetupParameter(3300, 2020, 2300, 70000, 300, 0, 75500, 65400);
+        SetupParameter(3300, 2020, 2300, 70000, 300, 0, expList[GetIndexValue(indexMap, character_name)], 65400);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_SWORD_OF_WIND);
         list.Add(Fix.COMMAND_SKY_CUTTER);
@@ -9200,7 +9550,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.HOLLOW_SPECTOR:
       case Fix.HOLLOW_SPECTOR_JP:
-        SetupParameter(2320, 1950, 3260, 66000, 300, 0, 77000, 66800);
+        SetupParameter(2320, 1950, 3260, 66000, 300, 0, expList[GetIndexValue(indexMap, character_name)], 66800);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SCREAMING_FROM_HELL);
         list.Add(Fix.COMMAND_DESPAIR_SPEAR);
@@ -9212,7 +9562,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.VENERABLE_WIZARD:
       case Fix.VENERABLE_WIZARD_JP:
-        SetupParameter(2340, 1980, 3330, 63000, 300, 0, 78500, 68200);
+        SetupParameter(2340, 1980, 3330, 63000, 300, 0, expList[GetIndexValue(indexMap, character_name)], 68200);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_METEOR_STORM);
         list.Add(Fix.COMMAND_CROSS_GATE);
@@ -9224,7 +9574,7 @@ public partial class Character : MonoBehaviour
 
       case Fix.UNKNOWN_FLOATING_BALL:
       case Fix.UNKNOWN_FLOATING_BALL_JP:
-        SetupParameter(3220, 1920, 2360, 68000, 300, 0, 80000, 68600);
+        SetupParameter(3220, 1920, 2360, 68000, 300, 0, expList[GetIndexValue(indexMap, character_name)], 68600);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_PHOTON_LASER);
         list.Add(Fix.COMMAND_SEALED_STONE);
@@ -9417,7 +9767,7 @@ public partial class Character : MonoBehaviour
 
       #region "離島ウォズム"
       case Fix.PHOENIX:
-        SetupParameter(3000, 2500, 4000, 120000, 400, 0, 100000, 0);
+        SetupParameter(3000, 2500, 4000, 120000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_HEAVEN_CLEANSING_FIRE);
         list.Add(Fix.COMMAND_SAINT_VOICE);
@@ -9428,7 +9778,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NINE_TAIL:
-        SetupParameter(4050, 2550, 3050, 130000, 400, 0, 105000, 0);
+        SetupParameter(4050, 2550, 3050, 130000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_BEZIER_TAIL_ATTACK);
         list.Add(Fix.COMMAND_MURYO_YATSU_ON);
@@ -9439,7 +9789,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.MEPHISTOPHELES:
-        SetupParameter(4100, 2600, 3100, 140000, 400, 0, 110000, 0);
+        SetupParameter(4100, 2600, 3100, 140000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_DEATH_VOICE);
         list.Add(Fix.COMMAND_IKOROSHI);
@@ -9450,7 +9800,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.JUDGEMENT:
-        SetupParameter(3150, 2650, 4150, 150000, 400, 0, 115000, 0);
+        SetupParameter(3150, 2650, 4150, 150000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SAINT_JUDGE);
         list.Add(Fix.COMMAND_ANNEI_FUKUIN);
@@ -9461,7 +9811,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.EMERALD_DRAGON:
-        SetupParameter(4200, 2700, 3200, 160000, 400, 0, 120000, 0);
+        SetupParameter(4200, 2700, 3200, 160000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GODWING_CLAW);
         list.Add(Fix.COMMAND_GOD_BREATH);
@@ -9472,7 +9822,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.TIAMAT:
-        SetupParameter(4250, 2750, 4250, 170000, 400, 0, 125000, 0);
+        SetupParameter(4250, 2750, 4250, 170000, 400, 0, expList[GetIndexValue(indexMap, character_name)], 0);
         list.Add(Fix.NORMAL_ATTACK);
         list.Add(Fix.COMMAND_GROUND_BREAKING);
         list.Add(Fix.COMMAND_COSMO_BURN);
@@ -9733,6 +10083,16 @@ public partial class Character : MonoBehaviour
     }
     this.CurrentImmediateCommand = string.Empty;
     this.Target2 = this;
+  }
+
+  private int GetIndexValue(Dictionary<string, int> indexMap, string character_name)
+  {
+    int result = 0;
+    if (indexMap.TryGetValue(character_name, out result))
+    {
+      return result;
+    }
+    return 1; // 万が一の場合、経験値なので-1ではなく、最低限1は返す事。
   }
   #endregion
 
