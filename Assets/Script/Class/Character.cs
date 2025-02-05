@@ -286,6 +286,13 @@ public partial class Character : MonoBehaviour
     set { _artifact = value; }
     get { return _artifact; }
   }
+
+  [SerializeField] protected List<string> _backpack = null;
+  public List<string> Backpack
+  {
+    set { _backpack = value; }
+    get { return _backpack; }
+  }
   #endregion
 
   #region "Parameters (General)"
@@ -7248,6 +7255,8 @@ public partial class Character : MonoBehaviour
       this.DropItem[ii] = String.Empty;
     }
 
+    this.Backpack = new List<string>();
+
     // モンスター経験値、Goldのリスト
     List<int> expList = new List<int>();
     List<int> factorExp = new List<int> { 0, 3, 3, 4, 3, 10, 16, 16, 3, 16, 28, 22, 12, 10, 15, 22,
@@ -10020,13 +10029,23 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.NAME_ZATKON_MEMBER_1:
-        SetupParameter(1, 1, 1, 1, 1, 0, 0, 0);
+      case Fix.DUEL_ZATKON_MEMBER_1:
+        SetupParameter(30, 15, 30, 70, 20, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
+        this.MainWeapon = new Item(Fix.SAVAGE_CLAW);
+        this.SubWeapon = new Item(Fix.SAVAGE_CLAW);
+        this.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
+        this.Accessory1 = new Item(Fix.RED_AMULET);
+        this.Accessory2 = new Item(Fix.PURPLE_AMULET);
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.Backpack.Add(Fix.NORMAL_RED_POTION);
+        this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
+        this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
         break;
 
-      case Fix.NAME_ZATKON_MEMBER_2:
+      case Fix.DUEL_ZATKON_MEMBER_2:
         SetupParameter(1, 1, 1, 1, 1, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
@@ -10149,12 +10168,13 @@ public partial class Character : MonoBehaviour
   {
     string result = string.Empty;
     List<string> current = new List<string>();
+    int rand = 0;
 
     // コマンド名によってターゲット選定を設定する。
     // ランダムで対象を指定
     if (result == Fix.COMMAND_HAND_CANNON || result == Fix.COMMAND_SAIMIN_DANCE || result == Fix.COMMAND_POISON_NEEDLE || result == Fix.COMMAND_SPIKE_SHOT || result == Fix.COMMAND_TARGETTING_SHOT || result == Fix.COMMAND_POISON_TONGUE)
     {
-      int rand = AP.Math.RandomInteger(opponent_group.Count);
+      rand = AP.Math.RandomInteger(opponent_group.Count);
       this.Target = opponent_group[rand];
     }
     // それ以外はグループの先頭を指定
@@ -11161,8 +11181,57 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
+      // Duel !
+      case Fix.DUEL_ZATKON_MEMBER_1:
+        if ((this.CurrentSkillPoint <= this.MaxSkillPoint / 2) &&
+            this.Backpack.Contains(Fix.NORMAL_GREEN_POTION))
+        {
+          result = Fix.NORMAL_GREEN_POTION;
+        }
+        else if ((this.CurrentLife <= this.MaxLife / 2) &&
+                 this.Backpack.Contains(Fix.NORMAL_RED_POTION))
+        {
+          result = Fix.NORMAL_RED_POTION;
+        }
+        else if ((this.CurrentManaPoint <= this.MaxManaPoint / 2) &&
+                 this.Backpack.Contains(Fix.NORMAL_BLUE_POTION))
+        {
+          result = Fix.NORMAL_BLUE_POTION;
+        }
+        else
+        {
+          rand = AP.Math.RandomInteger(2);
+          if (rand == 0)
+          {
+            if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.LEG_STRIKE))
+            {
+              result = Fix.LEG_STRIKE;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+          }
+          else if (rand == 1)
+          {
+            if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.BLUE_BULLET))
+            {
+              result = Fix.BLUE_BULLET;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+        break;
+
       case Fix.DUEL_SELMOI_RO:
-        int rand = AP.Math.RandomInteger(3);
+        rand = AP.Math.RandomInteger(3);
 
         if (this.CurrentLife <= this.MaxLife / 5.0f)
         {

@@ -1656,6 +1656,15 @@ public partial class BattleEnemy : MotherBase
             }
           }
 
+          // Duel !
+          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1)
+          {
+            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.BONE_CRUSH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_SELMOI_RO)
           {
             // 残りライフが少なくなったら、デッドリー・ドライブを行う。
@@ -1882,11 +1891,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatHellKerberos = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_1)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1)
         {
           One.TF.DefeatZatKon_1 = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.NAME_ZATKON_MEMBER_2)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2)
         {
           One.TF.DefeatZatKon_2 = true;
         }
@@ -5911,7 +5920,7 @@ public partial class BattleEnemy : MotherBase
         {
           ExecMagicAttack(player, target_list[ii], 1.00f, Fix.DamageSource.HolyLight, Fix.IgnoreType.None, critical);
         }
-        AbstractHealCommand(player, player, player.MaxLife / 20.0f);
+        AbstractHealCommand(player, player, player.MaxLife / 20.0f, false);
         break;
 
       case Fix.COMMAND_ALL_DUST:
@@ -9405,7 +9414,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (PlayerList[jj].IsSigilOfThePending == null)
           {
-            AbstractHealCommand(PlayerList[jj], PlayerList[jj], buffPlayerFieldList[ii].EffectValue);
+            AbstractHealCommand(PlayerList[jj], PlayerList[jj], buffPlayerFieldList[ii].EffectValue, false);
             BuffImage[] buffList = PlayerList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0) 
             {
@@ -9425,7 +9434,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (EnemyList[jj].IsSigilOfThePending == null)
           {
-            AbstractHealCommand(EnemyList[jj], EnemyList[jj], buffEnemyFieldList[ii].EffectValue);
+            AbstractHealCommand(EnemyList[jj], EnemyList[jj], buffEnemyFieldList[ii].EffectValue, false);
             BuffImage[] buffList = EnemyList[jj].GetNegativeBuffList();
             if (buffList != null && buffList.Length > 0)
             {
@@ -9818,7 +9827,7 @@ public partial class BattleEnemy : MotherBase
     if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
     {
       double effectValue = player.MainWeapon.ItemValue1 + AP.Math.RandomInteger(player.MainWeapon.ItemValue2 - player.MainWeapon.ItemValue1);
-      AbstractHealCommand(player, player, effectValue);
+      AbstractHealCommand(player, player, effectValue, false);
     }
 
     // ブルー・ライトニング・ソードによる効果
@@ -10359,7 +10368,7 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
-    AbstractHealCommand(player, target, healValue);
+    AbstractHealCommand(player, target, healValue, false);
   }
 
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
@@ -10510,7 +10519,7 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
-    AbstractHealCommand(player, target, healValue);
+    AbstractHealCommand(player, target, healValue, false);
 
     AbstractRemoveBuff(target, target.objBuffPanel, Fix.PURE_PURIFICATION, SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
   }
@@ -10893,7 +10902,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
-      AbstractHealCommand(player, target_list[ii], healValue);
+      AbstractHealCommand(player, target_list[ii], healValue, false);
     }
   }
 
@@ -11186,7 +11195,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho(player);
-      AbstractHealCommand(player, target_list[ii], healValue);
+      AbstractHealCommand(player, target_list[ii], healValue, false);
     }
 
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
@@ -11316,7 +11325,7 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     double healValue = target.MaxLife;
-    AbstractHealCommand(player, target, healValue);
+    AbstractHealCommand(player, target, healValue, false);
     AbstractAddBuff(target, target_field_obj, Fix.SHINING_HEAL, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
   }
 
@@ -11507,18 +11516,36 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    if (One.TF.FindBackPackItem(itemName) == false)
+    if (target.IsEnemy)
     {
-      Debug.Log("Red Potion is nothing...then miss.");
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
-      return false;
-    }
+      if (target.Backpack.Contains(itemName) == false)
+      {
+        Debug.Log("Red Potion [Enemy] was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
 
-    Item current = new Item(itemName);
-    One.TF.DeleteBackpack(current, 1);
-    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-    AbstractHealCommand(null, target, effectValue);
-    return true;
+      Item current = new Item(itemName);
+      target.Backpack.Remove(itemName);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractHealCommand(null, target, effectValue, true);
+      return true;
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(itemName) == false)
+      {
+        Debug.Log("Red Potion was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
+
+      Item current = new Item(itemName);
+      One.TF.DeleteBackpack(current, 1);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractHealCommand(null, target, effectValue, true);
+      return true;
+    }
   }
 
   private bool ExecUseBluePotion(Character target, string command_name)
@@ -11541,18 +11568,36 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    if (One.TF.FindBackPackItem(itemName) == false)
+    if (target.IsEnemy)
     {
-      Debug.Log("Blue Potion is nothing...then miss.");
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
-      return false;
-    }
+      if (target.Backpack.Contains(itemName) == false)
+      {
+        Debug.Log("Blue Potion [Enemy] was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
 
-    Item current = new Item(itemName);
-    One.TF.DeleteBackpack(current, 1);
-    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-    AbstractGainManaPoint(null, target, effectValue);
-    return true;
+      Item current = new Item(itemName);
+      target.Backpack.Remove(itemName);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractGainManaPoint(null, target, effectValue);
+      return true;
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(itemName) == false)
+      {
+        Debug.Log("Blue Potion was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
+
+      Item current = new Item(itemName);
+      One.TF.DeleteBackpack(current, 1);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractGainManaPoint(null, target, effectValue);
+      return true;
+    }
   }
 
   private bool ExecUseGreenPotion(Character target, string command_name)
@@ -11575,18 +11620,36 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    if (One.TF.FindBackPackItem(itemName) == false)
+    if (target.IsEnemy)
     {
-      Debug.Log("Green Potion is nothing...then miss.");
-      StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
-      return false;
+      if (target.Backpack.Contains(itemName) == false)
+      {
+        Debug.Log("Green Potion [Enemy] was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
+
+      Item current = new Item(itemName);
+      target.Backpack.Remove(itemName);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractGainSkillPoint(null, target, effectValue);
+      return true;
+    }
+    else
+    {
+      if (One.TF.FindBackPackItem(itemName) == false)
+      {
+        Debug.Log("Green Potion was not found... then miss.");
+        StartAnimation(target.objGroup.gameObject, Fix.BATTLE_NO_POTION, Fix.COLOR_NORMAL);
+        return false;
+      }
+      Item current = new Item(itemName);
+      One.TF.DeleteBackpack(current, 1);
+      double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
+      AbstractGainSkillPoint(null, target, effectValue);
+      return true;
     }
 
-    Item current = new Item(itemName);
-    One.TF.DeleteBackpack(current, 1);
-    double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-    AbstractGainSkillPoint(null, target, effectValue);
-    return true;
   }
 
   private bool ExecPureCleanWater(Character target)
@@ -11608,7 +11671,7 @@ public partial class BattleEnemy : MotherBase
 
     One.TF.AlreadyPureCleanWater = true;
     double effectValue = target.MaxLife;
-    AbstractHealCommand(null, target, effectValue);
+    AbstractHealCommand(null, target, effectValue, true);
     return true;
   }
 
@@ -11661,7 +11724,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecLifeGain(Character target, double effectValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractHealCommand(null, target, effectValue);
+    AbstractHealCommand(null, target, effectValue, false);
   }
 
   private void ExecLifeDownCurrent(Character target, double decrease)
@@ -12790,7 +12853,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private bool AbstractHealCommand(Character player, Character target, double healValue)
+  private bool AbstractHealCommand(Character player, Character target, double healValue, bool from_potion)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     if (target.Dead)
@@ -12814,31 +12877,35 @@ public partial class BattleEnemy : MotherBase
       return false;
     }
 
-    // フィネッセ・インペリアル・ブックによる効果
-    if (player.IsEquip(Fix.FINESSE_IMPERIAL_BOOK))
+    // 武具による回復上昇効果はいずれも魔法である事を条件としているため、ポーション回復の場合は適用外とする。
+    if (from_potion == false)
     {
-      double effectValue = SecondaryLogic.FinesseImperialBook_Effect(player);
-      Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " " + healValue.ToString() + " effect " + effectValue.ToString());
-      healValue = healValue * effectValue;
-      Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " after " + healValue.ToString());
-    }
+      // フィネッセ・インペリアル・ブックによる効果
+      if (player.IsEquip(Fix.FINESSE_IMPERIAL_BOOK))
+      {
+        double effectValue = SecondaryLogic.FinesseImperialBook_Effect(player);
+        Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " " + healValue.ToString() + " effect " + effectValue.ToString());
+        healValue = healValue * effectValue;
+        Debug.Log("Equip " + Fix.FINESSE_IMPERIAL_BOOK + " after " + healValue.ToString());
+      }
 
-    // エンゲージド・フューチャー・ロッドによる効果
-    if (player.IsEquip(Fix.ENGAGED_FUTURE_ROD))
-    {
-      double effectValue = SecondaryLogic.EngagedFutureRod_Effect(player);
-      Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " " + healValue.ToString() + " effect " + effectValue.ToString());
-      healValue = healValue * effectValue;
-      Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " after " + healValue.ToString());
-    }
+      // エンゲージド・フューチャー・ロッドによる効果
+      if (player.IsEquip(Fix.ENGAGED_FUTURE_ROD))
+      {
+        double effectValue = SecondaryLogic.EngagedFutureRod_Effect(player);
+        Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " " + healValue.ToString() + " effect " + effectValue.ToString());
+        healValue = healValue * effectValue;
+        Debug.Log("Equip " + Fix.ENGAGED_FUTURE_ROD + " after " + healValue.ToString());
+      }
 
-    // エルダースタッフ・オブ・ライフブルームによる効果
-    if (player.IsEquip(Fix.ELDERSTAFF_OF_LIFEBLOOM))
-    {
-      double effectValue = SecondaryLogic.ElderstaffOfLifebloom_Effect(player);
-      Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " " + healValue.ToString() + " effect " + effectValue.ToString());
-      healValue = healValue * effectValue;
-      Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " after " + healValue.ToString());
+      // エルダースタッフ・オブ・ライフブルームによる効果
+      if (player.IsEquip(Fix.ELDERSTAFF_OF_LIFEBLOOM))
+      {
+        double effectValue = SecondaryLogic.ElderstaffOfLifebloom_Effect(player);
+        Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " " + healValue.ToString() + " effect " + effectValue.ToString());
+        healValue = healValue * effectValue;
+        Debug.Log("Equip " + Fix.ELDERSTAFF_OF_LIFEBLOOM + " after " + healValue.ToString());
+      }
     }
 
     if (target.IsVoiceOfAbyss)

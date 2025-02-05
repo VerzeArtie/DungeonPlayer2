@@ -37730,7 +37730,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：DUEL開始！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.NAME_ZATKON_MEMBER_1, ActionEvent.EncountDuel);
+    Message(ref m_list, ref e_list, Fix.DUEL_ZATKON_MEMBER_1, ActionEvent.EncountDuel);
   }
 
   public static void CoreScenario_DefeatZatkon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -37763,7 +37763,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：DUEL開始！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.NAME_ZATKON_MEMBER_2, ActionEvent.EncountDuel);
+    Message(ref m_list, ref e_list, Fix.DUEL_ZATKON_MEMBER_2, ActionEvent.EncountDuel);
   }
 
   public static void CoreScenario_DefeatZatkonEnd(ref List<string> m_list, ref List<ActionEvent> e_list)
