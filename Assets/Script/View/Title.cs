@@ -47,6 +47,7 @@ public class Title : MotherBase
   public Text txtBoss;
   public Text txtBoss2;
   public Text txtBoss3;
+  public Text txtMonsterData;
 
   bool firstAction = false;
   // Start is called before the first frame update
@@ -186,6 +187,8 @@ public class Title : MotherBase
       {
         groupSeekerMode.SetActive(true);
       }
+
+      TapMonsterData();
     }
   }
 
@@ -560,16 +563,16 @@ public class Title : MotherBase
     ein.EverflowMind = 1;
 
     ein.Strength = 30;
-    ein.Agility = 9;
-    ein.Intelligence = 6;
-    ein.Stamina = 20;
+    ein.Agility = 15;
+    ein.Intelligence = 30;
+    ein.Stamina = 70;
     ein.Mind = 30;
     ein.BaseManaPoint = 999;
     ein.ActionCommand1 = Fix.STRAIGHT_SMASH;
     ein.ActionCommand2 = Fix.FIRE_BALL;
     ein.ActionCommand3 = Fix.DEFENSE;
     ein.ActionCommand4 = Fix.FLAME_STRIKE;
-    ein.ActionCommand5 = Fix.FROST_LANCE;
+    ein.ActionCommand5 = Fix.FRESH_HEAL;
     ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
     ein.ActionCommand7 = Fix.PRECISION_STRIKE;
     ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
@@ -578,7 +581,7 @@ public class Title : MotherBase
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
 
-    One.RealWorldLoad();
+    //One.RealWorldLoad();
     List<Character> available = One.AvailableCharacters;
     foreach (Character current in available)
     {
@@ -712,6 +715,189 @@ public class Title : MotherBase
     SceneDimension.CallBattleEnemy();
   }
 
+  public void TapMonsterData()
+  {
+    txtMonsterData.text = "";
+    List<string> characterName = new List<string>()
+    { Fix.TINY_MANTIS,
+      Fix.GREEN_SLIME,
+      Fix.MANDRAGORA,
+      Fix.YOUNG_WOLF,
+      Fix.WILD_ANT,
+      Fix.OLD_TREEFORK,
+      Fix.SUN_FLOWER,
+      Fix.SOLID_BEETLE,
+      Fix.SILENT_LADYBUG,
+      Fix.NIMBLE_RABBIT,
+      Fix.ENTANGLED_VINE,
+      Fix.CREEPING_SPIDER, 
+      Fix.BLOOD_MOSS,
+      Fix.KILLER_BEE,
+      Fix.WONDER_SEED,
+      Fix.DAUNTLESS_HORSE,
+      Fix.DEBRIS_SOLDIER,
+      Fix.MAGICAL_AUTOMATA,
+      Fix.KILLER_MACHINE,
+      Fix.STINKY_BAT,
+      Fix.ANTIQUE_MIRROR, 
+      Fix.MECH_HAND,
+      Fix.ABSENCE_MOAI,
+      Fix.ACID_SCORPION,
+      Fix.NEJIMAKI_KNIGHT,
+      Fix.AIMING_SHOOTER,
+      Fix.CULT_BLACK_MAGICIAN,
+      Fix.STONE_GOLEM,
+      Fix.JUNK_VULKAN,
+      Fix.LIGHTNING_CLOUD,
+      Fix.SILENT_GARGOYLE,
+      Fix.GATE_HOUND,
+      Fix.PLAY_FIRE_IMP,
+      Fix.WALKING_TIME_BOMB,
+      Fix.EARTH_ELEMENTAL,
+      Fix.DEATH_DRONE,
+      Fix.ASSULT_SCARECROW,
+      Fix.MAD_DOCTOR,
+      Fix.CHARGED_BOAR,
+      Fix.WOOD_ELF, 
+      Fix.STINKED_SPORE,
+      Fix.POISON_FLOG,
+      Fix.GIANT_SNAKE,
+      Fix.SAVAGE_BEAR,
+      Fix.INNOCENT_FAIRY,
+      Fix.SPEEDY_FALCON,
+      Fix.MYSTIC_DRYAD,
+      Fix.WOLF_HUNTER,
+      Fix.FOREST_PHANTOM,
+      Fix.EXCITED_ELEPHANT,
+      Fix.SYLPH_DANCER,
+      Fix.GATHERING_LAPTOR,
+      Fix.RAGE_TIGER,
+      Fix.THORN_WARRIOR,
+      Fix.MUDDLED_PLANT,
+      Fix.FLANSIS_KNIGHT,
+      Fix.MIST_PYTHON,
+      Fix.TOWERING_ENT,
+      Fix.POISON_MARY,
+      Fix.DISTURB_RHINO,
+      Fix.WISDOM_CENTAURUS,
+      Fix.SWIFT_EAGLE,
+      Fix.EASTERN_GOLEM,
+      Fix.WESTERN_GOLEM,
+      Fix.WIND_ELEMENTAL,
+      Fix.SKY_KNIGHT,
+      Fix.THE_PURPLE_HIKARIGOKE,
+      Fix.MYSTICAL_UNICORN,
+      Fix.TRIAL_HERMIT,
+      Fix.STORM_BIRDMAN,
+      Fix.THE_BLUE_LAVA_EYE,
+      Fix.THE_WHITE_LAVA_EYE,
+      Fix.FLYING_CURTAIN,
+      Fix.LUMINOUS_HAWK,
+      Fix.AETHER_GUST,
+      Fix.WHIRLWIND_KITSUNE,
+      Fix.THUNDER_LION,
+      Fix.SAINT_PEGASUS,
+      Fix.DREAM_WALKER,
+      Fix.IVORY_STATUE,
+      Fix.STUBBORN_SAGE,
+      Fix.BOMB_BALLON,
+      Fix.OBSERVANT_HERALD,
+      Fix.TOWER_SCOUT,
+      Fix.MIST_SALVAGER,
+      Fix.WINGSPAN_RANGER,
+      Fix.MAJESTIC_CLOUD,
+      Fix.HARDENED_GRIFFIN,
+      Fix.PRISMA_SPHERE,
+      Fix.MOVING_CANNON,
+      Fix.VEIL_FORTUNE_WIZARD,
+      Fix.DAGGER_FISH,
+      Fix.FLOATING_MANTA, 
+      Fix.SKYBLUE_BIRD,
+      Fix.RAINBOW_CLIONE,
+      Fix.ROLLING_MAGURO,
+      Fix.BEAUTY_SEA_LILY,
+      Fix.LIMBER_SEAEAGLE,
+      Fix.FLUFFY_CORAL,
+      Fix.BLACK_OCTOPUS,
+      Fix.STEAL_SQUID,
+      Fix.PROUD_VIKING,
+      Fix.GAN_GAME,
+      Fix.JUMPING_KAMASU,
+      Fix.RECKLESS_WALRUS,
+      Fix.WRECHED_ANEMONE,
+      Fix.DEEPSEA_HAND,
+      Fix.ASSULT_SERPENT,
+      Fix.GIANT_SEA_SPIDER,
+      Fix.ESCORT_HERMIT_CLUB,
+      Fix.MOGUL_MANTA,
+      Fix.GLUTTONY_COELACANTH,
+      Fix.FEROCIOUS_WHALE,
+      Fix.WEEPING_MIST,
+      Fix.AMBUSH_ANGLERFISH,
+      Fix.EMERALD_LOBSTER,
+      Fix.STICKY_STARFISH,
+      Fix.RAMPAGE_BIGSHARK,
+      Fix.BIGMOUSE_JOE,
+      Fix.SEA_STAR_KNIGHT,
+      Fix.SEA_ELEMENTAL,
+      Fix.EDGED_HIGH_SHARK,
+      Fix.THOUGHTFUL_NAUTILUS,
+      Fix.GHOST_SHIP,
+      Fix.DEFENSIVE_DATSU,
+      Fix.SEA_SONG_MARMAID,
+      Fix.PHANTOM_HUNTER,
+      Fix.BEAST_MASTER,
+      Fix.ELDER_ASSASSIN,
+      Fix.FALLEN_SEEKER,
+      Fix.MEPHISTO_RIGHTARM,
+      Fix.POWERED_STEAM_BOW,
+      Fix.DARK_MESSENGER,
+      Fix.MASTER_LORD,
+      Fix.EXECUTIONER,
+      Fix.MARIONETTE_NEMESIS,
+      Fix.BLACKFIRE_MASTER_BLADE,
+      Fix.SIN_THE_DARKELF,
+      Fix.IMPERIAL_KNIGHT,
+      Fix.SUN_STRIDER,
+      Fix.BALANCE_IDLE,
+      Fix.ARCHDEMON,
+      Fix.UNDEAD_WYVERN,
+      Fix.GO_FLAME_SLASHER,
+      Fix.DEVIL_CHILDREN,
+      Fix.ANCIENT_DISK,
+      Fix.HOWLING_HORROR,
+      Fix.PAIN_ANGEL,
+      Fix.CHAOS_WARDEN,
+      Fix.HELL_DREAD_KNIGHT,
+      Fix.DOOM_BRINGER,
+      Fix.BLACK_LIGHTNING_SPHERE,
+      Fix.DISTORTED_SENSOR,
+      Fix.ELDER_BAPHOMET,
+      Fix.WIND_BREAKER,
+      Fix.HOLLOW_SPECTOR,
+      Fix.VENERABLE_WIZARD,
+      Fix.UNKNOWN_FLOATING_BALL,
+      Fix.PHOENIX,
+      Fix.NINE_TAIL,
+      Fix.MEPHISTOPHELES,
+      Fix.JUDGEMENT, 
+      Fix.EMERALD_DRAGON,
+      Fix.TIAMAT,
+    };
+
+    for (int ii = 0; ii < characterName.Count; ii++)
+    {
+      CharacterConstruction(characterName[ii], ii);
+    }
+  }
+  private void CharacterConstruction(string character_name, int ii)
+  {
+    GameObject objEC = new GameObject("objEC_" + ii.ToString());
+    Character c1 = objEC.AddComponent<Character>();
+    c1.Construction(character_name);
+    if (ii != 0) { txtMonsterData.text += "\r\n"; }
+    txtMonsterData.text += ii + " " + c1.FullName + " " + c1.Exp.ToString();
+  }
 
   public void ChangeBGMVolume(Slider sender)
   {
