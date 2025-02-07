@@ -689,9 +689,9 @@ public partial class HomeTown : MotherBase
       // エンディング
       if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
       {
-        if (One.AR.Event_Message2600016)
+        if (One.AR.Event_Message2600015)
         {
-          MessagePack.Message2600016_2(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message2600015_2(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
       }
@@ -1328,7 +1328,7 @@ public partial class HomeTown : MotherBase
   {
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      if (One.AR.Record_EarringOfLana && One.AR.Event_Message2600016)
+      if (One.AR.Record_EarringOfLana && One.AR.Event_Message2600015)
       {
         MessagePack.CoreScenario_ContactLana(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
@@ -4948,7 +4948,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600017(ref QuestMessageList, ref QuestEventList);
+    MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);
@@ -4956,7 +4956,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600017_2(ref QuestMessageList, ref QuestEventList);
+    MessagePack.Message2600016_2(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage2, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleCenter, QuestMessageList[ii]);
@@ -4964,7 +4964,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600017_3(ref QuestMessageList, ref QuestEventList);
+    MessagePack.Message2600016_3(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage3, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);

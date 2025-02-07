@@ -25,20 +25,26 @@ public class AkashicRecord : MonoBehaviour
   [SerializeField] protected bool _event_message2600012 = false;
   public bool Event_Message2600012 { get { return _event_message2600012; } set { _event_message2600012 = value; } } // 離島ウォズム　開始時
 
-  [SerializeField] protected bool _event_message2600014 = false;
-  public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　最終戦闘前
+  [SerializeField] protected bool _event_message2600013 = false;
+  public bool Event_Message2600013 { get { return _event_message2600013; } set { _event_message2600013 = value; } } // 離島ウォズム　最終戦闘前
 
-  [SerializeField] protected bool _event_message2600014_2 = false;
-  public bool Event_Message2600014_2 { get { return _event_message2600014_2; } set { _event_message2600014_2 = value; } } // 離島ウォズム　最終戦闘前
+  [SerializeField] protected bool _event_message2600014 = false;
+  public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　最終戦闘後
 
   [SerializeField] protected bool _event_message2600015 = false;
-  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // 離島ウォズム　最終戦闘後
+  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // エンディング
 
-  [SerializeField] protected bool _event_message2600016 = false;
-  public bool Event_Message2600016 { get { return _event_message2600016; } set { _event_message2600016 = value; } } // エンディング
+  //[SerializeField] protected bool _event_message2600016 = false;
+  //public bool Event_Message2600016 { get { return _event_message2600016; } set { _event_message2600016 = value; } } // 離島ウォズム２　開始時
 
-  [SerializeField] protected bool _event_message2600012_2 = false;
-  public bool Event_Message2600012_2 { get { return _event_message2600012_2; } set { _event_message2600012_2 = value; } } // 離島ウォズム２　開始時
+  //[SerializeField] protected bool _event_message2600017 = false;
+  //public bool Event_Message2600017 { get { return _event_message2600017; } set { _event_message2600017 = value; } } // 離島ウォズム２　最終戦闘前
+
+  //[SerializeField] protected bool _event_message2600018 = false;
+  //public bool Event_Message2600018 { get { return _event_message2600018; } set { _event_message2600018 = value; } } // 離島ウォズム２　最終戦闘後
+
+  //[SerializeField] protected bool _event_message2600019 = false;
+  //public bool Event_Message2600019 { get { return _event_message2600019; } set { _event_message2600019 = value; } } // トゥルーエンド
 
   // コア・シナリオ
   [SerializeField] protected bool _record_earring_of_lana = false;

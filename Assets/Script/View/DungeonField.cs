@@ -628,25 +628,25 @@ public class DungeonField : MotherBase
             return;
           }
 
-          if (One.AR.Event_Message2600014 && One.AR.Event_Message2600015 == false)
+          if (One.AR.Event_Message2600013 && One.AR.Event_Message2600014 == false)
           {
-            MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
+            MessagePack.Message2600014(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
             One.RealWorldSave();
             return;
           }
         }
 
-        if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
-        {
-          if (One.AR.Event_Message2600012_2 == false)
-          {
-            MessagePack.Message2600012_2(ref QuestMessageList, ref QuestEventList); TapOK();
-            One.UpdateAkashicRecord();
-            One.RealWorldSave();
-            return;
-          }
-        }
+        //if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
+        //{
+        //  if (One.AR.Event_Message2600012_2 == false)
+        //  {
+        //    MessagePack.Message2600012_2(ref QuestMessageList, ref QuestEventList); TapOK();
+        //    One.UpdateAkashicRecord();
+        //    One.RealWorldSave();
+        //    return;
+        //  }
+        //}
       }
 
       // 画面表示時のイベント進行
@@ -892,9 +892,9 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
       {
-        if (One.TF.DefeatAermiJorzt && One.AR.Event_Message2600014 == false)
+        if (One.TF.DefeatAermiJorzt && One.AR.Event_Message2600013 == false)
         {
-          MessagePack.Message2600014(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message2600013_2(ref QuestMessageList, ref QuestEventList); TapOK();
           One.UpdateAkashicRecord();
           One.RealWorldSave();
           return;
@@ -17495,16 +17495,9 @@ public class DungeonField : MotherBase
       // ボス戦
       if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
       {
-        MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
-
-      // エンディング
-      if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
-      {
-        if (One.AR.Event_Message2600015 && One.AR.Event_Message2600016 == false)
+        if (One.AR.Event_Message2600013 == false)
         {
-          MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
@@ -17512,41 +17505,51 @@ public class DungeonField : MotherBase
       // エンディング前、移動抑止
       if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
       {
-        if (One.AR.Event_Message2600014)
+        if (One.AR.Event_Message2600013)
         {
-          MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message2600017(ref QuestMessageList, ref QuestEventList); TapOK();
+          return true;
+        }
+      }
+
+      // エンディング
+      if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
+      {
+        if (One.AR.Event_Message2600014 && One.AR.Event_Message2600015 == false)
+        {
+          MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
     {
-      // ボス戦
-      if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
-      {
-        MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
-        return true;
-      }
+      //// ボス戦
+      //if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
+      //{
+      //  MessagePack.Message2600013_2(ref QuestMessageList, ref QuestEventList); TapOK();
+      //  return true;
+      //}
 
-      // エンディング
-      if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
-      {
-        if (One.AR.Event_Message2600015 && One.AR.Event_Message2600016 == false)
-        {
-          MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
-      }
+      //// トゥルーエンド
+      //if (LocationDetect(tile, Fix.WOSM_EVENT_5_X, Fix.WOSM_EVENT_5_Y, Fix.WOSM_EVENT_5_Z))
+      //{
+      //  if (One.AR.Event_Message2600015 && One.AR.Event_Message2600016 == false)
+      //  {
+      //    MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
+      //    return true;
+      //  }
+      //}
 
-      // エンディング前、移動抑止
-      if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
-      {
-        if (One.AR.Event_Message2600014)
-        {
-          MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
-      }
+      //// エンディング前、移動抑止
+      //if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
+      //{
+      //  if (One.AR.Event_Message2600014)
+      //  {
+      //    MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
+      //    return true;
+      //  }
+      //}
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)
     {
