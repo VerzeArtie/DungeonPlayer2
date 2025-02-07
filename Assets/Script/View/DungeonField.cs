@@ -637,16 +637,16 @@ public class DungeonField : MotherBase
           }
         }
 
-        //if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
-        //{
-        //  if (One.AR.Event_Message2600012_2 == false)
-        //  {
-        //    MessagePack.Message2600012_2(ref QuestMessageList, ref QuestEventList); TapOK();
-        //    One.UpdateAkashicRecord();
-        //    One.RealWorldSave();
-        //    return;
-        //  }
-        //}
+        if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
+        {
+          if (One.AR.Event_Message2600016 == false)
+          {
+            MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
+            One.UpdateAkashicRecord();
+            One.RealWorldSave();
+            return;
+          }
+        }
       }
 
       // 画面表示時のイベント進行
@@ -17507,7 +17507,7 @@ public class DungeonField : MotherBase
       {
         if (One.AR.Event_Message2600013)
         {
-          MessagePack.Message2600017(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.Message2600013_3(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
         }
       }

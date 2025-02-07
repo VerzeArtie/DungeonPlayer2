@@ -34177,6 +34177,13 @@ public static class MessagePack
     }
   }
 
+  public static void Message2600013_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveTop);
+  }
+
   public static void Message2600014(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.AR.Event_Message2600014 == false)
@@ -34546,7 +34553,7 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "", ActionEvent.Ending);
   }
 
-  public static void Message2600016(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void MessageEnding(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "　ラナ：アイン・・・本当にそれで良いの？", ActionEvent.None);
 
@@ -34654,7 +34661,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "　ラナ：良いわよ。花言葉はね・・・", ActionEvent.None);
   }
-  public static void Message2600016_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void MessageEnding_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "Dungeon Player II\r\n ～ Obsidian Portal ～", ActionEvent.None);
 
@@ -34684,18 +34691,10 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "プロデューサー　　【　湯淺　與範　】", ActionEvent.None);
   }
-  public static void Message2600016_3(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void MessageEnding_3(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "＜　永遠の誓い　＞　って言うのよ。", ActionEvent.None);
   }
-
-  public static void Message2600017(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Message(ref m_list, ref e_list, "アイン：（・・・　・・・　・・・）", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "0.1", ActionEvent.ForceMoveTop);
-  }
-
 
   //public static void Message2600019(ref List<string> m_list, ref List<ActionEvent> e_list)
   //{

@@ -4948,7 +4948,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList);
+    MessagePack.MessageEnding(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);
@@ -4956,7 +4956,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600016_2(ref QuestMessageList, ref QuestEventList);
+    MessagePack.MessageEnding_2(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage2, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleCenter, QuestMessageList[ii]);
@@ -4964,7 +4964,7 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.Message2600016_3(ref QuestMessageList, ref QuestEventList);
+    MessagePack.MessageEnding_3(ref QuestMessageList, ref QuestEventList);
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage3, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);
