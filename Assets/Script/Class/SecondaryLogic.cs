@@ -1356,6 +1356,12 @@ public static class SecondaryLogic
     return 500;
   }
 
+  // アイテム効果
+  public static double SwordOfLife_Effect(Character player)
+  {
+    return 12.0f + AP.Math.RandomInteger(20);
+  }
+
   public static double ArtifactMusou_Effect(Character player)
   {
     return 30; // パーセンテージ ( X / 100 ) の値

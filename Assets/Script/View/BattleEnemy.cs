@@ -9824,9 +9824,9 @@ public partial class BattleEnemy : MotherBase
       AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_VALKYRIE_SCAR, Fix.BUFF_VALKYRIE_SCAR_JP, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
     }
 
-    if (player.MainWeapon != null && (player.MainWeapon.ItemName == Fix.SWORD_OF_LIFE))
+    if (player.IsEquip(Fix.SWORD_OF_LIFE))
     {
-      double effectValue = player.MainWeapon.ItemValue1 + AP.Math.RandomInteger(player.MainWeapon.ItemValue2 - player.MainWeapon.ItemValue1);
+      double effectValue = SecondaryLogic.SwordOfLife_Effect(player);
       AbstractHealCommand(player, player, effectValue, false);
     }
 
