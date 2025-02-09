@@ -40,7 +40,6 @@ public static class ActionCommand
     AllyField,
     AllMember,  
     AllField,
-    ALLFieldMember,
     InstantTarget
   }
 
@@ -1763,7 +1762,7 @@ public static class ActionCommand
     // 闇＋空唱
     if (command_name == Fix.ACHROMA_BLAST) { return TargetType.Enemy; }
     if (command_name == Fix.DOOM_BLADE) { return TargetType.Own; }
-    if (command_name == Fix.ECLIPSE_END) { return TargetType.ALLFieldMember; }
+    if (command_name == Fix.ECLIPSE_END) { return TargetType.AllField; }
     // 炎＋氷 [完全逆]
     if (command_name == Fix.CHILL_BURN) { return TargetType.Enemy; }
     if (command_name == Fix.SWORD_OF_FREEZING_FIRE) { return TargetType.Own; }

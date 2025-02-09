@@ -8269,12 +8269,50 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // Duelモードではアクションコマンド選択時、対象は即時決定される。
+    if (this.BattleType == Fix.BattleMode.Duel)
+    {
+      this.NowSelectActionCommandButton = sender.ActionButton;
 
-    // ターゲット選択状態へ遷移
-    this.NowSelectTarget = true;
-    SelectFilter.SetActive(true);
-    GroupMainActionCommand.SetActive(false);
-    this.NowSelectActionCommandButton = sender.ActionButton;
+      if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Ally)
+      {
+        PlayerList[0].Target2 = PlayerList[0];
+        ApplyMainActionCommand(PlayerList[0], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
+        LogicInvalidate();
+        ClearSelectFilterGroup();
+      }
+      else if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.Enemy)
+      {
+        PlayerList[0].Target = EnemyList[0];
+        ApplyMainActionCommand(PlayerList[0], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
+        LogicInvalidate();
+        ClearSelectFilterGroup();
+      }
+      else if (ActionCommand.IsTarget(NowSelectActionCommandButton.name) == ActionCommand.TargetType.EnemyOrAlly)
+      {
+        // ターゲット選択状態へ遷移
+        this.NowSelectTarget = true;
+        SelectFilter.SetActive(true);
+        GroupMainActionCommand.SetActive(false);
+        this.NowSelectActionCommandButton = sender.ActionButton;
+      }
+      else
+      {
+        // それ以外は通常のEnemyと同じ扱いとする。
+        PlayerList[0].Target = EnemyList[0];
+        ApplyMainActionCommand(PlayerList[0], NowSelectActionCommandButton, NowSelectActionSrcButton, NowSelectActionCommandButton.name);
+        LogicInvalidate();
+        ClearSelectFilterGroup();
+      }
+    }
+    else
+    {
+      // ターゲット選択状態へ遷移
+      this.NowSelectTarget = true;
+      SelectFilter.SetActive(true);
+      GroupMainActionCommand.SetActive(false);
+      this.NowSelectActionCommandButton = sender.ActionButton;
+    }
   }
 
   /// <summary>
