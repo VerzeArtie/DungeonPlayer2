@@ -655,6 +655,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return Attribute.UseItem; }
     if (command_name == Fix.USE_BLUE_POTION_6) { return Attribute.UseItem; }
     if (command_name == Fix.USE_BLUE_POTION_7) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_1) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_2) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_3) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_4) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_5) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_6) { return Attribute.UseItem; }
+    if (command_name == Fix.USE_GREEN_POTION_7) { return Attribute.UseItem; }
     #endregion
 
     #region "Delve I"
@@ -1324,6 +1331,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return TimingType.Instant; }
     if (command_name == Fix.USE_BLUE_POTION_6) { return TimingType.Instant; }
     if (command_name == Fix.USE_BLUE_POTION_7) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_1) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_2) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_3) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_4) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_5) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_6) { return TimingType.Instant; }
+    if (command_name == Fix.USE_GREEN_POTION_7) { return TimingType.Instant; }
     #endregion
 
     #region "Delve I"
@@ -1605,6 +1619,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return TargetType.Ally; }
     if (command_name == Fix.USE_BLUE_POTION_6) { return TargetType.Ally; }
     if (command_name == Fix.USE_BLUE_POTION_7) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_1) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_2) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_3) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_4) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_5) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_6) { return TargetType.Ally; }
+    if (command_name == Fix.USE_GREEN_POTION_7) { return TargetType.Ally; }
     #endregion
 
     #region "Delve I"
@@ -1979,6 +2000,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
     if (command_name == Fix.USE_BLUE_POTION_6) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
     if (command_name == Fix.USE_BLUE_POTION_7) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_1) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_2) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_3) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_4) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_5) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_6) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
+    if (command_name == Fix.USE_GREEN_POTION_7) { return 0; } // アクションコマンドだが、アイテム使用にコストの概念はない。
     // アイテム使用は基本０とする。（例外は作るかもしれない）
     if (command_name == Fix.SMALL_RED_POTION) { return 0; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return 0; }
@@ -2374,6 +2402,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return Fix.BuffType.None; }
     if (command_name == Fix.USE_BLUE_POTION_6) { return Fix.BuffType.None; }
     if (command_name == Fix.USE_BLUE_POTION_7) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_1) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_2) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_3) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_4) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_5) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_6) { return Fix.BuffType.None; }
+    if (command_name == Fix.USE_GREEN_POTION_7) { return Fix.BuffType.None; }
     if (command_name == Fix.SMALL_RED_POTION) { return Fix.BuffType.None; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return Fix.BuffType.None; }
     if (command_name == Fix.SMALL_GREEN_POTION) { return Fix.BuffType.None; }
@@ -2871,6 +2906,13 @@ public static class ActionCommand
     if (command_name == Fix.USE_BLUE_POTION_5) { return false; }
     if (command_name == Fix.USE_BLUE_POTION_6) { return false; }
     if (command_name == Fix.USE_BLUE_POTION_7) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_1) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_2) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_3) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_4) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_5) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_6) { return false; }
+    if (command_name == Fix.USE_GREEN_POTION_7) { return false; }
     if (command_name == Fix.SMALL_RED_POTION) { return false; }
     if (command_name == Fix.SMALL_BLUE_POTION) { return false; }
     if (command_name == Fix.SMALL_GREEN_POTION) { return false; }
