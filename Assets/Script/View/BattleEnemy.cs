@@ -1665,6 +1665,14 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2)
+          {
+            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.CURSED_EVANGILE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_SELMOI_RO)
           {
             // 残りライフが少なくなったら、デッドリー・ドライブを行う。

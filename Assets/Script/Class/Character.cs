@@ -10034,7 +10034,6 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
         this.MainWeapon = new Item(Fix.SAVAGE_CLAW);
-        this.SubWeapon = new Item(Fix.SAVAGE_CLAW);
         this.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
         this.Accessory1 = new Item(Fix.RED_AMULET);
         this.Accessory2 = new Item(Fix.PURPLE_AMULET);
@@ -10046,9 +10045,18 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUEL_ZATKON_MEMBER_2:
-        SetupParameter(1, 1, 1, 1, 1, 0, 0, 0);
+        SetupParameter(40, 20, 40, 80, 25, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
+        this.MainWeapon = new Item(Fix.FLOATING_ORB);
+        this.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
+        this.Accessory1 = new Item(Fix.PURPLE_AMULET);
+        this.Accessory2 = new Item(Fix.GREEN_AMULET);
+        this.GlobalAction1 = Fix.NORMAL_ATTACK;
+        this.GlobalAction2 = Fix.DEFENSE;
+        this.Backpack.Add(Fix.NORMAL_RED_POTION);
+        this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
+        this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
         break;
 
       default:
@@ -11226,6 +11234,39 @@ public partial class Character : MonoBehaviour
           else
           {
             result = Fix.NORMAL_ATTACK;
+          }
+        }
+        break;
+
+      case Fix.DUEL_ZATKON_MEMBER_2:
+        if ((this.CurrentSkillPoint <= this.MaxSkillPoint / 2) &&
+            this.Backpack.Contains(Fix.NORMAL_GREEN_POTION))
+        {
+          result = Fix.NORMAL_GREEN_POTION;
+        }
+        else if ((this.CurrentLife <= this.MaxLife / 2) &&
+                 this.Backpack.Contains(Fix.NORMAL_RED_POTION))
+        {
+          result = Fix.NORMAL_RED_POTION;
+        }
+        else if ((this.CurrentManaPoint <= this.MaxManaPoint / 2) &&
+                 this.Backpack.Contains(Fix.NORMAL_BLUE_POTION))
+        {
+          result = Fix.NORMAL_BLUE_POTION;
+        }
+        else
+        {
+          if (Target.IsBloodSign == false)
+          {
+            result = Fix.BLOOD_SIGN;
+          }
+          else if (Target.IsHunterShot == false)
+          {
+            result = Fix.HUNTER_SHOT;
+          }
+          else
+          {
+            result = Fix.SHADOW_BLAST;
           }
         }
         break;
