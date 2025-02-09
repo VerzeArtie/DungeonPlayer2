@@ -13844,6 +13844,13 @@ public static partial class Fix
   public const float WOSM_EVENT_4_Y = 0.0f;
   public const float WOSM_EVENT_4_Z = -13.0f;
 
+  // トゥルーエンド
+  public const string WOSM_EVENT_5_C = "Event";
+  public const string WOSM_EVENT_5_O = "5";
+  public const float WOSM_EVENT_5_X = 10.0f;
+  public const float WOSM_EVENT_5_Y = 0.0f;
+  public const float WOSM_EVENT_5_Z = -8.0f;
+
   #endregion
   #region "全体フィールド"
   // 最初の地点

@@ -3009,6 +3009,9 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_aermi_jorzt = false;
   public bool DefeatAermiJorzt { get { return _defeat_aermi_jorzt; } set { _defeat_aermi_jorzt = value; } }
 
+  protected bool _defeat_aermi_jorzt2 = false;
+  public bool DefeatAermiJorzt2 { get { return _defeat_aermi_jorzt2; } set { _defeat_aermi_jorzt2 = value; } }
+
   [SerializeField] protected bool _location_player2 = false;
   public bool LocationPlayer2 { get { return _location_player2; } set { _location_player2 = value; } }
 

@@ -388,6 +388,7 @@ public partial class HomeTown : MotherBase
 
   bool nowAnimationEnding = false;
   bool nowAnimationEnding_First = false;
+  bool nowAnimationEnding_Third = false;
 
   // Use this for initialization
   public override void Start()
@@ -695,6 +696,15 @@ public partial class HomeTown : MotherBase
           return;
         }
       }
+      // エンディング２
+      if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
+      {
+        if (One.AR.Event_Message2600018)
+        {
+          MessagePack.Message2600018_2(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+      }
 
       // １日目終了時
       if (this.firstDay >= 1 && One.TF.AlreadyDungeon && One.TF.AvailableImmediateAction == false)
@@ -819,6 +829,8 @@ public partial class HomeTown : MotherBase
           this.endingMessage3[ii].color = new Color(0, 0, 0, 0);
           this.endingMessage3[ii].transform.localPosition = new Vector3(-Screen.width / 4, 0, 0);
           this.endingMessage3[ii].gameObject.SetActive(true);
+          Debug.Log("Ending-3 endingMessage3[ii].transform.localPosition " + endingMessage3[ii].transform.localPosition.x);
+          Debug.Log("Ending-3 endingMessage3[ii].transform.position      " + endingMessage3[ii].transform.position.x);
         }
         return;
       }
@@ -827,19 +839,19 @@ public partial class HomeTown : MotherBase
       float lastPosition = this.endingMessage[this.endingMessage.Count - 1].transform.position.y;
       if (lastPosition < -Screen.height / 4)
       {
-        move = 0.15f;
+        move = 0.30f; // 0.15f;
       }
       else if (-Screen.height / 4 <= lastPosition && lastPosition < 0)
       {
-        move = 0.3f;
+        move = 0.6f; // 0.3f;
       }
       else if (0 <= lastPosition && lastPosition <= Screen.height / 4)
       {
-        move = 0.5f;
+        move = 1.0f; // 0.5f;
       }
       else if (Screen.height / 4 <= lastPosition && lastPosition < Screen.height + 100)
       {
-        move = 1.0f;
+        move = 2.0f; // 1.0f;
       }
       else
       {
@@ -859,19 +871,43 @@ public partial class HomeTown : MotherBase
         this.endingMessage2[ii].transform.position = new Vector3(this.endingMessage2[ii].transform.position.x, this.endingMessage2[ii].transform.position.y + move, this.endingMessage2[ii].transform.position.z);
       }
 
+//      Debug.Log("Ending move: " + move.ToString());
       if (move == 0)
       {
+        Debug.Log("Ending-3 start");
         float moveX = 0.1f;
         float alpha = this.endingMessage3[0].color.a;
-        if (this.endingMessage3[0].transform.position.x < 400)
+        Debug.Log("Ending-3 endingMessage3[0].transform.position.x " + endingMessage3[0].transform.position.x);
+        //if (this.endingMessage3[0].transform.position.x < 400)
+        //{
+        //   float lastPositionX = this.endingMessage3[this.endingMessage3.Count - 1].transform.position.x;
+
+        if (this.nowAnimationEnding_Third == false)
         {
-          float lastPositionX = this.endingMessage3[this.endingMessage3.Count - 1].transform.position.x;
-          if (this.endingMessage3[0].color.a < 1.0f)
+          float phase_1 = 0.70f; float phase_1_speed = 0.005f;
+          float phase_2 = 1.00f; float phase_2_speed = 0.001f;
+
+          Debug.Log("Ending-3 this.endingMessage3[0].color.a " + this.endingMessage3[0].color.a);
+          if (this.endingMessage3[0].color.a < phase_1)
           {
-            moveX = 0.2f;
-            this.endingMessage3[0].color = new Color(0, 0, 0, this.endingMessage3[0].color.a + 0.005f);
+            moveX = 0.3f;
+            float current = this.endingMessage3[0].color.a + phase_1_speed;
+            if (current >= phase_1) { current = phase_1; }
+            this.endingMessage3[0].color = new Color(0, 0, 0, current);
+          }
+          else if (this.endingMessage3[0].color.a < phase_2)
+          {
+            moveX = 0.05f;
+            float current = this.endingMessage3[0].color.a + phase_2_speed;
+            if (current >= phase_2) 
+            {
+              current = phase_2;
+              this.nowAnimationEnding_Third = true;
+            }
+            this.endingMessage3[0].color = new Color(0, 0, 0, current);
           }
         }
+        //}
         else
         {
           if (alpha > 0.5f)
@@ -884,10 +920,11 @@ public partial class HomeTown : MotherBase
           }
           else
           {
-            moveX = 0.7f;
+            moveX = 1.0f;
           }
           this.endingMessage3[0].color = new Color(0, 0, 0, this.endingMessage3[0].color.a - 0.0025f);
 
+          Debug.Log("Ending-3 alpha " + alpha.ToString());
           if (alpha <= 0.0f)
           {
             // One.SQL.UpdateArchivement(Fix.ARCHIVEMENT_ENDING);
@@ -904,6 +941,7 @@ public partial class HomeTown : MotherBase
             One.UpdateAkashicRecord();
             One.RealWorldSave();
 
+            Debug.Log("Ending-3 end");
             SceneDimension.JumpToTitle();
           }
         }
@@ -2599,7 +2637,13 @@ public partial class HomeTown : MotherBase
         // エンディング
         else if (currentEvent == MessagePack.ActionEvent.Ending)
         {
-          StartEnding();
+          StartEnding(1);
+          return;
+        }
+        // エンディング２
+        else if (currentEvent == MessagePack.ActionEvent.Ending_2)
+        {
+          StartEnding(2);
           return;
         }
         // 画面の情報をクリアする。
@@ -4942,13 +4986,25 @@ public partial class HomeTown : MotherBase
     }
   }
 
-  private void StartEnding()
+  private void StartEnding(int ending_type)
   {
     //GroundOne.WE2.SeekerEndingRoll = true;
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.MessageEnding(ref QuestMessageList, ref QuestEventList);
+
+    if (ending_type == 1)
+    {
+      MessagePack.MessageEnding(ref QuestMessageList, ref QuestEventList);
+    }
+    else if (ending_type == 2)
+    {
+      MessagePack.MessageEnding2(ref QuestMessageList, ref QuestEventList);
+    }
+    else
+    {
+      MessagePack.MessageEnding(ref QuestMessageList, ref QuestEventList);
+    }
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);
@@ -4956,7 +5012,18 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.MessageEnding_2(ref QuestMessageList, ref QuestEventList);
+    if (ending_type == 1)
+    {
+      MessagePack.MessageEnding_2(ref QuestMessageList, ref QuestEventList);
+    }
+    else if (ending_type == 2)
+    {
+      MessagePack.MessageEnding2_2(ref QuestMessageList, ref QuestEventList);
+    }
+    else
+    {
+      MessagePack.MessageEnding_2(ref QuestMessageList, ref QuestEventList);
+    }
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage2, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleCenter, QuestMessageList[ii]);
@@ -4964,7 +5031,18 @@ public partial class HomeTown : MotherBase
 
     QuestMessageList.Clear();
     QuestEventList.Clear();
-    MessagePack.MessageEnding_3(ref QuestMessageList, ref QuestEventList);
+    if (ending_type == 1)
+    {
+      MessagePack.MessageEnding_3(ref QuestMessageList, ref QuestEventList);
+    }
+    else if (ending_type == 2)
+    {
+      MessagePack.MessageEnding2_3(ref QuestMessageList, ref QuestEventList);
+    }
+    else
+    {
+      MessagePack.MessageEnding_3(ref QuestMessageList, ref QuestEventList);
+    }
     for (int ii = 0; ii < QuestMessageList.Count; ii++)
     {
       ConstructEndingMessage(this.endingMessage3, new Vector2(Screen.width / 2, 60), TextAnchor.MiddleLeft, QuestMessageList[ii]);

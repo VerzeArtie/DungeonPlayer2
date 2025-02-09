@@ -2023,6 +2023,12 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAermiJorzt = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT ||
+                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP ||
+                                       One.EnemyList[0].FullName == Fix.ETERNITY_KING_AERMI_JORZT_JP_VIEW)
+        {
+          One.TF.DefeatAermiJorzt2 = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;

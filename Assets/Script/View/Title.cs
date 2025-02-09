@@ -202,17 +202,23 @@ public class Title : MotherBase
 
     if (One.TF.EventCore_IdentifyFeltus)
     {
-      
-      One.TF.CurrentDungeonField = Fix.MAPFILE_BASE_FIELD;
-      // 初期スタートの位置
-      if (One.TF.InitBasefieldStart == false)
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
       {
-        One.TF.InitBasefieldStart = true;
-        One.TF.Field_X = Fix.BASEFIELD_EVENT_1_X;
-        One.TF.Field_Y = Fix.BASEFIELD_EVENT_1_Y;
-        One.TF.Field_Z = Fix.BASEFIELD_EVENT_1_Z;
+        SceneDimension.JumpToDungeonField();
       }
-      SceneDimension.JumpToDungeonField();
+      else
+      {
+        One.TF.CurrentDungeonField = Fix.MAPFILE_BASE_FIELD;
+        // 初期スタートの位置
+        if (One.TF.InitBasefieldStart == false)
+        {
+          One.TF.InitBasefieldStart = true;
+          One.TF.Field_X = Fix.BASEFIELD_EVENT_1_X;
+          One.TF.Field_Y = Fix.BASEFIELD_EVENT_1_Y;
+          One.TF.Field_Z = Fix.BASEFIELD_EVENT_1_Z;
+        }
+        SceneDimension.JumpToDungeonField();
+      }
     }
     else if (One.TF.SaveByDungeon)
     {
@@ -577,6 +583,7 @@ public class Title : MotherBase
     ein.ActionCommand7 = Fix.PRECISION_STRIKE;
     ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
     ein.ActionCommand9 = Fix.HARDEST_PARRY;
+    ein.MainWeapon = new Item(Fix.SWORD_OF_LIFE);
     ein.MaxGain();
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
