@@ -3248,7 +3248,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.HQ_RED_POTION:
       case Fix.THQ_RED_POTION:
       case Fix.PERFECT_RED_POTION:
-        ExecUseRedPotion(player, command_name);
+        ExecUseRedPotion(player, player, command_name);
         break;
 
       case Fix.SMALL_BLUE_POTION:
@@ -3258,7 +3258,7 @@ public partial class BattleEnemy : MotherBase
       case Fix.HQ_BLUE_POTION:
       case Fix.THQ_BLUE_POTION:
       case Fix.PERFECT_BLUE_POTION:
-        ExecUseBluePotion(player, command_name);
+        ExecUseBluePotion(player, player, command_name);
         break;
 
       case Fix.SMALL_GREEN_POTION:
@@ -3268,17 +3268,17 @@ public partial class BattleEnemy : MotherBase
       case Fix.HQ_GREEN_POTION:
       case Fix.THQ_GREEN_POTION:
       case Fix.PERFECT_GREEN_POTION:
-        ExecUseGreenPotion(player, command_name);
+        ExecUseGreenPotion(player, player, command_name);
         break;
 
       case Fix.PURE_CLEAN_WATER:
-        ExecPureCleanWater(player);
+        ExecPureCleanWater(player, player);
         break;
       case Fix.PURE_SINSEISUI:
-        ExecSinseisui(player);
+        ExecSinseisui(player, player);
         break;
       case Fix.PURE_VITALIRY_WATER:
-        ExecVitalityWater(player);
+        ExecVitalityWater(player, player);
         break;
       #endregion
 
@@ -3917,7 +3917,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_VERDANT_VOICE:
-        ExecLifeGain(player, player.MaxLife / 20);
+        ExecLifeGain(player, player, player.MaxLife / 20);
         AbstractAddBuff(player, player.objFieldPanel, Fix.BUFF_VERDANT_VOICE, Fix.BUFF_VERDANT_VOICE, Fix.INFINITY, 0, 0, 0);
         break;
 
@@ -4560,7 +4560,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_HEAVEN_VOICE:
-        ExecLifeGain(player, 2000.0f + AP.Math.RandomInteger(1000));
+        ExecLifeGain(player, player, 2000.0f + AP.Math.RandomInteger(1000));
         break;
 
       case Fix.COMMAND_PLASMA_STORM:
@@ -4649,7 +4649,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecLifeGain(target_list[ii], 1000 + AP.Math.RandomInteger(500));
+          ExecLifeGain(target_list[ii], target_list[ii], 1000 + AP.Math.RandomInteger(500));
         }
         break;
 
@@ -5167,7 +5167,7 @@ public partial class BattleEnemy : MotherBase
         {
           ExecBuffMagicDefenseUp(player, player, 3, 0.20f);
         }
-        ExecLifeGain(player, 4000.0f + AP.Math.RandomInteger(2500));
+        ExecLifeGain(player, player, 4000.0f + AP.Math.RandomInteger(2500));
         break;
 
       case Fix.COMMAND_ROAR:
@@ -5358,7 +5358,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecLifeGain(target_list[ii], 5000 + AP.Math.RandomInteger(2000));
+          ExecLifeGain(target_list[ii], target_list[ii], 5000 + AP.Math.RandomInteger(2000));
           AbstractRemoveBuff(target_list[ii], target_list[ii].objBuffPanel, "", 1, Fix.BuffType.Negative);
         }
         break;
@@ -5614,7 +5614,7 @@ public partial class BattleEnemy : MotherBase
         target_list = GetAllyGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
-          ExecLifeGain(target_list[ii], 10000 + AP.Math.RandomInteger(2500));
+          ExecLifeGain(target_list[ii], target_list[ii], 10000 + AP.Math.RandomInteger(2500));
         }
         break;
 
@@ -6090,7 +6090,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_IRREGULAR_REGENERATION:
         UpdateMessage(player.FullName + "：この再生能力、ニンゲンは欲しがるだろうな。\r\n");
-        ExecLifeGain(player, player.MaxLife / 5.0f);
+        ExecLifeGain(player, player, player.MaxLife / 5.0f);
         break;
 
       case Fix.COMMAND_ETERNAL_CIRCLE:
@@ -6309,7 +6309,7 @@ public partial class BattleEnemy : MotherBase
 
       case Fix.COMMAND_UNDEAD_WISH:
         UpdateMessage(player.FullName + "は不死への渇望を貪欲に見せ始めた！\r\n");
-        ExecLifeGain(player, player.MaxLife / 5.0f);
+        ExecLifeGain(player, player, player.MaxLife / 5.0f);
         break;
 
       case Fix.COMMAND_HELL_CIRCLE:
@@ -7010,7 +7010,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_BRILLIANT_LIFE:
-        ExecLifeGain(player, player.MaxLife / 20.0f);
+        ExecLifeGain(player, player, player.MaxLife / 20.0f);
         ExecBuffMagicAttackUp(player, player, 9, 0.50f);
         ExecBuffBattleSpeedUp(player, player, 9, 0.50f);
         break;
@@ -7081,7 +7081,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_LIFE_STREAMING:
-        ExecLifeGain(player, player.MaxLife * 0.05f);
+        ExecLifeGain(player, player, player.MaxLife * 0.05f);
         target_list = GetOpponentGroupAlive(player);
         for (int ii = 0; ii < target_list.Count; ii++)
         {
@@ -7146,7 +7146,7 @@ public partial class BattleEnemy : MotherBase
         break;
 
       case Fix.COMMAND_SPHERE_OF_GLORY:
-        ExecLifeGain(player, player.MaxLife / 100.0f + AP.Math.RandomInteger(100000));
+        ExecLifeGain(player, player, player.MaxLife / 100.0f + AP.Math.RandomInteger(100000));
         AbstractAddBuff(player, player.objBuffPanel, Fix.SPHERE_OF_GLORY, Fix.BUFF_SPHERE_OF_GLORY, SecondaryLogic.SphereOfGlory_Turn(player), SecondaryLogic.SphereOfGlory_Effect(player), 0, 0);
         break;
 
@@ -8059,7 +8059,7 @@ public partial class BattleEnemy : MotherBase
           {
             if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
             {
-              ExecUseRedPotion(PlayerList[ii], this.NowSelectActionSrcButton.name);
+              ExecUseRedPotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
             }
           }
         }
@@ -8075,7 +8075,23 @@ public partial class BattleEnemy : MotherBase
           {
             if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
             {
-              ExecUseBluePotion(PlayerList[ii], this.NowSelectActionSrcButton.name);
+              ExecUseBluePotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
+            }
+          }
+        }
+        else if (this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_1 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_2 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_3 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_4 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_5 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_6 ||
+                 this.NowSelectActionSrcButton.name == Fix.USE_GREEN_POTION_7)
+        {
+          for (int ii = 0; ii < PlayerList.Count; ii++)
+          {
+            if (this.NowSelectActionDstButton.Equals(PlayerList[ii].objMainButton.ActionButton))
+            {
+              ExecUseGreenPotion(PlayerList[ii], PlayerList[ii], this.NowSelectActionSrcButton.name);
             }
           }
         }
@@ -8549,7 +8565,7 @@ public partial class BattleEnemy : MotherBase
             sender.CommandName == Fix.THQ_RED_POTION ||
             sender.CommandName == Fix.PERFECT_RED_POTION)
         {
-          bool result = ExecUseRedPotion(this.PlayerList[ii], sender.CommandName);
+          bool result = ExecUseRedPotion(this.PlayerList[ii], this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -8563,7 +8579,7 @@ public partial class BattleEnemy : MotherBase
                  sender.CommandName == Fix.THQ_BLUE_POTION ||
                  sender.CommandName == Fix.PERFECT_BLUE_POTION)
         {
-          bool result = ExecUseBluePotion(this.PlayerList[ii], sender.CommandName);
+          bool result = ExecUseBluePotion(this.PlayerList[ii], this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -8577,7 +8593,7 @@ public partial class BattleEnemy : MotherBase
                  sender.CommandName == Fix.THQ_GREEN_POTION ||
                  sender.CommandName == Fix.PERFECT_GREEN_POTION)
         {
-          bool result = ExecUseGreenPotion(this.PlayerList[ii], sender.CommandName);
+          bool result = ExecUseGreenPotion(this.PlayerList[ii], this.PlayerList[ii], sender.CommandName);
           if (result == false)
           {
             StartAnimation(this.PlayerList[ii].objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
@@ -8674,6 +8690,30 @@ public partial class BattleEnemy : MotherBase
           return;
         }
         Debug.Log("UsePotionBLUE");
+        if (this.NowSelectActionSrcButton == null)
+        {
+          this.NowSelectActionSrcButton = sender.ActionButton;
+          SelectFilter.SetActive(true);
+          //btnCancelSelect.SetActive(true);
+          this.NowSelectTarget = true;
+          this.NowSelectGlobal = true;
+        }
+        break;
+
+      case Fix.USE_GREEN_POTION_1:
+      case Fix.USE_GREEN_POTION_2:
+      case Fix.USE_GREEN_POTION_3:
+      case Fix.USE_GREEN_POTION_4:
+      case Fix.USE_GREEN_POTION_5:
+      case Fix.USE_GREEN_POTION_6:
+      case Fix.USE_GREEN_POTION_7:
+        Debug.Log("Global USE_GREEN_POTION");
+        if (this.GlobalInstantValue < Fix.GLOBAL_INSTANT_MAX)
+        {
+          Debug.Log("Still not enough global gauge, then no action.");
+          return;
+        }
+        Debug.Log("UsePotionGREEN");
         if (this.NowSelectActionSrcButton == null)
         {
           this.NowSelectActionSrcButton = sender.ActionButton;
@@ -8946,7 +8986,7 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("detect ryokuei");
         ryokuei.BuffCountDown();
-        ExecLifeGain(AllList[ii], SecondaryLogic.Starsword_Ryokei_Value(AllList[ii]));
+        ExecLifeGain(AllList[ii], AllList[ii], SecondaryLogic.Starsword_Ryokei_Value(AllList[ii]));
         AllList[ii].CurrentInstantPoint += 300;
         AllList[ii].UpdateInstantPointGauge();
         StartAnimation(AllList[ii].groupTimeSequencePanel.gameObject, Fix.BUFF_RYOKUEI, Fix.COLOR_NORMAL);
@@ -8983,7 +9023,7 @@ public partial class BattleEnemy : MotherBase
         {
           double effectValue = AllList[ii].MaxLife * SecondaryLogic.MeiunPrismBox_Effect(AllList[ii]);
           Debug.Log("Equip " + Fix.MEIUN_PRISM_BOX + " Gain Life " + effectValue.ToString());
-          ExecLifeGain(AllList[ii], effectValue);
+          ExecLifeGain(AllList[ii], AllList[ii], effectValue);
         }
         else if (rand == 1)
         {
@@ -9142,7 +9182,7 @@ public partial class BattleEnemy : MotherBase
         {
           if (EnemyList[jj].IsSigilOfThePending == null)
           {
-            ExecLifeGain(EnemyList[jj], EnemyList[jj].MaxLife / 40);
+            ExecLifeGain(EnemyList[jj], EnemyList[jj], EnemyList[jj].MaxLife / 40);
           }
         }
       }
@@ -9217,7 +9257,7 @@ public partial class BattleEnemy : MotherBase
 
       if (AllList[ii].IsHeartOfLife)
       {
-        ExecLifeGain(AllList[ii], AllList[ii].IsHeartOfLife.EffectValue);
+        ExecLifeGain(AllList[ii], AllList[ii], AllList[ii].IsHeartOfLife.EffectValue);
       }
 
       // 【猛毒】による効果
@@ -9326,7 +9366,7 @@ public partial class BattleEnemy : MotherBase
       {
         double effectValue = holyWisdom.EffectValue2;
         UpdateMessage("聖なる加護が、" + AllList[ii].FullName + "へ生命力を注ぎ込んでいる。" + ((int)effectValue).ToString() + "ライフ回復\r\n");
-        ExecLifeGain(AllList[ii], effectValue);
+        ExecLifeGain(AllList[ii], AllList[ii], effectValue);
       }
 
       BuffImage deathScythe = AllList[ii].SearchFieldBuff(Fix.DEATH_SCYTHE);
@@ -9358,7 +9398,7 @@ public partial class BattleEnemy : MotherBase
       {
         double effectValue = SecondaryLogic.EternalDropletValue_A(AllList[ii]);
         UpdateMessage("永遠を示す理が、" + AllList[ii].FullName + "へ生命力を注ぎ込んでいる。" + ((int)effectValue).ToString() + "ライフ回復\r\n");
-        ExecLifeGain(AllList[ii], effectValue);
+        ExecLifeGain(AllList[ii], AllList[ii], effectValue);
 
         double effectValue2 = SecondaryLogic.EternalDropletValue_B(AllList[ii]);
         UpdateMessage(((int)effectValue2).ToString() + "マナ回復\r\n");        
@@ -11188,7 +11228,7 @@ public partial class BattleEnemy : MotherBase
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_VIGOR, Fix.VOICE_OF_VIGOR, SecondaryLogic.VoiceOfVigor_Turn(player), SecondaryLogic.VoiceOfVigor(player), 0, 0);
-      ExecLifeGain(target_list[ii], (target_list[ii].MaxLife / 10.0f));
+      ExecLifeGain(target_list[ii], target_list[ii], (target_list[ii].MaxLife / 10.0f));
     }
   }
 
@@ -11548,7 +11588,7 @@ public partial class BattleEnemy : MotherBase
   }
   #endregion
 
-  private bool ExecUseRedPotion(Character target, string command_name)
+  private bool ExecUseRedPotion(Character player, Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     string itemName = string.Empty;
@@ -11595,12 +11635,12 @@ public partial class BattleEnemy : MotherBase
       Item current = new Item(itemName);
       One.TF.DeleteBackpack(current, 1);
       double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-      AbstractHealCommand(null, target, effectValue, true);
+      AbstractHealCommand(player, target, effectValue, true);
       return true;
     }
   }
 
-  private bool ExecUseBluePotion(Character target, string command_name)
+  private bool ExecUseBluePotion(Character player, Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     string itemName = string.Empty;
@@ -11632,7 +11672,7 @@ public partial class BattleEnemy : MotherBase
       Item current = new Item(itemName);
       target.Backpack.Remove(itemName);
       double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-      AbstractGainManaPoint(null, target, effectValue);
+      AbstractGainManaPoint(player, target, effectValue);
       return true;
     }
     else
@@ -11652,7 +11692,7 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
-  private bool ExecUseGreenPotion(Character target, string command_name)
+  private bool ExecUseGreenPotion(Character player, Character target, string command_name)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     string itemName = string.Empty;
@@ -11698,13 +11738,13 @@ public partial class BattleEnemy : MotherBase
       Item current = new Item(itemName);
       One.TF.DeleteBackpack(current, 1);
       double effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
-      AbstractGainSkillPoint(null, target, effectValue);
+      AbstractGainSkillPoint(player, target, effectValue);
       return true;
     }
 
   }
 
-  private bool ExecPureCleanWater(Character target)
+  private bool ExecPureCleanWater(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -11723,11 +11763,11 @@ public partial class BattleEnemy : MotherBase
 
     One.TF.AlreadyPureCleanWater = true;
     double effectValue = target.MaxLife;
-    AbstractHealCommand(null, target, effectValue, true);
+    AbstractHealCommand(player, target, effectValue, true);
     return true;
   }
 
-  private bool ExecSinseisui(Character target)
+  private bool ExecSinseisui(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -11750,7 +11790,7 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private bool ExecVitalityWater(Character target)
+  private bool ExecVitalityWater(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
 
@@ -11773,10 +11813,10 @@ public partial class BattleEnemy : MotherBase
     return true;
   }
 
-  private void ExecLifeGain(Character target, double effectValue)
+  private void ExecLifeGain(Character player, Character target, double effectValue)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    AbstractHealCommand(null, target, effectValue, false);
+    AbstractHealCommand(player, target, effectValue, false);
   }
 
   private void ExecLifeDownCurrent(Character target, double decrease)
