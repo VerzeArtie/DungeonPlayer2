@@ -17526,11 +17526,8 @@ public class DungeonField : MotherBase
       // エンディング
       if (LocationDetect(tile, Fix.WOSM_EVENT_3_X, Fix.WOSM_EVENT_3_Y, Fix.WOSM_EVENT_3_Z))
       {
-        if (One.AR.Event_Message2600014 && One.AR.Event_Message2600015 == false)
-        {
-          MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
+        MessagePack.Message2600015(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)

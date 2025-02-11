@@ -34542,11 +34542,10 @@ public static class MessagePack
     if (One.AR.Event_Message2600015 == false)
     {
       One.AR.Event_Message2600015 = true;
-
-      Message(ref m_list, ref e_list, "アイン：こ・・・これは！", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.TOWN_FAZIL_CASTLE, ActionEvent.GotoHomeTownForce);
     }
+    Message(ref m_list, ref e_list, "アイン：こ・・・これは！", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, Fix.TOWN_FAZIL_CASTLE, ActionEvent.GotoHomeTownForce);
   }
 
   public static void Message2600015_2(ref List<string> m_list, ref List<ActionEvent> e_list)
