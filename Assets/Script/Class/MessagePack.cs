@@ -88,6 +88,7 @@ public static class MessagePack
     HomeTownResetMenuView,
     EnterSeekerMode,
     CallDungeonWosm,
+    CallEnding,
 
     ObjectiveAdd,
     ObjectiveRemove,
@@ -174,8 +175,6 @@ public static class MessagePack
     UpdateUnknownTileAreaHellLast,
     DungeonGotoDownStairFiveTwo,
     UpdateUnknownTileAreaTruthFinal,
-    Ending,
-    Ending_2,
   }
   #endregion
 
@@ -34545,12 +34544,7 @@ public static class MessagePack
     }
     Message(ref m_list, ref e_list, "アイン：こ・・・これは！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.TOWN_FAZIL_CASTLE, ActionEvent.GotoHomeTownForce);
-  }
-
-  public static void Message2600015_2(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Message(ref m_list, ref e_list, "", ActionEvent.Ending);
+    Message(ref m_list, ref e_list, "1", ActionEvent.CallEnding);
   }
 
   public static void MessageEnding(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -35068,26 +35062,21 @@ public static class MessagePack
     if (One.AR.Event_Message2600018 == false)
     {
       One.AR.Event_Message2600018 = true;
-
-      Message(ref m_list, ref e_list, "アイン：国王様、王妃様。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：この光景をご覧ください。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：離島ウォズムの町に", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：辿り着きました。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：この地にて", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, "アイン：ゆっくりとお過ごしください。", ActionEvent.None);
-
-      Message(ref m_list, ref e_list, Fix.TOWN_FAZIL_CASTLE, ActionEvent.GotoHomeTownForce);
     }
-  }
 
-  public static void Message2600018_2(ref List<string> m_list, ref List<ActionEvent> e_list)
-  {
-    Message(ref m_list, ref e_list, "", ActionEvent.Ending_2);
+    Message(ref m_list, ref e_list, "アイン：国王様、王妃様。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この光景をご覧ください。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：離島ウォズムの町に", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：辿り着きました。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：この地にて", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：ゆっくりとお過ごしください。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "2", ActionEvent.CallEnding);
   }
 
   public static void MessageEnding2(ref List<string> m_list, ref List<ActionEvent> e_list)

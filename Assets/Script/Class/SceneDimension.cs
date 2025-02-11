@@ -36,4 +36,10 @@ public static class SceneDimension
   {
     SceneManager.LoadSceneAsync(Fix.SCENE_BATTLE_ENEMY);
   }
+
+  public static void CallEnding(int number)
+  {
+    One.EndingNumber = number;
+    SceneManager.LoadSceneAsync(Fix.SCENE_ENDING);
+  }
 }

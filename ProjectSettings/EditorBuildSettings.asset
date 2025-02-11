@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TruthAnswer.unity
     guid: 22cef749aaeae4940a240de383bc0f4e
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 0884947c6f70c104ab8fdd5ef99386ab
   m_configObjects: {}

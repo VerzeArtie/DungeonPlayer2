@@ -14645,6 +14645,10 @@ public class DungeonField : MotherBase
             DungeonCallSetup(currentMessage, Fix.WOSM_EVENT_1_X, Fix.WOSM_EVENT_1_Y + 1.0f, Fix.WOSM_EVENT_1_Z);
           }
         }
+        else if (currentEvent == MessagePack.ActionEvent.CallEnding)
+        {
+          SceneDimension.CallEnding(Convert.ToInt32(currentMessage));
+        }
         // 通常メッセージ表示（システムメッセージが出ている場合は消す）
         else if (currentEvent == MessagePack.ActionEvent.None)
         {
@@ -17555,11 +17559,8 @@ public class DungeonField : MotherBase
       // トゥルーエンド
       if (LocationDetect(tile, Fix.WOSM_EVENT_5_X, Fix.WOSM_EVENT_5_Y, Fix.WOSM_EVENT_5_Z))
       {
-        if (One.AR.Event_Message2600017 && One.AR.Event_Message2600018 == false)
-        {
-          MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
-          return true;
-        }
+        MessagePack.Message2600018(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
       }
     }
     else if (One.TF.CurrentDungeonField == Fix.MAPFILE_SARITAN)

@@ -871,6 +871,7 @@ public static partial class Fix
   public const string SCENE_HELP_BOOK = @"HelpBook";
   public const string SCENE_PARTY_MENU = @"PartyMenu";
   public const string SCENE_TRUTH_ANSWER = @"TruthAnswer";
+  public const string SCENE_ENDING = @"Ending";
   #endregion
   #region "Fixed Value"
   public const int INFINITY = 9999999;

@@ -97,6 +97,9 @@ public static class One
   public static Fix.BattleMode BattleMode = Fix.BattleMode.None;
   public static bool FromHometown = false; // BackScene -> [false: from Dungeon] , [true: from Hometown]
   public static bool LifePointBattle = false;
+
+  // Ending
+  public static int EndingNumber = 1; // 1:Normal-End, 2:True-End
   #endregion
 
   public static void ReInitializeGroundOne(bool FromGameLoad)
