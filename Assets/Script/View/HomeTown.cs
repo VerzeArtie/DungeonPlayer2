@@ -544,7 +544,7 @@ public partial class HomeTown : MotherBase
     
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)
     {
-      if (One.AR.Event_Message2600001 == false)
+      if (One.TF.Event_Message2600001 == false)
       {
         One.TF.AvailableEinWolence = true;
         One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
@@ -1135,7 +1135,7 @@ public partial class HomeTown : MotherBase
   public void TapInn()
   {
     Debug.Log("TapInn(S)");
-    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false && One.AR.Event_Message2600003 == false)
+    if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false && One.TF.Event_Message2600003 == false)
     {
       MessagePack.Message2600002(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -1182,7 +1182,7 @@ public partial class HomeTown : MotherBase
   {
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-      if (One.AR.Record_EarringOfLana && One.AR.Event_Message2600015)
+      if (One.AR.Record_EarringOfLana && One.AR.NormalEnding)
       {
         MessagePack.CoreScenario_ContactLana(ref QuestMessageList, ref QuestEventList); TapOK();
         return;

@@ -33760,9 +33760,9 @@ public static class MessagePack
   #region "天上界ジェネシスゲート／StartSeeker"
   public static void Message2600001(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600001 == false)
+    if (One.TF.Event_Message2600001 == false)
     {
-      One.AR.Event_Message2600001 = true;
+      One.TF.Event_Message2600001 = true;
 
       Message(ref m_list, ref e_list, "アイン：っしゃ・・・これで準備OKかな。", ActionEvent.None);
 
@@ -33801,9 +33801,9 @@ public static class MessagePack
 
   public static void Message2600003(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600003 == false)
+    if (One.TF.Event_Message2600003 == false)
     {
-      One.AR.Event_Message2600003 = true;
+      One.TF.Event_Message2600003 = true;
       Message(ref m_list, ref e_list, "1", ActionEvent.UpdateUnknownTile);
 
       Message(ref m_list, ref e_list, "アイン：さてと・・・道のりだが・・・", ActionEvent.None);
@@ -33874,9 +33874,9 @@ public static class MessagePack
 
   public static void Message2600011(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600011 == false)
+    if (One.TF.Event_Message2600011 == false)
     {
-      One.AR.Event_Message2600011 = true;
+      One.TF.Event_Message2600011 = true;
       One.UpdateAkashicRecord();
       One.RealWorldSave();
       Message(ref m_list, ref e_list, "（　あまり、意識してここへ来たわけではなかった　）", ActionEvent.None);
@@ -33973,9 +33973,9 @@ public static class MessagePack
 
   public static void Message2600012(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600012 == false)
+    if (One.TF.Event_Message2600012 == false)
     {
-      One.AR.Event_Message2600012 = true;
+      One.TF.Event_Message2600012 = true;
 
       Message(ref m_list, ref e_list, "アイン：ここが・・・", ActionEvent.None);
 
@@ -34004,7 +34004,7 @@ public static class MessagePack
 
   public static void Message2600013(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600013 == false)
+    if (One.TF.Event_Message2600013 == false)
     {
       Message(ref m_list, ref e_list, "？？？：やあ、アイン君だね。", ActionEvent.None);
 
@@ -34128,9 +34128,9 @@ public static class MessagePack
 
   public static void Message2600013_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600013 == false)
+    if (One.TF.Event_Message2600013 == false)
     {
-      One.AR.Event_Message2600013 = true;
+      One.TF.Event_Message2600013 = true;
       Message(ref m_list, ref e_list, "（　エルミ・ジョルジュの攻撃は　）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "（　一寸の狂いなく、アイン・ウォーレンスの心臓へと　）", ActionEvent.None);
@@ -34186,9 +34186,9 @@ public static class MessagePack
 
   public static void Message2600014(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600014 == false)
+    if (One.TF.Event_Message2600014 == false)
     {
-      One.AR.Event_Message2600014 = true;
+      One.TF.Event_Message2600014 = true;
 
       Message(ref m_list, ref e_list, "", ActionEvent.TurnToBlack);
 
@@ -34538,10 +34538,11 @@ public static class MessagePack
 
   public static void Message2600015(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600015 == false)
+    if (One.AR.NormalEnding == false)
     {
-      One.AR.Event_Message2600015 = true;
+      One.AR.NormalEnding = true;
     }
+
     Message(ref m_list, ref e_list, "アイン：こ・・・これは！", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "1", ActionEvent.CallEnding);
@@ -34692,9 +34693,9 @@ public static class MessagePack
 
   public static void Message2600016(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600016 == false)
+    if (One.TF.Event_Message2600016 == false)
     {
-      One.AR.Event_Message2600016 = true;
+      One.TF.Event_Message2600016 = true;
 
       Message(ref m_list, ref e_list, "アイン：ここが・・・", ActionEvent.None);
 
@@ -34724,7 +34725,7 @@ public static class MessagePack
 
   public static void Message2600017(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600017 == false)
+    if (One.TF.Event_Message2600017 == false)
     {
       Message(ref m_list, ref e_list, "？？？：やあ、アイン君だね。", ActionEvent.None);
 
@@ -34936,9 +34937,9 @@ public static class MessagePack
 
   public static void Message2600017_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600017 == false)
+    if (One.TF.Event_Message2600017 == false)
     {
-      One.AR.Event_Message2600017 = true;
+      One.TF.Event_Message2600017 = true;
 
       Message(ref m_list, ref e_list, "（　エルミ・ジョルジュ　）", ActionEvent.None);
 
@@ -35059,9 +35060,9 @@ public static class MessagePack
 
   public static void Message2600018(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.AR.Event_Message2600018 == false)
+    if (One.AR.TrueEnding == false)
     {
-      One.AR.Event_Message2600018 = true;
+      One.AR.TrueEnding = true;
     }
 
     Message(ref m_list, ref e_list, "アイン：国王様、王妃様。", ActionEvent.None);

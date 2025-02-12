@@ -13,37 +13,11 @@ public class AkashicRecord : MonoBehaviour
   [SerializeField] protected bool _leave_seeker_mode = false;
   public bool LeaveSeekerMode { set { _leave_seeker_mode = value; } get { return _leave_seeker_mode; } }
 
-  [SerializeField] protected bool _event_message2600001 = false;
-  public bool Event_Message2600001 { get { return _event_message2600001; } set { _event_message2600001 = value; } } // ゲーム開始時
+  [SerializeField] protected bool _normal_ending = false;
+  public bool NormalEnding { get { return _normal_ending; } set { _normal_ending = value; } } // ノーマル・エンド
 
-  [SerializeField] protected bool _event_message2600003 = false;
-  public bool Event_Message2600003 { get { return _event_message2600003; } set { _event_message2600003 = value; } } // エスミリア草原区域 開始時
-
-  [SerializeField] protected bool _event_message2600011 = false;
-  public bool Event_Message2600011 { get { return _event_message2600011; } set { _event_message2600011 = value; } } // エスミリア草原区域 ObsidianStone
-
-  [SerializeField] protected bool _event_message2600012 = false;
-  public bool Event_Message2600012 { get { return _event_message2600012; } set { _event_message2600012 = value; } } // 離島ウォズム　開始時
-
-  [SerializeField] protected bool _event_message2600013 = false;
-  public bool Event_Message2600013 { get { return _event_message2600013; } set { _event_message2600013 = value; } } // 離島ウォズム　最終戦闘前
-
-  [SerializeField] protected bool _event_message2600014 = false;
-  public bool Event_Message2600014 { get { return _event_message2600014; } set { _event_message2600014 = value; } } // 離島ウォズム　最終戦闘後
-
-  [SerializeField] protected bool _event_message2600015 = false;
-  public bool Event_Message2600015 { get { return _event_message2600015; } set { _event_message2600015 = value; } } // エンディング
-
-  [SerializeField] protected bool _event_message2600016 = false;
-  public bool Event_Message2600016 { get { return _event_message2600016; } set { _event_message2600016 = value; } } // 離島ウォズム２　開始時
-
-  [SerializeField] protected bool _event_message2600017 = false;
-  public bool Event_Message2600017 { get { return _event_message2600017; } set { _event_message2600017 = value; } } // 離島ウォズム２　最終戦闘前
-
-  // 離島ウォズム２の場合、最終戦闘終了後、メインタイトルには戻らないので最終戦闘後のフラグは不要。
-
-  [SerializeField] protected bool _event_message2600018 = false;
-  public bool Event_Message2600018 { get { return _event_message2600018; } set { _event_message2600018 = value; } } // トゥルーエンド
+  [SerializeField] protected bool _true_ending = false;
+  public bool TrueEnding { get { return _true_ending; } set { _true_ending = value; } } // トゥルー・エンド
 
   // コア・シナリオ
   [SerializeField] protected bool _record_earring_of_lana = false;

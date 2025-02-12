@@ -609,7 +609,7 @@ public class DungeonField : MotherBase
       {
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
         {
-          if (One.AR.Event_Message2600003 == false)
+          if (One.TF.Event_Message2600003 == false)
           {
             MessagePack.Message2600003(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
@@ -620,7 +620,7 @@ public class DungeonField : MotherBase
 
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
         {
-          if (One.AR.Event_Message2600012 == false)
+          if (One.TF.Event_Message2600012 == false)
           {
             MessagePack.Message2600012(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
@@ -628,7 +628,7 @@ public class DungeonField : MotherBase
             return;
           }
 
-          if (One.AR.Event_Message2600013 && One.AR.Event_Message2600014 == false)
+          if (One.TF.Event_Message2600013 && One.TF.Event_Message2600014 == false)
           {
             MessagePack.Message2600014(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
@@ -639,7 +639,7 @@ public class DungeonField : MotherBase
 
         if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
         {
-          if (One.AR.Event_Message2600016 == false)
+          if (One.TF.Event_Message2600016 == false)
           {
             MessagePack.Message2600016(ref QuestMessageList, ref QuestEventList); TapOK();
             One.UpdateAkashicRecord();
@@ -892,7 +892,7 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM)
       {
-        if (One.TF.DefeatAermiJorzt && One.AR.Event_Message2600013 == false)
+        if (One.TF.DefeatAermiJorzt && One.TF.Event_Message2600013 == false)
         {
           MessagePack.Message2600013_2(ref QuestMessageList, ref QuestEventList); TapOK();
           One.UpdateAkashicRecord();
@@ -903,7 +903,7 @@ public class DungeonField : MotherBase
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
       {
-        if (One.TF.DefeatAermiJorzt2 && One.AR.Event_Message2600017 == false)
+        if (One.TF.DefeatAermiJorzt2 && One.TF.Event_Message2600017 == false)
         {
           MessagePack.Message2600017_2(ref QuestMessageList, ref QuestEventList); TapOK();
           One.UpdateAkashicRecord();
@@ -17510,7 +17510,7 @@ public class DungeonField : MotherBase
       // ボス戦
       if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
       {
-        if (One.AR.Event_Message2600013 == false)
+        if (One.TF.Event_Message2600013 == false)
         {
           MessagePack.Message2600013(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
@@ -17520,7 +17520,7 @@ public class DungeonField : MotherBase
       // エンディング前、移動抑止
       if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
       {
-        if (One.AR.Event_Message2600013)
+        if (One.TF.Event_Message2600013)
         {
           MessagePack.Message2600013_3(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
@@ -17539,7 +17539,7 @@ public class DungeonField : MotherBase
       // ボス戦
       if (LocationDetect(tile, Fix.WOSM_EVENT_2_X, Fix.WOSM_EVENT_2_Y, Fix.WOSM_EVENT_2_Z))
       {
-        if (One.AR.Event_Message2600017 == false)
+        if (One.TF.Event_Message2600017 == false)
         {
           MessagePack.Message2600017(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
@@ -17549,7 +17549,7 @@ public class DungeonField : MotherBase
       // エンディング前、移動抑止
       if (LocationDetect(tile, Fix.WOSM_EVENT_4_X, Fix.WOSM_EVENT_4_Y, Fix.WOSM_EVENT_4_Z))
       {
-        if (One.AR.Event_Message2600017)
+        if (One.TF.Event_Message2600017)
         {
           MessagePack.Message2600017_3(ref QuestMessageList, ref QuestEventList); TapOK();
           return true;
@@ -22328,7 +22328,7 @@ public class DungeonField : MotherBase
       }
 
       // ObsidianStone
-      if (One.AR.Event_Message2600011)
+      if (One.TF.Event_Message2600011)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z));
       }
