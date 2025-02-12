@@ -803,7 +803,7 @@ public class DungeonField : MotherBase
           return;
         }
 
-        if (One.TF.DefeatAegiruAmara && One.TF.Event_Message1000275 == false)
+        if (One.TF.DefeatAegirAmara && One.TF.Event_Message1000275 == false)
         {
           MessagePack.Message1000275(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
@@ -14550,7 +14550,7 @@ public class DungeonField : MotherBase
           One.BattleEnemyList.Clear();
           One.BattleEnemyList.Add(currentMessage);
           Debug.Log("EncountBoss: " + currentMessage);
-          if (currentMessage == Fix.SEA_STAR_KNIGHT_AEGIRU)
+          if (currentMessage == Fix.SEA_STAR_KNIGHT_AEGIR)
           {
             Debug.Log("EncountBoss: Plus Amara");
             One.BattleEnemyList.Add(Fix.SEA_STAR_KNIGHT_AMARA);
@@ -17180,7 +17180,7 @@ public class DungeonField : MotherBase
         return true;
       }
 
-      if (LocationDetect(tile, Fix.VELGUS_BOSS_299_X, Fix.VELGUS_BOSS_299_Y, Fix.VELGUS_BOSS_299_Z) && One.TF.DefeatAegiruAmara == false)
+      if (LocationDetect(tile, Fix.VELGUS_BOSS_299_X, Fix.VELGUS_BOSS_299_Y, Fix.VELGUS_BOSS_299_Z) && One.TF.DefeatAegirAmara == false)
       {
         MessagePack.Message1000274(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;

@@ -215,7 +215,7 @@ public static partial class Fix
     Boss53, // GUARDIAN_ROYAL_NAGA
     Boss54_1, // BRILLIANT_SEA_PRINCE_1
     Boss54_2, // SHELL_THE_SWORD_KNIGHT
-    Boss54_3_1, // SEA_STAR_KNIGHT_AEGIRU
+    Boss54_3_1, // SEA_STAR_KNIGHT_AEGIR
     Boss54_3_2, // SEA_STAR_KNIGHT_AMARA
     Boss54_4, // ORIGIN_STAR_CORAL_QUEEN_1
     Boss54_5_1, // JELLY_EYE_BRIGHT_RED
@@ -3319,9 +3319,9 @@ public static partial class Fix
   public const string SHELL_THE_SWORD_KNIGHT = "Shell the Sword-Knight";
   public const string SHELL_THE_SWORD_KNIGHT_JP = "シェル ザ ソードナイト";
   public const string SHELL_THE_SWORD_KNIGHT_JP_VIEW = "【　海星源の護り手　】\r\nシェル ザ ソードナイト";
-  public const string SEA_STAR_KNIGHT_AEGIRU = "Sea-StarKnight Aegir";
-  public const string SEA_STAR_KNIGHT_AEGIRU_JP = "海星騎士・エーギル";
-  public const string SEA_STAR_KNIGHT_AEGIRU_JP_VIEW = "【　天秤を携えし者　】\r\n海星騎士・エーギル";
+  public const string SEA_STAR_KNIGHT_AEGIR = "Sea-StarKnight Aegir";
+  public const string SEA_STAR_KNIGHT_AEGIR_JP = "海星騎士・エーギル";
+  public const string SEA_STAR_KNIGHT_AEGIR_JP_VIEW = "【　天秤を携えし者　】\r\n海星騎士・エーギル";
   public const string SEA_STAR_KNIGHT_AMARA = "Sea-StarKnight Amara";
   public const string SEA_STAR_KNIGHT_AMARA_JP = "海星騎士・アマラ";
   public const string SEA_STAR_KNIGHT_AMARA_JP_VIEW = "【　天秤を見据えし者　】\r\n海星騎士・アマラ";
@@ -13974,9 +13974,12 @@ public static partial class Fix
   public const string NAME_SINIKIA_KAHLHANZ_FULL = @"シニキア・カールハンツ";
   #endregion
   #region "Duel対戦相手"
-  public const string DUEL_ZATKON_MEMBER_1 = "ZAT-KON メンバー１";
-  public const string DUEL_ZATKON_MEMBER_2 = "ZAT-KON メンバー２";
-  public const string DUEL_SELMOI_RO = "ZAT-KON 強襲暗殺部隊\r\nセルモイ ロウ";
+  public const string DUEL_ZATKON_MEMBER_1 = "ZAT-KON Member 1";
+  public const string DUEL_ZATKON_MEMBER_1_JP = "ZAT-KON メンバー１";
+  public const string DUEL_ZATKON_MEMBER_2 = "ZAT-KON Member 2";
+  public const string DUEL_ZATKON_MEMBER_2_JP = "ZAT-KON メンバー２";
+  public const string DUEL_SELMOI_RO = "ZAT-KON Deadly-Assasin\r\nSelmoi-Ro";
+  public const string DUEL_SELMOI_RO_JP = "ZAT-KON 強襲暗殺部隊\r\nセルモイ ロウ";
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";

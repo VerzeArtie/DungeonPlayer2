@@ -2990,8 +2990,8 @@ public class TeamFoundation : MonoBehaviour
   protected bool _defeat_shell_sword_knight = false;
   public bool DefeatShellSwordKnight { get { return _defeat_shell_sword_knight; } set { _defeat_shell_sword_knight = value; } }
 
-  protected bool _defeat_aegiru_amara = false;
-  public bool DefeatAegiruAmara { get { return _defeat_aegiru_amara; } set { _defeat_aegiru_amara = value; } }
+  protected bool _defeat_aegir_amara = false;
+  public bool DefeatAegirAmara { get { return _defeat_aegir_amara; } set { _defeat_aegir_amara = value; } }
 
   protected bool _defeat_origin_star_coral_queen = false;
   public bool DefeatOriginStarCoralQueen { get { return _defeat_origin_star_coral_queen; } set { _defeat_origin_star_coral_queen = value; } }

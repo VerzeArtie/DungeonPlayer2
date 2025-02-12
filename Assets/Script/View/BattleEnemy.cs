@@ -637,9 +637,9 @@ public partial class BattleEnemy : MotherBase
         {
           One.EnemyList[ii].txtName.text = Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW;
         }
-        else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU || One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP)
+        else if (One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR || One.EnemyList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP)
         {
-          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW;
+          One.EnemyList[ii].txtName.text = Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW;
         }
         else if (One.EnemyList.Count > 1 && (One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA || One.EnemyList[1].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP))
         {
@@ -1480,7 +1480,7 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
-          if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW)
+          if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW)
           {
             AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
@@ -1657,7 +1657,7 @@ public partial class BattleEnemy : MotherBase
           }
 
           // Duel !
-          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1)
+          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1 || AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP)
           {
             AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
@@ -1665,7 +1665,7 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
-          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2)
+          if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2 || AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP)
           {
             AllList[ii].UseInstantPoint(false);
             AllList[ii].UpdateInstantPointGauge();
@@ -1899,11 +1899,13 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatHellKerberos = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP)
         {
           One.TF.DefeatZatKon_1 = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP)
         {
           One.TF.DefeatZatKon_2 = true;
         }
@@ -1943,11 +1945,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatShellSwordKnight = true;
         }
-        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU ||
-                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP ||
-                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW)
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIR ||
+                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP ||
+                                       One.EnemyList[0].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW)
         {
-          One.TF.DefeatAegiruAmara = true;
+          One.TF.DefeatAegirAmara = true;
         }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 ||
                                        One.EnemyList[0].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP ||

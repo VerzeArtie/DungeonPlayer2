@@ -9085,8 +9085,8 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = false;
         break;
 
-      case Fix.SEA_STAR_KNIGHT_AEGIRU:
-      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP:
+      case Fix.SEA_STAR_KNIGHT_AEGIR:
+      case Fix.SEA_STAR_KNIGHT_AEGIR_JP:
         SetupParameter(3600, 950, 2400, 106000, 120, 0, 100000, 120000);
         this._baseInstantPoint = 4000;
         list.Add(Fix.NORMAL_ATTACK);
@@ -10030,6 +10030,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUEL_ZATKON_MEMBER_1:
+      case Fix.DUEL_ZATKON_MEMBER_1_JP:
         SetupParameter(30, 15, 30, 70, 20, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
@@ -10045,6 +10046,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUEL_ZATKON_MEMBER_2:
+      case Fix.DUEL_ZATKON_MEMBER_2_JP:
         SetupParameter(40, 20, 40, 80, 25, 0, 0, 0);
         list.Add(Fix.NORMAL_ATTACK);
         this.CannotCritical = false;
@@ -10066,7 +10068,7 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    if (One.CONF.Difficulty == -1)
+    //if (One.CONF.Difficulty == -1)
     {
       this.Strength = 1;
       this.Agility = 1;
@@ -10678,9 +10680,9 @@ public partial class Character : MonoBehaviour
         result = RandomChoice(current);
         break;
 
-      case Fix.SEA_STAR_KNIGHT_AEGIRU:
-      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP:
-      case Fix.SEA_STAR_KNIGHT_AEGIRU_JP_VIEW:
+      case Fix.SEA_STAR_KNIGHT_AEGIR:
+      case Fix.SEA_STAR_KNIGHT_AEGIR_JP:
+      case Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW:
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 4) { this.AI_Phase = 0; }
 
@@ -11191,6 +11193,7 @@ public partial class Character : MonoBehaviour
 
       // Duel !
       case Fix.DUEL_ZATKON_MEMBER_1:
+      case Fix.DUEL_ZATKON_MEMBER_1_JP:
         if ((this.CurrentSkillPoint <= this.MaxSkillPoint / 2) &&
             this.Backpack.Contains(Fix.NORMAL_GREEN_POTION))
         {
@@ -11474,20 +11477,19 @@ public partial class Character : MonoBehaviour
     if (src == Fix.ACID_SCORPION) { return Fix.ACID_SCORPION_JP; }
     if (src == Fix.NEJIMAKI_KNIGHT) { return Fix.NEJIMAKI_KNIGHT_JP; }
     if (src == Fix.AIMING_SHOOTER) { return Fix.AIMING_SHOOTER_JP; }
-    if (src == Fix.CULT_BLACK_MAGICIAN_JP) { return Fix.CULT_BLACK_MAGICIAN_JP; }
+    if (src == Fix.CULT_BLACK_MAGICIAN) { return Fix.CULT_BLACK_MAGICIAN_JP; }
     if (src == Fix.STONE_GOLEM) { return Fix.STONE_GOLEM_JP; }
     if (src == Fix.JUNK_VULKAN) { return Fix.JUNK_VULKAN_JP; }
     if (src == Fix.LIGHTNING_CLOUD) { return Fix.LIGHTNING_CLOUD_JP; }
     if (src == Fix.SILENT_GARGOYLE) { return Fix.SILENT_GARGOYLE_JP; }
     if (src == Fix.GATE_HOUND) { return Fix.GATE_HOUND_JP; }
-    if (src == Fix.PLAY_FIRE_IMP_JP) { return Fix.PLAY_FIRE_IMP_JP; }
+    if (src == Fix.PLAY_FIRE_IMP) { return Fix.PLAY_FIRE_IMP_JP; }
     if (src == Fix.WALKING_TIME_BOMB) { return Fix.WALKING_TIME_BOMB_JP; }
     if (src == Fix.EARTH_ELEMENTAL) { return Fix.EARTH_ELEMENTAL_JP; }
     if (src == Fix.DEATH_DRONE) { return Fix.DEATH_DRONE_JP; }
     if (src == Fix.ASSULT_SCARECROW) { return Fix.ASSULT_SCARECROW_JP; }
     if (src == Fix.MAD_DOCTOR) { return Fix.MAD_DOCTOR_JP; }
     if (src == Fix.MAGICAL_HAIL_GUN) { return Fix.MAGICAL_HAIL_GUN_JP; }
-    if (src == Fix.THE_GALVADAZER) { return Fix.THE_GALVADAZER_JP; }
 
     if (src == Fix.CHARGED_BOAR) { return Fix.CHARGED_BOAR_JP; }
     if (src == Fix.WOOD_ELF) { return Fix.WOOD_ELF_JP; }
@@ -11497,27 +11499,166 @@ public partial class Character : MonoBehaviour
     if (src == Fix.SAVAGE_BEAR) { return Fix.SAVAGE_BEAR_JP; }
     if (src == Fix.INNOCENT_FAIRY) { return Fix.INNOCENT_FAIRY_JP; }
     if (src == Fix.MYSTIC_DRYAD) { return Fix.MYSTIC_DRYAD_JP; }
-    if (src == Fix.SPEEDY_FALCON) { return Fix.SPEEDY_FALCON_JP; }
     if (src == Fix.WOLF_HUNTER) { return Fix.WOLF_HUNTER_JP; }
+    if (src == Fix.SPEEDY_FALCON) { return Fix.SPEEDY_FALCON_JP; }
     if (src == Fix.FOREST_PHANTOM) { return Fix.FOREST_PHANTOM_JP; }
     if (src == Fix.EXCITED_ELEPHANT) {  return Fix.EXCITED_ELEPHANT_JP; }
     if (src == Fix.SYLPH_DANCER) { return Fix.SYLPH_DANCER_JP; }
     if (src == Fix.GATHERING_LAPTOR) { return Fix.GATHERING_LAPTOR_JP; }
-    if (src == Fix.FOREST_ELEMENTAL) { return Fix.FOREST_ELEMENTAL_JP; }
+    if (src == Fix.RAGE_TIGER) { return Fix.RAGE_TIGER_JP; }
     if (src == Fix.THORN_WARRIOR) { return Fix.THORN_WARRIOR_JP; }
     if (src == Fix.MUDDLED_PLANT) { return Fix.MUDDLED_PLANT_JP; }
     if (src == Fix.FLANSIS_KNIGHT) { return Fix.FLANSIS_KNIGHT_JP; }
     if (src == Fix.MIST_PYTHON) { return Fix.MIST_PYTHON_JP; }
-    if (src == Fix.TOWER_SCOUT) { return Fix.TOWER_SCOUT_JP; }
-    if (src == Fix.DISTURB_RHINO) { return Fix.DISTURB_RHINO_JP; }
+    if (src == Fix.TOWERING_ENT) { return Fix.TOWERING_ENT_JP; }
     if (src == Fix.POISON_MARY) { return Fix.POISON_MARY_JP; }
+    if (src == Fix.DISTURB_RHINO) { return Fix.DISTURB_RHINO_JP; }
     if (src == Fix.FLANSIS_OF_THE_FOREST_QUEEN) { return Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP; }
+
+    if (src == Fix.WISDOM_CENTAURUS) { return Fix.WISDOM_CENTAURUS_JP; }
+    if (src == Fix.SWIFT_EAGLE) { return Fix.SWIFT_EAGLE_JP; }
+    if (src == Fix.EASTERN_GOLEM) { return Fix.EASTERN_GOLEM_JP; }
+    if (src == Fix.WESTERN_GOLEM) { return Fix.WESTERN_GOLEM_JP; }
+    if (src == Fix.WIND_ELEMENTAL) { return Fix.WIND_ELEMENTAL_JP; }
+    if (src == Fix.SKY_KNIGHT) { return Fix.SKY_KNIGHT_JP; }
+    if (src == Fix.THE_PURPLE_HIKARIGOKE) { return Fix.THE_PURPLE_HIKARIGOKE_JP; }
+    if (src == Fix.MYSTICAL_UNICORN) { return Fix.MYSTICAL_UNICORN_JP; }
+    if (src == Fix.TRIAL_HERMIT) { return Fix.TRIAL_HERMIT_JP; }
+    if (src == Fix.STORM_BIRDMAN) { return Fix.STORM_BIRDMAN_JP; }
+    if (src == Fix.THE_BLUE_LAVA_EYE) { return Fix.THE_BLUE_LAVA_EYE_JP; }
+    if (src == Fix.THE_WHITE_LAVA_EYE) { return Fix.THE_WHITE_LAVA_EYE_JP; }
+    if (src == Fix.FLYING_CURTAIN) { return Fix.FLYING_CURTAIN_JP; }
+    if (src == Fix.LUMINOUS_HAWK) { return Fix.LUMINOUS_HAWK_JP; }
+    if (src == Fix.AETHER_GUST) { return Fix.AETHER_GUST_JP; }
+    if (src == Fix.WHIRLWIND_KITSUNE) { return Fix.WHIRLWIND_KITSUNE_JP; }
+    if (src == Fix.THUNDER_LION) { return Fix.THUNDER_LION_JP; }
+    if (src == Fix.SAINT_PEGASUS) { return Fix.SAINT_PEGASUS_JP; }
+    if (src == Fix.DREAM_WALKER) { return Fix.DREAM_WALKER_JP; }
+    if (src == Fix.IVORY_STATUE) { return Fix.IVORY_STATUE_JP; }
+    if (src == Fix.STUBBORN_SAGE) { return Fix.STUBBORN_SAGE_JP; }
+    if (src == Fix.BOMB_BALLON) { return Fix.BOMB_BALLON_JP; }
+    if (src == Fix.OBSERVANT_HERALD) { return Fix.OBSERVANT_HERALD_JP; }
+    if (src == Fix.TOWER_SCOUT) { return Fix.TOWER_SCOUT_JP; }
+    if (src == Fix.MIST_SALVAGER) { return Fix.MIST_SALVAGER_JP; }
+    if (src == Fix.WINGSPAN_RANGER) { return Fix.WINGSPAN_RANGER_JP; }
+    if (src == Fix.MAJESTIC_CLOUD) { return Fix.MAJESTIC_CLOUD_JP; }
+    if (src == Fix.HARDENED_GRIFFIN) { return Fix.HARDENED_GRIFFIN_JP; }
+    if (src == Fix.PRISMA_SPHERE) { return Fix.PRISMA_SPHERE_JP; }
+    if (src == Fix.MOVING_CANNON) { return Fix.MOVING_CANNON_JP; }
+    if (src == Fix.VEIL_FORTUNE_WIZARD) { return Fix.VEIL_FORTUNE_WIZARD_JP; }
+    if (src == Fix.LIGHT_THUNDER_LANCEBOLTS) { return Fix.LIGHT_THUNDER_LANCEBOLTS_JP; }
+    if (src == Fix.THE_YODIRIAN) { return Fix.THE_YODIRIAN_JP; }
+
+    if (src == Fix.DAGGER_FISH) { return Fix.DAGGER_FISH_JP; }
+    if (src == Fix.FLOATING_MANTA) { return Fix.FLOATING_MANTA_JP; }
+    if (src == Fix.SKYBLUE_BIRD) { return Fix.SKYBLUE_BIRD_JP; }
+    if (src == Fix.RAINBOW_CLIONE) { return Fix.RAINBOW_CLIONE_JP; }
+    if (src == Fix.ROLLING_MAGURO) { return Fix.ROLLING_MAGURO_JP; }
+    if (src == Fix.BEAUTY_SEA_LILY) { return Fix.BEAUTY_SEA_LILY_JP; }
+    if (src == Fix.LIMBER_SEAEAGLE) { return Fix.LIMBER_SEAEAGLE_JP; }
+    if (src == Fix.FLUFFY_CORAL) { return Fix.FLUFFY_CORAL_JP; }
+    if (src == Fix.BLACK_OCTOPUS) { return Fix.BLACK_OCTOPUS_JP; }
+    if (src == Fix.STEAL_SQUID) { return Fix.STEAL_SQUID_JP; }
+    if (src == Fix.PROUD_VIKING) { return Fix.PROUD_VIKING_JP; }
+    if (src == Fix.GAN_GAME) { return Fix.GAN_GAME_JP; }
+    if (src == Fix.JUMPING_KAMASU) { return Fix.JUMPING_KAMASU_JP; }
+    if (src == Fix.RECKLESS_WALRUS) { return Fix.RECKLESS_WALRUS_JP; }
+    if (src == Fix.WRECHED_ANEMONE) { return Fix.WRECHED_ANEMONE_JP; }
+    if (src == Fix.DEEPSEA_HAND) { return Fix.DEEPSEA_HAND_JP; }
+    if (src == Fix.ASSULT_SERPENT) { return Fix.ASSULT_SERPENT_JP; }
+    if (src == Fix.GIANT_SEA_SPIDER) { return Fix.GIANT_SEA_SPIDER_JP; }
+    if (src == Fix.ESCORT_HERMIT_CLUB) { return Fix.ESCORT_HERMIT_CLUB_JP; }
+    if (src == Fix.MOGUL_MANTA) { return Fix.MOGUL_MANTA_JP; }
+    if (src == Fix.GLUTTONY_COELACANTH) { return Fix.GLUTTONY_COELACANTH_JP; }
+    if (src == Fix.FEROCIOUS_WHALE) { return Fix.FEROCIOUS_WHALE_JP; }
+    if (src == Fix.WEEPING_MIST) { return Fix.WEEPING_MIST_JP; }
+    if (src == Fix.AMBUSH_ANGLERFISH) { return Fix.AMBUSH_ANGLERFISH_JP; }
+    if (src == Fix.EMERALD_LOBSTER) { return Fix.EMERALD_LOBSTER_JP; }
+    if (src == Fix.STICKY_STARFISH) { return Fix.STICKY_STARFISH_JP; }
+    if (src == Fix.RAMPAGE_BIGSHARK) { return Fix.RAMPAGE_BIGSHARK_JP; }
+    if (src == Fix.BIGMOUSE_JOE) { return Fix.BIGMOUSE_JOE_JP; }
+    if (src == Fix.SEA_STAR_KNIGHT) { return Fix.SEA_STAR_KNIGHT_JP; }
+    if (src == Fix.SEA_ELEMENTAL) { return Fix.SEA_ELEMENTAL_JP; }
+    if (src == Fix.EDGED_HIGH_SHARK) { return Fix.EDGED_HIGH_SHARK_JP; }
+    if (src == Fix.THOUGHTFUL_NAUTILUS) { return Fix.THOUGHTFUL_NAUTILUS_JP; }
+    if (src == Fix.GHOST_SHIP) { return Fix.GHOST_SHIP_JP; }
+    if (src == Fix.DEFENSIVE_DATSU) { return Fix.DEFENSIVE_DATSU_JP; }
+    if (src == Fix.SEA_SONG_MARMAID) { return Fix.SEA_SONG_MARMAID_JP; }
+    if (src == Fix.DEVIL_STAR_DEATH_FLODIETE) { return Fix.DEVIL_STAR_DEATH_FLODIETE_JP; }
+    if (src == Fix.THE_BIGHAND_OF_KRAKEN) { return Fix.THE_BIGHAND_OF_KRAKEN_JP; }
+    if (src == Fix.BRILLIANT_SEA_PRINCE_1) { return Fix.BRILLIANT_SEA_PRINCE_1_JP; }
+    if (src == Fix.SHELL_THE_SWORD_KNIGHT) { return Fix.SHELL_THE_SWORD_KNIGHT_JP; }
+    if (src == Fix.SEA_STAR_KNIGHT_AEGIR) { return Fix.SEA_STAR_KNIGHT_AEGIR_JP; }
+    if (src == Fix.SEA_STAR_KNIGHT_AMARA) { return Fix.SEA_STAR_KNIGHT_AMARA_JP; }
+    if (src == Fix.ORIGIN_STAR_CORAL_QUEEN_1) { return Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP; }
+    if (src == Fix.GUARDIAN_ROYAL_NAGA) { return Fix.GUARDIAN_ROYAL_NAGA_JP; }
+    if (src == Fix.JELLY_EYE_BRIGHT_RED) { return Fix.JELLY_EYE_BRIGHT_RED_JP; }
+    if (src == Fix.JELLY_EYE_DEEP_BLUE) { return Fix.JELLY_EYE_DEEP_BLUE_JP; }
+    if (src == Fix.GROUND_VORTEX_LEVIATHAN) { return Fix.GROUND_VORTEX_LEVIATHAN_JP; }
+    if (src == Fix.BRILLIANT_SEA_PRINCE) { return Fix.BRILLIANT_SEA_PRINCE_JP; }
+    if (src == Fix.ORIGIN_STAR_CORAL_QUEEN) { return Fix.ORIGIN_STAR_CORAL_QUEEN_JP; }
+    if (src == Fix.VELGAS_THE_KING_OF_SEA_STAR) { return Fix.VELGAS_THE_KING_OF_SEA_STAR_JP; }
+
+    if (src == Fix.PHANTOM_HUNTER) { return Fix.PHANTOM_HUNTER_JP; }
+    if (src == Fix.BEAST_MASTER) { return Fix.BEAST_MASTER_JP; }
+    if (src == Fix.ELDER_ASSASSIN) { return Fix.ELDER_ASSASSIN_JP; }
+    if (src == Fix.FALLEN_SEEKER) { return Fix.FALLEN_SEEKER_JP; }
+    if (src == Fix.MEPHISTO_RIGHTARM) { return Fix.MEPHISTO_RIGHTARM_JP; }
+    if (src == Fix.POWERED_STEAM_BOW) { return Fix.POWERED_STEAM_BOW_JP; }
+    if (src == Fix.DARK_MESSENGER) { return Fix.DARK_MESSENGER_JP; }
+    if (src == Fix.MASTER_LORD) { return Fix.MASTER_LORD_JP; }
+    if (src == Fix.EXECUTIONER) { return Fix.EXECUTIONER_JP; }
+    if (src == Fix.MARIONETTE_NEMESIS) { return Fix.MARIONETTE_NEMESIS_JP; }
+    if (src == Fix.BLACKFIRE_MASTER_BLADE) { return Fix.BLACKFIRE_MASTER_BLADE_JP; }
+    if (src == Fix.SIN_THE_DARKELF) { return Fix.SIN_THE_DARKELF_JP; }
+    if (src == Fix.IMPERIAL_KNIGHT) { return Fix.IMPERIAL_KNIGHT_JP; }
+    if (src == Fix.SUN_STRIDER) { return Fix.SUN_STRIDER_JP; }
+    if (src == Fix.BALANCE_IDLE) { return Fix.BALANCE_IDLE_JP; }
+    if (src == Fix.ARCHDEMON) { return Fix.ARCHDEMON_JP; }
+    if (src == Fix.UNDEAD_WYVERN) { return Fix.UNDEAD_WYVERN_JP; }
+    if (src == Fix.GO_FLAME_SLASHER) { return Fix.GO_FLAME_SLASHER_JP; }
+    if (src == Fix.DEVIL_CHILDREN) { return Fix.DEVIL_CHILDREN_JP; }
+    if (src == Fix.ANCIENT_DISK) { return Fix.ANCIENT_DISK_JP; }
+    if (src == Fix.HOWLING_HORROR) { return Fix.HOWLING_HORROR_JP; }
+    if (src == Fix.PAIN_ANGEL) { return Fix.PAIN_ANGEL_JP; }
+    if (src == Fix.CHAOS_WARDEN) { return Fix.CHAOS_WARDEN_JP; }
+    if (src == Fix.HELL_DREAD_KNIGHT) { return Fix.HELL_DREAD_KNIGHT_JP; }
+    if (src == Fix.DOOM_BRINGER) { return Fix.DOOM_BRINGER_JP; }
+    if (src == Fix.BLACK_LIGHTNING_SPHERE) { return Fix.BLACK_LIGHTNING_SPHERE_JP; }
+    if (src == Fix.DISTORTED_SENSOR) { return Fix.DISTORTED_SENSOR_JP; }
+    if (src == Fix.ELDER_BAPHOMET) { return Fix.ELDER_BAPHOMET_JP; }
+    if (src == Fix.WIND_BREAKER) { return Fix.WIND_BREAKER_JP; }
+    if (src == Fix.HOLLOW_SPECTOR) { return Fix.HOLLOW_SPECTOR_JP; }
+    if (src == Fix.VENERABLE_WIZARD) { return Fix.VENERABLE_WIZARD_JP; }
+    if (src == Fix.UNKNOWN_FLOATING_BALL) { return Fix.UNKNOWN_FLOATING_BALL_JP; }
+    if (src == Fix.MASCLEWARRIOR_HARDIL) { return Fix.MASCLEWARRIOR_HARDIL_JP; }
+    if (src == Fix.HUGE_MAGICIAN_ZAGAN) { return Fix.HUGE_MAGICIAN_ZAGAN_JP; }
+    if (src == Fix.LEGIN_ARZE_1) { return Fix.LEGIN_ARZE_1_JP; }
+    if (src == Fix.LEGIN_ARZE_2) { return Fix.LEGIN_ARZE_2_JP; }
+    if (src == Fix.LEGIN_ARZE_3) { return Fix.LEGIN_ARZE_3_JP; }
+    if (src == Fix.EMPEROR_LEGAL_ORPHSTEIN) { return Fix.EMPEROR_LEGAL_ORPHSTEIN_JP; }
+    if (src == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN) { return Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP; }
+
+    if (src == Fix.PHOENIX) { return Fix.PHOENIX_JP; }
+    if (src == Fix.NINE_TAIL) { return Fix.NINE_TAIL_JP; }
+    if (src == Fix.MEPHISTOPHELES) { return Fix.MEPHISTOPHELES_JP; }
+    if (src == Fix.JUDGEMENT) { return Fix.JUDGEMENT_JP; }
+    if (src == Fix.EMERALD_DRAGON) { return Fix.EMERALD_DRAGON_JP; }
+    if (src == Fix.TIAMAT) { return Fix.TIAMAT_JP; }
+    if (src == Fix.ROYAL_KING_AERMI_JORZT) { return Fix.ROYAL_KING_AERMI_JORZT_JP; }
+    if (src == Fix.ETERNITY_KING_AERMI_JORZT) { return Fix.ETERNITY_KING_AERMI_JORZT_JP; }
+
+    if (src == Fix.DUEL_ZATKON_MEMBER_1) { return Fix.DUEL_ZATKON_MEMBER_1_JP; }
+    if (src == Fix.DUEL_ZATKON_MEMBER_2) { return Fix.DUEL_ZATKON_MEMBER_2_JP; }
+    if (src == Fix.DUEL_SELMOI_RO) { return Fix.DUEL_SELMOI_RO_JP; }
 
     // 未設定
     if (src == Fix.RUDE_WATCHDOG) { return Fix.RUDE_WATCHDOG_JP; }
     if (src == Fix.STONE_STATUE_SEIHITSU) { return Fix.STONE_STATUE_SEIHITSU_JP; }
     if (src == Fix.DISTORTED_SENSOR) { return Fix.DISTORTED_SENSOR_JP; }
     if (src == Fix.SHOTGUN_HYUUI) { return Fix.SHOTGUN_HYUUI_JP; }
+    if (src == Fix.FOREST_ELEMENTAL) { return Fix.FOREST_ELEMENTAL_JP; }
+    if (src == Fix.THE_GALVADAZER) { return Fix.THE_GALVADAZER_JP; }
 
     return src; // なにも該当しないなら、そのまま。
   }

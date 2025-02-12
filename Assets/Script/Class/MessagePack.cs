@@ -26296,7 +26296,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：みんな、戦闘開始だ！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, Fix.SEA_STAR_KNIGHT_AEGIRU, ActionEvent.EncountBoss);
+    Message(ref m_list, ref e_list, Fix.SEA_STAR_KNIGHT_AEGIR, ActionEvent.EncountBoss);
   }
 
   public static void Message1000275(ref List<string> m_list, ref List<ActionEvent> e_list)
