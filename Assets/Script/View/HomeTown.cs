@@ -3090,9 +3090,9 @@ public partial class HomeTown : MotherBase
         One.BattleMode = Fix.BattleMode.Boss;
       }
       else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
-               One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || Fix.DUEL_SELMOI_RO_JP ||
-               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || Fix.DUEL_ZATKON_MEMBER_1_JP ||
-               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || Fix.DUEL_ZATKON_MEMBER_2_JP )
+               One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP )
       {
         Debug.Log(MethodBase.GetCurrentMethod() + "4 Duel");
         One.BattleMode = Fix.BattleMode.Duel;
