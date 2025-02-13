@@ -37109,7 +37109,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ダンジョン以外ももちろんどこかに行ってる時はある。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：だが、正直な所、食堂や武具点、アクセサリ屋や情報屋に足を運んでるだけだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：だが、正直な所、食堂や武具屋、アクセサリ屋や情報屋に足を運んでるだけだ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：おかしな所は何もないはずだ。", ActionEvent.None);
 
