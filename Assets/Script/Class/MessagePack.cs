@@ -37153,7 +37153,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "ラナ：クッ・・・考えただけでイライラしてきたわ・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：（　世界線を変える事は・・・出来そうにない　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：（　この世界を変える事は・・・出来そうにない　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "ラナ：アンタの罪は重いわ。覚悟しなさい。", ActionEvent.None);
 
