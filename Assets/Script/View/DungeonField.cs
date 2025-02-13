@@ -22328,7 +22328,7 @@ public class DungeonField : MotherBase
       }
 
       // ObsidianStone
-      if (One.TF.Event_Message2600011)
+      if (One.TF.InscribeObsidianStone_6)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z));
       }
@@ -22416,7 +22416,8 @@ public class DungeonField : MotherBase
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z)));
       }
 
-      if (One.TF.Event_Message600180)
+      // ObsidianStone
+      if (One.TF.InscribeObsidianStone_1)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GORATRUM_2_ObsidianPortal_1_X, Fix.GORATRUM_2_ObsidianPortal_1_Y, Fix.GORATRUM_2_ObsidianPortal_1_Z));
       }
@@ -22563,7 +22564,8 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_12_X, Fix.MYSTICFOREST_BRUSHWOOD_12_Y, Fix.MYSTICFOREST_BRUSHWOOD_12_Z));
       }
 
-      if (One.TF.Event_Message900090)
+      // ObsidianStone
+      if (One.TF.InscribeObsidianStone_2)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_ObsidianPortal_1_X, Fix.MYSTICFOREST_ObsidianPortal_1_Y, Fix.MYSTICFOREST_ObsidianPortal_1_Z));
       }
@@ -23540,6 +23542,12 @@ public class DungeonField : MotherBase
         int num = FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_Treasure_37_X, Fix.OHRANTOWER_Treasure_37_Y, Fix.OHRANTOWER_Treasure_37_Z));
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, num);
       }
+
+      // ObsidianStone
+      if (One.TF.InscribeObsidianStone_3)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.OHRANTOWER_ObsidianStone_1_X, Fix.OHRANTOWER_ObsidianStone_1_Y, Fix.OHRANTOWER_ObsidianStone_1_Z));
+      }
     }
     #endregion
     #region "ヴェルガスの海底神殿"
@@ -24048,7 +24056,8 @@ public class DungeonField : MotherBase
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_SECRETWALL_332_X, Fix.VELGUS_SECRETWALL_332_Y, Fix.VELGUS_SECRETWALL_332_Z));
       }
 
-      if (One.TF.Event_Message1009070)
+      // ObsidianStone
+      if (One.TF.InscribeObsidianStone_4)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.VELGUS_ObsidianStone_1_X, Fix.VELGUS_ObsidianStone_1_Y, Fix.VELGUS_ObsidianStone_1_Z));
       }
@@ -24582,7 +24591,9 @@ public class DungeonField : MotherBase
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_4_DOOR_2_X, Fix.EDELGARZEN_4_DOOR_2_Y, Fix.EDELGARZEN_4_DOOR_2_Z));
       }
-      if (One.TF.Event_Message1900173)
+
+      // ObsidianStone
+      if (One.TF.InscribeObsidianStone_5)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.EDELGARZEN_ObsidianStone_1_X, Fix.EDELGARZEN_ObsidianStone_1_Y, Fix.EDELGARZEN_ObsidianStone_1_Z));
       }

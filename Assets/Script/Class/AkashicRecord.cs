@@ -652,7 +652,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_1; }
   }
 
-  // （５）神秘の森でObsidianStoneと接触する。
+  // （５）神秘の森のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_2 = false;
   public bool InscribeObsidianStone_2
   {
@@ -660,7 +660,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_2; }
   }
 
-  // （２）オーランの塔でObsidianStoneと接触する。
+  // （２）オーランの塔のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_3 = false;
   public bool InscribeObsidianStone_3
   {
@@ -668,7 +668,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_3; }
   }
 
-  // （１）ヴェルガス海底神殿でObsidianStoneと接触する。
+  // （１）ヴェルガス海底神殿のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_4 = false;
   public bool InscribeObsidianStone_4
   {
@@ -676,7 +676,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_4; }
   }
 
-  // （４）エデルガイゼン城でObsidianStoneと接触する。
+  // （４）エデルガイゼン城のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_5 = false;
   public bool InscribeObsidianStone_5
   {
@@ -684,7 +684,7 @@ public class AkashicRecord : MonoBehaviour
     get { return _inscribeObsidianStone_5; }
   }
 
-  // （０）エスミリア草原区域でObsidianStoneと接触する。
+  // （０）エスミリア草原区域のObsidianStoneと接触する。
   [SerializeField] protected bool _inscribeObsidianStone_6 = false;
   public bool InscribeObsidianStone_6
   {

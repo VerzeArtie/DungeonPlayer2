@@ -7711,9 +7711,9 @@ public static class MessagePack
 
   public static void Message600300(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message600180 == false)
+    if (One.TF.InscribeObsidianStone_1 == false)
     {
-      One.TF.Event_Message600180 = true;
+      One.TF.InscribeObsidianStone_1 = true;
       One.TF.AvailablePotentialGauge = true;
       One.TF.AvailableArchetype_EinWolence = true;
       One.TF.PotentialEnergy = 0;
@@ -8017,7 +8017,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "", ActionEvent.HomeTownBlackOut);
 
-      if (One.AR.InscribeObsidianStone_1 == false || One.AR.InscribeObsidianStone_2 == false)
+      if (One.TF.InscribeObsidianStone_1 == false || One.TF.InscribeObsidianStone_2 == false)
       {
         Message(ref m_list, ref e_list, "（　何か重要な事を忘れている気がする。　）", ActionEvent.None);
 
@@ -10988,9 +10988,9 @@ public static class MessagePack
 
   public static void Message801000(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message801000 == false)
+    if (One.TF.InscribeObsidianStone_3 == false)
     {
-      One.TF.Event_Message801000 = true;
+      One.TF.InscribeObsidianStone_3 = true;
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -16675,9 +16675,9 @@ public static class MessagePack
 
   public static void Message900720(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message900090 == false)
+    if (One.TF.InscribeObsidianStone_2 == false)
     {
-      One.TF.Event_Message900090 = true;
+      One.TF.InscribeObsidianStone_2 = true;
 
       Message(ref m_list, ref e_list, "アイン：こ、この石は！！", ActionEvent.None);
 
@@ -28197,9 +28197,9 @@ public static class MessagePack
 
   public static void Message1009070(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1009070 == false)
+    if (One.TF.InscribeObsidianStone_4 == false)
     {
-      One.TF.Event_Message1009070 = true;
+      One.TF.InscribeObsidianStone_4 = true;
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -32641,9 +32641,9 @@ public static class MessagePack
 
   public static void Message1900173(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message1900173 == false)
+    if (One.TF.InscribeObsidianStone_5 == false)
     {
-      One.TF.Event_Message1900173 = true;
+      One.TF.InscribeObsidianStone_5 = true;
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -33874,9 +33874,9 @@ public static class MessagePack
 
   public static void Message2600011(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    if (One.TF.Event_Message2600011 == false)
+    if (One.TF.InscribeObsidianStone_6 == false)
     {
-      One.TF.Event_Message2600011 = true;
+      One.TF.InscribeObsidianStone_6 = true;
       One.UpdateAkashicRecord();
       One.RealWorldSave();
       Message(ref m_list, ref e_list, "（　あまり、意識してここへ来たわけではなかった　）", ActionEvent.None);
@@ -35227,8 +35227,11 @@ public static class MessagePack
   #region "支配竜との対話"
   public static void InscribeMatrixDragon_1(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_1 = true;
-    One.UpdateAkashicRecord();
+    if (One.AR.InscribeObsidianStone_1 == false)
+    {
+      One.AR.InscribeObsidianStone_1 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
@@ -35339,9 +35342,11 @@ public static class MessagePack
 
   public static void InscribeMatrixDragon_2(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_2 = true;
-    One.UpdateAkashicRecord();
-
+    if (One.AR.InscribeObsidianStone_2 == false)
+    {
+      One.AR.InscribeObsidianStone_2 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
@@ -35496,8 +35501,11 @@ public static class MessagePack
 
   public static void InscribeMatrixDragon_3(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_3 = true;
-    One.UpdateAkashicRecord();
+    if (One.AR.InscribeObsidianStone_3 == false)
+    {
+      One.AR.InscribeObsidianStone_3 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
@@ -35594,8 +35602,11 @@ public static class MessagePack
 
   public static void InscribeMatrixDragon_4(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_4 = true;
-    One.UpdateAkashicRecord();
+    if (One.AR.InscribeObsidianStone_4 == false)
+    {
+      One.AR.InscribeObsidianStone_4 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
@@ -35761,8 +35772,11 @@ public static class MessagePack
 
   public static void InscribeMatrixDragon_5(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_5 = true;
-    One.UpdateAkashicRecord();
+    if (One.AR.InscribeObsidianStone_5 == false)
+    {
+      One.AR.InscribeObsidianStone_5 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 
@@ -35971,8 +35985,11 @@ public static class MessagePack
 
   public static void InscribeMatrixDragon_6(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    One.AR.InscribeObsidianStone_6 = true;
-    One.UpdateAkashicRecord();
+    if (One.AR.InscribeObsidianStone_6 == false)
+    {
+      One.AR.InscribeObsidianStone_6 = true;
+      One.UpdateAkashicRecord();
+    }
 
     Message(ref m_list, ref e_list, "【 アイン・ウォーレンスはその場で静止し、石へ手をかざし始めた　】", ActionEvent.MessageDisplay);
 

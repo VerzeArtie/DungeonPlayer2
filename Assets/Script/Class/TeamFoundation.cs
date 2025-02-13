@@ -1162,12 +1162,13 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message600170 = value; }
   }
 
-  [SerializeField] protected bool _event_message600180 = false;
-  public bool Event_Message600180
-  {
-    get { return _event_message600180; }
-    set { _event_message600180 = value; }
-  }
+  // InscribeObsidianStone_1に移管
+  //[SerializeField] protected bool _event_message600180 = false;
+  //public bool Event_Message600180
+  //{
+  //  get { return _event_message600180; }
+  //  set { _event_message600180 = value; }
+  //}
 
   [SerializeField] protected bool _event_message600190 = false;
   public bool Event_Message600190
@@ -1257,7 +1258,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message800240 = false;
   [SerializeField] protected bool _event_message800250 = false;
   [SerializeField] protected bool _event_message800260 = false;
-  [SerializeField] protected bool _event_message801000 = false;
+  //[SerializeField] protected bool _event_message801000 = false;
   [SerializeField] protected bool _event_message801010 = false;
   [SerializeField] protected bool _event_message801020 = false;
   [SerializeField] protected bool _event_message801030 = false;
@@ -1296,7 +1297,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message800240 { get { return _event_message800240; } set { _event_message800240 = value; } } // 制覇後、オーランの塔の入口における会話
   public bool Event_Message800250 { get { return _event_message800250; } set { _event_message800250 = value; } } // 制覇後、オーランの塔の最下層中枢部へ降りる時の会話
   public bool Event_Message800260 { get { return _event_message800260; } set { _event_message800260 = value; } } // 制覇後、オーランの塔の最下層中枢部へ降りた後の会話
-  public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } } // オーランの塔、ObsidianStoneと接触時の会話
+  //public bool Event_Message801000 { get { return _event_message801000; } set { _event_message801000 = value; } } // オーランの塔、ObsidianStoneと接触時の会話 // InscribeObsidianStone_3に移管
   public bool Event_Message801010 { get { return _event_message801010; } set { _event_message801010 = value; } } // オーランの塔、ObsidianStoneと接触後のファージル宮殿での会話
   public bool Event_Message801020 { get { return _event_message801020; } set { _event_message801020 = value; } } // オーランの塔制覇後、ファージル宮殿へ誘導する会話
   public bool Event_Message801030 { get { return _event_message801030; } set { _event_message801030 = value; } } // ファージル宮殿から、パルメテイシア神殿へ向かう際の会話
@@ -1390,12 +1391,13 @@ public class TeamFoundation : MonoBehaviour
     set { _event_message900080 = value; }
   }
 
-  [SerializeField] protected bool _event_message900090 = false;
-  public bool Event_Message900090
-  {
-    get { return _event_message900090; }
-    set { _event_message900090 = value; }
-  }
+  // InscribeObsidianStone_2に移管
+  //[SerializeField] protected bool _event_message900090 = false;
+  //public bool Event_Message900090
+  //{
+  //  get { return _event_message900090; }
+  //  set { _event_message900090 = value; }
+  //}
 
   [SerializeField] protected bool _event_message900100 = false;
   public bool Event_Message900100
@@ -2025,8 +2027,9 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1009010 = false;
   public bool Event_Message1009010 { get { return _event_message1009010; } set { _event_message1009010 = value; } }
 
-  [SerializeField] protected bool _event_message1009070 = false;
-  public bool Event_Message1009070 { get { return _event_message1009070; } set { _event_message1009070 = value; } }
+  // InscribeObsidianStone_4に移管
+  //[SerializeField] protected bool _event_message1009070 = false;
+  //public bool Event_Message1009070 { get { return _event_message1009070; } set { _event_message1009070 = value; } }
 
   [SerializeField] protected bool _event_message1010000 = false;
   public bool Event_Message1010000 { get { return _event_message1010000; } set { _event_message1010000 = value; } }
@@ -2255,7 +2258,7 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_message1900168 = false;
   [SerializeField] protected bool _event_message1900169 = false;
   [SerializeField] protected bool _event_message1900170 = false;
-  [SerializeField] protected bool _event_message1900173 = false;
+  // [SerializeField] protected bool _event_message1900173 = false;
   public bool Event_Message1900143 { get { return _event_message1900143; } set { _event_message1900143 = value; } } // 3F：鏡ルートＣ、行き止まり到達時の会話
   public bool Event_Message1900144 { get { return _event_message1900144; } set { _event_message1900144 = value; } } // 3F：鏡ルートＣから戻った時の会話
   public bool Event_Message1900145 { get { return _event_message1900145; } set { _event_message1900145 = value; } } // 3F：鏡ルートＤへ到達時の会話
@@ -2281,7 +2284,7 @@ public class TeamFoundation : MonoBehaviour
   public bool Event_Message1900168 { get { return _event_message1900168; } set { _event_message1900168 = value; } } // 4F：ボス戦
   public bool Event_Message1900169 { get { return _event_message1900169; } set { _event_message1900169 = value; } } // 4F：ボス戦撃破後
   public bool Event_Message1900170 { get { return _event_message1900170; } set { _event_message1900170 = value; } } // 4F：扉２
-  public bool Event_Message1900173 { get { return _event_message1900173; } set { _event_message1900173 = value; } } // 4F：ObsidianStone
+  // public bool Event_Message1900173 { get { return _event_message1900173; } set { _event_message1900173 = value; } } // 4F：ObsidianStone // InscribeObsidianStone_5に移管
   #endregion
 
   #region "ゲーム到達情報"
@@ -2346,13 +2349,33 @@ public class TeamFoundation : MonoBehaviour
   [SerializeField] protected bool _event_core_contact_lana_noaction = false;
   public bool EventCore_ContactLana_NoAction { get { return _event_core_contact_lana_noaction; } set { _event_core_contact_lana_noaction = value; } }
 
+  // ObsidianStone
+  // （３）ゴラトラム洞窟のObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_1 = false;
+  public bool InscribeObsidianStone_1 { set { _inscribeObsidianStone_1 = value; } get { return _inscribeObsidianStone_1; } }
+  // （５）神秘の森のObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_2 = false;
+  public bool InscribeObsidianStone_2 { set { _inscribeObsidianStone_2 = value; } get { return _inscribeObsidianStone_2; } }
+  // （２）オーランの塔でObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_3 = false;
+  public bool InscribeObsidianStone_3 { set { _inscribeObsidianStone_3 = value; } get { return _inscribeObsidianStone_3; } }
+  // （１）ヴェルガス海底神殿のObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_4 = false;
+  public bool InscribeObsidianStone_4 { set { _inscribeObsidianStone_4 = value; } get { return _inscribeObsidianStone_4; } }
+  // （４）エデルガイゼン城のObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_5 = false;
+  public bool InscribeObsidianStone_5 { set { _inscribeObsidianStone_5 = value; } get { return _inscribeObsidianStone_5; } }
+  // （０）エスミリア草原区域のObsidianStoneと接触する。
+  [SerializeField] protected bool _inscribeObsidianStone_6 = false;
+  public bool InscribeObsidianStone_6 { set { _inscribeObsidianStone_6 = value; } get { return _inscribeObsidianStone_6; } }
+
   // Seeker Mode
   [SerializeField] protected bool _event_message2600001 = false;
   public bool Event_Message2600001 { get { return _event_message2600001; } set { _event_message2600001 = value; } } // ゲーム開始時
   [SerializeField] protected bool _event_message2600003 = false;
   public bool Event_Message2600003 { get { return _event_message2600003; } set { _event_message2600003 = value; } } // エスミリア草原区域 開始時
-  [SerializeField] protected bool _event_message2600011 = false;
-  public bool Event_Message2600011 { get { return _event_message2600011; } set { _event_message2600011 = value; } } // エスミリア草原区域 ObsidianStone
+  //[SerializeField] protected bool _event_message2600011 = false;
+  //public bool Event_Message2600011 { get { return _event_message2600011; } set { _event_message2600011 = value; } } // エスミリア草原区域 ObsidianStone // InscribeObsidianStone_6に移管
   [SerializeField] protected bool _event_message2600012 = false;
   public bool Event_Message2600012 { get { return _event_message2600012; } set { _event_message2600012 = value; } } // 離島ウォズム　開始時
   [SerializeField] protected bool _event_message2600013 = false;

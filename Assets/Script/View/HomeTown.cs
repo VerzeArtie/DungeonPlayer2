@@ -724,7 +724,7 @@ public partial class HomeTown : MotherBase
         return;
       }
       // オーランの塔、ObsidianStoneを入手後の強制帰還
-      if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.Event_Message801000 && One.TF.Event_Message801010 == false)
+      if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.InscribeObsidianStone_3 && One.TF.Event_Message801010 == false)
       {
         UpdateBackgroundData(Fix.BACKGROUND_NIGHT);
         MessagePack.Message801010(ref QuestMessageList, ref QuestEventList); TapOK();
