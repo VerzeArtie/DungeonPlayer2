@@ -2465,7 +2465,7 @@ public partial class Character : MonoBehaviour
   }
 
   // ゲージ増減に関する記述
-  public void UseInstantPoint(bool force_zero)
+  public void UseInstantPoint(bool force_zero, string command_name)
   {
     if (force_zero)
     {
@@ -2473,26 +2473,32 @@ public partial class Character : MonoBehaviour
     }
     else
     {
+      double spendValue = ActionCommand.InstantGaugeCost(command_name);
+
       // 重ね掛けも考えられるが、ファーストリリースでは優先順で良い。
       BuffImage everflowMind = this.IsEverflowMind;
       BuffImage eternalPresence = this.IsEternalPresence;
       BuffImage oathOfGod = this.IsOathOfGod;
       if (eternalPresence)
       {
-        this.CurrentInstantPoint -= this.MaxInstantPoint * (1.00f - eternalPresence.EffectValue);
+        spendValue -= eternalPresence.EffectValue;
       }
       else if (oathOfGod)
       {
-        this.CurrentInstantPoint -= this.MaxInstantPoint * (1.00f - oathOfGod.EffectValue);
+        spendValue -= oathOfGod.EffectValue;
       }
-      else if (everflowMind != null)
+      else if (everflowMind)
       {
-        this.CurrentInstantPoint = everflowMind.EffectValue * this.MaxInstantPoint;
+        spendValue -= everflowMind.EffectValue;
       }
       else
       {
-        this.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this) * this.MaxInstantPoint;
+        // 初版リリースで性質による増強ロジックは提供しないため、コメントアウト。
+        // this.CurrentInstantPoint = SecondaryLogic.MagicSpellFactor(this) * this.MaxInstantPoint;
       }
+      if (spendValue <= 0.10f) { spendValue = 0.10f; } // 何らかの要因でまったく消費しないと無限ループになるため、最低0.10fは確保する。
+
+      this.CurrentInstantPoint -= this.MaxInstantPoint * spendValue;
     }
   }
 
@@ -9846,6 +9852,12 @@ public partial class Character : MonoBehaviour
         this.CannotCritical = true;
         break;
 
+      case Fix.DUEL_PLAYER_1:
+      case Fix.DUEL_PLAYER_1_JP:
+        SetupParameter(10, 10, 10, 10, 3, 0, 0, 0);
+        list.Add(Fix.NORMAL_ATTACK);
+        break;
+
       case Fix.DUEL_SELMOI_RO:
         SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
         this.Level = 31;
@@ -10068,7 +10080,7 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    //if (One.CONF.Difficulty == -1)
+    if (One.CONF.Difficulty == -1)
     {
       this.Strength = 1;
       this.Agility = 1;

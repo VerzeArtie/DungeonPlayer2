@@ -13974,6 +13974,8 @@ public static partial class Fix
   public const string NAME_SINIKIA_KAHLHANZ_FULL = @"シニキア・カールハンツ";
   #endregion
   #region "Duel対戦相手"
+  public const string DUEL_PLAYER_1 = "Duel Player 1";
+  public const string DUEL_PLAYER_1_JP = "デュエルプレイヤー１";
   public const string DUEL_ZATKON_MEMBER_1 = "ZAT-KON Member 1";
   public const string DUEL_ZATKON_MEMBER_1_JP = "ZAT-KON メンバー１";
   public const string DUEL_ZATKON_MEMBER_2 = "ZAT-KON Member 2";

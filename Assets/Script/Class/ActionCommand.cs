@@ -2381,6 +2381,133 @@ public static class ActionCommand
     return Fix.INFINITY; // 未設定やイレギュラーなものはデフォルトでは使用不可とする。
   }
 
+  public static double InstantGaugeCost(string command_name)
+  {
+    // if (command_name == Fix.STRAIGHT_SMASH) { return 0.70f; }
+
+
+    #region "Delve I"
+    // 魔法
+    if (command_name == Fix.FIRE_BALL) { return 0.50f; }
+    if (command_name == Fix.ICE_NEEDLE) { return 0.50f; }
+    if (command_name == Fix.FRESH_HEAL) { return 0.40f; }
+    if (command_name == Fix.SHADOW_BLAST) { return 0.40f; }
+    if (command_name == Fix.ORACLE_COMMAND) { return 1.00f; }
+    if (command_name == Fix.ENERGY_BOLT) { return 0.30f; }
+    // スキル
+    if (command_name == Fix.STRAIGHT_SMASH) { return 0.50f; }
+    if (command_name == Fix.SHIELD_BASH) { return 0.40f; }
+    if (command_name == Fix.LEG_STRIKE) { return 0.30f; }
+    if (command_name == Fix.HUNTER_SHOT) { return 0.40f; }
+    if (command_name == Fix.TRUE_SIGHT) { return 0.30f; }
+    if (command_name == Fix.DISPEL_MAGIC) { return 0.30f; }
+    #endregion
+
+    #region "Delve II"
+    // 魔法
+    if (command_name == Fix.FLAME_BLADE) { return 0.30f; }
+    if (command_name == Fix.PURE_PURIFICATION) { return 0.40f; }
+    if (command_name == Fix.DIVINE_CIRCLE) { return 0.30f; }
+    if (command_name == Fix.BLOOD_SIGN) { return 0.30f; }
+    if (command_name == Fix.FORTUNE_SPIRIT) { return 0.50f; }
+    if (command_name == Fix.FLASH_COUNTER) { return 0.40f; }
+    // スキル
+    if (command_name == Fix.STANCE_OF_THE_BLADE) { return 0.30f; }
+    if (command_name == Fix.STANCE_OF_THE_GUARD) { return 0.30f; }
+    if (command_name == Fix.SPEED_STEP) { return 0.30f; }
+    if (command_name == Fix.MULTIPLE_SHOT) { return 0.50f; }
+    if (command_name == Fix.LEYLINE_SCHEMA) { return 0.30f; }
+    if (command_name == Fix.SPIRITUAL_REST) { return 0.40f; }
+    #endregion
+
+    #region "Delve III"
+    // 魔法
+    if (command_name == Fix.METEOR_BULLET) { return 0.60f; }
+    if (command_name == Fix.BLUE_BULLET) { return 0.60f; }
+    if (command_name == Fix.HOLY_BREATH) { return 0.50f; }
+    if (command_name == Fix.BLACK_CONTRACT) { return 0.40f; }
+    if (command_name == Fix.WORD_OF_POWER) { return 0.50f; }
+    if (command_name == Fix.SIGIL_OF_THE_PENDING) { return 0.30f; }
+    // スキル
+    if (command_name == Fix.DOUBLE_SLASH) { return 0.60f; }
+    if (command_name == Fix.CONCUSSIVE_HIT) { return 0.40f; }
+    if (command_name == Fix.BONE_CRUSH) { return 0.50f; }
+    if (command_name == Fix.EYE_OF_THE_ISSHIN) { return 0.30f; }
+    if (command_name == Fix.VOICE_OF_VIGOR) { return 0.50f; }
+    if (command_name == Fix.UNSEEN_AID) { return 0.20f; }
+    #endregion
+
+    #region "Delve IV"
+    // 魔法
+    if (command_name == Fix.VOLCANIC_BLAZE) { return 0.50f; }
+    if (command_name == Fix.FREEZING_CUBE) { return 0.50f; }
+    if (command_name == Fix.ANGELIC_ECHO) { return 0.40f; }
+    if (command_name == Fix.CURSED_EVANGILE) { return 0.50f; }
+    if (command_name == Fix.GALE_WIND) { return 0.60f; }
+    if (command_name == Fix.PHANTOM_OBORO) { return 0.40f; }
+    // スキル
+    if (command_name == Fix.IRON_BUSTER) { return 0.70f; }
+    if (command_name == Fix.DOMINATION_FIELD) { return 0.50f; }
+    if (command_name == Fix.DEADLY_DRIVE) { return 0.40f; }
+    if (command_name == Fix.PENETRATION_ARROW) { return 0.70f; }
+    if (command_name == Fix.WILL_AWAKENING) { return 0.70f; }
+    if (command_name == Fix.CIRCLE_OF_SERENITY) { return 0.50f; }
+    #endregion
+
+    #region "Delve V"
+    // 魔法
+    if (command_name == Fix.FLAME_STRIKE) { return 0.70f; }
+    if (command_name == Fix.FROST_LANCE) { return 0.70f; }
+    if (command_name == Fix.SHINING_HEAL) { return 0.80f; }
+    if (command_name == Fix.CIRCLE_OF_THE_DESPAIR) { return 0.70f; }
+    if (command_name == Fix.SEVENTH_PRINCIPLE) { return 0.30f; }
+    if (command_name == Fix.COUNTER_DISALLOW) { return 0.60f; }
+    // スキル
+    if (command_name == Fix.RAGING_STORM) { return 0.70f; }
+    if (command_name == Fix.HARDEST_PARRY) { return 0.50f; }
+    if (command_name == Fix.UNINTENTIONAL_HIT) { return 0.70f; }
+    if (command_name == Fix.PRECISION_STRIKE) { return 0.70f; }
+    if (command_name == Fix.EVERFLOW_MIND) { return 0.50f; }
+    if (command_name == Fix.INNER_INSPIRATION) { return 0.70f; }
+    #endregion
+
+    #region "Delve VI"
+    // 魔法
+    if (command_name == Fix.CIRCLE_OF_THE_IGNITE) { return 0.40f; }
+    if (command_name == Fix.WATER_PRESENCE) { return 0.40f; }
+    if (command_name == Fix.VALKYRIE_BLADE) { return 0.70f; }
+    if (command_name == Fix.THE_DARK_INTENSITY) { return 0.80f; }
+    if (command_name == Fix.FUTURE_VISION) { return 0.70f; }
+    if (command_name == Fix.DETACHMENT_FAULT) { return 0.70f; }
+    // スキル
+    if (command_name == Fix.STANCE_OF_THE_IAI) { return 0.80f; }
+    if (command_name == Fix.ONE_IMMUNITY) { return 0.80f; }
+    if (command_name == Fix.STANCE_OF_MUIN) { return 0.60f; }
+    if (command_name == Fix.ETERNAL_CONCENTRATION) { return 0.70f; }
+    if (command_name == Fix.SIGIL_OF_THE_FAITH) { return 0.60f; }
+    if (command_name == Fix.ZERO_IMMUNITY) { return 0.50f; }
+    #endregion
+
+    #region "Delve VII"
+    // 魔法
+    if (command_name == Fix.LAVA_ANNIHILATION) { return 1.00f; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return 1.00f; }
+    if (command_name == Fix.RESURRECTION) { return 1.00f; }
+    if (command_name == Fix.DEATH_SCYTHE) { return 1.00f; }
+    if (command_name == Fix.GENESIS) { return 1.00f; }
+    if (command_name == Fix.TIME_STOP) { return 1.00f; }
+    // スキル
+    if (command_name == Fix.KINETIC_SMASH) { return 1.00f; }
+    if (command_name == Fix.CATASTROPHE) { return 1.00f; }
+    if (command_name == Fix.CARNAGE_RUSH) { return 1.00f; }
+    if (command_name == Fix.PIERCING_ARROW) { return 1.00f; }
+    if (command_name == Fix.STANCE_OF_THE_KOKOROE) { return 1.00f; }
+    if (command_name == Fix.TRANSCENDENCE_REACHED) { return 1.00f; }
+    #endregion
+
+    return 1.00f;
+  }
+
   public static Fix.BuffType GetBuffType(string command_name)
   {
     #region "基本／一般"

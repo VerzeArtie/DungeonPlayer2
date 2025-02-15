@@ -464,6 +464,9 @@ public partial class BattleEnemy : MotherBase
 
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
+      //  PlayerList[ii].CurrentInstantPoint = Fix.MAX_INSTANT_POINT;
+      //  UpdatePlayerInstantGauge(PlayerList[ii]);
+      //  ExecBuffStun(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
       //}
@@ -1396,11 +1399,11 @@ public partial class BattleEnemy : MotherBase
 
         // 敵プレイヤー側がインスタントが溜まった場合、スタックインザコマンドを発動する。
         // ボス戦、Duel戦が対象
-        if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
+        if (this.BattleType == Fix.BattleMode.Duel && AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
         {
           if (AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_SUPER_RANDOM_CANNON);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii], Fix.COMMAND_SUPER_RANDOM_CANNON, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1408,7 +1411,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_GALVADAZER || AllList[ii].FullName == Fix.THE_GALVADAZER_JP || AllList[ii].FullName == Fix.THE_GALVADAZER_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_DRILL_CYCLONE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_DRILL_CYCLONE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1416,7 +1419,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN || AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP || AllList[ii].FullName == Fix.FLANSIS_OF_THE_FOREST_QUEEN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_KILL_SPINNING_LANCER);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_KILL_SPINNING_LANCER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1424,7 +1427,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS || AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP || AllList[ii].FullName == Fix.LIGHT_THUNDER_LANCEBOLTS_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_HEAVEN_THUNDER_SPEAR);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HEAVEN_THUNDER_SPEAR, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1432,7 +1435,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_YODIRIAN || AllList[ii].FullName == Fix.THE_YODIRIAN_JP || AllList[ii].FullName == Fix.THE_YODIRIAN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_APOCALYPSE_SWORD);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_APOCALYPSE_SWORD, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1440,7 +1443,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE || AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP || AllList[ii].FullName == Fix.DEVIL_STAR_DEATH_FLODIETE_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_DEVILSPEAR_MISTELTEN);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_DEVILSPEAR_MISTELTEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1448,7 +1451,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN || AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP || AllList[ii].FullName == Fix.THE_BIGHAND_OF_KRAKEN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_EIGHT_ALL);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_EIGHT_ALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1456,7 +1459,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1 || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_1_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_GUNGNIR_LIGHT);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1466,7 +1469,7 @@ public partial class BattleEnemy : MotherBase
           // 別のコードとして記載しておく。
           if (AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP || AllList[ii].FullName == Fix.BRILLIANT_SEA_PRINCE_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_GUNGNIR_LIGHT);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GUNGNIR_LIGHT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1474,7 +1477,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT || AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP || AllList[ii].FullName == Fix.SHELL_THE_SWORD_KNIGHT_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_JEWEL_BREAK);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_JEWEL_BREAK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1482,7 +1485,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AEGIR_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_TORPEDO_BUSTER);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_TORPEDO_BUSTER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1490,7 +1493,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP || AllList[ii].FullName == Fix.SEA_STAR_KNIGHT_AMARA_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_VORTEX_BLAST);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_VORTEX_BLAST, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1498,7 +1501,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1 || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_1_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_BYAKURAN_FROZEN_ART);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1508,7 +1511,7 @@ public partial class BattleEnemy : MotherBase
           // 別のコードとして記載しておく。
           if (AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP || AllList[ii].FullName == Fix.ORIGIN_STAR_CORAL_QUEEN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_BYAKURAN_FROZEN_ART);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BYAKURAN_FROZEN_ART, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1516,7 +1519,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED || AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP || AllList[ii].FullName == Fix.JELLY_EYE_BRIGHT_RED_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_PENETRATION_EYE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_PENETRATION_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1524,7 +1527,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE || AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP || AllList[ii].FullName == Fix.JELLY_EYE_DEEP_BLUE_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_HALLUCINATE_EYE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HALLUCINATE_EYE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1532,7 +1535,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN || AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP || AllList[ii].FullName == Fix.GROUND_VORTEX_LEVIATHAN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_HUGE_SHOCKWAVE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_HUGE_SHOCKWAVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1540,7 +1543,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR || AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP || AllList[ii].FullName == Fix.VELGAS_THE_KING_OF_SEA_STAR_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_SOUMEI_SEISOU_KEN);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_SOUMEI_SEISOU_KEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1548,7 +1551,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP || AllList[ii].FullName == Fix.MASCLEWARRIOR_HARDIL_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_BERSERKER_RUSH);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_BERSERKER_RUSH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1556,7 +1559,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP || AllList[ii].FullName == Fix.HUGE_MAGICIAN_ZAGAN_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_MEGIDO_BLAZE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_MEGIDO_BLAZE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1566,7 +1569,7 @@ public partial class BattleEnemy : MotherBase
               AllList[ii].FullName == Fix.LEGIN_ARZE_2 || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_2_JP_VIEW ||
               AllList[ii].FullName == Fix.LEGIN_ARZE_3 || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP || AllList[ii].FullName == Fix.LEGIN_ARZE_3_JP_VIEW)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.COMMAND_VOID_BEAT);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_VOID_BEAT, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1578,12 +1581,11 @@ public partial class BattleEnemy : MotherBase
                 AllList[ii].IsPerfectProphecy || // 完全予見があれば発動する。
                 AllList[ii].IsStarswordReikuu) // スターソード「零空」があれば発動する。
             {
-              AllList[ii].UseInstantPoint(false);
-              AllList[ii].UpdateInstantPointGauge();
-
               int rand = AP.Math.RandomInteger(2);
               if (rand == 0)
               {
+                AllList[ii].UseInstantPoint(false, Fix.COMMAND_GOUGEKI);
+                AllList[ii].UpdateInstantPointGauge();
                 CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               }
               else
@@ -1598,10 +1600,14 @@ public partial class BattleEnemy : MotherBase
                     (AllList[ii].IsStarswordFinality == false && AllList[ii].CurrentActionCommand == Fix.COMMAND_STARSWORD_FINALITY)
                     )
                 {
+                  AllList[ii].UseInstantPoint(false, Fix.COMMAND_GOD_SENSE);
+                  AllList[ii].UpdateInstantPointGauge();
                   CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOD_SENSE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
                 }
                 else
                 {
+                  AllList[ii].UseInstantPoint(false, Fix.COMMAND_GOUGEKI);
+                  AllList[ii].UpdateInstantPointGauge();
                   CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_GOUGEKI, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
                 }
               }
@@ -1616,7 +1622,7 @@ public partial class BattleEnemy : MotherBase
             {
               if (AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
               {
-                AllList[ii].UseInstantPoint(false);
+                AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
                 AllList[ii].UpdateInstantPointGauge();
                 CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
                 return;
@@ -1628,28 +1634,28 @@ public partial class BattleEnemy : MotherBase
             }
             else if (AllList[ii].IsOneImmunity == false)
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.COMMAND_ABSOLUTE_PERFECTION);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.COMMAND_ABSOLUTE_PERFECTION, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
             else if (AllList[ii].IsTheDarkIntensity == false)
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.THE_DARK_INTENSITY);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.THE_DARK_INTENSITY, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
             else if (AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return;
             }
             else if (AllList[ii].CurrentLife < AllList[ii].MaxLife)
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.FRESH_HEAL);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.FRESH_HEAL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return;
@@ -1657,9 +1663,17 @@ public partial class BattleEnemy : MotherBase
           }
 
           // Duel !
+          if (AllList[ii].FullName == Fix.DUEL_PLAYER_1 || AllList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
+          {
+            AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1 || AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.BONE_CRUSH);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.BONE_CRUSH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1667,7 +1681,7 @@ public partial class BattleEnemy : MotherBase
 
           if (AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2 || AllList[ii].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP)
           {
-            AllList[ii].UseInstantPoint(false);
+            AllList[ii].UseInstantPoint(false, Fix.CURSED_EVANGILE);
             AllList[ii].UpdateInstantPointGauge();
             CreateStackObject(AllList[ii], AllList[ii].Target, Fix.CURSED_EVANGILE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1678,7 +1692,7 @@ public partial class BattleEnemy : MotherBase
             // 残りライフが少なくなったら、デッドリー・ドライブを行う。
             if (AllList[ii].CurrentLife < AllList[ii].MaxLife / 5.0f && AllList[ii].IsDeadlyDrive == false)
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.DEADLY_DRIVE);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DEADLY_DRIVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1686,7 +1700,7 @@ public partial class BattleEnemy : MotherBase
             // 残りライフに余力があるなら、見合いせずインスタント行動を行う。
             if (AllList[ii].CurrentLife >= AllList[ii].MaxLife / 2.0f)
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.SPEED_STEP);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SPEED_STEP, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1697,7 +1711,7 @@ public partial class BattleEnemy : MotherBase
             }
             else
             {
-              AllList[ii].UseInstantPoint(false);
+              AllList[ii].UseInstantPoint(false, Fix.SPEED_STEP);
               AllList[ii].UpdateInstantPointGauge();
               CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SPEED_STEP, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
@@ -1708,10 +1722,11 @@ public partial class BattleEnemy : MotherBase
           {
             if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
             {
-              AllList[ii].UseInstantPoint(false);
+              string command = Fix.FIRE_BALL;
+              AllList[ii].UseInstantPoint(false, command);
               AllList[ii].UpdateInstantPointGauge();
 
-              CreateStackObject(AllList[ii], PlayerList[0], Fix.FIRE_BALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              CreateStackObject(AllList[ii], PlayerList[0], command, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
               return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
             }
           }
@@ -1721,7 +1736,7 @@ public partial class BattleEnemy : MotherBase
             {
               if (AllList[ii].CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.DOUBLE_SLASH, ActionCommand.Cost(Fix.DOUBLE_SLASH), AllList[ii]))
               {
-                AllList[ii].UseInstantPoint(false);
+                AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
                 AllList[ii].UpdateInstantPointGauge();
 
                 CreateStackObject(AllList[ii], PlayerList[0], Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
@@ -2443,7 +2458,7 @@ public partial class BattleEnemy : MotherBase
       else
       {
         // ソーサリータイミング実行によるインスタント消費はプレイヤー意志によるものであるため、EverflowMindなどの効果の対象とする。
-        player.UseInstantPoint(false);
+        player.UseInstantPoint(false, command_name);
       }
     }
 
@@ -2608,6 +2623,10 @@ public partial class BattleEnemy : MotherBase
       if (command_name == Fix.STAY || command_name == Fix.DEFENSE)
       {
         // 待機と防御はポテンシャル・ゲージへ加算しない。通常攻撃は加算するので、カテゴリタイプ通常ではなく個別で記載。
+      }
+      else if (ActionCommand.GetAttribute(command_name) == ActionCommand.Attribute.Archetype)
+      {
+        // 元核はポテンシャル・ゲージへ加算しない。
       }
       else
       {
@@ -3217,7 +3236,7 @@ public partial class BattleEnemy : MotherBase
         this.AnimationArchetectProgress = 100;
         this.NowAnimationArchetect = true;
         this.GroupArchetectAnimation.SetActive(true);
-        ExecEinShutyuDanzetsu(player, target);
+        ExecEinShutyuDanzetsu(player, player);
         break;
 
       case Fix.ARCHETYPE_LANA_1:
@@ -6583,7 +6602,7 @@ public partial class BattleEnemy : MotherBase
         currentTarget = target_list[AP.Math.RandomInteger(target_list.Count)];
         if (ExecNormalAttack(player, currentTarget, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.None, critical))
         {
-          currentTarget.UseInstantPoint(false);
+          currentTarget.UseInstantPoint(false, Fix.COMMAND_POWER_EXPLOSION);
           currentTarget.UpdateInstantPointGauge();
         }
         break;
@@ -6953,7 +6972,7 @@ public partial class BattleEnemy : MotherBase
         UpdateMessage(player.FullName + "：我が剛・撃。受け止められまい！\r\n");
         if (ExecNormalAttack(player, target, 1.00f, Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical))
         {
-          target.UseInstantPoint(true);
+          target.UseInstantPoint(true, Fix.COMMAND_GOUGEKI);
           target.UpdateInstantPointGauge();
         }
         break;
@@ -7734,6 +7753,22 @@ public partial class BattleEnemy : MotherBase
     // 敵専用、スタックコマンドの割り込み
     for (int ii = 0; ii < EnemyList.Count; ii++)
     {
+      #region "デュエルプレイヤー１"
+      if (EnemyList[ii].FullName == Fix.DUEL_PLAYER_1 || EnemyList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
+          {
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_ATTACK);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+      #endregion
       #region "セルモイ・ロウ"
       if (EnemyList[ii].FullName == Fix.DUEL_SELMOI_RO)
       {
@@ -7742,7 +7777,7 @@ public partial class BattleEnemy : MotherBase
           int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
-            EnemyList[ii].UseInstantPoint(false);
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_ATTACK);
             EnemyList[ii].UpdateInstantPointGauge();
             CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return;
@@ -7764,7 +7799,7 @@ public partial class BattleEnemy : MotherBase
           }
           if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint)
           {
-            EnemyList[ii].UseInstantPoint(false);
+            EnemyList[ii].UseInstantPoint(false, Fix.COMMAND_BUTOH_ISSEN);
             EnemyList[ii].UpdateInstantPointGauge();
             CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_BUTOH_ISSEN, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return;
@@ -7788,14 +7823,16 @@ public partial class BattleEnemy : MotherBase
           {
             Debug.Log("warikomi EnemyList[ii].CurrentInstantPoint : maxInstantPoint " + EnemyList[ii].CurrentInstantPoint + " " + maxInstantPoint);
             int rand = AP.Math.RandomInteger(1);
-            EnemyList[ii].UseInstantPoint(false);
-            EnemyList[ii].UpdateInstantPointGauge();
             if (rand == 0)
             {
+              EnemyList[ii].UseInstantPoint(false, Fix.COMMAND_DESTRUCTION_OF_TRUTH);
+              EnemyList[ii].UpdateInstantPointGauge();
               CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DESTRUCTION_OF_TRUTH, Fix.STACKCOMMAND_IMMEDIATE_TIMER, 0);
             }
             else
             {
+              EnemyList[ii].UseInstantPoint(false, Fix.COMMAND_DOUBLE_STANCE);
+              EnemyList[ii].UpdateInstantPointGauge();
               CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COMMAND_DOUBLE_STANCE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             }
             return;
@@ -8197,15 +8234,17 @@ public partial class BattleEnemy : MotherBase
               }
             }
 
+            // 実質ここには来ないが念のため、残しておく。
             if (ActionCommand.GetAttribute(NowSelectActionCommandButton.name) == ActionCommand.Attribute.Archetype)
             {
               // ポテンシャル・ゲージを消費。
               One.TF.PotentialEnergy = 0;
             }
+            // 原則、こちらにしかこない。
             else
             {
               // インスタント・ゲージを消費。
-              this.NowSelectSrcPlayer.UseInstantPoint(false);
+              this.NowSelectSrcPlayer.UseInstantPoint(false, NowSelectActionCommandButton.name);
               this.NowSelectSrcPlayer.UpdateInstantPointGauge();
             }
           }
@@ -8371,13 +8410,93 @@ public partial class BattleEnemy : MotherBase
       return;
     }
 
+    // スタン効果により、行動できない。
+    if (this.NowSelectSrcPlayer.IsStun)
+    {
+      Debug.Log("CurrentPlayer is now stunning, then no action.");
+      return;
+    }
+
+    // Normalタイミングのため、行動できない。
+    if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
+    {
+      if (this.NowSelectSrcPlayer.IsWillAwakening)
+      {
+        Debug.Log("ActionCommand.TimingType.Normal, but IsWillAwakening detect, possible action.");
+        // 通過
+      }
+      else if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+      {
+        Debug.Log("ActionCommand.TimingType.Normal, but IsStanceoftheKokoroe detect, possible action.");
+        // 通過
+      }
+      else
+      {
+        Debug.Log("ActionCommand.TimingType.Normal, then no action.");
+        return;
+      }
+    }
+
+    // Sorceryタイミングのため、行動できない。
+    if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
+    {
+      if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
+      {
+        Debug.Log("Command Timing is Sorcery, but IsStanceoftheKokoroe detect, possible action.");
+        // 通過
+      }
+      else
+      {
+        Debug.Log("Command Timing is Sorcery, then no action.");
+        return;
+      }
+    }
+
+    // スタック・イン・ザ・コマンド専用のため、行動できない。
+    if (this.NowStackInTheCommand == false && ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand)
+    {
+      Debug.Log("NowStackInTheCommand false, Command Timing is StackCommand, then no action.");
+      return;
+    }
+
+    Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
+
+    // 防御姿勢の場合、スタックが無い場合は即時適用。スタックある場合はスタック即時適用。インスタントゲージは消費しない。
+    if (this.NowStackInTheCommand == false && sender.CommandName == Fix.DEFENSE)
+    {
+      this.NowSelectSrcPlayer.DecisionDefense();
+      this.NowSelectSrcPlayer = null;
+      return;
+    }
+    if (this.NowStackInTheCommand && sender.CommandName == Fix.DEFENSE)
+    {
+      CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
+      return;
+    }
+
+    // 元核の場合
+    if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Archetype)
+    {
+      // ポテンシャルゲージが不足している場合、行動できない。
+      if (One.TF.PotentialEnergy < One.TF.MaxPotentialEnergy)
+      {
+        //UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
+        Debug.Log("Still not enough PotentialEnergy point. then no action.");
+        return;
+      }
+
+      One.TF.PotentialEnergy = 0;
+      ExecPlayerCommand(this.NowSelectSrcPlayer, this.NowSelectSrcPlayer, sender.CommandName);
+      return;
+    }
+
     // インスタント値が不足している場合、行動できない。
     if ((this.NowSelectSrcPlayer.CurrentInstantPoint < this.NowSelectSrcPlayer.MaxInstantPoint) &&
         (ActionCommand.GetTiming(sender.CommandName) != ActionCommand.TimingType.Archetype)) // todo Archetypeではない場合、すべて使用不可能かどうかは決まっていない。
     {
-      if (sender.CommandName == Fix.DEFENSE && this.NowSelectSrcPlayer.IsDefense == false)
+      if (BattleType == Fix.BattleMode.Duel)
       {
-        // 防御姿勢は可能とする。
+        // Duelモード時、ここでは判定せず、次の処理へ。
       }
       else
       {
@@ -8387,155 +8506,39 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
-    if ((ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Archetype) &&
-        (One.TF.PotentialEnergy < One.TF.MaxPotentialEnergy))
+    // スタック・イン・ザ・コマンドがまだ無い場合、Duelでなければターゲット選択へ
+    if (this.NowStackInTheCommand == false && this.BattleType != Fix.BattleMode.Duel)
     {
-      //UpdateMessage(this.NowSelectSrcPlayer.GetCharacterSentence(1003));
-      Debug.Log("Still not enough PotentialEnergy point. then no action.");
+      this.NowSelectTarget = true;
+      SelectFilter.SetActive(true);
+      this.NowInstantTarget = true;
+      lblInstantAction.SetActive(true);
+
+      this.NowSelectActionCommandButton = sender.ActionButton;
       return;
     }
 
-    if (this.NowStackInTheCommand == false)
+    // Duel スタック・イン・ザ・コマンド
+    if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName))
     {
-      if (this.NowSelectSrcPlayer.IsStun)
+      Debug.Log("Duel this.NowSelectSrcPlayer.CurrentInstantPoint ok routne " + this.NowSelectSrcPlayer.CurrentInstantPoint + " " + this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName));
+      this.NowSelectSrcPlayer.UseInstantPoint(false, sender.CommandName);
+      this.NowSelectSrcPlayer.UpdateInstantPointGauge();
+      if (sender.CommandName == Fix.HARDEST_PARRY)
       {
-        Debug.Log("CurrentPlayer is now sleeping or stunning, then no action.");
-        return;
-      }
-
-      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand)
-      {
-        Debug.Log("Command Timing is StackCommand, then no action.");
-        return;
-      }
-
-      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
-      {
-        if (this.NowSelectSrcPlayer.IsWillAwakening)
-        {
-          Debug.Log("Command Timing is Normal, but IsWillAwakening detect, possible action.");
-          // 通過
-        }
-        else if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
-        {
-          Debug.Log("Command Timing is Normal, but IsStanceoftheKokoroe detect, possible action.");
-          // 通過
-        }
-        else
-        {
-          Debug.Log("Command Timing is Normal, then no action.");
-          return;
-        }
-      }
-      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
-      {
-        if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
-        {
-          Debug.Log("Command Timing is Sorcery, but IsStanceoftheKokoroe detect, possible action.");
-          // 通過
-        }
-        else
-        {
-          Debug.Log("Command Timing is Sorcery, then no action.");
-          return;
-        }
-      }
-
-      if (this.NowSelectTarget == false)
-      {
-        Debug.Log("TapPlayerActionButton: " + this.NowSelectSrcPlayer.FullName + " " + this.NowSelectSrcPlayer.CurrentInstantPoint.ToString() + " " + this.NowSelectSrcPlayer.MaxInstantPoint.ToString());
-      }
-
-      if (this.BattleType == Fix.BattleMode.Duel)
-      {
-        if (sender.CommandName == Fix.DEFENSE) // 防御姿勢はインスタント消費ではなく可能とする。
-        {
-          this.NowSelectSrcPlayer.DecisionDefense();
-          this.NowSelectSrcPlayer = null;
-        }
-        else if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.StackCommand &&
-                 GroupStackInTheCommand.GetComponentsInChildren<StackObject>().Length <= 0)
-        {
-          Debug.Log("Command Timing is StackCommand and stack-length less than 0, then no action.");
-        }
-        else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
-        {
-          this.NowSelectSrcPlayer.UseInstantPoint(false);
-          this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-          if (sender.CommandName == Fix.HARDEST_PARRY)
-          {
-            CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
-          }
-          else
-          {
-            CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-          }
-        }
+        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
       }
       else
       {
-        this.NowSelectTarget = true;
-        SelectFilter.SetActive(true);
-        this.NowInstantTarget = true;
-        lblInstantAction.SetActive(true);
-
-        this.NowSelectActionCommandButton = sender.ActionButton;
+        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
       }
     }
     else
     {
-      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Normal)
-      {
-        if (this.NowSelectSrcPlayer.IsWillAwakening)
-        {
-          Debug.Log("ActionCommand.TimingType.Normal, but IsWillAwakening detect, possible action.");
-          // 通過
-        }
-        else if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
-        {
-          Debug.Log("ActionCommand.TimingType.Normal, but IsStanceoftheKokoroe detect, possible action.");
-          // 通過
-        }
-        else
-        {
-          Debug.Log("ActionCommand.TimingType.Normal, then no action.");
-          return;
-        }
-      }
-      if (ActionCommand.GetTiming(sender.CommandName) == ActionCommand.TimingType.Sorcery)
-      {
-        if (this.NowSelectSrcPlayer.IsStanceoftheKokoroe)
-        {
-          Debug.Log("Command Timing is Sorcery, but IsStanceoftheKokoroe detect, possible action.");
-          return;
-        }
-        else
-        {
-          Debug.Log("Command Timing is Sorcery, then no action.");
-          return;
-        }
-      }
-
-
-      if (sender.CommandName == Fix.DEFENSE) // 防御姿勢はインスタント消費ではなく可能とする。
-      {
-        CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
-      }
-      else if (this.NowSelectSrcPlayer.CurrentInstantPoint >= this.NowSelectSrcPlayer.MaxInstantPoint)
-      {
-        this.NowSelectSrcPlayer.UseInstantPoint(false);
-        this.NowSelectSrcPlayer.UpdateInstantPointGauge();
-
-        if (sender.CommandName == Fix.HARDEST_PARRY)
-        {
-          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.CommandName, 1, Fix.STACKCOMMAND_SUDDEN_TIMER);
-        }
-        else
-        {
-          CreateStackObject(this.NowSelectSrcPlayer, EnemyList[0], sender.name, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
-        }
-      }
+      Debug.Log("Duel this.NowSelectSrcPlayer.CurrentInstantPoint not enough... " + this.NowSelectSrcPlayer.CurrentInstantPoint + " " + this.NowSelectSrcPlayer.MaxInstantPoint * ActionCommand.InstantGaugeCost(sender.CommandName));
     }
+
+    return;
   }
 
   public void TapImmediateAction(NodeActionCommand sender)
@@ -8556,7 +8559,7 @@ public partial class BattleEnemy : MotherBase
         }
 
         // ImmediateActionはポーションやシールなどの消耗品限定であり、アクションコマンドは入らない。実行後は必ず０とする。
-        this.PlayerList[ii].UseInstantPoint(true);
+        this.PlayerList[ii].UseInstantPoint(true, sender.CommandName);
         this.PlayerList[ii].UpdateInstantPointGauge();
 
         if (sender.CommandName == Fix.SMALL_RED_POTION ||
@@ -9738,7 +9741,7 @@ public partial class BattleEnemy : MotherBase
       {
         Debug.Log("SonicPulse effect, then no ExecNormalAttack.");
         // SonicPulseは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
-        player.UseInstantPoint(true);
+        player.UseInstantPoint(true, Fix.SONIC_PULSE);
         StartAnimation(target.objGroup.gameObject, Fix.BATTLE_MISS, Fix.COLOR_NORMAL);
         this.NowAnimationMode = true;
         return false;
@@ -11561,7 +11564,7 @@ public partial class BattleEnemy : MotherBase
     if (success)
     {
       // ExecPiercingArrowは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
-      target.UseInstantPoint(true);
+      target.UseInstantPoint(true, Fix.PIERCING_ARROW);
       target.UpdateInstantPointGauge();
       AbstractAddBuff(target, target.objBuffPanel, Fix.PIERCING_ARROW, Fix.BUFF_PIERCING_ARROW_JP, SecondaryLogic.PiercingArrow_Turn(player), 0, 0, 0);
     }
