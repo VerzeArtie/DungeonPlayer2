@@ -3494,11 +3494,6 @@ public static partial class Fix
   public const string DUMMY_SUBURI = "ダミー素振り君";
   #endregion
 
-  #region "Duel闘技場"
-  public const string DUEL_JEDA_ARUS = @"ジェダ・アルス";
-  public const string DUEL_JEDA_ARUS_DB = @"jeda_arus";
-  #endregion
-
   #region "Dungeon Event"
   #region "エスミリア草原"
   #region "宝箱"
@@ -13976,12 +13971,49 @@ public static partial class Fix
   #region "Duel対戦相手"
   public const string DUEL_PLAYER_1 = "Duel Player 1";
   public const string DUEL_PLAYER_1_JP = "デュエルプレイヤー１";
+  public const string DUEL_DUMMY_SUBURI = "Dummy Suburi-Kun";
+  public const string DUEL_DUMMY_SUBURI_JP = "ダミー・素振り君";
+  public const string DUEL_EGALT_SANDY = "Egalt Sandy";
+  public const string DUEL_EGALT_SANDY_JP = "エガルト・サンディ";
+  public const string DUEL_DORMEN_GORMEZ = "Dormen Gormez";
+  public const string DUEL_DORMEN_GORMEZ_JP = "ドルメン・ゴルメッツ";
+  public const string DUEL_GILMEL_SHTORF = "Gilmel Shtorf";
+  public const string DUEL_GILMEL_SHTORF_JP = "ジルメル・シュトルフ";
+  public const string DUEL_ALJINA_MEIRI = "Aljina Meiri";
+  public const string DUEL_ALJINA_MEIRI_JP = "アルジナ・メイリ";
   public const string DUEL_ZATKON_MEMBER_1 = "ZAT-KON Member 1";
   public const string DUEL_ZATKON_MEMBER_1_JP = "ZAT-KON メンバー１";
   public const string DUEL_ZATKON_MEMBER_2 = "ZAT-KON Member 2";
   public const string DUEL_ZATKON_MEMBER_2_JP = "ZAT-KON メンバー２";
+  public const string DUEL_ARDAM_VIO = "Ardam Vio";
+  public const string DUEL_ARDAM_VIO_JP = "アーダム・ヴィオ";
+  public const string DUEL_WELK_ZADA = "Welk Zada";
+  public const string DUEL_WELK_ZADA_JP = "ウェルク・ザダ";
+  public const string DUEL_HERAL_JITTE = "Heral Jitte";
+  public const string DUEL_HERAL_JITTE_JP = "ハーラル・ジッテ";
+  public const string DUEL_LENE_COLTOS = "Lene Coltos";
+  public const string DUEL_LENE_COLTOS_JP = "レネ・コルトス";
+  public const string DUEL_SCOTY_ZALGE = "Scoty Zalge";
+  public const string DUEL_SCOTY_ZALGE_JP = "スコーティ・ザルゲ";
+  public const string DUEL_SHLSTHS_DEMIGOR = "Shlths Demigor";
+  public const string DUEL_SHLSTHS_DEMIGOR_JP = "シルシス・デミゴル";
+  public const string DUEL_JEDA_ARUS = "Jeda Arus";
+  public const string DUEL_JEDA_ARUS_JP = "ジェダ・アルス";
   public const string DUEL_SELMOI_RO = "ZAT-KON Deadly-Assasin\r\nSelmoi-Ro";
   public const string DUEL_SELMOI_RO_JP = "ZAT-KON 強襲暗殺部隊\r\nセルモイ ロウ";
+  public const string DUEL_CALMANS_OHN = "Calmans Ohn";
+  public const string DUEL_CALMANS_OHN_JP = "ZAT-KON 裏・忍・長\r\nカルマンズ・オーン";
+  // シェル・ザ・ソードナイト
+  public const string DUEL_EONE_FULNEA = "Eone Fulnea "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string DUEL_EONE_FULNEA_JP = "エオネ・フルネア "; // DUEL名識別のため、最後の空白スペースで意図的に区別
+  public const string DUEL_OL_LANDIS = "Ol Landis";
+  public const string DUEL_OL_LANDIS_Jp = "オル・ランディス";
+  public const string DUEL_SINIKIA_KAHLHANZ = "Shinikia Kahlhanz";
+  public const string DUEL_SINIKIA_KAHLHANZ_JP = "シニキア・カールハンツ";
+  public const string DUEL_SIN_OSCURETE = "Sin Oscurete";
+  public const string DUEL_SIN_OSCURETE_JP = "シン・オスキュレーテ";
+  // リガール・オルフシュタイン
+  // エルミ・ジョルジュ
   #endregion
   #region "Area"
   public const string AREA_FAZIL = "ファージル";
