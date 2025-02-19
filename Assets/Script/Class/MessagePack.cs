@@ -833,7 +833,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ところで、ファージル宮殿に行けば良いんだよな？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "ラナ：そうよ。このアンシェット町から川沿いに北へ向かえば、すぐ到着するわ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：そうよ。このアンシェット町からエスミリア草原区域を通過すれば、到着するわ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：よし、じゃあ早速行くとしますか！ッハッハッハ！", ActionEvent.None);
 
@@ -844,7 +844,7 @@ public static class MessagePack
 
   public static void Message100015(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "ラナ：ちょっと、そんな事やってないでファージル宮殿に行きましょうよ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "ラナ：ちょっと、まずはエスミリア草原区域に行ってみましょうよ。", ActionEvent.None);
   }
 
   public static void Message100020(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -37918,7 +37918,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：一体誰だ？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "雑魚Ａ：俺達は盗賊団【ZAT KON】。この名を知らぬ者はいない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "雑魚Ａ：俺達は盗賊団【ZAT-KON】。この名を知らぬ者はいない。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "雑魚Ａ：どうだ、怖くなったか、ああ！？", ActionEvent.None);
 

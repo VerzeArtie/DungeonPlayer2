@@ -939,6 +939,12 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    if (One.TF.Event_Message000010 == false)
+    {
+      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
     }
@@ -980,7 +986,7 @@ public partial class HomeTown : MotherBase
 
   public void TapActionCommandSetting()
   {
-    if (One.TF.Event_Message100020 == false)
+    if (One.TF.Event_Message000010 == false)
     {
       MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -1004,7 +1010,7 @@ public partial class HomeTown : MotherBase
   public void TapTactics()
   {
     Debug.Log("TapTactics(S)");
-    if (One.TF.Event_Message100020 == false)
+    if (One.TF.Event_Message000010 == false)
     {
       MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
       TapOK();
@@ -1182,14 +1188,27 @@ public partial class HomeTown : MotherBase
   {
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
+
+      if (One.TF.Event_Message000010 == false)
+      {
+        MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+        TapOK();
+        return;
+      }
+
       if (One.AR.Record_EarringOfLana && One.AR.NormalEnding)
       {
         MessagePack.CoreScenario_ContactLana(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
-      else
+      else if (One.TF.EventCore_ContactLana_NoAction == false)
       {
         MessagePack.CoreScenario_ContactLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      else
+      {
+        MessagePack.MessageX00007(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
     }
@@ -1880,6 +1899,13 @@ public partial class HomeTown : MotherBase
   public void TapShopItem(NodeShopItem shopItem)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " + shopItem.txtName.text);
+
+    if (One.TF.Event_Message000010 == false)
+    {
+      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
+      return;
+    }
+
     if (shopItem.ItemSell == false)
     {
       SelectShopItem(shopItem, ShopItemList);
