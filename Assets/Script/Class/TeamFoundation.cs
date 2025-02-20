@@ -3439,7 +3439,18 @@ public class TeamFoundation : MonoBehaviour
 
   #endregion
 
-  #region ソウル・フラグメント"
+  #region "Duel"
+  protected bool _duel_dummy_suburi = false;
+  public bool Duel_DummySuburi { get { return _duel_dummy_suburi; } set { _duel_dummy_suburi = value; } }
+  protected bool _duel_dummy_suburi_start = false;
+  public bool Duel_DummySuburi_Start { get { return _duel_dummy_suburi_start; } set { _duel_dummy_suburi_start = value; } }
+  protected bool _defeat_dummy_suburi = false;
+  public bool DefeatDummySuburi { get { return _defeat_dummy_suburi; } set { _defeat_dummy_suburi = value; } }
+  protected bool _duel_dummy_suburi_complete = false;
+  public bool Duel_DummySuburi_Complete { get { return _duel_dummy_suburi_complete; } set { _duel_dummy_suburi_complete = value; } }
+  #endregion
+
+  #region "ソウル・フラグメント"
   [SerializeField] protected bool _soul_fragment_00001 = false;
   public bool SoulFragment_00001 { get { return _soul_fragment_00001; } set { _soul_fragment_00001 = value; } }
 

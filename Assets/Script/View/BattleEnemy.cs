@@ -2054,6 +2054,12 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAermiJorzt2 = true;
         }
+
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP)
+        {
+          One.TF.DefeatDummySuburi = true;
+        }
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;

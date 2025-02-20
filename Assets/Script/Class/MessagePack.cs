@@ -285,7 +285,7 @@ public static class MessagePack
 
   public static void MessageX00007(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
-    Message(ref m_list, ref e_list, "アイン：何もねえな・・・戻るとするか。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：特に用は無いな・・・戻るとするか。", ActionEvent.None);
   }
 
   public static void MessageX00007_2(ref List<string> m_list, ref List<ActionEvent> e_list)
@@ -38783,6 +38783,147 @@ public static class MessagePack
 
     }
   }
+  #endregion
+
+  #region "Duel"
+  public static void DuelCall_DummySuburi(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    if (One.TF.Duel_DummySuburi == false)
+    {
+      One.TF.Duel_DummySuburi = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：そういえば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：どうかしたの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：中央噴水広場って確か変な像が祀ってあったよな？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：確かにあるわね。でも、別に祀ってあるわけじゃないと思うけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何となくだが、あれは練習用の像な気がするんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：何の練習に使うのよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：Duelだよ。１ｖｓ１形式のやつだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：確かに、子供たちがイタズラしてもビクともしないから、丁度いいかも知れないわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあちょっと気が向いたらやってみるとするか！", ActionEvent.None);
+    }
+  }
+  public static void DuelCall_DummySuburiStart(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_DummySuburi_Start == false)
+    {
+      One.TF.Duel_DummySuburi_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：ええと・・・例の像は・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あった！アレだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスは奇妙な像を発見した！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ラナ：目が×マーク。手には錆び着いた剣と盾。足も構えが変だし、変よねこれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いかにも、練習用って感じがするよな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ラナ、こいつの名前は知ってるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：別に名前なんて無いと思うわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：無いのか・・・それはそれでやり難いな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ダミー・素振り君で！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアインらしい命名ね。別に何でも良いけど。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よっしゃ、じゃあ早速やってみるぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_DUMMY_SUBURI, ActionEvent.EncountDuel);
+    }
+  }
+  public static void DuelCall_DummySuburiComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_DummySuburi_Complete == false)
+    {
+      One.TF.Duel_DummySuburi_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし！やったぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：結構慣れてる感じだったわね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあな。Duel戦はいつも想定してるからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：あっ、足元に何か景品が出てるわよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、マジかよ。どれどれ・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID_STAMINA, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID_STAMINA + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：やった、成長リキッドだ！サンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：良いアイテムが出て、良かったわね♪", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ひょっとしてもう１回やると・・・？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：もう出ないんじゃないかしら？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあそうだよな。そんな都合良くいかないか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：これからは、どうするの？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：Duel戦は常に起こり得ることを考えると、少し練習はしておきたいな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：基本的には、またここに来て鍛錬しておく事にするよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：分かったわ。もしも相手が欲しい場合は言ってちょうだいね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 Duel戦が開放されました！ 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 Duel戦では通常の戦闘モードと違い、幾つかルールが異なります。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 Duel戦はストーリー進行の中で発生する可能性があります。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 Duel戦に向けて、常に準備しておきましょう。 】", ActionEvent.MessageDisplay);
+    }
+  }
+
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)

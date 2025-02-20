@@ -140,6 +140,11 @@ public class PartyMenu : MotherBase
   public GameObject groupActionCommandMessage;
   public Text txtActionCommandMessage;
 
+  // SystemMessage
+  public GameObject groupSystemMessage;
+  public Text txtSystemMessage;
+  public GameObject panelCancelFilter;
+
   public GameObject panelHideOther;
   // Inner Value
   private List<Character> PlayerList = new List<Character>();
@@ -495,6 +500,8 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Strength += effectValue;
+            txtSystemMessage.text = PlayerList[ii].FullName + "‚Ìy—Ízƒpƒ‰ƒƒ^‚ª " + effectValue + " ã¸‚µ‚½I";
+            groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_AGILITY ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_AGILITY ||
@@ -508,6 +515,8 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Agility += effectValue;
+            txtSystemMessage.text = PlayerList[ii].FullName + "‚Ìy‹Zzƒpƒ‰ƒƒ^‚ª " + effectValue + " ã¸‚µ‚½I";
+            groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_INTELLIGENCE ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_INTELLIGENCE ||
@@ -521,6 +530,8 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Intelligence += effectValue;
+            txtSystemMessage.text = PlayerList[ii].FullName + "‚Ìy’mzƒpƒ‰ƒƒ^‚ª " + effectValue + " ã¸‚µ‚½I";
+            groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_STAMINA ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_STAMINA ||
@@ -534,6 +545,8 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Stamina += effectValue;
+            txtSystemMessage.text = PlayerList[ii].FullName + "‚Ìy‘Ìzƒpƒ‰ƒƒ^‚ª " + effectValue + " ã¸‚µ‚½I";
+            groupSystemMessage.SetActive(true);
           }
           else if (ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID_MIND ||
                    ParentBackpackView.CurrentSelectBackpack.ItemName == Fix.GROWTH_LIQUID2_MIND ||
@@ -547,6 +560,8 @@ public class PartyMenu : MotherBase
             One.TF.DeleteBackpack(current, 1);
             int effectValue = current.ItemValue1 + AP.Math.RandomInteger(1 + current.ItemValue2 - current.ItemValue1);
             PlayerList[ii].Mind += effectValue;
+            txtSystemMessage.text = PlayerList[ii].FullName + "‚ÌySzƒpƒ‰ƒƒ^‚ª " + effectValue + " ã¸‚µ‚½I";
+            groupSystemMessage.SetActive(true);
           }
 
           CurrentSelectHealCommand = String.Empty;
@@ -1171,6 +1186,12 @@ public class PartyMenu : MotherBase
     groupEssenceDecision.SetActive(false);
   }
   #endregion
+
+  public void TapCancelSystemMessage()
+  {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    groupSystemMessage.SetActive(false);
+  }
 
   // •Â‚¶‚é
   public void TapExit()

@@ -686,6 +686,13 @@ public partial class HomeTown : MotherBase
         return;
       }
 
+      // Duel、ダミー・素振り君を倒した後
+      if (One.TF.Duel_DummySuburi_Start && One.TF.DefeatDummySuburi)
+      {
+        MessagePack.DuelCall_DummySuburiComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       // クヴェルタ街、奇妙な物体の調査
       if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
       {
@@ -1204,6 +1211,12 @@ public partial class HomeTown : MotherBase
       else if (One.TF.EventCore_ContactLana_NoAction == false)
       {
         MessagePack.CoreScenario_ContactLana_NoAction(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      // アンシェット街で始めてダミー・素振り君と対戦する時
+      else if (One.TF.Duel_DummySuburi && One.TF.Duel_DummySuburi_Start == false)
+      {
+        MessagePack.DuelCall_DummySuburiStart(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
@@ -2114,6 +2127,15 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.CurrentAreaName: " + One.TF.CurrentAreaName);
     Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
+
+    // アンシェット街、DUEL模擬戦
+    if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET && One.TF.GameDay >= 3 && One.TF.Duel_DummySuburi == false)
+    {
+      Debug.Log("TapInnAccept Duel Dummy-Suburi");
+      MessagePack.DuelCall_DummySuburi(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
 
     // ファージル宮殿、エオネ参戦後、第三属性の開放
     if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.AvailableEoneFulnea && One.TF.AvailableFirstEssence == false)
@@ -3115,7 +3137,8 @@ public partial class HomeTown : MotherBase
       {
         One.BattleMode = Fix.BattleMode.Boss;
       }
-      else if (One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
+      else if (One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI || One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP ||
+               One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP )
