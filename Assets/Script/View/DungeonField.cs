@@ -22254,6 +22254,12 @@ public class DungeonField : MotherBase
     if (map_data == Fix.MAPFILE_ESMILIA_GRASSFIELD)
     {
       Debug.Log("update " + map_data + " field");
+      // ObsidianStone
+      if (One.AR.EnterSeekerMode == false)
+      {
+        RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_ObsidianStone_1_X, Fix.ESMILIA_ObsidianStone_1_Y, Fix.ESMILIA_ObsidianStone_1_Z));
+      }
+
       if (One.TF.Treasure_EsmiliaGrassField_00001)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_Treasure_1_X, Fix.ESMILIA_Treasure_1_Y, Fix.ESMILIA_Treasure_1_Z)));
