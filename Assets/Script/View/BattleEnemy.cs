@@ -1663,6 +1663,14 @@ public partial class BattleEnemy : MotherBase
           }
 
           // Duel !
+          if (AllList[ii].FullName == Fix.DUEL_EGALT_SANDY || AllList[ii].FullName == Fix.DUEL_EGALT_SANDY_JP)
+          {
+            AllList[ii].UseInstantPoint(false, Fix.SHIELD_BASH);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SHIELD_BASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_PLAYER_1 || AllList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
           {
             AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
@@ -2054,12 +2062,17 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatAermiJorzt2 = true;
         }
-
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI ||
                                        One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP)
         {
           One.TF.DefeatDummySuburi = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY_JP)
+        {
+          One.TF.DefeatEgaltSandy = true;
+        }
+
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {
           One.TF.DefeatSelmoiRo = true;

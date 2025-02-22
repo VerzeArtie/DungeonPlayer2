@@ -38924,6 +38924,171 @@ public static class MessagePack
     }
   }
 
+  public static void DuelCall_EgaltSandy_Start(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    if (One.TF.Duel_EgaltSandy_Start == false)
+    {
+      One.TF.Duel_EgaltSandy_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】が良いかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ハンナおばさん、すみませーん。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハンナ：ああ、ちょいと待ってな。今すぐ用意してあげるよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "ハンナ：はい、出来たよ。ゆっくりとしていきな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやー、どうもありがとうございます。いただきまーす！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ハンナ：部屋はそれぞれ取ってあるから、食べ終わったんなら、部屋に行って休息してくるんだね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：色々とありがとうございます。じゃあお言葉に甘えて。", ActionEvent.None);
+
+      if (One.TF.AvailableBillyRaki)
+      {
+        Message(ref m_list, ref e_list, "ビリー：ごっそうさま！", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, "ラナ：ありがとうございました。じゃあ、私もこれで。", ActionEvent.None);
+
+      if (One.TF.AvailableEoneFulnea)
+      {
+        Message(ref m_list, ref e_list, "エオネ：ご馳走さまでした。", ActionEvent.None);
+      }
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：さてと・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：【アイン・ウォーレンス！アイン・ウォーレンスはおるか！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：バカアイン、呼ばれてるわよ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：お、おお。誰だろうな、一体・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：【貴公が、アイン・ウォーレンスであるか！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そうだ。何か用か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：【我が名はエガルト・サンディと申す！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：【以後、お見知りおきをお願い申す！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エガルト・サンディか。ああ、よろしくな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：用件があるみたいだな。教えてもらえるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【聖フローラ女学院の長、シニキア・カールハンツ爵からの伝言である！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【アイン・ウォーレンスよ！　ゴラトラム洞窟にて亡霊の退治をお願いしたい！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：亡霊の退治？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【もしも、本ミッションを成功した際は、貴公に報酬が送られるであろう！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【本件、引き受けてもらいたい！　如何であるか！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、ただの退治って言うんなら、引き受けられるが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何か特別な魔法かアイテムが必要になったりするのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【特殊な魔法やアイテムは不要である！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なるほど・・・じゃあ、普通に遭遇したらって感じになりそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【すまぬ！アイン・ウォーレンスよ！条件を伝え忘れていた！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、条件ってのは何だ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【亡霊は戦闘中における死により苦悩を抱えているとのこと！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【ゆえに！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【亡霊退治では、DUEL形式で退治をお願いしたい！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、そういう事か・・・なるほどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、分かった。亡霊を発見したら退治する際はDUEL形式でやる。任せておいてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【アイン・ウォーレンスよ！　依頼を受理いただき、感謝する！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：大丈夫かしら？亡霊相手にDUELなんて。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まあ、何とかなるだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っあ、だとすると・・・待てよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンディ、ちょっと良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【なんなりと申すがよい！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ちょっとあれだ。慣れておきたいんで、俺と一度DUELをやってもらえるか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【DUEL、承知仕った！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、お願いするとしよう。準備は良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：【準備は万端である！いつでもかかってこられよ！】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よっしゃ、じゃあ・・・行くぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_EGALT_SANDY, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_EgaltSandyComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_EgaltSandy_Complete == false)
+    {
+      One.TF.Duel_EgaltSandy_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：アイン・ウォーレンスよ！見事である！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：サンディ、結構DUEL上手いな。手強かったぜ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：自分は近衛兵士！まだまだ精進せねばなるまい！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：付き合ってもらって、ありがとな。またよろしく頼むよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：自分で良ければ、いつでも声をかけられよ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、またDUELしたい場合は、声をかけるよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：アイン・ウォーレンスよ！シニキア・カールハンツ爵からの届け物を渡しておく！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID2_INTELLIGENCE, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID2_INTELLIGENCE + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：成長リキッドか、すげえな。助かるぜ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "サンディ：それでは、これにて失礼いたす！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～ エガルト・サンディはその場から去って行った ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし。じゃあ、亡霊討伐と行きますか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：洞窟内で亡霊って何か嫌な感じよね・・・ま、準備は怠らないようにね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)

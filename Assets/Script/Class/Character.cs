@@ -9858,6 +9858,26 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         break;
 
+      //case Fix.DUEL_DUMMY_SUBURI:
+      //case Fix.DUEL_DUMMY_SUBURI_JP:
+      //  SetupParameter(5, 2, 5, 7, 4, 0, 0, 0);
+      //  list.Add(Fix.NORMAL_ATTACK);
+      //  break;
+
+      case Fix.DUEL_EGALT_SANDY:
+      case Fix.DUEL_EGALT_SANDY_JP:
+        SetupParameter(15, 4, 3, 10, 5, 0, 0, 0);
+        this.BaseLife = 144;
+        this.BaseManaPoint = 67;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.SWORD_OF_LIFE);
+        this.SubWeapon = new Item(Fix.FINE_SHIELD);
+        this.MainArmor = new Item(Fix.FINE_ARMOR);
+        this.Accessory1 = new Item(Fix.WARRIOR_BRACER);
+        this.Accessory2 = new Item(Fix.FIRE_ANGEL_TALISMAN);
+        list.Add(Fix.NORMAL_ATTACK);
+        break;
+
       case Fix.DUEL_SELMOI_RO:
         SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
         this.Level = 31;
@@ -11204,6 +11224,27 @@ public partial class Character : MonoBehaviour
         break;
 
       // Duel !
+
+      case Fix.DUEL_EGALT_SANDY:
+      case Fix.DUEL_EGALT_SANDY_JP:
+        if (this.IsStanceOfTheGuard == null)
+        {
+          result = Fix.STANCE_OF_THE_GUARD;
+        }
+        else if (this.CurrentLife <= this.MaxLife / 4)
+        {
+          result = Fix.FRESH_HEAL;
+        }
+        else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+        {
+          result = Fix.DOUBLE_SLASH;
+        }
+        else
+        {
+          result = Fix.NORMAL_ATTACK;
+        }
+        break;
+
       case Fix.DUEL_ZATKON_MEMBER_1:
       case Fix.DUEL_ZATKON_MEMBER_1_JP:
         if ((this.CurrentSkillPoint <= this.MaxSkillPoint / 2) &&

@@ -678,20 +678,33 @@ public partial class HomeTown : MotherBase
     if (this.FirstAction == false)
     {
       this.FirstAction = true;
+      Debug.Log("Update FirstAction Start");
 
       // １日目終了時
       if (this.firstDay >= 1 && One.TF.AlreadyDungeon && One.TF.AvailableImmediateAction == false)
       {
+        Debug.Log("Duel this.firstDay >= 1 && One.TF.AlreadyDungeon && One.TF.AvailableImmediateAction == false");
         MessagePack.Message000190(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
       // Duel、ダミー・素振り君を倒した後
-      if (One.TF.Duel_DummySuburi_Start && One.TF.DefeatDummySuburi)
+      if (One.TF.Duel_DummySuburi_Start && One.TF.DefeatDummySuburi && One.TF.Duel_DummySuburi_Complete == false)
       {
+        Debug.Log("Duel DummySuburi defeated event");
         MessagePack.DuelCall_DummySuburiComplete(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      // Duel、エガルト・サンディを倒した後
+      if (One.TF.Duel_EgaltSandy_Start && One.TF.DefeatEgaltSandy && One.TF.Duel_EgaltSandy_Complete == false)
+      {
+        Debug.Log("Duel EgaltSandy defeated event");
+        MessagePack.DuelCall_EgaltSandyComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
+      Debug.Log("Update through...");
 
       // クヴェルタ街、奇妙な物体の調査
       if (One.TF.CurrentAreaName == Fix.TOWN_QVELTA_TOWN && One.TF.Event_Message200040 == false && One.TF.QuestMain_00010 && One.TF.QuestMain_Complete_00010 == false)
@@ -2128,11 +2141,20 @@ public partial class HomeTown : MotherBase
     Debug.Log("One.TF.Event_Message400040: " + One.TF.Event_Message400040);
     Debug.Log("One.TF.AvailableSecondEssence: " + One.TF.AvailableSecondEssence);
 
-    // アンシェット街、DUEL模擬戦
+    // アンシェット街、DUEL戦
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET && One.TF.GameDay >= 3 && One.TF.Duel_DummySuburi == false)
     {
       Debug.Log("TapInnAccept Duel Dummy-Suburi");
       MessagePack.DuelCall_DummySuburi(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
+    // ファージル宮殿、DUEL戦
+    if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.Event_Message600001 && One.TF.Duel_EgaltSandy_Start == false)
+    {
+      Debug.Log("TapInnAccept Duel Egalt-Sandy");
+      MessagePack.DuelCall_EgaltSandy_Start(ref QuestMessageList, ref QuestEventList, sender.text);
       TapOK();
       return;
     }
@@ -3138,6 +3160,7 @@ public partial class HomeTown : MotherBase
         One.BattleMode = Fix.BattleMode.Boss;
       }
       else if (One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI || One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY || One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY_JP ||
                One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||

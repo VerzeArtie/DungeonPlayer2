@@ -3448,6 +3448,14 @@ public class TeamFoundation : MonoBehaviour
   public bool DefeatDummySuburi { get { return _defeat_dummy_suburi; } set { _defeat_dummy_suburi = value; } }
   protected bool _duel_dummy_suburi_complete = false;
   public bool Duel_DummySuburi_Complete { get { return _duel_dummy_suburi_complete; } set { _duel_dummy_suburi_complete = value; } }
+
+  protected bool _duel_egalt_sandy_start = false;
+  public bool Duel_EgaltSandy_Start { get { return _duel_egalt_sandy_start; } set { _duel_egalt_sandy_start = value; } }
+  protected bool _defeat_egalt_sandy = false;
+  public bool DefeatEgaltSandy { get { return _defeat_egalt_sandy; } set { _defeat_egalt_sandy = value; } }
+  protected bool _duel_egalt_sandy_complete = false;
+  public bool Duel_EgaltSandy_Complete { get { return _duel_egalt_sandy_complete; } set { _duel_egalt_sandy_complete = value; } }
+
   #endregion
 
   #region "ソウル・フラグメント"
