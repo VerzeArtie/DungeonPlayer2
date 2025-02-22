@@ -2396,7 +2396,7 @@ public static class ActionCommand
     if (command_name == Fix.ENERGY_BOLT) { return 0.30f; }
     // スキル
     if (command_name == Fix.STRAIGHT_SMASH) { return 0.50f; }
-    if (command_name == Fix.SHIELD_BASH) { return 0.40f; }
+    if (command_name == Fix.SHIELD_BASH) { return 0.80f; }
     if (command_name == Fix.LEG_STRIKE) { return 0.30f; }
     if (command_name == Fix.HUNTER_SHOT) { return 0.40f; }
     if (command_name == Fix.TRUE_SIGHT) { return 0.30f; }
