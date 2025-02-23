@@ -3671,7 +3671,7 @@ public static class ActionCommand
     if (command_name == Fix.FLAME_BLADE) { return "味方一体を対象とする。対象に【炎剣】のBUFFを付与する。【炎剣】が続く間、物理攻撃を行う度に、【炎】ダメージが追加発生する。"; }
     if (command_name == Fix.PURE_PURIFICATION) { return "味方一体を対象とする。対象のライフを回復する。対象にかかっている【有害】に属するBUFFを除去する。"; }
     if (command_name == Fix.DIVINE_CIRCLE) { return "味方フィールドに、【加護】のフィールドを形成する。味方に与えられる魔法属性のダメージは【加護】のポイントに吸収される。【加護】のポイントが0以下になった場合、【加護】フィールドは消滅する。"; }
-    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【失血】のBUFFを付与する。【失血】が続く間、対象はメインコマンドを行う度に、出血ダメージを食らう。"; }
+    if (command_name == Fix.BLOOD_SIGN) { return "敵一体を対象とする。対象に【血の刻印】のBUFFを付与する。【血の刻印】が続く間、対象が行動する度に、出血ダメージを食らう。"; }
     if (command_name == Fix.FORTUNE_SPIRIT) { return "味方一体を対象とする。対象に【幸運】のBUFFを付与する。【幸運】が続く間、次の攻撃がヒットした場合、100 % クリティカルヒットとなる。ダメージを伴う1回のアクションコマンドが完了した後、このBUFFは除去される。"; }
     if (command_name == Fix.FLASH_COUNTER) { return "インスタント限定。インスタント行動が行われた際、その行動属性が【魔法】であり、BUFF付与を行うものである場合、そのインスタント行動を打ち消す。"; }
     // スキル

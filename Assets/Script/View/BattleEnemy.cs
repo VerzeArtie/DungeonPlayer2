@@ -1671,6 +1671,14 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_YORZEN_GORMEZ || AllList[ii].FullName == Fix.DUEL_YORZEN_GORMEZ_JP)
+          {
+            AllList[ii].UseInstantPoint(false, Fix.BLUE_BULLET);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.BLUE_BULLET, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_PLAYER_1 || AllList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
           {
             AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
@@ -2654,9 +2662,16 @@ public partial class BattleEnemy : MotherBase
     }
 
     // ブラッド・サインによる効果
-    if (player.IsBloodSign && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
+    if (player.IsBloodSign && (command_name != Fix.STAY && command_name != Fix.DEFENSE) && player.SearchFieldBuff(Fix.SHINING_HEAL) == null)
     {
-      ExecSlipDamage(player, player.IsBloodSign.EffectValue);
+      if (player.IsAbsolutePerfection)
+      {
+        // skip
+      }
+      else
+      {
+        ExecSlipDamage(player, player.IsBloodSign.EffectValue);
+      }
     }
 
     // スリップによる効果
@@ -11938,6 +11953,12 @@ public partial class BattleEnemy : MotherBase
 
     if (target == null) { Debug.Log("target is null. then no effect."); return; }
     if (target.Dead) { Debug.Log("target is dead. then no effect."); return; }
+
+    if (target.GetResistSlipLogic())
+    {
+      StartAnimation(target.objGroup.gameObject, Fix.EFFECT_RESIST_SLIP, Fix.COLOR_RESIST_ENABLE);
+      return;
+    }
 
     if (effectValue <= 0) { effectValue = 0; }
     int result = (int)effectValue;

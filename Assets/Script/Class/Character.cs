@@ -2866,72 +2866,72 @@ public partial class Character : MonoBehaviour
     }
   }
 
-  public BuffImage IsResistPoison
+  private BuffImage IsResistPoison
   {
     get { return SearchBuff(Fix.BUFF_RESIST_POISON); }
   }
 
-  public BuffImage IsResistSilence
+  private BuffImage IsResistSilence
   {
     get { return SearchBuff(Fix.BUFF_RESIST_SILENCE); }
   }
 
-  public BuffImage IsResistBind
+  private BuffImage IsResistBind
   {
     get { return SearchBuff(Fix.BUFF_RESIST_BIND); }
   }
 
-  public BuffImage IsResistSleep
+  private BuffImage IsResistSleep
   {
     get { return SearchBuff(Fix.BUFF_RESIST_SLEEP); }
   }
 
-  public BuffImage IsResistStun
+  private BuffImage IsResistStun
   {
     get { return SearchBuff(Fix.BUFF_RESIST_STUN); }
   }
 
-  public BuffImage IsResistParalyze
+  private BuffImage IsResistParalyze
   {
     get { return SearchBuff(Fix.BUFF_RESIST_PARALYZE); }
   }
 
-  public BuffImage IsResistFreeze
+  private BuffImage IsResistFreeze
   {
     get { return SearchBuff(Fix.BUFF_RESIST_FREEZE); }
   }
 
-  public BuffImage IsResistFear
+  private BuffImage IsResistFear
   {
     get { return SearchBuff(Fix.BUFF_RESIST_FEAR); }
   }
 
-  public BuffImage IsResistTemptation
+  private BuffImage IsResistTemptation
   {
     get { return SearchBuff(Fix.BUFF_RESIST_TEMPTATION); }
   }
 
-  public BuffImage IsResistSlow
+  private BuffImage IsResistSlow
   {
     get { return SearchBuff(Fix.BUFF_RESIST_SLOW); }
   }
 
-  public BuffImage IsResistDizzy
+  private BuffImage IsResistDizzy
   {
     get { return SearchBuff(Fix.BUFF_RESIST_DIZZY); }
   }
 
-  public BuffImage IsResistSlip
+  private BuffImage IsResistSlip
   {
     get { return SearchBuff(Fix.BUFF_RESIST_SLIP); }
   }
 
-  public BuffImage IsResistCannotResurrect
+  private BuffImage IsResistCannotResurrect
   {
     get { return SearchBuff(Fix.BUFF_RESIST_CANNOT_RESURRECT); }
   }
 
-  public BuffImage IsResistNoGainLife
+  private BuffImage IsResistNoGainLife
   {
     get { return SearchBuff(Fix.BUFF_RESIST_NO_GAIN_LIFE); }
   }
@@ -9875,7 +9875,32 @@ public partial class Character : MonoBehaviour
         this.MainArmor = new Item(Fix.FINE_ARMOR);
         this.Accessory1 = new Item(Fix.WARRIOR_BRACER);
         this.Accessory2 = new Item(Fix.FIRE_ANGEL_TALISMAN);
+        this.ShieldBash = 1;
+        this.StanceOfTheGuard = 1;
+        this.ConcussiveHit = 1;
+        this.FreshHeal = 1;
         list.Add(Fix.NORMAL_ATTACK);
+        break;
+
+      case Fix.DUEL_YORZEN_GORMEZ:
+      case Fix.DUEL_YORZEN_GORMEZ_JP:
+        SetupParameter(3, 21, 21, 14, 10, 0, 0, 0);
+        this.BaseLife = 222;
+        this.BaseManaPoint = 166;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.GORGON_EYES_BOOK);
+        this.SubWeapon = new Item(Fix.SUPERIOR_FLAME_SHIELD);
+        this.MainArmor = new Item(Fix.COTTON_ROBE);
+        this.Accessory1 = new Item(Fix.ZEPHYR_FEATHER_BLUE);
+        this.Accessory2 = new Item(Fix.BURIED_DANZAIANGEL_STATUE);
+        this.ShadowBlast = 1;
+        this.BloodSign = 1;
+        this.BlackContract = 1;
+        this.IceNeedle = 1;
+        this.PurePurification = 1;
+        this.BlueBullet = 1;
+        list.Add(Fix.NORMAL_ATTACK);
+        this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
         break;
 
       case Fix.DUEL_SELMOI_RO:
@@ -11235,14 +11260,54 @@ public partial class Character : MonoBehaviour
         {
           result = Fix.FRESH_HEAL;
         }
-        else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+        else if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.CONCUSSIVE_HIT))
         {
-          result = Fix.DOUBLE_SLASH;
+          result = Fix.CONCUSSIVE_HIT;
         }
         else
         {
           result = Fix.NORMAL_ATTACK;
         }
+        break;
+
+      case Fix.DUEL_YORZEN_GORMEZ:
+      case Fix.DUEL_YORZEN_GORMEZ_JP:
+        if ((this.CurrentManaPoint <= this.MaxManaPoint / 3) && this.Backpack.Contains(Fix.NORMAL_BLUE_POTION))
+        {
+          result = Fix.NORMAL_BLUE_POTION;
+        }
+        else if (this.AI_Phase == 0)
+        {
+          if (this.Target.IsBloodSign == null)
+          {
+            result = Fix.BLOOD_SIGN;
+          }
+          else if (this.Target.IsHunterShot == null)
+          {
+            result = Fix.HUNTER_SHOT;
+          }
+          else if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.ICE_NEEDLE))
+          {
+            result = Fix.ICE_NEEDLE;
+          }
+          else
+          {
+            result = Fix.MAGIC_ATTACK;
+          }
+        }
+        else if (this.AI_Phase == 1)
+        {
+          if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.ICE_NEEDLE))
+          {
+            result = Fix.ICE_NEEDLE;
+          }
+          else
+          {
+            result = Fix.MAGIC_ATTACK;
+          }
+        }
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
         break;
 
       case Fix.DUEL_ZATKON_MEMBER_1:

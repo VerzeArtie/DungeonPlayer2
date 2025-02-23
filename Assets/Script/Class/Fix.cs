@@ -13975,8 +13975,8 @@ public static partial class Fix
   public const string DUEL_DUMMY_SUBURI_JP = "ダミー・素振り君";
   public const string DUEL_EGALT_SANDY = "Egalt Sandy";
   public const string DUEL_EGALT_SANDY_JP = "エガルト・サンディ";
-  public const string DUEL_DORMEN_GORMEZ = "Dormen Gormez";
-  public const string DUEL_DORMEN_GORMEZ_JP = "ドルメン・ゴルメッツ";
+  public const string DUEL_YORZEN_GORMEZ = "Yorzen Gormez";
+  public const string DUEL_YORZEN_GORMEZ_JP = "ヨーゼン・ゴルメッツ";
   public const string DUEL_GILMEL_SHTORF = "Gilmel Shtorf";
   public const string DUEL_GILMEL_SHTORF_JP = "ジルメル・シュトルフ";
   public const string DUEL_ALJINA_MEIRI = "Aljina Meiri";
