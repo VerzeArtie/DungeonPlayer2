@@ -2505,13 +2505,32 @@ public partial class Character : MonoBehaviour
   public int GetNextExp()
   {
     int result = 50;
+    int factor = 0;
     //if (this.Level == 1) { return result; }
 
-    for (int ii = 1 ; ii < 100; ii++)
+    //for (int ii = 1 ; ii < 100; ii++)
+    //{
+    //  if (this.Level >= ii) { result += (ii - 1) * 100; }
+    //  else { break; }
+    //}
+
+    List<int> factorNextExp = new List<int> { 0, 100, 100,100,100,100,100,100,100,100,
+      1500, 200, 200, 1500, 200, 200, 1500, 200, 1500, 200,
+      5000, 300, 300, 5000, 300, 300, 5000, 300, 5000, 300,
+      16000, 400, 16000, 400, 16000, 400, 16000, 400, 16000, 400,
+      30000, 500, 30000, 500, 30000, 500, 30000, 500, 30000, 500,
+      50000, 600, 50000, 600, 50000, 600, 50000, 600, 50000, 600,
+      0, 0, 0, 0, 0 };
+
+    for (int ii = 0; ii < factorNextExp.Count; ii++)
     {
-      if (this.Level >= ii) { result += (ii - 1) * 100; }
-      else { break; }
+      if (this.Level >= ii)
+      {
+        factor += factorNextExp[ii];
+        result += factor;
+      }
     }
+
     return result;
   }
 
