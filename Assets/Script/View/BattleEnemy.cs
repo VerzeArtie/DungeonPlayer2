@@ -2080,6 +2080,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatEgaltSandy = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_YORZEN_GORMEZ ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_YORZEN_GORMEZ_JP)
+        {
+          One.TF.DefeatYorzenGormez = true;
+        }
 
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {

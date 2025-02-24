@@ -710,6 +710,14 @@ public class DungeonField : MotherBase
           MessagePack.Message600330(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
+
+        // Duel、ヨーゼン・ゴルメッツを倒した後
+        if (One.TF.Duel_YorzenGormez_Start && One.TF.DefeatYorzenGormez && One.TF.Duel_YorzenGormez_Complete == false)
+        {
+          Debug.Log("Duel YorenGormez defeated event");
+          MessagePack.DuelCall_YorzenGormezComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
       }
 
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ARTHARIUM)
@@ -14742,7 +14750,8 @@ public class DungeonField : MotherBase
           One.BattleMode = Fix.BattleMode.Duel;
         }
       }
-      else if (character.FullName == Fix.NAME_EONE_FULNEA ||
+      else if (character.FullName == Fix.DUEL_YORZEN_GORMEZ || character.FullName == Fix.DUEL_YORZEN_GORMEZ_JP ||
+               character.FullName == Fix.NAME_EONE_FULNEA ||
                character.FullName == Fix.DUEL_SELMOI_RO ||
                character.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
                character.FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN ||
@@ -14998,6 +15007,11 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.GORATRUM_2_Event_3_X, Fix.GORATRUM_2_Event_3_Y, Fix.GORATRUM_2_Event_3_Z) && One.TF.DefeatMagicalHailGun == false)
       {
         MessagePack.Message600320(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+      if (LocationDetect(tile, Fix.GORATRUM_2_Event_4_X, Fix.GORATRUM_2_Event_4_Y, Fix.GORATRUM_2_Event_4_Z) && One.TF.DefeatYorzenGormez == false)
+      {
+        MessagePack.DuelCall_YorzenGormez_Start(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

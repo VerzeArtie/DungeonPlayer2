@@ -3456,6 +3456,13 @@ public class TeamFoundation : MonoBehaviour
   protected bool _duel_egalt_sandy_complete = false;
   public bool Duel_EgaltSandy_Complete { get { return _duel_egalt_sandy_complete; } set { _duel_egalt_sandy_complete = value; } }
 
+  protected bool _duel_yorzen_gormez_start = false;
+  public bool Duel_YorzenGormez_Start { get { return _duel_yorzen_gormez_start; } set { _duel_yorzen_gormez_start = value; } }
+  protected bool _defeat_yorzen_gormez = false;
+  public bool DefeatYorzenGormez { get { return _defeat_yorzen_gormez; } set { _defeat_yorzen_gormez = value; } }
+  protected bool _duel_yorzen_gormez_complete = false;
+  public bool Duel_YorzenGormez_Complete { get { return _duel_yorzen_gormez_complete; } set { _duel_yorzen_gormez_complete = value; } }
+
   #endregion
 
   #region "ソウル・フラグメント"

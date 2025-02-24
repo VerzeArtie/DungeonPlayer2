@@ -39089,6 +39089,143 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：了解！", ActionEvent.None);
     }
   }
+
+  public static void DuelCall_YorzenGormez_Start(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_YorzenGormez_Start == false)
+    {
+      One.TF.Duel_YorzenGormez_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：っ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンスの前に突如、影が出現し始めた！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：誰だ！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：要件はそうだな。DUELと行った所か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なっ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ほう。その反応からすると、我が何者であるかを知らされていない様だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：カールよ。おかしな真似をしてくれる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ・・・貴方は一体？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：我が名はヨーゼン・ゴルメッツ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：カールとは遠い親戚にあたる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ・・・この洞窟の亡霊ではないと？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：面白い表現だな。そう紹介されたか。ックハハハハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：我はこうして生きておるが、確かに表現としては上手い表現であるな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：という事は・・・一杯食わされたか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：おかしいとは思ってたけど、そういう事だったのね。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いやあ、でも本当に少しだけホっとした。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：本当に相手が亡霊だったら、俺はお祓い戦術なんて出来ないからな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：カールも人が悪い。まあ、それは俺も、ではあるがな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：さて、ではDUELについてだが。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：アイン・ウォーレンス、お主の期待通りとは行かぬと知るがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　ヨーゼン・ゴルメッツ、異様な殺気を放ち始めた！　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：こ、これは！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ：物凄い殺気だわ・・・。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：これはDUELというよりも", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：死闘", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：全力で来るがよい。さもなくば。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：ほぅ、良い雰囲気だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：では、行きます。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_YORZEN_GORMEZ, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_YorzenGormezComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_YorzenGormez_Complete == false)
+    {
+      One.TF.Duel_YorzenGormez_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：っくそ・・・はずしたか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（駄目だ・・・全然追従できない・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：この勝負", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：我の負けだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：え？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：かのタイミングで、狙ってくるとは想定外だった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：想定外となった以上、我の負けである。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ、そうなんですか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：そのセンス、後天的に身に付くものではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：カールよ。面白い者をよこした者だな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：しかし、結局の所は避けられた。。。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やっぱり勝負ありというのは納得できません。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：それはお主が決める事ではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：勝負は既に決した。覆る事はない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、今度もう１戦やりたいと思ったらまた来ても良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：なるほど、好きにするがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。では、またいずれ機会があればお願いします。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：よかろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：では・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：待て。これを貴君にくれてやろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID2_AGILITY, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID2_AGILITY + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：こんな貴重な品を・・・どうもありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：大した代物ではない。気にするな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヨーゼン：では、行くがよい。", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)

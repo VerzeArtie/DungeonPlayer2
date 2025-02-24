@@ -4204,6 +4204,13 @@ public static partial class Fix
   public const float GORATRUM_2_Event_3_X = 6.0f;
   public const float GORATRUM_2_Event_3_Y = -0.0f;
   public const float GORATRUM_2_Event_3_Z = -8.0f;
+
+  // Duel ヨーゼン・ゴルメッツ
+  public const string GORATRUM_2_Event_4_C = "Event";
+  public const string GORATRUM_2_Event_4_O = "38";
+  public const float GORATRUM_2_Event_4_X = 35.0f;
+  public const float GORATRUM_2_Event_4_Y = -0.0f;
+  public const float GORATRUM_2_Event_4_Z = -10.0f;
   #endregion
   #endregion
   #region "神秘の森"
