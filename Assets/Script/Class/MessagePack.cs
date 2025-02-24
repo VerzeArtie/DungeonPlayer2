@@ -39122,7 +39122,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ヨーゼン：面白い表現だな。そう紹介されたか。ックハハハハ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ヨーゼン：我はこうして生きておるが、確かに表現としては上手い表現であるな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ヨーゼン：我はこうして生きておるが、確かに表現としては的を得ておる。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：という事は・・・一杯食わされたか。", ActionEvent.None);
 
@@ -39194,17 +39194,17 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ヨーゼン：そのセンス、後天的に身に付くものではない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "ヨーゼン：カールよ。面白い者をよこした者だな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "ヨーゼン：カールよ。面白い者をよこしたな。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：しかし、結局の所は避けられた。。。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：しかし・・・結局の所は避けられた。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：やっぱり勝負ありというのは納得できません。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：【勝負あり】というのは納得できません。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヨーゼン：それはお主が決める事ではない。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヨーゼン：勝負は既に決した。覆る事はない。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：じゃあ、今度もう１戦やりたいと思ったらまた来ても良いでしょうか？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：じゃあ、今度もう１戦やりたいと思ったら、また来ても良いでしょうか？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヨーゼン：なるほど、好きにするがよい。", ActionEvent.None);
 
