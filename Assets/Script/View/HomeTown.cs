@@ -692,7 +692,7 @@ public partial class HomeTown : MotherBase
       if (One.TF.Duel_DummySuburi_Start && One.TF.DefeatDummySuburi && One.TF.Duel_DummySuburi_Complete == false)
       {
         Debug.Log("Duel DummySuburi defeated event");
-        MessagePack.DuelCall_DummySuburiComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.DuelCall_DummySuburi_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -700,7 +700,7 @@ public partial class HomeTown : MotherBase
       if (One.TF.Duel_EgaltSandy_Start && One.TF.DefeatEgaltSandy && One.TF.Duel_EgaltSandy_Complete == false)
       {
         Debug.Log("Duel EgaltSandy defeated event");
-        MessagePack.DuelCall_EgaltSandyComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.DuelCall_EgaltSandy_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
 
@@ -1229,7 +1229,7 @@ public partial class HomeTown : MotherBase
       // アンシェット街で始めてダミー・素振り君と対戦する時
       else if (One.TF.Duel_DummySuburi && One.TF.Duel_DummySuburi_Start == false)
       {
-        MessagePack.DuelCall_DummySuburiStart(ref QuestMessageList, ref QuestEventList); TapOK();
+        MessagePack.DuelCall_DummySuburi_Start(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else

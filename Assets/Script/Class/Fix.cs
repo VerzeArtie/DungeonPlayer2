@@ -4845,6 +4845,14 @@ public static partial class Fix
   public const float MYSTICFOREST_Event_65_X = 46.0f;
   public const float MYSTICFOREST_Event_65_Y = 1.0f;
   public const float MYSTICFOREST_Event_65_Z = -13.0f;
+
+  // Duel アーダム・ヴィオ
+  public const string MYSTICFOREST_Event_66_C = "Event";
+  public const string MYSTICFOREST_Event_66_O = "66";
+  public const float MYSTICFOREST_Event_66_X = 14.0f;
+  public const float MYSTICFOREST_Event_66_Y = 0.0f;
+  public const float MYSTICFOREST_Event_66_Z = -12.0f;
+
   #endregion
   #region "BrushWood"
   public const string MYSTICFOREST_BRUSHWOOD_1_C = "BrushWood";

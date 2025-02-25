@@ -715,7 +715,7 @@ public class DungeonField : MotherBase
         if (One.TF.Duel_YorzenGormez_Start && One.TF.DefeatYorzenGormez && One.TF.Duel_YorzenGormez_Complete == false)
         {
           Debug.Log("Duel YorenGormez defeated event");
-          MessagePack.DuelCall_YorzenGormezComplete(ref QuestMessageList, ref QuestEventList); TapOK();
+          MessagePack.DuelCall_YorzenGormez_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
       }
@@ -761,6 +761,14 @@ public class DungeonField : MotherBase
         if (One.TF.DefeatFlansisQueenOfVerdant && One.TF.Event_Message900110 == false)
         {
           MessagePack.Message900750(ref QuestMessageList, ref QuestEventList); TapOK();
+          return;
+        }
+
+        // Duel、アーダム・ヴィオを倒した後
+        if (One.TF.Duel_ArdamVio_Start && One.TF.DefeatArdamVio && One.TF.Duel_ArdamVio_Complete == false)
+        {
+          Debug.Log("Duel ArdamVio defeated event");
+          MessagePack.DuelCall_ArdamVio_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
           return;
         }
       }
@@ -14751,6 +14759,7 @@ public class DungeonField : MotherBase
         }
       }
       else if (character.FullName == Fix.DUEL_YORZEN_GORMEZ || character.FullName == Fix.DUEL_YORZEN_GORMEZ_JP ||
+               character.FullName == Fix.DUEL_ARDAM_VIO || character.FullName == Fix.DUEL_ARDAM_VIO_JP ||
                character.FullName == Fix.NAME_EONE_FULNEA ||
                character.FullName == Fix.DUEL_SELMOI_RO ||
                character.FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN ||
@@ -15373,6 +15382,12 @@ public class DungeonField : MotherBase
       if (LocationDetect(tile, Fix.MYSTICFOREST_Event_55_X, Fix.MYSTICFOREST_Event_55_Y, Fix.MYSTICFOREST_Event_55_Z))
       {
         MessagePack.Message900760(ref QuestMessageList, ref QuestEventList); TapOK();
+        return true;
+      }
+
+      if (LocationDetect(tile, Fix.MYSTICFOREST_Event_66_X, Fix.MYSTICFOREST_Event_66_Y, Fix.MYSTICFOREST_Event_66_Z) && One.TF.DefeatArdamVio == false)
+      {
+        MessagePack.DuelCall_ArdamVio_Start(ref QuestMessageList, ref QuestEventList); TapOK();
         return true;
       }
     }

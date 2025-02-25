@@ -9922,6 +9922,28 @@ public partial class Character : MonoBehaviour
         this.Backpack.Add(Fix.NORMAL_BLUE_POTION);
         break;
 
+      case Fix.DUEL_ARDAM_VIO:
+      case Fix.DUEL_ARDAM_VIO_JP:
+        SetupParameter(52, 37, 7, 29, 22, 0, 0, 0);
+        this.BaseLife = 874;
+        this.BaseManaPoint = 356;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.THUNDER_BREAK_AXE);
+        this.SubWeapon = new Item(Fix.WIDE_BUCKLER);
+        this.MainArmor = new Item(Fix.GOTHIC_PLATE);
+        this.Accessory1 = new Item(Fix.RED_KOKUIN);
+        this.Accessory2 = new Item(Fix.CHAINSHIFT_BOOTS);
+        this.OracleCommand = 1;
+        this.FortuneSpirit = 1;
+        this.WordOfPower = 3;
+        this.LegStrike = 1;
+        this.SpeedStep = 1;
+        this.BoneCrush = 3;
+        this.DeadlyDrive = 2;
+        list.Add(Fix.NORMAL_ATTACK);
+        this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
+        break;
+
       case Fix.DUEL_SELMOI_RO:
         SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
         this.Level = 31;
@@ -11323,6 +11345,34 @@ public partial class Character : MonoBehaviour
           else
           {
             result = Fix.MAGIC_ATTACK;
+          }
+        }
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
+        break;
+
+      case Fix.DUEL_ARDAM_VIO:
+      case Fix.DUEL_ARDAM_VIO_JP:
+        if ((this.CurrentSkillPoint <= this.MaxSkillPoint / 3) && this.Backpack.Contains(Fix.NORMAL_GREEN_POTION))
+        {
+          result = Fix.NORMAL_GREEN_POTION;
+        }
+        else if (this.AI_Phase == 0)
+        {
+          if (this.CurrentSkillPoint >= ActionCommand.Cost(Fix.BONE_CRUSH))
+          {
+            result = Fix.BONE_CRUSH;
+          }
+        }
+        else
+        {
+          if (this.IsFortuneSpirit == null && this.CurrentManaPoint >= ActionCommand.Cost(Fix.FORTUNE_SPIRIT))
+          {
+            result = Fix.FORTUNE_SPIRIT;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
           }
         }
         if (skip_decision == false) { this.AI_Phase++; }

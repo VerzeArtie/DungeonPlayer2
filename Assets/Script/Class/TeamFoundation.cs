@@ -3463,6 +3463,13 @@ public class TeamFoundation : MonoBehaviour
   protected bool _duel_yorzen_gormez_complete = false;
   public bool Duel_YorzenGormez_Complete { get { return _duel_yorzen_gormez_complete; } set { _duel_yorzen_gormez_complete = value; } }
 
+  protected bool _duel_ardam_vio_start = false;
+  public bool Duel_ArdamVio_Start { get { return _duel_ardam_vio_start; } set { _duel_ardam_vio_start = value; } }
+  protected bool _defeat_ardam_vio = false;
+  public bool DefeatArdamVio { get { return _defeat_ardam_vio; } set { _defeat_ardam_vio = value; } }
+  protected bool _duel_ardam_vio_complete = false;
+  public bool Duel_ArdamVio_Complete { get { return _duel_ardam_vio_complete; } set { _duel_ardam_vio_complete = value; } }
+
   #endregion
 
   #region "ソウル・フラグメント"

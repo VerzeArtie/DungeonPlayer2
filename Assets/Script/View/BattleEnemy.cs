@@ -1679,6 +1679,23 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_ARDAM_VIO || AllList[ii].FullName == Fix.DUEL_ARDAM_VIO_JP)
+          {
+            if (AllList[ii].CurrentLife <= AllList[ii].MaxLife / 4)
+            {
+              AllList[ii].UseInstantPoint(false, Fix.DEADLY_DRIVE);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DEADLY_DRIVE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
+            else
+            {
+              AllList[ii].UseInstantPoint(false, Fix.WORD_OF_POWER);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.WORD_OF_POWER, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            }
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_PLAYER_1 || AllList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
           {
             AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
@@ -2084,6 +2101,11 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.DUEL_YORZEN_GORMEZ_JP)
         {
           One.TF.DefeatYorzenGormez = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_ARDAM_VIO ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_ARDAM_VIO_JP)
+        {
+          One.TF.DefeatArdamVio = true;
         }
 
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)

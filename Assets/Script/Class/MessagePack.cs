@@ -38836,7 +38836,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "アイン：よし、じゃあちょっと気が向いたらやってみるとするか！", ActionEvent.None);
     }
   }
-  public static void DuelCall_DummySuburiStart(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void DuelCall_DummySuburi_Start(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Duel_DummySuburi_Start == false)
     {
@@ -38875,7 +38875,7 @@ public static class MessagePack
       Message(ref m_list, ref e_list, Fix.DUEL_DUMMY_SUBURI, ActionEvent.EncountDuel);
     }
   }
-  public static void DuelCall_DummySuburiComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void DuelCall_DummySuburi_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Duel_DummySuburi_Complete == false)
     {
@@ -39051,7 +39051,7 @@ public static class MessagePack
     }
   }
 
-  public static void DuelCall_EgaltSandyComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void DuelCall_EgaltSandy_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Duel_EgaltSandy_Complete == false)
     {
@@ -39166,7 +39166,7 @@ public static class MessagePack
     }
   }
 
-  public static void DuelCall_YorzenGormezComplete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  public static void DuelCall_YorzenGormez_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     if (One.TF.Duel_YorzenGormez_Complete == false)
     {
@@ -39224,6 +39224,123 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ヨーゼン：大した代物ではない。気にするな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ヨーゼン：では、行くがよい。", ActionEvent.None);
+    }
+  }
+
+  public static void DuelCall_ArdamVio_Start(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_ArdamVio_Start == false)
+    {
+      One.TF.Duel_ArdamVio_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：ッ！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、殺気が放たれた方向に視線を向ける　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：何者だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アイン・ウォーレンスという。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：何故ここに来た？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：森の中を探索していたら、ここに辿り着いた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：経過を聞いているのではない。何故かと聞いている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ラナ（コッソリ声）：（（（　アイン、どうするのよ？　）））", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン（コッソリ声）：（（（　大丈夫だ。この手のタイプは大概これで行ける。　）））", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺は、闘いを求めている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ほう。。。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：探索事態に特別な理由はない。純粋に戦える相手を探しているだけだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：貴方は見る限り強そうだ。まず、名前を聞いておきたい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：良いだろう。我が名はアーダム・ヴィオ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：ツァルマンの里の長老より、この森全体の警護を任せられている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：アーダム・ヴィオ・・・森を警護する者か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ここはDUELを一戦申し込みたい。受けてもらえるだろうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：ここに到達したという事は、それなりに出来るヤツと見た。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：無論、引き受けよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：よし、じゃあ行くぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_ARDAM_VIO, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_ArdamVio_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_ArdamVio_Complete == false)
+    {
+      One.TF.Duel_ArdamVio_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：ッグ・・・勝負あり・・・か・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：お前の戦術、あまり他では見ないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：師と呼べる者は居るのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：居る。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オル・ランディスだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：あんな野蛮極まりない奴を師と呼ぶか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：厳密には俺が勝手に弟子と思っているだけかもしれないけどな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：・・・ック・・・ックックック・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：いや、だが納得したぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：お前の戦術はどこか全体的にズレている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：それはオル・ランディスの影響かも知れぬな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：良い経験であった。礼を言う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こちらこそ、ありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：貴方の事は覚えておく。またどこかで会ったら相手をしてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：フッ、こちらこそ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：それと、これを持っていくとよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID3_MIND, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID3_MIND + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：貴重なアイテムの筈だが・・・本当に良いのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：久々に楽しめたからな、これはその礼だ。取っておけ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうか。じゃあ、ありがたく受け取っておく。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "ヴィオ：では、森の警護に戻る。また、どこかで会おう。", ActionEvent.None);
     }
   }
   #endregion
