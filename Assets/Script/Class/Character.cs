@@ -9944,6 +9944,21 @@ public partial class Character : MonoBehaviour
         this.Backpack.Add(Fix.NORMAL_GREEN_POTION);
         break;
 
+      case Fix.DUEL_LENE_COLTOS:
+      case Fix.DUEL_LENE_COLTOS_JP:
+        SetupParameter(10, 78, 80, 22, 34, 0, 0, 0);
+        this.BaseLife = 3252;
+        this.BaseManaPoint = 394;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.STORM_FURY_LANCER);
+        this.SubWeapon = new Item(Fix.STORM_FURY_LANCER);
+        this.MainArmor = new Item(Fix.SOLDIER_HATRED_CROSS);
+        this.Accessory1 = new Item(Fix.LIGHTBRIGHT_FLOATING_STONE);
+        this.Accessory2 = new Item(Fix.STARAIR_FLOATING_STONE);
+        list.Add(Fix.MAGIC_ATTACK);
+        this.Backpack.Add(Fix.LARGE_RED_POTION);
+        break;
+
       case Fix.DUEL_SELMOI_RO:
         SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
         this.Level = 31;
@@ -11377,6 +11392,22 @@ public partial class Character : MonoBehaviour
         }
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
+        break;
+
+      case Fix.DUEL_LENE_COLTOS:
+      case Fix.DUEL_LENE_COLTOS_JP:
+        if ((this.CurrentLife <= this.MaxLife / 3) && this.Backpack.Contains(Fix.LARGE_RED_POTION))
+        {
+          result = Fix.LARGE_RED_POTION;
+        }
+        else if (this.CurrentManaPoint >= ActionCommand.Cost(Fix.FROST_LANCE))
+        {
+          result = Fix.FROST_LANCE;
+        }
+        else
+        {
+          result = Fix.MAGIC_ATTACK;
+        }
         break;
 
       case Fix.DUEL_ZATKON_MEMBER_1:

@@ -3470,6 +3470,13 @@ public class TeamFoundation : MonoBehaviour
   protected bool _duel_ardam_vio_complete = false;
   public bool Duel_ArdamVio_Complete { get { return _duel_ardam_vio_complete; } set { _duel_ardam_vio_complete = value; } }
 
+  protected bool _duel_lene_coltos_start = false;
+  public bool Duel_LeneColtos_Start { get { return _duel_lene_coltos_start; } set { _duel_lene_coltos_start = value; } }
+  protected bool _defeat_lene_coltos = false;
+  public bool DefeatLeneColtos { get { return _defeat_lene_coltos; } set { _defeat_lene_coltos = value; } }
+  protected bool _duel_lene_coltos_complete = false;
+  public bool Duel_LeneColtos_Complete { get { return _duel_lene_coltos_complete; } set { _duel_lene_coltos_complete = value; } }
+
   #endregion
 
   #region "ソウル・フラグメント"

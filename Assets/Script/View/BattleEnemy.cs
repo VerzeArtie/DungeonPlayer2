@@ -1696,6 +1696,21 @@ public partial class BattleEnemy : MotherBase
             return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_LENE_COLTOS || AllList[ii].FullName == Fix.DUEL_LENE_COLTOS_JP)
+          {
+            if (AllList[ii].Target.CurrentInstantPoint <= AllList[ii].Target.MaxInstantPoint * 0.70f) // 見合いの時は待つ。
+            {
+              // skip
+            }
+            else if (AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.DOUBLE_SLASH))
+            {
+              AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
+              AllList[ii].UpdateInstantPointGauge();
+              CreateStackObject(AllList[ii], AllList[ii].Target, Fix.DOUBLE_SLASH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+            }
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_PLAYER_1 || AllList[ii].FullName == Fix.DUEL_PLAYER_1_JP)
           {
             AllList[ii].UseInstantPoint(false, Fix.DOUBLE_SLASH);
@@ -2106,6 +2121,11 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.DUEL_ARDAM_VIO_JP)
         {
           One.TF.DefeatArdamVio = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS_JP)
+        {
+          One.TF.DefeatLeneColtos = true;
         }
 
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
@@ -7830,6 +7850,22 @@ public partial class BattleEnemy : MotherBase
         }
       }
       #endregion
+      #region "レネ・コルトス"
+      if (EnemyList[ii].FullName == Fix.DUEL_LENE_COLTOS || EnemyList[ii].FullName == Fix.DUEL_LENE_COLTOS_JP)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint * ActionCommand.InstantGaugeCost(Fix.COUNTER_DISALLOW))
+          {
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_DISALLOW);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_DISALLOW, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+      #endregion
       #region "セルモイ・ロウ"
       if (EnemyList[ii].FullName == Fix.DUEL_SELMOI_RO)
       {
@@ -10838,6 +10874,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecCounterDisallow(Character player, StackObject[] stack_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
@@ -10856,6 +10893,8 @@ public partial class BattleEnemy : MotherBase
         }
         else
         {
+          Debug.Log("stack number: " + num);
+          Debug.Log("stack_list: " + stack_list[num].Player.FullName);
           Character target = stack_list[num].Player;
           StartAnimation(stack_list[num].gameObject, "Counter!", Fix.COLOR_NORMAL);
           Destroy(stack_list[num].gameObject);

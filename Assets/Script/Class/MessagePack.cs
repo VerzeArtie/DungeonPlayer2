@@ -39343,6 +39343,195 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "ヴィオ：では、森の警護に戻る。また、どこかで会おう。", ActionEvent.None);
     }
   }
+
+  public static void DuelCall_LeneColtos_Start(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    if (One.TF.Duel_LeneColtos_Start == false)
+    {
+      One.TF.Duel_LeneColtos_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, food_menu, ActionEvent.HomeTownCallRequestFood);
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（さてと・・・今日も皆と合流してオーランの塔へ行くとするか）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（・・・ん？　何か妙な気配がするな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：誰だ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　ア・・・アノ　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：アナタが・・・その・・・アイン・ウォーレンスさん？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：あ、ああそうだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：えっと・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：オーランの塔に・・・向かわれていますよね？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そうだな。確かに。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：で、その・・・と、と・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：あ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：まず、私はレネ・コルトスを言います！よろしくお願いします！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ああ、俺はアイン・ウォーレンス、よろしくな。コルトスって呼んでも大丈夫か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：あ・・・あ、はい・・・ええと・・・大丈夫です。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：で、要件・・・という事でも無いのですが・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：その・・・オーランの塔は・・・どうですか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どう・・・どうかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：正直ややこしいと感じている。簡単という類ではないな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：モンスターなどは・・・倒せますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：結構厳しい場合もあるが、まずまずは倒せているぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：・・・　・・・　と、と・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：あと・・・宝箱から出てくるアイテム・・・何か見つかりましたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：一般的なアイテムもあるが、そういえば、鍵が見つかったかな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：鍵を・・・　そ・・・そうですか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：・・・っそ・・・その・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：突然ですが、１度DUELをお願いしたいです！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、なるほど、そう来たか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オーケー、そのDUEL受けて立つ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：あ、ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：戦術と装備は、伝えた方が良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：説明は無くても大丈夫だ。何となく分かる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：ちょっと卑怯な事をするかも・・・す・・・すみません、良いでしょうか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：構わない。卑怯と言ってもDUEL開始前に何かするわけじゃないんだろう？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：はい、DUEL中にちょっと仕掛けを使います。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：なら、問題ない。いつでも良いぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：じゃあ・・・じゃあ、行きます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_LENE_COLTOS, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_LeneColtos_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_LeneColtos_Complete == false)
+    {
+      One.TF.Duel_LeneColtos_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：ッソコだ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　レネ・コルトスの武器が宙に舞う　～", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：決着か・・・ありがとうございました！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：こちらこそ、サンキュー。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：それで、コルトス。ちょっと良いか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：・・・は・・・はい・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：DUELをしに来たのは、ひょっとしてだが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：里の長老から頼まれたとか、その辺りか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：・・・　と、っと・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：な・・・何でもお見通しなんですね！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：うーん、やっぱりそうか。どうりで、コルトスの繰り出す技にはキレがある訳だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：いや・・・無いと思います・・・はい・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：無いって事は無いよな。あの動き、どう考えても一般的な類とは異なる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何らかの訓練を経ている。一朝一夕じゃない何かを感じた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：訓練してくれた人は長老ではないとすると", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：別のどこかの人が修行をサポートしてくれていたとか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：そっ・・・　それはその・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：秘密です！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ッハッハッハ！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すまねえ、変に探ってしまったみたいだな。悪かった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：い・・・いえ・・・いやその・・・なんというか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：ありがとうございました！これ、お礼に受け取ってください！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID4_STRENGTH, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID4_STRENGTH + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：おおっ、すげえな！サンキュー！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：長老・・・いや、ええっと・・・なんていうか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：裏の長老からの差し入れですので、お気にせず！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "コルトス：で、で・・・では！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　レネ・コルトスはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（行ってしまったか。ちょっとだいぶ気になる奴だったけどな）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（まあ良しとするか。）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（また機会があれば会うかも知れない。覚えておこう）", ActionEvent.None);
+    }
+  }
+
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)

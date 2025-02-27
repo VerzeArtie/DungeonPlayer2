@@ -743,6 +743,15 @@ public partial class HomeTown : MotherBase
         MessagePack.Message500024(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
+
+      // Duelレネ・コルトス撃破後
+      if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.DefeatLeneColtos && One.TF.Duel_LeneColtos_Complete == false)
+      {
+        Debug.Log("Duel LeneColtos defeated event");
+        MessagePack.DuelCall_LeneColtos_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       // オーランの塔、ObsidianStoneを入手後の強制帰還
       if (One.TF.CurrentAreaName == Fix.TOWN_FAZIL_CASTLE && One.TF.InscribeObsidianStone_3 && One.TF.Event_Message801010 == false)
       {
@@ -2209,6 +2218,15 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    // ツァルマンの里、Duel戦：レネ・コルトス
+    if (One.TF.CurrentAreaName == Fix.TOWN_ZHALMAN && One.TF.FindBackPackItem(Fix.SHADOW_MOON_KEY) && One.TF.FindBackPackItem(Fix.SUN_BURST_KEY) && One.TF.Duel_LeneColtos_Start == false)
+    {
+      Debug.Log("TapInnAccept Duel Lene-Coltos");
+      MessagePack.DuelCall_LeneColtos_Start(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
     // パルメテイシア神殿、エオネDUEL戦闘後
     if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
     {
@@ -3161,6 +3179,7 @@ public partial class HomeTown : MotherBase
       }
       else if (One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI || One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY || One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS || One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS_JP ||
                One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
