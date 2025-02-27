@@ -39381,9 +39381,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：誰だ", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：・・・　ア・・・アノ　・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：・・・　あ・・・　あの・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：アナタが・・・その・・・アイン・ウォーレンスさん？", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：あなたが・・・その・・・アイン・ウォーレンスさん？", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：あ、ああそうだ。", ActionEvent.None);
 
@@ -39397,7 +39397,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "？？？：あ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "？？？：まず、私はレネ・コルトスを言います！よろしくお願いします！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "？？？：まず、私はレネ・コルトスと言います！よろしくお願いします！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：ああ、俺はアイン・ウォーレンス、よろしくな。コルトスって呼んでも大丈夫か？", ActionEvent.None);
 
@@ -39441,11 +39441,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "アイン：構わない。卑怯と言ってもDUEL開始前に何かするわけじゃないんだろう？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "コルトス：はい、DUEL中にちょっと仕掛けを使います。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "コルトス：はい、DUEL開始前は何もしません。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：なら、問題ない。いつでも良いぞ。", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "コルトス：じゃあ・・・じゃあ、行きます！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "コルトス：じゃ・・・じゃあ、行きます！", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "コルトス：３", ActionEvent.None);
 
@@ -39467,7 +39467,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "コルトス：！！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "～　レネ・コルトスの武器が宙に舞う　～", ActionEvent.None);
+      Message(ref m_list, ref e_list, "～　レネ・コルトスの武器が宙に舞った　～", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "コルトス：決着か・・・ありがとうございました！", ActionEvent.None);
 
@@ -39524,7 +39524,7 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "～　レネ・コルトスはその場から立ち去っていった　～", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "アイン：（行ってしまったか。ちょっとだいぶ気になる奴だったけどな）", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：（行ってしまったか。ちょっと気になる奴だったけどな）", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：（まあ良しとするか。）", ActionEvent.None);
 
