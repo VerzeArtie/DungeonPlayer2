@@ -1663,6 +1663,14 @@ public partial class BattleEnemy : MotherBase
           }
 
           // Duel !
+          if (AllList[ii].FullName == Fix.DUEL_DUMMY_SUBURI || AllList[ii].FullName == Fix.DUEL_DUMMY_SUBURI_JP)
+          {
+            AllList[ii].UseInstantPoint(false, Fix.FIRE_BALL);
+            AllList[ii].UpdateInstantPointGauge();
+            CreateStackObject(AllList[ii], AllList[ii].Target, Fix.FIRE_BALL, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+          }
+
           if (AllList[ii].FullName == Fix.DUEL_EGALT_SANDY || AllList[ii].FullName == Fix.DUEL_EGALT_SANDY_JP)
           {
             AllList[ii].UseInstantPoint(false, Fix.SHIELD_BASH);

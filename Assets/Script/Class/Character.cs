@@ -9877,11 +9877,17 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         break;
 
-      //case Fix.DUEL_DUMMY_SUBURI:
-      //case Fix.DUEL_DUMMY_SUBURI_JP:
-      //  SetupParameter(5, 2, 5, 7, 4, 0, 0, 0);
-      //  list.Add(Fix.NORMAL_ATTACK);
-      //  break;
+      case Fix.DUEL_DUMMY_SUBURI:
+      case Fix.DUEL_DUMMY_SUBURI_JP:
+        SetupParameter(5, 2, 5, 7, 4, 0, 0, 0);
+        this.BaseLife = 43;
+        this.BaseManaPoint = 36;
+        this.BaseSkillPoint = 100;
+        this.MainWeapon = new Item(Fix.PRACTICE_SWORD);
+        this.MainArmor = new Item(Fix.BEGINNER_CROSS);
+        this.FireBall = 1;
+        list.Add(Fix.NORMAL_ATTACK);
+        break;
 
       case Fix.DUEL_EGALT_SANDY:
       case Fix.DUEL_EGALT_SANDY_JP:
@@ -11305,6 +11311,10 @@ public partial class Character : MonoBehaviour
         break;
 
       // Duel !
+      case Fix.DUEL_DUMMY_SUBURI:
+      case Fix.DUEL_DUMMY_SUBURI_JP:
+        result = Fix.NORMAL_ATTACK;
+        break;
 
       case Fix.DUEL_EGALT_SANDY:
       case Fix.DUEL_EGALT_SANDY_JP:
