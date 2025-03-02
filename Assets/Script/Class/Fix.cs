@@ -909,7 +909,7 @@ public static partial class Fix
   //  "港町コチューシェへ",
   //  "ObsidianStoneの使い方",
   //  "試練の道 【茨】",
-  //  "(Optional) ゴラトルム洞窟の探索",
+  //  "(Optional) ゴラトラム洞窟の探索",
   //  "ファージル宮殿への報告（ObsidianStone）",
   //  "キルクード山道を抜けて",
   //  "ファージル宮殿への報告（異変に関する報告）",
@@ -949,7 +949,7 @@ public static partial class Fix
   //  "謎のアイテムを鑑定した結果、本アイテムは部材の一つであることが判明した。他の部材については港町コチューシェで見かけたらしい。港町コチューシェへ向かおう。",
   //  "謎のアイテムはObsidianStoneと呼ばれる物であり、人類に叡智をもたらす物である。このアイテムの詳細についてはツァルマンの里の長老が知っている。ツァルマンの里へ赴き、そのアイテムの使い方を伝授してもらおう。",
   //  "ツァルマンとは実在する人物の名称ではなく、遥か過去よりこの里の秘境の場所に存在する何かを表わすワードであるという事を告げられた。ObsidianStoneについてはツァルマンと呼ばれる存在から詳細を聞いたほうが良いと長老から告げられた。試練の道【茨】へ挑みツァルマンとコンタクトを取ろう。",
-  //  "里の長老からはゴラトルム洞窟については決して赴いては行けないと言われている。しかし、存在「ツァルマン」からは「挑む姿勢と、遂げる意志」の助言をもらっている。ゴラトルム洞窟へは赴くべきか・・・",
+  //  "里の長老からはゴラトラム洞窟については決して赴いては行けないと言われている。しかし、存在「ツァルマン」からは「挑む姿勢と、遂げる意志」の助言をもらっている。ゴラトラム洞窟へは赴くべきか・・・",
   //  "ObsidianStoneに関する情報は一通り得られた。いったんファージル宮殿へ帰還し、その内容をエルミおよびファラに報告しよう。",
   //  "ファージル宮殿から北東に向かうと、キージク山道がある。その山道の頂上にはオーランの塔が設置されている。その塔に赴き、周辺地域に何か変わった所が無いか見てきてほしいと依頼された。オーランの塔へ向かい、周辺地域に異常が起きていないか確認してこよう。",
   //  "オーランの塔から周辺を確認すると、いくつか異変がある箇所が確認された。ファージル宮殿へ帰還し、その内容をエルミおよびファラに報告しよう。",
@@ -14061,7 +14061,7 @@ public static partial class Fix
   public const string DUNGEON_ESMILIA_GRASSFIELD = "エスミリア草原区域";
   public const string DUNGEON_ESMILIA_GRASSFIELD_ICON = "Dungeon_EsmiliaGrassfield";
   public const string DUNGEON_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
-  public const string DUNGEON_GORATRUM_CAVE = "ゴラトルムの洞窟";
+  public const string DUNGEON_GORATRUM_CAVE = "ゴラトラムの洞窟";
   public const string DUNGEON_GORATRUM_CAVE_ICON = "Dungeon_GoratrumCave";
   public const string DUNGEON_OHRAN_TOWER = "オーランの塔";
   public const string DUNGEON_OHRAN_TOWER_ICON = "Dungeon_OhranTower";
@@ -14092,7 +14092,7 @@ public static partial class Fix
   #region "Field"
   public const string FIELD_ESMILIA_GRASS_AREA = "エスミリア草原区域";
   public const string FIELD_ARTHARIUM_FACTORY = "アーサリウム工場跡地";
-  public const string FIELD_GORATRUM_DUNGEON = "ゴラトルムの洞窟";
+  public const string FIELD_GORATRUM_DUNGEON = "ゴラトラムの洞窟";
   public const string FIELD_ZHALMAN_VILLAGE = "ツァルマンの里";
   public const string FIELD_KIZIK_MOUNTAIN_ROAD = "キージク山道";
   public const string FIELD_ORAN_TOWER = "オーランの塔";
