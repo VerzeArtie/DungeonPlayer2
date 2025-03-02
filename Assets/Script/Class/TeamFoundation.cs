@@ -3477,6 +3477,13 @@ public class TeamFoundation : MonoBehaviour
   protected bool _duel_lene_coltos_complete = false;
   public bool Duel_LeneColtos_Complete { get { return _duel_lene_coltos_complete; } set { _duel_lene_coltos_complete = value; } }
 
+  protected bool _duel_calmans_ohn_start = false;
+  public bool Duel_CalmansOhn_Start { get { return _duel_calmans_ohn_start; } set { _duel_calmans_ohn_start = value; } }
+  protected bool _defeat_calmans_ohn = false;
+  public bool DefeatCalmansOhn { get { return _defeat_calmans_ohn; } set { _defeat_calmans_ohn = value; } }
+  protected bool _duel_calmans_ohn_complete = false;
+  public bool Duel_CalmansOhn_Complete { get { return _duel_calmans_ohn_complete; } set { _duel_calmans_ohn_complete = value; } }
+
   #endregion
 
   #region "ソウル・フラグメント"

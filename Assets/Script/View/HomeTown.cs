@@ -704,6 +704,14 @@ public partial class HomeTown : MotherBase
         return;
       }
 
+      // Duel、カルマンズ・オーンを倒した後
+      if (One.TF.Duel_CalmansOhn_Start && One.TF.DefeatCalmansOhn && One.TF.Duel_CalmansOhn_Complete == false)
+      {
+        Debug.Log("Duel CalmansOhn defeated event");
+        MessagePack.DuelCall_CalmansOhn_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       Debug.Log("Update through...");
 
       // クヴェルタ街、奇妙な物体の調査
@@ -2227,6 +2235,15 @@ public partial class HomeTown : MotherBase
       return;
     }
 
+    // パルメティシア神殿、Duel戦：カルマンズ・オーン
+    if (One.TF.Event_Message1000292 && One.TF.Duel_CalmansOhn_Start == false)
+    {
+      Debug.Log("TapInnAccept Duel Calmans-Ohn");
+      MessagePack.DuelCall_CalmansOhn_Start(ref QuestMessageList, ref QuestEventList, sender.text);
+      TapOK();
+      return;
+    }
+
     // パルメテイシア神殿、エオネDUEL戦闘後
     if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010020 && One.TF.Event_Message1010030 == false)
     {
@@ -3180,6 +3197,7 @@ public partial class HomeTown : MotherBase
       else if (One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI || One.EnemyList[0].FullName == Fix.DUEL_DUMMY_SUBURI_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY || One.EnemyList[0].FullName == Fix.DUEL_EGALT_SANDY_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS || One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN || One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN_JP ||
                One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||

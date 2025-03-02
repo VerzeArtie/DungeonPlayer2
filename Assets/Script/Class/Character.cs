@@ -10005,6 +10005,58 @@ public partial class Character : MonoBehaviour
         list.Add(Fix.NORMAL_ATTACK);
         break;
 
+      case Fix.DUEL_CALMANS_OHN:
+      case Fix.DUEL_CALMANS_OHN_JP:
+        SetupParameter(217, 96, 24, 96, 49, 0, 0, 0);
+        this.BaseLife = 15214;
+        this.BaseManaPoint = 1712;
+        this.BaseSkillPoint = 100;
+        //this.MainWeapon = new Item(Fix.VOLCANIC_BATTLE_BASTER);
+        //this.MainArmor = new Item(Fix.BLADESHADOW_CROWDED_DRESS);
+        this.Accessory1 = new Item(Fix.PURPLELIGHT_BRIGHTSTONE);
+        //this.Accessory1 = new Item(Fix.FIRELIEGE_AETHER_TALISMAN);
+        //this.Accessory2 = new Item(Fix.ANGEL_CONTRACT_SHEET);
+        //this.Artifact = new Item(Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE);
+        this.FireBall = 1;
+        this.FlameBlade = 5;
+        this.MeteorBullet = 1;
+        this.VolcanicBlaze = 1;
+        this.FlameStrike = 5;
+        this.CircleOfTheIgnite = 5;
+
+        this.EnergyBolt = 1;
+        this.FlashCounter = 1;
+        this.SigilOfThePending = 1;
+        this.PhantomOboro = 3;
+        this.CounterDisallow = 3;
+        this.DetachmentFault = 1;
+
+        this.ShieldBash = 1; // 強すぎると思うので弱くしておく。
+        this.StanceOfTheGuard = 5;
+        this.ConcussiveHit = 5;
+        this.DominationField = 1;
+        this.HardestParry = 1;
+        this.OneImmunity = 1;
+
+        this.LegStrike = 1;
+        this.SpeedStep = 1;
+        this.BoneCrush = 5;
+        this.DeadlyDrive = 1;
+        this.UnintentionalHit = 5;
+
+        this.TrueSight = 1;
+        this.LeylineSchema = 5;
+        this.VoiceOfVigor = 1;
+        this.WillAwakening = 3;
+        this.EverflowMind = 1;
+        this.SigilOfTheFaith = 1;
+
+        list.Add(Fix.NORMAL_ATTACK);
+        this.Backpack.Add(Fix.PURE_CLEAN_WATER);
+        this.Backpack.Add(Fix.PURE_SINSEISUI);
+        this.Backpack.Add(Fix.PURE_VITALIRY_WATER);
+        break;
+
       case Fix.DUEL_JEDA_ARUS:
         this.Level = 16;
         SetupParameter(48, 20, 30, 35, 12, 0, 0, 0);//(48, 20, 7, 35, 8, 0, 0, 0);
@@ -11562,6 +11614,73 @@ public partial class Character : MonoBehaviour
             result = Fix.SHADOW_BLAST;
           }
         }
+        break;
+
+      case Fix.DUEL_CALMANS_OHN:
+      case Fix.DUEL_CALMANS_OHN_JP:
+        if (this.AI_Phase == 0)
+        {
+          if (this.IsWillAwakening == null && this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.WILL_AWAKENING, ActionCommand.Cost(Fix.WILL_AWAKENING), this))
+          {
+            result = Fix.WILL_AWAKENING;
+          }
+          else if (this.SearchFieldBuff(Fix.LEYLINE_SCHEMA) == null && this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.LEYLINE_SCHEMA, ActionCommand.Cost(Fix.LEYLINE_SCHEMA), this))
+          {
+            result = Fix.LEYLINE_SCHEMA;
+          }
+          else if (this.IsEverflowMind == null && this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.EVERFLOW_MIND, ActionCommand.Cost(Fix.EVERFLOW_MIND), this))
+          {
+            result = Fix.EVERFLOW_MIND;
+          }
+          else if (this.SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH) == null && this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.SIGIL_OF_THE_FAITH, ActionCommand.Cost(Fix.SIGIL_OF_THE_FAITH), this))
+          {
+            result = Fix.SIGIL_OF_THE_FAITH;
+          }
+          else
+          {
+            result = Fix.NORMAL_ATTACK;
+          }
+        }
+        else
+        {
+          rand = AP.Math.RandomInteger(3);
+          if (rand == 0)
+          {
+            if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.BONE_CRUSH, ActionCommand.Cost(Fix.BONE_CRUSH), this))
+            {
+              result = Fix.BONE_CRUSH;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+          }
+          else if (rand == 1)
+          {
+            if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.UNINTENTIONAL_HIT, ActionCommand.Cost(Fix.UNINTENTIONAL_HIT), this))
+            {
+              result = Fix.UNINTENTIONAL_HIT;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+          }
+          else if (rand == 2)
+          {
+            if (this.CurrentSkillPoint >= SecondaryLogic.CostControl(Fix.CONCUSSIVE_HIT, ActionCommand.Cost(Fix.CONCUSSIVE_HIT), this))
+            {
+              result = Fix.CONCUSSIVE_HIT;
+            }
+            else
+            {
+              result = Fix.NORMAL_ATTACK;
+            }
+          }
+        }
+
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
         break;
 
       case Fix.DUEL_JEDA_ARUS:

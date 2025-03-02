@@ -1774,6 +1774,34 @@ public partial class BattleEnemy : MotherBase
             }
           }
 
+          if (AllList[ii].FullName == Fix.DUEL_CALMANS_OHN || AllList[ii].FullName == Fix.DUEL_CALMANS_OHN_JP)
+          {
+            if (AllList[ii].IsWillAwakening)
+            {
+              if (AllList[ii].Target.SearchFieldBuff(Fix.CIRCLE_OF_THE_IGNITE) == null && AllList[ii].CurrentManaPoint >= ActionCommand.Cost(Fix.CIRCLE_OF_THE_IGNITE))
+              {
+                AllList[ii].UseInstantPoint(false, Fix.CIRCLE_OF_THE_IGNITE);
+                AllList[ii].UpdateInstantPointGauge();
+                CreateStackObject(AllList[ii], AllList[ii].Target, Fix.CIRCLE_OF_THE_IGNITE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+              }
+              else if (AllList[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH) == null && AllList[ii].CurrentSkillPoint >= ActionCommand.Cost(Fix.SIGIL_OF_THE_FAITH))
+              {
+                AllList[ii].UseInstantPoint(false, Fix.SIGIL_OF_THE_FAITH);
+                AllList[ii].UpdateInstantPointGauge();
+                CreateStackObject(AllList[ii], AllList[ii].Target, Fix.SIGIL_OF_THE_FAITH, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+              }
+              else if (AllList[ii].CurrentManaPoint >= ActionCommand.Cost(Fix.FLAME_STRIKE))
+              {
+                AllList[ii].UseInstantPoint(false, Fix.FLAME_STRIKE);
+                AllList[ii].UpdateInstantPointGauge();
+                CreateStackObject(AllList[ii], AllList[ii].Target, Fix.FLAME_STRIKE, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+                return; // メインフェーズの行動を起こさせないため、ここで強制終了させる。
+              }
+            }
+          }
+
           if (AllList[ii].FullName == Fix.DUMMY_SUBURI)
           {
             if (AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
@@ -2134,6 +2162,11 @@ public partial class BattleEnemy : MotherBase
                                        One.EnemyList[0].FullName == Fix.DUEL_LENE_COLTOS_JP)
         {
           One.TF.DefeatLeneColtos = true;
+        }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN_JP)
+        {
+          One.TF.DefeatCalmansOhn = true;
         }
 
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
@@ -7885,6 +7918,22 @@ public partial class BattleEnemy : MotherBase
             EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_ATTACK);
             EnemyList[ii].UpdateInstantPointGauge();
             CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_ATTACK, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+            return;
+          }
+        }
+      }
+      #endregion
+      #region "カルマンズ・オーン"
+      if (EnemyList[ii].FullName == Fix.DUEL_CALMANS_OHN || EnemyList[ii].FullName == Fix.DUEL_CALMANS_OHN_JP)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint * ActionCommand.InstantGaugeCost(Fix.COUNTER_DISALLOW))
+          {
+            EnemyList[ii].UseInstantPoint(false, Fix.COUNTER_DISALLOW);
+            EnemyList[ii].UpdateInstantPointGauge();
+            CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.COUNTER_DISALLOW, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
             return;
           }
         }

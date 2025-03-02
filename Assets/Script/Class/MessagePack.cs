@@ -39532,6 +39532,262 @@ public static class MessagePack
     }
   }
 
+  public static void DuelCall_CalmansOhn_Start(ref List<string> m_list, ref List<ActionEvent> e_list, string food_menu)
+  {
+    if (One.TF.Duel_CalmansOhn_Start == false)
+    {
+      One.TF.Duel_CalmansOhn_Start = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし、今日はもう休むとするか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：飯は【" + food_menu + "】を頼むとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：すみません。【" + food_menu + "】をお願いできますか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：はいよ、少々お待ちあれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "・・・しばらくして・・・", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：おまちどうさま。どうぞ、召し上がれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます。いただきます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "【 パーティは十分な食事を取りました 】", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "宿屋のマスター：あいよ。あとは部屋でゆっくり休んでいきな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとうございます！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　その夜　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（　バックパックを整理してと・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　エルミ・ジョルジュ国王が俺に依頼しているのはなんだろう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　ヴィンスガルデに赴き、Obsidian-Stoneを調査する　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　Obsidian-Stoneについてだが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　エルミ国王はそもそも、何かを知っている様な感じだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　調査は通常、対象が不明な時に使う　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　中身を既に知っているのであれば、調査は不要のはず　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　なので、中身を知らないから・・・俺に依頼？　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　違う気がする　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　エルミ国王はおそらく知っている　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　国王は一体何を掴んでいるんだろうか　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　少し考えてみよう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　外に少し出てみるか・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　夜の道中にて　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：（　・・・うーん・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　Obsidian-Stoneの件は、どうしても分からないな・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　だが、ヴィンスガルデに赴くという所は何となくだが・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　ひょっとして俺にやって欲しいというのは・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：何か、考えていたか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その声・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：カルマンズ・オーン先生か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：声色は変えているはずだが、一発で見抜くとは貴様は本当に面白いやつだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：そうだ。カルマンズ・オーンで合っている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：だが、一点誤っている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っえ？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：この状況で「先生」と呼ぶとは、ぬるいセンスだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：勘が鈍ってるんじゃないのか？　アイン・ウォーレンス。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　カルマンズ・オーン、即座に戦闘体制を取り始めた！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "オーン：悪いが、ここにいる俺は「先生」じゃない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その雰囲気とスタイル・・・まさか！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：先生、ZAT-KONのメンバーなのか！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：・・・　・・・　・・・", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "オーン：メンバーだと？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：ッ・・・笑わせる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：良いだろう、戦闘前に一つ教えておいてやろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：ZAT-KONは表と裏で構成される。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：お前が今まで知りえたZAT-KONとは、いわば、表。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：今、この場にいるのは", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　カルマンズ・オーン、異常な殺気を放ち始めた！ ～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "オーン：ZAT-KONの裏", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：忍の長を務める", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：カルマンズ・オーンだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っな・・・そんな、だってカルマンズ・オーン先生", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：オルガウェイン傭兵訓練施設では・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：表の舞台で", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：力量を見せるはずがなかろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：アイン・ウォーレンス。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：お前はいつも手を抜いていたな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：貴様はヌルすぎるのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：今もまだ、なお「先生」と呼ぶのは", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：愚の骨頂", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何故、俺を狙う？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：ヴェルガス海底神殿という地に足を踏み入れたからだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どうしてだ・・・ヴェルガス海底神殿とObsidian-Stoneとは一体どういう", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：そこまでだ", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：貴様はやはりこの場で", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：仕留めるしかない", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っくそ・・・どうすれば・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：どうした、もう戦闘前のライン取りにだいぶ差が出ているぞ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ック・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：ほぉ・・・ようやく、か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_CALMANS_OHN, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_CalmansOhn_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_CalmansOhn_Complete == false)
+    {
+      One.TF.Duel_CalmansOhn_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：しまった！　駄目か！？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：どうした。もうおしまいか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っくそ・・・今のでも、通用しないのか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　速度とインパクトを上げるしかない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　もっと・・・もっと集中しないと駄目だ・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、顔から表情が消え始めていた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "オーン：！！！！！", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　カルマンズ・オーン、その場から突如距離を取る　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "オーン：今のは・・・明らかに、殺気・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：ッ・・・笑わせてくれる", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：貴様、やはりそうか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：その血、その眼、その感性", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：間違いなさそうだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：この殺し合いはお預けとしよう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "オーン：いずれどこかで、また殺し合おう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　カルマンズ・オーン、その場から姿を消した　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：っふうううぅぅ・・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　危なかった・・・・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　オーン先生がこんな所で出てくるなんて　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　しかもあの戦闘能力。訓練施設に居る時とは比べ物にならない　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　今、生きているのが不思議なくらいだ　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　いや・・・違うな・・・生かされた気がする　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　最後、オーン先生は退いてくれたが　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　あそこからはもう勝てる気がしなかった　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　・・・　・・・　・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　Obsidian-Stone・・・か・・・　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：（　今日はもう宿屋に戻って休むとしよう　）", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "", ActionEvent.HomeTownExecRestInn);
+      Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
+    }
+  }
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)
