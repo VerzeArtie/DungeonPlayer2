@@ -7,6 +7,11 @@ using UnityEngine;
 
 public static class SecondaryLogic
 {
+  public static double CoreAttackRate(Character player)
+  {
+    return 0.40f;
+  }
+
   public static double NormalAttack(Character player)
   {
     return 1.00f;

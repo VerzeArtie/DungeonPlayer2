@@ -78,62 +78,62 @@ public static class PrimaryLogic
     {
       if (spell_skill_type == SpellSkillType.Strength)
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Intelligence)
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Both)
       {
-        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
-        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
+        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
     }
     else
     {
       if (spell_skill_type == SpellSkillType.Strength)
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Intelligence)
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Both)
       {
-        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
-        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * 1.00f;
+        min += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += (player.TotalStrength + player.TotalIntelligence) * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
     }
 
-    min += (player.MainWeapon?.PhysicalAttack ?? 0);
-    min += (player.SubWeapon?.PhysicalAttack ?? 0);
-    min += (player.MainArmor?.PhysicalAttack ?? 0);
-    min += (player.Accessory1?.PhysicalAttack ?? 0);
-    min += (player.Accessory2?.PhysicalAttack ?? 0);
-    min += (player.Artifact?.PhysicalAttack ?? 0);
+    min += (player.MainWeapon?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.SubWeapon?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.MainArmor?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Accessory1?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Accessory2?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Artifact?.PhysicalAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
 
-    max += (player.MainWeapon?.PhysicalAttackMax ?? 0);
-    max += (player.SubWeapon?.PhysicalAttackMax ?? 0);
-    max += (player.MainArmor?.PhysicalAttackMax ?? 0);
-    max += (player.Accessory1?.PhysicalAttackMax ?? 0);
-    max += (player.Accessory2?.PhysicalAttackMax ?? 0);
-    max += (player.Artifact?.PhysicalAttackMax ?? 0);
+    max += (player.MainWeapon?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.SubWeapon?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.MainArmor?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Accessory1?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Accessory2?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Artifact?.PhysicalAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
 
     double result = 0.0f;
     int debug = 1;
@@ -371,52 +371,52 @@ public static class PrimaryLogic
     {
       if (spell_skill_type == SpellSkillType.Intelligence)
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Strength)
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
     }
     else
     {
       if (spell_skill_type == SpellSkillType.Intelligence)
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else if (spell_skill_type == SpellSkillType.Strength)
       {
-        min += player.TotalStrength * Potential(player) * 1.00f;
-        max += player.TotalStrength * Potential(player) * 1.00f;
+        min += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalStrength * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
       else
       {
-        min += player.TotalIntelligence * Potential(player) * 1.00f;
-        max += player.TotalIntelligence * Potential(player) * 1.00f;
+        min += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
+        max += player.TotalIntelligence * Potential(player) * SecondaryLogic.CoreAttackRate(player);
       }
     }
 
-    min += (player.MainWeapon?.MagicAttack ?? 0);
-    min += (player.SubWeapon?.MagicAttack ?? 0);
-    min += (player.MainArmor?.MagicAttack ?? 0);
-    min += (player.Accessory1?.MagicAttack ?? 0);
-    min += (player.Accessory2?.MagicAttack ?? 0);
-    min += (player.Artifact?.MagicAttack ?? 0);
+    min += (player.MainWeapon?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.SubWeapon?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.MainArmor?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Accessory1?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Accessory2?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    min += (player.Artifact?.MagicAttack * SecondaryLogic.CoreAttackRate(player) ?? 0);
 
-    max += (player.MainWeapon?.MagicAttackMax ?? 0);
-    max += (player.SubWeapon?.MagicAttackMax ?? 0);
-    max += (player.MainArmor?.MagicAttackMax ?? 0);
-    max += (player.Accessory1?.MagicAttackMax ?? 0);
-    max += (player.Accessory2?.MagicAttackMax ?? 0);
-    max += (player.Artifact?.MagicAttackMax ?? 0);
+    max += (player.MainWeapon?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.SubWeapon?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.MainArmor?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Accessory1?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Accessory2?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
+    max += (player.Artifact?.MagicAttackMax * SecondaryLogic.CoreAttackRate(player) ?? 0);
 
     double result = CoreDamage(player, value_type, min, max);
 
@@ -601,9 +601,11 @@ public static class PrimaryLogic
   public static double BattleSpeed(Character player)
   {
     // double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
-    double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
+    // double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
+    double factor = Math.Exp((double)(player.TotalAgility) * (double)(player.TotalMind) / (Fix.PARAMETER_MAX * Fix.PARAMETER_MAX)) / Math.Exp(1);
+    factor = factor / 5.0f; // 0～1を0～2に引き下げてバランスを取る。
     // Debug.Log(player.FullName + " factor: " + factor.ToString());
-    double result = 0.30f + factor * 0.70f; // 0.30fがベース値。最大Agility9999、Mind9999の場合 +0.70fで、総合計は1.00fまで。
+    double result = 0.30f + factor; // 0.30fがベース値。最大Agility9999、Mind9999の場合 +0.20fで、総合計は0.50fまで。
     // Debug.Log(player.FullName +  " battlespeed1: " + result.ToString());
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
