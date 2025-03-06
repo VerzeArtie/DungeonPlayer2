@@ -1024,6 +1024,11 @@ public partial class BattleEnemy : MotherBase
   void Update()
   {
     // todo 試験的に常に再描画を行うようにする。処理落ちの場合はコメントアウトする。
+    if (One.BattleEnd == Fix.GameEndType.None && CheckGameEnd())
+    {
+      Debug.Log("Game End 1");
+      return;
+    }
     LogicInvalidate();
 
     #region "進行停止"
@@ -1066,13 +1071,6 @@ public partial class BattleEnemy : MotherBase
     if (NowAnimationMode)
     {
       ExecAnimation();
-      return;
-    }
-
-    // スタックインザコマンドを実行中。この間、時間を進めない。
-    if (NowStackInTheCommand)
-    {
-      ExecStackInTheCommand();
       return;
     }
 
@@ -1275,6 +1273,14 @@ public partial class BattleEnemy : MotherBase
       return;
     }
     LogicInvalidate();
+    #endregion
+
+    #region "スタックインザコマンドを実行中。この間、時間を進めない"
+    if (NowStackInTheCommand)
+    {
+      ExecStackInTheCommand();
+      return;
+    }
     #endregion
 
     #region "ターン砂時計(タイマーカウント更新)"
@@ -1890,6 +1896,27 @@ public partial class BattleEnemy : MotherBase
     #endregion
 
     #region "全滅判定"
+    if (CheckGameEnd())
+    {
+      Debug.Log("Game End 2");
+      return;
+    }
+    #endregion
+
+    #region "グローバルのインスタント値を更新する。"
+    float incrementGlobal = GlobalInstantInc * SpeedFactor();
+    this.GlobalInstantValue += incrementGlobal;
+    if (this.GlobalInstantValue >= Fix.GLOBAL_INSTANT_MAX)
+    {
+      this.GlobalInstantValue = Fix.GLOBAL_INSTANT_MAX;
+    }
+    UpdateGlobalGauge();
+    LogicInvalidate();
+    #endregion
+  }
+
+  private bool CheckGameEnd()
+  {
     // プレイヤー側が全滅した場合、ゲームエンドとする。
     if (CheckGroupAlive(PlayerList) == false)
     {
@@ -1903,7 +1930,7 @@ public partial class BattleEnemy : MotherBase
       {
         panelGameOver.SetActive(true);
       }
-      return;
+      return true;
     }
     // 敵側が全滅した場合、ゲームエンドとする。
     if (CheckGroupAlive(EnemyList) == false)
@@ -2175,21 +2202,10 @@ public partial class BattleEnemy : MotherBase
         }
       }
       AutoExit = Fix.BATTLEEND_AUTOEXIT;
-      return;
+      return true;
     }
     LogicInvalidate();
-    #endregion
-
-    #region "グローバルのインスタント値を更新する。"
-    float incrementGlobal = GlobalInstantInc * SpeedFactor();
-    this.GlobalInstantValue += incrementGlobal;
-    if (this.GlobalInstantValue >= Fix.GLOBAL_INSTANT_MAX)
-    {
-      this.GlobalInstantValue = Fix.GLOBAL_INSTANT_MAX;
-    }
-    UpdateGlobalGauge();
-    LogicInvalidate();
-    #endregion
+    return false;
   }
 
   private void CreateStackObject(Character player, Character target, string command_name, int stack_timer, int sudden_timer)
