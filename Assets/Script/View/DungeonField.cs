@@ -3426,6 +3426,7 @@ public class DungeonField : MotherBase
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
     {
+      Debug.Log("Detect fieldObjBefore Fountain -> MessageX00004");
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
@@ -10398,6 +10399,7 @@ public class DungeonField : MotherBase
         }
         else if (currentEvent == MessagePack.ActionEvent.Fountain)
         {
+          Debug.Log("MessagePack.ActionEvent.Fountain -> EventFountain");
           EventFountain();
           continue; // 継続
         }
@@ -12289,11 +12291,6 @@ public class DungeonField : MotherBase
         {
           One.TF.RemoveItem(new Item(currentMessage));
           // ConstructBackpackView();
-          continue; // 継続
-        }
-        else if (currentEvent == MessagePack.ActionEvent.Fountain)
-        {
-          EventFountain();
           continue; // 継続
         }
         else if (currentEvent == MessagePack.ActionEvent.GetTreasure)
@@ -14803,13 +14800,6 @@ public class DungeonField : MotherBase
   private bool DetectEvent(TileInformation tile)
   {
     Debug.Log("DetectEvent: " + tile.transform.position.x + " " + tile.transform.position.y + " " + tile.transform.position.z);
-    // 回復の泉
-    if (tile != null && tile.field == TileInformation.Field.Fountain_1)
-    {
-      MessagePack.Message101000(ref QuestMessageList, ref QuestEventList); TapOK();
-      GroupQuestMessage.SetActive(true);
-      return true;
-    }
 
     // todo town , castle, field, dungeonの属性分けが誤っている。
     // field

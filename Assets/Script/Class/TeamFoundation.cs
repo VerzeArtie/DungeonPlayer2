@@ -3486,6 +3486,57 @@ public class TeamFoundation : MonoBehaviour
 
   #endregion
 
+  #region "回復の泉"
+  protected bool _fountain_esmilia_1 = false;
+  protected bool _fountain_esmilia_2 = false;
+  protected bool _fountain_esmilia_3 = false;
+  protected bool _fountain_goratrum_1 = false;
+  protected bool _fountain_goratrum_2 = false;
+  protected bool _fountain_mysticforest_1 = false;
+  protected bool _fountain_mysticforest_2 = false;
+  protected bool _fountain_mysticforest_3 = false;
+  protected bool _fountain_ohrantower_1 = false;
+  protected bool _fountain_ohrantower_2 = false;
+  protected bool _fountain_ohrantower_3 = false;
+  protected bool _fountain_ohrantower_4 = false;
+  protected bool _fountain_ohrantower_5 = false;
+  protected bool _fountain_velgus_1 = false;
+  protected bool _fountain_velgus_2 = false;
+  protected bool _fountain_velgus_3 = false;
+  protected bool _fountain_velgus_4 = false;
+  protected bool _fountain_velgus_5 = false;
+  protected bool _fountain_velgus_6 = false;
+  protected bool _fountain_velgus_7 = false;
+  protected bool _fountain_velgus_8 = false;
+  protected bool _fountain_velgus_9 = false;
+  protected bool _fountain_edelgarzen_1 = false;
+  protected bool _fountain_edelgarzen_2 = false;
+  public bool Fountain_Esmilia_1 { get { return _fountain_esmilia_1; } set { _fountain_esmilia_1 = value; } }
+  public bool Fountain_Esmilia_2 { get { return _fountain_esmilia_2; } set { _fountain_esmilia_2 = value; } }
+  public bool Fountain_Esmilia_3 { get { return _fountain_esmilia_3; } set { _fountain_esmilia_3 = value; } }
+  public bool Fountain_Goratrum_1 { get { return _fountain_goratrum_1; } set { _fountain_goratrum_1 = value; } }
+  public bool Fountain_Goratrum_2 { get { return _fountain_goratrum_2; } set { _fountain_goratrum_2 = value; } }
+  public bool Fountain_MysticForest_1 { get { return _fountain_mysticforest_1; } set { _fountain_mysticforest_1 = value; } }
+  public bool Fountain_MysticForest_2 { get { return _fountain_mysticforest_2; } set { _fountain_mysticforest_2 = value; } }
+  public bool Fountain_MysticForest_3 { get { return _fountain_mysticforest_3; } set { _fountain_mysticforest_3 = value; } }
+  public bool Fountain_OhranTower_1 { get { return _fountain_ohrantower_1; } set { _fountain_ohrantower_1 = value; } }
+  public bool Fountain_OhranTower_2 { get { return _fountain_ohrantower_2; } set { _fountain_ohrantower_2 = value; } }
+  public bool Fountain_OhranTower_3 { get { return _fountain_ohrantower_3; } set { _fountain_ohrantower_3 = value; } }
+  public bool Fountain_OhranTower_4 { get { return _fountain_ohrantower_4; } set { _fountain_ohrantower_4 = value; } }
+  public bool Fountain_OhranTower_5 { get { return _fountain_ohrantower_5; } set { _fountain_ohrantower_5 = value; } }
+  public bool Fountain_Velgus_1 { get { return _fountain_velgus_1; } set { _fountain_velgus_1 = value; } }
+  public bool Fountain_Velgus_2 { get { return _fountain_velgus_2; } set { _fountain_velgus_2 = value; } }
+  public bool Fountain_Velgus_3 { get { return _fountain_velgus_3; } set { _fountain_velgus_3 = value; } }
+  public bool Fountain_Velgus_4 { get { return _fountain_velgus_4; } set { _fountain_velgus_4 = value; } }
+  public bool Fountain_Velgus_5 { get { return _fountain_velgus_5; } set { _fountain_velgus_5 = value; } }
+  public bool Fountain_Velgus_6 { get { return _fountain_velgus_6; } set { _fountain_velgus_6 = value; } }
+  public bool Fountain_Velgus_7 { get { return _fountain_velgus_7; } set { _fountain_velgus_7 = value; } }
+  public bool Fountain_Velgus_8 { get { return _fountain_velgus_8; } set { _fountain_velgus_8 = value; } }
+  public bool Fountain_Velgus_9 { get { return _fountain_velgus_9; } set { _fountain_velgus_9 = value; } }
+  public bool Fountain_edelgarzen_1 { get { return _fountain_edelgarzen_1; } set { _fountain_edelgarzen_1 = value; } }
+  public bool Fountain_edelgarzen_2 { get { return _fountain_edelgarzen_2; } set { _fountain_edelgarzen_2 = value; } }
+  #endregion
+
   #region "ソウル・フラグメント"
   [SerializeField] protected bool _soul_fragment_00001 = false;
   public bool SoulFragment_00001 { get { return _soul_fragment_00001; } set { _soul_fragment_00001 = value; } }
