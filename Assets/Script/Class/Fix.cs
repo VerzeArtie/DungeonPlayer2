@@ -4975,6 +4975,12 @@ public static partial class Fix
   public const float  MYSTICFOREST_FOUNTAIN_1_X = 9.0f;
   public const float  MYSTICFOREST_FOUNTAIN_1_Y = 1.0f;
   public const float  MYSTICFOREST_FOUNTAIN_1_Z = -9.0f;
+
+  public const string MYSTICFOREST_FOUNTAIN_2_C = "Fountain";
+  public const string MYSTICFOREST_FOUNTAIN_2_O = "2";
+  public const float MYSTICFOREST_FOUNTAIN_2_X = 7.0f;
+  public const float MYSTICFOREST_FOUNTAIN_2_Y = 1.0f;
+  public const float MYSTICFOREST_FOUNTAIN_2_Z = -20.0f;
   #endregion
 
   #region "ObsidianPortal"
