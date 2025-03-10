@@ -3498,6 +3498,25 @@ public class DungeonField : MotherBase
           }
         }
       }
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)
+      {
+        // 回復の泉２
+        if (LocationFieldDetect(fieldObjBefore, Fix.GORATRUM_FOUNTAIN_2_X, Fix.GORATRUM_FOUNTAIN_2_Y, Fix.GORATRUM_FOUNTAIN_2_Z))
+        {
+          if (One.TF.Fountain_Goratrum_2 == false)
+          {
+            One.TF.Fountain_Goratrum_2 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
+
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -22541,6 +22560,12 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Goratrum2_00004)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_2_Treasure_4_X, Fix.GORATRUM_2_Treasure_4_Y, Fix.GORATRUM_2_Treasure_4_Z)));
+      }
+
+      // 回復の泉２
+      if (One.TF.Fountain_Goratrum_2)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_FOUNTAIN_2_X, Fix.GORATRUM_FOUNTAIN_2_Y, Fix.GORATRUM_FOUNTAIN_2_Z)));
       }
 
       // ObsidianStone

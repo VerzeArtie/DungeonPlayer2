@@ -4170,6 +4170,12 @@ public static partial class Fix
   public const float GORATRUM_FOUNTAIN_1_X = 18.0f;
   public const float GORATRUM_FOUNTAIN_1_Y = 1.0f;
   public const float GORATRUM_FOUNTAIN_1_Z = -3.0f;
+
+  public const string GORATRUM_FOUNTAIN_2_C = "Fountain";
+  public const string GORATRUM_FOUNTAIN_2_O = "2";
+  public const float GORATRUM_FOUNTAIN_2_X = 8.0f;
+  public const float GORATRUM_FOUNTAIN_2_Y = 1.0f;
+  public const float GORATRUM_FOUNTAIN_2_Z = -10.0f;
   #endregion
   #region "ObsidianPortal"
   // Odsidian Portal
