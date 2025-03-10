@@ -7386,12 +7386,6 @@ public static partial class Fix
   public const float OHRANTOWER_FloatingTile_30_Y = 44f;
   public const float OHRANTOWER_FloatingTile_30_Z = 23f;
 
-  public const string OHRANTOWER_Fountain_1_C = "Fountain";
-  public const string OHRANTOWER_Fountain_1_O = "1";
-  public const float OHRANTOWER_Fountain_1_X = 4f;
-  public const float OHRANTOWER_Fountain_1_Y = 64f;
-  public const float OHRANTOWER_Fountain_1_Z = 22f;
-
   public const string OHRANTOWER_FloatingTile_31_C = "FloatingTile";
   public const string OHRANTOWER_FloatingTile_31_O = "31";
   public const float OHRANTOWER_FloatingTile_31_X = -1f;
@@ -7435,6 +7429,14 @@ public static partial class Fix
   public const float OHRANTOWER_KEYDOOR_4_X = 15.0f;
   public const float OHRANTOWER_KEYDOOR_4_Y = 0.5f;
   public const float OHRANTOWER_KEYDOOR_4_Z = -19.0f;
+  #endregion
+
+  #region "回復の泉"
+  public const string OHRANTOWER_FOUNTAIN_1_C = "Fountain";
+  public const string OHRANTOWER_FOUNTAIN_1_O = "1";
+  public const float OHRANTOWER_FOUNTAIN_1_X = 15.0f;
+  public const float OHRANTOWER_FOUNTAIN_1_Y = 1.0f;
+  public const float OHRANTOWER_FOUNTAIN_1_Z = -24.0f;
   #endregion
 
   #region "ObsidianStone"
