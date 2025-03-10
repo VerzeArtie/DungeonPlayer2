@@ -3480,6 +3480,24 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM)
+      {
+        // 回復の泉１
+        if (LocationFieldDetect(fieldObjBefore, Fix.GORATRUM_FOUNTAIN_1_X, Fix.GORATRUM_FOUNTAIN_1_Y, Fix.GORATRUM_FOUNTAIN_1_Z))
+        {
+          if (One.TF.Fountain_Goratrum_1 == false)
+          {
+            One.TF.Fountain_Goratrum_1 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -22498,6 +22516,12 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_Goratrum_00003)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.GORATRUM_CopperDoor_2_X, Fix.GORATRUM_CopperDoor_2_Y, Fix.GORATRUM_CopperDoor_2_Z));
+      }
+
+      // 回復の泉１
+      if (One.TF.Fountain_Goratrum_1)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.GORATRUM_FOUNTAIN_1_X, Fix.GORATRUM_FOUNTAIN_1_Y, Fix.GORATRUM_FOUNTAIN_1_Z)));
       }
     }
     if (One.TF.CurrentDungeonField == Fix.MAPFILE_GORATRUM_2)

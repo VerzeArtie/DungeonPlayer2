@@ -4164,6 +4164,13 @@ public static partial class Fix
   public const float GORATRUM_MessageBoard_5_Y = 1.0f;
   public const float GORATRUM_MessageBoard_5_Z = -7.0f;
   #endregion
+  #region "回復の泉"
+  public const string GORATRUM_FOUNTAIN_1_C = "Fountain";
+  public const string GORATRUM_FOUNTAIN_1_O = "1";
+  public const float GORATRUM_FOUNTAIN_1_X = 18.0f;
+  public const float GORATRUM_FOUNTAIN_1_Y = 1.0f;
+  public const float GORATRUM_FOUNTAIN_1_Z = -3.0f;
+  #endregion
   #region "ObsidianPortal"
   // Odsidian Portal
   public const string GORATRUM_2_ObsidianPortal_1_C = "ObsidianPortal";
