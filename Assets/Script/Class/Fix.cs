@@ -3619,6 +3619,12 @@ public static partial class Fix
   public const float ESMILIA_FOUNTAIN_1_X = 20.0f;
   public const float ESMILIA_FOUNTAIN_1_Y = 1.0f;
   public const float ESMILIA_FOUNTAIN_1_Z = 7.0f;
+
+  public const string ESMILIA_FOUNTAIN_2_C = "Fountain";
+  public const string ESMILIA_FOUNTAIN_2_O = "2";
+  public const float ESMILIA_FOUNTAIN_2_X = 14.0f;
+  public const float ESMILIA_FOUNTAIN_2_Y = 1.0f;
+  public const float ESMILIA_FOUNTAIN_2_Z = 1.0f;
   #endregion
   #region "ObsidianStone"
   public const string ESMILIA_ObsidianStone_1_C = "ObsidianStone";

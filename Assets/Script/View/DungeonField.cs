@@ -3431,11 +3431,28 @@ public class DungeonField : MotherBase
       CurrentEventObject = fieldObjBefore;
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
       {
+        // 回復の泉１
         if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_FOUNTAIN_1_X, Fix.ESMILIA_FOUNTAIN_1_Y, Fix.ESMILIA_FOUNTAIN_1_Z))
         {
           if (One.TF.Fountain_Esmilia_1 == false)
           {
             One.TF.Fountain_Esmilia_1 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+
+        // 回復の泉２
+        if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_FOUNTAIN_2_X, Fix.ESMILIA_FOUNTAIN_2_Y, Fix.ESMILIA_FOUNTAIN_2_Z))
+        {
+          if (One.TF.Fountain_Esmilia_2 == false)
+          {
+            One.TF.Fountain_Esmilia_2 = true;
             MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
             return;
           }
@@ -22385,6 +22402,11 @@ public class DungeonField : MotherBase
       if (One.TF.Fountain_Esmilia_1)
       {
         ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_FOUNTAIN_1_X, Fix.ESMILIA_FOUNTAIN_1_Y, Fix.ESMILIA_FOUNTAIN_1_Z)));
+      }
+      // 回復の泉２
+      if (One.TF.Fountain_Esmilia_2)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_FOUNTAIN_2_X, Fix.ESMILIA_FOUNTAIN_2_Y, Fix.ESMILIA_FOUNTAIN_2_Z)));
       }
 
       // ObsidianStone
