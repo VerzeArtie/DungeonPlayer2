@@ -207,6 +207,11 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "【 パーティメンバーのステータスが全快しました 】", ActionEvent.None);
   }
 
+  public static void MessageX00004_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：回復の泉は、枯れている様だな。他をあたろう。", ActionEvent.None);
+  }
+
   public static void MessageX00005(ref List<string> m_list, ref List<ActionEvent> e_list)
   {
     Message(ref m_list, ref e_list, "アイン：遠見の青水晶で既にダンジョンから脱出しているからな。今日はもう止めておこう。", ActionEvent.None);

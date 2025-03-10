@@ -2292,6 +2292,31 @@ public partial class HomeTown : MotherBase
     One.TF.AlreadyPureCleanWater = false;
     One.TF.AlreadySinseisui = false;
 
+    One.TF.Fountain_Esmilia_1 = false;
+    One.TF.Fountain_Esmilia_2 = false;
+    One.TF.Fountain_Esmilia_3 = false;
+    One.TF.Fountain_Goratrum_1 = false;
+    One.TF.Fountain_Goratrum_2 = false;
+    One.TF.Fountain_MysticForest_1 = false;
+    One.TF.Fountain_MysticForest_2 = false;
+    One.TF.Fountain_MysticForest_3 = false;
+    One.TF.Fountain_OhranTower_1 = false;
+    One.TF.Fountain_OhranTower_2 = false;
+    One.TF.Fountain_OhranTower_3 = false;
+    One.TF.Fountain_OhranTower_4 = false;
+    One.TF.Fountain_OhranTower_5 = false;
+    One.TF.Fountain_Velgus_1 = false;
+    One.TF.Fountain_Velgus_2 = false;
+    One.TF.Fountain_Velgus_3 = false;
+    One.TF.Fountain_Velgus_4 = false;
+    One.TF.Fountain_Velgus_5 = false;
+    One.TF.Fountain_Velgus_6 = false;
+    One.TF.Fountain_Velgus_7 = false;
+    One.TF.Fountain_Velgus_8 = false;
+    One.TF.Fountain_Velgus_9 = false;
+    One.TF.Fountain_Edelgarzen_1 = false;
+    One.TF.Fountain_Edelgarzen_2 = false;
+
     One.TF.GameDay += 1;
     dayLabel.text = One.TF.GameDay.ToString() + "日目";
     if (One.AR.EnterSeekerMode && One.AR.LeaveSeekerMode == false)

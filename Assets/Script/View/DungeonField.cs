@@ -114,6 +114,7 @@ public class DungeonField : MotherBase
   public FieldObject prefab_Rock;
   public FieldObject prefab_Player2;
   public FieldObject prefab_Fountain;
+  public FieldObject prefab_FountainUse;
   public FieldObject prefab_MessageBoard;
   public FieldObject prefab_DoorCopper;
   public FieldObject prefab_Crystal;
@@ -3426,7 +3427,27 @@ public class DungeonField : MotherBase
 
     if (fieldObjBefore != null && fieldObjBefore.content == FieldObject.Content.Fountain)
     {
-      Debug.Log("Detect fieldObjBefore Fountain -> MessageX00004");
+      Debug.Log("Detect fieldObjBefore Fountain -> MessageX00004 location: " + fieldObjBefore.transform.position.x + " " + fieldObjBefore.transform.position.y + " " + fieldObjBefore.transform.position.z);
+      CurrentEventObject = fieldObjBefore;
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_ESMILIA_GRASSFIELD)
+      {
+        if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_FOUNTAIN_1_X, Fix.ESMILIA_FOUNTAIN_1_Y, Fix.ESMILIA_FOUNTAIN_1_Z))
+        {
+          if (One.TF.Fountain_Esmilia_1 == false)
+          {
+            One.TF.Fountain_Esmilia_1 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
+
+      // Fountainにはヒットしているので万が一の場合は回復する事とする。
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
     }
@@ -10401,6 +10422,14 @@ public class DungeonField : MotherBase
         {
           Debug.Log("MessagePack.ActionEvent.Fountain -> EventFountain");
           EventFountain();
+
+          Debug.Log("EventFountain 1");
+          FieldObject fieldObj = SearchObject(this.CurrentEventObject.transform.position);
+          Vector3 location = fieldObj.transform.position;
+          int number = FindFieldObjectIndex(FieldObjList, fieldObj.transform.position);
+          ExchangeFieldObject(FieldObjList, prefab_FountainUse, number);
+          Debug.Log("EventFountain 2");
+
           continue; // 継続
         }
         // 画面を再描画する。
@@ -22350,6 +22379,12 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_EsmiliaGrassField_00009)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.ESMILIA_Rock_8_X, Fix.ESMILIA_Rock_8_Y, Fix.ESMILIA_Rock_8_Z));
+      }
+
+      // 回復の泉１
+      if (One.TF.Fountain_Esmilia_1)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_FOUNTAIN_1_X, Fix.ESMILIA_FOUNTAIN_1_Y, Fix.ESMILIA_FOUNTAIN_1_Z)));
       }
 
       // ObsidianStone

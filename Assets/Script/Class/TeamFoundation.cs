@@ -3533,8 +3533,8 @@ public class TeamFoundation : MonoBehaviour
   public bool Fountain_Velgus_7 { get { return _fountain_velgus_7; } set { _fountain_velgus_7 = value; } }
   public bool Fountain_Velgus_8 { get { return _fountain_velgus_8; } set { _fountain_velgus_8 = value; } }
   public bool Fountain_Velgus_9 { get { return _fountain_velgus_9; } set { _fountain_velgus_9 = value; } }
-  public bool Fountain_edelgarzen_1 { get { return _fountain_edelgarzen_1; } set { _fountain_edelgarzen_1 = value; } }
-  public bool Fountain_edelgarzen_2 { get { return _fountain_edelgarzen_2; } set { _fountain_edelgarzen_2 = value; } }
+  public bool Fountain_Edelgarzen_1 { get { return _fountain_edelgarzen_1; } set { _fountain_edelgarzen_1 = value; } }
+  public bool Fountain_Edelgarzen_2 { get { return _fountain_edelgarzen_2; } set { _fountain_edelgarzen_2 = value; } }
   #endregion
 
   #region "ソウル・フラグメント"
