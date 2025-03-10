@@ -3517,6 +3517,25 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_MYSTIC_FOREST)
+      {
+        // 回復の泉１
+        if (LocationFieldDetect(fieldObjBefore, Fix.MYSTICFOREST_FOUNTAIN_1_X, Fix.MYSTICFOREST_FOUNTAIN_1_Y, Fix.MYSTICFOREST_FOUNTAIN_1_Z))
+        {
+          if (One.TF.Fountain_MysticForest_1 == false)
+          {
+            One.TF.Fountain_MysticForest_1 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
+
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -22714,6 +22733,12 @@ public class DungeonField : MotherBase
       if (One.TF.FieldObject_MysticForest_00012)
       {
         RemoveFieldObject(FieldObjList, new Vector3(Fix.MYSTICFOREST_BRUSHWOOD_12_X, Fix.MYSTICFOREST_BRUSHWOOD_12_Y, Fix.MYSTICFOREST_BRUSHWOOD_12_Z));
+      }
+
+      // 回復の泉１
+      if (One.TF.Fountain_MysticForest_1)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.MYSTICFOREST_FOUNTAIN_1_X, Fix.MYSTICFOREST_FOUNTAIN_1_Y, Fix.MYSTICFOREST_FOUNTAIN_1_Z)));
       }
 
       // ObsidianStone

@@ -4969,6 +4969,14 @@ public static partial class Fix
   public const float MYSTICFOREST_STEPBACK_1_Y = 0.0f;
   public const float MYSTICFOREST_STEPBACK_1_Z = -23.0f;
 
+  #region "回復の泉"
+  public const string  MYSTICFOREST_FOUNTAIN_1_C = "Fountain";
+  public const string  MYSTICFOREST_FOUNTAIN_1_O = "1";
+  public const float  MYSTICFOREST_FOUNTAIN_1_X = 9.0f;
+  public const float  MYSTICFOREST_FOUNTAIN_1_Y = 1.0f;
+  public const float  MYSTICFOREST_FOUNTAIN_1_Z = -9.0f;
+  #endregion
+
   #region "ObsidianPortal"
   // Odsidian Portal
   public const string MYSTICFOREST_ObsidianPortal_1_C = "ObsidianPortal";
