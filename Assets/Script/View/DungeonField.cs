@@ -3462,6 +3462,22 @@ public class DungeonField : MotherBase
             return;
           }
         }
+
+        // 回復の泉３
+        if (LocationFieldDetect(fieldObjBefore, Fix.ESMILIA_FOUNTAIN_3_X, Fix.ESMILIA_FOUNTAIN_3_Y, Fix.ESMILIA_FOUNTAIN_3_Z))
+        {
+          if (One.TF.Fountain_Esmilia_3 == false)
+          {
+            One.TF.Fountain_Esmilia_3 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
       }
 
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
@@ -22407,6 +22423,11 @@ public class DungeonField : MotherBase
       if (One.TF.Fountain_Esmilia_2)
       {
         ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_FOUNTAIN_2_X, Fix.ESMILIA_FOUNTAIN_2_Y, Fix.ESMILIA_FOUNTAIN_2_Z)));
+      }
+      // 回復の泉３
+      if (One.TF.Fountain_Esmilia_3)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.ESMILIA_FOUNTAIN_3_X, Fix.ESMILIA_FOUNTAIN_3_Y, Fix.ESMILIA_FOUNTAIN_3_Z)));
       }
 
       // ObsidianStone
