@@ -3600,6 +3600,21 @@ public class DungeonField : MotherBase
             return;
           }
         }
+        // 回復の泉３
+        if (LocationFieldDetect(fieldObjBefore, Fix.OHRANTOWER_FOUNTAIN_3_X, Fix.OHRANTOWER_FOUNTAIN_3_Y, Fix.OHRANTOWER_FOUNTAIN_3_Z))
+        {
+          if (One.TF.Fountain_OhranTower_3 == false)
+          {
+            One.TF.Fountain_OhranTower_3 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
       }
 
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
@@ -23805,6 +23820,11 @@ public class DungeonField : MotherBase
       if (One.TF.Fountain_OhranTower_2)
       {
         ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_FOUNTAIN_2_X, Fix.OHRANTOWER_FOUNTAIN_2_Y, Fix.OHRANTOWER_FOUNTAIN_2_Z)));
+      }
+      // 回復の泉３
+      if (One.TF.Fountain_OhranTower_3)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.OHRANTOWER_FOUNTAIN_3_X, Fix.OHRANTOWER_FOUNTAIN_3_Y, Fix.OHRANTOWER_FOUNTAIN_3_Z)));
       }
 
       // ObsidianStone
