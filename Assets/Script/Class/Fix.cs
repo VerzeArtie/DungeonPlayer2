@@ -10240,6 +10240,12 @@ public static partial class Fix
   public const float VELGUS_FOUNTAIN_2_X = 5.0f;
   public const float VELGUS_FOUNTAIN_2_Y = 1.0f;
   public const float VELGUS_FOUNTAIN_2_Z = -6.0f;
+
+  public const string VELGUS_FOUNTAIN_3_C = "Fountain";
+  public const string VELGUS_FOUNTAIN_3_O = "3";
+  public const float VELGUS_FOUNTAIN_3_X = 9.0f;
+  public const float VELGUS_FOUNTAIN_3_Y = 1.0f;
+  public const float VELGUS_FOUNTAIN_3_Z = -27.0f;
   #endregion
   #region "ObsidianPortal"
   // Odsidian Portal
