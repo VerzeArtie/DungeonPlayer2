@@ -7662,21 +7662,21 @@ public static partial class Fix
   public const string VELGUS_DOOR_6_C = "VelgusDoor";
   public const string VELGUS_DOOR_6_O = "6";
   public const float VELGUS_DOOR_6_X = 14.0f;
-  public const float VELGUS_DOOR_6_Y = 0.5f;
+  public const float VELGUS_DOOR_6_Y = 1.0f;
   public const float VELGUS_DOOR_6_Z = -5.0f;
 
   // エントランス１：壁ドア（２）
   public const string VELGUS_DOOR_7_C = "VelgusDoor";
   public const string VELGUS_DOOR_7_O = "7";
   public const float VELGUS_DOOR_7_X = 10.0f;
-  public const float VELGUS_DOOR_7_Y = 0.5f;
+  public const float VELGUS_DOOR_7_Y = 1.0f;
   public const float VELGUS_DOOR_7_Z = -9.0f;
 
   // エントランス１：壁ドア（３）
   public const string VELGUS_DOOR_8_C = "VelgusDoor";
   public const string VELGUS_DOOR_8_O = "8";
   public const float VELGUS_DOOR_8_X = 18.0f;
-  public const float VELGUS_DOOR_8_Y = 0.5f;
+  public const float VELGUS_DOOR_8_Y = 1.0f;
   public const float VELGUS_DOOR_8_Z = -9.0f;
 
   // 中央の間（周辺１）
@@ -7725,7 +7725,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_15_C = "VelgusDoor";
   public const string VELGUS_DOOR_15_O = "15";
   public const float VELGUS_DOOR_15_X = 25.0f;
-  public const float VELGUS_DOOR_15_Y = 0.5f;
+  public const float VELGUS_DOOR_15_Y = 1.0f;
   public const float VELGUS_DOOR_15_Z = -11.0f;
 
   // 中央の間：外れの間への壁
@@ -7799,21 +7799,21 @@ public static partial class Fix
   public const string VELGUS_DOOR_26_C = "VelgusDoor";
   public const string VELGUS_DOOR_26_O = "26";
   public const float VELGUS_DOOR_26_X = 41.0f;
-  public const float VELGUS_DOOR_26_Y = 0.5f;
+  public const float VELGUS_DOOR_26_Y = 1.0f;
   public const float VELGUS_DOOR_26_Z = -11.0f;
 
   // 右方、天の物語「詩」の間、壁ドア下
   public const string VELGUS_DOOR_27_C = "VelgusDoor";
   public const string VELGUS_DOOR_27_O = "27";
   public const float VELGUS_DOOR_27_X = 42.0f;
-  public const float VELGUS_DOOR_27_Y = 0.5f;
+  public const float VELGUS_DOOR_27_Y = 1.0f;
   public const float VELGUS_DOOR_27_Z = -12.0f;
 
   // 右方、天の物語「詩」の間、壁ドア右
   public const string VELGUS_DOOR_28_C = "VelgusDoor";
   public const string VELGUS_DOOR_28_O = "28";
   public const float VELGUS_DOOR_28_X = 43.0f;
-  public const float VELGUS_DOOR_28_Y = 0.5f;
+  public const float VELGUS_DOOR_28_Y = 1.0f;
   public const float VELGUS_DOOR_28_Z = -11.0f;
 
   // エントランス、外れの間、隠し壁ドア
@@ -8219,7 +8219,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_86 = "VelgusDoor";
   public const string VELGUS_DOOR_86_O = "86";
   public const float VELGUS_DOOR_86_X = 32.0f;
-  public const float VELGUS_DOOR_86_Y = 0.5f;
+  public const float VELGUS_DOOR_86_Y = 1.0f;
   public const float VELGUS_DOOR_86_Z = -23.0f;
 
   // イベント（E42）エリア可視化
@@ -8394,7 +8394,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_111 = "VelgusDoor";
   public const string VELGUS_DOOR_111_O = "111";
   public const float VELGUS_DOOR_111_X = 41.0f;
-  public const float VELGUS_DOOR_111_Y = 0.5f;
+  public const float VELGUS_DOOR_111_Y = 1.0f;
   public const float VELGUS_DOOR_111_Z = -24.0f;
 
   // イベント（E43）エリア可視化
@@ -8864,7 +8864,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_178_C = "VelgusDoor";
   public const string VELGUS_DOOR_178_O = "178";
   public const float VELGUS_DOOR_178_X = 5.0f;
-  public const float VELGUS_DOOR_178_Y = 0.5f;
+  public const float VELGUS_DOOR_178_Y = 1.0f;
   public const float VELGUS_DOOR_178_Z = -20.0f;
 
   // パズルの間、CircleRed移動前
@@ -8955,7 +8955,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_191_C = "VelgusDoor";
   public const string VELGUS_DOOR_191_O = "191";
   public const float VELGUS_DOOR_191_X = 18.0f;
-  public const float VELGUS_DOOR_191_Y = 0.5f;
+  public const float VELGUS_DOOR_191_Y = 1.0f;
   public const float VELGUS_DOOR_191_Z = -27.0f;
 
   // パズルの間、CircleRed移動後(3)
@@ -9025,21 +9025,21 @@ public static partial class Fix
   public const string VELGUS_DOOR_201_C = "VelgusDoor";
   public const string VELGUS_DOOR_201_O = "201";
   public const float VELGUS_DOOR_201_X = 8.0f;
-  public const float VELGUS_DOOR_201_Y = 0.5f;
+  public const float VELGUS_DOOR_201_Y = 1.0f;
   public const float VELGUS_DOOR_201_Z = -4.0f;
 
   // 左上通路：壁ドア２
   public const string VELGUS_DOOR_202_C = "VelgusDoor";
   public const string VELGUS_DOOR_202_O = "202";
   public const float VELGUS_DOOR_202_X = 6.0f;
-  public const float VELGUS_DOOR_202_Y = 0.5f;
+  public const float VELGUS_DOOR_202_Y = 1.0f;
   public const float VELGUS_DOOR_202_Z = -2.0f;
 
   // 左上通路：壁ドア３
   public const string VELGUS_DOOR_203_C = "VelgusDoor";
   public const string VELGUS_DOOR_203_O = "203";
   public const float VELGUS_DOOR_203_X = 4.0f;
-  public const float VELGUS_DOOR_203_Y = 0.5f;
+  public const float VELGUS_DOOR_203_Y = 1.0f;
   public const float VELGUS_DOOR_203_Z = -5.0f;
 
   // 左上通路：ボス戦
@@ -9132,28 +9132,28 @@ public static partial class Fix
   public const string VELGUS_DOOR_216_C = "Velgus_Door";
   public const string VELGUS_DOOR_216_O = "216";
   public const float VELGUS_DOOR_216_X = 18.0f;
-  public const float VELGUS_DOOR_216_Y = 0.5f;
+  public const float VELGUS_DOOR_216_Y = 1.0f;
   public const float VELGUS_DOOR_216_Z = -23.0f;
 
   // 初級の間、壁ドア２
   public const string VELGUS_DOOR_217_C = "Velgus_Door";
   public const string VELGUS_DOOR_217_O = "217";
   public const float VELGUS_DOOR_217_X = 18.0f;
-  public const float VELGUS_DOOR_217_Y = 0.5f;
+  public const float VELGUS_DOOR_217_Y = 1.0f;
   public const float VELGUS_DOOR_217_Z = -19.0f;
 
   // 初級の間、壁ドア３
   public const string VELGUS_DOOR_218_C = "Velgus_Door";
   public const string VELGUS_DOOR_218_O = "218";
   public const float VELGUS_DOOR_218_X = 14.0f;
-  public const float VELGUS_DOOR_218_Y = 0.5f;
+  public const float VELGUS_DOOR_218_Y = 1.0f;
   public const float VELGUS_DOOR_218_Z = -17.0f;
 
   // 疾走の間１
   public const string VELGUS_DOOR_219_C = "Velgus_Door";
   public const string VELGUS_DOOR_219_O = "219";
   public const float VELGUS_DOOR_219_X = 23.0f;
-  public const float VELGUS_DOOR_219_Y = 0.5f;
+  public const float VELGUS_DOOR_219_Y = 1.0f;
   public const float VELGUS_DOOR_219_Z = -23.0f;
 
   public const string VELGUS_EVENTTILE_220_C = "EventTile";
@@ -9275,7 +9275,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_239_C = "Velgus_Door";
   public const string VELGUS_DOOR_239_O = "239";
   public const float VELGUS_DOOR_239_X = 35.0f;
-  public const float VELGUS_DOOR_239_Y = 0.5f;
+  public const float VELGUS_DOOR_239_Y = 1.0f;
   public const float VELGUS_DOOR_239_Z = -23.0f;
 
   // 疾走の間２、開始地点
@@ -9296,7 +9296,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_242_C = "Velgus_Door";
   public const string VELGUS_DOOR_242_O = "242";
   public const float VELGUS_DOOR_242_X = 35.0f;
-  public const float VELGUS_DOOR_242_Y = 0.5f;
+  public const float VELGUS_DOOR_242_Y = 1.0f;
   public const float VELGUS_DOOR_242_Z = -19.0f;
 
   // 疾走の間３、開始地点
@@ -9338,14 +9338,14 @@ public static partial class Fix
   public const string VELGUS_DOOR_248_C = "Velgus_Door";
   public const string VELGUS_DOOR_248_O = "248";
   public const float VELGUS_DOOR_248_X = 16.0f;
-  public const float VELGUS_DOOR_248_Y = 0.5f;
+  public const float VELGUS_DOOR_248_Y = 1.0f;
   public const float VELGUS_DOOR_248_Z = -25.0f;
 
   // 疾走の間、壁ドア５
   public const string VELGUS_DOOR_249_C = "Velgus_Door";
   public const string VELGUS_DOOR_249_O = "249";
   public const float VELGUS_DOOR_249_X = 12.0f;
-  public const float VELGUS_DOOR_249_Y = 0.5f;
+  public const float VELGUS_DOOR_249_Y = 1.0f;
   public const float VELGUS_DOOR_249_Z = -25.0f;
 
   // 海渡りの間１、終了地点
@@ -9460,7 +9460,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_265_C = "VelgusDoor";
   public const string VELGUS_DOOR_265_O = "265";
   public const float VELGUS_DOOR_265_X = 10.0f;
-  public const float VELGUS_DOOR_265_Y = 0.5f;
+  public const float VELGUS_DOOR_265_Y = 1.0f;
   public const float VELGUS_DOOR_265_Z = -23.0f;
 
   // ランダムの間、エリア表示（ランダム内容もここで決める）
@@ -9537,7 +9537,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_276_C = "Velgus_Door";
   public const string VELGUS_DOOR_276_O = "276";
   public const float VELGUS_DOOR_276_X = 41.0f;
-  public const float VELGUS_DOOR_276_Y = 0.5f;
+  public const float VELGUS_DOOR_276_Y = 1.0f;
   public const float VELGUS_DOOR_276_Z = -6.0f;
 
   // 遠点の間入口、隠し壁ドア
@@ -9600,7 +9600,7 @@ public static partial class Fix
   public const string VELGUS_DOOR_285_C = "Velgus_Door";
   public const string VELGUS_DOOR_285_O = "285";
   public const float VELGUS_DOOR_285_X = 47.0f;
-  public const float VELGUS_DOOR_285_Y = 0.5f;
+  public const float VELGUS_DOOR_285_Y = 1.0f;
   public const float VELGUS_DOOR_285_Z = -14.0f;
 
   // マップ右下、隠し壁ドア
@@ -9815,6 +9815,7 @@ public static partial class Fix
   public const float VELGUS_SECRETWALL_315_Y = 0.5f;
   public const float VELGUS_SECRETWALL_315_Z = -26.0f;
   #endregion
+  // 番号を1番に戻したいかもしれないが、番号識別による重複が同一ダンジョンにあると危険なので識別IDの連番は継続とする。
   #region "第四階層"
   // 第三階層から降りて来た時の開始地点
   public const string VELGUS_LOCATION_316_C = "Location";
