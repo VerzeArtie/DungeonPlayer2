@@ -7449,6 +7449,12 @@ public static partial class Fix
   public const float OHRANTOWER_FOUNTAIN_3_X = 15.0f;
   public const float OHRANTOWER_FOUNTAIN_3_Y = 1.0f;
   public const float OHRANTOWER_FOUNTAIN_3_Z = -6.0f;
+
+  public const string OHRANTOWER_FOUNTAIN_4_C = "Fountain";
+  public const string OHRANTOWER_FOUNTAIN_4_O = "4";
+  public const float OHRANTOWER_FOUNTAIN_4_X = 15.0f;
+  public const float OHRANTOWER_FOUNTAIN_4_Y = 41.0f;
+  public const float OHRANTOWER_FOUNTAIN_4_Z = -6.0f;
   #endregion
 
   #region "ObsidianStone"
