@@ -3744,6 +3744,21 @@ public class DungeonField : MotherBase
             return;
           }
         }
+        // 回復の泉７
+        if (LocationFieldDetect(fieldObjBefore, Fix.VELGUS_FOUNTAIN_7_X, Fix.VELGUS_FOUNTAIN_7_Y, Fix.VELGUS_FOUNTAIN_7_Z))
+        {
+          if (One.TF.Fountain_Velgus_7 == false)
+          {
+            One.TF.Fountain_Velgus_7 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
       }
 
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
@@ -24489,6 +24504,11 @@ public class DungeonField : MotherBase
       if (One.TF.Fountain_Velgus_6)
       {
         ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_FOUNTAIN_6_X, Fix.VELGUS_FOUNTAIN_6_Y, Fix.VELGUS_FOUNTAIN_6_Z)));
+      }
+      // 回復の泉７
+      if (One.TF.Fountain_Velgus_7)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.VELGUS_FOUNTAIN_7_X, Fix.VELGUS_FOUNTAIN_7_Y, Fix.VELGUS_FOUNTAIN_7_Z)));
       }
     }
     if (map_data == Fix.MAPFILE_VELGUS_4)
