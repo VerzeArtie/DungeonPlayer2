@@ -3791,6 +3791,24 @@ public class DungeonField : MotherBase
         }
       }
 
+      if (One.TF.CurrentDungeonField == Fix.MAPFILE_EDELGARZEN)
+      {
+        // 回復の泉１
+        if (LocationFieldDetect(fieldObjBefore, Fix.EDELGARZEN_FOUNTAIN_1_X, Fix.EDELGARZEN_FOUNTAIN_1_Y, Fix.EDELGARZEN_FOUNTAIN_1_Z))
+        {
+          if (One.TF.Fountain_Edelgarzen_1 == false)
+          {
+            One.TF.Fountain_Edelgarzen_1 = true;
+            MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+          else
+          {
+            MessagePack.MessageX00004_2(ref QuestMessageList, ref QuestEventList); TapOK();
+            return;
+          }
+        }
+      }
       // Fountainにはヒットしているので万が一の場合は回復する事とする。
       MessagePack.MessageX00004(ref QuestMessageList, ref QuestEventList); TapOK();
       return;
@@ -24850,6 +24868,12 @@ public class DungeonField : MotherBase
       if (One.TF.Treasure_Edelgarzen_00021)
       {
         ExchangeFieldObject(FieldObjList, prefab_TreasureOpen, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.EDELGARZEN_1_Treasure_21_X, Fix.EDELGARZEN_1_Treasure_21_Y, Fix.EDELGARZEN_1_Treasure_21_Z)));
+      }
+
+      // 回復の泉１
+      if (One.TF.Fountain_Edelgarzen_1)
+      {
+        ExchangeFieldObject(FieldObjList, prefab_FountainUse, FindFieldObjectIndex(FieldObjList, new Vector3(Fix.EDELGARZEN_FOUNTAIN_1_X, Fix.EDELGARZEN_FOUNTAIN_1_Y, Fix.EDELGARZEN_FOUNTAIN_1_Z)));
       }
     }
     if (map_data == Fix.MAPFILE_EDELGARZEN_2)

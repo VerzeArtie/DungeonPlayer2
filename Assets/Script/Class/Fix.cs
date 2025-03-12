@@ -13959,6 +13959,13 @@ public static partial class Fix
   #endregion
   #endregion
 
+  #region "回復の泉"
+  public const string EDELGARZEN_FOUNTAIN_1_C = "Fountain";
+  public const string EDELGARZEN_FOUNTAIN_1_O = "1";
+  public const float EDELGARZEN_FOUNTAIN_1_X = 8.0f;
+  public const float EDELGARZEN_FOUNTAIN_1_Y = 1.0f;
+  public const float EDELGARZEN_FOUNTAIN_1_Z = -37.0f;
+  #endregion
   #endregion
   #region "離島ウォズム"
   // 最初の地点
