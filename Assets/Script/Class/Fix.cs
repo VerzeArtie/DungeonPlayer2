@@ -13965,6 +13965,12 @@ public static partial class Fix
   public const float EDELGARZEN_FOUNTAIN_1_X = 8.0f;
   public const float EDELGARZEN_FOUNTAIN_1_Y = 1.0f;
   public const float EDELGARZEN_FOUNTAIN_1_Z = -37.0f;
+
+  public const string EDELGARZEN_FOUNTAIN_2_C = "Fountain";
+  public const string EDELGARZEN_FOUNTAIN_2_O = "2";
+  public const float EDELGARZEN_FOUNTAIN_2_X = 31.0f;
+  public const float EDELGARZEN_FOUNTAIN_2_Y = 1.0f;
+  public const float EDELGARZEN_FOUNTAIN_2_Z = -36.0f;
   #endregion
   #endregion
   #region "離島ウォズム"
