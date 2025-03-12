@@ -35286,23 +35286,23 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：石が少年を選択する事に在らず", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：手にせしその石は少年が遥か過去／未来から入手しているものである", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：石は永劫の刻にて存在し続けるもの", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：こ、これが・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：石との接触は", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：一つの終わりを意味する", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：一つの終焉を意味する", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：でも、どうしてなんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・終焉・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：どうして終わりに向かって進まなくちゃいけないんだよ！？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：俺は終わりに向かって進んでいた・・・そういう事なのか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：そんなのは、俺は認めない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：そんな・・・そんなはずはない。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：絶対に道筋が在るはずなんだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：支配竜が指す終わりとは何だ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：支配竜が指す終焉とは何だ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年が今イメージしているそのものである", ActionEvent.None);
 
@@ -35320,19 +35320,21 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：事象の感知と・・・受諾・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：なるほど・・・", ActionEvent.None);
-
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：俺にこれから起こりうる事象は", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：この事象は", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：避けられない。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：何故なら、俺自身がもう決めているからだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ならば", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：これで良い。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：それで良い。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それ以外に選択肢はないんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：選択肢とは考えず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：全ての事象を認識し", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：そして、それを受け入れよう", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
 
@@ -35383,9 +35385,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "？？？：少年よ", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "？？？：繰り返すは永遠に続く未来への記憶", ActionEvent.None);
+    Message(ref m_list, ref e_list, "？？？：繰り返すは事象連鎖に関する記憶", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：未来への・・・記憶・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：事象連鎖への・・・記憶・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "？？？：我は概念の領域に属さぬ者", ActionEvent.None);
 
@@ -35395,15 +35397,19 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：支配竜よ。教えてくれ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：彼と彼女はどうなったんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：彼と彼女は石に接触していたという事か？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：事象が示すは少年がイメージした通りである", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年のイメージは無数に存在し", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：という事は・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：事象は無数であり石への接触もまた無数", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：な・・・何でなんだよ・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：絶え間なく流れ出る事象は石から発生し石へと還る", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：何故なんだ？何故そうする必要があったっていうんだよ！？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どうしても、そうである必要があったという事か。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だが、何故だ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：意味をなす理にあらず", ActionEvent.None);
 
@@ -35413,11 +35419,9 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：少年が欲する概念に対し我が発するは事象の在り方のみ", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：その連鎖は少年が記憶する過去現在未来に依存せず", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：その連鎖は少年が記憶する過去／現在／未来に依存せず", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：在るがままである", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：そんな・・・じゃあどうする事もできないのか・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：全てが在るがままであり全てが有無に非ず", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
@@ -35433,23 +35437,31 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：未来への・・・回帰・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：理とは刻まれし未来を紡ぐ事象そのものを指し示す", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：それが理の源泉という事か。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：少年達が住まう世界は既に終わった世界であり", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：だが理とは何だ？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：今もなお在り続ける世界である", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：理とは既に刻まれし未来への具象化そのものを指し示す", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：どこかに境界や綻びがあったりするとでも言うのか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年達が住まう世界では既に終焉となった世界であり", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：それらの定義に頼るは人の心", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：今もなお終焉の状態として在り続ける世界である", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：一切の概念が無に帰し一切の事象が収束する", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それが・・・理・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：どこかに境界や閾、綻び、矛盾があったりはしないのか？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：それら定義に頼るは人の心", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：人の心を持つものよ", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：人の心を捨てよ", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：それを捨てよ", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：心と呼ぶ定義を全て捨てた果てに", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：定義を全て消失させた果てにて", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：今この刻む時間律に全てが在ると知るがよい", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：今この刻む時間律こそ全てであると知るがよい", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年が刻むは限りなき無である", ActionEvent.None);
 
@@ -35465,13 +35477,13 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "（　こんなにも酷い状況であるにも関わらず　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　起こってしまった事象に対する虚無感や絶望の感情はなくなり　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "（　発生した事象に対する虚無感や絶望の感情はなくなり　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "（　不思議な感覚に包まれた　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "（　・・・今なら・・・　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "（　イメージできるかもしれないと　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "（　イメージできるかもしれない　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "（　そう思えた　）", ActionEvent.None);
 
@@ -35479,15 +35491,19 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "（　ふと声に出ていた　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：その事象について", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：無を連ねる事象について", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：俺である自分自身はそれ自体を認識できず、記憶する事もできないが、", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それでも必ず、その終わりの事象へと至ってみせる。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：それでも必ず、その事象の終焉に至ってみせる。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：そして", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：必ずその先へ辿り着いてみせる。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：その先に無限に連なる理を", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：必ず紡いでみせる", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それが俺なりの解だ", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
 
@@ -35568,13 +35584,15 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：ただ、時間の流れを創り出す事はできる。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それを創り出せるのは・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：それを創り出すには、まず無間循環を把握する必要がある。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：無間循環の中で", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：国王は既に決めている事があるはずだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：そして、それを俺は未だに掴めていない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：だから、今もこうしてここにいるんだ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
 
@@ -35582,13 +35600,19 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：少年が何を願うかは未だ理に内在される領域", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：一切を捨てて願うがよい", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：一切を捨てるがよい", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：俺は・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：あの時、心に決めていた事があるんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：既に、心に依存してはいない。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それを今度こそ実行する。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：連鎖を斬るのではなく", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：その連鎖の果てを絶え間なく探索し続けよう。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：それを今度こそ", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：実行するんだ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：必ずだ。", ActionEvent.None);
 
