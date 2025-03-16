@@ -35671,15 +35671,15 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：エルミ国王とは何者なんだ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：この地では・・・一体何が起きている？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：その調べについては少年は既に認識をしている", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：既に認識している・・・？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：既に・・・認識している？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：あるべき事象は既に発生しており回避と受諾は同一とせよ", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：あるべき事象は既に発生しており少年は遥か過去において受諾している", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：じゃあ・・・エルミ国王は・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：じゃあ・・・ひょっとして・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ま、まさか・・・！！", ActionEvent.None);
 
@@ -35687,23 +35687,29 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：悠久の時を超える事は叶わず", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：連鎖の始まりは既に未来へと託された世界である", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：無限連鎖の始まりは既に未来へと託された世界である", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：だって、そんなバカな・・・！！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：エルミ国王と俺はその時接触はしていないのは明らかだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：俺が国王エルミに始めて出会った時・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、そうじゃないのか。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：もっと別の時間律で・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年よ", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：受諾するがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：いや、待ってくれ！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：待ってくれ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ファラ王妃についてはどうなんだ？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：波動の連鎖は無間連鎖であり潰える事叶わず", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：回避の意志を保持しているのはその事象に対する認識と同一", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：意志を保持しているのはその事象に対する認識と同一", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：認識の原点とは可視よりも前から発生する", ActionEvent.None);
 
@@ -35711,55 +35717,73 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：根源存在は個が有するものではない", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：そんな・・・", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：ゆえにファラ王妃という存在もまた理の範疇であり", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：ど、どうにかする事はできないのかよ！！", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：エルミ国王という存在もまた同一の性質を有する", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：答えてくれ・・・！頼む！！", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：違うか・・・頼んだ所で何も起きはしない。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年達の絶え間なく流れ出る認識がその無限連鎖を生み出す", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：支配竜よ、宝剣とはどういう存在なんだ？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：ファラ王妃も・・・そう・・・なのか", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：その剣は神剣フェルトゥーシュである", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：じゃあ・・・どうにもならないという事なんだろうか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュとは摂理", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：支配竜よ。答えてくれ・・・頼む！！", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：存在そのものに意味を問う事に本質を伴わず", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：神剣フェルトゥーシュが指し示すは記録された未来そのものである", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：いや、頼んだ所で・・・何も発生はしない。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：待てよ、そういえば。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：あの宝剣は・・・一体何を指し示している？", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：少年が認識するかの剣は", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：不確定なる無限事象を示すオリジン", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：その存在そのものに意味を問う事に本質を伴わず", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：かの剣が指し示すは記録された未来そのものである", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：記録された・・・未来・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：剣が意志を持ちて保持者を選定する", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：剣が保持者を選定する", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：選定されし者は剣の意志と調和し", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：選定されし者は剣と調和し", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：記録された未来へ向け行動し", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：記録された未来へ向けた波動意志を伴う", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：剣をダンジョンへと返還する", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：それは剣の存在自体が放つ波動意志と同化し", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：無限の有空間から、事象が放たれる", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "支配竜：在るべき領域へと返還される", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：神剣は国王エルミが保持していたはずだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それがラナに手渡されたという事は、ラナが剣の保持者になるのか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：人の子が定義する保持と理が示す摂理とは異なるもの", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：剣を保持しているのは誰になる？ラナがそうなのか？", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：剣による意志は全の意志そのものであり", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：人の子が定義する保持とは理が示す摂理とは異なるもの", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：個が認識する意志にあらず", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：剣による波動意志は全なる意志そのものであり", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：国王エルミからラナへ渡ったかと思っていたが", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：個が認識する意を超えた領域にあると知るがよい", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：国王エルミが保持していて、ラナへ渡ったから保持者はラナと思ったが", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：そういう類のものじゃないって事か・・・", ActionEvent.None);
 
@@ -35767,15 +35791,21 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：という事は俺達が認識する保持者っていう概念も適用外だとすれば", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：神剣フェルトゥーシュが返還される場所も", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：返還される場所は", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：既に、決まっている。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：既に、認識による固定が図れるのだろうか。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：支配竜よ、教えてくれ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：支配竜よ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：俺はそこへ行こうと思う。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：頼む。その場所を教えてくれ。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：人の子が定義する【離島ウォズム】という地にて", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：我は神剣フェルトゥーシュの返還を再認識する", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：我は返還を再認識するであろう", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：離島・・・ウォズム・・・", ActionEvent.None);
 
@@ -35783,7 +35813,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：エルミ国王・・・ファラ王妃・・・いや", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：俺自身が俺自身として、全て起こり得る未来を受諾する", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：俺自身が俺自身として、全て起こり得る確定された未来を受諾する", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
 
@@ -35933,25 +35963,35 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　何となく分かった気がする　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　　（　少しだけ分かった気がする　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　俺の意識や経験の範疇ではそもそもこの件は追跡不可能なんだ　）", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "　　　（　・・・記録・・・時間律・・・　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　　（　・・・時間律・・・因果律・・・　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　　（　・・・オラクル・・・選定者・・・　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　　（　・・・支配竜が呼ぶ現世、俺達が呼ぶ世界・・・　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　何もかもが理解を超えている　）", ActionEvent.None);
+        Message(ref m_list, ref e_list, "　　　（　何もかもが理解を超えている　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　俺の意識や経験の範疇ではそもそもこの領域は追跡不可能　）", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "　　　（　繋がりが膨大すぎて追跡できないんだ　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　俺は・・・　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　　（　・・・　・・・　・・・　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　応え続ける事でしか掴めないんだ　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　　（　いや　）", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "　　　（　何度でも、何度でも呼びかけよう　）", ActionEvent.None);
+    Message(ref m_list, ref e_list, "　　　（　時間律と因果律をまず認識さえできれば　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　何とかなるかもしれない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　膨大な時間が必要だが　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　少しずつ応え続けるしかない　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "　　　（　何度でも呼びかけるしかないんだ　）", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：連鎖には終わりや始まりがないとしても", ActionEvent.None);
 
@@ -35961,43 +36001,53 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：もちろんこれまで出会った人達ともだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：無限ではないのは分かっている。ただ、", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：全てが無限ではない事は分かっている。ただ、", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：もう少しだけ共に生きる時間が欲しいんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：もう少しだけ共に存在できる時間が欲しいんだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：それは可能なのか？", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：それは可能か？", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：時間律および因果律が覆える事はない", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：少年が願う世界が何であるかにより", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年が求む世界が何であるかにより", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年が視るべき未来が何であるかにより", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：少年の意志は神剣フェルトゥーシュの意志と呼応する容で目覚めるであろう", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：少年の波動意志は神剣フェルトゥーシュの意志と呼応する容で目覚めるであろう", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：・・・　幼き「子／人」よ　｜　何を「願う／求む」　・・・", ActionEvent.None);
 
+    Message(ref m_list, ref e_list, "支配竜：・・・　受諾せよ／認識せよ　・・・", ActionEvent.None);
+
     Message(ref m_list, ref e_list, "支配竜：・・・　感知せよ／発せよ　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：すべてには終焉／始まりがある", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：すべてにおいて始まり／終焉とは無と同義", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：望む姿と願う意志により世界は刹那／永劫の時を刻む", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：望む姿と波動意志により世界は刹那／永劫の時を刻む", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：人が定義する過去とは無限に繰り返されし無である", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：人が定義する未来とは既に起こりえた事象の記憶である", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "支配竜：その無限なる連鎖こそがオラクルが示す因果律と知るが良い", ActionEvent.None);
+    Message(ref m_list, ref e_list, "支配竜：その無限なる連鎖こそがオラクルが示す理と知るが良い", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：永遠に見定める事を連ねよう", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：俺は、それを追い求めよう", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：そのために俺は", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：何度でもその無限の連鎖と向き合おう", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：何度でもその連鎖と向き合ってみせる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何度でも始まりと終わりを繰り返してみせる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：何度でもその理を掴もうとしてみせる。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：絶対に", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "アイン：辿り着いてみせる。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "支配竜：少年の精神波動を検知", ActionEvent.None);
 
@@ -36052,7 +36102,7 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "支配竜：発するがよい", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：国王エルミと王妃ファラが収めてくれたこの世界に感謝する。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：国王エルミと王妃ファラが収めてくれたこの地", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：ヴィンスガルデ領国の王リガール・オルフシュタイン", ActionEvent.None);
 
@@ -36062,31 +36112,29 @@ public static class MessagePack
 
     Message(ref m_list, ref e_list, "アイン：いつも励ましてくれたビリー・ラキ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：そして何より、ラナ・アミリアが居てくれた世界。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：そして、ラナ・アミリアが居てくれた世界。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：全てに対して感謝の気持ちを捧げたい。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：いや、感謝じゃないんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：いや、もっと言えば", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：どうしても、この世界に居て欲しかっただけなんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：どうしても、この世界があり続けて欲しかっただけなんだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：彼ら彼女らが居なくなったこの世界で", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：彼ら彼女らが居なくなる世界について", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：俺は諦めたくないだけだ。", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：きっとそれは摂理なんだろう。", ActionEvent.None);
-
-    Message(ref m_list, ref e_list, "アイン：覆らないし、変わる事は無い。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：覆らないし、変わる事は無い事は分かっている。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：永遠に求めても、永遠に漂うだけなのも分かっている。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：そうだったとしても", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：だとしても", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：因果律と時間律によって", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：因果律と時間律に即して", ActionEvent.None);
 
-    Message(ref m_list, ref e_list, "アイン：無間の永劫を追い求めるんだ。", ActionEvent.None);
+    Message(ref m_list, ref e_list, "アイン：無間の永劫を追い求める。", ActionEvent.None);
 
     Message(ref m_list, ref e_list, "アイン：支配竜よ、俺は選択する。", ActionEvent.None);
 
