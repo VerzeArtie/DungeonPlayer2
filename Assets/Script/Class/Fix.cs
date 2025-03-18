@@ -3013,6 +3013,229 @@ public static partial class Fix
   public const string GROWTH_LIQUID7_STAMINA = @"成長リキッドⅦ【体】";
   public const string GROWTH_LIQUID7_MIND = @"成長リキッドⅦ【心】";
   #endregion
+  #region "素材系ドロップアイテム"
+  public const string COMMON_MANTIS_TAIEKI = "マンティスの体液";
+  public const string COMMON_GREEN_SIKISO = "緑化色素";
+  public const string COMMON_MANDORAGORA_ROOT = "マンドラゴラの根";
+  public const string COMMON_WOLF_FUR = "ウルフの毛皮";
+
+  public const string COMMON_ANT_ESSENCE = "アントのエキス";
+  public const string COMMON_KATAME_TREE = "固めの木の枝";
+  public const string COMMON_SUN_LEAF = "太陽の葉";
+  public const string COMMON_WARM_NO_KOUKAKU = "ワームの甲殻";
+  public const string COMMON_YELLOW_TAIEKI = "黄色の体液";
+  public const string COMMON_RABBIT_MEAT = "ウサギの肉";
+
+  public const string COMMON_TOGETOGE_GRASS = "トゲトゲの草";
+  public const string COMMON_ASH_EGG = "薄灰色の卵";
+  public const string COMMON_RED_HOUSI = "赤い胞子";
+  public const string COMMON_DOKUSO_NEEDLE = "毒成分の針";
+  public const string COMMON_PLANTNOID_SEED = "プラントノイドの種";
+  public const string COMMON_HORSE_HIZUME = "馬の蹄";
+
+  //public const string COMMON_BEATLE_TOGATTA_TUNO = @"ビートルの尖った角";
+  //public const string COMMON_HENSYOKU_KUKI = @"変色した茎";
+  //public const string COMMON_INAGO = @"蝗";
+  //public const string COMMON_SPIDER_SILK = @"スパイダーシルク";
+  //public const string COMMON_YELLOW_MATERIAL = @"イエロー・マテリアル";
+  //public const string COMMON_ALRAUNE_KAHUN = @"アルラウネの花粉";
+  //public const string RARE_MARY_KISS = @"マリーキッス";
+
+  //public const string COMMON_TAKA_FETHER = @"鷹の白羽";
+  //public const string COMMON_SNEAK_UROKO = @"ヘビの鱗";
+  //public const string COMMON_TOGE_HAETA_SYOKUSYU = @"刺の生えた触手";
+  //public const string RARE_HYUI_SEED = @"ヒューイの種";
+
+  //public const string COMMON_OOKAMI_FANG = @"狼の牙";
+  //public const string COMMON_BRILLIANT_RINPUN = @"輝きの燐粉";
+  //public const string COMMON_MIST_CRYSTAL = @"霧の結晶";
+  //public const string RARE_MOSSGREEN_EKISU = @"モスグリーンのエキス";
+
+  public const string COMMON_MACHINE_PARTS = "機械のパーツ";
+  public const string COMMON_COLORFUL_BALL = "発色弾";
+  public const string COMMON_SHARP_HAHEN = "鋭利な破片";
+  public const string COMMON_BAT_FEATHER = "バットの翼";
+  public const string COMMON_GLASS_SHARD = "ガラスの欠片";
+
+  public const string COMMON_MECHANICAL_SHAFT = "メカニカル・シャフト";
+  public const string COMMON_AMBER_MATERIAL = "アンバー素材";
+  public const string COMMON_NEBARIKE_EKITAI = "粘り気のある液体";
+  public const string COMMON_USUGATA_ENBAN = "薄型の円盤";
+  public const string COMMON_HASSYADAI = "発射台";
+  public const string COMMON_KYOUTEN_X = "経典Ｘ";
+
+  public const string COMMON_SOLIDSTONE_MATERIAL = "硬石素材";
+  public const string COMMON_JUNK_PARTS = "ジャンクパーツ";
+  public const string COMMON_ELECT_BOLT = "電磁ボルト";
+  public const string COMMON_GARGOYLE_EYE = "ガーゴイルの目玉";
+  public const string COMMON_WATCHDOG_TONGUE = "番犬の舌";
+  public const string COMMON_BUYOBUYO_MOEKASU = "ブヨブヨした燃えカス";
+
+  public const string COMMON_BAKUHA_CHAKKAZAI = "爆破用の着火剤";
+  public const string COMMON_SEKKAIKOU = "石灰鉱";
+  public const string COMMON_CHROTIUM_MATERIAL = "クロティウム素材";
+  public const string COMMON_SANKAKU_STEEL = "三角の鉄鋼材";
+  public const string COMMON_PURPLE_BOTTOLE = "紫色の薬瓶";
+
+  public const string COMMON_BOAR_MOMONIKU = "ボアのもも肉";
+  public const string COMMON_MIST_LEAF = "霧草";
+  public const string COMMON_NORMAL_SPORE_ESSENCE = "無加工のスポア成分";
+  public const string COMMON_FROG_FRONTLEG = "フロッグの前足";
+  public const string COMMON_SNAKE_EMPTYSHELL = "蛇の抜け殻";
+
+  public const string COMMON_BEAR_LARGE_CLAW = "熊の大爪";
+  public const string COMMON_FAIRY_POWDER = "妖精パウダー";
+  public const string COMMON_BEAUTY_WHITEFEATHER = "美しい白羽";
+  public const string COMMON_DRYAD_RINPUN = "ドライアドの鱗粉";
+  public const string COMMON_HUNTER_TOOL = "ハンターの道具袋";
+  public const string COMMON_BLACK_MIST_ESSENCE = "黒い成分の霧";
+
+  public const string COMMON_ELEPHANT_LEGS = "象のデカイ足";
+  public const string COMMON_ELEMENTAL_KONA = "精霊の粉";
+  public const string COMMON_LAPTOR_FUR = "ラプターの毛皮";
+  public const string COMMON_SHARPNESS_TIGER_TOOTH = @"鋭く尖った虎牙";
+  public const string COMMON_THORN_ELEMENT = "茨の冠素材";
+  public const string COMMON_DORO_YOUKAIEKI = "ドロっとした溶解液";
+
+  public const string COMMON_YOUKAI_MIKI = "怪気をまとった幹";
+  public const string COMMON_DANPEN_OF_GOFU = "護符の切れ端";
+  public const string COMMON_GOTUGOTU_BIGTREE = "ゴツゴツした大木";
+  public const string COMMON_MARY_KISS = "マリーキッス";
+  public const string COMMON_REHINO_HOHONIKU = "大型のほほ肉";
+
+  public const string COMMON_MAGIC_HORN = "魔力ホーン";
+  public const string COMMON_THREE_FEATHER = "三枚羽";
+  public const string COMMON_YELLOW_DOROTSUCHI = "黄色いドロ土";
+  public const string COMMON_RED_DOROTSUCHI = "朱いドロ土";
+  public const string COMMON_WINDMAN_SEAL = "風民の印";
+
+  public const string COMMON_AIRORIGIN_KIHO = "空源の気泡";
+  public const string COMMON_HENSYOKU_KOKE = "変色ゴケ";
+  public const string COMMON_KIRAMEKU_GOLDHORN = "煌めく黄金角";
+  public const string COMMON_MYSTERY_SCROLL = "不思議な巻物";
+  public const string COMMON_BIRD_OUGI = "バード扇子";
+  public const string COMMON_BLUECOLOR_EYE = "青色の眼球";
+  public const string COMMON_WHITECOLOR_EYE = "白色の眼球";
+
+  public const string COMMON_CURTAIN_MATERIAL = "カーテン素材";
+  public const string COMMON_MEGANE_MATERIAL = "博識メガネの素材";
+  public const string COMMON_ARTHARIUM_JEWEL = "アーサリウム宝石";
+  public const string COMMON_KITSUNE_TAIL = "狐の尻尾";
+  public const string COMMON_LION_FUR = "ライオンの毛皮";
+  public const string COMMON_WHITE_HIDUME = "白い蹄";
+  public const string COMMON_TOUMEI_KESSYO = "無色透明の結晶";
+
+  public const string COMMON_PARTIMIUM_MATERIAL = "パルティミウム素材";
+  public const string COMMON_HUGE_BOOK = "分厚い読み物";
+  public const string COMMON_GUNPOWDER = "火薬物";
+  public const string COMMON_SILENT_WHISTLE = "音のしない笛";
+  public const string COMMON_STEEL_BATON = "鋼鉄のバトン";
+  public const string COMMON_PURE_SILVER = "純銀";
+
+  public const string COMMON_SPEEDARROW_TOOL = "早矢の生成ツール";
+  public const string COMMON_OVAL_GEAR = "オーバル・ギア";
+  public const string COMMON_APLITOS_BONE = "アピュリトスの軟骨";
+  public const string COMMON_MUKAKOU_SEKIEI = "無加工の石英";
+  public const string COMMON_HOUDAN_SHARD = "砲弾の破片";
+  public const string COMMON_DEATH_CLOVER = "デス・クローバー";
+
+  public const string COMMON_DAGGERFISH_UROKO = "牙魚の鱗";
+  public const string COMMON_MANTA_HARA = "マンタの腹";
+  public const string COMMON_BLUE_MAGATAMA = "青の勾玉";
+  public const string COMMON_KURIONE_ZOUMOTU = "クリオネの臓物";
+  public const string COMMON_RENEW_AKAMI = "新鮮な赤身";
+  public const string COMMON_ROSE_SEKKAI = "ローズ石灰";
+
+  public const string COMMON_WASI_BLUE_FEATHER = "鷲の青羽";
+  public const string COMMON_HANTOUMEI_ROCK = "半透明の奇麗な石";
+  public const string COMMON_EIGHTEIGHT_KUROSUMI = "エイト・エイトの黒墨";
+  public const string COMMON_BLACK_GESO = "黒ずんだゲソ";
+  public const string COMMON_BIGAXE_TOP = "デカ斧の先端";
+  public const string COMMON_GANGAME_EGG = "頑亀の卵";
+  public const string COMMON_JUMP_MATERIAL = "跳躍材料";
+  public const string COMMON_KYOZIN_MUNENIKU = "強靭なムネ肉";
+  
+  public const string COMMON_NANAIRO_SYOKUSYU = "七色の触手";
+  public const string COMMON_SEA_MO = "深海の藻";
+  public const string COMMON_SERPENT_UROKO = "サーペントの鱗";
+  public const string COMMON_AYASHII_NENNEKI_ITO = "怪しい色の粘液糸";
+  public const string COMMON_GOTUGOTU_KARA = "ゴツゴツした殻";
+  public const string COMMON_SOFT_BIG_HIRE = "柔らかい大ヒレ";
+  public const string COMMON_BIG_STONE = "ビッグ・ストーン";
+  public const string COMMON_TAIRYO_FISH = "大量の魚群";
+
+  public const string COMMON_UNKNOWN_BOX = "正体不明の箱";
+  public const string COMMON_PUREWHITE_KIMO = "真っ白なキモ";
+  public const string COMMON_SHRIMP_DOTAI = "エビの胴体";
+  public const string COMMON_KOUSITUKA_MATERIAL = "硬質化素材";
+  public const string COMMON_AOSAME_UROKO = "青鮫の鱗";
+  public const string RARE_JOE_TONGUE = "ジョーの舌";
+  public const string COMMON_EMBLEM_KNIGHT = "騎士達の紋章";
+  public const string COMMON_SEA_WATER = "純正の海水";
+  public const string COMMON_BLACKSAME_TOOTH = "黒鮫の剣歯";
+  public const string COMMON_MYSTERIOUS_KARA = "不思議な形状の殻";
+  public const string COMMON_CURSED_ITO = "呪いの糸";
+  public const string COMMON_CHINMI_FISH = "珍味の魚介類";
+  public const string COMMON_SEA_MUSICBOX = "海のオルゴール";
+
+  //public const string COMMON_SIPPUU_HIRE = @"疾魚のヒレ";
+  //public const string COMMON_WHITE_MAGATAMA = @"白の勾玉";
+  //public const string COMMON_BLUEWHITE_SHARP_TOGE = @"青白の鋭いトゲ";
+  //public const string RARE_TRANSPARENT_POWDER = @"透明なパウダー";
+
+  //public const string COMMON_SEA_WASI_KUTIBASI = @"海鷲のくちばし";
+  //public const string RARE_JOE_ARM = @"ジョーの腕";
+  //public const string RARE_JOE_LEG = @"ジョーの足";
+
+  //public const string COMMON_PURE_WHITE_BIGEYE = @"真っ白な大目玉";
+  //public const string COMMON_SAME_NANKOTSU = @"サメの軟骨";
+  //public const string COMMON_HALF_TRANSPARENT_ROCK_ASH = @"半透明の石灰";
+  //public const string RARE_SEKIKASSYOKU_HASAMI = @"赤褐色のハサミ";
+
+  //public const string COMMON_AOSAME_KENSHI = @"青鮫の剣歯";
+  //public const string COMMON_EIGHTEIGHT_KYUUBAN = @"エイト・エイトの吸盤";
+
+  public const string COMMON_HUNTER_SEVEN_TOOL = "ハンターの七つ道具";
+  public const string COMMON_BEAST_KEGAWA = "猛獣の毛皮";
+  public const string RARE_BLOOD_DAGGER_KAKERA = "血塗られたダガーの破片";
+  public const string COMMON_SABI_BUGU = "錆付いたガラクタ武具";
+  public const string RARE_MEPHISTO_BLACKLIGHT = "メフィストの黒い灯";
+  public const string COMMON_STEAM_POMP = "蒸気ポンプ";
+
+  public const string COMMON_SEEKER_HEAD = "シーカーの頭蓋骨";
+  public const string RARE_ESSENCE_OF_DARK = "エッセンス・オブ・ダーク";
+  public const string COMMON_EXECUTIONER_ROBE = "執行人の汚れたローブ";
+  public const string COMMON_NEMESIS_ESSENCE = "ネメシス・エッセンス";
+  public const string RARE_MASTERBLADE_FIRE = "マスターブレイドの残り火";
+  //public const string RARE_MASTERBLADE_KAKERA = "マスターブレイドの破片";
+  public const string COMMON_GREAT_JEWELCROWN = "豪華なジュエルクラウン";
+  public const string COMMON_GOUKIN_MATERIAL = "合金製素材";
+
+  public const string RARE_ESSENCE_OF_SHINE = "エッセンス・オブ・シャイン";
+  //public const string COMMON_KUMITATE_TENBIN = "組み立て素材　天秤";
+  public const string COMMON_KUMITATE_TENBIN_DOU = "組み立て素材　天分銅";
+  //public const string COMMON_KUMITATE_TENBIN_BOU = "組み立て素材　天秤棒";
+  public const string RARE_DEMON_HORN = "デーモンホーン";
+  public const string COMMON_WYVERN_BONE = "ワイバーン・ボーン";
+  public const string RARE_ESSENCE_OF_FLAME = "エッセンス・オブ・フレイム";
+  public const string RARE_BLACK_SEAL_IMPRESSION = "黒の印鑑";
+  public const string COMMON_HIGH_ESTORMIUM_MATERIAL = "高純度エストルミウム素材";
+
+  public const string COMMON_ONRYOU_HAKO = "怨霊箱";
+  public const string RARE_ANGEL_SILK = "天使のシルク";
+  public const string RARE_CHAOS_SIZUKU = "混沌の雫";
+  public const string RARE_DREAD_EXTRACT = "ドレッド・エキス";
+  public const string RARE_DOOMBRINGER_KAKERA = "ドゥームブリンガーの欠片";
+  //public const string RARE_DOOMBRINGER_TUKA = "ドゥームブリンガーの柄";
+  public const string COMMON_KOKU_THUNDER_SIRUSI = "刻雷印";
+  public const string COMMON_TENNEN_JISYAKU = "天然の磁石";
+
+  public const string COMMON_VOID_BOU = "虚空棒";
+  public const string COMMON_ESSENCE_OF_WIND = "エッセンス・オブ・ウィンド";
+  public const string COMMON_INNOCENCE_ESSENCE = "イノセンス・エッセンス";
+  public const string COMMON_JUNKAN_MAHU_GU = "循環の魔封具";
+  public const string COMMON_UNRESOLVED_MATERIAL = "未解明の物質";
+  #endregion
   #region "ラベル"
   // 素材判別文字
   public const string DESCRIPTION_SELL_ONLY = @"【売却専用品】" + "\r\n";

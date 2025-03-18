@@ -7642,6 +7642,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MANTIS_TAIEKI;
         break;
 
       case Fix.GREEN_SLIME:
@@ -7652,6 +7653,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_GREEN_SIKISO;
         break;
 
       case Fix.MANDRAGORA:
@@ -7662,6 +7664,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MANDORAGORA_ROOT;
         break;
 
       case Fix.YOUNG_WOLF:
@@ -7672,6 +7675,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area11;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_WOLF_FUR;
         break;
 
       case Fix.WILD_ANT:
@@ -7682,6 +7686,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ANT_ESSENCE;
         break;
 
       case Fix.OLD_TREEFORK:
@@ -7692,6 +7697,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_KATAME_TREE;
         break;
 
       case Fix.SUN_FLOWER:
@@ -7702,6 +7708,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SUN_LEAF;
         break;
 
       case Fix.SOLID_BEETLE:
@@ -7712,6 +7719,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_WARM_NO_KOUKAKU;
         break;
 
       case Fix.SILENT_LADYBUG:
@@ -7722,6 +7730,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_YELLOW_TAIEKI;
         break;
 
       case Fix.NIMBLE_RABBIT:
@@ -7732,6 +7741,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area12;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_RABBIT_MEAT;
         break;
 
       case Fix.ENTANGLED_VINE:
@@ -7742,6 +7752,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_TOGETOGE_GRASS;
         break;
 
       case Fix.CREEPING_SPIDER:
@@ -7752,6 +7763,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ASH_EGG;
         break;
 
       case Fix.BLOOD_MOSS:
@@ -7762,6 +7774,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_RED_HOUSI;
         break;
 
       case Fix.KILLER_BEE:
@@ -7772,6 +7785,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         // this.CannotCritical = true; // クリティカルあり
+        this.DropItem[0] = Fix.COMMON_DOKUSO_NEEDLE;
         break;
 
       case Fix.WONDER_SEED:
@@ -7782,6 +7796,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_PLANTNOID_SEED;
         break;
 
       case Fix.DAUNTLESS_HORSE:
@@ -7792,6 +7807,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area13;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_HORSE_HIZUME;
         break;
 
       case Fix.SCREAMING_RAFFLESIA:
@@ -7815,6 +7831,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area21;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MACHINE_PARTS;
         break;
 
       case Fix.MAGICAL_AUTOMATA:
@@ -7825,6 +7842,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area21;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_COLORFUL_BALL;
         break;
 
       case Fix.KILLER_MACHINE:
@@ -7835,6 +7853,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area21;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SHARP_HAHEN;
         break;
 
       case Fix.STINKY_BAT:
@@ -7845,6 +7864,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area21;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BAT_FEATHER;
         break;
 
       case Fix.ANTIQUE_MIRROR:
@@ -7855,6 +7875,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area21;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_GLASS_SHARD;
         break;
 
       case Fix.MECH_HAND:
@@ -7865,6 +7886,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MECHANICAL_SHAFT;
         break;
 
       case Fix.ABSENCE_MOAI:
@@ -7876,6 +7898,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_AMBER_MATERIAL;
         break;
 
       case Fix.ACID_SCORPION:
@@ -7886,6 +7909,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_NEBARIKE_EKITAI;
         break;
 
       case Fix.NEJIMAKI_KNIGHT:
@@ -7896,6 +7920,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_USUGATA_ENBAN;
         break;
 
       case Fix.AIMING_SHOOTER:
@@ -7907,6 +7932,7 @@ public partial class Character : MonoBehaviour
         this.Area = Fix.MonsterArea.Area22;
         this.TargetSelectType = Fix.TargetSelectType.Behind;
         //this.CannotCritical = true; // クリティカルあり
+        this.DropItem[0] = Fix.COMMON_HASSYADAI;
         break;
 
       case Fix.CULT_BLACK_MAGICIAN:
@@ -7917,6 +7943,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area22;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_KYOUTEN_X;
         break;
 
       case Fix.STONE_GOLEM:
@@ -7927,6 +7954,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SOLIDSTONE_MATERIAL;
         break;
 
       case Fix.JUNK_VULKAN:
@@ -7937,6 +7965,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_JUNK_PARTS;
         break;
 
       case Fix.LIGHTNING_CLOUD:
@@ -7947,6 +7976,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ELECT_BOLT;
         break;
 
       case Fix.SILENT_GARGOYLE:
@@ -7957,6 +7987,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_GARGOYLE_EYE;
         break;
 
       case Fix.GATE_HOUND:
@@ -7967,6 +7998,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_WATCHDOG_TONGUE;
         break;
 
       case Fix.PLAY_FIRE_IMP:
@@ -7977,6 +8009,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area23;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BUYOBUYO_MOEKASU;
         break;
 
       case Fix.WALKING_TIME_BOMB:
@@ -7987,6 +8020,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area24;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BAKUHA_CHAKKAZAI;
         break;
 
       case Fix.EARTH_ELEMENTAL:
@@ -7997,6 +8031,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area24;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SEKKAIKOU;
         break;
 
       case Fix.DEATH_DRONE:
@@ -8007,6 +8042,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area24;
         // this.CannotCritical = true; // クリティカルあり
+        this.DropItem[0] = Fix.COMMON_CHROTIUM_MATERIAL;
         break;
 
       case Fix.ASSULT_SCARECROW:
@@ -8017,6 +8053,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area24;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SANKAKU_STEEL;
         break;
 
       case Fix.MAD_DOCTOR:
@@ -8027,6 +8064,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area24;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_PURPLE_BOTTOLE;
         break;
 
       case Fix.MAGICAL_HAIL_GUN:
@@ -8053,6 +8091,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BOAR_MOMONIKU;
         break;
 
       case Fix.WOOD_ELF:
@@ -8063,6 +8102,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MIST_LEAF;
         break;
 
       case Fix.STINKED_SPORE:
@@ -8074,6 +8114,7 @@ public partial class Character : MonoBehaviour
         this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
         this.TargetSelectType = Fix.TargetSelectType.Behind;
+        this.DropItem[0] = Fix.COMMON_NORMAL_SPORE_ESSENCE;
         break;
 
       case Fix.POISON_FLOG:
@@ -8084,6 +8125,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_FROG_FRONTLEG;
         break;
 
       case Fix.GIANT_SNAKE:
@@ -8094,6 +8136,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area31;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SNAKE_EMPTYSHELL;
         break;
 
       case Fix.SAVAGE_BEAR:
@@ -8104,6 +8147,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BEAR_LARGE_CLAW;
         break;
 
       case Fix.INNOCENT_FAIRY:
@@ -8114,6 +8158,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_FAIRY_POWDER;
         break;
 
       case Fix.SPEEDY_FALCON:
@@ -8124,6 +8169,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         // this.CannotCritical = true; // クリティカルあり
+        this.DropItem[0] = Fix.COMMON_BEAUTY_WHITEFEATHER;
         break;
 
       case Fix.MYSTIC_DRYAD:
@@ -8134,6 +8180,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_DRYAD_RINPUN;
         break;
 
       case Fix.WOLF_HUNTER:
@@ -8144,6 +8191,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_HUNTER_TOOL;
         break;
 
       case Fix.FOREST_PHANTOM:
@@ -8154,6 +8202,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area32;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BLACK_MIST_ESSENCE;
         break;
 
       case Fix.EXCITED_ELEPHANT:
@@ -8164,6 +8213,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ELEPHANT_LEGS;
         break;
 
       case Fix.SYLPH_DANCER:
@@ -8174,6 +8224,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ELEMENTAL_KONA;
         break;
 
       case Fix.GATHERING_LAPTOR:
@@ -8184,6 +8235,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_LAPTOR_FUR;
         break;
 
       case Fix.RAGE_TIGER:
@@ -8194,6 +8246,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         // this.CannotCritical = true; // クリティカルあり
+        this.DropItem[0] = Fix.COMMON_SHARPNESS_TIGER_TOOTH;
         break;
 
       case Fix.THORN_WARRIOR:
@@ -8204,6 +8257,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_THORN_ELEMENT;
         break;
 
       case Fix.MUDDLED_PLANT:
@@ -8214,6 +8268,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area33;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_DORO_YOUKAIEKI;
         break;
 
       case Fix.FLANSIS_KNIGHT:
@@ -8224,6 +8279,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_YOUKAI_MIKI;
         break;
 
       case Fix.MIST_PYTHON:
@@ -8234,6 +8290,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_DANPEN_OF_GOFU;
         break;
 
       case Fix.TOWERING_ENT:
@@ -8244,6 +8301,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_GOTUGOTU_BIGTREE;
         break;
 
       case Fix.POISON_MARY:
@@ -8255,6 +8313,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MARY_KISS;
         break;
 
       case Fix.DISTURB_RHINO:
@@ -8265,6 +8324,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area34;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_REHINO_HOHONIKU;
         break;
 
       case Fix.FLANSIS_OF_THE_FOREST_QUEEN:
@@ -8292,6 +8352,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MAGIC_HORN;
         break;
 
       case Fix.SWIFT_EAGLE:
@@ -8302,6 +8363,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_THREE_FEATHER;
         break;
 
       case Fix.EASTERN_GOLEM:
@@ -8312,6 +8374,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_YELLOW_DOROTSUCHI;
         break;
 
       case Fix.WESTERN_GOLEM:
@@ -8322,6 +8385,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_RED_DOROTSUCHI;
         break;
 
       case Fix.WIND_ELEMENTAL:
@@ -8332,6 +8396,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area41;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_WINDMAN_SEAL;
         break;
 
       case Fix.SKY_KNIGHT:
@@ -8342,6 +8407,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_AIRORIGIN_KIHO;
         break;
 
       case Fix.THE_PURPLE_HIKARIGOKE:
@@ -8352,6 +8418,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_HENSYOKU_KOKE;
         break;
 
       case Fix.MYSTICAL_UNICORN:
@@ -8363,6 +8430,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_KIRAMEKU_GOLDHORN;
         break;
 
       case Fix.TRIAL_HERMIT:
@@ -8374,6 +8442,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MYSTERY_SCROLL;
         break;
 
       case Fix.STORM_BIRDMAN:
@@ -8385,6 +8454,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BIRD_OUGI;
         break;
 
       case Fix.THE_BLUE_LAVA_EYE:
@@ -8396,6 +8466,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BLUECOLOR_EYE;
         break;
 
       case Fix.THE_WHITE_LAVA_EYE:
@@ -8407,6 +8478,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area42;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_WHITECOLOR_EYE;
         break;
 
       case Fix.FLYING_CURTAIN:
@@ -8418,6 +8490,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_CURTAIN_MATERIAL;
         break;
 
       case Fix.LUMINOUS_HAWK:
@@ -8429,6 +8502,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MEGANE_MATERIAL;
         break;
 
       case Fix.AETHER_GUST:
@@ -8440,6 +8514,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ARTHARIUM_JEWEL;
         break;
 
       case Fix.WHIRLWIND_KITSUNE:
@@ -8451,6 +8526,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_KITSUNE_TAIL;
         break;
 
       case Fix.THUNDER_LION:
@@ -8462,6 +8538,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_LION_FUR;
         break;
 
       case Fix.SAINT_PEGASUS:
@@ -8473,6 +8550,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_WHITE_HIDUME;
         break;
 
       case Fix.DREAM_WALKER:
@@ -8484,6 +8562,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area43;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_TOUMEI_KESSYO;
         break;
 
       case Fix.LIGHT_THUNDER_LANCEBOLTS:
@@ -8510,6 +8589,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_PARTIMIUM_MATERIAL;
         break;
 
       case Fix.STUBBORN_SAGE:
@@ -8521,6 +8601,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_HUGE_BOOK;
         break;
 
       case Fix.BOMB_BALLON:
@@ -8532,6 +8613,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_GUNPOWDER;
         break;
 
       case Fix.OBSERVANT_HERALD:
@@ -8543,6 +8625,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SILENT_WHISTLE;
         break;
 
       case Fix.TOWER_SCOUT:
@@ -8554,6 +8637,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_STEEL_BATON;
         break;
 
       case Fix.MIST_SALVAGER:
@@ -8565,6 +8649,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area44;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_PURE_SILVER;
         break;
 
       case Fix.WINGSPAN_RANGER:
@@ -8576,6 +8661,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SPEEDARROW_TOOL;
         break;
 
       case Fix.MAJESTIC_CLOUD:
@@ -8587,6 +8673,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_OVAL_GEAR;
         break;
 
       case Fix.HARDENED_GRIFFIN:
@@ -8598,6 +8685,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_APLITOS_BONE;
         break;
 
       case Fix.PRISMA_SPHERE:
@@ -8609,6 +8697,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_MUKAKOU_SEKIEI;
         break;
 
       case Fix.MOVING_CANNON:
@@ -8620,6 +8709,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_HOUDAN_SHARD;
         break;
 
       case Fix.VEIL_FORTUNE_WIZARD:
@@ -8632,6 +8722,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area45;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_DEATH_CLOVER;
         break;
 
       case Fix.THE_YODIRIAN:
@@ -8661,6 +8752,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_DAGGERFISH_UROKO;
         break;
 
       case Fix.FLOATING_MANTA:
@@ -8672,6 +8764,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_MANTA_HARA;
         break;
 
       case Fix.SKYBLUE_BIRD:
@@ -8683,6 +8776,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BLUE_MAGATAMA;
         break;
 
       case Fix.RAINBOW_CLIONE:
@@ -8694,6 +8788,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_KURIONE_ZOUMOTU;
         break;
 
       case Fix.ROLLING_MAGURO:
@@ -8705,6 +8800,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_RENEW_AKAMI;
         break;
 
       case Fix.BEAUTY_SEA_LILY:
@@ -8716,6 +8812,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area51;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_ROSE_SEKKAI;
         break;
 
       case Fix.DEVIL_STAR_DEATH_FLODIETE:
@@ -8741,6 +8838,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_WASI_BLUE_FEATHER;
         break;
 
       case Fix.FLUFFY_CORAL:
@@ -8752,6 +8850,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_HANTOUMEI_ROCK;
         break;
 
       case Fix.BLACK_OCTOPUS:
@@ -8763,6 +8862,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_EIGHTEIGHT_KUROSUMI;
         break;
 
       case Fix.STEAL_SQUID:
@@ -8774,6 +8874,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BLACK_GESO;
         break;
 
       case Fix.PROUD_VIKING:
@@ -8785,6 +8886,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BIGAXE_TOP;
         break;
 
       case Fix.GAN_GAME:
@@ -8796,6 +8898,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_GANGAME_EGG;
         break;
 
       case Fix.JUMPING_KAMASU:
@@ -8807,6 +8910,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_JUMP_MATERIAL;
         break;
 
       case Fix.RECKLESS_WALRUS:
@@ -8818,6 +8922,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area52;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_KYOZIN_MUNENIKU;
         break;
 
       case Fix.THE_BIGHAND_OF_KRAKEN:
@@ -8844,6 +8949,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_NANAIRO_SYOKUSYU;
         break;
 
       case Fix.DEEPSEA_HAND:
@@ -8855,6 +8961,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SEA_MO;
         break;
 
       case Fix.ASSULT_SERPENT:
@@ -8866,6 +8973,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SERPENT_UROKO;
         break;
 
       case Fix.GIANT_SEA_SPIDER:
@@ -8877,6 +8985,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_AYASHII_NENNEKI_ITO;
         break;
 
       case Fix.ESCORT_HERMIT_CLUB:
@@ -8888,6 +8997,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_GOTUGOTU_KARA;
         break;
 
       case Fix.MOGUL_MANTA:
@@ -8899,6 +9009,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SOFT_BIG_HIRE;
         break;
 
       case Fix.GLUTTONY_COELACANTH:
@@ -8910,6 +9021,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BIG_STONE;
         break;
 
       case Fix.FEROCIOUS_WHALE:
@@ -8921,6 +9033,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area53;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_TAIRYO_FISH;
         break;
 
       case Fix.GUARDIAN_ROYAL_NAGA:
@@ -8946,6 +9059,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_UNKNOWN_BOX;
         break;
 
       case Fix.AMBUSH_ANGLERFISH:
@@ -8957,6 +9071,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_PUREWHITE_KIMO;
         break;
 
       case Fix.EMERALD_LOBSTER:
@@ -8968,6 +9083,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SHRIMP_DOTAI;
         break;
 
       case Fix.STICKY_STARFISH:
@@ -8979,6 +9095,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_KOUSITUKA_MATERIAL;
         break;
 
       case Fix.RAMPAGE_BIGSHARK:
@@ -8990,6 +9107,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_AOSAME_UROKO;
         break;
 
       case Fix.BIGMOUSE_JOE:
@@ -9001,6 +9119,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_JOE_TONGUE;
         break;
 
       case Fix.SEA_STAR_KNIGHT:
@@ -9012,6 +9131,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area54;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_EMBLEM_KNIGHT;
         break;
 
       case Fix.SEA_ELEMENTAL:
@@ -9023,6 +9143,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SEA_WATER;
         break;
 
       case Fix.EDGED_HIGH_SHARK:
@@ -9034,6 +9155,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_BLACKSAME_TOOTH;
         break;
 
       case Fix.THOUGHTFUL_NAUTILUS:
@@ -9045,6 +9167,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_MYSTERIOUS_KARA;
         break;
 
       case Fix.GHOST_SHIP:
@@ -9056,6 +9179,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_CURSED_ITO;
         break;
 
       case Fix.DEFENSIVE_DATSU:
@@ -9067,6 +9191,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_CHINMI_FISH;
         break;
 
       case Fix.SEA_SONG_MARMAID:
@@ -9078,6 +9203,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area55;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_SEA_MUSICBOX;
         break;
 
       case Fix.BRILLIANT_SEA_PRINCE_1:
@@ -9254,6 +9380,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_HUNTER_SEVEN_TOOL;
         break;
 
       case Fix.BEAST_MASTER:
@@ -9265,6 +9392,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_BEAST_KEGAWA;
         break;
 
       case Fix.ELDER_ASSASSIN:
@@ -9276,6 +9404,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.RARE_BLOOD_DAGGER_KAKERA;
         break;
 
       case Fix.FALLEN_SEEKER:
@@ -9287,6 +9416,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SABI_BUGU;
         break;
 
       case Fix.MEPHISTO_RIGHTARM:
@@ -9298,6 +9428,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_MEPHISTO_BLACKLIGHT;
         break;
 
       case Fix.POWERED_STEAM_BOW:
@@ -9309,6 +9440,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area61;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_STEAM_POMP;
         break;
 
       case Fix.DARK_MESSENGER:
@@ -9320,6 +9452,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_SEEKER_HEAD;
         break;
 
       case Fix.MASTER_LORD:
@@ -9331,6 +9464,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_ESSENCE_OF_DARK;
         break;
 
       case Fix.EXECUTIONER:
@@ -9342,6 +9476,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_EXECUTIONER_ROBE;
         break;
 
       case Fix.MARIONETTE_NEMESIS:
@@ -9353,6 +9488,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_NEMESIS_ESSENCE;
         break;
 
       case Fix.BLACKFIRE_MASTER_BLADE:
@@ -9364,6 +9500,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.RARE_MASTERBLADE_FIRE;
         break;
 
       case Fix.SIN_THE_DARKELF:
@@ -9375,6 +9512,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_GREAT_JEWELCROWN;
         break;
 
       case Fix.IMPERIAL_KNIGHT:
@@ -9386,6 +9524,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area62;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_GOUKIN_MATERIAL;
         break;
 
       case Fix.SUN_STRIDER:
@@ -9398,6 +9537,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_ESSENCE_OF_SHINE;
         break;
 
       case Fix.BALANCE_IDLE:
@@ -9410,6 +9550,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_KUMITATE_TENBIN_DOU;
         break;
 
       case Fix.ARCHDEMON:
@@ -9422,6 +9563,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.RARE_DEMON_HORN;
         break;
 
       case Fix.UNDEAD_WYVERN:
@@ -9434,6 +9576,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_WYVERN_BONE;
         break;
 
       case Fix.GO_FLAME_SLASHER:
@@ -9446,6 +9589,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.RARE_ESSENCE_OF_FLAME;
         break;
 
       case Fix.DEVIL_CHILDREN:
@@ -9458,6 +9602,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_BLACK_SEAL_IMPRESSION;
         break;
 
       case Fix.ANCIENT_DISK:
@@ -9470,6 +9615,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area63;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_HIGH_ESTORMIUM_MATERIAL;
         break;
 
       case Fix.HOWLING_HORROR:
@@ -9482,6 +9628,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.COMMON_ONRYOU_HAKO;
         break;
 
       case Fix.PAIN_ANGEL:
@@ -9494,6 +9641,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_ANGEL_SILK;
         break;
 
       case Fix.CHAOS_WARDEN:
@@ -9506,6 +9654,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_CHAOS_SIZUKU;
         break;
 
       case Fix.HELL_DREAD_KNIGHT:
@@ -9518,6 +9667,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.RARE_DREAD_EXTRACT;
         break;
 
       case Fix.DOOM_BRINGER:
@@ -9530,6 +9680,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = false;
+        this.DropItem[0] = Fix.RARE_DOOMBRINGER_KAKERA;
         break;
 
       case Fix.BLACK_LIGHTNING_SPHERE:
@@ -9542,6 +9693,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_KOKU_THUNDER_SIRUSI;
         break;
 
       case Fix.DISTORTED_SENSOR:
@@ -9554,6 +9706,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area64;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_TENNEN_JISYAKU;
         break;
 
       case Fix.ELDER_BAPHOMET:
@@ -9566,6 +9719,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_VOID_BOU;
         break;
 
       case Fix.WIND_BREAKER:
@@ -9578,6 +9732,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_ESSENCE_OF_WIND;
         break;
 
       case Fix.HOLLOW_SPECTOR:
@@ -9590,6 +9745,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_INNOCENCE_ESSENCE;
         break;
 
       case Fix.VENERABLE_WIZARD:
@@ -9602,6 +9758,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_JUNKAN_MAHU_GU;
         break;
 
       case Fix.UNKNOWN_FLOATING_BALL:
@@ -9614,6 +9771,7 @@ public partial class Character : MonoBehaviour
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Area65;
         this.CannotCritical = true;
+        this.DropItem[0] = Fix.COMMON_UNRESOLVED_MATERIAL;
         break;
 
       case Fix.MASCLEWARRIOR_HARDIL:
