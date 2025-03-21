@@ -3171,6 +3171,7 @@ public static partial class Fix
   public const string COMMON_AOSAME_UROKO = "青鮫の鱗";
   public const string RARE_JOE_TONGUE = "ジョーの舌";
   public const string COMMON_EMBLEM_KNIGHT = "騎士達の紋章";
+
   public const string COMMON_SEA_WATER = "純正の海水";
   public const string COMMON_BLACKSAME_TOOTH = "黒鮫の剣歯";
   public const string COMMON_MYSTERIOUS_KARA = "不思議な形状の殻";
