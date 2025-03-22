@@ -610,11 +610,11 @@ public partial class BattleEnemy : MotherBase
         // ボス向けに表示文字を変換
         if (One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA || One.EnemyList[ii].FullName == Fix.SCREAMING_RAFFLESIA_JP)
         {
-          One.EnemyList[ii].FullName = Fix.SCREAMING_RAFFLESIA_JP_VIEW;
+          One.EnemyList[ii].txtName.text = Fix.SCREAMING_RAFFLESIA_JP_VIEW;
         }
         else if (One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN || One.EnemyList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP)
         {
-          One.EnemyList[ii].FullName = Fix.MAGICAL_HAIL_GUN_JP_VIEW;
+          One.EnemyList[ii].txtName.text = Fix.MAGICAL_HAIL_GUN_JP_VIEW;
         }
         if (One.EnemyList[ii].FullName == Fix.THE_YODIRIAN || One.EnemyList[ii].FullName == Fix.THE_YODIRIAN_JP)
         {
@@ -1405,9 +1405,10 @@ public partial class BattleEnemy : MotherBase
 
         // 敵プレイヤー側がインスタントが溜まった場合、スタックインザコマンドを発動する。
         // ボス戦、Duel戦が対象
-        if (this.BattleType == Fix.BattleMode.Duel && AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
+        if ((this.BattleType == Fix.BattleMode.Boss || this.BattleType == Fix.BattleMode.Duel) &&
+            AllList[ii].CurrentInstantPoint >= AllList[ii].MaxInstantPoint)
         {
-          if (AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN)
+          if (AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN || AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP || AllList[ii].FullName == Fix.MAGICAL_HAIL_GUN_JP_VIEW)
           {
             AllList[ii].UseInstantPoint(false, Fix.COMMAND_SUPER_RANDOM_CANNON);
             AllList[ii].UpdateInstantPointGauge();
