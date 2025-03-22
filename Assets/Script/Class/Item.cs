@@ -11263,659 +11263,975 @@ public partial class Item
       #endregion
       #region "ドロップアイテム"
       case Fix.COMMON_MANTIS_TAIEKI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 48;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GREEN_SIKISO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 52;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MANDORAGORA_ROOT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 56;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WOLF_FUR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 60;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_ANT_ESSENCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 74;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KATAME_TREE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 79;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SUN_LEAF:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 84;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WARM_NO_KOUKAKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 89;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_YELLOW_TAIEKI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 94;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_RABBIT_MEAT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 99;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_TOGETOGE_GRASS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 116;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ASH_EGG:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 122;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_RED_HOUSI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 128;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_DOKUSO_NEEDLE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 134;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_PLANTNOID_SEED:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 140;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HORSE_HIZUME:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 146;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_MACHINE_PARTS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 232;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_COLORFUL_BALL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 240;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SHARP_HAHEN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 248;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BAT_FEATHER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 256;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GLASS_SHARD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 264;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_MECHANICAL_SHAFT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 289;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_AMBER_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 299;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_NEBARIKE_EKITAI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 309;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_USUGATA_ENBAN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 319;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HASSYADAI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 329;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KYOUTEN_X:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 339;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_SOLIDSTONE_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 369;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_JUNK_PARTS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 381;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ELECT_BOLT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 393;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GARGOYLE_EYE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 405;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WATCHDOG_TONGUE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 417;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BUYOBUYO_MOEKASU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 429;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_BAKUHA_CHAKKAZAI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 464;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SEKKAIKOU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 478;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_CHROTIUM_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 492;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SANKAKU_STEEL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 506;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_PURPLE_BOTTOLE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 520;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_BOAR_MOMONIKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 654;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MIST_LEAF:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 672;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_NORMAL_SPORE_ESSENCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 690;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_FROG_FRONTLEG:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 708;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SNAKE_EMPTYSHELL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 726;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_BEAR_LARGE_CLAW:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 774;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_FAIRY_POWDER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 796;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BEAUTY_WHITEFEATHER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 818;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_DRYAD_RINPUN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 840;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HUNTER_TOOL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 862;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BLACK_MIST_ESSENCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 884;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_ELEPHANT_LEGS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 941;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ELEMENTAL_KONA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 967;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_LAPTOR_FUR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 993;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SHARPNESS_TIGER_TOOTH:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1019;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_THORN_ELEMENT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1045;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_DORO_YOUKAIEKI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1071;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_YOUKAI_MIKI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1137;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_DANPEN_OF_GOFU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1167;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GOTUGOTU_BIGTREE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1197;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MARY_KISS:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1227;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_REHINO_HOHONIKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1257;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_MAGIC_HORN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1587;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_THREE_FEATHER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1623;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_YELLOW_DOROTSUCHI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1659;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_RED_DOROTSUCHI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1695;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WINDMAN_SEAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1731;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_AIRORIGIN_KIHO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1817;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HENSYOKU_KOKE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1859;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KIRAMEKU_GOLDHORN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1901;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MYSTERY_SCROLL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1943;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BIRD_OUGI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 1985;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BLUECOLOR_EYE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2027;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WHITECOLOR_EYE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2069;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_CURTAIN_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2171;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MEGANE_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2219;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ARTHARIUM_JEWEL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2267;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KITSUNE_TAIL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2315;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_LION_FUR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2363;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WHITE_HIDUME:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2411;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_TOUMEI_KESSYO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2459;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
   
       case Fix.COMMON_PARTIMIUM_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2577;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HUGE_BOOK:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2631;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GUNPOWDER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2685;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SILENT_WHISTLE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2739;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_STEEL_BATON:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2793;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_PURE_SILVER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2847;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_SPEEDARROW_TOOL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 2981;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_OVAL_GEAR:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 3041;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_APLITOS_BONE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 3101;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MUKAKOU_SEKIEI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 3161;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HOUDAN_SHARD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 3221;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_DEATH_CLOVER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 3281;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_DAGGERFISH_UROKO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 5841;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MANTA_HARA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 5911;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BLUE_MAGATAMA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 5981;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KURIONE_ZOUMOTU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6051;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_RENEW_AKAMI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6121;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ROSE_SEKKAI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6191;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_WASI_BLUE_FEATHER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6361;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HANTOUMEI_ROCK:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6441;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_EIGHTEIGHT_KUROSUMI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6521;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BLACK_GESO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6601;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BIGAXE_TOP:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6681;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GANGAME_EGG:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6761;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_JUMP_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6841;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KYOZIN_MUNENIKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 6921;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_NANAIRO_SYOKUSYU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7116;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SEA_MO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7206;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SERPENT_UROKO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7296;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_AYASHII_NENNEKI_ITO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7386;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GOTUGOTU_KARA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7476;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SOFT_BIG_HIRE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7566;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BIG_STONE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7656;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_TAIRYO_FISH:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7746;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_UNKNOWN_BOX:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 7966;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_PUREWHITE_KIMO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8066;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SHRIMP_DOTAI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8166;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KOUSITUKA_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8266;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_AOSAME_UROKO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8366;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_JOE_TONGUE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8466;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_EMBLEM_KNIGHT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8566;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_SEA_WATER:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8811;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BLACKSAME_TOOTH:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 8921;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_MYSTERIOUS_KARA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 9031;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_CURSED_ITO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 9141;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_CHINMI_FISH:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 9251;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SEA_MUSICBOX:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 9361;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_HUNTER_SEVEN_TOOL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 19471;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_BEAST_KEGAWA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 19682;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_BLOOD_DAGGER_KAKERA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 19893;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_SABI_BUGU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 20104;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_MEPHISTO_BLACKLIGHT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 20315;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_STEAM_POMP:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 20526;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_SEEKER_HEAD:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 20907;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_ESSENCE_OF_DARK:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 21220;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_EXECUTIONER_ROBE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 21533;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_NEMESIS_ESSENCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 21846;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_MASTERBLADE_FIRE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 22159;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GREAT_JEWELCROWN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 22472;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_GOUKIN_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 22785;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.RARE_ESSENCE_OF_SHINE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 23288;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KUMITATE_TENBIN_DOU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 23704;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_DEMON_HORN:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 24120;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_WYVERN_BONE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 24536;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_ESSENCE_OF_FLAME:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 24952;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_BLACK_SEAL_IMPRESSION:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 25368;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_HIGH_ESTORMIUM_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 25784;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_ONRYOU_HAKO:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 26410;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_ANGEL_SILK:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 26930;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_CHAOS_SIZUKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 27450;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_DREAD_EXTRACT:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 27970;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.RARE_DOOMBRINGER_KAKERA:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 28490;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_KOKU_THUNDER_SIRUSI:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 29010;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_TENNEN_JISYAKU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 29530;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
 
       case Fix.COMMON_VOID_BOU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 30280;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_ESSENCE_OF_WIND:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 30905;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_INNOCENCE_ESSENCE:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 31530;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_JUNKAN_MAHU_GU:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 32155;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
       case Fix.COMMON_UNRESOLVED_MATERIAL:
+        this._rarity = Rarity.Common;
+        this._itemType = ItemTypes.SellOnly;
         this._gold = 32780;
         this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
         break;
