@@ -9,7 +9,7 @@ public static class SecondaryLogic
 {
   public static double CoreAttackRate(Character player)
   {
-    return 0.40f;
+    return 1.00f;
   }
 
   public static double NormalAttack(Character player)
