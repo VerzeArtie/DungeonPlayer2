@@ -1870,7 +1870,6 @@ public static partial class Fix
   public const string COMMAND_SPAAAARK = "SPAAAARK!!";
   public const string COMMAND_SUPER_RANDOM_CANNON = "超ランダム乱射";
   public const string COMMAND_ELECTRO_RAILGUN = "電導レールガン";
-  public const string COMMAND_BEHIND_BOMB = "後方爆撃";
   public const string COMMAND_LIGHTNING_OUTBURST = "ライトニング・アウトバースト";
 
   public const string COMMAND_WILD_STORM = "ワイルド・ストーム";
@@ -3335,7 +3334,7 @@ public static partial class Fix
   public const string MAD_DOCTOR_JP = "マッド ドクター";
   public const string MAGICAL_HAIL_GUN = "Magical Hail-Gun";
   public const string MAGICAL_HAIL_GUN_JP = "魔法雹穴銃";
-  public const string MAGICAL_HAIL_GUN_JP_VIEW = "【　暴走機動隊　】魔法雹穴銃";
+  public const string MAGICAL_HAIL_GUN_JP_VIEW = "【　暴走機動隊　】\r\n魔法雹穴銃";
   public const string THE_GALVADAZER = "Galvadazer, The Over-Boost-Destructor";
   public const string THE_GALVADAZER_JP = "暴走破壊者：ガルヴァデイザー";
   public const string THE_GALVADAZER_JP_VIEW = "【　暴走破壊者　】\r\nガルヴァデイザー";

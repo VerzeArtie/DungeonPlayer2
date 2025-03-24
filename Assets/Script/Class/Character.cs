@@ -8069,13 +8069,12 @@ public partial class Character : MonoBehaviour
 
       case Fix.MAGICAL_HAIL_GUN:
       case Fix.MAGICAL_HAIL_GUN_JP:
-        SetupParameter(90, 55, 90, 760, 15, 0, 7000, 5000);
-        this._baseInstantPoint = 3500;
+        SetupParameter(125, 55, 160, 560, 12, 15000, 7000, 5000);
+        this._baseInstantPoint = 2800;
         list.Add(Fix.MAGIC_ATTACK);
         list.Add(Fix.COMMAND_SPAAAARK);
         list.Add(Fix.COMMAND_SUPER_RANDOM_CANNON);
         list.Add(Fix.COMMAND_ELECTRO_RAILGUN);
-        list.Add(Fix.COMMAND_BEHIND_BOMB);
         this.Rare = Fix.RareString.Black;
         this.Area = Fix.MonsterArea.Boss2;
         this.CannotCritical = false;
@@ -10582,9 +10581,8 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.MAGICAL_HAIL_GUN:
-        if (skip_decision == false) { this.AI_Phase++; }
-        if (this.AI_Phase >= 8) { this.AI_Phase = 0; }
-
+      case Fix.MAGICAL_HAIL_GUN_JP:
+      case Fix.MAGICAL_HAIL_GUN_JP_VIEW:
         if (this.AI_Phase == 0)
         {
           current.Add(Fix.COMMAND_ELECTRO_RAILGUN);
@@ -10611,22 +10609,12 @@ public partial class Character : MonoBehaviour
         }
         else if (this.AI_Phase == 6)
         {
-          current.Add(Fix.COMMAND_BEHIND_BOMB);
-          for (int ii = opponent_group.Count - 1; ii >= 0; ii--)
-          {
-            if (opponent_group[ii].Dead == false)
-            {
-              this.Target = opponent_group[ii];
-              break;
-            }
-          }
+          current.Add(Fix.COMMAND_LIGHTNING_OUTBURST);
         }
-        else if (this.AI_Phase == 7)
-        {
-          current.Add(Fix.MAGIC_ATTACK);
-        }
-
         result = RandomChoice(current);
+
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 7) { this.AI_Phase = 0; }
         break;
 
       case Fix.THE_GALVADAZER:
