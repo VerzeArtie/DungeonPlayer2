@@ -5130,7 +5130,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：出来るかどうかは置いといてだな。お前が今から聖スペルに挑戦してみたらどうだ？", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：まあ、聖スペルは出来るけどな。", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：いや", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：聖スペルは出来るんだけどな。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "ビリー：・・・　・・・　・・・", ActionEvent.None);
 
@@ -5230,13 +5232,9 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "ビリー：おうよ。任せとけ！", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "【 エッセンス・ツリーが開放されました！ 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 エッセンス・ツリー第四属性が開放されました！ 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 パーティメニューでエッセンスツリーを選択できるようになりました。 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 各キャラクターの特性に応じた魔法およびスキルを開放／強化する事が出来るようになります。 】", ActionEvent.MessageDisplay);
-
-      Message(ref m_list, ref e_list, "【 パーティメニューからキャラクターを選択し、エッセンスツリーを確認してみましょう。 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 メニューからエッセンスを選んで確認してみましょう。 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
 
@@ -8338,7 +8336,11 @@ public static class MessagePack
 
       Message(ref m_list, ref e_list, "【 バトル設定画面で新しく追加されたコマンドの内容を確認してみましょう 】", ActionEvent.MessageDisplay);
 
-      Message(ref m_list, ref e_list, "【 また「エッセンス」設定画面の内容を確認してみましょう 】", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "【 また「エッセンス」画面が使えるようになりました 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 各キャラクターの魔法およびスキルを開放／強化する事が出来るようになります。 】", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "【 メニューから「エッセンス」画面の内容を確認してみましょう 】", ActionEvent.MessageDisplay);
 
       Message(ref m_list, ref e_list, "アイン：よし、じゃあ明日からそれで行こう！ごちそうさまでした！", ActionEvent.None);
 
