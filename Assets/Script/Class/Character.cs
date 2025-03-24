@@ -6018,16 +6018,16 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.NAME_BILLY_RAKI:
-        this.Level = 14; // 17 + (3*4 + 4*5 + 5*4)
-        this.Strength = 22;
-        this.Agility = 12;
+        this.Level = 15; // 17 + (3*4 + 4*5 + 5*5)
+        this.Strength = 24;
+        this.Agility = 13;
         this.Intelligence = 4;
-        this.Stamina = 17;
-        this.Mind = 14;
-        this.BaseLife = 50 + 246; // level14スタートのため、LV2～LV14分を足し算。
-        this.BaseManaPoint = 5 + 52; // level14スタートのため、LV2～LV14分を足し算。
+        this.Stamina = 18;
+        this.Mind = 15;
+        this.BaseLife = 50 + 296; // level15スタートのため、LV2～LV15分を足し算。
+        this.BaseManaPoint = 5 + 57; // level15スタートのため、LV2～LV15分を足し算。
         this.BaseSkillPoint = 100;
-        this.SoulFragment = 4;
+        this.SoulFragment = 0;
         this.Job = Fix.JobClass.Fighter;
         this.FirstCommandAttribute = Fix.CommandAttribute.MartialArts;
         this.SecondCommandAttribute = Fix.CommandAttribute.Fire;
@@ -6053,13 +6053,15 @@ public partial class Character : MonoBehaviour
         this.AvailableMartialArts = true;
         this.AvailableFire = true;
         this.AvailableTruth = true;
-        this.LegStrike = 1;
+        this.LegStrike = 3;
         this.SpeedStep = 1;
         this.BoneCrush = 1;
         this.FireBall = 1;
-        this.FlameBlade = 1;
+        this.FlameBlade = 3;
         this.MeteorBullet = 1;
         this.TrueSight = 1;
+        this.LeylineSchema = 3;
+        this.VoiceOfVigor = 1;
         break;
 
       case Fix.NAME_ADEL_BRIGANDY:
@@ -10396,7 +10398,7 @@ public partial class Character : MonoBehaviour
         break;
     }
 
-    if (One.CONF.Difficulty == -1)
+//    if (One.CONF.Difficulty == -1)
     {
       this.Strength = 1;
       this.Agility = 1;
