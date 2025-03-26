@@ -2458,6 +2458,7 @@ public partial class BattleEnemy : MotherBase
   // 通常コマンドから呼び出されるメソッド
   private void ExecPlayerCommand(Character player, Character target, string command_name)
   {
+    Debug.Log("ExecPlayerCommand(S) " + player.FullName + " " + command_name + " " + player.CurrentActionCommand);
     ExecPlayerCommand_Origin(player, target, command_name, false);
     // 宝珠「無双」による効果
     if (player.IsEquip(Fix.ARTIFACT_MUSOU))
@@ -2482,8 +2483,13 @@ public partial class BattleEnemy : MotherBase
     }
 
     // GaleWindなら２回行動。GaleWind自体は２度掛けしない。
-    if (player.IsGaleWind && command_name != Fix.GALE_WIND)
+    if (command_name == Fix.GALE_WIND || player.CurrentActionCommand == Fix.GALE_WIND)
     {
+      // skip
+    }
+    else if (player.IsGaleWind)
+    {
+      Debug.Log("ExecPlayerCommand_Origin second phase");
       ExecPlayerCommand_Origin(player, target, command_name, true);
       // こちらはGaleWind効果による２回行動の箇所なので、宝珠「無双」の効果対象にはしない。
     }
