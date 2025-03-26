@@ -10125,6 +10125,7 @@ public partial class Character : MonoBehaviour
         break;
 
       case Fix.DUEL_SELMOI_RO:
+      case Fix.DUEL_SELMOI_RO_JP:
         SetupParameter(55, 37, 50, 18, 19, 1370, 0, 0);
         this.Level = 31;
         this.Strength = 55;
