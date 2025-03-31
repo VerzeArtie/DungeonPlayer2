@@ -602,11 +602,13 @@ public static class PrimaryLogic
   {
     // double result = 0.30f + Math.Log(Convert.ToInt32(player.TotalAgility), Math.Exp(1)) * Math.Log(Convert.ToInt32(player.TotalMind), Math.Exp(1)) / 30.0f;
     // double factor = Math.Log((double)(player.TotalAgility) * (double)(player.TotalMind), Math.Exp(1)) / Math.Log(Fix.PARAMETER_MAX * Fix.PARAMETER_MAX, Math.Exp(1));
+    //Debug.Log(player.FullName + " TotalAgility: " + player.TotalAgility.ToString() + " TotalMind: " + player.TotalMind);
     double factor = Math.Exp((double)(player.TotalAgility) * (double)(player.TotalMind) / (Fix.PARAMETER_MAX * Fix.PARAMETER_MAX)) / Math.Exp(1);
-    factor = factor / 5.0f; // 0～1を0～2に引き下げてバランスを取る。
-    // Debug.Log(player.FullName + " factor: " + factor.ToString());
+    //Debug.Log(player.FullName + " factor1: " + factor.ToString());
+    //factor = factor / 5.0f; // 0～1を0～2に引き下げてバランスを取る。
+    //Debug.Log(player.FullName + " factor2: " + factor.ToString());
     double result = 0.30f + factor; // 0.30fがベース値。最大Agility9999、Mind9999の場合 +0.20fで、総合計は0.50fまで。
-    // Debug.Log(player.FullName +  " battlespeed1: " + result.ToString());
+    //Debug.Log(player.FullName +  " battlespeed1: " + result.ToString());
     result += (player.MainWeapon?.BattleSpeed ?? 0);
     result += (player.SubWeapon?.BattleSpeed ?? 0);
     result += (player.MainArmor?.BattleSpeed ?? 0);
