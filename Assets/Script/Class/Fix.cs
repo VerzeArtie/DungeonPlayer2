@@ -14393,8 +14393,8 @@ public static partial class Fix
   public const string DUEL_EONE_FULNEA_JP = "エオネ・フルネア "; // DUEL名識別のため、最後の空白スペースで意図的に区別
   public const string DUEL_OL_LANDIS = "Ol Landis";
   public const string DUEL_OL_LANDIS_Jp = "オル・ランディス";
-  public const string DUEL_SINIKIA_KAHLHANZ = "Shinikia Kahlhanz";
-  public const string DUEL_SINIKIA_KAHLHANZ_JP = "シニキア・カールハンツ";
+  public const string DUEL_SHINIKIA_KAHLHANZ = "Shinikia Kahlhanz";
+  public const string DUEL_SHINIKIA_KAHLHANZ_JP = "シニキア・カールハンツ";
   public const string DUEL_SIN_OSCURETE = "Sin Oscurete";
   public const string DUEL_SIN_OSCURETE_JP = "シン・オスキュレーテ";
   // リガール・オルフシュタイン

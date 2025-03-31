@@ -2993,6 +2993,16 @@ public static class ActionCommand
     return 1; // 通常は累積なし
   }
 
+  public static bool CannotBeCountered(string command_name)
+  {
+    if (command_name == Fix.WORD_OF_POWER) { return true; }
+    if (command_name == Fix.IRON_BUSTER) { return true; }
+    if (command_name == Fix.ABSOLUTE_ZERO) { return true; }
+    if (command_name == Fix.WILL_AWAKENING) { return true; }
+
+    return false; // 通常はカウンターできるためFalse
+  }
+
   public static CumulativeType GetCumulativeType(string command_name)
   {
     if (command_name == Fix.FORTUNE_SPIRIT ||

@@ -7962,6 +7962,51 @@ public partial class BattleEnemy : MotherBase
         }
       }
       #endregion
+      #region "シニキア・カールハンツ"
+      if (EnemyList[ii].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ || EnemyList[ii].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ_JP)
+      {
+        if (stackList[num].StackTimer <= 100)
+        {
+          int maxInstantPoint = EnemyList[ii].MaxInstantPoint;
+          if (EnemyList[ii].CurrentInstantPoint >= maxInstantPoint * ActionCommand.InstantGaugeCost(Fix.ZERO_IMMUNITY))
+          {
+            if (stackList[stackList.Length - 1].Player == EnemyList[ii])
+            {
+              // skip it
+            }
+            else if (EnemyList[ii].CurrentSkillPoint < SecondaryLogic.CostControl(Fix.ZERO_IMMUNITY, ActionCommand.Cost(Fix.ZERO_IMMUNITY), EnemyList[ii]))
+            {
+              // skip it
+            }
+            else if (ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName) &&
+                     EnemyList[ii].IsPhantomOboro == null &&
+                     EnemyList[ii].CurrentManaPoint >= SecondaryLogic.CostControl(Fix.PHANTOM_OBORO, ActionCommand.Cost(Fix.PHANTOM_OBORO), EnemyList[ii]))
+            {
+              EnemyList[ii].UseInstantPoint(false, Fix.PHANTOM_OBORO);
+              EnemyList[ii].UpdateInstantPointGauge();
+              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.PHANTOM_OBORO, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return;
+            }
+            else if (ActionCommand.IsDamage(stackList[stackList.Length - 1].StackName) &&
+                     EnemyList[ii].IsPhantomOboro)
+            {
+              // skip it
+            }
+            else if (ActionCommand.CannotBeCountered(stackList[stackList.Length - 1].StackName))
+            {
+              // skip it
+            }
+            else
+            {
+              EnemyList[ii].UseInstantPoint(false, Fix.ZERO_IMMUNITY);
+              EnemyList[ii].UpdateInstantPointGauge();
+              CreateStackObject(EnemyList[ii], stackList[num].Player, Fix.ZERO_IMMUNITY, Fix.STACKCOMMAND_NORMAL_TIMER, 0);
+              return;
+            }
+          }
+        }
+      }
+      #endregion
       #region "リガール・オルフシュタイン"
       if (EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW ||
           EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP || EnemyList[ii].FullName == Fix.FIRE_EMPEROR_LEGAL_ORPHSTEIN_JP_VIEW)
