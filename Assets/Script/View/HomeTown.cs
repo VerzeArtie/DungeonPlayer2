@@ -712,6 +712,14 @@ public partial class HomeTown : MotherBase
         return;
       }
 
+      // Duel、シニキア・カールハンツを倒した後
+      if (One.TF.Duel_ShinikiaKahlhanz_Start && One.TF.DefeatShinikiaKahlhanz && One.TF.Duel_ShinikiaKahlhanz_Complete == false)
+      {
+        Debug.Log("Duel Shinikia-Kahlhanz defeated event");
+        MessagePack.DuelCall_ShinikiaKahlhanz_Complete(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+
       Debug.Log("Update through...");
 
       // クヴェルタ街、奇妙な物体の調査
@@ -1495,6 +1503,7 @@ public partial class HomeTown : MotherBase
       this.DungeonMap == Fix.TOWN_LATA_HOUSE ||
       this.DungeonMap == Fix.TOWN_FAZIL_UNDERGROUND)
     {
+      // パルメティシア神殿へ向かう際、Duel遭遇
       if (this.DungeonMap == Fix.TOWN_PARMETYSIA && One.TF.Event_Message700060 && One.TF.Event_Message801030 == false)
       {
         MessagePack.Message801030(ref QuestMessageList, ref QuestEventList); TapOK();
@@ -1606,6 +1615,12 @@ public partial class HomeTown : MotherBase
       if (One.TF.CurrentAreaName == Fix.TOWN_PARMETYSIA && One.TF.Event_Message1010030 && One.TF.EventCore_AcknowledgeFeltus && One.TF.EventCore_ProphecySaga_Oracle == false)
       {
         MessagePack.CoreScenario_ProphecySaga_Oracle(ref QuestMessageList, ref QuestEventList); TapOK();
+        return;
+      }
+      // エデルガイゼン城へ向かった時、１F「扉３」を開放済みなら、Duel遭遇
+      else if (One.TF.Event_Message1900094 && One.TF.Duel_ShinikiaKahlhanz_Start == false)
+      {
+        MessagePack.DuelCall_ShinikiaKahlhanz_Start(ref QuestMessageList, ref QuestEventList); TapOK();
         return;
       }
       else
@@ -3225,6 +3240,7 @@ public partial class HomeTown : MotherBase
                One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN || One.EnemyList[0].FullName == Fix.DUEL_CALMANS_OHN_JP ||
                One.EnemyList[0].FullName == Fix.NAME_EONE_FULNEA ||
                One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO || One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO_JP ||
+               One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ || One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_1_JP ||
                One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2 || One.EnemyList[0].FullName == Fix.DUEL_ZATKON_MEMBER_2_JP )
       {

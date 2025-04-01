@@ -39867,6 +39867,32 @@ public static class MessagePack
       Message(ref m_list, ref e_list, "【 パーティは休息を取りました】", ActionEvent.MessageDisplay);
     }
   }
+
+  public static void DuelCall_ShinikiaKahlhanz_Start(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_ShinikiaKahlhanz_Start == false)
+    {
+      One.TF.Duel_ShinikiaKahlhanz_Start = true;
+
+      Message(ref m_list, ref e_list, "カール：３", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：２", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：１", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.DUEL_SHINIKIA_KAHLHANZ, ActionEvent.EncountDuel);
+    }
+  }
+
+  public static void DuelCall_ShinikiaKahlhanz_Complete(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    if (One.TF.Duel_ShinikiaKahlhanz_Complete == false)
+    {
+      One.TF.Duel_ShinikiaKahlhanz_Complete = true;
+
+      Message(ref m_list, ref e_list, "アイン：よし！", ActionEvent.None);
+    }
+  }
   #endregion
 
   public static void Message(ref List<string> m_list, ref List<ActionEvent> e_list, string message, ActionEvent eventData)

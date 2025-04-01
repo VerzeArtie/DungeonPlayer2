@@ -2196,6 +2196,11 @@ public partial class BattleEnemy : MotherBase
         {
           One.TF.DefeatCalmansOhn = true;
         }
+        if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ ||
+                                       One.EnemyList[0].FullName == Fix.DUEL_SHINIKIA_KAHLHANZ_JP)
+        {
+          One.TF.DefeatShinikiaKahlhanz = true;
+        }
 
         if (One.EnemyList.Count > 0 && One.EnemyList[0].FullName == Fix.DUEL_SELMOI_RO)
         {

@@ -3484,6 +3484,12 @@ public class TeamFoundation : MonoBehaviour
   protected bool _duel_calmans_ohn_complete = false;
   public bool Duel_CalmansOhn_Complete { get { return _duel_calmans_ohn_complete; } set { _duel_calmans_ohn_complete = value; } }
 
+  protected bool _duel_shinikia_kahlhanz_start = false;
+  public bool Duel_ShinikiaKahlhanz_Start { get { return _duel_shinikia_kahlhanz_start; } set { _duel_shinikia_kahlhanz_start = value; } }
+  protected bool _defeat_shinikia_kahlhanz = false;
+  public bool DefeatShinikiaKahlhanz { get { return _defeat_shinikia_kahlhanz; } set { _defeat_shinikia_kahlhanz = value; } }
+  protected bool _duel_shinikia_kahlhanz = false;
+  public bool Duel_ShinikiaKahlhanz_Complete { get { return _duel_shinikia_kahlhanz; } set { _duel_shinikia_kahlhanz = value; } }
   #endregion
 
   #region "回復の泉"
