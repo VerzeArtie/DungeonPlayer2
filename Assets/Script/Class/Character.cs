@@ -10039,6 +10039,7 @@ public partial class Character : MonoBehaviour
       case Fix.DUEL_DUMMY_SUBURI:
       case Fix.DUEL_DUMMY_SUBURI_JP:
         SetupParameter(5, 2, 5, 7, 4, 0, 0, 0);
+        this.Level = 4;
         this.BaseLife = 43;
         this.BaseManaPoint = 36;
         this.BaseSkillPoint = 100;
@@ -10051,6 +10052,7 @@ public partial class Character : MonoBehaviour
       case Fix.DUEL_EGALT_SANDY:
       case Fix.DUEL_EGALT_SANDY_JP:
         SetupParameter(15, 4, 3, 10, 5, 0, 0, 0);
+        this.Level = 8;
         this.BaseLife = 144;
         this.BaseManaPoint = 67;
         this.BaseSkillPoint = 100;
@@ -10069,6 +10071,7 @@ public partial class Character : MonoBehaviour
       case Fix.DUEL_YORZEN_GORMEZ:
       case Fix.DUEL_YORZEN_GORMEZ_JP:
         SetupParameter(3, 21, 21, 14, 10, 0, 0, 0);
+        this.Level = 15;
         this.BaseLife = 222;
         this.BaseManaPoint = 166;
         this.BaseSkillPoint = 100;
@@ -10090,6 +10093,7 @@ public partial class Character : MonoBehaviour
       case Fix.DUEL_ARDAM_VIO:
       case Fix.DUEL_ARDAM_VIO_JP:
         SetupParameter(52, 37, 7, 29, 22, 0, 0, 0);
+        this.Level = 27;
         this.BaseLife = 874;
         this.BaseManaPoint = 356;
         this.BaseSkillPoint = 100;
@@ -10112,6 +10116,7 @@ public partial class Character : MonoBehaviour
       case Fix.DUEL_LENE_COLTOS:
       case Fix.DUEL_LENE_COLTOS_JP:
         SetupParameter(10, 78, 80, 22, 34, 0, 0, 0);
+        this.Level = 36;
         this.BaseLife = 3252;
         this.BaseManaPoint = 394;
         this.BaseSkillPoint = 100;
@@ -10212,6 +10217,67 @@ public partial class Character : MonoBehaviour
         this.SigilOfTheFaith = 1;
 
         list.Add(Fix.NORMAL_ATTACK);
+        this.Backpack.Add(Fix.PURE_CLEAN_WATER);
+        this.Backpack.Add(Fix.PURE_SINSEISUI);
+        this.Backpack.Add(Fix.PURE_VITALIRY_WATER);
+        break;
+
+      case Fix.DUEL_SHINIKIA_KAHLHANZ:
+      case Fix.DUEL_SHINIKIA_KAHLHANZ_JP:
+        SetupParameter(17, 88, 333, 58, 88, 0, 0, 0);
+        this.Level = 65;
+        this.BaseLife = 26160;
+        this.BaseManaPoint = 3705;
+        this.BaseSkillPoint = 100;
+        //this.MainWeapon = new Item(Fix.VOLCANIC_BATTLE_BASTER);
+        //this.MainArmor = new Item(Fix.BLADESHADOW_CROWDED_DRESS);
+        this.Accessory1 = new Item(Fix.ANGEL_CONTRACT_SHEET);
+        //this.Accessory2 = new Item(Fix.ANGEL_CONTRACT_SHEET);
+        //this.Artifact = new Item(Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE);
+        this.FireBall = 1;
+        this.FlameBlade = 1;
+        this.MeteorBullet = 1;
+        this.VolcanicBlaze = 5;
+        this.FlameStrike = 5;
+        this.CircleOfTheIgnite = 5;
+        this.LavaAnnihilation = 1;
+        this.IceNeedle = 1;
+        this.PurePurification = 1;
+        this.BlueBullet = 1;
+        this.FreezingCube = 5;
+        this.FrostLance = 1;
+        this.WaterPresence = 1;
+        this.AbsoluteZero = 1;
+        this.ShadowBlast = 1;
+        this.BloodSign = 1;
+        this.BlackContract = 1;
+        this.CursedEvangile = 4;
+        this.CircleOfTheDespair = 5;
+        this.TheDarkIntensity = 1;
+        this.DeathScythe = 3;
+        this.OracleCommand = 1;
+        this.FortuneSpirit = 1;
+        this.WordOfPower = 5;
+        this.GaleWind = 3;
+        this.SeventhPrinciple = 1;
+        this.FutureVision = 1;
+        this.Genesis = 1;
+        this.EnergyBolt = 1;
+        this.FlashCounter = 1;
+        this.SigilOfThePending = 1;
+        this.PhantomOboro = 3;
+        this.CounterDisallow = 1;
+        this.DetachmentFault = 1;
+        this.TimeStop = 1;
+        this.TrueSight = 1;
+        this.LeylineSchema = 1;
+        this.VoiceOfVigor = 1;
+        this.WillAwakening = 1;
+        this.EverflowMind = 5;
+        this.SigilOfTheFaith = 3;
+        this.StanceOfTheKokoroe = 1;
+
+        list.Add(Fix.MAGIC_ATTACK);
         this.Backpack.Add(Fix.PURE_CLEAN_WATER);
         this.Backpack.Add(Fix.PURE_SINSEISUI);
         this.Backpack.Add(Fix.PURE_VITALIRY_WATER);
@@ -11830,6 +11896,82 @@ public partial class Character : MonoBehaviour
 
         if (skip_decision == false) { this.AI_Phase++; }
         if (this.AI_Phase >= 2) { this.AI_Phase = 0; }
+        break;
+
+      case Fix.DUEL_SHINIKIA_KAHLHANZ:
+      case Fix.DUEL_SHINIKIA_KAHLHANZ_JP:
+        if (this.AI_Phase == 0)
+        {
+          if (this.IsGaleWind == null && this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.GALE_WIND, ActionCommand.Cost(Fix.GALE_WIND), this))
+          {
+            result = Fix.GALE_WIND;
+          }
+          else if (this.Target.IsAbsoluteZero == null &&
+                   this.CurrentInstantPoint >= this.MaxInstantPoint * 0.80f &&
+                   this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.ABSOLUTE_ZERO, ActionCommand.Cost(Fix.ABSOLUTE_ZERO), this))
+          {
+            result = Fix.ABSOLUTE_ZERO;
+          }
+          else if (this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.FLAME_STRIKE, ActionCommand.Cost(Fix.FLAME_STRIKE), this))
+          {
+            result = Fix.FLAME_STRIKE;
+          }
+          else
+          {
+            result = Fix.MAGIC_ATTACK;
+          }
+        }
+        else if (this.AI_Phase == 1)
+        {
+          if (this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.FLAME_STRIKE, ActionCommand.Cost(Fix.FLAME_STRIKE), this))
+          {
+            result = Fix.FLAME_STRIKE;
+          }
+          else
+          {
+            result = Fix.MAGIC_ATTACK;
+          }
+        }
+        else
+        {
+          if (this.Target.SearchFieldBuff(Fix.DEATH_SCYTHE) == null &&
+              this.CurrentInstantPoint >= this.MaxInstantPoint * 0.80f &&
+              this.CurrentInstantPoint >= SecondaryLogic.CostControl(Fix.DEATH_SCYTHE, ActionCommand.Cost(Fix.DEATH_SCYTHE), this))
+          {
+            result = Fix.DEATH_SCYTHE;
+          }
+          else if (this.Target.SearchFieldBuff(Fix.CIRCLE_OF_THE_IGNITE) == null &&
+              this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.CIRCLE_OF_THE_IGNITE, ActionCommand.Cost(Fix.CIRCLE_OF_THE_IGNITE), this))
+          {
+            result = Fix.CIRCLE_OF_THE_IGNITE;
+          }
+          else if (this.Target.SearchFieldBuff(Fix.FREEZING_CUBE) == null &&
+              this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.FREEZING_CUBE, ActionCommand.Cost(Fix.FREEZING_CUBE), this))
+          {
+            result = Fix.FREEZING_CUBE;
+          }
+          else if (this.Target.SearchFieldBuff(Fix.CIRCLE_OF_THE_DESPAIR) == null &&
+              this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.CIRCLE_OF_THE_DESPAIR, ActionCommand.Cost(Fix.CIRCLE_OF_THE_DESPAIR), this))
+          {
+            result = Fix.CIRCLE_OF_THE_DESPAIR;
+          }
+          else if (this.Target.IsCursedEvangile == null &&
+                   this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.CURSED_EVANGILE, ActionCommand.Cost(Fix.CURSED_EVANGILE), this))
+          {
+            result = Fix.CURSED_EVANGILE;
+          }
+          else if (this.CurrentManaPoint >= SecondaryLogic.CostControl(Fix.FLAME_STRIKE, ActionCommand.Cost(Fix.FLAME_STRIKE), this))
+          {
+            result = Fix.FLAME_STRIKE;
+          }
+          else
+          {
+            result = Fix.MAGIC_ATTACK;
+          }         
+        }
+
+        if (skip_decision == false) { this.AI_Phase++; }
+        if (this.AI_Phase >= 3) { this.AI_Phase = 0; }
         break;
 
       case Fix.DUEL_JEDA_ARUS:
