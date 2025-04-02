@@ -39874,6 +39874,60 @@ public static class MessagePack
     {
       One.TF.Duel_ShinikiaKahlhanz_Start = true;
 
+      Message(ref m_list, ref e_list, "～　エデルガイゼン城の入口にて　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：やっぱり、抜け道みたいなのはなさそうだな・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：さてと、一旦戻ってみんなと合流するか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　アイン・ウォーレンス、踵を返したその時　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：ッフ、気配を察知したか。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その声・・・シニキア・カールハンツ爵か？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "？？？：いかにも", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その戦闘態勢を止めてもらう事は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：出来ぬ相談だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：俺を狙う理由は？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：教える事は出来ん。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ObsidianStoneについて何か知っていたら、教えて欲しい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：出来ぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エルミ国王は何を望んでいる？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：答える事は出来ぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：パルメティシア神殿の教皇とは知り合いなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：知ってどうする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：知るだけで良い。それで十分だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：それだけで追跡可能という事か。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：ッフ、面白い。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "～　シニキア・カールハンツを纏うローブが闇と同化し始めた　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：闘うしかないのか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：構えよ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
       Message(ref m_list, ref e_list, "カール：３", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "カール：２", ActionEvent.None);
@@ -39889,6 +39943,12 @@ public static class MessagePack
     if (One.TF.Duel_ShinikiaKahlhanz_Complete == false)
     {
       One.TF.Duel_ShinikiaKahlhanz_Complete = true;
+
+      // シニキア・カールハンツにどこまで喋ってもらうか、良く考えてから記述する事。
+      // エデルガイゼン城の攻略途中なので、少なくとも下記は解消したい。
+      // ・
+      // ・
+      // ・
 
       Message(ref m_list, ref e_list, "アイン：よし！", ActionEvent.None);
     }
