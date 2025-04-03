@@ -39874,11 +39874,20 @@ public static class MessagePack
     {
       One.TF.Duel_ShinikiaKahlhanz_Start = true;
 
-      Message(ref m_list, ref e_list, "～　エデルガイゼン城の入口にて　～", ActionEvent.MessageDisplay);
+      Message(ref m_list, ref e_list, "～　エデルガイゼン城の入口近辺にて　～", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：何か隠しルートみたいな所はないだろうか・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：おっ、こんな所に。アイテム発見っと。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, Fix.GROWTH_LIQUID6_AGILITY, ActionEvent.GetItem);
+      Message(ref m_list, ref e_list, "【 " + Fix.GROWTH_LIQUID6_AGILITY + " 】を取得しました！", ActionEvent.MessageDisplay);
+
+      Message(ref m_list, ref e_list, "アイン：よし、バックパックに入れておこう。", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：やっぱり、抜け道みたいなのはなさそうだな・・・", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：とはいえ、やっぱり抜け道みたいなのはなさそうだな・・・", ActionEvent.None);
 
       Message(ref m_list, ref e_list, "アイン：さてと、一旦戻ってみんなと合流するか。", ActionEvent.None);
 
@@ -39944,13 +39953,151 @@ public static class MessagePack
     {
       One.TF.Duel_ShinikiaKahlhanz_Complete = true;
 
-      // シニキア・カールハンツにどこまで喋ってもらうか、良く考えてから記述する事。
-      // エデルガイゼン城の攻略途中なので、少なくとも下記は解消したい。
-      // ・
-      // ・
-      // ・
+      Message(ref m_list, ref e_list, "カール：・・・　・・・　・・・", ActionEvent.None);
 
-      Message(ref m_list, ref e_list, "アイン：よし！", ActionEvent.None);
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：DUELは・・・ここまでだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：ほぉ。", ActionEvent.None);
+      
+      Message(ref m_list, ref e_list, "アイン：カールハンツ爵。頼むから教えてくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：何か話があって来たんじゃないのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：何故、その様に考える。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：暗殺を狙ってるのだとしたら、気配を完全に殺すはずだ。違うか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：気配は完全に殺して忍び寄ったはず。貴君のセンスが異常な証拠。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：いや、それ以前に", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：カールハンツ爵の攻撃パターンはどこかおかしい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：まるで俺を生かしてくれるかの様なタイミングでしか撃ってこない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：つまり、本気で撃ち込んできてないという事だ。違うか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：手など抜いておらぬ。貴君のタイミングが異常なだけの事。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：そ・・・そんなはずは・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：貴君を除く者達は既に気付いておる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：貴君、自らが気付いてないだけの事。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：貴君は認識の外については異常なほどの才能を有している。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：だが、自己への認識が欠如しているようだな。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：手を・・・抜いてない？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ウソだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ウソに決まっている。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ウ、ウソだと言ってくれ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：貴君自身が貴君の今の行動を認識したはず。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：まぎれもなく事実である。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、ひょっとして・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ObsidianStoneについては本当にカールハンツ爵も理解はしていない？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：理解はしておらぬ。ゆえに、応える事は出来ぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：じゃあ、エルミ国王の意志については？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：奴はおそらくObsidianStoneと呼ばれる何かに接触したのだろう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：奴の行動パターンに変化が現れたのはそれからだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：以前からその傾向はあったが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：あの時を境に、各地に設置されているワープゲートを潜る回数が増えた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：ワープゲートは1日数回であれば支障はないが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：短期間で重ねて潜った場合、精神に異常をきたす。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：グランドルールを奴が知らぬはずはない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：何かに干渉した。そして", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：何かを認識したのだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：奴の意志は、我の範疇を超えておる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：内容について答える事は出来ぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：分かった。ありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：この事をパルメティシア神殿の教皇はご存じなのか？", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：認識しておる。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：だが、手を出せない立場であり", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：また、手を出す事が許されてはおらぬ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：どういう意味だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：手を出せば、オラクルの予見どおり。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：手を出さずとも、オラクルの予見どおり。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：一見矛盾の様に思えるが", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：オラクルの予見は確定未来を指すものではない。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：予見は次元を超えた領域について示す事象そのもの。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：つまり、秤を超える行動を伴う事は出来ぬという事だ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：ゆえに、奴は自らに戒律を設けた。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：一切を見届ける役割に徹すると。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：ありがとう。だいぶ分かった気がする。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：教皇は何となくだけど、そんな雰囲気だった。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：エデルガイゼン城に赴いて", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：応えてみようと思う。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：カールハンツ爵、色々とありがとう。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：礼は不要。行くがよい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：もしも、俺が何か掴めたら・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：その時は、またDUEL対戦して欲しい。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "アイン：今度こそ、本気のカールハンツ爵と対峙してみたいんだ。", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：・・・　・・・　・・・", ActionEvent.None);
+
+      Message(ref m_list, ref e_list, "カール：笑止。好きにするがよい。", ActionEvent.None);
     }
   }
   #endregion
