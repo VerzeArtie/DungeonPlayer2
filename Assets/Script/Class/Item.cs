@@ -3474,14 +3474,14 @@ public partial class Item
         this._physicalDefense = 41;
         this._gold = 7000;
         this._importantType = Important.None;
-        this._description = "ロイズ社が皇族向けに制作した鎧。護衛を示す印が刻まれており装着者は様々な恩恵を受けられる。物理防御力４１、体＋４、土耐性１５０、風耐性１５０、スタン耐性、沈黙耐性";
+        this._description = "ロイズ社が皇族向けに制作した鎧。護衛を示す印が刻まれており装着者は様々な恩恵を受けられる。物理防御力４１、体＋４、聖耐性１５０、闇耐性１５０、スタン耐性、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 4;
         this._mind = 0;
-        this._resistEarthValue = 150;
-        this._resistWindValue = 150;
+        this._resistLightValue = 150;
+        this._resistShadowValue = 150;
         this._resistStun = true;
         this._resistSilence = true;
         break;
