@@ -1571,7 +1571,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 3000;
         this._importantType = Important.None;
-        this._description = "物理攻撃がヒットした時、20%の確率で土による追加ダメージを与える。";
+        this._description = "物理攻撃がヒットした時、20%の確率で追加で物理ダメージを与える。";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;

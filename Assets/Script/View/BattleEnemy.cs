@@ -10148,6 +10148,25 @@ public partial class BattleEnemy : MotherBase
       AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_VALKYRIE_SCAR, Fix.BUFF_VALKYRIE_SCAR_JP, SecondaryLogic.ValkyrieScar_Turn(player), 0, 0, 0);
     }
 
+    // 土力の斧による効果
+    if (player.IsEquip(Fix.EARTH_POWER_AXE))
+    {
+      Debug.Log("Equip " + Fix.EARTH_POWER_AXE + " call target skill");
+      int random = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.EARTH_POWER_AXE + " random " + random + " " + SecondaryLogic.EarthPowerAxe_Effect(player));
+      if (random <= SecondaryLogic.EarthPowerAxe_Effect(player))
+      {
+        double addDamageValue = SecondaryLogic.EarthPowerAxe_Effect2(player);
+        Debug.Log("Equip " + Fix.EARTH_POWER_AXE + " Additional Damage " + addDamageValue.ToString());
+        ApplyDamage(player, target, addDamageValue, false, animation_speed);
+      }
+      else
+      {
+        Debug.Log("Equip " + Fix.EARTH_POWER_AXE + " no action");
+      }
+    }
+
+    // ソード・オブ・ライフによる効果
     if (player.IsEquip(Fix.SWORD_OF_LIFE))
     {
       double effectValue = SecondaryLogic.SwordOfLife_Effect(player);

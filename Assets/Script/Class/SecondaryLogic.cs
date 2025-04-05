@@ -1382,6 +1382,15 @@ public static class SecondaryLogic
     return 1.00f;
   }
 
+  public static double EarthPowerAxe_Effect(Character player)
+  {
+    return 20;
+  }
+  public static double EarthPowerAxe_Effect2(Character player)
+  {
+    return 30 + AP.Math.RandomInteger(40);
+  }
+
   public static double AshExcludeLance_Effect(Character player)
   {
     return 50 + AP.Math.RandomInteger(20);
