@@ -1561,8 +1561,8 @@ public partial class Item
         this._itemType = ItemTypes.Onehand_Axe;
         this._gripType = GripTypes.OneHand;
         this._battleAccuracy = 90;
-        this._physicalAttack = 26;
-        this._physicalAttackMax = 31;
+        this._physicalAttack = 24;
+        this._physicalAttackMax = 39;
         this._magicAttack = 0;
         this._magicAttackMax = 0;
         this._physicalDefense = 0;
@@ -1571,7 +1571,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 3000;
         this._importantType = Important.None;
-        this._description = "物理攻撃がヒットした時、20%の確率で追加で物理ダメージを与える。";
+        this._description = "物理攻撃がヒットした時、20%の確率で追加で物理ダメージを与える。物理攻撃力２４～３９";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
