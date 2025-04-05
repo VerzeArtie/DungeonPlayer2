@@ -5107,12 +5107,16 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 17000;
         this._importantType = Important.None;
-        this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性＋３００、土耐性＋３００、スリップ耐性、スタン耐性";
+        this._description = "未開の大地より加護を授けられた舞踏衣。製作者は不明だが大自然の恩恵がこの防具には宿っている。物理防御力５９、魔法防御力３５、体＋６、心＋４、闇耐性＋３００、氷耐性＋３００、スリップ耐性、スタン耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 6;
         this._mind = 4;
+        this._resistShadowValue = 300;
+        this._resistIcePercent = 300;
+        this._resistSlip = true;
+        this._resistStun = true;
         break;
 
       case Fix.SMART_ROBE:
