@@ -5184,12 +5184,16 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 19000;
         this._importantType = Important.None;
-        this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性＋３００、風耐性＋３００、誘惑耐性、眩暈耐性";
+        this._description = "悠久都市セラーナにて限定的に販売された衣。輝かしい光を放つ衣からは威厳を感じ取れる。物理防御力２４、魔法防御力７１、心＋１０、聖耐性＋３００、氷耐性＋３００、沈黙耐性、眩暈耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 0;
         this._mind = 10;
+        this._resistLightValue = 300;
+        this._resistIceValue = 300;
+        this._resistSilence = true;
+        this._resistDizzy = true;
         break;
 
       case Fix.JUNK_TARISMAN_POISON:
