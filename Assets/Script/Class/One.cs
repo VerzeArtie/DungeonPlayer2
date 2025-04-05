@@ -2887,7 +2887,7 @@ public static class One
                 (category == Fix.DropItemCategory.Battle && ec1 != null && ec1.Area == Fix.MonsterArea.Area24) ||
                 (category == Fix.DropItemCategory.Lottery && dungeonArea == 2))
             {
-              int randomValue21 = rd.Next(1, 13);
+              int randomValue21 = rd.Next(1, 11);
               Debug.Log("randomValue21: " + randomValue21);
               switch (randomValue21)
               {
@@ -2920,12 +2920,6 @@ public static class One
                   break;
                 case 10:
                   targetItemName = Fix.MAGICLIGHT_LIGHT;
-                  break;
-                case 11:
-                  targetItemName = Fix.MAGICLIGHT_WIND;
-                  break;
-                case 12:
-                  targetItemName = Fix.MAGICLIGHT_EARTH;
                   break;
               }
             }

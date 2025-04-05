@@ -3783,32 +3783,6 @@ public partial class Item
         this._resistLightValue = 50;
         break;
 
-      case Fix.MAGICLIGHT_WIND:
-        this._rarity = Rarity.Poor;
-        this._itemType = ItemTypes.Accessory;
-        this._gold = 1200;
-        this._description = "風の残影を宿しているマジックライト。僅かに風のイメージが入り込んでくる。体＋３、風耐性５０";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 3;
-        this._mind = 0;
-        this._resistWindValue = 50;
-        break;
-
-      case Fix.MAGICLIGHT_EARTH:
-        this._rarity = Rarity.Poor;
-        this._itemType = ItemTypes.Accessory;
-        this._gold = 1200;
-        this._description = "土の残影を宿しているマジックライト。僅かに土のイメージが入り込んでくる。体＋３、土耐性５０";
-        this._strength = 0;
-        this._agility = 0;
-        this._intelligence = 0;
-        this._stamina = 3;
-        this._mind = 0;
-        this._resistEarthValue = 50;
-        break;
-
       case Fix.COPPERRING_TIGER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.Accessory;

@@ -2495,8 +2495,6 @@ public static partial class Fix
   public const string MAGICLIGHT_ICE = "マジックライト【氷】";
   public const string MAGICLIGHT_SHADOW = "マジックライト【闇】";
   public const string MAGICLIGHT_LIGHT = "マジックライト【聖】";
-  public const string MAGICLIGHT_WIND = "マジックライト【風】";
-  public const string MAGICLIGHT_EARTH = "マジックライト【土】";
 
   public const string COPPERRING_TIGER = "銅の腕輪『虎』";
   public const string COPPERRING_DORPHINE = "銅の腕輪『イルカ』";
