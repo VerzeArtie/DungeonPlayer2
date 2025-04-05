@@ -4256,7 +4256,7 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 20000;
         this._importantType = Important.None;
-        this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊効果】物理攻撃がヒットする度に、【風】ダメージが追加で発生する。";
+        this._description = "ガーラント王国に代々伝わる羽根つきの槍。高貴なる感覚と気品が宿っており、所持するものに勇気を与えてくれる。物理攻撃力９０～１２２、力＋１０、技＋１０　【特殊効果】物理攻撃がヒットする度に、戦闘速度が２％上昇する。";
         this._strength = 10;
         this._agility = 10;
         this._intelligence = 0;
