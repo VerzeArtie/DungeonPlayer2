@@ -5038,12 +5038,16 @@ public partial class Item
         this._itemValue2 = 0;
         this._gold = 17000;
         this._importantType = Important.None;
-        this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、風耐性３００、氷耐性３００、凍結耐性、沈黙耐性";
+        this._description = "古代賢者エーディルの一番弟子アランデルが愛用していた鎧。好戦的な行動を振る舞うものに確かな防御力を授ける。物理防御力９５、体＋１０、炎耐性３００、氷耐性３００、凍結耐性、沈黙耐性";
         this._strength = 0;
         this._agility = 0;
         this._intelligence = 0;
         this._stamina = 10;
         this._mind = 0;
+        this._resistFireValue = 300;
+        this._resistIceValue = 300;
+        this._resistFreeze = true;
+        this._resistSilence = true;
         break;
 
       case Fix.SMART_CROSS:
