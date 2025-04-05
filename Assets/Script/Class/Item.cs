@@ -4092,14 +4092,14 @@ public partial class Item
         this._itemType = ItemTypes.Accessory;
         this._gripType = GripTypes.None;
         this._gold = 8500;
-        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、出血耐性、風耐性１００、風属性の攻撃ダメージ＋５％";
+        this._description = "とある王国が栄えた時代、このサークレットを装着していた者が安定した支配で世界を治めていたと言われている。力＋１０、技＋１０、知＋１０、出血耐性、闇耐性１００、聖属性の攻撃ダメージ＋１０％";
         this._strength = 10;
         this._agility = 10;
         this._intelligence = 10;
         this._stamina = 0;
         this._mind = 0;
-        this._resistWindValue = 100;
-        this._amplifyWind = 1.05f;
+        this._resistShadowValue = 100;
+        this._amplifyLight = 1.10f;
         this._resistSlip = true;
         break;
 
