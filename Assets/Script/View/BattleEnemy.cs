@@ -10166,6 +10166,24 @@ public partial class BattleEnemy : MotherBase
       }
     }
 
+    // 疾風の剣による効果
+    if (player.IsEquip(Fix.AERO_BLADE))
+    {
+      Debug.Log("Equip " + Fix.AERO_BLADE + " call target skill");
+      int random = AP.Math.RandomInteger(100);
+      Debug.Log("Equip " + Fix.AERO_BLADE + " random " + random + " " + SecondaryLogic.AeroBlae_Effect(player));
+      if (random <= SecondaryLogic.AeroBlae_Effect(player))
+      {
+        double addDamageValue = SecondaryLogic.AeroBlae_Effect2(player);
+        Debug.Log("Equip " + Fix.AERO_BLADE + " Additional Damage " + addDamageValue.ToString());
+        ApplyDamage(player, target, addDamageValue, false, animation_speed);
+      }
+      else
+      {
+        Debug.Log("Equip " + Fix.AERO_BLADE + " no action");
+      }
+    }
+
     // ソード・オブ・ライフによる効果
     if (player.IsEquip(Fix.SWORD_OF_LIFE))
     {

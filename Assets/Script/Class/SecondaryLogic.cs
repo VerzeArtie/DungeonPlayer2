@@ -1391,6 +1391,15 @@ public static class SecondaryLogic
     return 30 + AP.Math.RandomInteger(40);
   }
 
+  public static double AeroBlae_Effect(Character player)
+  {
+    return 20;
+  }
+  public static double AeroBlae_Effect2(Character player)
+  {
+    return 30 + AP.Math.RandomInteger(40);
+  }
+
   public static double AshExcludeLance_Effect(Character player)
   {
     return 50 + AP.Math.RandomInteger(20);
