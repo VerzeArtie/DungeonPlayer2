@@ -10712,12 +10712,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FIREBALL);
     ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
   }
 
   private void ExecIceNeedle(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ICENEEDLE);
     bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -10729,12 +10731,14 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log(MethodBase.GetCurrentMethod());
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
+    One.PlaySoundEffect(Fix.SOUND_FRESH_HEAL);
     AbstractHealCommand(player, target, healValue, false);
   }
 
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SHADOW_BLAST);
     bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -10765,7 +10769,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecStraightSmash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-
+    One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
     ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
   }
 
