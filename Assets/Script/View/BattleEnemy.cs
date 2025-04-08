@@ -10786,6 +10786,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_LEG_STRIKE);
     bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -10806,12 +10807,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ENERGY_BOLT);
     ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
   }
 
   private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SHIElD_BASH);
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -10862,6 +10865,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecOracleCommand(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ORACLE_COMMAND);
     double effectValue = SecondaryLogic.OracleCommand(player);
     if (target.IsUltimateFlare)
     {

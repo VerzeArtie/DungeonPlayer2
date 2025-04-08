@@ -683,6 +683,10 @@ public static partial class Fix
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
   public const string SOUND_FRESH_HEAL = @"FreshHeal";
   public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
+  public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
+  public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
+  public const string SOUND_SHIElD_BASH = @"ShieldBash";
+  public const string SOUND_LEG_STRIKE = @"LegStrike";
 
   public const string SOUND_CELESTIAL_NOVA = @"CelestialNova";
   public const string SOUND_MAGIC_ATTACK = @"MagicAttack";
