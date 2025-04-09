@@ -10776,6 +10776,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_HUNTER_SHOT);
     bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -10831,12 +10832,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DISPEL_MAGIC);
     AbstractRemoveBuff(target, target.objBuffPanel, Fix.DISPEL_MAGIC, SecondaryLogic.DispelMagic_Value(player), Fix.BuffType.Positive);
   }
 
   private void ExecTrueSight(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_TRUE_SIGHT);
     AbstractAddBuff(target, target.objBuffPanel, Fix.TRUE_SIGHT, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), SecondaryLogic.TrueSight_Value(player), 0, 0);
   }
 

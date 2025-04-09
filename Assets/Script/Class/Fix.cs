@@ -687,6 +687,9 @@ public static partial class Fix
   public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_SHIElD_BASH = @"ShieldBash";
   public const string SOUND_LEG_STRIKE = @"LegStrike";
+  public const string SOUND_HUNTER_SHOT = @"HunterShot";
+  public const string SOUND_TRUE_SIGHT = @"TrueSight";
+  public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
 
   public const string SOUND_CELESTIAL_NOVA = @"CelestialNova";
   public const string SOUND_MAGIC_ATTACK = @"MagicAttack";
