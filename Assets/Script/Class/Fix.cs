@@ -677,14 +677,26 @@ public static partial class Fix
   #endregion
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
+  public const string SOUND_FLAMEBLADE = @"FlameBlade";
+
   public const string SOUND_ICENEEDLE = @"IceNeedle";
+  public const string SOUND_PURE_PURIFICATION = @"PurePurification";
+
+  public const string SOUND_FRESH_HEAL = @"FreshHeal";
+  public const string SOUND_DIVINE_CIRCLE = @"DivineCircle";
+
+  public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
+  public const string SOUND_BLOOD_SIGN = @"BloodSign";
+
+  public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
+  public const string SOUND_FORTUNE_SPIRIT = @"FortuneSpirit";
+
+  public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
+  public const string SOUND_FLASH_COUNTER = @"FlashCounter";
+
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
   public const string SOUND_SWORD_SLASH1 = @"SwordSlash1";
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
-  public const string SOUND_FRESH_HEAL = @"FreshHeal";
-  public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
-  public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
-  public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_SHIElD_BASH = @"ShieldBash";
   public const string SOUND_LEG_STRIKE = @"LegStrike";
   public const string SOUND_HUNTER_SHOT = @"HunterShot";

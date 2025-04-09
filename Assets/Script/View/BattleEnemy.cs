@@ -10884,12 +10884,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FLAMEBLADE);
     AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), SecondaryLogic.FlameBlade_BaseDamage(player), 0);
   }
 
   private void ExecPurePurification(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_PURE_PURIFICATION);
     double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
     AbstractHealCommand(player, target, healValue, false);
 
@@ -10898,6 +10900,9 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecDivineCircle(Character player, Character target, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DIVINE_CIRCLE);
+
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
     AbstractAddBuff(player, target_field_obj, Fix.DIVINE_CIRCLE, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
@@ -10906,6 +10911,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecBloodSign(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_BLOOD_SIGN);
     AbstractAddBuff(target, target.objBuffPanel, Fix.BLOOD_SIGN, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
   }
 
@@ -11031,6 +11037,9 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecFlashCounter(Character player, StackObject[] stack_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FLASH_COUNTER);
+
     if (stack_list.Length >= 2)
     {
       // FLASH_COUNTERがスタック先頭なので、一つ前を削除する。
@@ -11191,6 +11200,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FORTUNE_SPIRIT);
     AbstractAddBuff(target, target.objBuffPanel, Fix.FORTUNE_SPIRIT, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit_Effect1(player), 0, 0);
   }
 
