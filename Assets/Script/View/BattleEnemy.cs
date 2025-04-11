@@ -11150,6 +11150,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_BLADE);
     ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
 
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
@@ -11158,6 +11159,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecSpeedStep(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SPEED_STEP);
 
     bool success = ExecNormalAttack(player, target, SecondaryLogic.SpeedStepDamage(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
 
@@ -11168,12 +11170,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheGuard(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_GUARD);
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_GUARD, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
   }
 
   private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_MULTIPLE_SHOT);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
@@ -11182,6 +11186,9 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecLeylineSchema(Character player, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_LEYLINE_SCHEMA);
+
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
 
     AbstractAddBuff(player, target_field_obj, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(player), SecondaryLogic.LeylineSchema_Effect1(player), 0, 0);
@@ -11207,6 +11214,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecSpiritualRest(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_LEYLINE_SCHEMA);
     if (target.IsStun)
     {
       AbstractRemoveTargetBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_REMOVE_STUN);

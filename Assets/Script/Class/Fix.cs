@@ -694,14 +694,26 @@ public static partial class Fix
   public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_FLASH_COUNTER = @"FlashCounter";
 
+  public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
+  public const string SOUND_STANCE_OF_THE_BLADE = @"StanceoftheBlade";
+
+  public const string SOUND_SHIElD_BASH = @"ShieldBash";
+  public const string SOUND_STANCE_OF_THE_GUARD = @"StanceoftheGuard";
+
+  public const string SOUND_LEG_STRIKE = @"LegStrike";
+  public const string SOUND_SPEED_STEP = @"SpeedStep";
+
+  public const string SOUND_HUNTER_SHOT = @"HunterShot";
+  public const string SOUND_MULTIPLE_SHOT = @"MultipleShot";
+
+  public const string SOUND_TRUE_SIGHT = @"TrueSight";
+  public const string SOUND_LEYLINE_SCHEMA = @"LeylineSchema";
+
+  public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
+  public const string SOUND_SPIRITUAL_REST = @"SpiritualRest";
+
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
   public const string SOUND_SWORD_SLASH1 = @"SwordSlash1";
-  public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
-  public const string SOUND_SHIElD_BASH = @"ShieldBash";
-  public const string SOUND_LEG_STRIKE = @"LegStrike";
-  public const string SOUND_HUNTER_SHOT = @"HunterShot";
-  public const string SOUND_TRUE_SIGHT = @"TrueSight";
-  public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
 
   public const string SOUND_CELESTIAL_NOVA = @"CelestialNova";
   public const string SOUND_MAGIC_ATTACK = @"MagicAttack";
