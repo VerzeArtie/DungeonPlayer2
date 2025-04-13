@@ -11258,6 +11258,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecDoubleSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
     int totalCount = 2;
     for (int ii = 0; ii < totalCount; ii++)
     {
@@ -11270,6 +11271,8 @@ public partial class BattleEnemy : MotherBase
   #region "Delve III"
   private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
     int totalCount = SecondaryLogic.MeteorBullet_Effect1(player);
     for (int ii = 0; ii < totalCount; ii++)
     {
@@ -11281,6 +11284,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecBlueBullet(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_BLUE_BULLET);
     int totalCount = SecondaryLogic.BlueBullet_Effect1(player);
     for (int ii = 0; ii < totalCount; ii++)
     {
@@ -11292,6 +11297,7 @@ public partial class BattleEnemy : MotherBase
   public void ExecHolyBreath(Character player, List<Character> target_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
@@ -11301,6 +11307,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecBlackContract(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_BLACK_CONTRACT);
     AbstractAddBuff(player, player.objBuffPanel, Fix.BLACK_CONTRACT, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0, 0);
   }
 
@@ -11330,6 +11338,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_CONCUSSIVE_HIT);    
     bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -11361,16 +11371,21 @@ public partial class BattleEnemy : MotherBase
   public void ExecWordOfPower(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_WORD_OF_POWER);
     ExecMagicAttack(player, target, SecondaryLogic.WordOfPower(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_EYE_OF_THE_ISSHIN);
     AbstractAddBuff(player, player.objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin_Effect1(player), 0, 0);
   }
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_BONE_CRUSH);    
     bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -11510,6 +11525,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecSigilOfThePending(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_PENDING);    
     AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
   }
 
@@ -11526,6 +11543,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecVoiceOfVigor(Character player, List<Character> target_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_VOICE_OF_THE_VIGOR);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_VIGOR, Fix.VOICE_OF_VIGOR, SecondaryLogic.VoiceOfVigor_Turn(player), SecondaryLogic.VoiceOfVigor(player), 0, 0);
@@ -11535,6 +11554,8 @@ public partial class BattleEnemy : MotherBase
 
   public void ExecUnseenAid(Character player, List<Character> target_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_UNSEEN_AID);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       target_list[ii].objBuffPanel.RemoveAll(target_list[ii]);

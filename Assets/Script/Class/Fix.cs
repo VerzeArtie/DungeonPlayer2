@@ -678,39 +678,51 @@ public static partial class Fix
   #region "Sound File"
   public const string SOUND_FIREBALL = @"FireBall";
   public const string SOUND_FLAMEBLADE = @"FlameBlade";
-
+  public const string SOUND_METEOR_BULLET = @"MeteorBullet";
+  
   public const string SOUND_ICENEEDLE = @"IceNeedle";
   public const string SOUND_PURE_PURIFICATION = @"PurePurification";
+  public const string SOUND_BLUE_BULLET = @"BlueBullet";
 
   public const string SOUND_FRESH_HEAL = @"FreshHeal";
   public const string SOUND_DIVINE_CIRCLE = @"DivineCircle";
+  public const string SOUND_HOLY_BREATH = @"HolyBreath";
 
   public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
   public const string SOUND_BLOOD_SIGN = @"BloodSign";
+  public const string SOUND_BLACK_CONTRACT = @"BlackContract";
 
   public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
   public const string SOUND_FORTUNE_SPIRIT = @"FortuneSpirit";
+  public const string SOUND_WORD_OF_POWER = @"WordOfPower";
 
   public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_FLASH_COUNTER = @"FlashCounter";
-
+  public const string SOUND_SIGIL_OF_THE_PENDING = @"SigilOfThePending";
+  
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
   public const string SOUND_STANCE_OF_THE_BLADE = @"StanceoftheBlade";
+  public const string SOUND_DOUBLE_SLASH = @"DoubleSlash";
 
   public const string SOUND_SHIElD_BASH = @"ShieldBash";
   public const string SOUND_STANCE_OF_THE_GUARD = @"StanceoftheGuard";
+  public const string SOUND_CONCUSSIVE_HIT = @"ConcussiveHit";
 
   public const string SOUND_LEG_STRIKE = @"LegStrike";
   public const string SOUND_SPEED_STEP = @"SpeedStep";
+  public const string SOUND_BONE_CRUSH = @"BoneCrush";
 
   public const string SOUND_HUNTER_SHOT = @"HunterShot";
   public const string SOUND_MULTIPLE_SHOT = @"MultipleShot";
+  public const string SOUND_EYE_OF_THE_ISSHIN = @"EyeoftheIsshin";
 
   public const string SOUND_TRUE_SIGHT = @"TrueSight";
   public const string SOUND_LEYLINE_SCHEMA = @"LeylineSchema";
+  public const string SOUND_VOICE_OF_THE_VIGOR = @"VoiceoftheVigor";
 
   public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
   public const string SOUND_SPIRITUAL_REST = @"SpiritualRest";
+  public const string SOUND_UNSEEN_AID = @"UnseenAid";
 
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
   public const string SOUND_SWORD_SLASH1 = @"SwordSlash1";
@@ -762,7 +774,6 @@ public static partial class Fix
   public const string SOUND_FROZENLANCE = @"FrozenLance";
   public const string SOUND_SHARPNEL_NEEDLE = @"FrozenLance";
   public const string SOUND_WHITEOUT = @"Whiteout";
-  public const string SOUND_WORD_OF_POWER = @"WordOfPower";
   public const string SOUND_TIME_STOP = @"TimeStop";
   public const string SOUND_WARP_GATE = @"TimeStop";
   public const string SOUND_GENESIS = @"Genesis";
