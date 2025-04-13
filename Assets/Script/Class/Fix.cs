@@ -679,26 +679,32 @@ public static partial class Fix
   public const string SOUND_FIREBALL = @"FireBall";
   public const string SOUND_FLAMEBLADE = @"FlameBlade";
   public const string SOUND_METEOR_BULLET = @"MeteorBullet";
+  public const string SOUND_VOLCANIC_BLAZE = @"VolcanicBlaze";
   
   public const string SOUND_ICENEEDLE = @"IceNeedle";
   public const string SOUND_PURE_PURIFICATION = @"PurePurification";
   public const string SOUND_BLUE_BULLET = @"BlueBullet";
+  public const string SOUND_FREEZING_CUBE = @"FreezingCube";
 
   public const string SOUND_FRESH_HEAL = @"FreshHeal";
   public const string SOUND_DIVINE_CIRCLE = @"DivineCircle";
   public const string SOUND_HOLY_BREATH = @"HolyBreath";
-
+  public const string SOUND_ANGELIC_ECHO = @"AngelicEcho";
+  
   public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
   public const string SOUND_BLOOD_SIGN = @"BloodSign";
   public const string SOUND_BLACK_CONTRACT = @"BlackContract";
+  public const string SOUND_CURSED_EVANGILE = @"CursedEvangile";
 
   public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
   public const string SOUND_FORTUNE_SPIRIT = @"FortuneSpirit";
   public const string SOUND_WORD_OF_POWER = @"WordOfPower";
+  public const string SOUND_GALE_WIND = @"GaleWind";
 
   public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_FLASH_COUNTER = @"FlashCounter";
   public const string SOUND_SIGIL_OF_THE_PENDING = @"SigilOfThePending";
+  public const string SOUND_PHANTOM_OBORO = @"PhantomOboro";
   
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
   public const string SOUND_STANCE_OF_THE_BLADE = @"StanceoftheBlade";
@@ -818,7 +824,7 @@ public static partial class Fix
   public const string SOUND_23 = @"footstep";
   public const string SOUND_24 = @"FreshHeal";
   public const string SOUND_25 = @"FrozenLance";
-  public const string SOUND_26 = @"GaleWind";
+  //public const string SOUND_26 = @"GaleWind";
   public const string SOUND_27 = @"Genesis";
   public const string SOUND_28 = @"GetEpicItem";
   public const string SOUND_29 = @"GetRareItem";

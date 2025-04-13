@@ -11567,13 +11567,15 @@ public partial class BattleEnemy : MotherBase
   #region "Delve IV"
   public void ExecGaleWind(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_GALE_WIND);
     AbstractAddBuff(player, player.objBuffPanel, Fix.GALE_WIND, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0, 0);
   }
 
   public void ExecFreezingCube(Character player, Character target, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-
+    One.PlaySoundEffect(Fix.SOUND_FREEZING_CUBE);    
     if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
@@ -11585,6 +11587,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecVolcanicBlaze(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_VOLCANIC_BLAZE);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
@@ -11606,6 +11609,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecAngelicEcho(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ANGELIC_ECHO);    
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho(player);
@@ -11619,7 +11623,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecCursedEvangile(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-
+    One.PlaySoundEffect(Fix.SOUND_CURSED_EVANGILE);
     bool success = ExecMagicAttack(player, target, SecondaryLogic.CursedEvangile(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -11702,6 +11706,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecPhantomOboro(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_PHANTOM_OBORO);    
     AbstractAddBuff(player, player.objBuffPanel, Fix.PHANTOM_OBORO, Fix.PHANTOM_OBORO, SecondaryLogic.PhantomOboro_Turn(player), 0, 0, 0);
   }
 
