@@ -11598,6 +11598,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_IRON_BUSTER);    
     ExecNormalAttack(player, target, SecondaryLogic.IronBuster(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
@@ -11634,6 +11635,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecPenetrationArrow(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_PENETRATION_ARROW);
     bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
     if (success)
     {
@@ -11644,6 +11646,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecCircleOfTheSerenity(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_SERENITY);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_POISON, ""); // 猛毒は解除できない
@@ -11701,6 +11704,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecWillAwakening(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_WILL_AWAKENING);    
     AbstractAddBuff(target, target.objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, SecondaryLogic.WillAwakening_Turn(player), 0, 0, 0);
   }
 
@@ -11713,11 +11718,15 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecDeadlyDrive(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DEADLY_DRIVE);
     AbstractAddBuff(player, player.objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
   }
 
   private void ExecDominationField(Character player, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DOMINATION_FIELD);    
     AbstractAddBuff(player, target_field_obj, Fix.DOMINATION_FIELD, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
   }
   #endregion

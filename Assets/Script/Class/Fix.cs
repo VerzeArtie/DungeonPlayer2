@@ -709,27 +709,33 @@ public static partial class Fix
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
   public const string SOUND_STANCE_OF_THE_BLADE = @"StanceoftheBlade";
   public const string SOUND_DOUBLE_SLASH = @"DoubleSlash";
-
+  public const string SOUND_IRON_BUSTER = @"IronBuster";
+  
   public const string SOUND_SHIElD_BASH = @"ShieldBash";
   public const string SOUND_STANCE_OF_THE_GUARD = @"StanceoftheGuard";
   public const string SOUND_CONCUSSIVE_HIT = @"ConcussiveHit";
-
+  public const string SOUND_DOMINATION_FIELD = @"DominationField";
+  
   public const string SOUND_LEG_STRIKE = @"LegStrike";
   public const string SOUND_SPEED_STEP = @"SpeedStep";
   public const string SOUND_BONE_CRUSH = @"BoneCrush";
-
+  public const string SOUND_DEADLY_DRIVE = @"DeadlyDrive";
+  
   public const string SOUND_HUNTER_SHOT = @"HunterShot";
   public const string SOUND_MULTIPLE_SHOT = @"MultipleShot";
   public const string SOUND_EYE_OF_THE_ISSHIN = @"EyeoftheIsshin";
+  public const string SOUND_PENETRATION_ARROW = @"PenetrationArrow";
 
   public const string SOUND_TRUE_SIGHT = @"TrueSight";
   public const string SOUND_LEYLINE_SCHEMA = @"LeylineSchema";
   public const string SOUND_VOICE_OF_THE_VIGOR = @"VoiceoftheVigor";
-
+  public const string SOUND_WILL_AWAKENING = @"WillAwakening";
+  
   public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
   public const string SOUND_SPIRITUAL_REST = @"SpiritualRest";
   public const string SOUND_UNSEEN_AID = @"UnseenAid";
-
+  public const string SOUND_CIRCLE_OF_SERENITY = @"CircleofSerenity";
+  
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
   public const string SOUND_SWORD_SLASH1 = @"SwordSlash1";
 
