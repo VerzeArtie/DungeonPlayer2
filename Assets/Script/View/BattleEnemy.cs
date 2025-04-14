@@ -11062,6 +11062,8 @@ public partial class BattleEnemy : MotherBase
   private void ExecCounterDisallow(Character player, StackObject[] stack_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    One.PlaySoundEffect(Fix.SOUND_COUNTER_DISALLOW);
+    
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
@@ -11144,6 +11146,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecSeventhPrinciple(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SEVENTH_PRINCIPLE);
     AbstractAddBuff(target, target.objBuffPanel, Fix.SEVENTH_PRINCIPLE, Fix.SEVENTH_PRINCIPLE, SecondaryLogic.SeventhPrinciple_Turn(player), 0, 0, 0);
   }
 
@@ -11734,6 +11737,8 @@ public partial class BattleEnemy : MotherBase
   #region "Delve V"
   private void ExecFlameStrike(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FLAME_STRIKE);
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -11743,6 +11748,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecFrostLance(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FROST_LANCE);
     bool success = ExecMagicAttack(player, target, SecondaryLogic.FrostLance(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
     if (success)
     {
@@ -11753,6 +11760,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecShiningHeal(Character player, Character target, Fix.CriticalType critical, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SHINING_HEAL);
     double healValue = target.MaxLife;
     AbstractHealCommand(player, target, healValue, false);
     AbstractAddBuff(target, target_field_obj, Fix.SHINING_HEAL, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
@@ -11760,6 +11768,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecCircleOfTheDespair(Character player, Character target, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_DESPAIR);    
     AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_DESPAIR, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
   }
   #endregion
