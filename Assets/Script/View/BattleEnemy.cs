@@ -11101,6 +11101,9 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecHardestParry(Character player, StackObject[] stack_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + "(S)");
+    One.PlaySoundEffect(Fix.SOUND_HARDEST_PARRY);
+    
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
@@ -11134,11 +11137,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecEverflowMind(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_EVERFLOW_MIND);
     AbstractAddBuff(target, target.objBuffPanel, Fix.EVERFLOW_MIND, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
   }
 
   private void ExecInnerInspiration(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_INNER_INSPIRATION);    
     double effectValue = SecondaryLogic.InnerInspiration_Effect1(player) * target.MaxSkillPoint;
     AbstractGainSkillPoint(player, target, effectValue);
   }
@@ -11451,6 +11457,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecPlayUnintentionalHit()
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_UNINTENTIONAL_HIT);
     if (this.NowUnintentionalHitCounter > 0)
     {
       // プレイヤーのゲージを進める
@@ -11674,6 +11682,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_RAGING_STORM);    
     for (int jj = 0; jj < 2; jj++)
     {
       for (int ii = 0; ii < target_list.Count; ii++)
@@ -11687,6 +11696,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecPrecisionStrike(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_PRECISION_STRIKE);
     ExecNormalAttack(player, target, SecondaryLogic.PrecisionStrike(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, Fix.CriticalType.Absolute);
   }
 
