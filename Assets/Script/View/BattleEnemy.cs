@@ -11234,6 +11234,9 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecZeroImmunity(Character player, StackObject[] stack_list)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ZERO_IMMUNITY);
+    
     if (stack_list.Length >= 2)
     {
       int num = stack_list.Length - 2;
@@ -11787,59 +11790,81 @@ public partial class BattleEnemy : MotherBase
   #region "Delve VI"
   private void ExecCircleOfTheIgnite(Character player, Character target, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_IGNITE);
     double effectValue = player.TotalIntelligence * SecondaryLogic.CircleOfTheIgnite_Effect(player);
     AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_IGNITE, Fix.BUFF_CIRCLE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
   }
 
   private void ExecWaterPresence(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_WATER_PRESENCE);
     AbstractAddBuff(target, target.objBuffPanel, Fix.WATER_PRESENCE, Fix.BUFF_WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
   }
 
   private void ExecValkyrieBlade(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_VALKYRIE_BLADE);
     AbstractAddBuff(target, target.objBuffPanel, Fix.VALKYRIE_BLADE, Fix.BUFF_VALKYRIE_BLADE, SecondaryLogic.ValkyrieBlade_Turn(player), 0, 0, 0);
   }
 
   private void ExecTheDarkIntensity(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_THE_DARK_INTENSITY);
     ExecLifeDown(target, 0.50f);
     AbstractAddBuff(target, target.objBuffPanel, Fix.THE_DARK_INTENSITY, Fix.BUFF_DARK_INTENSITY_JP, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
   }
 
   private void ExecFutureVision(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_FUTURE_VISION);    
     AbstractAddBuff(player, player.objBuffPanel, Fix.FUTURE_VISION, Fix.BUFF_FUTURE_VISION_JP, SecondaryLogic.FutureVision_Turn(player), 0, 0, 0);
   }
 
   private void ExecDetachmentFault(Character player, Character target, BuffField player_field_obj, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DETACHMENT_FAULT);
     AbstractAddBuff(player, player_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
     AbstractAddBuff(target, target_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
   }
 
   private void ExecStanceoftheIai(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_IAI);
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_IAI, Fix.BUFF_STANCE_OF_THE_IAI_JP, SecondaryLogic.StanceoftheIai_Turn(player), SecondaryLogic.StanceoftheIai_Effect(player), SecondaryLogic.StanceoftheIai_Effect2(player), 0);
   }
 
   private void ExecOneImmunity(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ONE_IMMUNITY);
     AbstractAddBuff(player, player.objBuffPanel, Fix.ONE_IMMUNITY, Fix.BUFF_ONE_IMMUNITY_JP, SecondaryLogic.OneImmunity_Turn(player), 0, 0, 0);
   }
 
   private void ExecStanceofMuin(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_MUIN);
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_MUIN, Fix.BUFF_STANCE_OF_MUIN_JP, SecondaryLogic.StanceofMuin_Turn(player), SecondaryLogic.StanceofMuin_Effect(player), 0, 0);
   }
 
   private void ExecEternalConcentration(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ETERNAL_CONCENTRATION);
     AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_CONCENTRATION, Fix.BUFF_ETERNAL_CONCENTRATION_JP, SecondaryLogic.EternalConcentration_Turn(player), SecondaryLogic.EternalConcentration_Effect(player), 0, 0);
   }
 
   private void ExecSigiloftheFaith(Character player, Character target, BuffField player_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_FAITH);
     AbstractAddBuff(player, player_field_obj, Fix.SIGIL_OF_THE_FAITH, Fix.BUFF_SIGIL_OF_THE_FAITH_JP, SecondaryLogic.SigilOfTheFaith_Turn(player), SecondaryLogic.SigilOfTheFaith_Effect(player), 0, 0);
     List<Character> player_list = GetAllyGroupAlive(player);
     for (int ii = 0; ii < player_list.Count; ii++)

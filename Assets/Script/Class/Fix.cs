@@ -681,72 +681,84 @@ public static partial class Fix
   public const string SOUND_METEOR_BULLET = @"MeteorBullet";
   public const string SOUND_VOLCANIC_BLAZE = @"VolcanicBlaze";
   public const string SOUND_FLAME_STRIKE = @"FlameStrike";
+  public const string SOUND_CIRCLE_OF_THE_IGNITE = @"CircleofTheIgnite";
 
   public const string SOUND_ICENEEDLE = @"IceNeedle";
   public const string SOUND_PURE_PURIFICATION = @"PurePurification";
   public const string SOUND_BLUE_BULLET = @"BlueBullet";
   public const string SOUND_FREEZING_CUBE = @"FreezingCube";
   public const string SOUND_FROST_LANCE = @"FrostLance";
+  public const string SOUND_WATER_PRESENCE = @"WaterPresence";
   
   public const string SOUND_FRESH_HEAL = @"FreshHeal";
   public const string SOUND_DIVINE_CIRCLE = @"DivineCircle";
   public const string SOUND_HOLY_BREATH = @"HolyBreath";
   public const string SOUND_ANGELIC_ECHO = @"AngelicEcho";
   public const string SOUND_SHINING_HEAL = @"ShiningHeal";
+  public const string SOUND_VALKYRIE_BLADE = @"ValkyrieBlade";
   
   public const string SOUND_SHADOW_BLAST = @"ShadowBlast";
   public const string SOUND_BLOOD_SIGN = @"BloodSign";
   public const string SOUND_BLACK_CONTRACT = @"BlackContract";
   public const string SOUND_CURSED_EVANGILE = @"CursedEvangile";
   public const string SOUND_CIRCLE_OF_THE_DESPAIR = @"CircleoftheDespair";
+  public const string SOUND_THE_DARK_INTENSITY = @"TheDarkIntensity";
   
   public const string SOUND_ORACLE_COMMAND = @"OracleCommand";
   public const string SOUND_FORTUNE_SPIRIT = @"FortuneSpirit";
   public const string SOUND_WORD_OF_POWER = @"WordOfPower";
   public const string SOUND_GALE_WIND = @"GaleWind";
   public const string SOUND_SEVENTH_PRINCIPLE = @"SeventhPrinciple";
+  public const string SOUND_FUTURE_VISION = @"FutureVision";
 
   public const string SOUND_ENERGY_BOLT = @"EnergyBolt";
   public const string SOUND_FLASH_COUNTER = @"FlashCounter";
   public const string SOUND_SIGIL_OF_THE_PENDING = @"SigilOfThePending";
   public const string SOUND_PHANTOM_OBORO = @"PhantomOboro";
   public const string SOUND_COUNTER_DISALLOW = @"CounterDisallow";
+  public const string SOUND_DETACHMENT_FAULT = @"DetachmentFault";
   
   public const string SOUND_STRAIGHT_SMASH = @"StraightSmash";
   public const string SOUND_STANCE_OF_THE_BLADE = @"StanceoftheBlade";
   public const string SOUND_DOUBLE_SLASH = @"DoubleSlash";
   public const string SOUND_IRON_BUSTER = @"IronBuster";
   public const string SOUND_RAGING_STORM = @"RagingStorm";
+  public const string SOUND_STANCE_OF_IAI = @"StanceofTheIai";
 
   public const string SOUND_SHIElD_BASH = @"ShieldBash";
   public const string SOUND_STANCE_OF_THE_GUARD = @"StanceoftheGuard";
   public const string SOUND_CONCUSSIVE_HIT = @"ConcussiveHit";
   public const string SOUND_DOMINATION_FIELD = @"DominationField";
   public const string SOUND_HARDEST_PARRY = @"HardestParry";
+  public const string SOUND_ONE_IMMUNITY = @"OneImmunity";
   
   public const string SOUND_LEG_STRIKE = @"LegStrike";
   public const string SOUND_SPEED_STEP = @"SpeedStep";
   public const string SOUND_BONE_CRUSH = @"BoneCrush";
   public const string SOUND_DEADLY_DRIVE = @"DeadlyDrive";
   public const string SOUND_UNINTENTIONAL_HIT = @"UnintentionalHit";
-
+  public const string SOUND_STANCE_OF_MUIN = @"StanceOfMuin";
+  
   public const string SOUND_HUNTER_SHOT = @"HunterShot";
   public const string SOUND_MULTIPLE_SHOT = @"MultipleShot";
   public const string SOUND_EYE_OF_THE_ISSHIN = @"EyeoftheIsshin";
   public const string SOUND_PENETRATION_ARROW = @"PenetrationArrow";
   public const string SOUND_PRECISION_STRIKE = @"PrecisionStrike";
-
+  public const string SOUND_ETERNAL_CONCENTRATION = @"EternalConcentration";
+  
   public const string SOUND_TRUE_SIGHT = @"TrueSight";
   public const string SOUND_LEYLINE_SCHEMA = @"LeylineSchema";
   public const string SOUND_VOICE_OF_THE_VIGOR = @"VoiceoftheVigor";
   public const string SOUND_WILL_AWAKENING = @"WillAwakening";
   public const string SOUND_EVERFLOW_MIND = @"EverflowMind";
+  public const string SOUND_SIGIL_OF_THE_FAITH = @"SigilofTheFaith";
   
   public const string SOUND_DISPEL_MAGIC = @"DispelMagic";
   public const string SOUND_SPIRITUAL_REST = @"SpiritualRest";
   public const string SOUND_UNSEEN_AID = @"UnseenAid";
   public const string SOUND_CIRCLE_OF_SERENITY = @"CircleofSerenity";
   public const string SOUND_INNER_INSPIRATION = @"InnerInspiration";
+  public const string SOUND_ZERO_IMMUNITY = @"ZeroImmunity";
   
   public const string SOUND_ENEMY_ATTACK1 = @"EnemyAttack1";
   public const string SOUND_SWORD_SLASH1 = @"SwordSlash1";
@@ -767,7 +779,7 @@ public static partial class Fix
   public const string SOUND_PIERCING_FLAME = @"FireBall";
   public const string SOUND_DEMONIC_IGNITE = @"FireBall";
   public const string SOUND_VORTEX_FIELD = @"DispelMagic";
-  public const string SOUND_GLORY = @"Glory";
+  //public const string SOUND_GLORY = @"Glory";
   public const string SOUND_STATIC_BARRIER = @"Glory";
   public const string SOUND_NOURISH_SENSE = @"WordOfLife";
   public const string SOUND_LIFE_TAP = @"LifeTap";
@@ -862,7 +874,7 @@ public static partial class Fix
   public const string SOUND_43 = @"MagicAttack";
   public const string SOUND_44 = @"MirrorImage";
   public const string SOUND_45 = @"NothingOfNothingness";
-  public const string SOUND_46 = @"OneImmunity";
+  //public const string SOUND_46 = @"OneImmunity";
   public const string SOUND_47 = @"PainfulInsanity";
   public const string SOUND_48 = @"PromisedKnowledge";
   public const string SOUND_49 = @"Protection";
@@ -878,7 +890,7 @@ public static partial class Fix
   public const string SOUND_60 = @"StraightSmash";
   public const string SOUND_61 = @"SwordSlash1";
   public const string SOUND_62 = @"TimeStop";
-  public const string SOUND_63 = @"Tranquility";
+  //public const string SOUND_63 = @"Tranquility";
   public const string SOUND_64 = @"TruthVision";
   public const string SOUND_65 = @"VoidExtraction";
   public const string SOUND_66 = @"VolcanicWave";
