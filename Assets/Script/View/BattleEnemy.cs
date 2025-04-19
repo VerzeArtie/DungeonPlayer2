@@ -11879,6 +11879,7 @@ public partial class BattleEnemy : MotherBase
   private void ExecLavaAnnihilation(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_LAVA_ANNIHILATION);
     for (int ii = 0; ii < target_list.Count; ii++)
     {
       ExecMagicAttack(player, target_list[ii], SecondaryLogic.LavaAnnihilation(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
@@ -11887,6 +11888,8 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecAbsoluteZero(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_ABSOLUTE_ZERO);
     if (player.IsAbsoluteZero) { return; } // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。 
 
     AbstractAddBuff(target, target.objBuffPanel, Fix.ABSOLUTE_ZERO, Fix.BUFF_ABSOLUTE_ZERO_JP, SecondaryLogic.AbsoluteZero_Turn(player), 0, 0, 0);
@@ -11894,21 +11897,29 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecResurrection(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.RESURRECTION);
     AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
   }
 
   private void ExecDeathScythe(Character player, Character target, BuffField target_field_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_DEATH_SCYTHE);
     AbstractAddBuff(target, target_field_obj, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, SecondaryLogic.DeathScythe_Turn(player), SecondaryLogic.DeathScythe_Effect(player), 0, 0);
   }
 
   private void ExecGenesis(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_GENESIS); // ただし、すぐ前回行動が行われるので音は書き消されてしまう。音を2つ鳴らす方が良いかどうかは検討
     ExecBeforeAttackPhase(player, false);
   }
 
   private void ExecTimeStop(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_TIME_STOP);
     // One.PlaySoundEffect("TimeStop");
     if (player.CurrentTimeStopValue <= 0) // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。
     {
@@ -11919,24 +11930,35 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_KINETIC_SMASH);
     ExecNormalAttack(player, target, SecondaryLogic.KineticSmash_Effect(player), Fix.DamageSource.PhysicalMixed, Fix.IgnoreType.None, critical);
   }
 
   private void ExecCatastrophe(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_CATASTROPHE);
     ExecNormalAttack(player, target, SecondaryLogic.Catastrophe(player), Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical);
   }
 
   private void ExecCarnageRush(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
     for (int ii = 0; ii < SecondaryLogic.CarnageRush_Count(player); ii++)
     {
+      // 連続攻撃が分離化されてないので音が連続でなったように聞こえない。要修正か。（プログラムロジックも変更要）
+      if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { One.PlaySoundEffect(Fix.SOUND_HIT_01); }
+      else { One.PlaySoundEffect(Fix.SOUND_HIT_02); }
+
       ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
   private void ExecPiercingArrow(Character player, Character target, Fix.CriticalType critical)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_PIERCING_ARROW);
     bool success = ExecNormalAttack(player, target, SecondaryLogic.PiercingArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
     if (success)
     {
@@ -11949,11 +11971,15 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecStanceoftheKokoroe(Character player)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_KOKOROE);
     AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_KOKOROE, Fix.BUFF_STANCE_OF_THE_KOKOROE_JP, SecondaryLogic.StanceoftheKokoroe_Turn(player), 0, 0, 0);
   }
 
   private void ExecTranscendenceReached(Character player, Character target)
   {
+    Debug.Log(MethodBase.GetCurrentMethod());
+    One.PlaySoundEffect(Fix.SOUND_TRANSCENDENCE_REACHED);
     // 負のBUFFがあればそれを削除する。
     // [ Abstract化してもよい ]
     BuffImage[] buffList = target.objBuffPanel.GetComponentsInChildren<BuffImage>();
