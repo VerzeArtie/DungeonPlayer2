@@ -2928,10 +2928,26 @@ public partial class BattleEnemy : MotherBase
     {
       #region "一般"
       case Fix.NORMAL_ATTACK:
+        if (player.IsEnemy)
+        {
+          One.PlaySoundEffect(Fix.SOUND_ENEMY_ATTACK1);
+        }
+        else
+        {
+          One.PlaySoundEffect(Fix.SOUND_SWORD_SLASH1);
+        }
         ExecNormalAttack(player, target, SecondaryLogic.NormalAttack(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
         break;
 
       case Fix.MAGIC_ATTACK:
+        if (player.IsEnemy)
+        {
+          One.PlaySoundEffect(Fix.SOUND_ENEMY_ATTACK1);
+        }
+        else
+        {
+          One.PlaySoundEffect(Fix.SOUND_MAGIC_ATTACK);
+        }
         ExecMagicAttack(player, target, SecondaryLogic.MagicAttack(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
         break;
 
