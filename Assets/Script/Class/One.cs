@@ -267,6 +267,62 @@ public static class One
     SQL = objSQL.AddComponent<ControlSQL>();
     SQL.SetupSql();
 
+    // Config
+    try
+    {
+      XmlDocument xmlConfig = new XmlDocument();
+      xmlConfig.Load(One.PathForRootFile(Fix.GameSettingFileName));
+
+      Type typeCONF = One.CONF.GetType();
+      foreach (PropertyInfo pi in typeCONF.GetProperties())
+      {
+        if (pi.PropertyType == typeof(System.Int32))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToInt32(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.String))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, (xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Double))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToDouble(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Single))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToSingle(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+        else if (pi.PropertyType == typeof(System.Boolean))
+        {
+          try
+          {
+            pi.SetValue(One.CONF, Convert.ToBoolean(xmlConfig.GetElementsByTagName(pi.Name)[0].InnerText), null);
+          }
+          catch { }
+        }
+      }
+    }
+    catch (Exception ex)
+    {
+      Debug.Log("Title Exception: " + ex.ToString());
+    }
+
     TF.AvailableEinWolence = true;
     TF.AvailableLanaAmiria = true;
 
@@ -1225,6 +1281,7 @@ public static class One
   #region "BGM再生と効果音関連"
   public static void PlaySoundEffect(string soundName)
   {
+    Debug.Log("Conf EnableSoundEffect: " + One.CONF.EnableSoundEffect);
     //if (GroundOne.EnableSoundEffect > 0.0f)
     {
       soundSource.clip = Resources.Load<AudioClip>(Fix.BaseSoundFolder + soundName);
