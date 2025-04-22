@@ -110,6 +110,7 @@ public partial class BattleEnemy : MotherBase
   public GameObject btnCancelSelect;
 
   public GameObject GroupStackInTheCommand;
+  public GameObject GroupNormalStack;
   public GameObject GroupAnimation;
 
   public GameObject GroupArchetectAnimation;
@@ -174,6 +175,7 @@ public partial class BattleEnemy : MotherBase
   public Button NowSelectActionDstButton = null;
 
   protected bool NowStackInTheCommand = false;
+  protected bool NowNormalStack = false;
 
   protected bool NowAnimationArchetect;
   protected int AnimationArchetectProgress;
@@ -1275,6 +1277,14 @@ public partial class BattleEnemy : MotherBase
     LogicInvalidate();
     #endregion
 
+    #region "ノーマルスタックを実行中。この間、時間を進めない"
+    if (NowNormalStack)
+    {
+      ExecNormalStack();
+      return;
+    }
+    #endregion
+
     #region "スタックインザコマンドを実行中。この間、時間を進めない"
     if (NowStackInTheCommand)
     {
@@ -2237,6 +2247,30 @@ public partial class BattleEnemy : MotherBase
 
     this.NowStackInTheCommand = true;
     GroupStackInTheCommand.SetActive(true);
+  }
+
+  private void CreateNormalStackObject(Character player, Character target, string command_name, StackObject stack_obj)
+  {
+    stack_obj.transform.SetParent(GroupNormalStack.transform);
+    stack_obj.name = "NormalStackPanel";
+    RectTransform rect = stack_obj.GetComponent<RectTransform>();
+    rect.sizeDelta = new Vector2(0, 0);
+    rect.localPosition = new Vector3(0, 0);
+    rect.anchoredPosition = new Vector2(0, 0);
+    rect.anchorMin = new Vector2(0, 0);
+    rect.anchorMax = new Vector2(1, 1);
+    if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally)
+    {
+      stack_obj.ConstructStack(player, player.Target2, command_name, 0, 0);
+    }
+    else
+    {
+      stack_obj.ConstructStack(player, target, command_name, 0, 0);
+    }
+    stack_obj.gameObject.SetActive(true);
+
+    this.NowNormalStack = true;
+    //GroupNormalStack.SetActive(true);
   }
 
   private void LogicInvalidate()
@@ -8099,6 +8133,32 @@ public partial class BattleEnemy : MotherBase
     }
   }
 
+  private void ExecNormalStack()
+  {
+    // スタックが無くなれば、終了とする。
+    StackObject[] stackList = GroupNormalStack.GetComponentsInChildren<StackObject>();
+    if (stackList.Length <= 0)
+    {
+      this.NowNormalStack = false;
+      //GroupNormalStack.SetActive(false);
+      return;
+    }
+
+    // スタックコマンドを実行する。
+    int num = 0;
+    if (ActionCommand.IsTarget(stackList[num].StackName) == ActionCommand.TargetType.Ally)
+    {
+      ExecCommandFromNormalStack(stackList[num].Player, stackList[num].Player.Target2, stackList[num].StackName, stackList[num]);
+    }
+    else
+    {
+      ExecCommandFromNormalStack(stackList[num].Player, stackList[num].Target, stackList[num].StackName, stackList[num]);
+    }
+
+    Destroy(stackList[num]);
+    stackList[num] = null;
+  }
+
   /// <summary>
   /// プレイヤーの行動ゲージを更新します。
   /// </summary>
@@ -11286,12 +11346,24 @@ public partial class BattleEnemy : MotherBase
   private void ExecDoubleSlash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
     int totalCount = 2;
     for (int ii = 0; ii < totalCount; ii++)
     {
-      ExecNormalAttack(player, target, SecondaryLogic.DoubleSlash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical, ANIMATION_TIME_HALF);
-      this.GlobalAnimationChain++;
+      StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+      stack.Magnify = SecondaryLogic.DoubleSlash(player);
+      stack.DamageSource = Fix.DamageSource.Physical;
+      stack.IgnoreType = Fix.IgnoreType.None;
+      stack.CriticalType = critical;
+      stack.AnimationSpeed = ANIMATION_TIME_HALF;
+      CreateNormalStackObject(player, target, Fix.DOUBLE_SLASH, stack);
+    }
+  }
+  private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
+  {
+    if (command_name == Fix.DOUBLE_SLASH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
+      ExecNormalAttack(player, target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
   }
   #endregion

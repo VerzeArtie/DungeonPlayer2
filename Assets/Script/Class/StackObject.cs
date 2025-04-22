@@ -43,6 +43,42 @@ public class StackObject : MonoBehaviour
     set { _target = value; }
   }
 
+  // 全てのコマンドの要素としてあり得る値を列挙し続ける箇所
+  [SerializeField] protected double _magnify = 0.0f;
+  public double Magnify
+  {
+    get { return _magnify; }
+    set { _magnify = value; }
+  }
+
+  [SerializeField] protected Fix.DamageSource _damageSource = Fix.DamageSource.None;
+  public Fix.DamageSource DamageSource
+  {
+    get { return _damageSource; }
+    set { _damageSource = value; }
+  }
+
+  [SerializeField] protected Fix.IgnoreType _ignoreType = Fix.IgnoreType.None;
+  public Fix.IgnoreType IgnoreType
+  {
+    get { return _ignoreType; }
+    set { _ignoreType = value; }
+  }
+
+  [SerializeField] protected Fix.CriticalType _criticalType = Fix.CriticalType.None;
+  public Fix.CriticalType CriticalType
+  {
+    get { return _criticalType; }
+    set { _criticalType = value; }
+  }
+
+  [SerializeField] protected int _animationSpeed = 40;
+  public int AnimationSpeed
+  {
+    get { return _animationSpeed; }
+    set { _animationSpeed = value; }
+  }
+
   public Image background;
   public Text txtStackName;
   public Text txtStackTarget;
