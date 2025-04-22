@@ -8159,6 +8159,15 @@ public partial class BattleEnemy : MotherBase
     stackList[num] = null;
   }
 
+  private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
+  {
+    if (command_name == Fix.DOUBLE_SLASH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
+      ExecNormalAttack(player, target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
+  }
+
   /// <summary>
   /// プレイヤーの行動ゲージを更新します。
   /// </summary>
@@ -11375,14 +11384,6 @@ public partial class BattleEnemy : MotherBase
       stack.CriticalType = critical;
       stack.AnimationSpeed = ANIMATION_TIME_HALF;
       CreateNormalStackObject(player, target, Fix.DOUBLE_SLASH, stack);
-    }
-  }
-  private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
-  {
-    if (command_name == Fix.DOUBLE_SLASH)
-    {
-      One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
-      ExecNormalAttack(player, target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
   }
   #endregion
