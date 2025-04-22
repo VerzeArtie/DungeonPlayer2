@@ -8283,6 +8283,12 @@ public partial class BattleEnemy : MotherBase
   {
     Debug.Log("TapPlayerMainButton: " + sender.name);
 
+    if (this.NowNormalStack)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " NowNormalStack, then no action.");
+      return;
+    }
+
     // 最初はターゲット元の指定に応じる
     if (this.NowSelectTarget == false)
     {
@@ -8563,6 +8569,13 @@ public partial class BattleEnemy : MotherBase
   /// </summary>
   public void TapMainAction(NodeActionCommand sender)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + ": " + sender.name);
+    if (this.NowNormalStack)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " NowNormalStack, then no action.");
+      return;
+    }
+
     // 対象元を検索する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
     {
@@ -8681,6 +8694,12 @@ public partial class BattleEnemy : MotherBase
   public void TapInstantAction(NodeActionCommand sender)
   {
     Debug.Log(MethodBase.GetCurrentMethod() + " " +sender.CommandName);
+
+    if (this.NowNormalStack)
+    {
+      Debug.Log(MethodBase.GetCurrentMethod() + " NowNormalStack, then no action.");
+      return;
+    }
 
     // 対象元を検索する。
     for (int ii = 0; ii < PlayerList.Count; ii++)
