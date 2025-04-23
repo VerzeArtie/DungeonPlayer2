@@ -8171,6 +8171,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
       ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.BLUE_BULLET)
+    {
+      One.PlaySoundEffect(Fix.SOUND_BLUE_BULLET);
+      ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
   }
 
   /// <summary>
@@ -11416,12 +11421,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecBlueBullet(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_BLUE_BULLET);
     int totalCount = SecondaryLogic.BlueBullet_Effect1(player);
     for (int ii = 0; ii < totalCount; ii++)
     {
-      ExecMagicAttack(player, target, SecondaryLogic.BlueBullet(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical, ANIMATION_TIME_SHORT);
-      this.GlobalAnimationChain++;
+      StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+      stack.Magnify = SecondaryLogic.BlueBullet(player);
+      stack.DamageSource = Fix.DamageSource.Ice;
+      stack.IgnoreType = Fix.IgnoreType.None;
+      stack.CriticalType = critical;
+      stack.AnimationSpeed = ANIMATION_TIME_SHORT;
+      CreateNormalStackObject(player, target, Fix.BLUE_BULLET, stack);
     }
   }
 
