@@ -8166,6 +8166,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
       ExecNormalAttack(player, target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.METEOR_BULLET)
+    {
+      One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
+      ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
   }
 
   /// <summary>
@@ -11392,13 +11397,19 @@ public partial class BattleEnemy : MotherBase
   private void ExecMeteorBullet(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
+
     int totalCount = SecondaryLogic.MeteorBullet_Effect1(player);
     for (int ii = 0; ii < totalCount; ii++)
     {
+      StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+      stack.Magnify = SecondaryLogic.MeteorBullet(player);
+      stack.DamageSource = Fix.DamageSource.Fire;
+      stack.IgnoreType = Fix.IgnoreType.None;
+      stack.CriticalType = critical;
+      stack.AnimationSpeed = ANIMATION_TIME_SHORT;
+
       int rand = AP.Math.RandomInteger(target_list.Count);
-      ExecMagicAttack(player, target_list[rand], SecondaryLogic.MeteorBullet(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical, ANIMATION_TIME_SHORT);
-      this.GlobalAnimationChain++;
+      CreateNormalStackObject(player, target_list[rand], Fix.METEOR_BULLET, stack);
     }
   }
 
