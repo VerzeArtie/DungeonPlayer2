@@ -12137,12 +12137,6 @@ public partial class BattleEnemy : MotherBase
       if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { stack.SequenceNumber = 0; }
       else { stack.SequenceNumber = 1; }
       CreateNormalStackObject(Fix.CARNAGE_RUSH, stack);
-
-      // 連続攻撃が分離化されてないので音が連続でなったように聞こえない。要修正か。（プログラムロジックも変更要）
-      //if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { One.PlaySoundEffect(Fix.SOUND_HIT_01); }
-      //else { One.PlaySoundEffect(Fix.SOUND_HIT_02); }
-
-      //ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
