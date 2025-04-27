@@ -8161,21 +8161,35 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
   {
-    if (command_name == Fix.DOUBLE_SLASH)
+    if (command_name == Fix.FIRE_BALL)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FIREBALL);
+      ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
+    else if (command_name == Fix.ICE_NEEDLE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ICENEEDLE);
+      bool success = ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
+    else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
-      ExecNormalAttack(player, target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
       int rand = AP.Math.RandomInteger(stack_obj.TargetList.Count);
-      ExecMagicAttack(player, stack_obj.TargetList[rand], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      ExecMagicAttack(stack_obj.Player, stack_obj.TargetList[rand], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
     else if (command_name == Fix.BLUE_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_BLUE_BULLET);
-      ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
     else if (command_name == Fix.RAGING_STORM)
     {
@@ -8184,12 +8198,12 @@ public partial class BattleEnemy : MotherBase
         One.PlaySoundEffect(Fix.SOUND_RAGING_STORM);
         for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
         {
-          ExecNormalAttack(player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+          ExecNormalAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
         }
       }
       else if (stack_obj.SequenceNumber == 1)
       {
-        AbstractAddBuff(player, stack_obj.TargetField, Fix.RAGING_STORM, Fix.RAGING_STORM, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+        AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, Fix.RAGING_STORM, Fix.RAGING_STORM, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
     else if (command_name == Fix.CARNAGE_RUSH)
@@ -10854,19 +10868,36 @@ public partial class BattleEnemy : MotherBase
   private void ExecFireBall(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FIREBALL);
-    ExecMagicAttack(player, target, SecondaryLogic.FireBall(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.FireBall(player);
+    stack.DamageSource = Fix.DamageSource.Fire;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.FIRE_BALL, stack);
   }
 
   private void ExecIceNeedle(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ICENEEDLE);
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.IceNeedle(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.ICE_NEEDLE, Fix.ICE_NEEDLE, SecondaryLogic.IceNeedle_Turn(player), SecondaryLogic.IceNeedle_Value(player), 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.IceNeedle(player);
+    stack.DamageSource = Fix.DamageSource.Ice;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.ICE_NEEDLE;
+    stack.ViewBuffName = Fix.ICE_NEEDLE;
+    stack.Effect1 = SecondaryLogic.IceNeedle_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.ICE_NEEDLE, stack);
   }
 
   private void ExecFreshHeal(Character player, Character target)

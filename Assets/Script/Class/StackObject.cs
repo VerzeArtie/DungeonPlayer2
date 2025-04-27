@@ -93,6 +93,20 @@ public class StackObject : MonoBehaviour
     set { _animationSpeed = value; }
   }
 
+  [SerializeField] protected string _buff_name = string.Empty;
+  public string BuffName
+  {
+    get { return _buff_name; }
+    set { _buff_name = value; }
+  }
+
+  [SerializeField] protected string _view_buff_name = string.Empty;
+  public string ViewBuffName
+  {
+    get { return _view_buff_name; }
+    set { _view_buff_name = value; }
+  }
+
   [SerializeField] protected int _turn = 0;
   public int Turn
   {
