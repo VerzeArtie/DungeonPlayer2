@@ -8192,6 +8192,18 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(player, stack_obj.TargetField, Fix.RAGING_STORM, Fix.RAGING_STORM, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.CARNAGE_RUSH)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_HIT_01);
+      }
+      else
+      {
+        One.PlaySoundEffect(Fix.SOUND_HIT_02);
+      }
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
   }
 
   /// <summary>
@@ -12108,13 +12120,29 @@ public partial class BattleEnemy : MotherBase
   private void ExecCarnageRush(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
+
+
     for (int ii = 0; ii < SecondaryLogic.CarnageRush_Count(player); ii++)
     {
-      // 連続攻撃が分離化されてないので音が連続でなったように聞こえない。要修正か。（プログラムロジックも変更要）
-      if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { One.PlaySoundEffect(Fix.SOUND_HIT_01); }
-      else { One.PlaySoundEffect(Fix.SOUND_HIT_02); }
+      StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+      stack.Magnify = SecondaryLogic.CarnageRush(player);
+      stack.DamageSource = Fix.DamageSource.Physical;
+      stack.IgnoreType = Fix.IgnoreType.None;
+      stack.CriticalType = critical;
+      if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { stack.AnimationSpeed = ANIMATION_TIME_SHORT; }
+      else { stack.AnimationSpeed = MAX_ANIMATION_TIME; }
+      ;
+      stack.Player = player;
+      stack.Target = target;
+      if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { stack.SequenceNumber = 0; }
+      else { stack.SequenceNumber = 1; }
+      CreateNormalStackObject(Fix.CARNAGE_RUSH, stack);
 
-      ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+      // 連続攻撃が分離化されてないので音が連続でなったように聞こえない。要修正か。（プログラムロジックも変更要）
+      //if (ii < SecondaryLogic.CarnageRush_Count(player) - 1) { One.PlaySoundEffect(Fix.SOUND_HIT_01); }
+      //else { One.PlaySoundEffect(Fix.SOUND_HIT_02); }
+
+      //ExecNormalAttack(player, target, SecondaryLogic.CarnageRush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
     }
   }
 
