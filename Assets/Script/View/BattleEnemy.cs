@@ -2249,7 +2249,7 @@ public partial class BattleEnemy : MotherBase
     GroupStackInTheCommand.SetActive(true);
   }
 
-  private void CreateNormalStackObject(Character player, Character target, string command_name, StackObject stack_obj)
+  private void CreateNormalStackObject(string command_name, StackObject stack_obj)
   {
     stack_obj.transform.SetParent(GroupNormalStack.transform);
     stack_obj.name = "NormalStackPanel";
@@ -2261,11 +2261,11 @@ public partial class BattleEnemy : MotherBase
     rect.anchorMax = new Vector2(1, 1);
     if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally)
     {
-      stack_obj.ConstructStack(player, player.Target2, command_name, 0, 0);
+      stack_obj.ConstructStack(stack_obj.Player, stack_obj.Player.Target2, command_name, 0, 0);
     }
     else
     {
-      stack_obj.ConstructStack(player, target, command_name, 0, 0);
+      stack_obj.ConstructStack(stack_obj.Player, stack_obj.Target, command_name, 0, 0);
     }
     stack_obj.gameObject.SetActive(true);
 
@@ -8169,12 +8169,28 @@ public partial class BattleEnemy : MotherBase
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
-      ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      int rand = AP.Math.RandomInteger(stack_obj.TargetList.Count);
+      ExecMagicAttack(player, stack_obj.TargetList[rand], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
     else if (command_name == Fix.BLUE_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_BLUE_BULLET);
       ExecMagicAttack(player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
+    else if (command_name == Fix.RAGING_STORM)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_RAGING_STORM);
+        for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+        {
+          ExecNormalAttack(player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+        }
+      }
+      else if (stack_obj.SequenceNumber == 1)
+      {
+        AbstractAddBuff(player, stack_obj.TargetField, Fix.RAGING_STORM, Fix.RAGING_STORM, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
     }
   }
 
@@ -11393,7 +11409,9 @@ public partial class BattleEnemy : MotherBase
       stack.IgnoreType = Fix.IgnoreType.None;
       stack.CriticalType = critical;
       stack.AnimationSpeed = ANIMATION_TIME_HALF;
-      CreateNormalStackObject(player, target, Fix.DOUBLE_SLASH, stack);
+      stack.Player = player;
+      stack.Target = target;
+      CreateNormalStackObject(Fix.DOUBLE_SLASH, stack);
     }
   }
   #endregion
@@ -11412,9 +11430,9 @@ public partial class BattleEnemy : MotherBase
       stack.IgnoreType = Fix.IgnoreType.None;
       stack.CriticalType = critical;
       stack.AnimationSpeed = ANIMATION_TIME_SHORT;
-
-      int rand = AP.Math.RandomInteger(target_list.Count);
-      CreateNormalStackObject(player, target_list[rand], Fix.METEOR_BULLET, stack);
+      stack.Player = player;
+      stack.TargetList = target_list;
+      CreateNormalStackObject(Fix.METEOR_BULLET, stack);
     }
   }
 
@@ -11430,7 +11448,9 @@ public partial class BattleEnemy : MotherBase
       stack.IgnoreType = Fix.IgnoreType.None;
       stack.CriticalType = critical;
       stack.AnimationSpeed = ANIMATION_TIME_SHORT;
-      CreateNormalStackObject(player, target, Fix.BLUE_BULLET, stack);
+      stack.Player = player;
+      stack.Target = target;
+      CreateNormalStackObject(Fix.BLUE_BULLET, stack);
     }
   }
 
@@ -11813,15 +11833,30 @@ public partial class BattleEnemy : MotherBase
   private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_RAGING_STORM);    
     for (int jj = 0; jj < 2; jj++)
     {
-      for (int ii = 0; ii < target_list.Count; ii++)
-      {
-        ExecNormalAttack(player, target_list[ii], SecondaryLogic.RagingStorm(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-      }
+      StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+      stack.Magnify = SecondaryLogic.RagingStorm(player);
+      stack.DamageSource = Fix.DamageSource.Physical;
+      stack.IgnoreType = Fix.IgnoreType.None;
+      stack.CriticalType = critical;
+      stack.AnimationSpeed = ANIMATION_TIME_HALF;
+      stack.Player = player;
+      stack.TargetList = target_list;
+      stack.SequenceNumber = 0;
+      CreateNormalStackObject(Fix.RAGING_STORM, stack);
     }
-    AbstractAddBuff(player, target_field_obj, Fix.RAGING_STORM, Fix.RAGING_STORM, SecondaryLogic.RagingStorm_Turn(player), SecondaryLogic.RagingStorm_Effect1(player), 0, 0);
+
+    StackObject stackBuff = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stackBuff.Turn = SecondaryLogic.RagingStorm_Turn(player);
+    stackBuff.Effect1 = SecondaryLogic.RagingStorm_Effect1(player);
+    stackBuff.Effect2 = 0;
+    stackBuff.Effect3 = 0;
+    stackBuff.Player = player;
+    stackBuff.TargetField = target_field_obj;
+    stackBuff.SequenceNumber = 1;
+
+    CreateNormalStackObject(Fix.RAGING_STORM, stackBuff);
   }
 
   private void ExecPrecisionStrike(Character player, Character target)

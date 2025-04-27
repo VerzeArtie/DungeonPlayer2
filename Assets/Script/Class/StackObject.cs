@@ -43,7 +43,21 @@ public class StackObject : MonoBehaviour
     set { _target = value; }
   }
 
+  [SerializeField] protected List<Character> _target_list = null;
+  public List<Character> TargetList
+  {
+    get { return _target_list; }
+    set { _target_list = value; }
+  }
+
   // 全てのコマンドの要素としてあり得る値を列挙し続ける箇所
+  [SerializeField] protected int _sequence_number = 0;
+  public int SequenceNumber
+  {
+    get { return _sequence_number; }
+    set { _sequence_number = value; }
+  }
+
   [SerializeField] protected double _magnify = 0.0f;
   public double Magnify
   {
@@ -77,6 +91,41 @@ public class StackObject : MonoBehaviour
   {
     get { return _animationSpeed; }
     set { _animationSpeed = value; }
+  }
+
+  [SerializeField] protected int _turn = 0;
+  public int Turn
+  {
+    get { return _turn; }
+    set { _turn = value; }
+  }
+
+  [SerializeField] protected double _effect1 = 0;
+  public double Effect1
+  {
+    get { return _effect1; }
+    set { _effect1 = value; }
+  }
+
+  [SerializeField] protected double _effect2 = 0;
+  public double Effect2
+  {
+    get { return _effect2; }
+    set { _effect2 = value; }
+  }
+
+  [SerializeField] protected double _effect3 = 0;
+  public double Effect3
+  {
+    get { return _effect3; }
+    set { _effect3 = value; }
+  }
+
+  [SerializeField] protected BuffField _target_field = null;
+  public BuffField TargetField
+  {
+    get { return _target_field; }
+    set { _target_field = value; }
   }
 
   public Image background;
