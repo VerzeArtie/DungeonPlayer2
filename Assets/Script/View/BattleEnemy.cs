@@ -8175,6 +8175,20 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.STRAIGHT_SMASH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
+    else if (command_name == Fix.LEG_STRIKE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_LEG_STRIKE);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -10892,6 +10906,7 @@ public partial class BattleEnemy : MotherBase
     stack.AnimationSpeed = MAX_ANIMATION_TIME;
     stack.BuffName = Fix.ICE_NEEDLE;
     stack.ViewBuffName = Fix.ICE_NEEDLE;
+    stack.Turn = SecondaryLogic.IceNeedle_Turn(player);
     stack.Effect1 = SecondaryLogic.IceNeedle_Value(player);
     stack.Effect2 = 0;
     stack.Effect3 = 0;
@@ -10942,8 +10957,15 @@ public partial class BattleEnemy : MotherBase
   private void ExecStraightSmash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
-    ExecNormalAttack(player, target, SecondaryLogic.StraightSmash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.StraightSmash(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.STRAIGHT_SMASH, stack);
   }
 
   private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
@@ -10960,12 +10982,21 @@ public partial class BattleEnemy : MotherBase
   private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_LEG_STRIKE);
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.LegStrike(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(player, player.objBuffPanel, Fix.LEG_STRIKE, Fix.LEG_STRIKE, SecondaryLogic.LegStrike_Turn(player), SecondaryLogic.LegStrike_Value(player), 0, 0);
-    }
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.LegStrike(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.LEG_STRIKE;
+    stack.ViewBuffName = Fix.LEG_STRIKE;
+    stack.Turn = SecondaryLogic.LegStrike_Turn(player);
+    stack.Effect1 = SecondaryLogic.LegStrike_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.LEG_STRIKE, stack);
   }
 
   private void ExecVenomSlash(Character player, Character target, Fix.CriticalType critical)
