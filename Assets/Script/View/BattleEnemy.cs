@@ -8161,6 +8161,7 @@ public partial class BattleEnemy : MotherBase
 
   private void ExecCommandFromNormalStack(Character player, Character target, string command_name, StackObject stack_obj)
   {
+    // より抽象化できたのかも知れない。1stリリースではこのままでいく。
     if (command_name == Fix.FIRE_BALL)
     {
       One.PlaySoundEffect(Fix.SOUND_FIREBALL);
@@ -8169,6 +8170,15 @@ public partial class BattleEnemy : MotherBase
     else if (command_name == Fix.ICE_NEEDLE)
     {
       One.PlaySoundEffect(Fix.SOUND_ICENEEDLE);
+      bool success = ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
+    else if (command_name == Fix.SHADOW_BLAST)
+    {
+      One.PlaySoundEffect(Fix.SOUND_SHADOW_BLAST);
       bool success = ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
       if (success)
       {
@@ -8187,6 +8197,15 @@ public partial class BattleEnemy : MotherBase
       if (success)
       {
         AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
+    else if (command_name == Fix.HUNTER_SHOT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_HUNTER_SHOT);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
     else if (command_name == Fix.DOUBLE_SLASH)
@@ -10926,12 +10945,22 @@ public partial class BattleEnemy : MotherBase
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SHADOW_BLAST);
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.ShadowBlast(player), Fix.DamageSource.DarkMagic, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.SHADOW_BLAST, Fix.SHADOW_BLAST, SecondaryLogic.ShadowBlast_Turn(player), SecondaryLogic.ShadowBlast_Value(player), 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.ShadowBlast(player);
+    stack.DamageSource = Fix.DamageSource.DarkMagic;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.SHADOW_BLAST;
+    stack.ViewBuffName = Fix.SHADOW_BLAST;
+    stack.Turn = SecondaryLogic.ShadowBlast_Turn(player);
+    stack.Effect1 = SecondaryLogic.ShadowBlast_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.SHADOW_BLAST, stack);
   }
 
   private void ExecAirCutter(Character player, Character target, Fix.CriticalType critical)
@@ -10971,12 +11000,21 @@ public partial class BattleEnemy : MotherBase
   private void ExecHunterShot(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_HUNTER_SHOT);
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.HunterShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.HUNTER_SHOT, Fix.HUNTER_SHOT, SecondaryLogic.HunterShot_Turn(player), SecondaryLogic.HunterShot_Value(player), 0, 0);
-    }
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.HunterShot(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.HUNTER_SHOT;
+    stack.ViewBuffName = Fix.HUNTER_SHOT;
+    stack.Turn = SecondaryLogic.HunterShot_Turn(player);
+    stack.Effect1 = SecondaryLogic.HunterShot_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.HUNTER_SHOT, stack);
   }
 
   private void ExecLegStrike(Character player, Character target, Fix.CriticalType critical)
