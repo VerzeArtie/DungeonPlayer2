@@ -156,11 +156,25 @@ public class StackObject : MonoBehaviour
     set { _from_potion = value; }
   }
 
-  [SerializeField] double _effect_value = 0.0f;
+  [SerializeField] protected double _effect_value = 0.0f;
   public double EffectValue
   {
     get { return _effect_value; }
     set { _effect_value = value; }
+  }
+
+  [SerializeField] protected int _num = 0;
+  public int Num
+  {
+    get { return _num; }
+    set { _num = value; }
+  }
+
+  [SerializeField] protected Fix.BuffType _buff_type = Fix.BuffType.None;
+  public Fix.BuffType BuffType
+  {
+    get { return _buff_type; }
+    set { _buff_type = value; }
   }
 
   public Image background;

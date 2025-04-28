@@ -8244,6 +8244,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_TRUE_SIGHT);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.DISPEL_MAGIC)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DISPEL_MAGIC);
+      AbstractRemoveBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.ViewBuffName, stack_obj.Num, stack_obj.BuffType);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11131,8 +11136,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecDispelMagic(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DISPEL_MAGIC);
-    AbstractRemoveBuff(target, target.objBuffPanel, Fix.DISPEL_MAGIC, SecondaryLogic.DispelMagic_Value(player), Fix.BuffType.Positive);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.ViewBuffName = Fix.DISPEL_MAGIC;
+    stack.Num = SecondaryLogic.DispelMagic_Value(player);
+    stack.BuffType = Fix.BuffType.Positive;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.DISPEL_MAGIC, stack);
   }
 
   private void ExecTrueSight(Character player, Character target)
