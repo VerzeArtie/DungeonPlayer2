@@ -8212,6 +8212,15 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
       ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.SHIELD_BASH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_SHIElD_BASH);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        ExecBuffStun(stack_obj.Player, stack_obj.Target, stack_obj.Turn, stack_obj.EffectValue);
+      }
+    }
     else if (command_name == Fix.LEG_STRIKE)
     {
       One.PlaySoundEffect(Fix.SOUND_LEG_STRIKE);
@@ -11092,12 +11101,20 @@ public partial class BattleEnemy : MotherBase
   private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SHIElD_BASH);
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ShieldBash(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      ExecBuffStun(player, target, SecondaryLogic.ShieldBash_Turn(player), 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.ShieldBash(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.SHIELD_BASH;
+    stack.ViewBuffName = Fix.SHIELD_BASH;
+    stack.Turn = SecondaryLogic.ShieldBash_Turn(player);
+    stack.EffectValue = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.SHIELD_BASH, stack);
   }
 
   private void ExecAuraOfPower(Character player, Character target)
