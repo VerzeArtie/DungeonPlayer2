@@ -156,6 +156,13 @@ public class StackObject : MonoBehaviour
     set { _from_potion = value; }
   }
 
+  [SerializeField] double _effect_value = 0.0f;
+  public double EffectValue
+  {
+    get { return _effect_value; }
+    set { _effect_value = value; }
+  }
+
   public Image background;
   public Text txtStackName;
   public Text txtStackTarget;

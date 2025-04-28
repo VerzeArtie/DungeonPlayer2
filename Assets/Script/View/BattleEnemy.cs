@@ -8190,6 +8190,18 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.ORACLE_COMMAND)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ORACLE_COMMAND);
+      double effectValue = stack_obj.EffectValue;
+      if (stack_obj.Target.IsUltimateFlare)
+      {
+        effectValue = 0;
+      }
+      stack_obj.Target.CurrentInstantPoint += (int)((double)Fix.MAX_INSTANT_POINT * effectValue);
+      int strValue = (int)((effectValue * 100));
+      StartAnimation(stack_obj.Target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
+    }
     else if (command_name == Fix.STRAIGHT_SMASH)
     {
       One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
@@ -11120,15 +11132,12 @@ public partial class BattleEnemy : MotherBase
   private void ExecOracleCommand(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ORACLE_COMMAND);
-    double effectValue = SecondaryLogic.OracleCommand(player);
-    if (target.IsUltimateFlare)
-    {
-      effectValue = 0;
-    }
-    target.CurrentInstantPoint += (int)((double)Fix.MAX_INSTANT_POINT * effectValue);
-    int strValue = (int)((effectValue * 100));
-    StartAnimation(target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.EffectValue = SecondaryLogic.OracleCommand(player);
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.ORACLE_COMMAND, stack);
   }
   #endregion
 
