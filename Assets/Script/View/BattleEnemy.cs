@@ -8176,6 +8176,11 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.FRESH_HEAL)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FRESH_HEAL);
+      AbstractHealCommand(stack_obj.Player, stack_obj.Target, stack_obj.HealValue, stack_obj.FromPotion);
+    }
     else if (command_name == Fix.SHADOW_BLAST)
     {
       One.PlaySoundEffect(Fix.SOUND_SHADOW_BLAST);
@@ -10937,9 +10942,14 @@ public partial class BattleEnemy : MotherBase
   private void ExecFreshHeal(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
-    One.PlaySoundEffect(Fix.SOUND_FRESH_HEAL);
-    AbstractHealCommand(player, target, healValue, false);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.ShadowBlast(player);
+    stack.HealValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreshHeal(player);
+    stack.FromPotion = false;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.FRESH_HEAL, stack);
   }
 
   private void ExecShadowBlast(Character player, Character target, Fix.CriticalType critical)

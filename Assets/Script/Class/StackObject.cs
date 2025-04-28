@@ -142,6 +142,20 @@ public class StackObject : MonoBehaviour
     set { _target_field = value; }
   }
 
+  [SerializeField] protected double _heal_value = 0.0f;
+  public double HealValue
+  {
+    get { return _heal_value; }
+    set { _heal_value = value; }
+  }
+
+  [SerializeField] protected bool _from_potion = false;
+  public bool FromPotion
+  {
+    get { return _from_potion; }
+    set { _from_potion = value; }
+  }
+
   public Image background;
   public Text txtStackName;
   public Text txtStackTarget;
