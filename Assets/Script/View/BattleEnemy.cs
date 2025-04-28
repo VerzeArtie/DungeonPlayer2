@@ -8202,6 +8202,11 @@ public partial class BattleEnemy : MotherBase
       int strValue = (int)((effectValue * 100));
       StartAnimation(stack_obj.Target.objGroup.gameObject, "Instant Point +" + strValue.ToString() + "%", Fix.COLOR_NORMAL);
     }
+    else if (command_name == Fix.ENERGY_BOLT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ENERGY_BOLT);
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
     else if (command_name == Fix.STRAIGHT_SMASH)
     {
       One.PlaySoundEffect(Fix.SOUND_STRAIGHT_SMASH);
@@ -11072,8 +11077,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecEnergyBolt(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ENERGY_BOLT);
-    ExecNormalAttack(player, target, SecondaryLogic.EnergyBolt(player), Fix.DamageSource.Colorless, Fix.IgnoreType.None, critical);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.EnergyBolt(player);
+    stack.DamageSource = Fix.DamageSource.Colorless;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.ENERGY_BOLT, stack);
   }
 
   private void ExecShieldBash(Character player, Character target, Fix.CriticalType critical)
