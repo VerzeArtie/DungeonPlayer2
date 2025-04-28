@@ -8239,6 +8239,11 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.TRUE_SIGHT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_TRUE_SIGHT);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11133,8 +11138,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecTrueSight(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_TRUE_SIGHT);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.TRUE_SIGHT, Fix.TRUE_SIGHT, SecondaryLogic.TrueSight_Turn(player), SecondaryLogic.TrueSight_Value(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.TRUE_SIGHT;
+    stack.ViewBuffName = Fix.TRUE_SIGHT;
+    stack.Turn = SecondaryLogic.TrueSight_Turn(player);
+    stack.Effect1 = SecondaryLogic.TrueSight_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.TRUE_SIGHT, stack);
   }
 
   private void ExecHeartOfLife(Character player, Character target)
