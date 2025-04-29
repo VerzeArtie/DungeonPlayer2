@@ -8283,6 +8283,11 @@ public partial class BattleEnemy : MotherBase
       ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.STANCE_OF_THE_GUARD)
+    {
+      One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_GUARD);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11571,8 +11576,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheGuard(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_GUARD);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_GUARD, Fix.STANCE_OF_THE_GUARD, SecondaryLogic.StanceOfTheGuard_Turn(player), SecondaryLogic.StanceOfTheGuard(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.STANCE_OF_THE_GUARD;
+    stack.ViewBuffName = Fix.STANCE_OF_THE_GUARD;
+    stack.Turn = SecondaryLogic.StanceOfTheGuard_Turn(player);
+    stack.Effect1 = SecondaryLogic.StanceOfTheGuard(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    //stack.Target = target; // 自分自身のためTargetは不要
+    CreateNormalStackObject(Fix.STANCE_OF_THE_GUARD, stack);
   }
 
   private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
