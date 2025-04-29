@@ -8249,6 +8249,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_DISPEL_MAGIC);
       AbstractRemoveBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.ViewBuffName, stack_obj.Num, stack_obj.BuffType);
     }
+    else if (command_name == Fix.FLAME_BLADE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FLAMEBLADE);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11200,8 +11205,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameBlade(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FLAMEBLADE);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_BLADE, Fix.FLAME_BLADE, SecondaryLogic.FlameBlade_Turn(player), SecondaryLogic.FlameBlade(player), SecondaryLogic.FlameBlade_BaseDamage(player), 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.FLAME_BLADE;
+    stack.ViewBuffName = Fix.FLAME_BLADE;
+    stack.Turn = SecondaryLogic.FlameBlade_Turn(player);
+    stack.Effect1 = SecondaryLogic.FlameBlade(player);
+    stack.Effect2 = SecondaryLogic.FlameBlade_BaseDamage(player);
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.FLAME_BLADE, stack);
   }
 
   private void ExecPurePurification(Character player, Character target)
