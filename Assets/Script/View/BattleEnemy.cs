@@ -8261,6 +8261,12 @@ public partial class BattleEnemy : MotherBase
       AbstractHealCommand(stack_obj.Player, stack_obj.Target, stack_obj.HealValue, stack_obj.FromPotion);
       AbstractRemoveBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.ViewBuffName, stack_obj.Num, stack_obj.BuffType);
     }
+    else if (command_name == Fix.DIVINE_CIRCLE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DIVINE_CIRCLE);
+      if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
+      AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11243,11 +11249,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecDivineCircle(Character player, Character target, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DIVINE_CIRCLE);
 
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-
-    AbstractAddBuff(player, target_field_obj, Fix.DIVINE_CIRCLE, Fix.DIVINE_CIRCLE, SecondaryLogic.DivineCircle_Turn(player), SecondaryLogic.DivineCircle_Effect1(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.DIVINE_CIRCLE;
+    stack.ViewBuffName = Fix.DIVINE_CIRCLE;
+    stack.Turn = SecondaryLogic.DivineCircle_Turn(player);
+    stack.Effect1 = SecondaryLogic.DivineCircle_Effect1(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.TargetField = target_field_obj;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.DIVINE_CIRCLE, stack);
   }
 
   private void ExecBloodSign(Character player, Character target)
