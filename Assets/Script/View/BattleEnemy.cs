@@ -8296,6 +8296,16 @@ public partial class BattleEnemy : MotherBase
       // 対象への物理攻撃がヒットしなくても、自分自身にはBUFF付与する。
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.MULTIPLE_SHOT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_MULTIPLE_SHOT);
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        this.GlobalAnimationChain++;
+        ExecNormalAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+        this.GlobalAnimationChain--;
+      }
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11610,11 +11620,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecMultipleShot(Character player, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_MULTIPLE_SHOT);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.MultipleShot(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.MultipleShot(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    CreateNormalStackObject(Fix.MULTIPLE_SHOT, stack);
   }
 
   private void ExecLeylineSchema(Character player, BuffField target_field_obj)
