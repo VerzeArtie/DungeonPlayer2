@@ -8267,6 +8267,11 @@ public partial class BattleEnemy : MotherBase
       if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
       AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.BLOOD_SIGN)
+    {
+      One.PlaySoundEffect(Fix.SOUND_BLOOD_SIGN);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11266,8 +11271,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecBloodSign(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_BLOOD_SIGN);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.BLOOD_SIGN, Fix.BLOOD_SIGN, SecondaryLogic.BloodSign_Turn(player), SecondaryLogic.BloodSign(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.BLOOD_SIGN;
+    stack.ViewBuffName = Fix.BLOOD_SIGN;
+    stack.Turn = SecondaryLogic.BloodSign_Turn(player);
+    stack.Effect1 = SecondaryLogic.BloodSign(player) * PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.BLOOD_SIGN, stack);
   }
 
   private void ExecSkyShield(Character player, Character target)
