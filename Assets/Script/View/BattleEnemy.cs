@@ -8312,6 +8312,21 @@ public partial class BattleEnemy : MotherBase
       if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
       AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.SPIRITUAL_REST)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_SPIRITUAL_REST);
+        if (stack_obj.Target.IsStun)
+        {
+          AbstractRemoveTargetBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName);
+        }
+      }
+      else
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11683,13 +11698,26 @@ public partial class BattleEnemy : MotherBase
   private void ExecSpiritualRest(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_LEYLINE_SCHEMA);
-    if (target.IsStun)
-    {
-      AbstractRemoveTargetBuff(target, target.objBuffPanel, Fix.EFFECT_STUN, Fix.EFFECT_REMOVE_STUN);
-    }
 
-    AbstractAddBuff(target, target.objBuffPanel, Fix.BUFF_RESIST_STUN, Fix.BUFF_RESIST_STUN, SecondaryLogic.SpiritualRest_Turn(player), 0, 0, 0);
+    StackObject stack0 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack0.BuffName = Fix.EFFECT_STUN;
+    stack0.ViewBuffName = Fix.EFFECT_REMOVE_STUN;
+    stack0.Player = player;
+    stack0.Target = target;
+    stack0.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.SPIRITUAL_REST, stack0);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.BuffName = Fix.BUFF_RESIST_STUN;
+    stack1.ViewBuffName = Fix.BUFF_RESIST_STUN;
+    stack1.Turn = SecondaryLogic.SpiritualRest_Turn(player);
+    stack1.Effect1 = 0;
+    stack1.Effect2 = 0;
+    stack1.Effect3 = 0;
+    stack1.Player = player;
+    stack1.Target = target;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.SPIRITUAL_REST, stack1);
   }
 
   private void ExecZeroImmunity(Character player, StackObject[] stack_list)
