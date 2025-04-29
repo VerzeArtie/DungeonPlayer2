@@ -8277,6 +8277,12 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_FORTUNE_SPIRIT);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.STANCE_OF_THE_BLADE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_BLADE);
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11533,10 +11539,22 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_THE_BLADE);
-    ExecNormalAttack(player, target, SecondaryLogic.StanceOfTheBladeDamage(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
 
-    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_BLADE, Fix.STANCE_OF_THE_BLADE, SecondaryLogic.StanceOfTheBlade_Turn(player), SecondaryLogic.StanceOfTheBlade(player), 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.StanceOfTheBladeDamage(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.STANCE_OF_THE_BLADE;
+    stack.ViewBuffName = Fix.STANCE_OF_THE_BLADE;
+    stack.Turn = SecondaryLogic.StanceOfTheBlade_Turn(player);
+    stack.Effect1 = SecondaryLogic.StanceOfTheBlade(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.STANCE_OF_THE_BLADE, stack);
   }
 
   private void ExecSpeedStep(Character player, Character target, Fix.CriticalType critical)
