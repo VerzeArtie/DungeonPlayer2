@@ -471,6 +471,7 @@ public partial class BattleEnemy : MotherBase
       //  ExecBuffStun(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
+      //  ExecBuffPhysicalAttackDown(playerList[ii], playerList[ii], 99, 0.10f);
       //}
     }
 
@@ -8254,6 +8255,12 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_FLAMEBLADE);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.PURE_PURIFICATION)
+    {
+      One.PlaySoundEffect(Fix.SOUND_PURE_PURIFICATION);
+      AbstractHealCommand(stack_obj.Player, stack_obj.Target, stack_obj.HealValue, stack_obj.FromPotion);
+      AbstractRemoveBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.ViewBuffName, stack_obj.Num, stack_obj.BuffType);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11221,11 +11228,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecPurePurification(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_PURE_PURIFICATION);
-    double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
-    AbstractHealCommand(player, target, healValue, false);
 
-    AbstractRemoveBuff(target, target.objBuffPanel, Fix.PURE_PURIFICATION, SecondaryLogic.PurePurification_Effect1(player), Fix.BuffType.Negative);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.HealValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.PurePurificationHealValue(player);
+    stack.FromPotion = false;
+    stack.ViewBuffName = Fix.PURE_PURIFICATION;
+    stack.Num = SecondaryLogic.PurePurification_Effect1(player);
+    stack.BuffType = Fix.BuffType.Negative;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.PURE_PURIFICATION, stack);
   }
 
   private void ExecDivineCircle(Character player, Character target, BuffField target_field_obj)
