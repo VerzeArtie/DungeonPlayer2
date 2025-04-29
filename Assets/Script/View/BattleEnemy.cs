@@ -8272,6 +8272,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_BLOOD_SIGN);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.FORTUNE_SPIRIT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FORTUNE_SPIRIT);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11585,8 +11590,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecFortuneSpirit(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FORTUNE_SPIRIT);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.FORTUNE_SPIRIT, Fix.FORTUNE_SPIRIT, SecondaryLogic.FortuneSpirit_Turn(player), SecondaryLogic.FortuneSpirit_Effect1(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.FORTUNE_SPIRIT;
+    stack.ViewBuffName = Fix.FORTUNE_SPIRIT;
+    stack.Turn = SecondaryLogic.FortuneSpirit_Turn(player);
+    stack.Effect1 = SecondaryLogic.FortuneSpirit_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.FORTUNE_SPIRIT, stack);
   }
 
   private void ExecSpiritualRest(Character player, Character target)
