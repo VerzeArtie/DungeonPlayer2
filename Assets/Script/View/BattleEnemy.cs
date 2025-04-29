@@ -8306,6 +8306,12 @@ public partial class BattleEnemy : MotherBase
         this.GlobalAnimationChain--;
       }
     }
+    else if (command_name == Fix.LEYLINE_SCHEMA)
+    {
+      One.PlaySoundEffect(Fix.SOUND_LEYLINE_SCHEMA);
+      if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
+      AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11635,11 +11641,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecLeylineSchema(Character player, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_LEYLINE_SCHEMA);
 
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-
-    AbstractAddBuff(player, target_field_obj, Fix.LEYLINE_SCHEMA, Fix.LEYLINE_SCHEMA, SecondaryLogic.LeylineSchema_Turn(player), SecondaryLogic.LeylineSchema_Effect1(player), 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.LEYLINE_SCHEMA;
+    stack.ViewBuffName = Fix.LEYLINE_SCHEMA;
+    stack.Turn = SecondaryLogic.LeylineSchema_Turn(player);
+    stack.Effect1 = SecondaryLogic.LeylineSchema_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.LEYLINE_SCHEMA, stack);
   }
 
   private void ExecInvisibleBind(Character player, Character target, Fix.CriticalType critical)
