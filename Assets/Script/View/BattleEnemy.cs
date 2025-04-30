@@ -8337,6 +8337,11 @@ public partial class BattleEnemy : MotherBase
         this.GlobalAnimationChain--;
       }
     }
+    else if (command_name == Fix.BLACK_CONTRACT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_BLACK_CONTRACT);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11838,8 +11843,17 @@ public partial class BattleEnemy : MotherBase
   public void ExecBlackContract(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_BLACK_CONTRACT);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.BLACK_CONTRACT, Fix.BLACK_CONTRACT, SecondaryLogic.BlackContract_Turn(player), SecondaryLogic.BlackContract(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.BLACK_CONTRACT;
+    stack.ViewBuffName = Fix.BLACK_CONTRACT;
+    stack.Turn = SecondaryLogic.BlackContract_Turn(player);
+    stack.Effect1 = SecondaryLogic.BlackContract(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.BLACK_CONTRACT, stack);
   }
 
   private void ExecSonicPulse(Character player, Character target, Fix.CriticalType critical)
