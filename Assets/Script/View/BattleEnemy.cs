@@ -8342,6 +8342,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_BLACK_CONTRACT);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.WORD_OF_POWER)
+    {
+      One.PlaySoundEffect(Fix.SOUND_WORD_OF_POWER);
+      ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11915,8 +11920,16 @@ public partial class BattleEnemy : MotherBase
   public void ExecWordOfPower(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_WORD_OF_POWER);
-    ExecMagicAttack(player, target, SecondaryLogic.WordOfPower(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.WordOfPower(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.DefenseMode;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.WORD_OF_POWER, stack);
   }
 
   public void ExecEyeOfTheIsshin(Character player, Character target)
