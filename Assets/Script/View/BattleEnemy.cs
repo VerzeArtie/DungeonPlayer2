@@ -8327,6 +8327,16 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.HOLY_BREATH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        this.GlobalAnimationChain++;
+        AbstractHealCommand(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.HealValue, stack_obj.FromPotion);
+        this.GlobalAnimationChain--;
+      }
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -11815,12 +11825,21 @@ public partial class BattleEnemy : MotherBase
   public void ExecHolyBreath(Character player, List<Character> target_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
-      AbstractHealCommand(player, target_list[ii], healValue, false);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.BlueBullet(player);
+    stack.HealValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
+    stack.FromPotion = false;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    CreateNormalStackObject(Fix.HOLY_BREATH, stack);
+
+    //One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
+    //for (int ii = 0; ii < target_list.Count; ii++)
+    //{
+    //  double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
+    //  AbstractHealCommand(player, target_list[ii], healValue, false);
+    //}
   }
 
   public void ExecBlackContract(Character player)
