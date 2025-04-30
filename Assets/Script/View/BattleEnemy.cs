@@ -11833,13 +11833,6 @@ public partial class BattleEnemy : MotherBase
     stack.Player = player;
     stack.TargetList = target_list;
     CreateNormalStackObject(Fix.HOLY_BREATH, stack);
-
-    //One.PlaySoundEffect(Fix.SOUND_HOLY_BREATH);
-    //for (int ii = 0; ii < target_list.Count; ii++)
-    //{
-    //  double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
-    //  AbstractHealCommand(player, target_list[ii], healValue, false);
-    //}
   }
 
   public void ExecBlackContract(Character player)
