@@ -8366,6 +8366,15 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.BONE_CRUSH)
+    {
+      One.PlaySoundEffect(Fix.SOUND_BONE_CRUSH);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11966,12 +11975,22 @@ public partial class BattleEnemy : MotherBase
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_BONE_CRUSH);    
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.BoneCrush(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.BONE_CRUSH, Fix.BONE_CRUSH, SecondaryLogic.BoneCrush_Turn(player), SecondaryLogic.BoneCrush_Value(player), 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.BoneCrush(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.BONE_CRUSH;
+    stack.ViewBuffName = Fix.BONE_CRUSH;
+    stack.Turn = SecondaryLogic.BoneCrush_Turn(player);
+    stack.Effect1 = SecondaryLogic.BoneCrush_Value(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.BONE_CRUSH, stack);
   }
 
   public void ExecSeaStripe(Character player, Character target)
