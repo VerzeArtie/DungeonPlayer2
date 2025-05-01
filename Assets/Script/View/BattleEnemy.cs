@@ -8455,6 +8455,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_GALE_WIND);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.PHANTOM_OBORO)
+    {
+      One.PlaySoundEffect(Fix.SOUND_PHANTOM_OBORO);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12483,8 +12488,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecPhantomOboro(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_PHANTOM_OBORO);    
-    AbstractAddBuff(player, player.objBuffPanel, Fix.PHANTOM_OBORO, Fix.PHANTOM_OBORO, SecondaryLogic.PhantomOboro_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.PHANTOM_OBORO;
+    stack.ViewBuffName = Fix.PHANTOM_OBORO;
+    stack.Turn = SecondaryLogic.PhantomOboro_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    CreateNormalStackObject(Fix.PHANTOM_OBORO, stack);
   }
 
   private void ExecDeadlyDrive(Character player)
