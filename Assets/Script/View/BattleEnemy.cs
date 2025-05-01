@@ -8351,12 +8351,20 @@ public partial class BattleEnemy : MotherBase
     {
       One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_PENDING);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
-      //AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
     }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
       ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
+    else if (command_name == Fix.CONCUSSIVE_HIT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_CONCUSSIVE_HIT);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
     }
     else if (command_name == Fix.METEOR_BULLET)
     {
@@ -11894,12 +11902,22 @@ public partial class BattleEnemy : MotherBase
   public void ExecConcussiveHit(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_CONCUSSIVE_HIT);    
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.ConcussiveHit(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.CONCUSSIVE_HIT, Fix.CONCUSSIVE_HIT, SecondaryLogic.ConcussiveHit_Turn(player), SecondaryLogic.ConcussiveHit(player), 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.ConcussiveHit(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.CONCUSSIVE_HIT;
+    stack.ViewBuffName = Fix.CONCUSSIVE_HIT;
+    stack.Turn = SecondaryLogic.ConcussiveHit_Turn(player);
+    stack.Effect1 = SecondaryLogic.ConcussiveHit(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.CONCUSSIVE_HIT, stack);
   }
 
   public void ExecAetherDrive(Character player, Character target, BuffField target_field_obj)
