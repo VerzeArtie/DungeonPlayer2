@@ -8375,6 +8375,11 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.EYE_OF_THE_ISSHIN)
+    {
+      One.PlaySoundEffect(Fix.SOUND_EYE_OF_THE_ISSHIN);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11968,8 +11973,17 @@ public partial class BattleEnemy : MotherBase
   public void ExecEyeOfTheIsshin(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_EYE_OF_THE_ISSHIN);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.EYE_OF_THE_ISSHIN, Fix.EYE_OF_THE_ISSHIN, SecondaryLogic.EyeOfTheIsshin_Turn(player), SecondaryLogic.EyeOfTheIsshin_Effect1(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.EYE_OF_THE_ISSHIN;
+    stack.ViewBuffName = Fix.EYE_OF_THE_ISSHIN;
+    stack.Turn = SecondaryLogic.EyeOfTheIsshin_Turn(player);
+    stack.Effect1 = SecondaryLogic.EyeOfTheIsshin_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.EYE_OF_THE_ISSHIN, stack);
   }
 
   public void ExecBoneCrush(Character player, Character target, Fix.CriticalType critical)
