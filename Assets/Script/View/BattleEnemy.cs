@@ -8380,6 +8380,17 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_EYE_OF_THE_ISSHIN);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.VOICE_OF_VIGOR)
+    {
+      One.PlaySoundEffect(Fix.SOUND_VOICE_OF_THE_VIGOR);
+      this.GlobalAnimationChain++;
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        AbstractAddBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+        ExecLifeGain(stack_obj.TargetList[ii], stack_obj.TargetList[ii], (stack_obj.TargetList[ii].MaxLife / 10.0f));
+      }
+      this.GlobalAnimationChain--;
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12169,12 +12180,17 @@ public partial class BattleEnemy : MotherBase
   public void ExecVoiceOfVigor(Character player, List<Character> target_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_VOICE_OF_THE_VIGOR);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      AbstractAddBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.VOICE_OF_VIGOR, Fix.VOICE_OF_VIGOR, SecondaryLogic.VoiceOfVigor_Turn(player), SecondaryLogic.VoiceOfVigor(player), 0, 0);
-      ExecLifeGain(target_list[ii], target_list[ii], (target_list[ii].MaxLife / 10.0f));
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.VOICE_OF_VIGOR;
+    stack.ViewBuffName = Fix.VOICE_OF_VIGOR;
+    stack.Turn = SecondaryLogic.VoiceOfVigor_Turn(player);
+    stack.Effect1 = SecondaryLogic.VoiceOfVigor(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    CreateNormalStackObject(Fix.VOICE_OF_VIGOR, stack);
   }
 
   public void ExecUnseenAid(Character player, List<Character> target_list)
