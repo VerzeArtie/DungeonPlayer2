@@ -8460,6 +8460,24 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_PHANTOM_OBORO);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.IRON_BUSTER)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_IRON_BUSTER);
+        ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      }
+      else
+      {
+        this.GlobalAnimationChain++;
+        for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+        {
+          if (stack_obj.TargetList[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
+          ExecNormalAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+        }
+        this.GlobalAnimationChain--;
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12336,13 +12354,28 @@ public partial class BattleEnemy : MotherBase
   private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_IRON_BUSTER);    
-    ExecNormalAttack(player, target, SecondaryLogic.IronBuster(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      if (target_list[ii].Equals(target)) { continue; } // 同じターゲットはスキップ対象
-      ExecNormalAttack(player, target_list[ii], SecondaryLogic.IronBuster_2(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.IronBuster(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    stack.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.IRON_BUSTER, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.Magnify = SecondaryLogic.IronBuster_2(player);
+    stack1.DamageSource = Fix.DamageSource.Physical;
+    stack1.IgnoreType = Fix.IgnoreType.None;
+    stack1.CriticalType = critical;
+    stack1.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack1.Player = player;
+    stack1.TargetList = target_list;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.IRON_BUSTER, stack1);
   }
 
   private void ExecAngelicEcho(Character player, List<Character> target_list, BuffField target_field_obj)
