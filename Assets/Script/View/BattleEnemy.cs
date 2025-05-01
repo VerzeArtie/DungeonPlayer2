@@ -8423,6 +8423,24 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.ANGELIC_ECHO)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_ANGELIC_ECHO);
+        this.GlobalAnimationChain++;
+        for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+        {
+          AbstractHealCommand(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.HealValue, stack_obj.FromPotion);
+        }
+        this.GlobalAnimationChain--;
+      }
+      else
+      {
+        if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
+        AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11908,7 +11926,6 @@ public partial class BattleEnemy : MotherBase
     Debug.Log(MethodBase.GetCurrentMethod());
 
     StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
-    stack.Magnify = SecondaryLogic.BlueBullet(player);
     stack.HealValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.HolyBreath(player);
     stack.FromPotion = false;
     stack.Player = player;
@@ -12304,15 +12321,26 @@ public partial class BattleEnemy : MotherBase
   private void ExecAngelicEcho(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ANGELIC_ECHO);    
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      double healValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho(player);
-      AbstractHealCommand(player, target_list[ii], healValue, false);
-    }
 
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-    AbstractAddBuff(player, target_field_obj, Fix.ANGELIC_ECHO, Fix.ANGELIC_ECHO, SecondaryLogic.AngelicEcho_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(player), 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.HealValue = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho(player);
+    stack.FromPotion = false;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    stack.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.ANGELIC_ECHO, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.BuffName = Fix.ANGELIC_ECHO;
+    stack1.ViewBuffName = Fix.ANGELIC_ECHO;
+    stack1.Turn = SecondaryLogic.AngelicEcho_Turn(player);
+    stack1.Effect1 = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.AngelicEcho_Effect(player);
+    stack1.Effect2 = 0;
+    stack1.Effect3 = 0;
+    stack1.Player = player;
+    stack1.TargetField = target_field_obj;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.ANGELIC_ECHO, stack1);
   }
 
   private void ExecCursedEvangile(Character player, Character target, Fix.CriticalType critical)
