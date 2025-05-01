@@ -8450,6 +8450,11 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.GALE_WIND)
+    {
+      One.PlaySoundEffect(Fix.SOUND_GALE_WIND);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12267,8 +12272,16 @@ public partial class BattleEnemy : MotherBase
   public void ExecGaleWind(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_GALE_WIND);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.GALE_WIND, Fix.GALE_WIND, SecondaryLogic.GaleWind_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.GALE_WIND;
+    stack.ViewBuffName = Fix.GALE_WIND;
+    stack.Turn = SecondaryLogic.GaleWind_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    CreateNormalStackObject(Fix.GALE_WIND, stack);
   }
 
   public void ExecFreezingCube(Character player, Character target, BuffField target_field_obj, Fix.CriticalType critical)
