@@ -8391,6 +8391,17 @@ public partial class BattleEnemy : MotherBase
       }
       this.GlobalAnimationChain--;
     }
+    else if (command_name == Fix.UNSEEN_AID)
+    {
+      One.PlaySoundEffect(Fix.SOUND_UNSEEN_AID);
+      this.GlobalAnimationChain++;
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        stack_obj.TargetList[ii].objBuffPanel.RemoveAll(stack_obj.TargetList[ii]);
+        StartAnimation(stack_obj.TargetList[ii].objGroup.gameObject, stack_obj.ViewBuffName, Fix.COLOR_NORMAL);
+      }
+      this.GlobalAnimationChain--;
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12196,12 +12207,12 @@ public partial class BattleEnemy : MotherBase
   public void ExecUnseenAid(Character player, List<Character> target_list)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_UNSEEN_AID);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      target_list[ii].objBuffPanel.RemoveAll(target_list[ii]);
-      StartAnimation(target_list[ii].objGroup.gameObject, Fix.BUFF_REMOVE_ALL, Fix.COLOR_NORMAL);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.ViewBuffName = Fix.BUFF_REMOVE_ALL;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    CreateNormalStackObject(Fix.UNSEEN_AID, stack);
   }
   #endregion
 
