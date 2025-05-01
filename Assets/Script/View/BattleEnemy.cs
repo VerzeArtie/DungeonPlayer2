@@ -8347,6 +8347,12 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_WORD_OF_POWER);
       ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.SIGIL_OF_THE_PENDING)
+    {
+      One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_PENDING);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      //AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
+    }
     else if (command_name == Fix.DOUBLE_SLASH)
     {
       One.PlaySoundEffect(Fix.SOUND_DOUBLE_SLASH);
@@ -12085,8 +12091,17 @@ public partial class BattleEnemy : MotherBase
   public void ExecSigilOfThePending(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_PENDING);    
-    AbstractAddBuff(target, target.objBuffPanel, Fix.SIGIL_OF_THE_PENDING, Fix.SIGIL_OF_THE_PENDING, SecondaryLogic.SigilOfThePending_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.SIGIL_OF_THE_PENDING;
+    stack.ViewBuffName = Fix.SIGIL_OF_THE_PENDING;
+    stack.Turn = SecondaryLogic.SigilOfThePending_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.SIGIL_OF_THE_PENDING, stack);
   }
 
   public void ExecStormArmor(Character player, Character target)
