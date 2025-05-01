@@ -8402,6 +8402,17 @@ public partial class BattleEnemy : MotherBase
       }
       this.GlobalAnimationChain--;
     }
+    else if (command_name == Fix.VOLCANIC_BLAZE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_VOLCANIC_BLAZE);
+      this.GlobalAnimationChain++;
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        ExecMagicAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      }
+      this.GlobalAnimationChain--;
+      AbstractAddBuff(stack_obj.TargetList[0], stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12239,12 +12250,23 @@ public partial class BattleEnemy : MotherBase
   private void ExecVolcanicBlaze(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_VOLCANIC_BLAZE);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      ExecMagicAttack(player, target_list[ii], SecondaryLogic.VolcanicBlaze(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
-    }
-    AbstractAddBuff(target_list[0], target_field_obj, Fix.VOLCANIC_BLAZE, Fix.VOLCANIC_BLAZE, SecondaryLogic.VolcanicBlaze_Turn(player), SecondaryLogic.VolcanicBlaze_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player), 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.VolcanicBlaze(player);
+    stack.DamageSource = Fix.DamageSource.Fire;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.VOLCANIC_BLAZE;
+    stack.ViewBuffName = Fix.VOLCANIC_BLAZE;
+    stack.Turn = SecondaryLogic.VolcanicBlaze_Turn(player);
+    stack.Effect1 = SecondaryLogic.VolcanicBlaze_Effect(player);
+    stack.Effect2 = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.VolcanicBlaze_Effect2(player);
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.VOLCANIC_BLAZE, stack);
   }
 
   private void ExecIronBuster(Character player, Character target, List<Character> target_list, Fix.CriticalType critical)
