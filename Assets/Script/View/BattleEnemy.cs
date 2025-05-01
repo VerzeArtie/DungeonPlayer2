@@ -8413,6 +8413,16 @@ public partial class BattleEnemy : MotherBase
       this.GlobalAnimationChain--;
       AbstractAddBuff(stack_obj.TargetList[0], stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.FREEZING_CUBE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FREEZING_CUBE);
+      if (stack_obj.TargetField == null) { Debug.Log("target_field_obj is null..."); return; }
+      bool success = ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12238,13 +12248,23 @@ public partial class BattleEnemy : MotherBase
   public void ExecFreezingCube(Character player, Character target, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FREEZING_CUBE);    
-    if (target_field_obj == null) { Debug.Log("target_field_obj is null..."); return; }
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.FreezingCube(player), Fix.DamageSource.Ice, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target_field_obj, Fix.FREEZING_CUBE, Fix.FREEZING_CUBE, SecondaryLogic.FreezingCube_Turn(player), SecondaryLogic.FreezingCube_Effect(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player), 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.FreezingCube(player);
+    stack.DamageSource = Fix.DamageSource.Ice;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.FREEZING_CUBE;
+    stack.ViewBuffName = Fix.FREEZING_CUBE;
+    stack.Turn = SecondaryLogic.FreezingCube_Turn(player);
+    stack.Effect1 = SecondaryLogic.FreezingCube_Effect(player);
+    stack.Effect2 = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.FreezingCube_Effect2(player);
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.FREEZING_CUBE, stack);
   }
 
   private void ExecVolcanicBlaze(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
