@@ -470,6 +470,9 @@ public partial class BattleEnemy : MotherBase
       //  UpdatePlayerInstantGauge(PlayerList[ii]);
       //  ExecBuffStun(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffSilent(playerList[ii], playerList[ii], 99, 0);
+      //  ExecBuffPoison(playerList[ii], playerList[ii], 99, 100);
+      //  ExecBuffSlip(playerList[ii], playerList[ii], 99, 100);
       //  AbstractAddBuff(playerList[ii], playerList[ii].objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE_JP, 99, 0, 0, 0);
       //  ExecBuffPhysicalAttackDown(playerList[ii], playerList[ii], 99, 0.10f);
       //}
@@ -2618,9 +2621,16 @@ public partial class BattleEnemy : MotherBase
     // Sleepによる効果判定
     if (player.IsSleep)
     {
-      command_name = Fix.STAY;
-      StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SLEEP_MISS, Fix.COLOR_WARNING);
-      // return; // 睡眠は行動失敗ではないので、ここは通過させる。
+      if (command_name == Fix.CIRCLE_OF_SERENITY)
+      {
+        // サークル・オブ・セレニティの場合は対象外
+      }
+      else
+      {
+        command_name = Fix.STAY;
+        StartAnimation(player.objGroup.gameObject, Fix.BATTLE_SLEEP_MISS, Fix.COLOR_WARNING);
+        // return; // 睡眠は行動失敗ではないので、ここは通過させる。
+      }
     }
 
     // ソーサリータイミングのチェック判定
@@ -8502,6 +8512,29 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_WILL_AWAKENING);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.CIRCLE_OF_SERENITY)
+    {
+      One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_SERENITY);
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_POISON, ""); // 猛毒は解除できない
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_SILENT, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_BIND, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_SLEEP, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_STUN, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_PARALYZE, "");
+        // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_FREEZE, ""); // 凍結は解除できない
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_FEAR, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_TEMPTATION, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_SLOW, "");
+        AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_DIZZY, "");
+        // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_SLIP, ""); // 出血は解除できない
+        // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 蘇生不可は解除できない
+        // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, ""); // ライフ回復不可は解除できない
+      }
+
+      AbstractAddBuff(player, stack_obj.TargetField, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -9118,8 +9151,15 @@ public partial class BattleEnemy : MotherBase
     // スタン効果により、行動できない。
     if (this.NowSelectSrcPlayer.IsStun)
     {
-      Debug.Log("CurrentPlayer is now stunning, then no action.");
-      return;
+      if (sender.CommandName == Fix.CIRCLE_OF_SERENITY)
+      {
+        // サークル・オブ・セレニティはスタン中でも発動可能とする。
+      }
+      else
+      {
+        Debug.Log("CurrentPlayer is now stunning, then no action.");
+        return;
+      }
     }
 
     // Normalタイミングのため、行動できない。
@@ -12472,26 +12512,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecCircleOfTheSerenity(Character player, List<Character> target_list, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_SERENITY);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_POISON, ""); // 猛毒は解除できない
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SILENT, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_BIND, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLEEP, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_STUN, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_PARALYZE, "");
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_FREEZE, ""); // 凍結は解除できない
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_FEAR, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_TEMPTATION, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLOW, "");
-      AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_DIZZY, "");
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_SLIP, ""); // 出血は解除できない
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_CANNOT_RESURRECT, ""); // 蘇生不可は解除できない
-      // AbstractRemoveTargetBuff(target_list[ii], target_list[ii].objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, ""); // ライフ回復不可は解除できない
-    }
 
-    AbstractAddBuff(player, target_field_obj, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.CIRCLE_OF_SERENITY;
+    stack.ViewBuffName = Fix.CIRCLE_OF_SERENITY;
+    stack.Turn = SecondaryLogic.CircleOfTheSerenity_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.CIRCLE_OF_SERENITY, stack);
   }
 
   private void ExecRagingStorm(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
