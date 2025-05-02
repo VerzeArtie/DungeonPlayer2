@@ -8533,7 +8533,7 @@ public partial class BattleEnemy : MotherBase
         // AbstractRemoveTargetBuff(stack_obj.TargetList[ii], stack_obj.TargetList[ii].objBuffPanel, Fix.EFFECT_NO_GAIN_LIFE, ""); // ライフ回復不可は解除できない
       }
 
-      AbstractAddBuff(player, stack_obj.TargetField, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
+      AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
     }
     else if (command_name == Fix.FLAME_STRIKE)
     {
