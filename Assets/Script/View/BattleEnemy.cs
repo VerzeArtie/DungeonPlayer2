@@ -8535,6 +8535,15 @@ public partial class BattleEnemy : MotherBase
 
       AbstractAddBuff(player, stack_obj.TargetField, Fix.CIRCLE_OF_SERENITY, Fix.CIRCLE_OF_SERENITY, SecondaryLogic.CircleOfTheSerenity_Turn(player), 0, 0, 0);
     }
+    else if (command_name == Fix.FLAME_STRIKE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FLAME_STRIKE);
+      bool success = ExecMagicAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12645,12 +12654,22 @@ public partial class BattleEnemy : MotherBase
   private void ExecFlameStrike(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FLAME_STRIKE);
-    bool success = ExecMagicAttack(player, target, SecondaryLogic.FlameStrike(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.FLAME_STRIKE, Fix.FLAME_STRIKE, SecondaryLogic.FlameStrike_Turn(player), 0, 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.FlameStrike(player);
+    stack.DamageSource = Fix.DamageSource.Fire;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.FLAME_STRIKE;
+    stack.ViewBuffName = Fix.FLAME_STRIKE;
+    stack.Turn = SecondaryLogic.FlameStrike_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.FLAME_STRIKE, stack);
   }
 
   private void ExecFrostLance(Character player, Character target, Fix.CriticalType critical)
