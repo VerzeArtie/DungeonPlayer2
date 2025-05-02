@@ -8478,6 +8478,30 @@ public partial class BattleEnemy : MotherBase
         this.GlobalAnimationChain--;
       }
     }
+    else if (command_name == Fix.DOMINATION_FIELD)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DOMINATION_FIELD);
+      AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
+    else if (command_name == Fix.DEADLY_DRIVE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DEADLY_DRIVE);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
+    else if (command_name == Fix.PENETRATION_ARROW)
+    {
+      One.PlaySoundEffect(Fix.SOUND_PENETRATION_ARROW);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
+    else if (command_name == Fix.WILL_AWAKENING)
+    {
+      One.PlaySoundEffect(Fix.SOUND_WILL_AWAKENING);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12427,12 +12451,22 @@ public partial class BattleEnemy : MotherBase
   private void ExecPenetrationArrow(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_PENETRATION_ARROW);
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.PenetrationArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
-    if (success)
-    {
-      AbstractAddBuff(target, target.objBuffPanel, Fix.PENETRATION_ARROW, Fix.PENETRATION_ARROW, SecondaryLogic.PenetrationArrow_Turn(player), PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player), SecondaryLogic.PenetrationArrow_Effect2(player), 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.PenetrationArrow(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.DefenseMode;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.PENETRATION_ARROW;
+    stack.ViewBuffName = Fix.PENETRATION_ARROW;
+    stack.Turn = SecondaryLogic.PenetrationArrow_Turn(player);
+    stack.Effect1 = PrimaryLogic.PhysicalAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Strength) * SecondaryLogic.PenetrationArrow_Effect(player);
+    stack.Effect2 = SecondaryLogic.PenetrationArrow_Effect2(player);
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.PENETRATION_ARROW, stack);
   }
 
   private void ExecCircleOfTheSerenity(Character player, List<Character> target_list, BuffField target_field_obj)
@@ -12514,8 +12548,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecWillAwakening(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_WILL_AWAKENING);    
-    AbstractAddBuff(target, target.objBuffPanel, Fix.WILL_AWAKENING, Fix.WILL_AWAKENING, SecondaryLogic.WillAwakening_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.WILL_AWAKENING;
+    stack.ViewBuffName = Fix.WILL_AWAKENING;
+    stack.Turn = SecondaryLogic.WillAwakening_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.WILL_AWAKENING, stack);
   }
 
   private void ExecPhantomOboro(Character player)
@@ -12536,15 +12579,33 @@ public partial class BattleEnemy : MotherBase
   private void ExecDeadlyDrive(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DEADLY_DRIVE);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.DEADLY_DRIVE, Fix.DEADLY_DRIVE, SecondaryLogic.DeadlyDrive_Turn(player), SecondaryLogic.DeadlyDrive_Effect1(player), SecondaryLogic.DeadlyDrive_Effect2(player), SecondaryLogic.DeadlyDrive_Effect3(player));
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.DEADLY_DRIVE;
+    stack.ViewBuffName = Fix.DEADLY_DRIVE;
+    stack.Turn = SecondaryLogic.DeadlyDrive_Turn(player);
+    stack.Effect1 = SecondaryLogic.DeadlyDrive_Effect1(player);
+    stack.Effect2 = SecondaryLogic.DeadlyDrive_Effect2(player);
+    stack.Effect3 = SecondaryLogic.DeadlyDrive_Effect3(player);
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.DEADLY_DRIVE, stack);
   }
 
   private void ExecDominationField(Character player, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DOMINATION_FIELD);    
-    AbstractAddBuff(player, target_field_obj, Fix.DOMINATION_FIELD, Fix.DOMINATION_FIELD, SecondaryLogic.DominationField_Turn(player), SecondaryLogic.DominationField_Effect1(player), SecondaryLogic.DominationField_Effect2(player), 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.DOMINATION_FIELD;
+    stack.ViewBuffName = Fix.DOMINATION_FIELD;
+    stack.Turn = SecondaryLogic.DominationField_Turn(player);
+    stack.Effect1 = SecondaryLogic.DominationField_Effect1(player);
+    stack.Effect2 = SecondaryLogic.DominationField_Effect2(player);
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.DOMINATION_FIELD, stack);
   }
   #endregion
 
