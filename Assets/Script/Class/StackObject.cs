@@ -177,6 +177,13 @@ public class StackObject : MonoBehaviour
     set { _buff_type = value; }
   }
 
+  [SerializeField] protected double _now_command_counter = 0.0f;
+  public double NowCommandCounter
+  {
+    get { return _now_command_counter; }
+    set { _now_command_counter = value; }
+  }
+
   public Image background;
   public Text txtStackName;
   public Text txtStackTarget;

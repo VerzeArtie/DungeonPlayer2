@@ -8569,6 +8569,20 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_SEVENTH_PRINCIPLE);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.UNINTENTIONAL_HIT)
+    {
+      One.PlaySoundEffect(Fix.SOUND_UNINTENTIONAL_HIT);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        ExecBuffParalyze(stack_obj.Player, stack_obj.Target, stack_obj.Turn, stack_obj.EffectValue);
+
+        this.NowUnintentionalHitPlayer = stack_obj.Player;
+        this.NowUnintentionalHitTarget = stack_obj.Target;
+        this.NowUnintentionalHitCounter = stack_obj.NowCommandCounter;
+        this.NowUnintentionalHitMode = true;
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12608,16 +12622,19 @@ public partial class BattleEnemy : MotherBase
   private void ExecUnintentionalHit(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.UnintentionalHit(player), Fix.DamageSource.Physical, Fix.IgnoreType.None, critical);
-    if (success)
-    {
-      ExecBuffParalyze(player, target, SecondaryLogic.UnintentionalHit_Turn(player), 0);
 
-      this.NowUnintentionalHitPlayer = player;
-      this.NowUnintentionalHitTarget = target;
-      this.NowUnintentionalHitCounter = SecondaryLogic.UnintentionalHit_GaugeStep(player) * BATTLE_GAUGE_WITDH;
-      this.NowUnintentionalHitMode = true;
-    }
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.UnintentionalHit(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Turn = SecondaryLogic.UnintentionalHit_Turn(player);
+    stack.EffectValue = 0;
+    stack.NowCommandCounter = SecondaryLogic.UnintentionalHit_GaugeStep(player) * BATTLE_GAUGE_WITDH;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.UNINTENTIONAL_HIT, stack);
   }
 
   private void ExecWillAwakening(Character player, Character target)
