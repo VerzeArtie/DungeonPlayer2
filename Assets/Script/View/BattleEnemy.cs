@@ -8553,6 +8553,12 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.SHINING_HEAL)
+    {
+      One.PlaySoundEffect(Fix.SOUND_SHINING_HEAL);
+      AbstractHealCommand(stack_obj.Player, stack_obj.Target, stack_obj.HealValue, stack_obj.FromPotion);
+      AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12705,10 +12711,20 @@ public partial class BattleEnemy : MotherBase
   private void ExecShiningHeal(Character player, Character target, Fix.CriticalType critical, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SHINING_HEAL);
-    double healValue = target.MaxLife;
-    AbstractHealCommand(player, target, healValue, false);
-    AbstractAddBuff(target, target_field_obj, Fix.SHINING_HEAL, Fix.SHINING_HEAL, SecondaryLogic.ShiningHeal_Turn(player), PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.HealValue = target.MaxLife;
+    stack.FromPotion = false;
+    stack.BuffName = Fix.SHINING_HEAL;
+    stack.ViewBuffName = Fix.SHINING_HEAL;
+    stack.Turn = SecondaryLogic.ShiningHeal_Turn(player);
+    stack.Effect1 = PrimaryLogic.MagicAttack(player, PrimaryLogic.ValueType.Random, PrimaryLogic.SpellSkillType.Intelligence) * SecondaryLogic.ShiningHeal_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.SHINING_HEAL, stack);
   }
 
   private void ExecCircleOfTheDespair(Character player, Character target, BuffField target_field_obj)
