@@ -8559,6 +8559,16 @@ public partial class BattleEnemy : MotherBase
       AbstractHealCommand(stack_obj.Player, stack_obj.Target, stack_obj.HealValue, stack_obj.FromPotion);
       AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.CIRCLE_OF_THE_DESPAIR)
+    {
+      One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_DESPAIR);
+      AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
+    else if (command_name == Fix.SEVENTH_PRINCIPLE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_SEVENTH_PRINCIPLE);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11810,8 +11820,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecSeventhPrinciple(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SEVENTH_PRINCIPLE);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.SEVENTH_PRINCIPLE, Fix.SEVENTH_PRINCIPLE, SecondaryLogic.SeventhPrinciple_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.SEVENTH_PRINCIPLE;
+    stack.ViewBuffName = Fix.SEVENTH_PRINCIPLE;
+    stack.Turn = SecondaryLogic.SeventhPrinciple_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.SEVENTH_PRINCIPLE, stack);
   }
 
   private void ExecStanceOfTheBlade(Character player, Character target, Fix.CriticalType critical)
@@ -12730,8 +12749,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecCircleOfTheDespair(Character player, Character target, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_DESPAIR);    
-    AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_DESPAIR, Fix.CIRCLE_OF_THE_DESPAIR, SecondaryLogic.CircleOfDespair_Turn(player), SecondaryLogic.CircleOfDespair_Effect1(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.CIRCLE_OF_THE_DESPAIR;
+    stack.ViewBuffName = Fix.CIRCLE_OF_THE_DESPAIR;
+    stack.Turn = SecondaryLogic.CircleOfDespair_Turn(player);
+    stack.Effect1 = SecondaryLogic.CircleOfDespair_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.CIRCLE_OF_THE_DESPAIR, stack);
   }
   #endregion
 
