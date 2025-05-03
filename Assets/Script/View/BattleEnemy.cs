@@ -8583,6 +8583,11 @@ public partial class BattleEnemy : MotherBase
         this.NowUnintentionalHitMode = true;
       }
     }
+    else if (command_name == Fix.EVERFLOW_MIND)
+    {
+      One.PlaySoundEffect(Fix.SOUND_EVERFLOW_MIND);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11819,8 +11824,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecEverflowMind(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_EVERFLOW_MIND);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.EVERFLOW_MIND, Fix.EVERFLOW_MIND, SecondaryLogic.EverflowMind_Turn(player), SecondaryLogic.EverflowMind_Effect1(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.EVERFLOW_MIND;
+    stack.ViewBuffName = Fix.EVERFLOW_MIND;
+    stack.Turn = SecondaryLogic.EverflowMind_Turn(player);
+    stack.Effect1 = SecondaryLogic.EverflowMind_Effect1(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.EVERFLOW_MIND, stack);
   }
 
   private void ExecInnerInspiration(Character player, Character target)
