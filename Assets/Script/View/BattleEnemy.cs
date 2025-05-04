@@ -467,6 +467,8 @@ public partial class BattleEnemy : MotherBase
       //if (playerList[ii].FullName == Fix.NAME_EIN_WOLENCE)
       //{
       //  PlayerList[ii].CurrentInstantPoint = Fix.MAX_INSTANT_POINT;
+      //  PlayerList[ii].CurrentSkillPoint = 1;
+      //  PlayerList[ii].UpdateSkillPoint();
       //  UpdatePlayerInstantGauge(PlayerList[ii]);
       //  ExecBuffStun(playerList[ii], playerList[ii], 99, 0);
       //  ExecBuffSleep(playerList[ii], playerList[ii], 99, 0);
@@ -8588,6 +8590,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_EVERFLOW_MIND);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.INNER_INSPIRATION)
+    {
+      One.PlaySoundEffect(Fix.SOUND_INNER_INSPIRATION);
+      AbstractGainSkillPoint(stack_obj.Player, stack_obj.Target, stack_obj.EffectValue);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -11840,9 +11847,12 @@ public partial class BattleEnemy : MotherBase
   private void ExecInnerInspiration(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_INNER_INSPIRATION);    
-    double effectValue = SecondaryLogic.InnerInspiration_Effect1(player) * target.MaxSkillPoint;
-    AbstractGainSkillPoint(player, target, effectValue);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.EffectValue = SecondaryLogic.InnerInspiration_Effect1(player) * target.MaxSkillPoint;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.INNER_INSPIRATION, stack);
   }
 
   private void ExecSeventhPrinciple(Character player, Character target)
