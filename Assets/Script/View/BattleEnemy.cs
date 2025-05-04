@@ -8622,6 +8622,18 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_FUTURE_VISION);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.DETACHMENT_FAULT)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_DETACHMENT_FAULT);
+        AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+      else
+      {
+        AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12917,9 +12929,32 @@ public partial class BattleEnemy : MotherBase
   private void ExecDetachmentFault(Character player, Character target, BuffField player_field_obj, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DETACHMENT_FAULT);
-    AbstractAddBuff(player, player_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
-    AbstractAddBuff(target, target_field_obj, Fix.DETACHMENT_FAULT, Fix.BUFF_DETACHMENT_FAULT_JP, SecondaryLogic.DetachmentFault_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.DETACHMENT_FAULT;
+    stack.ViewBuffName = Fix.DETACHMENT_FAULT;
+    stack.Turn = SecondaryLogic.DetachmentFault_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = player_field_obj;
+    stack.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.DETACHMENT_FAULT, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.BuffName = Fix.DETACHMENT_FAULT;
+    stack1.ViewBuffName = Fix.DETACHMENT_FAULT;
+    stack1.Turn = SecondaryLogic.DetachmentFault_Turn(player);
+    stack1.Effect1 = 0;
+    stack1.Effect2 = 0;
+    stack1.Effect3 = 0;
+    stack1.Player = player;
+    stack1.Target = target;
+    stack1.TargetField = target_field_obj;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.DETACHMENT_FAULT, stack1);
   }
 
   private void ExecStanceoftheIai(Character player)
