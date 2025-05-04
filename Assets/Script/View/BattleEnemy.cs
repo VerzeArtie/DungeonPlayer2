@@ -8600,6 +8600,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_IGNITE);
       AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.WATER_PRESENCE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_WATER_PRESENCE);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12831,8 +12836,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecWaterPresence(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_WATER_PRESENCE);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.WATER_PRESENCE, Fix.BUFF_WATER_PRESENCE, SecondaryLogic.WaterPresence_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.WATER_PRESENCE;
+    stack.ViewBuffName = Fix.WATER_PRESENCE;
+    stack.Turn = SecondaryLogic.WaterPresence_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.WATER_PRESENCE, stack);
   }
 
   private void ExecValkyrieBlade(Character player, Character target)
