@@ -8595,6 +8595,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_INNER_INSPIRATION);
       AbstractGainSkillPoint(stack_obj.Player, stack_obj.Target, stack_obj.EffectValue);
     }
+    else if (command_name == Fix.CIRCLE_OF_THE_IGNITE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_IGNITE);
+      AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12809,9 +12814,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecCircleOfTheIgnite(Character player, Character target, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_CIRCLE_OF_THE_IGNITE);
-    double effectValue = player.TotalIntelligence * SecondaryLogic.CircleOfTheIgnite_Effect(player);
-    AbstractAddBuff(target, target_field_obj, Fix.CIRCLE_OF_THE_IGNITE, Fix.BUFF_CIRCLE_IGNITE, SecondaryLogic.CircleOfTheIgnite_Turn(player), effectValue, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.CIRCLE_OF_THE_IGNITE;
+    stack.ViewBuffName = Fix.CIRCLE_OF_THE_IGNITE;
+    stack.Turn = SecondaryLogic.CircleOfTheIgnite_Turn(player);
+    stack.Effect1 = player.TotalIntelligence * SecondaryLogic.CircleOfTheIgnite_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.CIRCLE_OF_THE_IGNITE, stack);
   }
 
   private void ExecWaterPresence(Character player, Character target)
