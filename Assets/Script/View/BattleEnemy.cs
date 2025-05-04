@@ -8617,6 +8617,11 @@ public partial class BattleEnemy : MotherBase
       ExecLifeDown(stack_obj.Target, stack_obj.Decrease);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.FUTURE_VISION)
+    {
+      One.PlaySoundEffect(Fix.SOUND_FUTURE_VISION);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12897,8 +12902,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecFutureVision(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_FUTURE_VISION);    
-    AbstractAddBuff(player, player.objBuffPanel, Fix.FUTURE_VISION, Fix.BUFF_FUTURE_VISION_JP, SecondaryLogic.FutureVision_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.FUTURE_VISION;
+    stack.ViewBuffName = Fix.FUTURE_VISION;
+    stack.Turn = SecondaryLogic.FutureVision_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    CreateNormalStackObject(Fix.FUTURE_VISION, stack);
   }
 
   private void ExecDetachmentFault(Character player, Character target, BuffField player_field_obj, BuffField target_field_obj)
