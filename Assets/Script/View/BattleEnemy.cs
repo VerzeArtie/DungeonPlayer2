@@ -8610,6 +8610,13 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_VALKYRIE_BLADE);
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.THE_DARK_INTENSITY)
+    {
+      One.PlaySoundEffect(Fix.SOUND_THE_DARK_INTENSITY);
+
+      ExecLifeDown(stack_obj.Target, stack_obj.Decrease);
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12873,9 +12880,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecTheDarkIntensity(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_THE_DARK_INTENSITY);
-    ExecLifeDown(target, 0.50f);
-    AbstractAddBuff(target, target.objBuffPanel, Fix.THE_DARK_INTENSITY, Fix.BUFF_DARK_INTENSITY_JP, SecondaryLogic.TheDarkIntensity_Turn(player), SecondaryLogic.TheDarkIntensity_Effect(player), SecondaryLogic.TheDarkIntensity_Effect2(player), 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.THE_DARK_INTENSITY;
+    stack.ViewBuffName = Fix.THE_DARK_INTENSITY;
+    stack.Turn = SecondaryLogic.TheDarkIntensity_Turn(player);
+    stack.Effect1 = SecondaryLogic.TheDarkIntensity_Effect(player);
+    stack.Effect2 = SecondaryLogic.TheDarkIntensity_Effect2(player);
+    stack.Effect3 = 0;
+    stack.Decrease = 0.50f;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.THE_DARK_INTENSITY, stack);
   }
 
   private void ExecFutureVision(Character player)

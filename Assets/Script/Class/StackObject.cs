@@ -184,6 +184,13 @@ public class StackObject : MonoBehaviour
     set { _now_command_counter = value; }
   }
 
+  [SerializeField] protected double _decrease = 0.0f;
+  public double Decrease
+  {
+    get { return _decrease; }
+    set { _decrease = value; }
+  }
+
   public Image background;
   public Text txtStackName;
   public Text txtStackTarget;
