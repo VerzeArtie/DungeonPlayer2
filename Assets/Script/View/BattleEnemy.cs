@@ -8649,6 +8649,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_STANCE_OF_MUIN);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.ETERNAL_CONCENTRATION)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ETERNAL_CONCENTRATION);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13023,8 +13028,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecEternalConcentration(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ETERNAL_CONCENTRATION);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.ETERNAL_CONCENTRATION, Fix.BUFF_ETERNAL_CONCENTRATION_JP, SecondaryLogic.EternalConcentration_Turn(player), SecondaryLogic.EternalConcentration_Effect(player), 0, 0);
+
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.ETERNAL_CONCENTRATION;
+    stack.ViewBuffName = Fix.BUFF_ETERNAL_CONCENTRATION_JP;
+    stack.Turn = SecondaryLogic.EternalConcentration_Turn(player);
+    stack.Effect1 = SecondaryLogic.EternalConcentration_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.ETERNAL_CONCENTRATION, stack);
   }
 
   private void ExecSigiloftheFaith(Character player, Character target, BuffField player_field_obj)
