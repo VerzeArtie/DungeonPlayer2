@@ -8639,6 +8639,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_STANCE_OF_IAI);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.ONE_IMMUNITY)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ONE_IMMUNITY);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -12981,8 +12986,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecOneImmunity(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ONE_IMMUNITY);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.ONE_IMMUNITY, Fix.BUFF_ONE_IMMUNITY_JP, SecondaryLogic.OneImmunity_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.ONE_IMMUNITY;
+    stack.ViewBuffName = Fix.BUFF_ONE_IMMUNITY_JP;
+    stack.Turn = SecondaryLogic.OneImmunity_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.ONE_IMMUNITY, stack);
   }
 
   private void ExecStanceofMuin(Character player)
