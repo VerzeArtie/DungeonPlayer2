@@ -8644,6 +8644,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_ONE_IMMUNITY);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.STANCE_OF_MUIN)
+    {
+      One.PlaySoundEffect(Fix.SOUND_STANCE_OF_MUIN);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13002,8 +13007,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceofMuin(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_MUIN);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_MUIN, Fix.BUFF_STANCE_OF_MUIN_JP, SecondaryLogic.StanceofMuin_Turn(player), SecondaryLogic.StanceofMuin_Effect(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.STANCE_OF_MUIN;
+    stack.ViewBuffName = Fix.BUFF_STANCE_OF_MUIN_JP;
+    stack.Turn = SecondaryLogic.StanceofMuin_Turn(player);
+    stack.Effect1 = SecondaryLogic.StanceofMuin_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.STANCE_OF_MUIN, stack);
   }
 
   private void ExecEternalConcentration(Character player)
