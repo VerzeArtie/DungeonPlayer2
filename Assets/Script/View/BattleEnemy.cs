@@ -8756,6 +8756,23 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_STANCE_OF_KOKOROE);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.TRANSCENDENCE_REACHED)
+    {
+      One.PlaySoundEffect(Fix.SOUND_TRANSCENDENCE_REACHED);
+      // 負のBUFFがあればそれを削除する。
+      // [ Abstract化してもよい ]
+      BuffImage[] buffList = stack_obj.Target.objBuffPanel.GetComponentsInChildren<BuffImage>();
+      if (buffList == null) { return; }
+      for (int ii = buffList.Length - 1; ii >= 0; ii--)
+      {
+        if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Negative)
+        {
+          buffList[ii].RemoveBuff();
+        }
+      }
+
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13364,20 +13381,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecTranscendenceReached(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_TRANSCENDENCE_REACHED);
-    // 負のBUFFがあればそれを削除する。
-    // [ Abstract化してもよい ]
-    BuffImage[] buffList = target.objBuffPanel.GetComponentsInChildren<BuffImage>();
-    if (buffList == null) { return; }
-    for (int ii = buffList.Length - 1; ii >= 0; ii--)
-    {
-      if (ActionCommand.GetBuffType(buffList[ii].BuffName) == Fix.BuffType.Negative)
-      {
-        buffList[ii].RemoveBuff();
-      }
-    }
 
-    AbstractAddBuff(target, target.objBuffPanel, Fix.TRANSCENDENCE_REACHED, Fix.BUFF_TRANSCENDENCE_REACHED, SecondaryLogic.TranscendenceReached_Turn(player), 0, 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.TRANSCENDENCE_REACHED;
+    stack.ViewBuffName = Fix.BUFF_TRANSCENDENCE_REACHED;
+    stack.Turn = SecondaryLogic.TranscendenceReached_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.TRANSCENDENCE_REACHED, stack);
   }
   #endregion
 
