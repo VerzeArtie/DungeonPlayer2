@@ -8654,6 +8654,25 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_ETERNAL_CONCENTRATION);
       AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.SIGIL_OF_THE_FAITH)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_FAITH);
+        AbstractAddBuff(stack_obj.Player, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+      else
+      {
+        this.GlobalAnimationChain++;
+        List<Character> player_list = GetAllyGroupAlive(stack_obj.Player);
+        for (int ii = 0; ii < player_list.Count; ii++)
+        {
+          AbstractGainManaPoint(player_list[ii], player_list[ii], player_list[ii].MaxManaPoint - (player_list[ii].MaxManaPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
+          AbstractGainSkillPoint(player_list[ii], player_list[ii], player_list[ii].MaxSkillPoint - (player_list[ii].MaxSkillPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
+        }
+        this.GlobalAnimationChain--;
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13045,14 +13064,26 @@ public partial class BattleEnemy : MotherBase
   private void ExecSigiloftheFaith(Character player, Character target, BuffField player_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_SIGIL_OF_THE_FAITH);
-    AbstractAddBuff(player, player_field_obj, Fix.SIGIL_OF_THE_FAITH, Fix.BUFF_SIGIL_OF_THE_FAITH_JP, SecondaryLogic.SigilOfTheFaith_Turn(player), SecondaryLogic.SigilOfTheFaith_Effect(player), 0, 0);
-    List<Character> player_list = GetAllyGroupAlive(player);
-    for (int ii = 0; ii < player_list.Count; ii++)
-    {
-      AbstractGainManaPoint(player_list[ii], player_list[ii], player_list[ii].MaxManaPoint - (player_list[ii].MaxManaPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
-      AbstractGainSkillPoint(player_list[ii], player_list[ii], player_list[ii].MaxSkillPoint - (player_list[ii].MaxSkillPoint / player_list[ii].SearchFieldBuff(Fix.SIGIL_OF_THE_FAITH).EffectValue));
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.SIGIL_OF_THE_FAITH;
+    stack.ViewBuffName = Fix.BUFF_SIGIL_OF_THE_FAITH_JP;
+    stack.Turn = SecondaryLogic.SigilOfTheFaith_Turn(player);
+    stack.Effect1 = SecondaryLogic.SigilOfTheFaith_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = player_field_obj;
+    stack.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.SIGIL_OF_THE_FAITH, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.Player = player;
+    stack1.Target = target;
+    stack1.TargetField = player_field_obj;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.SIGIL_OF_THE_FAITH, stack1);
   }
   #endregion
 
