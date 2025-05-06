@@ -8673,6 +8673,16 @@ public partial class BattleEnemy : MotherBase
         this.GlobalAnimationChain--;
       }
     }
+    else if (command_name == Fix.LAVA_ANNIHILATION)
+    {
+      One.PlaySoundEffect(Fix.SOUND_LAVA_ANNIHILATION);
+      this.GlobalAnimationChain++;
+      for (int ii = 0; ii < stack_obj.TargetList.Count; ii++)
+      {
+        ExecMagicAttack(stack_obj.Player, stack_obj.TargetList[ii], stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      }
+      this.GlobalAnimationChain--;
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13091,11 +13101,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecLavaAnnihilation(Character player, List<Character> target_list, BuffField target_field_obj, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_LAVA_ANNIHILATION);
-    for (int ii = 0; ii < target_list.Count; ii++)
-    {
-      ExecMagicAttack(player, target_list[ii], SecondaryLogic.LavaAnnihilation(player), Fix.DamageSource.Fire, Fix.IgnoreType.None, critical);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.LavaAnnihilation(player);
+    stack.DamageSource = Fix.DamageSource.Fire;
+    stack.IgnoreType = Fix.IgnoreType.None;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.TargetList = target_list;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.LAVA_ANNIHILATION, stack);
   }
 
   private void ExecAbsoluteZero(Character player, Character target)
