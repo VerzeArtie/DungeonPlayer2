@@ -8751,6 +8751,11 @@ public partial class BattleEnemy : MotherBase
         AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
       }
     }
+    else if (command_name == Fix.STANCE_OF_THE_KOKOROE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_STANCE_OF_KOKOROE);
+      AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13343,8 +13348,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecStanceoftheKokoroe(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_STANCE_OF_KOKOROE);
-    AbstractAddBuff(player, player.objBuffPanel, Fix.STANCE_OF_THE_KOKOROE, Fix.BUFF_STANCE_OF_THE_KOKOROE_JP, SecondaryLogic.StanceoftheKokoroe_Turn(player), 0, 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.STANCE_OF_THE_KOKOROE;
+    stack.ViewBuffName = Fix.BUFF_STANCE_OF_THE_KOKOROE_JP;
+    stack.Turn = SecondaryLogic.StanceoftheKokoroe_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = player;
+    CreateNormalStackObject(Fix.STANCE_OF_THE_KOKOROE, stack);
   }
 
   private void ExecTranscendenceReached(Character player, Character target)
