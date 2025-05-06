@@ -8701,6 +8701,11 @@ public partial class BattleEnemy : MotherBase
         AbstractResurrection(stack_obj.Player, stack_obj.Target, (int)(stack_obj.HealValue));
       }
     }
+    else if (command_name == Fix.DEATH_SCYTHE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_DEATH_SCYTHE);
+      AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13170,8 +13175,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecDeathScythe(Character player, Character target, BuffField target_field_obj)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_DEATH_SCYTHE);
-    AbstractAddBuff(target, target_field_obj, Fix.DEATH_SCYTHE, Fix.BUFF_DEATH_SCYTHE_JP, SecondaryLogic.DeathScythe_Turn(player), SecondaryLogic.DeathScythe_Effect(player), 0, 0);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.DEATH_SCYTHE;
+    stack.ViewBuffName = Fix.BUFF_DEATH_SCYTHE_JP;
+    stack.Turn = SecondaryLogic.DeathScythe_Turn(player);
+    stack.Effect1 = SecondaryLogic.DeathScythe_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    stack.TargetField = target_field_obj;
+    CreateNormalStackObject(Fix.DEATH_SCYTHE, stack);
   }
 
   private void ExecGenesis(Character player)
