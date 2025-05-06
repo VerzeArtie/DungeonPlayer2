@@ -8706,6 +8706,19 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_DEATH_SCYTHE);
       AbstractAddBuff(stack_obj.Target, stack_obj.TargetField, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.GENESIS)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.SOUND_GENESIS);
+        StartAnimation(stack_obj.Player.gameObject, Fix.GENESIS, Fix.COLOR_NORMAL, stack_obj.AnimationSpeed);
+      }
+      else
+      {
+        System.Threading.Thread.Sleep(500);
+        ExecBeforeAttackPhase(stack_obj.Player, false);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13192,8 +13205,18 @@ public partial class BattleEnemy : MotherBase
   private void ExecGenesis(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_GENESIS); // ただし、すぐ前回行動が行われるので音は書き消されてしまう。音を2つ鳴らす方が良いかどうかは検討
-    ExecBeforeAttackPhase(player, false);
+
+    // 空スタックでGenesisが実行されるまでのスリープを実現。
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Player = player;
+    stack.SequenceNumber = 0;
+    stack.AnimationSpeed = ANIMATION_TIME_HALF;
+    CreateNormalStackObject(Fix.SOUND_GENESIS, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.Player = player;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.SOUND_GENESIS, stack1);
   }
 
   private void ExecTimeStop(Character player)
