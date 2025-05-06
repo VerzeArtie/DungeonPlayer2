@@ -8733,6 +8733,11 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_KINETIC_SMASH);
       ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.CATASTROPHE)
+    {
+      One.PlaySoundEffect(Fix.SOUND_CATASTROPHE);
+      ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13266,8 +13271,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecCatastrophe(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_CATASTROPHE);
-    ExecNormalAttack(player, target, SecondaryLogic.Catastrophe(player), Fix.DamageSource.Physical, Fix.IgnoreType.Both, critical);
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.Catastrophe(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.Both;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.CATASTROPHE, stack);
   }
 
   private void ExecCarnageRush(Character player, Character target, Fix.CriticalType critical)
