@@ -8689,6 +8689,18 @@ public partial class BattleEnemy : MotherBase
       if (stack_obj.Player.IsAbsoluteZero) { return; } // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。 
       AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
     }
+    else if (command_name == Fix.RESURRECTION)
+    {
+      if (stack_obj.SequenceNumber == 0)
+      {
+        One.PlaySoundEffect(Fix.RESURRECTION);
+      }
+      else
+      {
+        System.Threading.Thread.Sleep(1300);
+        AbstractResurrection(stack_obj.Player, stack_obj.Target, (int)(stack_obj.HealValue));
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13139,8 +13151,20 @@ public partial class BattleEnemy : MotherBase
   private void ExecResurrection(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.RESURRECTION);
-    AbstractResurrection(player, target, (int)(target.MaxLife / 2.0f));
+
+    // 空スタックで復活呪文が実行されるまでのスリープを実現。
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Player = player;
+    stack.Target = target;
+    stack.SequenceNumber = 0;
+    CreateNormalStackObject(Fix.RESURRECTION, stack);
+
+    StackObject stack1 = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack1.HealValue = (target.MaxLife / 2.0f);
+    stack1.Player = player;
+    stack1.Target = target;
+    stack1.SequenceNumber = 1;
+    CreateNormalStackObject(Fix.RESURRECTION, stack1);
   }
 
   private void ExecDeathScythe(Character player, Character target, BuffField target_field_obj)
