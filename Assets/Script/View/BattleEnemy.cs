@@ -8719,6 +8719,15 @@ public partial class BattleEnemy : MotherBase
         ExecBeforeAttackPhase(stack_obj.Player, false);
       }
     }
+    else if (command_name == Fix.TIME_STOP)
+    {
+      One.PlaySoundEffect(Fix.SOUND_TIME_STOP);
+      if (stack_obj.Player.CurrentTimeStopValue <= 0) // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。
+      {
+        stack_obj.Player.CurrentTimeStopValue = (int)(stack_obj.Effect1);
+        AbstractAddBuff(stack_obj.Player, stack_obj.Player.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13222,13 +13231,16 @@ public partial class BattleEnemy : MotherBase
   private void ExecTimeStop(Character player)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_TIME_STOP);
-    // One.PlaySoundEffect("TimeStop");
-    if (player.CurrentTimeStopValue <= 0) // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。
-    {
-      player.CurrentTimeStopValue = (int)(SecondaryLogic.TimeStop_Effect(player));
-      AbstractAddBuff(player, player.objBuffPanel, Fix.TIME_STOP, Fix.BUFF_TIME_STOP, SecondaryLogic.TimeStop_Turn(player), SecondaryLogic.TimeStop_Effect(player), 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.TIME_STOP;
+    stack.ViewBuffName = Fix.BUFF_TIME_STOP;
+    stack.Turn = SecondaryLogic.TimeStop_Turn(player);
+    stack.Effect1 = SecondaryLogic.TimeStop_Effect(player);
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    CreateNormalStackObject(Fix.TIME_STOP, stack);
   }
 
   private void ExecKineticSmash(Character player, Character target, Fix.CriticalType critical)
