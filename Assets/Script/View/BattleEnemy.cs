@@ -8738,6 +8738,19 @@ public partial class BattleEnemy : MotherBase
       One.PlaySoundEffect(Fix.SOUND_CATASTROPHE);
       ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
     }
+    else if (command_name == Fix.PIERCING_ARROW)
+    {
+      One.PlaySoundEffect(Fix.SOUND_PIERCING_ARROW);
+      bool success = ExecNormalAttack(stack_obj.Player, stack_obj.Target, stack_obj.Magnify, stack_obj.DamageSource, stack_obj.IgnoreType, stack_obj.CriticalType, stack_obj.AnimationSpeed);
+      if (success)
+      {
+        // ExecPiercingArrowは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
+        // stack_objから変数を継承するべきかもしれないが、ココはこれで良しとする。
+        stack_obj.Target.UseInstantPoint(true, Fix.PIERCING_ARROW);
+        stack_obj.Target.UpdateInstantPointGauge();
+        AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+      }
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13309,15 +13322,22 @@ public partial class BattleEnemy : MotherBase
   private void ExecPiercingArrow(Character player, Character target, Fix.CriticalType critical)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_PIERCING_ARROW);
-    bool success = ExecNormalAttack(player, target, SecondaryLogic.PiercingArrow(player), Fix.DamageSource.Physical, Fix.IgnoreType.DefenseMode, critical);
-    if (success)
-    {
-      // ExecPiercingArrowは妨害の位置づけでありEverflowMindなどの効果を受け付けない。実行後は必ず０とする。
-      target.UseInstantPoint(true, Fix.PIERCING_ARROW);
-      target.UpdateInstantPointGauge();
-      AbstractAddBuff(target, target.objBuffPanel, Fix.PIERCING_ARROW, Fix.BUFF_PIERCING_ARROW_JP, SecondaryLogic.PiercingArrow_Turn(player), 0, 0, 0);
-    }
+
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.Magnify = SecondaryLogic.PiercingArrow(player);
+    stack.DamageSource = Fix.DamageSource.Physical;
+    stack.IgnoreType = Fix.IgnoreType.DefenseMode;
+    stack.CriticalType = critical;
+    stack.AnimationSpeed = MAX_ANIMATION_TIME;
+    stack.BuffName = Fix.PIERCING_ARROW;
+    stack.ViewBuffName = Fix.BUFF_PIERCING_ARROW_JP;
+    stack.Turn = SecondaryLogic.PiercingArrow_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.PIERCING_ARROW, stack);
   }
 
   private void ExecStanceoftheKokoroe(Character player)
