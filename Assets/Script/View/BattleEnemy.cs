@@ -8683,6 +8683,12 @@ public partial class BattleEnemy : MotherBase
       }
       this.GlobalAnimationChain--;
     }
+    else if (command_name == Fix.ABSOLUTE_ZERO)
+    {
+      One.PlaySoundEffect(Fix.SOUND_ABSOLUTE_ZERO);
+      if (stack_obj.Player.IsAbsoluteZero) { return; } // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。 
+      AbstractAddBuff(stack_obj.Target, stack_obj.Target.objBuffPanel, stack_obj.BuffName, stack_obj.ViewBuffName, stack_obj.Turn, stack_obj.Effect1, stack_obj.Effect2, stack_obj.Effect3);
+    }
     else if (command_name == Fix.METEOR_BULLET)
     {
       One.PlaySoundEffect(Fix.SOUND_METEOR_BULLET);
@@ -13117,10 +13123,17 @@ public partial class BattleEnemy : MotherBase
   private void ExecAbsoluteZero(Character player, Character target)
   {
     Debug.Log(MethodBase.GetCurrentMethod());
-    One.PlaySoundEffect(Fix.SOUND_ABSOLUTE_ZERO);
-    if (player.IsAbsoluteZero) { return; } // 強力無比な魔法のため、継続ターンの連続更新は出来なくしている。 
 
-    AbstractAddBuff(target, target.objBuffPanel, Fix.ABSOLUTE_ZERO, Fix.BUFF_ABSOLUTE_ZERO_JP, SecondaryLogic.AbsoluteZero_Turn(player), 0, 0, 0);
+    StackObject stack = Instantiate(this.prefab_Stack, GroupNormalStack.transform.localPosition, Quaternion.identity) as StackObject;
+    stack.BuffName = Fix.ABSOLUTE_ZERO;
+    stack.ViewBuffName = Fix.BUFF_ABSOLUTE_ZERO_JP;
+    stack.Turn = SecondaryLogic.AbsoluteZero_Turn(player);
+    stack.Effect1 = 0;
+    stack.Effect2 = 0;
+    stack.Effect3 = 0;
+    stack.Player = player;
+    stack.Target = target;
+    CreateNormalStackObject(Fix.ABSOLUTE_ZERO, stack);
   }
 
   private void ExecResurrection(Character player, Character target)
