@@ -44,6 +44,7 @@ public class Title : MotherBase
   public Text txtEnemy2;
   public Text txtEnemy3;
   public Text txtDuel;
+  public Text txtDuelA;
   public Text txtBoss;
   public Text txtBoss2;
   public Text txtBoss3;
@@ -154,7 +155,10 @@ public class Title : MotherBase
         }
       }
     }
-    catch { }
+    catch (Exception ex)
+    {
+      Debug.Log("Title Exception: " + ex.ToString());
+    }
 
     this.BGMSlider.value = (float)((float)One.CONF.EnableBGM);
     this.SoundSlider.value = (float)((float)One.CONF.EnableSoundEffect);
@@ -194,7 +198,7 @@ public class Title : MotherBase
 
   public void TapStartSeeker()
   {
-    Debug.Log("TapStartSeeker ok");
+    Debug.Log("TapStartSeeker(S)");
     TapCancelSystemMessage();
 
     One.RealWorldLoad();
@@ -202,30 +206,41 @@ public class Title : MotherBase
 
     if (One.TF.EventCore_IdentifyFeltus)
     {
+      Debug.Log("TapStartSeeker EventCore_IdentifyFeltus");
+      Debug.Log("TapStartSeeker One.TF.CurrentDungeonField: " + One.TF.CurrentDungeonField);
       if (One.TF.CurrentDungeonField == Fix.MAPFILE_WOSM_2)
       {
+        Debug.Log("TapStartSeeker MAPFILE_WOSM_2");
         SceneDimension.JumpToDungeonField();
       }
       else
       {
+        Debug.Log("TapStartSeeker not MAPFILE_WOSM_2, then MAPFILE_BASE_FIELD");
         One.TF.CurrentDungeonField = Fix.MAPFILE_BASE_FIELD;
         // 初期スタートの位置
         if (One.TF.InitBasefieldStart == false)
         {
+          Debug.Log("TapStartSeeker InitBasefieldStart false, then reset position");
           One.TF.InitBasefieldStart = true;
           One.TF.Field_X = Fix.BASEFIELD_EVENT_1_X;
           One.TF.Field_Y = Fix.BASEFIELD_EVENT_1_Y;
           One.TF.Field_Z = Fix.BASEFIELD_EVENT_1_Z;
+        }
+        else
+        {
+          Debug.Log("TapStartSeeker InitBasefieldStart true, then no action");
         }
         SceneDimension.JumpToDungeonField();
       }
     }
     else if (One.TF.SaveByDungeon)
     {
+      Debug.Log("TapStartSeeker One.TF.SaveByDungeon(true) -> JumpToDungeonField");
       SceneDimension.JumpToDungeonField();
     }
     else
     {
+      Debug.Log("TapStartSeeker One.TF.SaveByDungeon(false) -> JumpToHomeTown");
       SceneDimension.JumpToHomeTown();
     }
   }
@@ -331,66 +346,66 @@ public class Title : MotherBase
     One.TF.AvailableEoneFulnea = true;
     One.TF.AvailableBillyRaki = true;
 
-    Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
-    ein.FireBall = 6;
-    //ein.FlameBlade = 1;
-    //ein.GaleWind = 1;
-    //ein.IceNeedle = 1;
-    //ein.FreezingCube = 1;
-    //ein.VolcanicBlaze = 1;
-    //ein.IronBuster = 1;
-    //ein.CounterAttack = 1;
-    //ein.CursedEvangile = 1;
-    //ein.PenetrationArrow = 1;
-    //ein.CircleOfSerenity = 1;
-    //ein.WillAwakening = 1;
-    //ein.PhantomOboro = 1;
-    //ein.DeadlyDrive = 1;
-    //ein.DominationField = 1;
-    //ein.HunterShot = 1;
-    //ein.ShiningHeal = 1;
-    //ein.BloodSign = 1;
-    //ein.CircleOfTheDespair = 1;
-    //ein.RagingStorm = 1;
-    //ein.FreshHeal = 1;
-    //ein.EnergyBolt = 1;
-    //ein.SpeedStep = 1;
-    //ein.LeylineSchema = 3;
-    //ein.OracleCommand = 6;
-    //ein.EnergyBolt = 4;
-    ein.FortuneSpirit = 3;
-    ein.StanceOfTheBlade = 1;
-    ein.StanceOfTheGuard = 20;
-    //ein.SpiritualRest = 1;
-    ein.WordOfPower = 6;
-    //ein.SigilOfThePending = 4;
-    ein.DoubleSlash = 6;
-    ein.GaleWind = 3;
-    ein.EyeOfTheIsshin = 20;
-    ein.PhantomOboro = 3;
-    //ein.DominationField = 20;
-    ein.WillAwakening = 3;
-    ein.FlameStrike = 1;
-    ein.SeventhPrinciple = 4;
-    ein.HardestParry = 4;
-    ein.InnerInspiration = 6;
-    ein.ActionCommand1 = Fix.FIRE_BALL;
-    ein.ActionCommand2 = Fix.STRAIGHT_SMASH;
-    ein.ActionCommand3 = Fix.INNER_INSPIRATION;
-    ein.ActionCommand4 = Fix.FRESH_HEAL;
-    ein.ActionCommand5 = Fix.SEVENTH_PRINCIPLE;
-    ein.ActionCommand6 = Fix.PHANTOM_OBORO;
-    ein.ActionCommand7 = Fix.FLAME_STRIKE;
-    ein.ActionCommand8 = Fix.GALE_WIND;
-    ein.ActionCommand9 = Fix.HARDEST_PARRY;
-    ein.Strength = 100;
-    ein.Agility = 10;
-    ein.Intelligence = 10;
-    ein.Mind = 100;
-    ein.BaseManaPoint = 999;
-    ein.BaseLife = 1000;
-    ein.MaxGain();
-    //ein.CurrentManaPoint = 2;
+    //Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
+    //ein.FireBall = 6;
+    ////ein.FlameBlade = 1;
+    ////ein.GaleWind = 1;
+    ////ein.IceNeedle = 1;
+    ////ein.FreezingCube = 1;
+    ////ein.VolcanicBlaze = 1;
+    ////ein.IronBuster = 1;
+    ////ein.CounterAttack = 1;
+    ////ein.CursedEvangile = 1;
+    ////ein.PenetrationArrow = 1;
+    ////ein.CircleOfSerenity = 1;
+    ////ein.WillAwakening = 1;
+    ////ein.PhantomOboro = 1;
+    ////ein.DeadlyDrive = 1;
+    ////ein.DominationField = 1;
+    ////ein.HunterShot = 1;
+    ////ein.ShiningHeal = 1;
+    ////ein.BloodSign = 1;
+    ////ein.CircleOfTheDespair = 1;
+    ////ein.RagingStorm = 1;
+    ////ein.FreshHeal = 1;
+    ////ein.EnergyBolt = 1;
+    ////ein.SpeedStep = 1;
+    ////ein.LeylineSchema = 3;
+    ////ein.OracleCommand = 6;
+    ////ein.EnergyBolt = 4;
+    //ein.FortuneSpirit = 3;
+    //ein.StanceOfTheBlade = 1;
+    //ein.StanceOfTheGuard = 20;
+    ////ein.SpiritualRest = 1;
+    //ein.WordOfPower = 6;
+    ////ein.SigilOfThePending = 4;
+    //ein.DoubleSlash = 6;
+    //ein.GaleWind = 3;
+    //ein.EyeOfTheIsshin = 20;
+    //ein.PhantomOboro = 3;
+    ////ein.DominationField = 20;
+    //ein.WillAwakening = 3;
+    //ein.FlameStrike = 1;
+    //ein.SeventhPrinciple = 4;
+    //ein.HardestParry = 4;
+    //ein.InnerInspiration = 6;
+    //ein.ActionCommand1 = Fix.FIRE_BALL;
+    //ein.ActionCommand2 = Fix.STRAIGHT_SMASH;
+    //ein.ActionCommand3 = Fix.INNER_INSPIRATION;
+    //ein.ActionCommand4 = Fix.FRESH_HEAL;
+    //ein.ActionCommand5 = Fix.SEVENTH_PRINCIPLE;
+    //ein.ActionCommand6 = Fix.PHANTOM_OBORO;
+    //ein.ActionCommand7 = Fix.FLAME_STRIKE;
+    //ein.ActionCommand8 = Fix.GALE_WIND;
+    //ein.ActionCommand9 = Fix.HARDEST_PARRY;
+    //ein.Strength = 100;
+    //ein.Agility = 10;
+    //ein.Intelligence = 10;
+    //ein.Mind = 100;
+    //ein.BaseManaPoint = 999;
+    //ein.BaseLife = 1000;
+    //ein.MaxGain();
+    ////ein.CurrentManaPoint = 2;
 
     Character lana = One.SelectCharacter(Fix.NAME_LANA_AMIRIA);
     lana.IceNeedle = 6;
@@ -417,7 +432,7 @@ public class Title : MotherBase
     lana.ActionCommand6 = Fix.CIRCLE_OF_THE_DESPAIR;
     lana.ActionCommand7 = Fix.BLOOD_SIGN;
     lana.ActionCommand8 = Fix.CURSED_EVANGILE;
-    lana.ActionCommand9 = Fix.SPIRITUAL_REST;
+    lana.ActionCommand9 = Fix.DEATH_SCYTHE;
     lana.Strength = 100;
     lana.Agility = 10;
     lana.Intelligence = 100;
@@ -426,6 +441,8 @@ public class Title : MotherBase
     lana.BaseLife = 1000;
     lana.MaxGain();
     //lana.CurrentManaPoint = 3;
+    lana.CurrentLife = 0;
+    lana.Dead = true;
 
     Character eone = One.SelectCharacter(Fix.NAME_EONE_FULNEA);
     eone.AgilityFood = 1;
@@ -477,40 +494,171 @@ public class Title : MotherBase
     billy.ActionCommand6 = Fix.IRON_BUSTER;
     billy.ActionCommand7 = Fix.DEADLY_DRIVE;
     billy.ActionCommand8 = Fix.RAGING_STORM;
-    billy.Strength = 100;
+    billy.Strength = 1;// 100;
     billy.Intelligence = 100;
     billy.Agility = 25;
     billy.Mind = 10;
-    billy.BaseLife = 1000;
+    billy.BaseLife = 1;// 1000;
     billy.MaxGain();
-    billy.CurrentLife = 300;
+    billy.CurrentLife = 1;// 300;
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
     One.TF.BattlePlayer2 = Fix.NAME_LANA_AMIRIA;
-    One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
-    One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
+    //One.TF.BattlePlayer3 = Fix.NAME_EONE_FULNEA;
+    //One.TF.BattlePlayer4 = Fix.NAME_BILLY_RAKI;
 
-    One.RealWorldLoad();
-    List<Character> available = One.AvailableCharacters;
-    foreach (Character current in available)
-    {
-      current.MaxGain();
-    }
-    One.CreateShadowData();
+    //One.RealWorldLoad();
+    //List<Character> available = One.AvailableCharacters;
+    //foreach (Character current in available)
+    //{
+    //  current.MaxGain();
+    //}
+    //One.CreateShadowData();
 
     One.EnemyList.Clear();
-    if (txtEnemy1.text != String.Empty)
+    //if (txtEnemy1.text != String.Empty)
     {
-      One.BattleEnemyList.Add(txtEnemy1.text);
+      One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
+      One.BattleEnemyList.Add(Fix.DUMMY_SUBURI);
     }
-    if (txtEnemy2.text != String.Empty)
-    {
-      One.BattleEnemyList.Add(txtEnemy2.text);
-    }
-    if (txtEnemy3.text != String.Empty)
-    {
-      One.BattleEnemyList.Add(txtEnemy3.text);
-    }
+    //if (txtEnemy2.text != String.Empty)
+    //{
+    //  One.BattleEnemyList.Add(txtEnemy2.text);
+    //}
+    //if (txtEnemy3.text != String.Empty)
+    //{
+    //  One.BattleEnemyList.Add(txtEnemy3.text);
+    //}
+
+    Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
+    ein.Level = 15;
+    ein.Strength = 210;
+    ein.Agility = 21;
+    ein.Intelligence = 100;
+    ein.Stamina = 14;
+    ein.Mind = 10;
+    ein.BaseLife = 222;
+    ein.BaseManaPoint = 1000;// 166;
+    ein.BaseSkillPoint = 100;
+    ein.StraightSmash = 1;
+    ein.ZeroImmunity = 1;
+    ein.FreshHeal = 1;
+    ein.FireBall = 1;
+    ein.IceNeedle = 1;
+    ein.ShadowBlast = 1;
+    ein.OracleCommand = 1;
+    ein.EnergyBolt = 1;
+    ein.ShieldBash = 1;
+    ein.LegStrike = 1;
+    ein.HunterShot = 1;
+    ein.TrueSight = 1;
+    ein.DispelMagic = 1;
+    ein.FlameBlade = 1;
+    ein.PurePurification = 1;
+    ein.DivineCircle = 1;
+    ein.BloodSign = 1;
+    ein.FortuneSpirit = 1;
+    ein.FlashCounter = 1;
+    ein.StanceOfTheBlade = 1;
+    ein.StanceOfTheGuard = 1;
+    ein.SpeedStep = 1;
+    ein.MultipleShot = 1;
+    ein.LeylineSchema = 1;
+    ein.SpiritualRest = 1;
+    ein.MeteorBullet = 1;
+    ein.BlueBullet = 1;
+    ein.HolyBreath = 1;
+    ein.BlackContract = 1;
+    ein.WordOfPower = 1;
+    ein.SigilOfThePending = 1;
+    ein.DoubleSlash = 1;
+    ein.ConcussiveHit = 1;
+    ein.BoneCrush = 1;
+    ein.EyeOfTheIsshin = 1;
+    ein.VoiceOfVigor = 1;
+    ein.UnseenAid = 1;
+    ein.VolcanicBlaze = 1;
+    ein.FreezingCube = 1;
+    ein.AngelicEcho = 1;
+    ein.CursedEvangile = 1;
+    ein.GaleWind = 1;
+    ein.PhantomOboro = 1;
+    ein.IronBuster = 1;
+    ein.DominationField = 1;
+    ein.DeadlyDrive = 1;
+    ein.PenetrationArrow = 1;
+    ein.WillAwakening = 1;
+    ein.CircleOfSerenity = 1;
+    ein.FlameStrike = 1;
+    ein.FrostLance = 1;
+    ein.ShiningHeal = 1;
+    ein.CircleOfTheDespair = 1;
+    ein.SeventhPrinciple = 1;
+    ein.CounterDisallow = 1;
+    ein.RagingStorm = 1;
+    ein.UnintentionalHit = 1;
+    ein.PrecisionStrike = 1;
+    ein.EverflowMind = 1;
+    ein.InnerInspiration = 1;
+    ein.CircleOfTheIgnite = 1;
+    ein.WaterPresence = 1;
+    ein.ValkyrieBlade = 1;
+    ein.TheDarkIntensity = 1;
+    ein.FutureVision = 1;
+    ein.DetachmentFault = 1;
+    ein.StanceOfTheIai = 1;
+    ein.OneImmunity = 1;
+    ein.StanceOfMuin = 1;
+    ein.EternalConcentration = 1;
+    ein.SigilOfTheFaith = 1;
+    ein.LavaAnnihilation = 1;
+    ein.AbsoluteZero = 1;
+    ein.Resurrection = 1;
+    ein.DeathScythe = 1;
+    ein.Genesis = 1;
+    ein.TimeStop = 3;
+    ein.KineticSmash = 1;
+    ein.Catastrophe = 1;
+    ein.CarnageRush = 1;
+    ein.PiercingArrow = 1;
+    ein.StanceOfTheKokoroe = 1;
+    ein.TranscendenceReached = 1;
+    ein.ActionCommand1 = Fix.DOUBLE_SLASH;
+    ein.ActionCommand2 = Fix.ZERO_IMMUNITY;
+    ein.ActionCommand3 = Fix.DEFENSE;
+    ein.ActionCommand4 = Fix.CIRCLE_OF_SERENITY;
+    ein.ActionCommand5 = Fix.ARCHETYPE_EIN_1;
+    //ein.ActionCommand4 = Fix.FLAME_STRIKE;
+    ein.ActionCommand5 = Fix.FRESH_HEAL;
+    //ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
+    ein.ActionCommand6 = Fix.GENESIS;
+    //ein.ActionCommand7 = Fix.PRECISION_STRIKE;
+    ein.ActionCommand7 = Fix.KINETIC_SMASH;
+    //ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
+    //ein.ActionCommand9 = Fix.HARDEST_PARRY;
+    ein.MainWeapon = new Item(Fix.EXTREME_SWORD);
+    //ein.SubWeapon = new Item(Fix.SILVER_EARTH_SHIELD);
+    //ein.Accessory1 = new Item(Fix.RED_AMULET);
+    //ein.Accessory2 = new Item(Fix.BLUE_AMULET);
+    ein.ActionCommandMain = Fix.TRANSCENDENCE_REACHED;
+    ein.MaxGain();
+
+    One.TF.AvailablePotentialGauge = true;
+    One.TF.AvailableArchetype_EinWolence = true;
+    One.TF.PotentialEnergy = 10000;
+    //One.TF.BattlePlayer1 = Fix.NAME_BILLY_RAKI;
+    One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
+    List<Character> available = One.AvailableCharacters;
+    //foreach (Character current in available)
+    //{
+    //  current.MaxGain();
+    //}
+    One.CreateShadowData();
+    //if (txtDuelA.text != String.Empty)
+    //{
+    //  One.BattleEnemyList.Clear();
+    //  One.BattleEnemyList.Add(txtDuelA.text);
+    //}
 
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
@@ -546,44 +694,66 @@ public class Title : MotherBase
     lana.BaseManaPoint = 999;
     lana.BaseLife = 1000;
 
+    One.TF.AvailablePotentialGauge = true;
+    One.TF.AvailableArchetype_EinWolence = true;
+    One.TF.PotentialEnergy = 10000;
     Character ein = One.SelectCharacter(Fix.NAME_EIN_WOLENCE);
-    ein.GaleWind = 1;
-    ein.IceNeedle = 1;
-    ein.FreezingCube = 1;
-    ein.VolcanicBlaze = 1;
-    ein.IronBuster = 1;
-    ein.CounterAttack = 1;
-    ein.CursedEvangile = 1;
-    ein.PenetrationArrow = 1;
-    ein.CircleOfSerenity = 1;
-    ein.WillAwakening = 1;
-    ein.PhantomOboro = 1;
-    ein.DeadlyDrive = 1;
-    ein.DominationField = 1;
-    ein.FlameStrike = 1;
-    ein.FrostLance = 1;
-    ein.CounterDisallow = 1;
-    ein.PrecisionStrike = 1;
-    ein.UnintentionalHit = 1;
-    ein.HardestParry = 1;
-    ein.EverflowMind = 1;
+    ein.Level = 58;
+    ein.Strength = 297;
+    ein.Agility = 50;
+    ein.Intelligence = 24;
+    ein.Stamina = 96;
+    ein.Mind = 50;
+    ein.BaseLife = 15214;
+    ein.BaseManaPoint = 1712;
+    ein.BaseSkillPoint = 100;
+    ein.MainWeapon = new Item(Fix.GALLANT_FEATHER_LANCE);
+    //ein.MainArmor = new Item(Fix.BLADESHADOW_CROWDED_DRESS);
+    //ein.Accessory1 = new Item(Fix.FIRELIEGE_AETHER_TALISMAN);
+    //ein.Accessory2 = new Item(Fix.ANGEL_CONTRACT_SHEET);
+    //ein.Artifact = new Item(Fix.FLOW_FUNNEL_OF_THE_ZVELDOZE);
 
-    ein.Strength = 30;
-    ein.Agility = 15;
-    ein.Intelligence = 30;
-    ein.Stamina = 70;
-    ein.Mind = 30;
-    ein.BaseManaPoint = 999;
+    //ein.Level = 15;
+    //ein.Strength = 52;
+    //ein.Agility = 37;
+    //ein.Intelligence = 7;
+    //ein.Stamina = 29;
+    //ein.Mind = 22;
+    //ein.BaseLife = 874;
+    //ein.BaseManaPoint = 356;
+    //ein.BaseSkillPoint = 100;
+    //ein.MainWeapon = new Item(Fix.THUNDER_BREAK_AXE);
+    //ein.SubWeapon = new Item(Fix.WIDE_BUCKLER);
+    //ein.MainArmor = new Item(Fix.GOTHIC_PLATE);
+    //ein.Accessory1 = new Item(Fix.RED_KOKUIN);
+    //ein.Accessory2 = new Item(Fix.CHAINSHIFT_BOOTS);
+    ein.StraightSmash = 1;
+    ein.ZeroImmunity = 1;
+    ein.PrecisionStrike = 1;
+    ein.CounterDisallow = 1;
+    ein.HardestParry = 1;
+    ein.PrecisionStrike = 1;
     ein.ActionCommand1 = Fix.STRAIGHT_SMASH;
-    ein.ActionCommand2 = Fix.FIRE_BALL;
+    ein.ActionCommand2 = Fix.ZERO_IMMUNITY;
     ein.ActionCommand3 = Fix.DEFENSE;
-    ein.ActionCommand4 = Fix.FLAME_STRIKE;
-    ein.ActionCommand5 = Fix.FRESH_HEAL;
-    ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
-    ein.ActionCommand7 = Fix.PRECISION_STRIKE;
-    ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
-    ein.ActionCommand9 = Fix.HARDEST_PARRY;
-    ein.MainWeapon = new Item(Fix.SWORD_OF_LIFE);
+    ein.ActionCommand4 = Fix.PRECISION_STRIKE;
+    ein.ActionCommand5 = Fix.ARCHETYPE_EIN_1;
+    ein.ActionCommand6 = Fix.FRESH_HEAL;
+    ein.ActionCommand7 = Fix.HARDEST_PARRY;
+    ein.ActionCommand8 = Fix.COUNTER_DISALLOW;
+    //ein.ActionCommand4 = Fix.FLAME_STRIKE;
+    //ein.ActionCommand5 = Fix.FRESH_HEAL;
+    //ein.ActionCommand6 = Fix.COUNTER_DISALLOW;
+    //ein.ActionCommand7 = Fix.PRECISION_STRIKE;
+    //ein.ActionCommand8 = Fix.UNINTENTIONAL_HIT;
+    //ein.ActionCommand9 = Fix.HARDEST_PARRY;
+    //ein.MainWeapon = new Item(Fix.SMASH_BLADE);
+    //ein.SubWeapon = new Item(Fix.IRON_SHIELD);
+    //ein.MainArmor = new Item(Fix.CROSSCHAIN_MAIL);
+    //ein.Accessory1 = new Item(Fix.RED_AMULET);
+    //ein.Accessory2 = new Item(Fix.JADE_NOBLE_CIRCLET);
+    ein.FreshHeal = 3;
+    ein.WordOfPower = 3;
     ein.MaxGain();
 
     One.TF.BattlePlayer1 = Fix.NAME_EIN_WOLENCE;
@@ -600,6 +770,11 @@ public class Title : MotherBase
     if (txtDuel.text != String.Empty)
     {
       One.BattleEnemyList.Add(txtDuel.text);
+    }
+    if (txtDuelA.text != String.Empty)
+    {
+      One.BattleEnemyList.Clear();
+      One.BattleEnemyList.Add(txtDuelA.text);
     }
     for (int ii = 0; ii < One.BattleEnemyList.Count; ii++)
     {
