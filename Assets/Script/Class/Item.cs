@@ -11252,19 +11252,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 48;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "マンティスの体液は皮膚に塗ると薬用として効果があると言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GREEN_SIKISO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 52;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "樹木の表面にほんのり残っていた緑色素。持っていると、少しだけ暖かみを感じる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MANDORAGORA_ROOT:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 56;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "マンドラゴラ死に際の根には、魔力が宿る言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WOLF_FUR:
         this._rarity = Rarity.Common;
@@ -11277,7 +11277,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 74;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "アリの死骸から採取されたエッセンス。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KATAME_TREE:
         this._rarity = Rarity.Common;
@@ -11289,13 +11289,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 84;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "太陽の恩恵を受けずに人工的な光で育った葉。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WARM_NO_KOUKAKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 89;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "死骸となったワームの甲殻の欠片。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_YELLOW_TAIEKI:
         this._rarity = Rarity.Common;
@@ -11307,7 +11307,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 99;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "雑食で育ったウサギの肉。煮てから焼いて食べると美味しい。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_TOGETOGE_GRASS:
@@ -11320,13 +11320,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 122;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "灰色ではあるが、れっきとした卵。不気味だが美味と言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_RED_HOUSI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 128;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "胞子攻撃の際に噴出された胞子。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_DOKUSO_NEEDLE:
         this._rarity = Rarity.Common;
@@ -11338,7 +11338,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 140;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "体当たり時に紛れ落ちていたプラントノイド種。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HORSE_HIZUME:
         this._rarity = Rarity.Common;
@@ -11524,7 +11524,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 796;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "妖精から採取されるパウダーは、知力活性の源となる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BEAUTY_WHITEFEATHER:
         this._rarity = Rarity.Common;
@@ -11536,7 +11536,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 840;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ドライアドが死に際に散布した鱗粉。ほのかに良い香りがする。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HUNTER_TOOL:
         this._rarity = Rarity.Common;
@@ -11573,7 +11573,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1019;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "剣歯虎の牙からは強靭性エキスが摘出可能である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_THORN_ELEMENT:
         this._rarity = Rarity.Common;
@@ -11814,7 +11814,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 5841;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "牙魚の鱗は、薄いが歯ごたえのある硬さがウリの一つ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MANTA_HARA:
         this._rarity = Rarity.Common;
@@ -11826,19 +11826,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 5981;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "その青さは、目立たないが、高貴な雰囲気を出している。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KURIONE_ZOUMOTU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6051;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "臓物の中でも特に鮮度の高い部分を切り出してある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_RENEW_AKAMI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6121;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "活きの良いマグロの赤身。アンシェットの町では売れ筋No.1。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ROSE_SEKKAI:
         this._rarity = Rarity.Common;
@@ -11851,7 +11851,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6361;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "異常成長した海鷲の青い羽。幸運を呼ぶと言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HANTOUMEI_ROCK:
         this._rarity = Rarity.Common;
@@ -11863,7 +11863,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6521;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "純黒色の墨。少し粘りっけがある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BLACK_GESO:
         this._rarity = Rarity.Common;
@@ -11881,7 +11881,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6761;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "異常な大きさの卵。生のままでは食べられない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_JUMP_MATERIAL:
         this._rarity = Rarity.Common;
@@ -11900,7 +11900,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7116;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "カラフルな触手のため、数多くの魚がこの罠に引っかかると言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SEA_MO:
         this._rarity = Rarity.Common;
@@ -11924,13 +11924,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7476;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ちょっとやそっとのパンチ・キックでは壊れない殻。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SOFT_BIG_HIRE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7566;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "極薄のヒレ。コリコリした感触で、歯ごたえ十分。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BIG_STONE:
         this._rarity = Rarity.Common;
@@ -11955,7 +11955,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8066;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "白色の肝には、身体の健康を促進させる効果があると言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SHRIMP_DOTAI:
         this._rarity = Rarity.Common;
@@ -11967,19 +11967,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8266;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ブラック・スターフィッシュは死亡後、硬質化し物質成分が変化する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_AOSAME_UROKO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8366;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "普通に触ると柔らかいが、対衝撃性に優れている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_JOE_TONGUE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8466;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "長い。硬い。ゴツい。料理の腕が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_EMBLEM_KNIGHT:
         this._rarity = Rarity.Common;
@@ -12029,31 +12029,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 19471;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ハンター達が長年利用してきたアイテム類は、戦況を有利な状況へと導いてくれる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BEAST_KEGAWA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 19682;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ビーストマスターが所有していた毛皮。弾力と剛質性を兼ね備えている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_BLOOD_DAGGER_KAKERA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 19893;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ダガーに付着している血液は、どの獣の血か既にわからない。血液成分をキッチリ鑑定すれば、何かに使えそうだ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SABI_BUGU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 20104;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "堕ちたる求道者は、武具のメンテナンスを全く行ってない。鍛冶屋がメンテナンスすれば元の状態に戻せそうだ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_MEPHISTO_BLACKLIGHT:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 20315;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "メフィストの右腕についていた黒い瘴気が怪しく光っている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_STEAM_POMP:
         this._rarity = Rarity.Common;
@@ -12066,37 +12066,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 20907;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "求道者の末期姿。闇の眷属は求道者の潜在能力を吸い取り、それを糧として力を得ていた。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_ESSENCE_OF_DARK:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 21220;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "闇のマテリアル合成素材。武具職人の力量が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_EXECUTIONER_ROBE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 21533;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "執行人のローブには呪いの念がこめられており、通常の人間には扱えない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_NEMESIS_ESSENCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 21846;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "倒れていたネメシスからエッセンスが抽出されたもの。溶かす事で何かの成分が摘出できそうだ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_MASTERBLADE_FIRE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 22159;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "マスターブレイドに宿らせる火。禍々しさは消えうせている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GREAT_JEWELCROWN:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 22472;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "派手な装飾により煌びやかに光っている。宝石素材のみ使い道あり。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GOUKIN_MATERIAL:
         this._rarity = Rarity.Common;
@@ -12109,37 +12109,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 23288;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "聖のマテリアル合成素材。ポーション合成スキルの力量が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KUMITATE_TENBIN_DOU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 23704;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "魔法生命の天秤より得られた素材。このままでは使えないが・・・" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_DEMON_HORN:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 24120;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "悪魔の角には咎を収める能力が込められている。その能力は角の繊維の奥深くに隠されている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WYVERN_BONE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 24536;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ワイバーンの骨からは体力維持に欠かせないエキスが大量に抽出できる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_ESSENCE_OF_FLAME:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 24952;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "火のマテリアル合成素材。武具職人の力量が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_BLACK_SEAL_IMPRESSION:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 25368;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "黒色とは分からないほど、禍々しいまでにドス黒い印鑑。黒い液体はエキスとして使えそうだ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HIGH_ESTORMIUM_MATERIAL:
         this._rarity = Rarity.Common;
@@ -12152,31 +12152,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 26410;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "何が飛び出てくるか分からない・・・箱からは強烈な恐怖が伝わってくるため、肝のすわった鍛冶職人にしか開くことは出来ない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_ANGEL_SILK:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 26930;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "純白かつ透明なシルク素材。触っている感触が分からないほど軽い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_CHAOS_SIZUKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 27450;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "どれほどの人格者であったとしても、これに触れた途端、カオス属性に落とし込むエキスが内部に凝固化して入っている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_DREAD_EXTRACT:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 27970;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "恐怖のエッセンスが凝縮されているエキス。耐性力を高める効果が期待できる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.RARE_DOOMBRINGER_KAKERA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 28490;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "闇を滅するドゥームブリンガーの欠片。不思議と血液は付着してない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KOKU_THUNDER_SIRUSI:
         this._rarity = Rarity.Common;
@@ -12201,7 +12201,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 30905;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "風のマテリアル合成素材。武具職人の力量が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_INNOCENCE_ESSENCE:
         this._rarity = Rarity.Common;
