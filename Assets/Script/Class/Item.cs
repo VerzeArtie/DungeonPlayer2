@@ -11270,7 +11270,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 60;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "衣類のカテゴリで最もよく使われる素材の一つ。ゴワつき感があるがしっかりとした毛皮である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_ANT_ESSENCE:
@@ -11283,7 +11283,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 79;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "よく見慣れた形状である杖型の原木。先端の形状は職人の手に形となり、その後魔力が宿される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SUN_LEAF:
         this._rarity = Rarity.Common;
@@ -11301,7 +11301,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 94;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "取得してから短い期間は黄色い体液として所持するが、時間経過に伴い、不思議な色の固形物に変化する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_RABBIT_MEAT:
         this._rarity = Rarity.Common;
@@ -11314,7 +11314,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 116;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "生物として存在している間は柔らかい組織で出来ているが、死後はトゲトゲの形状に変化する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ASH_EGG:
         this._rarity = Rarity.Common;
@@ -11332,7 +11332,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 134;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "猛毒注意。手で触れる時は最大限の注意を払わないと、毒素が身体に回ってしまう。運搬の際は専用の袋に入れて運んだ方が良い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_PLANTNOID_SEED:
         this._rarity = Rarity.Common;
@@ -11344,7 +11344,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 146;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "デカい蹄。素材自体に特徴はないが、採取できる量が少ないため、それなりに価値ある素材として知られている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_MACHINE_PARTS:
