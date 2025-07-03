@@ -11382,37 +11382,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 289;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "組み立て構造物を創造する際、ほぼ使われる部品。単価は普通であり、需要と供給のバランスも一般的である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_AMBER_MATERIAL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 299;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "使いどころの分からない素材だが、腕のある職人の手に渡れば、高品質の武具が製作されると言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_NEBARIKE_EKITAI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 309;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "手で取ろうとすると、手にくっついてしまうため、ある程度袋を用意し、それに直接入れる必要がある。少々気持ち悪いアイテムだが、取引素材として持っていく価値はある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_USUGATA_ENBAN:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 319;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この形状をした素材は数少なく、奇麗な形状であればあるほど価値は上がる。モンスターからのドロップであるため、奇麗な形状で残る確率は皆無でほとんどは職人が形状を奇麗に仕立て上げて再び販売されるようになる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HASSYADAI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 329;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "何でもかんでも飛ばしてみたい！という願望を叶えてくれる道具。武器以外の使い方が色々とあるため、人気商品として売られやすい。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KYOUTEN_X:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 339;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これを手にしたものは・・・【幸福Ｘ倍】という名の呪いが掛けられると言われている。真相は定かではないが、興味を持って購入してくれる人もいる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_SOLIDSTONE_MATERIAL:
