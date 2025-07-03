@@ -11351,31 +11351,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 232;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ジャンク品として扱われる機械の部品。希少価値を見出す商人もいるが、そうだとしても一般的な価格で取引される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_COLORFUL_BALL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 240;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "カラフルな装飾が施されている魔道の弾。一見すると威力がある様に見えるが、それほど高級な素材で創られているものではない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SHARP_HAHEN:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 248;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "砕け散った破片はまとまりが無く、あらゆる形状に分離している。下手に触れるとケガするが、慎重に運搬すれば取引対象物として扱う事ができる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BAT_FEATHER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 256;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "素材としては良いのだが、何かとキツい匂いが伴う。レザー系のアイテムを作る際によく使われるため、価値はある。少々我慢して運ぶしかない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GLASS_SHARD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 264;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "透明なガラスの破片。ドロップしていても気付かずに拾われないケースもある。モンスター撃破の後、しっかりと確認する必要がある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_MECHANICAL_SHAFT:
