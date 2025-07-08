@@ -11456,31 +11456,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 464;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "あらゆるものを爆破させるためには、まずこれが必要だ。形を問わず、ケースを問わず、タイミングを問わず、爆弾とはそういうものだ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SEKKAIKOU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 478;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "鉱山からよく採取される素材アイテムだが、純度が高く、本素材を基にして作成された武具は長持ちする。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_CHROTIUM_MATERIAL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 492;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "それは人工的に造られた素材であるはずだったが、遥か古代から存在していた事が後に判明する。本素材はエッセンス変換の元になる貴重な素材である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SANKAKU_STEEL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 506;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この最初から奇麗に形成されている鋼鉄素材はあまりなく、すぐさま市販品として流通できるレベルである。手っ取り早く売ると良いだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_PURPLE_BOTTOLE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 520;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "特に何らかの成分を蓄えているわけではないが、不思議と人気のある素材アイテム。見た目の色合いと形状が流行りの元となっている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_BOAR_MOMONIKU:
