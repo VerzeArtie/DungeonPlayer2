@@ -11419,37 +11419,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 369;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "見た目は何の特徴もないため、ブラックマテリアルと混同してしまいがちだが、成分を解析すると硬質化素材のエッセンスが含まれている事がわかる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_JUNK_PARTS:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 381;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "粗悪品、劣悪品、使えないパーツ。ただし、形を成していないだけであり、創造すればいいだけの事。部品自体は流通の対象となる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ELECT_BOLT:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 393;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "最初からボルトの形状をしているため、天然物と信じてもらうには難しい。電磁波も帯びているため、加工次第で様々なアイテムを生成できる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GARGOYLE_EYE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 405;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "装飾品の一つとして重宝される素材。これ自体は不気味であるが、偉大なる杖などにはめ込む方式でよく使われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WATCHDOG_TONGUE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 417;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "番犬の舌はあらゆるものを嚙みちぎってきた証として、無数の切り傷が入っている。焼いて食べると意外に美味しいと好評。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BUYOBUYO_MOEKASU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 429;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "元の素材が何であるか分からないほど消失している燃えカス。燃えカス自体に価値は無いが、残留している炎のエッセンスが重宝する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_BAKUHA_CHAKKAZAI:
