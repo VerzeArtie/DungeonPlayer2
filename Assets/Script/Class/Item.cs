@@ -11518,19 +11518,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 774;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "研ぎ澄まされたその大爪は、加工する以前から強度および威力は高い。熟練の職人が手を加える事で強力な武具に仕上げられる事だろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_FAIRY_POWDER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 796;
-        this._description = "妖精から採取されるパウダーは、知力活性の源となる。" + Fix.DESCRIPTION_SELL_ONLY;
+        this._description = "このパウダーは視覚的な要素が強く、興味を持って魅入った者は購入するという衝動に駆られる。使い道としての価値は低いので、何らかのセット商品で売られる事が多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BEAUTY_WHITEFEATHER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 818;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "テクノロジの頂点を捉えていた古代文明では大自然の生物は存在していない。そのため、大自然そのものであるこの白羽は、奇跡の象徴として扱われた。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_DRYAD_RINPUN:
         this._rarity = Rarity.Common;
@@ -11542,13 +11542,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 862;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "このままでも十分使える用具ではあるのだが、取り出し口が小さく一般の人達にとっては扱うのが難しいため、少し調整して一般品として出荷される品物。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BLACK_MIST_ESSENCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 884;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "通路の隙間にドロップしていると、影と同化していて見え難い。魔法学でよく使用されるアイテムなので、念のため見つけたら拾って置いて損はしない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_ELEPHANT_LEGS:
