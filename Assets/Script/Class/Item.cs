@@ -11487,31 +11487,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 654;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "柔らかく、歯ごたえもあり、ボリュームもある。食材として一番人気で売れる素材である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MIST_LEAF:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 672;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "季節に応じてその形状は様々である。同じ素材ではあるが、形状が都度異なるため、それによって値段も変動する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_NORMAL_SPORE_ESSENCE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 690;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ちょっとこのままでは誰も買ってくれない・・・ただ、その道の業者が奇麗に加工してくれる事で一般的な素材として使えるようになる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_FROG_FRONTLEG:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 708;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この形状だとどう見ても例の足に見えるため、食用とは言えそのままでは誰も欲しがらない。調理の過程を経て、始めて食事をとる事が出来る。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SNAKE_EMPTYSHELL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 726;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "バックパックは人気商品の一つであり、様々な模様の物がある。なかでも蛇の抜け殻を素材として造られたバックパックはかなりの人気商品であり、入荷してもすぐに売り切れる" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_BEAR_LARGE_CLAW:
