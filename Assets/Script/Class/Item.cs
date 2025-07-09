@@ -11555,19 +11555,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 941;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "本素材はアイテム生成にも食用としても使えるため、かなり広範囲の商人がすぐに買い占める傾向がある。多少重たいが頑張って持ち帰ろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ELEMENTAL_KONA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 967;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "妖精と森と言えば、このアイテムで決まり。魔法や、武器エンチャント、合成素材、なんにでも使えるが、よく考えてから使用する事。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_LAPTOR_FUR:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 993;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "職人の腕の見せ所。基本的に取り扱える代物ではなく、加工にも非常に時間はかかるし、価値あるアイテムの創生も稀にしか出来ない。だが、挑戦し続けるのが人の営みである。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SHARPNESS_TIGER_TOOTH:
         this._rarity = Rarity.Common;
@@ -11579,13 +11579,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1045;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "非常に不格好ではあるが、威力や潜在価値は申し分ない。一部の商人達は購入を控えるものの、密に売値が上がる事を期待してストックしている噂がある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_DORO_YOUKAIEKI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1071;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これを手で持ち運ぶ事は不可能なため、強固なバックパックが必要となる。それでもバックパックを損傷したくない冒険者たちは専用のミニボックスを用意している事が多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_YOUKAI_MIKI:
