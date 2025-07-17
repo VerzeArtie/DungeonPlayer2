@@ -11592,31 +11592,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1137;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "戦闘慣れしていない一般人から見ると単なる幹。熟練者が見れば間違いなく妖気を感じる代物であり、魔力を秘めている事は明白である。一部の商人が好んで買い取る。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_DANPEN_OF_GOFU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1167;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "所定の場所に収められていたはずの蛇が、護符の効果が切らす目的で噛みつく場合がある。この護符はその断片であるが、まだ護法の力は僅かに宿っている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GOTUGOTU_BIGTREE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1197;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "バカでかい木で、素材としては普通。ただ、こうした原木はあらゆる商品を造る時に使われるため、使用用途は多く人気のある素材である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MARY_KISS:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1227;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "マリーのキッスは恐れられる場合がほとんどだが、独自の趣向を持っている一部の人には好まれるアイテムである。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_REHINO_HOHONIKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1257;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "そのままの食材として一般的であるが、調理の仕方によって肉の臭みを完全に削ぎ落し、フルーツ感覚の食感を味わえる。調理人の腕によって味は左右されるだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_MAGIC_HORN:
