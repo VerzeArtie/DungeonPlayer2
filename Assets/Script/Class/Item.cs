@@ -11654,43 +11654,43 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1817;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "下手に手で持ち運ぼうとすると、すぐ消失してしまうアイテム。直接触れるのではなく、ある程度の魔力で少し形状化させて持ち運ぶと良いだろう。売る時もその状態のままで販売される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HENSYOKU_KOKE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1859;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "コケは注意深く観察しないと、毒成分を含んでいるのか、活性成分を含んでいるのか分からない。直観は危険であり、分析能力を用いてから取得するようにした方が良い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KIRAMEKU_GOLDHORN:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1901;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "豪華で煌びやかな角。武具にするのは勿体ないとされており、そのままの形で部屋に飾られる事が多い。ただ、中には違法なオークションに出品する事を目的とする輩もおり扱いには注意した方が良い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MYSTERY_SCROLL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1943;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "開くまで-中身は-見えない。開くと-効果を-発動する。効果は-発動後-判明する。使い道が難しいので戦闘で使うのではなく面白い商品として一般に売られる事が多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BIRD_OUGI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1985;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "偶然にも扇子の形状をした状態で固定化された。アイテムとしては使いにくく、インテリアにもあまり向いてなく活用できる場面は少ない。一部のマニアが好んで購入する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BLUECOLOR_EYE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2027;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "おぞましい・・・恐ろしい・・・絶対に手にしたくはないが、闇鍋料理を作る時に使われるようだ。もちろん完成した料理には出てこない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WHITECOLOR_EYE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2069;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "きれいであり・・・惹かれる・・・だが、ただの目玉であるため、あまり価値はない。魅入られた者は即購入していくが、どういった使い道なのかはあまり知られてない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_CURTAIN_MATERIAL:
