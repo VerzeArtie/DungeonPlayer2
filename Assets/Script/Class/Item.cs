@@ -11623,31 +11623,31 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1587;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "そのホーンからは確かな魔力が感じ取れる。しかしホーンそのものに道具としての使い道はないため、インテリアとして使われる事が多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_THREE_FEATHER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1623;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "1つ羽は不幸、２つ羽は契り、３つ羽は盛栄。この羽を手にした者にはささやかな幸福が訪れるだろう。縁起物として隣人に贈る時によく使われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_YELLOW_DOROTSUCHI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1659;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "色合いが鮮やかな方がより売買の対象になりやすい。使い道は色々とあるが、主に繊維系で良く用いられる素材である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_RED_DOROTSUCHI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1695;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "色合いが鮮やかな方がより売買の対象になりやすい。使い道は色々とあるが、主に武具系で良く用いられる素材である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WINDMAN_SEAL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 1731;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "砂漠の民、深海の民、森の民。その中でも風の民は中々姿を現す事はない。ただし精霊達が契約下でこの印を保持している場合があり、貴重な素材として知られている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_AIRORIGIN_KIHO:
