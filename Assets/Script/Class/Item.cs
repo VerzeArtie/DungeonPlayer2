@@ -11697,43 +11697,43 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2171;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "素材そのものがモンスターから入手できるのは稀である。ただし、かなり汚れており、多少洗い流しただけでは売り物にはならない。一旦、清潔な状態にしてから流通品として出回る。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MEGANE_MATERIAL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2219;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "このアイテムはあらゆる眼鏡のタイプに用いられる素材だが、中でも博識メガネと呼ばれる商品を生成するために、この素材を最低でも１００個集める必要があると言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ARTHARIUM_JEWEL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2267;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この宝石自体に利用価値はないが、貨幣と同等に扱われるアイテムとしてよく取引されている。エリアによっては通常の貨幣よりも価値があると言われているが、定かではない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KITSUNE_TAIL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2315;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "このアイテムを道具として使う事はなく、部屋の一区画に供えるのが通常の使い方である。意味はないが、心、いわゆる精神的な静穏が宿るとされる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_LION_FUR:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2363;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "色、ツヤ、丈夫さ共に万能の素材。非常に売れる素材であるため、これだけを入手するための専属のハンターがするほどである。所持していると狙われる場合もあるので、気を付けよう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_WHITE_HIDUME:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2411;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "カッコ良いアイテムではあるが、重たいし使い道もなく、武具向けの加工にも向いていない。魔法学でも一定の効果は望めるが、期待はできない。ただ、何らかの使い方があるのではないかと追い求める者がいる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_TOUMEI_KESSYO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2459;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "輪郭だけは見えるが、無色透明のせいで景色に溶け込んでおり、視認は難しい。純度の高いエッセンスを内包しており、魔法学で重宝される素材として知られている。" +Fix.DESCRIPTION_SELL_ONLY;
         break;
   
       case Fix.COMMON_PARTIMIUM_MATERIAL:
