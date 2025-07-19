@@ -11740,37 +11740,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2577;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "一般的な硬質化とは異なる結合配列で構成されるエッセンス素材。量子空間の知見である程度の解析は出来ているが、本質的には理解に至っておらず研究対象となっている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HUGE_BOOK:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2631;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "バカデカい箱。持ち運ぶのも苦労するが、売り買いでも苦労する。ちなみに、中身を空けてガッカリする事もある・・・。ただ、本当に豪華賞品が入っている場合もある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GUNPOWDER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2685;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "危険物、取り扱い注意。普通に持ち運ぶ際は問題ないが、意図せずして発火要因が周囲にある場合、暴発被害を被る場合があるため、結局気を付けるしかない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SILENT_WHISTLE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2739;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "戦闘経験慣れしている者は、音を聴く必要はなく、直観でこの笛から発せられた何かを感じ取る事が出来る。ただし一般生活ではその必要はなく普通に使われる。もちろん音を出す事は可能。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_STEEL_BATON:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2793;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "重く頑丈で固いバトン。どう使うのかは分からず、武器としての価値も低いが、不思議と人気商品であり買っていく人は多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_PURE_SILVER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2847;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "重鎧作成過程で溶接した部分の強度はどうしても下がってしまう。これに対し、熟練の技量が必要であるが、この素材を駆使して溶接する事で強度を維持する事が出来るだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_SPEEDARROW_TOOL:
