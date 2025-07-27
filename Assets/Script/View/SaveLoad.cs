@@ -853,7 +853,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentDungeonName = ConvertMapFileToDungeonName(listDSDValue[jj]);
+                  currentDungeonName = saveDungeonAreaString + ConvertMapFileToDungeonName(listDSDValue[jj]);
                 }
                 else
                 {
@@ -864,7 +864,7 @@ public class SaveLoad : MotherBase
               {
                 if (listDSDName[jj] != string.Empty)
                 {
-                  currentAreaName = listDSDValue[jj];
+                  currentAreaName = saveDungeonAreaString + listDSDValue[jj];
                 }
                 else
                 {
@@ -1612,23 +1612,23 @@ public class SaveLoad : MotherBase
 
   private string ConvertMapFileToDungeonName(string map_file)
   {
-    if (map_file == Fix.MAPFILE_ESMILIA_GRASSFIELD) { return saveDungeonAreaString + Fix.DUNGEON_ESMILIA_GRASSFIELD; }
-    else if (map_file == Fix.MAPFILE_GORATRUM) { return saveDungeonAreaString + Fix.DUNGEON_GORATRUM_CAVE + "(１層)"; }
-    else if (map_file == Fix.MAPFILE_GORATRUM_2) { return saveDungeonAreaString + Fix.DUNGEON_GORATRUM_CAVE + "(２層)"; }
-    else if (map_file == Fix.MAPFILE_MYSTIC_FOREST) { return saveDungeonAreaString + Fix.DUNGEON_MYSTIC_FOREST; }
-    else if (map_file == Fix.MAPFILE_OHRAN_TOWER) { return saveDungeonAreaString + Fix.DUNGEON_OHRAN_TOWER; }
-    else if (map_file == Fix.MAPFILE_VELGUS) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE; }
-    else if (map_file == Fix.MAPFILE_VELGUS_2) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_2; }
-    else if (map_file == Fix.MAPFILE_VELGUS_3) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_3; }
-    else if (map_file == Fix.MAPFILE_VELGUS_4) { return saveDungeonAreaString + Fix.DUNGEON_VELGUS_SEA_TEMPLE_4; }
-    else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return saveDungeonAreaString + Fix.DUNGEON_GATE_OF_DHAL; }
-    else if (map_file == Fix.MAPFILE_DISKEL) { return saveDungeonAreaString + Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_2) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_2; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_3) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_3; }
-    else if (map_file == Fix.MAPFILE_EDELGARZEN_4) { return saveDungeonAreaString + Fix.DUNGEON_EDELGARZEN_CASTLE_4; }
-    else if (map_file == Fix.MAPFILE_SNOWTREE_LATA) { return saveDungeonAreaString + Fix.DUNGEON_SNOWTREE_LATA; }
-    else if (map_file == Fix.MAPFILE_GENESISGATE) { return saveDungeonAreaString + Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
+    if (map_file == Fix.MAPFILE_ESMILIA_GRASSFIELD) { return Fix.DUNGEON_ESMILIA_GRASSFIELD; }
+    else if (map_file == Fix.MAPFILE_GORATRUM) { return Fix.DUNGEON_GORATRUM_CAVE + "(１層)"; }
+    else if (map_file == Fix.MAPFILE_GORATRUM_2) { return Fix.DUNGEON_GORATRUM_CAVE + "(２層)"; }
+    else if (map_file == Fix.MAPFILE_MYSTIC_FOREST) { return Fix.DUNGEON_MYSTIC_FOREST; }
+    else if (map_file == Fix.MAPFILE_OHRAN_TOWER) { return Fix.DUNGEON_OHRAN_TOWER; }
+    else if (map_file == Fix.MAPFILE_VELGUS) { return Fix.DUNGEON_VELGUS_SEA_TEMPLE; }
+    else if (map_file == Fix.MAPFILE_VELGUS_2) { return Fix.DUNGEON_VELGUS_SEA_TEMPLE_2; }
+    else if (map_file == Fix.MAPFILE_VELGUS_3) { return Fix.DUNGEON_VELGUS_SEA_TEMPLE_3; }
+    else if (map_file == Fix.MAPFILE_VELGUS_4) { return Fix.DUNGEON_VELGUS_SEA_TEMPLE_4; }
+    else if (map_file == Fix.MAPFILE_GATE_OF_DHAL) { return Fix.DUNGEON_GATE_OF_DHAL; }
+    else if (map_file == Fix.MAPFILE_DISKEL) { return Fix.DUNGEON_DISKEL_BATTLE_FIELD; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN) { return Fix.DUNGEON_EDELGARZEN_CASTLE; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_2) { return Fix.DUNGEON_EDELGARZEN_CASTLE_2; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_3) { return Fix.DUNGEON_EDELGARZEN_CASTLE_3; }
+    else if (map_file == Fix.MAPFILE_EDELGARZEN_4) { return Fix.DUNGEON_EDELGARZEN_CASTLE_4; }
+    else if (map_file == Fix.MAPFILE_SNOWTREE_LATA) { return Fix.DUNGEON_SNOWTREE_LATA; }
+    else if (map_file == Fix.MAPFILE_GENESISGATE) { return Fix.DUNGEON_HEAVENS_GENESIS_GATE; }
 
     return map_file;
   }
