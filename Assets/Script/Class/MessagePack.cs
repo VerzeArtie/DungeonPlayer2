@@ -333,6 +333,15 @@ public static class MessagePack
     Message(ref m_list, ref e_list, "アイン・ウォーレンス、並行世界への突入により、選択する事ができない。", ActionEvent.None);
   }
 
+  public static void MessageX00015(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "武具屋主人：はいよ、好きなだけ見て行ってくれ。", ActionEvent.LastMessage);
+  }
+
+  public static void MessageX00016(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "アイン：さて、何すっかな。", ActionEvent.LastMessage);
+  }
   #endregion
 
   #region "エスミリア草原区域"

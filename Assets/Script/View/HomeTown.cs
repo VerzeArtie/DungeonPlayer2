@@ -957,6 +957,7 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    MessagePack.MessageX00016(ref QuestMessageList, ref QuestEventList); TapOK();
   }
 
   public void TapBackpack()
@@ -986,8 +987,8 @@ public partial class HomeTown : MotherBase
 
     if (One.TF.Event_Message000010 == false)
     {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
+      // MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
+      // return;
     }
 
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
@@ -1027,15 +1028,16 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    MessagePack.MessageX00015(ref QuestMessageList, ref QuestEventList); TapOK();
   }
 
   public void TapActionCommandSetting()
   {
     if (One.TF.Event_Message000010 == false)
     {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
-      TapOK();
-      return;
+      // MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+      // TapOK();
+      // return;
     }
 
     if (GroupActionCommandSetting.activeInHierarchy)
@@ -1057,9 +1059,9 @@ public partial class HomeTown : MotherBase
     Debug.Log("TapTactics(S)");
     if (One.TF.Event_Message000010 == false)
     {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
-      TapOK();
-      return;
+      // MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+      // TapOK();
+      // return;
     }
 
     GroupDungeonPlayer.SetActive(false);
@@ -1073,6 +1075,13 @@ public partial class HomeTown : MotherBase
   public void TapCommunicationLana()
   {
     Debug.Log("TapCommunicationLana(S)");
+    if (One.TF.Event_Message000010 == false)
+    {
+      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
+      TapOK();
+      return;
+    }
+
     if (One.TF.AlreadyCommunicate)
     {
       MessagePack.CommunicationLana_AlreadyCommunicate(ref QuestMessageList, ref QuestEventList);
@@ -1233,7 +1242,6 @@ public partial class HomeTown : MotherBase
   {
     if (One.TF.CurrentAreaName == Fix.TOWN_ANSHET)
     {
-
       if (One.TF.Event_Message000010 == false)
       {
         MessagePack.Message100015(ref QuestMessageList, ref QuestEventList);
@@ -1960,8 +1968,8 @@ public partial class HomeTown : MotherBase
 
     if (One.TF.Event_Message000010 == false)
     {
-      MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
-      return;
+      // MessagePack.Message100015(ref QuestMessageList, ref QuestEventList); TapOK();
+      // return;
     }
 
     if (shopItem.ItemSell == false)
