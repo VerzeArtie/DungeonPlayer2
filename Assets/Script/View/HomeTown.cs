@@ -362,6 +362,9 @@ public partial class HomeTown : MotherBase
 
   protected GameObject CurrentSelectHideACAttribute;
 
+  protected List<string> contentSelectAreaList = new List<string>();
+  protected List<string> contentDungeonPlayerList = new List<string>();
+
   private string DungeonCall = string.Empty;
   private string DungeonMap = string.Empty;
   private bool DungeonCallComplete = false;
@@ -957,6 +960,16 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
+    int count = contentSelectAreaList.Count;
+    if (count >= 1)
+    {
+      ViewSelectAreaEvent(contentSelectAreaList[count - 1]);
+    }
+    int countQuest = contentDungeonPlayerList.Count;
+    if (countQuest >= 1)
+    {
+      ViewQuestEvent(contentDungeonPlayerList[count - 1]);
+    }
     MessagePack.MessageX00016(ref QuestMessageList, ref QuestEventList); TapOK();
   }
 
@@ -4351,6 +4364,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentDungeonPlayerList.Clear();
     int counter = 0;
 
     // SeekerModeでクエストは見せない
@@ -4386,6 +4400,7 @@ public partial class HomeTown : MotherBase
     {
       GameObject.Destroy(n.gameObject);
     }
+    contentSelectAreaList.Clear();
     contentSelectArea.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSelectArea.GetComponent<RectTransform>().sizeDelta.x, 0);
     int counter = 0;
 
@@ -4395,7 +4410,7 @@ public partial class HomeTown : MotherBase
       return;
     }
 
-    if (true) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
+    if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_ANSHET, true, counter); counter++; }
     if (One.TF.QuestMain_00001) { AddSelectArea(Fix.DUNGEON_ESMILIA_GRASSFIELD, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.TOWN_FAZIL_CASTLE, true, counter); counter++; }
     if (One.TF.QuestMain_00002) { AddSelectArea(Fix.DUNGEON_GORATRUM_CAVE, true, counter); counter++; }
@@ -4422,6 +4437,7 @@ public partial class HomeTown : MotherBase
       button.imgFilter.gameObject.SetActive(true);
     }
     contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta = new Vector2(contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.x, contentDungeonPlayer.GetComponent<RectTransform>().sizeDelta.y + 100);
+    contentDungeonPlayerList.Add(quest_name);
 
     ViewQuestEvent(quest_name);
 
@@ -4465,6 +4481,8 @@ public partial class HomeTown : MotherBase
       button.imgFilter.gameObject.SetActive(true);
     }
 
+    contentSelectAreaList.Add(select_area_name);
+
     contentSelectArea.GetComponent<RectTransform>().sizeDelta = new Vector2(contentSelectArea.GetComponent<RectTransform>().sizeDelta.x, contentSelectArea.GetComponent<RectTransform>().sizeDelta.y + 100);
 
     //ViewQuestEvent(select_area_name);
@@ -4475,7 +4493,7 @@ public partial class HomeTown : MotherBase
   }
 
   public void ViewSelectAreaEvent(string select_area_name)
-  {    // same DungeonField, HomeTown
+  {
     txtEventTitle.text = select_area_name;
     txtGoButton.text = "【 " +select_area_name + " 】へ向かう";
     this.DungeonMap = select_area_name;
