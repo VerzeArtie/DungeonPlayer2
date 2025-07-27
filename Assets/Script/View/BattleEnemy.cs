@@ -2257,6 +2257,7 @@ public partial class BattleEnemy : MotherBase
 
   private void CreateNormalStackObject(string command_name, StackObject stack_obj)
   {
+    Debug.Log(MethodBase.GetCurrentMethod() + " " + command_name + " ");
     stack_obj.transform.SetParent(GroupNormalStack.transform);
     stack_obj.name = "NormalStackPanel";
     RectTransform rect = stack_obj.GetComponent<RectTransform>();
@@ -2265,14 +2266,8 @@ public partial class BattleEnemy : MotherBase
     rect.anchoredPosition = new Vector2(0, 0);
     rect.anchorMin = new Vector2(0, 0);
     rect.anchorMax = new Vector2(1, 1);
-    if (ActionCommand.IsTarget(command_name) == ActionCommand.TargetType.Ally)
-    {
-      stack_obj.ConstructStack(stack_obj.Player, stack_obj.Player.Target2, command_name, 0, 0);
-    }
-    else
-    {
-      stack_obj.ConstructStack(stack_obj.Player, stack_obj.Target, command_name, 0, 0);
-    }
+    Debug.Log(MethodBase.GetCurrentMethod() + " target -> " + stack_obj.Target.FullName + " ");
+    stack_obj.ConstructStack(stack_obj.Player, stack_obj.Target, command_name, 0, 0);
     stack_obj.gameObject.SetActive(true);
 
     this.NowNormalStack = true;
@@ -9191,7 +9186,6 @@ public partial class BattleEnemy : MotherBase
                 }
 
                 Debug.Log("instant target is " + AllList[ii].FullName);
-                // GUIで直接ターゲット指定している。Target,Target2は意識しなくてよい。
                 ExecPlayerCommand(this.NowSelectSrcPlayer, AllList[ii], NowSelectActionCommandButton.name);
                 break;
               }
