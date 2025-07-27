@@ -1071,7 +1071,7 @@ public static partial class Fix
   //};
 
   public const string QUEST_TITLE_1 = "国内外遠征許可証の入手";
-  public const string QUEST_DESC_1 = "ファージル宮殿へと向かい、遠征許可証を入手しよう。ファージル宮殿はアンシェットの町から川沿いに北へ進めば見えてくる。身支度が整い次第、すぐに出発しよう。";
+  public const string QUEST_DESC_1 = "ファージル宮殿へと向かい、遠征許可証を入手しよう。ファージル宮殿へ行くためにはエスミリア草原区域を抜けて行く必要がある。身支度が整い次第、出発しよう。";
 
   public const string QUEST_TITLE_2 = "国王エルミからの依頼";
   public const string QUEST_DESC_2 = "国内外遠征許可証を受理した際、国王エルミよりファージルエリアの港町コチューシェへ赴き調査を行うように依頼された。港町コチューシェはファージル区域の東側の海沿いにあるが、その途中でゴラトラム洞窟を潜り抜ける必要がある。ゴラトラム洞窟を突破し、港町コチューシェへ辿り着こう。";
