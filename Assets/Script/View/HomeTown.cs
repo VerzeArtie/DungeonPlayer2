@@ -960,15 +960,20 @@ public partial class HomeTown : MotherBase
     GroupActionCommandSetting.SetActive(false);
     GroupTactics.SetActive(false);
     GroupInn.SetActive(false);
-    int count = contentSelectAreaList.Count;
-    if (count >= 1)
+    int countArea = contentSelectAreaList.Count;
+    if (countArea >= 1)
     {
-      ViewSelectAreaEvent(contentSelectAreaList[count - 1]);
+      Debug.Log("ViewSelectAreaEvent call");
+      ViewSelectAreaEvent(contentSelectAreaList[countArea - 1]);
+      Debug.Log("ViewSelectAreaEvent call ok");
     }
     int countQuest = contentDungeonPlayerList.Count;
+    Debug.Log("countQuest: " + countQuest);
     if (countQuest >= 1)
     {
-      ViewQuestEvent(contentDungeonPlayerList[count - 1]);
+      Debug.Log("ViewQuestEvent call");
+      ViewQuestEvent(contentDungeonPlayerList[countQuest - 1]);
+      Debug.Log("ViewQuestEvent call ok");
     }
     MessagePack.MessageX00016(ref QuestMessageList, ref QuestEventList); TapOK();
   }
