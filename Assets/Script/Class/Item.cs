@@ -11777,37 +11777,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 2981;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "弓矢は常に確保していなければならないが、万が一が続いた場合、切れてしまう事がある。このツールがあれば即席で作成できるため熟練者は好んでこれを常備する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_OVAL_GEAR:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 3041;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "光り輝くギア。あらゆる所に装着できるが何か効果が望めるわけではないが、印象付ける事による精神的効果は大きい。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_APLITOS_BONE:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 3101;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "アピュリトスという生物を見る機会は少ないが、グリフィンが稀にその背骨を運んできてくれる。素材としての使い道は多種多様であり、よく販売場に売り出される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MUKAKOU_SEKIEI:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 3161;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "純正の石英は流通量も多いが消費量も多いため、常に売れていく素材の一つである。持ち運びの際は、割らないように注意が必要だ。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_HOUDAN_SHARD:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 3221;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "弾丸を一から作るのは高い生産性が必要だが、このアイテムを少し加工するだけでも弾丸は生成できる。職人の力量が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_DEATH_CLOVER:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 3281;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "手で触れると、恐ろしい思念が入り込んでくる死のクローバー。扱いは難しいが魔法学では必需品と言われている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_DAGGERFISH_UROKO:
