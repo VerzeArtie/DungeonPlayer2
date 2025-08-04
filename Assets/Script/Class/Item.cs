@@ -11820,7 +11820,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 5911;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ふくよかで柔らかい食材。有害な成分が含まれているので、専門の料理家に頼んで調理してもらうと良いだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BLUE_MAGATAMA:
         this._rarity = Rarity.Common;
@@ -11844,7 +11844,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6191;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "石灰の中でも有色の物は珍しいとされている。装備品を生成する際のデザイン視点としても非常に重宝される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_WASI_BLUE_FEATHER:
@@ -11857,7 +11857,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6441;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "半透明の素材は人工的に作るよりも大自然の世界から生成された素材の方が頑丈、かつ、洗練された武具が生成可能。その根本原理は未だに不明な点は多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_EIGHTEIGHT_KUROSUMI:
         this._rarity = Rarity.Common;
@@ -11869,13 +11869,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6601;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これを生で食べようとは誰も思わないので調理するのが普通だが、食に興味のある人達にとってほぼ生の状態で食べる人も・・・。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BIGAXE_TOP:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6681;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ゴツゴツした先端は武具の生成素材としてよく使われる。モンスターがドロップした素材はそのままアイテム生成に使える物もあり、本素材は斧系によく使われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GANGAME_EGG:
         this._rarity = Rarity.Common;
@@ -11887,13 +11887,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6841;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "伸縮性の高い素材は、比較的、弾性係数の高い素材が多い。この素材はその典型的なものであり、生活のあらゆる所で使用されている。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KYOZIN_MUNENIKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 6921;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "定番中の定番となる食材。焼いてもよし、煮込んでも良し、干しても良し。料理の仕方一つで味わいも食感も変わってくるので料理人の腕が問われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_NANAIRO_SYOKUSYU:
