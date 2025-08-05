@@ -11992,37 +11992,37 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8811;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "透き通っており、かつ、海星濃度が高い。その成分については保証されており、一定の識別能力がある者なら、このアイテムをすぐに買い取る事だろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_BLACKSAME_TOOTH:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8921;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "あまりにも劣悪な環境で育ったせいか、キレイな形状はしておらず、粗雑で取り扱いが難しい。念入りな加工を施す事で、ようやく商品として売る事が可能となる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_MYSTERIOUS_KARA:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 9031;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "球状であり、かつ、歪な形をした何らかの殻。武具素材としても食材としてもイマイチであり、オブジェとして飾るのも少し違う。使いみちは分からないが・・・" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_CURSED_ITO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 9141;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "しまった。ついうっかり・・・では済まされない。手に触れてしまった者は手から取る事はできない。細心の注意を払って魔法学に精通した者に売るといいだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_CHINMI_FISH:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 9251;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これは調理したとしても美味しいわけではない。なお、栄養成分もそれほどあるわけではなく、食としてはあまりオススメされない。料理専門家が分析する際に使う程度である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SEA_MUSICBOX:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 9361;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "本来、人工的な加工により形成されるはずだが、稀にモンスターが生成する事もある。知識レベルは高く、感受性の高いモンスターに出会えたのは幸運と言ってよいだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_HUNTER_SEVEN_TOOL:
