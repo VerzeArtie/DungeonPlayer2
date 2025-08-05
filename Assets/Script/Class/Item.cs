@@ -11949,7 +11949,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7966;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "未回収の箱には、何が入っているかは分からない。ただ、その分からないというのがポイントであり価値が見出されている。たとえ、ハズレだとしてもこれを買うお客は存在する。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_PUREWHITE_KIMO:
         this._rarity = Rarity.Common;
@@ -11961,7 +11961,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8166;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この食材を手にしたのなら、料理人は腕を振るってご馳走を提供してくれる。手に入り難いという事もあるが、すぐに消費されるため基本的に品薄という特徴もある。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_KOUSITUKA_MATERIAL:
         this._rarity = Rarity.Common;
@@ -11985,7 +11985,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 8566;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "既に光の輝きもなく、一部は劣化している。だが、それが印象に残り、強さの象徴でもあるというテーマを有している。このアイテムはアンティークとして市場に売り出される。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_SEA_WATER:
