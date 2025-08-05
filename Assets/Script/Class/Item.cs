@@ -11906,19 +11906,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7206;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "ダイバーに頼む事で入手できる素材だが、モンスターに引っかかっていたものとして入手する事も出来る。食材としては申し分なく、あらゆる料理でよく使われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_SERPENT_UROKO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7296;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "サーペントの鱗はオブジェとして飾られる事が多いが、武具素材として使われる事もある。強靭な重鎧を製作する場合は、これを手元に持っておきたい。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_AYASHII_NENNEKI_ITO:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7386;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これは絶対に触れたくない素材であるが、持ち運ぶ際に必ず１度は触れる事になる。少々我慢すれば、後は販売業者が引き取ってくれるだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_GOTUGOTU_KARA:
         this._rarity = Rarity.Common;
@@ -11936,13 +11936,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7656;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "この石自体には本質的な価値はないはずだが、不思議と巷では人気がある。少々重たいが何とか持ち帰って売りさばこう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_TAIRYO_FISH:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 7746;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "これほどの大量の魚は袋に詰め込んで持ち運ぶしかない。１パックいくらで売れるかは地域毎によって異なるが、一般的な値段で売ると良いだろう。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_UNKNOWN_BOX:
