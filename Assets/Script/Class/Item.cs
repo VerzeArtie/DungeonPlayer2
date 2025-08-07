@@ -12195,7 +12195,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 30280;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "形状の輪郭だけが形として視認可能だが、中身の成分が99.9%透明であり、持っている者に不思議な感覚を与えてくれる。ただし、見た目と裏腹に驚くほど重たく、ある程度の力を持つものでないと持ち上げる事すら困難である。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_ESSENCE_OF_WIND:
         this._rarity = Rarity.Common;
@@ -12207,19 +12207,19 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 31530;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "その形状は完全なる無垢を示している。売買の際、何か価値を求めるものではなく、純粋な等価交換として取り扱われる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_JUNKAN_MAHU_GU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 32155;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "賢く、尊く、したたかな魔族を封じ込めるには単発的な呪力では封印できない。魔族達が欲する連鎖を与える事が必要不可欠であり、そのためにこのアイテムはこの世に生み出された。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_UNRESOLVED_MATERIAL:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 32780;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "表面を解明すると内部構造に未知なるエッセンスが新たに発見される。それをさらに解明するとさらなる内部構造が出現する。探求に終わりはない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       #endregion
