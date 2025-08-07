@@ -12059,7 +12059,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 20526;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "魔法学が発展した現状において、このツールを扱う機会は少ない。ただし、魔法をエネルギー源として本ツールを使う場合、非常に威力の高い効果を発揮できる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_SEEKER_HEAD:
@@ -12102,7 +12102,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 22785;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "硬度の高い武具を生成する際、必ずと言って良いほど用いられる素材である。必ず腕の良い職人に手渡す事。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.RARE_ESSENCE_OF_SHINE:
@@ -12145,7 +12145,7 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 25784;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "高純度で結晶化された状態でこのマテリアルを入手できる事は少ない。取り扱いも難しく、ちょっとした振動ですぐに内部構造に傷が入り込んでしまう。持ち運ぶ際は慎重に取り扱わないといけない。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_ONRYOU_HAKO:
@@ -12182,13 +12182,13 @@ public partial class Item
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 29010;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "印字そのものに稲光が宿っており、保持者に勇気を与えてくれる。だが、勇気だけでパワーアップする事はないため、何らかの武具にはめ込まれる事が多い。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
       case Fix.COMMON_TENNEN_JISYAKU:
         this._rarity = Rarity.Common;
         this._itemType = ItemTypes.SellOnly;
         this._gold = 29530;
-        this._description = "市場で流通し、売買が可能なアイテム。売却専用品。";
+        this._description = "磁石自体は天然に存在するが、その概念は天然ではなく何らかの理を有している。それを解明しようと躍起になる研究者は多く、本アイテムは比較的すぐに売れる。" + Fix.DESCRIPTION_SELL_ONLY;
         break;
 
       case Fix.COMMON_VOID_BOU:
