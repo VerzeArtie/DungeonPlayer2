@@ -337,6 +337,16 @@ public static class MessagePack
   {
     Message(ref m_list, ref e_list, "武具屋主人：はいよ、好きなだけ見て行ってくれ。", ActionEvent.LastMessage);
   }
+  public static void MessageX00015_2(ref List<string> m_list, ref List<ActionEvent> e_list)
+  {
+    Message(ref m_list, ref e_list, "武具屋主人：おや、バックパックがいっぱいの様だね。整理してからまた来てくれ。", ActionEvent.None);
+
+    Message(ref m_list, ref e_list, "武具屋主人：好きなだけ見て行ってくれ。", ActionEvent.LastMessage);
+  }
+  public static void MessageX00015_3(ref List<string> m_list, ref List<ActionEvent> e_list, string item_name, int gold)
+  {
+    Message(ref m_list, ref e_list, "武具屋主人： 【" + item_name + " 】だね。" + gold.ToString() + " 頂いたよ。まいどあり", ActionEvent.LastMessage);
+  }
 
   public static void MessageX00016(ref List<string> m_list, ref List<ActionEvent> e_list)
   {

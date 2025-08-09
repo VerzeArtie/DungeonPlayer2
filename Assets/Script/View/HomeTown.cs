@@ -2112,9 +2112,17 @@ public partial class HomeTown : MotherBase
   {
     Item current = new Item(imgBuy.name);
 
-    One.TF.AddBackPack(current);
-    One.TF.Gold -= current.Gold;
-    txtItemGoldCost.text = One.TF.Gold.ToString();
+    bool success = One.TF.AddBackPack(current);
+    if (success == false)
+    {
+      MessagePack.MessageX00015_2(ref QuestMessageList, ref QuestEventList); TapOK();
+    }
+    else
+    {
+      One.TF.Gold -= current.Gold;
+      txtItemGoldCost.text = One.TF.Gold.ToString();
+      MessagePack.MessageX00015_3(ref QuestMessageList, ref QuestEventList, current.ItemName, current.Gold); TapOK();
+    }
 
     ConstructBackpackView();
     TapBuyCancel();
